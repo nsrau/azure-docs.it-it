@@ -4,16 +4,16 @@ description: Informazioni sul runtime di Azure IoT Edge e su come potenzia i dis
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/05/2018
+ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 36750a4d907da1d4fa029aca0ecc503db7e82d81
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 9c9c04a8310a46605cf5733131db1418b7cb7f7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526093"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218785"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
@@ -23,17 +23,17 @@ Nei dispositivi IoT Edge, il runtime di IoT Edge esegue le funzioni seguenti:
 
 * Installa e aggiorna i carichi di lavoro nel dispositivo.
 * Mantiene gli standard di sicurezza di Azure IoT Edge sul dispositivo.
-* Garantisce che i [moduli di IoT Edge][questo articolo sui moduli] siano sempre in esecuzione.
+* Garantisce che [i moduli di IoT Edge][lnk-modules] siano sempre in esecuzione.
 * Segnala l'integrità dei moduli al cloud per il monitoraggio remoto.
-* Facilita la comunicazione tra i dispositivi foglia downstream e il dispositivo IoT Edge.
+* Facilita la comunicazione tra i dispositivi foglia downstream e i dispositivi IoT Edge.
 * Facilita la comunicazione tra i moduli sul dispositivo IoT Edge.
 * Facilita la comunicazione tra il dispositivo IoT Edge e il cloud.
 
 ![Il runtime di IoT Edge comunica informazioni approfondite e l'integrità del modulo all'hub IoT][1]
 
-Le responsabilità del runtime di IoT Edge rientrano in due categorie: gestione dei moduli e comunicazione. Questi due ruoli vengono eseguiti da due componenti che sono alla base del runtime di IoT Edge. L'hub di IoT Edge è responsabile della comunicazione, mentre l'agente di IoT Edge gestisce la distribuzione e il monitoraggio dei moduli. 
+Le responsabilità del runtime di IoT Edge rientrano in due categorie: comunicazione e gestione dei moduli. Questi due ruoli vengono eseguiti da due componenti che sono alla base del runtime di IoT Edge. L'hub di IoT Edge è responsabile della comunicazione, mentre l'agente di IoT Edge gestisce la distribuzione e il monitoraggio dei moduli. 
 
-Sia l'agente di Edge che l'hub Edge sono moduli, proprio come gli altri moduli in esecuzione su un dispositivo di IoT Edge. Per altre informazioni sul funzionano dei moduli, vedere [questo articolo sui moduli]. 
+Sia l'hub Edge che l'agente di Edge sono moduli, proprio come gli altri moduli in esecuzione nei dispositivi IoT Edge. 
 
 ## <a name="iot-edge-hub"></a>Hub di IoT Edge
 
@@ -52,9 +52,6 @@ Per ridurre la larghezza di banda usata dalla soluzione IoT Edge, l'hub di Edge 
 ![L'hub di Edge funge da gateway tra più dispositivi fisici e il cloud][2]
 
 L'hub di Edge può determinare se è connesso all'hub IoT. Se la connessione viene persa, l'hub di Edge salva i messaggi o gli aggiornamenti gemelli in locale. Quando viene ristabilita la connessione, tutti i dati vengono sincronizzati. Il percorso usato per la cache temporanea è determinato da una proprietà del modulo gemello dell'hub di Edge. Le dimensioni della cache non sono limitate e aumentano fino a quando il dispositivo ha capacità di archiviazione. 
-
->[!NOTE]
->L'aggiunta di controllo al prodotto sui parametri aggiuntivi per la memorizzazione nella cache avverrà prima che venga attivata la disponibilità generale.
 
 ### <a name="module-communication"></a>Comunicazione del modulo
 
@@ -86,11 +83,11 @@ Lo sviluppatore di soluzioni è responsabile dell'indicazione delle regole che d
 
 L'agente di IoT Edge è l'altro modulo che costituisce il runtime di Azure IoT Edge. È responsabile della creazione di istanze per i moduli, ne garantisce la continua esecuzione e segnala lo stato dei moduli all'hub IoT. Analogamente a qualsiasi altro modulo, l'agente di Edge usa il modulo gemello per archiviare i dati di configurazione. 
 
-Per avviare l'esecuzione dell'agente di Edge, eseguire il comando di avvio azure-iot-edge-runtime-ctl.py. L'agente recupera il modulo gemello dall'hub IoT e controlla il dizionario dei moduli. Il dizionario dei moduli è la raccolta di moduli che devono essere avviati. 
+Il [daemon di sicurezza di IoT Edge](iot-edge-security-manager.md) avvia l'agente Edge all'avvio del dispositivo. L'agente recupera il modulo gemello dall'hub IoT e controlla il manifesto della distribuzione. Il manifesto della distribuzione è un file JSON che dichiara i moduli da avviare. 
 
-Ogni elemento nel dizionario dei moduli contiene informazioni specifiche su un modulo e viene usato dall'agente di Edge per il controllo del ciclo di vita del modulo. Di seguito sono riportate alcune delle proprietà più interessanti: 
+Ogni elemento nel manifesto della distribuzione contiene informazioni specifiche su un modulo e viene usato dall'agente di Edge per il controllo del ciclo di vita del modulo. Di seguito sono riportate alcune delle proprietà più interessanti: 
 
-* **settings.image**: l'immagine del contenitore usato dall'agente di Edge per avviare il modulo. Se l'immagine è protetta da password, l'agente di Edge deve essere configurato con le credenziali per il registro contenitori. Per configurare l'agente di Edge, aggiornare il file `config.yaml`. In Linux usare il comando seguente: `sudo nano /etc/iotedge/config.yaml`
+* **settings.image**: l'immagine del contenitore usato dall'agente di Edge per avviare il modulo. Se l'immagine è protetta da password, l'agente di Edge deve essere configurato con le credenziali per il registro contenitori. È possibile configurare in remoto le credenziali per il registro contenitori usando il manifesto della distribuzione o aggiornando il file `config.yaml` nella cartella di programma IoT Edge del dispositivo Edge.
 * **settings.createOptions**: una stringa che viene passata direttamente al daemon Docker all'avvio del contenitore di un modulo. L'aggiunta di opzioni di Docker in questa proprietà consente di avere opzioni avanzate come l'inoltro o il montaggio di volumi da parte della porta nel contenitore di un modulo.  
 * **status**: lo stato in cui l'agente di Edge inserisce il modulo. Questo valore viene in genere impostato su *in esecuzione* perché la maggior parte degli utenti desidera che l'agente di Edge avvii immediatamente tutti i moduli nel dispositivo. Tuttavia, è possibile specificare lo stato iniziale di un modulo da arrestare e attendere un secondo momento per fare in modo che l'agente di Edge lo avvii. L'agente di Edge segnala lo stato di ciascun modulo al cloud nelle proprietà segnalate. Una differenza tra la proprietà desiderata e la proprietà segnalata è indicativa del comportamento errato di un dispositivo. Gli stati supportati sono:
    * Download in corso
@@ -114,13 +111,13 @@ L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di ri
 
 ### <a name="security"></a>Sicurezza
 
-L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica di un'immagine del modulo prima di avviarla. Queste funzionalità verranno aggiunte nella versione con disponibilità generale. 
+L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un dispositivo di IoT Edge. Ad esempio, esegue azioni come la verifica di un'immagine del modulo prima di avviarla. 
 
-<!-- For more information about the Azure IoT Edge security framework, see []. -->
+Per altre informazioni sul framework di sicurezza di Azure IoT Edge, vedere [IoT Edge Security Manager](iot-edge-security-manager.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Informazioni sui moduli di Azure IoT Edge][questo articolo sui moduli]
+[Informazioni sui certificati Azure IoT Edge][lnk-certs]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -129,4 +126,4 @@ L'agente di IoT Edge svolge un ruolo fondamentale nella protezione di un disposi
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[questo articolo sui moduli]: iot-edge-modules.md
+[lnk-certs]: iot-edge-certs.md

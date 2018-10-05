@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: d896cb01c7dc2cd4ed028db418f838809c7ce25c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987000"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434926"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per un set di scalabilità di macchine virtuali Windows
 
@@ -83,7 +83,7 @@ Nella risorsa del set di scalabilità di macchine virtuali trovare la sezione **
 
 In **extensionProfile** aggiungere una nuova estensione al modello, come illustrato nella sezione **VMSS-WAD-extension**.  Questa sezione è l'estensione identità del servizio gestita (Managed Service Identity, MSI) che garantisce che le metriche generate vengano accettate da Monitoraggio di Azure. Il campo **nome** può contenere un nome qualsiasi. 
 
-Il codice seguente sotto l'estensione MSI aggiunge anche l'estensione e la configurazione di diagnostica come una risorsa di estensione alla risorsa del set di scalabilità di macchine virtuali. È possibile aggiungere o rimuovere i contatori delle prestazioni in base alle esigenze. 
+Il codice seguente dell'estensione MSI aggiunge anche l'estensione e la configurazione di diagnostica come una risorsa di estensione alla risorsa del set di scalabilità di macchine virtuali. È possibile aggiungere o rimuovere i contatori delle prestazioni in base alle esigenze. 
 
 ```json
           "extensionProfile": { 

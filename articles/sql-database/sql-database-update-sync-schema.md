@@ -2,24 +2,26 @@
 title: Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure | Microsoft Docs
 description: Informazioni su come automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure.
 services: sql-database
-ms.date: 06/19/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
-ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 09/20/2018
+ms.openlocfilehash: 3137b86dd186e628508111a932140fd9c1f59b5d
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434959"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161431"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure
 
-La sincronizzazione dati SQL consente agli utenti di sincronizzare dati tra i database SQL di Azure e SQL Server locale in una direzione o in entrambe le direzioni. Una dei limiti correnti della sincronizzazione dati SQL è che non supporta la replica delle modifiche dello schema. Ogni volta che si modifica lo schema di tabella, è necessario applicare le modifiche manualmente in tutti gli endpoint, incluso l'hub e tutti i membri, quindi aggiornare lo schema di sincronizzazione.
+La sincronizzazione dati SQL consente agli utenti di sincronizzare dati tra database SQL di Azure e SQL Server locale in una direzione o in entrambe le direzioni. Una dei limiti correnti della sincronizzazione dati SQL è che non supporta la replica delle modifiche dello schema. Ogni volta che si modifica lo schema di tabella, è necessario applicare le modifiche manualmente in tutti gli endpoint, incluso l'hub e tutti i membri, quindi aggiornare lo schema di sincronizzazione.
 
 In questo articolo viene presentata una soluzione per replicare automaticamente le modifiche dello schema in tutti gli endpoint di sincronizzazione dati SQL.
 1. Questa soluzione usa un trigger DDL per tenere traccia delle modifiche dello schema.
@@ -30,7 +32,7 @@ In questo articolo viene presentata una soluzione per replicare automaticamente 
 In questo articolo si usa ALTER TABLE come esempio di modifica dello schema, ma la soluzione funziona anche per altri tipi di modifiche dello schema.
 
 > [!IMPORTANT]
-> Prima di iniziare a implementare la replica automatizzata delle modifiche dello schema nell'ambiente di sincronizzazione, è consigliabile leggere questo articolo con attenzione, in particolare le sezioni [Risoluzione dei problemi](#troubleshooting) e [Altre considerazioni](#other). È consigliabile anche leggere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL](sql-database-sync-data.md). Alcune operazioni di database possono creare problemi nella soluzione descritta in questo articolo. È possibile che vengano richieste ulteriori informazioni di dominio su SQL Server e Transact-SQL per risolvere i problemi.
+> Prima di iniziare a implementare la replica automatizzata delle modifiche dello schema nell'ambiente di sincronizzazione, è consigliabile leggere questo articolo con attenzione, in particolare le sezioni [Risoluzione dei problemi](#troubleshoot) e [Altre considerazioni](#other). È consigliabile anche leggere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL](sql-database-sync-data.md). Alcune operazioni di database possono creare problemi nella soluzione descritta in questo articolo. È possibile che vengano richieste ulteriori informazioni di dominio su SQL Server e Transact-SQL per risolvere i problemi.
 
 ![Automazione della replica delle modifiche dello schema](media/sql-database-update-sync-schema/automate-schema-changes.png)
 

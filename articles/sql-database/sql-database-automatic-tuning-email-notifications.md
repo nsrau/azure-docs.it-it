@@ -1,21 +1,23 @@
 ---
 title: Guida pratica sulle notifiche tramite posta elettronica per l'ottimizzazione automatica - Database SQL di Azure | Microsoft Docs
-description: Il database SQL di Azure analizza le query SQL e si adatta automaticamente al carico di lavoro dell'utente.
+description: Abilitare le notifiche tramite posta elettronica per l'ottimizzazione automatica delle query del database SQL di Azure.
 services: sql-database
-author: danimir
-manager: craigg
-ms.reviewer: carlrab
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/05/2018
+author: danimir
 ms.author: v-daljep
-ms.openlocfilehash: 643740ea76769f857e8c99ebaa6d27eceed99067
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644332"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064102"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifiche tramite posta elettronica per l'ottimizzazione automatica
 
@@ -205,12 +207,12 @@ Il passaggio successivo consiste nell'aggiunta dei tre processi (creazione, acqu
 1. Creare l'azione per eseguire lo script di PowerShell per recuperare i suggerimenti di ottimizzazione
 - Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
 - Nel campo di ricerca digitare "**automation**" (automazione) e selezionare"**Azure Automation – Create job**" (Automazione di Azure - Creare il processo) nei risultati della ricerca
-- Nel riquadro di creazione del processo configurare le proprietà del processo. Per questa configurazione saranno necessari l'ID della sottoscrizione di Azure, il gruppo di risorse e l'account di Automazione **precedentemente annotati** dal **riquadro dell'account di Automazione**. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation - Create Job](https://docs.microsoft.com/connectors/azureautomation/#Create_job) (Automazione di Azure - Creare il processo).
+- Nel riquadro di creazione del processo configurare le proprietà del processo. Per questa configurazione saranno necessari l'ID della sottoscrizione di Azure, il gruppo di risorse e l'account di Automazione **precedentemente annotati** dal **riquadro dell'account di Automazione**. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation - Create Job](https://docs.microsoft.com/connectors/azureautomation/#create-job) (Automazione di Azure - Creare il processo).
 - Completare la creazione di questa azione facendo clic su "**Salva flusso**"
 
 2. Creare un'azione per recuperare l'output dello script di PowerShell eseguito
 - Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
-- Nel campo di ricerca digitare "**automation**" (automazione) e selezionare"**Azure Automation – Get job output**" (Automazione di Azure - Ottenere l'output del processo) nei risultati della ricerca. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#Get_job_output) (Automazione di Azure - Ottenere l'output del processo).
+- Nel campo di ricerca digitare "**automation**" (automazione) e selezionare"**Azure Automation – Get job output**" (Automazione di Azure - Ottenere l'output del processo) nei risultati della ricerca. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#get-job-output) (Automazione di Azure - Ottenere l'output del processo).
 - Compilare i campi richiesti (simile alla creazione del processo precedente): inserire l'ID della sottoscrizione, il gruppo di risorse e un account di Automazione (come specificati nel riquadro dell'account di Automazione)
 - Fare clic all'interno del campo "**ID processo**" per consentire la visualizzazione del menu "**Contenuto dinamico**". In questo menu selezionare l'opzione "**ID processo**".
 - Completare la creazione di questa azione facendo clic su "**Salva flusso**"

@@ -1,22 +1,23 @@
 ---
 title: Rilevamento minacce - Database SQL di Azure | Documentazione Microsoft
-description: La funzionalità di rilevamento delle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database.
+description: La funzionalità di rilevamento delle minacce individua le attività di database anomale che possono indicare la presenza di minacce alla sicurezza del database in un database singolo o in un pool elastico.
 services: sql-database
-author: rmatchoro
-manager: craigg
 ms.service: sql-database
-ms.subservice: advanced-threat-protection
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/17/2018
+author: rmatchoro
 ms.author: ronmat
-ms.reviewer: carlrab
-ms.openlocfilehash: c82692525f06fda93f94a8d856eb65254e5fd211
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.reviewer: vanto, carlrab
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: ed7a117d4422b3b3feddd7d2fafa5eabea43f9e5
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003944"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164938"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Rilevamento delle minacce per il database SQL di Azure
 

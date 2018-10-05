@@ -4,17 +4,17 @@ description: In questa esercitazione Azure Machine Learning viene distribuito co
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ddc5adbb5b6bc7f04a893b05df3601714ed85eec
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c9350704943bebada217338488e51b97acc550ca
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991454"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423613"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Azure Machine Learning come modulo di IoT Edge (anteprima)
 
@@ -45,7 +45,7 @@ Un dispositivo Azure IoT Edge:
 
 Risorse cloud:
 
-* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) del livello gratuito in Azure. 
 * Un account di Azure Machine Learning. Seguire le istruzioni riportate in [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../machine-learning/desktop-workbench/quickstart-installation.md). Non è necessario installare l'applicazione workbench per questa esercitazione. 
 
 Risorse per lo sviluppo:

@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: jroth
-ms.openlocfilehash: 56a0629249cdb5f0f098d2b7b6d36b3fbb215009
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: e8297892c533f3b0126f925f81d3e9bc429828ef
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190872"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039956"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Domande frequenti su SQL Server nelle macchine virtuali Linux di Azure
 
@@ -78,7 +78,7 @@ Questo articolo offre risposte ad alcune delle domande più comuni sull'esecuzio
 
 1. **È possibile gestire una macchina virtuale Linux di SQL Server con SQL Server Management Studio (SSMS)?**
 
-   Sì, ma lo strumento SSMS è attualmente disponibile solo su Windows. Per usare SSMS con le macchine virtuali Linux di SQL Server è necessario connettersi in remoto da un computer Windows. Su Linux in locale il nuovo strumento [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) può eseguire molte attività amministrative. Per visualizzare l'anteprima di uno strumento di gestione del database multi-piattaforma, vedere [SQL Server Operations Studio (anteprima)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+   Sì, ma lo strumento SSMS è attualmente disponibile solo su Windows. Per usare SSMS con le macchine virtuali Linux di SQL Server è necessario connettersi in remoto da un computer Windows. Su Linux in locale il nuovo strumento [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) può eseguire molte attività amministrative. Per uno strumento di gestione database multipiattaforma, vedere [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
 
 1. **È possibile rimuovere completamente SQL Server da una VM di SQL?**
 

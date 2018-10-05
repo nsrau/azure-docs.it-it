@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ef2b5dd393974ddf700235991b60ec66031e34c2
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024074"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222268"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Che cos'è la protezione di base (anteprima)?  
 
@@ -56,7 +56,7 @@ Questi criteri di base offrono la possibilità di escludere utenti e gruppi. È 
 
 ## <a name="enable-a-baseline-policy"></a>Abilitare un criterio di base 
 
-Per impostazione predefinita, i criteri di base, mentre sono in anteprima, non sono attivati. Per attivare un criterio, è necessario abilitarlo manualmente. Non appena questa funzionalità è disponibile a livello generale, i criteri vengono attivati per impostazione predefinita. La modifica del comportamento pianificata è il motivo per cui è anche necessario attivare e disattivare una terza opzione per impostare lo stato di un criterio: **Abilita automaticamente i criteri in futuro**. Selezionando questa opzione, si consente a Microsoft di decidere quando attivare un criterio.      
+Per impostazione predefinita, i criteri di base, mentre sono in anteprima, non sono attivati. Per attivare un criterio, è necessario abilitarlo manualmente. Se si abilitano i criteri di base in modo esplicito in fase di anteprima, questi rimangono attivi quando questa funzionalità passa allo stato di disponibilità generale. La modifica funzionale pianificata è il motivo per cui, oltre all'attivazione e alla disattivazione, per l'impostazione dello stato dei criteri è disponibile anche una terza opzione: **Abilita automaticamente i criteri in futuro**. Se si seleziona questa opzione, è possibile lasciare disabilitati i criteri durante l'anteprima, abilitandoli automaticamente quando questa funzionalità passa allo stato di disponibilità generale. Se non si abilitano i criteri di base in modo esplicito ora e non si seleziona l'opzione **Abilita automaticamente i criteri in futuro**, quando la funzionalità passerà allo stato di disponibilità generale i criteri resteranno disabilitati.
 
 
 **Per abilitare un criterio di base:**  

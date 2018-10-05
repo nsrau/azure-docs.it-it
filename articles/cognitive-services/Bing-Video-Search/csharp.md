@@ -1,32 +1,33 @@
 ---
-title: Avvio rapido di C# per Servizi cognitivi di Azure, API Ricerca video Bing | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca video Bing in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: API Ricerca video Bing, C#'
+titlesuffix: Azure Cognitive Services
+description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca video Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 0686d99b5f6f7b0546fc4e8c24369957667a7da6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 00522ac87a74226c9af1920bd884792ff2956a95
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376972"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225770"
 ---
-# <a name="quickstart-for-bing-video-search-api-with-c"></a>Avvio rapido per l'API Ricerca video Bing con C#
+# <a name="quickstart-bing-video-search-api-with-c"></a>Guida introduttiva: API Ricerca video Bing con C#
 
-Questo articolo spiega come usare l'API Ricerca video Bing, inclusa in Servizi cognitivi Microsoft in Azure. Questo articolo riguarda C#, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare una stringa JSON. 
+Questo articolo spiega come usare l'API Ricerca video Bing, inclusa nei Servizi cognitivi di Azure. Questo articolo riguarda C#, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare una stringa JSON. 
 
 L'esempio di codice è scritto in C# come applicazione .NET Core, con dipendenze esterne minime, pertanto è possibile eseguirlo anche in Linux o Mac OS X con Mono.
 
 Per i dettagli tecnici sulle API, vedere le [informazioni di riferimento sulle API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo Avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 
 ## <a name="bing-video-search"></a>Ricerca video Bing
 
@@ -34,7 +35,7 @@ L'[API Ricerca video Bing](https://docs.microsoft.com/rest/api/cognitiveservices
 
 1. Creare una nuova soluzione console in Visual Studio; la Community Edition va bene.
 1. Sostituire Program.cs con il codice fornito di seguito.
-1. Sostituire il valore `accessKey` con una chiave di accesso valida per la sottoscrizione.
+1. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
 1. Eseguire il programma.
 
 ```csharp
@@ -190,7 +191,7 @@ namespace BingVideoSearchCSharpCore
 
 **Risposta**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente:
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
 
 ```json
 {

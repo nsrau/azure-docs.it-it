@@ -3,19 +3,22 @@ title: 'Always Encrypted: database SQL - Azure Key Vault | Documentazione Micros
 description: Questo articolo illustra come proteggere i dati sensibili in un database SQL con la crittografia dei dati usando la procedura guidata Always Encrypted di SQL Server Management Studio.
 keywords: crittografia dei dati, chiave di crittografia, crittografia del cloud
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: ''
+manager: craigg
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: 19a033b79879f1b51626a14510fc4cc71c43426c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d944ead01da81e2fec49d256a4da939067bcceee
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644060"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064409"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Crittografia sempre attiva: Proteggere i dati sensibili nel database SQL e archiviare le chiavi di crittografia nell'insieme di credenziali delle chiavi di Azure
 
@@ -33,7 +36,7 @@ Seguire i passaggi in questo articolo per imparare come configurare la crittogra
 * Creare una tabella di database e crittografare le colonne.
 * Creare un'applicazione che inserisce, seleziona e visualizza i dati delle colonne crittografate.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per questa esercitazione occorrono:
 
 * Un account e una sottoscrizione di Azure. Nel caso in cui non siano disponibili, è possibile usare una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
@@ -595,7 +598,9 @@ Eseguire la query seguente nel database Clinic.
 
    ![Nuova applicazione console](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-Per usare SSMS per accedere ai dati di testo non crittografato, aggiungere il parametro *Column Encryption Setting=Enabled* alla connessione.
+Per usare SSMS per accedere ai dati di testo non crittografato, è prima necessario assicurarsi che l'utente abbia le autorizzazioni appropriate per Azure Key Vault: *get*, *unwrapKey* e *verify*. Per informazioni dettagliate, vedere [Creare e archiviare chiavi master della colonna (Always Encrypted)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+
+Aggiungere quindi il parametro *Column Encryption Setting=enabled* durante la connessione.
 
 1. In SSMS fare clic con il pulsante destro del mouse sul server in **Esplora oggetti** e scegliere **Disconnetti**.
 2. Fare clic su **Connetti** > **Motore di database** per aprire la finestra **Connetti al server** e quindi fare clic su **Opzioni**.

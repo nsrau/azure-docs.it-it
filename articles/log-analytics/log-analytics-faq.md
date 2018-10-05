@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 06b30d1381d8fba1d6f053576f6556e6d02f2ae9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d873d28ec772735b8f21551cde1c7d0eab79a18c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949163"
+ms.locfileid: "47035140"
 ---
 # <a name="log-analytics-faq"></a>Domande frequenti su Log Analytics
 Le Domande frequenti Microsoft sono un elenco di domande frequenti su Log Analytics in Microsoft Azure. Per altre domande su Log Analytics, visitare il [forum di discussione](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e inviare una domanda. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
@@ -69,6 +69,10 @@ R: Per accedere a un'area di lavoro in Azure, è necessario disporre delle autor
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>D: Perché non è presente la voce Progettazione viste in Log? 
 R: Progettazione viste è disponibile in Log solo per gli utenti che dispongono di autorizzazioni di collaboratore o superiori.
+
+### <a name="q-can-i-still-use-the-analytics-portal-outside-of-azure"></a>D: È possibile usare il portale di Log Analytics all'esterno di Azure?
+R. Sì, la pagina Log in Azure e il [portale di Advanced Analytics](https://portal.loganalytics.io) si basano sullo stesso codice. È in corso l'integrazione di Log Analytics come funzionalità di Monitoraggio di Azure per offrire un'esperienza di monitoraggio unificata. È comunque possibile accedere al portale di Log Analytics tramite l'URL https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+
 
 
 ## <a name="general"></a>Generale

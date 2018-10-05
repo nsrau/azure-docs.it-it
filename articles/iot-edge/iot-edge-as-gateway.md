@@ -4,16 +4,16 @@ description: Azure IoT Edge può essere usato per creare un dispositivo gateway 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/27/2017
+ms.date: 09/21/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e1825bcdd8dbb06ef027919416b2d0532a7df9c2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028966"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422831"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Come usare un dispositivo Azure IoT Edge come gateway
 
@@ -22,7 +22,7 @@ Nelle soluzioni IoT i gateway vengono usati per uno scopo specifico della soluzi
 ## <a name="patterns"></a>Modelli
 Esistono tre modelli per l'uso di un dispositivo IoT Edge come gateway: trasparente, conversione di protocollo e conversione di identità:
 * **Trasparente**: i dispositivi che in teoria possono connettersi all'hub IoT supportano anche la connessione a un dispositivo gateway. Ciò implica che i dispositivi downstream abbiano specifiche identità nell'hub IoT e usino uno dei protocolli MQTT, AMQP e HTTP. Il gateway passa semplicemente le comunicazioni tra i dispositivi e l'hub IoT. I dispositivi non sono consapevoli di comunicare con il cloud tramite un gateway e gli utenti che interagiscono con i dispositivi nell'hub IoT non sono a conoscenza del dispositivo gateway intermedio. Il gateway è quindi trasparente. Vedere la procedura [Creare un gateway trasparente] [ lnk-iot-edge-as-transparent-gateway] per informazioni specifiche sull'uso di un dispositivo IoT Edge come gateway trasparente.
-* **Conversione di protocollo**: i dispositivi che non supportano MQTT, AMQP o HTTP usano un dispositivo gateway per inviare dati all'hub IoT. Il gateway è abbastanza intelligente da identificare il protocollo usato dai dispositivi downstream, ma è l'unico dispositivo con un'identità nell'hub IoT. Tutte le informazioni sembrano provenire da un unico dispositivo, il gateway. I dispositivi downstream devono pertanto incorporare informazioni di identificazione aggiuntive nei messaggi se le applicazioni cloud prevedono di elaborare i dati per singolo dispositivo. Inoltre, le primitive dell'hub IoT, come i dispositivi gemelli e i metodi, sono disponibili solo per il dispositivo gateway e non per i dispositivi downstream.
+* **Conversione di protocollo**: nota anche come modello di gateway opaco. I dispositivi che non supportano MQTT, AMQP o HTTP usano un dispositivo gateway per inviare dati all'hub IoT. Il gateway è abbastanza intelligente da identificare il protocollo usato dai dispositivi downstream, ma è l'unico dispositivo con un'identità nell'hub IoT. Tutte le informazioni sembrano provenire da un unico dispositivo, il gateway. I dispositivi downstream devono pertanto incorporare informazioni di identificazione aggiuntive nei messaggi se le applicazioni cloud prevedono di elaborare i dati per singolo dispositivo. Inoltre, le primitive dell'hub IoT, come i dispositivi gemelli e i metodi, sono disponibili solo per il dispositivo gateway e non per i dispositivi downstream.
 * **Conversione di identità**: i dispositivi che non possono connettersi all'hub IoT si connettono a un dispositivo gateway che fornisce la conversione di protocollo e identità dell'hub IoT per conto dei dispositivi downstream. Il gateway è abbastanza intelligente da identificare il protocollo usato dai dispositivi downstream, fornire loro l'identità e convertire le primitive dell'hub IoT. I dispositivi downstream appaiono nell'hub IoT come dispositivi di prima classe con dispositivi gemelli e metodi. Un utente può interagire con i dispositivi nell'hub IoT senza essere a conoscenza del dispositivo gateway intermedio.
 
 ![Diagrammi dei modelli di gateway][1]
@@ -40,7 +40,7 @@ Un gateway che esegue la conversione di protocollo può anche fornire l'analisi 
 Un gateway che esegue la conversione di identità offre i vantaggi della conversione di protocollo e supporta inoltre la gestibilità completa dei dispositivi downstream dal cloud. Tutti i dispositivi della soluzione IoT appaiono nell'hub IoT indipendentemente dal protocollo usato.
 
 ## <a name="cheat-sheet"></a>Tabella di riepilogo
-Questa tabella di riepilogo mette a confronto le primitive dell'hub IoT quando vengono usati gateway trasparenti, opachi e proxy.
+Questa tabella di riepilogo mette a confronto le primitive dell'hub IoT quando vengono usati gateway trasparenti, opachi (protocollo) e proxy.
 
 | &nbsp; | Gateway trasparente | Conversione di protocollo | Conversione di identità |
 |--------|-------------|--------|--------|

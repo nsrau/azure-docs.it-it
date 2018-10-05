@@ -2,19 +2,22 @@
 title: Ridimensionare le risorse dei pool elastici - Database SQL di Azure | Microsoft Docs
 description: Questa pagina descrive come ridimensionare le risorse per i pool elastici nel database SQL di Azure.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+subservice: elastic-pool
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 0f63739c8718ed7d6625bd18de4fdfff4df60276
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+author: oslake
+ms.author: moslake
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 2b304ac26f9a18b0e98cb4c42de3ca386637d864
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412339"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164720"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Ridimensionare le risorse dei pool elastici nel database SQL di Azure
 
@@ -33,7 +36,7 @@ Questo articolo illustra come ridimensionare le risorse di calcolo e di archivia
 
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>Modello di acquisto basato su vCore: modifica delle risorse di calcolo del pool elastico (vCore)
 
-È possibile aumentare o ridurre il livello di prestazioni per un pool elastico in base alle risorse necessarie tramite il [portale di Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) o l'[API REST](/rest/api/sql/elasticpools/update).
+È possibile aumentare o ridurre la dimensione di calcolo per un pool elastico in base alle risorse necessarie tramite il [portale di Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o l'[API REST](/rest/api/sql/elasticpools/update).
 
 - Durante il ridimensionamento dei vCore del pool, le connessioni di database vengono brevemente interrotte. Si tratta dello stesso comportamento che si verifica durante il ridimensionamento delle DTU per un singolo database (non in un pool). Per informazioni dettagliate sulla durata e sull'impatto delle connessioni interrotte per un database durante le operazioni di ridimensionamento, vedere la sezione relativa al [ridimensionamento delle DTU per un singolo database](#single-database-change-storage-size). 
 - La durata per ridimensionare i vCore del pool può dipendere dalle dimensioni totali di archiviazione usate da tutti i database nel pool. In generale, la latenza media di ridimensionamento è di 90 minuti o meno per 100 GB. Ad esempio, se lo spazio totale usato da tutti i database nel pool è pari a 200 GB, la latenza prevista per il ridimensionamento del pool è di 3 ore o meno. In alcuni casi, all'interno del livello Standard o Basic, la latenza di ridimensionamento può essere inferiore a cinque minuti, indipendentemente dalla quantità di spazio usata.
@@ -42,8 +45,8 @@ Questo articolo illustra come ridimensionare le risorse di calcolo e di archivia
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>Modello di acquisto basato su DTU: modifica delle dimensioni di archiviazione del pool elastico
 
-- Il prezzo eDTU per un pool elastico include una determinata quantità di risorse di archiviazione senza costi aggiuntivi. Le risorse di archiviazione extra rispetto alla quantità inclusa possono essere sottoposte a provisioning per un costo aggiuntivo fino alla quantità massima in incrementi di 250 GB fino a 1 TB e quindi in incrementi di 256 GB oltre 1 TB. Per le quantità di risorse di archiviazione incluse e i limiti di dimensioni massime, vedere [Pool elastico: dimensioni di archiviazione e livelli delle prestazioni](#elastic-pool-storage-sizes-and-performance-levels).
-- Le risorse di archiviazione extra per un pool elastico possono essere sottoposte a provisioning aumentandone le dimensioni massime mediante il [portale di Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) o l'[API REST](/rest/api/sql/elasticpools/update).
+- Il prezzo eDTU per un pool elastico include una determinata quantità di risorse di archiviazione senza costi aggiuntivi. Le risorse di archiviazione extra rispetto alla quantità inclusa possono essere sottoposte a provisioning per un costo aggiuntivo fino alla quantità massima in incrementi di 250 GB fino a 1 TB e quindi in incrementi di 256 GB oltre 1 TB. Per le quantità di risorse di archiviazione incluse e i limiti massimi relativi alle dimensioni, vedere [Pool elastico: dimensioni di archiviazione e dimensioni di calcolo](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
+- Le risorse di archiviazione extra per un pool elastico possono essere sottoposte a provisioning aumentandone le dimensioni massime mediante il [portale di Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o l'[API REST](/rest/api/sql/elasticpools/update).
 - Il prezzo delle risorse di archiviazione extra per un pool elastico corrisponde alla quantità di risorse di archiviazione extra moltiplicata per il prezzo unitario del livello di servizio. Per informazioni dettagliate sul prezzo delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -51,7 +54,7 @@ Questo articolo illustra come ridimensionare le risorse di calcolo e di archivia
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>Modello di acquisto basato su DTU: modifica delle risorse di calcolo del pool elastico (eDTU)
 
-È possibile aumentare o ridurre le risorse disponibili per un pool elastico in base alle esigenze mediante il [portale di Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/elastic-pool#az_sql_elastic_pool_update) o l'[API REST](/rest/api/sql/elasticpools/update).
+È possibile aumentare o ridurre le risorse disponibili per un pool elastico in base alle esigenze mediante il [portale di Azure](sql-database-elastic-pool-scale.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) o l'[API REST](/rest/api/sql/elasticpools/update).
 
 - Durante il ridimensionamento delle eDTU del pool, le connessioni di database vengono interrotte per un breve periodo. Si tratta dello stesso comportamento che si verifica durante il ridimensionamento delle DTU per un singolo database (non in un pool). Per informazioni dettagliate sulla durata e sull'impatto delle connessioni interrotte per un database durante le operazioni di ridimensionamento, vedere la sezione relativa al [ridimensionamento delle DTU per un singolo database](#single-database-change-storage-size). 
 - La durata per ridimensionare le eDTU del pool può dipendere dalla quantità totale di risorse di archiviazione usate da tutti i database nel pool. In generale, la latenza media di ridimensionamento è di 90 minuti o meno per 100 GB. Ad esempio, se lo spazio totale usato da tutti i database nel pool è pari a 200 GB, la latenza prevista per il ridimensionamento del pool è di 3 ore o meno. In alcuni casi, all'interno del livello Standard o Basic, la latenza di ridimensionamento può essere inferiore a cinque minuti, indipendentemente dalla quantità di spazio usata.

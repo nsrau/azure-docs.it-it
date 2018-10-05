@@ -1,20 +1,20 @@
 ---
-title: "Esercitazione: distribuire un modello di classificazione di immagini nell'istanza di contenitore di Azure (ACI) - Azure Machine Learning"
-description: Informazioni su come distribuire un modello di classificazione delle immagini scikit-learn con notebook di Jupyter di Python.  Questa esercitazione è la seconda di una serie in due parti.
-author: hning86
-ms.author: haining
+title: "Esercitazione: Distribuire un modello di classificazione di immagini nell'istanza di contenitore di Azure con il servizio Azure Machine Learning"
+description: Questa esercitazione mostra come usare il servizio Azure Machine Learning per distribuire un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python.  Questa esercitazione è la seconda di una serie in due parti.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: tutorial
+author: hning86
+ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e79df258701fa1d269e45e00a92b0961306ffbe3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968629"
+ms.locfileid: "47031238"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Esercitazione n. 2: distribuire un modello di classificazione di immagini nell'istanza di contenitore di Azure (ACI)
 

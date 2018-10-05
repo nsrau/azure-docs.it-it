@@ -1,27 +1,27 @@
 ---
-title: Esercitazione per i risultati dell'area di ritaglio dell'immagine dell'SDK di Ricerca visiva Bing | Microsoft Docs
+title: "Esercitazione: area di ritaglio dell'immagine e risultati - Ricerca visiva Bing"
 description: Come usare l'SDK di Ricerca visiva Bing per ottenere gli URL delle immagini simili all'area di ritaglio di un'immagine caricata.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-visual-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/20/2018
 ms.author: rosh
-ms.openlocfilehash: 9bc3c180f108025f442343d8c5356982a83826a6
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 66e17c00da898e575bb858dbe16a35d1c44a2780
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958404"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226911"
 ---
 # <a name="tutorial-bing-visual-search-sdk-image-crop-area-and-results"></a>Esercitazione: area di ritaglio dell'immagine e risultati dell'SDK di Ricerca visiva Bing
 L'SDK di Ricerca visiva include un'opzione per selezionare un'area di un'immagine e trovare le immagini online che sono simili all'area di ritaglio dell'immagine più grande.  Questo esempio specifica l'area di ritaglio che mostra una persona da un'immagine che contiene più persone.  Il codice invia l'area di ritaglio e l'URL dell'immagine più grande e restituisce i risultati che includono gli URL di ricerca Bing e gli URL di immagini simili trovate online.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-È necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/) per ottenere questo codice in esecuzione su Windows. (La Community Edition funzionerà.)
+È necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/) perché questo codice possa essere eseguito su Windows. (La Community Edition funzionerà.)
 
 È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le API di ricerca Bing. Per questa guida introduttiva è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 
@@ -44,7 +44,7 @@ Questo esempio usa un'area di ritaglio dell'immagine precedente che specifica le
 
 ```
 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
-string imageURL = "https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg;
+string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg;
 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
 
 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
@@ -128,7 +128,7 @@ namespace VisualSearchFeatures
                 CropArea CropArea = new CropArea(top: (float)0.01, bottom: (float)0.30, left: (float)0.01, right: (float)0.20);
                 
                 // The ImageInfo struct specifies the crop area in the image and the URL of the larger image. 
-                string imageURL = "https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
+                string imageURL = "https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/media/ms_srleaders.jpg";
                 ImageInfo imageInfo = new ImageInfo(cropArea: CropArea, url: imageURL);
                 
                 VisualSearchRequest visualSearchRequest = new VisualSearchRequest(imageInfo: imageInfo);
@@ -182,4 +182,4 @@ namespace VisualSearchFeatures
 
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-[Risposta di Ricerca visiva](https://docs.microsoft.com/en-us/azure/cognitive-services/bing-visual-search/overview#the-response)
+[Risposta di Ricerca visiva](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search/overview#the-response)

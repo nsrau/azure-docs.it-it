@@ -1,22 +1,23 @@
 ---
 title: Criteri delle applicazioni SaaS multi-tenant - Database SQL di Azure | Microsoft Docs
 description: Informazioni sui requisiti e sui criteri comuni di architettura dei dati delle applicazioni di database SaaS (Software-as-a-Service) multi-tenant in esecuzione nell'ambiente cloud di Azure.
-keywords: esercitazione database SQL
 services: sql-database
-author: billgib
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.reviewer: genemi
-ms.author: billgib
-ms.openlocfilehash: 39be48019979ceb1337cbd3008c8cf071d403310
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+author: MightyPen
+ms.author: genemi
+ms.reviewer: billgib, sstein
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737681"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227487"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
 
@@ -74,7 +75,7 @@ In questo modello, l'intera applicazione viene installata più volte, una per og
 
 Ogni istanza dell'app viene installata in un gruppo di risorse di Azure distinto.  Il gruppo di risorse può appartenere a una sottoscrizione di proprietà del fornitore del software o del tenant.  In entrambi i casi, il fornitore può gestire il software per il tenant.  Ogni istanza dell'applicazione è configurata per connettersi al database corrispondente.
 
-Ogni database tenant viene distribuito come database autonomo.  Questo modello fornisce il livello maggiore di isolamento del database.  Tuttavia, l'isolamento richiede l'allocazione di risorse sufficienti in ogni database per gestire i carichi di picco.  In questo caso è importante sottolineare che i pool elastici non possono essere usati per i database distribuiti in gruppi di risorse o in sottoscrizioni diverse.  Questa limitazione rende questo modello di app autonoma a tenant singolo la soluzione più costosa dal punto di vista dei costi generali del database.
+Ogni database tenant viene distribuito come database singolo.  Questo modello fornisce il livello maggiore di isolamento del database.  Tuttavia, l'isolamento richiede l'allocazione di risorse sufficienti in ogni database per gestire i carichi di picco.  In questo caso è importante sottolineare che i pool elastici non possono essere usati per i database distribuiti in gruppi di risorse o in sottoscrizioni diverse.  Questa limitazione rende questo modello di app autonoma a tenant singolo la soluzione più costosa dal punto di vista dei costi generali del database.
 
 #### <a name="vendor-management"></a>Gestione del fornitore
 
@@ -131,13 +132,13 @@ Un altro criterio disponibile permette di archiviare diversi tenant in un databa
 
 #### <a name="lower-cost"></a>Costi ridotti
 
-In generale, i database multi-tenant sono caratterizzati dal costo minimo per tenant.  I costi delle risorse per un database autonomo sono inferiori rispetto a quelli per un pool elastico di dimensioni equivalenti.  Inoltre, per i casi in cui i tenant necessitano di risorse di archiviazione limitate, è possibile archiviare milioni di tenant in un singolo database.  Nessun pool elastico può contenere milioni di database.  Tuttavia, una soluzione contenente 1.000 database per pool, con 1.000 pool, può raggiungere una scala di milioni, al rischio di comprometterne la gestibilità.
+In generale, i database multi-tenant sono caratterizzati dal costo minimo per tenant.  I costi delle risorse per un database singolo sono inferiori rispetto a quelli per un pool elastico di dimensioni equivalenti.  Inoltre, per i casi in cui i tenant necessitano di risorse di archiviazione limitate, è possibile archiviare milioni di tenant in un singolo database.  Nessun pool elastico può contenere milioni di database.  Tuttavia, una soluzione contenente 1.000 database per pool, con 1.000 pool, può raggiungere una scala di milioni, al rischio di comprometterne la gestibilità.
 
 Di seguito vengono discusse due varianti di un modello di database multi-tenant, in cui il modello multi-tenant partizionato rappresenta la soluzione più flessibile e scalabile.
 
 ## <a name="f-multi-tenant-app-with-a-single-multi-tenant-database"></a>F. App multi-tenant con un singolo database multi-tenant
 
-Il criterio di database multi-tenant più semplice usa un singolo database autonomo per ospitare i dati di tutti i tenant.  Con l'aggiunta di più tenant, il database viene aumentato con maggiori risorse di archiviazione e calcolo.  Questo aumento potrebbe essere sufficiente, sebbene esista sempre un limite di scalabilità.  Tuttavia, molto prima che venga raggiunto questo limite, il database diventa complesso da gestire.
+Il criterio di database multi-tenant più semplice usa un database singolo per ospitare i dati di tutti i tenant.  Con l'aggiunta di più tenant, il database viene aumentato con maggiori risorse di archiviazione e calcolo.  Questo aumento potrebbe essere sufficiente, sebbene esista sempre un limite di scalabilità.  Tuttavia, molto prima che venga raggiunto questo limite, il database diventa complesso da gestire.
 
 Le operazioni di gestione incentrate sui singoli tenant sono più complesse da implementare in un database multi-tenant.  Su larga scala, queste operazioni potrebbero diventare inaccettabilmente lente.  Un esempio è rappresentato da un ripristino temporizzato dei dati per un solo tenant.
 
@@ -186,9 +187,9 @@ La tabella seguente riepiloga le differenze tra i modelli di tenancy principali.
 | Misura | App autonoma | Database per tenant | Multi-tenant partizionato |
 | :---------- | :------------- | :------------------ | :------------------- |
 | Scalabilità | Media<br />1-centinaia | Molto alta<br />1-centinaia di migliaia | Illimitato<br />1-milioni |
-| Isolamento dei tenant | Molto alto | Alto | Basso, ad eccezione di eventuali tenant singleton (soli in un database multi-tenant). |
+| Isolamento dei tenant | Molto alto | Alto | Basso, ad eccezione di eventuali tenant singoli (soli in un database multi-tenant). |
 | Costo di database per tenant | Alto; dimensionato per i picchi. | Basso; vengono usati i pool. | Minimo, per tenant di piccole dimensioni nei database multi-tenant. |
-| Monitoraggio e gestione delle prestazioni | Solo per singolo tenant | Aggregati + per singolo tenant | Aggregati, ma per singolo tenant solo per singleton. |
+| Monitoraggio e gestione delle prestazioni | Solo per singolo tenant | Aggregati + per singolo tenant | Aggregati, ma per singolo tenant solo per i database singoli. |
 | Complessità di sviluppo | Basso | Basso | Media, a causa del partizionamento orizzontale. |
 | Complessità operativa | Bassa-alta. Semplice a livello individuale, complessa su larga scala. | Bassa-media. I criteri gestiscono la complessità su larga scala. | Bassa-alta. La gestione dei singoli tenant è complessa. |
 | &nbsp; ||||

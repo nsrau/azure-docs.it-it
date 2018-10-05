@@ -1,28 +1,30 @@
 ---
-title: Lingue supportate dal Servizio di riconoscimento vocale Microsoft | Microsoft Docs
-description: Elenco delle lingue parlate supportate dal Servizio di riconoscimento vocale Microsoft.
+title: Supporto per la lingua - Speech API
+titleSuffix: Azure Cognitive Services
+description: Un elenco di linguaggi naturali supportati dallo Speech API.
 services: cognitive-services
 author: zhouwangzw
-manager: wolfma
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/25/2018
 ms.author: zhouwang
-ms.openlocfilehash: c7007ba39df3c608fa0d1fe4cb79a3966d8c05a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: eeb0f475193a43ab8b0b0ca562364cbdef8a21d2
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373820"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433141"
 ---
-# <a name="supported-languages"></a>Lingue supportate
+# <a name="language-and-region-support-for-speech-api"></a>Supporto di lingua e area geografica per Speech API
 
 ## <a name="interactive-and-dictation-mode"></a>Modalità interattiva e di dettatura
 
-L'API Riconoscimento vocale Microsoft supporta le lingue seguenti in modalità `interactive` e `dictation`. 
+L'API Riconoscimento vocale Microsoft supporta le lingue seguenti in modalità `interactive` e `dictation`.
 
-|Codice | Lingua | Codice | Lingua |
+|Codice | Linguaggio | Codice | Linguaggio |
 |-----|-----|-----|-----|
 | ar-EG | Arabo (Egitto), standard moderno | hi-IN | Hindi (India) |
 | ca-ES | Catalano (Spagna) | it-IT | Italiano (Italia)  |
@@ -38,13 +40,14 @@ L'API Riconoscimento vocale Microsoft supporta le lingue seguenti in modalità `
 | es-MX | Spagnolo (Messico) |zh-CN | Cinese (mandarino, semplificato)  |
 | fi-FI | Finlandese (Finlandia) |zh-HK | Cinese (Hong Kong - R.A.S.) |
 | fr-CA | Francese (Canada) | zh-TW | Cinese (mandarino, taiwanese)|
-| fr-FR | Francese (Francia) | ||
+| fr-FR | Francese (Francia) | gu-IN | Gujarati (India) |
+| ta-IN |Tamil (India) | te-IN | Telugu (India) |
 
-## <a name="conversation-mode"></a>Modalità di conversazione
+## <a name="conversation-mode"></a>Modalità conversazione
 
-L'API Riconoscimento vocale Microsoft supporta le lingue seguenti in modalità `conversation`. 
+L'API Riconoscimento vocale Microsoft supporta le lingue seguenti in modalità `conversation`.
 
-| Codice | Lingua | Codice | Lingua |
+| Codice | Linguaggio | Codice | Linguaggio |
 |-----|-----|-----|-----|
 | ar-EG | Arabo (Egitto), standard moderno | It-IT | Italiano (Italia) |
 | de-DE | Tedesco (Germania) | ja-JP | Giapponese (Giappone) |

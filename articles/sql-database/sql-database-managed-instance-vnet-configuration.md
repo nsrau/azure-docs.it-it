@@ -2,24 +2,26 @@
 title: Configurazione di una rete virtuale con Istanza gestita di database SQL di Azure | Microsoft Docs
 description: Questo argomento descrive le opzioni di configurazione di una rete virtuale con Istanza gestita di database SQL di Azure.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 748489785241c0eab6022e3585164974f330d6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+manager: craigg
+ms.date: 09/20/2018
+ms.openlocfilehash: 9d3f867dad40017e8e97ec4f5e370533b018263c
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049674"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181173"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Configurare una rete virtuale per Istanza gestita di database SQL di Azure
 
-Istanza gestita di database SQL di Azure (anteprima) deve essere distribuita in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. Questa distribuzione consente di: 
+Istanza gestita di database SQL di Azure deve essere distribuita in una [rete virtuale](../virtual-network/virtual-networks-overview.md) di Azure. Questa distribuzione consente di: 
 - Stabilire una connessione a un'istanza gestita direttamente da una rete locale 
 - Connettere un'istanza gestita a un server collegato o a un altro archivio dati locale 
 - Connettere un'istanza gestita a risorse di Azure  
@@ -34,35 +36,35 @@ Pianificare la modalità di distribuzione di un'istanza gestita in una rete virt
 
    Se si prevede di usare una rete virtuale esistente, è necessario modificare la configurazione di rete in base all'istanza gestita. Per altre informazioni, vedere la sezione [Modificare la rete virtuale esistente per l'istanza gestita](#modify-an-existing-virtual-network-for-managed-instances). 
 
-   Se si prevede di creare una nuova rete virtuale, vedere [Creare una nuova rete virtuale per l'istanza gestita](#create-a-new-virtual-network-for-managed-instances).
+   Se si prevede di creare una nuova rete virtuale, vedere [Creare una nuova rete virtuale per l'istanza gestita](#create-a-new-virtual-network-for-a-managed-instance).
 
 ## <a name="requirements"></a>Requisiti
 
-Per la creazione di istanze gestite occorre dedicare una subnet all'interno della rete virtuale che sia conforme ai requisiti seguenti:
-- **Subnet dedicata**: la subnet non deve contenere altri servizi cloud ad essa associati e non deve essere la subnet del gateway. Non sarà possibile creare l'istanza gestita in una subnet che contiene altre risorse oltre all'istanza gestita o aggiungere altre risorse all'interno della subnet in un secondo momento.
-- **Nessun gruppo di sicurezza di rete**: alla subnet non deve essere associato alcun gruppo di sicurezza di rete. 
-- **Tabella di route specifica**: la subnet deve avere una tabella di route definita dall'utente con hop successivo di tipo Internet 0.0.0.0/0 come unica route ad essa assegnata. Per altre informazioni, vedere [Creare la tabella di route necessaria e associarla](#create-the-required-route-table-and-associate-it)
-3. **DNS personalizzato facoltativo**: se per la rete virtuale sono specificate impostazioni DNS personalizzate, è necessario aggiungere l'indirizzo IP dei resolver ricorsivi di Azure (ad esempio 168.63.129.16) all'elenco. Per altre informazioni, vedere [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md) (Configurazione del DNS personalizzato).
-4. **Nessun endpoint di servizio**: alla subnet non deve essere associato alcun endpoint di servizio. Verificare che l'opzione Endpoint di servizio sia disabilitata durante la creazione della rete virtuale.
-5. **Indirizzi IP sufficienti**: la subnet deve avere almeno di 16 indirizzi IP (il numero minimo consigliato è 32 indirizzi IP). Per altre informazioni, vedere [Determinare le dimensioni della subnet per le istanze gestite](#determine-the-size-of-subnet-for-managed-instances).
+Per creare un'istanza gestita, creare all'interno della rete virtuale una subnet dedicata (subnet dell'istanza gestita) conforme ai requisiti seguenti:
+- **Subnet dedicata**: la subnet dell'istanza gestita non deve contenere altri servizi cloud ad essa associati e non deve essere una subnet del gateway. Non sarà possibile creare un'istanza gestita in una subnet che contiene altre risorse oltre all'istanza gestita o aggiungere altre risorse nella subnet in un secondo momento.
+- **Gruppo di sicurezza di rete compatibile**: un gruppo di sicurezza di rete associato a una subnet dell'istanza gestita può contenere le regole indicate nelle tabelle seguenti (Regole di sicurezza in ingresso obbligatorie e Regole di sicurezza in uscita obbligatorie) prima di qualsiasi altra regola. È possibile usare un gruppo di sicurezza di rete per controllare completamente l'accesso all'endpoint dati dell'istanza gestita filtrando il traffico sulla porta 1433. 
+- **Tabella di route definita dall'utente compatibile**: la subnet dell'istanza gestita deve disporre di una tabella di route utente con **0.0.0.0/0 hop successivo su Internet** come route definita dall'utente obbligatoria assegnata. È inoltre possibile aggiungere una route definita dall'utente che indirizza il traffico con intervalli IP privati locali come destinazione tramite un gateway di rete virtuale o un'appliance di rete virtuale. 
+- **DNS personalizzato facoltativo**: se per la rete virtuale sono specificate impostazioni DNS personalizzate, è necessario aggiungere all'elenco l'indirizzo IP del resolver ricorsivo di Azure (ad esempio, 168.63.129.16). Per altre informazioni, vedere [Configuring Custom DNS](sql-database-managed-instance-custom-dns.md) (Configurazione del DNS personalizzato). Il server DNS personalizzato deve essere in grado di risolvere i nomi host nei domini seguenti e nei relativi sottodomini: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com* e *microsoftonline-p.com*. 
+- **Nessun endpoint di servizio**: alla subnet dell'istanza gestita non deve essere associato alcun endpoint di servizio. Verificare che l'opzione Endpoint di servizio sia disabilitata durante la creazione della rete virtuale.
+- **Indirizzi IP sufficienti**: la subnet dell'istanza gestita deve avere almeno di 16 indirizzi IP (il numero minimo consigliato è 32 indirizzi IP). Per altre informazioni, vedere [Determinare le dimensioni della subnet per le istanze gestite](#determine-the-size-of-subnet-for-managed-instances).
 
 > [!IMPORTANT]
-> Se la subnet di destinazione non è compatibile con tutti i requisiti precedenti, non sarà possibile distribuire la nuova istanza gestita. La rete virtuale e la subnet di destinazione devono essere mantenute conformi a questi requisiti dell'istanza gestita (prima e dopo la distribuzione), in quanto qualsiasi violazione può far sì che l'istanza entri in uno stato difettoso e non sia più disponibile. Per ripristinare uno stato corretto è necessario creare una nuova istanza in una rete virtuale con i criteri di rete conformi, ricreare i dati a livello di istanza e ripristinare i database. Queste procedure aumentano notevolmente i tempi di inattività delle applicazioni.
+> Se la subnet di destinazione non è compatibile con tutti i requisiti precedenti, non sarà possibile distribuire una nuova istanza gestita. Quando viene creata un'istanza gestita, un *criterio relativo alle finalità di rete* viene applicato nella subnet per impedire modifiche non conformi alla configurazione di rete. Dopo la rimozione dell'ultima istanza dalla subnet, viene rimosso anche il *criterio relativo alle finalità di rete*.
 
-Con l'introduzione del _criterio relativo alle finalità di rete_ è possibile aggiungere un gruppo di sicurezza di rete (NSG) in una subnet di istanza gestita dopo averla creata.
-
-È ora possibile usare un NSG per limitare gli intervalli IP da cui le applicazioni e gli utenti possono eseguire query e gestire i dati filtrando il traffico di rete indirizzato alla porta 1433. 
-
-> [!IMPORTANT]
-> Quando si configurano le regole NSG che limiteranno l'accesso alla porta 1433, è necessario anche inserire le regole in ingresso con la priorità più elevata visualizzate nella tabella seguente. In caso contrario, il criterio relativo alle finalità di rete blocca la modifica come non conforme.
+### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie 
 
 | NOME       |PORTA                        |PROTOCOLLO|ORIGINE           |DESTINAZIONE|AZIONE|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|Qualsiasi     |Qualsiasi              |Qualsiasi        |CONSENTI |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |Qualsiasi        |CONSENTI |
 |mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |Qualsiasi        |CONSENTI |
 |health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|Qualsiasi        |CONSENTI |
 
-Anche l'esperienza di routing è stata migliorata in modo che oltre alla route 0.0.0.0/0 con hop successivo di tipo Internet, è ora possibile aggiungere route definite dall'utente (UDR) per instradare il traffico verso gli intervalli IP privati locali tramite un gateway di rete virtuale o una appliance virtuale di rete (NVA).
+### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie 
+
+| NOME       |PORTA          |PROTOCOLLO|ORIGINE           |DESTINAZIONE|AZIONE|
+|------------|--------------|--------|-----------------|-----------|------|
+|management  |80, 443, 12000|TCP     |Qualsiasi              |Qualsiasi        |CONSENTI |
+|mi_subnet   |Qualsiasi           |Qualsiasi     |Qualsiasi              |MI SUBNET  |CONSENTI |
 
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>Determinare le dimensioni della subnet per le istanze gestite
 
@@ -84,7 +86,7 @@ Se si prevede di distribuire più istanze gestite all'interno della subnet ed è
 > [!IMPORTANT]
 > Il calcolo visualizzato in precedenza diventa obsoleto con altri miglioramenti. 
 
-## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Creare una nuova rete virtuale per Istanza gestita con distribuzione Azure Resource Manager
+## <a name="create-a-new-virtual-network-for-a-managed-instance"></a>Creare una nuova rete virtuale per un'istanza gestita
 
 Il modo più semplice per creare e configurare una rete virtuale è usare il modello di distribuzione Azure Resource Manager.
 
@@ -101,7 +103,7 @@ Il modo più semplice per creare e configurare una rete virtuale è usare il mod
 
 3. Configurare l'ambiente di rete. Nel modulo seguente è possibile configurare i parametri dell'ambiente di rete:
 
-![Configurare la rete di Azure](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+![Configurare la rete di Azure](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
 È possibile modificare facoltativamente i nomi della rete virtuale e delle subnet e gli intervalli IP associati alle risorse di rete. Facendo clic sul pulsante "Acquista", il modulo procederà a creare e configurare l'ambiente. Se non sono necessarie due subnet è possibile eliminare quella predefinita. 
 
@@ -143,8 +145,6 @@ La preparazione della subnet viene eseguita in tre semplici passaggi:
 **È configurato un server DNS personalizzato?** 
 
 Se lo è, vedere [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.md) (Configurazione di un DNS personalizzato). 
-
-- Creare la tabella di route necessaria e associarla seguendo le indicazioni in [Creare la tabella di route necessaria e associarla](#create-the-required-route-table-and-associate-it).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

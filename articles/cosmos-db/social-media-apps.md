@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 7925ef15dc7b3ce25ae919810a5ed2220184fe6e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700844"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222693"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
 Vivere in una società profondamente interconnessa porta, prima o poi, ad avere a che fare con i **social network**. I social network vengono usati per rimanere in contatto con amici, colleghi e familiari, ma anche per condividere passioni con persone con interessi simili.
@@ -39,7 +39,7 @@ Perché SQL non rappresenta la scelta migliore in questo scenario? A causa della
 Si potrebbe usare un'istanza di SQL di dimensioni enormi, con capacità sufficiente per risolvere migliaia di query con un numero di join adatto a rendere disponibile il contenuto, ma esiste una soluzione più semplice.
 
 ## <a name="the-nosql-road"></a>Approccio NoSQL
-In questo articolo verrà illustrata la modellazione dei dati della piattaforma di social networking con il database NoSQL di Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in modo conveniente sfruttando altre funzionalità di Azure Cosmos DB quali l'[API Gremlin](../cosmos-db/graph-introduction.md). Con un approccio [NoSQL](https://en.wikipedia.org/wiki/NoSQL), che prevede l'archiviazione dei dati in formato JSON e l'applicazione della [denormalizzazione](https://en.wikipedia.org/wiki/Denormalization), il post che prima risultava complesso può essere trasformato in un singolo [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
+In questo articolo verrà illustrata la modellazione dei dati della piattaforma di social networking con il database NoSQL di Azure, [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), in un modo economicamente conveniente e sfruttando altre funzionalità di Azure Cosmos DB come l'[API Gremlin](../cosmos-db/graph-introduction.md). Con un approccio [NoSQL](https://en.wikipedia.org/wiki/NoSQL), che prevede l'archiviazione dei dati in formato JSON e l'applicazione della [denormalizzazione](https://en.wikipedia.org/wiki/Denormalization), il post che prima risultava complesso può essere trasformato in un singolo [documento](https://en.wikipedia.org/wiki/Document-oriented_database):
 
 
     {
@@ -99,7 +99,7 @@ Per la creazione di feed è sufficiente creare documenti che possano contenere u
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Si potrebbe avere un flusso delle notizie "più recenti", con i post ordinati per data di creazione, un flusso delle notizie "più interessanti", con i post più popolari delle ultime 24 ore, e perfino un flusso personalizzato per ogni utente, in base ai follower oppure agli interessi, ma rimarrebbe comunque un elenco di post. Dopo aver compilato gli elenchi, le prestazioni di lettura rimangono invariate. Dopo l'acquisizione di uno di questi elenchi, viene inviata una singola query a Cosmos DB usando l'[operatore IN](sql-api-sql-query.md#WhereClause) per ottenere più pagine di post alla volta.
+Si potrebbe avere un flusso delle notizie "più recenti", con i post ordinati per data di creazione, un flusso delle notizie "più interessanti", con i post più popolari delle ultime 24 ore, e persino un flusso personalizzato per ogni utente, in base ai follower oppure agli interessi, ma rimarrebbe comunque un elenco di post. Dopo aver compilato gli elenchi, le prestazioni di lettura rimangono invariate. Dopo l'acquisizione di uno di questi elenchi, viene inviata una singola query a Cosmos DB usando l'[operatore IN](sql-api-sql-query.md#WhereClause) per ottenere più pagine di post alla volta.
 
 I flussi di feed possono essere creati usando i processi in background dei [servizi app di Azure](https://azure.microsoft.com/services/app-service/), ovvero [Processi Web](../app-service/web-sites-create-web-jobs.md). Dopo che un post è stato creato, l'elaborazione in background può essere attivata tramite le [code](https://azure.microsoft.com/services/storage/) di [Archiviazione di Azure](../storage/queues/storage-dotnet-how-to-use-queues.md), mentre i Processi Web possono essere attivati tramite [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando la propagazione dei post all'interno dei flussi in base a una logica personalizzata. 
 
@@ -161,7 +161,7 @@ Esaminando queste informazioni è possibile distinguere rapidamente quelle più 
 
 ![Diagramma di un modello a gradini](./media/social-media-apps/social-media-apps-ladder.png)
 
-Il gradino più piccolo è detto UserChunk, l'informazione minima che identifica un utente, e viene usato per la duplicazione dei dati. Riducendo le dimensioni dei dati duplicati alle sole informazioni visualizzate, si riduce il rischio di aggiornamenti troppo estesi.
+Il gradino più piccolo è detto UserChunk, l'informazione minima che identifica un utente, e viene usato per la duplicazione dei dati. Riducendo le dimensioni dei dati duplicati alle sole informazioni "visualizzate", si riduce il rischio di aggiornamenti troppo estesi.
 
 Il gradino intermedio è quello dell'utente e contiene i dati completi che verranno usati nella maggior parte delle query basate sulle prestazioni in Cosmos DB. Si tratta del gradino più importante e più consultato. Include le informazioni rappresentate da un UserChunk.
 

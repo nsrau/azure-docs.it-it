@@ -16,7 +16,8 @@ La tabella seguente elenca i limiti applicabili alle risorse del servizio Device
 
 Il servizio Device Provisioning limita le richieste quando vengono superate le quote seguenti:
 
-| Limitazione | Valore per servizio |
+| Limitazione | Valore per unità |
 | --- | --- |
-| Operazioni | 100/min |
-| Registrazioni del dispositivo | 100/min |
+| Operazioni | 200/min/servizio |
+| Registrazioni del dispositivo | 200/min/servizio |
+| Operazione di polling di dispositivo | 5/10 sec/dispositivo |

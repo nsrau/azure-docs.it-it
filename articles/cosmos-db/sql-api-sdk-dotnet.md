@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d25f46804c3320b7d941a945f3c4d9a5dfb6970c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b7de476c6b96856e9b783ed8182985846bb39cfa
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702130"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452395"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
@@ -50,6 +50,24 @@ ms.locfileid: "43702130"
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
+
+* Aumentata la resilienza agli errori temporanei delle richieste su più aree.
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+
+* Aggiunto il supporto per la scrittura in più aree.
+* Miglioramenti alle prestazioni delle query tra più partizioni con TOP e MaxBufferedItemCount.
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* Aggiunto il supporto dell'annullamento richiesta.
+* Aggiunta SetCurrentLocation a ConnectionPolicy, che popola automaticamente le posizioni preferite in base alla regione.
+* Correzione del bug nelle query su più partizioni con Min/Max e un filtro che mette in corrispondenza nessun documento in una singola partizione.
+* I metodi DocumentClient ora dispongono della parità con IDocumentClient.
+* Aggiornato lo stack di trasporto TCP diretto per ridurre il numero di connessioni stabilite.
+* Aggiunta del supporto per TCP in modalità diretta per i client non Windows.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Aggiunto il supporto dell'annullamento richiesta.
@@ -58,7 +76,7 @@ ms.locfileid: "43702130"
 
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-preview
 
-* I metodi DocumentClient è ora dispongono della parità con IDocumentClient.
+* I metodi DocumentClient ora dispongono della parità con IDocumentClient.
 * Aggiornato lo stack di trasporto TCP diretto per ridurre il numero di connessioni stabilite.
 * Aggiunta del supporto per TCP in modalità diretta per i client non Windows.
 
@@ -309,8 +327,9 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
-| [2.0.0-preview2](#2.0.0-preview2) |26 luglio 2018 |--- |
-| [2.0.0-preview](#2.0.0-preview) |11 maggio 2018 |--- |
+| [2.1.1](#2.1.1) |27 settembre 2018 |--- |
+| [2.1.0](#2.1.0) |21 settembre 2018 |--- |
+| [2.0.0](#2.0.0) |7 settembre 2018 |--- |
 | [1.22.0](#1.22.0) |19 aprile 2018 |--- |
 | [1.21.1](#1.20.1) |09 marzo 2018 |--- |
 | [1.20.2](#1.20.1) |21 febbraio 2018 |--- |

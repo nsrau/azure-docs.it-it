@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: c8a8598640e31f59476b5b3351fdb2eab7b66a6c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952920"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47160622"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Comprendere l'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali
 Azure include più servizi che singolarmente eseguono un'attività o un ruolo specifico nello spazio di monitoraggio, ma la possibilità di avere una prospettiva approfondita sull'integrità del sistema operativo ospitato nelle macchine virtuali di Azure non era disponibile.  Anche se è possibile monitorare diverse condizioni utilizzando Log Analytics o Monitoraggio di Azure, queste applicazioni non sono progettate per modellare e rappresentare l'integrità dei componenti di base o quella globale della macchina virtuale.  Con la funzionalità dell'integrità di Monitoraggio di Azure per macchine virtuali, è possibile monitorare in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux con un modello che rappresenta i componenti principali e le relative relazioni, criteri che specificano come misurare l'integrità di tali componenti e avvisi che segnalano quando viene rilevata una condizione di non integrità.  
@@ -28,7 +28,7 @@ Lo stato di integrità globale della macchina virtuale di Azure e del sistema op
 
 Questo articolo illustra come valutare, analizzare e risolvere rapidamente i problemi di integrità rilevati.
 
-Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine virtuali, vedere [Abilitare Monitoraggio di Azure per le macchine virtuali](monitoring-vminsights-onboard.md).
+Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine virtuali, vedere [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md) (Abilitare Monitoraggio di Azure per le macchine virtuali).
 
 ## <a name="monitoring-configuration-details"></a>Dettagli di configurazione di monitoraggio
 Questa sezione descrive i criteri di integrità predefiniti per monitorare le macchine virtuali Linux e Windows Azure.
@@ -99,11 +99,11 @@ Gli stati di integrità definiti per una macchina virtuale sono:
 * **Avviso**: sono stati rilevati uno o più problemi che devono essere risolti per evitare che la condizione di integrità diventi critica.  
 * **Sconosciuto**: se non è stato possibile stabilire una connessione con la macchina virtuale, viene impostato uno stato sconosciuto.  
 
-Selezionando **Visualizza diagnostica integrità** si apre una pagina che mostra tutti i componenti della macchina virtuale, i criteri di integrità associati, le modifiche dello stato e altri problemi importanti rilevati dal monitoraggio dei componenti correlati alla macchina virtuale. Per ulteriori dettagli, fare riferimento a [Diagnostica integrità](#health-diagnostics). 
+Selezionando **Visualizza diagnostica integrità** si apre una pagina che mostra tutti i componenti della macchina virtuale, i criteri di integrità associati, le modifiche dello stato e altri problemi importanti rilevati dal monitoraggio dei componenti correlati alla macchina virtuale. Per altre informazioni, vedere [Diagnostica integrità](#health-diagnostics). 
 
 Nella sezione **Integrità componenti** la tabella mostra uno stato di rollup dell'integrità delle categorie di prestazioni primarie monitorate dai criteri di integrità per tali aree, in particolare **CPU**,  **Memoria**, **Disco** e **Rete**.  Selezionando uno dei componenti si apre una pagina che elenca tutti gli aspetti di monitoraggio di ciascun criterio di integrità del componente e il rispettivo stato di integrità di ciascuno.  
 
-Quando si accede a Integrità da una macchina virtuale di Azure che esegue il sistema operativo Windows, lo stato di integrità dei cinque servizi di base principali di Windows è mostrato nella sezione **Integrità dei servizi di base**.  Selezionando uno dei servizi si apre una pagina in cui sono elencati i criteri di integrità che monitorano il componente e il relativo stato di integrità.  Fare clic sul nome dei criteri di integrità per aprire il riquadro delle proprietà da cui è possibile esaminare i dettagli di configurazione, incluso il fatto che sia stato definito un avviso di Monitoraggio di Azure per i criteri di integrità. Per ulteriori informazioni, vedere [Diagnostica dell'integrità e uso dei criteri di integrità](#health-diagnostics).  
+Quando si accede a Integrità da una macchina virtuale di Azure che esegue il sistema operativo Windows, lo stato di integrità dei cinque servizi di base principali di Windows è mostrato nella sezione **Integrità dei servizi di base**.  Selezionando uno dei servizi si apre una pagina in cui sono elencati i criteri di integrità che monitorano il componente e il relativo stato di integrità.  Fare clic sul nome dei criteri di integrità per aprire il riquadro delle proprietà da cui è possibile esaminare i dettagli di configurazione, incluso il fatto che sia stato definito un avviso di Monitoraggio di Azure per i criteri di integrità. Per altre informazioni, vedere [Diagnostica dell'integrità e uso dei criteri di integrità](#health-diagnostics).  
 
 ## <a name="aggregate-virtual-machine-perspective"></a>Prospettiva delle macchine virtuali aggregate
 Per visualizzare la raccolta di integrità per tutte le macchine virtuali in un gruppo di risorse, dall'elenco spostamenti del portale selezionare **Monitoraggio di Azure**, quindi **Macchine virtuali (anteprima)**.  
@@ -228,7 +228,8 @@ Nel riquadro di configurazione per i criteri di integrità selezionati, in quest
 
 ![Configurazione di criteri di integrità per un esempio di monitoraggio unità](./media/monitoring-vminsights-health/health-diagnostics-linuxvm-example-04.png)
 
-
+Per altre informazioni sull'indicatore di integrità, sono inclusi articoli della Knowledge Base sull'identificazione di problemi e cause e la risoluzione.  Fare clic sul collegamento **Visualizza informazioni** nella pagina per aprire una nuova scheda del browser che mostra lo specifico articolo della Knowledge Base.  In qualsiasi momento, è possibile esaminare tutti gli articoli della Knowledge Base sui criteri di integrità inclusi con la funzionalità dell'integrità di Monitoraggio di Azure per le macchine virtuali [qui](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
+  
 ### <a name="state-changes"></a>Modifiche stato
 La colonna più a destra nella pagina Diagnostica integrità è **Modifiche stato**. Elenca tutte le modifiche di state associate ai criteri di integrità selezionati nella sezione **Criteri di integrità** o la modifica di stato della macchina virtuale se ne è stata selezionata una nella colonna **Modello componente** o **Criteri di integrità** della tabella. 
 

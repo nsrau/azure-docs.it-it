@@ -12,16 +12,16 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b9acc829439578f2f86dfbd51164cb3eaf923c2a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368869"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222168"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta ad Azure Active Directory ibrido per domini gestiti
 
@@ -50,10 +50,14 @@ Questa esercitazione presuppone che l'utente abbia familiarità con:
     
 -  [Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md)
 
-Per configurare lo scenario di questo articolo, è necessario avere installato la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 o versioni successive). 
- 
+-  [Come controllare l'aggiunta dei dispositivi all'identità ibrida di Azure AD](hybrid-azuread-join-control.md)
+  
 
-A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido, che semplifica enormemente il processo di configurazione. La configurazione guidata imposta i punti di connessione del servizio (SCP) per la registrazione dei dispositivi.
+Per configurare lo scenario di questo articolo, è necessario avere installato la [versione più recente di Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 o versioni successive). 
+
+Verificare che Azure AD Connect abbia sincronizzato gli oggetti computer dei dispositivi che devono essere aggiunti ad Azure AD ibrido. Se gli oggetti computer appartengono a unità organizzative specifiche, queste unità organizzative devono essere configurate per la sincronizzazione anche in Azure AD Connect.
+
+A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido che semplifica enormemente il processo di configurazione. La configurazione guidata imposta i punti di connessione del servizio (SCP) per la registrazione dei dispositivi.
 
 I passaggi di configurazione descritti in questo articolo si basano su questa procedura guidata. 
 
@@ -62,17 +66,17 @@ L'aggiunta ad Azure AD ibrido richiede che i dispositivi abbiano accesso alle ri
 - https://enterpriseregistration.windows.net
 - https://login.microsoftonline.com
 - https://device.login.microsoftonline.com
-- https://autologon.microsoftazuread-sso.com (se si usa o si intende usare l'accesso Seamless SSO)
+- https://autologon.microsoftazuread-sso.com (Se si usa o si pensa di usare Seamless SSO)
 
-Se l'organizzazione richiede l'accesso a Internet tramite un proxy in uscita, a partire da Windows 10 versione 1709 è possibile configurare le impostazioni proxy nel computer usando un oggetto Criteri di gruppo (GPO). Se nel computer è in esecuzione una qualsiasi versione precedente a Windows 10 1709, è necessario implementare Web Proxy Auto-Discovery (WPAD) per consentire ai computer Windows 10 di registrare i dispositivi con Azure AD. 
+Se l'organizzazione richiede l'accesso a Internet attraverso un proxy in uscita, a partire da Windows 10 1709 è possibile configurare le impostazioni proxy nel computer usando un oggetto Criteri di gruppo (GPO). Se nel computer è in esecuzione una versione precedente a Windows 10 1709, è necessario implementare Web Proxy Auto-Discovery (WPAD) per consentire ai computer Windows 10 di registrare i dispositivi con Azure AD. 
 
-Se l'organizzazione richiede l'accesso a Internet tramite un proxy in uscita autenticato, è necessario assicurarsi che i computer Windows 10 possano eseguire l'autenticazione nel proxy in uscita. Poiché i computer Windows 10 eseguono la registrazione dei dispositivi usando il contesto del computer, è necessario configurare l'autenticazione del proxy in uscita usando il contesto del computer. Per i requisiti di configurazione, contattare il provider del proxy in uscita. 
+Se l'organizzazione richiede l'accesso a Internet attraverso un proxy in uscita autenticato, è necessario assicurarsi che i computer Windows 10 possano eseguire l'autenticazione al proxy in uscita. Poiché i computer Windows 10 eseguono la registrazione dei dispositivi usando il contesto del computer, è necessario configurare l'autenticazione del proxy in uscita usando il contesto del computer. Per i requisiti di configurazione, contattare il provider del proxy in uscita. 
 
 
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurare l'aggiunta ad Azure AD ibrido
 
-Per configurare un'aggiunta ad Azure AD ibrido con Azure AD Connect, è necessario quanto segue:
+Per configurare un'aggiunta ad Azure AD ibrido con Azure AD Connect, è necessario disporre degli elementi seguenti:
 
 - Credenziali di un amministratore globale per il tenant di Azure AD.  
 
@@ -81,11 +85,11 @@ Per configurare un'aggiunta ad Azure AD ibrido con Azure AD Connect, è necessar
 
 **Per configurare un'aggiunta ad Azure AD ibrido con Azure AD Connect:**
 
-1. Avviare Azure AD Connect e quindi fare clic su **Configura**.
+1. Avviare Azure AD Connect, quindi fare clic su **Configura**.
 
     ![Schermata iniziale](./media/hybrid-azuread-join-managed-domains/11.png)
 
-2. Nella pagina **Attività aggiuntive** selezionare **Configura le opzioni del dispositivo** e quindi fare clic su **Avanti**. 
+2. Nella pagina **Attività aggiuntive** selezionare **Configura le opzioni del dispositivo**, quindi fare clic su **Avanti**. 
 
     ![Attività aggiuntive](./media/hybrid-azuread-join-managed-domains/12.png)
 
@@ -97,11 +101,11 @@ Per configurare un'aggiunta ad Azure AD ibrido con Azure AD Connect, è necessar
 
     ![Connessione ad Azure AD](./media/hybrid-azuread-join-managed-domains/14.png)
 
-5. Nella pagina **Opzioni dispositivo** selezionare **Configura l'aggiunta ad Azure AD ibrido** e quindi fare clic su **Avanti**. 
+5. Nella pagina **Opzioni dispositivo** selezionare **Configura l'aggiunta ad Azure AD ibrido**, quindi fare clic su **Avanti**. 
 
-    ![Opzioni dispositivo](./media/hybrid-azuread-join-managed-domains/15.png)
+    ![Opzioni del dispositivo](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. Nella pagina **SCP**, per ogni foresta che si intende connettere a SCP tramite Azure AD Connect, attenersi ai passaggi seguenti e quindi fare clic su **Avanti**: 
+6. Nella pagina **SCP**, per ogni foresta che si intende configurare a SCP tramite Azure AD Connect, attenersi ai passaggi seguenti e quindi fare clic su **Avanti**: 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
@@ -112,7 +116,7 @@ Per configurare un'aggiunta ad Azure AD ibrido con Azure AD Connect, è necessar
     c. Fare clic su **Aggiungi** per immettere le credenziali di amministratore aziendale.
 
 
-7. Nella pagina **Sistemi operativi del dispositivo** selezionare i sistemi operativi usati dai dispositivi nell'ambiente di Active Directory e quindi fare clic su **Avanti**. 
+7. Nella pagina **Sistemi operativi del dispositivo** selezionare i sistemi operativi usati dai dispositivi nell'ambiente Active Directory, quindi fare clic su **Avanti**. 
 
     ![Sistema operativo del dispositivo](./media/hybrid-azuread-join-managed-domains/17.png)
 
@@ -138,7 +142,7 @@ Se alcuni dei dispositivi aggiunti a un dominio sono dispositivi di livello infe
 
 ### <a name="update-device-settings"></a>Aggiornare le impostazioni dei dispositivi 
 
-Per registrare dispositivi Windows di livello inferiore, è necessario assicurarsi che le impostazioni dei dispositivi che consentono agli utenti di registrare i dispositivi in Azure AD siano configurate. Nel portale di Azure queste impostazioni sono disponibili in:
+Per registrare i dispositivi Windows di livello inferiore, è necessario assicurarsi che le impostazioni dei dispositivi che consentono agli utenti di registrare i dispositivi in Azure AD siano configurate. Nel portale di Azure queste impostazioni sono disponibili in:
 
 `Home > [Name of your tenant] > Devices - Device settings`  
 
@@ -152,15 +156,13 @@ Il criterio **Gli utenti possono registrare i propri dispositivi in Azure AD** d
 
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>Configurare le impostazioni intranet locali per la registrazione dei dispositivi
 
-Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore e per evitare le richieste dei certificati quando i dispositivi si autenticano in Azure AD, è possibile eseguire il push dei criteri nei dispositivi aggiunti al dominio per aggiungere gli URL seguenti all'area Intranet locale in Internet Explorer:
-
-- `https://device.login.microsoftonline.com`
+Per completare l'aggiunta ad Azure AD ibrido dei dispositivi Windows di livello inferiore e per evitare le richieste dei certificati quando i dispositivi vengano autenticati in Azure AD, è possibile eseguire il push di criteri nei dispositivi aggiunti al dominio per aggiungere gli URL seguenti all'area Intranet locale in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 
 - `https://autologon.microsoftazuread-sso.com`.
 
-Occorre inoltre abilitare **Consenti aggiornamenti barra di stato tramite script** nell'area Intranet locale dell'utente.
+È inoltre necessario abilitare **Consenti aggiornamenti barra di stato tramite script** nell'area Intranet locale dell'utente.
 
 ## <a name="verify-the-registration"></a>Verificare la registrazione
 
@@ -191,14 +193,13 @@ Quando si usa il cmdlet **Get-MSolDevice** per controllare i dettagli del serviz
 
 Se si verificano problemi durante il completamento dell'aggiunta ad Azure AD ibrido per dispositivi Windows aggiunti al dominio, vedere:
 
-- [Troubleshooting Hybrid Azure AD join for Windows current devices](../device-management-troubleshoot-hybrid-join-windows-current.md) (Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows correnti)
-- [Troubleshooting Hybrid Azure AD join for Windows down-level devices](../device-management-troubleshoot-hybrid-join-windows-legacy.md) (Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows di livello inferiore)
-
+- [Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows correnti](troubleshoot-hybrid-join-windows-current.md)
+- [Risoluzione dei problemi relativi all'aggiunta ad Azure AD ibrido per dispositivi Windows di livello inferiore](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md) (Configurare l'aggiunta ad Azure Active Directory ibrido per domini federati)
-> [Configure hybrid Azure Active Directory join manually](../device-management-hybrid-azuread-joined-devices-setup.md) (Configurare l'aggiunta ad Azure Active Directory ibrido manualmente)
+> [Configure hybrid Azure Active Directory join manually](hybrid-azuread-join-manual-steps.md) (Configurare l'aggiunta ad Azure Active Directory ibrido manualmente)
 

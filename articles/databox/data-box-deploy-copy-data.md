@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/25/2018
 ms.author: alkohli
-ms.openlocfilehash: 0204445464a9d61b4e25be1d71373ce8394b32f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957672"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161931"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Esercitazione: Copiare i dati in Azure Data Box 
 
@@ -45,10 +45,10 @@ Prima di iniziare, verificare che:
 ## <a name="connect-to-data-box"></a>Connettersi al Data Box
 
 In base all'account di archiviazione selezionato, Data Box crea fino a:
-- Tre condivisioni per ogni account di archiviazione associato (GPv1 e GPv2).
+- Tre condivisioni per ogni account di archiviazione associato per GPv1 e GPv2.
 - Una condivisione per l'account di archiviazione Premium o BLOB. 
 
-Nelle condivisioni per BLOB di pagine e BLOB in blocchi, le entità di primo livello sono contenitori e le entità di secondo livello sono BLOB. Nelle condivisioni per File di Azure, le entità di primo livello sono condivisioni e le entità di secondo livello sono file.
+Nelle condivisioni per BLOB di pagine e BLOB in blocchi, le entità di primo livello sono contenitori e le entità di secondo livello sono BLOB. Nelle condivisioni per File di Azure le entità di primo livello sono condivisioni, mentre le entità di secondo livello sono file.
 
 Si consideri l'esempio seguente. 
 
@@ -138,7 +138,7 @@ Dopo aver stabilito la connessione alla condivisione SMB, iniziare la copia dei 
   
  Gli attributi sono descritti nella tabella seguente.
     
-|Attributo  |Descrizione  |
+|Attributo  |DESCRIZIONE  |
 |---------|---------|
 |/e     |Copia le sottodirectory, incluse le directory vuote.         |
 |/r:     |Specifica il numero di tentativi per le copie non riuscite.         |
@@ -233,7 +233,7 @@ Per assicurare l'integrità dei dati, il checksum viene calcolato inline durante
 
 Se si usa un computer host Linux, usare un'utilità di copia simile a Robocopy. Alcune soluzioni alternative disponibili in Linux sono [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/) e [Ultracopier](https://ultracopier.first-world.info/).  
 
-Il comando cp è una delle opzioni migliori per copiare una directory. Per altre informazioni sulla sintassi, vedere [cp man-pages](http://man7.org/linux/man-pages/man1/cp.1.html).
+Il comando `cp` è una delle opzioni migliori per copiare una directory. Per altre informazioni sulla sintassi, vedere [cp man-pages](http://man7.org/linux/man-pages/man1/cp.1.html).
 
 Se si usa l'opzione rsync per una copia multithread, seguire queste indicazioni:
 
@@ -273,7 +273,7 @@ Il passaggio finale consiste nel preparare il dispositivo per la spedizione. In 
    
     ![Preparare per la spedizione 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
 
-2. Se il checksum non è stato abilitato, viene visualizzata l'opzione per abilitarlo. Per preservare l'integrità dei dati, è consigliabile eseguire la convalida del checksum. Selezionando **Abilita checksum** viene attivato il calcolo del checksum, la cui durata dipende dalle dimensioni dei dati. Fare clic su **Avvia preparazione**.
+2. Per impostazione predefinita, i checksum vengono calcolati inline durante la preparazione per la spedizione. Il calcolo dei checksum potrebbe richiedere alcuni minuti in base alle dimensioni dei dati. Fare clic su **Avvia preparazione**.
     1. Le condivisioni del dispositivo vengono portate offline e il dispositivo viene bloccato durante la preparazione per la spedizione.
         
         ![Preparare per la spedizione 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 

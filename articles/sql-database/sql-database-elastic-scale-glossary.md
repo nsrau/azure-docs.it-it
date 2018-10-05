@@ -2,20 +2,22 @@
 title: Glossario sugli strumenti di database elastici | Documentazione Microsoft
 description: Spiegazione dei termini utilizzati per gli strumenti dei database elastici
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 4ab938bc556d5e3dea8b7ec093f590ff1746ea29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 354d972e78a7fb7270b1b09f4af5aa95709fcd06
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647545"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162577"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossario sugli strumenti di database elastici
 Di seguito sono elencate le definizioni dei termini usati per gli [strumenti di database elastici](sql-database-elastic-scale-introduction.md), una funzionalità del database SQL di Azure. Gli strumenti vengono usati per gestire le [mappe partizioni](sql-database-elastic-scale-shard-map-management.md) e includono la [libreria client](sql-database-elastic-database-client-library.md), lo [strumento di suddivisione-unione](sql-database-elastic-scale-overview-split-and-merge.md), i [pool elastici](sql-database-elastic-pool.md) e le [query](sql-database-elastic-query-overview.md). 
@@ -79,7 +81,7 @@ Ecco una rappresentazione di database a tenant singolo e multi-tenant **partizio
 
 **Dividere**: spostare più shardlet da una partizione a un'altra (in genere nuova). Come punto di divisione viene usata una chiave di partizionamento orizzontale fornita dall'utente.
 
-**Scalare verticalmente**: aumentare o ridurre il livello di prestazioni di una singola partizione. Ad esempio, modifica di una partizione da Standard a Premium (che comporta più risorse di elaborazione). 
+**Ridimensionamento verticale**: aumento o riduzione della dimensione di calcolo di una singola partizione. Ad esempio, modifica di una partizione da Standard a Premium (che comporta più risorse di elaborazione). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

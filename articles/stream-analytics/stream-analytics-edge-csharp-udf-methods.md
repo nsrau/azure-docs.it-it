@@ -9,16 +9,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9aa61e95eb808c38646fa9b8cefd4004f5477ee6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2b6dfe7c8f8ac8d7207659b848abecd04f56c232
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974664"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181443"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Sviluppare funzioni .NET Standard definite dall'utente per i processi di Analisi di flusso di Azure in IoT Edge (anteprima)
 
-L'Analisi di flusso di Azure offre un linguaggio di query simile a SQL per eseguire trasformazioni e calcoli sui flussi di dati degli eventi. Sono disponibili molte funzioni predefinite, ma alcuni scenari complessi richiedono una maggiore flessibilità. Con le funzioni .NET Standard definite dall'utente è possibile richiamare funzioni personalizzate scritte in qualsiasi linguaggio di programmazione .NET Standard (C#, F# e così via) per estendere il linguaggio di query dell'Analisi di flusso di Azure. Le funzioni definite dall'utente consentono di eseguire calcoli matematici complessi, di importare i modelli di Machine Learning personalizzati con ML.NET e di usare la logica di imputazione personalizzata per i dati mancanti. La funzione definita dall'utente per i processi di Analisi di flusso di Azure in IoT Edge è attualmente in anteprima e non deve essere usata nei carichi di lavoro di produzione.
+L'Analisi di flusso di Azure offre un linguaggio di query simile a SQL per eseguire trasformazioni e calcoli sui flussi di dati degli eventi. Sono disponibili molte funzioni predefinite, ma alcuni scenari complessi richiedono una maggiore flessibilità. Con le funzioni .NET Standard definite dall'utente è possibile richiamare funzioni personalizzate scritte in qualsiasi linguaggio di programmazione .NET Standard (C#, F# e così via) per estendere il linguaggio di query dell'Analisi di flusso di Azure. Le funzioni definite dall'utente consentono di eseguire calcoli matematici complessi, di importare i modelli di Machine Learning personalizzati con ML.NET e di usare la logica di imputazione personalizzata per i dati mancanti. La funzionalità per le funzioni definite dall'utente per i processi Edge di Analisi di flusso di Azure è attualmente in anteprima e non deve essere usata nei carichi di lavoro di produzione.
 
 ## <a name="overview"></a>Panoramica
 Gli strumenti di Visual Studio per l'Analisi di flusso di Azure semplificano la scrittura di funzioni definite dall'utente, l'esecuzione di test sui processi in locale (anche offline) e la pubblicazione del processo di Analisi di flusso in Azure. Dopo la pubblicazione in Azure è possibile distribuire il processo nei dispositivi IoT con l'hub IoT.
@@ -31,7 +31,7 @@ Vi sono tre modi per implementare le funzioni definite dall'utente:
 
 ## <a name="package-path"></a>Percorso del pacchetto
 
-Il formato del pacchetto di una qualsiasi funzione definita dall'utente presenta il percorso `/UserCustomCode/CLR/*`. Le librerie di collegamento dinamico (DLL) e le risorse vengono copiate nella cartella `/UserCustomCode/CLR/*`, che consente di isolare le DLL dell'utente dal sistema e dalle DLL di Analisi di flusso di Azure.
+Il formato del pacchetto di una qualsiasi funzione definita dall'utente presenta il percorso `/UserCustomCode/CLR/*`. Le librerie di collegamento dinamico (DLL) e le risorse vengono copiate nella cartella `/UserCustomCode/CLR/*`, che consente di isolare le DLL dell'utente dal sistema e dalle DLL di Analisi di flusso di Azure. Questo percorso del pacchetto viene usato per tutte le funzioni, indipendentemente dal metodo usato per queste.
 
 ## <a name="supported-types-and-mapping"></a>Mapping e tipi supportati
 
@@ -59,10 +59,10 @@ Per fare riferimento a un progetto locale:
 
 1. Creare una nuova libreria di classi nella soluzione.
 2. Scrivere il codice nella classe. Tenere presente che le classi devono essere definite come *public* e gli oggetti devono essere definiti come *static public*. 
-3. Compilare il progetto.
+3. Compilare il progetto. Gli strumenti creeranno un pacchetto di tutti gli artefatti presenti nella cartella bin inserendoli in un file con estensione zip che verrà caricato nell'account di archiviazione. Per i riferimenti esterni, usare un riferimento assembly anziché il pacchetto NuGet.
 4. Fare riferimento alla nuova classe nel progetto di Analisi di flusso di Azure.
 5. Aggiungere una nuova funzione nel progetto di Analisi di flusso di Azure.
-6. Configurare il percorso dell'assembly nel file di configurazione del processo `EdgeJobConfig.json`.
+6. Configurare il percorso dell'assembly nel file di configurazione del processo `JobConfig.json`. Impostare il percorso dell'assembly come **riferimento al progetto locale o CodeBehind**.
 7. Ricompilare sia il progetto di funzione sia il progetto di Analisi di flusso di Azure.  
 
 ### <a name="example"></a>Esempio
@@ -109,19 +109,19 @@ In questo esempio **UDFTest** è un progetto di libreria di classi C# e **ASAEdg
 
 Dopo aver caricato i pacchetti ZIP di assembly nel proprio account di archiviazione di Azure, è possibile usare le funzioni nelle query di Analisi di flusso di Azure. È sufficiente includere le informazioni di archiviazione nella configurazione del processo di Analisi di flusso di Azure in IoT Edge. Con questa opzione non è possibile effettuare test in locale per la funzione, in quanto gli strumenti di Visual Studio non scaricheranno il pacchetto. Il percorso del pacchetto viene analizzato direttamente nel servizio. 
 
-Per configurare il percorso dell'assembly nel file di configurazione del processo 'EdgeJobConfig.json':
+Per configurare il percorso dell'assembly nel file di configurazione del processo, `JobConfig.json`:
 
 Espandere la sezione **Configurazione di codice definito dall'utente** e compilare la configurazione con i seguenti valori suggeriti:
 
  |**Impostazione**  |**Valore consigliato**  |
  |---------|---------|
- |Origine assembly  |  Riferimento al progetto locale o CodeBehind   |
+ |Origine assembly  | Pacchetti di assembly esistenti dal cloud    |
  |Risorsa  |  Scegliere i dati dall'account corrente   |
  |Sottoscrizione  |  Scegliere la propria sottoscrizione.   |
  |Account di archiviazione  |  Scegliere l'account di archiviazione.   |
  |Contenitore  |  Scegliere il contenitore creato nell'account di archiviazione.   |
 
-    ![Azure Stream Analytics Edge job configuration in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+![Configurazione del progetto Edge di Analisi di flusso di Azure in Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
 
 ## <a name="limitations"></a>Limitazioni
 L'anteprima della funzione definita dall'utente attualmente presenta le limitazioni seguenti:

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 4af2e570b498e496e80b6aeee2b8aeae23c582cc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e5b44ed2435986ffd500cade1f7c8ff8047d353d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952410"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452305"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selezionare e usare una destinazione di calcolo per il training del modello
 
@@ -90,6 +90,8 @@ run_config_user_managed.environment.python.user_managed_dependencies = True
 # You can choose a specific Python environment by pointing to a Python path 
 #run_config.environment.python.interpreter_path = '/home/ninghai/miniconda3/envs/sdk2/bin/python'
 ```
+
+Per un Jupyter Notebook che illustri il training in un ambiente gestito dall'utente, vedere [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
   
 ### <a name="system-managed-environment"></a>Ambiente gestito dal sistema
 
@@ -110,6 +112,9 @@ run_config_system_managed.prepare_environment = True
 
 run_config_system_managed.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
 ```
+
+Per un Jupyter Notebook che illustri il training in un ambiente gestito dal sistema, vedere [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
+
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
 Il computer locale potrebbe non disporre delle risorse di calcolo o GPU necessarie per il training del modello. In questo caso, è possibile aumentare le prestazioni o il numero di istanze per il processo di training aggiungendo altre destinazioni di calcolo, ad esempio tramite Data Science Virtual Machine (DSVM).
@@ -190,6 +195,8 @@ La procedura seguente usa l'SDK per configurare Data Science Virtual Machine (DS
     dsvm_compute.delete()
     ```
 
+Per un Jupyter Notebook che illustri il training in una Data Science Virtual Machine, vedere [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
+
 ## <a id="batch"></a>Azure Batch per intelligenza artificiale
 
 Se il training del modello richiede molto tempo, è possibile usare Azure Batch per intelligenza artificiale per distribuire il training in un cluster di risorse di calcolo nel cloud. Batch per intelligenza artificiale può anche essere configurato per consentire una risorsa GPU.
@@ -232,14 +239,14 @@ if not found:
     print(compute_target.status.serialize())
 ```
 
-Per associare un cluster Batch per intelligenza artificiale esistente come destinazione di calcolo, è necessario specificare l'ID risorsa di Azure. Per ottenere l'ID risorsa nel portale di Azure, è necessario:
+Per associare un cluster Batch per intelligenza artificiale esistente come destinazione di calcolo, è necessario specificare l'ID risorsa di Azure. Per ottenere l'ID risorsa dal portale di Azure, seguire questa procedura:
 1. Cercare il servizio `Batch AI` in **Tutti i servizi**
 1. Fare clic sul nome dell'area di lavoro a cui appartiene il cluster
 1. Selezionare il cluster
 1. Fare clic su **Proprietà**
 1. Copiare l'**ID**
 
-Nell'esempio seguente viene usato l'SDK per associare un cluster all'area di lavoro. Nell'esempio sostituire `<name>` con il nome delle risorsa di calcolo. Questo nome non deve corrispondere al nome del cluster. Sostituire `<resource-id>` con l'ID risorsa di Azure indicato in precedenza:
+Nell'esempio seguente viene usato l'SDK per associare un cluster all'area di lavoro. Nell'esempio sostituire `<name>` con il nome delle risorsa di calcolo. Il nome non deve corrispondere al nome del cluster. Sostituire `<resource-id>` con l'ID risorsa di Azure indicato in precedenza:
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -253,7 +260,9 @@ BatchAiCompute.attach(workspace=ws,
 - Controllare lo stato del cluster. È possibile determinare quanti nodi sono in esecuzione con `az batchai cluster list`.
 - Controllare lo stato dei processi. È possibile determinare quanti processi sono in esecuzione con `az batchai job list`.
 
-La creazione di un cluster Batch per intelligenza artificiale richiede circa 5 minuti
+La creazione di un cluster Batch per intelligenza artificiale richiede circa 5 minuti.
+
+Per un Jupyter Notebook che illustri il training in un cluster Batch per intelligenza artificiale, vedere [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
 
 ## <a name='aci'></a>Istanza di contenitore di Azure
 
@@ -296,6 +305,8 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 ```
 
 La creazione di una destinazione di calcolo Istanza di contenitore di Azure può richiedere da qualche secondo ad alcuni minuti.
+
+Per un Jupyter Notebook che illustri il training in Istanza di contenitore di Azure, vedere [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
 
 ## <a id="hdinsight"></a>Associare un cluster HDInsight 
 
@@ -352,6 +363,8 @@ run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
+Per un Jupyter Notebook che illustri il training con Spark in HDInsight, vedere [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Visualizzare e configurare le destinazioni di calcolo tramite il portale di Azure
 
 È possibile visualizzare le destinazioni di calcolo associate all'area di lavoro dal portale di Azure. Per ottenere l'elenco, eseguire la procedura seguente:
@@ -403,6 +416,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 I notebook seguenti illustrano i concetti descritti in questo articolo:
 * `01.getting-started/02.train-on-local/02.train-on-local.ipynb`
 * `01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb`
+* `01.getting-started/03.train-on-aci/03.train-on-aci.ipynb`
 * `01.getting-started/05.train-in-spark/05.train-in-spark.ipynb`
 * `01.getting-started/07.hyperdrive-with-sklearn/07.hyperdrive-with-sklearn.ipynb`
 

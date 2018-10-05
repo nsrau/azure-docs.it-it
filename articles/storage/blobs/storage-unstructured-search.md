@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/12/2017
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: eba2ef280e60693cfd4402348fe61b122cdccdf6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 902009d7807b1ce340000c271350af1c37231d77
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399857"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181193"
 ---
-# <a name="search-unstructured-data-in-cloud-storage"></a>Cercare dati non strutturati nell'archiviazione cloud
+# <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Esercitazione: eseguire una ricerca all'interno di dati non strutturati in una risorsa di archiviazione nel cloud
 
 In questa esercitazione viene illustrato come eseguire una ricerca di dati non strutturati tramite [Ricerca di Azure](../../search/search-what-is-azure-search.md) usando i dati archiviati nel BLOB di Azure. I dati non strutturati sono dati non organizzati in modo predefinito o che non dispongono di un modello di dati. Un esempio è rappresentato da un file con estensione TXT.
 

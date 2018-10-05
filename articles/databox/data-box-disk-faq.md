@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/04/2018
+ms.date: 09/28/2018
 ms.author: alkohli
-ms.openlocfilehash: 26f8f59d940c1e4a25e24229c2a3df75052e63e4
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 611dcb2cb904b5d3ee6ce0f571c2d04cfd7e7c35
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783291"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451751"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Che cos'è Azure Data Box Disk? (Anteprima)
 
@@ -74,10 +74,12 @@ R. Se si riscontrano problemi con i dischi di Data Box, contattare il [supporto 
 R.  No. Si ottengono dischi da 8 TB (per un massimo di 5 dischi) a seconda delle dimensioni dei dati e della disponibilità dei dischi.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>D: Come si sbloccano i dischi di Data Box? 
-R.  Nel portale di Azure accedere all'ordine di dischi di Data Box e passare a **Dettagli dispositivo**. Copiare la passkey. Scaricare ed estrarre lo strumento di sblocco dei dischi di Data Box dal portale di Azure ed eseguire *DataBoxDiskUnlock.exe* nel computer che contiene i dati si vuole copiare sui dischi. Fornire la passkey per sbloccare i dischi. La stessa passkey sblocca tutti i dischi.
+R.  Nel portale di Azure accedere all'ordine di dischi di Data Box e passare a **Dettagli dispositivo**. Copiare la passkey. Scaricare ed estrarre lo strumento di sblocco di Data Box Disk dal portale di Azure per il sistema operativo in uso. Eseguire lo strumento nel computer che contiene i dati che si vuole copiare nei dischi. Fornire la passkey per sbloccare i dischi. La stessa passkey sblocca tutti i dischi. 
+
+Per istruzioni dettagliate, vedere [Sbloccare i dischi in un client Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) oppure [Sbloccare i dischi in un client Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box-disks"></a>D: È possibile usare un computer host Linux per connettersi e copiare i dati nei dischi di Data Box?
-R.  No. Sono supportati solo computer Windows. Per altre informazioni, passare all'elenco dei [sistemi operativi supportati](data-box-disk-system-requirements.md) per il computer host.
+R.  Sì. È possibile usare sia il client Linux che Windows per connettersi e copiare i dati nei dischi di Data Box Disk. Per altre informazioni, passare all'elenco dei [sistemi operativi supportati](data-box-disk-system-requirements.md) per il computer host.
 
 ### <a name="q-my-disks-are-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>D: I dischi sono stati spediti, ma si vuole annullare l'ordine. Per quale motivo il pulsante di annullamento non è disponibile?
 R.  È possibile annullare l'ordine solo dopo che i dischi sono stati ordinati e prima della spedizione. Dopo la spedizione dei dischi, non è più possibile annullare l'ordine. Nello periodo di anteprima, è possibile restituire i dischi gratuitamente, ma ciò cambierà probabilmente nella versione della soluzione disponibile a livello generale. 
@@ -139,10 +141,10 @@ R.  Quando lo stato dell'ordine per la copia dei dati risulta completato, dovreb
 R.  Quando si copiano i dati nelle cartelle *BlockBlob* e *PageBlob* nel disco, viene creato un contenitore nell'account di archiviazione di Azure per ogni sottocartella nella cartella *BlockBlob* e *PageBlob*. Se i file sono stati copiati direttamente nelle cartelle *BlockBlob* e *PageBlob*, questi file sono disponibili in un contenitore predefinito *$root* nell'account di archiviazione di Azure. 
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>D: Se non si seguono i requisiti di denominazione di Azure per i contenitori, i dati non verranno caricati in Azure?
-R. Se i nomi dei contenitori includono lettere maiuscole, queste verranno convertite automaticamente in lettere minuscole. Se i nomi non sono conformi in altri modi (caratteri speciali, altre lingue e così via), il caricamento avrà esito negativo.
+R. Se i nomi dei contenitori includono lettere maiuscole, queste verranno convertite automaticamente in lettere minuscole. Se i nomi non sono conformi in altri modi (caratteri speciali, altre lingue e così via), il caricamento avrà esito negativo. Per altre informazioni, vedere le [convenzioni di denominazione di Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>D: Come è possibile verificare i dati copiati in più dischi di Data Box?
-R.  Dopo aver completato la copia dei dati, è possibile eseguire `AzureExpressDiskService.cmd` disponibile nella cartella *AzureImportExport* per generare i checksum per la convalida. Per più dischi è necessario aprire una finestra di comando per ogni disco ed eseguire questo comando. Tenere presente che questa operazione può richiedere molto tempo (anche ore) a seconda delle dimensioni dei dati.
+R.  Dopo aver completato la copia dei dati, è possibile eseguire `DataBoxDiskValidation.cmd` disponibile nella cartella *DataBoxDiskImport* per generare i checksum per la convalida. Per più dischi è necessario aprire una finestra di comando per ogni disco ed eseguire questo comando. Tenere presente che questa operazione può richiedere molto tempo (anche ore) a seconda delle dimensioni dei dati.
 
 ### <a name="q-what-happens-to-my-data-after-i-have-returned-the-disks"></a>D: Che cosa succede ai dati dopo la restituzione dei dischi?
 R.  Una volta completata la copia dei dati in Azure, i dati vengono cancellati dai dischi in modo sicuro in base alle linee guida NIST SP 800-88 revisione 1.  

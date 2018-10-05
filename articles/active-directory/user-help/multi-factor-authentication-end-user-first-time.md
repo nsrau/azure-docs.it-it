@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: d4ebecd11f4ca3d12a55cf25db31e31d7f528db8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b6d548183cfa548f9ad35f06922752c929e318ac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343730"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47041956"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurare l'account per la verifica in due passaggi
 La verifica in due passaggi è un livello di sicurezza aggiuntiva che consente di proteggere l'account rendendo più difficile l'intromissione di altri utenti. Se si sta leggendo questo articolo, probabilmente è stato ricevuto un messaggio di posta elettronica su Multi-Factor Authentication inviato dall'amministratore dell'azienda o dell'istituto di istruzione. In alternativa, si è tentato di eseguire l'accesso ed è stato ricevuto un messaggio in cui viene chiesto di configurare una verifica aggiuntiva di sicurezza. In questo caso, **non è possibile accedere fino al completamento del processo di registrazione automatica**.
@@ -47,6 +47,9 @@ La prima domanda posta nel processo di registrazione è relativa alla modalità 
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Usare un'app per dispositivi mobili come metodo di contatto
 L'uso di questo metodo richiede l'installazione di un'app di autenticazione sul telefono o sul tablet. I passaggi in questo articolo sono basati sull'app Microsoft Authenticator, disponibile per [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+
+>[!NOTE]
+>Non è necessario usare l'app Microsoft Authenticator. Se è già in uso un'altra app di autenticazione, è possibile continuare a usarla.
 
 1. Selezionare **App per dispositivi mobili** dall'elenco a discesa.
 2. Selezionare l'opzione **Ricevi notifiche per la verifica** o **Use verification code** (Usa codice di verifica), quindi selezionare **Configura**.

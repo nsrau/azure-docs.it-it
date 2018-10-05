@@ -3,18 +3,18 @@ title: 'Azure Toolkit for IntelliJ: Creare applicazioni Spark per un cluster HDI
 description: Usare il Toolkit di Azure per IntelliJ per sviluppare applicazioni Spark scritte in Scala e inoltrarle a un cluster HDInsight Spark.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: c3442a95bed4f589ca8f939767bb0d0581095927
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 07c2b506007daccd53a8b06a43064e6e274ac43b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618426"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433359"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usare Azure Toolkit for IntelliJ per creare applicazioni Spark per un cluster HDInsight
 
@@ -181,8 +181,12 @@ Puoi collegare un normale cluster HDInsight usando lo username gestito di Ambari
 
         ![Finestra di dialogo di selezione della classe principale](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-3.png)
 
-      * Poiché il codice dell'applicazione in questo esempio non richiede argomenti della riga di comando e non fa riferimento a JAR o altri file, è possibile lasciare vuote le rimanenti caselle di testo. Quando sono state fornite tutte le informazioni, la finestra di dialogo sarà simile all'immagine seguente.
+      * È possibile fornire le informazioni desiderate. Per le **configurazioni del processo** viene usato il valore predefinito. Per altre informazioni sulle chiavi, è possibile vedere [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html) (API REST di Apache Livy). Gli **argomenti della riga di comando**, i file **JAR di riferimento** e i **file di riferimento** dovrebbero risultare simili a quelli dell'immagine seguente. Per altre informazioni sui file **JAR di riferimento** e sui **file di riferimento**, vedere [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) (Configurazione di Spark). Per il corretto funzionamento dei file **JAR di riferimento** e dei **file di riferimento**, è consigliabile caricare le risorse nel cluster a cui si effettua l'invio per primo. Vedere [Come caricare le risorse nel cluster](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer). La finestra di dialogo per l'invio sarà simile all'immagine seguente.
         
+        ![Informazioni sulla configurazione del processo nella finestra di dialogo di invio di Spark](./media/apache-spark-intellij-tool-plugin/submit-job-configurations.png)
+
+        ![Informazioni sui file JAR nella finestra di dialogo di invio di Spark](./media/apache-spark-intellij-tool-plugin/jar-files-meaning.png)
+
         ![Finestra di dialogo Spark Submission (Invio Spark)](./media/apache-spark-intellij-tool-plugin/hdi-submit-spark-app-2.png)
 
    c. Nella scheda **Spark Submission** (Invio Spark) nella parte inferiore della finestra verrà visualizzato lo stato di avanzamento. È anche possibile arrestare l'applicazione selezionando il pulsante rosso nella finestra **Spark Submission** (Invio Spark).

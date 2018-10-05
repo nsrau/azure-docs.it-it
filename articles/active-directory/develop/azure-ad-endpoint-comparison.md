@@ -3,7 +3,7 @@ title: Confronto tra gli endpoint v2.0 e v1.0 di Azure AD | Microsoft Docs
 description: Informazioni sulle differenze tra l'endpoint v2.0 e l'endpoint v1.0 di Azure AD
 services: active-directory
 documentationcenter: ''
-author: andretms
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
@@ -13,23 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 09/27/2018
 ms.author: andret
-ms.reviewer: hirsin, celested
+ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: 02c7edc84d2ac3a91c33d8f266d022db5cd5cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948958"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406533"
 ---
-# <a name="comparing-the-azure-ad-v20-endpoint-with-v10-endpoint"></a>Confronto tra gli endpoint v2.0 e v1.0 di Azure AD
+# <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Confronto tra gli endpoint v2.0 e v1.0 di Azure AD
 
 Quando si sviluppa una nuova applicazione, è importante conoscere le differenze tra gli endpoint v1.0 e v2.0. Di seguito sono illustrate le differenze principali, oltre ad alcune limitazioni esistenti per l'endpoint v2.0.
 
 > [!NOTE]
-> Non tutti gli scenari e le funzionalità di Azure AD sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](#limitations).
+> Non tutti gli scenari e le funzionalità di Azure Active Directory (Azure AD) sono supportati dall'endpoint 2.0. Per determinare se è necessario usare l'endpoint v2.0, leggere le informazioni sulle [limitazioni v2.0](#limitations).
 
 ## <a name="who-can-sign-in"></a>Utenti autorizzati a effettuare l'accesso
 
@@ -37,7 +37,7 @@ Quando si sviluppa una nuova applicazione, è importante conoscere le differenze
 
 * L'endpoint v1.0 consente l'accesso all'applicazione (Azure AD) solo agli account aziendali e dell'istituto di istruzione
 
-* L'endpoint v2.0 consente l'accesso agli account aziendali e dell'istituto di istruzione da Azure Active Directory e agli account personali (account del servizio gestito) (hotmail.com, outlook.com, msn.com).
+* L'endpoint v2.0 consente l'accesso agli account aziendali e dell'istituto di istruzione da Azure AD e agli account personali (account del servizio gestito) (hotmail.com, outlook.com, msn.com).
 
 * Entrambi gli endpoint v1.0 e v2.0 accettano anche l'accesso degli *[utenti guest](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* di una directory di Azure AD per le applicazioni configurate come *[a tenant singolo](single-and-multi-tenant-apps.md)* o per le applicazioni *multi-tenant* configurate per puntare all'endpoint specifico del tenant (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
@@ -55,11 +55,11 @@ Le app che usano l'endpoint v1.0 di Azure AD devono specificare in anticipo le a
 
 Le autorizzazioni impostate direttamente nella registrazione dell'applicazione sono di tipo **statico**. Sebbene le autorizzazioni statiche dell'app possano essere definite nel portale di Azure e richiedano un codice chiaro e semplice, possono presentare alcuni problemi per gli sviluppatori:
 
-* È necessario definire in fase di creazione tutte le autorizzazioni che potrebbero essere necessarie per l'app. La possibilità di aggiungere le autorizzazioni in fasi successive è un processo difficile.
+* È necessario definire in fase di creazione tutte le autorizzazioni che potrebbero essere necessarie per l'app. La possibilità di aggiungere le autorizzazioni in fasi successive era un processo difficile.
 
-* L'app deve conoscere in anticipo tutte le risorse a cui potrebbe dover accedere. È difficile creare app che possono accedere a un numero arbitrario di risorse.
+* L'app deve conoscere in anticipo tutte le risorse a cui potrebbe dover accedere. Era difficile creare app che potessero accedere a un numero arbitrario di risorse.
 
-* L'app deve richiedere al primo accesso dell'utente tutte le autorizzazioni di cui potrebbe avere bisogno. In alcuni casi ciò comporta l'esigenza di creare un lungo elenco di autorizzazioni che devono essere approvate dall'utente al primo accesso, causando spesso la rinuncia all'iscrizione da parte di quest'ultimo.
+* L'app deve richiedere al primo accesso dell'utente tutte le autorizzazioni di cui potrebbe avere bisogno. In alcuni casi ciò comportava l'esigenza di creare un lungo elenco di autorizzazioni che dovevano essere approvate dall'utente al primo accesso, causando spesso la rinuncia all'iscrizione da parte di quest'ultimo.
 
 Con l'endpoint v2.0, è possibile ignorare le autorizzazioni definite in modo statico nelle informazioni di registrazione dell'app nel portale di Azure e specificare le autorizzazioni richieste dall'app **dinamicamente** in fase di esecuzione durante il normale uso dell'app, indipendentemente dalle autorizzazioni definite staticamente nelle informazioni di registrazione dell'applicazione.
 
@@ -88,7 +88,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-dove il parametro della **risorsa** indica la risorsa per la quale l'app client richiede l'autorizzazione. Azure AD calcola le autorizzazioni obbligatorie per l'app in base alla configurazione statica nel portale di Azure e rilascia i token di conseguenza. Per le applicazioni che usano l'endpoint v2.0, la stessa richiesta di autorizzazione OAuth 2.0 ha un aspetto simile al seguente:
+dove il parametro della **risorsa** indicava la risorsa per la quale l'app client richiedeva l'autorizzazione. Azure AD calcolava le autorizzazioni obbligatorie per l'app in base alla configurazione statica nel portale di Azure e rilasciava i token di conseguenza. Per le applicazioni che usano l'endpoint v2.0, la stessa richiesta di autorizzazione OAuth 2.0 ha un aspetto simile al seguente:
 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -214,15 +214,13 @@ Il supporto delle librerie per l'endpoint 2.0 è attualmente limitato. Per usare
 
 L'endpoint 2.0 non supporta protocolli SAML o WS-Federation, ma solo Open ID Connect e OAuth 2.0. Non tutte le funzionalità e caratteristiche dei protocolli OAuth, tuttavia, sono state incorporate nell'endpoint 2.0.
 
-Le funzionalità del protocollo seguenti *non sono attualmente disponibili* nell'endpoint 2.0:
+Le funzionalità del protocollo seguenti *non sono attualmente disponibili* o *non sono supportate* nell'endpoint 2.0:
 
-* Correntemente, l'attestazione `email` viene restituita solo se viene configurata un'attestazione facoltativa e l'ambito specificato nella richiesta è scope=email. Questo comportamento, tuttavia, verrà modificato quando l'endpoint 2.0 viene aggiornato per ragioni di compatibilità con gli standard Open ID Connect e OAuth2.0.
+* L'attestazione `email` viene restituita solo se viene configurata un'attestazione facoltativa e l'ambito specificato nella richiesta è scope=email. Questo comportamento, tuttavia, verrà modificato quando l'endpoint 2.0 verrà aggiornato per ragioni di compatibilità con gli standard Open ID Connect e OAuth2.0.
 
 * L'endpoint 2.0 non supporta attualmente l'emissione di attestazioni basate su ruolo o gruppo nei token ID.
 
-* La concessione [OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3) non è supportata dall'endpoint 2.0.
-
-Tenere presente inoltre che l'endpoint v2.0 non supporta alcuna forma dei protocolli SAML o WS-Federation.
+* L'endpoint 2.0 non supporta la [concessione OAuth 2.0 Resource Owner Password Credentials Grant](https://tools.ietf.org/html/rfc6749#section-4.3).
 
 Per comprendere meglio l'ambito della funzionalità del protocollo supportata nell'endpoint 2.0, vedere l'articolo [Riferimento ai protocolli OpenID Connect e OAuth 2.0](active-directory-v2-protocols.md).
 

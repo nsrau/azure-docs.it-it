@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920339"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166878"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione della password self-service di Azure AD dalla schermata di accesso
 
@@ -45,8 +45,6 @@ Distribuire la modifica della configurazione per abilitare la reimpostazione del
    * Specificare eventualmente una descrizione significativa per il profilo
    * Piattaforma **Windows 10 e versioni successive**
    * Tipo profilo **Personalizzato**
-
-   ![Creare il profilo][CreateProfile]
 
 3. Configurare le **impostazioni**
    * **Aggiungere** le impostazioni URI OMA seguenti per abilitare il collegamento di reimpostazione della password
@@ -100,7 +98,6 @@ Ora che i criteri sono stati configurati e assegnati, cosa cambia per l'utente? 
 ![Schermata di accesso][LoginScreen]
 
 Quando gli utenti provano ad accedere, viene ora visualizzato un collegamento per la reimpostazione della password che apre l'esperienza di reimpostazione della password self-service nella schermata di accesso. Questa funzionalità consente agli utenti di reimpostare la password senza dover usare un altro dispositivo per accedere a un Web browser.
-Quando gli utenti provano ad accedere, viene ora visualizzato un collegamento per la reimpostazione della password che apre l'esperienza di reimpostazione della password self-service nella schermata di accesso. Questa funzionalità consente agli utenti di reimpostare la password senza dover usare un altro dispositivo per accedere a un Web browser.
 
 Gli utenti troveranno indicazioni per l'uso di questa funzionalità in [Reimpostare la password per un account aziendale o dell'istituto di istruzione](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
@@ -114,7 +111,11 @@ Durante il test di questa funzionalità con Desktop remoto, il collegamento "Rei
 
 * La reimpostazione della password non è attualmente supportata da Desktop remoto.
 
-Se la schermata di blocco di Windows è disabilitata tramite una chiave del Registro di sistema o criteri di gruppo, **Reimposta password** non sarà disponibile.
+Se la schermata di blocco di Windows è disabilitata tramite una chiave del Registro di sistema o criteri di gruppo, l'opzione **Reimposta password** non sarà disponibile.
+
+Il log di controllo di Azure AD includerà informazioni sull'indirizzo IP e sul tipo di client in cui si è verificata la reimpostazione della password.
+
+![Reimpostazione della password nella schermata di accesso di esempio nel log di controllo di Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -127,6 +128,5 @@ In questa esercitazione è stato descritto come consentire agli utenti di reimpo
 > [!div class="nextstepaction"]
 > [Valutare i rischi all'accesso](tutorial-risk-based-sspr-mfa.md)
 
-[CreateProfile]: ./media/tutorial-sspr-windows/create-profile.png "Creare un profilo di configurazione dei dispositivi Intune per abilitare il collegamento di reimpostazione della password nella schermata di accesso di Windows 10"
 [Assignment]: ./media/tutorial-sspr-windows/profile-assignment.png "Assegnare criteri di configurazione dei dispositivi Intune a un gruppo di dispositivi Windows 10"
 [LoginScreen]: ./media/tutorial-sspr-windows/logon-reset-password.png "Collegamento di reimpostazione della password nella schermata di accesso di Windows 10"

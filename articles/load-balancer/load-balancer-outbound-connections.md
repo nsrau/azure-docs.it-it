@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842256"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47036991"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -69,7 +69,7 @@ Per distinguere i singoli flussi provenienti dalla macchina virtuale vengono usa
 
 Le porte SNAT vengono preallocate come descritto nella sezione [Informazioni su SNAT e PAT](#snat). Sono una risorsa limitata che può esaurirsi. L'importante è capire come vengono [usate](#pat). Per informazioni su come progettare questo consumo e come attenuarlo in base alle necessità, vedere [Gestione dell'esaurimento SNAT](#snatexhaust).
 
-Se a [Load Balancer Basic vengono associati più indirizzi IP (pubblici)](load-balancer-multivip-overview.md), uno qualsiasi di questi indirizzi IP pubblici è un [candidato per i flussi in uscita e ne viene selezionato uno](#multivipsnat).  
+Se a [Load Balancer Basic vengono associati più indirizzi IP pubblici](load-balancer-multivip-overview.md), uno qualsiasi di questi indirizzi IP pubblici è un [candidato per i flussi in uscita e ne viene selezionato uno in modo casuale](#multivipsnat).  
 
 Per monitorare l'integrità delle connessioni in uscita con Load Balancer Basic, è possibile usare [Log Analytics per Load Balancer](load-balancer-monitor-log.md) e il [log eventi di avviso](load-balancer-monitor-log.md#alert-event-log) per monitorare i messaggi relativi all'esaurimento delle porte SNAT.
 

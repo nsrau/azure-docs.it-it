@@ -5,28 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 09/20/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 253edccef064e729e96bceac619458cf4c585ae4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6354d89ff5a23ccb51b85737b3a842c08534683e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522486"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223611"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Usare un'identità di Azure AD per accedere ad Archiviazione di Azure con l'interfaccia della riga di comando o PowerShell (anteprima)
 
-Archiviazione di Azure offre estensioni in anteprima per l'interfaccia della riga di comando di Azure e PowerShell, che consentono di accedere ed eseguire comandi di scripting in un'identità di Azure Active Directory (Azure AD). L'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'[identità del servizio gestito](../../active-directory/managed-service-identity/overview.md). È possibile assegnare autorizzazioni per accedere alle risorse di archiviazione per l'identità di Azure AD tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni sui ruoli RBAC in Archiviazione di Azure, vedere [Gestire i diritti di accesso a dati di Archiviazione di Azure con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md).
+Archiviazione di Azure offre estensioni in anteprima per l'interfaccia della riga di comando di Azure e PowerShell, che consentono di accedere ed eseguire comandi di scripting in un'identità di Azure Active Directory (Azure AD). L'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'[identità del servizio gestito](../../active-directory/managed-identities-azure-resources/overview.md). È possibile assegnare autorizzazioni per accedere alle risorse di archiviazione per l'identità di Azure AD tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni sui ruoli RBAC in Archiviazione di Azure, vedere [Gestire i diritti di accesso a dati di Archiviazione di Azure con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md).
 
 Quando si accede all'interfaccia della riga di comando di Azure o a PowerShell con un'identità di Azure AD, viene restituito un token di accesso per l'accesso ad Archiviazione di Azure con questa identità. Tale token viene quindi usato automaticamente dall'interfaccia della riga di comando o da PowerShell per autorizzare le operazioni su Archiviazione di Azure. Per le operazioni supportate, non è più necessario passare un chiave dell'account o un token di firma di accesso condiviso con il comando.
 
-> [!IMPORTANT]
-> Questa versione di anteprima è destinata solo per l'uso in ambienti non di produzione. Non saranno disponibili contratti di servizio per ambienti di produzione finché l'integrazione di Azure AD per Archiviazione di Azure non verrà dichiarata disponibile a livello generale. Se l'integrazione di Azure AD non è ancora supportata per il proprio scenario, continuare a usare l'autorizzazione con chiave condivisa o token di firma di accesso condiviso nelle applicazioni. Per altre informazioni sulla versione di anteprima, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)](storage-auth-aad.md).
->
-> Durante l'anteprima, la propagazione delle assegnazioni dei ruoli di controllo degli accessi in base al ruolo può richiedere fino a cinque minuti.
->
-> L'integrazione di Azure AD con Archiviazione di Azure richiede l'uso di HTTPS per le operazioni di Archiviazione di Azure.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="supported-operations"></a>Operazioni supportate
 
@@ -61,40 +56,50 @@ La variabile di ambiente associata al parametro `--auth-mode` è `AZURE_STORAGE_
 
 ## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>Chiamare i comandi di PowerShell con un'identità di Azure AD
 
+Azure PowerShell supporta l'accesso con un'identità di Azure AD solo con uno dei moduli di anteprima seguenti: 
+
+- 4.4.0-preview 
+- 4.4.1-preview 
+
 Per usare Azure PowerShell per eseguire l'accesso con un'identità di Azure AD:
 
-1. Assicurarsi di avere la versione più recente di PowerShellGet installata. Eseguire il comando seguente per installare la versione più recente:
+1. Disinstallare eventuali installazioni precedenti di Azure PowerShell:
+
+    - Rimuovere da Windows eventuali installazioni precedenti di Azure PowerShell usando l'impostazione **App e funzionalità** in **Impostazioni**.
+    - Rimuovere tutti i moduli di **Azure** da `%Program Files%\WindowsPowerShell\Modules`.
+
+1. Assicurarsi di avere la versione più recente di PowerShellGet installata. Aprire una finestra di Windows PowerShell ed eseguire i seguenti comandi per installare la versione più recente:
  
     ```powershell
     Install-Module PowerShellGet –Repository PSGallery –Force
     ```
+1. Chiudere e riaprire la finestra di PowerShell dopo l'installazione di PowerShellGet. 
 
-2. Disinstallare eventuali installazioni precedenti di Azure PowerShell.
-3. Installare AzureRM:
+1. Installare la versione più recente di Azure PowerShell:
 
     ```powershell
     Install-Module AzureRM –Repository PSGallery –AllowClobber
     ```
 
-4. Installare il modulo di anteprima:
+1. Installare uno dei moduli in anteprima di Archiviazione di Azure che supportano Azure AD:
 
     ```powershell
-    Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber 
+    Install-Module Azure.Storage –Repository PSGallery -RequiredVersion 4.4.1-preview  –AllowPrerelease –AllowClobber –Force 
     ```
+1. Chiudere e riaprire la finestra di PowerShell.
+1. Chiamare il cmdlet [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) per creare un contesto e includere il parametro `-UseConnectedAccount`. 
+1. Per chiamare un cmdlet con un'identità di Azure AD, passare il contesto creato al cmdlet.
 
-5. Chiamare il cmdlet [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) per creare un contesto e includere il parametro `-UseConnectedAccount`. 
-6. Per chiamare un cmdlet con un'identità di Azure AD, passare il contesto al cmdlet.
-
-L'esempio seguente mostra come elencare i BLOB in un contenitore da Azure PowerShell usando un'identità di Azure AD: 
+L'esempio seguente mostra come elencare i BLOB in un contenitore da Azure PowerShell usando un'identità di Azure AD. Assicurarsi di sostituire i segnaposto per i nomi dell'account e del contenitore con gli specifici valori: 
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -UseConnectedAccount 
-Get-AzureStorageBlob -Container $sample-container -Context $ctx 
+$ctx = New-AzureStorageContext -StorageAccountName storagesamples -UseConnectedAccount 
+Get-AzureStorageBlob -Container sample-container -Context $ctx 
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sui ruoli RBAC per Archiviazione di Azure, vedere [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md) (Gestire i diritti di accesso ai dati di archiviazione con il controllo degli accessi in base al ruolo - anteprima).
-- Per informazioni sull'uso dell'identità del servizio gestita con Archiviazione di Azure, vedere [Eseguire l'autenticazione con Azure AD da un'identità del servizio gestita di Azure (anteprima)](storage-auth-aad-msi.md).
+- Per altre informazioni sull'uso delle identità gestite per le risorse di Azure con Archiviazione di Azure, vedere [Authenticate access to blobs and queues with Azure managed identities for Azure Resources (Preview)](storage-auth-aad-msi.md) (Autenticare l'accesso a BLOB e code con le identità gestite di Azure per le risorse di Azure - anteprima).
 - Per informazioni su come autorizzare l'accesso a contenitori e code all'interno delle applicazioni di archiviazione, vedere [Usare Azure AD con applicazioni di archiviazione](storage-auth-aad-app.md).
 - Per altre informazioni sull'integrazione di Azure AD per BLOB e code di Azure, vedere il post di blog del team di Archiviazione di Azure sull'[annuncio della versione di anteprima di Autenticazione di Azure AD per Archiviazione di Azure](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

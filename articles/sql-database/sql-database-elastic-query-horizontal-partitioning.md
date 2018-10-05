@@ -2,20 +2,22 @@
 title: Creazione di report tra database cloud con scalabilità orizzontale | Documentazione Microsoft
 description: Come configurare query elastiche sui partizionamenti orizzontali
 services: sql-database
-documentationcenter: ''
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: fcb498542a496e4a887c825808642d3f586ef1d9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 906c6825dbfdf7d4873c765d0b3eba626ef52e1b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646355"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159364"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Creazione di report tra database cloud con scalabilità orizzontale (anteprima)
 ![Eseguire una query tra partizioni][1]
@@ -26,7 +28,7 @@ Per l'avvio rapido, vedere [Creazione di report tra database cloud con scalabili
 
 Per i database non partizionati, vedere [Eseguire query in database cloud con schemi diversi](sql-database-elastic-query-vertical-partitioning.md). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Creare una mappa partizioni usando la libreria client dei database elastici. Vedere [Gestione mappe partizioni](sql-database-elastic-scale-shard-map-management.md). In alternativa, usare l'app di esempio in [Introduzione agli strumenti del database elastico](sql-database-elastic-scale-get-started.md).
 * In alternativa, vedere [Migrate existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md)(Eseguire la migrazione di database esistenti per la scalabilità orizzontale).
 * L'utente deve disporre dell'autorizzazione ALTER ANY origine dei dati esterni. Questa autorizzazione è inclusa nell'autorizzazione ALTER DATABASE.
@@ -49,7 +51,7 @@ Le credenziali vengono usate dalla query elastica per connettersi ai database re
     [;]
 
 > [!NOTE]
-> Assicurarsi che il *"\<nome utente\>"* non includa alcun suffisso *"@servername"*. 
+> Assicurarsi che il *"\<nome utente\>"* non includa alcun suffisso *"\@servername"*. 
 > 
 > 
 

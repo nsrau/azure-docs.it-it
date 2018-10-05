@@ -2,24 +2,26 @@
 title: Differenze T-SQL di Istanza gestita del database SQL di Azure | Microsoft Docs
 description: Questo articolo illustra le differenze T-SQL tra Istanza gestita di database SQL di Azure e SQL Server.
 services: sql-database
-author: jovanpop-msft
-ms.reviewer: carlrab, bonova
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 0813/2018
+author: jovanpop-msft
 ms.author: jovanpop
+ms.reviewer: carlrab, bonova
 manager: craigg
-ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 08/13/2018
+ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051239"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166504"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server 
 
-Istanza gestita di database SQL di Azure (anteprima) assicura una compatibilità elevata con il motore di database di Microsoft SQL Server locale. La maggior parte delle funzionalità del motore di database di Microsoft SQL Server è supportata in Istanza gestita. Esistono tuttavia alcune differenze nella sintassi e nel comportamento, riepilogate e illustrate in questo articolo.
+Istanza gestita di database SQL di Azure assicura una compatibilità elevata con il motore di database di Microsoft SQL Server locale. La maggior parte delle funzionalità del motore di database di Microsoft SQL Server è supportata in Istanza gestita. Esistono tuttavia alcune differenze nella sintassi e nel comportamento, riepilogate e illustrate in questo articolo.
  - [Differenze T-SQL e funzionalità non supportate](#Differences)
  - [Funzionalità con un comportamento diverso in Istanza gestita](#Changes)
  - [Limitazioni temporanee e problemi noti](#Issues)
@@ -267,7 +269,7 @@ Le tabelle esterne che fanno riferimento ai file in HDFS o nell'archivio BLOB di
 
 ### <a name="replication"></a>Replica 
  
-La replica è supportata in Istanza gestita. Per informazioni sulla replica, vedere [Replica di SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+La replica è disponibile in anteprima pubblica in Istanza gestita. Per informazioni sulla replica, vedere [Replica di SQL Server](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>Istruzione RESTORE 
  
@@ -335,23 +337,24 @@ Per informazioni sulle istruzioni Restore, vedere [Istruzioni RESTORE](https://d
 - `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db` non sono supportati. Vedere [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` non è supportato. Vedere [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>Agente SQL Server 
- 
+### <a name="sql-server-agent"></a>Agente SQL Server
+
 - Le impostazioni dell'agente SQL sono di sola lettura. La routine `sp_set_agent_properties` non è supportata in Istanza gestita.  
-- Processi - attualmente sono supportati solo i passaggi dei processi T-SQL (durante l'anteprima pubblica verranno aggiunti altri passaggi).
- - SSIS non è ancora supportato. 
- - La replica non è ancora supportata.  
-  - La lettura dei log delle transazioni non è ancora supportata.  
-  - Lo snapshot non è ancora supportato.  
-  - Il database di distribuzione non è ancora supportato.  
-  - Il merge non è supportato.  
+- Processi - attualmente sono supportati i passaggi dei processi T-SQL
+- Al momento non sono supportati altri tipi di passaggi dei processi (durante l'anteprima pubblica verranno aggiunti altri passaggi).
+  - Non sono supportati i processi di replica, tra cui:
+    - Lettore di log delle transazioni.  
+    - Snapshot.
+    - Database di distribuzione.  
+    - Unione.  
+  - SSIS non è ancora supportato. 
   - La lettura coda non è supportata.  
- - La shell dei comandi non è ancora supportata. 
+  - La shell dei comandi non è ancora supportata. 
   - Istanza gestita non può accedere a risorse esterne (ad esempio a condivisioni di rete tramite robocopy).  
- - PowerShell non è ancora supportato.
- - Analysis Services non è supportato.  
+  - PowerShell non è ancora supportato.
+  - Analysis Services non è supportato.  
 - Le notifiche sono supportate in modo parziale.
- - La notifica tramite posta elettronica è supportata e richiede la configurazione di un profilo di posta elettronica database. Può esistere un solo profilo di posta elettronica database, che deve essere denominato `AzureManagedInstance_dbmail_profile` nell'anteprima pubblica (limitazione temporanea).  
+- La notifica tramite posta elettronica è supportata e richiede la configurazione di un profilo di posta elettronica database. Può esistere un solo profilo di posta elettronica database, che deve essere denominato `AzureManagedInstance_dbmail_profile` nell'anteprima pubblica (limitazione temporanea).  
  - Il cercapersone non è supportato.  
  - NetSend non è supportato. 
  - Gli avvisi non sono ancora supportati.
@@ -414,15 +417,58 @@ Accertarsi di rimuovere il carattere `?` iniziale dalla chiave generata mediante
 
 SQL Server Management Studio e SQL Server Data Tools potrebbero riscontrare problemi durante l'accesso a Istanza gestita. Tutti i problemi relativi agli strumenti verranno risolti prima del rilascio della versione con disponibilità generale.
 
-### <a name="incorrect-database-names"></a>Nomi di database non corretti
+### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>Nomi di database errati in alcune viste, log e messaggi
 
-Istanza gestita potrebbe visualizzare il valore del GUID invece del nome del database durante il ripristino o in alcuni messaggi di errore. Questi problemi verranno corretti prima del rilascio della versione con disponibilità generale.
+In numerose viste di sistema, contatori delle prestazioni, messaggi di errore, XEvent e voci del log degli errori sono visualizzati gli identificatori GUID dei database anziché i nomi effettivi. Non fare affidamento su questi identificatori GUID, in quanto potrebbero essere sostituiti dai nomi effettivi dei database in futuro.
 
 ### <a name="database-mail-profile"></a>Profilo di posta elettronica database
 Può esistere un solo profilo di posta elettronica database, che deve essere denominato `AzureManagedInstance_dbmail_profile`. Si tratta di una limitazione temporanea che verrà rimossa a breve.
+
+### <a name="error-logs-are-not-persisted"></a>I log degli errori non sono persistenti
+I log degli errori che sono disponibili nell'istanza gestita non sono persistenti e le relative dimensioni non sono incluse nel limite di archiviazione massimo. I log degli errori potrebbero essere cancellati automaticamente in caso di failover.
+
+### <a name="error-logs-are-verbose"></a>I log degli errori sono di tipo dettagliato
+Istanza gestita inserisce informazioni dettagliate nei log degli errori e molte di esse non sono pertinenti. La quantità di informazioni nei log degli errori verrà ridotta in futuro.
+
+**Soluzione alternativa**: usare una procedura personalizzata per la lettura dei log degli errori, in modo da escludere alcune delle voci non pertinenti. Per informazioni dettagliate, vedere [Istanza gestita di database SQL di Azure - sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+
+### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>L'ambito della transazione in due database nella stessa istanza non è supportato
+La classe `TransactionScope` in .Net non funziona se vengono inviate due query ai due database nella stessa istanza all'interno del medesimo ambito della transazione:
+
+```C#
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
+    }
+
+    using (var conn2 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into b.dbo.T2 values(2)");        cmd2.ExecuteNonQuery();
+    }
+
+    scope.Complete();
+}
+
+```
+
+Sebbene questo codice funzioni con i dati nella stessa istanza, è necessario MSDTC.
+
+**Soluzione alternativa**: usare [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) per usare un altro database nel contesto della connessione invece di due connessioni.
+
+### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>I moduli CLR e i server collegati talvolta non riescono a fare riferimento all'indirizzo IP locale
+I moduli CLR inseriti in Istanza gestita e i server collegati o le query distribuite che fanno riferimento all'istanza corrente talvolta non riescono a risolvere l'indirizzo IP dell'istanza locale. Si tratta di un errore temporaneo.
+
+**Soluzione alternativa**: usare connessioni di contesto nel modulo CLR, se possibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per informazioni dettagliate in proposito, vedere [Informazioni su Istanza gestita](sql-database-managed-instance.md).
 - Per un elenco di confronto delle funzionalità, vedere [Confronto tra le funzionalità: database SQL di Azure e SQL Server](sql-database-features.md).
-- Per un'esercitazione che illustra come creare una nuova istanza gestita, vedere [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
+- Per una guida introduttiva che illustra come creare una nuova istanza gestita, vedere [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).

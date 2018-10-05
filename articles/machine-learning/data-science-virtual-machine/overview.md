@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 661c757cda2f70b03d136f3726c7afe633fbbe04
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42024054"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032232"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione alla macchina virtuale data science di Azure per Linux e Windows
 
@@ -137,3 +137,5 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 * Per altre informazioni su come creare una macchina virtuale data science Ubuntu, vedere [Effettuare il provisioning di una macchina virtuale data science per Linux (Ubuntu)](dsvm-ubuntu-intro.md). Per altre informazioni su come creare una macchina virtuale data science CentOS, vedere [Effettuare il provisioning di una macchina virtuale data science CentOS in Azure](linux-dsvm-intro.md).
 * Per una procedura dettagliata che illustra come eseguire diverse attività comuni di data science con la macchina virtuale Linux, CentOS e Ubuntu, vedere [Data science in una macchina virtuale data science Linux](linux-dsvm-walkthrough.md).
 
+## <a name="next-steps"></a>Passaggi successivi
+[Guida di Azure per sviluppatori R](../r-developers-guide.md)

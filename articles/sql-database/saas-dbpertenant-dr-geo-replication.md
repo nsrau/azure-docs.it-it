@@ -1,21 +1,23 @@
 ---
 title: Ripristino di emergenza per app SaaS con la replica geografica del database SQL di Azure | Microsoft Docs
 description: Informazioni su come usare le repliche geografiche del database SQL di Azure per ripristinare un'app SaaS multi-tenant in caso di interruzione
-keywords: esercitazione database SQL
 services: sql-database
-author: AyoOlubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/09/2018
+author: AyoOlubeko
 ms.author: ayolubek
-ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/09/2018
+ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34645794"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056336"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Ripristino di emergenza per un'applicazione SaaS multi-tenant con la replica geografica del database
 
@@ -51,9 +53,9 @@ Un piano di ripristino di emergenza basato sulla replica geografica è costituit
 Tutte le parti devono essere considerate attentamente, in particolare se si opera su larga scala. Nel complesso, il piano deve soddisfare alcuni obiettivi:
 
 * Configurazione
-    * Stabilire e mantenere un ambiente con un'immagine speculare nell'area di ripristino. Per creare pool elastici ed eseguire la replica di qualsiasi database autonomo in questo ambiente di ripristino è necessario riservare capacità nell'area di ripristino. La manutenzione di questo ambiente include la replica dei nuovi database tenant quando ne viene effettuato il provisioning.  
+    * Stabilire e mantenere un ambiente con un'immagine speculare nell'area di ripristino. Per creare pool elastici ed eseguire la replica di qualsiasi database singolo in questo ambiente di ripristino è necessario riservare capacità nell'area di ripristino. La manutenzione di questo ambiente include la replica dei nuovi database tenant quando ne viene effettuato il provisioning.  
 * Ripristino
-    * Nei casi in cui viene usato un ambiente di ripristino ridotto per ridurre al minimo i costi quotidiani, è necessario aumentare la capacità di pool e database autonomi per consentire l'acquisizione della piena capacità operativa nell'area di ripristino.
+    * Nei casi in cui viene usato un ambiente di ripristino ridotto per ridurre al minimo i costi quotidiani, è necessario aumentare la capacità di pool e database singoli per consentire l'acquisizione della piena capacità operativa nell'area di ripristino.
     * Abilitare il provisioning dei nuovi tenant nell'area di ripristino non appena possibile.  
     * Ottimizzare l'ambiente per il ripristino dei tenant in ordine di priorità.
     * Ottimizzare l'ambiente per portare i tenant online il più velocemente possibile eseguendo i passaggi in parallelo, dove possibile.
@@ -158,7 +160,7 @@ Lo script di ripristino esegue le attività seguenti:
 
 1. Contrassegna tutti i tenant esistenti nel catalogo di ripristino come offline per impedire l'accesso ai database tenant prima del failover.
 
-1. Aggiorna la configurazione di tutti i pool elastici e i database autonomi replicati nell'area di ripristino in modo da eseguire il mirroring della configurazione nell'area originale. Questa attività è necessaria solo se i pool o i database replicati nell'ambiente di ripristino sono stati ridotti durante il normale funzionamento per ridurre i costi.
+1. Aggiorna la configurazione di tutti i pool elastici e i database singoli replicati nell'area di ripristino in modo da eseguire il mirroring della configurazione nell'area originale. Questa attività è necessaria solo se i pool o i database replicati nell'ambiente di ripristino sono stati ridotti durante il normale funzionamento per ridurre i costi.
 
 1. Abilita l'endpoint Gestione traffico per l'app Web nell'area di ripristino. L'abilitazione di questo endpoint consente all'applicazione di effettuare il provisioning di nuovi tenant. In questa fase, i tenant esistenti sono ancora offline.
 

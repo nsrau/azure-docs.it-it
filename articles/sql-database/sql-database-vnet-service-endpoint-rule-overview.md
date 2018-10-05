@@ -3,20 +3,21 @@ title: Endpoint del servizio e regole della rete virtuale per il database SQL di
 description: Contrassegnare una subnet come endpoint del servizio Rete virtuale. Contrassegnare quindi l'endpoint come regola della rete virtuale per ACL nel database SQL di Azure. Il database SQL accetta quindi la comunicazione da tutte le macchine virtuali e altri nodi nella subnet.
 services: sql-database
 ms.service: sql-database
-ms.prod_service: sql-database, sql-data-warehouse
-author: DhruvMsft
-manager: craigg
-ms.custom: VNet Service endpoints
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/28/2018
-ms.reviewer: carlrab
+author: DhruvMsft
 ms.author: dmalik
-ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.reviewer: vanto, genemi
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 90138664e5eab9110f51bbd3d3755dec0ed59ea8
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143811"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166810"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Usare gli endpoint del servizio Rete virtuale e le regole per il database SQL di Azure e SQL Data Warehouse
 
@@ -125,7 +126,7 @@ I ruoli di amministratore di rete e amministratore di database hanno più funzio
 
 Per il database SQL di Azure, la funzionalità delle regole della rete virtuale presenta le limitazioni seguenti:
 
-- Un'app Web può essere mappata a un indirizzo IP privato in una rete virtuale/subnet. Anche se gli endpoint di servizio sono attivati dalla rete virtuale/subnet specificata, le connessioni dall'app Web al server avranno come origine l'indirizzo IP pubblico di Azure, non la rete virtuale/subnet. Per abilitare la connettività da un'app Web a un server che dispone di regole del firewall della rete virtuale, è necessario **consentire tutti i servizi Azure** sul server.
+- Un'app Web può essere mappata a un indirizzo IP privato in una rete virtuale/subnet. Anche se gli endpoint di servizio sono attivati dalla rete virtuale/subnet specificata, le connessioni dall'app Web al server avranno come origine l'indirizzo IP pubblico di Azure, non la rete virtuale/subnet. Per abilitare la connettività da un'app Web a un server che dispone di regole del firewall della rete virtuale, è necessario selezionare **Consenti ai servizi di Azure di accedere al server** sul server.
 
 - Nel firewall per il database SQL ogni regola della rete virtuale fa riferimento a una subnet. Tutte queste subnet cui viene fatto riferimento devono essere ospitate nella stessa area geografica che ospita il database SQL.
 
@@ -157,23 +158,23 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-all-azure-services"></a>Impatto della rimozione di "Allow all Azure Services" (Consenti tutti i servizi di Azure)
+## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Impatto della rimozione di "Consenti ai servizi di Azure di accedere al server"
 
-Molti utenti vogliono rimuovere **Allow all Azure Services** (Consenti tutti i servizi di Azure) dai server SQL di Azure e sostituirlo con una regola del firewall della rete virtuale.
+Molti utenti vogliono rimuovere **Consenti ai servizi di Azure di accedere al server** dai server SQL di Azure e sostituirlo con una regola del firewall della rete virtuale.
 Questa rimozione tuttavia ha effetto sulle funzionalità del database SQL di Azure seguenti:
 
 #### <a name="import-export-service"></a>Servizio Importazione/Esportazione di Azure
-Il servizio Importazione/Esportazione del database SQL di Azure viene eseguito sulle VM in Azure. Queste VM non sono nella rete virtuale e quindi ottengono un IP di Azure quando si connettono al database. Rimuovendo **Allow all Azure Services** (Consenti tutti i servizi di Azure), queste VM non potranno accedere ai database.
+Il servizio Importazione/Esportazione del database SQL di Azure viene eseguito sulle VM in Azure. Queste VM non sono nella rete virtuale e quindi ottengono un IP di Azure quando si connettono al database. Rimuovendo **Consenti ai servizi di Azure di accedere al server**, queste macchine virtuali non potranno accedere ai database.
 È possibile applicare una soluzione alternativa per ovviare al problema. Eseguire l'importazione o l'esportazione BACPAC direttamente nel codice usando l'API DACFx. Assicurarsi che venga distribuita in una VM nella stessa subnet della rete virtuale per cui si è impostata la regola del firewall.
 
 #### <a name="sql-database-query-editor"></a>Editor di query del database SQL
-L'editor di query del database SQL di Azure viene distribuito nelle VM in Azure. Queste VM non sono nella rete virtuale. Le VM ottengono quindi un IP di Azure quando si connettono al database. Rimuovendo **Allow all Azure Services** (Consenti tutti i servizi di Azure), queste VM non potranno accedere ai database.
+L'editor di query del database SQL di Azure viene distribuito nelle VM in Azure. Queste VM non sono nella rete virtuale. Le VM ottengono quindi un IP di Azure quando si connettono al database. Rimuovendo **Consenti ai servizi di Azure di accedere al server**, queste macchine virtuali non potranno accedere ai database.
 
 #### <a name="table-auditing"></a>Controllo tabelle
 Al momento è possibile abilitare il controllo sul database SQL in due modi. Il controllo tabelle non riesce dopo avere abilitato gli endpoint di servizio nel server di Azure SQL. Per mitigare il problema, in questo caso passare al controllo BLOB.
 
 #### <a name="impact-on-data-sync"></a>Impatto sulla sincronizzazione dati
-SQLDB di Azure è dotato della funzionalità di sincronizzazione dei dati che si connette ai database dell'utente tramite gli indirizzi IP di Azure. Quando si usano gli endpoint del servizio, è probabile che si spenga l'accesso **Consenti tutti i servizi Azure** per il server logico. Questa operazione interromperà la funzionalità di sincronizzazione dei dati.
+SQLDB di Azure è dotato della funzionalità di sincronizzazione dei dati che si connette ai database dell'utente tramite gli indirizzi IP di Azure. Quando si usano gli endpoint del servizio, è probabile che si scelga di disattivare l'accesso **Consenti ai servizi di Azure di accedere al server** per il server logico. Questa operazione interromperà la funzionalità di sincronizzazione dei dati.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Impatto dell'uso degli endpoint di servizio di rete virtuale con Archiviazione di Azure
 
@@ -254,7 +255,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 ### <a name="azure-portal-steps"></a>Procedure del portale di Azure
 
-1. Accedere al [Portale di Azure][http-azure-portal-link-ref-477t].
+1. Accedere al [portale di Azure][http-azure-portal-link-ref-477t].
 
 2. Nel portale passare a **SQL Server** &gt; **Firewall/Reti virtuali (anteprima)**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: v-deasim
-ms.openlocfilehash: 98a7fc5c4607115811e17a7cf6acd4e867663833
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0baa43977099af9c6c0d9c2e4c03abc121ec279d
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261305"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47097007"
 ---
 # <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
 
@@ -117,8 +117,6 @@ Per usare Log Analytics per archiviare i log, seguire questa procedura:
 
 9. Selezionare **OK** per completare la configurazione.
 
-    ![portale - Log di diagnostica](./media/cdn-diagnostics-log/08_Workspace-resource.png)
-
 10. Dopo aver creato l'area di lavoro si ritorna alla pagina **Log di diagnostica**. Confermare il nome della nuova area di lavoro di Log Analytics.
 
     ![portale - Log di diagnostica](./media/cdn-diagnostics-log/09_Return-to-logging.png)
@@ -127,7 +125,7 @@ Per usare Log Analytics per archiviare i log, seguire questa procedura:
 
 12. Per visualizzare la nuova area di lavoro di Log Analytics, selezionare **Analisi principale** dalla pagina dell'endpoint della rete CDN.
 
-    ![portale - Log di diagnostica](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
+    ![portale - Log di diagnostica](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
     L'area di lavoro di Log Analytics è ora pronta per la registrazione dei dati. Per utilizzare i dati, è necessario usare una [soluzione Log Analytics](#consuming-diagnostics-logs-from-a-log-analytics-workspace), descritta più avanti in questo articolo.
 
@@ -168,17 +166,16 @@ Prima di poter accedere ai dati dell'analisi principale dell'account di archivia
 2.  Individuare l'account di archiviazione
 3.  Espandere il nodo **Contenitori BLOB** in questo account di archiviazione.
 4.  Selezionare il contenitore denominato *insights-logs-coreanalytics*.
-5.  I risultati vengono visualizzati nel riquadro di destra, a partire dal primo livello, come *"resourceId="*. Continuare selezionando ogni livello fino a quando non si trova il file *PT1H.json*. Vedere la nota seguente relativa al *formato del percorso BLOB* per una spiegazione del percorso.
+5.  I risultati vengono visualizzati nel riquadro di destra, a partire dal primo livello, come *"resourceId="*. Continuare selezionando ogni livello fino a quando non si trova il file *PT1H.json*. Per una spiegazione del percorso, vedere [Formato del percorso BLOB](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Il file *PT1H.json* di ogni BLOB rappresenta i log di analisi per un'ora per un endpoint della rete CDN specifico o per il relativo dominio personalizzato.
 7.  Lo schema del contenuto di questo file JSON è descritto nella sezione dello schema dei log dell'analisi principale.
 
 
-> [!NOTE]
-> **Formato del percorso BLOB**
-> 
-> I log dell'analisi principale vengono generati ogni ora e i dati vengono raccolti e archiviati all'interno di un singolo BLOB di Azure come payload JSON. Dato che lo strumento Storage Explorer interpreta '/' come separatore di directory e mostra la gerarchia, il percorso del BLOB di Azure viene visualizzato come se esistesse una struttura gerarchica e rappresenta il nome del BLOB. Il nome del BLOB segue la convenzione di denominazione seguente: 
-    
-    resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
+#### <a name="blob-path-format"></a>Formato del percorso BLOB
+
+I log dell'analisi principale vengono generati ogni ora e i dati vengono raccolti e archiviati all'interno di un singolo BLOB di Azure come payload JSON. Dato che lo strumento Storage Explorer interpreta '/' come separatore di directory e mostra la gerarchia, il percorso del BLOB di Azure viene visualizzato come se esistesse una struttura gerarchica e rappresenta il nome del BLOB. Il nome del BLOB segue la convenzione di denominazione seguente:   
+
+```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
 
 **Descrizione dei campi:**
 
@@ -318,33 +315,33 @@ La tabella seguente mostra un elenco di metriche disponibili nei log di analisi 
 
 |Metrica                     | DESCRIZIONE | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | Numero totale di riscontri della richiesta durante questo periodo. | Sì | Sì |Sì |
-| RequestCountHttpStatus2xx | Numero di tutte le richieste che hanno generato un codice HTTP 2xx (ad esempio 200, 202). | Sì | Sì |Sì |
-| RequestCountHttpStatus3xx | Numero di tutte le richieste che hanno generato un codice HTTP 3xx (ad esempio 300, 302). | Sì | Sì |Sì |
-| RequestCountHttpStatus4xx | Numero di tutte le richieste che hanno generato un codice HTTP 4xx (ad esempio 400, 404). | Sì | Sì |Sì |
-| RequestCountHttpStatus5xx | Numero di tutte le richieste che hanno generato un codice HTTP 5xx (ad esempio 500, 504). | Sì | Sì |Sì |
-| RequestCountHttpStatusOthers | Numero di tutti gli altri codici HTTP (non inclusi nell'intervallo 2xx-5xx). | Sì | Sì |Sì |
-| RequestCountHttpStatus200 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 200. | Sì | No   |Sì |
-| RequestCountHttpStatus206 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 206. | Sì | No   |Sì |
-| RequestCountHttpStatus302 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 302. | Sì | No   |Sì |
-| RequestCountHttpStatus304 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 304. | Sì | No   |Sì |
-| RequestCountHttpStatus404 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 404. | Sì | No   |Sì |
-| RequestCountCacheHit | Conteggio di tutte le richieste che hanno generato un riscontro nella cache. L'asset è stato servito direttamente dal POP al client. | Sì | Sì | No   |
-| RequestCountCacheMiss | Conteggio di tutte le richieste che hanno generato un mancato riscontro nella cache. Mancato riscontro nella cache significa che l'asset non è stato trovato nel POP più vicino al client e pertanto è stato recuperato dall'origine. | Sì | Sì | No  |
-| RequestCountCacheNoCache | Conteggio di tutte le richieste a un asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge. | Sì | Sì | No  |
-| RequestCountCacheUncacheable | Numero di tute le richieste su asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset che indicano che non deve essere eseguita la memorizzazione nella cache in un POP o da un client HTTP. | Sì | Sì | No  |
-| RequestCountCacheOthers | Conteggio di tutte le richieste con stato della cache non coperto dalle metriche precedenti. | No  | Sì | No   |
-| EgressTotal | Trasferimento di dati in uscita in GB | Sì |Sì |Sì |
-| EgressHttpStatus2xx | Trasferimento di dati in uscita* per risposte con codici di stato HTTP 2xx in GB. | Sì | Sì | No   |
-| EgressHttpStatus3xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 3xx in GB. | Sì | Sì | No   |
-| EgressHttpStatus4xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 4xx in GB. | Sì | Sì | No   |
-| EgressHttpStatus5xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 5xx in GB. | Sì | Sì | No  |
-| EgressHttpStatusOthers | Trasferimento di dati in uscita per risposte con altri codici di stato HTTP in GB. | Sì | Sì | No   |
-| EgressCacheHit | Trasferimento di dati in uscita per risposte recapitate direttamente dalla cache CDN su POP/Edge della rete CDN. | Sì | Sì | No  |
-| EgressCacheMiss. | Trasferimento di dati in uscita per risposte non trovate nel server POP più vicino e recuperate dal server di origine. | Sì | Sì | No  |
-| EgressCacheNoCache | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge. | Sì | Sì | No  |
-| EgressCacheUncacheable | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset. Indica che non deve essere memorizzato nella cache in un POP o da un client HTTP. | Sì | Sì | No  |
-| EgressCacheOthers | Trasferimento di dati in uscita per altri scenari di cache. | No  | Sì | No  |
+| RequestCountTotal         | Numero totale di riscontri della richiesta durante questo periodo. | Yes | Yes |Yes |
+| RequestCountHttpStatus2xx | Numero di tutte le richieste che hanno generato un codice HTTP 2xx (ad esempio 200, 202). | Yes | Yes |Yes |
+| RequestCountHttpStatus3xx | Numero di tutte le richieste che hanno generato un codice HTTP 3xx (ad esempio 300, 302). | Yes | Yes |Yes |
+| RequestCountHttpStatus4xx | Numero di tutte le richieste che hanno generato un codice HTTP 4xx (ad esempio 400, 404). | Yes | Yes |Yes |
+| RequestCountHttpStatus5xx | Numero di tutte le richieste che hanno generato un codice HTTP 5xx (ad esempio 500, 504). | Yes | Yes |Yes |
+| RequestCountHttpStatusOthers | Numero di tutti gli altri codici HTTP (non inclusi nell'intervallo 2xx-5xx). | Yes | Yes |Yes |
+| RequestCountHttpStatus200 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 200. | Yes | No   |Yes |
+| RequestCountHttpStatus206 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 206. | Yes | No   |Yes |
+| RequestCountHttpStatus302 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 302. | Yes | No   |Yes |
+| RequestCountHttpStatus304 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 304. | Yes | No   |Yes |
+| RequestCountHttpStatus404 | Numero di tutte le richieste che hanno generato una risposta di codice HTTP 404. | Yes | No   |Yes |
+| RequestCountCacheHit | Conteggio di tutte le richieste che hanno generato un riscontro nella cache. L'asset è stato servito direttamente dal POP al client. | Yes | Yes | No   |
+| RequestCountCacheMiss | Conteggio di tutte le richieste che hanno generato un mancato riscontro nella cache. Mancato riscontro nella cache significa che l'asset non è stato trovato nel POP più vicino al client e pertanto è stato recuperato dall'origine. | Yes | Yes | No  |
+| RequestCountCacheNoCache | Conteggio di tutte le richieste a un asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge. | Yes | Yes | No  |
+| RequestCountCacheUncacheable | Numero di tute le richieste su asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset che indicano che non deve essere eseguita la memorizzazione nella cache in un POP o da un client HTTP. | Yes | Yes | No  |
+| RequestCountCacheOthers | Conteggio di tutte le richieste con stato della cache non coperto dalle metriche precedenti. | No  | Yes | No   |
+| EgressTotal | Trasferimento di dati in uscita in GB | Yes |Yes |Yes |
+| EgressHttpStatus2xx | Trasferimento di dati in uscita* per risposte con codici di stato HTTP 2xx in GB. | Yes | Yes | No   |
+| EgressHttpStatus3xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 3xx in GB. | Yes | Yes | No   |
+| EgressHttpStatus4xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 4xx in GB. | Yes | Yes | No   |
+| EgressHttpStatus5xx | Trasferimento di dati in uscita per risposte con codici di stato HTTP 5xx in GB. | Yes | Yes | No  |
+| EgressHttpStatusOthers | Trasferimento di dati in uscita per risposte con altri codici di stato HTTP in GB. | Yes | Yes | No   |
+| EgressCacheHit | Trasferimento di dati in uscita per risposte recapitate direttamente dalla cache CDN su POP/Edge della rete CDN. | Yes | Yes | No  |
+| EgressCacheMiss. | Trasferimento di dati in uscita per risposte non trovate nel server POP più vicino e recuperate dal server di origine. | Yes | Yes | No  |
+| EgressCacheNoCache | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache a causa di una configurazione dell'utente sull'edge. | Yes | Yes | No  |
+| EgressCacheUncacheable | Trasferimento di dati in uscita per asset a cui è stata impedita la memorizzazione nella cache dalle intestazioni Cache-Control ed Expires dell'asset. Indica che non deve essere memorizzato nella cache in un POP o da un client HTTP. | Yes | Yes | No  |
+| EgressCacheOthers | Trasferimento di dati in uscita per altri scenari di cache. | No  | Yes | No  |
 
 *Il trasferimento di dati in uscita si riferisce al traffico recapitato da server POP della rete CDN al client.
 

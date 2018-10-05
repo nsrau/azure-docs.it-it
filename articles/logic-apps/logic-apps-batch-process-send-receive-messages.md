@@ -3,19 +3,18 @@ title: Elaborare in batch i messaggi come gruppo o raccolta - App per la logica 
 description: Inviare e ricevere messaggi in batch nelle App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-manager: jeconnoc
+ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.reviewer: estfan, LADocs
-ms.suite: integration
-ms.openlocfilehash: 5190e5d4191cb4d07b000920dd1be1b53e679350
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143652"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410154"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Inviare, ricevere ed elaborare in batch i messaggi nelle app per la logica di Azure
 
@@ -61,7 +60,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
    |----------|-------------|
    | **Modalità batch** | - **Inline**: per la definizione di criteri di rilascio all'interno del trigger batch <br>- **Account di integrazione**: per la definizione di più configurazioni di criteri di rilascio tramite un'[account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Con un account di integrazione, è possibile gestire queste configurazioni in un'unica posizione invece che nell'App per la logica separata. | 
    | **Nome batch** | Il nome per il batch, che è "TestBatch" in questo esempio, si applica solo al **Inline** modalità batch |  
-   | **Criteri di rilascio** | Si applica solo al **Inline** modalità batch e specifica i criteri da soddisfare prima di elaborare ogni batch: <p>- **Il numero di base del messaggio**: il numero di messaggi da raccogliere nel batch, ad esempio, 10 messaggi <br>- **Basato sulle dimensioni**: le dimensioni massime dei batch in byte, ad esempio, 100 MB <br>- **Basato sulla programmazione**: intervallo e frequenza tra i rilasci di batch, ad esempio, 10 minuti. È anche possibile specificare una data e un'ora di inizio. <br>- **Seleziona tutto**: usare tutti i criteri specificati. | 
+   | **Criteri di rilascio** | Si applica solo alla modalità batch **Inline** e seleziona i criteri da soddisfare prima di elaborare ogni batch: <p>- **Il numero di base del messaggio**: il numero di messaggi da raccogliere nel batch, ad esempio, 10 messaggi <br>- **Basato sulle dimensioni**: le dimensioni massime dei batch in byte, ad esempio, 100 MB <br>- **Basato sulla programmazione**: intervallo e frequenza tra i rilasci di batch, ad esempio, 10 minuti. La ricorrenza minima è di 60 secondi o 1 minuto. I valori frazionari di minuto vengono arrotondati in eccesso a 1 minuto. Per specificare una data e un'ora di inizio, scegliere **Mostra opzioni avanzate**. <br>- **Seleziona tutto**: usare tutti i criteri specificati. | 
    ||| 
    
    Questo esempio seleziona tutti i criteri:
@@ -108,9 +107,7 @@ Prima di poter inviare messaggi a un batch, il batch deve esistere come destinaz
 
    * Nella casella **Corpo**, quando viene visualizzato l'elenco contenuto dinamico, selezionare il campo **ID messaggio**. 
 
-     La finestra di progettazione dell’app per la logica aggiunge automaticamente un ciclo “For each” per l'azione di invio di un messaggio di posta elettronica, perché l’azione accetta una matrice come input. 
-     Questo ciclo invia un messaggio di posta elettronica per ogni messaggio nel batch. 
-     Pertanto, quando il trigger batch è impostato su 10 messaggi, si ottengono 10 messaggi di posta elettronica ogni volta che il trigger viene attivato.
+     Progettazione app per la logica aggiunge automaticamente un ciclo "For each" intorno all'azione di invio di posta elettronica. Questa azione, infatti, tratta l'output dell'azione precedente come raccolta, anziché come batch. 
 
      ![Per la casella "Body" selezionare "ID messaggio"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
 
@@ -217,6 +214,7 @@ L'app per la logica mittente del batch viene eseguita ogni minuto, genera un num
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Elaborare in batch e inviare messaggi EDI](../logic-apps/logic-apps-scenario-edi-send-batch-messages.md)
 * [Build on logic app definitions by using JSON](../logic-apps/logic-apps-author-definitions.md) (Compilare definizioni di app per la logica on JSON)
 * [Compilare un'app senza server in Visual Studio con App per la logica e Funzioni](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Gestione delle eccezioni e registrazione degli errori per le app per la logica](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

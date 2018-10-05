@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 79f507c342f5a13c4d3784cf312f0bf8aeffa3e3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26fcc3eb78af53360cca57382b4c06b017f36c0e
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957254"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063269"
 ---
-## <a name="what-is-azure-monitor-for-vms"></a>Descrizione di Monitoraggio di Azure per le macchine virtuali
+# <a name="what-is-azure-monitor-for-vms"></a>Descrizione di Monitoraggio di Azure per le macchine virtuali
 
 Monitoraggio di Azure per le macchine virtuali monitora le macchine virtuali di Azure su larga scala analizzando le prestazioni e l'integrità delle macchine virtuali Windows e Linux, inclusi i relativi processi e le dipendenze interconnesse ad altre risorse e processi esterni. La soluzione include il supporto per il monitoraggio delle prestazioni e delle dipendenze dell'applicazione per le macchine virtuali ospitate in locale o in un altro provider di servizi cloud.  Include tre funzionalità principali per fornire queste informazioni dettagliate:
 
@@ -57,4 +57,4 @@ Non appena si carica Monitoraggio di Azure per le macchine virtuali, i dati racc
 Le dimensioni del log variano in base alle lunghezze delle stringhe dei contatori e possono aumentare con il numero di dischi logici e schede di rete.  Se è già disponibile un'area di lavoro ed è in corso la raccolta di questi contatori, non verranno applicati addebiti doppi.  Se si utiizza già Mapping dei servizi, l'unico cambiamente sarano i dati di connessione aggiuntivi inviati a Monitoraggio di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Caricare Monitoraggio di Azure per le macchine virtuali](monitoring-vminsights-onboard.md) per iniziare a monitorare le macchine virtuali di Azure.
+Vedere [Eseguire l'onboarding di Monitoraggio di Azure per le macchine virtuali](monitoring-vminsights-onboard.md) per informazioni sui requisiti e i metodi per abilitare il monitoraggio delle macchine virtuali.

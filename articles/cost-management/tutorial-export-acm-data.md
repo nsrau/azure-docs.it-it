@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/13/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b1c7323dc108f5ee7a8bf6075abfe2a3e2fb9810
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0765e79b90eed49742f5eead33063907eb1db1f4
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953141"
+ms.locfileid: "47030847"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -31,8 +31,15 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Account Azure con contratto Enterprise
-- Account di archiviazione di Azure configurato per l'archiviazione BLOB o file
+L'esportazione dati è disponibile per tutti i clienti con [contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Sono supportate le autorizzazioni di Azure seguenti per ogni sottoscrizione per l'esportazione dati per utente e gruppo:
+
+- Proprietario: può creare, modificare o eliminare esportazioni pianificate per una sottoscrizione.
+- Collaboratore: può creare, modificare o eliminare le proprie esportazioni pianificate. Può modificare il nome delle esportazioni pianificate create da altri.
+- Lettore: può pianificare le esportazioni per cui ha le autorizzazioni.
+
+Per gli account di archiviazione di Azure:
+- Sono necessarie autorizzazioni in scrittura per modificare l'account di archiviazione configurato, indipendentemente dalle autorizzazioni per l'esportazione.
+- L'account di archiviazione di Azure deve essere configurato per l'archiviazione BLOB o file.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).

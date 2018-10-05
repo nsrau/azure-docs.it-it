@@ -2,19 +2,22 @@
 title: Gestione dello spazio file del database SQL di Azure| Microsoft Docs
 description: Questa pagina descrive come gestire lo spazio file con il database SQL di Azure e fornisce esempi di codice per determinare se è necessario compattare un database e come eseguire un'operazione di compattazione del database.
 services: sql-database
-author: oslake
-manager: craigg
 ms.service: sql-database
-ms.custom: how-to
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/08/2018
+author: oslake
 ms.author: moslake
-ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003859"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159942"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gestire lo spazio file nel database SQL di Azure
 Questo articolo descrive i diversi tipi di spazio di archiviazione nel database SQL di Azure e le operazioni che è possibile eseguire quando lo spazio file allocato per i database e i pool elastici deve essere gestito esplicitamente.
@@ -27,7 +30,7 @@ Nel database SQL di Azure, la maggior parte delle metriche per lo spazio di arch
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate.  Questo problema si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati.  Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.  In questi scenari lo spazio allocato per un database o un pool potrebbe superare i limiti supportati e potrebbe impedire la crescita dei dati o le modifiche ai livelli di prestazioni e richiedere quindi la compattazione dei file di dati per l'attenuazione.
+Sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate.  Questo problema si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati.  Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.  In questi scenari lo spazio allocato per un database o un pool potrebbe superare i limiti supportati e potrebbe impedire la crescita dei dati o le modifiche al livello di servizio e alla dimensione di calcolo e richiedere quindi la compattazione dei file di dati per l'attenuazione.
 
 Il servizio database SQL non compatta automaticamente i file di dati per recuperare spazio allocato non usato a causa del potenziale impatto sulle prestazioni dei database.  I clienti possono tuttavia compattare i file di dati in modalità self-service quando preferiscono, seguendo la procedura illustrata in [Recuperare lo spazio allocato non usato](#reclaim-unused-allocated-space). 
 
@@ -122,6 +125,8 @@ Modificare lo script di PowerShell seguente per restituire una tabella che elenc
 
 I risultati delle query per determinare lo spazio allocato per ogni database nel pool possono essere sommati per determinare lo spazio totale allocato per il pool elastico. Lo spazio allocato del pool elastico non deve superare le dimensioni massime del pool elastico.  
 
+Lo script di PowerShell richiede il modulo SQL Server PowerShell. Vedere [Scaricare il modulo PowerShell](https://docs.microsoft.com/sql/powershell/download-sql-server-ps-module?view=sql-server-2017) per l'installazione.
+
 ```powershell
 # Resource group name
 $resourceGroupName = "rg1" 
@@ -143,7 +148,7 @@ $databaseStorageMetrics = @()
 
 # For each database in the elastic pool,
 # get its space allocated in MB and space allocated unused in MB.
-# Requires SQL Server PowerShell module – see here to install.  
+  
 foreach ($database in $databasesInPool)
 {
     $sqlCommand = "SELECT DB_NAME() as DatabaseName, `

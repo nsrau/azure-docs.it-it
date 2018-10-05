@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 7cd19945e316ebc5462642006255103b4631ce29
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 3a4e45aa2c1aca461ef32ebec2cfb50a470037ed
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39361390"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060997"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>Quanti endpoint client VPN è possibile includere nella configurazione da punto sito?
 
@@ -30,8 +30,7 @@ Sono supportati i sistemi operativi client seguenti:
 * Windows Server 2012 R2 (solo a 64 bit)
 * Windows Server 2016 (solo a 64 bit)
 * Windows 10
-* Mac OS X versione 10.11 (El Capitan)
-* Mac OS X versione 10.12 (Sierra)
+* Mac OS X versione 10.11 o successiva
 * Linux (StrongSwan)
 * iOS
 

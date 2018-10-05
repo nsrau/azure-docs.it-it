@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7802aa8ea9798b18d5424c2342ba63c01406b25a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972384"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221707"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
 
@@ -426,19 +426,19 @@ La sezione finale di questa guida fornisce un elenco di modelli di soluzioni PdM
 
 ## <a name="training-resources-for-predictive-maintenance"></a>Risorse di formazione per la manutenzione predittiva
 
-Il [percorso di apprendimento di AI Azure per la manutenzione predittiva](https://github.com/Azure/AI-PredictiveMaintenance/blob/master/docs/azure-ai-learning-path-for-predictive-maintenance.md) fornisce materiale di formazione per una migliore comprensione dei concetti e dei calcoli matematici dietro gli algoritmi e le tecniche usati nei problemi PdM. 
-
-Microsoft Azure offre risorse di formazione e contenuti gratuiti sui concetti e le procedure relativi all'intelligenza artificiale.
+Microsoft Azure offre percorsi di apprendimento per i concetti fondamentali alla base delle tecniche PdM, oltre a contenuto e formazione per concetti e procedure consigliati per l'intelligenza artificiale in generale.
 
 | Risorsa di formazione  | Disponibilità |
 |:-------------------|--------------|
+| [Percorso di apprendimento per PdM tramite alberi e foresta casuale](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Pubblico | 
+| [Percorso di apprendimento per PdM tramite apprendimento avanzato](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Pubblico |
 | [Sviluppatore per intelligenza artificiale in Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Pubblico |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Pubblico |
 | [Formazione su Azure AI da GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Pubblico |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Pubblico |
 | [Webinar YouTube sull'intelligenza artificiale Microsoft](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Pubblico |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Pubblico |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Per i partner Microsoft |
-| [Microsoft Partner Network](http://learningportal.microsoft.com) | Per i partner Microsoft |
+| [LearnAI@MS](http://learnanalytics.microsoft.com) | Partner |
+| [Microsoft Partner Network](http://learningportal.microsoft.com) | Partner |
 
 Sono inoltre disponibili corsi aperti online su larga scala (MOOC) sull'intelligenza artificiale offerti da istituzioni come Stanford, il MIT e altri istituti didattici.

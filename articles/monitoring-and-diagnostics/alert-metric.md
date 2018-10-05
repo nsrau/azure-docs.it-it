@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 479fd902ef68bf24306bcd699da0be08415592a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ac31818a68aa2b4624410b423b7559b84275777
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956990"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409372"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure
 
@@ -20,7 +20,7 @@ Gli avvisi delle metriche in Monitoraggio di Azure consentono di ricevere una no
 
 Altre informazioni sul funzionamento degli avvisi delle metriche sono disponibili nella [panoramica degli avvisi delle metriche](alert-metric-overview.md).
 
-## <a name="create-a-metric-alert-rule-using-azure-portal"></a>Creare una regola di avviso per la metrica tramite il portale di Azure
+## <a name="create-with-azure-portal"></a>Creare con il portale di Azure
 
 La procedura seguente descrive come creare una regola di avviso per la metrica nel portale di Azure:
 
@@ -58,7 +58,7 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
 > [!NOTE]
 > Le regole di avviso per le metriche create mediante il portale vengono generate nello stesso gruppo di risorse della risorsa di destinazione.
 
-## <a name="view-and-manage-metric-alert-rules-using-azure-portal"></a>Visualizzare e gestire le regole di avviso delle metriche tramite il portale di Azure
+## <a name="view-and-manage-with-azure-portal"></a>Visualizzare e gestire con il portale di Azure
 
 È possibile visualizzare e gestire le regole di avviso per le metriche tramite il pannello Gestisci le regole in Avvisi. La procedura riportata di seguito spiega come visualizzare le regole di avviso per le metriche e modificare una di esse.
 
@@ -80,7 +80,7 @@ La procedura seguente descrive come creare una regola di avviso per la metrica n
 
 6. Fare clic su **Fine** per salvare le modifiche.
 
-## <a name="create-view-and-manage-metric-alert-rules-using-azure-cli"></a>Creare, visualizzare e gestire le regole di avviso per le metriche tramite l'interfaccia della riga di comando di Azure
+## <a name="with-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
 Le sezioni precedenti descrivono come creare, visualizzare e gestire le regole di avviso per le metriche tramite il portale di Azure. Questa sezione descrive come eseguire la stessa operazione usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) multipiattaforma. [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest) è il metodo più rapido per iniziare a usare l'interfaccia della riga di comando di Azure. In questo articolo si userà Cloud Shell.
 

@@ -1,5 +1,5 @@
 ---
-title: Servizi cognitivi di Azure - Speech SDK su Servizi cognitivi - Esercitazioni e informazioni di riferimento sulle API
+title: Servizi cognitivi di Azure, Documentazione di API Speech SDK su Servizi cognitivi - Esercitazioni e riferimento sulle API
 description: Di seguito viene descritto come creare e sviluppare le app con Speech SDK di Servizi cognitivi
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: df6224208e93f4a332247440933b3a4d11c1bb43
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 4bfede8df88c64e795e33620650efb579f43ebba
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283032"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404309"
 ---
-# <a name="shipping-an-application"></a>Esecuzione dello shipping di un’applicazione
+# <a name="ship-an-application"></a>Spedire un'applicazione
 
-Osservare la [licenza Speech SDK](license.md), nonché gli [avvisi software di terze parti](third-party-notices.md) quando si distribuisce Speech SDK di Servizi cognitivi. Leggere inoltre l'[Informativa sulla privacy di Microsoft](https://aka.ms/csspeech/privacy).
+Osservare la [licenza Speech SDK](https://aka.ms/csspeech/license201809), nonché gli [avvisi software di terze parti](https://csspeechstorage.blob.core.windows.net/drop/1.0.0/ThirdPartyNotices.html) durante la distribuzione di Speech SDK su servizi cognitivi. Leggere inoltre l'[Informativa sulla privacy di Microsoft](https://aka.ms/csspeech/privacy).
 
 A seconda della piattaforma, esistono diverse dipendenze per eseguire l'applicazione.
 
@@ -31,7 +31,7 @@ Speech SDK di Servizi cognitivi richiede il [Microsoft Visual C++ Redistributabl
 - [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
 
-Se l'applicazione utilizza codice gestito, è necessario `.Net Framework 4.6.1` o successivo sul computer di destinazione.
+Se l'applicazione utilizza codice gestito, è necessario `.NET Framework 4.6.1` o successivo sul computer di destinazione.
 
 Per l'input del microfono, è necessario installare le raccolte Media Foundation. Queste raccolte sono parte di Windows 10 e Windows Server 2016. È possibile utilizzare Speech SDK senza queste raccolte finché non viene utilizzato il microfono come dispositivo di input audio.
 
@@ -40,8 +40,8 @@ I file Speech SDK richiesti possono essere distribuiti nella stessa directory de
 | NOME | Funzione
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK di base, necessario per la distribuzione nativa e gestita
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | obbligatorio per le distribuzioni gestite
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | obbligatorio per le distribuzioni gestite
+| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Obbligatorio per le distribuzioni gestite
+| `Microsoft.CognitiveServices.Speech.csharp.dll` | Obbligatorio per le distribuzioni gestite
 
 ## <a name="linux"></a>Linux
 

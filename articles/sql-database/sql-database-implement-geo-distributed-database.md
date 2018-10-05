@@ -2,19 +2,22 @@
 title: Implementare una soluzione di database SQL di Azure con distribuzione geografica | Microsoft Docs
 description: Informazioni su come configurare il database SQL di Azure e l'applicazione per il failover in un database replicato e su come testare il failover.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,business continuity
-ms.topic: tutorial
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: fbd239c3c8c11b1907a6d28eb95d2c0ad26cfe61
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: anosov1960
+ms.author: sashan
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/07/2018
+ms.openlocfilehash: 65cf954f5d91176715181620671f620264069bdc
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416620"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166263"
 ---
 # <a name="implement-a-geo-distributed-database"></a>Implementare un database con distribuzione geografica
 
@@ -30,7 +33,7 @@ In questa esercitazione vengono configurati un database SQL di Azure e l'applica
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
@@ -38,8 +41,8 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 - Installazione di un database SQL di Azure. Questa esercitazione usa il database di esempio AdventureWorksLT con il nome **mySampleDatabase** da una di queste guide introduttive:
 
    - [Creare un database: portale](sql-database-get-started-portal.md)
-   - [Creare un database: interfaccia della riga di comando](sql-database-get-started-cli.md)
-   - [Creare un database: PowerShell](sql-database-get-started-powershell.md)
+   - [Creare un database: interfaccia della riga di comando](sql-database-cli-samples.md)
+   - [Creare un database: PowerShell](sql-database-powershell-samples.md)
 
 - Individuazione di un metodo per eseguire script SQL sul database. È possibile usare uno degli strumenti di query seguenti:
    - Editor di query nel [portale di Azure](https://portal.azure.com). Per altre informazioni sull'uso dell'editor di query nel portale di Azure, vedere la sezione su come [connettersi ed eseguire query con l'editor di query](sql-database-get-started-portal.md#query-the-sql-database).
@@ -54,7 +57,7 @@ Connettersi al database e creare account utente usando uno degli strumenti di qu
 - SQL Server Management Studio
 - Visual Studio Code
 
-Questi account utente vengono replicati automaticamente nel server secondario e vengono mantenuti sincronizzati. Per usare SQL Server Management Studio o Visual Studio Code potrebbe essere necessario configurare una regola del firewall, in caso di connessione da un client con un indirizzo IP per il quale non si è ancora configurato un firewall. Per la procedura dettagliata, vedere [Creare una regola del firewall a livello di server](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).
+Questi account utente vengono replicati automaticamente nel server secondario e vengono mantenuti sincronizzati. Per usare SQL Server Management Studio o Visual Studio Code potrebbe essere necessario configurare una regola del firewall, in caso di connessione da un client con un indirizzo IP per il quale non si è ancora configurato un firewall. Per la procedura dettagliata, vedere [Creare una regola del firewall a livello di server](sql-database-get-started-portal-firewall.md).
 
 - In una finestra di query eseguire questa query per creare due account utente nel database. Questo script concede autorizzazioni **db_owner** all'account **app_admin** e autorizzazioni **SELECT** e **UPDATE** all'account **app_user**. 
 
@@ -70,7 +73,7 @@ Questi account utente vengono replicati automaticamente nel server secondario e 
 
 ## <a name="create-database-level-firewall"></a>Creare il firewall a livello di database
 
-Creare una [regola del firewall a livello di database](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) per il database SQL. Questa regola del firewall a livello di database viene replicata automaticamente nel server secondario creato in questa esercitazione. Per semplicità, in questa esercitazione usare l'indirizzo IP pubblico del computer in cui si eseguono i passaggi dell'esercitazione. Per determinare l'indirizzo IP usato per la regola del firewall a livello di server per il computer corrente, vedere [Creare una regola del firewall a livello di server](sql-database-get-started-portal.md#create-a-server-level-firewall-rule).  
+Creare una [regola del firewall a livello di database](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) per il database SQL. Questa regola del firewall a livello di database viene replicata automaticamente nel server secondario creato in questa esercitazione. Per semplicità, in questa esercitazione usare l'indirizzo IP pubblico del computer in cui si eseguono i passaggi dell'esercitazione. Per determinare l'indirizzo IP usato per la regola del firewall a livello di server per il computer corrente, vedere [Creare una regola del firewall a livello di server](sql-database-get-started-portal-firewall.md).  
 
 - Nella finestra di query aperta sostituire la query precedente con la query seguente, sostituendo gli indirizzi IP con gli indirizzi IP appropriati per l'ambiente in uso.  
 
@@ -390,8 +393,8 @@ In questa esercitazione è stato illustrato come configurare un database SQL di 
 > * Creare e compilare un'applicazione Java per eseguire query su un database SQL di Azure
 > * Eseguire un'esercitazione sul ripristino di emergenza
 
-Passare all'esercitazione successiva per apprendere come creare un'istanza gestita.
+Passare all'esercitazione successiva per eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure con Servizio Migrazione del database.
 
 > [!div class="nextstepaction"]
->[Creare un'istanza gestita](sql-database-managed-instance-create-tutorial-portal.md)
+>[Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure con Servizio Migrazione del database di Azure](../dms/tutorial-sql-server-to-managed-instance.md)
 

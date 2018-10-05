@@ -3,21 +3,22 @@ title: Continuità aziendale cloud - Ripristino del database - Database SQL | Do
 description: Informazioni su come il database SQL di Azure supporta la continuità aziendale cloud e il ripristino del database e consente di mantenere le applicazioni cloud cruciali in esecuzione.
 keywords: continuità aziendale, continuità aziendale cloud, ripristino di emergenza del database, ripristino del database
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.workload: On Demand
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444149"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221148"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Panoramica della continuità aziendale del database SQL di Azure
 
@@ -59,11 +60,11 @@ La tabella seguente mette a confronto i valori ERT e RPO per ogni livello di ser
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperare un database nel server esistente
 
-Il database SQL esegue automaticamente una combinazione di backup completi su base settimanale, backup differenziali del database di backup ogni ora e backup dei log delle transazioni ogni 5-10 minuti per proteggere l'azienda dalla perdita di dati. I backup vengono archiviati in archiviazione RA-GRS per 35 giorni per tutti i livelli di servizio, ad eccezione dei livelli di servizio Basic DTU, in cui i backup sono archiviati per 7 giorni. Per altre informazioni, vedere [backup automatici del database SQL](sql-database-automated-backups.md). È possibile ripristinare i backup automatizzati di un modulo di database esistente a un punto specifico nel tempo come un nuovo database nello stesso server logico tramite il portale di Azure, PowerShell o l'API REST. Per altre informazioni vedere l'articolo relativo al [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
+Il database SQL esegue automaticamente una combinazione di backup completi del database su base settimanale, backup differenziali del database (in genere ogni 12 ore) e backup dei log delle transazioni ogni 5-10 minuti per proteggere l'azienda dalla perdita di dati. I backup vengono archiviati in archiviazione RA-GRS per 35 giorni per tutti i livelli di servizio, ad eccezione dei livelli di servizio Basic DTU, in cui i backup sono archiviati per 7 giorni. Per altre informazioni, vedere [backup automatici del database SQL](sql-database-automated-backups.md). È possibile ripristinare i backup automatizzati di un modulo di database esistente a un punto specifico nel tempo come un nuovo database nello stesso server logico tramite il portale di Azure, PowerShell o l'API REST. Per altre informazioni vedere l'articolo relativo al [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Se il periodo di conservazione massimo point-in-time restore supportato del ripristino temporizzato non è sufficiente per l'applicazione, è possibile estenderlo configurando i criteri di conservazione a lungo termine per il database. Per altre informazioni, vedere [Conservazione dei backup a lungo termine](sql-database-long-term-retention.md).
 
-È possibile usare questi backup automatici del database per ripristinare un database da una serie di eventi di arresto improvviso, sia all'interno del proprio data center sia verso un altro data center. Il tempo stimato per il ripristino tramite backup automatici del database dipende da diversi fattori, tra cui il numero totale di database in fase di ripristino nella stessa area contemporaneamente, le dimensioni del database, le dimensioni del log delle transazioni e la larghezza di banda della rete. Il tempo di recupero di solito è inferiore a 12 ore. Potrebbe essere necessario più tempo per ripristinare un database attivo o di dimensioni molto estese. Per altre informazioni sui tempi di ripristino, vedere il [tempo di ripristino dei database](sql-database-recovery-using-backups.md#recovery-time). Durante il ripristino verso un'altra area dati, la potenziale perdita di dati è limitata a 1 ora per l'archiviazione con ridondanza geografica dei backup differenziali del database che si verificano ogni ora.
+È possibile usare questi backup automatici del database per ripristinare un database da una serie di eventi di arresto improvviso, sia all'interno del proprio data center sia verso un altro data center. Il tempo stimato per il ripristino tramite backup automatici del database dipende da diversi fattori, tra cui il numero totale di database in fase di ripristino nella stessa area contemporaneamente, le dimensioni del database, le dimensioni del log delle transazioni e la larghezza di banda della rete. Il tempo di recupero di solito è inferiore a 12 ore. Potrebbe essere necessario più tempo per ripristinare un database attivo o di dimensioni molto estese. Per altre informazioni sui tempi di ripristino, vedere il [tempo di ripristino dei database](sql-database-recovery-using-backups.md#recovery-time). Durante il ripristino in un'altra area dati, la potenziale perdita di dati è limitata a 1 ora tramite l'uso dei backup con ridondanza geografica.
 
 Usare i backup automatici e il [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore) come meccanismo di continuità aziendale e ripristino se l'applicazione:
 
@@ -122,12 +123,10 @@ Se si usa la replica geografica attiva e i gruppi con failover automatico come m
 > 
 
 ### <a name="perform-a-geo-restore"></a>Eseguire un ripristino geografico
-Se si usano backup automatici con la replica dell'archiviazione con ridondanza geografica come meccanismo di ripristino, [avviare il ripristino del database tramite ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore). In genere il ripristino avviene entro 12 ore, con perdita di dati fino a 1 ora dall'ultima acquisizione e replica del backup differenziale orario. Fino a quando non viene completato il ripristino, il database non è in grado di registrare tutte le transazioni o rispondere a tutte le query. Quando si ripristina un database all'ultimo punto disponibile il ripristino geo-secondario in qualsiasi punto nel tempo non è attualmente supportato.
+Se si usano i backup automatici con l'archiviazione con ridondanza geografica (abilitata per impostazione predefinita), è possibile ripristinare il database tramite il [ripristino geografico](sql-database-disaster-recovery.md#recover-using-geo-restore). In genere il ripristino avviene entro 12 ore, con una perdita di dati fino a 1 ora, a seconda dell'ultima acquisizione e replica del backup del log. Fino a quando non viene completato il ripristino, il database non è in grado di registrare tutte le transazioni o rispondere a tutte le query. Si noti che il ripristino geografico consente solo di ripristinare il database al punto di ripristino più recente disponibile.
 
 > [!NOTE]
 > Se il data center ritorna online prima che l'applicazione venga spostata sul database ripristinato, è possibile annullare il ripristino.  
->
->
 
 ### <a name="perform-post-failover--recovery-tasks"></a>Eseguire attività successive al filover/ripristino
 Dopo il ripristino da un meccanismo di ripristino, è necessario eseguire le seguenti attività aggiuntive prima che utenti e applicazioni siano nuovamente attivi e in esecuzione:

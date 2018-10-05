@@ -2,19 +2,22 @@
 title: Database SQL di Azure - Leggere le query nelle repliche | Microsoft Docs
 description: Il database SQL di Azure consente di bilanciare il carico dei carichi di lavoro di sola lettura usando la funzionalità delle repliche di sola lettura, chiamata scalabilità in lettura.
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: scale-out
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 8/27/2018
+author: anosov1960
 ms.author: sashan
-ms.openlocfilehash: c0fa4a9868aa19032888aa50a0d300dd2e88fcca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: d82f4e03176911804702db2ea18a5bc9a95583a3
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124818"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158703"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)
 
@@ -26,7 +29,7 @@ Di ogni database nel livello Premium ([modello di acquisto basato su DTU](sql-da
 
 ![Repliche di sola lettura](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-Il provisioning di queste repliche viene effettuato con lo stesso livello di prestazioni della replica di lettura/scrittura usata dalle normali connessioni di database. La funzionalità di **scalabilità in lettura** consente di bilanciare il carico dei carichi di lavoro di sola lettura del database SQL usando la capacità di una delle repliche di sola lettura invece di condividere la replica di lettura/scrittura. In questo modo i carichi di lavoro di sola lettura verranno isolati dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. La funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati in modo logico, ad esempio dati di analisi, che quindi potrebbero ottenere vantaggi di prestazioni usando tale capacità senza costi aggiuntivi.
+Il provisioning di queste repliche viene effettuato con la stessa dimensione di calcolo della replica di lettura/scrittura usata dalle normali connessioni di database. La funzionalità di **scalabilità in lettura** consente di bilanciare il carico dei carichi di lavoro di sola lettura del database SQL usando la capacità di una delle repliche di sola lettura invece di condividere la replica di lettura/scrittura. In questo modo i carichi di lavoro di sola lettura verranno isolati dal carico di lavoro principale di lettura/scrittura e non ne comprometteranno le prestazioni. La funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati in modo logico, ad esempio dati di analisi, che quindi potrebbero ottenere vantaggi di prestazioni usando tale capacità senza costi aggiuntivi.
 
 Per usare la funzionalità di scalabilità in lettura con un determinato database, è necessario abilitarla in modo esplicito quando si crea il database oppure in seguito modificandone la configurazione con PowerShell richiamando i cmdlet [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) o [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) oppure tramite l'API REST di Azure Resource Manager con il metodo [Create o Update per i database](/rest/api/sql/databases/createorupdate). 
 
@@ -119,7 +122,7 @@ Per altre informazioni, vedere [Databases - Create or Update](/rest/api/sql/data
 Se si usa la scalabilità in lettura per bilanciare il carico dei carichi di lavoro di sola lettura in un database con replica geografica, ad esempio come un membro di un gruppo di failover, assicurarsi che la scalabilità in lettura sia abilitata per i database primari e secondari con replica geografica. In questo modo si garantisce lo stesso effetto di bilanciamento del carico quando l'applicazione si connette al nuovo database primario dopo il failover. Se ci si connette al database secondario con replica geografica con scalabilità in lettura abilitata, le sessioni con `ApplicationIntent=ReadOnly` saranno indirizzate a una delle repliche nello stesso modo in cui le connessioni sono state indirizzate al database primario.  Le sessioni senza `ApplicationIntent=ReadOnly` verranno indirizzate alla replica primaria del database secondario con replica geografica, anche questa di sola lettura. Poiché il database secondario con replica geografica dispone di un endpoint diverso da quello del database primario, in passato per accedere al database secondario non era necessario impostare `ApplicationIntent=ReadOnly`. Per garantire la compatibilità con le versioni precedenti, DMV `sys.geo_replication_links` mostra `secondary_allow_connections=2`, che indica che qualsiasi connessione client è consentita.
 
 > [!NOTE]
-> Durante l'anteprima non verranno eseguiti round robin o altri routing con carico bilanciato tra le repliche locali del database secondario. 
+> Durante l'anteprima, round robin o altri routing con bilanciamento del carico tra le repliche locali del database secondario non sono supportati. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

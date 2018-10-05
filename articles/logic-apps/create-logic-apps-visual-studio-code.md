@@ -9,19 +9,19 @@ ms.author: estfan
 ms.topic: article
 ms.reviewer: klam, deli, LADocs
 ms.suite: integration
-ms.date: 09/24/2018
-ms.openlocfilehash: fd92b093b70dba2df3ec645b3ecb77233d3ebd5c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 36e8161eb8be16b75d843a2b7a65fc3dd70d9c02
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958357"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405289"
 ---
 # <a name="create-and-manage-automated-logic-app-workflows---visual-studio-code"></a>Creare e gestire flussi di lavoro automatizzati delle app per la logica - Visual Studio Code
 
 Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md) e Visual Studio Code, è possibile creare e gestire app per la logica che consentono di automatizzare attività, flussi di lavoro e processi per l'integrazione di app, dati, sistemi e servizi tra aziende e organizzazioni. Questo articolo illustra come è possibile creare e modificare le definizioni dei flussi di lavoro delle app per la logica con un'esperienza basata sul codice. È anche possibile usare le app per la logica già distribuite in <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> nel cloud. 
 
-Anche se è possibile eseguire queste stesse attività nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> e in Visual Studio, quando si vuole lavorare direttamente nel codice, Visual Studio Code permette di iniziare più velocemente. È ad esempio possibile anche disabilitare, abilitare, eliminare e aggiornare le app per la logica già create.
+Anche se è possibile eseguire queste stesse attività nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a> e in Visual Studio, quando si vuole lavorare direttamente nel codice, Visual Studio Code permette di iniziare più velocemente. È ad esempio possibile anche disabilitare, abilitare, eliminare e aggiornare le app per la logica già create. Inoltre, è possibile lavorare con app per la logica e account di integrazione da qualsiasi piattaforma di sviluppo che supporta l'esecuzione di Visual Studio Code, ad esempio Linux, Windows e Mac.
 
 È possibile creare la stessa app per la logica creata in questo articolo seguendo la [guida introduttiva per la creazione di un'app per la logica nel portale di Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md), che approfondisce meglio i concetti di base. In Visual Studio Code l'app per la logica è simile a questo esempio:
 
@@ -43,7 +43,7 @@ Prima di iniziare, verificare di avere gli elementi seguenti:
 
   * Estensione Visual Studio Code per App per la logica di Azure
 
-    È possibile installare questa estensione da Visual Studio Code. 
+    È possibile installare questa estensione da [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) o direttamente dall'interno di Visual Studio Code. 
     Assicurarsi di ricaricare Visual Studio Code dopo l'installazione. 
 
     ![Trovare "Visual Studio Code extension for Azure Logic Apps" (Estensione Visual Studio Code per App per la logica di Azure)](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
@@ -52,7 +52,7 @@ Prima di iniziare, verificare di avere gli elementi seguenti:
 
     ![Estensione installata](./media/create-logic-apps-visual-studio-code/installed-extension.png)
 
-    Per altre informazioni, vedere <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">Extension Marketplace</a> (Marketplace delle estensioni). 
+    Per altre informazioni, vedere <a href="https://code.visualstudio.com/docs/editor/extension-gallery" target="_blank">Extension Marketplace</a> (Marketplace delle estensioni). È anche possibile visualizzare e inviare contributi per questa versione open source dell'estensione, visitando la pagina dell'[estensione di App per la logica di Azure per Visual Studio Code su GitHub](https://github.com/Microsoft/vscode-azurelogicapps). 
 
 <a name="sign-in-azure"></a>
 

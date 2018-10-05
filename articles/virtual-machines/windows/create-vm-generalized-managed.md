@@ -12,40 +12,40 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2017
+ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 6baf784068b1fba0c35d2848b8d2dda4f1064a2d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 8acbb33b396aa617936eb0333bd68fea60532425
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867981"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404657"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>Creare una macchina virtuale da un'immagine gestita
 
-È possibile creare più macchine virtuali da un'immagine gestita tramite PowerShell o il portale Azure. Un'immagine di macchina virtuale gestita contiene le informazioni necessarie per creare una macchina virtuale, inclusi i dischi dati e del sistema operativo. I dischi rigidi virtuali che costituiscono l'immagine, inclusi i dischi del sistema operativo e qualsiasi disco dati, vengono archiviati come dischi gestiti. 
+È possibile creare più macchine virtuali da un'immagine di macchina virtuale gestita di Azure tramite il portale di Azure o PowerShell. Un'immagine di macchina virtuale gestita contiene le informazioni necessarie per creare una macchina virtuale, inclusi i dischi dati e del sistema operativo. I dischi rigidi virtuali (VHD) che costituiscono l'immagine, inclusi i dischi del sistema operativo e qualsiasi disco dati, vengono archiviati come dischi gestiti. 
 
-È necessario aver già [creato un'immagine di macchina virtuale gestita](capture-image-resource.md) da usare per creare la nuova macchina virtuale. 
+Prima di creare una nuova macchina virtuale, sarà necessario [creare un'immagine di macchina virtuale gestita](capture-image-resource.md) da usare come immagine di origine. 
 
 ## <a name="use-the-portal"></a>Usare il portale
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
 2. Nel menu a sinistra selezionare **Tutte le risorse**. È possibile ordinare le risorse per **tipo** per individuare facilmente le immagini.
 3. Selezionare l'immagine che si intende usare dall'elenco. Si apre la pagina **Panoramica** delle immagini.
-4. Fare clic su **+ Crea VM** dal menu.
-5. Immettere le informazioni relative alla macchina virtuale. Il nome utente e la password immessi in questo modulo verranno usati per accedere alla macchina virtuale. Al termine fare clic su **OK**. È possibile creare la nuova macchina virtuale in un gruppo di risorse esistente o scegliere **Crea nuovo** per creare un nuovo gruppo di risorse per archiviare la macchina virtuale.
+4. Scegliere **Crea macchina virtuale** dal menu.
+5. Immettere le informazioni relative alla macchina virtuale. Il nome utente e la password immessi in questa posizione verranno usati per accedere alla macchina virtuale. Al termine, selezionare **OK**. È possibile creare la nuova macchina virtuale in un gruppo di risorse esistente o scegliere **Crea nuovo** per creare un nuovo gruppo di risorse per archiviare la macchina virtuale.
 6. Selezionare una dimensione per la VM. Per visualizzare altre dimensioni, selezionare **Visualizza tutto** o modificare il filtro **Supported disk type** (Tipo di disco supportato). 
-7. In **impostazioni**, apportare le modifiche in base alle esigenze e fare clic su **OK**. 
-8. Nella pagina del riepilogo dovrebbe essere visualizzato il nome dell'immagine nell'elenco **Immagine privata**. Fare clic su **OK** per avviare la distribuzione della macchina virtuale.
+7. In **impostazioni** apportare le modifiche in base alle esigenze e selezionare **OK**. 
+8. Nella pagina di riepilogo dovrebbe essere visualizzato il nome dell'immagine indicato come **Immagine privata** nell'elenco. Selezionare **OK** per avviare la distribuzione della macchina virtuale.
 
 
 ## <a name="use-powershell"></a>Usare PowerShell
 
-È possibile utilizzare PowerShell per creare una macchina virtuale da un'immagine utilizzando il parametro semplificato impostato per il [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) cmdlet. L'immagine deve trovarsi nello stesso gruppo di risorse in cui si desidera creare la macchina virtuale.
+È possibile usare PowerShell per creare una macchina virtuale da un'immagine usando il parametro semplificato impostato per il cmdlet [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm). L'immagine deve trovarsi nello stesso gruppo di risorse in cui verrà creata la macchina virtuale.
 
 Questo esempio richiede il modulo AzureRM 5.6.0 o versioni successive. Eseguire ` Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
-Il parametro semplificato impostato per New-AzureRmVm richiede solo di fornire un nome, un nome per il gruppo di risorse e il nome per l'immagine da cui creare una macchina virtuale, ma verrà utilizzato il valore del parametro del **-Nome** per denominare tutte le risorse che crea automaticamente. In questo esempio, vengono forniti nomi più dettagliati per ogni risorsa, ma consentendo al cmdlet di crearli automaticamente. È anche possibile creare risorse, come la rete virtuale, in anticipo, e passare il nome nel cmdlet. Se è possibile trovarle in base al nome, userà le risorse esistenti.
+Il parametro semplificato impostato per [New-AzureRmVm](/powershell/module/azurerm.compute/new-azurermvm) richiede solo di fornire un nome, il gruppo di risorse e il nome per l'immagine da cui creare una macchina virtuale. New-AzureRmVm userà il valore del parametro **-Name** come nome di tutte le risorse create automaticamente. In questo esempio, vengono forniti nomi più dettagliati per ogni risorsa, ma consentendo al cmdlet di crearli automaticamente. È anche possibile creare in anticipo le risorse, ad esempio la rete virtuale, e passare il nome della risorsa nel cmdlet. Se è possibile trovarle in base al nome, New-AzureRmVm userà le risorse esistenti.
 
 Nell'esempio seguente, viene creata una VM denominata *myVMFromImage* nel gruppo di risorse *myResourceGroup* dall’immagine chiamata *myImage*. 
 
@@ -66,5 +66,5 @@ New-AzureRmVm `
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per gestire la nuova macchina virtuale con Azure PowerShell, vedere [Creare e gestire VM di Windows con il modulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+[Creare e gestire macchine virtuali di Windows con il modulo Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

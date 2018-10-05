@@ -15,17 +15,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: cf73f792bcce906a673da0c6fb2eec099239c1c2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a9dc868c4f22f95ca5027e3c95513d176c69eac
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409551"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392400"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Strumenti per machine learning e data science
 La macchina virtuale per data science offre un ampio set di strumenti e librerie per machine learning disponibili nei linguaggi più diffusi, ad esempio Python, R, Julia. 
 
 Ecco alcuni strumenti di machine learning e librerie nella macchina virtuale per data science. 
+
+## <a name="azure-machine-learning-servicehttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>SDK del [servizio Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml)
+|    |           |
+| ------------- | ------------- |
+| Che cos'è?   |   Azure Machine Learning è un servizio cloud usato per sviluppare e distribuire modelli di Machine Learning.  È possibile tenere traccia dei modelli durante la compilazione, il training, il ridimensionamento e la gestione con Python SDK. Distribuire modelli come contenitori ed eseguirli nel cloud, in locale o in IoT Edge.   |
+| Edizioni supportate della macchina virtuale per data science     | Windows (ambiente Conda: AzureML), Linux (ambiente Conda: py36)    |
+| Usi tipici      | Piattaforma ML generale      |
+| Come viene configurata o installata sulla macchina virtuale per data science?      |  Installata con supporto GPU   |
+| Come usarla o eseguirla?      | Come Python SDK e strumento della riga di comando di Azure (interfaccia della riga di comando di Azure). Attivare per l'ambiente Conda `AzureML` nell'edizione per Windows o `py36` nell'edizione per Linux.      |
+| Collegamenti agli esempi      | I notebook di Jupyter di esempio sono inclusi nella directory `AzureML` in notebooks  |
+| Strumenti correlati nella macchina virtuale per data science      | Visual Studio Code, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |

@@ -1,21 +1,22 @@
 ---
-title: Esercitazione per creare un modello acustico con Servizio di riconoscimento vocale personalizzato - Servizi cognitivi Microsoft | Microsoft Docs
-description: In questa esercitazione si apprenderà come creare un modello acustico con Servizio di riconoscimento vocale personalizzato in Servizi cognitivi Microsoft.
+title: 'Esercitazione: Creare un modello acustico - Servizio di riconoscimento vocale personalizzato'
+titlesuffix: Azure Cognitive Services
+description: In questa esercitazione si apprenderà come creare un modello acustico con Servizio di riconoscimento vocale personalizzato.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
 ROBOTS: NOINDEX
-ms.openlocfilehash: 60fea175e8dffeefeb9cb3ecaadad5d8fc7caeb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971542"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220232"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Esercitazione: Creare un modello acustico personalizzato
 
@@ -88,7 +89,7 @@ Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di 
   speech03.wav  the lazy dog was not amused
 ```
 
-Alle trascrizioni verrà applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune importanti normalizzazioni da effettuare _prima_ di caricare i dati in Servizio di riconoscimento vocale personalizzato. Per preparare le trascrizioni, consultare la sezione [Transcription guidelines](cognitive-services-custom-speech-transcription-guidelines.md) (Linee guida per la trascrizione) per la lingua appropriata.
+Alle trascrizioni verrà applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune importanti normalizzazioni da effettuare _prima_ di caricare i dati nel servizio di riconoscimento vocale personalizzato. Per preparare le trascrizioni, consultare la sezione [Transcription guidelines](cognitive-services-custom-speech-transcription-guidelines.md) (Linee guida per la trascrizione) per la lingua appropriata.
 
 I passaggi seguenti vanno eseguiti nel [portale di Servizio di riconoscimento vocale personalizzato](https://cris.ai). 
 
@@ -96,7 +97,7 @@ I passaggi seguenti vanno eseguiti nel [portale di Servizio di riconoscimento vo
 
 Dopo essere stati preparati, i file audio e le trascrizioni sono pronti per essere importati nel portale Web di servizio.
 
-A tale scopo, assicurarsi prima di tutto di avere eseguito l'accesso al [portale di Servizio di riconoscimento vocale personalizzato](https://cris.ai). Quindi, fare clic sul menu a discesa "Custom Speech" (Riconoscimento vocale personalizzato) nella barra multifunzione in alto e selezionare "Adaptation Data" (Dati di adattamento). Se è la prima volta che si caricano dati in Servizio di riconoscimento vocale personalizzato, si vedrà una tabella vuota chiamata "Datasets" (Set di dati). 
+A tale scopo, assicurarsi prima di tutto di avere eseguito l'accesso al [portale di Servizio di riconoscimento vocale personalizzato](https://cris.ai). Quindi, fare clic sul menu a discesa "Custom Speech" (Riconoscimento vocale personalizzato) nella barra multifunzione in alto e selezionare "Adaptation Data" (Dati di adattamento). Se è la prima volta che si caricano dati nel servizio di riconoscimento vocale personalizzato, si vedrà una tabella vuota chiamata "Datasets" (Set di dati). 
 
 Fare clic sul pulsante "Import" (Importa) nella riga "Acoustic Datasets" (Set di dati acustici). Sul sito verrà visualizzata una pagina per caricare un nuovo set di dati.
 

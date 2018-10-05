@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/07/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 73b7604e3072e76c69383481259e1cd8990f4df4
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f4729ce996ca918f43df1777a1962d4cd225a38e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44168885"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47061013"
 ---
 ## <a name="extended-iot-scenarios"></a>Scenari IoT estesi
 
@@ -22,7 +22,7 @@ Usare altri servizi e strumenti di Azure. Dopo la connessione del dispositivo al
 | Scenario                                                   | Servizio o strumento di Azure              |
 |----------------------------------------------------------- |------------------------------------|
 | [Gestire i messaggi dell'hub IoT][Mg_IoT_Toolkit]                  | Estensione Azure IoT Toolkit per Visual Studio Code|
-| [Gestire un dispositivo IoT][Mg_IoT_Dv]                        | Interfaccia della riga di comando di Azure 2.0 ed estensione IoT|
+| [Gestire un dispositivo IoT][Mg_IoT_Dv]                        | Interfaccia della riga di comando di Azure ed estensione IoT    |
 | [Gestire un dispositivo IoT][Mg_IoT_Dv_Toolkit]                | Estensione Azure IoT Toolkit per Visual Studio Code|
 | [Salvare i messaggi dell'hub IoT nell'archiviazione di Azure][Sv_IoT_Msg_Stor]  | Archiviazione tabelle di Azure                |
 | [Visualizzare i dati dei sensori][Vis_Data_PBI]                      | Microsoft Power BI                 |

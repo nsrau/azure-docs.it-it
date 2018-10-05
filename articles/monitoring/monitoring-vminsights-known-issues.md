@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: magoedte
-ms.openlocfilehash: c03adc239ea7025fe154db315daa17b26f8237f1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 819c3e74355cf80c7a998abb8b02b10c9e077059
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980213"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47062769"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>Problemi noti relativi a Monitoraggio di Azure per le macchine virtuali
 
@@ -39,3 +39,6 @@ Di seguito vengono descritti i problemi noti relativi alla funzionalità di inte
 - Le soglie per alcuni criteri di integrità di Windows come l'integrità del servizio client DNS non sono modificabili, perché il relativo stato di integrità è già bloccato sullo stato **in esecuzione**, **disponibile** del servizio o dell'entità a seconda del contesto.  Il valore è invece rappresentato dal numero 4. Verrà convertito nella stringa di visualizzazione effettiva in una versione futura.  
 - Le soglie per alcuni criteri di integrità di Linux, ad esempio l'integrità del disco logico, non sono modificabili in quanto sono già impostate sull'attivazione in caso di stato di non integrità.  Queste soglie indicano se qualche componente è online/offline, acceso o spento e vengono rappresentate e indicano la stessa informazione mostrando il valore 1 o 0.
 - Se si aggiorna il filtro Gruppo di risorse in un qualsiasi gruppo di risorse mentre si usa la vista di qualsiasi elenco in scala in Monitoraggio di Azure -> Macchine virtuali -> Integrità con la sottoscrizione e il gruppo di risorse preselezionati, la vista elenco mostrerà **nessun risultato**.  Tornare alla scheda Monitoraggio di Azure -> Macchine virtuali -> Integrità e selezionare la sottoscrizione e il gruppo di risorse desiderati, quindi passare alla vista elenco.
+
+## <a name="next-steps"></a>Passaggi successivi
+Vedere [Eseguire l'onboarding di Monitoraggio di Azure per le macchine virtuali](monitoring-vminsights-onboard.md) per informazioni sui requisiti e i metodi per abilitare il monitoraggio delle macchine virtuali.

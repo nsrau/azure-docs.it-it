@@ -10,22 +10,26 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: c357026e20ff402dd7236bd8db7fe2abe488bc39
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 673b8ddf3ed07507cbce4b54e9b8a488cb3ac689
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954246"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166606"
 ---
-# <a name="prepare-data-with-the-azure-machine-learning-data-prep-sdk-for-python"></a>Preparare i dati con il Software Development Kit Machine Learning Data Prep per Python di Azure
+# <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Preparare i dati per la modellazione con Azure Machine Learning
  
-La preparazione dei dati è una parte importante del flusso di lavoro dell'apprendimento automatico. Un accesso semplice a dati puliti in un formato facilmente fruibile migliorerà la definizione e l'efficacia dei modelli. È possibile usare il [Software Development Kit Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) per caricare dati di diversi formati, trasformarli per migliorarne l'usabilità e scriverli in una posizione accessibile ai propri modelli. 
+La preparazione dei dati è una parte importante del flusso di lavoro dell'apprendimento automatico. Un accesso semplice a dati puliti in un formato facilmente fruibile migliorerà la definizione e l'efficacia dei modelli. 
 
+È possibile preparare i dati in Python usando [ Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py). 
 
-## <a name="steps-for-data-preparation-with-azure-machine-learning"></a>Passaggi per la preparazione dei dati con Azure Machine Learning 
-1. [Caricare i dati](how-to-load-data.md )
-2. [Trasformare i dati](how-to-transform-data.md )
-3. [Scrivere i dati](how-to-write-data.md )
+## <a name="data-preparation-pipeline"></a>Pipeline di preparazione dei dati
+
+I passaggi di preparazione dei dati principali sono:
+
+1. [Caricare dati](how-to-load-data.md), che possono essere in vari formati
+2. [Trasformare](how-to-transform-data.md) i dati in una struttura più utilizzabile
+3. [Scrivere](how-to-write-data.md) tali dati in un percorso accessibile ai propri modelli
 
 ![Preparazione dei dati](./media/concept-data-preparation/data-prep-process.png)
 

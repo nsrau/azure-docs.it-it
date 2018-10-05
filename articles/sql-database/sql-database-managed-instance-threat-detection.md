@@ -1,25 +1,27 @@
 ---
 title: Rilevamento minacce - Istanza gestita di database SQL di Azure | Microsoft Docs
-description: La funzionalità di rilevamento delle minacce individua le attività di database che indicano la presenza di potenziali minacce alla sicurezza nel database.
+description: La funzionalità di rilevamento delle minacce individua le attività di database anomale che possono indicare la presenza di minacce alla sicurezza del database in Istanza gestita.
 services: sql-database
-author: rmatchoro
-manager: craigg
 ms.service: sql-database
-ms.custom: security, managed instance
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: rmatchoro
 ms.author: ronmat
-ms.reviewer: carlrab
-ms.openlocfilehash: 14ef907717045e2e0cf297694d92468a65e57e4d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 7f05bd6c96a8e22b1e039c3edcec491b7c079d54
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650078"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162410"
 ---
 # <a name="azure-sql-database-managed-instance-threat-detection"></a>Rilevamento delle minacce in Istanza gestita di database SQL di Azure
 
-Rilevamento minacce di SQL rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database in un'istanza gestita di database SQL di Azure (anteprima).
+La funzionalità di rilevamento delle minacce a SQL rileva le attività anomale che possono indicare tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database in Istanza gestita di database SQL di Azure.
 
 ## <a name="overview"></a>Panoramica
 

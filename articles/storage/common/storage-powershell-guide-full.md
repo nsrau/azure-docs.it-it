@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 08/16/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: f0f20a4ceac2f0b79d4ae3bbf3cf82eb761bceb8
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 35813573be9b069cc920f5ede813503ab1b99b4a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782672"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227215"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Uso di Azure PowerShell con Archiviazione di Azure
 
@@ -159,7 +159,7 @@ Per rigenerare l'altra chiave, usare `key2` come nome di chiave anziché `key1`.
 Rigenerare una delle chiavi e recuperarla nuovamente per visualizzare il nuovo valore.
 
 > [!NOTE] 
-> È consigliabile eseguire un'attenta pianificazione prima di rigenerare la chiave per un account di archiviazione di produzione. La rigenerazione di una o di entrambe le chiavi rende non valido l'accesso per qualsiasi applicazione che usa la chiave rigenerata. Per altre informazioni, vedere [Rigenerazione delle chiavi di accesso alle risorse di archiviazione](storage-create-storage-account.md#regenerate-storage-access-keys).
+> È consigliabile eseguire un'attenta pianificazione prima di rigenerare la chiave per un account di archiviazione di produzione. La rigenerazione di una o di entrambe le chiavi rende non valido l'accesso per qualsiasi applicazione che usa la chiave rigenerata. Per altre informazioni, vedere [Chiavi di accesso](storage-account-manage.md#access-keys).
 
 
 ### <a name="delete-a-storage-account"></a>Eliminare un account di archiviazione 

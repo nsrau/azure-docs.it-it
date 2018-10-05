@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul servizio di riconoscimento vocale di Servizi cognitivi di Azure
-description: Informazioni su come personalizzare la pronuncia con il servizio di riconoscimento vocale di Servizi cognitivi.
+title: Personalizzare la pronuncia con il servizio di riconoscimento vocale di Servizi cognitivi di Azure
+description: Informazioni su come personalizzare la pronuncia con il servizio di riconoscimento vocale di Servizi cognitivi di Azure.
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,12 +8,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 93fec1ea78263798588a43b2314ffdea736cdbbc
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a608d1e48112fbb2adb56191eeb7f168de507e77
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745352"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423205"
 ---
 # <a name="enable-custom-pronunciation"></a>Abilitare la pronuncia personalizzata
 L'uso della pronuncia personalizzata consente di definire la forma fonetica e la visualizzazione di una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Tutto ciò che serve è un file di pronunce, un semplice file con estensione txt.
@@ -47,7 +47,7 @@ La pronuncia personalizzata è al momento supportata solo per l'inglese (en-US) 
 | Linguaggio | Caratteri |
 |---------- |----------|
 | Inglese (en-Us) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
-| Tedesco (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
+| Tedesco (de-de) | ä, ö, ü, ?, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 
 > [!NOTE]
 > La forma visualizzata di un termine (in un file di pronunce) deve essere scritta allo stesso modo in un set di dati di adattamento linguistico.

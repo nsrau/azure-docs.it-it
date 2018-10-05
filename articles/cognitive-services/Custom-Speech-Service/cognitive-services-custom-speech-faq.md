@@ -1,20 +1,22 @@
 ---
-title: Domande frequenti sul Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
+title: Domande frequenti - Servizio di riconoscimento vocale personalizzato
+titlesuffix: Azure Cognitive Services
 description: Di seguito sono riportate le risposte alle domande più frequenti sul Servizio di riconoscimento vocale personalizzato.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: faq
 ms.date: 11/21/2016
 ms.author: panosper
-ms.openlocfilehash: a929869b36387b3257b672308ceca36c84ff8cae
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2de2efe3287cbb0b915434c2c9ad982fe162d741
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373372"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223723"
 ---
 # <a name="custom-speech-service-frequently-asked-questions"></a>Domande frequenti sul Servizio di riconoscimento vocale personalizzato
 
@@ -69,7 +71,7 @@ Se è necessario un aumento ancora superiore, rivolgersi a Microsoft.
 
 **Domanda**: Qual è il limite per le dimensioni del set di dati? Perché? 
 
-**Risposta**:Il limite corrente per un set di dati è di 2 GB, a causa delle restrizioni relative alle dimensioni dei file per il caricamento HTTP. 
+**Risposta**:Il limite corrente per un set di dati è 2 GB, a causa delle restrizioni relative alle dimensioni dei file per il caricamento HTTP. 
 
 **Domanda**: È possibile comprimere i file di testo per poter caricare file più grandi? 
 
@@ -118,14 +120,14 @@ Di conseguenza, l'elaborazione di un modello acustico personalizzato creato da u
 
 **Domanda**: Che cos'è la frequenza degli errori di parola e come viene calcolata?
 
-**Risposta**: La frequenza degli errori di parola è la metrica di valutazione per il riconoscimento vocale. Viene calcolata come numero totale di errori, inclusi inserimenti, eliminazioni e sostituzioni, diviso per il numero totale di parole nella trascrizione di riferimento.
+**Risposta**: La percentuale di parole errate (WER, Word Error Rate) è la metrica di valutazione per il riconoscimento vocale. Viene calcolata come numero totale di errori, inclusi inserimenti, eliminazioni e sostituzioni, diviso per il numero totale di parole nella trascrizione di riferimento.
 
 **Domanda**: Come si capisce se i risultati del test del modello personalizzato sono positivi o negativi?
 
 **Risposta**: I risultati mostrano un confronto tra il modello di base e quello personalizzato.
 Perché la personalizzazione sia proficua, è necessario che sia più efficiente del modello di base.
 
-**Domanda**: Come si può scoprire la frequenza degli errori di parola nei modelli di base, per comprendere se c'è stato un miglioramento? 
+**Domanda**: Come si può scoprire la percentuale di parole errate nei modelli di base, per comprendere se c'è stato un miglioramento? 
 
 **Risposta**: I risultati del test offline mostrano l'accuratezza di base del modello personalizzato e il miglioramento rispetto al modello di base.
 
@@ -144,6 +146,6 @@ Se si specificano espressioni complete o parziali (frasi o espressioni di probab
 
 -----
 
- * [Panoramica](cognitive-services-custom-speech-home.md)
+ * [Overview](cognitive-services-custom-speech-home.md)
  * [Introduzione](cognitive-services-custom-speech-get-started.md)
  * [Glossario](cognitive-services-custom-speech-glossary.md)

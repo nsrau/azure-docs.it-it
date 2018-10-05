@@ -1,32 +1,29 @@
 ---
-title: Eseguire query di analisi sui database dei tenant con Azure SQL Data Warehouse | Microsoft Docs
-description: Query di analisi su più tenant con dati estratti da diversi database SQL di Azure.
-keywords: esercitazione database SQL
+title: Eseguire query di analisi sui database tenant con Azure SQL Data Warehouse | Microsoft Docs
+description: Query di analisi su più tenant con dati estratti dal database SQL di Azure, SQL Data Warehouse, Azure Data Factory o Power BI.
 services: sql-database
-documentationcenter: ''
-author: anumjs
-manager: craigg
-editor: MightyPen
 ms.service: sql-database
-ms.custom: scale out apps
-ms.workload: Inactive
-ms.tgt_pltfrm: ''
+ms.subservice: scenario
+ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/08/2017
+author: anumjs
 ms.author: anjangsh
-ms.openlocfilehash: c7580e5481288695d3b5dea8fd0547f5f2c4c2b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: MightyPen
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 034fd2434d3b824c4356e640a1c1665dff542de6
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644002"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056596"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Esplorare l'analisi basata su SaaS con il database SQL di Azure, SQL Data Warehouse, Data Factory e Power BI
 
 Questa esercitazione illustra in dettaglio uno scenario di analisi end-to-end. Lo scenario dimostra come l'analisi sui dati dei tenant possa consentire ai fornitori di software di prendere decisioni oculate. Con i dati estratti dal database di ogni tenant, si usa l'analisi per ottenere informazioni dettagliate sul comportamento dei tenant, ad esempio sul rispettivo uso dell'applicazione SaaS Wingtip Tickets di esempio. Questo scenario include tre passaggi: 
 
-1.  **Estrarre i dati** dal database di ogni tenant a un archivio di analisi, in questo caso un'istanza di SQL Data Warehouse.
+1.  **Estrarre i dati** da ogni database tenant a un archivio di analisi, in questo caso un'istanza di SQL Data Warehouse.
 2.  **Ottimizzare i dati estratti** per l'elaborazione dell'analisi.
 3.  Usare strumenti di **business intelligence** per ottenere informazioni dettagliate utili su cui basare il processo decisionale. 
 
@@ -34,7 +31,7 @@ In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > - Creare l'archivio di analisi dei tenant per il caricamento.
-> - Usare Azure Data Factory per estrarre i dati dal database di ogni tenant al data warehouse di analisi.
+> - Usare Azure Data Factory per estrarre i dati da ogni database tenant al data warehouse di analisi.
 > - Ottimizzare i dati estratti, riorganizzandoli in uno schema star.
 > - Eseguire query sul data warehouse di analisi.
 > - Usare Power BI per la visualizzazione dei dati per evidenziare le tendenze nei dati dei tenant e definire raccomandazioni per apportare miglioramenti.
@@ -47,7 +44,7 @@ Le applicazioni SaaS contengono una quantità potenzialmente elevata di dati dei
 
 L'accesso ai dati per tutti i tenant è semplice quando tutti i dati si trovano in un unico database multi-tenant. È invece più complesso quando sono distribuiti su larga scala in migliaia di database. Un modo per superare tale complessità consiste nell'estrarre i dati in un database o un data warehouse di analisi per l'esecuzione di query.
 
-Questa esercitazione presenta uno scenario di analisi end-to-end per l'applicazione Wingtip Tickets. Per prima cosa viene usato [Azure Data Factory](../data-factory/introduction.md) come strumento di orchestrazione per estrarre i dati sulle vendite di biglietti e i dati correlati dal database di ogni tenant. Questi dati vengono caricati in tabelle di staging in un archivio di analisi, che può essere un database SQL o un'istanza di SQL Data Warehouse. In questa esercitazione, come archivio di analisi viene usato [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is).
+Questa esercitazione presenta uno scenario di analisi end-to-end per l'applicazione Wingtip Tickets. Per prima cosa viene usato [Azure Data Factory](../data-factory/introduction.md) come strumento di orchestrazione per estrarre i dati sulle vendite di biglietti e i dati correlati da ogni database tenant. Questi dati vengono caricati in tabelle di staging in un archivio di analisi, che può essere un database SQL o un'istanza di SQL Data Warehouse. In questa esercitazione, come archivio di analisi viene usato [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is).
 
 Successivamente, i dati estratti vengono trasformati in un set di tabelle con [schema star](https://www.wikipedia.org/wiki/Star_schema). Le tabelle sono costituite da una tabella dei fatti centrale e dalle tabelle delle dimensioni correlate:
 
@@ -68,7 +65,7 @@ Questa esercitazione offre esempi di base delle informazioni dettagliate che è 
 
 ## <a name="setup"></a>Configurazione
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 > [!NOTE]
 > Questa esercitazione usa funzionalità di Azure Data Factory, per la parametrizzazione dei servizi collegati, che sono attualmente disponibili in anteprima limitata. Per eseguire questa esercitazione, specificare l'ID della sottoscrizione [qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu). Si riceverà una conferma non appena la sottoscrizione verrà abilitata.
@@ -96,7 +93,7 @@ In questo passaggio si distribuiscono le risorse aggiuntive usate nell'esercitaz
 1. Premere **F5** per eseguire lo script dimostrativo e distribuire le risorse di Azure. 
 
 Esaminare ora le risorse di Azure distribuite.
-#### <a name="tenant-databases-and-analytics-store"></a>Database dei tenant e archivio di analisi
+#### <a name="tenant-databases-and-analytics-store"></a>Database tenant e archivio di analisi
 Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;utente&gt;** e **catalog-dpt-&lt;utente&gt;**. Sostituire &lt;utente&gt; con il valore usato al momento della distribuzione dell'app. Usare *developer* come account di accesso e *P@ssword1* come password. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
 
 ![Connettersi al server di database SQL da SSMS](media/saas-tenancy-tenant-analytics/ssmsSignIn.JPG)
@@ -107,14 +104,14 @@ In Esplora oggetti:
 1. Espandere il nodo Database per visualizzare l'elenco dei database dei tenant.
 1. Espandere il server *catalog-dpt-&lt;utente&gt;*.
 1. Verificare che venga visualizzato l'archivio di analisi contenente gli oggetti seguenti:
-    1. Tabelle **raw_Tickets**, **raw_Customers**, **raw_Events** e **raw_Venues**, che contengono i dati non elaborati estratti dai database dei tenant.
+    1. Tabelle **raw_Tickets**, **raw_Customers**, **raw_Events** e **raw_Venues**, che contengono i dati non elaborati estratti dai database tenant.
     1. Le tabelle dello schema star, ossia **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
     1. Stored procedure **sp_transformExtractedData**, usata per trasformare i dati e caricarli nelle tabelle dello schema star.
 
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
 #### <a name="blob-storage"></a>Archiviazione BLOB
-1. Nel [portale di Azure](https://ms.portal.azure.com), passare al gruppo di risorse usato per la distribuzione dell'applicazione. Verificare che sia stato aggiunto un account di archiviazione denominato **wingtipstaging\<utente\>**.
+1. Nel [portale di Azure](https://ms.portal.azure.com) passare al gruppo di risorse usato per la distribuzione dell'applicazione. Verificare che sia stato aggiunto un account di archiviazione denominato **wingtipstaging\<utente\>**.
 
   ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
 
@@ -133,9 +130,9 @@ Questa sezione esamina la data factory creata. Per avviare la data factory, segu
 2. Fare clic sul riquadro **Crea e monitora** per avviare la finestra di progettazione di Data Factory in una scheda separata. 
 
 ## <a name="extract-load-and-transform-data"></a>Estrarre, caricare e trasformare i dati
-Azure Data Factory viene usato per orchestrare l'estrazione, il caricamento e la trasformazione dei dati. In questa esercitazione si estraggono i dati da quattro diverse viste SQL di ognuno dei database dei tenant: **rawTickets**, **rawCustomers**, **rawEvents** e **rawVenues**. Tali viste includono l'ID della sede, per poter distinguere i dati di ogni sede nel data warehouse. I dati vengono caricati nelle tabelle di staging corrispondenti nel data warehouse: **raw_Tickets**, **raw_customers**, **raw_Events** e **raw_Venue**. Una stored procedure trasforma quindi i dati non elaborati e popola le tabelle dello schema star **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
+Azure Data Factory viene usato per orchestrare l'estrazione, il caricamento e la trasformazione dei dati. In questa esercitazione si estraggono i dati da quattro diverse viste SQL di ognuno dei database tenant: **rawTickets**, **rawCustomers**, **rawEvents** e **rawVenues**. Tali viste includono l'ID della sede, per poter distinguere i dati di ogni sede nel data warehouse. I dati vengono caricati nelle tabelle di staging corrispondenti nel data warehouse: **raw_Tickets**, **raw_customers**, **raw_Events** e **raw_Venue**. Una stored procedure trasforma quindi i dati non elaborati e popola le tabelle dello schema star **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
 
-Nella sezione precedente sono state distribuite e inizializzate le risorse di Azure necessarie, inclusa la data factory. La data factory distribuita include le pipeline, i set di dati, i servizi collegati e così via che sono necessari per estrarre, caricare e trasformare i dati dei tenant. Si esamineranno ulteriormente questi oggetti e quindi si attiverà la pipeline per spostare i dati dai database dei tenant al data warehouse.
+Nella sezione precedente sono state distribuite e inizializzate le risorse di Azure necessarie, inclusa la data factory. La data factory distribuita include le pipeline, i set di dati, i servizi collegati e così via che sono necessari per estrarre, caricare e trasformare i dati dei tenant. Si esamineranno ulteriormente questi oggetti e quindi si attiverà la pipeline per spostare i dati dai database tenant al data warehouse.
 
 ### <a name="data-factory-pipeline-overview"></a>Panoramica della pipeline della data factory
 Questa sezione esamina gli oggetti creati nella data factory. La figura seguente illustra il flusso di lavoro complessivo della pipeline di Azure Data Factory usata in questa esercitazione. Se si preferisce esplorare la pipeline in un secondo momento ed esaminare per prima cosa i risultati, passare alla successiva sezione **Attivare l'esecuzione della pipeline**.
@@ -147,11 +144,11 @@ Nella pagina di panoramica passare alla scheda di **creazione** nel pannello sin
 
 Le tre pipeline annidate sono: SQLDBToDW, DBCopy e TableCopy.
 
-La **pipeline 1, SQLDBToDW**, cerca i nomi dei database dei tenant archiviati nel database di catalogo, nella tabella denominata [__ShardManagement].[ShardsGlobal], ed esegue la pipeline **DBCopy** per il database di ogni tenant. Al termine viene eseguito lo schema della stored procedure specificata, **sp_TransformExtractedData**. Questa stored procedure trasforma i dati caricati nelle tabelle di staging e popola le tabelle dello schema star.
+La **pipeline 1, SQLDBToDW**, cerca i nomi dei database tenant archiviati nel database di catalogo, nella tabella denominata [__ShardManagement].[ShardsGlobal], ed esegue la pipeline **DBCopy** per ogni database tenant. Al termine viene eseguito lo schema della stored procedure specificata, **sp_TransformExtractedData**. Questa stored procedure trasforma i dati caricati nelle tabelle di staging e popola le tabelle dello schema star.
 
 La **pipeline 2, DBCopy**, cerca i nomi delle tabelle e delle colonne di origine in un file di configurazione archiviato nell'archivio BLOB.  Per ognuna delle quattro tabelle, TicketFacts, CustomerFacts, EventFacts e VenueFacts, viene quindi eseguita la pipeline **TableCopy**. L'attività **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** viene eseguita in parallelo per tutti i 20 database. Azure Data Factory consente l'esecuzione in parallelo di un massimo di 20 iterazioni del ciclo. Per un maggior numero di database valutare la possibilità di creare più pipeline.    
 
-La **pipeline 3, TableCopy**, usa i numeri di versione di riga nel database SQL (_rowversion_) per identificare le righe che sono state modificate o aggiornate. Questa attività cerca la versione di riga iniziale e finale per l'estrazione delle righe dalle tabelle di origine. La tabella **CopyTracker** archiviata nel database di ogni tenant tiene traccia dell'ultima riga estratta da ogni tabella di origine in ogni esecuzione. Le righe nuove o modificate vengono copiate nelle tabelle di staging corrispondenti nel data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues** e **raw_Events**. L'ultima versione di riga viene infine salvata nella tabella **CopyTracker** e verrà usata come versione di riga iniziale per l'estrazione successiva. 
+La **pipeline 3, TableCopy**, usa i numeri di versione di riga nel database SQL (_rowversion_) per identificare le righe che sono state modificate o aggiornate. Questa attività cerca la versione di riga iniziale e finale per l'estrazione delle righe dalle tabelle di origine. La tabella **CopyTracker** archiviata in ogni database tenant tiene traccia dell'ultima riga estratta da ogni tabella di origine in ogni esecuzione. Le righe nuove o modificate vengono copiate nelle tabelle di staging corrispondenti nel data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues** e **raw_Events**. L'ultima versione di riga viene infine salvata nella tabella **CopyTracker** e verrà usata come versione di riga iniziale per l'estrazione successiva. 
 
 Sono anche presenti tre servizi collegati con parametri che collegano la data factory ai database SQL di origine, all'istanza di SQL Data Warehouse di destinazione e all'archivio BLOB intermedio. Nella scheda di **creazione** fare clic su **Connessioni** per esaminare i servizi collegati, come illustrato nell'immagine seguente:
 
@@ -169,7 +166,7 @@ Le tabelle delle dimensioni vengono caricate prima della tabella dei fatti. Ques
 Il passaggio finale della trasformazione elimina i dati di staging pronti per l'esecuzione successiva della pipeline.
    
 ### <a name="trigger-the-pipeline-run"></a>Attivare l'esecuzione della pipeline
-Per eseguire l'intera pipeline di estrazione, caricamento e trasformazione per tutti i database dei tenant, seguire questa procedura:
+Per eseguire l'intera pipeline di estrazione, caricamento e trasformazione per tutti i database tenant, seguire questa procedura:
 1. Nella scheda di **creazione** dell'interfaccia utente di Azure Data Factory selezionare la pipeline **SQLDBToDW** nel riquadro sinistro.
 1. Fare clic su **Trigger** e quindi su **Trigger Now** (Attiva adesso) nel menu a discesa visualizzato. Questa azione determina l'esecuzione immediata della pipeline. In uno scenario di produzione si definirà un orario per l'esecuzione della pipeline, per aggiornare i dati in base a una pianificazione.
   ![adf_trigger](media/saas-tenancy-tenant-analytics/adf_trigger.JPG)
@@ -230,7 +227,7 @@ Questo tracciato mostra che alcune sedi vendono un numero elevato di biglietti n
 
 Questo tracciato delle vendite cumulative di biglietti nel tempo di Contoso Concert Hall per ogni evento mostra che la corsa all'acquisto non si verifica per tutti gli eventi. Modificare la selezione delle opzioni di filtro per esaminare le tendenze di vendita per le altre sedi.
 
-Le informazioni dettagliate sui modelli di vendita dei biglietti potrebbero consentire a Wingtip Tickets di ottimizzare il modello aziendale. Invece di applicare lo stesso addebito a tutti i tenant, Wingtip introdurrà livelli di servizio con diversi livelli di prestazioni. Alle sedi più grandi che devono vendere un maggior numero di biglietti al giorno potrà essere offerto un livello più elevato con un contratto di servizio superiore. I database di tali sedi potranno essere inseriti in pool con limiti di risorse per database superiori. Ogni livello di servizio potrà avere un'allocazione di vendite per ogni ora, con addebito di tariffe aggiuntive in caso di superamento dell'allocazione. Le sedi più grandi con picchi periodici di vendite trarranno vantaggio dai livelli superiori e Wingtip Tickets potrà monetizzare il servizio in modo più efficiente.
+Le informazioni dettagliate sui modelli di vendita dei biglietti potrebbero consentire a Wingtip Tickets di ottimizzare il modello aziendale. Invece di applicare lo stesso addebito a tutti i tenant, Wingtip potrebbe introdurre livelli di servizio con diverse dimensioni di calcolo. Alle sedi più grandi che devono vendere un maggior numero di biglietti al giorno potrà essere offerto un livello più elevato con un contratto di servizio superiore. I database di tali sedi potranno essere inseriti in pool con limiti di risorse per database superiori. Ogni livello di servizio potrà avere un'allocazione di vendite per ogni ora, con addebito di tariffe aggiuntive in caso di superamento dell'allocazione. Le sedi più grandi con picchi periodici di vendite trarranno vantaggio dai livelli superiori e Wingtip Tickets potrà monetizzare il servizio in modo più efficiente.
 
 Nel frattempo, alcuni clienti di Wingtip Tickets segnalano di avere difficoltà a vendere un numero di biglietti sufficiente a giustificare il costo del servizio. Queste informazioni dettagliate potrebbero offrire l'opportunità di incrementare le vendite di biglietti per le sedi con prestazioni inferiori. Vendite superiori aumenteranno il valore percepito del servizio. Fare clic con il pulsante destro del mouse su fact_Tickets e scegliere **Nuova misura**. Immettere l'espressione seguente per la nuova misura denominata **AverageTicketsSold**:
 
@@ -256,7 +253,7 @@ Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Distribuire un'istanza di SQL Data Warehouse popolata con uno schema star per l'analisi dei tenant.
-> * Usare Azure Data Factory per estrarre i dati dal database di ogni tenant al data warehouse di analisi.
+> * Usare Azure Data Factory per estrarre i dati da ogni database tenant al data warehouse di analisi.
 > * Ottimizzare i dati estratti, riorganizzandoli in uno schema star.
 > * Eseguire query sul data warehouse di analisi. 
 > * Usare Power BI per visualizzare le tendenze nei dati in tutti i tenant.

@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5f9bae34dabba71861adc9b2aeb0d33b8a1e226
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195948"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091407"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gestire una macchina virtuale di Azure con la raccolta dell'inventario
 
@@ -88,6 +88,24 @@ Le tabelle seguenti forniscono informazioni sulle proprietà che possono essere 
 |Ricorsione     | Determina se viene usata la ricorsione per la ricerca dell'elemento da rilevare.        |
 |Usa Sudo     | Questa impostazione determina se viene usato sudo per la ricerca dell'elemento.         |
 |Collegamenti     | Questa impostazione determina come vengono gestiti i collegamenti simbolici durante l'attraversamento delle directory.<br> **Ignora**: ignora i collegamenti simbolici e non include i file e le directory a cui viene fatto riferimento<br>**Segui**: segue i collegamenti simbolici durante la ricorsione e include anche i file e le directory a cui viene fatto riferimento<br>**Gestisci**: segue i collegamenti simbolici e consente la modifica del trattamento del contenuto restituito      |
+
+## <a name="manage-machine-groups"></a>Gestire i gruppi di computer
+
+L'inventario consente di creare e visualizzare gruppi di computer in Log Analytics. I gruppi di computer sono raccolte di computer definite da una query in Log Analytics.
+
+Per visualizzare i gruppi di computer, selezionare la scheda **Gruppi di computer** nella pagina Inventario.
+
+![Visualizzare i gruppi di computer nella pagina Inventario](./media/automation-vm-inventory/inventory-machine-groups.png)
+
+Selezionando un gruppo di computer nell'elenco, si apre la pagina Gruppi di computer. Questa pagina mostra i dettagli del gruppo di computer. Questi dettagli includono la query di Log Analytics usata per definire il gruppo. Nella parte inferiore della pagina è presente un elenco su più pagine dei computer che fanno parte di tale gruppo.
+
+![Visualizzare la pagina del gruppo di computer](./media/automation-vm-inventory/machine-group-page.png)
+
+Fare clic sul pulsante **+ Clona** per clonare il gruppo di computer. È necessario assegnare al gruppo un nuovo nome e un alias. In questa fase è possibile modificare la definizione. Dopo aver modificato la query, fare clic su **Convalida query** per visualizzare in anteprima i computer che verranno selezionati. Quando si è ottenuto il gruppo desiderato, fare clic su **Crea** per creare il gruppo di computer
+
+Per creare un nuovo gruppo di computer, selezionare **+ Crea un gruppo di computer**. Questo pulsante apre la pagina **Crea un gruppo di computer** in cui è possibile definire il nuovo gruppo. Fare clic su **Crea** per creare il gruppo.
+
+![Creare il nuovo gruppo di computer](./media/automation-vm-inventory/create-new-group.png)
 
 ## <a name="disconnect-your-virtual-machine-from-management"></a>Disconnettere la macchina virtuale dalla gestione
 

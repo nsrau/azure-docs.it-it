@@ -2,20 +2,22 @@
 title: DNS personalizzato di Istanza gestita di database SQL di Azure | Microsoft Docs
 description: Questo argomento descrive le opzioni di configurazione di un DNS personalizzato con un'istanza gestita di database SQL di Azure.
 services: sql-database
-author: srdan-bozovic-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/23/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 2d1bb7e8522da32dd33933261ea41b578f8afac1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: craigg
+ms.date: 09/23/2018
+ms.openlocfilehash: f26ea763d48d03fe7e981b7abbbe64e573ec0b3a
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949486"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224274"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurazione di un DNS personalizzato per Istanza gestita di database SQL di Azure
 
@@ -36,7 +38,7 @@ Per rendere una configurazione DNS personalizzata compatibile con l'istanza gest
    ![opzione relativa al DNS personalizzato](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 
    > [!IMPORTANT]
-   > Se non si imposta il resolver ricorsivo di Azure nell'elenco DNS, l'istanza gestita entra in stato di errore. Per ripristinare una stato corretto potrebbe essere necessario creare una nuova istanza in una rete virtuale con i criteri di rete conformi, creare i dati a livello di istanza e ripristinare i database. Vedere [Configurazione della rete virtuale](sql-database-managed-instance-vnet-configuration.md).
+   > La mancata impostazione di un resolver ricorsivo di Azure nell'elenco DNS può causare uno stato difettoso di Istanza gestita quando per qualche motivo i server DNS personalizzati non dovessero essere disponibili. Per ripristinare una stato corretto potrebbe essere necessario creare una nuova istanza in una rete virtuale con i criteri di rete conformi, creare i dati a livello di istanza e ripristinare i database. L'impostazione del resolver ricorsivo di Azure come ultima voce dell'elenco DNS garantisce la risoluzione dei nomi pubblici anche in caso di errore di tutti i server DNS personalizzati. Vedere [Configurazione della rete virtuale](sql-database-managed-instance-vnet-configuration.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

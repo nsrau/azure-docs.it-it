@@ -7,27 +7,27 @@ manager: carmonm
 editor: tysonn
 ms.service: monitoring
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: d71dc77eac89fef3ae7f8aeb69a05197456ac865
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962931"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406041"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Monitoraggio dei dati raccolti da Monitoraggio di Azure
 [Monitoraggio di Azure](../azure-monitor/overview.md) è un servizio che permette di monitorare le applicazioni e le risorse su cui si basano. Al centro di questa funzione vi è l'archiviazione dei dati di telemetria e di altro tipo dalle risorse monitorate. Questo articolo presenta una descrizione completa di come questi dati vengono archiviati e usati da Monitoraggio di Azure.
 
-Tutti i dati raccolti da Monitoraggio di Azure appartengono a uno di due tipi essenziali, ovvero le [metriche](#metrics) e i [log](#logs). Le metriche sono valori numerici che descrivono alcuni aspetti di un sistema in un particolare momento. Le metriche sono elementi leggeri in grado di supportare scenari praticamente in tempo reale. I log contengono diversi tipi di dati organizzati in record con diversi set di proprietà per ogni tipo. I dati di telemetria, come eventi e tracce, vengono archiviati come log insieme ai dati sulle prestazioni in modo da poter essere combinati per l'analisi.
+Tutti i dati raccolti da Monitoraggio di Azure appartengono a uno di due tipi essenziali, ovvero le [metriche](#metrics) e i [log](#logs). Le metriche sono valori numerici che descrivono alcuni aspetti di un sistema in un particolare momento. Sono elementi leggeri in grado di supportare scenari praticamente in tempo reale. I log contengono diversi tipi di dati organizzati in record con diversi set di proprietà per ogni tipo. I dati di telemetria, come eventi e tracce, vengono archiviati come log insieme ai dati sulle prestazioni in modo da poter essere combinati per l'analisi.
 
 ![Panoramica di Monitoraggio di Azure](../azure-monitor/media/overview/overview.png)
 
 ## <a name="metrics"></a>Metriche
-Le metriche sono valori numerici che descrivono alcuni aspetti di un sistema in un determinato momento, Le metriche sono elementi leggeri in grado di supportare scenari praticamente in tempo reale. Le metriche vengono raccolte a intervalli regolari indipendentemente dal fatto che il valore venga modificato. Sono utili per la generazione di avvisi perché possono essere campionate di frequente e perché un avviso può essere generato rapidamente con una logica relativamente semplice. 
+Le metriche sono valori numerici che descrivono alcuni aspetti di un sistema in un determinato momento, Sono elementi leggeri in grado di supportare scenari praticamente in tempo reale. Le metriche vengono raccolte a intervalli regolari indipendentemente dal fatto che il valore venga modificato. Sono utili per la generazione di avvisi perché possono essere campionate di frequente e perché un avviso può essere generato rapidamente con una logica relativamente semplice. 
 
 È ad esempio possibile raccogliere i dati relativi all'uso del processore da una macchina virtuale ogni minuto o il numero di utenti connessi all'applicazione ogni 10 minuti. È possibile attivare un avviso quando uno dei valori raccolti o anche la differenza tra due valori supera una soglia definita.
 
@@ -155,7 +155,7 @@ Log Analytics può raccogliere dati da un'ampia gamma di origini sia all'interno
 Tra le attività che è possibile eseguire con i log sono incluse le seguenti:
 
 - Uso della [pagina Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md) nel portale di Azure per scrivere query per l'analisi dei dati di log.  Aggiunta dei risultati visualizzati come tabelle o grafici in un [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
-- Configurazione di una [regola di avviso per il log](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) che invia una notifica o esegue un'[azione automatica](../monitoring-and-diagnostics/monitoring-action-groups.md) quando i risultati della query corrispondono a un risultato specifico.
+- Configurazione di una [regola di avviso per il log](../monitoring-and-diagnostics/alert-log.md) che invia una notifica o esegue un'[azione automatica](../monitoring-and-diagnostics/monitoring-action-groups.md) quando i risultati della query corrispondono a un risultato specifico.
 - Creazione di un flusso di lavoro basato su dati in Log Analytics usando [App per la logica]().
 - Esportazione dei risultati di una query in [Power BI](../log-analytics/log-analytics-powerbi.md) per usare diverse visualizzazioni e condividerle con utenti esternamente ad Azure.
 - Accesso ai valori delle metriche da una riga di comando o da un'applicazione personalizzata usando [cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) o l'[API REST](https://dev.loganalytics.io/).
@@ -175,7 +175,7 @@ Per indicazioni sulla raccolta delle metriche dalle risorse di Azure, vedere [Ra
 ### <a name="logs-to-metrics"></a>Da log a metriche
 Come descritto sopra, le metriche sono più reattive rispetto ai log e di conseguenza permettono di creare avvisi con latenza e costi inferiori. Log Analytics raccoglie una quantità significativa di dati numerici che potrebbero essere adatti alle metriche, ma che non vengono archiviati nell'archivio delle metriche di Azure.  Un esempio comune sono i dati sulle prestazioni raccolti dagli agenti e dalle soluzioni di gestione. Alcuni di questi valori possono essere copiati nell'archivio delle metriche, in cui sono disponibili per la generazione di avvisi e l'analisi con Esplora metriche.
 
-La spiegazione di questa funzionalità è riportata nel post di blog sugli [avvisi delle metriche per i log ora disponibili in un'anteprima pubblica limitata](https://azure.microsoft.com/blog/faster-metric-alerts-for-logs-now-in-limited-public-preview/). L'elenco degli elementi supportati è disponibile in [Metriche e metodi di creazione supportati per i nuovi avvisi delle metriche](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md).
+La spiegazione di questa funzionalità è riportata in [Creare avvisi delle metriche per i log in Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). L'elenco dei valori supportati è disponibile in [Metriche supportate con il monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 
 ## <a name="stream-data-to-external-systems"></a>Trasmettere dati a sistemi esterni
 Oltre a usare gli strumenti in Azure per analizzare i dati di monitoraggio, potrebbe essere necessario inoltrarli a uno strumento esterno, ad esempio un prodotto di informazioni di sicurezza e gestione degli eventi. Questo inoltro viene in genere eseguito direttamente dalle risorse monitorate tramite [Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/). 

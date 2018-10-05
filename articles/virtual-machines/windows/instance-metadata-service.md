@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d64233883d2dd6fb174c55467fcfcd276b452775
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: d7917ad65b3e3fd1abacdb624a03b3f62c7fc07f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782991"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221555"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -310,7 +310,7 @@ subnet/prefix | Prefisso della subnet, ad esempio 24 | 2017-04-02
 ipv6/ipAddress | Indirizzo IPv6 locale della macchina virtuale | 2017-04-02 
 macAddress | Indirizzo mac della macchina virtuale | 2017-04-02 
 scheduledevents | Vedere [Eventi pianificati](scheduled-events.md) | 2017-08-01
-identity | Identità del servizio gestita (anteprima). Vedere [Acquisire un token di accesso](../../active-directory/managed-service-identity/how-to-use-vm-token.md) | 2018-02-01
+identity | Identità del servizio gestita (anteprima). Vedere [Acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Scenari di utilizzo di esempio  
 
@@ -384,7 +384,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ### <a name="getting-azure-environment-where-the-vm-is-running"></a>Ottenere l'ambiente di Azure in cui è in esecuzione la macchina virtuale 
 
-Azure dispone di vari cloud sovrani come [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/). Talvolta è necessario accedere all'ambiente di Azure per prendere alcune decisioni di runtime. L'esempio seguente illustra come è possibile ottenere questo risultato
+Azure offre vari cloud sovrani, ad esempio [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/). In alcuni casi è necessario l'ambiente di Azure per prendere alcune decisioni di runtime. L'esempio seguente illustra come è possibile ottenere questo risultato.
 
 **Richiesta**
 

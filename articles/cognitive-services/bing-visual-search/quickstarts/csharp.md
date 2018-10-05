@@ -1,23 +1,23 @@
 ---
-title: Avvio rapido di C# per l'API Ricerca visiva Bing | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
+title: 'Guida introduttiva: creare una query di ricerca visiva, C# - Ricerca visiva Bing'
+titleSuffix: Azure Cognitive Services
 description: Viene illustrato come caricare un'immagine nell'API Ricerca visiva Bing e ottenere informazioni dettagliate sull'immagine.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-visual-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 930a89e3b1996c44f12bd3773565eda40e93ca9c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e6e969d9ff0556211ca6080645888d44554b286c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070927"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47218768"
 ---
-# <a name="your-first-bing-visual-search-query-in-c"></a>La prima query di Ricerca visiva Bing in C#
+# <a name="quickstart-your-first-bing-visual-search-query-in-c"></a>Guida Introduttiva: la prima query in C# di Ricerca visiva Bing
 
 L'API Ricerca visiva Bing restituisce informazioni su un'immagine fornita. È possibile fornire l'immagine usando l'URL dell'immagine o un token di informazioni dettagliate oppure caricando l'immagine. Per informazioni su queste opzioni, vedere [Informazioni sull'API Ricerca visiva Bing](../overview.md) Questo articolo illustra come caricare un'immagine. Caricare un'immagine può essere utile negli scenari per dispositivi mobili in cui si acquisisce un'immagine di un punto di riferimento ben noto e si ottengono le relative informazioni. Le informazioni dettagliate, ad esempio, possono includere curiosità sul punto di riferimento. 
 

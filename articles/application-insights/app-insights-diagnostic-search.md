@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 09/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 1bf716d4e5a37739de2e820725449be2576054ea
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136906"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038771"
 ---
 # <a name="using-search-in-application-insights"></a>Utilizzo della funzionalità Ricerca in Application Insights
 Ricerca è una funzionalità di [Application Insights](app-insights-overview.md) che consente di trovare ed esplorare elementi singoli di telemetria, ad esempio visualizzazioni pagine, eccezioni o richieste Web. È possibile visualizzare le tracce del log e gli eventi codificati.
@@ -123,8 +123,8 @@ Cercare parole complete, non sottostringhe. Utilizzare le virgolette per racchiu
 | Query di esempio | Effetto |
 | --- | --- |
 | `apple` |Individuazione di tutti gli eventi nell'intervallo di tempo i cui campi includono la parola "mela" |
-| `apple AND banana` |Individuazione di eventi che contengono entrambe le parole. Usare "AND" in lettere maiuscole, non "and". |
-| `apple OR banana`<br/>`apple banana` |Individuazione degli eventi che contengono una delle parole. Usare "OR", non "or".<br/>Forma breve. |
+| `apple AND banana` <br/>`apple banana` |Individuazione di eventi che contengono entrambe le parole. Usare "AND" in lettere maiuscole, non "and". <br/>Forma breve. |
+| `apple OR banana` |Individuazione degli eventi che contengono una delle parole. Usare "OR", non "or". |
 | `apple NOT banana` |Individua eventi che contengono una parola ma non l'altra. |
 
 ## <a name="sampling"></a>campionamento
@@ -133,13 +133,13 @@ Se l'app genera molti dati di telemetria (e si usa ASP.NET SDK versione 2.0.0-be
 [Informazioni sul campionamento](app-insights-sampling.md).
 
 ## <a name="create-work-item"></a>Creare un elemento di lavoro
-È possibile creare un bug in GitHub o Visual Studio Team Services con i dettagli provenienti da qualsiasi elemento di dati di telemetria. 
+È possibile creare un bug in GitHub o Azure DevOps con i dettagli provenienti da qualsiasi elemento di dati di telemetria. 
 
 ![Fare clic su Nuovo elemento di lavoro, modificare i campi e quindi fare clic su OK.](./media/app-insights-diagnostic-search/42.png)
 
-La prima volta che si esegue questa operazione viene chiesto di configurare un collegamento all'account e al progetto di Team Services.
+La prima volta che si esegue questa operazione viene chiesto di configurare un collegamento all'organizzazione e al progetto di Azure DevOps.
 
-![Immettere l'URL del server di Team Services e il nome del progetto, quindi fare clic su Autorizza.](./media/app-insights-diagnostic-search/41.png)
+![Immettere l'URL di Azure DevOps Services e il nome del progetto, quindi fare clic su Autorizza](./media/app-insights-diagnostic-search/41.png)
 
 (È anche possibile configurare il collegamento al pannello Elementi di lavoro).
 

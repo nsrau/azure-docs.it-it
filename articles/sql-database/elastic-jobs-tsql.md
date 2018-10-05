@@ -2,18 +2,22 @@
 title: Creare e gestire processi di database elastico di Azure SQL tramite Transact-SQL (T-SQL) | Microsoft Docs
 description: Eseguire script in più database con l'agente di processo di database elastico tramite Transact-SQL (T-SQL).
 services: sql-database
-author: jaredmoo
-manager: craigg
 ms.service: sql-database
-ms.topic: article
-ms.date: 06/14/2018
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 ms.author: jaredmoo
-ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+author: jaredmoo
+ms.reviewer: ''
+manager: craigg
+ms.date: 06/14/2018
+ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842621"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056788"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -1336,7 +1340,7 @@ Mostra tutti i membri di tutti i gruppi di destinazione.
 
 ## <a name="resources"></a>Risorse
 
- - ![Icona collegamento argomento](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icona collegamento argomento") [Convenzioni della sintassi Transact-SQL](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![Icona collegamento argomento](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icona collegamento argomento") [Convenzioni della sintassi Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

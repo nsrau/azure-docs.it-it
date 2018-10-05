@@ -3,18 +3,22 @@ title: Informazioni sul servizio database SQL di Azure | Microsoft Docs
 description: Introduzione al database SQL, con dettagli tecnici e funzionalità relative al sistema di gestione di database relazionali (RDBMS) Microsoft sul cloud.
 keywords: introduzione a sql,intro a sql,informazioni sul database sql
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.topic: overview
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 21350fe9a44ad801204b8288f3c49eda82ca6343
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054581"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163183"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure 
 
@@ -23,7 +27,7 @@ Il database SQL è un servizio gestito di database relazionale per utilizzo gene
 Per la distribuzione di un database SQL di Azure sono disponibili le opzioni seguenti:
 - Come database singolo con uno specifico set di risorse gestito tramite un server logico 
 - Come database di un [pool elastico](sql-database-elastic-pool.md) con un set condiviso di risorse gestito tramite un server logico
-- Come parte di una raccolta di database, denominata [Istanza gestita](sql-database-managed-instance.md) (in anteprima pubblica), che contiene database utente e di sistema e condivide un set di risorse
+- Come parte di una raccolta di database, denominata [Istanza gestita](sql-database-managed-instance.md), che contiene database utente e di sistema e condivide un set di risorse
 
 La figura seguente illustra queste opzioni di distribuzione:
 
@@ -37,29 +41,27 @@ Il database SQL condivide la base di codice con il [motore di database di Micros
 > [!IMPORTANT]
 > Per informazioni sulle differenze nelle funzionalità tra il database SQL e SQL Server, vedere [Funzionalità di SQL](sql-database-features.md). 
 
-Il database SQL offre prestazioni prevedibili a più livelli di servizio garantendo scalabilità dinamica senza tempi di inattività, ottimizzazione intelligente incorporata, scalabilità e disponibilità globali e opzioni di sicurezza avanzate, il tutto con esigenze di amministrazione quasi nulle. Queste funzionalità consentono di concentrarsi sullo sviluppo rapido di app e accelerare i tempi di mercato, piuttosto che allocare tempo e risorse preziose alla gestione delle macchine virtuali e dell'infrastruttura. Il servizio database SQL è attualmente gestito in 38 data center in tutto il mondo e ne vengono attivati altri regolarmente. È quindi possibile eseguire il database in un data center vicino alla propria località.
-
-> [!NOTE]
-> Istanza gestita di database SQL è attualmente in anteprima ed è disponibile in un unico livello di servizio. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md).
->
+Il database SQL offre prestazioni prevedibili con più tipi di risorse, livelli di servizio e dimensioni di calcolo, garantendo scalabilità dinamica senza tempi di inattività, ottimizzazione intelligente incorporata, scalabilità e disponibilità globali e opzioni di sicurezza avanzate, il tutto con esigenze di amministrazione quasi nulle. Queste funzionalità consentono di concentrarsi sullo sviluppo rapido di app e accelerare i tempi di mercato, piuttosto che allocare tempo e risorse preziose alla gestione delle macchine virtuali e dell'infrastruttura. Il servizio database SQL è attualmente gestito in 38 data center in tutto il mondo e ne vengono attivati altri regolarmente. È quindi possibile eseguire il database in un data center vicino alla propria località.
 
 ## <a name="scalable-performance-and-pools"></a>Prestazioni e pool scalabili
 
-Con il database SQL, ogni database è isolato dagli altri e portabile e a ognuno viene assegnato uno specifico livello di servizio all'interno del [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o del [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), con un livello di prestazioni garantito. Il database SQL offre diversi livelli di prestazioni per esigenze diverse e consente di creare pool di database per ottimizzare l'uso delle risorse e risparmiare.
+Con il database SQL, ogni database è isolato dagli altri e portabile e a ognuno viene assegnato uno specifico livello di servizio all'interno del [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o del [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), con una dimensione di calcolo garantita. Il database SQL offre diverse dimensioni di calcolo per esigenze diverse e consente di creare pool di database per ottimizzare l'uso delle risorse e risparmiare.
 
-Con Istanza gestita di database SQL, ogni istanza è isolata dalle altre con risorse garantite. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md). 
+- Con [Istanza gestita di database SQL](sql-database-managed-instance.md), ogni istanza è isolata dalle altre con risorse garantite. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md).
+- Con il [livello di servizio con iperscalabilità](sql-database-hyperscale.md) (anteprima) nel modello di acquisto basato su vCore, è possibile ridimensionare fino a 100 TB con funzionalità di backup e ripristino rapidi.
 
 ### <a name="adjust-performance-and-scale-without-downtime"></a>Regolare le prestazioni e scalabilità senza tempi di inattività
 
 Il database SQL offre un [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) oppure il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). 
-- Il modello di acquisto basato su DTU offre un insieme di risorse di calcolo, memoria e I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti: Basic, Standard e Premium. I livelli delle prestazioni di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
+- Il modello di acquisto basato su DTU offre un insieme di risorse di calcolo, memoria e I/O in tre livelli di servizio per supportare carichi di lavoro di database da leggeri a pesanti: Basic, Standard e Premium. Le dimensioni di calcolo di ogni livello forniscono una diversa combinazione di queste risorse, a cui è possibile aggiungere altre risorse di archiviazione.
 - Il modello di acquisto basato su vCore consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione.
 
-È possibile creare la prima app in un singolo database di piccole dimensioni per un costo mensile conveniente e quindi modificare il livello di servizio manualmente o a livello di codice in qualsiasi momento per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
+È possibile creare la prima app in un singolo database di piccole dimensioni per un costo mensile conveniente nel livello di servizio Utilizzo generico e quindi modificare il livello di servizio manualmente o a livello di codice in qualsiasi momento nel livello di servizio Business critical per soddisfare le esigenze della soluzione. È possibile regolare le prestazioni senza tempi di inattività per l'app o per i clienti. La scalabilità dinamica consente al database di rispettare i requisiti in continua evoluzione relativi alle risorse e di pagare solo le risorse necessarie quando necessario.
+
+> [!IMPORTANT]
+> Non è possibile passare da un livello di servizio Utilizzo generico o Business critical a un [livello di servizio con iperscalabilità](sql-database-hyperscale.md). È tuttavia possibile modificare i livelli di prestazioni all'interno del livello di servizio con iperscalabilità.
 
 La scalabilità dinamica è diversa dalla scalabilità automatica. Con la scalabilità automatica, un servizio viene ridimensionato automaticamente in base a vari criteri, mentre la scalabilità dinamica consente di gestire manualmente il ridimensionamento senza tempi di inattività. Un singolo database SQL di Azure supporta la scalabilità dinamica manuale, ma non la scalabilità automatica. Per un'esperienza più *automatica*, valutare la possibilità di usare i pool elastici, che consentono ai database di condividere le risorse in un pool in base alle esigenze dei singoli database. Esistono comunque script utili per automatizzare la scalabilità per un singolo database SQL di Azure. Per un esempio, vedere [Usare PowerShell per monitorare e ridimensionare un singolo database SQL](scripts/sql-database-monitor-and-scale-database-powershell.md). 
-
-Istanza gestita di database SQL è in anteprima e offre un unico livello di servizio. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL](sql-database-managed-instance.md).
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 
@@ -86,7 +88,7 @@ Database SQL può anche [generare log di metrica e diagnostica](sql-database-met
 
 - **Archiviazione di Azure**: per l'archiviazione di enormi quantità di dati di telemetria a un costo conveniente
 - **Hub eventi di Azure**: per l'integrazione dei dati di telemetria di database SQL con soluzioni di monitoraggio personalizzate o pipeline attive
-- **Log Analytics di Azure**: per usare una soluzione di monitoraggio incorporata con funzionalità di report, avviso e mitigazione. Si tratta di una funzionalità di [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md).
+- **Log Analytics di Azure**: per usare una soluzione di monitoraggio incorporata con funzionalità di report, avviso e mitigazione. Azure Log Analytics è una funzionalità di [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md)
 
     ![architettura](./media/sql-database-metrics-diag-logging/architecture.png)
 
@@ -177,8 +179,8 @@ Il database SQL supporta lo sviluppo di applicazioni con Python, Java, Node.js, 
 - Per iniziare, vedere queste guide introduttive:
 
   - [Creare un database SQL nel portale di Azure](sql-database-get-started-portal.md)  
-  - [Creare un database SQL con l'interfaccia della riga di comando di Azure](sql-database-cli-samples.md)
-  - [Creare un database SQL usando PowerShell](sql-database-powershell-samples.md)
+  - [Creare un database SQL con l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md)
+  - [Creare un database SQL usando PowerShell](sql-database-get-started-powershell.md)
 
 - Per un set di esempi dell'interfaccia della riga di comando di Azure e di PowerShell, vedere:
   - [Esempi dell'interfaccia della riga di comando di Azure per database SQL](sql-database-cli-samples.md)

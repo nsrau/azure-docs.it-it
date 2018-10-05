@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0055968e4333f5ac7653a37fcd728b040024ee55
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e44b68a2ed2786b449e2680ca4a8ca531058b85c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629848"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432808"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
 
@@ -64,7 +64,7 @@ Grazie ai criteri di accesso condizionale è possibile controllare la modalità 
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio Team Services
+- Azure DevOps
 
 - Microsoft Teams
 
@@ -192,7 +192,7 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 |App Outlook Mobile|Office 365 Exchange Online|Android, iOS|
 |App PowerBI|Servizio PowerBI|Windows 10, Windows 8.1, Windows 7, Android e iOS|
 |Skype for Business Online|Office 365 Exchange Online|Android, iOS |
-|App Visual Studio Team Services|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS e Android|
+|App Azure DevOps|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS e Android|
 
 
 
@@ -223,6 +223,9 @@ Questa impostazione è valida solo per le app client seguenti:
 - Microsoft Teams
 - Microsoft Visio
 - Microsoft Word
+- Microsoft To-Do
+- Microsoft Stream
+- Microsoft Edge
 
 
 

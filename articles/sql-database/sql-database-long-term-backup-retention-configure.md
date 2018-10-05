@@ -2,20 +2,22 @@
 title: Gestire la conservazione dei backup a lungo termine del database SQL di Azure | Microsoft Docs
 description: Informazioni su come archiviare i backup automatizzati nella risorsa di archiviazione di SQL Azure e quindi ripristinarli
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/25/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: d448a4a75d966dcf2cdc6e3d50da2c94f8e7f5d8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+manager: craigg
+ms.date: 09/18/2018
+ms.openlocfilehash: 0a91139d92570a2ee2828f9295590d580902c501
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163125"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164991"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
@@ -29,7 +31,7 @@ Le sezioni seguenti mostrano come usare il portale di Azure per configurare il p
 
 È possibile configurare il database SQL per [conservare i backup automatizzati](sql-database-long-term-retention.md) per un periodo più lungo rispetto al periodo di conservazione associato al livello di servizio. 
 
-1. Nel portale di Azure selezionare l'istanza di SQL Server e quindi fare clic su **Gestisci backup**. Nella scheda **Configure policies** (Configura criteri) selezionare il database in cui si vuole impostare o modificare i criteri di conservazione a lungo termine dei backup.
+1. Nel portale di Azure selezionare l'istanza di SQL Server e quindi fare clic su **Gestisci backup**. Nella scheda **Configura criteri** selezionare la casella di controllo relativa al database in cui si vogliono impostare o modificare i criteri di conservazione a lungo termine dei backup.
 
    ![collegamento di gestione backup](./media/sql-database-long-term-retention/ltr-configure-ltr.png)
 

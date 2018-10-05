@@ -1,26 +1,27 @@
 ---
 title: Eseguire query di analisi su database SQL di Azure | Microsoft Docs
-description: Query di analisi su più tenant con dati estratti da diversi database SQL di Azure.
-keywords: esercitazione su sql
+description: Query di analisi su più tenant con dati estratti da diversi database SQL di Azure in un'app multi-tenant.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: anjangsh
-ms.reviewer: billgib, genemi
-ms.openlocfilehash: 8ed444320db641408b69efb19018e41e2170b51d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: stevestein
+ms.author: sstein
+ms.reviewer: anjangsh,billgib,genemi
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 5de707f3f2e6a82d880363eea91fb8ce644fb3aa
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644638"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055046"
 ---
-# <a name="cross-tenant-analytics-using-extracted-data"></a>Analisi su più tenant con dati estratti
-
-Questa esercitazione illustra in dettaglio uno scenario di analisi completo. Lo scenario dimostra come l'analisi possa consentire alle aziende di prendere decisioni oculate. Con i dati estratti dal database condiviso, si usa l'analisi per ottenere informazioni dettagliate sul comportamento dei tenant, ad esempio sul modo in cui usano l'applicazione di esempio SaaS Wingtip Tickets. Questo scenario include tre passaggi: 
+# <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analisi su più tenant con dati estratti in un'app multi-tenant
+ 
+Questa esercitazione illustra in dettaglio uno scenario di analisi completo per un'implementazione multi-tenant. Lo scenario dimostra come l'analisi possa consentire alle aziende di prendere decisioni oculate. Con i dati estratti dal database condiviso, si usa l'analisi per ottenere informazioni dettagliate sul comportamento dei tenant, ad esempio sul modo in cui usano l'applicazione di esempio SaaS Wingtip Tickets. Questo scenario include tre passaggi: 
 
 1.  **Estrarre i dati** dal database di ogni tenant a un archivio di analisi.
 2.  **Ottimizzare i dati estratti** per l'elaborazione dell'analisi.
@@ -65,7 +66,7 @@ Comprendendo quanto viene usato il servizio da ogni tenant è possibile creare p
 
 ## <a name="setup"></a>Configurazione
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
@@ -207,7 +208,7 @@ Il tracciato precedente mostra che alcune sedi vendono molti biglietti nel primo
 
 Il tracciato precedente per Contoso Concert Hall mostra che la corsa all'acquisto non si verifica per tutti gli eventi. Modificare la selezione delle opzioni di filtro per visualizzare le tendenze di vendita per le altre sedi.
 
-Le informazioni dettagliate sui modelli di vendita dei biglietti potrebbero consentire a Wingtip Tickets di ottimizzare il modello aziendale. Invece di applicare lo stesso addebito a tutti i tenant, Wingtip introdurrà livelli di servizio con diversi livelli di prestazioni. Alle sedi più grandi che devono vendere un maggior numero di biglietti al giorno potrà essere offerto un livello più elevato con un contratto di servizio superiore. I database di tali sedi potranno essere inseriti in pool con limiti di risorse per database superiori. Ogni livello di servizio potrà avere un'allocazione di vendite per ogni ora, con addebito di tariffe aggiuntive in caso di superamento dell'allocazione. Le sedi più grandi con picchi periodici di vendite trarranno vantaggio dai livelli superiori e Wingtip Tickets potrà monetizzare il servizio in modo più efficiente.
+Le informazioni dettagliate sui modelli di vendita dei biglietti potrebbero consentire a Wingtip Tickets di ottimizzare il modello aziendale. Invece di applicare lo stesso addebito a tutti i tenant, Wingtip potrebbe introdurre livelli di servizio con diverse dimensioni di calcolo. Alle sedi più grandi che devono vendere un maggior numero di biglietti al giorno potrà essere offerto un livello più elevato con un contratto di servizio superiore. I database di tali sedi potranno essere inseriti in pool con limiti di risorse per database superiori. Ogni livello di servizio potrà avere un'allocazione di vendite per ogni ora, con addebito di tariffe aggiuntive in caso di superamento dell'allocazione. Le sedi più grandi con picchi periodici di vendite trarranno vantaggio dai livelli superiori e Wingtip Tickets potrà monetizzare il servizio in modo più efficiente.
 
 Nel frattempo, alcuni clienti di Wingtip Tickets segnalano di avere difficoltà a vendere un numero di biglietti sufficiente a giustificare il costo del servizio. Queste informazioni dettagliate potrebbero offrire l'opportunità di incrementare le vendite di biglietti per le sedi con prestazioni inferiori. Vendite superiori aumenteranno il valore percepito del servizio. Fare clic con il pulsante destro del mouse su fact_Tickets e scegliere **Nuova misura**. Immettere l'espressione seguente per la nuova misura denominata **AverageTicketsSold**:
 
@@ -240,5 +241,6 @@ Congratulazioni!
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). -->
+Altre [esercitazioni basate sull'applicazione SaaS Wingtip](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
 - [Processi elastici](sql-database-elastic-jobs-overview.md).
+- [Analisi su più tenant con dati estratti in un'app a singolo tenant](saas-tenancy-tenant-analytics.md) 

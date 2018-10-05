@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 205a4d454be02d64058e3d0fcffda35df5b831a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b6370fd9125c5b14df781b27e028c139175b7589
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971674"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47405802"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Ottimizzare gli iperparametri per il modello
 
@@ -240,7 +240,7 @@ max_concurrent_runs=4
 In questo modo, l'esperimento di ottimizzazione degli iperparametri verrà configurato per l'uso di un massimo di 20 esecuzioni totali, eseguendo 4 configurazioni alla volta.
 
 ## <a name="configure-your-hyperparameter-tuning-experiment"></a>Configurare l'esperimento di ottimizzazione degli iperparametri
-È possibile configurare l'esperimento di ottimizzazione degli iperparametri usando lo spazio di ricerca degli iperparametri, i criteri di terminazione anticipata, la metrica primaria e l'allocazione delle risorse definiti nelle sezioni precedenti. Sarà inoltre necessario specificare un oggetto `estimator`, che verrà richiamato con gli iperparametri campionati. L'oggetto `estimator` descrive lo script di training da eseguire, le risorse per ogni processo (singola GPU o più GPU) e la destinazione di calcolo da usare. Poiché la concorrenza per l'esperimento di ottimizzazione degli iperparametri è limitata dalle risorse disponibili, è necessario verificare che la destinazione di calcolo specificata in `estimator` disponga di risorse sufficienti per la concorrenza desiderata. Per altre informazioni sugli oggetti estimator, vedere [collegamento](/how-to-train-ml-models.md).
+È possibile configurare l'esperimento di ottimizzazione degli iperparametri usando lo spazio di ricerca degli iperparametri, i criteri di terminazione anticipata, la metrica primaria e l'allocazione delle risorse definiti nelle sezioni precedenti. Sarà inoltre necessario specificare un oggetto `estimator`, che verrà richiamato con gli iperparametri campionati. L'oggetto `estimator` descrive lo script di training da eseguire, le risorse per ogni processo (singola GPU o più GPU) e la destinazione di calcolo da usare. Poiché la concorrenza per l'esperimento di ottimizzazione degli iperparametri è limitata dalle risorse disponibili, è necessario verificare che la destinazione di calcolo specificata in `estimator` disponga di risorse sufficienti per la concorrenza desiderata. Per altre informazioni sugli oggetti estimator, vedere [Come eseguire il training di modelli](how-to-train-ml-models.md).
 
 Di seguito è riportato un esempio di configurazione dell'esperimento di ottimizzazione degli iperparametri:
 
@@ -309,10 +309,10 @@ print('\n batch size:',parameter_values[7])
 Vedere 
 * `training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb` per un'esercitazione sull'ottimizzazione degli iperparametri per un modello TensorFlow. 
 
-Ottenere questo notebook:
+Per ottenere questo blocco appunti:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Tenere traccia di un esperimento](/how-to-track-experiments.md)
-* [Distribuire un modello con training](/how-to-deploy-and-where.md)
+* [Tenere traccia di un esperimento](how-to-track-experiments.md)
+* [Distribuire un modello con training](how-to-deploy-and-where.md)

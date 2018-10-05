@@ -2,26 +2,34 @@
 title: Installazione dei processi di database elastici | Documentazione Microsoft
 description: Installazione dettagliata della funzionalità dei processi elastici.
 services: sql-database
-manager: craigg
-author: ddove
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 5760ca693f347068e03770b348d88b3b2adbf678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 37052c86736a05012b9bb996f07bbf2568d7c879
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645613"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163170"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installazione dei processi di database elastici (panoramica)
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+
 I [**processi di database elastico**](sql-database-elastic-jobs-overview.md) possono essere installati tramite PowerShell o tramite il portale di Azure. È possibile ottenere l'accesso per creare e gestire i processi tramite l'API di PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento.
 
 Se sono già stati installati i **processi di database elastici** tramite il portale da un **pool elastico**, l'ultima anteprima di Powershell include gli script per aggiornare l'installazione esistente. È consigliabile aggiornare l'installazione alla versione più recente dei componenti dei **Processi di database elastici** per trarre vantaggio dalle nuove funzionalità esposte tramite le API di PowerShell.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installare la versione più recente tramite l’ [installazione guidata piattaforma Web](http://go.microsoft.com/fwlink/p/?linkid=320376). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
 * [Utilità della riga di comando NuGet](https://nuget.org/nuget.exe) viene utilizzata per installare il pacchetto dei processi di database elastici. Per altre informazioni, vedere http://docs.nuget.org/docs/start-here/installing-nuget.
@@ -88,7 +96,7 @@ I parametri forniti in questa chiamata di esempio possono essere modificati per 
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Fornisce l'obiettivo del livello di servizio per un'edizione Standard. Questo parametro viene impostato su S0. Sono accettati i valori dei parametri S0/S1/S2/S3/S4/S6/S9/S12 che fanno sì che il Database SQL di Azure usi il rispettivo SLO. Per ulteriori informazioni sugli SLO del database SQL, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Specifica la dimensione di calcolo per un'edizione Standard. Questo parametro viene impostato su S0. Sono accettati i valori dei parametri S0/S1/S2/S3/S4/S6/S9/S12 che fanno sì che il database SQL di Azure usi la dimensione di calcolo corrispondente. Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Componenti e prezzi dei processi di database elastico](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>

@@ -1,21 +1,23 @@
 ---
 title: Esercitazione sul modello SaaS di un database per ogni tenant - Database SQL di Azure | Microsoft Docs
 description: Distribuire ed esplorare l'applicazione SaaS multi-tenant Wingtip Tickets, che illustra il modello di database per tenant e altri modelli SaaS usando il database SQL di Azure.
-keywords: esercitazione database SQL
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 77e3cdcbd18a4a5313160b947ce278a75f3e3de3
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423560"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056387"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuire ed esplorare un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL
 
@@ -242,7 +244,7 @@ Passare al server **tenants1-dpt-&lt;utente&gt;** e selezionare **Pool1** per vi
 - Il primo grafico, etichettato come **Utilizzo delle risorse**, mostra l'utilizzo eDTU del pool.
 - Il secondo grafico mostra l'utilizzo eDTU dei cinque database più attivi nel pool.
 
-I due grafici illustrano che i pool elastici e il database SQL sono adatti ai carichi di lavoro di applicazioni SaaS non prevedibili. I grafici mostrano che quattro database, ognuno dei quali con picchi di utilizzo fino a 40 eDTU, vengono supportati senza problemi da un pool da 50 eDTU. Il pool da 50 eDTU può supportare anche carichi di lavoro più pesanti. Se è stato effettuato il provisioning dei database come database autonomi, per supportare i picchi ogni database deve essere un S2 (50 DTU). Il costo di quattro database S2 autonomi corrisponde circa al triplo del prezzo del pool. Nelle situazioni reali, i clienti di database SQL eseguono fino a 500 database in pool da 200 eDTU. Per altre informazioni, vedere l'[esercitazione sul monitoraggio delle prestazioni](saas-dbpertenant-performance-monitoring.md).
+I due grafici illustrano che i pool elastici e il database SQL sono adatti ai carichi di lavoro di applicazioni SaaS non prevedibili. I grafici mostrano che quattro database, ognuno dei quali con picchi di utilizzo fino a 40 eDTU, vengono supportati senza problemi da un pool da 50 eDTU. Il pool da 50 eDTU può supportare anche carichi di lavoro più pesanti. Se è stato effettuato il provisioning dei database come database singoli, per supportare i picchi ogni database deve essere un S2 (50 DTU). Il costo di quattro database S2 autonomi corrisponde circa al triplo del prezzo del pool. Nelle situazioni reali, i clienti di database SQL eseguono fino a 500 database in pool da 200 eDTU. Per altre informazioni, vedere l'[esercitazione sul monitoraggio delle prestazioni](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

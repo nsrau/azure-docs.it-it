@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 9/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 4c6aaea836302732b1af3d22923c965575cfc9d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1242cf80ffd283471eb507612949a81d4b3fd594
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47020473"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47401569"
 ---
 ### <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -101,6 +101,9 @@ $publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName
 $azfw.Allocate($vnet,$publicip)
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
+
+> [!NOTE]
+> È necessario riassegnare un firewall e un indirizzo IP pubblico al gruppo di risorse e alla sottoscrizione originali.
 
 ### <a name="what-are-the-known-service-limits"></a>Quali sono i limiti noti del servizio?
 

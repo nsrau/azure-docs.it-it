@@ -2,19 +2,22 @@
 title: Tecnologie in memoria del database SQL di Azure | Documentazione Microsoft
 description: Le tecnologie in memoria del database SQL di Azure migliorano notevolmente le prestazioni dei carichi di lavoro transazionali e analitici.
 services: sql-database
-author: jodebrui
-manager: craigg
 ms.service: sql-database
-ms.custom: develop databases
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: jodebrui
 ms.author: jodebrui
-ms.openlocfilehash: f4e056e9f8461085df6ae447672e2c9ec91aa3ca
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 07/16/2018
+ms.openlocfilehash: 8fd430aa710c7e36133b40c7079b9d727774c68f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092404"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166929"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Ottimizzare le prestazioni tramite le tecnologie in memoria nel database SQL
 
@@ -72,7 +75,7 @@ Video di approfondimento sulle tecnologie:
 
 OLTP in memoria include tabelle ottimizzate per la memoria che vengono usate per archiviare i dati utente. Queste tabelle devono rientrare nella memoria. Poiché la memoria è gestita direttamente nel servizio del database SQL, esiste il concetto di quota per i dati utente. Questo concetto è definito *archiviazione di OLTP in memoria*.
 
-Ogni piano tariffario relativo a database autonomi e pool elastici supportati include una certa quantità di spazio di archiviazione OLTP in memoria. Vedere [Limiti delle risorse basate su DTU - database singolo](sql-database-dtu-resource-limits-single-databases.md), [Limiti delle risorse basate su DTU - pool elastici](sql-database-dtu-resource-limits-elastic-pools.md),[Limiti delle risorse basate su vCore - database singoli](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse basate su vCore - pool elastici](sql-database-vcore-resource-limits-elastic-pools.md).
+Ogni piano tariffario relativo a database singoli e pool elastici supportati include una certa quantità di spazio di archiviazione OLTP in memoria. Vedere [Limiti delle risorse basate su DTU - database singolo](sql-database-dtu-resource-limits-single-databases.md), [Limiti delle risorse basate su DTU - pool elastici](sql-database-dtu-resource-limits-elastic-pools.md),[Limiti delle risorse basate su vCore - database singoli](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse basate su vCore - pool elastici](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Gli elementi seguenti rientrano nel limite di archiviazione di OLTP in memoria:
 

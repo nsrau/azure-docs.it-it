@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42140922"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032530"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
@@ -36,7 +36,7 @@ I processi accedono alle risorse di Azure eseguendo una connessione alla sottosc
 
 La tabella seguente descrive i diversi stati possibili per un processo.
 
-| Status | Descrizione |
+| Status | DESCRIZIONE |
 |:--- |:--- |
 | Completed |Il processo è stato completato. |
 | Failed |Per [Runbook grafico e runbook flusso di lavoro PowerShell](automation-runbook-types.md), la compilazione di runbook non è riuscita. Per [Runbook di Script di PowerShell](automation-runbook-types.md), non è stato possibile avviare il runbook o il processo ha rilevato un'eccezione. |
@@ -59,7 +59,7 @@ La tabella seguente descrive i diversi stati possibili per un processo.
 
 A destra dell'account di Automazione selezionato, è possibile visualizzare tutti i processi del Runbook relativi a un account di Automazione selezionato sotto al riquadro **Statistiche processi**.
 
-![Riquadro Statistiche del processo](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![Riquadro Statistiche del processo](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 Questo riquadro visualizza un conteggio e una rappresentazione grafica dello stato dei processi per tutti i processi eseguiti.
 
@@ -145,7 +145,8 @@ Questo avviene per impedire che nel servizio i runbook vengano eseguiti all'infi
 
 Se il runbook non dispone di alcun checkpoint o non ha raggiunto il primo checkpoint prima di essere scaricato, viene riavviato dall'inizio.
 
-Per le attività che richiedono una lunga esecuzione, è consigliabile un [ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md#job-behavior). I ruoli di lavoro ibrido per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook.
+Per le attività che richiedono una lunga esecuzione, è consigliabile un [ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md#job-behavior). I ruoli di lavoro ibrido per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook. Gli altri [limiti](../azure-subscription-service-limits.md#automation-limits) dei processi si applicano sia ai sandbox di Azure che ai ruoli di lavoro ibridi per runbook.
+
 
 Se si utilizza un runbook del flusso di lavoro di PowerShell in Azure, al momento della sua creazione è consigliabile assicurarsi che il tempo necessario per eseguire qualsiasi attività tra due checkpoint non superi le tre ore. Può essere necessario aggiungere checkpoint al runbook per assicurarsi che non raggiunga tale limite o suddividere le operazioni che richiedono una lunga esecuzione. Ad esempio, il runbook potrebbe eseguire una reindicizzazione su un database SQL di grandi dimensioni. Se questa singola operazione non viene completata entro il limite di condivisione equa, il processo viene scaricato e riavviato dall'inizio. In tal caso, è opportuno suddividere l'operazione di reindicizzazione in più passaggi, ad esempio specificando la reindicizzazione di una tabella alla volta, e quindi inserire un checkpoint dopo ogni operazione in modo che il processo possa riprendere dopo l'ultima operazione da completare.
 

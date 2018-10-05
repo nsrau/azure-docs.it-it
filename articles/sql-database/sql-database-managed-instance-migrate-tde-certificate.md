@@ -1,26 +1,27 @@
 ---
 title: Eseguire la migrazione di un certificato TDE - Istanza gestita di database SQL di Azure | Microsoft Docs
-description: Eseguire la migrazione a un'istanza gestita di SQL di Azure del certificato di protezione della chiave di crittografia di un database con Transparent Data Encryption
-keywords: esercitazione su database SQL, istanza gestita di database SQL, migrazione certificato TDE
+description: Eseguire la migrazione a un'istanza gestita del database SQL di Azure del certificato di protezione della chiave di crittografia di un database con Transparent Data Encryption
 services: sql-database
-author: MladjoA
-ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
-ms.custom: managed instance
-ms.topic: tutorial
-ms.date: 08/09/2018
+ms.subservice: security
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: MladjoA
 ms.author: mlandzic
+ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.date: 08/09/2018
+ms.openlocfilehash: 078a64bf625fad15b66a3c4e6e31e798f675fc33
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050612"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161778"
 ---
-# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Eseguire la migrazione del certificato di un database protetto tramite TDE a un'istanza gestita di SQL di Azure
+# <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Eseguire la migrazione del certificato di un database protetto tramite TDE a un'istanza gestita del database SQL di Azure
 
-In caso di migrazione di un database protetto tramite [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) a un'istanza gestita di SQL di Azure con l'opzione del ripristino nativo, prima di ripristinare il database è necessario eseguire la migrazione del certificato corrispondente dall'istanza locale o IaaS di SQL Server. Questo articolo illustra il processo di migrazione manuale del certificato a Istanza gestita di database SQL di Azure:
+In caso di migrazione di un database protetto tramite [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) a un'istanza gestita di database SQL di Azure con l'opzione del ripristino nativo, prima di ripristinare il database è necessario eseguire la migrazione del certificato corrispondente dall'istanza locale o IaaS di SQL Server. Questo articolo illustra il processo di migrazione manuale del certificato a Istanza gestita di database SQL di Azure:
 
 > [!div class="checklist"]
 > * Esportare il certificato in un file PFX (Personal Information Exchange)
@@ -30,7 +31,7 @@ In caso di migrazione di un database protetto tramite [Transparent Data Encrypti
 Per un'opzione alternativa basata sull'uso di un servizio completamente gestito per una migrazione senza problemi sia del database protetto tramite TDE che del certificato corrispondente, vedere l'articolo su [come eseguire la migrazione di un database locale a Istanza gestita con Servizio Migrazione del database di Azure](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Per un'istanza gestita di SQL di Azure, Transparent Data Encryption funziona in modalità servizio gestito. Il certificato di cui viene eseguita la migrazione viene usato solo per il ripristino del database protetto tramite TDE. Subito dopo il ripristino, tale certificato viene sostituito da un altro gestito dal sistema.
+> Per un'istanza gestita del database SQL di Azure, Transparent Data Encryption funziona in modalità servizio gestito. Il certificato di cui viene eseguita la migrazione viene usato solo per il ripristino del database protetto tramite TDE. Subito dopo il ripristino, tale certificato viene sostituito da un altro gestito dal sistema.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -109,7 +110,7 @@ Se il certificato si trova nell'archivio certificati del computer locale di SQL 
 
 4. Seguire la procedura guidata per esportare il certificato e la chiave privata nel formato PFX.
 
-## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Caricare il certificato in un'istanza gestita di SQL di Azure con il cmdlet di Azure PowerShell
+## <a name="upload-certificate-to-azure-sql-database-managed-instance-using-azure-powershell-cmdlet"></a>Caricare il certificato in un'istanza gestita del database SQL di Azure con il cmdlet di Azure PowerShell
 
 1. Per iniziare, eseguire i passaggi di preparazione in PowerShell:
 
@@ -139,6 +140,6 @@ Il certificato è ora disponibile per l'istanza gestita specificata e il backup 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo è stato illustrato come eseguire la migrazione del certificato di protezione della chiave di crittografia del database con Transparent Data Encryption, dall'istanza locale o IaaS di SQL Server a un'istanza gestita di SQL di Azure.
+In questo articolo è stato illustrato come eseguire la migrazione del certificato di protezione della chiave di crittografia del database con Transparent Data Encryption, dall'istanza locale o IaaS di SQL Server a un'istanza gestita del database SQL di Azure.
 
 Per informazioni su come ripristinare un backup di database in un'istanza gestita di database SQL di Azure, vedere [Ripristinare un backup di database in un'istanza gestita di database SQL di Azure](sql-database-managed-instance-get-started-restore.md).

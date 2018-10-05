@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/25/2018
-ms.author: mbullwin ; daviste
-ms.openlocfilehash: d76db02647ce878343f60fc84cf063c5b7833438
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.reviewer: daviste
+ms.author: mbullwin
+ms.openlocfilehash: 9188776fdd213f01523069b08bd898f48bee57a4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47091482"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analisi di impatto con Application Insights
 
@@ -66,7 +68,7 @@ In questo caso i risultati non rientrano più in un modello di asse x continuo c
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Come vengono calcolati questi tassi di conversione dallo strumento Impatto?
 
-A un livello sottostante, lo strumento Impatto si basa sul [coefficiente di correlazione di Pearson] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). I risultati calcolati sono compresi tra -1 e 1, con -1 che rappresenta zero correlazione e 1 che rappresenta una correlazione positiva.
+Dietro le quinte lo strumento Impatto si basa sull'[indice di correlazione di Pearson] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). I risultati calcolati sono compresi tra -1 e 1, con -1 che rappresenta zero correlazione e 1 che rappresenta una correlazione positiva.
 
 L'analisi di impatto funziona in base alla suddivisione di base seguente:
 

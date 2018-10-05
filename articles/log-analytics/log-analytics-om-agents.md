@@ -14,37 +14,37 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 4d0c8a4395ee70881ffee56f9ed030943c6fa557
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.component: ''
+ms.openlocfilehash: ba15ecdb59eb98094367d8cd4760323d863332c4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495374"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222710"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Connettere Operations Manager a Log Analytics
-Per gestire l'investimento esistente in System Center Operations Manager e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di Log Analytics.  Ciò consente di sfruttare le opportunità di Log Analytics pur continuando a usare Operations Manager per:
+Per gestire l'investimento esistente in System Center Operations Manager e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di Log Analytics. Ciò consente di sfruttare le opportunità di Log Analytics pur continuando a usare Operations Manager per:
 
 * Monitorare l'integrità dei servizi IT con Operations Manager
 * Gestire l'integrazione con le soluzioni ITSM che supportano la gestione di eventi imprevisti e problemi
 * Gestire il ciclo di vita degli agenti distribuiti in macchine virtuali IaaS locali e nel cloud pubblico monitorate con Operations Manager
 
-L'integrazione con System Center Operations Manager accresce il valore della strategia delle operazioni del servizio sfruttando la velocità e l'efficienza di Log Analytics nella raccolta, nell'archiviazione e nell'analisi dei dati di Operations Manager.  Log Analytics semplifica la correlazione e permette di identificare le cause dei problemi e di esporre le nuove occorrenze per supportare il processo di gestione dei problemi esistenti.  La flessibilità del motore di ricerca per esaminare prestazioni, dati di eventi e avvisi, con funzionalità di creazione di report e dashboard avanzati per esporre questi dati in modo significativo è indicativa dei vantaggi di Log Analytics come complemento di Operations Manager.
+L'integrazione con System Center Operations Manager accresce il valore della strategia delle operazioni del servizio sfruttando la velocità e l'efficienza di Log Analytics nella raccolta, nell'archiviazione e nell'analisi dei dati di Operations Manager. Log Analytics semplifica la correlazione e permette di identificare le cause dei problemi e di esporre le nuove occorrenze per supportare il processo di gestione dei problemi esistenti. La flessibilità del motore di ricerca per esaminare prestazioni, dati di eventi e avvisi, con funzionalità di creazione di report e dashboard avanzati per esporre questi dati in modo significativo è indicativa dei vantaggi di Log Analytics come complemento di Operations Manager.
 
-Gli agenti di segnalazione al gruppo di gestione di Operations Manager raccolgono i dati dai server basati sulle soluzioni e sulle origini dati di Log Analytics abilitate nell'area di lavoro.  A seconda della soluzione abilitata, i dati vengono inviati direttamente da un server di gestione di Operations Manager al servizio oppure, a causa del volume dei dati raccolti nel sistema gestito dall'agente, vengono inviati direttamente dall'agente a Log Analytics. Il server di gestione inoltra direttamente i dati al servizio. I dati non vengono mai scritti nel database operativo o nel database del data warehouse.  Quando un server di gestione perde la connettività con Log Analytics, memorizza i dati nella cache locale finché non viene ristabilita la comunicazione con Log Analytics.  Se il server di gestione è offline a causa di interventi di manutenzione pianificata o di un'interruzione non pianificata, un altro server di gestione del gruppo di gestione riprenderà la connettività con Log Analytics.  
+Gli agenti di segnalazione al gruppo di gestione di Operations Manager raccolgono i dati dai server basati sulle soluzioni e sulle origini dati di Log Analytics abilitate nell'area di lavoro. A seconda della soluzione abilitata, i dati vengono inviati direttamente da un server di gestione di Operations Manager al servizio oppure, a causa del volume dei dati raccolti nel sistema gestito dall'agente, vengono inviati direttamente dall'agente a Log Analytics. Il server di gestione inoltra direttamente i dati al servizio. I dati non vengono mai scritti nel database operativo o nel database del data warehouse. Quando un server di gestione perde la connettività con Log Analytics, memorizza i dati nella cache locale finché non viene ristabilita la comunicazione con Log Analytics. Se il server di gestione è offline a causa di interventi di manutenzione pianificata o di un'interruzione non pianificata, un altro server di gestione del gruppo di gestione riprenderà la connettività con Log Analytics.  
 
 Il diagramma seguente illustra la connessione tra gli agenti e i server di gestione in un gruppo di gestione di System Center Operations Manager e Log Analytics, includendo anche la direzione e le porte.   
 
 ![oms-operations-manager-integration-diagram](./media/log-analytics-om-agents/oms-operations-manager-connection.png)
 
-Se i criteri di sicurezza IT non consentono ai computer nella rete di connettersi a Internet, i server di gestione possono essere configurati per la connessione al gateway OMS per poter ricevere le informazioni di configurazione e inviare i dati raccolti a seconda della soluzione abilitata.  Per altre informazioni e procedure su come configurare il gruppo di gestione di Operations Manager per comunicare tramite un Gateway OMS con il servizio Log Analytics, vedere [Connettere i computer a OMS tramite il Gateway OMS](log-analytics-oms-gateway.md).  
+Se i criteri di sicurezza IT non consentono ai computer nella rete di connettersi a Internet, i server di gestione possono essere configurati per la connessione al gateway OMS per poter ricevere le informazioni di configurazione e inviare i dati raccolti a seconda della soluzione abilitata. Per altre informazioni e procedure su come configurare il gruppo di gestione di Operations Manager per comunicare tramite un Gateway OMS con il servizio Log Analytics, vedere [Connettere i computer a OMS tramite il Gateway OMS](log-analytics-oms-gateway.md).  
 
 ## <a name="prerequisites"></a>Prerequisiti 
 Prima di iniziare, esaminare i requisiti seguenti.
 
-* Log Analytics supporta solo System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 o versioni successive e Operations Manager 2012 R2 UR2 o versioni successive.  Il supporto per il proxy è stato aggiunto in Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
+* Log Analytics supporta solo System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 o versioni successive e Operations Manager 2012 R2 UR2 o versioni successive. Il supporto per il proxy è stato aggiunto in Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
 * Tutti gli agenti di Operations Manager devono soddisfare i requisiti di supporto minimo. Verificare che gli agenti dispongano dell'aggiornamento minimo richiesto, altrimenti le comunicazioni degli agenti di Windows possono avere esito negativo e generare errori nel log eventi di Operations Manager.
-* Un'area di lavoro di Log Analytics.  Per altre informazioni, vedere [Raccogliere dati dai computer dell'ambiente con Log Analytics](log-analytics-concept-hybrid.md).
+* Un'area di lavoro di Log Analytics. Per altre informazioni, vedere [Raccogliere dati dai computer dell'ambiente con Log Analytics](log-analytics-concept-hybrid.md).
 * Autenticazione in Azure con un account membro del [ruolo di collaboratore di Log Analytics](log-analytics-manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
@@ -55,7 +55,7 @@ Prima di iniziare, esaminare i requisiti seguenti.
 >* Per System Center Operations Manager 2012 R2, scaricare il Management Pack da [qui](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
 
 ### <a name="network"></a>Rete
-Le informazioni di seguito elencano i dettagli di configurazione del proxy e del firewall necessari all'agente di Operations Manager, ai server di gestione e alla Console operatore per comunicare con Log Analytics.  Il traffico in uscita da ogni componente di rete viene indirizzato al servizio Log Analytics.     
+Le informazioni di seguito elencano i dettagli di configurazione del proxy e del firewall necessari all'agente di Operations Manager, ai server di gestione e alla Console operatore per comunicare con Log Analytics. Il traffico in uscita da ogni componente di rete viene indirizzato al servizio Log Analytics.   
 
 |Risorsa | Numero della porta| Ignorare l'analisi HTTPS|  
 |---------|------|-----------------------|  
@@ -82,7 +82,7 @@ Le informazioni di seguito elencano i dettagli di configurazione del proxy e del
 |docs.loganalytics.io| 80 e 443||  
 
 ### <a name="tls-12-protocol"></a>Protocollo TLS 1.2
-Per garantire la sicurezza dei dati in transito verso Log Analytics, è consigliabile configurare l'agente e il gruppo di gestione in modo da usare almeno il protocollo Transport Layer Security (TLS) 1.2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**.  Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
+Per garantire la sicurezza dei dati in transito verso Log Analytics, è consigliabile configurare l'agente e il gruppo di gestione in modo da usare almeno il protocollo Transport Layer Security (TLS) 1.2. Le versioni precedenti di TLS/Secure Sockets Layer (SSL) sono state considerate vulnerabili. Nonostante siano ancora attualmente in uso per questioni di compatibilità con le versioni precedenti, **non sono consigliate**. Per altre informazioni, vedere [Invio dei dati in modo sicuro tramite TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 
 
 ## <a name="connecting-operations-manager-to-log-analytics"></a>Connettere Operations Manager a Log Analytics
 Eseguire questa serie di passaggi per configurare il gruppo di gestione di Operations Manager per connettersi a una delle aree di lavoro di Log Analytics.
@@ -102,7 +102,7 @@ Dopo aver completato la procedura di integrazione seguente con Log Analytics, è
 1. Espandere il nodo Operations Management Suite e fare clic su **Connessione**.
 1. Fare clic sul collegamento **Registrazione a Operations Management Suite** .
 1. Nella pagina**Caricamento guidato di Operations Management Suite: Autenticazione**, immettere l'indirizzo di posta elettronica o il numero di telefono e la password dell'account amministratore associato alla sottoscrizione OMS e fare clic su **Accedi**.
-1. Al termine dell'autenticazione, nella pagina **Operations Management Suite Onboarding Wizard: Select Workspace** (Caricamento guidato di Operations Management Suite: selezione area di lavoro) verrà chiesto di selezionare il tenant e la sottoscrizione di Azure e l'area di lavoro di Log Analytics.  Se si ha più di un'area di lavoro, selezionare l'area di lavoro che si vuole registrare con il gruppo di gestione di Operations Manager nell'elenco a discesa e quindi fare clic su **Avanti**.
+1. Al termine dell'autenticazione, nella pagina **Operations Management Suite Onboarding Wizard: Select Workspace** (Caricamento guidato di Operations Management Suite: selezione area di lavoro) verrà chiesto di selezionare il tenant e la sottoscrizione di Azure e l'area di lavoro di Log Analytics. Se si ha più di un'area di lavoro, selezionare l'area di lavoro che si vuole registrare con il gruppo di gestione di Operations Manager nell'elenco a discesa e quindi fare clic su **Avanti**.
    
    > [!NOTE]
    > Operations Manager supporta solo un'area di lavoro di Log Analytics alla volta. La connessione e i computer registrati in Log Analytics con l'area di lavoro precedente vengono rimossi da Log Analytics.
@@ -119,10 +119,10 @@ Dopo aver configurato l'integrazione con l'area di lavoro di Log Analytics, vien
 1. Fare clic sul collegamento **Aggiungi computer/gruppo** nell'intestazione Azioni sul lato destro del riquadro.
 1. Nella finestra di dialogo **Ricerca computer** è possibile cercare i computer o i gruppi monitorati da Operations Manager. Selezionare i computer o i gruppi da caricare in Log Analytics, fare clic su **Aggiungi** e quindi su **OK**.
 
-È possibile visualizzare i computer e i gruppi configurati per raccogliere dati dal nodo Computer gestiti in Operations Management Suite nell'area di lavoro **Amministrazione** della console operatore.  Da qui è possibile aggiungere o rimuovere i computer e i gruppi in base alle esigenze.
+È possibile visualizzare i computer e i gruppi configurati per raccogliere dati dal nodo Computer gestiti in Operations Management Suite nell'area di lavoro **Amministrazione** della console operatore. Da qui è possibile aggiungere o rimuovere i computer e i gruppi in base alle esigenze.
 
 ### <a name="configure-proxy-settings-in-the-operations-console"></a>Configurare le impostazioni del proxy nella Console operatore
-Seguire questa procedura se tra il gruppo di gestione e il servizio Log Analytics è presente un server proxy interno.  Queste impostazioni vengono gestite centralmente dal gruppo di gestione e distribuite ai sistemi gestiti dagli agenti inclusi nell'ambito della raccolta dati per Log Analytics.  Questo è un vantaggio nel caso di alcune soluzioni che ignorano il server di gestione e inviano i dati direttamente al servizio.
+Seguire questa procedura se tra il gruppo di gestione e il servizio Log Analytics è presente un server proxy interno. Queste impostazioni vengono gestite centralmente dal gruppo di gestione e distribuite ai sistemi gestiti dagli agenti inclusi nell'ambito della raccolta dati per Log Analytics.  Questo è un vantaggio nel caso di alcune soluzioni che ignorano il server di gestione e inviano i dati direttamente al servizio.
 
 1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione** .
 1. Espandere Operations Management Suite e quindi fare clic su **Connessioni**.
@@ -136,25 +136,25 @@ Se il server proxy richiede l'autenticazione, seguire questa procedura per confi
 1. Aprire il profilo **Proxy del profilo RunAs di System Center Advisor** .
 1. In Creazione guidata profilo RunAs fare clic su Aggiungi per usare un account RunAs. È possibile creare un [account RunAs](https://technet.microsoft.com/library/hh321655.aspx) oppure usare un account esistente. L'account deve avere autorizzazioni sufficienti per passare attraverso il server proxy.
 1. Per impostare l'account da gestire, scegliere **Classe, gruppo o oggetto selezionato**, fare clic su **Seleziona...** e su **Gruppo...** per aprire la finestra **Ricerca gruppi**.
-1. Cercare e quindi selezionare **Gruppo di server di monitoraggio di Microsoft System Center Advisor**.  Fare clic su **OK** dopo avere selezionato il gruppo per chiudere la finestra **Ricerca gruppi**.
+1. Cercare e quindi selezionare **Gruppo di server di monitoraggio di Microsoft System Center Advisor**. Fare clic su **OK** dopo avere selezionato il gruppo per chiudere la finestra **Ricerca gruppi**.
 1. Fare clic su **OK** per chiudere la finestra **Aggiungi account RunAs**.
 1. Fare clic su **Salva** per completare la procedura guidata e salvare le modifiche.
 
 Una volta creata la connessione e aver configurato gli agenti che raccoglieranno e segnaleranno i dati a Log Analytics, nel gruppo di gestione viene applicata la configurazione seguente, non necessariamente in questo ordine:
 
-* Viene creato l'account RunAs **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate**, che  viene associato al profilo RunAs **Microsoft System Center Advisor eseguito come profilo BLOB** e che specifica come destinazione due classi, **Server raccolta** e **Gruppo di gestione di Operations Manager**.
+* Viene creato l'account RunAs **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate**, che viene associato al profilo RunAs **Microsoft System Center Advisor eseguito come profilo BLOB** e che specifica come destinazione due classi, **Server raccolta** e **Gruppo di gestione di Operations Manager**.
 * Vengono creati due connettori.  Il primo è denominato **Microsoft.SystemCenter.Advisor.DataConnector** e viene configurato automaticamente con una sottoscrizione che inoltra tutti gli avvisi generati dalle istanze di tutte le classi nel gruppo di gestione a Log Analytics. Il secondo connettore è **Advisor Connector**, che è responsabile della comunicazione con il servizio Web OMS e della condivisione dei dati.
 * Gli agenti e i gruppi selezionati per raccogliere i dati nel gruppo di gestione vengono aggiunti al **Gruppo di server di monitoraggio di Microsoft System Center Advisor**.
 
 ## <a name="management-pack-updates"></a>Aggiornamenti di Management Pack
-Al termine della configurazione, il gruppo di gestione di Operations Manager stabilisce una connessione con il servizio Log Analytics.  Il server di gestione si sincronizza con il servizio Web e riceve le informazioni di configurazione aggiornate sotto forma di Management Pack per le soluzioni abilitate che si integrano con Operations Manager.   Operations Manager cerca gli aggiornamenti per questi Management Pack e, se disponibili, li scarica e li importa automaticamente.  Esistono due regole in particolare che controllano questo comportamento:
+Al termine della configurazione, il gruppo di gestione di Operations Manager stabilisce una connessione con il servizio Log Analytics. Il server di gestione si sincronizza con il servizio Web e riceve le informazioni di configurazione aggiornate sotto forma di Management Pack per le soluzioni abilitate che si integrano con Operations Manager. Operations Manager cerca gli aggiornamenti per questi Management Pack e, se disponibili, li scarica e li importa automaticamente. Esistono due regole in particolare che controllano questo comportamento:
 
 * **Microsoft.SystemCenter.Advisor.MPUpdate**: aggiorna i Management Pack di Log Analytics di base. Per impostazione predefinita, viene eseguita ogni 12 ore.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** : aggiorna i Management Pack delle soluzioni abilitati nell'area di lavoro. Per impostazione predefinita, viene eseguita ogni cinque (5) minuti.
 
-È possibile eseguire l'override di queste due regole per impedire il download automatico disabilitandole o per modificare la frequenza di sincronizzazione del server di gestione con OMS per determinare se è disponibile un nuovo Management Pack e se deve essere scaricato.  Seguire i passaggi in [Come eseguire l'override di una regola o di un'attività di monitoraggio](https://technet.microsoft.com/library/hh212869.aspx) per modificare il parametro **Frequenza** con un valore espresso in secondi per cambiare la pianificazione della sincronizzazione oppure per modificare il parametro **Abilitata** per disabilitare le regole.  Specificare come destinazione gli override di tutti gli oggetti della classe Gruppo di gestione di Operations Manager.
+È possibile eseguire l'override di queste due regole per impedire il download automatico disabilitandole o per modificare la frequenza di sincronizzazione del server di gestione con OMS per determinare se è disponibile un nuovo Management Pack e se deve essere scaricato. Seguire i passaggi in [Come eseguire l'override di una regola o di un'attività di monitoraggio](https://technet.microsoft.com/library/hh212869.aspx) per modificare il parametro **Frequenza** con un valore espresso in secondi per cambiare la pianificazione della sincronizzazione oppure per modificare il parametro **Abilitata** per disabilitare le regole. Specificare come destinazione gli override di tutti gli oggetti della classe Gruppo di gestione di Operations Manager.
 
-Per continuare a seguire il processo di controllo delle modifiche esistente per controllare le versioni dei Management Pack nel gruppo di gestione di produzione, è possibile disabilitare le regole e abilitarle in orari specifici in cui gli aggiornamenti sono consentiti. Se nell'ambiente è presente un gruppo di sviluppo o di gestione del controllo di qualità con connettività a Internet, è possibile configurare tale gruppo di gestione con un'area di lavoro di Log Analytics per supportare questo scenario.  Questo consente di rivedere e valutare le versioni iterative dei Management Pack di Log Analytics prima di rilasciarle nel gruppo di gestione di produzione.
+Per continuare a seguire il processo di controllo delle modifiche esistente per controllare le versioni dei Management Pack nel gruppo di gestione di produzione, è possibile disabilitare le regole e abilitarle in orari specifici in cui gli aggiornamenti sono consentiti. Se nell'ambiente è presente un gruppo di sviluppo o di gestione del controllo di qualità con connettività a Internet, è possibile configurare tale gruppo di gestione con un'area di lavoro di Log Analytics per supportare questo scenario. Questo consente di rivedere e valutare le versioni iterative dei Management Pack di Log Analytics prima di rilasciarle nel gruppo di gestione di produzione.
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Passare un gruppo di Operations Manager a una nuova area di lavoro di Log Analytics
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
@@ -189,9 +189,9 @@ Per continuare a seguire il processo di controllo delle modifiche esistente per 
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-log-analytics"></a>Rimuovere l'integrazione con Log Analytics
-Quando l'integrazione tra il gruppo di gestione di Operations Manager e l'area di lavoro di Log Analytics non è più richiesta, sono necessari diversi passaggi per rimuovere correttamente la connessione e la configurazione nel gruppo di gestione. Per la procedura seguente è necessario aggiornare l'area di lavoro personale di Log Analytics eliminando il riferimento del gruppo di gestione, eliminare i connettori di Log Analytics e infine eliminare i Management Pack che supportano l'integrazione con il servizio.   
+Quando l'integrazione tra il gruppo di gestione di Operations Manager e l'area di lavoro di Log Analytics non è più richiesta, sono necessari diversi passaggi per rimuovere correttamente la connessione e la configurazione nel gruppo di gestione. Per la procedura seguente è necessario aggiornare l'area di lavoro personale di Log Analytics eliminando il riferimento del gruppo di gestione, eliminare i connettori di Log Analytics e infine eliminare i Management Pack che supportano l'integrazione con il servizio.  
 
-I Management Pack per le soluzioni abilitate che si integrano con Operations Manager e i Management Pack necessari per supportare l'integrazione con il servizio Log Analytics non possono essere facilmente eliminati dal gruppo di gestione.  Questo perché alcuni Management Pack di Log Analytics hanno dipendenze su altri Management Pack correlati.  Per eliminare i Management pack con una dipendenza su altri Management pack, scaricare lo script per [rimuovere un Management pack con le dipendenze](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) da TechNet Script Center.  
+I Management Pack per le soluzioni abilitate che si integrano con Operations Manager e i Management Pack necessari per supportare l'integrazione con il servizio Log Analytics non possono essere facilmente eliminati dal gruppo di gestione. Questo perché alcuni Management Pack di Log Analytics hanno dipendenze su altri Management Pack correlati. Per eliminare i Management pack con una dipendenza su altri Management pack, scaricare lo script per [rimuovere un Management pack con le dipendenze](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) da TechNet Script Center.  
 
 1. Aprire la shell dei comandi di Operations Manager con un account membro del ruolo Amministratori di Operations Manager.
    
@@ -215,7 +215,7 @@ I Management Pack per le soluzioni abilitate che si integrano con Operations Man
 
 1. Nel portale di OMS fare clic sul riquadro **Impostazioni**.
 1. Selezionare **Origini connesse**.
-1. Nella tabella della sezione System Center Operations Manager dovrebbe essere visualizzato il nome del gruppo di gestione che si desidera rimuovere dall'area di lavoro.  Nella colonna **Ultimi dati** fare clic su **Rimuovi**.  
+1. Nella tabella della sezione System Center Operations Manager dovrebbe essere visualizzato il nome del gruppo di gestione che si desidera rimuovere dall'area di lavoro. Nella colonna **Ultimi dati** fare clic su **Rimuovi**.  
    
     > [!NOTE]
     > Il collegamento **Rimuovi** non sarà disponibile finché non saranno trascorsi 14 giorni senza alcuna attività rilevata dal gruppo di gestione connesso.  
@@ -321,10 +321,10 @@ Per eliminare i due connettori, Microsoft.SystemCenter.Advisor.DataConnector e A
     Remove-Connector $connectorName
 ```
 
-Se in futuro si prevede di riconnettere il gruppo di gestione a un'area di lavoro di Log Analytics, sarà necessario importare nuovamente il file del Management Pack `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb`.  A seconda della versione di System Center Operations Manager distribuita nell'ambiente in uso, è possibile che questo file si trovi nel percorso seguente:
+Se in futuro si prevede di riconnettere il gruppo di gestione a un'area di lavoro di Log Analytics, è necessario importare nuovamente il file del Management Pack `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb`. A seconda della versione di System Center Operations Manager distribuita nell'ambiente in uso, è possibile che questo file si trovi nel percorso seguente:
 
 * Nel supporto di origine nella cartella `\ManagementPacks` per System Center 2016 - Operations Manager e versioni successive.
-* Nel rollup dell'aggiornamento più recente applicato al gruppo di gestione.  Per Operations Manager 2012, la cartella di origine è ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e per la versione 2012 R2 si trova in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* Nel rollup dell'aggiornamento più recente applicato al gruppo di gestione. Per Operations Manager 2012, la cartella di origine è ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e per la versione 2012 R2 si trova in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per aggiungere funzionalità e raccogliere i dati, vedere [Aggiungere soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md).

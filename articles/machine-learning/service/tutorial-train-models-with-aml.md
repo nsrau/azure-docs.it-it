@@ -1,24 +1,24 @@
 ---
 title: 'Esercitazione: Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning'
-description: Informazioni su come eseguire il training di un modello di classificazione delle immagini scikit-learn con un notebook di Jupyter di Python. Questa esercitazione è la prima di una serie in due parti.
-author: hning86
-ms.author: haining
-ms.topic: conceptual
+description: Questa esercitazione mostra come usare il servizio Azure Machine Learning per eseguire il training di un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la prima di una serie in due parti.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
+ms.topic: tutorial
+author: hning86
+ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: bed4abcce3019607715416b5194a2ddecc89b76a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966612"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181399"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>Esercitazione n.1: Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning
 
-In questa esercitazione si eseguirà il training di un modello di Machine Learning sia in locale che su risorse di calcolo remote. Si userà il flusso di lavoro per il training e la distribuzione per il servizio Azure Machine Learning in un notebook di Jupyter di Python.  È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
+In questa esercitazione si eseguirà il training di un modello di Machine Learning sia in locale che su risorse di calcolo remote. Si userà il flusso di lavoro di training e distribuzione per il servizio Azure Machine Learning (anteprima) in un notebook Jupyter per Python.  È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
 
 Questa esercitazione esegue il training di una semplice regressione logistica usando il set di dati [MNIST](http://yann.lecun.com/exdb/mnist/) e [scikit-learn](http://scikit-learn.org) con Azure Machine Learning.  MNIST è un set di dati noto costituito da 70.000 immagini in scala di grigi. Ogni immagine è una cifra scritta a mano di 28x28 pixel, che rappresenta un numero compreso tra 0 e 9. L'obiettivo è creare un classificatore multiclasse per identificare la cifra rappresentata da una determinata immagine. 
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
-Per comodità, questa esercitazione è disponibile anche come notebook di Jupyter. Usare uno di questi metodi per eseguire il notebook `tutorials/01.train-models.ipynb`:
+Per comodità, questa esercitazione è disponibile anche come notebook di Jupyter. Usare uno dei due metodi seguenti per clonare il [repository GitHub di notebook di esempio di Machine Learning](https://github.com/Azure/MachineLearningNotebooks) ed eseguire il notebook `tutorials/01.train-models.ipynb`:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -79,7 +79,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### <a name="create-experiment"></a>Creare un esperimento
 
-Creare un esperimento per tenere traccia di tutte le esecuzioni nell'area di lavoro.  
+Creare un esperimento per tenere traccia di tutte le esecuzioni nell'area di lavoro. Un'area di lavoro può includere più esperimenti. 
 
 ```python
 experiment_name = 'sklearn-mnist'
@@ -105,7 +105,7 @@ batchai_cluster_name = "traincluster"
 try:
     # look for the existing cluster by name
     compute_target = ComputeTarget(workspace=ws, name=batchai_cluster_name)
-    if compute_target is BatchAiCompute:
+    if type(compute_target) is BatchAiCompute:
         print('found compute target {}, just use it.'.format(batchai_cluster_name))
     else:
         print('{} exists but it is not a Batch AI cluster. Please choose a different name.'.format(batchai_cluster_name))
@@ -157,7 +157,7 @@ urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ub
 
 ### <a name="display-some-sample-images"></a>Visualizzare alcune immagini di esempio
 
-Caricare i file compressi in matrici `numpy`. Usare quindi `matplotlib` per tracciare 30 immagini casuali dal set di dati con le etichette al di sopra.
+Caricare i file compressi in matrici `numpy`. Usare quindi `matplotlib` per tracciare 30 immagini casuali dal set di dati con le etichette al di sopra. Per questo passaggio è necessaria una funzione `load_data` inclusa nel file `util.py`. Questo file è incluso nella cartella degli esempi. Assicurarsi che si trovi nella stessa cartella del notebook. La funzione `load_data` analizza i file compressi in matrici numpy.
 
 
 
@@ -194,7 +194,7 @@ Questo è l'aspetto delle immagini e dei risultati di stima previsti.
 
 ### <a name="upload-data-to-the-cloud"></a>Caricare dati nel cloud
 
-A questo punto, è necessario rendere accessibili i dati in modalità remota, caricandoli dal computer locale nel cloud, in modo che siano accessibili per il training remoto. L'archivio dati è un costrutto pratico associato all'area di lavoro per il caricamento e il download dei dati e supporta le interazioni dalle destinazioni di calcolo remote. 
+A questo punto, è necessario rendere accessibili i dati in remoto, caricandoli dal computer locale in Azure, in modo che siano accessibili per il training remoto. L'archivio dati è un costrutto pratico associato all'area di lavoro per il caricamento e il download dei dati e supporta le interazioni dalle destinazioni di calcolo remote. È supportato dall'account di archiviazione BLOB di Azure.
 
 I file MNIST vengono caricati in una directory denominata `mnist` alla radice dell'archivio dati.
 
@@ -365,7 +365,7 @@ run = exp.submit(config=est)
 run
 ```
 
-Dato che la chiamata è asincrona, restituisce lo stato **in esecuzione** non appena viene avviato il processo.
+Poiché la chiamata è asincrona, restituisce lo stato **Preparazione** o **In esecuzione** non appena viene avviato il processo.
 
 ## <a name="monitor-a-remote-run"></a>Monitorare un'esecuzione remota
 
@@ -377,7 +377,7 @@ Ecco ciò che avviene durante l'attesa:
 
   Questa fase viene eseguita una volta per ogni ambiente Python, perché il contenitore viene memorizzato nella cache per le esecuzioni successive.  Durante la creazione dell'immagine, i log vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato di creazione dell'immagine usando questi log.
 
-- **Ridimensionamento**: se il cluster remoto richiede più nodi di quelli attualmente disponibili, vengono aggiunti automaticamente nodi aggiuntivi. Per il ridimensionamento sono in genere necessari **circa 5 minuti**.
+- **Ridimensionamento**: se il cluster remoto richiede più nodi per l'esecuzione di quelli attualmente disponibili, vengono aggiunti automaticamente altri nodi. Per il ridimensionamento sono in genere necessari **circa 5 minuti**.
 
 - **Esecuzione**: in questa fase, gli script e i file necessari vengono inviati alla destinazione di calcolo, quindi gli archivi dati vengono montati/copiati e infine viene eseguito entry_script. Durante l'esecuzione del processo, stdout e la directory ./logs vengono trasmessi alla cronologia di esecuzione. È possibile monitorare lo stato dell'esecuzione usando questi log.
 
@@ -454,7 +454,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione per Azure Machine Learning è stato usato Python per:
+In questa esercitazione di Azure Machine Learning è stato usato Python per:
 
 > [!div class="checklist"]
 > * Configurazione dell'ambiente di sviluppo

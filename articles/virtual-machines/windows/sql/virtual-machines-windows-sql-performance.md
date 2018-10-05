@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/24/2018
+ms.date: 09/26/2018
 ms.author: jroth
-ms.openlocfilehash: 3a61c20b922b60e3135d9f9e53928462887a602e
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 0119c6642d68db6a90af07395882e620b1af08c6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886186"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394953"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Linee guida sulle prestazioni per SQL Server in Macchine virtuali di Azure
 
@@ -28,10 +28,10 @@ ms.locfileid: "42886186"
 
 Questo articolo include linee guida per ottimizzare le prestazioni di SQL Server in Macchine virtuali di Microsoft Azure. Durante l'esecuzione di SQL Server in Macchine virtuali di Azure, è consigliabile continuare a usare le stesse opzioni di ottimizzazione delle prestazioni dei database applicabili a SQL Server nell'ambiente server locale. Tuttavia, le prestazioni di un database relazionale in un cloud pubblico dipendono da molti fattori, ad esempio dalle dimensioni della macchina virtuale e dalla configurazione dei dischi dati.
 
-Per le [immagini di SQL Server di cui è stato eseguito il provisioning nel portale di Azure](quickstart-sql-vm-create-portal.md) sono valide le procedure consigliate per la configurazione dell'archiviazione. Per altre informazioni sulla configurazione dell'archiviazione, vedere [Configurazione dell'archiviazione per le VM di SQL Server](virtual-machines-windows-sql-server-storage-configuration.md). Dopo il provisioning, è possibile applicare le altre ottimizzazioni descritte in questo articolo. Basare le scelte sul carico di lavoro e verificarle tramite test.
+Le [immagini di SQL Server con provisioning nel portale di Azure](quickstart-sql-vm-create-portal.md) seguono le procedure consigliate generali di configurazione dell'archiviazione (per ulteriori informazioni sulla configurazione dell'archiviazione, vedere [Configurazione dell'archiviazione per le VM di SQL Server](virtual-machines-windows-sql-server-storage-configuration.md)). Dopo il provisioning, è possibile applicare le altre ottimizzazioni descritte in questo articolo. Basare le scelte sul carico di lavoro e verificarle tramite test.
 
 > [!TIP]
-> Questo articolo riporta informazioni su come ottenere le *migliori* prestazioni per SQL Server nelle VM Azure. Se il carico di lavoro è contenuto, potrebbero non essere necessarie tutte le ottimizzazione elencate di seguito. Prendere in considerazione le esigenze di prestazioni e i modelli di carico di lavoro durante la valutazione di queste indicazioni.
+> Vi è in genere un compromesso tra l'ottimizzazione per i costi e l'ottimizzazione per le prestazioni. Questo articolo riporta informazioni su come ottenere le *migliori* prestazioni per SQL Server nelle VM Azure. Se il carico di lavoro è contenuto, potrebbero non essere necessarie tutte le ottimizzazione elencate di seguito. Prendere in considerazione le esigenze di prestazione, i costi e i modelli di carico di lavoro durante la valutazione di questi elementi consigliati.
 
 ## <a name="quick-check-list"></a>Elenco di controllo rapido
 
@@ -41,7 +41,7 @@ Di seguito è riportato un elenco controllo rapido per ottimizzare le prestazion
 | --- | --- |
 | [Dimensioni macchina virtuale](#vm-size-guidance) |[DS3_v2](../sizes-general.md) o superiore per SQL Enterprise Edition.<br/><br/>[DS2_v2](../sizes-general.md) o superiore per SQL Standard Edition e Web Edition. |
 | [Archiviazione](#storage-guidance) |Usare [Archiviazione Premium](../premium-storage.md). Archiviazione Standard è consigliata solo per i carichi di lavoro di sviluppo/test.<br/><br/>Mantenere l'[account di archiviazione](../../../storage/common/storage-create-storage-account.md) e la macchina virtuale di SQL Server nella stessa area.<br/><br/>Disabilitare l' [archiviazione con ridondanza geografica](../../../storage/common/storage-redundancy.md) (replica geografica) di Azure nell'account di archiviazione. |
-| [Dischi](#disks-guidance) |Usare minimo 2 [dischi P30](../premium-storage.md#scalability-and-performance-targets) (1 per i file di log e 1 per i file di dati e TempDB oppure usare due o più dischi in striping e archiviare tutti i file in un singolo volume).<br/><br/>Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/>Abilitare la memorizzazione nella cache di lettura sui dischi che ospitano i file di dati e i file di dati di TempDB.<br/><br/>Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.<br/><br/>Importante: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/>Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/>Formattare con dimensioni di allocazione documentate. |
+| [Dischi](#disks-guidance) |Usare almeno 2 [dischi P30](../premium-storage.md#scalability-and-performance-targets) (1 per i file di log, 1 per i file di dati inclusi TempDB).<br/><br/>Evitare l'uso del sistema operativo o di dischi temporanei per la registrazione o l'archiviazione di database.<br/><br/>Abilitare la memorizzazione nella cache di lettura sui dischi che ospitano i file di dati e i file di dati di TempDB.<br/><br/>Non abilitare la memorizzazione nella cache sui dischi che ospitano il file di log.<br/><br/>Importante: arrestare SQL Server quando si modificano le impostazioni della cache per un disco di una macchina virtuale di Azure.<br/><br/>Eseguire lo striping di più dischi dati di Azure per ottenere una maggiore velocità effettiva I/O.<br/><br/>Formattare con dimensioni di allocazione documentate. |
 | [I/O](#io-guidance) |Abilitare la compressione di pagina di database.<br/><br/>Abilitare l'inizializzazione immediata dei file per i file di dati.<br/><br/>Limitare l'aumento automatico delle dimensioni per il database.<br/><br/>Disabilitare la compattazione automatica per il database.<br/><br/>Spostare tutti i database su dischi dati, inclusi i database di sistema.<br/><br/>Spostare le directory dei file di traccia e dei log degli errori di SQL Server sui dischi dati.<br/><br/>Configurare il percorso predefinito del file di backup e del file di database.<br/><br/>Abilitare le pagine bloccate.<br/><br/>Applicare le correzioni delle prestazioni di SQL Server. |
 | [Elementi specifici delle funzionalità](#feature-specific-guidance) |Eseguire il backup direttamente nell'archivio BLOB. |
 
@@ -61,7 +61,7 @@ Le macchine virtuali della [serie DSv2](../sizes-general.md#dsv2-series) support
 Le VM serie DS, oltre alle serie DSv2 e GS, supportano [Archiviazione Premium](../premium-storage.md). Archiviazione Premium è l'impostazione consigliata per tutti i carichi di lavoro di produzione.
 
 > [!WARNING]
-> Archiviazione Standard è caratterizzata da latenze e larghezze di banda variabili ed è consigliata solo per i carichi di lavoro di sviluppo e test. Per i carichi di lavoro di produzione si consiglia di usare Archiviazione Premium.
+> Archiviazione Standard è caratterizzata da latenze e larghezze di banda variabili ed è consigliata solo per i carichi di lavoro di sviluppo e test. Ciò include la nuova archiviazione SSD Standard. Per i carichi di lavoro di produzione si consiglia di usare Archiviazione Premium.
 
 È inoltre consigliabile creare account di archiviazione di Azure nello stesso data center delle macchine virtuali di SQL Server per ridurre i tempi di trasferimento. Quando si crea un account di archiviazione, disabilitare la replica geografica in quanto l'ordine di scrittura coerente su più dischi non è garantito. In alternativa, si consiglia di configurare una tecnologia di ripristino di emergenza di SQL Server tra due data center di Azure. Per altre informazioni, vedere [Disponibilità elevata e ripristino di emergenza per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-high-availability-dr.md).
 
@@ -85,13 +85,16 @@ I criteri predefiniti di caching per il disco del sistema operativo predefinito 
 
 L'unità di archiviazione temporanea, etichettata come unità **D**:, non è persistente nell'archiviazione BLOB di Azure. Non archiviare i file del database utente o i file di log delle transazioni utente nell'unità **D**.
 
-Per le VM serie D, Dv2 e G, l'unità temporanea è basata su SSD. Se il carico di lavoro usa TempDB in modo intensivo, ad esempio per gli oggetti temporanei o join complessi, l'archiviazione di TempDB nell'unità **D** potrebbe comportare una maggiore velocità effettiva e una minore latenza di TempDB.
+Per le VM serie D, Dv2 e G, l'unità temporanea è basata su SSD. Se il carico di lavoro usa TempDB in modo intensivo, ad esempio per gli oggetti temporanei o join complessi, l'archiviazione di TempDB nell'unità **D** potrebbe comportare una maggiore velocità effettiva e una minore latenza di TempDB. Per uno scenario di esempio, vedere la discussione TempDB nel post di blog seguente: [Linee guida di configurazione dell'archiviazione per SQL Server nelle macchine virtuali di Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
 
 Per le macchine virtuali che supportano Archiviazione Premium (serie DS, DSv2 e GS), si consiglia di archiviare TempDB su un disco che supporta Archiviazione Premium con il caching di lettura attivato. Esiste un'eccezione a questo consiglio: se TempDB è soggetto a uso intenso in scrittura, è possibile migliorare le prestazioni archiviando TempDB nell'unità locale **D** , che in macchine di queste dimensioni è anche basata su SSD.
 
 ### <a name="data-disks"></a>Dischi dati
 
-* **Usare i dischi dati per i file di dati e di log**: se non si usa lo striping del disco, usare due [dischi P30](../premium-storage.md#scalability-and-performance-targets) con Archiviazione Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB. Ogni disco di Archiviazione Premium offre un numero di operazioni di I/O al secondo e larghezza di banda (MB/s) a seconda delle dimensioni, come descritto nell'articolo [Uso di Archiviazione Premium per dischi](../premium-storage.md). Se si usa una tecnica di striping del disco, ad esempio Spazi di archiviazione, è consigliabile posizionare tutti i dati e i file di log nella stessa unità.
+* **Usare i dischi dati per i file di dati e di log**: se non si usa lo striping del disco, usare due [dischi P30](../premium-storage.md#scalability-and-performance-targets) con Archiviazione Premium di cui uno contenente i file di log e l'altro contenente i file di dati e TempDB. Ogni disco di Archiviazione Premium offre un numero di operazioni di I/O al secondo e larghezza di banda (MB/s) a seconda delle dimensioni, come descritto nell'articolo [Uso di Archiviazione Premium per dischi](../premium-storage.md). Se si utilizza una tecnica di striping del disco, come Spazi di archiviazione, si ottengono prestazioni ottimali con due pool, uno per il/i file di log e l'altro per i file di dati. Tuttavia, se si prevede di usare le istanze cluster di failover (FCI) di SQL Server, è necessario configurare un pool.
+
+   > [!TIP]
+   > Per risultati del test in diverse configurazioni del disco e del carico di lavoro, vedere il post di blog seguente: [Linee guida di configurazione dell'archiviazione per SQL Server in macchine virtuali di Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
 
    > [!NOTE]
    > Quando si esegue il provisioning di una VM SQL Server nel portale, è possibile modificare la configurazione di archiviazione. A seconda della configurazione, Azure configura uno o più dischi. Più dischi sono combinati in un pool di archiviazione singolo con striping. Entrambi i file di dati e di log risiedono insieme in questa configurazione. Per altre informazioni, vedere [Configurazione dell'archiviazione per le VM di SQL Server](virtual-machines-windows-sql-server-storage-configuration.md).
@@ -101,7 +104,7 @@ Per le macchine virtuali che supportano Archiviazione Premium (serie DS, DSv2 e 
   * Per Windows 8 e Windows Server 2012 o versioni successive, usare [Spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx) applicando le indicazioni seguenti:
 
       1. Impostare l'interleave (dimensione di striping) su 64 KB (65536 byte) per carichi di lavoro OLTP e su 256 KB (262144 KB) per carichi di lavoro di data warehouse, in modo da evitare effetti sulle prestazioni a causa del mancato allineamento delle partizioni. Questo valore deve essere impostato con PowerShell.
-      1. Impostare il numero di colonne sul numero di dischi fisici. Usare PowerShell (e non l'interfaccia utente di Server Manager) per configurare più di 8 dischi. 
+      2. Impostare il numero di colonne sul numero di dischi fisici. Usare PowerShell (e non l'interfaccia utente di Server Manager) per configurare più di 8 dischi. 
 
     Ad esempio, lo script di PowerShell seguente crea un nuovo pool di archiviazione con la dimensione di interleave impostata su 64 KB e il numero di colonne impostato su 2:
 
@@ -114,7 +117,7 @@ Per le macchine virtuali che supportano Archiviazione Premium (serie DS, DSv2 e 
 
   * Per Windows 2008 R2 o versioni precedenti, è possibile usare i dischi dinamici (volumi con striping del sistema operativo) e la dimensione di striping è sempre di 64 KB. Si noti che questa opzione è deprecata a partire da Windows 8 e Windows Server 2012. Per informazioni, vedere l'informativa di supporto relativa al [passaggio dal servizio dischi virtuali all'API di gestione archiviazione di Windows](https://msdn.microsoft.com/library/windows/desktop/hh848071.aspx).
 
-  * Se si usa [Direct degli spazi di archiviazione (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) con uno scenario simile a [Istanze del cluster di failover di SQL Server](virtual-machines-windows-portal-sql-create-failover-cluster.md), è necessario configurare un singolo pool. Si noti che anche se si possono creare volumi diversi nel pool singolo, tutti condivideranno le stesse caratteristiche, ad esempio gli stessi criteri di memorizzazione nella cache.
+  * Se si usa [Spazi di archiviazione diretta (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm) con [Istanze del cluster di failover di SQL Server](virtual-machines-windows-portal-sql-create-failover-cluster.md), è necessario configurare un singolo pool. Si noti che anche se si possono creare volumi diversi nel pool singolo, tutti condivideranno le stesse caratteristiche, ad esempio gli stessi criteri di memorizzazione nella cache.
 
   * Determinare il numero di dischi associati al pool di archiviazione dell'utente in base alle aspettative di carico. Tenere presente che le diverse dimensioni di macchine virtuali consentono diversi numeri di dischi dati associati. Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -124,7 +127,7 @@ Per le macchine virtuali che supportano Archiviazione Premium (serie DS, DSv2 e 
 
   * Se si usano dischi separati per i dati e file di log, abilitare la memorizzazione nella cache di lettura sui dischi dati che ospitano i propri file di dati e i file di dati di TempDB. Ciò può comportare un miglioramento significativo delle prestazioni. Non abilitare la memorizzazione nella cache sul disco che contiene il file di log, perché questo causa una riduzione delle prestazioni.
 
-  * Se si usa lo striping del disco, la maggior parte dei carichi di lavoro trarrà vantaggio dalla memorizzazione nella cache. Considerato il miglioramento delle prestazioni ottenuto con lo striping del disco, questa raccomandazione è valida anche quando il file di log si trova nella stessa unità. Per alcuni carichi di lavoro di scrittura pesanti, è possibile ottenere prestazioni migliori senza la memorizzazione nella cache. Ciò può essere determinato solo tramite test.
+  * Se si usa lo striping del disco in un singolo pool di archiviazione, la maggior parte dei carichi di lavoro trarrà vantaggio dalla memorizzazione nella cache. Se si dispone di pool di archiviazione separato per i file di log e di dati, abilitare la cache di lettura solo nel pool di archiviazione per i file di dati. Per alcuni carichi di lavoro di scrittura pesanti, è possibile ottenere prestazioni migliori senza la memorizzazione nella cache. Ciò può essere determinato solo tramite test.
 
   * Le raccomandazioni precedenti si applicano ai dischi di Archiviazione Premium. Se non si usa Archiviazione Premium, non abilitare la memorizzazione nella cache per i dischi dati.
 
@@ -178,6 +181,8 @@ Alcune distribuzioni possono ottenere ulteriori miglioramenti delle prestazioni 
 * **File di dati di SQL Server in Azure**: questa nuova funzionalità ( [file di dati di SQL Server in Azure](https://msdn.microsoft.com/library/dn385720.aspx)) è disponibile a partire da SQL Server 2014. L'esecuzione di SQL Server con file di dati in Azure dimostra le caratteristiche di prestazioni paragonabili a quelle dei dischi dati di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Per altre informazioni su archiviazione e prestazioni, vedere [Linee guida di configurazione dell'archiviazione per SQL Server in macchine virtuali di Azure](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
 
 Per le procedure consigliate relative alla sicurezza, vedere [Considerazioni relative alla sicurezza per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-security.md).
 

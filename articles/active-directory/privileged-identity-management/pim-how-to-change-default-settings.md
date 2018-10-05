@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 09/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665435"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47039001"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurare le impostazioni dei ruoli della directory di Azure AD in PIM
 
@@ -63,24 +63,23 @@ Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere ag
 * Gli utenti che dispongono di account Microsoft per i relativi indirizzi di posta elettronica (in genere @outlook.com) non possono eseguire la registrazione per Azure MFA. Se si vuole assegnare ruoli agli utenti con account Microsoft, renderli amministratori permanenti o disabilitare l'autenticazione MFA per il ruolo.
 * Non è possibile disabilitare l'autenticazione MFA per i ruoli con privilegi elevati per Azure AD e Office365. Si tratta di una funzionalità di sicurezza poiché è necessaria una protezione elevata per questi ruoli:  
   
-  * Amministratore di applicazioni
-  * Amministratore server proxy applicazione
-  * Amministratore fatturazione  
-  * Amministratore di conformità  
+  * Amministratore fatturazione
+  * Amministratore applicazione cloud
+  * Amministratore di conformità
+  * Amministratore di accesso condizionale
   * Amministratore del servizio CRM
   * Responsabile approvazione per l'accesso a Customer Lockbox
-  * Ruolo con autorizzazioni di scrittura nella directory  
-  * Amministratore di Exchange  
+  * Writer di directory
+  * Amministratore di Exchange
   * Amministratore globale
+  * Amministratore di Information Protection
   * Amministratore del servizio Intune
-  * Amministratore della cassetta postale  
-  * Supporto partner - Livello 1  
-  * Supporto partner - Livello 2  
+  * Amministratore del servizio Power BI
   * Amministratore dei ruoli con privilegi
-  * Amministratore della sicurezza  
-  * Amministratore di SharePoint  
-  * Amministratore di Skype for Business  
-  * Amministratore account utente  
+  * Amministratore della sicurezza
+  * Amministratore del servizio SharePoint
+  * Amministratore di Skype for Business
+  * Amministratore utenti
 
 Per altre informazioni, vedere [Multi-Factor Authentication (MFA) e PIM](pim-how-to-require-mfa.md).
 

@@ -3,19 +3,22 @@ title: 'Codici di errore SQL: errore di connessione del database | Documentazion
 description: 'Informazioni sui codici di errore SQL per le applicazioni client del database SQL, ad esempio errori di connessione comuni del database, problemi di copia del database ed errori generali. '
 keywords: codice di errore sql, accesso sql, errore di connessione del database, codici di errore sql
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/16/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: d5b98f573b60115002e813ebbef59eb7983ce3c2
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092529"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064391"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Codici di errore SQL per le applicazioni client del database SQL: errore di connessione e altri problemi del database
 
@@ -111,7 +114,7 @@ Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool ela
 | 40857 |EX_USER |Pool elastico non trovato per il server: '%ls', nome del pool elastico: '%ls'. |nome del server; nome del pool elastico |Il pool elastico specificato non esiste nel server specificato. |Fornire un nome pool elastico valido. |
 | 40858 |EX_USER |Il pool elastico '%ls' esiste già nel server: '%ls' |nome del pool elastico, nome del server |Il pool elastico specificato esiste già nel server logico specificato. |Fornire un nuovo nome pool elastico. |
 | 40859 |EX_USER |Il pool elastico non supporta il livello di servizio '%ls'. |livello di servizio del pool elastico |Il livello di servizio specificato non è supportato per il provisioning del pool elastico. |Fornire l'edizione corretta oppure lasciare vuoto il livello di servizio per utilizzare il livello di servizio predefinito. |
-| 40860 |EX_USER |La combinazione di pool elastico '%ls' e di obiettivo di servizio '%ls' non è valida. |nome pool elastico; nome obiettivo del livello di servizio |Il pool elastico e l’obiettivo del servizio possono essere specificati insieme solo se l’obiettivo di servizio viene specificato come 'ElasticPool'. |Specificare la combinazione corretta di pool elastico e obiettivo di servizio. |
+| 40860 |EX_USER |La combinazione di pool elastico '%ls' e di obiettivo di servizio '%ls' non è valida. |nome pool elastico; livello di servizio |Il pool elastico e il livello di servizio possono essere specificati insieme solo se il tipo di risorsa specificato è 'ElasticPool'. |Specificare la combinazione corretta di pool elastico e livello di servizio. |
 | 40861 |EX_USER |L'edizione del database "%.*ls" non può essere diversa dal livello di servizio del pool elastico, ovvero "%.* ls". |edizione del database, livello di servizio del pool elastico |L'edizione del database è diversa dal livello di servizio del pool elastico. |Non specificare un'edizione di database diversa dal livello di servizio del pool elastico.  Si noti che non è necessario specificare l'edizione del database. |
 | 40862 |EX_USER |Il nome del pool elastico deve essere specificato se viene specificato l'obiettivo di servizio del pool elastico. |Nessuna |L’obiettivo di servizio del pool elastico non identifica in modo univoco un pool elastico. |Specificare il nome del pool elastico se si usa l'obiettivo di servizio del pool elastico. |
 | 40864 |EX_USER |Le DTU per il pool elastico devono essere almeno (%d) DTU per il livello di servizio '%.*ls'. |DTU per il pool elastico; livello di servizio del pool elastico. |Tentativo di impostare le DTU per il pool elastico al di sotto del limite minimo. |Riprovare a impostare le DTU per il pool elastico almeno al limite minimo. |

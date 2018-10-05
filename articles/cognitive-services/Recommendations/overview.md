@@ -1,20 +1,21 @@
 ---
-title: API Consigli | Microsoft Docs
+title: Che cos'è l'API Consigli?
+titlesuffix: Azure Cognitive Services
 description: L'API di anteprima è sospesa ed è stata sostituita dal modello di soluzione per i consigli.
 services: cognitive-services
 author: LuisCabrer
-manager: mwinkle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: recommendations
-ms.topic: article
+ms.topic: overview
 ms.date: 02/15/2018
 ms.author: luisca
-ms.openlocfilehash: 2224a44c76ce7b04ab6705babbe9fa4f3bfa1c04
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 59529806c322176c1d85c273a99682eaa7c13e41
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373772"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222665"
 ---
 # <a name="recommendations-api-discontinued"></a>API Consigli (sospesa)
 

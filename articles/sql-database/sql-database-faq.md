@@ -2,19 +2,22 @@
 title: Domande frequenti sul database SQL di Azure | Microsoft Docs
 description: Le risposte a domande comuni dei clienti su database cloud e Database SQL di Azure, sistema di gestione di database relazionali di Microsoft (RDBMS) e database come servizio nel cloud.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: reference
+ms.subservice: ''
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/29/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8aaf89426cf392faaf6339f49300bf7d2b7dcfcd
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286333"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166623"
 ---
 # <a name="sql-database-faq"></a>Domande frequenti sul database SQL
 
@@ -41,7 +44,7 @@ In molti casi le applicazioni possono sfruttare la semplicità di un bundle di r
 I modelli basati su vCore e DTU continueranno a coesistere. Microsoft sta introducendo il modello basato su vCore in risposta alle richieste dei clienti per una maggiore trasparenza relativa alle risorse del database e per la possibilità di ridimensionare in modo separato le risorse di calcolo e archiviazione. Il modello basato su vCore consente anche risparmi aggiuntivi per i clienti con licenza Software Assurance attiva tramite il Vantaggio Azure Hybrid per SQL Server.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>In base a quali criteri scegliere tra il modello di acquisto basato su DTU e quello basato su vCore? 
-La DTU (Database Transaction Unit) è basata su una misura combinata di CPU, memoria, operazioni di lettura e operazioni di scrittura. I livelli di prestazioni basati su DTU rappresentano bundle preconfigurati di risorse per ottenere diversi livelli di prestazioni delle applicazioni. Il modello basato su DTU può essere più adatto alle esigenze dei clienti che non vogliono occuparsi delle risorse sottostanti e preferiscono la semplicità di un bundle preconfigurato, pagando un importo fisso mensile. Per i clienti a cui invece servono informazioni dettagliate aggiuntive sulle risorse sottostanti o che devono ridimensionarle in modo indipendente per ottenere prestazioni ottimali, il modello basato su vCore sarà la scelta ideale.  I clienti con una licenza Software Assurance attiva per SQL Server possono inoltre sfruttare i vantaggi dei loro investimenti esistenti e risparmiare fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Le opzioni presenti in ciascun modello di acquisto offrono i vantaggi di un servizio completamente gestito, come i backup automatizzati, gli aggiornamenti software e le patch. 
+La DTU (Database Transaction Unit) è basata su una misura combinata di CPU, memoria, operazioni di lettura e operazioni di scrittura. Le dimensioni di calcolo basate su DTU rappresentano bundle preconfigurati di risorse per ottenere diversi livelli di prestazioni delle applicazioni. Il modello basato su DTU può essere più adatto alle esigenze dei clienti che non vogliono occuparsi delle risorse sottostanti e preferiscono la semplicità di un bundle preconfigurato, pagando un importo fisso mensile. Per i clienti a cui invece servono informazioni dettagliate aggiuntive sulle risorse sottostanti o che devono ridimensionarle in modo indipendente per ottenere prestazioni ottimali, il modello basato su vCore sarà la scelta ideale.  I clienti con una licenza Software Assurance attiva per SQL Server possono inoltre sfruttare i vantaggi dei loro investimenti esistenti e risparmiare fino al 30% con il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Le opzioni presenti in ciascun modello di acquisto offrono i vantaggi di un servizio completamente gestito, come i backup automatizzati, gli aggiornamenti software e le patch. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>Che cos'è il Vantaggio Azure Hybrid per SQL Server? 
 Il [Vantaggio Azure Hybrid per SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) consente di massimizzare il valore degli investimenti correnti per la licenza e accelerare la migrazione nel cloud. Il Vantaggio Azure Hybrid per SQL Server è un vantaggio basato su Azure che consente di usare le licenze di SQL Server con Software Assurance per pagare una tariffa ridotta ("tariffa di base") per il database SQL. Il Vantaggio Azure Hybrid per SQL Server è disponibile come anteprima pubblica del modello di acquisto basato su vCore per i pool elastici e i database singoli del database SQL. È possibile applicare questo vantaggio anche se lo SKU è attivo, ma è opportuno notare che la tariffa di base viene applicata a partire dal momento della selezione nel portale di Azure. Non verranno rilasciati crediti retroattivamente.
@@ -71,15 +74,15 @@ I clienti di database SQL possono beneficiare dei diritti seguenti associati al 
 Il costo delle risorse di calcolo riflette la capacità di calcolo totale di cui è stato eseguito il provisioning per l'applicazione. Nel livello di servizio Business Critical vengono allocate automaticamente almeno 3 repliche Always ON. Per riflettere questa allocazione aggiuntiva di risorse di calcolo, il prezzo del modello basato su vCore è circa 2,7 volte più alto nel livello Business Critical. Per lo stesso motivo, il prezzo dell'archiviazione per GB più alto nel livello Business Critical riflette l'I/O elevato e la bassa latenza dell'archiviazione SSD. Il costo delle risorse di archiviazione per i backup è tuttavia lo stesso perché in entrambi i casi viene usata una classe di archiviazione standard.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>I costi di archiviazione vengono addebitati in base alla configurazione iniziale o alle risorse usate dal database?
-I vari tipi di archiviazione vengono fatturati in modo diverso. Per l'archiviazione dei dati, i costi vengono addebitati per le risorse di archiviazione totali di cui è stato eseguito il provisioning in base alle dimensioni massime del database o del pool selezionato. Il costo non cambia, a meno che il valore delle dimensioni massime non venga ridotto o aumentato. Le risorse di archiviazione dei backup sono associate ai backup automatizzati dell'istanza. L'incremento del periodo di conservazione dei backup comporta l'aumento delle risorse di archiviazione dei backup utilizzate dall'istanza. Non sono previsti addebiti aggiuntivi per le risorse di archiviazione dei backup fino al 100% delle risorse di archiviazione totali di cui è stato eseguito il provisioning per il server. Se si utilizza una quantità maggiore di risorse di archiviazione per i backup, viene applicato un addebito in base ai GB utilizzati in più ogni mese. Se ad esempio le risorse di archiviazione del database sono pari a 100 GB, si ottengono 100 GB per i backup senza costi aggiuntivi. Se tuttavia i dati di backup sono pari a 110 GB, è necessario pagare per i 10 GB aggiuntivi.
+I vari tipi di archiviazione vengono fatturati in modo diverso. Per l'archiviazione dei dati, i costi vengono addebitati per le risorse di archiviazione totali di cui è stato eseguito il provisioning in base alle dimensioni massime del database o del pool selezionato. Il costo non cambia, a meno che il valore delle dimensioni massime non venga ridotto o aumentato. Le risorse di archiviazione dei backup sono associate ai backup automatizzati dell'istanza e vengono allocate in modo dinamico. L'incremento del periodo di conservazione dei backup comporta l'aumento delle risorse di archiviazione dei backup utilizzate dall'istanza. Non sono previsti addebiti aggiuntivi per le risorse di archiviazione dei backup fino al 100% delle risorse di archiviazione totali di cui è stato eseguito il provisioning per il server. Se si utilizza una quantità maggiore di risorse di archiviazione per i backup, viene applicato un addebito in base ai GB utilizzati in più ogni mese. Se ad esempio le risorse di archiviazione del database sono pari a 100 GB, si ottengono 100 GB per i backup senza costi aggiuntivi. Se tuttavia i dati di backup sono pari a 110 GB, è necessario pagare per i 10 GB aggiuntivi. 
 
 Per le risorse di archiviazione dei backup di un database singolo, l'addebito viene applicato in maniera proporzionale per le risorse di archiviazione allocate ai backup del database meno le dimensioni del database. Per le risorse di archiviazione dei backup di un pool elastico, l'addebito viene applicato in maniera proporzionale per le risorse di archiviazione allocate ai backup di tutti i database del pool meno le dimensioni massime dei dati del pool elastico. Un aumento delle dimensioni del database o del pool elastico, oppure della frequenza delle transazioni, richiederà più risorse di archiviazione e comporterà quindi un aumento dei costi di archiviazione per i backup.  Se si aumenta la dimensione massima dei dati, il nuovo valore viene sottratto dalle dimensioni delle risorse di archiviazione dei backup fatturate.
 
 ## <a name="how-do-i-select-the-right-sku-when-converting-an-existing-database-to-the-new-service-tiers"></a>Come selezionare lo SKU corretto durante la conversione di un database esistente ai nuovi livelli di servizio? 
 Per le applicazioni di database SQL esistenti che usano il modello basato su DTU, il livello di servizio Utilizzo generico è paragonabile al livello Standard. Il livello di servizio Business Critical è paragonabile al livello Premium. In entrambi i casi è consigliabile allocare almeno 1 vCore per ogni 100 DTU usate dall'applicazione nel modello basato su DTU.
 
-## <a name="do-the-new-vcore-based-service-tiers-offer-the-performance-levels-compatible-with-all-existing-service-level-objectives-slos"></a>I nuovi livelli di servizio basati su vCore offrono livelli di prestazioni compatibili con tutti gli obiettivi del livello di servizio esistenti?
-I nuovi livelli di servizio basati su vCore offrono opzioni con prestazioni analoghe per tutti i pool elastici e i database che usano 100 o più DTU.  In futuro verranno aggiunti altri obiettivi del livello di servizio per supportare carichi di lavoro con meno di 100 DTU.
+## <a name="do-the-new-vcore-based-service-tiers-offer-the-compute-sizes-compatible-with-all-existing-compute-sizes"></a>I nuovi livelli di servizio basati su vCore offrono dimensioni di calcolo compatibili con tutte le dimensioni di calcolo esistenti?
+I nuovi livelli di servizio basati su vCore offrono opzioni con prestazioni analoghe per tutti i pool elastici e i database che usano 100 o più DTU.  In futuro verranno aggiunte altre dimensioni di calcolo per supportare carichi di lavoro con meno di 100 DTU.
 
 ## <a name="are-there-any-database-feature-differences-between-the-existing-dtu-based-and-new-vcore-based-service-tiers"></a>Esistono delle differenze nelle funzionalità di database tra i livelli di servizio basati su DTU esistenti e i nuovi livelli di servizio basati su vCore? 
 I nuovi livelli di servizio supportano un superset di funzionalità disponibili con le offerte correnti basate su DTU. Le funzionalità aggiuntive comprendono un set di DMV aggiuntive e altre opzioni per la configurazione delle risorse. 
@@ -110,7 +113,7 @@ Poiché il modello basato su vCore consente il controllo indipendente sulla quan
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Con quale frequenza è possibile modificare le risorse per ogni pool?
 Numero di volte desiderato. Vedere l'articolo per [gestire i pool elastici](sql-database-elastic-pool.md).
 
-## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Quanto tempo è necessario per modificare il livello di servizio o il livello di prestazioni di un database singolo o per aggiungere o rimuovere un database da un pool elastico?
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Quanto tempo è necessario per modificare il livello di servizio o la dimensione di calcolo di un database singolo o per aggiungere o rimuovere un database da un pool elastico?
 La modifica del livello di servizio di un database e lo spostamento da e verso un pool richiede che il database venga copiato nella piattaforma come operazione in background. A seconda delle dimensioni dei database, la modifica del livello di servizio può richiedere un periodo di tempo che va da pochi minuti ad alcune ore. In entrambi i casi, i database rimangono in linea e disponibili durante lo spostamento. Per ulteriori informazioni sulla modifica dei database singoli vedere [Modificare il livello di servizio di un database](sql-database-service-tiers-dtu.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Quando è meglio usare un database singolo e quando invece è meglio usare database elastici?
@@ -120,7 +123,7 @@ In generale, i pool elastici sono progettati per un [modello di applicazione tip
 Il database SQL viene fatturato con una tariffa oraria fissa prevedibile basata sul [modello di acquisto](sql-database-service-tiers-dtu.md). L'utilizzo effettivo è calcolato e ripartito su base oraria. È quindi possibile che nella fattura siano indicate frazioni di un'ora. Ad esempio, se un database esiste per 12 ore in un mese, nella fattura viene indicato l'utilizzo di 0,5 giorni. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>Cosa succede se un database singolo è attivo per meno di un'ora o utilizza un maggiore livello di servizio per meno di un'ora?
-Viene fatturata ogni ora per cui un database esiste utilizzando il livello di servizio più elevato + il livello di prestazioni applicati in quell'ora, indipendentemente dall'utilizzo o dal fatto che il database sia stato attivo per meno di un'ora. Ad esempio, se si crea un database singolo che viene eliminato cinque minuti dopo, in fattura viene riportato l'addebito relativo a un'ora di database. 
+Viene fatturata ogni ora per cui un database esiste usando il livello di servizio più elevato e la dimensione di calcolo applicati in quell'ora, indipendentemente dall'uso o dal fatto che il database sia stato attivo per meno di un'ora. Ad esempio, se si crea un database singolo che viene eliminato cinque minuti dopo, in fattura viene riportato l'addebito relativo a un'ora di database. 
 
 Esempi:
 
@@ -141,8 +144,8 @@ Esempi di modelli di acquisto basati su DTU:
 I pool elastici vengono fatturati in base alle caratteristiche seguenti:
 
 * Un pool elastico viene fatturato al momento della creazione, persino quando nel pool non sono presenti database.
-* Un pool elastico viene fatturato su base oraria. Si tratta della stessa frequenza di controllo dei livelli di prestazioni dei database singoli.
-* Se viene ridimensionato, un pool elastico non viene fatturato in base al nuovo numero di risorse fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica del livello di prestazioni dei database singoli.
+* Un pool elastico viene fatturato su base oraria. Si tratta della stessa frequenza di controllo delle dimensioni di calcolo dei database singoli.
+* Se viene ridimensionato, un pool elastico non viene fatturato in base al nuovo numero di risorse fino al completamento dell'operazione di ridimensionamento. Tale comportamento segue lo stesso modello della modifica della dimensione di calcolo dei database singoli.
 * Il prezzo di un pool elastico è basato sul numero di risorse del pool. Il prezzo di un pool elastico è indipendente dal numero e dall'uso dei database elastici in esso contenuti.
 
 Per altri dettagli, vedere [Prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/), [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) o [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).

@@ -1,20 +1,22 @@
 ---
-title: Introduzione al Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
+title: Introduzione al Servizio di riconoscimento vocale personalizzato
+titlesuffix: Azure Cognitive Services
 description: Sottoscrivere il Servizio di riconoscimento vocale personalizzato e collegare le attività del servizio a una sottoscrizione di Azure per eseguire il training di un modello e procedere con la distribuzione.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: fe7a140f5ba2d712014f03663a88d516958d188e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373220"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225243"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Introduzione al Servizio di riconoscimento vocale personalizzato
 
@@ -50,7 +52,7 @@ Dopo aver creato modelli acustici e/o linguistici personalizzati, è possibile d
 Una descrizione dettagliata sulla procedura di creazione di un endpoint personalizzato di riconoscimento vocale è disponibile [qui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## <a name="using-a-custom-speech-endpoint"></a>Uso di un endpoint personalizzato di riconoscimento vocale
-Le richieste possono essere inviate a un endpoint di riconoscimento vocale CRIS in un modo molto simile a quanto avviene con l'endpoint di riconoscimento vocale Microsoft Cognitive Services predefinito. Si noti che questi endpoint sono funzionalmente identici agli endpoint predefiniti dell'API Riconoscimento vocale. Pertanto, le stesse funzionalità disponibili tramite la libreria client o l'API REST per l'API Riconoscimento vocale sono disponibili anche per l'endpoint personalizzato.
+Le richieste possono essere inviate a un endpoint di riconoscimento vocale CRIS in un modo molto simile a quanto avviene con l'endpoint di riconoscimento vocale di Servizi cognitivi di Azure. Si noti che questi endpoint sono funzionalmente identici agli endpoint predefiniti dell'API Riconoscimento vocale. Pertanto, le stesse funzionalità disponibili tramite la libreria client o l'API REST per l'API Riconoscimento vocale sono disponibili anche per l'endpoint personalizzato.
 
 Una descrizione dettagliata su come usare un endpoint personalizzato di riconoscimento vocale è disponibile [qui](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 
@@ -59,6 +61,6 @@ Tenere presente che gli endpoint creati tramite CRIS possono elaborare quantità
 
 Il servizio presuppone che l'audio venga trasmesso in tempo reale. Se viene inviato più velocemente, la richiesta sarà considerata in esecuzione finché non sarà trascorsa la sua durata in tempo reale.
 
-* [Panoramica](cognitive-services-custom-speech-home.md)
-* [Domande frequenti](cognitive-services-custom-speech-faq.md)
+* [Overview](cognitive-services-custom-speech-home.md)
+* [DOMANDE FREQUENTI](cognitive-services-custom-speech-faq.md)
 * [Glossario](cognitive-services-custom-speech-glossary.md)

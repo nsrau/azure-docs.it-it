@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/25/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: f57dc1707a9e25e4ea308142e804cdbc80d4308a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba67acec778a48c084897095aa457e5637240a57
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984943"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227433"
 ---
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Aggiungere l'accesso con Microsoft a un'app Web ASP.NET Core
 
@@ -43,7 +43,7 @@ Questa guida introduttiva contiene un codice di esempio che dimostra come un'app
 > 1. Fare clic su `Add Platform` e quindi selezionare `Web`.
 > 1. Assicurarsi che l'opzione **Consenti il flusso implicito** sia *selezionata*.
 > 1. In **URL di reindirizzamento** immettere `https://localhost:3110/`.
-> 1. Scorrere verso il basso fino alla fine della pagina e fare clic su **Salva**.
+> 1. Scorrere in basso fino alla fine della pagina e fare clic su **Salva**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure

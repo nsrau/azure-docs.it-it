@@ -1,20 +1,22 @@
 ---
-title: Usare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
-description: Informazioni su come usare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale personalizzato in Servizi cognitivi.
+title: Usare un endpoint personalizzato per il riconoscimento vocale - Servizio di riconoscimento vocale personalizzato
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come usare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale personalizzato.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: d28065d7962ee660cafd4b3321abdd6a8f94abcb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373313"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223373"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Usare un endpoint personalizzato per il riconoscimento vocale
 È possibile inviare richieste a un endpoint di riconoscimento vocale del Servizio di riconoscimento vocale personalizzato di Azure, seguendo una procedura simile a quella relativa all'endpoint di riconoscimento vocale predefinito di Servizi cognitivi. Questi endpoint sono funzionalmente identici agli endpoint predefiniti dell'API Riconoscimento vocale. Pertanto, le stesse funzionalità disponibili tramite la libreria client o l'API REST per l'API Riconoscimento vocale sono disponibili anche per l'endpoint personalizzato.

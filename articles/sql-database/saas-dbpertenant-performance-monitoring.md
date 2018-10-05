@@ -1,21 +1,23 @@
 ---
 title: Monitorare le prestazioni di più database SQL di Azure in un'app SaaS multi-tenant | Microsoft Docs
 description: Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
-keywords: esercitazione database SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: d8e260b8dabb4c6823d59374a7b8661e024f1b3d
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: e774394eeb95fbc8d80e181a614a7e30258a100e
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752272"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056771"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di database SQL di Azure e di pool in un'app SaaS multi-tenant
 
@@ -49,9 +51,9 @@ I pool e i database nei pool devono essere monitorati per assicurarsi che rimang
 ### <a name="performance-management-strategies"></a>Strategie per la gestione delle prestazioni
 
 * Per evitare di dover monitorare manualmente le prestazioni, è consigliabile **impostare l'attivazione di avvisi quando i database o i pool escono dai normali intervalli**.
-* Per rispondere alle fluttuazioni a breve termine del livello di prestazioni aggregate di un pool, è possibile **scegliere un livello superiore o inferiore di eDTU per il pool**. Se la fluttuazione si verifica a intervalli regolari o prevedibili, **è possibile pianificare il ridimensionamento automatico del pool**. Ad esempio, ridurre il numero di eDTU quando il carico di lavoro è notoriamente leggero, ad esempio durante la notte o nei fine settimana.
+* Per rispondere alle fluttuazioni a breve termine delle dimensioni di calcolo aggregate di un pool, è possibile **scegliere un livello superiore o inferiore di eDTU per il pool**. Se la fluttuazione si verifica a intervalli regolari o prevedibili, **è possibile pianificare il ridimensionamento automatico del pool**. Ad esempio, ridurre il numero di eDTU quando il carico di lavoro è notoriamente leggero, ad esempio durante la notte o nei fine settimana.
 * Per rispondere a fluttuazioni a lungo termine o a modifiche del numero di database, **è possibile spostare singoli database in altri pool**.
-* Per rispondere ad aumenti a breve termine del carico per *singoli* database, **è possibile rimuovere singoli database da un pool e assegnare loro un livello di prestazioni singolo**. Quando il carico si riduce di nuovo, il database può essere reinserito nel pool. Quando questo tipo di comportamento è noto in anticipo, i database possono essere spostati preventivamente per assicurarsi che abbiano sempre le risorse necessarie ed evitare effetti sugli altri database nel pool. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
+* Per rispondere ad aumenti a breve termine del carico per *singoli* database, **è possibile rimuovere singoli database da un pool e assegnare loro dimensioni di calcolo singole**. Quando il carico si riduce di nuovo, il database può essere reinserito nel pool. Quando questo tipo di comportamento è noto in anticipo, i database possono essere spostati preventivamente per assicurarsi che abbiano sempre le risorse necessarie ed evitare effetti sugli altri database nel pool. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, il monitoraggio e gli avvisi sono disponibili per database e pool. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono altrettanto utili quando si usano molte risorse.
 
@@ -207,7 +209,7 @@ Questo esercizio simula l'effetto di un carico elevato per Contoso Concert Hall 
 2. Esaminare i dati in **Monitoraggio database elastico** che mostrano i database più attivi nell'ultima ora. Il database *contosoconcerthall* dovrebbe essere presto visualizzato come uno dei cinque database più attivi.
 3. **Fare clic sul** **grafico** Monitoraggio database elastico. Viene aperta la pagina **Utilizzo risorse database** in cui è possibile monitorare i singoli database. Ciò consente di isolare i dati per il database *contosoconcerthall*.
 4. Nell'elenco di database fare clic su **contosoconcerthall**.
-5. Fare clic su **Piano tariffario (piano DTU)** per aprire la pagina **Configura prestazioni** in cui è possibile impostare un livello di prestazioni autonomo per il database.
+5. Fare clic su **Piano tariffario (piano DTU)** per aprire la pagina **Configura prestazioni** in cui è possibile impostare dimensioni di calcolo autonome per il database.
 6. Fare clic sulla scheda **Standard** per aprire le opzioni di scalabilità nel livello Standard.
 7. Scorrere il **dispositivo di scorrimento DTU** verso destra per selezionare **100 DTU**. Si noti che questa impostazione corrisponde all'obiettivo di servizio, **S3**.
 8. Fare clic su **Applica** per spostare il database fuori dal pool e impostarlo come database *S3 Standard*.

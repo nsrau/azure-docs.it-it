@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e325335d43ef31c44ac812aca66309132f5372a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951611"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410001"
 ---
-# <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi delle metriche con Monitoraggio di Azure
+# <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire avvisi classici per le metriche con Monitoraggio di Azure
 
 Gli avvisi delle metriche classici in Monitoraggio di Azure consentono di ricevere una notifica quando una delle metriche supera una soglia. Avvisi delle metriche classici è una funzionalità precedente che consente di creare avvisi solo per le metriche non dimensionali. È disponibile una funzionalità più recente esistenti denominata Avvisi delle metriche con funzionalità migliorate rispetto agli avvisi delle metriche classici. Altre informazioni sulla nuova funzionalità degli avvisi delle metriche classiche sono disponibili nella [panoramica degli avvisi delle metriche](alert-metric-overview.md). In questo articolo verrà illustrato come creare, visualizzare e gestire le regole di avviso classico per le metriche tramite il portale di Azure, l'interfaccia della riga di comando di Azure e Powershell.
 
-## <a name="create-a-classic-metric-alert-rule-using-azure-portal"></a>Creare una regola di avviso classico per la metrica tramite il portale di Azure
+## <a name="with-azure-portal"></a>Con il portale di Azure
 
 1. Nel [portale](https://portal.azure.com/) individuare la risorsa da monitorare e quindi selezionarla.
 
@@ -46,15 +46,13 @@ Gli avvisi delle metriche classici in Monitoraggio di Azure consentono di riceve
 
 Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
 
-## <a name="manage-your-classic-metric-alert-rules-using-azure-portal"></a>Gestire le regole di avviso classico per la metrica tramite il portale di Azure
-
 Dopo aver creato un avviso, è possibile selezionarlo ed eseguire una delle attività seguenti:
 
 * Visualizzare un grafico che mostra la soglia della metrica e i valori effettivi del giorno precedente.
 * Modificarlo o eliminarlo.
 * **Disabilitarlo** o **abilitarlo** per interrompere temporaneamente o riprendere la ricezione delle notifiche relative all'avviso.
 
-## <a name="creating-and-managing-classic-metric-alert-rule-using-azure-cli"></a>Creazione e gestione di una regola di avviso classico per la metrica con l'interfaccia della riga di comando di Azure
+## <a name="with-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
 Le sezioni precedenti descrivono come creare, visualizzare e gestire le regole di avviso per le metriche tramite il portale di Azure. Questa sezione descrive come eseguire la stessa operazione usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) multipiattaforma. [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest) è il metodo più rapido per iniziare a usare l'interfaccia della riga di comando di Azure.
 
@@ -86,7 +84,7 @@ az monitor alert create --name <alert name> --resource-group <group name> \
 az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
-### <a name="create-view-and-manage-classic-metric-alerts-using-powershell"></a>Creare, visualizzare e gestire avvisi classici per le metriche con PowerShell
+## <a name="with-powershell"></a>Con PowerShell
 
 Questa sezione illustra come usare i comandi PowerShell per creare, visualizzare e gestire gli avvisi delle metriche classiche. Gli esempi in questo articolo illustrano come usare i cmdlet di Monitoraggio di Azure per gli avvisi classici per le metriche.
 

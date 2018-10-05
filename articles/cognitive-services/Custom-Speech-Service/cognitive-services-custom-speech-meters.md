@@ -1,20 +1,22 @@
 ---
-title: Contatori e quote del Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
+title: Contatori e quote del Servizio di riconoscimento vocale personalizzato
+titlesuffix: Azure Cognitive Services
 description: Informazioni sui contatori e le quote del Servizio di riconoscimento vocale personalizzato in Azure.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/08/2017
 ms.author: panosper
-ms.openlocfilehash: d2225dec818c600febfad2f9ebc42594f6ac09ac
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 68fba1d6038a044336ba6aecd3ff163d29131b1d
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372857"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224699"
 ---
 # <a name="custom-speech-service-meters-and-quotas"></a>Contatori e quote del Servizio di riconoscimento vocale personalizzato
 
@@ -49,6 +51,6 @@ Scalabilità orizzontale è una nuova funzionalità rilasciata con il nuovo mode
 Per altre informazioni su come usare il Servizio di riconoscimento vocale personalizzato, passare al [portale del Servizio di riconoscimento vocale personalizzato](https://cris.ai).
 
 * [Introduzione](cognitive-services-custom-speech-get-started.md)
-* [Domande frequenti](cognitive-services-custom-speech-faq.md)
+* [DOMANDE FREQUENTI](cognitive-services-custom-speech-faq.md)
 * [Glossario](cognitive-services-custom-speech-glossary.md)
  

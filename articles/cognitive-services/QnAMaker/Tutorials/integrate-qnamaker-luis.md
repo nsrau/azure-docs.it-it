@@ -1,21 +1,21 @@
 ---
-title: Integrare QnA Maker e LUIS- Servizi cognitivi Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Un'esercitazione dettagliata sull'integrazione di QnA Maker e LUIS
+title: LUIS e QnAMaker - integrazione di Bot
+titleSuffix: Azure Cognitive Services
+description: Un'esercitazione dettagliata sull'integrazione di QnA Maker e LUIS in un bot.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: 53e46fa84bcd7b96403dcb0ec70b45b800bc4acb
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781748"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042007"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integrare QnA Maker e LUIS per distribuire la Knowledge Base
 Quando le dimensioni della Knowledge Base di QnA Maker aumentano, diventa difficile gestirla come una singola unità monolitica ed è necessario suddividerla in parti logiche più piccole.
@@ -29,14 +29,14 @@ Sebbene sia molto semplice creare più Knowledge Base in QnA Maker, sarà necess
 Nello scenario precedente, QnA Maker innanzitutto ottiene la finalità della domanda in ingresso da un modello LUIS e quindi la usa per instradare la domanda alla Knowledge Base corretta di QnA Maker.
 
 ## <a name="prerequisites"></a>Prerequisiti
-- Accedere al portale [LUIS](https://www.luis.ai/) e [creare un'app](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
-- [Aggiungere le finalità](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) in base allo specifico scenario.
-- [Eseguire il training](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) e [pubblicare](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) l'app LUIS.
+- Accedere al portale [LUIS](https://www.luis.ai/) e [creare un'app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
+- [Aggiungere le finalità](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) in base allo specifico scenario.
+- [Eseguire il training](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) e [pubblicare](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) l'app LUIS.
 - Accedere a [QnA Maker](https://qnamaker.ai) e [creare le Knowledge Base](https://www.qnamaker.ai/Create) in base allo specifico scenario.
 - Testare e pubblicare le Knowledge Base.
 
 ## <a name="qna-maker--luis-bot"></a>Bot QnA Maker e LUIS
-1. Creare innanzitutto un bot app Web con il modello LUIS, collegarlo con l'app LUIS creata in precedenza e modificare le finalità. Vedere la procedura dettagliata [qui](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
+1. Creare innanzitutto un bot app Web con il modello LUIS, collegarlo con l'app LUIS creata in precedenza e modificare le finalità. Vedere la procedura dettagliata [qui](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
 
 2. Aggiungere dipendenze nella parte superiore del file, con le altre dipendenze:
 

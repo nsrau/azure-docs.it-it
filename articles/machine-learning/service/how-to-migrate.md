@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 2182a39836f02596d22168722e6ece7a2872dccc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969484"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158565"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Eseguire la migrazione del servizio Azure Machine Learning alla versione più recente 
 
@@ -54,13 +54,13 @@ Non è possibile eseguire la migrazione del servizio Azure Machine Learning alla
 
 Per iniziare con la versione più recente, creare un'area di lavoro di Azure Machine Learning nel [portale di Azure](quickstart-get-started.md). Il dashboard dell'area di lavoro del portale è supportato solo nei browser Edge, Chrome e Firefox.
 
-Questa nuova area di lavoro è la risorsa di servizio di massimo livello e consente di usare tutte le funzioni più recenti del servizio Azure Machine Learning. [Altre informazioni su questa area di lavoro e architettura](concept-azure-machine-learning-architecture.md).
+Questa nuova area di lavoro è la risorsa di servizio di massimo livello e consente di usare tutte le funzioni più recenti del servizio Azure Machine Learning. Altre informazioni su questa [area di lavoro e architettura](concept-azure-machine-learning-architecture.md).
 
 <a name="projects"></a>
 
 ## <a name="projects"></a>Progetti
 
-Ora, nella versione più recente, i progetti sono directory del computer locale, anziché trovarsi in un'area di lavoro nel cloud. [Vedere un diagramma dell'architettura più recente](concept-azure-machine-learning-architecture.md). 
+Ora, nella versione più recente, i progetti sono directory del computer locale, anziché trovarsi in un'area di lavoro nel cloud. Vedere un diagramma [dell'architettura più recente](concept-azure-machine-learning-architecture.md). 
 
 Per continuare a usare la directory locale che contiene i file e gli script, specificare il nome della directory nel comando Python "[experiment.submit](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)" o tramite il comando "az ml project attach" dell'interfaccia della riga di comando.
 

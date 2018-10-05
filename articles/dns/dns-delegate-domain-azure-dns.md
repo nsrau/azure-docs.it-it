@@ -8,12 +8,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 44f5bf9a28d56e85bae1d50136c50868ec96eb4e
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ea0dc257d691326bc073b4cbff37e847a6990f02
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205442"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452299"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Esercitazione: Ospitare un dominio in DNS di Azure
 
@@ -70,6 +70,9 @@ DNS di Azure crea automaticamente nella zona i record NS autorevoli per i server
 Dopo la creazione della zona DNS e il recupero dei server dei nomi, è necessario aggiornare il dominio padre con i server dei nomi di DNS di Azure. Ogni registrar prevede i propri strumenti di gestione DNS per modificare i record del server dei nomi per un dominio. Nella pagina di gestione DNS del registrar, modificare i record NS e sostituirli con i server dei nomi di DNS di Azure.
 
 Quando si delega un dominio a DNS di Azure, è necessario usare i server dei nomi forniti da DNS di Azure. È consigliabile usare tutti e quattro server dei nomi, indipendentemente dal nome del dominio. La delega del dominio non richiede un server dei nomi per usare lo stesso dominio di primo livello del dominio locale.
+
+> [!NOTE]
+> Quando si copia ogni indirizzo di server dei nomi, assicurarsi di copiare il punto finale alla fine dell'indirizzo. Il punto finale indica la fine di un nome di dominio completo. Alcuni registrar potrebbero aggiungere il punto se il nome del server dei nomi non lo contiene alla fine. Per essere conformi alla specifica RFC per DNS, è però necessario includere il punto finale, perché non è possibile dare per scontato che venga aggiunto automaticamente da tutti i registrar.
 
 Le deleghe che usano server dei nomi nella propria zona, definiti a volte *server dei nomi personali*, non sono attualmente supportate in DNS di Azure.
 

@@ -2,19 +2,22 @@
 title: Porte superiori a 1433 per il database SQL | Documentazione Microsoft
 description: Le connessioni client da ADO.NET al database SQL di Azure possono ignorare il proxy e interagire direttamente con il database usando porte diverse da 1433.
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: sstein
+manager: craigg
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: a8c9eef968465ecf9c8a29df471955b89f3585a0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 560d96b188a02f8df0d41b040c90db9b813e3c0a
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645090"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063252"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porte successive alla 1433 per ADO.NET 4.5
 In questo argomento viene descritto il comportamento di connessione del database SQL di Azure per i client che utilizzano ADO.NET 4.5 o versione successiva. 
@@ -54,13 +57,25 @@ In questa sezione vengono spiegati i moniker che fanno riferimento a versioni pr
 * ADO.NET 4.0 supporta il protocollo TDS 7.3, ma non 7.4.
 * ADO.NET 4.5 e versioni successive supportano il protocollo TDS 7.4.
 
+#### <a name="odbc"></a>ODBC
+* Microsoft SQL Server ODBC 11 o versione successiva
+
+#### <a name="jdbc"></a>JDBC
+* Microsoft SQL Server JDBC 4.2 o versione successiva. JDBC 4.0 supporta TDS 7.4 ma non implementa il reindirizzamento
+
+
 ## <a name="related-links"></a>Collegamenti correlati
 * ADO.NET 4.6 è stato rilasciato il 20 luglio 2015. È disponibile un annuncio di blog del team .NET [qui](http://blogs.msdn.com/b/dotnet/archive/2015/07/20/announcing-net-framework-4-6.aspx).
-* ADO.NET 4.5 è stato rilasciato il 15 agosto 2012. È disponibile un annuncio di blog del team .NET [qui](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx).
-  
+* ADO.NET 4.5 è stato rilasciato il 15 agosto 2012. È disponibile un annuncio di blog del team .NET [qui](http://blogs.msdn.com/b/dotnet/archive/2012/08/15/announcing-the-release-of-net-framework-4-5-rtm-product-and-source-code.aspx). 
   * È disponibile un post di blog su ADO.NET 4.5.1 [qui](http://blogs.msdn.com/b/dotnet/archive/2013/06/26/announcing-the-net-framework-4-5-1-preview.aspx).
+
+* Microsoft® ODBC Driver 17 for SQL Server® - Windows, Linux e macOS https://www.microsoft.com/en-us/download/details.aspx?id=56567
+
+* Connect to Azure SQL Database V12 via Redirection https://blogs.msdn.microsoft.com/sqlcat/2016/09/08/connect-to-azure-sql-database-v12-via-redirection/ (Connettersi al database SQL di Azure versione 12 tramite reindirizzamento)
+
 * [Elenco versioni del protocollo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
 * [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
 * [Procedura: configurare le impostazioni del firewall su Database SQL](sql-database-configure-firewall-settings.md)
+
 

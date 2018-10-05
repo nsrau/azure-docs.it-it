@@ -12,16 +12,16 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: cc6d08de74097ba7566037664fd33d9be85ac390
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: bc2b391457d7652b62558c9a752376b07b50a8c1
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628989"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391808"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare un'aggiunta ad Azure Active Directory ibrido per domini federati
 
@@ -122,7 +122,7 @@ Per configurare un'aggiunta ad Azure AD ibrido con Azure AD Connect, è necessar
 
     a. Selezionare la foresta.
 
-    b. Selezionare il servizio di autenticazione.
+    b. Selezionare il servizio di autenticazione. È necessario selezionare un server AD FS, a meno che l'organizzazione non abbia solo client Windows 10.
 
     c. Fare clic su **Aggiungi** per immettere le credenziali di amministratore aziendale.
 

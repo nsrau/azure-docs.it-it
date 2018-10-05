@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptal
-ms.date: 08/27/2018
+ms.date: 09/18/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 8bbe6411f60d755afcc568040b870bc85be88044
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9abd46bf75e2a0113f44243d7c1695d96f9c1057
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132460"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220654"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creare un'area di lavoro di Log Analytics con Azure PowerShell
 
-Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. La presente guida introduttiva illustra come usare il modulo di Azure PowerShell per distribuire un'area di lavoro di Log Analytics, ovvero un ambiente univoco che contiene un archivio dati, origini dati e soluzioni.  I passaggi descritti in questo articolo sono obbligatori se si intende raccogliere i dati dalle origini seguenti:
+Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. La presente guida introduttiva illustra come usare il modulo Azure PowerShell per distribuire un'area di lavoro di Log Analytics, un ambiente univoco con repository dei dati, origini dati e soluzioni specifici.  I passaggi descritti in questo articolo sono obbligatori se si intende raccogliere i dati dalle origini seguenti:
 
 * Risorse di Azure nella sottoscrizione  
 * Computer locali monitorati tramite System Center Operations Manager  
@@ -92,7 +92,7 @@ I parametri seguenti impostano un valore predefinito:
             "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
         }
-          },
+          }
     },
     "resources": [
         {

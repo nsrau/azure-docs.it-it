@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 7619056ace5d9b3cf083a40a6cfa06a0cac0561e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2668279b33d2d8d1c0adf92c138cc6347c95bd4d
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949690"
+ms.locfileid: "47035352"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Note sulla versione di anteprima di Azure Data Box Gateway
 
@@ -53,8 +53,10 @@ La tabella seguente contiene un riepilogo dei problemi noti per la versione di a
 | **5.** |Copia| Se un file di sola lettura viene copiato nel dispositivo, la proprietà di sola lettura non viene mantenuta. | |
 | **6.** |Log| A causa di un bug in questa versione, in *error.xml* potrebbero verificarsi istanze del codice errore 110 con nomi di elementi non riconoscibili. | |
 | **7.** |Caricamento | A causa di un bug in questa versione, potrebbero verificarsi istanze del codice errore 2003 durante il caricamento di file specifici. | |
-| **8.** |Eliminazione | A causa di un bug in questa versione, potrebbe essere impossibile eliminare una condivisione NFS. Lo stato della condivisione rimarrà comunque *In fase di eliminazione*.  |Questo problema si verifica solo quando la condivisione usa un nome file non supportato. |
-| **9.** |Guida online |I collegamenti della Guida nel portale di Azure potrebbero non condurre alla documentazione.|I collegamenti della Guida funzioneranno correttamente nella versione con disponibilità generale. |
+| **8.** |Tipi di file | Non sono supportati i tipi di file di Linux seguenti: file di caratteri, file di blocco, socket, pipe, collegamenti simbolici.  |La copia di questi file comporta la creazione di file di lunghezza 0 nella condivisione NFS. Questi file rimangono in uno stato di errore e vengono anche segnalati in *error.xml*. |
+| **9.** |Eliminazione | A causa di un bug in questa versione, potrebbe essere impossibile eliminare una condivisione NFS. Lo stato della condivisione rimarrà comunque *In fase di eliminazione*.  |Questo problema si verifica solo quando la condivisione usa un nome file non supportato. |
+| **10.** |Aggiorna | Le autorizzazioni e gli elenchi di controllo di accesso (ACL) non vengono mantenuti tra le operazioni di aggiornamento.  | |
+| **11.** |Guida online |I collegamenti della Guida nel portale di Azure potrebbero non condurre alla documentazione.|I collegamenti della Guida funzioneranno correttamente nella versione con disponibilità generale. |
 
 
 

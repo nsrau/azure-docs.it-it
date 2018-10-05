@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/27/2018
+ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 831b52a27a1ccfc349b9b54f8c3d874e41ddc322
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.component: ''
+ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363144"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423511"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log personalizzati in Log Analytics
 L'origine dati dei log personalizzati in Log Analytics consente di raccogliere gli eventi dai file di testo nei computer Windows e Linux. Molte applicazioni registrano le informazioni nei file di testo invece di usare servizi di registrazione standard come il registro eventi di Windows o Syslog.  Al termine della raccolta, è possibile analizzare ogni record dell'accesso ai singoli campi usando la funzionalità [Campi personalizzati](log-analytics-custom-fields.md) di Log Analytics.
@@ -40,6 +40,10 @@ I file di log da raccogliere devono soddisfare i criteri seguenti.
 >Se sono presenti voci duplicate nel file di log, Log Analytics le raccoglierà.  Tuttavia, i risultati della ricerca non saranno coerenti se i risultati del filtro mostrano più eventi rispetto al numero di risultati.  È importante convalidare il log per determinare se l'applicazione che lo crea è la causa di questo comportamento e indirizzarlo se possibile prima di creare la definizione della raccolta dei log personalizzati.  
 >
   
+>[!NOTE]
+> Se l'applicazione crea un nuovo file di log ogni giorno o quando raggiunge una dimensione specifica, l'agente di Log Analytics per Linux non esegue l'individuazione di questo finché non viene riavviato. Questo avviene perché l'agente esegue l'enumerazione e inizia il monitoraggio dei criteri con i log specificati solo all'avvio. Per questo motivo è necessario pianificare tali operazioni automatizzando il riavvio dell'agente.  Questa limitazione non riguarda l'agente di Log Analytics per Windows.  
+>
+
 ## <a name="defining-a-custom-log"></a>Definizione di un log personalizzato
 Usare la procedura seguente per definire un file di log personalizzato.  Scorrere fino alla fine dell'articolo per la procedura dettagliata di un esempio che spiega come aggiungere un log personalizzato.
 
@@ -66,9 +70,13 @@ Se viene usato un delimitatore Timestamp, la proprietà TimeGenerated di ogni re
 5. Fare clic su **Avanti**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Passaggio 3. Aggiungere percorsi di raccolta di log
-È necessario definire uno o più percorsi nell'agente in cui è possibile individuare il log personalizzato.  È possibile fornire un percorso specifico e un nome per il file di log oppure specificare un percorso con un carattere jolly per il nome.  Questa opzione è utile per le applicazioni che creano un nuovo file ogni giorno o quando un file raggiunge una determinata dimensione.  È anche possibile fornire più percorsi per un singolo file di log.
+È necessario definire uno o più percorsi nell'agente in cui è possibile individuare il log personalizzato.  È possibile fornire un percorso specifico e un nome per il file di log oppure specificare un percorso con un carattere jolly per il nome. Questa opzione è utile per le applicazioni che creano un nuovo file ogni giorno o quando un file raggiunge una determinata dimensione. È anche possibile fornire più percorsi per un singolo file di log.
 
 Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la data inclusa nel nome, come in log20100316.txt. Un modello per questo log potrebbe essere *log\*.txt*, applicabile a qualsiasi file di log in base allo schema di denominazione dell'applicazione.
+
+>[!NOTE]
+> Se l'applicazione crea un nuovo file di log ogni giorno o quando raggiunge una dimensione specifica, l'agente di Log Analytics per Linux non esegue l'individuazione di questo finché non viene riavviato. Questo avviene perché l'agente esegue l'enumerazione e inizia il monitoraggio dei criteri con i log specificati solo all'avvio. Per questo motivo è necessario pianificare tali operazioni automatizzando il riavvio dell'agente.  Questa limitazione non riguarda l'agente di Log Analytics per Windows.  
+>
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 

@@ -1,26 +1,27 @@
 ---
-title: Azure Content Moderator - Flussi di lavoro di moderazione del contenuto dalla console per le API | Microsoft Docs
+title: Flussi di lavoro di moderazione del contenuto dalla console per le API - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Informazioni su come usare i flussi di lavoro di moderazione del contenuto dalla console per le API.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: sajagtap
-ms.openlocfilehash: 700b2bea5e902141659266a94d61ceb810c1b802
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4ef8951b30fa7aede08a1af3c834192b5ed18649
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373260"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223851"
 ---
 # <a name="workflows-from-the-api-console"></a>Flussi di lavoro dalla console per le API
 
 Usare le [operazioni workflow](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Content Moderator per creare o aggiornare un flusso di lavoro o ottenere i dettagli del flusso di lavoro usando l'API di revisione. Usando questa API è possibile definire espressioni semplici, complesse e anche annidate. I flussi di lavoro vengono visualizzati nello strumento di revisione per consentire al team di usarli. I flussi di lavoro vengono usati anche dalle operazioni Job dell'API di revisione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Andare allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). Se non è già stato fatto, iscriversi. 
 2. Nello strumento di revisione, in **Settings** (Impostazioni) selezionare la scheda **Workflows** (Flussi di lavoro), come illustrato nell'[esercitazione sui flussi di lavoro](Review-Tool-User-Guide/Workflows.md) dello strumento di revisione.

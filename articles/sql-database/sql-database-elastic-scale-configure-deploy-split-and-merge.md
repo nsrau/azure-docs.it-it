@@ -2,19 +2,22 @@
 title: Distribuire un servizio di divisione e unione | Documentazione Microsoft
 description: Usare anche lo strumento di divisione e unione per spostare i dati tra database partizionati.
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 51a5f70cc56b2a4196ee7b151be0af3a9e16fc4f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: e277e2fa5ca7062cde1c0061e585dfb092337d4a
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646933"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159347"
 ---
 # <a name="deploy-a-split-merge-service"></a>Distribuire un servizio di divisione e unione
 Lo strumento di divisione e unione sposta i dati tra database partizionati. Vedere [Spostamento di dati tra database cloud con numero maggiore di istanze](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -29,13 +32,11 @@ Lo strumento di divisione e unione sposta i dati tra database partizionati. Vede
 
 I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. I file del servizio di divisione e unione si trovano nella sottodirectory **contenuto\splitmerge\servizio** e gli script di PowerShell di divisione e unione, compresi i file DLL client necessari, si trovano nella sottodirectory **contenuto\splitmerge\powershell**.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 1. Creare un database SQL di Azure che verrà usato come database per lo stato di divisione e unione. Accedere al [portale di Azure](https://portal.azure.com). Creazione personalizzata di un nuovo **database SQL**. Assegnare un nome al database e creare un nuovo amministratore e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
 2. Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Nel portale accedere a **Impostazioni firewall** e assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **attiva**. Fare clic sull'icona "Salva".
-   
-   ![Servizi consentiti][1]
-3. Creare un account di archiviazione di Azure che verrà usato per l'output di diagnostica. Accedere al portale di Azure. Nella barra di sinistra fare clic su **Crea una nuova risorsa**, fare clic su **Dati e archiviazione** e quindi su **Archiviazione**.
-4. Creare un servizio cloud di Azure che conterrà il servizio di divisione e unione.  Accedere al portale di Azure. Nella barra di sinistra fare clic su **Crea nuova risorsa**, fare clic su **Calcolo**, **Servizio cloud** e quindi su **Crea**. 
+3. Creare un account di archiviazione di Azure per l'output di diagnostica.
+4. Creare un servizio cloud di Azure per il servizio di divisione e unione.
 
 ## <a name="configure-your-split-merge-service"></a>Configurare il servizio di divisione e unione
 ### <a name="split-merge-service-configuration"></a>Configurazione del servizio di divisione e unione
@@ -118,17 +119,14 @@ Per il ruolo Web:
 Si noti che per distribuzioni destinate alla produzione è necessario usare certificati separati per CA, crittografia, server e client. Per istruzioni dettagliate, vedere l'articolo relativo alla [configurazione della sicurezza](sql-database-elastic-scale-split-merge-security-configuration.md).
 
 ## <a name="deploy-your-service"></a>Distribuire il servizio
-1. Accedere al [portale di Azure](https://manage.windowsazure.com).
-2. Fare clic sulla scheda **Servizi cloud** a sinistra, quindi selezionare il servizio cloud creato precedentemente.
-3. Fare clic su **Dashboard**.
-4. Scegliere l'ambiente di gestione temporanea, quindi fare clic su **Carica una nuova distribuzione di gestione temporanea**.
-   
-   ![Staging][3]
+1. Accedere al [portale di Azure](https://portal.azure.com)
+2. Selezionare il servizio cloud creato in precedenza.
+3. Fare clic su **Panoramica**.
+4. Scegliere l'ambiente di gestione temporanea, quindi fare clic su **Carica**.
 5. Nella finestra di dialogo immettere un'etichetta per la distribuzione. Per "Pacchetto" e "Configurazione" fare clic su "From Local" (Da locale), scegliere il file **SplitMergeService.cspkg** e il file con estensione CSCFG configurato in precedenza.
 6. Assicurarsi che la casella di controllo **Distribuire anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 7. Fare clic sul pulsante con il segno di spunta in basso a destra per avviare la distribuzione. Per il completamento dell'operazione sarà necessario attendere alcuni minuti.
 
-   ![Caricamento][4]
 
 ## <a name="troubleshoot-the-deployment"></a>Risolvere i problemi relativi alla distribuzione
 Se la messa in linea del proprio ruolo Web non riesce, è probabile che si tratti di un problema relativo alla configurazione della sicurezza. Verificare che SSL sia configurato come descritto sopra.
@@ -144,11 +142,11 @@ Se la messa online del proprio ruolo di lavoro non riesce, ma riesce quella del 
    ```
 
 * Assicurarsi che il nome del server non inizi con **https://**.
-* Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. Per eseguire questa operazione, aprire https://manage.windowsazure.com, fare clic su "Database SQL" a sinistra, fare clic su "Server" in alto, quindi selezionare il proprio server. Fare clic su **Configura** nella parte superiore dello schermo e assicurarsi che l'impostazione **Servizi di Azure** sia impostata su "Sì" (vedere la sezione Prerequisiti all'inizio di questo articolo).
+* Assicurarsi che il server di database SQL di Azure consenta la connessione da parte dei servizi di Azure. A tale scopo, aprire il database nel portale e verificare che l'impostazione **Consenti l'accesso a Servizi di Azure** sia attiva.
 
 ## <a name="test-the-service-deployment"></a>Testare la distribuzione del servizio
 ### <a name="connect-with-a-web-browser"></a>Connettersi con un Web browser
-Determinare l'endpoint Web del servizio di divisione e unione. È possibile trovarlo nel portale di Azure classico accedendo al **Dashboard** del proprio servizio cloud e guardando in **URL sito** a destra. Sostituire **http://** con **https://** poiché le impostazioni di sicurezza predefinite disabilitano l'endpoint HTTP. Caricare la pagina per questo URL nel browser.
+Determinare l'endpoint Web del servizio di divisione e unione. È possibile trovarlo nel portale accedendo alla **Panoramica** del servizio cloud e guardando in **URL sito** a destra. Sostituire **http://** con **https://** poiché le impostazioni di sicurezza predefinite disabilitano l'endpoint HTTP. Caricare la pagina per questo URL nel browser.
 
 ### <a name="test-with-powershell-scripts"></a>Eseguire i test con gli script di PowerShell
 È possibile testare la distribuzione e l'ambiente eseguendo gli script di PowerShell di esempio inclusi.

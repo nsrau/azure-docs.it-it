@@ -2,7 +2,7 @@
 title: Rilevamento intelligente - Potenziale perdita di memoria rilevata da Azure Application Insights | Microsoft Docs
 description: Monitorare le applicazioni con Azure Application Insights per rilevare potenziali perdite di memoria.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: e98caaa387418d746905990436b69925a591b260
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 25d26db3cd11fff7f7e9ba472247a920ecddea33
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47090735"
 ---
 # <a name="memory-leak-detection-preview"></a>Rilevamento della perdita di memoria (anteprima)
 
@@ -25,12 +26,10 @@ Application Insights analizza automaticamente il consumo di memoria di ogni proc
 
 Questa funzionalità non richiede una configurazione specifica a parte la [configurazione dei contatori delle prestazioni](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters) per l'app. La funzionalità è attiva quando l'app genera una quantità sufficiente di dati di telemetria dei contatori delle prestazioni della memoria (ad esempio, byte privati).
 
-
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando si riceve questo tipo di notifica di rilevamento intelligente?
-Una notifica tipica viene generata in seguito a un aumento consistente del consumo di memoria per un lungo periodo di tempo (alcune ore), in uno o più processi e/o in uno o più computer che fanno parte dell'applicazione.
-Vengono usati algoritmi di apprendimento automatico per rilevare un aumento del consumo di memoria corrispondente a un modello di perdita di memoria distinguendolo da un aumento del consumo di memoria dovuto a un maggiore utilizzo dell'applicazione.
+Una notifica tipica viene generata in seguito a un aumento consistente del consumo di memoria per un lungo periodo di tempo, in uno o più processi e/o in uno o più computer che fanno parte dell'applicazione. Si usano algoritmi di apprendimento automatico per rilevare un aumento del consumo di memoria corrispondente al modello di una perdita di memoria.
 
-## <a name="does-my-app-definitely-have-a-problem"></a>L'app ha sicuramente un problema?
+## <a name="does-my-app-really-have-a-problem"></a>Verifica di problemi effettivi dell'app
 Una notifica non significa che l'app ha sicuramente un problema. Anche se i modelli di perdita di memoria indicano in genere un problema dell'applicazione, tali modelli potrebbero essere tipici di un processo specifico o avere una giustificazione naturale e in questo caso possono essere ignorati.
 
 ## <a name="how-do-i-fix-it"></a>Risoluzione

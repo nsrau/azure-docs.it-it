@@ -1,87 +1,105 @@
 ---
-title: Aggiungere un dominio personalizzato ad Azure AD | Microsoft Docs
-description: Illustra come aggiungere un dominio personalizzato in Azure Active Directory.
+title: Come aggiungere un dominio personalizzato ad Azure Active Directory | Microsoft Docs
+description: Informazioni su come aggiungere un dominio personalizzato usando il portale di Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 11/14/2017
+ms.topic: conceptual
+ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b8963ba45d84013feb81341980c6d537c8a43dc5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dc28263fca5c6854ffad12678b472804f074addd
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767444"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47035743"
 ---
-# <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Guida introduttiva: Aggiungere un nome di dominio personalizzato ad Azure Active Directory
+# <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Procedura: Aggiungere il dominio personalizzato usando il portale di Azure Active Directory
+Ogni nuovo tenant di Azure AD include un nome di dominio iniziale, *nomedominio*.onmicrosoft.com. Non è possibile modificare o eliminare il nome di dominio iniziale, ma è possibile aggiungere i nomi dell'organizzazione all'elenco. L'aggiunta di nome di dominio personalizzati consente di creare nomi familiari per gli utenti, ad esempio *alain@contoso.com*.
 
-Ogni directory di Azure AD include un nome di dominio iniziale in formato *nomedominio*.onmicrosoft.com. Il nome di dominio iniziale non può essere modificato o eliminato, ma è possibile aggiungere ad Azure AD anche il nome di dominio aziendale. Ad esempio, è probabile che l'organizzazione abbia altri nomi di dominio usati per le attività aziendali e utenti che eseguono l'accesso con il nome di dominio aziendale. L'aggiunta di nomi di dominio personalizzati ad Azure AD consente di assegnare nella directory nomi utente familiari agli utenti, ad esempio "alice@contoso.com" invece di 'alice@*nome dominio*.onmicrosoft.com'. Il processo è semplice:
+## <a name="before-you-begin"></a>Prima di iniziare
+Prima di poter aggiungere un nome di dominio personalizzato, è necessario crearlo con un registrar. Per un registrar accreditato, vedere [ICANN-Accredited Registrars](https://www.icann.org/registrar-reports/accredited-list.html) (Registrar accreditati da ICANN).
 
-1. Aggiungere il nome di dominio personalizzato alla directory
-2. Aggiungere una voce DNS per il nome di dominio nel registrar
-3. Verificare il nome di dominio personalizzato in Azure AD
+## <a name="create-your-directory-in-azure-ad"></a>Creare la directory in Azure AD
+Dopo avere ottenuto il nome di dominio, è possibile creare la prima directory di Azure AD.
 
-## <a name="add-the-custom-domain-name-to-your-directory"></a>Aggiungere il nome di dominio personalizzato alla directory
-1. Accedere al [portale di Azure](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account di amministratore globale per la directory.
-2. A sinistra selezionare **Nomi di dominio personalizzati**.
-3. Selezionare **Aggiungi dominio personalizzato**.
-   
-   ![Selezione del comando Aggiungi](./media/add-custom-domain/add-custom-domain.png)
-5. In **Nomi di dominio personalizzati** immettere il nome del dominio personalizzato nella casella, ad esempio "contoso.com", e quindi selezionare **Aggiungi dominio**. Assicurarsi di includere .com, .net o altre estensioni di primo livello.
-6. In ***nomedominio***, dove il nuovo nome di dominio è il titolo, raccogliere le informazioni relative alla voce DNS da usare in seguito per verificare il nome di dominio personalizzato in Azure AD.
-   
-   ![ottenere informazioni relative alla voce DNS](./media/add-custom-domain/get-dns-info.png)
+1. Accedere al [portale di Azure](https://portal.azure.com/) usando un account di proprietario della sottoscrizione per la directory e quindi selezionare **Azure Active Directory**.
 
-> [!TIP]
-> Se si intende eseguire la federazione dell'istanza locale di Active Directory di Windows Server con Azure AD, è necessario selezionare la casella di controllo **Desidero configurare questo dominio per l'accesso Single Sign-On con l'istanza di Active Directory locale** quando si esegue lo strumento Azure AD Connect per la sincronizzazione delle directory. È anche necessario registrare lo stesso nome di dominio selezionato per la federazione con la directory locale nel passaggio **Dominio di Azure AD** della procedura guidata. Per verificare come si presenta il passaggio nella procedura guidata, vedere [queste istruzioni](./../connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation). Se non si ha lo strumento Azure AD Connect, è possibile [scaricarlo da questa pagina](http://go.microsoft.com/fwlink/?LinkId=615771).
+    ![Schermata del portale di Azure](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
-## <a name="add-a-dns-entry-for-the-domain-name-at-the-domain-name-registrar"></a>Aggiungere una voce DNS per il nome di dominio nel registrar
-Il passaggio successivo per potere usare il nome di dominio personalizzato con Azure AD consiste nell'aggiornare il file di zona DNS per il dominio. Azure AD può quindi verificare che l'organizzazione sia proprietaria del nome di dominio personalizzato. È possibile usare [DNS Azure](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) per i record DNS di Azure/Office 365/esterni in Azure oppure aggiungere la voce DNS in un [registrar DNS diverso](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+    >[!TIP]
+    > Se si intende eseguire la federazione dell'istanza locale di Active Directory di Windows Server con Azure AD, è necessario selezionare la casella di controllo **Desidero configurare questo dominio per l'accesso Single Sign-On con l'istanza di Active Directory locale** quando si esegue lo strumento Azure AD Connect per la sincronizzazione delle directory. È anche necessario registrare lo stesso nome di dominio selezionato per la federazione con la directory locale nel passaggio **Dominio di Azure AD** della procedura guidata. Per verificare come si presenta il passaggio nella procedura guidata, vedere [queste istruzioni](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation). Se non si ha lo strumento Azure AD Connect, è possibile [scaricarlo da questa pagina](http://go.microsoft.com/fwlink/?LinkId=615771).
 
-1. Accedere al registrar per il dominio. Se le autorizzazioni di accesso non sono sufficienti per aggiornare la voce DNS, chiedere a un altro utente o team autorizzato ad accedere di completare il passaggio 2 e di segnalarne il completamento.
-2. Per aggiornare il file di zona DNS per il dominio, aggiungere la voce DNS fornita da Azure AD. La voce DNS non modifica alcun comportamento, ad esempio il routing della posta elettronica o l'hosting Web.
+2. Creare la nuova directory seguendo i passaggi illustrati in [Create a new tenant for your organization](active-directory-access-create-new-tenant.md#create-a-new-tenant-for-your-organization) (Creare un nuovo tenant per l'organizzazione).
 
-## <a name="verify-the-custom-domain-name-in-azure-ad"></a>Verificare il nome di dominio personalizzato in Azure AD
-Dopo aver aggiunto la voce DNS, è possibile verificare il nome di dominio con Azure AD. Un nome di dominio può essere verificato solo dopo la propagazione dei record DNS. La propagazione richiede spesso solo qualche secondo, ma a volte può richiedere più di un'ora. Se il primo tentativo di verifica non funziona, riprovare più tardi.
+    >[!Important]
+    >La persona che crea il tenant ne diventa automaticamente l'amministratore globale. L'amministratore globale può aggiungere altri amministratori al tenant.
 
-1. Accedere ad [Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account di amministratore globale per il tenant.
-2. Selezionare **Nomi di dominio personalizzati**.
-3. Selezionare il nome di dominio non verificato che si vuole verificare.
-4. Verificare le voci e selezionare **Verifica** per completare la verifica.
+## <a name="add-your-custom-domain-name-to-azure-ad"></a>Aggiungere un nome di dominio personalizzato ad Azure AD
+Dopo aver creato la directory, è possibile aggiungere il nome di dominio personalizzato.
 
-A questo punto è possibile [assegnare nomi utente che includono il nome di dominio personalizzato](../users-groups-roles/domains-manage.md). Usando il nome di dominio personalizzato, è possibile creare account utente basati sul cloud oppure aggiornare le informazioni sugli account utente locali sincronizzate in precedenza. È anche possibile modificare le informazioni relative al suffisso di dominio degli account utente sincronizzate in precedenza usando [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) o l'[API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
+1. Selezionare **Nomi di dominio personalizzati** e quindi selezionare **Aggiungi dominio personalizzato**.
 
-> [!TIP]
-> È possibile aggiungere fino a un massimo di 900 nomi di dominio gestiti. Se si intende configurare tutti i domini per la federazione locale di Active Directory, è possibile aggiungere fino a 450 nomi di dominio in ogni directory. Per altre informazioni, vedere [Nomi di dominio federati e gestiti](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names).
+    ![Pagina Fabrikam - Nomi di dominio personalizzati, con l'opzione Aggiungi dominio personalizzato evidenziata](media/add-custom-domain/add-custom-domain.png)
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
-Se non è possibile verificare un nome di dominio personalizzato, provare a eseguire questi passaggi per la risoluzione dei problemi:
+2. Digitare il nuovo nome di dominio dell'organizzazione nella casella **Nome dominio personalizzato** (ad esempio, _contoso.com_) e quindi selezionare **Aggiungi dominio**.
 
-1. **Attendere un'ora**. I record DNS devono essere propagati prima che Azure AD possa verificare il dominio. Questo processo può richiedere più di un'ora.
-2. **Assicurarsi che il record DNS sia stato immesso e che sia corretto**. Completare questo passaggio nel sito Web del registrar per il dominio. Azure AD non può verificare il nome di dominio se: 
-  * La voce DNS non è presente nel file di zona DNS
-  * Non è una corrispondenza esatta con la voce DNS fornita da Azure AD. 
-  
-  Se le autorizzazioni di accesso non sono sufficienti per aggiornare i record DNS per il dominio nel registrar, condividere la voce DNS con l'utente o il team dell'organizzazione autorizzato ad accedere, in modo che possa aggiungere la voce DNS.
-3. **Eliminare il nome di dominio dall'altra directory in Azure AD**. Un nome di dominio può essere verificato solo in una directory. Se un nome di dominio è attualmente in fase di verifica in un'altra directory, è necessario eliminarlo prima di poterlo verificare nella nuova directory. Per informazioni sull'eliminazione dei nomi di dominio, vedere [Gestione dei nomi di dominio personalizzati in Azure Active Directory](../users-groups-roles/domains-manage.md).    
+    Il dominio non verificato viene aggiunto e viene visualizzata la pagina **Contoso** con le informazioni sul DNS.
 
-Ripetere la procedura riportata in questo articolo per aggiungere ogni nome di dominio.
+    >[!Important]
+    >Per il corretto funzionamento, è necessario includere .com, .net o un'altra estensione di primo livello.
 
-## <a name="learn-more"></a>Altre informazioni
-[Panoramica concettuale dei nomi di dominio personalizzati in Azure AD](../users-groups-roles/domains-manage.md)
+    ![Pagina Fabrikam - Nomi di dominio personalizzati, con il pulsante Aggiungi dominio evidenziato](media/add-custom-domain/add-custom-domain-blade.png)
 
-[Gestire i nomi di dominio personalizzati](../users-groups-roles/domains-manage.md)
+4. Copiare le informazioni sul DNS dalla pagina **Contoso**. Ad esempio, MS=ms64983159.
+
+    ![Pagina Contoso con le informazioni relative alla voce DNS](media/add-custom-domain/contoso-blade-with-dns-info.png)
+
+## <a name="add-your-dns-information-to-the-domain-registrar"></a>Aggiungere le informazioni sul DNS al registrar
+Dopo aver aggiunto il nome di dominio personalizzato ad Azure AD, è necessario tornare al registrar e aggiungere le informazioni sul DNS di Azure AD dal file TXT copiato. La creazione di questo record TXT per il dominio "verifica" la proprietà del nome di dominio.
+
+-  Tornare al registrar, creare un nuovo record TXT per il dominio basato sulle informazioni sul DNS copiate, impostare il **TTL** (durata) su 60 minuti e quindi salvare le informazioni.
+
+    >[!Important]
+    >È possibile registrare tutti i nomi di dominio desiderati. Tuttavia, ogni dominio ottiene il proprio record TXT da Azure AD. Prestare attenzione quando si immettono le informazioni del file TXT nel registrar. Se per errore si immettono informazioni non corrette o duplicate, sarà necessario attendere che il TTL raggiunga il timeout (60 minuti) prima di poter riprovare.
+
+## <a name="verify-your-custom-domain-name"></a>Verificare il nome di dominio personalizzato
+Dopo aver registrato il nome di dominio personalizzato, è necessario verificare che sia valido in Azure AD. La propagazione dal registrar ad Azure AD può essere immediata o richiedere alcuni giorni, a seconda del registrar.
+
+### <a name="to-verify-your-custom-domain-name"></a>Per verificare il nome di dominio personalizzato
+1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
+
+2. Selezionare **Azure Active Directory** e quindi selezionare **Nomi di dominio personalizzati**.
+
+3. Nella pagina **Fabrikam - Nomi di dominio personalizzati** selezionare il nome di dominio personalizzato **Contoso**.
+
+    ![Pagina Fabrikam - Nomi di dominio personalizzati, con contoso evidenziato](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
+
+4. Nella pagina **Contoso** selezionare **Verifica** per assicurarsi che il dominio personalizzato sia stato registrato correttamente e sia valido per Azure AD.
+
+    ![Pagina Contoso con le informazioni relative alla voce DNS e pulsante Verifica](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+
+### <a name="common-verification-issues"></a>Problemi comuni di verifica
+- Se Azure AD non riesce a verificare un nome di dominio personalizzato, provare a mettere in pratica i suggerimenti seguenti:
+    - **Attendere almeno un'ora e riprovare**. I record DNS devono essere propagati prima che Azure AD possa verificare il dominio e questo processo può richiedere un'ora o più.
+
+    - **Verificare che il record DNS sia corretto.** Tornare al sito del registrar e verificare che la voce sia presente e che corrisponda alle informazioni relative alla voce DNS fornite da Azure AD.
+
+    Se non è possibile aggiornare il record nel sito del registrar, è necessario condividere la voce con un utente che abbia le autorizzazioni appropriate per aggiungere la voce e verificare che sia corretta.
+
+- **Verificare che il nome di dominio non sia già usato in un'altra directory.** Un nome di dominio può essere verificato esclusivamente in una directory. Se quindi il nome di dominio è attualmente verificato in un'altra directory, non può essere verificato anche nella nuova directory. Per risolvere questo problema di duplicazione, è necessario eliminare il nome di dominio dalla directory precedente. Per altre informazioni sull'eliminazione dei nomi di dominio, vedere [Gestire i nomi di dominio personalizzati](../users-groups-roles/domains-manage.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa guida introduttiva si è appreso come aggiungere un dominio personalizzato ad Azure AD. 
 
-È possibile usare il collegamento seguente per aggiungere un nuovo dominio personalizzato in Azure AD dal portale di Azure.
+- Aggiungere un altro amministratore globale alla directory. Per altre informazioni, vedere [Come assegnare ruoli e amministratori](active-directory-users-assign-role-azure-portal.md)
 
-> [!div class="nextstepaction"]
-> [Aggiungere un dominio personalizzato](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/QuickStart) 
+- Per aggiungere utenti al dominio, vedere [Come aggiungere o eliminare utenti](add-users-azure-active-directory.md)
+
+- Gestire le informazioni sul nome di dominio in Azure AD. Per altre informazioni, vedere [Gestione dei nomi di dominio personalizzati](../users-groups-roles/domains-manage.md)
+
+- Se sono disponibili versioni locali di Windows Server che si vuole usare con Azure Active Directory, vedere [Integrare le directory locali con Azure Active Directory](../connect/active-directory-aadconnect.md).

@@ -5,64 +5,72 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/27/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4b00baba44a4724ce8f6a45a80692f7f566a35ed
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423358"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Aggiungere metriche estese per le macchine virtuali di Azure
 
-Gestione costi usa dati delle metriche di Azure dalle macchine virtuali di Azure per mostrare informazioni dettagliate sulle risorse. I dati delle metriche, chiamati anche contatori delle prestazioni, vengono usati da Gestione costi per generare report. Tuttavia, Gestione costi non raccoglie automaticamente tutti i dati delle metriche di Azure dalle macchine virtuali guest. A questo scopo, è necessario abilitare la raccolta delle metriche. Questo articolo descrive come abilitare e configurare metriche di diagnostica aggiuntive per le macchine virtuali di Azure.
+Cloudyn usa dati delle metriche di Azure dalle macchine virtuali di Azure per mostrare informazioni dettagliate sulle risorse. I dati delle metriche, chiamati anche contatori delle prestazioni, vengono usati da Cloudyn per generare report. Tuttavia, Cloudyn non raccoglie automaticamente tutti i dati delle metriche di Azure dalle macchine virtuali guest. A questo scopo, è necessario abilitare la raccolta delle metriche. Questo articolo descrive come abilitare e configurare metriche di diagnostica aggiuntive per le macchine virtuali di Azure.
 
 Dopo aver abilitato la raccolta delle metriche, è possibile:
 
 - Identificare quando le macchine virtuali raggiungono i limiti di memoria, dei dischi e di CPU.
 - Rilevare tendenze e anomalie di utilizzo.
 - Controllare i costi in base all'utilizzo.
-- Ottenere consigli efficaci in termini di costi per l'ottimizzazione delle dimensioni da Gestione costi.
+- Ottenere consigli efficaci in termini di costi per l'ottimizzazione delle dimensioni da Cloudyn.
 
 Ad esempio, potrebbe essere necessario monitorare le percentuali di CPU e memoria delle macchine virtuali di Azure. Le metriche delle macchine virtuali di Azure corrispondono a _Percentuale CPU [host]_ e _Percentuale memoria [guest]_.
 
-## <a name="verify-that-metrics-are-enabled-on-vms"></a>Verificare che le metriche siano abilitate nelle macchine virtuali
+> [!NOTE]
+> La raccolta di dati relativi alle metriche estese è supportata solo con il monitoraggio a livello di guest di Azure. Cloudyn non è compatibile con l'estensione macchina virtuale di Log Analytics.
+
+## <a name="determine-whether-extended-metrics-are-enabled"></a>Determinare se le metriche estese sono abilitate
 
 1. Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 2. In **Macchine virtuali** selezionare una macchina virtuale e quindi fare clic su **Metriche** in **Monitoraggio**. Verrà visualizzato un elenco delle metriche disponibili.
 3. Selezionare alcune metriche per visualizzare un grafico che mostra i dati corrispondenti.  
     ![Metrica di esempio - Percentuale di CPU per gli host](./media/azure-vm-extended-metrics/metric01.png)
 
-Nell'esempio precedente è disponibile un set limitato di metriche standard per gli host, ma non sono disponibili le metriche della memoria. Le metriche della memoria fanno parte delle metriche estese. Per abilitare le metriche estese, è necessario eseguire alcuni passaggi aggiuntivi. Le informazioni seguenti descrivono come abilitarle.
+Nell'esempio precedente è disponibile un set limitato di metriche standard per gli host, ma non sono disponibili le metriche della memoria. Le metriche della memoria fanno parte delle metriche estese. In questo caso le metriche estese non sono abilitate per la macchina virtuale. Per abilitare le metriche estese, è necessario eseguire alcuni passaggi aggiuntivi. Le informazioni seguenti descrivono come abilitarle.
 
 ## <a name="enable-extended-metrics-in-the-azure-portal"></a>Abilitare le metriche estese nel portale di Azure
 
 Le metriche standard sono le metriche dei computer host. La metrica _Percentuale CPU [host]_ è un esempio di queste metriche. Sono disponibili anche le metriche di base per le macchine virtuali guest, chiamate metriche estese. _Percentuale memoria [guest]_ e _Memoria disponibile [guest]_ sono due esempi di metriche estese.
 
-L'abilitazione delle metriche estese è un processo semplice. Per ogni macchina virtuale abilitare il monitoraggio a livello di guest. Quando si abilita il monitoraggio a livello di guest, nella macchina virtuale viene installato l'agente di diagnostica di Azure. Il processo seguente è lo stesso per macchine virtuali classiche e normali e macchine virtuali Windows e Linux.
+L'abilitazione delle metriche estese è un processo semplice. Per ogni macchina virtuale abilitare il monitoraggio a livello di guest. Quando si abilita il monitoraggio a livello di guest, nella macchina virtuale viene installato l'agente di diagnostica di Azure. Per impostazione predefinita, viene aggiunto un set di base di metriche estese. Il processo seguente è lo stesso per macchine virtuali classiche e normali e macchine virtuali Windows e Linux.
+
+Tenere presente che il monitoraggio a livello di guest sia di Azure che di Linux richiede un account di archiviazione. Quando si abilita il monitoraggio a livello di guest, se non si sceglie un account di archiviazione esistente, ne viene creato uno automaticamente.
 
 ### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Abilitare il monitoraggio a livello di guest nelle macchine virtuali esistenti
 
 1. In **Macchine virtuali** visualizzare l'elenco delle macchine virtuali e quindi selezionare una macchina virtuale.
-2. In **Monitoraggio** selezionare **Metrica**.
-3. Fare clic su **Impostazioni di diagnostica**.
-4. Nella pagina Impostazioni di diagnostica fare clic su **Abilita monitoraggio a livello di guest**. Per le macchine virtuali Linux è necessario un account di archiviazione esistente. Se non si sceglie un account di archiviazione per una macchina virtuale Windows, ne viene creato uno automaticamente.  
+2. Selezionare **Impostazioni di diagnostica** in **Monitoraggio**.
+3. Nella pagina Impostazioni di diagnostica fare clic su **Abilita monitoraggio a livello di guest**.  
     ![Abilita monitoraggio a livello di guest](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
-5. Dopo pochi minuti, nella macchina virtuale viene installato l'agente di diagnostica di Azure. Aggiornare la pagina e l'elenco delle metriche disponibili verrà aggiornato con le metriche per i guest.  
+4. Dopo pochi minuti, nella macchina virtuale viene installato l'agente di diagnostica di Azure. Viene aggiunto un set di base di metriche. Aggiornare la pagina. I contatori delle prestazioni aggiunti vengono visualizzati nella scheda Panoramica.
+5. In Monitoraggio selezionare **Metrica**.
+6. Nel grafico delle metriche selezionare **Guest (versione classica)** in **Metric Namespace** (Spazio dei nomi delle metriche).
+7. Nell'elenco Metrica è possibile visualizzare tutti i contatori delle prestazioni disponibili per la macchina virtuale guest.  
     ![Metriche estese](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>Abilitare il monitoraggio a livello di guest nelle nuove macchine virtuali
 
-Quando si creano nuove macchine virtuali, assicurarsi di selezionare **Diagnostica del sistema operativo guest**. Per le macchine virtuali Linux è necessario un account di archiviazione esistente. Se non si sceglie un account di archiviazione per una macchina virtuale Windows, ne viene creato uno automaticamente.
+Quando si creano nuove macchine virtuali, nella scheda Gestione selezionare **Sì** per **Diagnostica sistema operativo guest**.
 
 ![Abilitare la diagnostica del sistema operativo guest](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 ## <a name="resource-manager-credentials"></a>Credenziali di Resource Manager
 
-Dopo aver abilitato le metriche estese, assicurarsi che Gestione costi abbia accesso alle [credenziali di Resource Manager](activate-subs-accounts.md). Le credenziali sono necessarie perché Gestione costi possa raccogliere e visualizzare i dati sulle prestazioni per le macchine virtuali. Le credenziali vengono usate anche per creare consigli di ottimizzazione dei costi. Gestione costi necessita di almeno tre giorni di dati sulle prestazioni da un'istanza per determinare se questa sia un buon candidato per consigliare un ridimensionamento.
+Dopo aver abilitato le metriche estese, assicurarsi che Cloudyn abbia accesso alle [credenziali di Resource Manager](activate-subs-accounts.md). Le credenziali sono necessarie perché Cloudyn possa raccogliere e visualizzare i dati sulle prestazioni per le macchine virtuali. Le credenziali vengono usate anche per creare consigli di ottimizzazione dei costi. Cloudyn necessita di almeno tre giorni di dati sulle prestazioni da un'istanza per determinare se questa sia un buon candidato per consigliare un ridimensionamento.
 
 ## <a name="enable-vm-metrics-with-a-script"></a>Abilitare le metriche delle macchine virtuali con uno script
 
@@ -76,4 +84,4 @@ Per visualizzare le metriche delle prestazioni nelle istanze di Azure nel portal
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Se non è già stato abilitato l'accesso all'API di Azure Resource Manager per gli account, vedere [Activate Azure subscriptions and accounts](activate-subs-accounts.md) (Attivare gli account e le sottoscrizioni di Azure)
+- Se non è già stato abilitato l'accesso all'API di Azure Resource Manager per gli account, vedere [Attivare sottoscrizioni e account di Azure](activate-subs-accounts.md).

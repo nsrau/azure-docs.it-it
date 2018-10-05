@@ -2,20 +2,22 @@
 title: Sincronizzazione dati SQL di Azure | Microsoft Docs
 description: Questa panoramica è un'introduzione alla sincronizzazione dati SQL di Azure
 services: sql-database
-author: allenwux
-manager: craigg
 ms.service: sql-database
-ms.custom: data-sync
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/09/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 8fe77522297dc6020cf98f4532aea9f580d8bdb9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+manager: craigg
+ms.date: 08/09/2018
+ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004812"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161982"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -47,9 +49,9 @@ Di seguito sono elencate le proprietà di un gruppo di sincronizzazione:
 
 ## <a name="when-to-use-data-sync"></a>Quando usare la sincronizzazione dati
 
-La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mantenuti aggiornati in diversi database SQL di Azure o database di SQL Server. Questi sono i principali casi d'uso per la sincronizzazione dati:
+La sincronizzazione dei dati è utile nei casi in cui i dati devono essere mantenuti aggiornati in diversi database SQL di Azure o SQL Server. Questi sono i principali casi d'uso per la sincronizzazione dati:
 
--   **Sincronizzazione dei dati ibrida:** con la sincronizzazione dei dati è possibile mantenere i dati sincronizzati tra database locali e database SQL di Azure per rendere possibili applicazioni ibride. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
+-   **Sincronizzazione dei dati ibrida:** con la sincronizzazione dei dati è possibile mantenere sincronizzati i dati tra i database locali e i database SQL di Azure per rendere possibili applicazioni ibride. Questa funzionalità può essere interessante per i clienti che stanno valutando il passaggio al cloud e vorrebbero trasferire alcune applicazioni in Azure.
 
 -   **Applicazioni distribuite:** in molti casi è vantaggioso separare carichi di lavoro diversi in database differenti. Ad esempio, se si dispone di un database di produzione di grandi dimensioni, ma è anche necessario eseguire un carico di lavoro di report o analisi su tali dati, può essere utile avere un secondo database per questo carico di lavoro aggiuntivo. Questo approccio riduce al minimo l'impatto a livello di prestazioni sul carico di lavoro di produzione. È possibile usare la sincronizzazione dati per mantenere sincronizzati i due database.
 
@@ -178,7 +180,10 @@ Non direttamente. Tuttavia, è possibile sincronizzare in maniera indiretta tra 
 Sì. È possibile eseguire la sincronizzazione tra database SQL che appartengono a gruppi di risorse di proprietà di sottoscrizioni diverse.
 -   Se le sottoscrizioni appartengono allo stesso tenant e sono disponibili le autorizzazioni per tutte le sottoscrizioni, è possibile configurare il gruppo di sincronizzazione nel portale di Azure.
 -   In caso contrario, è necessario usare PowerShell per aggiungere i membri di sincronizzazione che appartengono a sottoscrizioni diverse.
-   
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china"></a>È possibile usare la sincronizzazione dei dati tra database SQL appartenenti a cloud diversi, ad esempio al cloud pubblico di Azure e ad Azure Cina?
+Sì. È possibile eseguire la sincronizzazione tra database SQL appartenenti a cloud diversi. Per aggiungere i membri di sincronizzazione appartenenti a sottoscrizioni diverse, è necessario usare PowerShell.
+
 ### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>È possibile usare la sincronizzazione dati per effettuare il seeding dei dati da un database di produzione a un database vuoto e quindi sincronizzarli?
 
 Sì. Creare manualmente lo schema nel nuovo database effettuando lo scripting dall'originale. Dopo aver creato lo schema, aggiungere le tabelle a un gruppo di sincronizzazione per copiare i dati e mantenerli sincronizzati.

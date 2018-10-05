@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2018
+ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005876"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161642"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Panoramica di Azure Load Balancer Standard
 
@@ -88,7 +88,7 @@ Consultare [per ulteriori dettagli sulle abilità associate alle zone di disponi
 
 Load Balancer Standard fornisce le metriche multidimensionali tramite il Monitoraggio di Azure.  Queste metriche possono essere filtrate, raggruppate e suddivise in una determinata dimensione.  Forniscono informazioni dettagliate sulle prestazioni presenti e passate e sullo stato di integrità del servizio.  Integrità risorse di Azure è supportato.  Ecco di seguito una breve panoramica della diagnostica supportata:
 
-| Metrica | Descrizione |
+| Metrica | DESCRIZIONE |
 | --- | --- |
 | Disponibilità IP virtuale | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.|
 | Disponibilità DIP | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni singolo endpoint dell'istanza nel pool di Load Balancer.  In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità.
@@ -232,10 +232,12 @@ Load Balancer Standard è un prodotto addebitato in base al numero di regole di 
 - Altre informazioni sulla diagnostica per [Azure Load Balancer Standard](load-balancer-standard-diagnostics.md).
 - Altre informazioni sulle [metriche multidimensionali supportate](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) per la diagnostica in [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md).
 - Informazioni sull'uso di [Load Balancer per le connessioni in uscita](load-balancer-outbound-connections.md).
+- Altre informazioni sulle [Regole in uscita](load-balancer-outbound-rules-overview.md).
+- Informazioni su [Reimpostare TCP in caso di inattività](load-balancer-tcp-reset.md).
 - Informazioni su [Load Balancer Standard con regole di bilanciamento del carico di porte a disponibilità elevata](load-balancer-ha-ports-overview.md).
 - Informazioni sull'uso di [Load Balancer con più front-end](load-balancer-multivip-overview.md).
 - Informazioni sulle [reti virtuali](../virtual-network/virtual-networks-overview.md).
-- Altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
+- Vedere altre informazioni sui [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
 - Informazioni sugli [endpoint del servizio Rete virtuale](../virtual-network/virtual-network-service-endpoints-overview.md).
 - Informazioni su alcune altre [funzionalità di rete](../networking/networking-overview.md) chiave di Azure.
-- Altre informazioni su [Azure Load Balancer](load-balancer-overview.md).
+- Vedere altre informazioni su [Azure Load Balancer](load-balancer-overview.md).

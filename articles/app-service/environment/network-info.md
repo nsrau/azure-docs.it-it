@@ -1,5 +1,5 @@
 ---
-title: Considerazioni sulla rete per un ambiente del servizio app di Azure
+title: Considerazioni sulla rete per Ambiente del servizio app di Azure
 description: Viene spiegato il traffico di rete dell'ambiente del servizio app e come impostare gruppi di sicurezza di rete (NSG) e route definite dall'utente (UDR) con l'ambiente del servizio app
 services: app-service
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6d4f7fab0c36095d96cec0038a39744102e8972b
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356070"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433753"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerazioni sulla rete per un ambiente del servizio app #
 
@@ -29,9 +29,9 @@ ms.locfileid: "34356070"
 - **Ambiente del servizio app esterno**: espone le app ospitate dall'ambiente del servizio app su un indirizzo IP accessibile da Internet. Per altre informazioni, vedere [Create an External ASE][MakeExternalASE] (Creare un ambiente del servizio app esterno).
 - **Ambiente del servizio app con bilanciamento del carico interno**: espone le app ospitate dall'ambiente del servizio app su un indirizzo IP all'interno della VNet. L'endpoint interno è un servizio di bilanciamento del carico interno (ILB, Internal Load Balancer) ed è per questo motivo che si usa la definizione "ambiente del servizio app con bilanciamento del carico interno". Per altre informazioni, vedere [Create and use an ILB ASE][MakeILBASE] (Creare e usare un ambiente del servizio app ILB).
 
-Esistono ora due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. Per informazioni sulla versione ASEv1, vedere [Introduzione all'ambiente del servizio app][ASEv1Intro]. Un ambiente ASEv1 può essere distribuito in una rete virtuale classica o di Resource Manager. Un ambiente ASEv2 può essere distribuito solo in una rete virtuale di Resource Manager.
+Esistono due versioni dell'ambiente del servizio app: ASEv1 e ASEv2. Per informazioni sulla versione ASEv1, vedere [Introduzione all'ambiente del servizio app][ASEv1Intro]. Un ambiente ASEv1 può essere distribuito in una rete virtuale classica o di Resource Manager. Un ambiente ASEv2 può essere distribuito solo in una rete virtuale di Resource Manager.
 
-Tutte le chiamate da un ambiente del servizio app indirizzate a Internet lasciano la rete virtuale tramite un indirizzo VIP assegnato per l'ambiente del servizio app. L'indirizzo IP pubblico di questo indirizzo VIP è quindi l'indirizzo IP di origine per tutte le chiamate dall'ambiente del servizio app indirizzate a Internet. Se le app nell'ambiente del servizio app effettuano chiamate a risorse nella rete virtuale o tramite una VPN, l'IP di origine sarà uno degli indirizzi IP nella subnet usata dall'ambiente del servizio app. Dato che l'ambiente del servizio app è all'interno della rete virtuale, consente anche di accedere alle risorse all'interno della rete virtuale senza ulteriori configurazioni. Se la rete virtuale è connessa alla rete locale, le app nell'ambiente del servizio app hanno accesso anche alle relative risorse. Non è necessario configurare ulteriormente l'ambiente del servizio app o l'app.
+Tutte le chiamate da un ambiente del servizio app indirizzate a Internet lasciano la rete virtuale tramite un indirizzo VIP assegnato per l'ambiente del servizio app. L'indirizzo IP pubblico di questo indirizzo VIP è l'indirizzo IP di origine per tutte le chiamate dall'ambiente del servizio app indirizzate a Internet. Se le app nell'ambiente del servizio app effettuano chiamate a risorse nella rete virtuale o tramite una VPN, l'IP di origine sarà uno degli indirizzi IP nella subnet usata dall'ambiente del servizio app. Dato che l'ambiente del servizio app è all'interno della rete virtuale, consente anche di accedere alle risorse all'interno della rete virtuale senza ulteriori configurazioni. Se la rete virtuale è connessa alla rete locale, le app nell'ambiente del servizio app hanno accesso anche alle relative risorse senza un'ulteriore configurazione.
 
 ![Ambiente del servizio app esterno][1] 
 
@@ -44,7 +44,7 @@ Se si dispone di un ambiente del servizio app esterno, il VIP pubblico è anche 
 
 ![Ambiente del servizio app con bilanciamento del carico interno][2]
 
-Se è disponibile un ambiente del servizio app con bilanciamento del carico interno, l'indirizzo IP del servizio di bilanciamento del carico interno è l'endpoint per HTTP/S, FTP/S, la distribuzione Web e il debug remoto.
+Se è disponibile un ambiente del servizio app con bilanciamento del carico interno, l'indirizzo del servizio di bilanciamento del carico interno è l'endpoint per HTTP/S, FTP/S, la distribuzione Web e il debug remoto.
 
 Le porte di accesso alle app normali sono:
 
@@ -58,14 +58,18 @@ Ciò vale se si usa un ambiente del servizio app esterno o con bilanciamento del
 
 ## <a name="ase-subnet-size"></a>Dimensioni della subnet dell'ambiente del servizio app ##
 
-Le dimensioni della subnet usata per ospitare un ambiente del servizio app non possono essere modificate dopo la distribuzione dell'ambiente.  L'ambiente del servizio app usa un indirizzo per ogni ruolo di infrastruttura e per ogni istanza del piano di servizio app Isolato.  Inoltre, la rete di Azure usa 5 indirizzi per ogni subnet creata.  Un ambiente del servizio app senza alcun piano di servizio app userà 12 indirizzi prima che venga creata un'app.  Un ambiente del servizio app ILB userà invece 13 indirizzi prima che venga creata un'app in tale ambiente. Per scalare orizzontalmente i piani di servizio app saranno necessari indirizzi aggiuntivi per ogni front-end aggiunto.  Per impostazione predefinita, i server front-end vengono aggiunti ogni 15 istanze di piani di servizio app totali. 
+Le dimensioni della subnet usata per ospitare un ambiente del servizio app non possono essere modificate dopo la distribuzione dell'ambiente.  L'ambiente del servizio app usa un indirizzo per ogni ruolo di infrastruttura e per ogni istanza del piano di servizio app Isolato.  Inoltre, la rete di Azure usa 5 indirizzi per ogni subnet creata.  Un ambiente del servizio app senza alcun piano di servizio app userà 12 indirizzi prima che venga creata un'app.  Un ambiente del servizio app ILB userà invece 13 indirizzi prima che venga creata un'app in tale ambiente. Quando si scala orizzontalmente l'ambiente del servizio app, i ruoli di infrastruttura vengono aggiunti ogni multiplo di 15 e 20 istanze di piani di servizio app.
 
    > [!NOTE]
-   > La subnet non può contenere altro oltre all'ambiente del servizio app. Assicurarsi di scegliere uno spazio di indirizzi che consente la crescita futura. Non è possibile modificare questa impostazione in un secondo momento. È consigliabile una dimensione pari a `/25` con 128 indirizzi.
+   > La subnet non può contenere altro oltre all'ambiente del servizio app. Assicurarsi di scegliere uno spazio di indirizzi che consente la crescita futura. Non è possibile modificare questa impostazione in un secondo momento. È consigliabile una dimensione pari a `/24` con 256 indirizzi.
+
+Quando si aumenta o si riduce il numero di istanze, vengono aggiunti nuovi ruoli di dimensioni appropriate e viene quindi eseguita la migrazione dei carichi di lavoro dalle dimensioni correnti a quelle di destinazione. Le macchine virtuali originali vengono rimosse solo dopo la migrazione delle app. Ciò significa che se si ha un ambiente del servizio app con 100 istanze ASP, ci sarà un periodo in cui sarà necessario raddoppiare il numero di macchine virtuali.  È per questo motivo che è consigliabile usare '/24' per supportare le eventuali modifiche che potrebbero essere necessarie.  
 
 ## <a name="ase-dependencies"></a>Dipendenze dell'ambiente del servizio app ##
 
-Una dipendenza per l'accesso in ingresso dell'ambiente del servizio app è:
+### <a name="ase-inbound-dependencies"></a>Dipendenze in ingresso dell'ambiente del servizio app ###
+
+Le dipendenze per l'accesso in ingresso dell'ambiente del servizio app sono:
 
 | Uso | Da | A |
 |-----|------|----|
@@ -74,7 +78,7 @@ Una dipendenza per l'accesso in ingresso dell'ambiente del servizio app è:
 |  Consenti bilanciamento del carico di Azure in ingresso | Servizio di bilanciamento del carico di Azure | Subnet dell'ambiente del servizio app: tutte le porte
 |  Indirizzi IP assegnati alle app | Indirizzi assegnati alle app | Subnet dell'ambiente del servizio app: tutte le porte
 
-Il traffico in ingresso fornisce comandi e controllo dell'ambiente del servizio app oltre al monitoraggio del sistema. Gli IP di origine per il traffico sono indicati nel documento [Indirizzi di gestione dell'Ambiente del servizio app][ASEManagement]. La configurazione della sicurezza di rete deve consentire l'accesso da tutti gli indirizzi IP sulle porte 454 e 455.
+Il traffico di gestione in ingresso fornisce comandi e controllo dell'ambiente del servizio app oltre al monitoraggio del sistema. Gli indirizzi di origine per il traffico sono indicati nel documento [Indirizzi di gestione dell'Ambiente del servizio app][ASEManagement]. La configurazione della sicurezza di rete deve consentire l'accesso da tutti gli indirizzi IP sulle porte 454 e 455. Se si blocca l'accesso da questi indirizzi, l'ambiente del servizio app risulterà non integro e quindi verrà sospeso.
 
 All'interno della subnet dell'ambiente del servizio app ci sono molte porte usate per la comunicazioni dei componenti interni e che possono cambiare.  Per questo motivo, è necessario che a tutte le porte nella subnet dell'ambiente del servizio app sia possibile accedere dalla subnet dell'ambiente del servizio app. 
 
@@ -82,26 +86,23 @@ Per le comunicazioni tra Azure Load Balancer e la subnet dell'ambiente del servi
 
 Se si usano indirizzi IP assegnati alle app, è necessario consentire il traffico dagli indirizzi IP assegnati alle app alla subnet dell'ambiente del servizio app.
 
-Per l'accesso in uscita, un ambiente del servizio app dipende da più sistemi esterni. Tali dipendenze di sistema sono definite con nomi DNS e non corrispondono a un set fisso di indirizzi IP. Per questo, l'ambiente del servizio app richiede l'accesso in uscita dalla subnet dell'ambiente del servizio app a tutti gli indirizzi IP esterni su un'ampia gamma di porte. Per un ambiente del servizio app esistono le seguenti dipendenze in uscita:
+Il traffico TCP in ingresso sulle porte 454 e 455 deve essere ritrasmesso dallo stesso indirizzo VIP oppure si verificherà un problema di routing asimmetrico. 
 
-| Uso | Da | A |
-|-----|------|----|
-| Archiviazione di Azure | Subnet dell'ambiente del servizio app | table.core.windows.net, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 necessaria solo per ASEv1.) |
-| database SQL di Azure | Subnet dell'ambiente del servizio app | database.windows.net: 1433, 11000-11999, 14000-14999 (per altre informazioni, vedere [Porte successive alla 1433 per ADO.NET 4.5](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md))|
-| Gestione di Azure | Subnet dell'ambiente del servizio app | management.core.windows.net, management.azure.com: 443 
-| Verifica dei certificati SSL |  Subnet dell'ambiente del servizio app            |  ocsp.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
-| Azure Active Directory        | Subnet dell'ambiente del servizio app            |  Internet: 443
-| Gestione del servizio app        | Subnet dell'ambiente del servizio app            |  Internet: 443
-| DNS di Azure                     | Subnet dell'ambiente del servizio app            |  Internet: 53
-| Comunicazione interna dell'ambiente del servizio app    | Subnet dell'ambiente del servizio app: tutte le porte |  Subnet dell'ambiente del servizio app: tutte le porte
+### <a name="ase-outbound-dependencies"></a>Dipendenze in uscita dell'ambiente del servizio app ###
 
-L'ambiente del servizio app smette di funzionare se perde l'accesso a queste dipendenze. Se questa condizione si prolunga nel tempo, l'ambiente del servizio app viene sospeso.
+Per l'accesso in uscita, un ambiente del servizio app dipende da più sistemi esterni. Molte di queste dipendenze di sistema sono definite con nomi DNS e non corrispondono a un set fisso di indirizzi IP. Per questo, l'ambiente del servizio app richiede l'accesso in uscita dalla subnet dell'ambiente del servizio app a tutti gli indirizzi IP esterni su un'ampia gamma di porte. 
+
+L'elenco completo delle dipendenze in uscita è disponibile nel documento che descrive il [blocco del traffico in uscita dell'ambiente del servizio app](./firewall-integration.md). L'ambiente del servizio app smette di funzionare se perde l'accesso alle relative dipendenze. Se questa condizione si prolunga nel tempo, l'ambiente del servizio app viene sospeso. 
 
 ### <a name="customer-dns"></a>DNS del cliente ###
 
 Se la rete virtuale è configurata con un server DNS definito dal cliente, i carichi di lavoro tenant lo useranno. L'ambiente del servizio app deve comunque comunicare con DNS di Azure per scopi di gestione. 
 
 Se la rete virtuale è configurata con un DNS del cliente sull'altra estremità di una VPN, il server DNS deve essere raggiungibile dalla subnet che contiene l'ambiente del servizio app.
+
+Per testare la risoluzione dall'app Web, è possibile usare il comando della console *nameresolver*. Passare alla finestra di debug nel sito scm per l'app o passare all'app nel portale e selezionare la console. Dal prompt della shell è possibile eseguire il comando *nameresolver* insieme all'indirizzo da cercare. Il risultato ottenuto è lo stesso di quello ottenuto dall'app dopo l'esecuzione della stessa ricerca. Se si usa nslookup, si eseguirà invece una ricerca con DNS di Azure.
+
+Se si modifica l'impostazione DNS della rete virtuale in cui si trova l'ambiente del servizio app, sarà necessario riavviare l'ambiente del servizio app. Per evitare il riavvio dell'ambiente del servizio app, è consigliabile configurare le impostazioni DNS per la rete virtuale prima di creare l'ambiente del servizio app.  
 
 <a name="portaldep"></a>
 
@@ -141,6 +142,9 @@ Un ambiente del servizio app ha alcuni indirizzi IP di cui tenere conto. Sono:
 - **Indirizzi SSL basati su IP assegnati alle app**: possibili solo con un ambiente del servizio app esterno e quando è configurato SSL basato su IP.
 
 Tutti questi indirizzi IP sono facilmente visibili in un ambiente ASEv2 nel portale di Azure dall'interfaccia utente dell'ambiente del servizio app. Con un ambiente del servizio app con bilanciamento del carico interno viene elencato l'indirizzo IP per il servizio di bilanciamento del carico interno.
+
+   > [!NOTE]
+   > Questi indirizzi IP non verranno modificati finché l'ambiente del servizio app resta operativo e in esecuzione.  Se l'ambiente del servizio app viene sospeso e ripristinato, gli indirizzi usati dall'ambiente del servizio app verranno modificati. Il motivo più comune per la sospensione di un ambiente del servizio app è il blocco dell'accesso della gestione in ingresso o il blocco dell'accesso a una dipendenza dell'ambiente del servizio app. 
 
 ![Indirizzi IP][3]
 

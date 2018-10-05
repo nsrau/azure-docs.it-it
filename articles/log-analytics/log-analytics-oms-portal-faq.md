@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 09/25/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 503d5913efe67bd0de738f68921b9631c63acfa8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: ''
+ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116045"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223832"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Domande frequenti sulla transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics
 In precedenza, Log Analytics usava il proprio portale, chiamato portale di OMS, per gestire la configurazione e l'analisi dei dati raccolti.  Tutte le funzionalità di questo portale sono state spostate al portale di Azure in cui continueranno a essere sviluppate.
@@ -83,7 +83,7 @@ Gestire le impostazioni delle origini connesse nel menu **Impostazioni avanzate*
 | Archiviazione di Azure     | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | System Center     | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Office 365        | Per i dettagli di configurazione, vedere la [documentazione per la soluzione di gestione di Office 365](../operations-management-suite/oms-solution-office-365.md). |
-| Telemetria di Windows | Non ancora disponibile nel portale di Azure. |
+| Telemetria di Windows | Menu di impostazioni per la soluzione. Per i dettagli di configurazione, vedere [Windows Analytics nel portale di Azure](/windows/deployment/update/windows-analytics-azure-portal). |
 | Connettore di Gestione dei servizi IT    | Per le istruzioni sulla connessione al servizio Gestione dei servizi IT con Log Analytics, vedere [Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT](../log-analytics/log-analytics-itsmc-connections.md). |
 
 ### <a name="data"></a>Dati

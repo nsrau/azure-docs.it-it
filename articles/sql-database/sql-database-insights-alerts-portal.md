@@ -1,20 +1,23 @@
 ---
 title: Usare il portale di Azure per creare avvisi per il database SQL | Documentazione Microsoft
 description: Usare il portale di Azure per creare avvisi per il database SQL in grado di attivare notifiche o eventi di automazione quando vengono soddisfatte le condizioni specificate.
-author: aamalvea
-manager: craigg
 services: sql-database
 ms.service: sql-database
-ms.custom: monitor and tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: aamalvea
 ms.author: aamalvea
-ms.openlocfilehash: 349f1bbb0bfcc737d70e32947dd217c2cd51e194
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648024"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47159313"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Usare il portale di Azure per creare avvisi per il database SQL di Azure e il data warehouse
 
@@ -34,7 +37,7 @@ Questo articolo descrive come impostare gli avvisi per il database SQL di Azure 
 
 È possibile configurare e ottenere informazioni sulle regole degli avvisi tramite
 
-* [Portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
 * [interfaccia della riga di comando](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
 * [API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
@@ -43,7 +46,7 @@ Questo articolo descrive come impostare gli avvisi per il database SQL di Azure 
 1. Nel [portale](https://portal.azure.com/), individuare la risorsa da monitorare e selezionarla.
 2. Questo passaggio per il database SQL e i pool elastici è diverso rispetto a quello per SQL Data Warehouse: 
 
-   - **SOLO PER IL DATABASE SQL E I POOL ELASTICI**: selezionare **Avvisi** o **Regole di avviso** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse.  
+   - **SOLO per database SQL e pool elastici**: selezionare **Avvisi** o **Regole di avviso** nella sezione MONITORAGGIO. Il testo e l'icona possono lievemente variare per le diverse risorse.  
    
      ![Monitoraggio](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
   
@@ -108,7 +111,7 @@ Dopo aver creato un avviso, è possibile selezionarlo e:
 | SQL Data Warehouse | connection_successful | Connessioni riuscite | Totale | 10 minuti |
 | SQL Data Warehouse | connection_failed | Connessioni non riuscite | Totale | 10 minuti |
 | SQL Data Warehouse | blocked_by_firewall | Blocco da parte del firewall | Totale | 10 minuti |
-| SQL Data Warehouse | service_level_objective | Obiettivo del livello di servizio del database | Totale | 10 minuti |
+| SQL Data Warehouse | service_level_objective | Livello di servizio del database | Totale | 10 minuti |
 | SQL Data Warehouse | dwu_limit | Limite DWU | Massima | 10 minuti |
 | SQL Data Warehouse | dwu_consumption_percent | Percentuale DWU | Media | 10 minuti |
 | SQL Data Warehouse | dwu_used | Uso DWU | Media | 10 minuti |

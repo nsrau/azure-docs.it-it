@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: d0c6f8723909b71501894c9363932c752c1e130c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989856"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419543"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in VMware (anteprima)
 
@@ -34,13 +34,13 @@ In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Verificare che l'host soddisfi i requisiti minimi del dispositivo
-> * Effettuare il provisioning di un dispositivo virtuale nell'hypervisor
+> * Effettuare il provisioning di un dispositivo virtuale in VMware
 > * Avviare il dispositivo virtuale e ottenere l'indirizzo IP
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!IMPORTANT]
-> - Data Box Gateway è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
+> - Data Box Gateway è in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -58,7 +58,7 @@ Prima di iniziare, verificare che:
 
 ### <a name="for-the-data-box-gateway-virtual-device"></a>Per il dispositivo virtuale Data Box Gateway
 
-Prima di distribuire un dispositivo virtuale, verificare che:
+Prima di distribuire un dispositivo virtuale, è necessario:
 
 * Si abbia accesso a un sistema host che esegue VMware (ESXi 6.0 o 6.5) da poter usare per effettuare il provisioning di un dispositivo.
 * Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning del dispositivo virtuale:
@@ -198,7 +198,7 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
 
 6. I passaggi da 5 a 7 devono essere eseguiti solo in caso di avvio in un ambiente non DHCP. In presenza di un ambiente DHCP, ignorare questi passaggi e andare al passaggio 8. Se il dispositivo è stato avviato in un ambiente non DHCP, verrà visualizzato il messaggio **Use the Set-HcsIPAddress cmdlet to configure the network** (Usare il cmdlet Set-HcsIPAddress per configurare la rete). 
    
-7. Per configurare la rete, al prompt dei comandi usare il comando `Get-HcsIpAddress` per elencare le interfacce di rete abilitate nel dispositivo virtuale. Se il dispositivo dispone di una singola interfaccia di rete abilitata, il nome predefinito assegnato a questa interfaccia è `DATA1`.
+7. Per configurare la rete, al prompt dei comandi usare il comando `Get-HcsIpAddress` per elencare le interfacce di rete abilitate nel dispositivo virtuale. Se il dispositivo dispone di una singola interfaccia di rete abilitata, il nome predefinito assegnato a questa interfaccia è `Ethernet`.
 
 8. Usare il cmdlet `Set-HcsIpAddress` per configurare la rete. Di seguito è riportato un esempio:
 
@@ -208,7 +208,7 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
-Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione (riportato sotto). È necessario modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi. È quindi possibile riavviare il dispositivo a cui connettersi. Vedere i requisiti minimi di configurazione in [Passaggio 1: Verificare che il sistema host soddisfi i requisiti minimi del dispositivo virtuale](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
+Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione (riportato sotto). È necessario modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi. È quindi possibile riavviare il dispositivo a cui connettersi. Vedere i requisiti minimi di configurazione in [Verificare che il sistema host soddisfi i requisiti minimi del dispositivo virtuale](#check-the-host-system).
 
 <!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 
@@ -221,7 +221,7 @@ In questa esercitazione sono stati presentati argomenti relativi a Data Box Gate
 
 > [!div class="checklist"]
 > * Verificare che l'host soddisfi i requisiti minimi del dispositivo
-> * Effettuare il provisioning di un dispositivo virtuale nell'hypervisor
+> * Effettuare il provisioning di un dispositivo virtuale in VMware
 > * Avviare il dispositivo virtuale e ottenere l'indirizzo IP
 
 Passare all'esercitazione successiva per informazioni su come connettere, configurare e attivare il dispositivo virtuale.

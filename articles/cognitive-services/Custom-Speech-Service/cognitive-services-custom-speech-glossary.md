@@ -1,30 +1,32 @@
 ---
-title: Glossario di termini per il Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
+title: Glossario dei termini - Servizio di riconoscimento vocale personalizzato
+titlesuffix: Azure Cognitive Services
 description: La terminologia nel glossario definisce alcuni termini che è opportuno conoscere quando si usa il Servizio di riconoscimento vocale personalizzato.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 2b6c54f023eccfa813817256bdcc1cbde83d49a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6922244fa9a5d053e506120112759d29bc74a8af
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373121"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222795"
 ---
 # <a name="glossary"></a>Glossario
 
-## <a name="a"></a>A
+## <a name="a"></a>Una 
 
 ### <a name="acoustic-model"></a>Modello acustico
 
 Il modello acustico è un classificatore che etichetta brevi frammenti di audio in una serie di fonemi, o unità di suono, in una lingua specifica. Ad esempio, la parola inglese "speech" è costituita da quattro fonemi "s p iy ch". Queste classificazioni vengono effettuate con una frequenza di 100 volte al secondo.
 
-## <a name="b"></a>B
+## <a name="b"></a>b
 
 ## <a name="c"></a>C
 
@@ -106,6 +108,6 @@ Frammento di testo risultante dall'elaborazione di un frammento di un file WAV a
 
 ## <a name="z"></a>Z
 
-* [Panoramica](cognitive-services-custom-speech-home.md)
+* [Overview](cognitive-services-custom-speech-home.md)
 * [esercitazione introduttiva](cognitive-services-custom-speech-get-started.md)
-* [Domande frequenti](cognitive-services-custom-speech-faq.md)
+* [DOMANDE FREQUENTI](cognitive-services-custom-speech-faq.md)

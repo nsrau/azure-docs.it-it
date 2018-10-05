@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696820"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064459"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: elaborazione di database senza server con Funzioni di Azure
 
@@ -110,15 +110,12 @@ In tutti questi casi d'uso, poiché la funzione ha diviso l'app stessa non è ne
 ## <a name="tooling"></a>Strumenti
 
 L'integrazione nativa tra Azure Cosmos DB e Funzioni di Azure è disponibile nel portale di Azure e in Visual Studio 2017.
-* Nel portale di Funzioni di Azure è possibile creare un trigger di Azure Cosmos DB. Per istruzioni di avvio rapido, vedere [Creare un trigger di Azure Cosmos DB nel portale di Azure](https://aka.ms/cosmosdbtriggerportalfunc) ![Creare un trigger di Azure Cosmos DB nel portale di Funzioni di Azure](./media/serverless-computing-database/azure-function-cosmos-db-trigger.png) 
-* Nel portale di Funzioni di Azure è possibile anche aggiungere associazioni di input e output di Azure Cosmos DB ad altri tipi di trigger. Per istruzioni di avvio rapido, vedere [Archiviare dati non strutturati tramite Funzioni di Azure e Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md).
-    ![Creare un trigger di Azure Cosmos DB nel portale di Funzioni di Azure](./media/serverless-computing-database/function-portal-input-binding.png)
-*   Nel portale di Azure Cosmos DB è possibile aggiungere un trigger di Azure Cosmos DB a un'app di Funzioni di Azure esistente nello stesso gruppo di risorse.
-    ![Creare un trigger di Azure Cosmos DB nel portale di Funzioni di Azure](./media/serverless-computing-database/cosmos-db-portal.png)
-* In Visual Studio 2017 è possibile creare un trigger di Azure Cosmos DB usando il modello integrato:
+
+* Nel portale di Funzioni di Azure è possibile creare un trigger di Azure Cosmos DB. Per istruzioni di avvio rapido, vedere [Creare un trigger di Azure Cosmos DB nel portale di Azure](https://aka.ms/cosmosdbtriggerportalfunc).
+* Nel portale di Azure Cosmos DB è possibile aggiungere un trigger di Azure Cosmos DB a un'app di Funzioni di Azure esistente nello stesso gruppo di risorse.
+* In Visual Studio 2017 è possibile creare un trigger di Azure Cosmos DB usando gli [strumenti Funzioni di Azure per Visual Studio 2017](../azure-functions/functions-develop-vs.md):
 
     >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
-
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>Motivi per cui scegliere l'integrazione di Funzioni di Azure per l'elaborazione senza server
 
@@ -152,7 +149,6 @@ Ora bisogna davvero collegare Funzioni di Azure e Azure Cosmos DB:
 
 * [Creare un trigger di Azure Cosmos DB nel portale di Azure](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Create an Azure Functions HTTP trigger with an Azure Cosmos DB input binding](https://aka.ms/cosmosdbinputbind) (Creare un trigger HTTP di Funzioni di Azure con un'associazione di input di Azure Cosmos DB)
-* [Archiviare dati non strutturati tramite Funzioni di Azure e Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
 * [Associazioni e trigger di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md)
 
 

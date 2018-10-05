@@ -5,19 +5,19 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 08/28/2018
+ms.date: 09/27/2018
 ms.author: alkohli;
 ms.component: ''
-ms.openlocfilehash: afb7de78a30367b0cc12e621019f1e8be975e63f
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9bab8a55301a5eb40b38bec984205fff2a52559e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191430"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422814"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Aprire un ticket di supporto per Azure Data Box 
 
-Se si verificano problemi con il servizio di Azure Data Box, è possibile creare una richiesta di servizio per il supporto tecnico. In questo articolo viene descritto:
+Questo articolo si applica ad Azure Data Box e Azure Data Box Disk, entrambi gestiti dal servizio Azure Data Box. Se si verificano problemi con il servizio di Azure Data Box, è possibile creare una richiesta di servizio per il supporto tecnico. In questo articolo viene descritto:
 
 * Come creare una richiesta di supporto
 * Come gestire una richiesta di supporto relativa al ciclo di vita all'interno del portale.

@@ -1,22 +1,49 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+ms.openlocfilehash: b2950720ae7038f435a8e2dfb24333afc49984b1
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060693"
+---
 ## <a name="test-your-code"></a>Testare il codice
 
+### <a name="test-with-node"></a>Eseguire il test con Node
+Se non si usa Visual Studio, assicurarsi che il server Web sia stato avviato.
+1. Configurare il server per rimanere in ascolto di una porta TCP basata sulla posizione del file **index.html**. Per Node, avviare il server Web per essere in ascolto della porta eseguendo i comandi seguenti in un prompt della riga di comando dalla cartella dell'applicazione:
+
+    ```bash
+    npm install
+    node server.js
+    ```
+1. Aprire il browser e digitare http://<span></span>localhost:30662 o http://<span></span>localhost:{porta} dove **porta** è la porta che il server Web sta ascoltando. Dovrebbero essere visualizzati i contenuti del file index.html e il pulsante **Accedi**.
+
+<p/><!-- -->
+
 ### <a name="test-with-visual-studio"></a>Eseguire test con Visual Studio
-Se si usa Visual Studio, premere **F5** per eseguire il progetto. Il browser viene aperto sulla posizione http://<span></span>localhost:{porta} e viene visualizzato il pulsante **Call Microsoft Graph API** (Chiama API Microsoft Graph).
+Se si usa Visual Studio, assicurarsi di selezionare la soluzione di progetto e premere **F5** per eseguire il progetto. Il browser viene aperto sulla posizione http://<span></span>localhost:{porta} e viene visualizzato il pulsante **Accedi**.
 
-<p/><!-- --> 
-
-### <a name="test-with-python-or-other-web-server"></a>Eseguire test con Python o un altro server Web
-Se non si usa Visual Studio, assicurarsi che il server Web sia stato avviato. Configurare il server per rimanere in ascolto di una porta TCP basata sulla posizione del file **index.html**. Per Python, avviare l'ascolto della porta eseguendo il terminale del prompt dei comandi dalla cartella dell'applicazione:
- 
-```bash
-python -m http.server 8080
-```
-Aprire il browser e digitare http://<span></span>localhost:8080 o http://<span></span>localhost:{porta} dove **porta** è la porta che il server Web sta ascoltando. Dovrebbero essere visualizzati i contenuti del file index.html e il pulsante **Call Microsoft Graph API** (Chiama API Microsoft Graph).
 
 ## <a name="test-your-application"></a>Testare l'applicazione
 
-Dopo che il browser ha caricato il file index.html, selezionare **Call Microsoft Graph API** (Chiama API Microsoft Graph). Alla prima esecuzione dell'applicazione il browser reindirizza l'utente all'endpoint di Microsoft Azure Active Directory (Azure AD) v2.0 e viene richiesto l'accesso:
- 
+Dopo che il browser ha caricato il file index.html, fare clic su **Accedi**. Verrà richiesto di accedere con l'endpoint Microsoft Azure Active Directory (Azure AD) v2.0:
+
 ![Accedere all'account JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
 
@@ -27,23 +54,21 @@ Al primo accesso all'applicazione viene richiesto di specificare il consenso per
 ![Specificare il consenso per l'accesso all'applicazione](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
-Dopo l'accesso, nella casella **Graph API Call Response** (Risposta alla chiamata API Graph) dovrebbero essere visualizzate le informazioni sul profilo utente.
- 
-![Risultati previsti dalla chiamata API Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
+Dopo l'accesso, le informazioni del profilo utente restituite nella risposta dell'API Microsoft Graph dovrebbero essere visualizzate nella pagina.
 
-Dovrebbero essere anche visualizzate le informazioni di base sul token acquisite nelle caselle **Token di accesso** e **ID Token Claims** (Attestazione token ID).
+![Risultati previsti dalla chiamata API Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Altre informazioni sugli ambiti e sulle autorizzazioni delegate
 
-L'API Microsoft Graph richiede l'ambito **user.read** per leggere il profilo dell'utente. Per impostazione predefinita, questo ambito viene aggiunto automaticamente in ogni applicazione registrata nel portale di registrazione. Altre API per Microsoft Graph e le API personalizzate per il server di back-end potrebbero richiedere anche altri ambiti. L'API Microsoft Graph richiede l'ambito **Calendars.Read** per elencare i calendari dell'utente.
+L'API di Microsoft Graph richiede l'ambito `user.read` per leggere il profilo di un utente. Per impostazione predefinita, questo ambito viene aggiunto automaticamente in ogni applicazione registrata nel portale di registrazione. Altre API per Microsoft Graph e le API personalizzate per il server di back-end potrebbero richiedere anche altri ambiti. L'API Microsoft Graph, ad esempio, richiede l'ambito `Calendars.Read` per elencare i calendari dell'utente.
 
-Per accedere ai calendari dell'utente nel contesto di un'applicazione, aggiungere l'autorizzazione delegata **Calendars.Read** alle informazioni di registrazione dell'applicazione. Aggiungere quindi l'ambito **Calendars.Read** alla chiamata **acquireTokenSilent**. 
+Per accedere ai calendari dell'utente nel contesto di un'applicazione, aggiungere l'autorizzazione delegata `Calendars.Read` alle informazioni di registrazione dell'applicazione. Aggiungere quindi l'ambito `Calendars.Read` alla chiamata ad `acquireTokenSilent`.
 
 >[!NOTE]
 >Con l'aumentare del numero di ambiti è possibile che all'utente venga chiesto di esprimere anche altri tipi di consenso.
 
-Se un'API back-end non richiede alcun ambito (opzione non consigliata), è possibile usare **clientId** come ambito nelle chiamate **acquireTokenSilent** e **acquireTokenRedirect**.
+Se per un'API back-end non è richiesto alcun ambito (non consigliabile), è possibile usare `clientId` come ambito nelle chiamate per acquisire i token.
 
 <!--end-collapse-->
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: e3d07e122c0506574e7e6c37a65333c62564fa7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26b4e2b1bf2dc9e59bc41e1d9f0628a1f476d402
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965335"
+ms.locfileid: "47031483"
 ---
 # <a name="front-door-routing-methods"></a>Metodi di routing di Frontdoor
 
@@ -77,7 +77,14 @@ L'affinità di sessione può essere abilitata a livello di host front-end per tu
 
 La durata del cookie corrisponde a quella della sessione utente, perché Frontdoor attualmente supporta solo i cookie di sessione. 
 
+> [!NOTE]
+> I proxy pubblici possono interferire con l'affinità di sessione, perché per stabilire una sessione è necessario che Frontdoor aggiunga un cookie di affinità di sessione nella risposta, operazione che non può essere eseguita se la risposta è memorizzabile nella cache, in quanto potrebbe compromettere i cookie di altri client che richiedono la stessa risorsa. Per proteggersi da questa situazione, l'affinità di sessione **non** verrà stabilita se il back-end invia una risposta memorizzabile nella cache quando si tenta di eseguire questa operazione. Se la sessione è già stata stabilita, non importa se la risposta dal back-end è memorizzabile nella cache.
+> L'affinità di sessione verrà stabilita nelle circostanze seguenti, **a meno che** la risposta non abbia un codice di stato HTTP 304:
+> - Per l'intestazione ```Cache-Control``` della risposta vengono impostati valori specifici che impediscono la memorizzazione nella cache, ad esempio "private" o "no-store ".
+> - La risposta contiene un'intestazione ```Authorization``` non scaduta.
+> - La risposta contiene un codice di stato HTTP 302.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su [come creare una Frontdoor](quickstart-create-front-door.md).
+- Informazioni su [come creare un Frontdoor](quickstart-create-front-door.md).
 - Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).

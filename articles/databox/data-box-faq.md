@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: ''
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d0da9107fe1dd34481ca0bf1aa9a0b260bb10951
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e47ffbe15291275a7104d5e201a597d084cdbdd9
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946630"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422865"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: domande frequenti
 
@@ -87,7 +87,7 @@ R. Il servizio Data Box non è disponibile per la combinazione di paese e area s
 ### <a name="q-i-placed-my-data-box-order-few-days-back-when-will-i-receive-my-data-box"></a>D: Ho inserito l'ordine di Data Box alcuni giorni fa. Quando riceverò il dispositivo Data Box?
 R. Quando l'utente inserisce un ordine, Microsoft controlla se un dispositivo è disponibile per l'ordine stesso. Se un dispositivo è disponibile, Microsoft lo spedisce entro 10 giorni. È plausibile che vi siano periodi di domanda elevata. In questo caso l'ordine viene accodato ed è possibile monitorare la modifica dello stato nel portale di Azure. Se l'ordine non viene evaso entro 90 giorni, viene annullato automaticamente. 
 
-### <a name="q-i-have-filled-up-my-data-box-with-data-and-need-to-order-another-one-is-there-a-way-to-quickly-place-the-order"></a>D: Ho inserito i dati nel dispositivo Data Box e devo ordinarne un altro. È possibile creare rapidamente un altro ordine?
+### <a name="q-i-have-filled-up-my-data-box-with-data-and-need-to-order-another-one-is-there-a-way-to-quickly-place-the-order"></a>D: Ho inserito i dati nel dispositivo Data Box e devo ordinarne un altro. è possibile ordinare rapidamente altri dischi?
 R. È possibile clonare l'ordine precedente. La clonazione consente di creare un ordine identico e di modificare solo i dettagli dell'ordine senza dover digitare di nuovo indirizzo, informazioni di contatto e dettagli per le notifiche. 
 
 ## <a name="configure-and-connect"></a>Configurazione e connessione
@@ -117,7 +117,7 @@ A.
 A.-->
 
 ### <a name="q-the-system-fault-indicator-led-on-the-front-operating-panel-is-on-what-should-i-do"></a>D: Il LED indicatore di errore di sistema sul pannello operativo anteriore è acceso. Cosa devo fare?
-R. Se il LED indicatore di errore di sistema è acceso, il sistema non è integro. Contattare il supporto tecnico Microsoft per i passaggi successivi.
+R. Se il LED indicatore di errore di sistema è acceso, il sistema non è integro. [Contattare il supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md) per i passaggi successivi.
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>D: Non riesco ad accedere alla password di sblocco di Data Box nel portale di Azure. Quale può essere il motivo?
 R. Se non si è in grado di accedere alla password di sblocco nel portale di Azure, controllare le autorizzazioni per la sottoscrizione e per l'account di archiviazione. Verificare di disporre dell'autorizzazione di collaboratore o proprietario a livello di gruppo di risorse. In caso contrario, è necessario disporre almeno dell'autorizzazione di ruolo operatore di Data Box per visualizzare le credenziali di accesso.
@@ -127,8 +127,8 @@ R. Se non si è in grado di accedere alla password di sblocco nel portale di Azu
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>D: Come è possibile monitorare Data Box dal momento dell'inserimento dell'ordine alla spedizione del dispositivo? 
 R.  È possibile monitorare lo stato dell'ordine di Data Box nel portale di Azure. Quando si crea l'ordine, viene richiesto anche di fornire un indirizzo di posta elettronica per le notifiche. Se ne è stato specificato uno, si riceverà una notifica tramite posta elettronica per tutte le modifiche di stato dell'ordine. Altre informazioni su come [configurare i messaggi di posta elettronica di notifica](data-box-portal-ui-admin.md#edit-notification-details).
 
-### <a name="q-how-do-i-return-the-disks"></a>D: Qual è la procedura per restituire i dischi? 
-R.  Microsoft consente di visualizzare un'etichetta di spedizione sullo schermo E Ink. Apporre l'etichetta sulla scatola per la spedizione e consegnare il pacchetto sigillato presso il punto di ritiro del vettore di spedizione. In caso di danneggiamento o smarrimento dell'etichetta, passare a **Panoramica > Scarica etichetta di spedizione** e scaricare una nuova etichetta per la spedizione di ritorno.
+### <a name="q-how-do-i-return-the-device"></a>D: Qual è la procedura per restituire il dispositivo? 
+R.  Microsoft consente di visualizzare un'etichetta di spedizione sullo schermo E-ink. Se l'etichetta di spedizione non viene visualizzato sullo schermo E-ink, passare a **Panoramica > Scarica etichetta di spedizione**. Scaricare e stampare l'etichetta, inserire l'etichetta nella busta di plastica trasparente applicata sul dispositivo e consegnare il dispositivo presso la sede del vettore di spedizione. 
 
 ### <a name="q-i-received-an-email-notification-that-my-device-has-reached-the-azure-datacenter-how-do-i-find-out-if-the-data-upload-is-in-progress"></a>D: Ho ricevuto una notifica di posta elettronica che indica che il dispositivo è arrivato al data center di Azure. Come posso scoprire se il caricamento dei dati è in corso?
 R. È possibile accedere all'ordine nel portale di Azure e andare a **Panoramica**. Se il caricamento dei dati in Azure è stato avviato, l'avanzamento della copia viene visualizzato nel riquadro a destra. 
@@ -181,11 +181,11 @@ R. Non usare il dispositivo se è arrivato danneggiato o se è evidente una prov
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>D: È possibile usare un corriere per spedire Data Box?
 R. Per il servizio Data Box, Microsoft gestisce la spedizione da e verso il data center di Azure. Se si intende usare il proprio corriere, è possibile usare il servizio di importazione/esportazione di Azure. Per altre informazioni, vedere [Che cos'è il servizio Importazione/Esportazione di Azure?](../storage/common/storage-import-export-service.md)
 
-### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>D: Nello schermo E Ink non viene visualizzata l'etichetta di spedizione di restituzione. Cosa devo fare?
-R. Se nello schermo E Ink non viene visualizzata l'etichetta di spedizione di restituzione, seguire questa procedura:
+### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>D: Nello schermo E-ink non viene visualizzata l'etichetta di spedizione di restituzione. Cosa devo fare?
+R. Se nello schermo E-ink non viene visualizzata l'etichetta di spedizione di restituzione, seguire questa procedura:
 - Rimuovere l'etichetta di spedizione e qualsiasi adesivo della spedizione precedente.
-- Accedere al proprio ordine nel portale di Azure. Andare a Panoramica e scaricare l'etichetta di spedizione. Per altre informazioni, vedere [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Scaricare l'etichetta di spedizione).
-- Stampare l'etichetta di spedizione e inserirla nella busta in plastica allegata al dispositivo. 
+- Accedere al proprio ordine nel portale di Azure. Passare a **Panoramica** e selezionare **Scarica etichetta di spedizione**. Per altre informazioni, vedere [Download shipping label](data-box-portal-admin.md#download-shipping-label) (Scaricare l'etichetta di spedizione).
+- Stampare l'etichetta di spedizione e inserirla nella busta in plastica applicata al dispositivo. 
 - Verificare che l'etichetta di spedizione sia chiaramente visibile. 
 
 ### <a name="q-how-is-my-data-protected-during-transit"></a>D: Come vengono protetti i dati durante il transito? 
@@ -204,12 +204,11 @@ R. Sì. È possibile accendere il dispositivo e aggiungere altri dati. È necess
 R.  Quando lo stato dell'ordine per l'operazione **Copia dati** è **Completato**, dovrebbe essere possibile accedere immediatamente ai dati.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>D: Dove vengono collocati i dati in Azure dopo il caricamento?
-R.  Quando si copiano i dati in Data Box, a seconda che siano BLOB in blocchi, BLOB di pagine o file di Azure, i dati vengono caricati in uno dei percorsi nell'account di archiviazione di Azure seguenti:
- - `<You_storage_account_name_BlockBlob>/<my_container>/Blob` 
- - `<Your_storage_account_name_PageBlob>/<my_container>/Blob`
- - `<Your_storage_account_name_AzFile>/` 
-
-Nelle condivisioni per BLOB di pagine e BLOB in blocchi le entità di primo livello sono contenitori, mentre le entità di secondo livello sono BLOB. Nelle condivisioni per File di Azure le entità di primo livello sono condivisioni, mentre le entità di secondo livello sono file.
+R.  Quando si copiano i dati in Data Box, a seconda che siano BLOB in blocchi, BLOB di pagine o file di Azure, i dati vengono caricati in uno dei percorsi seguenti nell'account di archiviazione di Azure.
+ - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+ -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+ 
+ In alternativa, è possibile passare all'account di archiviazione di Azure nel portale di Azure e procedere da questa posizione.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>D: Se non si seguono i requisiti di denominazione di Azure per i contenitori, i dati non verranno caricati in Azure?
 R.  Se i nomi dei contenitori includono lettere maiuscole, queste verranno convertite automaticamente in lettere minuscole. Se i nomi non sono conformi per altri aspetti (caratteri speciali, altre lingue e così via), il caricamento non viene eseguito in modo corretto. Per altre informazioni sulle procedure consigliate per la denominazione di condivisioni, contenitori e file, vedere: 

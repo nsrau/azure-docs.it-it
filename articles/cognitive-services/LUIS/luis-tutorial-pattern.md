@@ -1,76 +1,56 @@
 ---
-title: Esercitazione usando i criteri per migliorare le stime LUIS - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: In questa esercitazione usare i criteri per le finalità per migliorare le stime di finalità ed entità LUIS.
+title: 'Esercitazione 3: criteri per migliorare le stime di LUIS'
+titleSuffix: Azure Cognitive Services
+description: Usare criteri per migliorare le stime in termini di finalità ed entità fornendo poche espressioni di esempio. Il criterio viene fornito tramite un esempio di espressione modello, che include la sintassi per identificare le entità e il testo che può essere ignorato.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f4b267dda3c05d490d91fe02fbcfde4e49674603
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159573"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47166402"
 ---
-# <a name="tutorial-improve-app-with-patterns"></a>Esercitazione: migliorare le app con i criteri
+# <a name="tutorial-3-add-common-utterance-formats"></a>Esercitazione 3: aggiungere i formati delle espressioni comuni
 
-In questa esercitazione usare i criteri per le finalità per migliorare le stime di finalità ed entità LUIS.  
+In questa esercitazione, i criteri vengono usati per migliorare le stime in termini di finalità ed entità fornendo poche espressioni di esempio. Il criterio viene fornito tramite un esempio di espressione modello, che include la sintassi per identificare le entità e il testo che può essere ignorato. Un criterio è una combinazione di corrispondenza a espressioni e apprendimento automatico.  L'esempio di espressione modello, insieme alle espressioni della finalità, offrono a LUIS una migliore comprensione delle espressioni appropriate per la finalità. 
+
+**In questa esercitazione si imparerà come:**
 
 > [!div class="checklist"]
-* Come capire che un criterio potrebbe essere utile per l'app
-* Come creare un criterio
-* Come verificare i miglioramenti di stima del criterio
+> * Usare l'app di esercitazione esistente 
+> * Creare finalità
+> * Eseguire il training
+> * Pubblica
+> * Ottenere finalità ed entità dall'endpoint
+> * Creare un criterio
+> * Verificare i miglioramenti di stima del criterio
+> * Contrassegnare il testo ignorabile e annidare in un criterio
+> * Verificare l'efficacia del criterio attraverso il pannello per il test
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="use-existing-app"></a>Usare l'app esistente
 
-Se non si ha l'app relativa alle risorse umane dell'esercitazione sul [test in batch](luis-tutorial-batch-testing.md), [importare](luis-how-to-start-new-app.md#import-new-app) il codice JSON in una nuova app nel sito Web [LUIS](luis-reference-regions.md#luis-website). L'app da importare è disponibile nel repository GitHub [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json).
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
-Se si vuole mantenere l'app originale, clonare la versione nella pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) (Impostazioni) assegnando il nome `patterns`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. 
+Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
-## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>I criteri insegnano a LUIS espressioni comuni con un minor numero di esempi
+1.  Scaricare e salvare il [file JSON dell'app](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
-Data la natura del dominio risorse umane, esistono alcuni modi comuni di porre domande sulle relazioni dei dipendenti all'interno delle organizzazioni. Ad esempio: 
+2. Importare il file JSON in una nuova app.
 
-|Espressioni|
-|--|
-|A chi riferisce Jill Jones?|
-|Chi riferisce a Jill Jones?|
-
-Queste espressioni sono troppo simili per determinare l'univocità contestuale di ciascuna senza fornire molte espressioni di esempio. Aggiungendo un criterio per una finalità, LUIS apprende criteri di espressioni comuni per una finalità senza fornire molte espressioni di esempio. 
-
-Le espressioni modello di esempio per questa finalità includono:
-
-|Espressioni modello di esempio|
-|--|
-|A chi riferisce {Employee}?|
-|Chi riferisce a {Employee}?|
-
-Il criterio viene fornito tramite un esempio di espressione modello, che include la sintassi per identificare le entità e il testo che può essere ignorato. Un criterio è una combinazione di corrispondenza a espressioni regolari e apprendimento automatico.  L'esempio di espressione modello, insieme alle espressioni della finalità, offrono a LUIS una migliore comprensione delle espressioni appropriate per la finalità.
-
-Affinché un criterio possa essere messo in corrispondenza con un'espressione, le entità all'interno dell'espressione devono corrispondere per prima cosa alle entità nell'espressione modello. Tuttavia, il modello non consente di stimare le entità, solo le finalità. 
-
-**Mentre i criteri consentono di fornire un numero inferiore espressioni di esempio, se le entità non vengono rilevate, il criterio non corrisponde.**
-
-Tenere presente che i dipendenti siano stati creati nell'[esercitazione delle entità elenco](luis-quickstart-intent-and-list-entity.md).
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `patterns`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Creare nuove finalità ed espressioni
 
-Aggiungere due nuove finalità: `OrgChart-Manager` e `OrgChart-Reports`. Una volta che LUIS ha restituito una stima per l'app client, il nome della finalità può essere usato come un nome di funzione nell'app client e l'entità Employee può essere usata come parametro di tale funzione.
-
-```Javascript
-OrgChart-Manager(employee){
-    ///
-}
-```
-
-1. Assicurarsi che l'app relativa alle risorse umane sia presente nella sezione **Build** (Compila) di LUIS. È possibile passare a questa sezione selezionando **Build** (Compila) nella barra dei menu in alto a destra. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Nella pagina **Intents** (Finalità) selezionare **Create new intent** (Crea nuova finalità). 
 
@@ -110,17 +90,17 @@ OrgChart-Manager(employee){
 
 ## <a name="caution-about-example-utterance-quantity"></a>Prestare attenzione alla quantità di espressioni di esempio
 
-La quantità di espressioni di esempio in queste finalità non è sufficiente per eseguire il training di LUIS in modo corretto. In un'app reale, ogni finalità deve avere un minimo di 15 espressioni con una varietà di scelta di parole e lunghezza di espressione. Queste poche espressioni vengono selezionate in modo specifico per evidenziare i criteri. 
+[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## <a name="train-the-luis-app"></a>Eseguire il training dell'app di Language Understanding
+## <a name="train"></a>Eseguire il training
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>Pubblicare l'app per ottenere l'URL endpoint
+## <a name="publish"></a>Pubblica
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Eseguire una query nell'endpoint con un'espressione diversa
+## <a name="get-intent-and-entities-from-endpoint"></a>Ottenere finalità ed entità dall'endpoint
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -215,13 +195,53 @@ Usare i criteri per rendere il punteggio della finalità significativamente supe
 
 Lasciare aperta la seconda finestra del browser. Verrà usata più avanti in questa esercitazione. 
 
-## <a name="add-the-template-utterances"></a>Aggiungere espressioni modello
+## <a name="template-utterances"></a>Espressioni modello
+Data la natura del dominio risorse umane, esistono alcuni modi comuni di porre domande sulle relazioni dei dipendenti all'interno delle organizzazioni. Ad esempio: 
+
+|Espressioni|
+|--|
+|A chi riferisce Jill Jones?|
+|Chi riferisce a Jill Jones?|
+
+Queste espressioni sono troppo simili per determinare l'univocità contestuale di ciascuna senza fornire molte espressioni di esempio. Aggiungendo un criterio per una finalità, LUIS apprende criteri di espressioni comuni per una finalità senza fornire molte espressioni di esempio. 
+
+Gli esempi di espressioni modello per questa finalità includono:
+
+|Esempi di espressioni modello|significato della sintassi|
+|--|--|
+|A chi fa riferimento {Employee}[?]|interscambiabile {Employee}, ignorare [?]}|
+|Chi fa riferimento a {Employee}[?]|interscambiabile {Employee}, ignorare [?]}|
+
+La sintassi `{Employee}` contrassegna la posizione dell'entità nell'espressione modello e specifica di quale entità si tratta. La sintassi facoltativa, `[?]`, contrassegna le parole o i segni di punteggiatura che sono opzionali. LUIS mette in corrispondenza le espressioni ignorando il testo facoltativo tra parentesi.
+
+La sintassi non ricade tra le espressioni regolari nonostante la somiglianza. Solo le sintassi della parentesi graffa, `{}`, e della parentesi quadra, `[]`, sono supportate. Possono essere nidificate fino a due livelli.
+
+Affinché un criterio possa essere messo in corrispondenza con un'espressione, le entità all'interno dell'espressione devono corrispondere per prima cosa alle entità nell'espressione modello. Tuttavia, il modello non consente di stimare le entità, solo le finalità. 
+
+**Mentre i criteri consentono di fornire un numero inferiore espressioni di esempio, se le entità non vengono rilevate, il criterio non corrisponde.**
+
+In questa esercitazione, si aggiungono due nuove finalità: `OrgChart-Manager` e `OrgChart-Reports`. 
+
+|Finalità|Espressione|
+|--|--|
+|OrgChart-Manager|A chi riferisce Jill Jones?|
+|OrgChart-Reports|Chi riferisce a Jill Jones?|
+
+Una volta che LUIS ha restituito una stima per l'app client, il nome della finalità può essere usato come un nome di funzione nell'app client e l'entità Employee può essere usata come parametro di tale funzione.
+
+```Javascript
+OrgChartManager(employee){
+    ///
+}
+```
+
+Tenere presente che i dipendenti siano stati creati nell'[esercitazione delle entità elenco](luis-quickstart-intent-and-list-entity.md).
 
 1. Selezionare **Build** (Compila) nel menu in alto.
 
 2. Nel riquadro di spostamento sinistro, sotto **Improve app performance** (Migliora le prestazioni dell'app), selezionare **Patterns** (Criteri).
 
-3. Selezionare la finalità **OrgChart-Manager**, quindi immettere le espressioni modello seguenti, una alla volta, selezionando invio dopo ognuna:
+3. Selezionare la finalità **OrgChart-Manager**, quindi inserire le espressioni modello seguenti:
 
     |Espressioni modello|
     |:--|
@@ -232,17 +252,13 @@ Lasciare aperta la seconda finestra del browser. Verrà usata più avanti in que
     |Chi è supervisore di {Employee}[?]|
     |Chi è il capo di {Employee}[?]|
 
-    La sintassi `{Employee}` contrassegna la posizione dell'entità nell'espressione modello e specifica di quale entità si tratta. 
-
     Le entità con i ruoli usano la sintassi che include il nome del ruolo e vengono presentate in un'[esercitazione separata per i ruoli](luis-tutorial-pattern-roles.md). 
-
-    La sintassi facoltativa, `[]`, contrassegna le parole o i caratteri di punteggiatura che sono facoltativi. LUIS mette in corrispondenza le espressioni ignorando il testo facoltativo tra parentesi.
 
     Se si digita l'espressione modello, LUIS consente di compilare l'entità quando si immette la parentesi graffa sinistra, `{`.
 
     [ ![Screenshot dell'immissione di espressioni modello per una finalità](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Selezionare la finalità **OrgChart-Reports**, quindi immettere le espressioni modello seguenti, una alla volta, selezionando invio dopo ognuna di esse:
+4. Selezionare la finalità **OrgChart-Reports**, quindi inserire le espressioni modello seguenti:
 
     |Espressioni modello|
     |:--|
@@ -427,6 +443,8 @@ Tutte queste espressioni hanno individuato le entità all'interno e di conseguen
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Questa esercitazione aggiunge due finalità per espressioni per le quali risultava difficile fare una stima accurata senza disporre di molte espressioni di esempio. L'aggiunta di criteri ha consentito a LUIS di stimare meglio la finalità ottenendo un punteggio decisamente più alto. Contrassegnare le entità e il testo che può essere ignorato consente a LUIS di applicare il criterio a un'ampia gamma di espressioni.
 
 > [!div class="nextstepaction"]
 > [Informazioni su come usare i ruoli con un criterio](luis-tutorial-pattern-roles.md)

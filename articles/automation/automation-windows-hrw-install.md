@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e449e6e457c4fa568b5a4de5823014b4dcea82d0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c94fd0bb68a03c64935c20fef1fab7b68c9c2c9b
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064543"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032989"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Distribuire un ruolo di lavoro ibrido per runbook di Windows
 
@@ -30,7 +30,7 @@ Per installare e configurare un ruolo di lavoro ibrido per runbook di Windows, �
 I requisiti minimi per un ruolo di lavoro ibrido per runbook di Windows sono i seguenti:
 
 * Windows Server 2012 o versioni successive.
-* Windows PowerShell 4.0 o versioni successive ([scaricare WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)). Windows PowerShell 5.1 ([scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) è consigliato per la sua maggiore affidabilità.
+* Windows PowerShell 5.1 o versioni successive ([scaricare WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
 * .NET Framework 4.6.2 o versioni successive.
 * Due core.
 * 4 GB di RAM.
@@ -49,13 +49,13 @@ Dopo avere distribuito correttamente un ruolo di lavoro per runbook, esaminare [
 
 Seguire questa procedura per automatizzare l'installazione e la configurazione del ruolo di lavoro ibrido di Windows:
 
-1. Scaricare lo script New-OnPremiseHybridWorker.ps1 da [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript) direttamente dal computer che esegue il ruolo di lavoro ibrido per runbook o da un altro computer nell'ambiente. Copiare lo script sul ruolo di lavoro.
+1. Scaricare lo script New-OnPremiseHybridWorker.ps1 da [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) direttamente dal computer che esegue il ruolo di lavoro ibrido per runbook o da un altro computer nell'ambiente. Copiare lo script sul ruolo di lavoro.
 
    Per l'esecuzione dello script New-OnPremiseHybridWorker.ps1 sono necessari i parametri seguenti:
 
    * *AutomationAccountName* (obbligatorio): nome dell'account di automazione.
    * *AAResourceGroupName* (obbligatorio): nome del gruppo di risorse associato all'account di automazione.
-   * *OMSResourceGroupName* (facoltativo): nome del gruppo di risorse per l'area di lavoro di Operations Management Suite. Se il gruppo di risorse non è specificato, verrà usato *AAResourceGroupName*.
+   * *OMSResourceGroupName* (facoltativo): nome del gruppo di risorse per l'area di lavoro di Log Analytics. Se il gruppo di risorse non è specificato, verrà usato *AAResourceGroupName*.
    * *HybridGroupName* (obbligatorio): nome di un gruppo di ruoli di lavoro ibridi per runbook specificato come destinazione per i runbook che supportano questo scenario.
    * *SubscriptionID* (obbligatorio): ID sottoscrizione di Azure in cui si trova l'account di Automazione.
    * *WorkspaceName* (facoltativo): nome dell'area di lavoro di Log Analytics. Se non si dispone di un'area di lavoro di Log Analytics, lo script ne crea e configura una.
@@ -63,8 +63,8 @@ Seguire questa procedura per automatizzare l'installazione e la configurazione d
      > [!NOTE]
      > Le uniche aree di Automazione supportate per l'integrazione con Log Analytics sono attualmente: **Australia sud-orientale**, **Stati Uniti orientali 2**, **Asia sud-orientale** ed **Europa occidentale**. Se l'account di automazione non si trova in una di queste aree, lo script crea un'area di lavoro di Log Analytics ma avvisa l'utente che non sarà possibile eseguire il collegamento.
 
-1. Nel computer in uso aprire **Windows PowerShell** dalla schermata **Start** in modalità amministratore.
-1. Dalla shell della riga di comando di PowerShell, passare alla cartella che contiene lo script scaricato. Modificare i valori per i parametri *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* e *-WorkspaceName*. Quindi, eseguire lo script.
+2. Nel computer in uso aprire **Windows PowerShell** dalla schermata **Start** in modalità amministratore.
+3. Dalla shell della riga di comando di PowerShell, passare alla cartella che contiene lo script scaricato. Modificare i valori per i parametri *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId* e *-WorkspaceName*. Quindi, eseguire lo script.
 
      > [!NOTE]
      > Verrà chiesto di eseguire l'autenticazione con Azure dopo aver eseguito lo script. È *necessario* accedere con un account membro del ruolo Amministratori della sottoscrizione e coamministratore della sottoscrizione.
@@ -75,9 +75,9 @@ Seguire questa procedura per automatizzare l'installazione e la configurazione d
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. Verrà chiesto di accettare di installare NuGet e di eseguire l'autenticazione con le credenziali di Azure.
+4. Verrà chiesto di accettare di installare NuGet e di eseguire l'autenticazione con le credenziali di Azure.
 
-1. Dopo il completamento dello script, nella pagina **Gruppi di ruoli di lavoro ibridi** vengono visualizzati il nuovo gruppo e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo nell'elenco della pagina **Gruppi di ruoli di lavoro ibridi** e selezionare il riquadro **Ruoli di lavoro per runbook**. Nella pagina **Ruoli di lavoro per runbook** sono elencati i membri del gruppo.
+5. Dopo il completamento dello script, nella pagina **Gruppi di ruoli di lavoro ibridi** vengono visualizzati il nuovo gruppo e il numero di membri. Se si tratta di un gruppo esistente, il numero di membri viene incrementato. È possibile selezionare il gruppo nell'elenco della pagina **Gruppi di ruoli di lavoro ibridi** e selezionare il riquadro **Ruoli di lavoro per runbook**. Nella pagina **Ruoli di lavoro per runbook** sono elencati i membri del gruppo.
 
 ### <a name="manual-deployment"></a>Distribuzione manuale
 

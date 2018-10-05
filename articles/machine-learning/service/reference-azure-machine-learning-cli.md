@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
 ms.date: 09/24/2018
-ms.openlocfilehash: 5d14373b265ea30d235cc5bc7b87ee13c4fd8105
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f8dae6de835173181430a98c19c7dd1fb3ebaa9f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991794"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158904"
 ---
 # <a name="what-is-the-azure-machine-learning-cli"></a>Cos'è Azure Machine Learning CLI?
 
@@ -42,6 +42,8 @@ az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-
 az extension remove -n azure-cli-ml
 ```
 
+È possibile aggiornare l’interfaccia della riga di comando usando i passaggi precedenti **remove** e **add**.
+
 ## <a name="using-the-cli-vs-the-sdk"></a>Usare la CLI vs. l'SDK
 L'interfaccia della riga di comando è più adatta all'automazione da un utente tipo dev-ops o come parte di un'integrazione continua e di una pipeline di recapito. È ottimizzata per gestire attività non frequenti e con alti parametri. 
 
@@ -54,6 +56,8 @@ Tra gli esempi sono inclusi:
 Ai data scientist è consigliato usare l'SDK ML di Azure.
 
 ## <a name="common-machine-learning-cli-commands"></a>Comandi comuni di apprendimento automatico CLI
+> [!NOTE]
+> Si trovano [qui](https://github.com/Azure/MachineLearningNotebooks/tree/cli/cli) i file di esempio che è possibile usare per eseguire correttamente i comandi di seguito.
 
 È possibile usare la vasta gamma di comandi `az ml` per interagire con il servizio in qualsiasi ambiente da riga di comando, incluso il cloud shell del portale di Azure.
 
@@ -62,16 +66,16 @@ Ecco un esempio di comandi comuni:
 ### <a name="workspace-creation--compute-setup"></a>Creazione dell'area di lavoro e configurazione di calcolo
 
 + Creare un'area di lavoro di Azure Machine Learning, la risorsa di primo livello per l'apprendimento automatico.
-  ```AzureCLI
-  az ml workspace create -n myworkspace -g myresourcegroup
-  ```
+   ```AzureCLI
+   az ml workspace create -n myworkspace -g myresourcegroup
+   ```
 
 + Impostare l'interfaccia della riga di comando per usare questa area di lavoro come impostazione predefinita.
-```AzureCLI
-az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-```
+   ```AzureCLI
+   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+   ```
 
-+ Creare un DSVM (data science VM) per il training dei modelli. È anche possibile creare cluster BatchAI per il training distribuito.
++ Creare una macchina virtuale data science. È anche possibile creare cluster BatchAI per il training distribuito o cluster AKS per la distribuzione.
   ```AzureCLI
   az ml computetarget setup dsvm -n mydsvm
   ```
@@ -82,9 +86,10 @@ az configure --defaults aml_workspace=myworkspace group=myresourcegroup
   az ml project attach --experiment-name myhistory
   ```
 
-+ Inviare un esperimento nel servizio di Azure Machine Learning nella destinazione di calcolo di propria scelta (in questo esempio usa una Data Science VM)
++ Inviare un esperimento nel servizio di Azure Machine Learning nella destinazione di calcolo di propria scelta. Questo esempio verrà eseguito nell'ambiente di calcolo locale. Assicurarsi che il file di ambiente Conda acquisisca le proprie dipendenze python.
+
   ```AzureCLI
-  az ml run submit -c mydsvm train.py
+  az ml run submit -c local train.py
   ```
 
 + Visualizzare un elenco degli esperimenti inviati.
@@ -96,17 +101,17 @@ az ml history list
 
 + Registrazione di un modello con Azure Machine Learning.
   ```AzureCLI
-  az ml model register -n mymodel -m mymodel.pkl  -w myworkspace -g myresourcegroup
+  az ml model register -n mymodel -m sklearn_regression_model.pkl
   ```
 
 + Creare un'immagine per contenere il modello di apprendimento automatico e dipendenze. 
   ```AzureCLI
-  az ml image create -n myimage -r python -m rfmodel.pkl -f score.py -c myenv.yml
+  az ml image create container -n myimage -r python -m mymodel:1 -f score.py -c myenv.yml
   ```
 
 + Distribuire il modello del pacchetto anche nelle destinazioni ACI e AKS.
   ```AzureCLI
-  az ml service create aci -n myaciservice -i myimage:1
+  az ml service create aci -n myaciservice --image-id myimage:1
   ```
     
 ## <a name="full-command-list"></a>Elenco comandi completo

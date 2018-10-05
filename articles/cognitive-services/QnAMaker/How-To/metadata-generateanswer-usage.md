@@ -1,20 +1,21 @@
 ---
-title: Usare i metadati nella knowledge base con l'API GenerateAnswer | Microsoft Docs
-description: Uso dei metadati con l'API GenerateAnswer
+title: Metadati con l'API GenerateAnswer - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker consente di aggiungere metadati, sotto forma di coppie chiave/valore, per i set di domande/risposte. Queste informazioni possono essere usate per filtrare i risultati per le query utente e per archiviare informazioni aggiuntive utilizzabili nelle conversazioni di follow-up.
 services: cognitive-services
-author: pchoudhari
-manager: rsrikan
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/18/2018
-ms.author: pchoudh
-ms.openlocfilehash: e1b7c82e6998705bdc7e1c1a5d279bda7793667a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.date: 09/12/2018
+ms.author: tulasim88
+ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43305200"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031085"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>Uso dei metadati e dell'API GenerateAnswer
 

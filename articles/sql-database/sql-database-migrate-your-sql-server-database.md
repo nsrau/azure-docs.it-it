@@ -2,19 +2,22 @@
 title: Eseguire la migrazione di un database di SQL Server al database SQL di Azure con DMA | Microsoft Docs
 description: Informazioni su come eseguire la migrazione di un database di SQL Server al database SQL di Azure usando DMA.
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,migrate
-ms.topic: tutorial
-ms.date: 07/02/2018
-ms.author: carlrab
-ms.openlocfilehash: 1d8ec772293354c059f21aaae8006f5c40540058
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: sachinpMSFT
+ms.author: sachinp
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 58016636dad24b9b7d5278ce89643e6cd8d5be9e
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050205"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162863"
 ---
 # <a name="migrate-your-sql-server-database-to-azure-sql-database-using-dma"></a>Migrazione di un database di SQL Server al database SQL di Azure con DMA
 
@@ -246,11 +249,11 @@ Usare [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-ser
 
 ## <a name="change-database-properties"></a>Cambiare le proprietà del database
 
-Con SQL Server Management Studio è possibile cambiare il livello di servizio, il livello di prestazioni e il livello di compatibilità. Durante la fase di importazione, è consigliabile importare in un database con livello di prestazioni superiore per ottenere prestazioni ottimali, ma ridurlo dopo il completamento dell'importazione per risparmiare denaro fino a quando non si è pronti a usare attivamente il database importato. La modifica del livello di compatibilità può comportare prestazioni migliori e l'accesso alle funzionalità più recenti del servizio Database SQL di Azure. Quando si esegue la migrazione di un database meno recente, il livello di compatibilità del database viene mantenuto al livello più basso supportato e compatibile con il database importato. Per altre informazioni, vedere [Miglioramento delle prestazioni delle query con il livello di compatibilità 130 nel database SQL di Azure](sql-database-compatibility-level-query-performance-130.md).
+Con SQL Server Management Studio è possibile modificare il livello di servizio, la dimensione di calcolo e il livello di compatibilità. Durante la fase di importazione, per ottenere prestazioni ottimali è consigliabile eseguire l'importazione in un livello di servizio o in una dimensione di calcolo superiore, tornando a un livello inferiore dopo il completamento dell'importazione per risparmiare, fino al momento in cui non si sarà in grado di usare attivamente il database importato. La modifica del livello di compatibilità può comportare prestazioni migliori e l'accesso alle funzionalità più recenti del servizio Database SQL di Azure. Quando si esegue la migrazione di un database meno recente, il livello di compatibilità del database viene mantenuto al livello più basso supportato e compatibile con il database importato. Per altre informazioni, vedere [Miglioramento delle prestazioni delle query con il livello di compatibilità 130 nel database SQL di Azure](sql-database-compatibility-level-query-performance-130.md).
 
 1. In Esplora oggetti fare clic con il pulsante destro del mouse su **mySampleDatabase** e quindi scegliere **Nuova query**. Viene visualizzata una finestra di query connessa al database.
 
-2. Eseguire il comando seguente per impostare il livello di servizio **Standard** e il livello di prestazioni **S1**.
+2. Eseguire il comando seguente per impostare il livello di servizio su **Standard** e la dimensione di calcolo su **S1**.
 
     ```sql
     ALTER DATABASE mySampleDatabase 

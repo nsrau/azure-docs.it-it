@@ -1,20 +1,22 @@
 ---
-title: Linee guida sulla trascrizione nel Servizio di riconoscimento vocale personalizzato di Azure | Microsoft Docs
-description: Informazioni su come preparare i dati per il Servizio di riconoscimento vocale personalizzato in Servizi cognitivi.
+title: Linee guida per la trascrizione - Servizio di riconoscimento vocale personalizzato
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come preparare i dati per il Servizio di riconoscimento vocale personalizzato.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 2785a35ac7583ac3d9503cb721d10078d86aa365
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: a5daca2dbb3fc792850264bca7d8b0c59e7c8faa
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373337"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220619"
 ---
 # <a name="transcription-guidelines"></a>Indicazioni sulla trascrizione
 Per garantire un uso ottimale dei dati di testo per la personalizzazione dei modelli acustici e linguistici, attenersi alle linee guida sulla trascrizione riportate di seguito. Queste linee guida sono specifiche per la lingua.
@@ -109,7 +111,7 @@ Di seguito sono riportati alcuni esempi:
 |----- | ----- |
 | 3.1415 | 三 点 一 四 一 五 |
 | ￥3.5 | 三 元 五 角 |
-| w f y z | W F Y Z |
+| w f y z | w f y z |
 | 1992年8月8日 | 一 九 九 二 年 八 月 八 日 |
 | 你吃饭了吗 ? | 你 吃饭 了 吗 |
 | 下午5:00的航班 | 下午 五点 的 航班 |

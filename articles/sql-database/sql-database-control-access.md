@@ -1,26 +1,29 @@
 ---
-title: Concessione dell'accesso al database SQL di Azure | Documentazione Microsoft
-description: Informazioni sulla concessione dell'accesso al database SQL di Microsoft Azure.
+title: Concessione dell'accesso al database SQL di Azure e ad Azure SQL Data Warehouse | Microsoft Docs
+description: Informazioni sulla concessione dell'accesso al database SQL di Microsoft Azure e ad Azure SQL Data Warehouse.
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: security
+ms.subservice: security
+ms.custom: sql-data-warehouse
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 2ab2f047839763239358e61f61f0fc962c17d729
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 06/13/2018
+ms.openlocfilehash: a39e65d5a3aff6158c189f392e2db8bd8273ad1b
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647436"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063778"
 ---
-# <a name="azure-sql-database-access-control"></a>Controllo dell'accesso al database SQL di Azure
-Per garantire la sicurezza, il database SQL controlla l'accesso con regole del firewall che limitano la connettività in base all'indirizzo IP, meccanismi di autenticazione che richiedono agli utenti di dimostrare la propria identità e meccanismi di autorizzazione che consentono agli utenti di usufruire solo di azioni e dati specifici. 
+# <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Controllo di accesso per il database SQL di Azure e SQL Data Warehouse
+Per garantire la sicurezza, il [database SQL](sql-database-technical-overview.md) di Azure e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) controllano l'accesso con regole del firewall che limitano la connettività in base all'indirizzo IP, meccanismi di autenticazione che richiedono agli utenti di dimostrare la propria identità e meccanismi di autorizzazione che consentono agli utenti di usufruire solo di azioni e dati specifici. 
 
 > [!IMPORTANT]
-> Per una panoramica delle funzionalità di sicurezza del database SQL, vedere la [panoramica della sicurezza in SQL](sql-database-security-overview.md). Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md).
+> Per una panoramica delle funzionalità di sicurezza del database SQL, vedere la [panoramica della sicurezza in SQL](sql-database-security-overview.md). Per un'esercitazione, vedere [Proteggere il database SQL di Azure](sql-database-security-tutorial.md). Per una panoramica delle funzionalità di sicurezza di SQL Data Warehouse, vedere [Informazioni generali sulla sicurezza di SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md)
 
 ## <a name="firewall-and-firewall-rules"></a>Firewall e regole del firewall
 Il database SQL di Microsoft Azure fornisce un servizio di database relazionale per Azure e altre applicazioni basate su Internet. Per proteggere i dati, il firewall impedisce qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta. Per altre informazioni, vedere [Panoramica sulle regole del firewall per il database SQL di Azure](sql-database-firewall-configure.md).

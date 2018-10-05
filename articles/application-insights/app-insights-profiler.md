@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 839e462522be4f492010ca1c22631cb4dd6affe4
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521884"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064432"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profilare le app Web di Azure attive con Application Insights
 
-Questa funzionalità di Azure Application Insights è disponibile a livello generale per la funzionalità App Web di Servizio app di Azure e in anteprima per le risorse di calcolo di Azure. Sono disponibili informazioni [sull'uso locale di Profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
+Questa funzionalità di Azure Application Insights è disponibile a livello generale per la funzionalità App Web di Servizio app di Azure e le risorse di calcolo di Azure. Sono disponibili informazioni [sull'uso locale di Profiler](https://docs.microsoft.com/azure/application-insights/enable-profiler-compute#enable-profiler-on-on-premises-servers).
 
 Questo articolo illustra il tempo impiegato in ogni metodo dell'applicazione Web attiva quando si usa [Application Insights](app-insights-overview.md). Lo strumento Application Insights Profiler visualizza i profili dettagliati delle richieste attive che sono state soddisfatte dall'app ed evidenzia il *percorso critico* che impiega più tempo. Le richieste con diversi tempi di risposta vengono profilate in base a un campionamento. Adottando varie tecniche, è possibile ridurre al minimo il sovraccarico associato all'applicazione.
 
@@ -45,9 +45,9 @@ Dopo aver distribuito un'app Web, indipendentemente dal fatto che sia stato incl
 
     ![Impostazione di app per Profiler][profiler-app-setting]
 
-### <a name="enable-profiler-for-azure-compute-resources-preview"></a>Abilitare Profiler per le risorse di calcolo di Azure (anteprima)
+### <a name="enable-profiler-for-azure-compute-resources"></a>Abilitare Profiler per le risorse di calcolo di Azure
 
-Per altre informazioni, vedere la [versione di anteprima di Profiler per le risorse di calcolo di Azure](https://go.microsoft.com/fwlink/?linkid=848155).
+Per altre informazioni, vedere la [versione di Profiler per le risorse di calcolo di Azure](https://go.microsoft.com/fwlink/?linkid=848155).
 
 ## <a name="view-profiler-data"></a>Visualizzare i dati del profiler
 
@@ -204,7 +204,7 @@ Se si intende ridistribuire l'app Web in una risorsa di App Web con Profiler abi
 
 *Directory non vuota 'D:\\home\\site\\wwwroot\\App_Data\\jobs'*
 
-Questo errore si verifica se si esegue Distribuzione Web da script o dalla pipeline di distribuzione di Visual Studio Team Services. Per risolvere questo problema, aggiungere i parametri di distribuzione seguenti all'attività Distribuzione Web:
+Questo errore si verifica se si esegue Distribuzione Web da script o dalla pipeline di distribuzione di Azure DevOps. Per risolvere questo problema, aggiungere i parametri di distribuzione seguenti all'attività Distribuzione Web:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

@@ -3,10 +3,8 @@ title: Componente aggiuntivo di Excel per i servizi Web di Machine Learning | Do
 description: Come usare i servizi Web di Azure Machine Learning direttamente in Excel senza scrivere codice.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
-manager: hjerez
-editor: cgronlun
+author: marthalc
+ms.author: marthalc
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
 ms.service: machine-learning
 ms.component: studio
@@ -15,26 +13,30 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 68e2f72dfd8cc58d42263f4b6378d89304aaaa4d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834193"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47095809"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-web-services"></a>Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning
+# <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning Studio
 Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Procedura per usare un servizio Web esistente nella cartella di lavoro
 
-1. Aprire il [file di Excel di esempio](http://aka.ms/amlexcel-sample-2)che contiene il componente aggiuntivo Excel e i dati relativi ai passeggeri sul Titanic.
+1. Aprire il [file di Excel di esempio](http://aka.ms/amlexcel-sample-2)che contiene il componente aggiuntivo Excel e i dati relativi ai passeggeri sul Titanic. 
+ 
+> [!NOTE]
+> Verranno visualizzati l'elenco dei servizi Web correlati al file e nella parte inferiore una casella di controllo "Auto-predict" (Stima automatica). Se si abilita la stima automatica, le stime per **tutti** i servizi verranno aggiornate per ogni modifica degli input. Se l'opzione è deselezionata sarà necessario fare clic su "Predict All" (Stima tutto) per l'aggiornamento. Per abilitare la previsione automatica a livello di servizio, procedere al passaggio 6.
+
 2. Scegliere un servizio Web facendo clic su di esso: in questo esempio "Stime sopravvissuti Titanic (esempio componente aggiuntivo Excel) [Score]".
    
     ![Selezionare il servizio Web][01]
 3. Viene visualizzata la sezione **Stima**.  Questa cartella di lavoro contiene già dati di esempio, ma per una cartella di lavoro vuota è anche possibile selezionare una cella in Excel e fare clic su **Use sample data**(Usa dati di esempio).
 4. Selezionare i dati con intestazioni e fare clic sull'icona dell'intervallo dei dati di input.  Assicurarsi che sia selezionata la casella "Dati con intestazioni".
 5. In **Output** immettere il numero di cella in cui si vuole inserire l'output, in questo caso ad esempio "H1".
-6. Fare clic su **Stima**.
+6. Fare clic su **Stima**. Se si seleziona la casella di controllo "Auto-predict" (Stima automatica) qualsiasi modifica nelle aree selezionate (quelle specificate come input) attiverà una richiesta e un aggiornamento delle celle di output senza la necessità di premere il pulsante per la stima.
    
     ![Sezione Stima][02]
 

@@ -1,21 +1,23 @@
 ---
 title: Monitorare le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant | Microsoft Docs
 description: Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
-keywords: esercitazione database SQL
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 75431715b5948525e92c99b778842d26a684da82
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 873660f362d2ad0002f512f911d4149519092787
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753447"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47055946"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorare e gestire le prestazioni di un database SQL di Azure multi-tenant partizionato in un'app SaaS multi-tenant
 
@@ -44,9 +46,9 @@ La gestione delle prestazioni dei database comprende la compilazione e l'analisi
 ### <a name="performance-management-strategies"></a>Strategie per la gestione delle prestazioni
 
 * Per evitare di dover monitorare manualmente le prestazioni, è consigliabile **impostare l'attivazione di avvisi quando i database superano i normali intervalli**.
-* Per rispondere alle fluttuazioni a breve termine del livello di prestazioni di un database, **è possibile scegliere un livello superiore o inferiore di DTU**. Se la fluttuazione si verifica a intervalli regolari o prevedibili, **è possibile pianificare il ridimensionamento automatico del database**. Ad esempio, ridurre il numero di eDTU quando il carico di lavoro è notoriamente leggero, ad esempio durante la notte o nei fine settimana.
+* Per rispondere alle fluttuazioni a breve termine delle dimensioni di calcolo di un database, **è possibile scegliere un livello superiore o inferiore di DTU**. Se la fluttuazione si verifica a intervalli regolari o prevedibili, **è possibile pianificare il ridimensionamento automatico del database**. Ad esempio, ridurre il numero di eDTU quando il carico di lavoro è notoriamente leggero, ad esempio durante la notte o nei fine settimana.
 * Per rispondere a fluttuazioni a più lungo termine o a variazioni del numero di tenant, **è possibile spostare singoli tenant in un altro database**.
-* Per rispondere ad aumenti del carico a breve termine per *singoli* tenant, **è possibile rimuovere singoli tenant da un database e assegnare loro uno specifico livello di prestazioni**. Non appena il carico si riduce di nuovo, il tenant può essere reinserito nel database multi-tenant. Quando questo tipo di comportamento è noto in anticipo, i tenant possono essere spostati preventivamente per assicurarsi che abbiano sempre le risorse necessarie ed evitare effetti sugli altri tenant nel database multi-tenant. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
+* Per rispondere ad aumenti del carico a breve termine per *singoli* tenant, **è possibile rimuovere singoli tenant da un database e assegnare loro specifiche dimensioni di calcolo**. Non appena il carico si riduce di nuovo, il tenant può essere reinserito nel database multi-tenant. Quando questo tipo di comportamento è noto in anticipo, i tenant possono essere spostati preventivamente per assicurarsi che abbiano sempre le risorse necessarie ed evitare effetti sugli altri tenant nel database multi-tenant. Se si tratta di un requisito prevedibile, come nel caso di un picco di vendite di biglietti per un evento di grande richiamo, questo comportamento di gestione può essere integrato nell'applicazione.
 
 Il [portale di Azure](https://portal.azure.com) include funzionalità di monitoraggio e avviso predefinite per la maggior parte delle risorse. Per il database SQL, le funzionalità di monitoraggio e avviso sono disponibili sui database. Le funzionalità di monitoraggio e avviso predefinite sono specifiche delle risorse, quindi è comodo usarle per un numero limitato di risorse, mentre non sono utili quando si usano molte risorse.
 

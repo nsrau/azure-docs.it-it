@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/26/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: bf744d2aaab168b8ce918f7b776d8855cdc5ad16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad498dc8c5bea9516bef5a62495fc0d0cc8f7399
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975244"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419696"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in Hyper-V (anteprima)
 
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!IMPORTANT]
-> - Data Box Gateway è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
+> - Data Box Gateway è in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -61,7 +61,7 @@ Prima di iniziare, verificare che:
 Prima di distribuire un dispositivo, verificare che:
 
 * Si abbia accesso a un sistema host che esegue Hyper-V in Windows Server 2012 R2 o versioni successive da poter usare per il provisioning di un dispositivo.
-* Il sistema host sia in grado di dedicare le risorse seguenti al provisioning del dispositivo virtuale:
+* Il sistema host è in grado di dedicare le risorse seguenti per eseguire il provisioning del dispositivo virtuale:
 
   * Un minimo di 4 memorie centrali.
   * Almeno 8 GB di RAM. 
@@ -87,7 +87,7 @@ Per creare un dispositivo virtuale, è necessario quanto segue:
 
     * Un minimo di 4 memorie centrali.
     * Almeno 8 GB di RAM.
-    * Un'interfaccia di rete connessa alla rete in grado di indirizzare il traffico a Internet. .
+    * Un'interfaccia di rete connessa alla rete in grado di indirizzare il traffico a Internet. 
     * Un disco del sistema operativo da 250 GB.
     * Un disco virtuale da 2 TB per i dati di sistema.
 
@@ -105,9 +105,6 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor
    ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. Nella pagina **Before you begin** (Prima di iniziare) della Creazione guidata macchina virtuale fare clic su **Avanti**.
 5. Nella pagina **Impostazione nome e percorso** specificare un **Nome** da assegnare al dispositivo virtuale. Fare clic su **Avanti**.
-   
-   > [!IMPORTANT]
-   > In questa versione è possibile usare solo lettere maiuscole per il nome del dispositivo virtuale.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. Nella pagina **Impostazione generazione** scegliere **Generazione 2** per il tipo di immagine del dispositivo VHDX e fare clic su **Avanti**.    
@@ -171,17 +168,10 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
 3. Potrebbe essere necessario attendere 10-15 minuti prima che il dispositivo sia pronto. Un messaggio di stato viene visualizzato nella console per indicare l'avanzamento. Quando il dispositivo è pronto, passare ad **Azione**. Premere `Ctrl + Alt + Delete` per accedere al dispositivo virtuale. L'utente e la password predefiniti sono rispettivamente *EdgeUser* e *Password1*.
 
    ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-4. Per motivi di sicurezza, la password amministratore del dispositivo scade al primo accesso. Viene richiesto di modificarla.
-
-   Immettere una password contenente almeno 8 caratteri. La password deve soddisfare almeno 3 dei seguenti 4 requisiti: caratteri maiuscoli, minuscoli, numerici e speciali. Immettere nuovamente la password per confermarla. Si riceve una notifica in cui si comunica che la password è stata modificata.
    
-5. Dopo aver modificato correttamente la password, il dispositivo virtuale verrà riavviato. Attendere l'avvio del dispositivo.  La console di Windows PowerShell del dispositivo viene visualizzata con un indicatore di stato.
-
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image22.png)
-
-6. I passaggi da 6 a 8 si applicano solo all'avvio in un ambiente non DHCP. In presenza di un ambiente DHCP, ignorare questi passaggi e andare al passaggio 9. Se il dispositivo è stato avviato in un ambiente non DHCP, viene visualizzato un messaggio.
+6. I passaggi da 5 a 7 devono essere eseguiti solo in caso di avvio in un ambiente non DHCP. In un ambiente DHCP, ignorare questi passaggi. Se il dispositivo è stato avviato in un ambiente non DHCP, viene visualizzato un messaggio.
     
-7. Per configurare la rete, usare il comando `Get-HcsIpAddress` per elencare le interfacce di rete abilitate nel dispositivo virtuale. Se il dispositivo dispone di una singola interfaccia di rete abilitata, il nome predefinito assegnato a questa interfaccia è `DATA1`.
+7. Per configurare la rete, usare il comando `Get-HcsIpAddress` per elencare le interfacce di rete abilitate nel dispositivo virtuale. Se il dispositivo dispone di una singola interfaccia di rete abilitata, il nome predefinito assegnato a questa interfaccia è `Ethernet`.
 
 8. Usare il cmdlet `Set-HcsIpAddress` per configurare la rete. Vedere l'esempio seguente:
 
@@ -192,7 +182,7 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
    ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
-Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione. Modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi della macchina. È quindi possibile riavviare il dispositivo a cui connettersi. Vedere i requisiti minimi di configurazione in [Passaggio 1: Verificare che il sistema host soddisfi i requisiti minimi del dispositivo virtuale](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione. Modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi della macchina. È quindi possibile riavviare il dispositivo a cui connettersi. Vedere i requisiti minimi di configurazione in [Verificare che il sistema host soddisfi i requisiti minimi del dispositivo virtuale](#check-the-host-system).
 
 <!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
 

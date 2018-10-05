@@ -1,36 +1,37 @@
 ---
 title: Eseguire la migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure | Microsoft Docs
 description: Informazioni su come eseguire la migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure.
-keywords: migrazione di database, migrazione di database sql server, strumenti di migrazione del database, eseguire la migrazione di database, eseguire la migrazione di database sql
 services: sql-database
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
 author: bonova
+ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.service: sql-database
-ms.custom: managed instance
-ms.topic: conceptual
-ms.date: 07/24/2018
-ms.author: bonova
-ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 09/26/2018
+ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141147"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394062"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure
 
-Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva a [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md) (anteprima).
+Questo articolo illustra i metodi disponibili per eseguire la migrazione di un'istanza di SQL Server 2005 o versione successiva a [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
 
 A livello generale, il processo di migrazione del database è simile a quello indicato di seguito:
 
 ![Processo di migrazione](./media/sql-database-managed-instance-migration/migration-process.png)
 
-- [Valutare la compatibilità di Istanza gestita](sql-database-managed-instance-migrate.md#assess-managed-instance-compatibility)
-- [Scegliere un'opzione di connettività dell'app](sql-database-managed-instance-migrate.md#choose-app-connectivity-option)
-- [Eseguire la distribuzione in un'istanza gestita di dimensioni ottimali](sql-database-managed-instance-migrate.md#deploy-to-an-optimally-sized-managed-instance)
-- [Selezionare il metodo ed eseguire la migrazione](sql-database-managed-instance-migrate.md#select-migration-method-and-migrate)
-- [Monitorare le applicazioni](sql-database-managed-instance-migrate.md#monitor-applications)
+- [Valutare la compatibilità di Istanza gestita](#assess-managed-instance-compatibility)
+- [Scegliere un'opzione di connettività dell'app](sql-database-managed-instance-connect-app.md)
+- [Eseguire la distribuzione in un'istanza gestita di dimensioni ottimali](#deploy-to-an-optimally-sized-managed-instance)
+- [Selezionare il metodo ed eseguire la migrazione](#select-migration-method-and-migrate)
+- [Monitorare le applicazioni](#monitor-applications)
 
 > [!NOTE]
 > Per eseguire la migrazione di un database singolo a un database singolo o un pool elastico, vedere l'articolo relativo alla [migrazione di un database di SQL Server al database SQL di Azure](sql-database-cloud-migrate.md).
@@ -39,7 +40,7 @@ A livello generale, il processo di migrazione del database è simile a quello in
 
 Per prima cosa, determinare se Istanza gestita è compatibile con i requisiti di database dell'applicazione. Il servizio Istanza gestita è progettato per consentire una facile migrazione in modalità lift-and-shift della maggior parte delle applicazioni che usano SQL Server in locale o in macchine virtuali. Talvolta, tuttavia, possono essere necessarie caratteristiche o funzionalità non ancora supportate e il costo di implementazione di una soluzione alternativa è troppo elevato. 
 
-Per rilevare i potenziali problemi di compatibilità che influirebbero sulle funzionalità dei database nel database SQL di Azure, usare [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview). DMA non supporta ancora Istanza gestita come destinazione della migrazione, ma è consigliabile eseguire una valutazione rispetto al database SQL di Azure e confrontare attentamente l'elenco dei problemi di compatibilità e parità di funzionalità segnalati con la documentazione del prodotto. Vedere le [differenze tra Istanza gestita e database SQL di Azure singleton](sql-database-features.md) per controllare se sono stati segnalati problemi di blocco non presenti in Istanza gestita poiché la maggior parte dei problemi che impediscono la migrazione al database SQL di Azure è stata risolta con Istanza gestita. Nelle istanze gestite, ad esempio, sono disponibili funzionalità come le query tra database, le transazioni tra database nella stessa istanza, il server collegato per altre origini SQL, CLR, le tabelle temporanee globali, le viste a livello di istanza, Service Broker e così via. 
+Per rilevare i potenziali problemi di compatibilità che influirebbero sulle funzionalità dei database nel database SQL di Azure, usare [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview). DMA non supporta ancora Istanza gestita come destinazione della migrazione, ma è consigliabile eseguire una valutazione rispetto al database SQL di Azure e confrontare attentamente l'elenco dei problemi di compatibilità e parità di funzionalità segnalati con la documentazione del prodotto. Vedere [Funzionalità di database SQL di Azure](sql-database-features.md) per controllare se sono stati segnalati problemi di blocco non presenti in Istanza gestita poiché la maggior parte dei problemi che impediscono la migrazione al database SQL di Azure è stata risolta con Istanza gestita. Nelle istanze gestite, ad esempio, sono disponibili funzionalità come le query tra database, le transazioni tra database nella stessa istanza, il server collegato per altre origini SQL, CLR, le tabelle temporanee globali, le viste a livello di istanza, Service Broker e così via. 
 
 Se sono presenti alcuni problemi di blocco che non sono stati risolti in Istanza gestita di database SQL di Azure, può essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in macchine virtuali in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Di seguito sono riportati alcuni esempi:
 
@@ -81,7 +82,7 @@ Istanza gestita supporta le opzioni di migrazione di database descritte di segui
 
 [Servizio Migrazione del database di Azure](../dms/dms-overview.md) è un servizio completamente gestito progettato per consentire migrazioni senza problemi da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti in Azure. Le opzioni di distribuzione in anteprima pubblica includono il database SQL di Azure, Istanza gestita e SQL Server in una macchina virtuale di Azure. Servizio Migrazione del database è il metodo di migrazione consigliato per i carichi di lavoro aziendali. 
 
-Se si utilizza SQL Server Integration Services (SSIS) in SQL Server in locale, DMS non supporta ancora la migrazione del catalogo SSIS (SSISDB) in cui sono archiviati i pacchetti SSIS, ma è possibile eseguire il provisioning del runtime di integrazione Azure-SSIS in Azure Data Factory (ADF), che creerà un nuovo SSISDB nell'istanza gestita/database SQL di Azure. Sarà quindi possibile ridistribuire i pacchetti su di esso. Vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime).
+Se si utilizza SQL Server Integration Services (SSIS) in SQL Server in locale, DMS non supporta ancora la migrazione del catalogo SSIS (SSISDB) in cui sono archiviati i pacchetti SSIS, ma è possibile eseguire il provisioning del runtime di integrazione Azure-SSIS in Azure Data Factory (ADF), che creerà un nuovo SSISDB nell'istanza gestita/database SQL di Azure. Sarà quindi possibile ridistribuire i pacchetti su di esso. Vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
 Per altre informazioni su questo scenario e sulla procedura di configurazione per Servizio Migrazione del database, vedere l'articolo su come [eseguire la migrazione di un database locale a Istanza gestita con Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md).  
 
@@ -100,13 +101,15 @@ La tabella seguente contiene altre informazioni sul metodo che è possibile usar
 |Inserire il backup in Archiviazione di Azure|Precedente SQL 2012 SP1 CU2|Caricamento diretto del file con estensione bak in Archiviazione di Azure|
 ||2012 SP1 CU2 - 2016|Backup diretto con sintassi [con credenziali](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) deprecata|
 ||2016 e versioni successive|Backup diretto [con credenziali di firma di accesso condiviso](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Eseguire il ripristino da Archiviazione di Azure a Istanza gestita|[Ripristino da URL con credenziali di firma di accesso condiviso](sql-database-managed-instance-restore-from-backup-tutorial.md)|
+|Eseguire il ripristino da Archiviazione di Azure a Istanza gestita|[Ripristino da URL con credenziali di firma di accesso condiviso](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
-> - In caso di migrazione di un database protetto tramite [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) a un'istanza gestita di SQL di Azure con l'opzione del ripristino nativo, prima di ripristinare il database è necessario eseguire la migrazione del certificato corrispondente dall'istanza locale o IaaS di SQL Server. Per i dettagli, vedere [Migrazione del certificato TDE a Istanza gestita](sql-database-managed-instance-migrate-tde-certificate.md)
+> - In caso di migrazione di un database protetto tramite [Transparent Data Encryption](transparent-data-encryption-azure-sql.md) a un'istanza gestita di database SQL di Azure con l'opzione del ripristino nativo, prima di ripristinare il database è necessario eseguire la migrazione del certificato corrispondente dall'istanza locale o IaaS di SQL Server. Per i dettagli, vedere [Migrazione del certificato TDE a Istanza gestita](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Il ripristino di database di sistema non è supportato. Per eseguire la migrazione di oggetti a livello di istanza (archiviati in database master o msdb), è consigliabile inserirli in script ed eseguire gli script T-SQL nell'istanza di destinazione.
 
-Per un'esercitazione completa con il ripristino del backup di un database in un'istanza gestita con credenziali di firma di accesso condiviso, vedere l'articolo su come [eseguire il ripristino da un backup in un'istanza gestita](sql-database-managed-instance-restore-from-backup-tutorial.md).
+Per una guida introduttiva che descrive come eseguire il ripristino del backup di un database in un'istanza gestita con credenziali di firma di accesso condiviso, vedere l'articolo su come [eseguire il ripristino da un backup in un'istanza gestita](sql-database-managed-instance-get-started-restore.md).
+
+> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 ## <a name="monitor-applications"></a>Monitorare le applicazioni
 

@@ -2,7 +2,7 @@
 title: Rilevamento intelligente - Sottoutilizzo di risorse cloud rilevato da Azure Application Insights | Microsoft Docs
 description: Monitorare le applicazioni con Azure Application Insights per rilevare casi di sottoutilizzo delle risorse cloud.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -10,16 +10,17 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8382f6047ae222a01cc0e8d6ca9dcf5593d0dff6
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: ca4f944f605db96a2cedf2682f3ff4c811007ffb
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47094913"
 ---
-# <a name="low-utilization-of-cloud-resources-preview"></a>Sottoutilizzo delle risorse cloud (anteprima)
+# <a name="low-cpu-utilization-in-cloud-resources-preview"></a>Utilizzo ridotto della CPU nelle risorse cloud (anteprima)
 
 Application Insights analizza automaticamente l'utilizzo della CPU di ogni istanza del ruolo nell'applicazione e rileva le istanze con sottoutilizzo della CPU. Questo rilevamento consente di ridurre le risorse di Azure e di conseguenza i costi, riducendo il numero di istanze del ruolo usate da ogni ruolo oppure riducendo il numero di ruoli.
 

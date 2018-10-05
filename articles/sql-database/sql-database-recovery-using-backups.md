@@ -2,20 +2,22 @@
 title: Ripristinare un database SQL di Azure da un backup | Microsoft Docs
 description: Informazioni sul ripristino temporizzato, che consente di ripristinare un database SQL di Azure a un momento precedente (fino a 35 giorni).
 services: sql-database
-author: anosov1960
-manager: craigg
 ms.service: sql-database
-ms.custom: business continuity
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 06/20/2018
+author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ad4725ff6871ef489c6a10656af9a76e588edfa1
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 4c9edd60ffa1cd9ed5d95b37592fa49f44117818
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308422"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47161336"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 Il database SQL prevede queste opzioni per il ripristino del database mediante [backup automatici del database](sql-database-automated-backups.md) e [backup nella conservazione a lungo termine](sql-database-long-term-retention.md). È possibile ripristinare un backup di database in:
@@ -32,7 +34,7 @@ Un database ripristinato comporta un costo di archiviazione aggiuntivo nei segeu
 - Ripristino di P11 – P15 in S4 S12 o P1 – P6 se le dimensioni massime del database sono maggiori di 500 GB.
 - Ripristino di P1–P6 in S4-S12 se le dimensioni massime del database sono maggiori di 250 GB.
 
-Viene addebitato un costo aggiuntivo perché la dimensione massima del database ripristinato è superiore alla dimensione di archiviazione inclusa per il livello di prestazioni; vengono applicati costi aggiuntivi per l'archiviazione aggiuntiva di cui viene eseguito il provisioning che supera la dimensione inclusa.  Per i dettagli dei prezzi delle risorse di archiviazione aggiuntive, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Se la quantità effettiva di spazio usato è inferiore alla quantità inclusa di risorse di archiviazione, questo costo aggiuntivo può essere evitato riducendo le dimensioni massime del database fino alla quantità inclusa.  
+Viene addebitato un costo aggiuntivo perché la dimensione massima del database ripristinato è superiore alla dimensione di archiviazione inclusa per la dimensione di calcolo; vengono applicati costi aggiuntivi per l'archiviazione aggiuntiva di cui viene eseguito il provisioning che supera la dimensione inclusa.  Per i dettagli dei prezzi delle risorse di archiviazione aggiuntive, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/).  Se la quantità effettiva di spazio usato è inferiore alla quantità inclusa di risorse di archiviazione, questo costo aggiuntivo può essere evitato riducendo le dimensioni massime del database fino alla quantità inclusa.  
 
 > [!NOTE]
 > [I backup di database automatici](sql-database-automated-backups.md) vengono usati quando si crea un [copia del database](sql-database-copy.md). 
@@ -43,7 +45,7 @@ Viene addebitato un costo aggiuntivo perché la dimensione massima del database 
 Il tempo di ripristino di un database tramite i backup automatici del database dipende da numerosi fattori: 
 
 * Le dimensioni del database
-* Il livello di prestazioni del database
+* Le dimensioni di calcolo del database
 * Il numero dei log delle transazioni interessate
 * La quantità di attività che deve essere ripetuta per il ripristino al punto di ripristino
 * La larghezza di banda di rete se il ripristino avviene in un'area diversa 
@@ -61,7 +63,7 @@ Per una singola sottoscrizione, ci sono alcune limitazioni sul numero di richies
 Non è disponibile una funzionalità incorporata per il ripristino in blocco. Lo script [Database SQL di Azure: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) è un esempio di un modo per eseguire questa operazione.
 
 > [!IMPORTANT]
-> Per eseguire il ripristino tramite i backup automatici, è necessario essere un membro del ruolo di collaboratore di SQL Server o proprietario della sottoscrizione. Per il ripristino, è possibile usare il portale di Azure, PowerShell o l'API REST. Non è possibile usare Transact-SQL. 
+> Per eseguire il ripristino tramite i backup automatici, è necessario essere un membro del ruolo di collaboratore di SQL Server o proprietario della sottoscrizione. Vedere [RBAC: ruoli predefiniti](../role-based-access-control/built-in-roles.md). Per il ripristino, è possibile usare il portale di Azure, PowerShell o l'API REST. Non è possibile usare Transact-SQL. 
 > 
 
 ## <a name="point-in-time-restore"></a>Ripristino temporizzato
@@ -72,11 +74,11 @@ Non è disponibile una funzionalità incorporata per il ripristino in blocco. Lo
 > Per uno script di PowerShell di esempio che illustra come eseguire un ripristino temporizzato di un database, vedere [Ripristinare un database SQL tramite PowerShell](scripts/sql-database-restore-database-powershell.md).
 >
 
-Il database può essere ripristinato a qualsiasi livello di prestazioni o di servizio, come database singolo o in un pool elastico. Assicurarsi di disporre di risorse sufficienti sul server logico o nel pool elastico in cui si sta ripristinando il database. Al termine, il database ripristinato è un normale database online completamente accessibile alle tariffe normali in base al livello di prestazioni e di servizio. Non è previsto alcun addebito fino al completamento del ripristino del database.
+Il database può essere ripristinato a qualsiasi livello di servizio o dimensione di calcolo, come database singolo o in un pool elastico. Assicurarsi di disporre di risorse sufficienti sul server logico o nel pool elastico in cui si sta ripristinando il database. Al termine, il database ripristinato è un normale database online completamente accessibile alle tariffe normali in base al livello di prestazioni e alla dimensione di calcolo. Non è previsto alcun addebito fino al completamento del ripristino del database.
 
 In genere si ripristina un database a un punto precedente per scopi di ripristino. Quando si esegue questa operazione, è possibile considerare il database ripristinato come una sostituzione per il database originale o usarlo per recuperare i dati e quindi aggiornare il database originale. 
 
-* ***Sostituzione del database***: se il database ripristinato è da intendersi come una sostituzione per il database originale, è necessario verificare che il livello di prestazioni e/o il livello di servizio sia appropriato e ridimensionare il database se necessario. È possibile rinominare il database originale e quindi assegnare al database ripristinato il nome originale usando il comando [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL. 
+* ***Sostituzione del database***: se il database ripristinato è da intendersi come una sostituzione per il database originale, è necessario verificare che la dimensione di calcolo e/o il livello di servizio sia appropriato e ridimensionare il database se necessario. È possibile rinominare il database originale e quindi assegnare al database ripristinato il nome originale usando il comando [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) in T-SQL. 
 * ***Ripristino dei dati***: se si prevede di recuperare dati dal database ripristinato in caso di errore dell'applicazione o dell'utente, è necessario scrivere ed eseguire gli script di ripristino per estrarre i dati dal database ripristinato e inserirli nel database originale. Anche se il completamento dell'operazione di ripristino può richiedere molto tempo, il database in fase di ripristino è visibile nell'elenco dei database per tutto il processo. Se si elimina il database durante il ripristino, l'operazione verrà annullata e non verrà addebitata per il database il cui ripristino non è stato completato. 
 
 ### <a name="azure-portal"></a>Portale di Azure
@@ -146,7 +148,7 @@ Come indicato in precedenza, oltre al portale di Azure, il ripristino di databas
 |  | |
 
 ## <a name="summary"></a>Summary
-I backup automatici proteggono i database da errori dell'utente e delle applicazioni, dall'eliminazione accidentale e da interruzioni prolungate. Questa funzionalità incorporata è disponibile per tutti i livelli di servizio e di prestazioni. 
+I backup automatici proteggono i database da errori dell'utente e delle applicazioni, dall'eliminazione accidentale e da interruzioni prolungate. Questa funzionalità incorporata è disponibile per tutti i livelli di servizio e le dimensioni di calcolo. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per la panoramica e gli scenari della continuità aziendale, vedere [Continuità aziendale del database SQL di Azure](sql-database-business-continuity.md).

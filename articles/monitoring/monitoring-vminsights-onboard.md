@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/24/2018
 ms.author: magoedte
-ms.openlocfilehash: e5421ca791ae9d0059639000f33b77be57f4d891
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2f0568064eed556429675ffb34c84d588ac670d5
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968034"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47064357"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Come eseguire l'onboarding di Monitoraggio di Azure per le macchine virtuali 
 Questo articolo descrive come configurare Monitoraggio di Azure per le macchine virtuali per monitorare l'integrità del sistema operativo delle macchine virtuali di Azure e individuare e mappare le dipendenze delle applicazioni ospitate in tali macchine.  
@@ -52,23 +52,90 @@ Per abilitare la soluzione, è necessario essere membri del ruolo Collaboratore 
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-Le versioni seguenti dei sistemi operativi Windows e Linux sono ufficialmente supportate con Monitoraggio di Azure per le macchine virtuali:
+La tabella seguente elenca le versioni dei sistemi operativi Windows e Linux supportati con Monitoraggio di Azure per le macchine virtuali.  L'elenco completo con le versioni principali e secondarie del kernel e del sistema operativo Linux supportate è disponibile più avanti in questa sezione.
 
 |Versione del sistema operativo |Prestazioni |Mappe |Integrità |  
 |-----------|------------|-----|-------|  
+|Windows Server 2016 1803 | X | X | X |
 |Windows Server 2016 | X | X | X |  
 |Windows Server 2012 R2 | X | X | |  
 |Windows Server 2012 | X | X | |  
 |Windows Server 2008 R2 | X | X| |  
 |RHEL 7, 6| X | X| X |  
-|Ubuntu 18.04, 16.04, 14.04 | X | X| X |  
-|Cent OS Linux 7, 6 | X | X| X |  
+|Ubuntu 18.04, 16.04, 14.04 | X | X | X |  
+|Cent OS Linux 7, 6 | X | X | X |  
 |SLES 12 | X | X | X |  
 |Oracle Linux 7 | X<sup>1</sup> | | X |  
 |Oracle Linux 6 | X | X | X |  
 |Debian 9.4, 8 | X<sup>1</sup> | | X | 
 
 <sup>1</sup> La funzionalità relativa alle prestazioni di Monitoraggio di Azure per le macchine virtuali è disponibile solo da Monitoraggio di Azure e non quando si accede direttamente dal riquadro a sinistra della macchina virtuale.  
+
+>[!NOTE]
+>Le informazioni seguenti si applicano al supporto del sistema operativo Linux:  
+> - Sono supportate solo versioni predefinita e SMP del kernel Linux.  
+> - Le versioni del kernel non standard, ad esempio PAE e Xen, non sono supportate per le distribuzioni Linux. Ad esempio, un sistema con la stringa di versione "2.6.16.21-0.8-xen" non è supportato.  
+> - I kernel personalizzati, tra cui le ricompilazioni dei kernel standard, non sono supportate.  
+> - Il kernel CentOSPlus non è supportato.  
+
+
+#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
+
+| Versione del sistema operativo | Versione del kernel |
+|:--|:--|
+| 7.0 | 3.10.0-123 |
+| 7.1 | 3.10.0-229 |
+| 7,2 | 3.10.0-327 |
+| 7.3 | 3.10.0-514 |
+| 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
+
+#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
+
+| Versione del sistema operativo | Versione del kernel |
+|:--|:--|
+| 6.0 | 2.6.32-71 |
+| 6.1 | 2.6.32-131 |
+| 6.2 | 2.6.32-220 |
+| 6.3 | 2.6.32-279 |
+| 6.4 | 2.6.32-358 |
+| 6,5 | 2.6.32-431 |
+| 6.6 | 2.6.32-504 |
+| 6.7 | 2.6.32-573 |
+| 6.8 | 2.6.32-642 |
+| 6.9 | 2.6.32-696 |
+
+#### <a name="ubuntu-server"></a>Ubuntu Server
+
+| Versione del sistema operativo | Versione del kernel |
+|:--|:--|
+| Ubuntu 18.04 | kernel 4.15.* |
+| Ubuntu 16.04.3 | kernel 4.15.* |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
+
+#### <a name="oracle-enterprise-linux-6-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 6 con Unbreakable Enterprise Kernel
+| Versione del sistema operativo | Versione del kernel
+|:--|:--|
+| 6.2 | Oracle 2.6.32-300 (UEK R1) |
+| 6.3 | Oracle 2.6.39-200 (UEK R2) |
+| 6.4 | Oracle 2.6.39-400 (UEK R2) |
+| 6,5 | Oracle 2.6.39-400 (UEK R2 i386) |
+| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
+
+#### <a name="oracle-enterprise-linux-5-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 5 con Unbreakable Enterprise Kernel
+
+| Versione del sistema operativo | Versione del kernel
+|:--|:--|
+| 5.10 | Oracle 2.6.39-400 (UEK R2) |
+| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+
+#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
+
+| Versione del sistema operativo | Versione del kernel
+|:--|:--|
+|12 SP2 | 4.4.* |
+|12 SP3 | 4.4.* |
 
 ### <a name="hybrid-environment-connected-sources"></a>Origini connesse dell'ambiente ibrido
 La mappa di Monitoraggio di Azure per le macchine virtuali ottiene i dati da Microsoft Dependency Agent. Dependency Agent dipende dall'agente di Log Analytics per la connessione a Log Analytics. Ciò significa che in un sistema l'agente di Log Analytics deve essere installato e configurato con Dependency Agent.  La tabella seguente descrive le origini connesse supportate dalla funzionalità di mappa in un ambiente ibrido.
@@ -89,8 +156,8 @@ Se i computer Windows o Linux in uso non possono connettersi direttamente al ser
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.5.0 | 8B8FE0F6B0A9F589C4B7B52945C2C25DF008058EB4D4866DC45EE2485062C9D7 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.5.1 | 09D56EF43703A350FF586B774900E1F48E72FE3671144B5C99BB1A494C201E9E |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
 ## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
 Microsoft raccoglie automaticamente i dati relativi a utilizzo e prestazioni tramite l'uso del servizio Monitoraggio di Azure. Microsoft usa questi dati per garantire e migliorare la qualità, la sicurezza e l'integrità del servizio. Per offrire capacità di risoluzione dei problemi accurate ed efficienti, i dati della funzionalità di mappa includono informazioni sulla configurazione del software, come il sistema operativo e la versione, l'indirizzo IP, il nome DNS e il nome della workstation. Microsoft non raccoglie nomi, indirizzi o altre informazioni di contatto.
@@ -152,7 +219,7 @@ Per abilitare il monitoraggio della macchina virtuale di Azure nel portale di Az
 5. Se nella pagina **Azure Monitor Insights Onboarding** (Onboarding di Insights per Monitoraggio di Azure) è già presente un'area di lavoro di Log Analytics nella stessa sottoscrizione, selezionarla nell'elenco a discesa.  Nell'elenco sono preselezionate l'area di lavoro e la località predefinite in cui è distribuita la macchina virtuale nella sottoscrizione. 
 
     >[!NOTE]
-    >Se si vuole creare una nuova area di lavoro di Log Analytics per archiviare i dati di monitoraggio della macchina virtuale, seguire le istruzioni in [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). Assicurarsi di creare l'area di lavoro nella stessa sottoscrizione in cui è distribuita la macchina virtuale. 
+    >Se si vuole creare una nuova area di lavoro di Log Analytics per archiviare i dati di monitoraggio della macchina virtuale, seguire le istruzioni in [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md) in una delle aree supportate elencate in precedenza.   
 
 Dopo aver abilitato il monitoraggio, possono essere necessari circa 10 minuti prima di poter visualizzare le metriche relative all'integrità per la macchina virtuale. 
 
@@ -202,7 +269,7 @@ Per usare i criteri, è possibile usare uno script di PowerShell fornito ([Add-V
    
     Esempio senza parametri: `.\Add-VMInsightsPolicy.ps1`
 
-### <a name="create-a-policy-assignment"></a>Creare un'assegnazione dei criteri
+### <a name="create-a-policy-assignment"></a>Creare un'assegnazione di criteri
 Dopo avere eseguito lo script di PowerShell `Add-VMInsightsPolicy.ps1`, vengono aggiunti l'iniziativa e i criteri seguenti:
 
 * **Deploy Log Analytics Agent for Windows VMs - Preview** (Distribuisci agente di Log Analytics per VM Windows - Anteprima)

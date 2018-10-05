@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: kumud
-ms.openlocfilehash: 89518d30b862e18fb7c989c95144ffa7f1c294fc
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 087dcda5826d96ad064c472fc897be7e61133387
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024718"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392515"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Esercitazione: Migliorare la risposta di un sito Web tramite Gestione traffico 
 
@@ -61,13 +61,13 @@ In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree
 
     |Impostazione|Valore|
     |---|---|
-    |Nome|myIISVMEastUS|
+    |NOME|myIISVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Gruppo di risorse| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
     |Località| Selezionare **Stati Uniti orientali**.|
     |||
-4. Selezionare le dimensioni della VM in **Scegli una dimensione**.
+4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
 5. Selezionare i valori seguenti in **Impostazioni**, quindi scegliere **OK**:
     
     |Impostazione|Valore|
@@ -76,7 +76,7 @@ In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree
     |Gruppo di sicurezza di rete|Selezionare **Base** e dall'elenco a discesa **Selezionare le porte in ingresso pubbliche** selezionare **HTTP** e **RDP**. |
     |Diagnostica di avvio|Selezionare **Disabilitata**.|
     |||
-6. In **Crea** in **Riepilogo** selezionare **Crea** per avviare la distribuzione della VM.
+6. In **Crea** in **Riepilogo** selezionare **Crea** per avviare la distribuzione della macchina virtuale.
 
 7. Ripetere i passaggi da 1 a 6, con le modifiche seguenti:
 
@@ -87,7 +87,7 @@ In questa sezione si creano due VM *myIISVMEastUS* e *myIISVMWEurope* nelle aree
     |Nome macchina virtuale | myIISVMWEurope|
     |Rete virtuale | Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet2** per *Nome* e *mySubnet* per la subnet.|
     |||
-8. La creazione delle VM può richiedere alcuni minuti. Non procedere con i passaggi rimanenti finché non sono state create entrambe le VM.
+8. La creazione delle macchine virtuali può richiedere alcuni minuti. Non procedere con i passaggi rimanenti finché non sono state create entrambe le macchine virtuali.
 
    ![Creare una macchina virtuale](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
 
@@ -135,13 +135,13 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 
     |Impostazione|Valore|
     |---|---|
-    |Nome|myVMEastUS|
+    |NOME|myVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Gruppo di risorse| Selezionare **Esistente** e quindi *myResourceGroupTM1*.|
     |||
 
-4. Selezionare le dimensioni della VM in **Scegli una dimensione**.
+4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
 5. Selezionare i valori seguenti in **Impostazioni**, quindi scegliere **OK**:
     |Impostazione|Valore|
     |---|---|
@@ -150,7 +150,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
     |Diagnostica di avvio|Selezionare **Disabilitata**.|
     |||
 
-6. In **Crea** in **Riepilogo** selezionare **Crea** per avviare la distribuzione della VM.
+6. In **Crea** in **Riepilogo** selezionare **Crea** per avviare la distribuzione della macchina virtuale.
 
 7. Ripetere i passaggi da 1 a 5, con le modifiche seguenti:
 
@@ -161,7 +161,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
     |Rete virtuale | Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet4** per *Nome* e *mySubnet* per la subnet.|
     |||
 
-8. La creazione delle VM può richiedere alcuni minuti. Non procedere con i passaggi rimanenti finché non sono state create entrambe le VM.
+8. La creazione delle macchine virtuali può richiedere alcuni minuti. Non procedere con i passaggi rimanenti finché non sono state create entrambe le macchine virtuali.
 
 ## <a name="create-a-traffic-manager-profile"></a>Creare un profilo di Gestione traffico
 Creare un profilo di Gestione traffico che indirizza il traffico degli utenti verso l'endpoint con latenza più bassa.
@@ -170,8 +170,8 @@ Creare un profilo di Gestione traffico che indirizza il traffico degli utenti ve
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Crea**:
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Nome                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
-    | Metodo di routing          | Selezionare il metodo di routing **Priorità**.                                       |
+    | NOME                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
+    | Metodo di routing          | Selezionare il metodo di routing **Performance** (prestazioni).                                       |
     | Sottoscrizione            | Selezionare la propria sottoscrizione.                          |
     | Gruppo di risorse          | Selezionare **Crea nuovo** e immettere *myResourceGroupTM1*. |
     | Località                | Selezionare **Stati Uniti orientali**.  Questa impostazione indica la località del gruppo di risorse e non ha alcun impatto sul profilo di Gestione traffico che sarà distribuito a livello globale.                              |
@@ -189,8 +189,8 @@ Aggiungere le due VM che eseguono i server IIS, *myIISVMEastUS*   &  *myIISVMWEu
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | Tipo                    | Endpoint di Azure                                   |
-    | Nome           | myEastUSEndpoint                                        |
+    | type                    | Endpoint di Azure                                   |
+    | NOME           | myEastUSEndpoint                                        |
     | Tipo di risorsa di destinazione           | Indirizzo IP pubblico                          |
     | Risorsa di destinazione          | **Scegliere un indirizzo IP pubblico** per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato *myIISVMEastUS-ip*. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|
     |        |           |

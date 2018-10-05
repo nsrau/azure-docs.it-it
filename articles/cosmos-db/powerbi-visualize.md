@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 63ea7e384f9bc5713a41f6c5537ec5548810e5d9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b5b3a96991a2150e553af01e3fda73e04116d7fb
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144620"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452412"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Esercitazione su Power BI per Azure Cosmos DB: visualizzare dati tramite il connettore per Power BI
 [PowerBI.com](https://powerbi.microsoft.com/) è un servizio online dove è possibile creare e condividere dashboard e report con dati importanti per gli utenti e l'organizzazione.  Power BI Desktop è uno strumento per la creazione di report dedicato che consente di recuperare dati da diverse origini dati, unire e trasformare i dati, creare visualizzazioni e report potenti e pubblicare i report in Power BI.  Con la versione più recente di Power BI Desktop è ora possibile connettersi al proprio account Azure Cosmos DB tramite il connettore Azure Cosmos DB per Power BI.   
@@ -34,7 +34,7 @@ Dopo aver completato questa esercitazione su Power BI, si potrà rispondere alle
 > Il connettore Power BI per Azure Cosmos DB si connette a Power BI Desktop per estrarre e trasformare i dati. I report creati in Power BI Desktop possono essere quindi pubblicati in PowerBI.com. Non è possibile estrarre e trasformare direttamente in PowerBI.com dati di Azure Cosmos DB. 
 
 > [!NOTE]
-> La connessione ad Azure Cosmos DB con il connettore Power BI è attualmente supportata solo per SQL di Azure Cosmos DB e gli account API MongoDB. Per connettere Azure Cosmos DB a Power BI usando l'API di MongoDB, è necessario usare il [driver ODBC per MongoDB di Simba](http://www.simba.com/drivers/mongodb-odbc-jdbc/).
+> La connessione ad Azure Cosmos DB con il connettore Power BI è attualmente supportata solo per gli account dell'API SQL di Azure Cosmos DB e dell'API Gremlin.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di seguire le istruzioni di questa esercitazione su Power BI, verificare di avere accesso alle risorse seguenti:

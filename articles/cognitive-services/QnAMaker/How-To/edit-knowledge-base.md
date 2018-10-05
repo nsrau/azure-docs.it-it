@@ -1,21 +1,21 @@
 ---
-title: Come modificare una Knowledge Base - Servizi cognitivi Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Come modificare una Knowledge Base
+title: Modificare una knowledge base - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'esperienza di modifica facile da usare.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: eaa65bf3d257399fceadaa42f0d9ddbbf8afe234
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376353"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451885"
 ---
 # <a name="edit-a-knowledge-base"></a>Modificare una Knowledge Base
 
@@ -30,8 +30,24 @@ QnA Maker consente di gestire il contenuto della Knowledge Base fornendo un'espe
     ![Knowledge Base personali](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
 2. Selezionare una Knowledge Base per modificarla.
+ 
+3. Fare clic su **Settings** (Impostazioni).
 
-3. Dopo aver apportato le modifiche alla Knowledge Base, fare clic su **Save and train** (Salva ed esegui training) nell'angolo in alto a destra della pagina per salvare le modifiche in modo permanente.    
+   Qui è possibile modificare il campo obbligatorio Nome del servizio.
+  
+   È possibile aggiungere nuovi URL per aggiungere nuovo contenuto di domande frequenti sulla Knowledge Base facendo clic sul collegamento **Gestisci Knowledge Base -> " + Aggiungi URL"**.
+   
+   È possibile eliminare gli URL esistenti facendo clic sull'**icona di eliminazione**.
+   
+   Se si desidera che la Knowledge base esegua una ricerca per indicizzazione del contenuto più recente degli URL esistenti, spuntare il nome della casella di controllo **"Aggiorna"**, e la Knowledge base verrà aggiornata con il contenuto più recente dell'URL.
+   
+È possibile aggiungere il documento del file supportato come parte della Knowledge Base, facendo clic su **Gestisci knowledgebase -> '"+ Aggiungi File"**
+
+È anche possibile importare le Knowledge base esistenti facendo clic sul pulsante **"Importa Knowledge base'**. 
+   
+L'aggiornamento della Knowledge base dipende dal **Piano tariffario della gestione** utilizzato durante la creazione del servizio QnA Maker associato alla knowledgbase. Se necessario, è anche possibile aggiornare il livello di gestione dal portale di Azure.
+
+4. Dopo aver apportato le modifiche alla Knowledge Base, fare clic su **Save and train** (Salva ed esegui training) nell'angolo in alto a destra della pagina per salvare le modifiche in modo permanente.    
 
     ![Save and train (Salva ed esegui training)](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 

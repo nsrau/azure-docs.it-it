@@ -3,7 +3,7 @@ title: 'Esercitazione: usare il Centro sicurezza di Azure per le macchine virtua
 description: In questa esercitazione vengono descritte le funzionalità del Centro sicurezza di Azure che consentono di proteggere le macchine virtuali Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/07/2017
-ms.author: iainfou
+ms.date: 06/11/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e049bed6336f87d8077726843bbc870be90c633f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 562fc267a056d6908af5b89fd7a93e858f1c6165
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092612"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Esercitazione: usare il Centro sicurezza di Azure per monitorare le macchine virtuali Linux
 
@@ -42,16 +43,17 @@ Per accedere al dashboard del Centro sicurezza, nel portale di Azure selezionare
 
 Il Centro sicurezza va oltre l'individuazione dei dati per offrire raccomandazioni sui problemi rilevati. Ad esempio, se una macchina virtuale è stata distribuita senza un gruppo di sicurezza di rete collegato, il Centro sicurezza consente di visualizzare una raccomandazione, con una procedura di correzione da eseguire. Offre la correzione automatica senza lasciare il contesto del Centro sicurezza.  
 
-![Raccomandazioni](./media/tutorial-azure-security/recommendations.png)
+![Consigli](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Configurare la raccolta dei dati
 
-Per ottenere la visibilità sulle configurazioni di sicurezza delle macchine virtuali, è necessario prima configurare la raccolta dei dati nel Centro sicurezza. Ciò comporta l'abilitazione della raccolta dei dati e la creazione di un account di archiviazione di Azure per contenere i dati raccolti. 
+Per ottenere la visibilità sulle configurazioni di sicurezza delle macchine virtuali, è necessario prima configurare la raccolta dei dati nel Centro sicurezza. A questo scopo, è necessario attivare la raccolta dati, che installa automaticamente Microsoft Monitoring Agent in tutte le macchine virtuali nella sottoscrizione.
 
 1. Nel dashboard del Centro sicurezza fare clic su **Criteri di sicurezza** e selezionare la sottoscrizione in uso. 
-2. Per **Raccolta di dati** selezionare **On** (Abilitata).
-3. Per creare un account di archiviazione, selezionare **Scegliere un account di archiviazione**. Quindi selezionare **OK**.
-4. Nel pannello **Criteri di sicurezza** selezionare **Salva**. 
+2. In **Provisioning automatico** in **Raccolta dati** selezionare **On**.
+3. Per **Configurazione dell'area di lavoro predefinita** lasciare impostata l'opzione **Usa le aree di lavoro create dal Centro sicurezza (impostazione predefinita)**.
+4. In **Livelli per gli eventi di sicurezza** mantenere l'opzione predefinita **Comune**.
+4. Fare clic su **Salva** nella parte superiore della pagina. 
 
 L'agente di raccolta dati del Centro sicurezza viene quindi installato in tutte le macchine virtuali e la raccolta dei dati ha inizio. 
 
@@ -59,26 +61,12 @@ L'agente di raccolta dati del Centro sicurezza viene quindi installato in tutte 
 
 I criteri di sicurezza vengono usati per definire gli elementi per cui il Centro sicurezza raccoglie i dati e genera raccomandazioni. È possibile applicare criteri di sicurezza diversi per set di risorse di Azure diversi. Sebbene per impostazione predefinita le risorse di Azure vengono valutate per tutti gli elementi dei criteri, è possibile disattivare gli elementi di criteri individuali per tutte le risorse di Azure o per un gruppo di risorse. Per informazioni approfondite sui criteri di sicurezza del Centro sicurezza, vedere [Impostare i criteri di sicurezza nel Centro sicurezza di Azure](../../security-center/security-center-policies.md). 
 
-Per configurare i criteri di sicurezza per tutte le risorse di Azure:
+Per configurare criteri di sicurezza per un'intera sottoscrizione:
 
 1. Nel dashboard del Centro sicurezza selezionare **Criteri di sicurezza** e quindi la sottoscrizione in uso.
-2. Selezionare **Prevention policy** (Criteri di protezione).
-3. Attivare o disattivare gli elementi dei criteri che si desidera applicare a tutte le risorse di Azure.
-4. Al termine della selezione delle impostazioni, selezionare **OK**.
-5. Nel pannello **Criteri di sicurezza** selezionare **Salva**. 
-
-Per configurare un criterio per un gruppo di risorse specifico:
-
-1. Nel dashboard del Centro sicurezza selezionare **Criteri di sicurezza** e quindi un gruppo di risorse.
-2. Selezionare **Prevention policy** (Criteri di protezione).
-3. Attivare o disattivare gli elementi dei criteri che si desidera applicare al gruppo di risorse.
-4. In **EREDITARIETÀ** selezionare **Univoco**.
-5. Al termine della selezione delle impostazioni, selezionare **OK**.
-6. Nel pannello **Criteri di sicurezza** selezionare **Salva**.  
-
-È anche possibile disattivare la raccolta dei dati per un gruppo di risorse specifico in questa pagina.
-
-Nell'esempio seguente sono stati creati criteri univoci per un gruppo di risorse denominato *myResoureGroup*. In questi criteri sono state disabilitate le raccomandazioni relative alla crittografia del disco e al firewall dell'applicazione Web.
+2. Nel pannello **Criteri di sicurezza** selezionare **Criteri di sicurezza**. 
+3. Nel pannello ** Criteri di sicurezza - Criteri di sicurezza ** attivare o disattivare gli elementi dei criteri da applicare alla sottoscrizione.
+4. Al termine della selezione delle impostazioni, selezionare **Salva** nella parte superiore del pannello. 
 
 ![Criteri univoci](./media/tutorial-azure-security/unique-policy.png)
 
@@ -90,12 +78,12 @@ Man mano che i dati vengono raccolti, i dati relativi all'integrità delle risor
 
 Per visualizzare l'integrità risorse:
 
-1.  Nel dashboard del Centro sicurezza, in **Integrità della sicurezza delle risorse** selezionare **Calcolo**. 
-2.  Nel pannello **Calcolo** selezionare **Macchine virtuali**. Questa visualizzazione riepiloga lo stato della configurazione di tutte le macchine virtuali.
+1.  In **Prevenzione** nel dashboard del Centro sicurezza selezionare **Calcolo**. 
+2.  Nel pannello **Calcolo** selezionare **VM e computer**. Questa visualizzazione riepiloga lo stato della configurazione di tutte le macchine virtuali.
 
 ![Stato del calcolo](./media/tutorial-azure-security/compute-health.png)
 
-Per visualizzare tutte le raccomandazioni per una macchina virtuale, selezionare la macchina virtuale. Le raccomandazioni e le correzioni sono descritte più dettagliatamente nella sezione successiva di questa esercitazione.
+Per visualizzare tutte le raccomandazioni per una macchina virtuale, selezionare la macchina virtuale. 
 
 ## <a name="remediate-configuration-issues"></a>Risolvere i problemi di configurazione
 
@@ -105,12 +93,12 @@ Per visualizzare un elenco di tutte le raccomandazioni:
 
 1. Nel dashboard del Centro sicurezza selezionare **Raccomandazioni**.
 2. Selezionare una raccomandazione specifica. Viene visualizzato un elenco di tutte le risorse per cui si applica la raccomandazione.
-3. Per applicare una raccomandazione, selezionare una risorsa specifica. 
+3. Per applicare una raccomandazione, selezionare la risorsa. 
 4. Seguire le istruzioni per la procedura di correzione. 
 
 Il Centro sicurezza offre in molti casi le procedure pratiche per applicare una raccomandazione senza uscire dal Centro sicurezza. Nell'esempio seguente il Centro sicurezza rileva un gruppo di sicurezza di rete che dispone di una regola in entrata senza restrizioni. Nella pagina di raccomandazione è possibile selezionare il pulsante **Modifica le regole in ingresso**. Viene visualizzata l'interfaccia utente necessaria per modificare la regola. 
 
-![Raccomandazioni](./media/tutorial-azure-security/remediation.png)
+![Consigli](./media/tutorial-azure-security/remediation.png)
 
 Le raccomandazioni risolte vengono contrassegnate come tali. 
 
@@ -118,14 +106,14 @@ Le raccomandazioni risolte vengono contrassegnate come tali.
 
 Oltre alle raccomandazioni per la configurazione delle risorse, il Centro sicurezza mostra avvisi di rilevamento di minacce. La funzionalità di avviso di sicurezza aggrega i dati raccolti da ogni macchina virtuale, dai log di rete di Azure e dalle soluzioni partner collegate per rilevare le minacce alla sicurezza per le risorse di Azure. Per informazioni dettagliate sulle funzionalità di rilevamento delle minacce nel Centro sicurezza, vedere [Funzionalità di rilevamento del Centro sicurezza di Azure](../../security-center/security-center-detection-capabilities.md).
 
-Per accedere alla funzionalità degli avvisi di sicurezza, è necessario aumentare il piano tariffario del Centro sicurezza da *Gratuito* a *Standard*. Quando si passa a questo piano tariffario superiore, è disponibile una **versione di prova gratuita** di 30 giorni. 
+Per accedere alla funzionalità degli avvisi di sicurezza, è necessario aumentare il piano tariffario del Centro sicurezza da *Gratuito* a *Standard*. Quando si passa a questo piano tariffario superiore, è disponibile una **versione di valutazione gratuita** di 60 giorni. 
 
 Per modificare il piano tariffario:  
 
 1. Nel dashboard del Centro sicurezza fare clic su **Criteri di sicurezza** e selezionare la sottoscrizione in uso.
 2. Selezionare **Piano tariffario**.
-3. Selezionare il nuovo piano e quindi **Seleziona**.
-4. Nel pannello **Criteri di sicurezza** selezionare **Salva**. 
+3. Selezionare **Standard** e quindi fare clic su **Salva** nella parte superiore del pannello.
+
 
 Dopo che il piano tariffario è stato modificato, il grafico degli avvisi di sicurezza inizia a popolarsi man mano che vengono rilevate minacce alla sicurezza.
 

@@ -1,21 +1,21 @@
 ---
-title: Come pubblicare una Knowledge Base - Servizi cognitivi Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Come pubblicare una Knowledge Base
+title: Pubblicare una knowledge base - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: La pubblicazione della Knowledge Base è il passaggio finale per rendere disponibile la Knowledge Base come endpoint di domande e risposte. Quando si pubblica una Knowledge Base, il contenuto di domande e risposte della Knowledge Base si sposta dall'indice di test a un indice di produzione in Ricerca di Azure.
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: tulasim88
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: e9dbeacfb0df98c6b8f084c263690c05fe966cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: tulasim
+ms.openlocfilehash: eceb0554d35935f1aee77c4c054cb7e65b327845
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376169"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033416"
 ---
 # <a name="publish-a-knowledge-base"></a>Pubblicare una knowledge base
 
@@ -33,7 +33,7 @@ Quando si pubblica una Knowledge Base, il contenuto di domande e risposte della 
 
 2. Selezionare di nuovo **Pubblica** per visualizzare i dettagli dell'endpoint che possono essere usati nel codice dell'applicazione o del bot.
 
-    ![Pubblicare una Knowledge Base](../media/qnamaker-how-to-publish-kb/publish-success.png)
+    ![Pubblicare una knowledge base](../media/qnamaker-how-to-publish-kb/publish-success.png)
     
 ## <a name="next-steps"></a>Passaggi successivi
 

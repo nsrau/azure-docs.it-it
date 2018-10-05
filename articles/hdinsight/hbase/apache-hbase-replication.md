@@ -3,18 +3,18 @@ title: Configurare la replica di cluster HBase nelle reti virtuali di Azure
 description: Informazioni su come configurare la replica HBase da una versione di HDInsight a un'altra, per bilanciamento del carico, disponibilità elevata, aggiornamenti e migrazione senza tempo di inattività e ripristino di emergenza.
 services: hdinsight,virtual-network
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: jasonh
-ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/15/2018
+ms.openlocfilehash: 51f5f3b9742de45b1b72104c8cf08079d0719763
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047484"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224382"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurare la replica di cluster HBase nelle reti virtuali di Azure
 
@@ -109,6 +109,7 @@ Per installare Bind, è necessario trovare l'indirizzo IP pubblico delle due mac
 2. Aprire la macchina virtuale DNS selezionando **Gruppi di risorse > [nome gruppo di risorse] > [vnet1DNS]**.  Il nome del gruppo di risorse è quello creato nella procedura precedente. I nomi di macchina virtuale DNS predefiniti sono *vnet1DNS* e *vnet2NDS*.
 3. Selezionare **Proprietà** per aprire la pagina delle proprietà della rete virtuale.
 4. Annotare l'**Indirizzo IP pubblico** e verificare inoltre l'**Indirizzo IP privato**.  L'indirizzo IP privato deve essere **10.1.0.4** per vnet1DNS e **10.2.0.4** per vnet2DNS.  
+5. Modificare i server DNS in modo che entrambe le reti virtuali usino i server DNS predefiniti (forniti da Azure) per consentire l'accesso in ingresso e in uscita ai pacchetti di download per poter installare Bind con i passaggi seguenti.
 
 Per installare Bind, usare la procedura seguente:
 
@@ -135,7 +136,7 @@ Per installare Bind, usare la procedura seguente:
     sudo apt-get install bind9 -y
     ```
 
-3. Per configurare Bind per l'inoltro delle richieste di risoluzione dei nomi al server DNS locale, usare il testo seguente come contenuto del file `/etc/bind/named.conf.options`:
+3. Configurare Bind per inoltrare le richieste di risoluzione dei nomi al server DNS locale. A questo scopo, usare il testo seguente come contenuto del file `/etc/bind/named.conf.options`:
 
     ```
     acl goodclients {
@@ -151,7 +152,7 @@ Per installare Bind, usare la procedura seguente:
         allow-query { goodclients; };
 
         forwarders {
-            168.63.129.16 #This is the Azure DNS server
+            168.63.129.16; #This is the Azure DNS server
         };
 
         dnssec-validation auto;
@@ -217,7 +218,7 @@ Per installare Bind, usare la procedura seguente:
 
     ```bash
     sudo apt install dnsutils
-    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net 10.2.0.4
+    nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
     > [!IMPORTANT]
@@ -277,7 +278,7 @@ Per creare una tabella **Contatti** e inserire alcuni dati nella tabella, seguir
 
 ## <a name="enable-replication"></a>Abilitare la replica
 
-La procedura seguente illustra come chiamare lo script di azione script dal portale di Azure. Per informazioni su come eseguire un'azione script tramite Azure PowerShell e lo strumento da riga di comando di Azure (Interfaccia della riga di comando di Azure), vedere [Customize HDInsight clusters by using script action](../hdinsight-hadoop-customize-cluster-linux.md) (Personalizzare cluster HDInsight tramite Azione script).
+La procedura seguente illustra come chiamare lo script di azione script dal portale di Azure. Per informazioni su come eseguire un'azione script tramite Azure PowerShell e l'interfaccia della riga di comando classica di Azure, vedere [Personalizzare i cluster HdInsight usando l'azione script](../hdinsight-hadoop-customize-cluster-linux.md).
 
 **Per abilitare la replica di HBase dal portale di Azure**
 

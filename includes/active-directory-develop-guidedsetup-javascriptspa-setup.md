@@ -3,7 +3,7 @@ title: File di inclusione
 description: File di inclusione
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: navyasric
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -12,85 +12,68 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 794fd51c38f66b24193c7da7a145d58f7a225b30
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3274e5929985b2a78c5b463622be6cdbd7320d79
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32202537"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47060335"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Impostazione del server Web o del progetto
 
-> Si preferisce scaricare questo progetto di esempio? 
-> - [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
+> Si preferisce scaricare questo progetto di esempio?
+> - [Scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) per un server Web locale, ad esempio Node
 >
 > oppure
-> - [Scaricare i file di progetto](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) per un server Web locale, ad esempio Python
+> - [Scaricare il progetto di Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 >
 > E quindi passare direttamente al [passaggio di configurazione](#register-your-application) per configurare l'esempio di codice prima di eseguirlo.
 
-## <a name="prerequisites"></a>prerequisiti
-Per eseguire l'installazione guidata, è necessario un server Web locale, ad esempio [Python http.server](https://www.python.org/downloads/), [http-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core) o l'integrazione di IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/). 
+## <a name="prerequisites"></a>Prerequisiti
+Per eseguire l'esercitazione, è necessario un server Web locale, ad esempio [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core) o l'integrazione di IIS Express con [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 
-Le istruzioni di questa guida sono basate su Python e Visual Studio 2017, ma è possibile usare qualsiasi altro ambiente di sviluppo o server Web.
+Le istruzioni di questa guida sono basate su Node.js e Visual Studio 2017, ma è possibile usare qualsiasi altro ambiente di sviluppo o server Web.
 
-## <a name="create-your-project"></a>Creare il progetto 
+## <a name="create-your-project"></a>Creare il progetto
 
-> ### <a name="option-1-visual-studio"></a>Opzione 1: Visual Studio 
-> Se si usa Visual Studio e si sta creando un nuovo progetto, seguire la procedura seguente per creare una nuova soluzione di Visual Studio:
-> 1.    In Visual Studio: `File` > `New` > `Project`
-> 2.    In `Visual C#\Web` selezionare `ASP.NET Web Application (.NET Framework)`
-> 3.    Assegnare un nome all'applicazione e fare clic su *OK*
-> 4.    In `New ASP.NET Web Application` selezionare `Empty`
+> ### <a name="option-1-node-other-web-servers"></a>Opzione 1: Node/altri server Web
+> Verificare di avere installato [Node.js](https://nodejs.org/en/download/), quindi seguire questa procedura:
+> - Creare una cartella per ospitare l'applicazione.
 
 <p/><!-- -->
 
-> ### <a name="option-2-python-other-web-servers"></a>Opzione 2: Python/altri server Web
-> Verificare di avere installato [Python](https://www.python.org/downloads/), quindi attenersi ai passaggi riportati di seguito:
-> - Creare una cartella per ospitare l'applicazione.
+> ### <a name="option-2-visual-studio"></a>Opzione 2: Visual Studio
+> Se si usa Visual Studio e si sta creando un nuovo progetto, seguire la procedura seguente per creare una nuova soluzione di Visual Studio:
+> 1.    In Visual Studio: **File > Nuovo > Progetto**
+> 2.    In **Visual C#\Web** selezionare **Applicazione Web ASP.NET (.NET Framework)**
+> 3.    Immettere un nome per l'applicazione e fare clic su **OK**
+> 4.    In **Nuova applicazione Web ASP.NET** selezionare **Vuota**
 
 
 ## <a name="create-your-single-page-applications-ui"></a>Creare l'interfaccia utente dell'applicazione a singola pagina
-1.  Creare un file *index.html* per la SPA di JavaScript. Se si usa Visual Studio, selezionare il progetto (cartella radice del progetto), fare clic con il pulsante destro del mouse e selezionare `Add` > `New Item` > `HTML page`, denominandolo index.html
+1.  Creare un file `index.html` per l'applicazione a pagina singola JavaScript. Se si usa Visual Studio, selezionare il progetto (cartella radice del progetto), fare clic con il pulsante destro del mouse e scegliere: **Aggiungi > Nuovo elemento > Pagina HTML**, denominandolo index.html.
+
 2.  Aggiungere il codice seguente alla pagina:
 ```html
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- bootstrap reference used for styling the page -->
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <title>JavaScript SPA Guided Setup</title>
+        <title>Quickstart for MSAL JS</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
+        <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
-<body style="margin: 40px">
-    <button id="callGraphButton" type="button" class="btn btn-primary" onclick="callGraphApi()">Call Microsoft Graph API</button>
-    <div id="errorMessage" class="text-danger"></div>
-    <div class="hidden">
-        <h3>Graph API Call Response</h3>
-        <pre class="well" id="graphResponse"></pre>
-    </div>
-    <div class="hidden">
-        <h3>Access Token</h3>
-        <pre class="well" id="accessToken"></pre>
-    </div>
-    <div class="hidden">
-        <h3>ID Token Claims</h3>
-        <pre class="well" id="userInfo"></pre>
-    </div>
-    <button id="signOutButton" type="button" class="btn btn-primary hidden" onclick="signOut()">Sign out</button>
-
-    <!-- This app uses cdn to reference msal.js (recommended). 
-         You can also download it from: https://github.com/AzureAD/microsoft-authentication-library-for-js -->
-    <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.1.3/js/msal.min.js"></script>
-
-    <!-- The 'bluebird' and 'fetch' references below are required if you need to run this application on Internet Explorer -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
-
-    <script type="text/javascript" src="msalconfig.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+<body>
+        <h2>Welcome to MSAL.js Quickstart</h2><br/>
+        <h4 id="WelcomeMessage"></h4>
+        <button id="SignIn" onclick="signIn()">Sign In</button><br/><br/>
+        <pre id="json"></pre>
+        <script>
+            //JS code
+        </script>
 </body>
 </html>
-````
+```

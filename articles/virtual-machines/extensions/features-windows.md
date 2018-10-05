@@ -3,7 +3,7 @@ title: Estensioni e funzionalità delle macchine virtuali di Azure per Windows |
 description: Informazioni sulle estensioni disponibili per le macchine virtuali di Azure, raggruppate in base a ciò che forniscono o migliorano.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: d7b183a5b87d5777609deac02e4424d9451e9643
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783101"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452497"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
@@ -66,7 +66,7 @@ Alcune estensioni non sono supportate in tutti i sistemi operativi e possono gen
 I pacchetti di estensioni vengono scaricati dal repository delle estensioni di Archiviazione di Azure, mentre i caricamenti dello stato delle estensioni vengono pubblicati in Archiviazione di Azure. Se si usa una versione [supportata](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) degli agenti, non è necessario consentire l'accesso ad Archiviazione di Azure nell'area della macchina virtuale, perché è possibile usare l'agente per reindirizzare la comunicazione al controller di infrastruttura di Azure. Se è in uso una versione non supportata dell'agente, è necessario consentire l'accesso in uscita ad Archiviazione di Azure in tale area dalla macchina virtuale.
 
 > [!IMPORTANT]
-> Se l'accesso a *168.63.129.1* è stato bloccato con il firewall guest, le estensioni non rispettano quanto specificato sopra.
+> Se l'accesso a *168.63.129.16* è stato bloccato con il firewall guest, le estensioni non rispettano quanto specificato sopra.
 
 Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. È possibile consentire l'accesso ad Archiviazione di Azure per le estensioni usando i tag di servizio del NSG per [Archiviazione](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 

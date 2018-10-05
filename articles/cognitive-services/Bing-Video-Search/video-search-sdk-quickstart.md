@@ -1,23 +1,23 @@
 ---
-title: Guida introduttiva all'SDK di Ricerca video per C# | Microsoft Docs
-description: Configurazione per l'applicazione console dell'SDK di Ricerca video.
-titleSuffix: Azure cognitive services setup News search SDK C# console application
+title: 'Guida introduttiva: SDK di Ricerca video Bing, C#'
+titleSuffix: Azure Cognitive Services
+description: Configurazione per l'applicazione console dell'SDK di Ricerca video Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: f53e2d0f0052ccfabb6d750556cb532f069c9121
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 6cf7a16fa28602e5e3733741db8bfb7296882487
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377953"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47219941"
 ---
-# <a name="video-search-sdk-c-quickstart"></a>Guida introduttiva all'SDK di Ricerca video per C#
+# <a name="quickstart-bing-video-search-sdk-with-c"></a>Guida introduttiva: SDK di Ricerca video Bing con C# 
 
 L'SDK di Ricerca video Bing contiene la funzionalità dell'API REST per richieste Web e analisi dei risultati.
 

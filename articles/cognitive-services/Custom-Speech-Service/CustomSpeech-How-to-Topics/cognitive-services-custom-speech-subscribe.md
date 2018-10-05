@@ -1,20 +1,22 @@
 ---
-title: Ottenere le chiavi di sottoscrizione per il Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
-description: Informazioni su come ottenere le chiavi di sottoscrizione per le chiamate al Servizio di riconoscimento vocale personalizzato in Servizi cognitivi.
+title: Ottenere le chiavi di sottoscrizione - Servizio di riconoscimento vocale personalizzato
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come ottenere le chiavi di sottoscrizione per le chiamate al Servizio di riconoscimento vocale personalizzato.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: d3969114323f5675c5e14ab36990b124e84ead37
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ROBOTS: NOINDEX
+ms.openlocfilehash: e4694928baf98bdb0d6aacead8dffec6bb73d6f7
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427568"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224772"
 ---
 # <a name="obtain-subscription-keys"></a>Ottenere chiavi di sottoscrizione
 Prima di iniziare a usare il Servizio di riconoscimento vocale personalizzato, occorre collegare il proprio account utente a una sottoscrizione di Azure. Sono disponibili sottoscrizioni per livelli gratuiti e a pagamento. Per informazioni sui livelli, vedere la [pagina dei prezzi](https://www.microsoft.com/cognitive-services/en-us/pricing).

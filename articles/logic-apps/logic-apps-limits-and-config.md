@@ -3,19 +3,18 @@ title: Limiti e configurazione - App per la logica di Azure | Microsoft Docs
 description: Limiti di servizio e valori di configurazione per App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 08/10/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 49b8efe6b5d56c3edaf8b311ff3c6667a8952536
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.topic: article
+ms.date: 09/26/2018
+ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145841"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452454"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -305,8 +304,13 @@ Tutte le app per la logica in un'area usano gli stessi intervalli di indirizzi I
 Per supportare le chiamate effettuate dai [connettori](../connectors/apis-list.md), impostare le configurazioni del firewall in modo che includano questi indirizzi IP in uscita, in base alle aree in cui sono presenti le app per la logica.
 
 > [!IMPORTANT]
->
 > Se si dispone di configurazioni esistenti, aggiornarle **il possibile prima del 1 settembre 2018** in modo che includano e mettano in corrispondenza gli indirizzi IP in questo elenco per le aree in cui sono presenti le app per la logica. 
+> 
+> App per la logica non supporta la connessione diretta agli account di archiviazione di Azure attraverso firewall. Per accedere a questi account di archiviazione, usare una delle opzioni descritte qui: 
+>
+> * Creare un [ambiente del servizio di integrazione](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), che può connettersi alle risorse presenti in una rete virtuale di Azure. 
+> 
+> * Se si usa già Gestione API, è possibile usare questo servizio in questo scenario. Per altre informazioni, vedere [Architettura di integrazione aziendale semplice](http://aka.ms/aisarch).
 
 | Area di App per la logica | IP in uscita | 
 |-------------------|-------------|  

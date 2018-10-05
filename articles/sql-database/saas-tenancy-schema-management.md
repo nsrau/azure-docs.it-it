@@ -1,25 +1,26 @@
 ---
-title: Gestire lo schema del database SQL di Azure in un'app multi-tenant | Microsoft Docs
-description: Gestire lo schema per più tenant in un'applicazione multi-tenant che usa il database SQL di Azure
-keywords: esercitazione database SQL
+title: Gestire lo schema del database SQL di Azure in un'app a singolo tenant | Microsoft Docs
+description: Gestire lo schema per più tenant in un'app a singolo tenant che usa database SQL di Azure
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 2e4af3e3e1ef1d9da7c66b929885e3ec749b462f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 2f747eb09fd13647c4b6764ce3cc4fe72c00bcf0
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646273"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47054847"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gestire lo schema in un'applicazione SaaS usando il modello con un database per ogni tenant con il database SQL di Azure
-
+ 
 Quando l'applicazione di database evolve, è necessario apportare modifiche allo schema di database o ai dati di riferimento  nonché eseguire periodicamente attività di manutenzione del database. La gestione di un'applicazione che usa il modello con un database per ogni tenant richiede di applicare le modifiche o le attività di manutenzione in una serie di database del tenant.
 
 Questa esercitazione illustra due scenari: distribuzione degli aggiornamenti dei dati di riferimento per tutti i tenant e ricompilazione di un indice per la tabella contenente i dati di riferimento. La funzionalità [processi elastici](sql-database-elastic-jobs-overview.md) consente di eseguire tali azioni su tutti i database del tenant e sul database modello usato per creare nuovi database tenant.

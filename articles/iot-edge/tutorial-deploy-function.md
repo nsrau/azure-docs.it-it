@@ -4,17 +4,17 @@ description: In questa esercitazione una funzione di Azure viene distribuita com
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 426d9fd81a0cd856378be3bb4f430f310bee53eb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 66dcb3347741c4826fc62cc258c67b85f3939ff7
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41920542"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422763"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Esercitazione: Distribuire Funzioni di Azure come moduli IoT Edge (anteprima)
 
@@ -45,7 +45,7 @@ Un dispositivo Azure IoT Edge:
 
 Risorse cloud:
 
-* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) del livello gratuito in Azure. 
 
 Risorse per lo sviluppo:
 
@@ -170,7 +170,7 @@ Nella sezione precedente è creata una soluzione IoT Edge ed è stato aggiunto a
 
 In questa sezione si forniscono due volte le credenziali per il registro contenitori. La prima per accedere in locale dal computer di sviluppo in modo che Visual Studio Code possa eseguire il push delle immagini al registro. La seconda nel file **ENV** della soluzione IoT Edge, per concedere al dispositivo IoT Edge le autorizzazioni per eseguire il pull delle immagini dal registro. 
 
-1. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale integrato**. 
+1. Aprire il terminale integrato di VS Code selezionando **Visualizza** > **Terminale**. 
 
 1. Accedere al registro contenitori immettendo il comando seguente nel terminale integrato. È quindi possibile eseguire il push dell'immagine del modulo nel registro contenitori di Azure: 
      
@@ -219,7 +219,7 @@ Visual Studio Code genera un messaggio di conferma quando viene eseguito il push
 
 5. Nello strumento di esplorazione di VS Code espandere la sezione **Azure IoT Hub dispositivi** (Dispositivi dell'hub IoT di Azure). 
 
-6. Fare clic con il pulsante destro del mouse sul dispositivo IoT Edge, quindi scegliere **Create Deployment for IoT Edge device** (Crea la distribuzione per il dispositivo IoT Edge). 
+6. Fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge e quindi selezionare **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo). 
 
 7. Passare alla cartella della soluzione che contiene **CSharpFunction**. Aprire la cartella config, selezionare il file deployment.json e quindi scegliere **Select Edge Deployment Manifest** (Selezionare il manifesto della distribuzione IoT Edge).
 

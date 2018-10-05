@@ -1,20 +1,21 @@
 ---
-title: Endpoint di Ricerca video | Microsoft Docs
-description: Riepilogo degli endpoint dell'API Ricerca video.
+title: Endpoint di Ricerca video - Ricerca video Bing
+titlesuffix: Azure Cognitive Services
+description: Riepilogo degli endpoint dell'API Ricerca video Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2017
-ms.author: v-gedod
-ms.openlocfilehash: 9836d9928362ab37b0a81ff5043d99f9bf353f22
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: c153f577f76944d22f9a1b0fb4b24d332d2a02c8
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372892"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220772"
 ---
 # <a name="video-search-endpoints"></a>Endpoint di Ricerca video
 L'**API Ricerca video** include tre endpoint.  L'endpoint 1 restituisce video dal Web in base a una query. L'endpoint 2 restituisce informazioni dettagliate su un video in base al parametro URL `modules`.  L'endpoint 3 restituisce immagini di tendenza.
@@ -42,7 +43,7 @@ Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti di 
 La risposta a una richiesta di ricerca di video include i risultati come oggetti JSON. Per esempi di analisi dei risultati, vedere l'[esercitazione](https://docs.microsoft.com/azure/cognitive-services/bing-video-search/tutorial-bing-video-search-single-page-app) e il [codice sorgente](https://docs.microsoft.com/azure/cognitive-services/bing-video-search/tutorial-bing-video-search-single-page-app-source).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al tipo. Tutti gli endpoint di ricerca restituiscono risultati come oggetti di risposta JSON.  Tutti gli endpoint supportano query che restituiscono una posizione e/o una lingua specifica in base a longitudine, latitudine e raggio di ricerca.
+Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al tipo. Tutti gli endpoint di ricerca restituiscono risultati come oggetti della risposta JSON.  Tutti gli endpoint supportano query che restituiscono una posizione e/o una lingua specifica in base a longitudine, latitudine e raggio di ricerca.
 
 Per informazioni complete sui parametri supportati da ogni endpoint, vedere le pagine di riferimento per ogni tipo.
 Per esempi di richieste di base eseguite con l'API Ricerca video, vedere le [guide introduttive per Ricerca video](https://docs.microsoft.com/azure/cognitive-services/bing-video-search).

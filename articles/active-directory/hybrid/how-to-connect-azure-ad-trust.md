@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 4eeb716e4eeae8dc560f9588c6c3ce252daf741e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309760"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432054"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gestire il trust di AD FS con Azure AD usando Azure AD Connect
 
@@ -41,7 +41,7 @@ Azure AD Connect gestisce **solo** le impostazioni correlate al trust di Azure A
 | Impostazione | DESCRIZIONE |
 | :--- | :--- |
 | Certificato per la firma di token | Si può usare Azure AD Connect per reimpostare e ricreare il trust con Azure AD. Azure AD Connect esegue un'operazione una tantum immediata di rollover dei certificati per la firma di token per AD FS e aggiorna le impostazioni di federazione dei domini di Azure AD.|
-| Algoritmo di firma dei token | Microsoft consiglia di usare l'algoritmo di firma dei token SHA-256. Azure AD Connect è in grado di rilevare se l'algoritmo di firma di token è impostato su un valore meno sicuro di SHA-256. L'impostazione verrà aggiornata a SHA-256 nella prima operazione di configurazione successiva possibile. |
+| Algoritmo di firma dei token | Microsoft consiglia di usare l'algoritmo di firma dei token SHA-256. Azure AD Connect è in grado di rilevare se l'algoritmo di firma di token è impostato su un valore meno sicuro di SHA-256. L'impostazione verrà aggiornata a SHA-256 nella prima operazione di configurazione successiva possibile. Per usare il nuovo certificato per la firma di token è necessario aggiornare altri trust della relying party. |
 | Identificatore del trust di Azure AD | Azure AD Connect imposta il valore dell'identificatore corretto per il trust di Azure AD. AD FS identifica in modo univoco il trust di Azure AD usando il valore dell'identificatore. |
 | Endpoint di Azure Active Directory | Azure AD Connect garantisce che gli endpoint configurati per il trust di Azure AD siano sempre impostati in base agli ultimi valori consigliati per le prestazioni e la resilienza. |
 | Regole di trasformazione rilascio | Per ottenere prestazioni ottimali delle funzionalità di Azure AD in una configurazione federata è necessaria una serie di regole attestazioni. Azure AD Connect verifica che il trust di Azure AD sia sempre configurato con il set di regole attestazioni consigliato. |

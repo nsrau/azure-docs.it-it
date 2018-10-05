@@ -1,5 +1,5 @@
 1. Accedere al [portale di Azure][Azure portal].
-2. Nel menu a sinistra selezionare **+ Crea una risorsa**. Selezionare quindi **Integrazione aziendale** > **Inoltro**.
+2. Nel menu a sinistra selezionare **+ Crea una risorsa**. Quindi, selezionare **Integrazione** > **Inoltro**. Se **Inoltro** non è visibile nell'elenco, selezionare **Visualizza tutto** nell'angolo superiore destro. 
 3. Nel pannello **Crea spazio dei nomi** immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
 4. Nella casella **Sottoscrizione** selezionare una sottoscrizione di Azure in cui creare lo spazio dei nomi.
 5. Nella casella [Gruppo di risorse](../articles/azure-resource-manager/resource-group-portal.md) selezionare un gruppo di risorse esistente nel quale inserire lo spazio dei nomi oppure crearne uno nuovo.  

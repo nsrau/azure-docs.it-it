@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 727d38cae6c2f98d2922d5760f116ab85d75b8ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983515"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221653"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -31,9 +31,7 @@ Il traffico di rete è sottoposto alle regole del firewall configurate quando si
 
 Le regole di applicazione e di rete vengono archiviate nelle *raccolte di regole*. Una raccolta di regole è un elenco di regole che condividono la stessa azione e priorità.  Una raccolta di regole di rete è un elenco di regole di rete, mentre una raccolta di regole di applicazione è un elenco di regole dell'applicazione.
 
-In Firewall di Azure non esiste il concetto di regole in ingresso e regole in uscita. Sono presenti regole di applicazione e regole di rete che vengono applicate al traffico che entra nel firewall. Le regole di rete vengono applicate per prime, seguite da quelle di applicazione.
-
-Ad esempio, se viene trovata una corrispondenza con una regola di rete, il pacchetto non sarà valutato dalle regole di applicazione. Se non esiste alcuna corrispondenza con una regola di rete e il protocollo dei pacchetti è HTTP/HTTPS, il pacchetto viene quindi valutato dalle regole di applicazione. Se ancora non viene trovata una corrispondenza, il pacchetto viene valutato in base a una raccolta di regole dell'infrastruttura. Se non è ancora presente alcuna corrispondenza, il pacchetto viene rifiutato per impostazione predefinita.
+Firewall di Azure include regole NAT, regole di rete e regole di applicazione. Per altre informazioni sulla logica di elaborazione delle regole di Firewall di Azure, vedere [Azure Firewall rule processing logic](rule-processing.md) (Logica di elaborazione delle regole di Firewall di Azure).
 
 In questa esercitazione si apprenderà come:
 
@@ -215,9 +213,6 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 11. Fare clic su **Aggiungi**.
 
 Firewall di Azure include una raccolta di regole predefinite per i nomi di dominio completi dell'infrastruttura consentiti per impostazione predefinita. Questi nomi di dominio completi sono specifici per la piattaforma e non possono essere usati per altri scopi. Per altre informazioni, vedere [Infrastructure FQDNs](infrastructure-fqdns.md) (FQDN dell'infrastruttura).
-
-> [!Note]
-> I tag FQDN possono essere attualmente configurati solo con Azure PowerShell e REST. Fare clic [qui](https://aka.ms/firewallapplicationrule) per altre informazioni. 
 
 ## <a name="configure-network-rules"></a>Configurare le regole di rete
 

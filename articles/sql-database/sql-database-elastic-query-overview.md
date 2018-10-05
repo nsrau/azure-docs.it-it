@@ -1,20 +1,23 @@
 ---
-title: Panoramica delle query elastiche del database SQL di Azure | Microsoft Docs
+title: Panoramica delle query elastiche del database SQL di Azure | Documentazione Microsoft
 description: La query elastica consente di eseguire una query Transact-SQL che si estende in più database.
 services: sql-database
-manager: craigg
-author: MladjoA
 ms.service: sql-database
-ms.custom: scale out apps
+subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 07/03/2018
+author: MladjoA
 ms.author: mlandzic
-ms.openlocfilehash: 52fce1cf1acb5e084c629c9cad6486d6a599b4fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.reviewer: ''
+manager: craigg
+ms.date: 09/14/2018
+ms.openlocfilehash: 8a7962866b70ae0ec99b8425a365575fbd4e5913
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435773"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47164370"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Panoramica delle query elastiche del database SQL di Azure (anteprima)
 
@@ -28,7 +31,7 @@ Eseguire query su database SQL di Azure completamente in T-SQL. Questo permette 
 
 ### <a name="available-on-standard-tier"></a>Disponibile nel livello Standard
 
-La query elastica è supportata nel livello di prestazioni sia Standard che Premium. Per informazioni sulle limitazioni delle prestazioni per i livelli di prestazioni inferiori, vedere la sezione relativa alle limitazioni della versione di anteprima.
+La query elastica è supportata in entrambi i livelli di servizio Standard e Premium. Per informazioni sulle limitazioni delle prestazioni per i livelli di servizio inferiori, vedere più avanti la sezione Limiti di anteprima.
 
 ### <a name="push-parameters-to-remote-databases"></a>Eseguire il push dei parametri ai database remoti
 
@@ -101,7 +104,7 @@ L'uso delle query elastiche per eseguire attività di creazione report su un liv
 
 > [!NOTE]
 > Il database per query elastiche (nodo head) può essere un database separato o lo stesso database che ospita la mappa partizioni.
-> Indipendentemente dalla configurazione scelta, assicurarsi che il livello di servizio e di prestazioni del database sia sufficientemente elevato per gestire il volume previsto di richieste di accesso o di query.
+> Indipendentemente dalla configurazione scelta, assicurarsi che il livello di servizio e la dimensione di calcolo del database siano sufficientemente elevati per gestire il volume previsto di richieste di accesso o di query.
 
 I passaggi seguenti configurano le query su database elastiche per scenari di partizionamento orizzontale che richiedono l'accesso a un set di tabelle situate, in genere, in alcuni database SQL remoti:
 
@@ -133,7 +136,7 @@ Le query elastiche sono incluse nei costi dei database SQL di Azure. Sono suppor
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
-* L'esecuzione della prima query elastica può richiedere alcuni minuti nel livello di prestazioni Standard. Questo intervallo di tempo è necessario per caricare le funzionalità delle query elastiche. Le prestazioni di caricamento risultano migliori nei livelli di prestazioni più elevati.
+* L'esecuzione della prima query elastica può richiedere alcuni minuti con il livello di servizio Standard. Questo intervallo di tempo è necessario per caricare le funzionalità delle query elastiche. Le prestazioni di caricamento risultano migliori nei livelli di servizio più elevati e con dimensioni di calcolo maggiori.
 * La creazione di script di origini dati esterne o tabelle esterne da SSMS o SSDT non è ancora supportata.
 * L'importazione/esportazione per il database SQL non supporta ancora origini dati esterne e tabelle esterne. Se è necessario usare l'importazione/esportazione, eliminare questi oggetti prima dell'esportazione e quindi crearli di nuovo dopo l'importazione.
 * La query elastica supporta attualmente solo l'accesso in sola lettura alle tabelle esterne. È tuttavia possibile usare la funzionalità T-SQL completa nel database in cui viene definita la tabella esterna. Ciò può risultare utile, ad esempio, per rendere permanenti i risultati temporanei usando, ad esempio SELECT <elenco_colonne> INTO <tabella_locale>, oppure per definire stored procedure nel database sottoposto a query elastiche che fanno riferimento a tabelle esterne.

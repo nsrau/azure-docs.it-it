@@ -2,20 +2,22 @@
 title: Database SQL di Azure - Ottimizzazione automatica | Microsoft Docs
 description: Il database SQL di Azure analizza le query SQL e si adatta automaticamente al carico di lavoro dell'utente.
 services: sql-database
-author: danimir
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: performance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 38b59c28096b23a22b216158d9e945a2881a4f41
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 931e0f2c6be51c78187413d638259237f98bd9b0
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189259"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063354"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
 
@@ -27,7 +29,7 @@ L'ottimizzazione automatica del database SQL di Azure potrebbe essere una delle 
 
 ## <a name="what-can-automatic-tuning-do-for-you"></a>Vantaggi dell'ottimizzazione automatica
 
-- Ottimizzazione delle prestazioni automatizzata per i database SQL di Azure
+- Ottimizzazione automatizzata delle prestazioni per i database SQL di Azure
 - Verifica automatizzata dei miglioramenti delle prestazioni
 - Ripristino dello stato precedente automatizzato e correzione automatica
 - Cronologia ottimizzazione
@@ -81,5 +83,5 @@ Il metodo consigliato per la configurazione dell'ottimizzazione automatica è qu
 - Per esaminare e applicare manualmente le raccomandazioni di ottimizzazione automatica, vedere [Trovare e applicare raccomandazioni per le prestazioni](sql-database-advisor-portal.md).
 - Per informazioni su come usare T-SQL per applicare e visualizzare le opzioni di ottimizzazione automatica, vedere [Manage automatic tuning via T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) (Gestire l'ottimizzazione automatica tramite T-SQL).
 - Per altre informazioni sulla generazione di notifiche tramite posta elettronica per i suggerimenti di ottimizzazione automatica, vedere [Notifiche tramite posta elettronica per l'ottimizzazione automatica](sql-database-automatic-tuning-email-notifications.md).
-- Per altre informazioni sull'intelligenza artificiale incorporata usata nell'ottimizzazione automatica, vedere [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/) (L'intelligenza artificiale ottimizza i database SQL di Azure).
+- Per altre informazioni sull'intelligenza artificiale incorporata nell'ottimizzazione automatica, vedere [Artificial Intelligence tunes Azure SQL Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/) (L'intelligenza artificiale ottimizza i database SQL di Azure).
 - Per altre informazioni sul funzionamento dell'ottimizzazione automatica nel database SQL di Azure e in SQL Server 2017, vedere [SQL Server automatic tuning](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) (Ottimizzazione automatica di SQL Server).

@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: ea1117e202868465e3ea4004d21cf62d175a357a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0eec1100c5246bb9f5c281971453ac60abc0339f
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963918"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47225020"
 ---
 # <a name="web-apps"></a>App Web
 
@@ -44,7 +44,7 @@ Vedere gli esempi di codice per gli scenari da Web browser ad applicazione Web. 
 
 ## <a name="app-registration"></a>Registrazione delle app
 
-Per registrare un'app Web, vedere [Registrare un'app con l'endpoint Azure AD v2.0](quickstart-v2-register-an-app.md).
+Per registrare un'app Web, vedere [Registrare un'app con l'endpoint Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
 
 * Tenant singolo: se si crea un'applicazione solo per la propria organizzazione, è necessario registrarla nella directory aziendale tramite il portale di Azure.
 * Multi-tenant: se si crea un'applicazione che può essere usata da utenti esterni all'organizzazione, è necessario registrarla nella directory aziendale, ma anche nella directory di ogni organizzazione che userà l'applicazione. Per rendere disponibile l'applicazione nella propria directory, è possibile includere un processo di accesso per i clienti che permetta loro di concedere il consenso all'applicazione. Al momento dell'iscrizione all'applicazione, viene visualizzata una finestra di dialogo in cui sono indicate le autorizzazioni richieste dall'applicazione e quindi viene presentata l'opzione per il consenso. A seconda delle autorizzazioni richieste, è possibile che il consenso debba essere fornito da un amministratore dell'altra organizzazione. Quando l'utente o l'amministratore acconsente, l'applicazione viene registrata nella directory.

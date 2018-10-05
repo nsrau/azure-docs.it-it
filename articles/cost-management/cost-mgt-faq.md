@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 2126875a18d4a6581629ea1c8362236242a666a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4984332e1a149ae838bc76a24abec90364f5699e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961026"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221979"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Domande frequenti su Cloudyn
 
@@ -145,7 +145,7 @@ I report di costo mostrano le fluttuazioni dei costi, ogni volta che i provider 
 
 Nel corso del mese, tutti i file di fatturazione inviati dal provider di servizi cloud sono una stima dei costi giornalieri. In alcuni casi, i dati vengono aggiornati di frequente; occasionalmente, più volte al giorno. Gli aggiornamenti sono più frequenti con AWS rispetto ad Azure. I costi totali dovrebbero rimanere stabili quando il calcolo della fatturazione per il mese precedente è stato completato e si riceve il file di fatturazione finale. In genere, entro il 10 del mese.
 
-Le modifiche si verificano quando si ricevono le regolazioni di costi da provider di servizi cloud. La ricezione di crediti ne è un esempio. Le modifiche possono verificarsi mesi dopo che il mese rilevante è stato chiuso. Le modifiche vengono visualizzate ogni volta che un nuovo calcolo viene effettuato dal provider di servizi cloud. Cloudyn aggiorna i dati cronologici per assicurarsi che tutte le modifiche vengano ricalcolate. Verifica inoltre che i costi venano visualizzati in modo accurato nei report.
+Le modifiche si verificano quando si ricevono le regolazioni di costi da provider di servizi cloud. La ricezione di crediti ne è un esempio. Le modifiche possono verificarsi mesi dopo che il mese rilevante è stato chiuso. Le modifiche vengono visualizzate ogni volta che un nuovo calcolo viene effettuato dal provider di servizi cloud. Cloudyn aggiorna i dati cronologici per assicurarsi che tutte le modifiche vengano ricalcolate. Verifica inoltre che i costi vengano visualizzati in modo accurato nei report.
 
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>Come può un CSP diretto configurare l'accesso a Cloudyn per partner o clienti CSP indiretti?
 

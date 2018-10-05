@@ -6,14 +6,14 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 9/24/2018
+ms.date: 9/26/2018
 ms.author: victorh
-ms.openlocfilehash: 2961f6cc8607ba7ec670b297a1858bf433c3ec89
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1527ed9c0a83577da9a231cb91a93ad7f182061c
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960788"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392696"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -68,7 +68,9 @@ Il Firewall di Azure presenta i problemi noti seguenti:
 |Il peering globale con hub e spoke non funziona|Il modello hub e spoke, in cui l'hub e il firewall vengono distribuiti in un'unica area di Azure con gli spoke in un'altra area di Azure connessi all'hub tramite il peering reti virtuali globale, non è supportato.|Per altre informazioni, vedere [Creare, modificare o eliminare un peering reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
 Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.|
 |Destination NAT (DNAT) non funziona per la porta 80 e 22.|Il campo Porta di destinazione nella raccolta di regole NAT non può includere la porta 80 o la porta 22.|Stiamo lavorando per risolvere questo problema nel prossimo futuro. Nel frattempo, è possibile usare qualsiasi altra porta come porta di destinazione nelle regole NAT. La porta 80 o 22 è ancora utilizzabile come porta convertita (ad esempio, è possibile mappare ip:81 pubblica a ip:80 privata).|
-|
+|Supporto di PowerShell e CLI mancante per ICMP|Azure PowerShell e CLI non supportano ICMP come protocollo valido nelle regole di rete.|È comunque possibile usare ICMP come protocollo tramite il portale e l'API REST. A breve ICMP sarà aggiunto anche in PowerShell e CLI.|
+|I tag FQDN richiedono l'impostazione di protocol:port|Le regole di applicazione con tag FQDN richiedono la definizione port:protocol.|È possibile usare **https** come valore port:protocol. A breve questo campo sarà reso facoltativo quando vengono usati i tag FQDN.|
+|Lo spostamento di un firewall in un altro gruppo di risorse o sottoscrizione non è supportato.|Lo spostamento di un firewall in un altro gruppo di risorse o sottoscrizione non è supportato.|Il supporto di questa funzionalità è previsto per il futuro. Per spostare un firewall in un altro gruppo di risorse o sottoscrizione, è necessario eliminare l'istanza corrente e ricrearla nel nuovo gruppo di risorse o sottoscrizione.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

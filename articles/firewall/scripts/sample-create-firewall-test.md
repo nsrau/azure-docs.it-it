@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 23f10280cd34927e2e74cb7c5001850bedc6dd35
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63b34b6ddc1809031dc66fb3e41fa4a22d9f4a03
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967541"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47182791"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Creare un ambiente di test di Firewall di Azure
 
@@ -25,7 +25,7 @@ Viene creata una route definita dall'utente che punta al traffico di rete da Ser
 
 È possibile eseguire lo script da Azure [Cloud Shell](https://shell.azure.com/powershell) o da un'installazione di PowerShell locale. 
 
-Se si esegue PowerShell in locale, per questo script è necessaria la versione più recente del modulo AzureRM PowerShell. Per trovare la versione installata, eseguire `Get-Module -ListAvailable AzureRM`. 
+Se si esegue PowerShell in locale, per questo script è necessaria la versione più recente del modulo AzureRM PowerShell (6.9.0 o successiva). Per trovare la versione installata, eseguire `Get-Module -ListAvailable AzureRM`. 
 
 È possibile usare `PowerShellGet` se è necessario eseguire l'aggiornamento, che è incorporato in Windows 10 e Windows Server 2016.
 
@@ -70,10 +70,10 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, una rete v
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Crea una configurazione di VM. Questa configurazione include informazioni quali il nome della VM, il sistema operativo e le credenziali amministrative. La configurazione viene usata durante la creazione della VM. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Creare una macchina virtuale. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
-|[New-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewall.md)| Crea un nuovo firewall di Azure.|
-|[Get-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Get-AzureRmFirewall.md)|Recupera un oggetto Firewall di Azure.|
-|[New-AzureRmFirewallApplicationRule](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/New-AzureRmFirewallApplicationRule.md)|Crea una nuova regola di applicazione di Firewall di Azure.|
-|[Set-AzureRmFirewall](https://github.com/Azure/azure-powershell/blob/Networking-AzureFirewall/src/ResourceManager/Network/Commands.Network/help/Set-AzureRmFirewall.md)|Esegue il commit delle modifiche nell'oggetto Firewall di Azure.|
+|[New-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewall?view=azurermps-6.9.0)| Crea un nuovo firewall di Azure.|
+|[Get-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermfirewall?view=azurermps-6.9.0)|Recupera un oggetto Firewall di Azure.|
+|[New-AzureRmFirewallApplicationRule](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermfirewallapplicationrule?view=azurermps-6.9.0)|Crea una nuova regola di applicazione di Firewall di Azure.|
+|[Set-AzureRmFirewall](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermfirewall?view=azurermps-6.9.0)|Esegue il commit delle modifiche nell'oggetto Firewall di Azure.|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -1,37 +1,37 @@
 ---
 title: Usare il Server cronologia Spark esteso per eseguire il debug e la diagnosi di applicazioni Spark - Azure HDInsight
-description: Usare il Server cronologia Spark esteso per eseguire il debug e la diagnosi di applicazioni Spark - Azure HDInsight.
+description: Usare il Server cronologia Spark esteso per il debug e la diagnosi di applicazioni Spark - Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/12/2018
-ms.openlocfilehash: df196286297c7f8961e58d2196554b00d0281c18
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 09/14/2018
+ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622338"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47042364"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usare il Server cronologia Spark esteso per eseguire il debug e la diagnosi di applicazioni Spark
+# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Usare il Server cronologia Spark esteso per il debug e la diagnosi di applicazioni Spark
 
-Questo articolo illustra come usare il Server cronologia Spark esteso per eseguire il debug e la diagnosi di applicazioni Spark completate e in esecuzione. L'estensione include attualmente una scheda dati e una scheda del grafico. Nella scheda dati, gli utenti possono controllare i dati di input e output del processo Spark. Nella scheda del grafico, gli utenti possono controllare il flusso di dati e riprodurre il grafico del processo.
+Questo articolo illustra come usare il Server cronologia Spark esteso per il debug e la diagnosi di applicazioni Spark completate e in esecuzione. L'estensione include una scheda dati, una scheda del grafo e una scheda diagnosi. Nella scheda **Dati** gli utenti possono controllare i dati di input e output del processo Spark. Nella scheda **Grafo** gli utenti possono controllare il flusso di dati e riprodurre il grafico del processo. Nella scheda **Diagnosi** l'utente può fare riferimento ad **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor).
 
-## <a name="open-the-spark-history-server"></a>Aprire il Server cronologia Spark
+## <a name="get-access-to-spark-history-server"></a>Ottenere l'accesso al Server cronologia Spark
 
 Server cronologia Spark è l'interfaccia utente Web per le applicazioni Spark completate e in esecuzione. 
 
-### <a name="to-open-the-spark-history-server-web-ui-from-azure-portal"></a>Per aprire l'interfaccia utente Web Server cronologia Spark dal portale di Azure
+### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>Aprire l'interfaccia utente Web di Server cronologia Spark dal portale di Azure
 
 1. Nel [portale di Azure](https://portal.azure.com/) aprire il cluster Spark. Per altre informazioni, vedere [Elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. In **Collegamenti rapidi** fare clic su **Dashboard cluster** e quindi su **Server cronologia Spark**. Quando richiesto, immettere le credenziali di amministratore per il cluster di Spark. 
 
     ![Server cronologia Spark](./media/apache-azure-spark-history-server/launch-history-server.png "Server cronologia Spark")
 
-### <a name="to-open-the-spark-history-server-web-ui-by-url"></a>Per aprire l'interfaccia utente Web Server cronologia Spark dall'URL
+### <a name="open-the-spark-history-server-web-ui-by-url"></a>Aprire l'interfaccia utente Web di Server cronologia Spark dall'URL
 Aprire il Server cronologia Spark passando all'URL seguente, sostituendo <ClusterName> con il nome del cluster Spark del cliente.
 
    ```
@@ -43,7 +43,7 @@ L'interfaccia utente Web Server cronologia Spark è simile all'immagine seguente
 ![Server cronologia Spark in HDInsight](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
 
-## <a name="open-the-data-tab-from-spark-history-server"></a>Aprire la scheda dati dal Server cronologia Spark
+## <a name="data-tab-in-spark-history-server"></a>Scheda dati nel Server cronologia Spark
 Selezionare l'ID di processo, quindi fare clic su **Data** (Dati) nel menu degli strumenti per ottenere la visualizzazione dati.
 
 + Controllare **Inputs** (Input), **Outputs** (Output) e **Table Operations** (Operazioni tabella) selezionando le schede separatamente.
@@ -87,7 +87,7 @@ Selezionare l'ID di processo, quindi fare clic su **Data** (Dati) nel menu degli
     ![Feedback nella scheda grafico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="open-the-graph-tab-from-spark-history-server"></a>Aprire la scheda del grafico dal Server cronologia Spark
+## <a name="graph-tab-in-spark-history-server"></a>Scheda del grafo nel Server cronologia Spark
 Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu degli strumenti per ottenere la visualizzazione del grafico del processo.
 
 + Controllare la panoramica del processo tramite il grafico del processo generato. 
@@ -108,16 +108,19 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
 
     + Il verde indica l'esito positivo: il processo è stato completato correttamente.
     + L'arancione indica i tentativi ripetuti: istanze di attività non riuscite, ma che non influiscono sul risultato finale del processo. Queste attività avevano istanze duplicate o ripetute che potrebbero essere completate in un secondo momento.
-    + Il rosso indica l'esito negativo: l'attività non è stata completata.
     + Il blu indica lo stato di esecuzione: l'attività è in esecuzione.
-    + Il bianco indica un processo ignorato o in attesa: l'attività è in attesa di esecuzione o la fase è stata ignorata.
+    + Il bianco indica un processo in attesa o ignorato: l'attività è in attesa di esecuzione o la fase è stata ignorata.
+    + Il rosso indica l'esito negativo: l'attività non è stata completata.
 
     ![Esempio di colore del grafico, in esecuzione](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
+    La fase ignorata viene visualizzata in bianco.
+    ![Esempio di colore del grafo, ignorato](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+
     ![Esempio di colore del grafico, non riuscito](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
     > [!NOTE]
-    > È possibile riprodurre qualsiasi processo. Quando un processo non ha fasi o non è stato completato, la riproduzione non è supportata.
+    > È possibile riprodurre qualsiasi processo. Per un processo non completato, la riproduzione non è supportata.
 
 
 + Usare la rotellina del mouse per ingrandire/ridurre il grafico del processo o fare clic su **Zoom to fit** (Adatta alla finestra) per adattarlo alle dimensioni dello schermo.
@@ -127,6 +130,12 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
 + Passare il puntatore sul nodo del grafico per visualizzare la descrizione comando quando sono presenti attività non riuscite e fare clic sulla fase per aprire la pagina della fase.
 
     ![Descrizione comando del grafico](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+
++ Nella scheda del grafo del processo per le fasi verranno visualizzate una descrizione comando e una piccola icona se hanno attività che soddisfano le condizioni seguenti:
+    + Asimmetria dei dati: dimensioni dei dati letti > dimensioni medie dei dati letti di tutte le attività in questa fase * 2 e dimensioni dei dati letti > 10 MB
+    + Sfasamento dell'ora: tempo di esecuzione > tempo di esecuzione medio di tutte le attività in questa fase * 2 e tempo di esecuzione > 2 min
+
+    ![Icona dello sfasamento nel grafo](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + Il nodo del grafico del processo visualizzerà le informazioni seguenti per ogni fase:
     + ID.
@@ -147,6 +156,47 @@ Selezionare l'ID di processo, quindi fare clic su **Graph** (Grafico)nel menu de
 + Per inviare feedback sui problemi, fare clic su **Provide us feedback** (Invia feedback).
 
     ![Feedback nella scheda grafico](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+
+
+## <a name="diagnosis-tab-in-spark-history-server"></a>Scheda della diagnosi nel Server cronologia Spark
+Selezionare l'ID di processo, quindi fare clic su **Diagnosi** nel menu degli strumenti per ottenere la visualizzazione della diagnosi del processo. La scheda della diagnosi include **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor).
+    
++ Controllare **Asimmetria dei dati**, **Sfasamento dell'ora** ed **Executor Usage Analysis** (Analisi utilizzo executor) selezionando le rispettive schede.
+
+    ![Schede della diagnosi](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+
+### <a name="data-skew"></a>Asimmetria dei dati
+Fare clic sulla scheda **Asimmetria dei dati** per visualizzare le attività asimmetriche corrispondenti in base ai parametri specificati. 
+
++ **Specificare i parametri**: la prima sezione visualizza i parametri usati per rilevare l'asimmetria dei dati. La regola predefinita è: la quantità di dati attività letti è superiore al triplo della quantità media di dati attività letti e la quantità di dati attività letti è superiore a 10 MB. Per definire una regola personalizzata per le attività asimmetriche, è possibile scegliere i parametri e le sezioni **Fase asimmetrica** e **Skew Char** (Grafico asimmetrico) verranno aggiornate di conseguenza.
+
++ **Fase asimmetrica**: la seconda sezione visualizza le fasi con attività asimmetriche che soddisfano i criteri specificati sopra. Se in una fase sono presenti più attività asimmetriche, la tabella in Fase asimmetrica visualizza l'attività più asimmetrica (ad esempio, la quantità di dati maggiore per l'asimmetria dei dati).
+
+    ![Sezione 2 di Asimmetria dei dati](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+
++ **Skew Chart** (Grafico asimmetrico): quando una riga della tabella in Fase asimmetrica viene selezionata, il grafico asimmetrico visualizza altri dettagli sulle distribuzioni dell'attività in base alla quantità di dati letti e al tempo di esecuzione. Le attività asimmetriche vengono contrassegnate in rosso, quelle normali in blu. Per motivi di prestazioni, il grafico visualizza solo un massimo di 100 attività di esempio. Nel pannello in basso a destra vengono visualizzati i dettagli dell'attività.
+
+    ![Sezione 3 di Asimmetria dei dati](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+
+### <a name="time-skew"></a>Sfasamento dell'ora
+La scheda **Sfasamento dell'ora** visualizza le attività asimmetriche in base al tempo di esecuzione delle attività. 
+
++ **Specificare i parametri**: la prima sezione visualizza i parametri usati per rilevare lo sfasamento dell'ora. I criteri predefiniti per rilevare lo sfasamento dell'ora sono: il tempo di esecuzione dell'attività è superiore al triplo del tempo di esecuzione medio e il tempo di esecuzione dell'attività è superiore a 30 secondi. È possibile modificare i parametri in base alle esigenze. **Fase asimmetrica** e **Skew Chart** (Grafico asimmetrico) visualizzano le informazioni corrispondenti sulle fasi e sulle attività, come la scheda **Asimmetria dei dati** precedente.
+
++ Fare clic su **Sfasamento dell'ora** per visualizzare il risultato filtrato nella sezione **Fase asimmetrica** in base ai parametri impostati nella sezione **Specificare i parametri**. Fare clic su un elemento nella sezione **Fase asimmetrica** per creare una bozza del grafico corrispondente nella sezione 3 e visualizzare i dettagli dell'attività nel pannello in basso a destra.
+
+    ![Sezione 2 di Sfasamento dell'ora](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+
+### <a name="executor-usage-analysis"></a>Executor Usage Analysis (Analisi utilizzo executor)
+Il grafico Executor Usage (Utilizzo executor) visualizza l'allocazione di executor effettiva del processo Spark e lo stato di esecuzione.  
+
++ Fare clic su **Executor Usage Analysis** (Analisi utilizzo executor) per tracciare quattro tipi di curve sull'utilizzo degli executor, tra cui **Allocated Executors** (Executor allocati), **Running Executors** (Executor in esecuzione), **idle Executors** (Executor inattivi) e **Max Executor Instances** (Numero massimo di istanze di executor). Per quanto riguarda gli executor allocati, ogni evento di aggiunta o di rimozione di un executor aumenterà o diminuirà il numero di executor allocati. Per un ulteriore confronto, è possibile controllare la sequenza temporale di eventi nella scheda "Processi".
+
+    ![Scheda degli executor](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+
++ Fare clic sull'icona del colore per selezionare o deselezionare il contenuto corrispondente in tutte le bozze.
+
+    ![Selezionare il grafico](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
 
 ## <a name="faq"></a>Domande frequenti
@@ -247,7 +297,7 @@ Se si vuole eseguire l'aggiornamento tramite hotfix, usare lo script seguente pe
 
 **Esempio**:
 
-`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.tgz` 
+`upgrade_spark_enhancement.sh https://${account_name}.blob.core.windows.net/packages/jars/spark-enhancement-${version}.jar` 
 
 **Per usare il file Bash dal portale di Azure**
 
@@ -268,7 +318,7 @@ Se si vuole eseguire l'aggiornamento tramite hotfix, usare lo script seguente pe
     ![Caricamento log o hotfix di aggiornamento](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
-## <a name="known-issue"></a>Problema noto
+## <a name="known-issues"></a>Problemi noti
 
 1.  Attualmente la procedura funziona solo per i cluster Spark 2.3.
 
