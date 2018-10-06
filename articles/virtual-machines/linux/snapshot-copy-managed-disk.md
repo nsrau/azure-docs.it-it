@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 224f017decc3f48a23cb3fbf14f9a4e744bfaded
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9fbbbb4f73b5295b648008878c8145fe926fbaad
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007006"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974392"
 ---
 # <a name="create-a-snapshot"></a>Creare uno snapshot 
 
@@ -26,7 +26,7 @@ Fare uno snapshot di un sistema operativo o di un disco dati per il backup o per
 
 ## <a name="use-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure 
 
-Nell'esempio seguente è necessario usare [Cloud Shell](https://shell.azure.com/bash) o avere installato Azure CLI 2.0. Eseguire **az --version** per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
+Nell'esempio seguente è necessario usare [Cloud Shell](https://shell.azure.com/bash) o aver installato l'interfaccia della riga di comando di Azure.
 
 La procedura seguente illustra come fare uno snapshot usando il comando **az snapshot create** con il parametro **--source-disk**. Nell'esempio seguente si presuppone che esista una macchina virtuale denominata *myVM* nel gruppo di risorse *myResourceGroup*.
 
@@ -69,7 +69,7 @@ az snapshot list \
 5. Selezionare un gruppo di risorse esistente o specificare il nome di un nuovo gruppo. 
 7. Per **Disco di origine**, selezionare il disco gestito di cui creare lo snapshot.
 8. Selezionare il **tipo di account** da usare per archiviare lo snapshot. Usare il tipo **Standard HDD** a meno che non sia necessario archiviare lo snapshot su un'unità SSD a prestazioni elevate.
-9. Fare clic su **Crea**.
+9. Fare clic su **Create**(Crea).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

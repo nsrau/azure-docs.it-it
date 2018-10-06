@@ -4,17 +4,17 @@ description: Diagnosticare e risolvere i problemi di un cluster HDInsight lento 
 services: hdinsight
 author: ashishthaps
 ms.author: ashishth
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: fd8b9348d923bce321e335468b846bd2df001309
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600779"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46950716"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Risolvere i problemi di un cluster HDInsight lento o in errore
 
@@ -57,12 +57,13 @@ Queste informazioni sono disponibili nel portale di Azure:
 
 ![Informazioni del portale di Azure su HDInsight](./media/hdinsight-troubleshoot-failed-cluster/portal.png)
 
-È possibile anche usare l'interfaccia della riga di comando di Azure:
+È possibile usare anche l'interfaccia della riga di comando classica di Azure:
 
 ```
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 ```
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Un'altra opzione è usare PowerShell. Per altre informazioni, vedere [Gestire cluster Hadoop in HDInsight tramite Azure PowerShell](hdinsight-administer-use-powershell.md).
 
@@ -100,7 +101,7 @@ Controllare la versione del cluster con la versione di HDInsight più recente. O
 
 #### <a name="restart-your-cluster-services"></a>Riavviare i servizi del cluster
 
-Se si verificano rallentamenti nel cluster, considerare la possibilità di riavviare i servizi tramite l'interfaccia utente di Ambari o l'interfaccia della riga di comando di Azure. È possibile che nel cluster si stiano verificando errori temporanei e il riavvio è il modo più veloce per stabilizzare l'ambiente e, probabilmente, per migliorare le prestazioni.
+Se si verificano rallentamenti nel cluster, considerare la possibilità di riavviare i servizi tramite l'interfaccia utente di Ambari o l'interfaccia della riga di comando classica di Azure. È possibile che nel cluster si stiano verificando errori temporanei e il riavvio è il modo più veloce per stabilizzare l'ambiente e, probabilmente, per migliorare le prestazioni.
 
 ## <a name="step-3-view-your-clusters-health"></a>Passaggio 3: Visualizzare l'integrità del cluster
 

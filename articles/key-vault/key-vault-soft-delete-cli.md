@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bryanla
-ms.openlocfilehash: 0554e2e184ce3f3140d3b9e90eb33c20774ed789
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 73ece43c26c3957a1b7dba02a673099f7d35e8d6
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303005"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46951781"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -25,9 +25,9 @@ La funzionalità di eliminazione temporanea di Azure Key Vault consente il recup
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Interfaccia della riga di comando di Azure 2.0: se non è ancora installata nell'ambiente di lavoro, vedere [Gestire Key Vault tramite l'interfaccia della riga di comando 2.0](key-vault-manage-with-cli2.md).
+- Interfaccia della riga di comando di Azure: se non è ancora installata nell'ambiente di lavoro, vedere [Gestire Key Vault tramite l'interfaccia della riga di comando di Azure](key-vault-manage-with-cli2.md).
 
-Per informazioni sui comandi dell'interfaccia della riga di comando relativi a Key Vault, vedere [Azure CLI 2.0 Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault) (Documentazione sull'interfaccia della riga di comando 2.0 di Azure per Key Vault).
+Per informazioni sui comandi dell'interfaccia della riga di comando relativi a Key Vault, vedere la [Documentazione sull'interfaccia della riga di comando di Azure per Key Vault](https://docs.microsoft.com/cli/azure/keyvault).
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 

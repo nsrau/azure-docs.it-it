@@ -1,31 +1,28 @@
 ---
-title: Creare cluster Hadoop con una riga di comando - Azure HDInsight
-description: Informazioni su come creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure 1.0.
+title: Creare i cluster Hadoop con l'interfaccia della riga di comando classica di Azure - Azure HDInsight
+description: Informazioni su come creare cluster HDInsight tramite l'interfaccia multipiattaforma della riga di comando classica di Azure.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 7185e492a2cc42835ce1fa7043a963c7d5d0afb4
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 84b352fea0c5b9c98cd3b4e814e448cf8b706402
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594798"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992814"
 ---
-# <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
+# <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-La procedura presentata in questo documento illustra come creare un cluster HDInsight 3.5 usando l'interfaccia della riga di comando di Azure 1.0.
+La procedura presentata in questo documento illustra come creare un cluster HDInsight 3.5 usando l'interfaccia della riga di comando classica di Azure.
 
-> [!IMPORTANT]
-> Questo argomento illustra come usare l'interfaccia della riga di comando di Azure 1.0 per creare un cluster HDInsight. Questa versione dell'interfaccia della riga di comando è deprecata e nella versione 2.0 non è stato aggiunto il supporto per la creazione di cluster HDInsight.
->
-> Per creare e gestire cluster HDInsight, è possibile usare anche Azure PowerShell. Per altre informazioni, vedere il documento [Create HDInsight clusters using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) (Creare cluster HDInsight tramite Azure PowerShell).
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,14 +30,11 @@ La procedura presentata in questo documento illustra come creare un cluster HDIn
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Interfaccia della riga di comando di Azure**. I passaggi descritti nel presente documento sono stati testati con la versione dell'interfaccia della riga di comando di Azure 0.10.14.
-
-    > [!IMPORTANT]
-    > La versione 1.0 dell'interfaccia della riga di comando di Azure è deprecata e nella versione 2.0 non è stato aggiunto il supporto per la creazione di cluster HDInsight.
+* **Interfaccia della riga di comando classica di Azure**. I passaggi descritti nel presente documento sono stati testati con la versione 0.10.14 dell'interfaccia della riga di comando classica di Azure.
 
 ## <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
 
-Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli) e connettersi alla sottoscrizione usando il metodo **login** .
+Seguire i passaggi descritti in [Connettersi a una sottoscrizione Azure dall'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli) e connettersi alla sottoscrizione usando il metodo **login**.
 
 ## <a name="create-a-cluster"></a>Creare un cluster
 
@@ -50,7 +44,7 @@ I passaggi seguenti devono essere eseguiti dalla riga di comando, ad esempio Pow
 
         azure login
 
-    Occorre specificare il nome e la password. Se si dispone di più sottoscrizioni di Azure, usare `azure account set <subscriptionname>` per impostare la sottoscrizione utilizzata dai comandi dell'interfaccia della riga di comando di Azure.
+    Occorre specificare il nome e la password. Se si dispone di più sottoscrizioni di Azure, usare `azure account set <subscriptionname>` per impostare la sottoscrizione utilizzata dai comandi dell'interfaccia della riga di comando classica di Azure.
 
 2. Passare alla modalità Gestione risorse di Azure usando il comando seguente:
 
@@ -124,7 +118,7 @@ Se si verificano problemi di creazione dei cluster HDInsight, vedere i [requisit
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver creato un cluster HDInsight tramite l'interfaccia della riga di comando di Azure, usare le informazioni seguenti per acquisire familiarità con il cluster:
+Dopo aver correttamente creato un cluster HDInsight tramite l'interfaccia della riga di comando di Azure, usare le informazioni seguenti per acquisire familiarità con il cluster:
 
 ### <a name="hadoop-clusters"></a>Cluster Hadoop
 

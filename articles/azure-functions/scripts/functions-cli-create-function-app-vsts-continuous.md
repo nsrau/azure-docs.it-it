@@ -1,41 +1,41 @@
 ---
-title: Creare una funzione in Azure distribuita da Visual Studio Team Services | Microsoft Docs
-description: Creare un'app per le funzioni e distribuire codice di funzione da Visual Studio Team Services
+title: Creare una funzione in Azure distribuita da Azure DevOps | Documentazione Microsoft
+description: Creare un'app per le funzioni e distribuire il codice di funzione da Azure DevOps
 services: functions
 keywords: ''
-author: syntaxc4
+author: ggailey777
 ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
-ms.openlocfilehash: 1b54cfebd3ae36fc8025aeb4ea9c91d336bc5343
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fdc2f50be035c3fe4039c48c09436215d2f5bcc3
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988953"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46956609"
 ---
-# <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>Creare un'app per le funzioni e distribuire codice di funzione da Visual Studio Team Services
+# <a name="create-a-function-app-and-deploy-function-code-from-azure-devops"></a>Creare un'app per le funzioni e distribuire il codice di funzione da Azure DevOps
 
-Questo argomento illustra come usare Funzioni di Azure per creare un'app per le funzioni [senza server](https://azure.microsoft.com/overview/serverless-computing/) che usa il [piano a consumo](../functions-scale.md#consumption-plan). L'app per le funzioni, che è un contenitore per le funzioni, viene distribuita in modo continuo da un repository di Visual Studio Team Services (VSTS). 
+Questo argomento illustra come usare Funzioni di Azure per creare un'app per le funzioni [senza server](https://azure.microsoft.com/overview/serverless-computing/) che usa il [piano a consumo](../functions-scale.md#consumption-plan). L'app per le funzioni, che rappresenta un contenitore per le funzioni, viene distribuita in modo continuo da un repository di Azure DevOps. 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 Per completare questo argomento sono necessari:
 
-* Un repository di Visual Studio Team Services che contiene il progetto dell'app per le funzioni e per cui si dispone di autorizzazioni amministrative.
-* Un [token di accesso personale](https://docs.microsoft.com/vsts/accounts/use-personal-access-tokens-to-authenticate) per accedere al repository di Visual Studio Team Services.
+* Un repository di Azure DevOps che contiene il progetto dell'app per le funzioni e per cui si dispone delle autorizzazioni amministrative.
+* Un [token di accesso personale](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate) per accedere al repository di Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario installare e usare la versione 2.0 o una versione successiva. Per determinare la versione dell'interfaccia della riga di comando di Azure, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario installare e usare la versione 2.0 o una versione successiva. Per determinare la versione dell'interfaccia della riga di comando di Azure, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 ## <a name="sample-script"></a>Script di esempio
 
-Questo esempio crea un'app per le funzioni di Azure e distribuisce il codice di funzione da Visual Studio Team Services.
+Questo esempio crea un'app per le funzioni di Azure e distribuisce il codice di funzione da Azure DevOps.
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/deploy-function-app-with-function-vsts/deploy-function-app-with-function-vsts.sh?highlight=3-4 "Azure Service")]
 
