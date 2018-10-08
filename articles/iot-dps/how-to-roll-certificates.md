@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142410"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976755"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Come rinnovare i certificati X.509 dei dispositivi
 
@@ -41,7 +41,7 @@ I certificati di un dispositivo devono sempre essere archiviati in un luogo sicu
 
 Se si sono ottenuti i certificati da una terza parte, è necessario verificare in che modo è previsto il rinnovo dei certificati. Il processo può essere incluso in un accordo con la terza parte oppure può essere offerto come servizio separato. 
 
-Se si gestiscono i certificati dei dispositivi in modo autonomo, sarà necessario creare una propria pipeline per l'aggiornamento dei certificati. Assicurarsi che i certificati foglia, sia vecchi che nuovi, abbiano lo stesso nome comune (CN). Con lo stesso CN, il dispositivo può procedere a un nuovo provisioning senza creare un record di registrazione duplicato.
+Se si gestiscono i certificati dei dispositivi in modo autonomo, sarà necessario creare una propria pipeline per l'aggiornamento dei certificati. Assicurarsi che i certificati foglia, sia vecchi che nuovi, abbiano lo stesso nome comune (CN). Con lo stesso CN, il dispositivo può procedere a un nuovo provisioning senza creare un record di registrazione duplicato. 
 
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Rinnovare il certificato nell'hub IoT
@@ -78,10 +78,13 @@ Se si rinnovano i certificati in risposta a una violazione della sicurezza, è c
 
     ![Gestire le registrazioni singole](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
-3. Dopo che il certificato compromesso è stato rimosso dal servizio di provisioning, passare all'hub IoT e rimuovere la registrazione del dispositivo associata al certificato compromesso.     
+3. Una volta eliminato il certificato compromesso dal servizio di provisioning, il certificato può essere ancora usato per stabilire le connessioni dei dispositivi agli hub loT, purchè esista una registrazione del dispositivo. È possibile risolvere questo problema in due modi: 
+
+    Il primo consiste nel passare manualmente all'hub IoT ed eliminare immediatamente la registrazione del dispositivo associata al certificato compromesso. Quando il dispositivo esegue nuovamente il provisioning con un certificato aggiornato, viene creata una nuova registrazione del dispositivo.     
 
     ![Rimuovere la registrazione del dispositivo nell'hub IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
 
+    Il secondo consiste nell'usare il supporto reprovisioning per eseguire il reprovisioning del dispositivo allo stesso hub IoT. Questo approccio può essere usato per sostituire il certificato per la registrazione del dispositivo sull'hub loT. Per altre informazioni, vedere [Come effettuare il reprovisioning dei dispositivi](how-to-reprovision.md).
 
 ## <a name="individual-enrollments-and-certificate-expiration"></a>Registrazioni singole e scadenza del certificato
 
@@ -118,9 +121,14 @@ Per aggiornare una registrazione di gruppo in risposta a una violazione della si
 
     ![Selezionare il nuovo certificato della CA radice](./media/how-to-roll-certificates/select-new-root-cert.png)
 
-6. Dopo che il certificato compromesso è stato rimosso dal servizio di provisioning, passare all'hub IoT collegato contenente le registrazioni dei dispositivi compromesse e rimuovere le registrazioni associate al certificato compromesso.
+6. Una volta eliminato il certificato compromesso dal servizio di provisioning, il certificato può essere ancora usato per stabilire connessioni dei dispositivi agli hub loT, purchè esista una registrazione del dispositivo. È possibile risolvere questo problema in due modi: 
+
+    Il primo consiste nel passare manualmente all'hub IoT ed eliminare immediatamente la registrazione del dispositivo associata al certificato compromesso. Quando i dispositivi eseguono nuovamente il provisioning con i certificati aggiornati, viene quindi creata una nuova registrazione del dispositivo per ognuno di essi.     
 
     ![Rimuovere la registrazione del dispositivo nell'hub IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    Il secondo consiste nell'usare il supporto reprovisioning per eseguire il reprovisioning del dispositivo allo stesso hub IoT. Questo approccio può anche essere usato per sostituire i certificati per le registrazioni del dispositivo sull'hub loT. Per altre informazioni, vedere [Come effettuare il reprovisioning dei dispositivi](how-to-reprovision.md).
+
 
 
 #### <a name="update-compromised-intermediate-certificates"></a>Aggiornare i certificati intermedi compromessi
@@ -134,9 +142,13 @@ Per aggiornare una registrazione di gruppo in risposta a una violazione della si
     ![Gestire le registrazioni singole](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
-3. Dopo che il certificato compromesso è stato rimosso dal servizio di provisioning, passare all'hub IoT collegato contenente la registrazione del dispositivo e rimuovere la registrazione associata al certificato compromesso.
+3. Una volta eliminato il certificato compromesso dal servizio di provisioning, il certificato può essere ancora usato per stabilire connessioni dei dispositivi agli hub loT, purchè esista una registrazione del dispositivo. È possibile risolvere questo problema in due modi: 
+
+    Il primo consiste nel passare manualmente all'hub IoT ed eliminare immediatamente la registrazione del dispositivo associata al certificato compromesso. Quando i dispositivi eseguono nuovamente il provisioning con i certificati aggiornati, viene quindi creata una nuova registrazione del dispositivo per ognuno di essi.     
 
     ![Rimuovere la registrazione del dispositivo nell'hub IoT](./media/how-to-roll-certificates/remove-hub-device-registration.png)
+
+    Il secondo consiste nell'usare il supporto reprovisioning per eseguire il reprovisioning del dispositivo allo stesso hub IoT. Questo approccio può anche essere usato per sostituire i certificati per le registrazioni del dispositivo sull'hub loT. Per altre informazioni, vedere [Come effettuare il reprovisioning dei dispositivi](how-to-reprovision.md).
 
 
 ## <a name="enrollment-groups-and-certificate-expiration"></a>Gruppi di registrazione e scadenza del certificato

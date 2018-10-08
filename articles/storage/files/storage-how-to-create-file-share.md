@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 9ce0bc425836fffb59e804bdbd19f23cfc26c00e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ec952aa26d7bc6b185b425700080a4f474564b76
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527170"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46955810"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Creare una condivisione file in File di Azure
 È possibile creare condivisioni file di Azure usando il [portale di Azure](https://portal.azure.com/), i cmdlet di PowerShell per Archiviazione di Azure, le librerie client di archiviazione di Azure o l'API REST di Archiviazione di Azure. In questa esercitazione si apprenderà:
@@ -47,7 +47,7 @@ Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure P
 > [!Note]  
 > Si consiglia di scaricare e installare oppure aggiornare il modulo alla versione di Azure PowerShell più recente.
 
-1. **Creare un contesto per l'account di archiviazione e la chiave** Il contesto incapsula il nome dell'account di archiviazione e la chiave dell'account. Per istruzioni sulla copia della chiave dell'account dal [portale di Azure](https://portal.azure.com/), vedere [Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#view-and-copy-storage-access-keys).
+1. **Creare un contesto per l'account di archiviazione e la chiave** Il contesto incapsula il nome dell'account di archiviazione e la chiave dell'account. Per istruzioni sulla copia della chiave dell'account dal [portale di Azure](https://portal.azure.com/), vedere [Chiavi di accesso alle risorse di archiviazione](../common/storage-account-manage.md#access-keys).
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -64,7 +64,7 @@ Per prepararsi all'uso di PowerShell, scaricare e installare i cmdlet di Azure P
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>Creare una condivisione file tramite l'interfaccia della riga di comando
 1. **Per prepararsi a usare un'interfaccia della riga di comando, scaricare e installare l'interfaccia della riga di comando di Azure.**  
-    Vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) e [Introduzione all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
+    Vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) e [Introduzione all'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
 2. **Creare una stringa di connessione all'account di archiviazione in cui si vuole creare la condivisione.**  
     Sostituire ```<storage-account>``` e ```<resource_group>``` con il nome e il gruppo di risorse dell'account di archiviazione nell'esempio seguente:

@@ -8,14 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/26/2018
-ms.openlocfilehash: 659c33ec0e989003e68b5165fab70f50c607868c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591882"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46972182"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
+
+[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
 Informazioni su come usare HDInsight con [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). Il servizio Rete virtuale di Azure consente di implementare gli scenari seguenti:
 
@@ -70,7 +72,7 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
 
     HDInsight ospita più servizi, che usano porte diverse. Non bloccare il traffico indirizzato a queste porte. Per un elenco di porte da abilitare attraverso i firewall dell'appliance virtuale, vedere la sezione [Sicurezza](#security).
 
-    Per trovare la configurazione di sicurezza esistente, usare i comandi di Azure PowerShell o dell'interfaccia della riga di comando di Azure che seguono:
+    Per trovare la configurazione di sicurezza esistente, usare i comandi di Azure PowerShell o dell'interfaccia della riga di comando classica di Azure che seguono:
 
     * Gruppi di sicurezza di rete
 
@@ -107,7 +109,7 @@ Seguire la procedura in questa sezione per aggiungere un nuovo cluster HDInsight
 
     * [Creare cluster HDInsight tramite il portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Creare cluster HDInsight tramite Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-    * [Creare cluster HDInsight tramite l'interfaccia della riga di comando di Azure 1.0](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
+    * [Creare HDInsight usando l'interfaccia della riga di comando classica di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md)
     * [Creare cluster HDInsight tramite un modello Azure Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
   > [!IMPORTANT]
@@ -441,7 +443,7 @@ $vnet | Set-AzureRmVirtualNetwork
 > Add-AzureRmNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
 > ```
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+### <a name="azure-classic-cli"></a>Interfaccia della riga di comando classica di Azure
 
 Seguire questa procedura per creare una rete virtuale che limita il traffico in ingresso, ma consente il traffico dagli indirizzi IP richiesti da HDInsight.
 
@@ -510,7 +512,7 @@ Questo esempio si basa sui presupposti seguenti:
 
 Nel server DNS personalizzato nella rete virtuale:
 
-1. Usare Azure PowerShell o l'interfaccia della riga di comando di Azure per individuare il suffisso DNS della rete virtuale:
+1. Usare Azure PowerShell o l'interfaccia della riga di comando classica di Azure per individuare il suffisso DNS della rete virtuale:
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"
@@ -592,7 +594,7 @@ Questo esempio si basa sui presupposti seguenti:
 
 * Nei server DNS personalizzati è installato [Bind](https://www.isc.org/downloads/bind/).
 
-1. Usare Azure PowerShell o l'interfaccia della riga di comando di Azure per individuare il suffisso DNS di entrambe le reti virtuali:
+1. Usare Azure PowerShell o l'interfaccia della riga di comando classica di Azure per individuare il suffisso DNS di entrambe le reti virtuali:
 
     ```powershell
     $resourceGroupName = Read-Input -Prompt "Enter the resource group that contains the virtual network used with HDInsight"

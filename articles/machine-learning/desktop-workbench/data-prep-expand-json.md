@@ -7,19 +7,24 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: fa2a8710f4dc12fab1efe34aa11398b937878692
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 0a5cbca114b220686d656f93edb00a199e3cbeeb
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831752"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989822"
 ---
 # <a name="expand-json-transformation"></a>Trasformazione Espandi JSON
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 La trasformazione **Espandi JSON** consente agli utenti di espandere una colonna esistente che contiene il testo JSON valido in più colonne.
 
 ## <a name="how-to-perform-this-transformation"></a>Come eseguire questa trasformazione
@@ -33,7 +38,7 @@ Accanto alla colonna di origine vengono aggiunte le nuove colonne. Queste colonn
 
 ## <a name="examples"></a>Esempi
 
-La colonna di origine *Cliente* si espande in due colonne *Customer.Name* e *Customer.Phone*.
+La colonna di origine *Customer* si espande in due colonne *Customer.Name* e *Customer.Phone*.
 
 | Customer                                                | Customer.Name   | Customer.Phone |
 |---------------------------------------------------------|-----------------|----------------|

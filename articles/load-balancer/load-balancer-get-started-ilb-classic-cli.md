@@ -1,6 +1,6 @@
 ---
-title: Creare un servizio di bilanciamento del carico interno - Interfaccia della riga di comando di Azure (versione classica) | Documentazione Microsoft
-description: Informazioni su come creare un servizio di bilanciamento del carico interno usando l’interfaccia della riga di comando di Azure nel modello di distribuzione classica
+title: Creare un servizio di bilanciamento del carico interno - Interfaccia della riga di comando classica di Azure | Microsoft Docs
+description: Informazioni su come creare un servizio di bilanciamento del carico interno usando l’interfaccia della riga di comando classica di Azure nel modello di distribuzione classica
 services: load-balancer
 documentationcenter: na
 author: genlin
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 06/18/2018
 ms.author: genli
-ms.openlocfilehash: 8f0ac03ff7b749e47692d03d65502df0a19bb758
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fb8929b31fa4325b996ddf4c5ec48e4acb0b930a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539518"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966913"
 ---
-# <a name="get-started-creating-an-internal-load-balancer-classic-using-the-azure-cli"></a>Introduzione alla creazione di un servizio di bilanciamento del carico interno (classico) tramite l’interfaccia di riga di comando di Azure
+# <a name="get-started-creating-an-internal-load-balancer-using-the-azure-classic-cli"></a>Introduzione alla creazione di un servizio di bilanciamento del carico interno (classico) tramite l’interfaccia di riga di comando classica di Azure
 
 > [!div class="op_single_selector"]
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-classic-ps.md)
@@ -44,11 +44,11 @@ Per creare un set di bilanciamento del carico interno e i server che gli inviano
 2. Aggiungere gli endpoint corrispondenti alle macchine virtuali che possono ricevere il traffico in ingresso.
 3. Configurare i server per inviare il traffico all'indirizzo IP virtuale (indirizzo VIP) dell'istanza del bilanciamento del carico interno.
 
-## <a name="step-by-step-creating-an-internal-load-balancer-using-cli"></a>Procedura dettagliata sulla creazione di un servizio di bilanciamento del carico interno tramite CLI
+## <a name="step-by-step-creating-an-internal-load-balancer-using-classic-cli"></a>Procedura dettagliata sulla creazione di un servizio di bilanciamento del carico interno tramite CLI
 
 In questa guida viene illustrato come creare un servizio di bilanciamento del carico interno in base allo scenario precedente.
 
-1. Se l'interfaccia della riga di comando di Azure non è mai stata usata, vedere [Installare e configurare l'interfaccia della riga di comando di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
+1. Se è la prima volta che si usa l'interfaccia della riga di comando classica, vedere [Installare l'interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md) e seguire le istruzioni fino al punto in cui si selezionano l'account e la sottoscrizione di Azure.
 2. Eseguire il comando **azure config mode** per passare alla modalità classica, come illustrato di seguito.
 
     ```azurecli

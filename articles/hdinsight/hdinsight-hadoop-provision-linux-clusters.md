@@ -1,21 +1,21 @@
 ---
-title: Impostazione dei cluster per Hadoop, Spark, Kafka, HBase o ML Services - Azure HDInsight
-description: Imposta i cluster Hadoop, Kafka, Spark, HBase, ML Services o Storm per HDInsight da un browser, dall'interfaccia della riga di comando di Azure, da Azure PowerShell, REST o SDK.
+title: Impostazione del cluster per Hadoop, Spark, Kafka, HBase o R Server - Azure HDInsight
+description: Configurare i cluster Hadoop, Kafka, Spark, HBase, R Server o Storm per HDInsight da un browser, dall'interfaccia della riga di comando classica di Azure, da Azure PowerShell, REST o SDK.
 keywords: impostazione del cluster hadoop, impostazione del cluster kafka, impostazione del cluster spark, caratteristiche del cluster in hadoop
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.author: jasonh
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0cb3840c0ce40e062b4de0b7bbd5c9e324d6081f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/27/2018
+ms.openlocfilehash: 9eb99c26510475a5db51fa30f1634813b2c377f8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595842"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992848"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Configurare i cluster di HDInsight con Hadoop, Spark, Kafka e altro ancora
 
@@ -36,7 +36,7 @@ La tabella seguente illustra i diversi metodi che è possibile usare per configu
 | --- |:---:|:---:|:---:|:---:|
 | [portale di Azure](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Data factory di Azure](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [Interfaccia della riga di comando di Azure versione 1.0](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Interfaccia della riga di comando classica di Azure](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
@@ -140,10 +140,23 @@ Per ottenere un miglioramento delle prestazioni quando si usa Oozie, usare un me
 > [!IMPORTANT]
 > Non è possibile riutilizzare un metastore Oozie personalizzato. Per usare un metastore Oozie personalizzato, è necessario specificare un database SQL di Azure vuoto al momento della creazione del cluster HDInsight.
 
+
+## <a name="custom-cluster-setup"></a>Personalizzare la configurazione del cluster
+La configurazione di un cluster personalizzato si basa sulle impostazioni di Creazione rapida e aggiunge le opzioni seguenti:
+- [Applicazioni HDInsight](#install-hdinsight-applications-on-clusters)
+- [Dimensione del cluster](#configure-cluster-size)
+- [Azioni script](#advanced-settings-script-actions)
+- [Rete virtuale](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>Installare applicazioni HDInsight in cluster
+
+Un'applicazione HDInsight è un'applicazione che gli utenti possono installare in un cluster HDInsight basato su Linux. È possibile usare applicazioni fornite da Microsoft o terze parti o sviluppate in modo indipendente. Per altre informazioni, vedere [Installare applicazioni Hadoop di terze parti in Azure HDInsight](hdinsight-apps-install-applications.md).
+
+La maggior parte delle applicazioni HDInsight viene installata in un nodo perimetrale vuoto.  Un nodo perimetrale vuoto è una macchina virtuale Linux in cui sono installati e configurati gli stessi strumenti client del nodo head. Il nodo perimetrale può essere usato per accedere al cluster e per testare e ospitare le applicazioni client. Per altre informazioni, vedere [Usare nodi perimetrali vuoti in HDInsight](hdinsight-apps-use-edge-node.md).
+
 ## <a name="configure-cluster-size"></a>Configurare le dimensioni del cluster
 
 Verrà addebitato l'uso del nodo, purché il cluster esista. La fatturazione inizia con la creazione del cluster e si interrompe quando il cluster viene eliminato. I cluster non possono essere deallocati o messi in attesa.
-
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Numero di nodi per ogni tipo di cluster
 Ogni tipo di cluster ha il proprio numero di nodi, una terminologia specifica per i nodi e dimensioni predefinite delle macchine virtuali. Nella tabella seguente, il numero di nodi per ogni tipo di nodo è indicato tra parentesi.
@@ -191,20 +204,6 @@ Per scoprire quale valore usare per specificare le dimensioni di macchina virtua
 >
 
 Per altre informazioni, vedere [Dimensioni delle macchine virtuali in Azure](../virtual-machines/windows/sizes.md). Per informazioni sui prezzi delle varie dimensioni, vedere [Prezzi di HDInsight](https://azure.microsoft.com/pricing/details/hdinsight).   
-
-## <a name="custom-cluster-setup"></a>Personalizzare la configurazione del cluster
-La configurazione di un cluster personalizzato si basa sulle impostazioni di Creazione rapida e aggiunge le opzioni seguenti:
-- [Applicazioni HDInsight](#hdinsight-applications)
-- [Dimensione del cluster](#cluster-size)
-- Impostazioni avanzate
-  - [Azioni script](#customize-clusters-using-script-action)
-  - [Rete virtuale](#use-virtual-network)
-
-## <a name="install-hdinsight-applications-on-clusters"></a>Installare applicazioni HDInsight in cluster
-
-Un'applicazione HDInsight è un'applicazione che gli utenti possono installare in un cluster HDInsight basato su Linux. È possibile usare applicazioni fornite da Microsoft o terze parti o sviluppate in modo indipendente. Per altre informazioni, vedere [Installare applicazioni Hadoop di terze parti in Azure HDInsight](hdinsight-apps-install-applications.md).
-
-La maggior parte delle applicazioni HDInsight viene installata in un nodo perimetrale vuoto.  Un nodo perimetrale vuoto è una macchina virtuale Linux in cui sono installati e configurati gli stessi strumenti client del nodo head. Il nodo perimetrale può essere usato per accedere al cluster e per testare e ospitare le applicazioni client. Per altre informazioni, vedere [Usare nodi perimetrali vuoti in HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## <a name="advanced-settings-script-actions"></a>Impostazioni avanzate: azioni Script
 

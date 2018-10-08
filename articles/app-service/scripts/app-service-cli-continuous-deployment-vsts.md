@@ -1,6 +1,6 @@
 ---
-title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'App Web con distribuzione continua da Visual Studio Team Services | Microsoft Docs
-description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'App Web con distribuzione continua da Visual Studio Team Services
+title: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app Web con distribuzione continua da Azure DevOps Services | Microsoft Docs
+description: Esempio di script dell'interfaccia della riga di comando di Azure - Creare un'app Web con distribuzione continua da Azure DevOps Services | Microsoft Docs
 services: app-service\web
 documentationcenter: ''
 author: syntaxc4
@@ -16,30 +16,30 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e3748654f85e32edeb6f0c7478418068aeb4ae5f
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: fcb55c72f63a9964f04fba1e2b8abbaf39fe6b46
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282879"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46967040"
 ---
-# <a name="create-a-web-app-with-continuous-deployment-from-visual-studio-team-services"></a>Creare un'App Web con distribuzione continua da Visual Studio Team Services
+# <a name="create-a-web-app-with-continuous-deployment-from-azure-devops"></a>Creare un'app Web con distribuzione continua da Azure DevOps
 
-Questo script di esempio crea un'App Web nel servizio app con le relative risorse correlate e quindi configura la distribuzione continua da un repository di Visual Studio Team Services (VSTS). Per questo esempio è necessario:
+Questo esempio di script crea un'app Web nel servizio app con le relative risorse, quindi configura la distribuzione continua da un archivio di Azure DevOps. Per questo esempio è necessario:
 
-* Repository Visual Studio Team Services contenente il codice dell'applicazione, con le relative autorizzazioni di amministratore.
-* [Token di accesso personale](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate) per il proprio account Visual Studio Team Services.
+* Un archivio di Azure DevOps contenente il codice dell'applicazione, con le relative autorizzazioni di amministratore.
+* Un [token di accesso personale](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) per l'organizzazione Azure DevOps.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, è necessaria la versione 2.0 o successiva dell'interfaccia della riga di comando di Azure. Per trovare la versione, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Visual Studio Team Services")]
+[!code-azurecli-interactive[main](../../../cli_scripts/app-service/deploy-vsts-continuous/deploy-vsts-continuous.sh?highlight=3-4 "Create a web app with continuous deployment from Azure DevOps")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

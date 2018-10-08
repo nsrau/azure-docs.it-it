@@ -1,26 +1,29 @@
 ---
-title: 'Esercitazione: Gestire i costi tramite Gestione costi di Azure | Microsoft Docs'
+title: 'Esercitazione: Gestire i costi con Cloudyn di Azure | Microsoft Docs'
 description: In questa esercitazione si apprenderà come gestire i costi usando l'allocazione dei costi e i report di showback e chargeback.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 16f86eace9b5848f263e0d0772db441a123f21ae
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989636"
 ---
-# <a name="tutorial-manage-costs-by-using-azure-cost-management"></a>Esercitazione: Gestire i costi tramite Gestione costi di Azure
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>Esercitazione: Gestire i costi usando Cloudyn
 
-Per gestire i costi e generare i report di showback in Gestione costi di Azure, si esegue l'allocazione dei costi in base a tag. Il processo di allocazione dei costi assegna i costi alle risorse cloud utilizzate. I costi sono interamente allocati quando tutte le risorse sono suddivise in categorie con tag. Dopo aver allocato i costi, è possibile mostrare agli utenti le informazioni di showback o chargeback usando dashboard e report. Tuttavia, quando si inizia a usare Gestione costi, è possibile che molte risorse non siano contrassegnate né contrassegnabili con tag.
+Gestione dei costi e creazione di report di showback con Cloudyn allocando i costi in base a tag. Il processo di allocazione dei costi assegna i costi alle risorse cloud utilizzate. I costi sono interamente allocati quando tutte le risorse sono suddivise in categorie con tag. Dopo aver allocato i costi, è possibile mostrare agli utenti le informazioni di showback o chargeback usando dashboard e report. Tuttavia, quando si inizia a usare Cloudyn è possibile che molte risorse non siano contrassegnate né contrassegnabili con tag.
 
 Si supponga ad esempio di voler richiedere un rimborso per costi di progettazione. Sarà necessario essere in grado di dimostrare al team di progettazione che si deve ricevere un importo specifico, in base ai costi delle risorse. A tal fine, è possibile mostrare al team un report per tutte le risorse utilizzate che sono contrassegnate con il tag *progettazione*.
+
+In questo articolo, tag e categorie in alcuni casi sono sinonimi. Le categorie sono ampie raccolte e possono essere di vario tipo. Possono includere unità business, centri di costo, servizi Web o qualsiasi elemento che sia contrassegnato. I tag sono coppie nome/valore che consentono di classificare le risorse e di visualizzare e gestire informazioni di fatturazione consolidate, applicando lo stesso tag a più risorse e gruppi di risorse. Nelle versioni precedenti del portale di Azure, un *nome tag* è stato definito come una *chiave*. I tag vengono creati e archiviati da un singolo abbonamento di Azure. I tag in AWS sono costituiti da coppie chiave/valore. Poiché sia Azure che AWS usano il termine *chiave*, anche Cloudyn usa tale termine. Category Manager usa chiavi (nomi tag) per unire i tag.
 
 In questa esercitazione si apprenderà come:
 
@@ -33,13 +36,22 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>prerequisiti
 
 - È necessario disporre di un account Azure.
-- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Gestione costi di Azure.
+- È necessario disporre di una registrazione prova o di un abbonamento a pagamento per Cloudyn.
+- [È necessario attivare gli account non attivati](activate-subs-accounts.md) nel portale di Cloudyn.
+- Il [Monitoraggio a livello di guest](azure-vm-extended-metrics.md) deve essere abilitato nelle macchine virtuali.
+
 
 ## <a name="use-custom-tags-to-allocate-costs"></a>Usare tag personalizzati per allocare i costi
 
+Cloudyn ottiene i dati di tag gruppo di risorse di Azure e propaga automaticamente le informazioni sui tag alle risorse. Nell'allocazione dei costi, è possibile visualizzare i costi dai tag delle risorse.
+
+Usando il modello di allocazione dei costi, si definiscono le categorie (tag) che vengono applicati internamente alle risorse senza categoria (senza tag) per raggruppare i costi e definire le regole per gestire i costi senza tag. Le regole di allocazione dei costi sono istruzioni salvate in cui i costi di un servizio sono distribuiti a un altro servizio. In seguito, tali risorse mostrano quindi i tag/categorie nei report di *allocazione dei costi* selezionando il modello creato.
+
+Tenere presente che le informazioni sui tag non sono visualizzate per le risorse nei report di *analisi dei costi*. Inoltre, i tag applicati con Cloudyn usando l'allocazione dei costi non sono inviati ad Azure, dunque non vengono visualizzati nel portale di Azure.
+
 Quando si inizia il processo di allocazione dei costi, è innanzitutto necessario definire l'ambito usando un modello dei costi. In questo modello i costi non vengono modificati, ma distribuiti. Quando si crea un modello dei costi, si segmentano i dati in base a entità di costo, account o sottoscrizione e anche in base a più tag. Tra i tag di esempio comuni possono essere inclusi un codice di fatturazione, un centro di costo o un nome di gruppo. I tag sono anche utili per eseguire lo showback o il chargeback ad altre parti dell'organizzazione.
 
-Per creare un modello personalizzato di allocazione dei costi, selezionare **Costo** (Costo) &gt; **Cost Management** (Gestione costi) &gt; **Cost Allocation 360°** (Allocazione costi a 360°) dal menu del report.
+Per creare un modello personalizzato di allocazione dei costi, selezionare **Costi** &gt; **Gestione costi** &gt; **Allocazione costi a 360** dal menu del report.
 
 ![Selezione di Cost Allocation 360° (Allocazione costi a 360°)](./media/tutorial-manage-costs/cost-allocation-360.png)
 
@@ -59,7 +71,7 @@ Può ad esempio essere opportuno distribuire equamente i costi di archiviazione 
 
 
 
-In un altro caso, può invece essere opportuno allocare tutti i costi di rete di Azure a una specifica business unit all'interno dell'organizzazione. A tale scopo, selezionare il servizio **Azure/Network** (Azure/Rete) e quindi **Explicit Distribution** (Distribuzione esplicita). Impostare quindi la percentuale di distribuzione su 100 e selezionare la business unit, ovvero **G&amp;A** nell'immagine seguente:
+In un altro caso, può invece essere opportuno allocare tutti i costi di rete di Azure a una specifica business unit all'interno dell'organizzazione. A tale scopo, selezionare il servizio **Azure/Network** e sotto la voce**Definire regola di allocazione**, selezionare **Distribuzione esplicita**. Impostare quindi la percentuale di distribuzione su 100 e selezionare la business unit, ovvero **G&amp;A** nell'immagine seguente:
 
 ![Esempio di regola di allocazione del modello dei costo per una specifica business unit](./media/tutorial-manage-costs/cost-model03.png)
 
@@ -97,9 +109,9 @@ I dati dei tag visualizzati nei report di Cloudyn hanno origine in tre posti:
     - Tag di entità Cloudyn: metadati definiti dall’utente applicati alle entità Cloudyn
     - Gestione delle categorie: uno strumento di pulizia dati che crea nuovi tag in base alle regole applicate ai tag esistenti
 
-Per visualizzare i tag del provider di servizi cloud nei report di costo di Cloudyn, è necessario creare un modello personalizzato di allocazione dei costi usando Cost Allocation 360. A tale scopo, apire **Costo** > **Gestione dei costi** > **Cost Allocation 360**, selezionare i tag desiderati e quindi definire le regole per la gestione dei costi senza tag. Quindi, creare un nuovo modello di costo. In seguito, è possibile visualizzare report nell'analisi di allocazione dei costi per vedere, filtrare e ordinare i tag delle risorse di Azure.
+Per visualizzare i tag del provider di servizi cloud nei report di costo di Cloudyn, è necessario creare un modello personalizzato di allocazione dei costi usando Cost Allocation 360. A tale scopo, apire **Costi** > **Gestione costi** > **Allocazione dei costi a 360**, selezionare i tag desiderati, quindi definire le regole per la gestione dei costi senza tag. Quindi, creare un nuovo modello di costo. In seguito, è possibile visualizzare report nell'analisi di allocazione dei costi per vedere, filtrare e ordinare i tag delle risorse di Azure.
 
-I tag delle risorse di Azure vengono visualizzati solo nei report di **analisi dell’allocazione dei costi**.
+I tag delle risorse di Azure vengono visualizzati solo nei report sui **Costi** > **Analisi dell'allocazione dei costi**.
 
 I tag di fatturazione del provider di servizi cloud sono visualizzati in tutti i report sui costi.
 
