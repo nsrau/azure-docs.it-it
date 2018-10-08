@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 06/23/2017
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 57ad5541bb7b61f8d26002168bb069fad3058965
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5267ce5c50e8a57843f0bc54165289b38013ad91
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339076"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986116"
 ---
 # <a name="configure-a-virtual-network-classic-using-a-network-configuration-file"></a>Configurare una rete virtuale (classica) usando un file di configurazione di rete
 > [!IMPORTANT]
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Questo articolo illustra l'uso del modello di distribuzione classica. È consigliabile usare il modello di distribuzione di Resource Manager per le distribuzioni più recenti.
 
-È possibile creare e configurare una rete virtuale (classica) con un file di configurazione di rete usando l'interfaccia della riga di comando di Azure 1.0 o Azure PowerShell. Non è possibile creare o modificare una rete virtuale mediante il modello di distribuzione di Azure Resource Manager usando un file di configurazione di rete. Non è possibile usare il portale di Azure per creare o modificare una rete virtuale (classica) con un file di configurazione di rete, ma è possibile usare il portale di Azure per creare una rete virtuale (classica) senza usare un file di configurazione di rete.
+È possibile creare e configurare una rete virtuale (classica) con un file di configurazione di rete usando l'interfaccia della riga di comando classica di Azure o Azure PowerShell. Non è possibile creare o modificare una rete virtuale mediante il modello di distribuzione di Azure Resource Manager usando un file di configurazione di rete. Non è possibile usare il portale di Azure per creare o modificare una rete virtuale (classica) con un file di configurazione di rete, ma è possibile usare il portale di Azure per creare una rete virtuale (classica) senza usare un file di configurazione di rete.
 
 La creazione e la configurazione di una rete virtuale (classica) con un file di configurazione di rete prevede l'esportazione, la modifica e l'importazione del file.
 
 ## <a name="export"></a>Esportare un file di configurazione di rete
 
-È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per esportare un file di configurazione di rete. PowerShell esporta un file XML, mentre l'interfaccia della riga di comando di Azure esporta un file json.
+È possibile usare PowerShell o l'interfaccia della riga di comando classica di Azure per esportare un file di configurazione di rete. PowerShell esporta un file XML, mentre l'interfaccia della riga di comando classica di Azure esporta un file json.
 
 ### <a name="powershell"></a>PowerShell
  
@@ -44,9 +44,9 @@ La creazione e la configurazione di una rete virtuale (classica) con un file di 
     Get-AzureVNetConfig -ExportToFile c:\azure\networkconfig.xml
     ```
 
-### <a name="azure-cli-10"></a>Interfaccia della riga di comando di Azure 1.0
+### <a name="azure-classic-cli"></a>Interfaccia della riga di comando classica di Azure
 
-1. [Installare l'interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Completare i passaggi rimanenti dal prompt dei comandi dell'interfaccia della riga di comando di Azure 1.0.
+1. [Installare l'interfaccia della riga di comando classica di Azure](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Completare i passaggi rimanenti dal prompt dei comandi dell'interfaccia della riga di comando classica.
 2. Accedere ad Azure immettendo il comando `azure login`.
 3. Verificare di essere in modalità asm immettendo il comando `azure config mode asm`.
 4. Modificare la directory (e verificare che sia presente) e il nome file nel comando seguente nel modo desiderato, quindi eseguire il comando per esportare il file di configurazione di rete:
@@ -57,7 +57,7 @@ La creazione e la configurazione di una rete virtuale (classica) con un file di 
 
 ## <a name="create-or-modify-a-network-configuration-file"></a>Creare o modificare un file di configurazione di rete
 
-Un file di configurazione di rete è un file XML (quando si usa PowerShell) o un file json (quando si usa l'interfaccia della riga di comando di Azure). Il file può essere modificato in qualsiasi editor di testo o editor XML/json. L'articolo relativo alle [impostazioni dello schema del file di configurazione di rete](https://msdn.microsoft.com/library/azure/jj157100.aspx) include i dettagli di tutte le impostazioni. Per una spiegazione aggiuntiva delle impostazioni, vedere [View virtual networks and settings](manage-virtual-network.md#view-virtual-networks-and-settings) (Visualizzare le reti virtuali e le impostazioni). Le modifiche che vengono apportate al file:
+Un file di configurazione di rete è un file XML (quando si usa PowerShell) o un file json (quando si usa l'interfaccia della riga di comando classica). Il file può essere modificato in qualsiasi editor di testo o editor XML/json. L'articolo relativo alle [impostazioni dello schema del file di configurazione di rete](https://msdn.microsoft.com/library/azure/jj157100.aspx) include i dettagli di tutte le impostazioni. Per una spiegazione aggiuntiva delle impostazioni, vedere [View virtual networks and settings](manage-virtual-network.md#view-virtual-networks-and-settings) (Visualizzare le reti virtuali e le impostazioni). Le modifiche che vengono apportate al file:
 
 - Devono essere conformi allo schema altrimenti l'importazione del file di configurazione di rete non riuscirà.
 - Sovrascrivono le impostazioni di rete esistenti per la sottoscrizione, pertanto è necessario prestare attenzione alle modifiche che si apportano. Fare riferimento, ad esempio, ai file di configurazione di rete di esempio che seguono. Si supponga che il file di origine contenga due istanze di **VirtualNetworkSite** e che lo si modifichi come illustrato negli esempi. Quando si importa il file, Azure elimina la rete virtuale per l'istanza **VirtualNetworkSite** che è stata rimossa nel file. Questo scenario semplificato presuppone che non vi siano risorse nella rete virtuale, perché se fossero presenti, non sarebbe possibile eliminare la rete virtuale e l'importazione avrebbe esito negativo.
@@ -92,7 +92,7 @@ L'esempio di file di configurazione di rete seguente illustra come creare una re
 
 Se il file di configurazione di rete esportato non include alcun contenuto, è possibile copiare il codice XML dell'esempio precedente e incollarlo in un nuovo file.
 
-### <a name="example-json-for-use-with-the-azure-cli-10"></a>JSON di esempio da usare con l'interfaccia della riga di comando di Azure 1.0
+### <a name="example-json-for-use-with-the-classic-cli"></a>JSON di esempio da usare con l'interfaccia della riga di comando classica
 
 L'esempio di file di configurazione di rete seguente illustra come creare una rete virtuale denominata *myVirtualNetwork* con uno spazio di indirizzi di *10.0.0.0/16* nell'area di Azure *Stati Uniti Orientali*. La rete virtuale contiene una subnet denominata *mySubnet* con un prefisso di indirizzo *10.0.0.0/24*.
 
@@ -121,7 +121,7 @@ Se il file di configurazione di rete esportato non include alcun contenuto, è p
 
 ## <a name="import"></a>Importare un file di configurazione di rete
 
-È possibile usare PowerShell o l'interfaccia della riga di comando di Azure per importare un file di configurazione di rete. PowerShell importa un file XML, mentre l'interfaccia della riga di comando di Azure importa un file json. Se l'importazione non riesce, verificare che il file sia conforme allo [schema di configurazione di rete](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
+È possibile usare PowerShell o l'interfaccia della riga di comando classica per importare un file di configurazione di rete. PowerShell importa un file XML, mentre l'interfaccia della riga di comando classica di Azure importa un file json. Se l'importazione non riesce, verificare che il file sia conforme allo [schema di configurazione di rete](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
 ### <a name="powershell"></a>PowerShell
  
@@ -132,9 +132,9 @@ Se il file di configurazione di rete esportato non include alcun contenuto, è p
     Set-AzureVNetConfig  -ConfigurationPath c:\azure\networkconfig.xml
     ```
 
-### <a name="azure-cli-10"></a>Interfaccia della riga di comando di Azure 1.0
+### <a name="azure-classic-cli"></a>Interfaccia della riga di comando classica di Azure
 
-1. [Installare l'interfaccia della riga di comando di Azure 1.0](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Completare i passaggi rimanenti dal prompt dei comandi dell'interfaccia della riga di comando di Azure 1.0.
+1. [Installare l’interfaccia della riga di comando classica di Azure](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Completare i passaggi rimanenti dal prompt dei comandi dell'interfaccia della riga di comando classica.
 2. Accedere ad Azure immettendo il comando `azure login`.
 3. Verificare di essere in modalità asm immettendo il comando `azure config mode asm`.
 4. Modificare la directory e il nome file nel comando seguente in base alle esigenze, quindi eseguire il comando per importare il file di configurazione di rete:

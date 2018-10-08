@@ -1,6 +1,6 @@
 ---
-title: Creare un gateway applicazione di Azure - Interfaccia della riga di comando di Azure 1.0 | Microsoft Docs
-description: Informazioni su come creare un gateway applicazione usando l'interfaccia della riga di comando di Azure 1.0 in Resource Manager
+title: Creare un gateway applicazione di Azure - Interfaccia della riga di comando classica di Azure | Microsoft Docs
+description: Informazioni su come creare un gateway applicazione usando l'interfaccia della riga di comando classica di Azure in Resource Manager
 services: application-gateway
 documentationcenter: na
 author: vhorne
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 3d67e896da5e616e443fc4e1edd9aaafb0f0e2f9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201872"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46974426"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creare un gateway applicazione con l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-create-gateway-portal.md)
+> * [portale di Azure](application-gateway-create-gateway-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-gateway-arm.md)
 > * [PowerShell per Azure classico](application-gateway-create-gateway.md)
 > * [Modello di Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [Interfaccia della riga di comando di Azure 1.0](application-gateway-create-gateway-cli.md)
-> * [Interfaccia della riga di comando di Azure 2.0](application-gateway-create-gateway-cli.md)
+> * [Interfaccia della riga di comando classica di Azure](application-gateway-create-gateway-cli.md)
+> * [Interfaccia della riga di comando di Azure](application-gateway-create-gateway-cli.md)
 > 
 > 
 
@@ -38,10 +38,10 @@ Il gateway applicazione di Azure è un dispositivo di bilanciamento del carico d
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Prerequisito: installare l'interfaccia della riga di comando di Azure
 
-Per eseguire i passaggi in questo articolo, è necessario [installare l'interfaccia della riga di comando di Azure per Mac, Linux e Windows (interfaccia della riga di comando di Azure)](../xplat-cli-install.md) ed è necessario [accedere ad Azure](/cli/azure/authenticate-azure-cli). 
+Per eseguire i passaggi indicati in questo articolo è necessario [installare l'interfaccia della riga di comando di Azure](../xplat-cli-install.md) e [accedere ad Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
-> Se non si dispone di un account Azure, è necessario procurarsene uno. Usare la [versione di valutazione gratuita](../active-directory/sign-up-organization.md).
+> Se non si dispone di un account Azure, è necessario procurarsene uno. Usare la [versione di valutazione gratuita](../active-directory/fundamentals/sign-up-organization.md).
 
 ## <a name="scenario"></a>Scenario
 

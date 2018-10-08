@@ -1,6 +1,6 @@
 ---
-title: Esempi dell'interfaccia della riga di comando di Azure 2.0 - Set di scalabilità con ridondanza della zona | Microsoft Docs
-description: Esempi dell'interfaccia della riga di comando di Azure 2.0
+title: Esempi dell'interfaccia della riga di comando di Azure - Set di scalabilità con ridondanza della zona | Microsoft Docs
+description: Esempi dell'interfaccia della riga di comando di Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5b999ab1ffa9a0c576bc4f00f14b12512ebcb80d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f59a1083e76f8d2a629f1589f6b44c241eadca89
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618166"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986754"
 ---
 # <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Creare un set di scalabilità di macchine virtuali con ridondanza della zona con PowerShell
 Questo script crea un set di scalabilità di macchine virtuali che esegue Ubuntu in più zone di disponibilità. Dopo aver eseguito lo script, è possibile accedere alla macchina virtuale tramite RDP.
@@ -50,6 +50,6 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, il set di 
 | [az group delete](/cli/azure/ad/group#delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sull'interfaccia della riga di comando di Azure 2.0, vedere la [documentazione dell'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/overview).
+Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/overview).
 
-Altri esempi di script dell'interfaccia della riga di comando di Azure 2.0 per i set di scalabilità di macchine virtuali sono disponibili nella [documentazione dei set di scalabilità di macchine virtuali di Azure](../cli-samples.md).
+Altri esempi di script dell'interfaccia della riga di comando di Azure per i set di scalabilità di macchine virtuali sono disponibili nella [documentazione dei set di scalabilità di macchine virtuali di Azure](../cli-samples.md).

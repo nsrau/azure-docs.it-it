@@ -1,6 +1,6 @@
 ---
-title: Esercitazione - Installare applicazioni in un set di scalabilità con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 per installare applicazioni nei set di scalabilità di macchine virtuali con l'estensione Script personalizzato
+title: Esercitazione - Installare applicazioni in un set di scalabilità con l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per installare applicazioni nei set di scalabilità di macchine virtuali con l'estensione Script personalizzato
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe1fd957176762c5cc04145f56559b50667c476c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 21b85a3afa8e955661b3acbe5c7e4cb463a6d23f
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606526"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46986184"
 ---
-# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure 2.0
+# <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. In un'esercitazione precedente si è appreso come usare un'immagine di macchina virtuale personalizzata per distribuire le istanze di macchina virtuale. Questa immagine personalizzata includeva installazioni e configurazioni manuali di applicazioni. È anche possibile automatizzare l'installazione delle applicazioni in un set di scalabilità dopo la distribuzione di ogni istanza di macchina virtuale oppure aggiornare un'applicazione che è già in esecuzione in un set di scalabilità. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
@@ -35,13 +35,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.29 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.29 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli). 
 
 
 ## <a name="what-is-the-azure-custom-script-extension"></a>Informazioni sull'estensione Script personalizzato di Azure
 L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione.
 
-L'estensione Script personalizzato si integra nei modelli di Azure Resource Manager e può anche essere usata con l'interfaccia della riga di comando di Azure 2.0, Azure PowerShell, il portale di Azure o l'API REST. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../virtual-machines/linux/extensions-customscript.md).
+L'estensione Script personalizzato si integra nei modelli di Azure Resource Manager e può anche essere usata con l'interfaccia della riga di comando di Azure, Azure PowerShell, il portale di Azure o l'API REST. Per altre informazioni, vedere [Panoramica dell'estensione script personalizzata](../virtual-machines/linux/extensions-customscript.md).
 
 Per usare l'estensione dello script personalizzata con l'interfaccia della riga di comando di Azure, creare un file JSON che definisca i file da ottenere e i comandi da eseguire. Queste definizioni JSON possono essere riusate nelle distribuzioni del set di scalabilità per applicare installazioni di applicazioni coerenti.
 
@@ -167,7 +167,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione si è appreso come installare e aggiornare automaticamente applicazioni nel set di scalabilità con l'interfaccia della riga di comando di Azure 2.0:
+In questa esercitazione si è appreso come installare e aggiornare automaticamente applicazioni nel set di scalabilità con l'interfaccia della riga di comando di Azure:
 
 > [!div class="checklist"]
 > * Installare automaticamente le applicazioni nel set di scalabilità

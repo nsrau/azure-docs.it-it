@@ -1,22 +1,22 @@
 ---
-title: Flussi di lavoro di Apache Hadoop Oozie nei cluster Azure HDInsight aggiunti a un dominio
-description: Usare Hadoop Oozie in un'istanza di Enterprise Security Package aggiunta a un dominio di HDInsight basato su Linux. Informazioni su come definire un flusso di lavoro Oozie e inviare un processo Oozie.
+title: Flussi di lavoro di Apache Hadoop Oozie nei cluster HDInsight di Azure con Enterprise Security Package
+description: Usare Hadoop Oozie in Enterprise Security Package nell'ambiente HDInsight basato su Linux. Informazioni su come definire un flusso di lavoro Oozie e inviare un processo Oozie.
 services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/26/2018
-ms.openlocfilehash: 69bf885ad5d6244997c7ce9cf61bdee9e05c1826
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/24/2018
+ms.openlocfilehash: 563a4c14d78b7edd228c998817f44c6b3f14efe7
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048975"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46947498"
 ---
-# <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>Eseguire Apache Oozie in cluster HDInsight Hadoop aggiunti a un dominio
+# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Eseguire Apache Oozie nei cluster HDInsight Hadoop con Enterprise Security Package
 Oozie è un sistema di coordinamento dei flussi di lavoro che consente di gestire i processi Hadoop. Oozie è integrato con lo stack Hadoop e supporta i processi seguenti:
 - Apache MapReduce
 - Apache Pig
@@ -26,12 +26,12 @@ Oozie è un sistema di coordinamento dei flussi di lavoro che consente di gestir
 Oozie può anche essere usato per pianificare processi specifici di un sistema, come programmi Java o script della shell.
 
 ## <a name="prerequisite"></a>Prerequisito
-- Cluster Azure HDInsight Hadoop aggiunto al dominio. Vedere [Configurare cluster HDInsight aggiunti al dominio](./apache-domain-joined-configure-using-azure-adds.md).
+- Un cluster Azure HDInsight Hadoop con Enterprise Security Package (ESP). Vedere [Configurare i cluster HDInsight con ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
-    > Per istruzioni dettagliate sull'uso di Oozie in cluster non aggiunti al dominio, vedere [Usare flussi di lavoro di Hadoop Oozie in Azure HDInsight basato su Linux](../hdinsight-use-oozie-linux-mac.md).
+    > Per istruzioni dettagliate sull'uso di Oozie in cluster non-ESP, consultare [Usare flussi di lavoro di Hadoop Oozie in Azure HDInsight basato su Linux](../hdinsight-use-oozie-linux-mac.md).
 
-## <a name="connect-to-a-domain-joined-cluster"></a>Connettersi a un cluster aggiunto al dominio
+## <a name="connect-to-an-esp-cluster"></a>Connettersi a un cluster ESP
 
 Per altre informazioni su SSH (Secure Shell), vedere [Connettersi a HDInsight (Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -262,7 +262,7 @@ nano workflow.xml
     ```
 
 ## <a name="submit-oozie-jobs"></a>Inviare processi Oozie
-L'invio di processi Oozie per cluster aggiunti al dominio è analogo all'invio di processi Oozie in cluster non aggiunti al dominio.
+L'invio di processi Oozie per cluster ESP è analogo all'invio di processi Oozie in cluster non ESP.
 
 Per altre informazioni, vedere [Usare Oozie con Hadoop per definire ed eseguire un flusso di lavoro in Azure HDInsight basato su Linux](../hdinsight-use-oozie-linux-mac.md).
 
@@ -311,7 +311,7 @@ Per altre informazioni, vedere [Oozie Installation and Configuration](https://oo
 Per componenti come Hive server 1 in cui il plug-in Ranger non è disponibile o non è supportato, è possibile usare solo l'autorizzazione HDFS con granularità grossolana. L'autorizzazione con granularità fine è disponibile solo tramite i plug-in Ranger.
 
 ## <a name="get-the-oozie-web-ui"></a>Ottenere l'interfaccia utente Web di Oozie
-L'interfaccia utente Web di Oozie fornisce una visualizzazione basata sul Web dello stato dei processi Oozie nel cluster. Per ottenere l'interfaccia utente Web, seguire questa procedura in cluster aggiunti al dominio:
+L'interfaccia utente Web di Oozie fornisce una visualizzazione basata sul Web dello stato dei processi Oozie nel cluster. Per ottenere l'interfaccia utente Web, procedere come segue nei cluster ESP:
 
 1. Aggiungere un [nodo perimetrale](../hdinsight-apps-use-edge-node.md) e abilitare l'[autenticazione Kerberos SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 

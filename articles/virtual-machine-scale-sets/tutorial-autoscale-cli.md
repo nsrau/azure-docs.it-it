@@ -1,6 +1,6 @@
 ---
-title: Esercitazione - Ridimensionare automaticamente un set di scalabilità con l'interfaccia della riga di comando di Azure 2.0 | Microsoft Docs
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 per ridimensionare automaticamente un set di scalabilità di macchine virtuali in base all'aumento o alla riduzione delle esigenze in termini di CPU
+title: Esercitazione - Ridimensionare automaticamente un set di scalabilità con l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Informazioni su come usare l'interfaccia della riga di comando di Azure per ridimensionare automaticamente un set di scalabilità di macchine virtuali in base all'aumento o alla riduzione delle richieste in termini di CPU
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4dedf4a84d5eaa47018fe0cd1cb6fd9a92d8ef7e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c3d536cd4fb99d6d83b973989279d289e8434a8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630153"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995378"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure 2.0
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Esercitazione: Ridimensionare automaticamente un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app. In questa esercitazione si apprenderà come:
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.32 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.32 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
 
@@ -216,7 +216,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come ridurre o aumentare automaticamente il numero di istanze in un set di scalabilità con l'interfaccia della riga di comando di Azure 2.0:
+In questa esercitazione si è appreso come ridurre o aumentare in modo automatico un set di scalabilità con l'interfaccia della riga di comando di Azure:
 
 > [!div class="checklist"]
 > * Usare la scalabilità automatica con un set di scalabilità
@@ -224,7 +224,7 @@ In questa esercitazione si è appreso come ridurre o aumentare automaticamente i
 > * Sottoporre a test di stress le istanze di VM e attivare le regole di scalabilità automatica
 > * Ridurre automaticamente il numero di istanze con la riduzione delle esigenze
 
-Per altri esempi del funzionamento dei set di scalabilità di macchine virtuali, vedere gli script di esempio dell'interfaccia della riga di comando di Azure 2.0 riportati di seguito:
+Per altri esempi sui set di scalabilità di macchine virtuali in azione, consultare gli script di esempio dell'interfaccia della riga di comando di Azure riportati di seguito:
 
 > [!div class="nextstepaction"]
-> [Esempi di script dell'interfaccia della riga di comando di Azure 2.0 per i set di scalabilità](cli-samples.md)
+> [Esempi di script del set di scalabilità per l'interfaccia della riga di comando di Azure](cli-samples.md)

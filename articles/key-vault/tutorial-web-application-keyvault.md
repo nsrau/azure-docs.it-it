@@ -9,32 +9,32 @@ ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 91e2047998d6e743691821c631e15c94cd63cf15
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41917606"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46948884"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Esercitazione: Configurare un'applicazione Web di Azure per la lettura di un segreto da un insieme di credenziali delle chiavi
 
-In questa esercitazione vengono presentati i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni dall'insieme di credenziali delle chiavi usando le identità del servizio gestito. Si apprenderà come:
+In questa esercitazione vengono presentati i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni dall'insieme di credenziali delle chiavi usando le identità gestite delle risorse di Azure. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali delle chiavi.
 > * Archiviare un segreto nell'insieme di credenziali delle chiavi.
 > * Creare un'applicazione Web di Azure.
-> * Abilitare le identità del servizio gestito.
+> * Abilitare un'identità gestita per l'applicazione Web.
 > * Concedere le autorizzazioni necessarie per l'applicazione per la lettura dei dati da un insieme di credenziali delle chiavi.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, in questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 Per accedere ad Azure tramite l'interfaccia della riga di comando, è possibile digitare:
 
@@ -218,9 +218,9 @@ Per l'applicazione Web devono essere installati due pacchetti NuGet. Per install
 >[!IMPORTANT]
 > Verrà visualizzata una finestra del browser con un messaggio di errore 502.5 - Errore del processo. Si tratta di un comportamento previsto. Sarà necessario concedere i diritti di identità di applicazione per leggere i segreti dall'insieme di credenziali delle chiavi.
 
-## <a name="enable-managed-service-identity"></a>Abilitare l'identità del servizio gestito
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Abilitare un'identità gestita per l'app Web
 
-Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarle. Identità del servizio gestito consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory, ovvero Azure AD. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
+Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarle. [La panoramica delle identità gestite per le risorse Azure](../active-directory/managed-identities-azure-resources/overview.md) consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
 
 1. Tornare all'interfaccia della riga di comando di Azure
 2. Eseguire il comando assign-identity per creare l'identità per l'applicazione:
@@ -230,7 +230,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 ```
 
 >[!NOTE]
->Questo comando equivale a passare al portale e impostare **Identità del servizio gestito** su **Attivato** nelle proprietà dell'applicazione Web.
+>Questo comando equivale a passare al portale e impostare **Identità/Assegnato dal sistema** su **Attivato** nelle proprietà dell'applicazione Web.
 
 ## <a name="grant-rights-to-the-application-identity"></a>Concedere i diritti all'identità di applicazione
 

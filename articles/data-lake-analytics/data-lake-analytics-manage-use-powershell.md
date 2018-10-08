@@ -5,24 +5,23 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: matt1883
 ms.author: mahi
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: ad14d53c-fed4-478d-ab4b-6d2e14ff2097
 ms.topic: conceptual
 ms.date: 06/29/2018
-ms.openlocfilehash: 94cd8de875baac31ee6cd450707be57a3d1dfdd0
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b6bed1d42f67c2b5d2ef34a547215c280acb50b8
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341862"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46963765"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gestire Azure Data Lake Analytics tramite Azure PowerShell
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Questo articolo descrive come gestire utenti, processi, origini dati e account Azure Data Lake Analytics tramite Azure PowerShell.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare PowerShell con Data Lake Analytics, raccogliere le informazioni seguenti: 
 
@@ -556,5 +555,5 @@ foreach ($sub in $subs)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Panoramica di Analisi Microsoft Azure Data Lake](data-lake-analytics-overview.md)
-* Introduzione a Data Lake Analytics con [ il portale di Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [l'interfaccia della riga di comando 2.0](data-lake-analytics-get-started-cli2.md)
+* Introduzione ad Azure Data Lake Analytics con [il portale di Azure](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [Interfaccia della riga di comando di Azure](data-lake-analytics-get-started-cli.md)
 * Gestire Azure Data Lake Analytics con [il portale di Azure](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [l'interfaccia della riga di comando](data-lake-analytics-manage-use-cli.md) 
