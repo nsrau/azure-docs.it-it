@@ -1,18 +1,18 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 460c0708bf51966bd1b6862445a6541436723688
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 01b288136036fc5ff719c179821801aeac95c5c5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952291"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830533"
 documentType: LandingData
 title: Documentazione di Speech Service SDK
 metadata:
-  title: Documentazione di Speech Service SDK - Esercitazioni, guide introduttive, informazioni di riferimento sulle API - Servizi cognitivi | Microsoft Docs
+  title: 'Documentazione del Servizio di riconoscimento vocale: esercitazioni, guide introduttive, informazioni di riferimento sulle API - Servizi cognitivi | Microsoft Docs'
   meta.description: >
-    The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications.
+    The Speech service gives developers an easy way to add powerful speech-enabled features to their applications.
 
-    Examples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.
+    Examples include voice command control and dialogue, natural speech conversation, speech transcription and dictation, and speech translation.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -60,7 +60,7 @@ sections:
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
-    text: Per informazioni sul download, l'installazione e l'uso, fare clic di seguito sul collegamento con la freccia <img src="media/index/link.jpg" height="15" width="15"></img> desiderato.
+    text: Informazioni su come scaricare, installare e usare l'SDK mediante la selezione di un collegamento con freccia <img src="media/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:
@@ -206,7 +206,7 @@ sections:
 
         <p><a href="https://aka.ms/csspeech/objectivecref">API Objective-C</a></p>
 
-        <p><a href="https://aka.ms/csspeech/javascript">API JavaScript</a></p>
+        <p><a href="https://aka.ms/csspeech/javascriptref">API JavaScript</a></p>
     - title: API REST
       html: >
         <p><a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis">API REST</a></p>
