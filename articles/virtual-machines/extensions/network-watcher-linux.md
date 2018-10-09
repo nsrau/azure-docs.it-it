@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: efd512395b49d3c274bb5aa409d1cbd527673659
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781888"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989380"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale Network Watcher Agent per Linux
 
@@ -87,7 +87,7 @@ Lo schema JSON seguente illustra lo schema dell'estensione Network Watcher Agent
 
 È possibile distribuire le estensioni della macchina virtuale di Azure con il modello di Azure Resource Manager. Per distribuire l'estensione agente Network Watcher, usare lo schema json nel modello.
 
-## <a name="azure-cli-10-deployment"></a>Distribuzione con l'interfaccia della riga di comando di Azure 1.0
+## <a name="azure-classic-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando classica di Azure
 
 L'esempio seguente consente di distribuire l'estensione macchina virtuale dell'agente Network Watcher in una macchina virtuale esistente distribuita tramite il modello di distribuzione classico:
 
@@ -96,7 +96,7 @@ azure config mode asm
 azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
 ```
 
-## <a name="azure-cli-20-deployment"></a>Distribuzione con l'interfaccia della riga di comando di Azure 2.0
+## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
 
 L'esempio seguente consente di distribuire l'estensione macchina virtuale dell'agente Network Watcher in una macchina virtuale esistente distribuita tramite il modello di Resource Manager:
 
@@ -110,7 +110,7 @@ az vm extension set --resource-group myResourceGroup1 --vm-name myVM1 --name Net
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati dal portale di Azure o con l'interfaccia della riga di comando di Azure.
 
-L'esempio seguente illustra lo stato della distribuzione delle estensioni per una macchina virtuale distribuita tramite il modello di distribuzione classica, usando l'interfaccia della riga di comando di Azure 1.0:
+L'esempio seguente illustra lo stato della distribuzione delle estensioni per una macchina virtuale distribuita tramite il modello di distribuzione classica, usando l'interfaccia della riga di comando classica di Azure:
 
 ```azurecli
 azure config mode asm
@@ -122,7 +122,7 @@ L'output dell'esecuzione dell'estensione viene registrato nei file presenti nell
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
 `
 
-L'esempio seguente illustra lo stato della distribuzione dell'estensione NetworkWatcherAgentLinux per una macchina virtuale distribuita tramite il modello di Resource Manager, usando l'interfaccia della riga di comando di Azure 2.0:
+L'esempio seguente mostra lo stato di distribuzione dell'estensione NetworkWatcherAgentLinux per una macchina virtuale distribuita attraverso Gestione risorse, usando l'interfaccia della riga di comando di Azure:
 
 ```azurecli
 az vm extension show --name NetworkWatcherAgentLinux --resource-group myResourceGroup1 --vm-name myVM1

@@ -1,6 +1,6 @@
 ---
-title: Creare una VM Linux classica usando l'interfaccia della riga di comando di Azure 1.0 | Documentazione Microsoft
-description: Informazioni su come creare una macchina virtuale con l'interfaccia della riga di comando di Azure 1.0 usando il modello di distribuzione classica.
+title: Creare una VM Linux classica usando l'interfaccia della riga di comando classica di Azure | Microsoft Docs
+description: Informazioni su come creare una macchina virtuale Linux con l'interfaccia della riga di comando classica di Azure usando il modello di distribuzione classico
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -16,18 +16,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 13d0ef93c3828c514e46e37494a66f7003eac827
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 507d9e12a37d7bf187a3e56b04cb47ac0104773d
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931615"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46982042"
 ---
-# <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Come creare una VM Linux classica con l'interfaccia della riga di comando di Azure 1.0
+# <a name="how-to-create-a-classic-linux-vm-with-the-azure-classic-cli"></a>Come creare una macchina virtuale classica Linux con l'interfaccia della riga di comando classica di Azure
 > [!IMPORTANT] 
 > Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti. Per la versione di Resource Manager, vedere [qui](../create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Questo argomento descrive come creare una macchina virtuale con l'interfaccia della riga di comando di Azure 1.0 usando il modello di distribuzione classica. Viene utilizzata un'immagine Linux dalle **IMMAGINI** disponibili in Azure. I comandi dell'interfaccia della riga di comando di Azure 1.0 offrono le opzioni di configurazione seguenti:
+Questo argomento descrive come creare una macchina virtuale (VM) Linux con l'interfaccia della riga di comando classica di Azure usando il modello di distribuzione classica. Viene utilizzata un'immagine Linux dalle **IMMAGINI** disponibili in Azure. I comandi dell'interfaccia della riga di comando classica di Azure offrono, tra le altre, le opzioni di configurazione seguenti:
 
 * Connessione della macchina virtuale a una rete virtuale
 * Aggiunta della macchina virtuale a un servizio cloud esistente
