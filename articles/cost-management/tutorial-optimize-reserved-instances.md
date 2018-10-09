@@ -1,30 +1,30 @@
 ---
-title: 'Esercitazione: Ottimizzare i costi delle istanze riservate con Gestione costi di Azure | Microsoft Docs'
+title: 'Esercitazione: ottimizzazione dei costi di istanza riservata con Cloudyn di Azure | Microsoft Docs'
 description: In questa esercitazione si apprenderà come ottimizzare i costi delle istanze riservate per Azure e Amazon Web Services (AWS).
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: f0edad58256ecc29e2fd215095e8b5ab13d69ce8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177324"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46987768"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
 
 # <a name="tutorial-optimize-reserved-instances"></a>Esercitazione: Ottimizzare le istanze riservate
 
-In questa esercitazione si apprenderà come Gestione costi può consentire di ottimizzare l'utilizzo e i costi delle istanze riservate per Azure e Amazon Web Services (AWS). Un'istanza riservata con un provider di servizi cloud è un impegno per un contratto a lungo termine in cui si esegue il commit anticipato per un uso futuro della macchina virtuale. Questa istanza può offrire potenzialmente un notevole risparmio rispetto a un modello di determinazione dei prezzi standard delle macchine virtuali in base al consumo. Il risparmio potenziale si realizza solo quando si usa completamente la capacità delle istanze riservate.
+In questa esercitazione viene spiegato come Cloudyn può aiutare a ottimizzare l'uso e i costi delle istanze riservate per Azure e i servizi Amazon Web Services (AWS). Un'istanza riservata con un provider di servizi cloud è un impegno per un contratto a lungo termine in cui ci si impegna in anticipo a usare in futuro la macchina virtuale. Questa istanza può offrire potenzialmente un notevole risparmio rispetto a un modello di determinazione dei prezzi standard delle macchine virtuali in base al consumo. Il risparmio potenziale si realizza solo quando si usa completamente la capacità delle istanze riservate.
 
-Questa esercitazione illustra come le istanze riservate di Azure e AWS vengono supportate da Gestione costi. Descrive anche come è possibile ottimizzare i costi delle istanze riservate. È prima di tutto necessario assicurarsi che le prenotazioni vengano utilizzate appieno. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come le istanze riservate di Azure e AWS sono supportate da Cloudyn. Descrive anche come è possibile ottimizzare i costi delle istanze riservate. È prima di tutto necessario assicurarsi che le prenotazioni vengano utilizzate appieno. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Conoscere i costi delle istanze riservate di Azure
@@ -41,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>prerequisiti
 
 - È necessario disporre di un account Azure.
-- È necessario avere una registrazione di valutazione o una sottoscrizione a pagamento per Gestione costi di Azure.
+- È necessario disporre di una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
 - È necessario aver acquistato istanze riservate in Azure o AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Conoscere i costi delle istanze riservate di Azure
@@ -67,7 +67,7 @@ Nella figura seguente viene illustrata la correlazione tra utilizzo standard di 
 
 
 
-Le barre rosse mostrano il costo complessivo dell'acquisto di istanze riservate. Si effettua solo un pagamento una tantum. L'utilizzo della macchina virtuale è gratuito. Le barre blu mostrano il costo complessivo della stessa macchina virtuale in esecuzione con il modello di determinazione dei prezzi in base al consumo o on-demand. Tra il settimo e l'ottavo mese di utilizzo della macchina virtuale si può notare un *punto di pareggio*. In questo esempio il risparmio inizia a partire dall'ottavo mese.
+Le barre rosse mostrano il costo complessivo dell'acquisto di istanze riservate. Si effettua solo un pagamento una tantum. L'utilizzo della macchina virtuale è gratuito. Le barre blu mostrano il costo complessivo della stessa macchina virtuale in esecuzione con il modello di determinazione dei prezzi in base al consumo oppure on-demand. Tra il settimo e l'ottavo mese di utilizzo della macchina virtuale si può notare un *punto di pareggio*. In questo esempio il risparmio inizia a partire dall'ottavo mese.
 
 ## <a name="benefits-of-ris"></a>Vantaggi delle istanze riservate
 
@@ -85,7 +85,7 @@ L'ambito di acquisto condiviso è il più flessibile ed è consigliabile laddove
 
 ## <a name="optimize-azure-ri-costs"></a>Ottimizzare i costi delle istanze riservate di Azure
 
-Gestione costi di Azure supporta le istanze riservate e il Vantaggio Azure Hybrid per eseguire le operazioni seguenti:
+Cloudyn supporta le istanze riservate e gli Hybrid Benefit:
 
 - Mostrare i costi associati ai modelli di determinazione dei prezzi
 - Tenere traccia dell'utilizzo delle istanze riservate
@@ -96,7 +96,7 @@ La prima azione da intraprendere prima di acquistare un'istanza riservata è val
 
 - Quale sarà il costo?
 - Quale sarà il risparmio?
-- Cos'è il punto di pareggio?
+- Qual è il punto di pareggio?
 
 Il report di impatto dell'acquisto di istanze riservate consente di rispondere a tali domande.
 
@@ -110,13 +110,13 @@ Ad esempio, se si acquista una prenotazione per una macchina virtuale di tipo DS
 
 ![Punto di pareggio dell'istanza riservata di Azure](./media/tutorial-optimize-reserved-instances/azure03.png)
 
-Tuttavia, se viene eseguita solo il 50% del tempo, il punto di pareggio sarà al 10 mese e il risparmio annuale sarà solo di $49,74. In questo esempio si potrebbe non trarre alcun vantaggio dall'acquisto della prenotazione per tale tipo di istanza. Vedere l'immagine seguente:
+Tuttavia, se viene eseguita solo il 50% del tempo, il punto di pareggio sarà al decimo mese e il risparmio annuale sarà solo di $49,74. In questo esempio si potrebbe non trarre alcun vantaggio dall'acquisto della prenotazione per tale tipo di istanza. Vedere l'immagine seguente:
 
 ![Punto di pareggio in Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## <a name="view-ri-costs"></a>Visualizzare i costi delle istanze riservate
 
-Quando si acquista una prenotazione, si effettua solo un pagamento una tantum. Esistono due modi per visualizzare il pagamento in Gestione costi:
+Quando si acquista una prenotazione, si effettua solo un pagamento una tantum. Esistono due modi per visualizzare il pagamento con Cloudyn:
 
 - Costo effettivo
 - Costo ammortizzato

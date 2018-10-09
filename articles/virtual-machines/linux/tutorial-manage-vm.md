@@ -1,6 +1,6 @@
 ---
 title: Esercitazione - Creare e gestire macchine virtuali Linux con l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: In questa esercitazione viene descritto come usare l'interfaccia della riga di comando di Azure 2.0 per creare e gestire macchine virtuali Linux in Azure
+description: In questa esercitazione viene descritto come usare l'interfaccia della riga di comando di Azure per creare e gestire macchine virtuali Linux in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e7338da637d92520bc5f67de9d3d2bdae3204e35
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930036"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46981247"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>Esercitazione: Creare e gestire VM Linux con l'interfaccia della riga di comando di Azure 2.0
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Esercitazione: Creare e gestire macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
 Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente configurabile e flessibile. Questa esercitazione illustra gli elementi di base della distribuzione di una macchina virtuale di Azure, ad esempio la selezione delle dimensioni di una VM, la selezione dell'immagine di una VM e la distribuzione di una VM. Si apprenderà come:
 
@@ -36,7 +36,7 @@ Le macchine virtuali di Azure offrono un ambiente di elaborazione completamente 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
