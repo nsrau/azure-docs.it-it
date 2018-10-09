@@ -1,6 +1,6 @@
 ---
 title: Esercitazione - Gestire i dischi di Azure con l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: In questa esercitazione viene descritto come usare l'interfaccia della riga di comando di Azure 2.0 per creare e gestire dischi di Azure per macchine virtuali
+description: In questa esercitazione viene descritto come usare l'interfaccia della riga di comando di Azure per creare e gestire dischi di Azure per macchine virtuali
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 889facbf9612f2462a10c886a428ac052becefd8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704488"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46978319"
 ---
-# <a name="tutorial---manage-azure-disks-with-the-azure-cli-20"></a>Esercitazione: gestire i dischi di Azure con l'interfaccia della riga di comando di Azure 2.0
+# <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Esercitazione: gestire i dischi di Azure con l'interfaccia della riga di comando di Azure
 
 Le macchine virtuali (VM) di Azure usano dischi per archiviare sistema operativo, applicazioni e dati. Quando si crea una VM, è importante scegliere dimensioni del disco e configurazione appropriate per il carico di lavoro previsto. Questa esercitazione illustra come distribuire e gestire i dischi delle macchine virtuali. Vengono fornite informazioni su:
 
@@ -38,7 +38,7 @@ Le macchine virtuali (VM) di Azure usano dischi per archiviare sistema operativo
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="default-azure-disks"></a>Dischi di Azure predefiniti
 

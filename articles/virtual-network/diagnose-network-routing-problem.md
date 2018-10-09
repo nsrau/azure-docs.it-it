@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: jdial
-ms.openlocfilehash: 07352a5d7c8b465440efab17c654979662a95f8e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 695d5f1507f766cf0a2ad96d7dcd25f45f98c20e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702648"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46994718"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticare un problema di routing di una macchina virtuale
 
@@ -30,7 +30,7 @@ Questo articolo illustra come diagnosticare un problema relativo al routing visu
 
 Si prova a connettersi a una macchina virtuale, ma la connessione non riesce. Per determinare perché non è possibile connettersi alla macchina virtuale, è possibile visualizzare le route valide per un'interfaccia di rete usando il [portale di Azure](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell) o l'[interfaccia della riga di comando di Azure](#diagnose-using-azure-cli).
 
-I passaggi che seguono presuppongono la disponibilità di una macchina virtuale per visualizzarne le route valide. In mancanza di una macchina virtuale esistente, distribuire prima una VM [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) con cui completare le attività in questo articolo. Gli esempi di questo articolo sono per una macchina virtuale denominata *myVM* con un'interfaccia di rete denominata *myVMVMNic*. L'interfaccia di rete e la macchina virtuale si trovano in un gruppo di risorse denominato *myResourceGroup* nell'area *Stati Uniti orientali*. Modificare i valori nei passaggi come appropriato per la macchina virtuale per cui si sta diagnosticando il problema.
+I passaggi che seguono presuppongono la disponibilità di una macchina virtuale per visualizzarne le route valide. In mancanza di una macchina virtuale esistente, distribuire prima una VM [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) con cui completare le attività in questo articolo. Gli esempi di questo articolo sono per una VM denominata *myVM* con un'interfaccia di rete denominata *myVMVMNic*. L'interfaccia di rete e la VM si trovano in un gruppo di risorse denominato *myResourceGroup* nell'area *Stati Uniti orientali*. Modificare i valori nei passaggi come appropriato per la VM per cui si sta diagnosticando il problema.
 
 ## <a name="diagnose-using-azure-portal"></a>Diagnosi tramite il portale di Azure
 
@@ -65,7 +65,7 @@ Get-AzureRmEffectiveRouteTable `
   | Format-Table
 ```
 
-Per comprendere le informazioni restituite nell'output, vedere [Panoramica sul routing](virtual-networks-udr-overview.md). L'output viene restituito solo se la macchina virtuale è nello stato di esecuzione. Se alla macchina virtuale sono collegate più interfacce di rete, è possibile esaminare le route valide per ognuna delle interfacce. Poiché ogni interfaccia di rete può trovarsi in una subnet diversa, ogni interfaccia di rete può avere route valide differenti. Se si verificano ancora problemi di comunicazione, vedere [Diagnosi aggiuntiva](#additional-diagnosis) e [considerazioni](#considerations).
+Per comprendere le informazioni restituite nell'output, vedere [Panoramica sul routing](virtual-networks-udr-overview.md). L'output viene restituito solo se la macchina virtuale è nello stato di esecuzione. Se alla macchina virtuale sono collegate più interfacce di rete, è possibile esaminare le route valide per ognuna delle interfacce. Poiché ogni interfaccia di rete può trovarsi in una subnet diversa, ogni interfaccia di rete può avere route valide differenti. Se si verificano ancora problemi di comunicazione, vedere [Diagnosi aggiuntiva](#additional-diagnosis) e [Considerazioni](#considerations).
 
 Se si non conosce il nome di un'interfaccia di rete, ma si conosce il nome della macchina virtuale a cui è collegata, i comandi seguenti restituiscono gli ID di tutte le interfacce di rete collegate a una macchina virtuale:
 
@@ -83,11 +83,11 @@ NetworkInterfaces
 {/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
 ```
 
-Nell'output precedente, il nome dell'interfaccia di rete è *myVMVMNic*.
+Nell'output precedente il nome dell'interfaccia di rete è *myVMVMNic*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnosi tramite l'interfaccia della riga di comando di Azure
 
-È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/bash) oppure eseguendo l'interfaccia della riga di comando sul computer. Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.32 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessario eseguire anche `az login` e accedere ad Azure con un account dotato delle [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
+È possibile eseguire i comandi seguenti in [Azure Cloud Shell](https://shell.azure.com/bash) oppure eseguendo l'interfaccia della riga di comando sul computer. Questo articolo richiede l'interfaccia della riga di comando di Azure 2.0.32 o versioni successive. Eseguire `az --version` per trovare la versione installata. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Se si esegue l'interfaccia della riga di comando di Azure in locale, è necessario eseguire anche `az login` e accedere ad Azure con un account dotato delle [autorizzazioni necessarie](virtual-network-network-interface.md#permissions).
 
 Ottenere le route valide per un'interfaccia di rete con [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). L'esempio seguente ottiene le route valide per un'interfaccia di rete denominata *myVMVMNic* che si trova in un gruppo di risorse denominato *myResourceGroup*:
 
