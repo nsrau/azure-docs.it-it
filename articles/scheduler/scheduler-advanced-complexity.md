@@ -1,123 +1,156 @@
 ---
-title: Creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure
-description: Informazioni su come creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure.
+title: Compilare pianificazioni di processo avanzate e ricorrenze - Utilità di pianificazione di Azure
+description: Informazioni su come creare pianificazioni avanzate e ricorrenze per i processi in Utilità di pianificazione di Azure
 services: scheduler
-documentationcenter: .NET
-author: derek1ee
-manager: kevinlam1
-editor: ''
-ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.service: scheduler
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
+author: derek1ee
+ms.author: deli
+ms.reviewer: klam
+ms.suite: infrastructure-services
+ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 08/18/2016
-ms.author: deli
-ms.openlocfilehash: 4293442e13fc4bae871b1f32a3ed4231d9f32632
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: f5a8b929cf5af6e4e43c6003e6b622d04a50b93e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692335"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46980941"
 ---
-# <a name="build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Creare pianificazioni complesse e operazioni ricorrenti avanzate con l'Utilità di pianificazione di Azure
+# <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Compilare pianificazioni avanzate e ricorrenze per i processi in Utilità di pianificazione di Azure
 
-L'Utilità di pianificazione di Azure è basata sul concetto di pianificazione, che determina come e quando viene eseguito il processo. 
+> [!IMPORTANT]
+> [App per la logica di Azure](../logic-apps/logic-apps-overview.md) sostituirà Utilità di pianificazione di Azure di cui è in corso il ritiro. Per pianificare i processi, [provare App per la logica di Azure](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
 
-È possibile usare l'Utilità di pianificazione per impostare più pianificazioni singole e ricorrenti per un processo. Le pianificazioni singole attivano un processo a un'ora specificata. Si tratta in realtà di pianificazioni ricorrenti che vengono eseguite una sola volta. Le pianificazioni ricorrenti vengono eseguite con una frequenza predeterminata.
+All'interno di un processo in [Utilità di pianificazione Azure](../scheduler/scheduler-intro.md), la pianificazione è la componente principale che determina come e quando il servizio Utilità di pianificazione esegue il processo. Con Utilità di pianificazione è possibile configurare più pianificazioni singole e ricorrenti per un processo. Le pianificazioni singole vengono eseguite una sola volta a un'ora specificata e sono essenzialmente pianificazioni ricorrenti eseguite una sola volta. Le pianificazioni ricorrenti vengono eseguite con una frequenza specificata. Grazie a questa flessibilità, è possibile usare l'Utilità di pianificazione per diversi scenari aziendali, ad esempio:
 
-Grazie a questa flessibilità, è possibile usare l'Utilità di pianificazione per un'ampia varietà di scenari aziendali:
+* **Pulire i dati regolarmente**: creare un processo giornaliero che elimina tutti i tweet più vecchi di tre mesi.
 
-* **Pulizia periodica dei dati**. Ad esempio, eliminare ogni giorno tutti i tweet più vecchi di tre mesi.
-* **Archiviazione**. Ad esempio, eseguire ogni mese il push dello storico fatture a un servizio di backup.
-* **Richieste di dati esterni**. Ad esempio, eseguire ogni 15 minuti il pull di un nuovo bollettino meteorologico.
-* **Elaborazione di immagini**. Ad esempio, ogni giorno feriale, durante le ore non di punta, usare il cloud computing per comprimere le immagini caricate durante la giornata.
+* **Archiviare dati**: creare un processo mensile che esegue il push della cronologia delle fatture per un servizio di backup.
 
-In questo articolo vengono presentati alcuni processi di esempio che è possibile creare con l'Utilità di pianificazione. Verranno forniti i dati JSON che descrivono ciascun processo. Se si usa l'[API REST dell'Utilità di pianificazione](https://msdn.microsoft.com/library/mt629143.aspx), è possibile usare questo stesso codice JSON per [creare un processo dell'Utilità di pianificazione](https://msdn.microsoft.com/library/mt629145.aspx).
+* **Richiesta dei dati esterni**: creare un processo che viene eseguito ogni 15 minuti ed esegue il pull di un nuovo report meteo da NOAA.
+
+* **Processare immagini**: creare un processo dei giorni feriali che viene eseguito nelle ore non di punta e usa il cloud computing per la compressione delle immagini caricate durante la giornata.
+
+Questo articolo descrive i processi di esempio che si possono creare tramite l'Utilità di pianificazione e l'[API REST dell'Utilità di pianificazione di Azure](https://docs.microsoft.com/rest/api/schedule),e include la definizione di JavaScript Object Notation (JSON) per ogni pianificazione. 
 
 ## <a name="supported-scenarios"></a>Scenari supportati
-Gli esempi riportati in questo articolo illustrano i diversi scenari supportati dall'Utilità di pianificazione. In linea generale, questi esempi illustrano come creare pianificazioni per molti tipi di utilizzo, inclusi i seguenti:
+
+Questi esempi illustrano la gamma di scenari supportati dall'Utilità di pianificazione di Azure e spiegano come creare pianificazioni per vari modelli di comportamento, ad esempio:
 
 * Singola esecuzione in una data e a un'ora specifiche.
 * Esecuzione ricorrente per un numero specifico di volte.
 * Esecuzione immediata e in seguito ricorrente.
 * Esecuzione ricorrente ogni *n* minuti, ore, giorni, settimane o mesi, a partire da un momento specifico.
 * Esecuzione ricorrente con frequenza settimanale o mensile, ma solo in giorni specifici della settimana o del mese.
-* Esecuzione ricorrente, più volte in un determinato periodo. Ad esempio, l'ultimo venerdì e l'ultimo lunedì di ogni mese oppure alle 05:15 e alle 17:15 di ogni giorno.
+* Esecuzione ricorrente più volte per un periodo specifico. Ad esempio, l'ultimo venerdì e l'ultimo lunedì di ogni mese oppure tutti i giorni alle 05:15 e alle 17:15.
 
-## <a name="date-and-date-time"></a>Data e data-ora
-I riferimenti di tipo data nei processi dell'Utilità di pianificazione sono definiti in base alla [specifica ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) e includono solo la data.
+In seguito, questo articolo descrive gli scenari in modo più dettagliato.
 
-I riferimenti di tipo data-ora nei processi dell'Utilità di pianificazione sono definiti in base alla [specifica ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) e includono sia la data che l'ora. Se un valore data-ora non specifica il fuso orario, si presuppone che sia UTC.  
+<a name="create-scedule"></a>
 
-## <a name="use-json-and-the-rest-api-to-create-a-schedule"></a>Usare JSON e l'API REST per creare una pianificazione
-Per creare una pianificazione di base usando l'[API REST dell'Utilità di pianificazione](https://msdn.microsoft.com/library/mt629143), prima di tutto [registrare la sottoscrizione con un provider di risorse](https://msdn.microsoft.com/library/azure/dn790548.aspx). Il nome del provider per l'Utilità di pianificazione è **Microsoft.Scheduler**. Dopo questa operazione, [creare una raccolta di processi](https://msdn.microsoft.com/library/mt629159.aspx) e infine [creare un processo](https://msdn.microsoft.com/library/mt629145.aspx). 
+## <a name="create-schedule-with-rest-api"></a>Creare pianificazione con l'API REST
 
-Quando si crea un processo, è possibile specificare la pianificazione e la ricorrenza usando codice JSON, come in questo estratto:
+Per creare una pianificazione di base con l'[API REST dell'Utilità di pianificazione di Azure](https://docs.microsoft.com/rest/api/schedule), seguire questa procedura:
 
-    {
-        "startTime": "2012-08-04T00:00Z", // Optional
-         …
-        "recurrence":                     // Optional
-        {
-            "frequency": "week",     // Can be "year", "month", "day", "week", "hour", or "minute"
-            "interval": 1,                // How often to fire
-            "schedule":                   // Optional (advanced scheduling specifics)
-            {
-                "weekDays": ["monday", "wednesday", "friday"],
-                "hours": [10, 22]                      
-            },
-            "count": 10,                  // Optional (default to recur infinitely)
-            "endTime": "2012-11-04",      // Optional (default to recur infinitely)
-        },
-        …
-    }
+1. Registrare la sottoscrizione di Azure con un provider di risorse usando il [Registro operazione - API REST di Resource Manager](https://docs.microsoft.com/rest/api/resources/providers#Providers_Register). Il nome del provider per l'Utilità di pianificazione di Azure è **Utilità di pianificazione.Microsoft**. 
 
-## <a name="job-schema-basics"></a>Nozioni di base sullo schema del processo
-La tabella seguente presenta una panoramica generale degli elementi principali usati per impostare la ricorrenza e la pianificazione di un processo:
+1. Creare una raccolta di processi usando l'[operazione Crea o aggiorna per le raccolte di processi](https://docs.microsoft.com/rest/api/scheduler/jobcollections#JobCollections_CreateOrUpdate) nell'API REST dell'Utilità di pianificazione. 
 
-| Nome JSON | Descrizione |
-|:--- |:--- |
-| **startTime** |Valore data-ora. Per le pianificazioni di base, **startTime** indica la prima occorrenza. Per le pianificazioni complesse, il processo viene attivato non prima del valore di **startTime**. |
-| **recurrence** |Specifica le regole di ricorrenza per il processo e la ricorrenza in base alla quale viene eseguito il processo. L'oggetto recurrence supporta gli elementi **frequency**, **interval**, **endTime**, **count** e **schedule**. Se è definito l'oggetto **recurrence**, l'elemento **frequency** è obbligatorio. Gli altri elementi di **recurrence** sono facoltativi. |
-| **frequency** |Stringa che rappresenta l'intervallo di frequenza con cui si ripete il processo. I valori supportati sono "minute", "hour", "day", "week" e "month". |
-| **interval** |Numero intero positivo. L'elemento **interval** indica l'intervallo per il valore di **frequency** che determina la frequenza di esecuzione del processo. Se ad esempio **interval** è 3 e **frequency** è "week", il processo si ripete ogni tre settimane.<br /><br />L'Utilità di pianificazione supporta un elemento **interval** con un valore massimo di 18 mesi per la frequenza mensile, di 78 settimane per la frequenza settimanale o di 548 giorni per la frequenza giornaliera. Per le frequenze di tipo ora e minuto, l'intervallo supportato è 1 <= **interval** <= 1000. |
-| **endTime** |Stringa che specifica il valore data-ora oltre il quale non viene eseguito il processo. Per **endTime** è possibile impostare un valore nel passato. Se **endTime** e **count** non sono specificati, il processo viene eseguito all'infinito. Non è possibile includere **endTime** e **count** nello stesso processo. |
-| **count** |Numero intero positivo (maggiore di zero) che specifica il numero di volte in cui viene eseguito il processo prima del completamento.<br /><br />L'elemento **count** rappresenta il numero di volte in cui viene eseguito il processo prima di essere considerato completato. Ad esempio, nel caso di un processo giornaliero con un valore di **count** pari a 5 e lunedì come data di inizio, il completamento avviene dopo l'esecuzione del venerdì. Se la data di inizio è già passata, la prima esecuzione verrà calcolata dall'ora di creazione.<br /><br />Se non viene specificato un oggetto **endTime** o un oggetto **count**, il processo viene eseguito all'infinito. Non è possibile includere **endTime** e **count** nello stesso processo. |
-| **schedule** |Un processo con una frequenza specificata modifica la sua ricorrenza in base a una pianificazione. Un valore di **schedule** contiene modifiche in base a minuti, ore, giorni della settimana, giorni del mese e numero della settimana. |
+1. Creare un processo tramite l'[operazione Crea o aggiorna per i processi](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
-## <a name="job-schema-defaults-limits-and-examples"></a>Impostazioni predefinite, limiti ed esempi dello schema del processo
-Ciascuno degli elementi seguenti verrà illustrato in dettaglio più avanti in questo articolo:
+## <a name="job-schema-elements"></a>Elementi dello schema di processo
 
-| Nome JSON | Tipo di valore | Obbligatorio? | Valore predefinito | Valori validi | Esempio |
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** |stringa |No  |Nessuno |Date-ore ISO 8601 |`"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** |oggetto |No  |Nessuno |Oggetto recurrence |`"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **frequency** |stringa |Sì |Nessuno |"minute", "hour", "day", "week", "month" |`"frequency" : "hour"` |
-| **interval** |numero |Sì |Nessuno |Da 1 a 1000 |`"interval":10` |
-| **endTime** |stringa |No  |Nessuno |Valore data-ora che rappresenta un momento futuro |`"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **count** |numero |No  |Nessuno |>= 1 |`"count": 5` |
-| **schedule** |oggetto |No  |Nessuno |Oggetto schedule |`"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+Questa tabella fornisce una panoramica generale degli elementi JSON principali che è possibile usare durante la configurazione di ricorrenze e pianificazioni per i processi. 
 
-## <a name="deep-dive-starttime"></a>Approfondimenti: startTime
+| Elemento | Obbligatoria | DESCRIZIONE | 
+|---------|----------|-------------|
+| **startTime** | No  | Valore di stringa DateTime nel [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) che specifica quando il processo inizia per le prima volta in una pianificazione di base. <p>Per le pianificazioni complesse, il processo viene attivato non prima del valore di **startTime**. | 
+| **recurrence** | No  | Regole di ricorrenza per l'esecuzione del processo. L'oggetto **recurrence** supporta i seguenti elementi: **frequency**, **interval**, **schedule**, **count**, e **endTime**. <p>Se si usa l'elemento **recurrence**, è necessario usare anche l’elemento **frequency**, mentre altri elementi **recurrence** sono facoltativi. |
+| **frequency** | Sì, quando si usa **recurrence** | L'unità di tempo tra le occorrenze supporta questi valori: "Minute", "Hour", "Day", "Week", "Month" e "Year" | 
+| **interval** | No  | Un numero intero positivo che determina il numero di unità di tempo tra le occorrenze sulla base della **frequency**. <p>Se ad esempio **interval** è 10 e **frequency** è "Week", il processo si ripete ogni 10 settimane. <p>Di seguito il numero massimo di intervalli per ciascuna frequenza: <p>- 18 mesi <br>- 78 settimane <br>- 548 giorni <br>Per ore e minuti, l'intervallo è 1 <= <*interval*><= 1000. | 
+| **schedule** | No  | Definisce le modifiche alla ricorrenza in base agli indicatori di minuti, ore, giorni della settimana e giorni del mese | 
+| **count** | No  | Numero intero positivo che specifica il numero di volte in cui viene eseguito il processo prima del completamento. <p>Ad esempio, quando il **count** di un processo giornaliero è impostato su 7, e la data di inizio è lunedì, il processo viene completato di domenica. Se la data di inizio è già passata, la prima esecuzione verrà calcolata dall'ora di creazione. <p>Senza **endTime** o un **count**, il processo viene eseguito all'infinito. Non è possibile usare sia **count** che **endTime** in uno stesso processo, ma viene applicata la regola che termina per prima. | 
+| **endTime** | No  | Valore di stringa Date o DateTime nel [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) che specifica quando avviene l'arresto del processo. Per **endTime** è possibile impostare un valore nel passato. <p>Senza **endTime** o un **count**, il processo viene eseguito all'infinito. Non è possibile usare sia **count** che **endTime** in uno stesso processo, ma viene applicata la regola che termina per prima. |
+|||| 
+
+Ad esempio, questo schema JSON descrive una pianificazione di base e la ricorrenza di un processo: 
+
+```json
+"properties": {
+   "startTime": "2012-08-04T00:00Z", 
+   "recurrence": {
+      "frequency": "Week",
+      "interval": 1,
+      "schedule": {
+         "weekDays": ["Monday", "Wednesday", "Friday"],
+         "hours": [10, 22]                      
+      },
+      "count": 10,       
+      "endTime": "2012-11-04"
+   },
+},
+``` 
+
+*Valori di Date and DateTime*
+
+* Le date nei processi dell'Utilità di pianificazione di Azure includono solo la data e seguono la [specifica ISO-8601](http://en.wikipedia.org/wiki/ISO_8601).
+
+* Data e ora nei processi dell'Utilità di pianificazione includono sia data che ora, seguono la [specifica ISO 8601](http://en.wikipedia.org/wiki/ISO_8601)e si presuppone che sia UTC quando non viene specificata alcuna differenza dall'ora UTC. 
+
+Per altre informazioni, vedere [Concetti, terminologia ed entità](../scheduler/scheduler-concepts-terms.md).
+
+<a name="start-time"></a>
+
+## <a name="details-starttime"></a>Dettagli: startTime
+
 La tabella seguente descrive come **startTime** controlla la modalità di esecuzione di un processo:
 
-| Valore startTime | Nessuna ricorrenza | Ricorrenza senza pianificazione | Ricorrenza con pianificazione |
-|:--- |:--- |:--- |:--- |
-| **Nessuna ora di inizio** |Eseguire una volta immediatamente. |Eseguire una volta immediatamente. Avviare le esecuzioni successive calcolate a partire dall'ora dell'ultima esecuzione. |Eseguire una volta immediatamente.<br /><br />Avviare le esecuzioni successive in base alla pianificazione di ricorrenza. |
-| **Ora di inizio nel passato** |Eseguire una volta immediatamente. |Calcolare l'ora della prima esecuzione futura dopo l'ora di inizio e avviare l'esecuzione a tale ora.<br /><br />Avviare le esecuzioni successive calcolate a partire dall'ora dell'ultima esecuzione. <br /><br />Per altre informazioni, vedere l'esempio riportato dopo questa tabella. |Il processo inizia *non prima* dell'ora di inizio specificata. La prima occorrenza è basata sulla pianificazione calcolata dall'ora di inizio.<br /><br />Avviare le esecuzioni successive in base alla pianificazione di ricorrenza. |
-| **Ora di inizio nel futuro o nel presente** |Eseguire una sola volta all'ora di inizio specificata. |Eseguire una sola volta all'ora di inizio specificata.<br /><br />Avviare le esecuzioni successive calcolate a partire dall'ora dell'ultima esecuzione.|Il processo inizia *non prima* dell'ora di inizio specificata. La prima occorrenza è basata sulla pianificazione, calcolata a partire dall'ora di inizio.<br /><br />Avviare le esecuzioni successive in base alla pianificazione di ricorrenza. |
+| startTime | Nessuna ricorrenza | Ricorrenza senza pianificazione | Ricorrenza con pianificazione |
+|-----------|---------------|-------------------------|--------------------------|
+| **Nessuna ora di inizio** | Eseguire una volta immediatamente. | Eseguire una volta immediatamente. Avviare le esecuzioni successive calcolate a partire dall'ora dell'ultima esecuzione. | Eseguire una volta immediatamente. Avviare le esecuzioni successive in base alla pianificazione di ricorrenza. | 
+| **Ora di inizio nel passato** | Eseguire una volta immediatamente. | Calcolare l'ora della prima esecuzione futura dopo l'ora di inizio e avviare l'esecuzione a tale ora. <p>Avviare le esecuzioni successive calcolate a partire dall'ora dell'ultima esecuzione. <p>Vedere l'esempio riportato dopo la tabella. | Avviare il processo *non prima* dell'ora di inizio specificata. La prima occorrenza è basata sulla pianificazione calcolata dall'ora di inizio. <p>Avviare le esecuzioni successive in base alla pianificazione di ricorrenza. | 
+| **Ora di inizio nel futuro o nel presente** | Eseguire una sola volta all'ora di inizio specificata. | Eseguire una sola volta all'ora di inizio specificata. <p>Avviare le esecuzioni successive calcolate a partire dall'ora dell'ultima esecuzione. | Avviare il processo *non prima* dell'ora di inizio specificata. La prima occorrenza è basata sulla pianificazione, calcolata a partire dall'ora di inizio. <p>Avviare le esecuzioni successive in base alla pianificazione di ricorrenza. |
+||||| 
 
-Si esamini, ad esempio, uno scenario in cui il valore di **startTime** è nel passato, con ricorrenza, ma senza pianificazione.  Si supponga che l'ora corrente sia 2015-04-08 13:00, **startTime** sia 2015-04-07 14:00 e **recurrence** sia pari a una frequenza di due giorni, definita con **frequency**: day e **interval**: 2. È possibile notare che il valore di **startTime** è nel passato e quindi precede l'ora corrente.
+Si supponga che l'esempio presenti le condizioni seguenti: un'ora di inizio nel passato con una ricorrenza, ma nessuna pianificazione.
 
-In queste condizioni, la prima esecuzione avverrà il giorno 2015-04-09 alle 14:00. Il motore dell'Utilità di pianificazione calcola le occorrenze dall'ora di inizio dell'esecuzione. Vengono eliminate tutte le istanze in passato. Il motore utilizza l'istanza successiva che si verifica in futuro. In questo caso, il valore di **startTime** è 2015-04-07 14:00 e quindi l'istanza successiva viene eseguita due giorni dopo, ovvero il giorno 2015-04-09 alle 14:00.
+```json
+"properties": {
+   "startTime": "2015-04-07T14:00Z", 
+   "recurrence": {
+      "frequency": "Day",
+      "interval": 2
+   }
+}
+```
 
-È possibile notare che la prima esecuzione è la stessa indipendentemente dal fatto che il valore di **startTime** sia 2015-04-05 14:00 o 2015-04-01 14:00\. Dopo la prima esecuzione, le esecuzioni successive vengono calcolate in base alla pianificazione, ovvero il 2015-04-11 alle 14:00, quindi il 2015-04-13 alle 14:00, quindi il 2015-04-15 alle 14:00 e così via.
+* Data e ora correnti sono "08/04/2015 13:00".
 
-Infine, se nella pianificazione di un processo non sono specificati i minuti e le ore, per impostazione predefinita vengono usati i minuti e le ore della prima esecuzione.
+* La data di inizio e l'ora è "07/04/2015 14:00", cioè prima della data e ora correnti.
 
-## <a name="deep-dive-schedule"></a>Approfondimenti: schedule
+* La ricorrenza è ogni due giorni.
+
+1. In queste condizioni, la prima esecuzione avviene il 09/04/2015 alle 14:00. 
+
+   L'Utilità di pianificazione calcola le occorrenze di esecuzione in base all'ora di inizio, rimuove tutte le istanze del passato e usa l'istanza successiva in futuro. 
+   In questo caso, il valore di **startTime** è 07/04/2015 alle 14:00 e quindi l'istanza successiva viene eseguita due giorni dopo, ovvero il giorno 09/04/2015 alle 14:00.
+
+   Si noti che la prima esecuzione è la stessa sia che il valore di **startTime** sia 05/04/2017 14:00 o 01/04/2017 14:00. Dopo la prima esecuzione, le esecuzioni successive vengono calcolate in base alla pianificazione. 
+   
+1. Le esecuzioni seguono in questo ordine: 
+   
+   1. 11/04/2015 alle 14:00
+   1. 13/04/2015 alle 14:00 
+   1. 15/04/2015 alle 14:00
+   1. E così via.
+
+1. Infine, se nella pianificazione di un processo non sono specificati i minuti e le ore, per impostazione predefinita vengono usati i minuti e le ore della prima esecuzione.
+
+<a name="schedule"></a>
+
+## <a name="details-schedule"></a>Dettagli: pianificazione
+
 È possibile usare **schedule** per *limitare* il numero di esecuzioni di un processo. Se ad esempio un processo con **frequency** "month" ha una pianificazione che prevede l'esecuzione solo il giorno 31, il processo viene eseguito solo nei mesi di 31 giorni.
 
 L'oggetto **schedule** può essere usato anche per *espandere* il numero di esecuzioni di un processo. Se ad esempio un processo con **frequency** "month" prevede l'esecuzione nei giorni 1 e 2 del mese, il processo viene eseguito il primo e il secondo giorno del mese invece che una sola volta al mese.
@@ -126,20 +159,21 @@ Se si specificano più elementi di pianificazione, l'ordine di valutazione va da
 
 La tabella seguente illustra in modo dettagliato gli elementi dell'oggetto schedule.
 
-| Nome JSON | Descrizione | Valori validi |
+| Nome JSON | DESCRIZIONE | Valori validi |
 |:--- |:--- |:--- |
 | **minutes** |Minuti dell'ora in cui viene eseguito il processo. |Matrice di numeri interi. |
 | **hours** |Ora del giorno in cui viene eseguito il processo. |Matrice di numeri interi. |
 | **weekDays** |Giorni della settimana in cui viene eseguito il processo. Può essere specificato solo se la frequenza è settimanale. |Matrice di uno dei valori seguenti (la dimensione massima della matrice è 7):<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />Non viene applicata la distinzione tra maiuscole e minuscole. |
-| **monthlyOccurrences** |Determina in quali giorni del mese viene eseguito il processo. Può essere specificato solo con una frequenza mensile. |Matrice di oggetti **monthlyOccurrences**:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** indica il giorno della settimana in cui viene eseguito il processo. Ad esempio, *{Sunday}* corrisponde a ogni domenica del mese. Obbligatorio.<br /><br />**occurrence** indica l'occorrenza del giorno durante il mese. Ad esempio, *{Sunday, -1}* corrisponde all'ultima domenica del mese. Facoltativo. |
+| **monthlyOccurrences** |Determina in quali giorni del mese viene eseguito il processo. Può essere specificato solo con una frequenza mensile. |Matrice di oggetti **monthlyOccurrences**:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day** indica il giorno della settimana in cui viene eseguito il processo. Ad esempio, *{Sunday}* corrisponde a ogni domenica del mese. Richiesto.<br /><br />**occurrence** indica l'occorrenza del giorno durante il mese. Ad esempio, *{Sunday, -1}* corrisponde all'ultima domenica del mese. facoltativo. |
 | **monthDays** |Giorno del mese in cui viene eseguito il processo. Può essere specificato solo con una frequenza mensile. |Matrice dei valori seguenti:<br />- Qualsiasi valore <= -1 e >= -31<br />- Qualsiasi valore >= 1 e <= 31|
 
 ## <a name="examples-recurrence-schedules"></a>Esempi: pianificazioni di ricorrenza
+
 Gli esempi seguenti mostrano varie pianificazioni di ricorrenza, con particolare attenzione all'oggetto schedule e ai relativi sottoelementi.
 
 In queste pianificazioni si presuppone che **interval** sia impostato su 1\. Negli esempi si presuppone inoltre l'uso di valori di **frequency** corretti nell'oggetto **schedule**. Non è ad esempio possibile usare un valore di **frequency** uguale a "day" e al tempo stesso avere una modifica **monthDays** in **schedule**. Queste restrizioni sono descritte in una sezione precedente di questo articolo.
 
-| Esempio | Descrizione |
+| Esempio | DESCRIZIONE |
 |:--- |:--- |
 | `{"hours":[5]}` |Viene eseguito alle 05:00 ogni giorno.<br /><br />L'Utilità di pianificazione stabilisce una corrispondenza uno-a-uno tra ogni valore in "ore" e ogni valore in "minuti" per creare un elenco di tutte le occorrenze del processo. |
 | `{"minutes":[15], "hours":[5]}` |Viene eseguito alle 05:15 ogni giorno. |
@@ -175,13 +209,6 @@ In queste pianificazioni si presuppone che **interval** sia impostato su 1\. Neg
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Che cos'è l'Utilità di pianificazione?](scheduler-intro.md)
-- [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
-- [Introduzione all'uso dell'Utilità di pianificazione di Azure nel portale di Azure](scheduler-get-started-portal.md)
-- [Piani e fatturazione nell'utilità di pianificazione di Azure](scheduler-plans-billing.md)
-- [Informazioni di riferimento sull'API REST dell'Utilità di pianificazione di Azure](https://msdn.microsoft.com/library/mt629143)
-- [Informazioni di riferimento sui cmdlet PowerShell dell'Utilità di pianificazione di Azure](scheduler-powershell-reference.md)
-- [Livelli elevati di disponibilità e affidabilità dell'Utilità di pianificazione di Azure](scheduler-high-availability-reliability.md)
-- [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
-- [Autenticazione in uscita dell'Utilità di pianificazione di Azure](scheduler-outbound-authentication.md)
-
+* [Informazioni su Utilità di pianificazione di Microsoft Azure](scheduler-intro.md)
+* [Concetti, terminologia e gerarchia di entità dell'Utilità di pianificazione di Azure](scheduler-concepts-terms.md)
+* [Limiti, valori predefiniti e codici di errore dell'Utilità di pianificazione di Azure](scheduler-limits-defaults-errors.md)
