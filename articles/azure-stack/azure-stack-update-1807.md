@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bde8ea74d2b6d36cd070598d0542e5be4bdef244
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816175"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868820"
 ---
 # <a name="azure-stack-1807-update"></a>Aggiornamento di Azure Stack 1807
 
@@ -190,7 +190,7 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
 Dopo l'installazione di questo aggiornamento, installare eventuali hotfix applicabili. Per altre informazioni, visualizzare i seguenti articoli della knowledge base, nonché nostri [criteri per la manutenzione](azure-stack-servicing-policy.md). 
-- [KB 4464231 – Azure Stack hotfix per Azure Stack Hotfix 1.1807.1.78](https://support.microsoft.com/help/4464231)
+- [KB 4467061 – Azure Stack hotfix per Azure Stack Hotfix 1.1807.3.82](https://support.microsoft.com/help/4467061/)
 
 <!-- 2933866 – IS --> Dopo l'installazione di questo aggiornamento, è possibile visualizzare **migliorato lo stato per le installazioni di aggiornamento non riuscito.** Potrebbe trattarsi di informazioni sugli errori di installazione aggiornamento precedente che sono soggette a revisione in modo da riflettere le due nuove categorie di stato. Le nuove categorie di stato vengono *PreparationFailed*, e *InstallationFailed*.  
 
@@ -211,7 +211,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Quando si installa un nuovo ambiente di Azure Stack che esegue questa versione, l'avviso che indica *attivazione obbligatoria* potrebbe non essere visualizzato. [Attivazione](azure-stack-registration.md) è necessario prima di poter usare diffusione di marketplace.  
 
 <!-- TBD - IS ASDK --> 
-- I due tipi di sottoscrizione amministrativo che erano [introdotta con la versione 1804](azure-stack-update-1804.md#new-features) non deve essere utilizzato. I tipi di sottoscrizione siano **sottoscrizione di misurazione**, e **sottoscrizione consumo**. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'uso. È consigliabile continuare a usare il **Provider predefinito** tipo di sottoscrizione.
+- I due tipi di sottoscrizione amministrativi che sono state introdotte con la versione 1804 non devono essere utilizzati. I tipi di sottoscrizione siano **sottoscrizione di misurazione**, e **sottoscrizione consumo**. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'uso. È consigliabile continuare a usare il **Provider predefinito** tipo di sottoscrizione.
 
 <!-- 2403291 - IS ASDK --> 
 - Non si dispone di utilizzo della barra di scorrimento orizzontale nella parte inferiore di portali di amministratore e utente. Se non è possibile accedere la barra di scorrimento orizzontale, usare i percorsi di navigazione per passare al pannello precedente nel portale selezionando il nome del pannello si desidera visualizzare nell'elenco di navigazione nella parte superiore sinistra del portale.

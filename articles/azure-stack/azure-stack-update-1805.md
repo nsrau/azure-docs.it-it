@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7cf3e08caad93bb7fb7fd221b6fdb9b2fc39397a
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b6cb095736bbf41d53359bf7d07206703de5335c
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816736"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870005"
 ---
 # <a name="azure-stack-1805-update"></a>Aggiornamento di Azure Stack 1805
 
@@ -72,8 +72,8 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack.
 ## <a name="before-you-begin"></a>Prima di iniziare    
 
 ### <a name="prerequisites"></a>Prerequisiti
-- Installare Azure Stack [1804 aggiornare](azure-stack-update-1804.md) prima di applicare l'aggiornamento di Azure Stack 1805.  
-- Installare la versione più recente disponibile [update o un hotfix per la versione 1804](azure-stack-update-1804.md#post-update-steps).   
+- Installare l'aggiornamento di Azure Stack 1804 prima di applicare l'aggiornamento di Azure Stack 1805.  
+- Installare l'aggiornamento più recente o l'hotfix per la versione 1804.   
 - Prima di iniziare l'installazione dell'aggiornamento 1805, eseguire [Test-AzureStack](azure-stack-diagnostic-test.md) per convalidare lo stato di Azure Stack e risolvere eventuali problemi operativi trovati. Anche gli avvisi attivi rivedere e risolvere gli eventuali che richiedono un'azione. 
 
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento   
@@ -117,7 +117,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
   Soluzione alternativa: Per risolvere questo problema dopo aver installato questo aggiornamento, passaggio 3 da usare la [attivare l'automazione per configurare attestazioni attendibilità del provider in Azure Stack](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) procedura per reimpostare il proprietario della sottoscrizione del provider predefinito.   
 
 <!-- TBD - IS ASDK --> 
-- Alcuni tipi di sottoscrizione amministrativi non disponibili.  Quando si esegue l'aggiornamento di Azure Stack per questa versione, i tipi di due sottoscrizioni che erano [introdotta con la versione 1804](azure-stack-update-1804.md#new-features) non sono visibili nella console. Si tratta di un comportamento previsto. I tipi di sottoscrizione disponibili sono *sottoscrizione di misurazione*, e *sottoscrizione consumo*. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'uso. È consigliabile continuare a usare il *Provider predefinito* tipo di sottoscrizione.  
+- Alcuni tipi di sottoscrizione amministrativi non disponibili. Quando si esegue l'aggiornamento di Azure Stack per questa versione, i tipi di due sottoscrizione sono stati introdotti con la versione 1804 non sono visibili nella console. Si tratta di un comportamento previsto. I tipi di sottoscrizione disponibili sono *sottoscrizione di misurazione*, e *sottoscrizione consumo*. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'uso. È consigliabile continuare a usare il *Provider predefinito* tipo di sottoscrizione.  
 
 <!-- 2403291 - IS ASDK --> 
 - Non si dispone di utilizzo della barra di scorrimento orizzontale nella parte inferiore di portali di amministratore e utente. Se non è possibile accedere la barra di scorrimento orizzontale, usare i percorsi di navigazione per passare al pannello precedente nel portale selezionando il nome del pannello si desidera visualizzare nell'elenco di navigazione nella parte superiore sinistra del portale.

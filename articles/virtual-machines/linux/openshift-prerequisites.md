@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 178f4d6dab5c87c9c53ab87c4a3b1edcfa61c221
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 36271116d697e5ee6c6ed08d5fdc6063a511e820
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847125"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46984337"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Prerequisiti comuni per la distribuzione di OpenShift in Azure
 
@@ -124,7 +124,7 @@ Prendere nota della proprietà appId restituita dal comando:
  > [!WARNING] 
  > Creare una password sicura. Attenersi alle istruzioni relative a [regole e limitazioni sulle password di Azure AD](/azure/active-directory/active-directory-passwords-policy).
 
-Per altre informazioni sulle entità servizio, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
+Per altre informazioni sulle entità servizio, vedere [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

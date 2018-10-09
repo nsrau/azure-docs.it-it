@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ae5eadda56ca0a144ef46385dc2dcae143da378d
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: a870ba238239a20af154f611f88e7c2fdb95f9f7
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815852"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870928"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -158,7 +158,7 @@ Questo aggiornamento contiene anche la mitigazione dei rischi per la vulnerabili
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
 Dopo l'installazione di questo aggiornamento, installare eventuali hotfix applicabili. Per altre informazioni, visualizzare i seguenti articoli della knowledge base, nonché nostri [criteri per la manutenzione](azure-stack-servicing-policy.md). 
-- [KB 4465859 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.2.104](https://support.microsoft.com/help/4465859/)
+- [KB 4467062 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.4.108](https://support.microsoft.com/help/4467062/)
 
 
 ## <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
@@ -197,7 +197,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - Quando si installa un nuovo ambiente di Azure Stack che esegue questa versione, l'avviso che indica *attivazione obbligatoria* potrebbe non essere visualizzato. [Attivazione](azure-stack-registration.md) è necessario prima di poter usare diffusione di marketplace.  
 
 <!-- TBD - IS ASDK --> 
-- I due tipi di sottoscrizione amministrativo che erano [introdotta con la versione 1804](azure-stack-update-1804.md#new-features) non deve essere utilizzato. I tipi di sottoscrizione siano **sottoscrizione di misurazione**, e **sottoscrizione consumo**. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'uso. È consigliabile continuare a usare il **Provider predefinito** tipo di sottoscrizione.
+- I due tipi di sottoscrizione amministrativi che sono state introdotte con la versione 1804 non devono essere utilizzati. I tipi di sottoscrizione siano **sottoscrizione di misurazione**, e **sottoscrizione consumo**. Questi tipi di sottoscrizione sono visibili in nuovi ambienti Azure Stack partire dalla versione 1804 ma non sono ancora pronti per l'uso. È consigliabile continuare a usare il **Provider predefinito** tipo di sottoscrizione.
 
 <!-- TBD - IS ASDK --> 
 - Eliminazione utente diverso, le sottoscrizioni le risorse orfane. In alternativa, eliminare prima le risorse utente o l'intero gruppo di risorse e quindi eliminare le sottoscrizioni dell'utente.
@@ -251,7 +251,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
       1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
       2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
    2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
-      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4465859).
+      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4467062/).
       2. Seguire i passaggi descritti in [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
 
 <!-- 2869209 – IS, ASDK --> 
