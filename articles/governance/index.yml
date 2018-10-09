@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b2ee21b77fc3bb26a1ca449ede198f8873a090c0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a5152f9d9652a32c63c028a363187428d3014c54
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036848"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867596"
 documentType: LandingData
 title: Gestione di Azure - Governance
 metadata:
@@ -55,7 +55,7 @@ sections:
       html: <p>Creare un pacchetto nativo di Azure di <i>artefatti</i> (gruppi di risorse, criteri, assegnazioni di ruolo, modelli di Resource Manager e altro) che possa essere distribuito in modo dinamico alle sottoscrizioni per creare ambienti coerenti e ripetibili.</p>
       image:
         src: ./media/blueprints-illustration.svg
-      title: Blueprint
+      title: Progetti
 - title: Implementazioni
 - items:
   - type: list
@@ -63,17 +63,9 @@ sections:
     className: cardsZ
     columns: 3
     items:
-    - href: /azure/architecture/cloud-adoption/governance/what-is-governance?toc=/azure/governance/toc.json
+    - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
       html: <p>In passato le aziende si assumevano la proprietà e la responsabilità di tutti i livelli della tecnologia, dall'infrastruttura al software. Il cloud offre attualmente la possibilità di trasformare il modo in cui le aziende utilizzano la tecnologia tramite il provisioning e l'uso delle risorse in base alla necessità.</p>
       title: Adozione del cloud nell'organizzazione
     - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
       html: <p>Consente agli amministratori di verificare che i carichi di lavoro soddisfino i requisiti minimi di governance di un'organizzazione senza impedire che i gruppi e gli sviluppatori aziendali soddisfino i propri obiettivi.<br /><br /></p>
       title: Scaffold enterprise
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Criterio
-      html: <p>Riga di comando<ul><li><a href="/cli/azure/policy">Interfaccia della riga di comando di Azure</a></li></ul></p><p>PowerShell<ul><li><a href="/powershell/module/azurerm.resources/#policies">Azure PowerShell</a></li></ul></p><p>API REST<ul><li><a href="/rest/api/policy-insights/policyevents">Eventi</a></li><li><a href="/rest/api/policy-insights/policystates">Stati</a></li><li><a href="/rest/api/resources/policyassignments">Assegnazioni</a></li><li><a href="/rest/api/resources/policydefinitions">Definizioni dei criteri</a></li><li><a href="/rest/api/resources/policysetdefinitions">Definizioni delle iniziative</a></li></ul></p>

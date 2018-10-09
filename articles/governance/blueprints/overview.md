@@ -78,7 +78,7 @@ Per altre informazioni, vedere [Parametri di progetto](./concepts/parameters.md)
 ### <a name="blueprint-publishing"></a>Pubblicazione di progetti
 
 Quando si crea un progetto per la prima volta, questo viene considerato in modalità **bozza**. Quando è pronto per l'assegnazione, deve essere **pubblicato**. La pubblicazione richiede la definizione di una stringa **versione** (lettere, numeri e trattini con una lunghezza massima di 20 caratteri) accompagnata da **note di modifica** facoltative.
-La stringa **versione** consente di distinguere il progetto dalle modifiche future apportate allo stesso e di assegnare ciascuna versione. Questo significa anche che è possibile assegnare diverse **versioni** dello stesso progetto alla stessa sottoscrizione. Quando il progetto subisce ulteriori modifiche, la **versione****pubblicata** esiste ancora, e si aggiunge alle **modifiche non pubblicate**. Una volta ultimate le modifiche, il progetto aggiornato viene **pubblicato** con una nuova **versione** univoca e può essere ora assegnato.
+La stringa **versione** consente di distinguere il progetto dalle modifiche future apportate allo stesso e di assegnare ciascuna versione. Questo significa anche che è possibile assegnare diverse **versioni** dello stesso progetto alla stessa sottoscrizione. Quando il progetto subisce ulteriori modifiche, la **versione** **pubblicata** esiste ancora, e si aggiunge alle **modifiche non pubblicate**. Una volta ultimate le modifiche, il progetto aggiornato viene **pubblicato** con una nuova **versione** univoca e può essere ora assegnato.
 
 ## <a name="blueprint-assignment"></a>Assegnazione progetto
 

@@ -130,7 +130,7 @@ Di seguito sono elencati i problemi rilevati in molte migrazioni di grandi dimen
     az vm list-usage -l <azure-region> -o jsonc 
     ```
 
-    **Rete***(reti virtuali, indirizzi IP statici, indirizzi IP pubblici, gruppi di sicurezza di rete, interfacce di rete, bilanciamenti del carico, tabelle route)*
+    **Rete** *(reti virtuali, indirizzi IP statici, indirizzi IP pubblici, gruppi di sicurezza di rete, interfacce di rete, bilanciamenti del carico, tabelle route)*
     
     ```bash
     az network list-usages -l <azure-region> -o jsonc

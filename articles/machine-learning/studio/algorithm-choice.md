@@ -90,7 +90,7 @@ Gli algoritmi di regressione lineare ipotizzano che le tendenze dei dati seguano
 
 ![Limite di classe non lineare][1]
 
-***Limite di classe non lineare****: basarsi su un algoritmo di classificazione lineare produce una precisione ridotta*
+***Limite di classe non lineare*** *: basarsi su un algoritmo di classificazione lineare produce una precisione ridotta*
 
 ![Dati con una tendenza non lineare][2]
 
