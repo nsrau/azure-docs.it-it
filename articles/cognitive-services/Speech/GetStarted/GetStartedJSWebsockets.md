@@ -1,20 +1,22 @@
 ---
-title: Introduzione all'API Riconoscimento vocale Microsoft in JavaScript | Microsoft Docs
-description: Usare l'API Riconoscimento vocale Microsoft in Servizi cognitivi per sviluppare applicazioni per la conversione continua di audio parlato in testo.
+title: Introduzione all'API Riconoscimento vocale Bing in JavaScript | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Usare l'API Riconoscimento vocale Bing in Servizi cognitivi per sviluppare applicazioni per la conversione continua di audio parlato in testo.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ROBOTS: NOINDEX
+ms.openlocfilehash: c4fb331076f88d4f14f56201aa31a00160f395aa
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040539"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46995347"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Introduzione all'API Riconoscimento vocale in JavaScript
 
@@ -38,7 +40,7 @@ Questa sezione illustra i passaggi necessari per caricare una pagina HTML di ese
 
 ### <a name="open-the-sample-directly"></a>Aprire l'esempio direttamente
 
-Acquisire una chiave di sottoscrizione come descritto in precedenza. Aprire quindi il [collegamento all'esempio](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Questa pagina viene caricata nel browser predefinito (visualizzabile tramite [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+Acquisire una chiave di sottoscrizione come descritto in precedenza. Aprire quindi il [collegamento all'esempio](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Questa pagina viene caricata nel browser predefinito (visualizzabile tramite [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>Aprire l'esempio da una copia locale
 

@@ -1,6 +1,6 @@
 ---
-title: Usare l'interfaccia della riga di comando di Azure 2.0 per iniziare a usare Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Usare la riga di comando multipiattaforma di Azure 2.0 per creare un account di Data Lake Store ed eseguire operazioni di base
+title: Iniziare a usare Azure Data Lake Storage Gen1 tramite l'interfaccia della riga di comando di Azure | Microsoft Docs
+description: Usare l'interfaccia della riga di comando di Azure per creare un account Data Lake Storage Gen1 ed eseguire operazioni di base
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -10,38 +10,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: acd1182fdc66374e9abbc4964207417a7de3aadb
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: d8232b1e29a3d2585e79cf56d0f180a5084fd13e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035008"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979067"
 ---
-# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Introduzione ad Azure Data Lake Storage Gen1 con l'interfaccia della riga di comando di Azure 2.0
+# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Iniziare a usare Azure Data Lake Store tramite l'interfaccia della riga di comando di Azure
 > [!div class="op_single_selector"]
 > * [Portale](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Interfaccia della riga di comando di Azure 2.0](data-lake-store-get-started-cli-2.0.md)
+> * [Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
-[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un account Azure Data Lake Storage Gen1 ed eseguire operazioni di base come creare cartelle, caricare e scaricare file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Storage Gen1, vedere [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
-Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 per creare un account di Azure Data Lake Store ed eseguire operazioni di base, ad esempio creare cartelle, caricare e scaricare i file di dati, eliminare l'account e così via. Per altre informazioni su Data Lake Store, vedere [Panoramica di Data Lake Storage Gen1](data-lake-store-overview.md).
-
-L'interfaccia della riga di comando di Azure 2.0 è la nuova esperienza della riga di comando di Azure per gestire le risorse di Azure. Può essere usata in macOS, Linux e Windows. Per altre informazioni, vedere [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure) (Panoramica dell'interfaccia della riga di comando di Azure 2.0). Per un elenco completo di comandi e per la sintassi, è anche possibile vedere le [informazioni di riferimento sull'interfaccia della riga di comando di Azure Data Lake Store 2.0](https://docs.microsoft.com/cli/azure/dls).
+L'interfaccia della riga di comando di Azure è l'esperienza della riga di comando di Azure per gestire le risorse di Azure. Può essere usata in macOS, Linux e Windows. Per altre informazioni, vedere [Panoramica dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure). Per un elenco completo di comandi e per la sintassi, è anche possibile vedere le [informazioni di riferimento sull'interfaccia della riga di comando di Azure Data Lake Storage Gen1](https://docs.microsoft.com/cli/azure/dls).
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Interfaccia della riga di comando di Azure 2.0**: per istruzioni, vedere [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (Installare l'interfaccia della riga di comando di Azure 2.0).
+* **Interfaccia della riga di comando di Azure**: vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) per istruzioni.
 
 ## <a name="authentication"></a>Authentication
 
-Questo articolo usa un approccio di autenticazione più semplice con Data Lake Store in cui si accede come utente finale. Il livello di accesso al file system e all'account Data Lake Store viene quindi regolato dal livello di accesso dell'utente connesso. Esistono tuttavia altri approcci oltre all'autenticazione con Data Lake Store, ad esempio l'**autenticazione dell'utente finale** o l'**autenticazione da servizio a servizio**. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md) o [Autenticazione da servizio a servizio](data-lake-store-authenticate-using-active-directory.md).
+Questo articolo usa un approccio di autenticazione più semplice con Data Lake Storage Gen1 in cui si accede come utente finale. Il livello di accesso all'account Data Lake Storage Gen1 e al file system viene quindi controllato dal livello di accesso dell'utente connesso. Ci sono tuttavia altri approcci oltre all'autenticazione con Data Lake Storage Gen1, ad esempio l'**autenticazione dell'utente finale** o l'**autenticazione da servizio a servizio**. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md) o [Autenticazione da servizio a servizio](data-lake-store-authenticate-using-active-directory.md).
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Accedere alla sottoscrizione di Azure
@@ -60,7 +58,7 @@ Questo articolo usa un approccio di autenticazione più semplice con Data Lake S
     az account set --subscription <subscription id> 
     ```
 
-## <a name="create-an-azure-data-lake-store-account"></a>Creare un account di Azure Data Lake Store
+## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Creare un account Azure Data Lake Storage Gen1
 
 1. Creare un nuovo gruppo di risorse. Nel comando seguente, fornire i valori dei parametri da utilizzare. Se il nome del percorso contiene spazi, racchiuderlo tra virgolette doppie, Ad esempio "Stati Uniti orientali 2". 
    
@@ -68,33 +66,33 @@ Questo articolo usa un approccio di autenticazione più semplice con Data Lake S
     az group create --location "East US 2" --name myresourcegroup
     ```
 
-2. Creare un account Data Lake Store di Azure.
+2. Creare l'account Data Lake Storage Gen1.
    
     ```azurecli
-    az dls account create --account mydatalakestore --resource-group myresourcegroup
+    az dls account create --account mydatalakestoragegen1 --resource-group myresourcegroup
     ```
 
-## <a name="create-folders-in-a-data-lake-store-account"></a>Creare delle cartelle in un account Archivio Data Lake
+## <a name="create-folders-in-a-data-lake-storage-gen1-account"></a>Creare cartelle in un account Data Lake Storage Gen1
 
-È possibile creare delle cartelle con il proprio account di Azure Data Lake Store per gestire e archiviare i dati. Usare il comando seguente per creare una cartella denominata **mynewfolder** nella directory radice di Data Lake Store.
+È possibile creare cartelle nell'account Azure Data Lake Storage Gen1 per gestire e archiviare i dati. Usare il comando seguente per creare una cartella denominata **mynewfolder** nella radice dell'account Data Lake Storage Gen1.
 
 ```azurecli
-az dls fs create --account mydatalakestore --path /mynewfolder --folder
+az dls fs create --account mydatalakestoragegen1 --path /mynewfolder --folder
 ```
 
 > [!NOTE]
-> Il parametro `--folder` assicura che il comando crei una cartella. Se questo parametro non è presente, il comando crea un file vuoto denominato mynewfolder nella radice dell'account Data Lake Store.
+> Il parametro `--folder` assicura che il comando crei una cartella. Se questo parametro non è presente, il comando crea un file vuoto denominato mynewfolder nella radice dell'account Data Lake Storage Gen1.
 > 
 >
 
-## <a name="upload-data-to-a-data-lake-store-account"></a>Caricare dati in un account Data Lake Store
+## <a name="upload-data-to-a-data-lake-storage-gen1-account"></a>Caricare i dati in un account Data Lake Storage Gen1
 
-È possibile caricare dati in Data Lake Store direttamente a livello di radice o in una cartella creata nell'account. I frammenti di codice riportati di seguito illustrano come caricare alcuni dati di esempio nella cartella (**mynewdirectory**) creata nella sezione precedente.
+È possibile caricare i dati in Data Lake Storage Gen1 direttamente al livello radice o in una cartella creata nell'account. I frammenti di codice riportati di seguito illustrano come caricare alcuni dati di esempio nella cartella (**mynewdirectory**) creata nella sezione precedente.
 
 Se si stanno cercando dati di esempio da caricare, è possibile ottenere la cartella **Ambulance Data** dal [Repository GitHub per Azure Data Lake](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData). Scaricare il file e archiviarlo in una directory locale nel computer, ad esempio C:\sampledata\.
 
 ```azurecli
-az dls fs upload --account mydatalakestore --source-path "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" --destination-path "/mynewfolder/vehicle1_09142014.csv"
+az dls fs upload --account mydatalakestoragegen1 --source-path "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" --destination-path "/mynewfolder/vehicle1_09142014.csv"
 ```
 
 > [!NOTE]
@@ -103,12 +101,12 @@ az dls fs upload --account mydatalakestore --source-path "C:\SampleData\Ambulanc
 >
 
 
-## <a name="list-files-in-a-data-lake-store-account"></a>Elencare i file in un account Data Lake Store
+## <a name="list-files-in-a-data-lake-storage-gen1-account"></a>Elencare i file in un account Data Lake Storage Gen1
 
-Usare il comando seguente per elencare i file nell'account di Data Lake Store.
+Usare il comando seguente per elencare i file in un account Data Lake Storage Gen1.
 
 ```azurecli
-az dls fs list --account mydatalakestore --path /mynewfolder
+az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
 ```
 
 L'output di questo comando dovrebbe essere simile al seguente:
@@ -131,18 +129,18 @@ L'output di questo comando dovrebbe essere simile al seguente:
         }
     ]
 
-## <a name="rename-download-and-delete-data-from-a-data-lake-store-account"></a>Rinominare, scaricare ed eliminare i dati da un account Data Lake Store 
+## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Rinominare, scaricare ed eliminare i dati da un account Data Lake Storage Gen1 
 
 * **Per rinominare un file**, usare il comando seguente:
   
     ```azurecli
-    az dls fs move --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
+    az dls fs move --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
 * **Per scaricare un file**, usare il comando seguente. Assicurarsi che il percorso di destinazione specificato esista già.
   
     ```azurecli     
-    az dls fs download --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
+    az dls fs download --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
     ```
 
     > [!NOTE]
@@ -153,35 +151,35 @@ L'output di questo comando dovrebbe essere simile al seguente:
 * **Per eliminare un file**, usare il comando seguente:
   
     ```azurecli
-    az dls fs delete --account mydatalakestore --path /mynewfolder/vehicle1_09142014_copy.csv
+    az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
     Per eliminare la cartella **mynewfolder** e il file **vehicle1_09142014_copy.csv** con un unico comando, usare il parametro --recurse.
 
     ```azurecli
-    az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
+    az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder --recurse
     ```
 
-## <a name="work-with-permissions-and-acls-for-a-data-lake-store-account"></a>Utilizzare autorizzazioni ed elenchi di controllo di accesso per un account Data Lake Store
+## <a name="work-with-permissions-and-acls-for-a-data-lake-storage-gen1-account"></a>Usare le autorizzazioni e gli elenchi di controllo di accesso per un account Data Lake Storage Gen1
 
-Questa sezione illustra come gestire elenchi di controllo di accesso e autorizzazioni usando l'interfaccia della riga di comando di Azure 2.0. Per una spiegazione dettagliata di come vengono implementati gli elenchi di controllo di accesso in Azure Data Lake Store, vedere [Controllo di accesso in Azure Data Lake Store](data-lake-store-access-control.md).
+Questa sezione illustra come gestire elenchi di controllo di accesso e autorizzazioni usando l'interfaccia della riga di comando di Azure. Per una spiegazione dettagliata di come vengono implementati gli elenchi di controllo di accesso in Azure Data Lake Storage Gen1, vedere [Controllo di accesso in Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
 
 * **Per aggiornare il proprietario di un file o di una cartella**, usare il comando seguente:
 
     ```azurecli
-    az dls fs access set-owner --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --group 80a3ed5f-959e-4696-ba3c-d3c8b2db6766 --owner 6361e05d-c381-4275-a932-5535806bb323
+    az dls fs access set-owner --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv --group 80a3ed5f-959e-4696-ba3c-d3c8b2db6766 --owner 6361e05d-c381-4275-a932-5535806bb323
     ```
 
 * **Per aggiornare le autorizzazioni per un file o per una cartella**, usare il comando seguente:
 
     ```azurecli
-    az dls fs access set-permission --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --permission 777
+    az dls fs access set-permission --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv --permission 777
     ```
     
 * **Per ottenere gli elenchi di controllo di accesso per un determinato percorso**, usare il comando seguente:
 
     ```azurecli
-    az dls fs access show --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv
+    az dls fs access show --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv
     ```
 
     L'output dovrebbe essere simile al seguente:
@@ -201,38 +199,38 @@ Questa sezione illustra come gestire elenchi di controllo di accesso e autorizza
 * **Per impostare una voce per un elenco di controllo di accesso**, usare il comando seguente:
 
     ```azurecli
-    az dls fs access set-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323:-w-
+    az dls fs access set-entry --account mydatalakestoragegen1 --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323:-w-
     ```
 
 * **Per rimuovere una voce per un elenco di controllo di accesso**, usare il comando seguente:
 
     ```azurecli
-    az dls fs access remove-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323
+    az dls fs access remove-entry --account mydatalakestoragegen1 --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323
     ```
 
 * **Per rimuovere un intero elenco di controllo di accesso predefinito**, usare il comando seguente:
 
     ```azurecli
-    az dls fs access remove-all --account mydatalakestore --path /mynewfolder --default-acl
+    az dls fs access remove-all --account mydatalakestoragegen1 --path /mynewfolder --default-acl
     ```
 
 * **Per rimuovere un intero elenco di controllo di accesso non predefinito**, usare il comando seguente:
 
     ```azurecli
-    az dls fs access remove-all --account mydatalakestore --path /mynewfolder
+    az dls fs access remove-all --account mydatalakestoragegen1 --path /mynewfolder
     ```
     
-## <a name="delete-a-data-lake-store-account"></a>Eliminare un account Archivio Data Lake
-Usare il comando seguente per eliminare l'account di Data Lake Store.
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Eliminare un account Data Lake Storage Gen1
+Usare il comando seguente per eliminare un account Data Lake Storage Gen1.
 
 ```azurecli
-az dls account delete --account mydatalakestore
+az dls account delete --account mydatalakestoragegen1
 ```
 
 Quando viene richiesto, immettere **Y** per eliminare l'account.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Usare Azure Data Lake Store per i requisiti di Big Data](data-lake-store-data-scenarios.md) 
-* [Proteggere i dati in Data Lake Store](data-lake-store-secure-data.md)
-* [Usare Azure Data Lake Analytics con Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usare Azure HDInsight con Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Usare Azure Data Lake Storage Gen1 per i requisiti di Big Data](data-lake-store-data-scenarios.md) 
+* [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Usare Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usare Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
