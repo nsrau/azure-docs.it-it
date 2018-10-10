@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Creare, distribuire ed eseguire il debug di un'applicazione Web multiservizio in Service Fabric Mesh | Microsoft Docs"
+title: "Esercitazione: Creare, eseguire il debug distribuire e monitorare un'applicazione multiservizio in Service Fabric Mesh | Microsoft Docs"
 description: In questa esercitazione viene creata un'applicazione Azure Service Fabric Mesh multiservizio costituita da un sito Web ASP.NET Core che comunica con un servizio web back-end, ne viene eseguito il debug in locale e viene pubblicata in Azure.
 services: service-fabric-mesh
 documentationcenter: .net
@@ -12,26 +12,28 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2018
+ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 59ff3434e7b984f4530ad4f8b03b27991d3a9c1c
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 09112aafdbabf0cda2b3ae13af73a9223533a6e1
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917748"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46979195"
 ---
-# <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Esercitazione: Creare, eseguire il debug e distribuire un'applicazione Web multiservizio in Service Fabric Mesh
+# <a name="tutorial-create-debug-deploy-and-upgrade-a-multi-service-service-fabric-mesh-app"></a>Esercitazione: creare, eseguire il debug, distribuire e aggiornare un'applicazione multiservizio in Service Fabric Mesh
 
-Questa è la prima di una serie di esercitazioni. Si apprenderà come creare un'applicazione Azure Service Fabric Mesh che include un front-end Web ASP.NET e un servizio back-end API Web ASP.NET Core. Verrà quindi eseguito il debug dell'app nel cluster di sviluppo locale e l'app verrà pubblicata in Azure. Al termine, si disporrà di un'app attività semplice che illustra una chiamata da servizio a servizio in un'applicazione Service Fabric Mesh in esecuzione in Azure Service Fabric Mesh.
+Questa è la prima di una serie di esercitazioni. Si apprenderà come usare Visual Studio per creare un'app Azure Service Fabric Mesh che include un front-end Web ASP.NET e un servizio back-end API Web ASP.NET Core. Verrà quindi eseguito il debug dell'app nel cluster di sviluppo locale. Pubblicare l'app in Azure, apportare le modifiche di configurazione e di codice e aggiornare l'app. Infine, sarà possibile pulire le risorse di Azure inutilizzate in modo che non sia addebitato ciò che non si usa.
+
+Una volta terminato, sarà stata eseguita la maggior parte delle fasi di gestione del ciclo di vita dell'app e sarà stata compilata un'app che mostra una chiamata da servizio a servizio in un'app Service Fabric Mesh.
 
 Se non si vuole creare manualmente l'applicazione attività, è possibile [scaricare il codice sorgente](https://github.com/azure-samples/service-fabric-mesh) per l'applicazione completata e passare direttamente a [Eseguire il debug dell'app in locale](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md).
 
 Nella prima parte della serie si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un'applicazione Service Fabric Mesh costituita da un front-end Web ASP.NET.
+> * Usare Visual Studio per creare un'app Service Fabric Mesh costituita da un front-end Web ASP.NET.
 > * Creare un modello per rappresentare gli elementi attività.
 > * Creare un servizio back-end e recuperare i dati da tale servizio.
 > * Aggiungere un controller e DataContext come parte del modello Model View Controller per il servizio back-end.
@@ -40,9 +42,11 @@ Nella prima parte della serie si apprenderà come:
 
 In questa serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
-> * Creare un'applicazione Service Fabric Mesh
-> * [Eseguire il debug dell'app in locale](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
-> * [Pubblicare l'app in Azure](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * Creare un'app Service Fabric Mesh in Visual Studio
+> * [Eseguire il debug di un'app Service Fabric Mesh in esecuzione nel cluster di sviluppo locale](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> * [Distribuire un'app Service Fabric Mesh](service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md)
+> * [Aggiornare un'app Service Fabric Mesh](service-fabric-mesh-tutorial-upgrade.md)
+> * [Pulire le risorse di Service Fabric Mesh](service-fabric-mesh-tutorial-cleanup-resources.md)
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
@@ -54,9 +58,7 @@ Prima di iniziare questa esercitazione:
 
 * Assicurarsi di [configurare l'ambiente di sviluppo](service-fabric-mesh-howto-setup-developer-environment-sdk.md), installando tra l'altro il runtime di Service Fabric, l'SDK, Docker e Visual Studio 2017.
 
-* L'app per questa esercitazione deve, per il momento, essere compilata con le impostazioni locali inglese.
-
-## <a name="create-a-service-fabric-mesh-project"></a>Creare un progetto Service Fabric Mesh
+## <a name="create-a-service-fabric-mesh-project-in-visual-studio"></a>Creare un progetto Service Fabric Mesh in Visual Studio
 
 Eseguire Visual Studio e selezionare **File** > **Nuovo** > **Progetto**.
 
@@ -212,10 +214,7 @@ public static class DataContext
 
     static DataContext()
     {
-        ToDoList = new Model.ToDoList("Main List");
-
         // Seed to-do list
-
         ToDoList.Add(Model.ToDoItem.Load("Learn about microservices", 0, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric", 1, true));
         ToDoList.Add(Model.ToDoItem.Load("Learn about Service Fabric Mesh", 2, false));
@@ -368,6 +367,7 @@ Nel file service.yaml aggiungere le variabili seguenti in `environmentVariables`
 
 > [!IMPORTANT]
 > Per impostare i rientri per le variabili nel file service.yaml, usare spazi e non tabulazioni. In caso contrario, il file non verrà compilato. È possibile che Visual Studio inserisca tabulazioni durante la creazione delle variabili di ambiente. Sostituire tutte le tabulazioni con spazi. Anche se vengono visualizzati errori nell'output di debug della **compilazione**, l'app verrà avviata comunque, ma non funzionerà finché non si convertono le tabulazioni in spazi. Per assicurarsi che nel file service.yaml non siano presenti tabulazioni, è possibile rendere visibili gli spazi vuoti nell'editor di Visual Studio scegliendo **Modifica**  > **Avanzate**  > **Mostra/Nascondi spazi**.
+> Si noti che i file service.yaml vengono elaborati usando le impostazioni locali in inglese.  Ad esempio, se è necessario usare un separatore decimale, usare un punto anziché una virgola.
 
 Il file **service.yaml** del progetto **WebFrontEnd** in uso è simile a questo anche se il valore `ApiHostPort` è probabilmente diverso:
 
@@ -389,4 +389,4 @@ In questa parte dell'esercitazione si è appreso come:
 
 Passare all'esercitazione successiva:
 > [!div class="nextstepaction"]
-> [Eseguire il debug di un'applicazione Service Fabric Mesh in esecuzione in locale](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)
+> [Eseguire il debug di un'applicazione Azure Service Fabric Mesh in esecuzione nel cluster di sviluppo locale](service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md)

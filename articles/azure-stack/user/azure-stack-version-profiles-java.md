@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ffd22f3612d55258737cb9c004b2b0f4e9326f07
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452514"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886825"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Usare i profili delle versioni API con Java in Azure Stack
 
@@ -40,7 +40,7 @@ Un profilo di API è una combinazione di versioni di API e i provider di risorse
     
       - Ciò è necessario specificare nel file POM. XML come dipendenza, che carica i moduli automaticamente se è la classe a destra scegliere nell'elenco a discesa come si farebbe con .NET.
         
-          - La parte superiore di ogni modulo verrà visualizzata come indicato di seguito:         
+      - La parte superiore di ogni modulo verrà visualizzata come indicato di seguito:         
            `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
              
 
@@ -93,11 +93,11 @@ Per usare il SDK Java di Azure con Azure Stack, è necessario fornire i valori s
 
 | Valore                     | Variabili di ambiente | DESCRIZIONE                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ID tenant                 | TENANT_ID            | Il valore di Azure Stack [ <span class="underline">ID tenant</span>](../azure-stack-identity-overview.md).                                                          |
-| ID client                 | CLIENT_ID             | Il servizio di ID entità applicazione salvati dell'entità servizio è stato creato nella sezione precedente di questo documento.                                                                                              |
-| ID sottoscrizione           | SUBSCRIPTION_ID      | Il [ <span class="underline">ID sottoscrizione</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) è la modalità di accesso offerte in Azure Stack.                |
-| Client Secret             | CLIENT_SECRET        | L'applicazione di un'entità servizio segreto salvato se è stata creata l'entità servizio.                                                                                                                                   |
-| Endpoint di Resource Manager | ENDPOINT              | Visualizzare [ <span class="underline">l'endpoint di gestione risorse di Azure Stack</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| ID tenant                 | AZURE_TENANT_ID            | Il valore di Azure Stack [ <span class="underline">ID tenant</span>](../azure-stack-identity-overview.md).                                                          |
+| ID client                 | AZURE_CLIENT_ID             | Il servizio di ID entità applicazione salvati dell'entità servizio è stato creato nella sezione precedente di questo documento.                                                                                              |
+| ID sottoscrizione           | AZURE_SUBSCRIPTION_ID      | Il [ <span class="underline">ID sottoscrizione</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) è la modalità di accesso offerte in Azure Stack.                |
+| Client Secret             | AZURE_CLIENT_SECRET        | L'applicazione di un'entità servizio segreto salvato se è stata creata l'entità servizio.                                                                                                                                   |
+| Endpoint di Resource Manager | ARM_ENDPOINT              | Visualizzare [ <span class="underline">l'endpoint di gestione risorse di Azure Stack</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Località                  | POSIZIONE_RISORSA    | Locale per Azure Stack                                                                                                                                                                                                |
 
 Per trovare l'ID tenant per Azure Stack, seguire le istruzioni riportate [qui](../azure-stack-csp-ref-operations.md). Per impostare le variabili di ambiente, eseguire le operazioni seguenti:
@@ -107,7 +107,7 @@ Per trovare l'ID tenant per Azure Stack, seguire le istruzioni riportate [qui](.
 Per impostare le variabili di ambiente in un prompt dei comandi di Windows, usare il formato seguente:
 
 ```shell
-Set Azure_Tenant_ID=<Your_Tenant_ID>
+Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="macos-linux-and-unix-based-systems"></a>sistemi basati su Unix, Linux e macOS
@@ -115,7 +115,7 @@ Set Azure_Tenant_ID=<Your_Tenant_ID>
 In sistemi basati su Unix, è possibile usare il comando seguente:
 
 ```shell
-Export Azure_Tenant_ID=<Your_Tenant_ID>
+Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>L'endpoint di gestione risorse di Azure Stack
@@ -162,7 +162,8 @@ Il codice seguente esegue l'autenticazione dell'entità servizio in Azure Stack.
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
                     .withDefaultSubscriptionId(subscriptionId);
-            Azure azureStack = Azure.configure().withLogLevel(com.microsoft.rest.LogLevel.BASIC)
+Azure azureStack = Azure.configure()
+                    .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
                     .authenticate(credentials, credentials.defaultSubscriptionId());
 ```
 
@@ -182,7 +183,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("activeDirectoryResourceId", settings.get("audience"));
                     put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
-                    put("keyVaultDnsSuffix", ".adminvault" + armEndpoint.substring(armEndpoint.indexOf('.')));
+                    put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
             });
 ```
@@ -205,8 +206,7 @@ HttpGet getRequest = new
 HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
 armEndpoint));
 
-// Add additional header to getRequest which accepts application/xml
-data
+// Add additional header to getRequest which accepts application/xml data
 getRequest.addHeader("accept", "application/xml");
 
 // Execute request and catch response
@@ -217,37 +217,37 @@ HttpResponse response = httpClient.execute(getRequest);
 
 È possibile utilizzare gli esempi di GitHub seguenti come riferimento per la creazione di soluzioni con i profili .NET e API di Azure Stack:
 
-  - [Gestire gruppi di risorse](https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid)
+  - [Gestire gruppi di risorse](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [Gestire gli account di archiviazione](https://github.com/viananth/storage-java-manage-storage-accounts/tree/stack/Hybrid)
+  - [Gestire gli account di archiviazione](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [Gestire una macchina virtuale](https://github.com/viananth/compute-java-manage-vm/tree/stack/Hybrid)
+  - [Gestire una macchina virtuale](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
 ### <a name="sample-unit-test-project"></a>Progetto di Unit Test di esempio 
 
 1.  Clonare il repository usando il comando seguente:
     
-    `git clone https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid`
+    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
 2.  Creare un'entità servizio Azure e assegnare un ruolo per accedere alla sottoscrizione. Per istruzioni sulla creazione di un'entità servizio, vedere [usare Azure PowerShell per creare un'entità servizio con un certificato](../azure-stack-create-service-principals.md).
 
 3.  Recuperare i valori di variabile di ambiente necessarie seguenti:
     
-   1.  TENANT_ID
-   2.  CLIENT_ID
-   3.  CLIENT_SECRET
-   4.  SUBSCRIPTION_ID
-   5.  ARM_ENDPOINT
-   6.  POSIZIONE_RISORSA
+    -  AZURE_TENANT_ID
+    -  AZURE_CLIENT_ID
+    -  AZURE_CLIENT_SECRET
+    -  AZURE_SUBSCRIPTION_ID
+    -  ARM_ENDPOINT
+    -  POSIZIONE_RISORSA
 
 4.  Impostare le variabili di ambiente seguenti usando le informazioni di cui che è stato recuperato dall'entità servizio è stato creato mediante il prompt dei comandi:
     
-   1. esportare TENANT_ID = {proprio id tenant}
-   2. esportare CLIENT_ID = {l'id client}
-   3. esportare CLIENT_SECRET = {il segreto client}
-   4. esportare SUBSCRIPTION_ID = {id sottoscrizione}
-   5. esportare ARM_ENDPOINT = {l'URL di gestione risorse di Azure Stack}
-   6. esportare posizione_risorsa = {location di Azure Stack}
+    - esportare AZURE_TENANT_ID = {proprio id tenant}
+    - esportare AZURE_CLIENT_ID = {l'id client}
+    - esportare AZURE_CLIENT_SECRET = {il segreto client}
+    - esportare AZURE_SUBSCRIPTION_ID = {id sottoscrizione}
+    - esportare ARM_ENDPOINT = {l'URL di gestione risorse di Azure Stack}
+    - esportare posizione_risorsa = {location di Azure Stack}
 
    In Windows, usare **impostata** invece di **esportare**.
 

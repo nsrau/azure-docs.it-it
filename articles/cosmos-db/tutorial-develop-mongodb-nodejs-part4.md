@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 583400dba7077ebab3ce80d6a03b26f13a659b35
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b6654afa27255b0ebd0cc80b94212f44bbf16f34
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696871"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46960075"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-4-create-an-azure-cosmos-db-account-using-the-azure-cli"></a>Creare un'app MongoDB con Angular e Azure Cosmos DB - Parte 4: Creare un account Azure Cosmos DB usando l'interfaccia della riga di comando di Azure
 
@@ -37,7 +37,7 @@ La Parte 4 dell'esercitazione è basata sulla [Parte 3](tutorial-develop-mongodb
 
 Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completato le procedure illustrate nella [Parte 3](tutorial-develop-mongodb-nodejs-part3.md) dell'esercitazione. 
 
-In questa sezione dell'esercitazione è possibile usare Azure Cloud Shell (nel browser Internet) o l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) installata in locale. Se si usa l'interfaccia della riga di comando di Azure in locale, assicurarsi di eseguire l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Eseguire `az --version` al prompt dei comandi per controllare la versione in uso. 
+In questa sezione dell'esercitazione è possibile usare Azure Cloud Shell (nel browser Internet) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) installata in locale.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 

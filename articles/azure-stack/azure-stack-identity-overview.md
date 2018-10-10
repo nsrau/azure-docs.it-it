@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 2/22/2018
+ms.date: 10/09/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: 84ab374c95f3e77b2897ff142c3cacef3df87140
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1bc4fcda360a899fb2f58e2ac26270d160227a65
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718917"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902842"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Panoramica dell'identità per Azure Stack
 
@@ -59,7 +59,7 @@ Come creare e gestire utenti e gruppi dipende è usare la soluzione di identità
 
 In Azure Stack, gli account utente:
 
-- Vengono creati nel *username@domain* formato. Anche se ADFS viene eseguito il mapping degli account utente a un'istanza di Active Directory, AD FS non supporta l'utilizzo dei  *\<dominio >\<alias >* formato.
+- Vengono creati nel *username@domain* formato. Anche se ADFS viene eseguito il mapping degli account utente a un'istanza di Active Directory, AD FS non supporta l'utilizzo dei  *\\ \<dominio >\\\<alias >* formato.
 - Da impostare per multi-factor Authentication.
 - Sono limitate alla directory in cui prima di tutto registrare, ovvero directory della propria organizzazione.
 - Possono essere importati dalla directory locale. Per altre informazioni, vedere [integrare le directory locali con Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).

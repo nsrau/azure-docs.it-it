@@ -10,12 +10,12 @@ ms.date: 10/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 93b13a92bd4ac887df982433d3faac94133e1635
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042360"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902444"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -236,7 +236,7 @@ Se si decide di eseguire manualmente i comandi, seguire questa procedura:
 
    @RuleTemplate = "PassThroughClaims"
    @RuleName = "Pass through all windows account name claims"
-   c:[Type == http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname]
+   c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
    => issue(claim = c);
    ```
 

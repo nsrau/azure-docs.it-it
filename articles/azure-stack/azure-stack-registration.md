@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 410566e62daeb42100443e72f2d8a1acb8dad5a3
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452531"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902281"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -99,7 +99,7 @@ Distribuzione di Azure Stack può essere *connessi* oppure *disconnesso*.
 Quando si registra Azure Stack con Azure, è necessario fornire un nome di registrazione univoci. Un modo semplice per associare la sottoscrizione di Azure Stack con una registrazione di Azure consiste nell'utilizzare Azure Stack **ID Cloud**. 
 
 > [!NOTE]
-> Le registrazioni di Azure Stack usando il modello di fatturazione basato sulla capacità saranno necessario modificare il nome univoco quando si registra nuovamente dopo la scadono di tali sottoscrizioni annuale.
+> Le registrazioni di Azure Stack usando il modello di fatturazione basato sulla capacità saranno necessario modificare il nome univoco quando si registra nuovamente dopo che tali sottoscrizioni annuale scadono se non si [eliminare la registrazione scaduta](azure-stack-registration.md#change-the-subscription-you-use) e ripetere la registrazione con Azure.
 
 Per determinare l'ID del Cloud per la distribuzione di Azure Stack, aprire PowerShell come amministratore in un computer che possa accedere all'Endpoint con privilegi, eseguire i comandi seguenti e registrare il **CloudID** valore: 
 
@@ -210,11 +210,11 @@ Ambienti connessi possono accedere a internet e Azure. Per questi ambienti, è n
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
-      -BillingModel Capacity
+      -BillingModel Capacity `
       -RegistrationName $RegistrationName
   ```
    > [!Note]  
-   > È possibile disabilitare l'utilizzo di creazione di report con il parametro UsageReportingEnabled per il **Set-AzsRegistration** cmdlet. Impostare il parametro su false. Ad esempio: ' UsageReportingEnabled
+   > È possibile disabilitare l'utilizzo di creazione di report con il parametro UsageReportingEnabled per il **Set-AzsRegistration** cmdlet, impostando il parametro su false. 
    
   Per altre informazioni sul cmdlet Set-AzsRegistration, vedere [riferimento registrazione](#registration-reference).
 
@@ -318,12 +318,12 @@ Se viene visualizzato un elenco di elementi disponibili in Azure (ad esempio Wor
 
 #### <a name="change-the-subscription-you-use"></a>Modificare la sottoscrizione usata
 
-Se si desidera modificare la sottoscrizione è utilizzare, è necessario eseguire prima la **Remove-AzsRegistration** cmdlet, quindi verificare che si è connessi al contesto di Azure PowerShell corretto e infine eseguire **Set-AzsRegistration**  con uno qualsiasi per modificare i parametri:
+Se si desidera modificare la sottoscrizione è utilizzare, è necessario eseguire prima la **Remove-AzsRegistration** cmdlet, quindi verificare che si è connessi al contesto di Azure PowerShell corretto e infine eseguire **Set-AzsRegistration**  con gli eventuali parametri modificati inclusi \<modello di fatturazione\>:
 
   ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-how-to-offer-features"></a>Modificare il modello di fatturazione o sull'offerta di funzionalità
@@ -331,7 +331,7 @@ Se si desidera modificare la sottoscrizione è utilizzare, è necessario eseguir
 Se si desidera modificare il modello di fatturazione o come offrono funzionalità per l'installazione, è possibile chiamare la funzione di registrazione per impostare i nuovi valori. Non è necessario innanzitutto rimuovere la registrazione corrente:
 
   ```PowerShell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>Rinnova o Modifica registrazione in ambienti non connessi
