@@ -1,6 +1,6 @@
 ---
-title: Esercitazione sulla creazione di un modello per i servizi di Azure Machine Learning (anteprima) | Microsoft Docs
-description: Questa esaustiva esercitazione illustra come usare i servizi di Azure Machine Learning (anteprima) end-to-end. In questa seconda parte viene illustrata la sperimentazione.
+title: Esercitazione sulla creazione di un modello per il servizio di Azure Machine Learning (anteprima) | Microsoft Docs
+description: Questa esaustiva esercitazione illustra come usare il servizio di Azure Machine Learning (anteprima) end-to-end. In questa seconda parte viene illustrata la sperimentazione.
 services: machine-learning
 author: hning86
 ms.author: haining
@@ -12,17 +12,21 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ROBOTS: NOINDEX
+ms.openlocfilehash: 6faabc3003048c93c08451c537496e762352b50b
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917614"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46997316"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Esercitazione 2: Classificare i dati Iris - Creare un modello
-I servizi di Azure Machine Learning (anteprima) sono una soluzione integrata di data science e analisi avanzata con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
 
-Questa esercitazione è la **seconda di una serie in tre parti**. In questa parte dell'esercitazione si usano i servizi di Azure Machine Learning per:
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Il servizio di Azure Machine Learning (anteprima) è una soluzione integrata di data science e analisi avanzata con cui i data scientist professionisti possono preparare i dati, sviluppare esperimenti e distribuire modelli su scala cloud.
+
+Questa esercitazione è la **seconda di una serie in tre parti**. In questa parte dell'esercitazione si usa il servizio di Azure Machine Learning per:
 
 > [!div class="checklist"]
 > * Aprire script ed esaminare il codice
@@ -39,7 +43,7 @@ Questa esercitazione usa il sempre attuale [set di dati dei fiori Iris](https://
 
 Per completare questa esercitazione, sono necessari:
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
-- Un account di Sperimentazione e Azure Machine Learning Workbench installato come illustrato in questa [guida introduttiva](../service/quickstart-installation.md)
+- Un account di Sperimentazione e Azure Machine Learning Workbench installato come illustrato in questa [guida introduttiva](quickstart-installation.md)
 - Il progetto e i dati di Iris preparati nella [Parte 1 dell'esercitazione](tutorial-classifying-iris-part-1.md)
 - Un motore Docker installato e in esecuzione localmente. Docker Community Edition è sufficiente. Per informazioni su come installare Docker, vedere qui: https://docs.docker.com/engine/installation/.
 

@@ -3,18 +3,18 @@ title: Installare applicazioni Hadoop di terze parti in Azure HDInsight
 description: Informazioni su come installare applicazioni Hadoop di terze parti in Azure HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jasonh
-ms.openlocfilehash: c4d8f6fb1804ff48899ebb96d4c4248f337b56ad
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c50bd7c314c88c0950478cc3068d9a5873b65263
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591976"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996964"
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Installare applicazioni Hadoop di terze parti in Azure HDInsight
 
@@ -35,7 +35,7 @@ L'elenco seguente mostra le applicazioni pubblicate:
 * **[Trifacta](http://www.trifacta.com/)** consente a ingegneri e analisti dei dati di esplorare e preparare in modo più efficiente le diverse tipologie di dati usate attualmente utilizzando il servizio di Machine Learning per offrire un'esperienza utente, un flusso di lavoro e un'architettura davvero all'avanguardia.
 * **WANdisco Fusion HDI App** consente la connettività coerente e continua ai dati ovunque. Fornisce l'accesso ai dati in qualsiasi momento e in qualsiasi posizione senza tempi di inattività e interruzioni del servizio.
 
-Nelle istruzioni illustrate in questo articolo si usa il portale di Azure. È anche possibile esportare il modello di Azure Resource Manager dal portale oppure ottenere una copia del modello di Resource Manager dai fornitori e usare l'interfaccia della riga di comando di Azure e Azure PowerShell per distribuire il modello.  Vedere [Creare cluster Hadoop in HDInsight mediante modelli di Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
+Nelle istruzioni illustrate in questo articolo si usa il portale di Azure. È anche possibile esportare il modello di Azure Resource Manager dal portale oppure ottenere una copia del modello di Resource Manager dai fornitori e usare l'interfaccia della riga di comando classica di Azure e Azure PowerShell per distribuire il modello.  Vedere [Creare cluster Hadoop in HDInsight mediante modelli di Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per installare applicazioni HDInsight in un cluster HDInsight esistente, è necessario un cluster HDInsight. Per crearne uno, vedere [Creare cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). È anche possibile installare applicazioni HDInsight quando si crea un cluster HDInsight.

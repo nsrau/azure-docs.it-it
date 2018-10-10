@@ -1,6 +1,6 @@
 ---
 title: Modificare un set di scalabilità di macchine virtuali di Azure | Microsoft Docs
-description: Informazioni su come modificare e aggiornare un set di scalabilità di macchine virtuali di Azure con le API REST, Azure PowerShell e l'interfaccia della riga di comando di Azure 2.0
+description: Informazioni su come modificare e aggiornare un set di scalabilità di macchine virtuali di Azure con le API REST, Azure PowerShell e l'interfaccia della riga di comando di Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 662cea7ac47e411b127540faf5cab8b3c4d8964a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194047"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996656"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
-Per tutto il ciclo di vita delle applicazioni, potrebbe essere necessario modificare o aggiornare il set di scalabilità di macchine virtuali. Questi aggiornamenti possono includere come aggiornare la configurazione del set di scalabilità o modificare la configurazione dell'applicazione. Questo articolo descrive come modificare un set di scalabilità esistente con le API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure 2.0.
+Per tutto il ciclo di vita delle applicazioni, potrebbe essere necessario modificare o aggiornare il set di scalabilità di macchine virtuali. Questi aggiornamenti possono includere come aggiornare la configurazione del set di scalabilità o modificare la configurazione dell'applicazione. Questo articolo descrive come modificare un set di scalabilità esistente con le API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="fundamental-concepts"></a>Concetti fondamentali
 
@@ -42,7 +42,7 @@ Un set di scalabilità ha un "modello" che acquisisce lo stato *desiderato* del 
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Interfaccia della riga di comando di Azure 2.0 con [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Interfaccia della riga di comando di Azure con [az vmss show](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -50,7 +50,7 @@ Un set di scalabilità ha un "modello" che acquisisce lo stato *desiderato* del 
 
 - È anche possibile usare [resources.azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/) specifici del linguaggio.
 
-La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure 2.0:
+La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -86,7 +86,7 @@ Un set di scalabilità ha anche una "visualizzazione dell'istanza" che acquisisc
     Get-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Interfaccia della riga di comando di Azure 2.0 con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
+- Interfaccia della riga di comando di Azure con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -94,7 +94,7 @@ Un set di scalabilità ha anche una "visualizzazione dell'istanza" che acquisisc
 
 - È anche possibile usare [resources.azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/) specifici del linguaggio
 
-La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure 2.0:
+La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -140,7 +140,7 @@ Così come un set di scalabilità ha una visualizzazione modello, anche ogni mac
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Interfaccia della riga di comando di Azure 2.0 con [az vmss show](/cli/azure/vmss#az_vmss_show):
+- Interfaccia della riga di comando di Azure con [az vmss show](/cli/azure/vmss#az_vmss_show):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -148,7 +148,7 @@ Così come un set di scalabilità ha una visualizzazione modello, anche ogni mac
 
 - È anche possibile usare [resources.azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/).
 
-La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure 2.0:
+La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure:
 
 ```azurecli
 $ az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -180,7 +180,7 @@ Così come un set di scalabilità ha una visualizzazione dell'istanza, anche ogn
     Get-AzureRmVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Interfaccia della riga di comando di Azure 2.0 con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
+- Interfaccia della riga di comando di Azure con [az vmss get-instance-view](/cli/azure/vmss#az_vmss_get_instance_view)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -188,7 +188,7 @@ Così come un set di scalabilità ha una visualizzazione dell'istanza, anche ogn
 
 - È anche possibile usare [resources.azure.com](https://resources.azure.com) o gli [SDK di Azure](https://azure.microsoft.com/downloads/)
 
-La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure 2.0:
+La presentazione esatta dell'output dipende dalle opzioni fornite al comando. L'esempio seguente illustra l'output di esempio condensato dall'interfaccia della riga di comando di Azure:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -259,7 +259,7 @@ Per aggiornare una proprietà globale del set di scalabilità, occorre eseguire 
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- Interfaccia della riga di comando di Azure 2.0 con [az vmss update](/cli/azure/vmss#az_vmss_update):
+- Interfaccia della riga di comando di Azure con [az vmss update](/cli/azure/vmss#az_vmss_update):
     - Per modificare una proprietà:
 
         ```azurecli
@@ -306,7 +306,7 @@ Per aggiornare le macchine virtuali esistenti, è necessario eseguire un "aggior
     Update-AzureRmVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Interfaccia della riga di comando di Azure 2.0 con [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
+- Interfaccia della riga di comando di Azure con [az vmss update-instances](/cli/azure/vmss#az_vmss_update_instances)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
@@ -331,7 +331,7 @@ Esiste un tipo di modifica alle proprietà globali del set di scalabilità che n
     Set-AzureRmVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Interfaccia della riga di comando di Azure 2.0 con [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
+- Interfaccia della riga di comando di Azure con [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss#az_vmss_reimage):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -392,7 +392,7 @@ Si può avere un set di scalabilità che esegue una versione precedente di Ubunt
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- Interfaccia della riga di comando di Azure 2.0 con [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
+- Interfaccia della riga di comando di Azure con [az vmss update](/cli/azure/vmss#az_vmss_update_instances):
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
@@ -418,7 +418,7 @@ Supponiamo di avere un set di scalabilità con un servizio Azure Load Balancer e
     Update-AzureRmVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
     ```
 
-- Interfaccia della riga di comando di Azure 2.0:
+- Interfaccia della riga di comando di Azure:
 
     ```azurecli
     # Remove the load balancer backend pool from the scale set model
@@ -436,4 +436,4 @@ Supponiamo di avere un set di scalabilità con un servizio Azure Load Balancer e
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-È anche possibile eseguire attività di gestione comuni sui set di scalabilità con l'[interfaccia della riga di comando di Azure 2.0](virtual-machine-scale-sets-manage-cli.md) o [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+È anche possibile eseguire attività di gestione comuni sui set di scalabilità con l'[interfaccia della riga di comando di Azure](virtual-machine-scale-sets-manage-cli.md) o [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

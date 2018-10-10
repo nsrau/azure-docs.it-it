@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 5a09211dc134cdb372a9712c1f45d7c44660a759
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869597"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46966861"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Esercitazione: Usare un dispositivo simulato per testare la connettività con l'hub IoT
 
@@ -31,9 +31,9 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Gli script dell'interfaccia della riga di comando eseguiti in questa esercitazione usano l'[estensione IoT di Microsoft Azure per l'interfaccia della riga di comando di Azure 2.0](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Per installare questa estensione, eseguire il comando dell'interfaccia della riga di comando seguente:
+Gli script dell'interfaccia della riga di comando eseguiti in questa esercitazione usano l'[estensione IoT di Microsoft Azure per l'interfaccia della riga di comando di Azure](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). Per installare questa estensione, eseguire il comando dell'interfaccia della riga di comando seguente:
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -100,7 +100,7 @@ Per reimpostare la chiave del dispositivo primaria per **MyTestDevice**, eseguir
 # Generate a new Base64 encoded key using the current date
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
-# Requires the IoT Extension for Azure CLI 2.0
+# Requires the IoT Extension for Azure CLI
 # az extension add --name azure-cli-iot-ext
 
 # Reset the primary device key for MyTestDevice

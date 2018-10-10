@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Creare un set di scalabilità di macchine virtuali per Linux in Azure | Microsoft Docs'
-description: In questa esercitazione si apprenderà come usare l'interfaccia della riga di comando di Azure 2.0 per creare e distribuire un'applicazione a disponibilità elevata nelle macchine virtuali Linux usando un set di scalabilità di macchine virtuali
+description: In questa esercitazione si apprenderà come usare l'interfaccia della riga di comando di Azure per creare e distribuire un'applicazione a disponibilità elevata nelle macchine virtuali Linux usando un set di scalabilità di macchine virtuali
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b8e25934dfd1bfa9d94d3452044443e7a5002534
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e3354abb400530bc5aa18288408b1052cd3575c4
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932671"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992236"
 ---
-# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Linux con l'interfaccia della riga di comando di Azure 2.0
+# <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Esercitazione: Creare un set di scalabilità di macchine virtuali e distribuire un'app a disponibilità elevata in Linux con l'interfaccia della riga di comando di Azure
 
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. È possibile ridimensionare manualmente il numero di VM nel set di scalabilità o definire regole di scalabilità automatica in base all'utilizzo delle risorse, ad esempio la CPU, alla richiesta di memoria o al traffico di rete. In questa esercitazione viene distribuito un set di scalabilità di macchine virtuali in Azure. Si apprenderà come:
 
@@ -37,7 +37,7 @@ Un set di scalabilità di macchine virtuali consente di distribuire e gestire un
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="scale-set-overview"></a>Informazioni generali sui set di scalabilità
 Un set di scalabilità di macchine virtuali consente di distribuire e gestire un set di macchine virtuali identiche con scalabilità automatica. Le macchine virtuali di un set di scalabilità vengono distribuite in domini logici di errore e di aggiornamento in uno o più *gruppi di posizionamento*. Si tratta di gruppi di VM configurate in modo simile, analoghi ai [set di disponibilità](tutorial-availability-sets.md).
@@ -156,7 +156,7 @@ Per verificare il funzionamento del set di scalabilità, è possibile imporre l'
 
 
 ## <a name="management-tasks"></a>Attività di gestione
-Nel ciclo di vita del set di scalabilità, potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. L'interfaccia della riga di comando di Azure 2.0 offre un modo rapido per eseguire tali operazioni. Di seguito vengono illustrate alcune attività comuni.
+Nel ciclo di vita del set di scalabilità, potrebbe essere necessario eseguire una o più attività di gestione. Si potrebbe anche voler creare script per automatizzare le attività di ciclo di vita. L'interfaccia della riga di comando di Azure offre un modo rapido per eseguire tali operazioni. Di seguito vengono illustrate alcune attività comuni.
 
 ### <a name="view-vms-in-a-scale-set"></a>Visualizzare le macchine virtuali in un set di scalabilità
 Per visualizzare un elenco di macchine virtuali in esecuzione nel set di scalabilità, usare il comando [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances) come indicato di seguito:

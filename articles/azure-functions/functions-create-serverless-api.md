@@ -3,26 +3,25 @@ title: Creare un'API senza server mediante Funzioni di Azure | Documentazione Mi
 description: "Procedura: creare un'API senza server mediante Funzioni di Azure"
 services: functions
 author: mattchenderson
-manager: cfowler
-ms.service: functions
-ms.tgt_pltfrm: na
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 9a35c1205c0b564c8d0db1fbd0535d41bb9c84a0
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24811601"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46989907"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Creare un'API senza server mediante Funzioni di Azure
 
 In questa esercitazione si apprenderà come Funzioni di Azure consente di creare API altamente scalabili. Funzioni di Azure include una raccolta di trigger HTTP e binding integrati che semplificano la creazione di un endpoint in una varietà di linguaggi, inclusi Node.JS, C# e altri. In questa esercitazione si personalizzerà un trigger HTTP per gestire azioni specifiche nella progettazione dell'API. Ci si preparerà inoltre a far crescere l'API integrandola con i proxy di Funzioni di Azure e a configurare API fittizie. Tutto ciò avviene nell'ambiente di calcolo senza server di Funzioni di Azure, pertanto non è necessario preoccuparsi della scalabilità delle risorse ma è possibile concentrarsi semplicemente sulla logica di API.
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
@@ -30,7 +29,7 @@ La funzione risultante sarà utilizzata per il resto dell'esercitazione.
 
 ### <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Aprire il Portale di Azure. Accedere a tale scopo all'indirizzo [https://portal.azure.com](https://portal.azure.com) con il proprio account Azure.
+Aprire il Portale di Azure. A tale scopo, accedere al link [https://portal.azure.com](https://portal.azure.com) con l'account di Azure.
 
 ## <a name="customize-your-http-function"></a>Personalizzare la funzione HTTP
 
@@ -54,7 +53,7 @@ Per impostazione predefinita, la funzione attivata da HTTP è configurata per ac
 
 1. Fare clic su **Save**.
 
-Altre informazioni sulla personalizzazione delle funzioni HTTP sono riportate in [Binding Azure HTTP e webhook di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+Altre informazioni sulla personalizzazione delle funzioni HTTP sono riportate in [Binding HTTP di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
 
 ### <a name="test-your-api"></a>Testare l'API
 
@@ -110,7 +109,7 @@ Ripetere i passaggi per [creare un'app per le funzioni](https://docs.microsoft.c
     
 1. Si noti che Proxy non fornisce il prefisso del percorso di base `/api` e questo deve essere incluso nel modello di route.
 1. La sintassi `%HELLO_HOST%` fa riferimento all'impostazione di app creata in precedenza. L'URL risolto punterà alla funzione originale.
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 1. È possibile provare il nuovo proxy copiando l'URL del proxy e testandolo nel browser o con il proprio client HTTP preferito.
     1. Per usare una funzione anonima:
         1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
@@ -187,7 +186,7 @@ In questa esercitazione è stato illustrato come creare e personalizzare un'API 
 
 I riferimenti seguenti possono essere utili quando si sviluppa ulteriormente l'API:
 
-- [Binding HTTP e webhook di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
+- [Binding HTTP di Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
 - [Uso dei proxy di Funzioni di Azure]
 - [Documentazione di un'API di Funzioni di Azure (anteprima)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 

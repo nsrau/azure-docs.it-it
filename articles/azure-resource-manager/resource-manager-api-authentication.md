@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 58309977c93864d52a3217919ac8d7fa9152a968
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b841a1104a0cc1e74d9ab1f16ef39d3892ba7d55
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576903"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46996690"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Usare l'API di autenticazione di Resource Manager per accedere alle sottoscrizioni
 ## <a name="introduction"></a>Introduzione
@@ -154,7 +154,7 @@ L'esempio seguente illustra una richiesta per un token di concessione del codice
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Quando si usano le credenziali certificato, creare un token Web JSON (JWT) e una firma (RSA SHA256) usando la chiave privata della credenziale certificato dell'applicazione. I tipi di attestazione per il token sono illustrati nell'argomento sulle [attestazioni nei token JWT](../active-directory/develop/v1-protocols-oauth-code.md#jwt-token-claims). Come riferimento, vedere [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) (Codice di Active Directory Authentication Library - .NET) per firmare i token JWT per l'asserzione client.
+Quando si usano le credenziali certificato, creare un token Web JSON (JWT) e una firma (RSA SHA256) usando la chiave privata della credenziale certificato dell'applicazione. La creazione di questo token viene visualizzata nel [flusso di verifica dei titoli client](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate).  Come riferimento, vedere [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) (Codice di Active Directory Authentication Library - .NET) per firmare i token JWT per l'asserzione client.
 
 Per dettagli sull'autenticazione client, vedere la [specifica di OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) .
 

@@ -7,23 +7,27 @@ ms.author: serinak
 manager: hjerez
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/24/2018
-ms.openlocfilehash: 14f8dd29b7d4185d01529631333de045ad23cdd0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2a7733468ec082c8954f623f3ebe2cea1fbad561
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831458"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46976233"
 ---
 # <a name="enable-ssl-on-an-azure-machine-learning-compute-mlc-cluster"></a>Abilitare SSL in un cluster di calcolo di Azure Machine Learning 
 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+
 Queste istruzioni consentono di configurare SSL per chiamate del punteggio in un cluster di calcolo di Azure Machine Learning. 
 
-## <a name="prerequisites"></a>prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti 
 
 1. Scegliere un CNAME (nome DNS) da usare quando si effettuano chiamate del punteggio in tempo reale.
 
