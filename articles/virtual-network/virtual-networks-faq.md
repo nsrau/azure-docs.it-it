@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2802a725bca7f63f6956293048b0e854ebfb59b5
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145982"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46999869"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -221,7 +221,7 @@ Sì. Altre informazioni:
 - Uso di PowerShell per gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/powershell/module/azurerm.network) e [classica](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0).
 - Uso dell'interfaccia della riga di comando di Azure per distribuire e gestire reti virtuali distribuite con i modelli di distribuzione [Resource Manager](/cli/azure/network/vnet) e [classica](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources).  
 
-## <a name="vnet-peering"></a>Peering di reti virtuali
+## <a name="vnet-peering"></a>Peering reti virtuali
 
 ### <a name="what-is-vnet-peering"></a>Che cos'è il peering di reti virtuali?
 Il peering di reti virtuali consente di connettere le reti virtuali. Usando una connessione di peering di reti virtuali è possibile instradare il traffico tra le reti in modo privato tramite indirizzi IPv4. Le macchine virtuali nelle reti virtuali con peering possono comunicare tra loro come se si trovassero nella stessa rete. Queste reti virtuali possono trovarsi in aree geografiche uguali o diverse. In questo secondo caso, si parla di peering di reti virtuali globale. Le connessioni di peering di reti virtuali possono essere create anche tra sottoscrizioni di Azure.
@@ -232,13 +232,13 @@ Sì. Il peering di reti virtuali globale consente di eseguire il peering di reti
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>È possibile abilitare il peering reti virtuali se le reti virtuali appartengono a sottoscrizioni all'interno di diversi tenant di Azure Active Directory?
 Attualmente non è possibile stabilire il peering reti virtuali (sia locale che globale) se le sottoscrizioni appartengono a tenant di Azure Active Directory diversi.
 
-### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>La connessione di peering di reti virtuali è in stato *Inizializzato*. Per quale motivo non è possibile connettersi?
-Se la connessione di peering è in stato Inizializzato, significa che è stato creato un solo collegamento. È necessario creare un collegamento bidirezionale per stabilire una connessione completa. Ad esempio, per eseguire il peering di rete virtuale A a rete virtuale B, un collegamento deve essere creato da rete virtuale A a rete virtuale B e da rete virtuale B a rete virtuale A. La creazione di entrambi i collegamenti modificherà lo stato in *Connesso.*
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>La connessione al peering rete virtuale è nello stato *Avviato*, per quale motivo non è possibile connettersi?
+Se la connessione peering è stata avviata, significa che è stato creato un solo collegamento. È necessario creare un collegamento bidirezionale per stabilire una connessione completa. Ad esempio, per eseguire il peering di rete virtuale A a rete virtuale B, un collegamento deve essere creato da rete virtuale A a rete virtuale B e da rete virtuale B a rete virtuale A. La creazione di entrambi i collegamenti modificherà lo stato in *Connesso.*
 
 ### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>La connessione di peering di reti virtuali è in stato *Disconnesso*. Per quale motivo non è possibile connettersi?
 Se la connessione di peering di reti virtuali è in stato Disconnesso, significa che uno dei collegamenti creati è stato eliminato. Per ristabilire una connessione di peering, è necessario eliminare il collegamento e ricrearlo.
 
-### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>È possibile eseguire il peering della propria rete virtuale con una rete virtuale in una sottoscrizione diversa?
+### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>È possibile eseguire il peering di rete virtuale con una rete virtuale in una sottoscrizione diversa?
 Sì. È possibile eseguire il peering di reti virtuali tra sottoscrizioni e aree.
 
 ### <a name="can-i-peer-two-vnets-with-matching-or-overlapping-address-ranges"></a>È possibile eseguire il peering di due reti virtuali con gli intervalli di indirizzi sovrapposti o corrispondenti?
@@ -259,3 +259,24 @@ No. Il peering transitivo non è supportato. Si dovrà eseguire il peering delle
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Sono presenti limitazioni relative alla larghezza di banda per le connessioni peering?
 No. La rete virtuale di peering, sia locale che globale, non impone restrizioni relative alla larghezza di banda. La larghezza di banda è limitata solo dalla risorsa della macchina virtuale o di calcolo.
 
+## <a name="virtual-network-tap"></a>TAP di rete virtuale
+
+### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>Quali aree di Azure sono disponibili per la TAP di rete virtuale?
+Durante la fase di anteprima per gli sviluppatori, la funzionalità è disponibile nell’area Stati Uniti centro-occidentali. Le interfacce di rete monitorate, la risorsa TAP di rete virtuale e la soluzione di raccolta o di analisi devono essere implementate nella stessa regione.
+
+### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>La TAP di rete virtuale supporta qualsiasi funzionalità di filtraggio dei pacchetti con mirroring?
+Le funzionalità di filtro non sono supportate con l'anteprima TAP di rete virtuale. Quando si aggiunge una configurazione TAP a un'interfaccia di rete, una deep copy di tutto il traffico in ingresso e in uscita sull'interfaccia di rete viene inviata in streaming alla destinazione TAP.
+
+### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>È possibile aggiungere più configurazioni TAP a un'interfaccia di rete monitorata?
+Un'interfaccia di rete monitorata può avere solo una configurazione TAP. Verificare con le singole [soluzioni partner](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions) la possibilità di inviare in streaming più copie del traffico TAP agli strumenti di analisi scelti.
+
+### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>Può la stessa risorsa TAP di rete virtuale aggregare il traffico dalle interfacce di rete monitorate in più di una rete virtuale?
+Sì. La stessa risorsa TAP di rete virtuale può essere utilizzata per aggregare il traffico con mirroring da interfacce di rete monitorate in reti virtuali con peering nella stessa sottoscrizione o in una sottoscrizione diversa. La risorsa TAP di rete virtuale e il bilanciamento del carico di destinazione o l'interfaccia di rete di destinazione devono essere nella stessa sottoscrizione. Tutte le sottoscrizioni devono trovarsi nello stesso tenant di Azure Active Directory.
+
+### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>Ci sono considerazioni sulle prestazioni del traffico di produzione se abilito una configurazione TAP di rete virtuale su un'interfaccia di rete?
+
+La TAP di rete virtuale TAP è in fase di anteprima per gli sviluppatori. Durante l'anteprima, non esiste alcun contratto di servizio. La funzionalità non deve essere utilizzata per i carichi di lavoro di produzione. Quando un'interfaccia di rete di una macchina virtuale è abilitata con una configurazione TAP, le stesse risorse sull'host di Azure assegnate alla macchina virtuale per inviare il traffico di produzione vengono utilizzate per eseguire la funzione di mirroring e inviare i pacchetti con mirroring. Selezionare la dimensione corretta della macchina virtuale [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) per assicurarsi che siano disponibili risorse sufficienti affinché la macchina virtuale possa inviare il traffico di produzione e il traffico con mirroring.
+
+### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>Il networking accelerato per [Linux](create-vm-accelerated-networking-cli.md) o [Windows](create-vm-accelerated-networking-powershell.md) è supportato con la TAP di rete virtuale?
+
+Sarà possibile aggiungere una configurazione TAP a un'interfaccia di rete collegata a una macchina virtuale con networking accelerato abilitato. Ma le prestazioni e la latenza sulla macchina virtuale saranno influenzate dall'aggiunta della configurazione TAP, dato che l'offload per il mirroring del traffico non è attualmente supportato dal networking accelerato di Azure.

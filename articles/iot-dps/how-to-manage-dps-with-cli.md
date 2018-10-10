@@ -1,6 +1,6 @@
 ---
-title: Come usare l'interfaccia della riga di comando di Azure 2.0 e l'estensione IoT per gestire i servizi Device Provisioning | Microsoft Docs
-description: Informazioni su come usare l'interfaccia della riga di comando di Azure 2.0 e l'estensione IoT per gestire i servizi Device Provisioning
+title: Come usare l'interfaccia della riga di comando di Azure e l'estensione IoT per gestire i servizi Device Provisioning in hub IoT| Microsoft Docs
+description: Di seguito viene descritto come usare l'interfaccia della riga di comando di Azure e l'estensione IoT per gestire i servizi Device Provisioning in hub IoT
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 174f8447b17d1fa580472cbb45d0a72f41c793c3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cfbebf8570ee044698b0f4e0abdd58370b04f759
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628318"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992865"
 ---
-# <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Come usare l'interfaccia della riga di comando di Azure 2.0 e l'estensione IoT per gestire i servizi Device Provisioning
+# <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Come usare l'interfaccia della riga di comando di Azure e l'estensione IoT per gestire i servizi Device Provisioning in hub IoT
 
-L'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) è uno strumento da riga di comando multipiattaforma e open source per la gestione di risorse di Azure come IoT Edge. L'interfaccia della riga di comando di Azure 2.0 è disponibile su Windows, Linux e MacOS. L'interfaccia della riga di comando di Azure 2.0 consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio Device Provisioning e gli hub collegati predefiniti.
+L'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) è uno strumento da riga di comando multipiattaforma e open source per la gestione di risorse di Azure come IoT Edge. L'interfaccia della riga di comando di Azure è disponibile su Windows, Linux e MacOS. L'interfaccia della riga di comando di Azure consente di gestire le risorse dell'hub IoT di Azure, le istanze del servizio Device Provisioning e gli hub collegati predefiniti.
 
-L'estensione IoT arricchisce l'interfaccia della riga di comando di Azure 2.0 con funzionalità quali la gestione dei dispositivi e le funzionalità complete di IoT Edge.
+L'estensione IoT arricchisce l'interfaccia della riga di comando di Azure con funzionalità quali la gestione dei dispositivi e le funzionalità complete di IoT Edge.
 
-In questa esercitazione viene completata prima di tutto la procedura per la configurazione dell'interfaccia della riga di comando di Azure 2.0 e dell'estensione IoT. Viene quindi illustrato come eseguire i comandi dell'interfaccia della riga di comando per eseguire operazioni di base del servizio Device Provisioning. 
+In questa esercitazione viene completata prima di tutto la procedura per la configurazione dell'interfaccia della riga di comando di Azure e dell'estensione IoT. Viene quindi illustrato come eseguire i comandi dell'interfaccia della riga di comando per eseguire operazioni di base del servizio Device Provisioning. 
 
 ## <a name="installation"></a>Installazione 
 
@@ -29,9 +29,9 @@ In questa esercitazione viene completata prima di tutto la procedura per la conf
 
 È necessario [Python 2.7x o Python 3.x](https://www.python.org/downloads/).
 
-### <a name="step-2---install-azure-cli-20"></a>Passaggio 2 - Installare l'interfaccia della riga di comando di Azure 2.0
+### <a name="step-2---install-the-azure-cli"></a>Passaggio 2 - Installare l'interfaccia della riga di comando di Azure
 
-Seguire le [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per configurare l'interfaccia della riga di comando di Azure 2.0 nell'ambiente. La versione l'interfaccia della riga di comando di Azure 2.0 deve essere almeno 2.0.24 o versione successiva. Usare `az –version` per la convalida. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. Un approccio semplice per l'installazione su Windows consiste nel scaricare e installare [MSI](https://aka.ms/InstallAzureCliWindows).
+Seguire le [istruzioni di installazione](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per configurare l'interfaccia della riga di comando di Azure nell'ambiente. La versione dell'interfaccia della riga di comando di Azure deve essere 2.0.24 o successiva. Usare il comando `az –version` per verificare. Questa versione supporta i comandi dell'estensione az e introduce il framework dei comandi Knack. Un approccio semplice per l'installazione su Windows consiste nel scaricare e installare [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### <a name="step-3---install-iot-extension"></a>Passaggio 3 - Installare l'estensione IoT
 
@@ -61,7 +61,7 @@ Prima di iniziare, completare la procedura di installazione illustrata in preced
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
-![Creare un servizio Device Provisioning][3]
+![Creare servizi Device Provisioning][3]
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
@@ -69,7 +69,7 @@ Prima di iniziare, completare la procedura di installazione illustrata in preced
 
     az iot dps list --resource-group IoTHubBlogDemo
 
-![Elencare i servizi Device Provisioning][4]
+![Elenco dei servizi Device Provisioning][4]
 
 
 ### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. Creare un hub IoT denominato blogDemoHub nel gruppo di risorse appena creato

@@ -93,12 +93,14 @@ items:
           href: single-sign-on-saml-protocol.md
         - name: Disconnessione
           href: single-sign-out-saml-protocol.md
-        - name: WS-Federation
-          items:
-          - name: Metadati della federazione
-            href: azure-ad-federation-metadata.md
-        - name: Rollover della chiave di firma
-          href: active-directory-signing-key-rollover.md
+        - name: Modalità di utilizzo del protocollo SAML da parte di Azure AD
+          href: active-directory-saml-protocol-reference.md
+      - name: WS-Federation
+        items:
+        - name: Metadati della federazione
+          href: azure-ad-federation-metadata.md
+      - name: Rollover della chiave di firma
+        href: active-directory-signing-key-rollover.md
       - name: Token ID
         href: id-tokens.md
       - name: Token di accesso
@@ -123,7 +125,7 @@ items:
       - name: Framework di consenso
         href: consent-framework.md
       - name: Esperienze di consenso per le applicazioni
-        href: ../application-consent-experience.md
+        href: application-consent-experience.md
     - name: Accesso condizionale
       href: conditional-access-dev-guide.md
     - name: Cloud nazionali
@@ -144,9 +146,15 @@ items:
       - name: Configurare le attestazioni
         items:
         - name: Configurare le attestazioni per i ruoli
-          href: ../active-directory-enterprise-app-role-management.md
+          href: active-directory-enterprise-app-role-management.md
         - name: Personalizzare le attestazioni
           href: active-directory-saml-claims-customization.md
+        - name: Personalizzare le attestazioni (anteprima pubblica)
+          href: active-directory-claims-mapping.md
+        - name: Configurare le attestazioni facoltative (anteprima pubblica)
+          href: active-directory-optional-claims.md
+        - name: Configurare le durate dei token (anteprima pubblica)
+          href: active-directory-configurable-token-lifetimes.md
       - name: Procedure consigliate per la gestione degli errori di ADAL
         href: active-directory-devhowto-adal-error-handling.md
     - name: Configurazione dell'applicazione
@@ -196,8 +204,6 @@ items:
       href: active-directory-authentication-libraries.md
     - name: API Graph di Azure AD
       href: active-directory-graph-api.md
-    - name: Attestazioni nei token di sicurezza di Azure AD
-      href: active-directory-optional-claims.md
     - name: Manifesto dell'applicazione
       href: reference-app-manifest.md
     - name: Codici di errore di autenticazione e autorizzazione
@@ -317,7 +323,7 @@ items:
       - name: Framework di consenso
         href: consent-framework.md
       - name: Esperienze di consenso per le applicazioni
-        href: ../application-consent-experience.md
+        href: application-consent-experience.md
     - name: Cloud nazionali
       href: authentication-national-cloud.md
   - name: Guide alle procedure
@@ -325,9 +331,17 @@ items:
     - name: Authentication
       items:
       - name: Configurare le attestazioni per i ruoli
-        href: ../active-directory-enterprise-app-role-management.md
+        href: active-directory-enterprise-app-role-management.md
       - name: Personalizzare le attestazioni
         href: active-directory-saml-claims-customization.md
+      - name: Personalizzare le attestazioni (anteprima pubblica)
+        href: active-directory-claims-mapping.md
+      - name: Configurare le attestazioni facoltative (anteprima pubblica)
+        href: active-directory-optional-claims.md
+      - name: Configurare le durate dei token (anteprima pubblica)
+        href: active-directory-configurable-token-lifetimes.md
+      - name: Eseguire l'autenticazione con Azure AD e ottenere un token JWT usando OAuth 2.0
+        href: active-directory-protocols-oauth-get-jwt-token.md
     - name: Configurazione dell'applicazione
       items:
       - name: Convertire un'app a tenant singolo in un'app multi-tenant
@@ -382,9 +396,9 @@ items:
     href: developer-support-help-options.md
   - name: Identità del servizio gestita per le risorse di Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 139d80313bb663a45e476e90812ce7772beccc19
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: f7b8ce59f421c2a2c7cdb6269132910bd2b3ab4e
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785002"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901839"
