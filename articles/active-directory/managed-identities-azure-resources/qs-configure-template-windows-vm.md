@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: bb62f892ec3d171958764d10f4b069bbd536d2ea
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f50714538cdfd1a0bd258a3b78d0885e3c7beed1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223441"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018486"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite dei modelli
 
@@ -188,7 +188,7 @@ Se si dispone di una macchina virtuale per cui non è più necessaria un'identit
 
    Se la macchina virtuale ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme ai valori dizionario `userAssignedIdentities`.
 
-   **Microsoft.Compute/virtualMachines versione API 2018-06-01 e precedenti**
+   **Microsoft.Compute/virtualMachines versione API 2018-06-01**
    
    Se `apiVersion` è `2017-12-01` e la macchina virtuale ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme alla matrice `identityIds` delle identità gestite assegnate dall'utente.  
    
@@ -235,7 +235,7 @@ In questa sezione si assegna un'identità gestita assegnata dall'utente a una ma
    }
    ```
    
-   **Microsoft.Compute/virtualMachines versione API 2017-12-01 e precedenti**
+   **Microsoft.Compute/virtualMachines versione API 2017-12-01**
     
    Se `apiVersion` è `2017-12-01`, le identità gestite assegnate dall'utente vengono archiviate nella matrice `identityIds` e il valore `<USERASSIGNEDIDENTITYNAME>` deve essere archiviato in una variabile definita nella sezione `variables` del modello.
     
@@ -316,7 +316,7 @@ In questa sezione si assegna un'identità gestita assegnata dall'utente a una ma
        }
     ]
    ```
-   **Microsoft.Compute/virtualMachines versione API 2017-12-01 e precedenti**
+   **Microsoft.Compute/virtualMachines versione API 2017-12-01**
    
    ```JSON
    "resources": [
@@ -375,7 +375,7 @@ Se si dispone di una macchina virtuale per cui non è più necessaria un'identit
     }
    ```
    
-   **Microsoft.Compute/virtualMachines versione API 2018-06-01 e precedenti**
+   **Microsoft.Compute/virtualMachines versione API 2018-06-01**
     
    Per rimuovere da una macchina virtuale una singola identità gestita assegnata dall'utente, rimuoverla dal dizionario `useraAssignedIdentities`.
 
