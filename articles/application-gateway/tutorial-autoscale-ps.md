@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 9/26/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6c54706f45653c43e6b41d0adb3132583079e6b6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d86ce2e1bac2fb58df8df748381a00eac21e65cb
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167531"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016935"
 ---
 # <a name="tutorial-create-an-autoscaling-zone-redundant-application-gateway-with-a-reserved-virtual-ip-address-using-azure-powershell"></a>Esercitazione: Creare un gateway applicazione con ridondanza della zona e scalabilità automatica con un indirizzo IP virtuale riservato tramite Azure PowerShell
 
@@ -119,7 +119,7 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleTyp
 - **Modalità con capacità fissa**. In questa modalità il gateway applicazione non si ridimensiona automaticamente e opera a una capacità di unità di scala fissa.
 
    ```azurepowershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
+   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
    ```
 - **Modalità di scalabilità automatica**. In questa modalità il gateway applicazione si ridimensiona automaticamente in base al modello di traffico dell'applicazione.
 

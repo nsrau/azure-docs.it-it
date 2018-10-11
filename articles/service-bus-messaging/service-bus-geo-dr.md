@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 8cf21b283053760077ca2903349f0dc5e4cbb9e2
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 0436248dac2812c447d25de16a4ac6b45bd7248f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392487"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855179"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Ripristino di emergenza geografico per il bus di servizio di Azure
 
@@ -121,7 +121,6 @@ Usando il portale di Azure, è possibile abilitare le zone di disponibilità sol
 
 Per altre informazioni sulla messaggistica del bus di servizio, vedere gli articoli seguenti:
 
-* [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)

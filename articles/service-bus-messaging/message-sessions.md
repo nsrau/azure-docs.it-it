@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/02/2018
 ms.author: spelluru
-ms.openlocfilehash: f3aed8949502e9c716de608ad0ca0a5e9511c3ec
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d2e95e7ed35ef002c116b0edd41fb2ddd4ba2522
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405768"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854508"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessioni di messaggi: First In, First Out (FIFO) 
 
@@ -81,7 +81,6 @@ Lo stato della sessione conservato in una coda o in una sottoscrizione viene con
 
 Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti:
 
-* [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)

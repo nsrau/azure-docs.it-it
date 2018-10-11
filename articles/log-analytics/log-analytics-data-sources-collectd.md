@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 59b6f8b82d0f714d4526147b42f68e14bf0aa2bd
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: eb053ef8fc66ff9d71a9576b71eb4edfcd688638
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127697"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041291"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Raccogliere dati da CollectD su agenti Linux in Log Analytics
 [CollectD](https://collectd.org/) è un daemon Linux open source che, a intervalli regolari, raccoglie metriche sulle prestazioni dalle applicazioni e informazioni a livello di sistema. Applicazioni di esempio includono Java Virtual Machine (JVM), MySQL Server e Nginx. Questo articolo fornisce informazioni sulla raccolta di dati sulle prestazioni da CollectD in Log Analytics.

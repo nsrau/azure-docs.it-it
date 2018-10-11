@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2018
+ms.date: 10/04/2018
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d3f34ac3d284d61caf79cbd4929689106fdf7999
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8c25e07d9844b077de80ae39b81a4e5823b0d344
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980645"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785057"
 ---
 # <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory Authentication Library
 
@@ -41,7 +41,7 @@ Azure Active Directory Authentication Library (ADAL) versione 1.0 consente agli 
 
 | Piattaforma | Libreria | Download | Codice sorgente | Esempio | riferimento
 | --- | --- | --- | --- | --- | --- |
-| .NET Client, Windows Store, UWP, Xamarin iOS e Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [App desktop](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Riferimento](https://docs.microsoft.com/dotnet/api/?view=identitymodelclientsad-3.13.9) |
+| .NET Client, Windows Store, UWP, Xamarin iOS e Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [App desktop](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-dotnet) |[Riferimento](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
 | .NET Client, Windows Store, Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [App desktop](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
 | JavaScript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[App a singola pagina](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
 | iOS, macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[App iOS](https://docs.microsoft.com/azure/active-directory/active-directory-devquickstarts-ios) | [Riferimento](http://cocoadocs.org/docsets/ADAL/2.5.1/)|

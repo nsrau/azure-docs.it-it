@@ -2,19 +2,18 @@
 title: Risolvere i problemi della replica da Hyper-V ad Azure con Azure Site Recovery | Microsoft Docs
 description: Descrive come risolvere i problemi della replica da Hyper-V ad Azure usando Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: rayne
-ms.openlocfilehash: d5282e5954aa50ce67d6341b194177a89bdbe6cc
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.date: 10/10/2018
+ms.author: ramamill
+ms.openlocfilehash: 027107cca1872ddd504567b74c798fc00e9af214
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666402"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067390"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Risolvere i problemi della replica e del failover da Hyper-V ad Azure
 
@@ -130,7 +129,7 @@ Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'appli
 
 2. Per generare gli snapshot VSS per la macchina virtuale, verificare che nella macchina virtuale sia installato Integration Services di Hyper-V e che il servizio di integrazione Backup (VSS) sia abilitato.
     - Controllare che il servizio/daemon VSS di Integration Services siano in esecuzione nel guest e si trovino in uno stato **OK**.
-    - È possibile effettuare questa verifica da una sessione di PowerShell con privilegi elevati nell'host Hyper-V con il comando **et-VMIntegrationService -VMName<VMName>-Name VSS**. È anche possibile ottenere queste informazioni eseguendo l'accesso alla macchina virtuale guest. [Altre informazioni](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - È possibile effettuare questa verifica da una sessione di PowerShell con privilegi elevati nell'host Hyper-V con il comando **et-VMIntegrationService -VMName<VMName>-Name VSS**. È anche possibile ottenere queste informazioni eseguendo l'accesso alla macchina virtuale guest. [Altre informazioni](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)
     - Verificare che Backup/VSS Integration Services nella macchina virtuale siano in esecuzione e si trovino in uno stato integro. In caso contrario, riavviare questi servizi e il servizio richiedente Copia Shadow del volume di Hyper-V nel server host Hyper-V.
 
 ### <a name="common-errors"></a>Errori comuni

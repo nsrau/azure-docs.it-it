@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: fbbc5a199116e46aac0874f3dc6d6d9aa18c60cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954022"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868276"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gestire le autorizzazioni per database di Esplora dati di Azure
 
@@ -31,7 +31,6 @@ Esplora dati di Azure presenta i seguenti ruoli:
 |Utente database              |Può leggere tutti i dati e metadati nel database. Inoltre, può creare tabelle (diventando l'amministratore di tabella per tale tabella) e funzioni nel database.|
 |Visualizzatore database            |Può leggere tutti i dati e metadati nel database.|
 |Inseritore database          |Può inserire dati per tutte le tabelle esistenti nel database, ma non una query sui dati.|
-|Unrestrictedviewer database|Può eseguire query su tabelle con il criterio **RestrictedViewAccess** abilitato. Non può eseguire query su altre tabelle.|
 |Monitoraggio del database           |Può eseguire comandi ".show..." nel contesto del database e le relative entità figlio.|
 |Amministratore tabella                |Può eseguire qualsiasi operazione nell'ambito di una determinata tabella. |
 |Inseritore tabella             |Può inserire dati nell'ambito di una determinata tabella, ma non una query sui dati.|

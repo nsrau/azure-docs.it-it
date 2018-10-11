@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: dcdc84f100ce534ea517f0201b0c090c3059a318
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.component: ''
+ms.openlocfilehash: 3851bfef71aab6553e109bb8108edd7bec182f0e
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160930"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041953"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtri nelle viste di Log Analytics
 Un **filtro** in una [vista di Log Analytics](log-analytics-view-designer.md) consente agli utenti di filtrare i dati della vista in base al valore di una proprietà specifica senza modificare la vista stessa.  È ad esempio possibile consentire agli utenti della vista di filtrare solo i dati di un computer o un set di computer specifico.  È possibile creare più filtri in una singola vista per consentire agli utenti di filtrare in base a più proprietà.  Questo articolo descrive come usare un filtro e aggiungerne uno a una vista personalizzata.

@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 54bf38bf5a5858a2d7ac7237f58fc4db386dbac1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 01a386d37841c78e4aae96111e4671ec33b87e00
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423324"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017552"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Esercitazione: Creare un modello linguistico personalizzato
 
@@ -63,7 +63,7 @@ Quando viene importato, il testo viene normalizzato per poter essere elaborato d
 
 ## <a name="language-support"></a>Supporto per le lingue
 
-Consultare l’elenco completo delle [lingue supportate](supported-languages.md) per i modelli linguistici di **riconoscimento vocale** personalizzati.
+Consultare l’elenco completo delle [lingue supportate](language-support.md#text-to-speech) per i modelli linguistici di **riconoscimento vocale** personalizzati.
 
 
 

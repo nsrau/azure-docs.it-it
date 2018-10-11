@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 941c29506aa8f17dcb6262495b28dd26e78194d5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036059"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867545"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Esercitazione 7: estrarre nomi con entità semplice ed elenco di frasi
 
@@ -46,7 +46,7 @@ Un'entità semplice è una scelta appropriata per questo tipo di dati quando:
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
 
-Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
 Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
@@ -54,7 +54,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 2. Importare il file JSON in una nuova app.
 
-3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `simple`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL.
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `simple`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
 ## <a name="simple-entity"></a>Entità semplice
 L'entità semplice rileva un singolo concetto di dati contenuto in parole o frasi.
@@ -299,7 +299,7 @@ Aprire il file [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot della finestra popup di creazione di un nuovo elenco di frasi con le parole nella casella dei valori dell'elenco di frasi")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. [Eseguire il training](#train-the-luis-app) dell'app e [pubblicarla](#publish-the-app-to-get-the-endpoint-URL) di nuovo per usare l'elenco di frasi.
+5. [Eseguire il training](#train) dell'app e [pubblicarla](#publish) di nuovo per usare l'elenco di frasi.
 
 6. Eseguire una nuova query sull'endpoint con la stessa espressione: `This is the lead welder paperwork.`
 

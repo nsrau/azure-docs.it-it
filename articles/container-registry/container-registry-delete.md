@@ -2,24 +2,23 @@
 title: Eliminare le risorse immagine nel registro contenitori di Azure
 description: Informazioni dettagliate su come gestire in modo efficace le dimensioni del registro eliminando i dati di immagini del contenitore.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/27/2018
-ms.author: marsma
-ms.openlocfilehash: 6ab667a01eddd84d1145868a3ae499e7497035c9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.author: danlep
+ms.openlocfilehash: a1644f68465cffa8cce27257bb91100c111af8a1
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267112"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857772"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Eliminare le immagini del contenitore nel registro contenitori di Azure
 
 Per mantenere le dimensioni del registro contenitori di Azure, è consigliabile eliminare periodicamente i dati di immagini non aggiornati. Alcune immagini di contenitori distribuite in produzione potrebbero richiedere un'archiviazione a lungo termine, mentre altre possono solitamente essere eliminate prima. Ad esempio, in uno scenario di compilazione e test automatici, il registro può riempirsi velocemente di immagini che non verranno mai distribuite, pertanto potrà essere svuotato subito dopo aver compilato la build ed effettuato correttamente i test.
 
-Poiché è possibile eliminare i dati di immagini in modi diversi, è importante comprendere l'impatto di ciascun tipo di eliminazione sull'uso dell'archiviazione. Prima di tutto, l'articolo descrive i componenti di un registro Docker e le immagini del contenitore, quindi illustra vari modi per eliminare i dati di immagini.
+Poiché è possibile eliminare i dati di immagini in modi diversi, è importante comprendere l'impatto di ciascun tipo di eliminazione sull'utilizzo dello spazio di archiviazione. Prima di tutto, l'articolo descrive i componenti di un registro Docker e le immagini del contenitore, quindi illustra vari modi per eliminare i dati di immagini.
 
 ## <a name="registry"></a>Registro
 
@@ -35,7 +34,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-I nomi dei repository possono anche includere [spazi dei nomi](container-registry-best-practices.md#repository-namespaces). Questi consentono di raggruppare le immagini con nomi di repository di inoltro delimitati da barre, ad esempio:
+I nomi dei repository possono anche includere [spazi dei nomi](container-registry-best-practices.md#repository-namespaces), che consentono di raggruppare le immagini con nomi di repository delimitati da barre, ad esempio:
 
 ```
 marketing/campaign10-18/web:v2
@@ -51,7 +50,7 @@ Un'immagine del contenitore all'interno di un registro è associata a uno o più
 
 ### <a name="tag"></a>Tag
 
-Il *tag* di un'immagine ne specifica la versione.pecifica relativa versione. Una singola immagine all'interno di un repository può essere assegnata uno o più tag, i quali possono anche essere rimossi. Quando i tag vengono rimossi da un'immagine, i dati di quest'ultima (ovvero i relativi livelli) rimangono comunque nel registro.
+Il *tag* di un'immagine ne specifica la versione. A una singola immagine all'interno di un repository possono essere assegnati uno o più tag, che possono anche essere eliminati. Quando si eliminano tutti i tag da un'immagine, i dati dell'immagine (ovvero i relativi livelli) rimangono comunque nel registro.
 
 Il nome di un'immagine è definito dal repository (o da repository e spazio dei nomi) e da un tag. È possibile eseguire il push e il pull di un'immagine specificandone il nome nella relativa operazione.
 
@@ -61,7 +60,7 @@ In un registro privato, ad esempio il registro contenitori di Azure, il nome del
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
 ```
 
-Per una discussione sulle procedure consigliate per l'assegnazione dei tag alle immagini, consultare il post di blog [Docker Tagging: Best practices for tagging and versioning docker images][tagging-best-practices] (Assegnazione di tag in Docker: procedure consigliate per assegnare tag e controllare le versioni delle immagini Docker) su MSDN.
+Per una discussione sulle procedure consigliate per l'assegnazione dei tag alle immagini, consultare il post di blog [Docker Tagging: Best practices for tagging and versioning docker images][tagging-best-practices] (Assegnazione di tag in Docker: procedure consigliate per assegnare tag e controllare le versioni delle immagini Docker) in MSDN.
 
 ### <a name="layer"></a>Livello
 
@@ -71,7 +70,7 @@ La condivisione dei livelli ne ottimizza anche la distribuzione ai nodi, in quan
 
 ### <a name="manifest"></a>Manifesto
 
-A ogni immagine del contenitore inserita in un registro contenitori viene associato un *manifesto* generato dal Registro di sistema quando l'immagine viene inserita, il quale identifica in modo univoco l'immagine e ne specifica i livelli. È possibile elencare i manifesti per un repository con il comando dell'interfaccia della riga di comando di Azure [az acr repository show-manifests][az-acr-repository-show-manifests]:
+A ogni immagine del contenitore di cui viene eseguito il push in un registro contenitori viene associato un *manifesto* generato dal registro quando l'immagine viene inserita. Il manifesto identifica in modo univoco l'immagine e ne specifica i livelli. È possibile elencare i manifesti per un repository con il comando dell'interfaccia della riga di comando di Azure [az acr repository show-manifests][az-acr-repository-show-manifests]:
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>

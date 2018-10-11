@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 240e56e3e482b81d6336f7d6d2a1f5688953ecd8
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: e668b2e989571d911c967d08d8012b11adaebd4d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131552"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041034"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Log Analytics tramite l'agente OMS per Linux 
 [Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](log-analytics-alerts.md).  Questo articolo descrive come configurare l'agente OMS per Linux per raccogliere avvisi da questi sistemi.
  
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 L'agente OMS per Linux supporta la raccolta degli avvisi di Nagios fino alla versione 4.2.x e di Zabbix fino alla versione 2.x.
 
 ## <a name="configure-alert-collection"></a>Configurare la raccolta di avvisi

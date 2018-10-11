@@ -2,21 +2,21 @@
 title: Usare il modulo Servizio Migrazione del database di Azure in Microsoft Azure PowerShell per migrare un database SQL Server locale in un database SQL di Azure | Microsoft Docs
 description: Informazioni su come migrare da SQL Server locale in Azure SQL con Azure PowerShell.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/02/2018
-ms.openlocfilehash: 9b182b0efad16f74c21b04712143b70071943c1e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.date: 10/09/2018
+ms.openlocfilehash: ffa4d5f87a722ed3cb95d873d02707ed1c797dc6
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412553"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886667"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrare SQL Server locale al database SQL di Azure con Azure PowerShell
 In questo articolo si esegue la migrazione del database **Adventureworks2012** ripristinato a un'istanza locale di SQL Server 2016 o versione successiva verso un database SQL di Azure tramite Microsoft Azure PowerShell. È possibile migrare i database da un'istanza di SQL Server locale al database SQL di Azure tramite il modulo `AzureRM.DataMigration` in Microsoft Azure PowerShell.
@@ -32,16 +32,16 @@ In questo articolo viene spiegato come:
 Per completare questi passaggi è necessario disporre di:
 
 - [SQL Server 2016 o versione successiva](https://www.microsoft.com/sql-server/sql-server-downloads) (qualsiasi edizione)
-- Con l'installazione di SQL Server Express, il protocollo TCP/IP è disabilitato per impostazione predefinita. Abilitarlo seguendo le [istruzioni di questo articolo](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+- Per abilitare il protocollo TCP/IP che è disabilitato per impostazione predefinita con l'installazione di SQL Server Express. Abilitare il protocollo TCP/IP seguendo l'articolo [Abilitare o disabilitare un protocollo di rete server](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Per configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Un'istanza del database SQL di Azure. È possibile creare un'istanza del database SQL di Azure seguendo le istruzioni riportate nell'articolo [Creare un database SQL di Azure nel portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) versione 3.3 o successiva.
-- Servizio Migrazione del database di Azure richiede una rete virtuale creata usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito ai server di origine locali usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Valutazione completa della migrazione del database e dello schema locale mediante Data Migration Assistant, come descritto nell'articolo [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) (Eseguire la valutazione di una migrazione di SQL Server)
-- Scaricare e installare il modulo AzureRM.DataMigration da PowerShell Gallery usando il [cmdlet di PowerShell Install-Module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1)
-- Le credenziali usate per connettersi all'istanza SQL Server di origine devono avere l'autorizzazione [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
-- Le credenziali usate per connettersi all'istanza del database SQL di Azure di destinazione devono avere l'autorizzazione CONTROL DATABASE nei database SQL di Azure di destinazione.
-- Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+- Per creare una rete virtuale tramite il modello di distribuzione Azure Resource Manager, fornito dal Servizio Migrazione del database di Azure con la connettività da sito a sito ai server di origine locali, usando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+- Per una valutazione completa della migrazione del database e dello schema locale mediante Data Migration Assistant, come descritto nell'articolo [Eseguire la migrazione a SQL Server di Azure](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
+- Per scaricare e installare il modulo AzureRM.DataMigration da PowerShell Gallery usando il [cmdlet di PowerShell Install-Module](https://docs.microsoft.com/powershell/module/powershellget/Install-Module?view=powershell-5.1), assicurarsi di aprire la finestra di prompt dei comandi di PowerShell tramite Esegui come amministratore.
+- Per assicurarsi che le credenziali usate per connettersi all'istanza di origine di SQL Server abbiano l'autorizzazione [CONTROL SERVER](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql).
+- Per assicurarsi che le credenziali usate per connettersi all'istanza del database SQL di Azure di destinazione abbiano l'autorizzazione CONTROL DATABASE nei database SQL di Azure di destinazione.
+- Una sottoscrizione di Azure. Se non se ne dispone, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Accedere alla sottoscrizione di Microsoft Azure
 Seguire le istruzioni riportate nell'articolo [Accedere ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.4.1) per accedere alla sottoscrizione di Azure tramite PowerShell.
@@ -56,7 +56,7 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'a
 ```powershell
 New-AzureRmResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
-## <a name="create-an-azure-database-migration-service-instance"></a>Creare un'istanza del Servizio Migrazione del database di Azure 
+## <a name="create-an-instance-of-the-azure-database-migration-service"></a>Creare un'istanza del Servizio Migrazione del database di Azure 
 È possibile creare una nuova istanza del Servizio Migrazione del database di Azure tramite il cmdlet `New-AzureRmDataMigrationService`. Questo cmdlet si aspetta i parametri obbligatori seguenti:
 - *Nome del gruppo di risorse di Azure*. È possibile usare il comando [New AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-4.4.1) per creare il gruppo di risorse di Azure come mostrato in precedenza e fornire il suo nome come parametro.
 - *Nome del servizio*. Stringa che corrisponde al nome di servizio univoco desiderato per il Servizio Migrazione del database di Azure 
@@ -84,24 +84,24 @@ Dopo aver creato un'istanza del Servizio Migrazione del database di Azure, crear
 ### <a name="create-a-database-connection-info-object-for-the-source-and-target-connections"></a>Creare un oggetto informazioni di connessione del database per le connessioni di origine e di destinazione
 È possibile creare un oggetto informazioni di connessione del database usando il cmdlet `New-AzureRmDmsConnInfo`. Questo cmdlet si aspetta i parametri seguenti:
 - *ServerType*. Il tipo di connessione al database richiesta, ad esempio SQL, Oracle o MySQL. Usare SQL per SQL Server e SQL Azure.
-- *DataSource*. Il nome o indirizzo IP di un'istanza SQL o un server SQL Azure.
+- *DataSource*. Il nome o indirizzo IP di un'istanza Microsoft SQL Server o un database SQL Azure.
 - *AuthType*. Il tipo di autenticazione per la connessione, che può essere SqlAuthentication o WindowsAuthentication.
 - Il parametro *TrustServerCertificate* imposta un valore che indica se il canale è crittografato, bypassando l'analisi della catena di certificati per convalidare l'attendibilità. Il valore può essere "true" o "false".
 
-Nell'esempio seguente viene creato l'oggetto Informazioni di connessione per un'istanza SQL Server di origine denominata MySQLSourceServer mediante l'autenticazione SQL 
+Nell'esempio seguente viene creato l'oggetto Informazioni di connessione per un'istanza SQL Server di origine denominata MySourceSQLServe mediante l'autenticazione SQL: 
 
 ```powershell
 $sourceConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
-  -DataSource MySQLSourceServer `
+  -DataSource MySourceSQLServer `
   -AuthType SqlAuthentication `
   -TrustServerCertificate:$true
 ```
 
-L'esempio successivo illustrata la creazione dell'oggetto informazioni di connessione per il server di database SQL di Azure denominato MySQLAzureTarget mediante l'autenticazione SQL
+L'esempio successivo illustra la creazione dell'oggetto informazioni di connessione per il server di database SQL di Azure denominato SQLAzureTarget mediante l'autenticazione SQL:
 
 ```powershell
 $targetConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
-  -DataSource "mysqlazuretarget.database.windows.net" `
+  -DataSource "sqlazuretarget.database.windows.net" `
   -AuthType SqlAuthentication `
   -TrustServerCertificate:$false
 ```
@@ -109,7 +109,7 @@ $targetConnInfo = New-AzureRmDmsConnInfo -ServerType SQL `
 ### <a name="provide-databases-for-the-migration-project"></a>Fornire i database per il progetto di migrazione
 Creare un elenco di oggetti `AzureRmDataMigrationDatabaseInfo` che specifica i database come parte del progetto di migrazione di database di Azure che possono essere forniti come parametro per la creazione del progetto. Il cmdlet `New-AzureRmDataMigrationDatabaseInfo` può essere usato per creare AzureRmDataMigrationDatabaseInfo. 
 
-L'esempio seguente crea il progetto `AzureRmDataMigrationDatabaseInfo` per il database AdventureWorks2016 e lo aggiunge all'elenco come parametro per la creazione del progetto.
+L'esempio seguente crea il progetto `AzureRmDataMigrationDatabaseInfo` per il database **AdventureWorks2016** e lo aggiunge all'elenco come parametro per la creazione del progetto.
 
 ```powershell
 $dbInfo1 = New-AzureRmDataMigrationDatabaseInfo -SourceDatabaseName AdventureWorks2016
@@ -140,7 +140,7 @@ Le credenziali di sicurezza della connessione possono essere create come oggetto
 L'esempio seguente illustra la creazione di oggetti *PSCredential* per le connessioni sia di origine che di destinazione fornendo le password come variabili stringa *$sourcePassword* e *$ targetPassword*. 
 
 ```powershell
-secpasswd = ConvertTo-SecureString -String $sourcePassword -AsPlainText -Force
+$secpasswd = ConvertTo-SecureString -String $sourcePassword -AsPlainText -Force
 $sourceCred = New-Object System.Management.Automation.PSCredential ($sourceUserName, $secpasswd)
 $secpasswd = ConvertTo-SecureString -String $targetPassword -AsPlainText -Force
 $targetCred = New-Object System.Management.Automation.PSCredential ($targetUserName, $secpasswd)
@@ -159,10 +159,10 @@ $tableMap.Add("HumanResources.JobCandidate","HumanResources.JobCandidate")
 $tableMap.Add("HumanResources.Shift","HumanResources.Shift")
 ```
 
-Il passaggio successivo consiste nel selezionare i database di origine e di destinazione e specificare il mapping delle tabelle per la migrazione come parametro usando il cmdlet `New-AzureRmDmsSqlServerSqlDbSelectedDB`, come mostrato nell'esempio seguente:
+Il passaggio successivo consiste nel selezionare i database di origine e di destinazione e specificare il mapping delle tabelle per la migrazione come parametro usando il cmdlet `New-AzureRmDmsSelectedDB`, come mostrato nell'esempio seguente:
 
 ```powershell
-$selectedDbs = New-AzureRmDmsSqlServerSqlDbSelectedDB -Name AdventureWorks2016 `
+$selectedDbs = New-AzureRmDmsSelectedDB -MigrateSqlServerSqlDb -Name AdventureWorks2016 `
   -TargetDatabaseName AdventureWorks2016 `
   -TableMap $tableMap
 ```
@@ -170,16 +170,16 @@ $selectedDbs = New-AzureRmDmsSqlServerSqlDbSelectedDB -Name AdventureWorks2016 `
 ### <a name="create-and-start-a-migration-task"></a>Creare e avviare un'attività di migrazione
 
 Usare il cmdlet `New-AzureRmDataMigrationTask` per creare e avviare un'attività di migrazione. Questo cmdlet si aspetta i parametri seguenti:
-- *TaskType*. Tipo di attività di migrazione da creare per il tipo di migrazione da SQL Server a SQL Azure: è previsto *MigrateSqlServerSqlDb*. 
+- *TaskType*. Tipo di attività di migrazione da creare per il tipo di migrazione da SQL Server a database SQL di Azure: è previsto *MigrateSqlServerSqlDb*. 
 - *Nome del gruppo di risorse*. Nome del gruppo di risorse di Azure in cui creare l'attività.
 - *ServiceName*. Istanza del Servizio Migrazione del database di Azure in cui creare l'attività.
-- *ProjectName*. Nome del progetto di migrazione del database di Azure in cui creare l'attività. 
+- *ProjectName*. Nome del progetto di migrazione del Servizio Migrazione del database di Azure in cui creare l'attività. 
 - *TaskName*. Nome dell'attività da creare. 
-- *Connessione di origine*. Oggetto AzureRmDmsConnInfo che rappresenta la connessione di origine.
-- *Connessione di destinazione*. Oggetto AzureRmDmsConnInfo che rappresenta la connessione di destinazione.
+- *SourceConnection*. Oggetto AzureRmDmsConnInfo che rappresenta la connessione all'SQL Server di origine.
+- *TargetConnection*. L'oggetto AzureRmDmsConnInfo che rappresenta la connessione al database SQL di Azure di destinazione.
 - *SourceCred*. Oggetto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) per la connessione al server di origine.
 - *TargetCred*. Oggetto [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?redirectedfrom=MSDN&view=powershellsdk-1.1.0) per la connessione al server di destinazione.
-- *SelectedDatabase*. Oggetto AzureRmDmsSqlServerSqlDbSelectedDB che rappresenta il mapping del database di origine e di destinazione.
+- *SelectedDatabase*. L'oggetto AzureRmDataMigrationSelectedDB che rappresenta il mapping del database di origine e di destinazione.
 
 L'esempio seguente crea e avvia un'attività di migrazione denominata myDMSTask:
 
