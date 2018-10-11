@@ -3,7 +3,7 @@ title: Creare un'offerta in Azure Stack | Microsoft Docs
 description: Un amministratore del cloud, informazioni su come creare un'offerta per gli utenti in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: efemmano
-ms.openlocfilehash: 7b26afa99e9ab14db83aee5c0487c1c405243962
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ccff997c7e9f29aafc6966730ab36dfcf72ca9f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719767"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077341"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Creare un'offerta in Azure Stack
 

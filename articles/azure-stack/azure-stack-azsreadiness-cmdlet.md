@@ -3,7 +3,7 @@ title: Riferimento ai cmdlet Start-AzsReadinessChecker | Microsoft Docs
 description: Guida dei cmdlet PowerShell per il modulo di controllo di conformità di Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/26/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a5b2a30549072387df0ae9300de6523ba4069514
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 60e9a790a9b74bce7ccbdd58b320ad969c0932f3
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221282"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079283"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Riferimento ai cmdlet Start-AzsReadinessChecker
 
@@ -574,7 +574,7 @@ Specifica un percorso personalizzato per salvare i report di conformità JSON e 
 
 > -Confirm  
 
-Richiede una conferma prima di eseguire il cmdlet.
+Richiede la conferma dell'utente prima di eseguire il cmdlet.
 |  |  |
 |----------------------------|------------------|
 |Digitare:                        |SwitchParameter   |
@@ -587,7 +587,7 @@ Richiede una conferma prima di eseguire il cmdlet.
 
 > -WhatIf  
 
-Viene illustrato che cosa accadrebbe se il cmdlet viene eseguito. Il cmdlet non viene eseguito.
+Mostra l'esito in caso di esecuzione del cmdlet. Il cmdlet non viene eseguito.
 |  |  |
 |----------------------------|------------------|
 |Digitare:                        |SwitchParameter   |

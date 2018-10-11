@@ -3,7 +3,7 @@ title: Connettere Azure Stack ad Azure tramite VPN
 description: Come connettere reti virtuali in Azure Stack per le reti virtuali in Azure tramite VPN.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bd36f423fe2c7acb05b805154da8f6e6c35f9455
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: dcbe222d8dd3d3c658e5778fdc4bc1cc01b5c12d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718135"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078886"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>Connettere Azure Stack ad Azure tramite VPN
 
@@ -173,7 +173,7 @@ Un amministratore del servizio può accedere come utente per testare i piani, of
 2. Nel **le impostazioni** sezione, selezionare **subnet**.
 3. Per aggiungere una subnet del gateway alla rete virtuale, selezionare **Subnet del Gateway**.
 
-    ![Aggiungi subnet gateway](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![Aggiungere la subnet del gateway](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
 4. Per impostazione predefinita, il nome della subnet è impostato **GatewaySubnet**. Subnet del gateway sono speciali. Per funzionare correttamente, devono usare la *GatewaySubnet* nome.
 5. Nelle **intervallo indirizzi**, verificare che l'indirizzo sia **10.1.1.0/24**.

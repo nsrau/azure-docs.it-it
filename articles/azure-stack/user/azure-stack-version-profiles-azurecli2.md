@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295854"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067704"
 ---
-# <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Usare i profili delle versioni API con il comando di Azure 2.0 in Azure Stack
+# <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Usare i profili delle versioni API con il comando di Azure in Azure Stack
 
 È possibile seguire i passaggi descritti in questo articolo per informazioni su backup l'interfaccia della riga di comando di Azure per gestire le risorse di Azure Stack Development Kit dalle piattaforme client Linux, Mac e Windows.
 
 ## <a name="install-cli"></a>Installare l'interfaccia della riga di comando
 
-Accedere alla workstation di sviluppo e installare CLI. Azure Stack richiede la versione 2.0, interfaccia della riga di comando di Azure. È possibile installare che tramite la procedura descritta nel [installare Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) articolo. Per verificare se l'installazione è riuscita, aprire un terminale o una finestra del prompt dei comandi ed eseguire il comando seguente:
+Accedere alla workstation di sviluppo e installare CLI. Azure Stack richiede la versione 2.0 o versione successiva della riga di comando di Azure. È possibile installare che tramite la procedura descritta nel [installare CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) articolo. Per verificare se l'installazione è riuscita, aprire un terminale o una finestra del prompt dei comandi ed eseguire il comando seguente:
 
 ```azurecli
 az --version
@@ -168,7 +168,8 @@ Usare la procedura seguente per connettersi ad Azure Stack:
 
 1. Accedere all'ambiente Azure Stack usando il `az login` comando. È possibile accedere all'ambiente Azure Stack come un utente o come un [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Accedere come un *utente*: È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario farlo se l'account è abilitata l'autenticazione a più fattori.
+    * Ambienti di AAD
+      * Accedere come un *utente*: È possibile specificare il nome utente e password direttamente all'interno di `az login` comando o eseguire l'autenticazione usando un browser. È necessario farlo se l'account è abilitata l'autenticazione a più fattori.
 
       ```azurecli
       az login \
@@ -179,7 +180,7 @@ Usare la procedura seguente per connettersi ad Azure Stack:
       > [!NOTE]
       > Se l'account utente è attivata l'autenticazione a più fattori, è possibile usare la `az login command` senza fornire il `-u` parametro. Esecuzione del comando fornisce un URL e un codice che è necessario usare per eseguire l'autenticazione.
    
-   * Accedere come un *entità servizio*: prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
+      * Accedere come un *entità servizio*: prima di accedere, [creare un'entità servizio tramite il portale di Azure](azure-stack-create-service-principals.md) o CLI e assegnarle un ruolo. Accedere a questo punto, usando il comando seguente:
 
       ```azurecli
       az login \
@@ -188,6 +189,22 @@ Usare la procedura seguente per connettersi ad Azure Stack:
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * Ambienti di AD FS
+
+        * Accedere come un *entità servizio*: 
+          1.    Preparare il file con estensione PEM da utilizzare per l'accesso dell'entità servizio.
+                * Nel computer client in cui l'entità è stata creata, esportare il certificato dell'entità servizio come un file pfx con la chiave privata (che si trova in cert: \CurrentUser\My; il nome del certificato ha lo stesso nome dell'entità).
+
+                *   Convertire il file pfx in pem (utilità di uso OpenSSL).
+
+          1.    Effettuare l'accesso all'interfaccia della riga di comando. :
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## <a name="test-the-connectivity"></a>Testare la connettività
 

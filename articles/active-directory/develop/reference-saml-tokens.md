@@ -17,12 +17,12 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4989d221ccc21b2dd454339f8d83245f1556c109
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f24f25a4eb4db9e9f3e0b4569874dab94ef11b5
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971349"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900959"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Informazioni di riferimento sui token SAML di Azure AD
 
@@ -156,7 +156,7 @@ Questo è un esempio di un tipico token SAML.
 
 ## <a name="related-content"></a>Contenuti correlati
 * Per altre informazioni sulla gestione dei criteri di durata dei token tramite l'API Graph di Azure AD, vedere gli articoli relativi alle [operazioni sui criteri](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) e all'[entità dei criteri](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity) di Azure AD Graph.
-* Per altre informazioni ed esempi sulla gestione dei criteri tramite i cmdlet PowerShell, vedere [Configurable token lifetimes in Azure AD](../active-directory-configurable-token-lifetimes.md) (Durata dei token configurabile in Azure AD). 
+* Per altre informazioni ed esempi sulla gestione dei criteri tramite i cmdlet PowerShell, vedere [Configurable token lifetimes in Azure AD](active-directory-configurable-token-lifetimes.md) (Durata dei token configurabile in Azure AD). 
 * Aggiungere [attestazioni personalizzate e facoltative](active-directory-optional-claims.md) ai token per l'applicazione.
 * Usare [Single Sign-On (SSO) con SAML](single-sign-on-saml-protocol.md).
 * Usare il [protocollo SAML per Single Sign-Out di Azure](single-sign-out-saml-protocol.md)

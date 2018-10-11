@@ -1,20 +1,21 @@
 ---
-title: Panoramica di Project Answer Search - Servizi cognitivi Microsoft | Microsoft Docs
+title: Informazioni su Project Answer Search
+titlesuffix: Azure Cognitive Services
 description: Introduzione a Project Answer Search.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: overview
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: d87cf1390970d2c815b94bcaee7e07c19bc03cce
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376385"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883721"
 ---
 # <a name="what-is-project-answer-search"></a>Informazioni su Project Answer Search
 L'API Project Answer Search usa l'endpoint Bing v7 per ottenere risposte alle query interrogative. Una domanda come ad esempio "Qual è la circonferenza della terra?" restituisce una risposta con informazioni fattuali.  Una query per una persona, un luogo o un oggetto restituisce informazioni sull'entità identificata dalla query. Questi scenari possono essere utili nelle applicazioni, ad esempio bot di conversazione, app di messaggistica, lettori e così via.  

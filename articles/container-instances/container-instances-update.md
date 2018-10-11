@@ -2,18 +2,17 @@
 title: Aggiornare i contenitori in Istanze di contenitore di Azure
 description: Informazioni su come aggiornare i contenitori in esecuzione nei gruppi di contenitori in Istanze di contenitore di Azure.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/01/2018
-ms.author: marsma
-ms.openlocfilehash: 5a42b0983b0f754b119fa304317e758a976fb4f6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.openlocfilehash: 2df6a2724cbdcd6bbb6c6ca6636256b7e399da8e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432617"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854542"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Aggiornare i contenitori in Istanze di contenitore di Azure
 
@@ -23,7 +22,7 @@ Durante il normale funzionamento delle istanze di contenitore, potrebbe essere n
 
 Aggiornare i contenitori in un gruppo di contenitori tramite la ridistribuzione di un gruppo esistente con almeno una proprietà modificata. Quando si aggiorna un gruppo di contenitori, tutti i contenitori in esecuzione nel gruppo vengono riavviati sul posto.
 
-Ridistribuire un gruppo di contenitori esistente eseguendo il comando Crea (o tramite il portale di Azure) e specificare il nome di un gruppo esistente. Quando si esegue il comando Crea per attivare la ridistribuzione, modificare almeno una proprietà del gruppo valida. Non tutte le proprietà del gruppo contenitore sono valide per la ridistribuzione. Per un elenco delle proprietà non supportate, vedere [Properties that require delete](#properties-that-require-delete) (Proprietà che richiedono l'eliminazione).
+Ridistribuire un gruppo di contenitori esistente eseguendo il comando Crea (o tramite il portale di Azure) e specificare il nome di un gruppo esistente. Quando si esegue il comando Crea per attivare la ridistribuzione, modificare almeno una proprietà del gruppo valida. Non tutte le proprietà del gruppo contenitore sono valide per la ridistribuzione. Per un elenco delle proprietà non supportate, vedere [Properties that require delete](#properties-that-require-container-delete) (Proprietà che richiedono l'eliminazione).
 
 L'esempio di interfaccia della riga di comando di Azure seguente aggiorna un gruppo di contenitori con una nuova etichetta del nome DNS. Poiché la proprietà di etichetta del nome DNS del gruppo viene modificata, il gruppo di contenitori viene ridistribuito e i relativi contenitori vengono riavviati.
 

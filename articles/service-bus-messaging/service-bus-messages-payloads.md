@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: 636b48f409c1a86f7da87c38b6250610026d4547
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00c7605b09c32328a8324b13b8151a258a39dc22
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392604"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857602"
 ---
 # <a name="messages-payloads-and-serialization"></a>Messaggi, payload e serializzazione
 
@@ -89,7 +89,6 @@ Le varianti di API .NET Standard e Java accettano solo matrici di byte e quindi 
 
 Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti:
 
-* [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)

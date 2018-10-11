@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: cabe6a6fd09961665221210ecb9c52be23ddce4c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 5ebddbf1fea49fbf868d15a544a18e5a8c6369fd
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369104"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078308"
 ---
 # <a name="azure-stack-capacity-planner"></a>Pianificazione della capacità di Azure Stack
 Lo strumento Capacity Planner dello Stack di Azure è un foglio di calcolo usato per la pianificazione della capacità di risorse di Azure Stack. Lo strumento capacity planner offre la possibilità di progettare le allocazioni di varie risorse di calcolo e vedere come si può rientrare tra una gamma di offerte di hardware. Di seguito vengono fornite istruzioni dettagliate per l'uso del calcolatore Azure Stack.
@@ -61,7 +61,7 @@ Per creare un modello usando un'unica raccolta di diverse dimensioni e la quanti
 3. A questo punto si è pronti iniziare ad aggiungere macchine virtuali di dimensioni diverse per il modello. Per includere un determinato tipo di macchina virtuale, immettere un valore della quantità nella casella di contorno blu a sinistra della voce della macchina virtuale.
 
   > [!NOTE]
-  > Ogni macchina virtuale viene avviata con dimensioni di archiviazione inizialmente assegnata. Spazio di archiviazione viene visualizzato utilizzando una casella di riepilogo e può essere modificato per adattarsi al livello desiderato di risorsa di archiviazione per ogni macchina virtuale di Azure Stack. Se le dimensioni di archiviazione da usare non viene fornita, è possibile aggiungerlo modificando uno qualsiasi dei 10 dimensioni iniziali containeded nell'elenco "Configurazioni di archiviazione disponibile" trovata sul lato destro della pagina.<br><br>Ogni macchina virtuale inizia con un'archiviazione temporanea locale inizialmente assegnata. In modo da riflettere il thin provisioning di archiviazione temporanea il numero locale temporanea può essere modificato a qualsiasi elemento nell'elenco a discesa di menu tra cui la quantità massima di archiviazione temporanea consentiti.
+  > Ogni macchina virtuale viene avviata con dimensioni di archiviazione inizialmente assegnata. Spazio di archiviazione viene visualizzato utilizzando una casella di riepilogo e può essere modificato per adattarsi al livello desiderato di risorsa di archiviazione per ogni macchina virtuale di Azure Stack. Se le dimensioni di archiviazione da usare non viene specificata, è possibile aggiungerlo modificando una delle dimensioni iniziali 10 contenute nell'elenco "Configurazioni di archiviazione disponibile" trovata sul lato destro della pagina.<br><br>Ogni macchina virtuale inizia con un'archiviazione temporanea locale inizialmente assegnata. In modo da riflettere il thin provisioning di archiviazione temporanea il numero locale temporanea può essere modificato a qualsiasi elemento nell'elenco a discesa di menu tra cui la quantità massima di archiviazione temporanea consentiti.
 
 4. Quando si aggiungono macchine virtuali, verranno visualizzati i grafici che mostrano le risorse SKU disponibili la modifica. In questo modo è possibile osservare gli effetti dell'aggiunta di diverse dimensioni e la quantità di macchine virtuali durante il processo di modellazione. Un altro modo per visualizzare l'effetto delle modifiche è guardare i numeri di consumata e ancora disponibili elencati direttamente sotto l'elenco delle macchine virtuali disponibili. Questi numeri riflettono i valori stimati in base all'hardware attualmente selezionato lo SKU.
 5. Dopo aver creato il set di macchine virtuali, è possibile trovare l'hardware consigliato SKU facendo clic sul pulsante "SKU suggerito" trovato nell'angolo superiore destro della pagina, direttamente sotto l'etichetta "SKU corrente". Tramite questo pulsante, è possibile quindi modificare le configurazioni di macchina virtuale e verificare quale componente hardware supporta ogni configurazione.

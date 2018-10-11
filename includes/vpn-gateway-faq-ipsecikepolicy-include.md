@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 738ebdcc612d944db3794525085d220b33533245
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 87d5389abd72875c62ea3484fc3f9ca43c339447
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30198231"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48240175"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>I criteri IPsec/IKE personalizzati sono supportati in tutti gli SKU del gateway VPN di Azure?
 I criteri IPsec/IKE personalizzati sono supportati nei gateway VPN **VpnGw1, VpnGw2, VpnGw3, Standard** e **HighPerformance** di Azure. Lo SKU **Basic** **non** è supportato.
@@ -76,7 +76,7 @@ La tabella seguente elenca i gruppi Diffie-Hellman supportati per IKE (DHGroup) 
 | 2                         | DHGroup2                 | PFS2         | MODP a 1024 bit  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | MODP a 2048 bit  |
 | 19                        | ECP256                   | ECP256       | ECP a 256 bit    |
-| 20                        | ECP384                   | ECP284       | ECP a 384 bit    |
+| 20                        | ECP384                   | ECP384       | ECP a 384 bit    |
 | 24                        | DHGroup24                | PFS24        | MODP a 2048 bit  |
 |                           |                          |              |                |
 
@@ -101,4 +101,4 @@ Sì. È possibile applicare criteri personalizzati sia a connessioni cross-premi
 Sì. Un tunnel da rete virtuale a rete virtuale è costituito da due risorse di connessione di Azure, una per ogni direzione. Verificare che entrambe le risorse di connessione abbiano gli stessi criteri. In caso contrario, la connessione da rete virtuale a rete virtuale non verrà stabilita.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>I criteri IPsec/IKE personalizzati funzionano in una connessione ExpressRoute?
-di serie I criteri IPsec/IKE funzionano solo in connessioni VPN da sito a sito e da rete virtuale a rete virtuale tramite gateway VPN di Azure.
+No. I criteri IPsec/IKE funzionano solo in connessioni VPN da sito a sito e da rete virtuale a rete virtuale tramite gateway VPN di Azure.

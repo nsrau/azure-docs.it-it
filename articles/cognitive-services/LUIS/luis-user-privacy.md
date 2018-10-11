@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 103307e9657f183ed6876ef6ff499666c928690f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bfd168d5c56bc800831c402a23bb1a506fa15221
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037491"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883891"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Esportare ed eliminare i dati dei clienti in Language Understanding (LUIS) in Servizi cognitivi
 
@@ -36,7 +36,7 @@ Gli utenti LUIS hanno il controllo completo per l'eliminazione di qualsiasi cont
 
 | | **Account utente** | **Applicazione** | **Espressione/i** | **Query utente finale** |
 | --- | --- | --- | --- | --- |
-| **di Microsoft Azure** | [Collegamento](luis-how-to-account-settings.md) | [Collegamento](luis-how-to-start-new-app.md#delete-app) | [Collegamento](luis-how-to-start-new-app.md#delete-app) | [Collegamento](luis-how-to-start-new-app.md#delete-app) |
+| **Portale** | [Collegamento](luis-how-to-account-settings.md) | [Collegamento](luis-how-to-start-new-app.md#delete-app) | [Collegamento](luis-how-to-start-new-app.md#delete-app) | [Collegamento](luis-how-to-start-new-app.md#delete-app) |
 | **API** | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Collegamento](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 

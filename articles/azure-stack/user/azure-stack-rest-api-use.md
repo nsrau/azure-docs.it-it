@@ -3,22 +3,22 @@ title: Usare l'API di Azure Stack | Microsoft Docs
 description: Informazioni su come recuperare un tipo di autenticazione da Azure per effettuare richieste di API in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: cblackuk
+author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 3b89564bf17a9884640b51faa1c3966dce93f89a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 945c5df9aa76cef6d55b759e3cef7c00bf54e1c4
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346791"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078331"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
@@ -34,7 +34,7 @@ Questo articolo fornisce esempi che usano il **cURL** utilità per creare richie
 
 Esaminare l'intero processo di usando l'API REST di Azure Stack con un client REST generico, ad esempio **cURL**, che consentono di comprendere sottostante le richieste e viene illustrato cosa aspettarsi di ricevere in un payload di risposta.
 
-Questo articolo non Esplora tutte le opzioni disponibili per recuperare i token, ad esempio accesso interattivo o creare dedicato gli ID delle App. Per ottenere informazioni su questi argomenti, vedere [riferimento all'API REST di Azure](https://docs.microsoft.com/rest/api/).
+Questo articolo non Esplora tutte le opzioni disponibili per il recupero di token, ad esempio interactive sign-in o la creazione di ID App dedicato. Per ottenere informazioni su questi argomenti, vedere [riferimento all'API REST di Azure](https://docs.microsoft.com/rest/api/).
 
 ## <a name="get-a-token-from-azure"></a>Ottenere un token da Azure
 

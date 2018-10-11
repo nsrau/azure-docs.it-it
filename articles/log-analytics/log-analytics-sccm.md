@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 611f3e70425cd6c80f8a976606dc6cd592571c6e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.component: ''
+ms.openlocfilehash: 433914bc4501b13ba65015d15b0c513a38bf1273
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503469"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041663"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Connettere Configuration Manager a Log Analytics
 È possibile connettere l'ambiente System Center Configuration Manager ad Azure Log Analytics per sincronizzare i dati delle raccolte di dispositivi e fare riferimento a queste raccolte in Log Analytics e Automazione di Azure.  
@@ -49,7 +49,7 @@ Nella procedura seguente si concede il ruolo *Collaboratore* nell'area di lavoro
 > È necessario specificare le autorizzazioni in Log Analytics per Configuration Manager. In caso contrario, viene visualizzato un messaggio di errore quando si usa la procedura guidata di configurazione in Configuration Manager.
 >
 
-1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![portale di Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![Portale di Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare l'area di lavoro da modificare.
 3. Nel riquadro a sinistra selezionare **Controllo di accesso (IAM)**.
 4. Nella pagina Controllo di accesso fare clic su **Aggiungi** per visualizzare il riquadro **Aggiungi autorizzazioni**.

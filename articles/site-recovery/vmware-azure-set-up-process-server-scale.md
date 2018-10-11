@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5e0e4646b14a5bff5c40d0817ab8ecccf1046ea9
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056610"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077766"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>Configurare server di elaborazione aggiuntivi per ottenere scalabilità
 
@@ -34,6 +34,8 @@ Verificare i requisiti di dimensione riepilogati nella tabella. In generale, se 
 |4 vCPU (2 socket * 2 core \@ 2,5 GHz), 8 GB di memoria |300 GB |250 GB o inferiore |Replicare un massimo di 85 computer. |
 |8 vCPU (2 socket * 4 core \@ 2,5 GHz), 12 GB di memoria |600 GB |Da 250 GB a 1 TB |Replicare tra 85 e 150 computer. |
 |12 vCPU (2 socket * 6 core \@ 2,5 GHz), 24 GB di memoria |1 TB |Da 1 TB a 2 TB |Replicare tra 150 e 225 computer. |
+
+In cui ogni computer di origine protetto è configurato con tre dischi da 100 GB.
 
 ### <a name="prerequisites"></a>Prerequisiti
 

@@ -2,16 +2,17 @@
 title: Architettura della replica dal server fisico ad Azure in Azure Site Recovery | Microsoft Docs
 description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante la replica di server fisici locali in Azure con il servizio Azure Site Recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: d4c0b3b8ef778a01c365d34734019d2fa11a2343
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 15e8e9ce7b12585f7ea89a0440fdb93cfb171feb
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920941"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077040"
 ---
 # <a name="physical-server-to-azure-replication-architecture"></a>Architettura della replica di server fisici in Azure
 

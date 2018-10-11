@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 53d613052713e5144cb9d96aeeb937392fd4736a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577187"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902927"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
@@ -162,10 +162,10 @@ Questo esempio usa il [portale di Azure](https://portal.azure.com) per aggiornar
 >[!NOTE]
 >Per usare un'attestazione personalizzata, è anche necessario avere un criterio personalizzato definito e assegnato all'applicazione.  Questo criterio deve includere tutti gli attributi personalizzati necessari.
 >
->La definizione e l'assegnazione del criterio possono essere eseguite con PowerShell, Azure AD Graph Explorer o Microsoft Graph.  Se si eseguono queste operazioni in PowerShell, potrebbe essere necessario usare prima `New-AzureADPolicy ` e quindi assegnarlo all'applicazione con `Set-AzureADServicePrincipalPolicy`.  Per altre informazioni, vedere la [documentazione dei criteri di Azure AD](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+>La definizione e l'assegnazione del criterio possono essere eseguite con PowerShell, Azure AD Graph Explorer o Microsoft Graph.  Se si eseguono queste operazioni in PowerShell, potrebbe essere necessario usare prima `New-AzureADPolicy ` e quindi assegnarlo all'applicazione con `Set-AzureADServicePrincipalPolicy`.  Per altre informazioni, vedere la [documentazione dei criteri di Azure AD](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ### <a name="optional---use-a-custom-claim"></a>Facoltativo: usare un'attestazione personalizzata
-Per fare in modo che l'applicazione usi un'attestazione personalizzata e includa campi aggiuntivi, assicurarsi anche di avere [creato un criterio di mapping di attestazioni personalizzate e di averlo assegnato all'applicazione](../active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+Per fare in modo che l'applicazione usi un'attestazione personalizzata e includa campi aggiuntivi, assicurarsi anche di avere [creato un criterio di mapping di attestazioni personalizzate e di averlo assegnato all'applicazione](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Scaricare PingAccess e configurare l'app
 

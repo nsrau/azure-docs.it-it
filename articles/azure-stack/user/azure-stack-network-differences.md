@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.author: brenduns
 ms.date: 08/02/2018
 ms.topic: article
 ms.service: azure-stack
+ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 50fe3c0c7fda745047c71afb8eedf7fa8806c4ec
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1863236a51d89dd311cd8aacfcd737faddf21ab0
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139338"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079192"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerazioni per la rete di Azure Stack
 
@@ -40,7 +40,7 @@ Questo articolo offre una panoramica delle considerazioni univoche per la rete d
 |  | Set di scalabilità di configurazioni IP | Supportato | Non è ancora supportata. |
 |  | Servizi di accesso privata (Subnet) | Supportato | Non è ancora supportata. |
 |  | Endpoint servizio | Supportato per il collegamento interno (non Internet) in servizi di Azure. | Non è ancora supportata. |
-| È supportato solo il protocollo IPv4. | Criteri dell'Endpoint servizio | Supportato | Non è ancora supportata. |
+| È supportato solo il protocollo IPv4. | Criteri degli endpoint di servizio | Supportato | Non è ancora supportata. |
 |  | Esegue il servizio | Supportato | Non è ancora supportata.  |
 | Gruppi di sicurezza di rete | Regole di sicurezza ottimizzate | Supportato | Non è ancora supportata. |
 |  | Regole di sicurezza valide | Supportato | Non è ancora supportata. |
@@ -63,7 +63,7 @@ Questo articolo offre una panoramica delle considerazioni univoche per la rete d
 | Indirizzo IP pubblico | Versione dell'indirizzo IP pubblico | Azure supporta sia IPv4 che IPv6 | È supportato solo il protocollo IPv4. |
 | Interfaccia di rete | Ottenere la tabella di Route valida | Supportato | Non è ancora supportata. |
 |  | Ottenere gli ACL efficaci | Supportato | Non è ancora supportata. |
-|  | Abilitare la funzionalità rete accelerata | Supportato | Non è ancora supportata. |
+|  | Abilitare Rete accelerata | Supportato | Non è ancora supportata. |
 |  | Inoltro IP | Disattivata per impostazione predefinita.  Può essere abilitata. | Attivare e disattivare questa impostazione non è supportato.  In per impostazione predefinita. |
 |  | Più configurazioni IP per ogni interfaccia | Supportato | Non è ancora supportata. |
 |  | Gruppi di sicurezza delle applicazioni | Supportato | Non è ancora supportata. |

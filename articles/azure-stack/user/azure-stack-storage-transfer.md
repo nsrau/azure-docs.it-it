@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/03/2018
+ms.date: 10/10/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 46bc043681bbba37a2dfb6476e1dd0784e1abf10
-ms.sourcegitcommit: b34df37d1ac36161b377ba56c2f7128ba7327f3f
-ms.translationtype: HT
+ms.openlocfilehash: 77b25b7a5291786fe81953499c730fdac506e5c8
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46874028"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078786"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Usare gli strumenti di trasferimento dei dati per l'archiviazione di Azure Stack
 

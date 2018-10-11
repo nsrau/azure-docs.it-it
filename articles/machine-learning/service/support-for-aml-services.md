@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: b5834bfd47cf2ab8462462c43394c8f05e43afa3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c626bd193d883f292bf8d20913ff21d86d0d761
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971400"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268480"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Ottenere supporto e training per il servizio di Azure Machine Learning
 
@@ -35,7 +35,7 @@ Vedere queste risorse di supporto:
 
 + **Supporto tecnico**: visitare [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare Machine Learning. 
 
-+ **Forum di utenti**: porre domande, rispondere alle domande e mettersi in contatto con altri utenti nel [forum di supporto per il servizio di Azure Machine Learning nel sito Web MSDN](https://social.msdn.microsoft.com/Forums/windowsdesktop/home?forum=MachineLearning).
++ **Forum di utenti**: porre domande, rispondere alle domande e mettersi in contatto con altri utenti nel [forum di supporto per il servizio di Azure Machine Learning nel sito Web MSDN](https://aka.ms/aml-forum-service).
 
 + **Stack Overflow**: visitare la community di Azure Machine Learning su [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) contrassegnata con "Azure-Machine Learning".
 

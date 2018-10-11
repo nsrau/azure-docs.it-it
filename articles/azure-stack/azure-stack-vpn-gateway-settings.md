@@ -3,7 +3,7 @@ title: Impostazioni del gateway VPN di Azure Stack | Microsoft Docs
 description: Informazioni sulle impostazioni per i gateway VPN che si usa con Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: fa8d3adc-8f5a-4b4f-8227-4381cf952c56
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
-ms.author: brenduns
-ms.openlocfilehash: e9e474fe4a32bb99673fba2a88f28a3161f23362
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.author: sethm
+ms.openlocfilehash: 2fa062621e551ce7182facc45ec84b39d4c2dad7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139413"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078750"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Impostazioni di configurazione di gateway VPN di Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "42139413"
 
 Un gateway VPN è un tipo di gateway di rete virtuale che invia traffico crittografato tra la rete virtuale in Azure Stack e un gateway VPN remoto. Il gateway VPN remoto può essere in Azure, un dispositivo nel Data Center o un dispositivo in un altro sito.  Se c'è connettività di rete tra due endpoint, è possibile stabilire una connessione VPN Site-to-Site (S2S) sicura tra le due reti.
 
-Una connessione di gateway VPN si basa sulla configurazione di più risorse, ognuna delle quali contiene impostazioni configurabili. Le sezioni di questo articolo descrivono le risorse e le impostazioni correlate a un gateway VPN per una rete virtuale creata nel modello di distribuzione Resource Manager. È possibile trovare i diagrammi di topologia e le descrizioni per ogni soluzione di connessione in [informazioni sul Gateway VPN di Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
+Una connessione di gateway VPN si basa sulla configurazione di più risorse, ognuna delle quali contiene impostazioni configurabili. Questo articolo illustra le risorse e le impostazioni correlate a un gateway VPN per una rete virtuale creata nel modello di distribuzione Resource Manager. È possibile trovare i diagrammi di topologia e le descrizioni per ogni soluzione di connessione in [informazioni sul Gateway VPN di Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
 ## <a name="vpn-gateway-settings"></a>Impostazioni del gateway VPN
 
@@ -100,7 +100,7 @@ Quando si crea il gateway di rete virtuale per una configurazione di gateway VPN
 >
 > Inoltre, Azure Stack non supporta l'uso selettori di traffico basati su criteri per i gateway basati su Route a questo punto, poiché non sono supportate le configurazioni di criteri IPSec/IKE personalizzate.
 
-* **PolicyBased**: VPN basata su criteri crittografano e reindirizzano i pacchetti tramite tunnel IPsec basati sui criteri IPsec configurati con le combinazioni di prefissi di indirizzo tra la rete locale e la rete virtuale di Azure Stack. I criteri o selettori di traffico, in genere sono definito come un elenco di accesso nella configurazione del dispositivo VPN.
+* **PolicyBased**: VPN basata su criteri crittografano e reindirizzano i pacchetti tramite tunnel IPsec basati sui criteri IPsec configurati con le combinazioni di prefissi di indirizzo tra la rete locale e la rete virtuale di Azure Stack. I criteri o selettori di traffico, in genere sono un elenco di accesso nella configurazione del dispositivo VPN.
 
   >[!NOTE]
   >Basato su criteri è supportato in Azure, ma non in Azure Stack.
@@ -163,7 +163,7 @@ Talvolta è necessario modificare le impostazioni di gateway di rete locale. Ad 
 
 ## <a name="ipsecike-parameters"></a>Parametri IPsec/IKE
 
-Quando si configura una connessione VPN in Azure Stack, è necessario configurare la connessione a entrambe le estremità.  Se si sta configurando una connessione VPN tra Azure Stack e un dispositivo hardware, ad esempio un commutatore o router, che agisce come un Gateway VPN, tale dispositivo potrebbe essere richiesto per le impostazioni aggiuntive.
+Quando si configura una connessione VPN in Azure Stack, è necessario configurare la connessione a entrambe le estremità.  Se si sta configurando una connessione VPN tra Azure Stack e un dispositivo hardware, ad esempio un commutatore o un router che agisce come un Gateway VPN, tale dispositivo potrebbe essere richiesta per le impostazioni aggiuntive.
 
 A differenza di Azure, che supporta più offerte come un iniziatore e risponditore, Azure Stack supporta sola offerta.
 
@@ -184,14 +184,12 @@ A differenza di Azure, che supporta più offerte come un iniziatore e rispondito
 |Versione IKE |IKEv2 |
 |Crittografia e hash algoritmi (crittografia)     | GCMAES256|
 |Crittografia e hash algoritmi (autenticazione) | GCMAES256|
-|Durata dell'associazione di sicurezza (tempo)  | a 27.000 secondi<sup>vedere la nota 1</sup> |
-|Durata dell'associazione di sicurezza (byte) | 33,553,408<sup>vedere la nota 2</sup>     |
-|Perfect Forward Secrecy (PFS) |Nessuno<sup>vedere la nota 3</sup> |
+|Durata dell'associazione di sicurezza (tempo)  | 27.000 secondi  |
+|Durata dell'associazione di sicurezza (byte) | 33,553,408     |
+|Perfect Forward Secrecy (PFS) |Nessuno<sup>vedere la nota 1</sup> |
 |Rilevamento peer inattivo | Supportato|  
 
-* *Nota 1:* prima della versione 1803, Stack di Azure Usa il valore 14.400 per la durata dell'amministratore di sistema (ora).
-* *La nota 2:* prima della versione 1803, Stack di Azure Usa il valore 819,200 per la durata dell'amministratore di sistema (byte).
-* *La nota 3:* prima della versione 1807, Stack di Azure Usa il valore PFS2048 per il segreto PFS (Perfect Forward).
+* *Nota 1:* prima della versione 1807, Stack di Azure Usa il valore PFS2048 per il segreto PFS (Perfect Forward).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

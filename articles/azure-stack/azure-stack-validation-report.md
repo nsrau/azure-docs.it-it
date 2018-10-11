@@ -1,9 +1,9 @@
 ---
-title: Report di convalida per lo Stack di Azure | Documenti Microsoft
-description: Usare il report di controllo di conformità dello Stack di Azure per esaminare i risultati della convalida.
+title: Report di convalida per Azure Stack | Microsoft Docs
+description: Usare il report di controllo di conformità di Azure Stack per esaminare i risultati della convalida.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,50 +13,50 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a0ca0ae3ed615f6bc2774364f7a443023b911b5d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 156b84e4941363716721b5cee6c19333ffe7594c
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937818"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079447"
 ---
 # <a name="azure-stack-validation-report"></a>Report di convalida Azure Stack
-Le convalide che supportano la distribuzione e manutenzione di un ambiente dello Stack di Azure viene eseguito lo strumento di controllo di conformità dello Stack di Azure. Lo strumento scrive i risultati della convalida in un file di report con estensione JSON. Il report visualizza dati modo riepilogati e dettagliati sullo stato dei prerequisiti per la distribuzione dello Stack di Azure e su segreti rotazione per le distribuzioni esistenti dello Stack di Azure.  
+Usare lo strumento di controllo di conformità di Azure Stack per eseguire le convalide che supportano la distribuzione e manutenzione di un ambiente Azure Stack. Lo strumento scrive i risultati in un file di rapporto con estensione JSON. Il report visualizza i dati di riepilogati e dettagliati sullo stato dei prerequisiti per la distribuzione di Azure Stack. Il report visualizza anche informazioni sulla rotazione dei segreti per le distribuzioni esistenti dello Stack di Azure.  
 
  ## <a name="where-to-find-the-report"></a>Dove trovare il report
-Quando si esegue lo strumento, log risultati **AzsReadinessCheckerReport.json**. Lo strumento crea inoltre un registro denominato **AzsReadinessChecker.log**. La posizione di questi file viene visualizzato con i risultati della convalida in PowerShell.
+Quando si esegue lo strumento, registra i risultati per **AzsReadinessCheckerReport.json**. Lo strumento crea anche un registro denominato **AzsReadinessChecker.log**. Consente di visualizzare la posizione di questi file con i risultati della convalida in PowerShell.
 
 ![eseguire la convalida](./media/azure-stack-validation-report/validation.png)
 
-Entrambi i file di rendere persistenti i risultati successivi controlli di convalida quando eseguirvi nello stesso computer.  Ad esempio, è possibile eseguire lo strumento per la convalida dei certificati, eseguire di nuovo per convalidare l'identità di Azure e quindi una terza volta per convalidare la registrazione. I risultati di tutte le tre convalide sono disponibili nel report con estensione JSON risultante.  
+Entrambi i file di rendere persistenti i risultati successivi di controlli di convalida quando eseguirvi nello stesso computer.  Ad esempio, lo strumento può essere eseguito per convalidare i certificati, eseguire di nuovo per convalidare l'identità di Azure e quindi una terza volta per convalidare la registrazione. I risultati di tutte e tre le convalide sono disponibili nel report con estensione JSON risultante.  
 
-Per impostazione predefinita, entrambi i file vengono scritti *C:\Users\<nomeutente > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json*.  
-- Usare la **- OutputPath** ***&lt;percorso&gt;*** parametro alla fine di Esegui riga di comando per specificare un percorso di report diverso.   
+Per impostazione predefinita, entrambi i file vengono scritti *C:\Users\<username > \AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json*.  
+- Usare la **- OutputPath** ***&lt;path&gt;*** parametro alla fine di Esegui riga di comando per specificare un percorso di report diversa.   
 - Usare la **- CleanReport** parametro alla fine del comando di esecuzione per cancellare informazioni da *AzsReadinessCheckerReport.json*. sulle esecuzioni precedenti dello strumento.
 
 ## <a name="view-the-report"></a>Visualizzare il report
-Per visualizzare il report in PowerShell, specificare il percorso del report come un valore per **- ReportPath**. Questo comando Visualizza il contenuto del report e identifica anche le convalide che non hanno ancora i risultati.
+Per visualizzare il report in PowerShell, specificare il percorso del report come un valore per **- ReportPath**. Questo comando Visualizza il contenuto del report e identifica le convalide che non hanno ancora i risultati.
 
-Ad esempio, per visualizzare il report da un prompt di PowerShell che sia aperto per la posizione in cui si trova il report, eseguire: 
+Ad esempio, per visualizzare il report da un prompt di PowerShell che è aperto nel percorso in cui si trova il report, eseguire: 
    > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json` 
 
-L'output è simile nella figura seguente:
+L'output sarà simile al seguente:
 
 ![Visualizza report](./media/azure-stack-validation-report/view-report.png)
 
-## <a name="view-the-report-summary"></a>Visualizzare il report riepilogo
-Per visualizzare un riepilogo del report, è possibile aggiungere la **-riepilogo** passare alla fine della riga di comando PowerShell. Ad esempio:  
+## <a name="view-the-report-summary"></a>Visualizzare il report riepilogativo
+Per visualizzare un riepilogo del report, è possibile aggiungere il **-riepilogo** passare alla fine della riga di comando di PowerShell. Ad esempio:  
  > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -summary`  
 
-Il riepilogo Mostra le convalide che non dispongono di risultati e indica superato o non superato per le convalide che vengono completate. L'output è simile nella figura seguente:
+Il riepilogo Mostra le convalide che non hanno risultati e indica positivo o negativo per le convalide che vengono completate. L'output sarà simile al seguente:
 
 ![Riepilogo report](./media/azure-stack-validation-report/report-summary.png)
 
 
 ## <a name="view-a-filtered-report"></a>Visualizzare un report filtrato
-Per visualizzare un report filtrato in un unico tipo di convalida, usare il **- ReportSections** parametro e specificare uno dei seguenti valori che corrispondono al tipo di convalida che si desidera visualizzare:
+Per visualizzare un report che viene filtrato in un unico tipo di convalida, usare il **- ReportSections** parametro con uno dei valori seguenti:
 - Certificate
 - AzureRegistration
 - AzureIdentity

@@ -2,16 +2,17 @@
 title: Architettura della replica da Hyper-V ad Azure in Azure Site Recovery | Microsoft Docs
 description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante la replica di macchine virtuali Hyper-V locali (senza VMM) in Azure con il servizio Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: c5d31b6217d3afe8ddb3550c145820be5996c96a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 49059415c5f96eeb4dd871e7d2c8ae4ab9b2c12e
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920604"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078359"
 ---
 # <a name="hyper-v-to-azure-replication-architecture"></a>Architettura della replica da Hyper-V ad Azure
 
@@ -35,7 +36,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 **Architettura della replica da Hyper-V ad Azure (senza VMM)**
 
-![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Architettura](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 
@@ -69,7 +70,7 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 1. Dopo aver abilitato la protezione per una macchina virtuale Hyper-V, nel portale di Azure o in locale, viene avviato **Abilita protezione**.
 2. Il processo controlla se il computer è conforme ai prerequisiti, prima di richiamare [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), per impostare la replica con le impostazioni configurate.
 3. Il processo avvia la replica iniziale richiamando il metodo [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx), per inizializzare una replica della macchina virtuale completa e inviare i dischi virtuali della VM ad Azure.
-4. Il processo può essere monitorato nella scheda **Processi**.      ![Elenco dei processi](media/hyper-v-azure-architecture/image1.png)![Abilitare protezione in dettaglio](media/hyper-v-azure-architecture/image2.png)
+4. Il processo può essere monitorato nella scheda **Processi**.      ![Elenco dei processi](media/hyper-v-azure-architecture/image1.png) ![Abilitare protezione in dettaglio](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replica iniziale dei dati

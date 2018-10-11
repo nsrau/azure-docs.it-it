@@ -7,17 +7,17 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 407782ff59147f227f5f34bc3318333093b4f57e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 820caf1ef1b5a92ccea066ef1b5fc8e20737ef21
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283572"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870420"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Modificare un circuito ExpressRoute mediante PowerShell (versione classica)
 
 > [!div class="op_single_selector"]
-> * [portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
 > * [Video - Portale di Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
@@ -47,7 +47,7 @@ Per accedere al proprio account di Azure, usare l'esempio seguente:
 
 1. Aprire la console di PowerShell con diritti elevati e connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
 
-  ```powershel
+  ```powershell
   Connect-AzureRmAccount
   ```
 2. Controllare le sottoscrizioni per l'account.

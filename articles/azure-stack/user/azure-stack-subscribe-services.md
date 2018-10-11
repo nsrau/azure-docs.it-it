@@ -3,7 +3,7 @@ title: In questa esercitazione descrive come sottoscrivere un'offerta di Azure S
 description: Questa esercitazione illustra come creare una nuova sottoscrizione a servizi di Azure Stack e testare l'offerta tramite la creazione di una macchina virtuale di test.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 0e2fa9b01d27d68c1eab9097a20b6e350ba47f99
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028804"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076101"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Esercitazione: creare e testare una sottoscrizione
 Questa esercitazione illustra come creare una sottoscrizione che contiene un'offerta e quindi testarla. Per il test, si verrà Accedi al portale utenti Azure Stack come amministratore del cloud, sottoscrive l'offerta e quindi creare una macchina virtuale.

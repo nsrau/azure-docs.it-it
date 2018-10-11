@@ -3,7 +3,7 @@ title: Tipi di quote in Azure Stack | Microsoft Docs
 description: Esaminare i tipi di quote diversi disponibili per i servizi e risorse in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/30/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 2e884164347239838d08fbbc1616ed54ffc4ff24
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 3c0ab236dd6fce10be0a50c435f04517e14c1387
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358736"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077596"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipi di quote in Azure Stack
 

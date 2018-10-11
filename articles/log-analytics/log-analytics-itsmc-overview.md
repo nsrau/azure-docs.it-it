@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: na
-ms.openlocfilehash: da37e7558f93bc5073cd4ee1726a409c7defe127
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 5f5b03090f374f936e03d487596ca0462feea348
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131719"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042429"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
@@ -67,7 +67,7 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
 
     ![Area di lavoro di Connettore di Gestione dei servizi IT](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
 
-5.  Fare clic su **Crea**.
+5.  Fare clic su **Create**(Crea).
 
 Quando la risorsa soluzione viene distribuita, viene visualizzata una notifica nella parte superiore destra della finestra.
 
@@ -153,7 +153,7 @@ Il dashboard fornisce anche informazioni sullo stato del connettore, che è poss
 
 È anche possibile visualizzare gli eventi imprevisti sincronizzati in relazione ai computer interessati, all'interno della soluzione Mapping dei servizi.
 
-Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. [Altre informazioni](../operations-management-suite/operations-management-suite-service-map.md).
+Elenco dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente. [Altre informazioni](../operations-management-suite/operations-management-suite-service-map.md)
 
 Se si usa anche la soluzione Mapping dei servizi, è possibile visualizzare gli elementi del service desk creati nelle soluzioni di Gestione dei servizi IT, come illustrato nell'esempio seguente:
 

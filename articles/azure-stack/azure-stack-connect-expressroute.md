@@ -3,7 +3,7 @@ title: Stack di Azure Connect ad Azure tramite ExpressRoute
 description: Informazioni su come connettere reti virtuali in Azure Stack per le reti virtuali in Azure tramite ExpressRoute.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: db9f19154668fa33bb94e59a4da6735b1a6d3d49
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720498"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078699"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connettere Azure Stack per Azure tramite Azure ExpressRoute
 
@@ -345,7 +345,7 @@ Seguire i passaggi descritti in [configurare un gateway di rete virtuale per Exp
 
 Per creare un collegamento al circuito ExpressRoute alla rete virtuale dell'hub, seguire i passaggi descritti in [connettere una rete virtuale a un circuito ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md).
 
-### <a name="peer-the-vnets"></a>Eseguire il peering reti virtuali
+### <a name="peer-the-vnets"></a>Eseguire il peering delle reti virtuali
 
 Eseguire il peering di hub e spoke di reti virtuali usando la procedura descritta in [creare un peering reti virtuali usando il portale di Azure](../virtual-network/virtual-networks-create-vnetpeering-arm-portal.md). Quando si configura il peering della rete virtuale, assicurarsi di che usare le opzioni seguenti:
 

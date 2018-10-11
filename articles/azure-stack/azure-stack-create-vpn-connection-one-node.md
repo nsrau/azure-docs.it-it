@@ -3,7 +3,7 @@ title: Creare una connessione VPN site-to-site tra due reti virtuali in diversi 
 description: Procedura dettagliata che usa un amministratore del cloud per creare una connessione VPN site-to-site tra due ambienti di Azure Stack Development Kit a nodo singolo.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 3f1b4e02-dbab-46a3-8e11-a777722120ec
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: a219f44cb27bb6ebe4e17079ad487457ae8852f0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718118"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078903"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Creare una connessione VPN site-to-site tra due reti virtuali in diversi ambienti di Azure Stack Development Kit
 ## <a name="overview"></a>Panoramica
@@ -107,7 +107,7 @@ Un amministratore del servizio può accedere come tenant per testare i piani, of
 2. Nel pannello **Impostazioni** selezionare **Subnet**.
 3. Per aggiungere una subnet del gateway alla rete virtuale, selezionare **Subnet del Gateway**.
    
-    ![Aggiungi subnet gateway](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
+    ![Aggiungere la subnet del gateway](media/azure-stack-create-vpn-connection-one-node-tp2/image4.png)
 
 4. Per impostazione predefinita, il nome della subnet è impostato **GatewaySubnet**.
    Subnet del gateway sono speciali. Per funzionare correttamente, devono usare la *GatewaySubnet* nome.

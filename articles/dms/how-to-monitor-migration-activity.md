@@ -2,21 +2,21 @@
 title: Uso del Servizio Migrazione del database di Azure per monitorare l'attività di migrazione | Microsoft Docs
 description: Informazioni sull'uso del Servizio Migrazione del database di Azure per monitorare l'attività di migrazione.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/27/2018
-ms.openlocfilehash: 78ad7a503cb2c99b9dac19a5500a01c8f7b7bfc3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 10/09/2018
+ms.openlocfilehash: 8c30af5023cb83ee1f9ca0f41db5b7f977cc4bc7
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045399"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883908"
 ---
 # <a name="monitor-migration-activity"></a>Monitorare l'attività di migrazione
 Questo articolo illustra come monitorare lo stato di avanzamento di una migrazione sia a livello di database sia a livello di tabella.
@@ -46,7 +46,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>Attività di migrazione in esecuzione.</td>
     </tr>
     <tr>
-      <td>Operazione riuscita</td>
+      <td>Succeeded</td>
       <td>Attività di migrazione completata senza problemi.</td>
     </tr>
     <tr>
@@ -54,7 +54,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>Migrazione non riuscita. Selezionare il collegamento "Vedere i dettagli dell'errore" nei dettagli della migrazione per visualizzare il messaggio di errore completo.</td>
     </tr>
     <tr>
-      <td rowspan="4" class="Status"><strong>Stato</strong></td>
+      <td rowspan="4" class="Status"><strong>Status</strong></td>
       <td>Inizializzazione in corso</td>
       <td>Il Servizio Migrazione del database sta configurando la pipeline di migrazione.</td>
     </tr>
@@ -63,7 +63,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>La pipeline del Servizio Migrazione del database è in esecuzione e sta eseguendo la migrazione.</td>
     </tr>
     <tr>
-      <td>Operazione completata</td>
+      <td>Complete</td>
       <td>Migrazione completata.</td>
     </tr>
     <tr>
@@ -92,7 +92,7 @@ Nella tabella seguente sono elencati i campi del pannello a livello di database 
       <td>Fare clic sul collegamento per visualizzare i dettagli dell'errore.</td>
     </tr>
     <tr>
-      <td rowspan="1" class="duration"><strong>Durata</strong></td>
+      <td rowspan="1" class="duration"><strong>Duration</strong></td>
       <td>N/D</td>
       <td>Tempo totale dall'inizializzazione dell'attività di migrazione al completamento della migrazione con o senza errori.</td>
     </tr>
@@ -108,7 +108,7 @@ Nella parte inferiore del pannello sono elencate le tabelle ed è presente un br
 
 La tabella seguente descrive i campi visualizzati nei dettagli a livello di tabella.
 
-| Nome campo        | Descrizione       |
+| Nome campo        | DESCRIZIONE       |
 | ------------- | ------------- |
 | **Caricamento completo completato**      | Numero di tabelle per cui il caricamento completo dei dati è stato completato. |
 | **Caricamento completo accodato**      | Numero di tabelle in coda per il caricamento completo.      |
@@ -129,7 +129,7 @@ Sono presenti due schede che mostrano lo stato di avanzamento della migrazione p
 
 La tabella seguente descrive i campi visualizzati nello stato di avanzamento della migrazione a livello di tabella.
 
-| Nome campo        | Descrizione       |
+| Nome campo        | DESCRIZIONE       |
 | ------------- | ------------- |
 | **Stato - Sincronizzazione**      | Sincronizzazione continua in esecuzione. |
 | **Inserimento**      | Numero di inserimenti CDC nelle righe applicati alla destinazione.      |

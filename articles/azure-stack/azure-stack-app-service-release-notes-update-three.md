@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.reviewer: brenduns
-ms.openlocfilehash: f825a2a343d9b5ad8f9802042b7aca2ba1544dfb
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.reviewer: sethm
+ms.openlocfilehash: 3e88e0a3337eafdd25c9c0cc655912a4cdbd3b68
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917403"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079532"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>Servizio App in note sulla versione update 3 di Azure Stack
 

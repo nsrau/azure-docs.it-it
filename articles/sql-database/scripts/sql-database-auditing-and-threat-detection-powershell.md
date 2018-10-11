@@ -7,21 +7,21 @@ ms.subservice: threat-detection
 ms.custom: security
 ms.devlang: PowerShell
 ms.topic: sample
-author: giladmit
-ms.author: giladm
+author: ronitr
+ms.author: ronitr
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: 6942577c2bf6d031ded9ba6af93a2ab592fe9976
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 6d974cecc6c94473b0a7bfef019351b516e5ed02
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053810"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869296"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Usare PowerShell per configurare il controllo e il rilevamento delle minacce per il database SQL
 
-Questo esempio di script di PowerShell configura il controllo e il rilevamento delle minacce del database SQL. 
+Questo esempio di script di PowerShell configura il controllo e il rilevamento delle minacce del database SQL.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

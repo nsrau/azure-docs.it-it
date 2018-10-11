@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 9c39d621bfc8df338a4556fd412ae54489982074
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 66d04ca93a79f4d9cdd9f162c6cd3210ae35f4d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092768"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902706"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -234,7 +234,7 @@ In questo esempio vengono impostate due regole:
 
 Il valore della categoria in *host.json* controlla la registrazione di tutte le categorie che iniziano con lo stesso valore. Ad esempio, "Host" in *host.json* controlla la registrazione di "Host.General", "Host.Executor", "Host.Results" e così via.
 
-Se *host.json* include più categorie che iniziano con la stessa stringa, viene rilevata prima la corrispondenza con quelle più lunghe. Ad esempio, si supponga di volere che tutti gli elementi dalla fase di runtime, ad eccezione di "Host.Aggregator", siano registrati al livello `Error` mentre i log "Host.Aggregator" vengono registrati al livello `Information`:
+Se *host.json* include più categorie che iniziano con la stessa stringa, viene rilevata prima la corrispondenza con quelle più lunghe. Si supponga, ad esempio, che tutti gli elementi della fase di runtime, ad eccezione di "Host.Aggregator", debbano essere registrati al livello `Error` e che invece "Host.Aggregator" debba essere registrato al livello `Information`:
 
 ```json
 {
@@ -298,7 +298,7 @@ Come indicato nella sezione precedente, il runtime aggrega i dati sulle esecuzio
 
 ## <a name="configure-sampling"></a>Configurare il campionamento
 
-Application Insights ha una funzionalità di [campionamento](../application-insights/app-insights-sampling.md) che consente di evitare la produzione di un numero eccessivo di dati di telemetria nei picchi di carico. Quando il numero degli elementi di telemetria supera una frequenza specificata, Application Insights inizia a ignorare in modo casuale alcuni degli elementi in ingresso. Il valore predefinito per il numero massimo di elementi al secondo è 5. È possibile configurare il campionamento nel file *host.json*.  Ad esempio:
+Application Insights ha una funzionalità di [campionamento](../application-insights/app-insights-sampling.md) che consente di evitare la produzione di un numero eccessivo di dati di telemetria nei picchi di carico. Quando la frequenza dei dati di telemetria supera una soglia specificata, Application Insights inizia a ignorare in modo casuale alcuni degli elementi in ingresso. Il valore predefinito per il numero massimo di elementi al secondo è 5. È possibile configurare il campionamento nel file *host.json*.  Ad esempio:
 
 ```json
 {
@@ -317,9 +317,9 @@ Application Insights ha una funzionalità di [campionamento](../application-insi
 
 ### <a name="ilogger"></a>ILogger
 
-Usare il parametro [ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.ilogger) nelle funzioni anziché il parametro `TraceWriter`. I log creati con `TraceWriter` passano in Application Insights, ma `ILogger` consente di eseguire una [registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Usare il parametro [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) nelle funzioni anziché il parametro `TraceWriter`. I log creati con `TraceWriter` passano in Application Insights, ma `ILogger` consente di eseguire una [registrazione strutturata](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Con un oggetto `ILogger` è possibile chiamare [i metodi di estensione ILogger](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loggerextensions#Methods_) `Log<level>` per creare i log. Ad esempio, il codice seguente scrive i log `Information` con la categoria "Function".
+Con un oggetto `ILogger` è possibile chiamare [i metodi di estensione ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) `Log<level>` per creare i log. Ad esempio, il codice seguente scrive i log `Information` con la categoria "Function".
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -457,11 +457,6 @@ namespace functionapp0915
                 };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
-            
-            return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, 
-                    "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
         
         // This correllates all telemetry with the current Function invocation
@@ -499,18 +494,6 @@ module.exports = function (context, req) {
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
     client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
     context.done();
 };
 ```
@@ -547,9 +530,9 @@ Anche se nella scheda **Monitoraggio** vengono visualizzati i dati di Applicatio
 
 ### <a name="real-time-monitoring"></a>Monitoraggio in tempo reale
 
-È possibile trasmettere in streaming i file di log a una sessione della riga di comando su una workstation locale usando l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).  
+È possibile trasmettere in streaming i file di log a una sessione della riga di comando in una workstation locale usando l'[interfaccia della riga di comando di Azure ](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).  
 
-Per l'interfaccia della riga di comando di Azure 2.0 usare i comandi seguenti per eseguire l'accesso, scegliere la sottoscrizione e trasmettere in streaming i file di log:
+Con l'interfaccia della riga di comando di Azure, per eseguire l'accesso, scegliere la sottoscrizione e trasmettere in streaming i file di log, usare i comandi seguenti:
 
 ```
 az login

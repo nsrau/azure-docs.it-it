@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171984"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079209"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice di supporto per la replica Hyper-V in Azure
 
@@ -25,7 +25,7 @@ Questo articolo riepiloga i componenti supportati e le impostazioni per il ripri
 
 **Scenario** | **Dettagli**
 --- | ---
-Hyper-V con Virtual Machine Manager | È possibile eseguire il ripristino di emergenza in Azure per le macchine virtuali in esecuzione in host Hyper-V gestiti nell'infrastruttura di System Center Virtual Machine Manager.<br/><br/> Si può distribuire questo scenario con il portale di Azure o tramite PowerShell.<br/><br/> Se gli host Hyper-V vengono gestiti da Virtual Machine Manager, è anche possibile eseguire il ripristino di emergenza in un sito locale secondario. Per altre informazioni su questo scenario, vedere [questa esercitazione](tutorial-vmm-to-vmm.md).
+Hyper-V con Virtual Machine Manager | È possibile eseguire il ripristino di emergenza in Azure per le macchine virtuali in esecuzione in host Hyper-V gestiti nell'infrastruttura di System Center Virtual Machine Manager.<br/><br/> Si può distribuire questo scenario con il portale di Azure o tramite PowerShell.<br/><br/> Se gli host Hyper-V vengono gestiti da Virtual Machine Manager, è anche possibile eseguire il ripristino di emergenza in un sito locale secondario. Per altre informazioni su questo scenario, vedere [questa esercitazione](hyper-v-vmm-disaster-recovery.md).
 Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di emergenza in Azure per le macchine virtuali in esecuzione in host Hyper-V non gestiti da Virtual Machine Manager.<br/><br/> Si può distribuire questo scenario con il portale di Azure o tramite PowerShell.
 
 
@@ -44,11 +44,11 @@ La tabella seguente riepiloga il supporto per VM. Site Recovery supporta i caric
 
  **Componente** | **Dettagli**
 --- | ---
-Configurazione della macchina virtuale | Le VM che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#failed-over-azure-vm-requirements).
-Sistema operativo guest | Qualsiasi sistema operativo guest supportato da Azure.<br/><br/> Windows Server 2016 Nano Server non è supportato.
+Configurazione della macchina virtuale | Le VM che eseguono la replica in Azure devono soddisfare i [requisiti di Azure](#azure-vm-requirements).
+Sistema operativo guest | Qualsiasi sistema operativo guest [supportato per Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases).<br/><br/> Windows Server 2016 Nano Server non è supportato.
 
 
-## <a name="vmdisk-management"></a>Gestione della macchina virtuale/del disco
+## <a name="vmdisk-management"></a>Gestione della macchina virtuale e del disco
 
 **Azione** | **Dettagli**
 --- | ---
@@ -59,16 +59,16 @@ Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportati. 
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Rete host: gruppo NIC | Yes
-Rete host: VLAN | Yes
-Rete host: IPv4 | Yes
-Rest host: IPv6 | No 
-Rete delle macchine virtuali guest: gruppo NIC | No 
-Rete delle macchine virtuali guest: IPv4 | Yes
-Rete delle macchine virtuali guest: IPv6 | No 
-Rete delle macchine virtuali guest: IP statico (Windows) | Yes
-Rete delle macchine virtuali guest: IP statico (Linux) | No 
-Rete delle macchine virtuali guest: più NIC | Yes
+Rete host: gruppo NIC | Yes | Yes
+Rete host: VLAN | Yes | Yes
+Rete host: IPv4 | Yes | Yes
+Rest host: IPv6 | No  | No 
+Rete delle macchine virtuali guest: gruppo NIC | No  | No 
+Rete delle macchine virtuali guest: IPv4 | Yes | Yes
+Rete delle macchine virtuali guest: IPv6 | No  | Yes
+Rete delle macchine virtuali guest: IP statico (Windows) | Yes | Yes
+Rete delle macchine virtuali guest: IP statico (Linux) | No  | No 
+Rete delle macchine virtuali guest: più NIC | Yes | Yes
 
 
 
@@ -113,7 +113,8 @@ RDM | ND | ND
 Disco superiore a 1 TB | Sì, fino a 4.095 GB | Sì, fino a 4.095 GB
 Disco: dimensioni logiche di settore e dimensioni fisiche a 4 KB | Non supportato: Gen 1/Gen 2 | Non supportato: Gen 1/Gen 2
 Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Yes |  Yes
-Volume con disco con striping superiore a 1 TB<br/><br/> Gestione volumi logici (LVM) | Yes | Yes
+Gestione volumi logici (LVM). LVM è supportata solo nei dischi dati. Azure ha un solo disco di sistema operativo. | Yes | Yes
+Volume con disco con striping superiore a 1 TB | Yes | Yes
 Spazi di archiviazione | Yes | Yes
 Aggiunta/rimozione a caldo disco | No  | No 
 Esclusione disco | Yes | Yes
@@ -161,7 +162,7 @@ Disco FC | Non supportate | Il controllo dei prerequisiti ha esito negativo se n
 Formato disco rigido | VHD  <br/><br/> VHDX | In Site Recovery VHDX viene convertito automaticamente in VHD quando si esegue il failover in Azure. Quando si esegue il failback in locale, le macchine virtuali continuano a usare il formato VHDX.
 BitLocker | Non supportate | Prima di abilitare la replica per una macchina virtuale occorre disabilitare BitLocker.
 Nome della VM. | Tra 1 e 63 caratteri. Limitato a lettere, numeri e trattini. Il nome della macchina virtuale deve iniziare e terminare con una lettera o un numero. | Aggiornare il valore nelle proprietà della VM in Site Recovery.
-Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
+Tipo di macchina virtuale | Prima generazione<br/><br/> Seconda generazione - Windows | Sono supportate le macchine virtuali di seconda generazione con disco del sistema operativo di base che include uno o più volumi di dati in formato VHDX e inferiori a 300 GB di spazio su disco.<br></br>Le macchine virtuali Linux di seconda generazione non sono supportate. [Altre informazioni](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)|
 
 ## <a name="recovery-services-vault-actions"></a>Azioni dell'insieme di credenziali dei Servizi di ripristino
 

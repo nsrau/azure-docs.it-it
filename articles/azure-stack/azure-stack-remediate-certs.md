@@ -3,7 +3,7 @@ title: Risolvere i problemi di certificato per Azure Stack | Microsoft Docs
 description: Usare il controllo di conformità di Azure Stack per esaminare e correggere i problemi di certificato.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/08/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 6bc7839e7db0022beaa9b31c390655f31d1d52c0
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5e96c731496d79ca081091e2059a35545f963bd6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053466"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078637"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Risoluzione dei problemi più comuni per i certificati di infrastruttura a chiave pubblica di Azure Stack
 Le informazioni contenute in questo articolo consente di comprendere e risolvere i problemi comuni per i certificati di infrastruttura a chiave pubblica di Azure Stack. È possibile individuare i problemi quando si usa lo strumento di controllo di conformità di Azure Stack per [convalida dei certificati di infrastruttura a chiave pubblica di Azure Stack](azure-stack-validate-pki-certs.md). Lo strumento di verifica per assicurarsi che i certificati soddisfino i requisiti di infrastruttura a chiave pubblica di una distribuzione di Azure Stack e rotazione segreto di Azure Stack e registra i risultati un [report.json file](azure-stack-validation-report.md).  

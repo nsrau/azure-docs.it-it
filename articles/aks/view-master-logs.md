@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 04afd71183bcb8001d017b0027f29338b8d67ddb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 011654dcbad21c3e8cea51d6ab98eeca461e4685
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442368"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068826"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Abilitare e controllare i log del nodo master di Kubernetes nel servizio Kubernetes di Azure
 
@@ -52,8 +52,15 @@ metadata:
   name: nginx
 spec:
   containers:
-  - name: myfrontend
-    image: nginx
+  - name: mypod
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     ports:
     - containerPort: 80
 ```
@@ -75,8 +82,7 @@ Potrebbero occorrere alcuni minuti prima che i log di diagnostica siano abilitat
 Sul lato sinistro scegliere **Ricerca Log**. Per visualizzare *kube-apiserver*, immettere la query seguente nella casella di testo:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | project log_s
 ```
@@ -84,8 +90,7 @@ search *
 Probabilmente vengono restituiti molti log per il server API. Per limitare i risultati della query in modo da visualizzare i log sul pod NGINX creato nel passaggio precedente, aggiungere un'altra istruzione *where* per cercare *pods/nginx* come illustrato nella query di esempio seguente:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | where log_s contains "pods/nginx"
 | project log_s

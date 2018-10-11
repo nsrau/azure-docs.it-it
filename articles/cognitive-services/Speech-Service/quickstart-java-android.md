@@ -5,16 +5,16 @@ description: Informazioni sul riconoscimento vocale in Java su Android con Speec
 services: cognitive-services
 author: fmegen
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: fmegen
-ms.openlocfilehash: 0a52889ef879aeb8a5a1ed59b74619dc3337e1e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6428dbaabfe176e8d741818ee338bbc2a6bc70bb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432797"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883874"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Java su Android con Speech SDK
 
@@ -112,7 +112,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 
 ## <a name="add-sample-code"></a>Aggiungere il codice di esempio
 
-1. Aprire il file di origine `MainActivity.java`. Sostituire tutto il codice che segue l'istruzione `package` con il codice seguente.
+1. Aprire il file di origine `MainActivity.java`. Sostituire tutto il codice in questo file con quanto segue.
 
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
@@ -122,7 +122,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 
 1. Nello stesso file, sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione.
 
-1. Inoltre, sostituire la stringa `YourServiceRegion` con la [regione](regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
+1. Inoltre, sostituire la stringa `YourServiceRegion` con l'[area](regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
 
 ## <a name="build-and-run-the-app"></a>Compilare ed eseguire l'app
 

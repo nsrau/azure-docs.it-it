@@ -5,17 +5,17 @@ services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-finder
+ms.component: anomaly-finder
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
-ms.openlocfilehash: df7326cb8e671d0f71924e813a1354dfef1e20c7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a1cda1cea2089363331ae437cb7ad802429779f4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375297"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888697"
 ---
 I dati restituiti con il valore atteso e i margini superiore e inferiore predefiniti. In pratica, è possibile definire un parametro [sensitivity], quindi usare (ExpectedValue + sensitivity * UpperMargin) come limite superiore e (ExpectedValue - sensitivity * LowerMargin) come limite inferiore per regolare autonomamente il punto di anomalia. Il valore del parametro [sensitivity] deve essere maggiore di 1. Di seguito sono riportati alcuni diagrammi per la regolazione del punto di anomalia.
 

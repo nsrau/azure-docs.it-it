@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: bcc5f23c163a391639d916b8a50c2c05d228ee91
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.component: ''
+ms.openlocfilehash: c43f8acf7f9278ca412bee9ad15f2d51541cd27b
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432087"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044332"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Proprietà standard nei record di Log Analytics
 I dati in [Log Analytics](../log-analytics/log-analytics-queries.md) sono archiviati come set di record, ognuno con un particolare tipo di dati che ha un set di proprietà univoco. Molti tipi di dati hanno proprietà standard comuni a più tipi. Questo articolo descrive queste proprietà e contiene esempi di come usarle nelle query.

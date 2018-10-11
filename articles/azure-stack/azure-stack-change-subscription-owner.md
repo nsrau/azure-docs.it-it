@@ -3,7 +3,7 @@ title: Aggiornare il proprietario di sottoscrizione utente di Azure Stack | Micr
 description: Modificare il proprietario di fatturazione per le sottoscrizioni utente di Azure STack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
 ms.date: 06/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: de8610944e11d8cf106ac484a0c6634c8661b5a2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a784f169bfdf23255b27d50f0e135384db6b2b88
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009490"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077631"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Modificare il proprietario per una sottoscrizione utente di Azure Stack
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 789e637f3a5806aafe0ca8cad5b6408ef77b32d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919615"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49066990"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Eseguire un'analisi del ripristino di emergenza per l macchine virtuali di Azure in un'area di Azure secondaria
 
@@ -28,7 +28,7 @@ Questa esercitazione illustra come eseguire un'analisi del ripristino di emergen
 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Prima di eseguire un failover di test, è consigliabile verificare le proprietà della macchina virtuale per verificare che corrispondano a quelle previste.  È possibile accedere alle proprietà delle macchine virtuali in **Elementi replicati**. Il pannello **Informazioni di base** visualizza informazioni sulle impostazioni e sullo stato dei computer.
 - È consigliabile usare una rete di una macchina virtuale di Azure separata per il failover di test e non la rete predefinita che è stata configurata al momento di abilitare la replica.

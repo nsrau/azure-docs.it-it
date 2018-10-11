@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
-ms.topic: article
+ms.component: qna-maker
+ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 5e95bf768cc00935067edd3365cc3d101be6a00a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fe01e69b5ee730c4807e94e5f79dd11456d6aa1a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034742"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886366"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Guida introduttiva per l'API QnA Maker Microsoft con Python 
 <a name="HOLTop"></a>

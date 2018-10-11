@@ -11,12 +11,12 @@ ms.date: 09/24/2018
 ms.topic: hub-page
 ms.prod: cognitive-services
 ms.technology: cognitive-services
-ms.openlocfilehash: 5403ec448725504c0b0a57a3d82853d0884c7c48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1c07a02369af90580615fd9e7eaf6e239949ea36
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985432"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068469"
 ---
 <h1>Documentazione di Servizi cognitivi di Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare e comprendere le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.</p>
@@ -28,7 +28,7 @@ ms.locfileid: "46985432"
                     <div class="cardPadding">
                         <div class="card">
                             <div class="cardImageOuter">
-                                <div class="cardImage"> 
+                                <div class="cardImage">
                                     <img src="media/index/i_overview.svg" alt="" />
                                 </div>
                             </div>
@@ -115,6 +115,8 @@ ms.locfileid: "46985432"
                         <h3>Riconoscimento vocale tramite il Servizio di riconoscimento vocale</h3>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">Uso di C#</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Uso di Java</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-objectivec-ios">Uso di Objective-C</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">Uso di JavaScript</a></p>
                         <p><a href="/azure/cognitive-services/speech-service/quickstart-cpp-windows">Uso di C++</a></p>
                     </div>
                 </div>
@@ -274,7 +276,7 @@ ms.locfileid: "46985432"
                 <div class="card">
                     <div class="cardText">
                         <h3>Speech API</h3>
-                        <p><a href="/azure/cognitive-services/speech-service">Servizio di riconoscimento vocale</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service">API servizio Voce</a></p>
                         <p><a href="/azure/cognitive-services/speech/home">API Riconoscimento vocale Bing</a></p>
                         <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Servizio di riconoscimento vocale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Riconoscimento del parlante&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>

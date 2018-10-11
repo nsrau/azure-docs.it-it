@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 4bfaed3d908574eff3521cedcef4b117d45e1ca2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: c6bc77e5ee1fa5e180b41dca50640dc01fee0691
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220920"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017517"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali di Azure tramite un modello
 
@@ -146,7 +146,7 @@ Se è disponibile un set di scalabilità di macchine virtuali per cui non è pi�
 
    Se la versione API è `2018-06-01` e la macchina virtuale ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme ai valori di dizionario userAssignedIdentities.
 
-   **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01 e precedenti**
+   **Microsoft.Compute/virtualMachineScaleSets versione API 2018-06-01**
 
    Se la versione API è `2017-12-01` e il set di scalabilità di macchine virtuali ha identità gestite assegnate sia dal sistema sia dall'utente, rimuovere `SystemAssigned` dal tipo di identità e mantenere `UserAssigned` insieme alla matrice `identityIds` delle identità gestite assegnate dall'utente. 
    
@@ -279,7 +279,7 @@ In questa sezione verrà associata un'identità gestita assegnata dall'utente a 
     ]
    ```
 
-   **Microsoft.Compute/virtualMachines versione API 2017-12-01 e precedenti**
+   **Microsoft.Compute/virtualMachines versione API 2017-12-01**
 
    ```json
    "resources": [
