@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: ce397b1ba8d77d2916caa2798c0161ba55f51dbb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0b14c13462f15dd90285ed9e37080487324a4d85
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42447257"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831280"
 ---
 # <a name="useful-operators-in-log-analytics-queries"></a>Operatori utili nelle query di Log Analytics
 
@@ -31,7 +31,7 @@ La tabella di seguito riporta alcune funzioni comuni da usare per diversi scenar
 Categoria                                |Funzione di analisi pertinente
 ----------------------------------------|----------------------------------------
 Alias di colonna e selezione            |`project`, `project-away`, `extend`
-Costanti e tabelle temporanee          |`let scalar_alias_name = …;` <br> `let table_alias_name = (){ … &#124; … &#124; … };`
+Costanti e tabelle temporanee          |`let scalar_alias_name = …;` <br> `let table_alias_name =  …  …  … ;`| 
 Operatori di stringa e confronto         |`startswith`, `!startswith`, `has`, `!has` <br> `contains`, `!contains`, `containscs` <br> `hasprefix`, `!hasprefix`, `hassuffix`, `!hassuffix`, `in`, `!in` <br> `matches regex` <br> `==`, `=~`, `!=`, `!~`
 Funzioni stringa comuni                 |`strcat()`, `replace()`, `tolower()`, `toupper()`, `substring()`, `strlen()`
 Funzioni matematiche comuni                   |`sqrt()`, `abs()` <br> `exp()`, `exp2()`, `exp10()`, `log()`, `log2()`, `log10()`, `pow()` <br> `gamma()`, `gammaln()`

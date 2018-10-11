@@ -5,22 +5,22 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 41fa742571b94505588172b94ea91f196e212a4c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: cd0af3bc9489452dfc98efaa3ded768a8ca775ab
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920964"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079481"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: domande frequenti
 In questo articolo sono riportate le domande frequenti su Azure Site Recovery. Eventuali domande successive alla lettura di questo articolo possono essere pubblicate nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 ## <a name="general"></a>Generale
 ### <a name="what-does-site-recovery-do"></a>Quali sono le funzioni di Site Recovery?
-Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza mediante la gestione e l'automatizzazione delle operazioni di replica delle macchine virtuali di Azure tra le aree, delle macchine virtuali e dei server fisici locali in Azure o in un data center secondario. [Altre informazioni](site-recovery-overview.md).
+Site Recovery favorisce l'attuazione della strategia di continuità aziendale e ripristino di emergenza mediante la gestione e l'automatizzazione delle operazioni di replica delle macchine virtuali di Azure tra le aree, delle macchine virtuali e dei server fisici locali in Azure o in un data center secondario. [Altre informazioni](site-recovery-overview.md)
 
 ### <a name="what-can-site-recovery-protect"></a>Quali elementi può proteggere Site Recovery?
 * **Macchine virtuali di Azure**: Site Recovery può replicare qualsiasi carico di lavoro in esecuzione in una macchina virtuale di Azure supportata
@@ -31,7 +31,7 @@ Site Recovery favorisce l'attuazione della strategia di continuità aziendale e 
 
 
 ### <a name="can-i-replicate-azure-vms"></a>È possibile replicare le macchine virtuali di Azure?
-Sì, è possibile replicare le macchine virtuali di Azure supportate tra le aree di Azure. [Altre informazioni](site-recovery-azure-to-azure.md).
+Sì, è possibile replicare le macchine virtuali di Azure supportate tra le aree di Azure. [Altre informazioni](site-recovery-azure-to-azure.md)
 
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>Cosa occorre in Hyper-V per orchestrare la replica con Site Recovery?
 Gli elementi necessari per il server host Hyper-V dipendono dallo scenario di distribuzione. Verificare i prerequisiti di Hyper-V in:

@@ -2,18 +2,17 @@
 title: Webhook del Registro contenitori di Azure
 description: Informazioni su come usare i webhook per attivare eventi specifici quando nei repository del registro si verificano determinate azioni.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/02/2017
-ms.author: marsma
-ms.openlocfilehash: e85b69e452f4d76dfdf974698fa7d3b5cdbc0c30
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 08/20/2017
+ms.author: danlep
+ms.openlocfilehash: 350ae16aa66276e7e64c5c35718dca74a70f499e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426089"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854100"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Uso dei webhook del Registro contenitori di Azure
 
@@ -95,4 +94,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+### <a name="webhook-schema-reference"></a>Informazioni di riferimento per lo schema di webhook
+
+Per informazioni dettagliate sul formato e sulle proprietà dei payload degli eventi JSON generati dal Registro contenitori di Azure, vedere le informazioni di riferimento per lo schema di webhook:
+
 [Informazioni di riferimento sullo schema del webhook del registro contenitori di Azure](container-registry-webhook-reference.md)
+
+### <a name="event-grid-events"></a>Eventi di Griglia di eventi
+
+Oltre agli eventi di webhook del registro nativo descritti in questo articolo, Registro contenitori di Azure può trasmettere eventi a Griglia di eventi:
+
+[Guida introduttiva: inviare eventi del registro contenitori a Griglia di eventi ](container-registry-event-grid-quickstart.md)

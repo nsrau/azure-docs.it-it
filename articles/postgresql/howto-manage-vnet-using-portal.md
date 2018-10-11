@@ -4,20 +4,19 @@ description: Creare e gestire gli endpoint e le regole di servizio di rete virtu
 services: postgresql
 author: mbolz
 ms.author: mbolz
-manager: kfile
-editor: jasonwhowell
-ms.service: postgresql-database
-ms.topic: article
-ms.date: 06/01/2018
-ms.openlocfilehash: 8199bd98b9ae091ff2b27efa8334e8e763879359
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.reviewer: jasonwhowell
+ms.service: postgresql
+ms.topic: conceptual
+ms.date: 08/15/2018
+ms.openlocfilehash: 3884b594c903c234ce83c0752f92ddc34b24cd5a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757366"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239320"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Creare e gestire gli endpoint e le regole di servizio di rete virtuale per Database di Azure per PostgreSQL tramite il portale di Azure
-Gli endpoint e le regole dei servizi di rete virtuale estendono lo spazio di indirizzi privato di una rete virtuale a un server di Database di Azure per PostgreSQL. Per una panoramica degli endpoint di servizio di rete virtuale per Database di Azure per PostgreSQL, incluse le limitazioni, vedere [Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per PostgreSQL](concepts-data-access-and-security-vnet.md). Gli endpoint di servizio di rete virtuale sono disponibili in anteprima pubblica in tutte le aree supportate per Database di Azure per PostgreSQL.
+Gli endpoint e le regole dei servizi di rete virtuale estendono lo spazio di indirizzi privato di una rete virtuale a un server di Database di Azure per PostgreSQL. Per una panoramica degli endpoint di servizio di rete virtuale per Database di Azure per PostgreSQL, incluse le limitazioni, vedere [Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per PostgreSQL](concepts-data-access-and-security-vnet.md). Gli endpoint di servizio di rete virtuale sono disponibili in tutte le aree supportate per Database di Azure per PostgreSQL.
 
 > [!NOTE]
 > Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.

@@ -5,15 +5,15 @@ author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 13a84b7254207a9cfcfff4af43283130a0f6c587
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb3489c24bd5aa328620c5a6c14ee71882a6a6f2
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998475"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249571"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Estendere gli avvisi di Log Analytics in Avvisi di Azure
 Azure Log Analytics includeva fino a poco tempo fa una propria funzionalità di avviso, in grado di informare l'utente in modo proattivo relativamente ad alcune condizioni in base ai dati di Log Analytics. Le regole degli avvisi venivano gestite nel portale Microsoft Operations Management Suite (OMS). La nuova esperienza Avvisi è ora integrata nei diversi servizi e componenti di Microsoft Azure. È disponibile come **Avvisi** in Monitoraggio di Azure nel portale di Azure e supporta avvisi dei log attività, avvisi delle metriche e avvisi relativi ai log per Log Analytics e Application Insights. 

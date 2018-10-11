@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5feefdb8fe6204bc8ef42a5e65bf1e30354e0cf9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 39fd393e78a2b66749c6aa34a758b185b38effdf
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393928"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041188"
 ---
 # <a name="multi-master-conflict-resolution-in-azure-cosmos-db"></a>Risoluzione dei conflitti multimaster in Azure Cosmos DB 
 
@@ -157,7 +157,7 @@ La procedura ha quattro parametri:
 
 * **conflictingDocuments**: specifica una raccolta della versione di cui è stato eseguito il commit per tutti i documenti nel database, che sono in conflitto con incomingDocument nella colonna ID o qualsiasi altro campo di indice univoco. Questi documenti avranno un valore "rid" diverso rispetto a incomingDocument.
 
-La procedura definita dall'utente ha accesso completo alla chiave di partizione di Cosmos DB e può eseguire qualsiasi operazione di archiviazione per risolvere i conflitti. Se la procedura definita dall'utente non esegue il commit della versione in conflitto, il sistema eliminerà il conflitto e verrà mantenuto il commit di existingDocument. Se la procedura definita dall'utente non riesce o non esiste, Azure Cosmos DB aggiungerà il conflitto nel feed dei conflitti di sola lettura dove può essere elaborato in modo asincrono, come illustrato nella [modalità di risoluzione dei conflitti asincrona](). 
+La procedura definita dall'utente ha accesso completo alla chiave di partizione di Cosmos DB e può eseguire qualsiasi operazione di archiviazione per risolvere i conflitti. Se la procedura definita dall'utente non esegue il commit della versione in conflitto, il sistema eliminerà il conflitto e verrà mantenuto il commit di existingDocument. Se la procedura definita dall'utente non riesce o non esiste, Azure Cosmos DB aggiungerà il conflitto nel feed dei conflitti di sola lettura dove può essere elaborato in modo asincrono, come illustrato nella [modalità di risoluzione dei conflitti asincrona](#custom--asynchronous). 
 
 ### <a name="custom--asynchronous"></a>Asincrona (personalizzata)  
 

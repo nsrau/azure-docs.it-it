@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 4157b812fbb17b524a21814f41e0e4ec43e39e70
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131627"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042088"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Soluzione di gestione Connettore di Application Insights (anteprima)
 
@@ -49,7 +49,7 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 | [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non raccoglie le informazioni da Archiviazione di Azure. |
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Per accedere alle informazioni relative a Connettore di Application Insights, è necessaria una sottoscrizione Azure
 - È necessario disporre di almeno una risorsa Application Insights configurata.
@@ -89,7 +89,6 @@ Fare clic sul riquadro **Application Insights** per aprire il dashboard **Applic
 
 Il dashboard include i pannelli mostrati nella tabella. Ogni panello elenca fino a 10 elementi corrispondenti ai criteri del pannello per lo scope e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore del pannello o facendo clic sull'intestazione del pannello.
 
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Colonna** | **Descrizione** |
 | --- | --- |

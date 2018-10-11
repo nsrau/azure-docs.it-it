@@ -2,17 +2,17 @@
 title: Attendibilità dei contenuti in Registro contenitori di Azure
 description: Informazioni su come abilitare l'attendibilità dei contenuti per Registro contenitori di Azure ed eseguire il push e il pull di immagini firmate.
 services: container-registry
-author: mmacy
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 08/20/2018
-ms.author: marsma
-ms.openlocfilehash: 5dd8bc4227fda4c5d4def4b59bd7ff9a707f47f9
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.author: danlep
+ms.openlocfilehash: 1f1e7ce41c00078c0181fc5f32c43b7e5885eef8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234034"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857670"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Attendibilità dei contenuti in Registro contenitori di Azure
 
@@ -161,7 +161,7 @@ No valid trust data for unsigned
 
 Quando si esegue `docker pull`, il client Docker usa la stessa libreria dell'[interfaccia della riga di comando Notary][docker-notary-cli] per richiedere il mapping del digest da tag a SHA-256 per il tag di cui si esegue il pull. Dopo aver verificato le firme nei dati attendibili, il client comunica al motore Docker di eseguire un "pull in base al digest". Durante il pull, il motore usa il checksum SHA-256 come indirizzo dei contenuti per richiedere e convalidare il manifesto dell'immagine da Registro contenitori di Azure.
 
-## <a name="key-management"></a>Gestione delle chiavi
+## <a name="key-management"></a>Gestione della chiave
 
 Come indicato nell'output di `docker push` quando si esegue il push della prima immagine attendibile, la chiave radice è la più sensibile. Assicurarsi di eseguire il backup della chiave radice e di archiviarla in una posizione sicura. Per impostazione predefinita, il client Docker archivia le chiavi di firma nella directory seguente:
 

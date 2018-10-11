@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/24/2017
+ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 3c706b88ec9e67a607a75733833c67e62eebb724
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 7fca6ffa9efa3eed9f7c74ee89ad8bb9651494bb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42142157"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044706"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -35,7 +35,7 @@ Il campionamento riduce i costi del traffico e dei dati e consente di evitare la
 * È anche possibile impostare il campionamento manualmente, nella pagina Utilizzo e costi stimati del portale, nel file con estensione config di ASP.NET SDK oppure nel file ApplicationInsights.xml di Java SDK, per ridurre anche il traffico di rete.
 * Se si registrano eventi personalizzati e ci si vuole assicurare che gli eventi di un set vengano mantenuti o rimossi insieme, verificare che abbiano lo stesso valore OperationId.
 * Il divisore di campionamento *n* è indicato in ogni record nella proprietà `itemCount`, visualizzata nella ricerca con il nome descrittivo "Conteggio delle richieste" o "Conteggio degli eventi". Quando il campionamento non è in esecuzione, `itemCount==1`.
-* Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](app-insights-analytics-tour.md#counting-sampled-data). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
+* Se si scrivono query di Dati di analisi, è necessario [tener conto del campionamento](../log-analytics/query-language/aggregations.md). In particolare, anziché eseguire semplicemente il conteggio dei record, è necessario usare `summarize sum(itemCount)`.
 
 ## <a name="types-of-sampling"></a>Tipi di campionamento
 Esistono tre diversi metodi di campionamento:
@@ -250,7 +250,7 @@ In Esplora metriche, frequenze quali il numero di richieste ed eccezioni vengono
                 <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
                 <Add name = "SamplingPercentage" value = "50" />
             </Processor>
-        </BuilrInProcessors>
+        </BuiltInProcessors>
     <TelemetryProcessors/>
 ```
 
@@ -282,7 +282,7 @@ Invece di impostare il parametro di campionamento nel file con estensione config
     using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     ...
 
-    var builder = TelemetryConfiguration.Active.GetTelemetryProcessorChainBuilder();
+    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
     builder.UseSampling(10.0); // percentage
 
     // If you have other telemetry processors:

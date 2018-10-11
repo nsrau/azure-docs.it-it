@@ -3,20 +3,20 @@ title: Problemi noti e limitazioni per le migrazioni online a Database di Azure 
 description: Informazioni su problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL.
 services: database-migration
 author: HJToland3
-ms.author: jtoland
+ms.author: scphang
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/24/2018
-ms.openlocfilehash: d1d1483edd31702b1b9f14eaf4aba1a3f38ed142
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 10/09/2018
+ms.openlocfilehash: 6e82c10d8e9109279045095c1b856520245a5a6f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889093"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884511"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL
 
@@ -87,7 +87,7 @@ Le colonne LOB (Large Object) sono colonne che possono raggiungere dimensioni el
 - Le DDL seguenti non sono supportate:
     - Tutte le DDL di partizione
     - Drop table
-    - Rename table
+    - Rinominare tabella
 - L'uso dell'istruzione *alter table <nome_tabella> add column <nome_colonna>* per aggiungere colonne all'inizio o al centro di una tabella non è supportato. L'istruzione *alter table <nome_tabella> add column <nome_colonna>* aggiunge la colonna alla fine della tabella.
 - Gli indici creati solo su una parte dei dati della colonna non sono supportati. L'istruzione seguente è un esempio che crea un indice usando solo una parte dei dati della colonna:
     ``` 

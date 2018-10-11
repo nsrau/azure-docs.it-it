@@ -2,21 +2,21 @@
 title: Topologie di rete per le migrazioni di istanze gestite del database SQL di Azure tramite il Servizio Migrazione del database di Azure | Microsoft Docs
 description: Informazioni sulle configurazioni di origine e di destinazione per il servizio Migrazione del database.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 9fcee103854209016d73e29b598c9f33d35c4b6c
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.date: 10/10/2018
+ms.openlocfilehash: 39bcea36f3599530413aa9fc4dbb308ee2fb1681
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316868"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49066854"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Topologie di rete per le migrazioni di istanze gestite del database SQL di Azure tramite il Servizio Migrazione del database di Azure
 Questo articolo illustra diverse topologie di rete usate dal Servizio Migrazione del database di Azure per garantire un'esperienza di migrazione completa dai server SQL locali a Istanza gestita di database SQL di Azure.

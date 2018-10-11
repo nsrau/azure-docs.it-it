@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: b6078ac326fe51f4198137eec2de728b6036c271
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.component: ''
+ms.openlocfilehash: 6bd195b8be558cfcfda10a750fbfe91079c6b094
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144297"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043587"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Soluzione di monitoraggio VMware (anteprima) in Log Analytics
 
@@ -153,8 +153,6 @@ Se si desidera visualizzare dati aggiuntivi sulla creazione di VM dell'host ESXi
 
 #### <a name="common-search-queries"></a>Query di ricerca comuni
 La soluzione include altre query utili che aiutano a gestire gli host ESXi, ad esempio elevate quantità di spazio di archiviazione, latenza di archiviazione ed errori di percorso.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ![query](./media/log-analytics-vmware/queries.png)
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: ac81525c107fcc291a8c3ef0163bf0ef2bbfdc3b
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.component: ''
+ms.openlocfilehash: 8cc654fca8e645253ffc79ef808075bdbe887530
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142787"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043295"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in Log Analytics
 Progettazione viste di Azure Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.

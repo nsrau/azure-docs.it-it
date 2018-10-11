@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: cdce0ae223a637ac30ed472d2bf711aa36958414
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346764"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48903029"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Eseguire la migrazione ad Azure di app locali di AD FS 
 
@@ -151,7 +151,7 @@ Attualmente è possibile eseguire facilmente la migrazione delle app SAML 2.0 ch
 - Nome.
 - Cognome.
 - Un attributo alternativo come **NameID** SAML, ad esempio l'attributo Mail, il prefisso di posta elettronica, l'ID dipendente o gli attributi dell'estensione 1-15 di Azure AD oppure l'attributo **SamAccountName** locale. Per altre informazioni, vedere [Modifica dell'attestazione NameIdentifier](../develop/active-directory-saml-claims-customization.md).
-- Attestazioni personalizzate. Per informazioni sui mapping di attestazioni supportati, vedere [Mapping delle attestazioni in Azure Active Directory](../active-directory-claims-mapping.md) e [Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+- Attestazioni personalizzate. Per informazioni sui mapping di attestazioni supportati, vedere [Mapping delle attestazioni in Azure Active Directory](../develop/active-directory-claims-mapping.md) e [Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
 
 Oltre alle attestazioni personalizzate e agli elementi **NameID**, le configurazioni che richiedono passaggi di configurazione aggiuntivi in Azure AD come parte della migrazione sono le seguenti:
 - Regole di Multi-Factor Authentication o di autorizzazione personalizzate in AD FS, configurate con la funzionalità di [accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md).
@@ -171,7 +171,7 @@ Non è attualmente possibile eseguire la migrazione delle app che richiedono le 
 - Attestazioni nelle funzionalità per i token:
     - Rilascio dei nomi dei gruppi locali come attestazioni.
     - Attestazioni da archivi diversi da Azure AD.
-    - Regole di trasformazione rilascio per attestazioni complesse. Per informazioni sui mapping di attestazioni supportati, vedere [Mapping delle attestazioni in Azure Active Directory](../active-directory-claims-mapping.md) e [Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
+    - Regole di trasformazione rilascio per attestazioni complesse. Per informazioni sui mapping di attestazioni supportati, vedere [Mapping delle attestazioni in Azure Active Directory](../develop/active-directory-claims-mapping.md) e [Personalizzazione delle attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory](../develop/active-directory-saml-claims-customization.md).
     - Rilascio delle estensioni della directory come attestazioni.
     - Specifica personalizzata del formato **NameID**.
     - Rilascio di attributi multivalore.
@@ -237,5 +237,5 @@ Se si vuole che Azure AD gestisca direttamente il provisioning utenti per un'app
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Gestione di applicazioni con Azure Active Directory](what-is-application-management.md)
-- [Gestire l'accesso alle app](what-is-access-management.md)
-- [Azure AD Connect e federazione](../active-directory-aadconnectfed-whatis.md)
+- [Manage access to apps](what-is-access-management.md) (Gestire l'accesso alle app)
+- [Azure AD Connect e federazione](../hybrid/how-to-connect-fed-whatis.md)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 309c7275a1e775ed2bd689520ac39501e8bd6052
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011659"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857823"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Panoramica di Servizi Cloud di Azure
 Servizi cloud di Azure è un esempio di [piattaforma distribuita come servizio](https://azure.microsoft.com/overview/what-is-paas/) (PaaS). Analogamente a [Servizio app di Azure](../app-service/app-service-web-overview.md), questa tecnologia è stata progettata per supportare applicazioni scalabili, attendibili ed economicamente efficienti. Proprio come Servizio app, anche Servizi cloud di Azure è ospitato in macchine virtuali (VM). Tuttavia, il controllo sulle macchine virtuali è maggiore. È possibile installare software personalizzato nelle macchine virtuali che usano Servizi cloud di Azure e accedervi in remoto.
@@ -33,7 +33,7 @@ Sono disponibili due tipi di ruoli di Servizi cloud di Azure. L'unica differenza
 
 * **Ruolo di lavoro**: non usa IIS ed esegue l'app autonomamente.
 
-Ad esempio, un'applicazione semplice può usare un solo ruolo Web che serve un sito Web. Un'applicazione più complessa può usare un ruolo Web per la gestione delle richieste in arrivo dagli utenti e quindi passare tali richieste a un ruolo di lavoro per l'elaborazione. Per questa comunicazione potrebbe essere usato il [bus di servizio di Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md) o l'[archiviazione code di Azure](../storage/common/storage-introduction.md).
+Ad esempio, un'applicazione semplice può usare un solo ruolo Web che serve un sito Web. Un'applicazione più complessa può usare un ruolo Web per la gestione delle richieste in arrivo dagli utenti e quindi passare tali richieste a un ruolo di lavoro per l'elaborazione. Per questa comunicazione potrebbe essere usato il [bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md) o l'[archiviazione code di Azure](../storage/common/storage-introduction.md).
 
 Come illustrato nella figura precedente, tutte le VM in una singola applicazione vengono eseguite nello stesso servizio cloud. Gli utenti accedono all'applicazione attraverso un indirizzo IP pubblico che esegue automaticamente il bilanciamento del carico delle richieste nelle VM dell'applicazione. La piattaforma [ridimensiona e distribuisce](cloud-services-how-to-scale-portal.md) le macchine virtuali in un'applicazione di Servizi cloud di Azure, in modo da evitare un singolo punto di errore hardware.
 

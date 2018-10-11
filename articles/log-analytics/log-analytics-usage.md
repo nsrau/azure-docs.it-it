@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/11/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 8039a660a0f9fc94471e4b3e28b1b00bfb0d6b9e
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128565"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042446"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizzare l'utilizzo dei dati in Log Analytics
+
+> [!NOTE]
+> Questo articolo descrive come analizzare l'utilizzo dei dati in Log Analytics.  Per le informazioni correlate, vedere gli articoli seguenti.
+> - [Gestire i costi controllando i volumi dei dati e la conservazione in Log Analytics](log-analytics-manage-cost-storage.md) descrive come controllare i costi modificando il periodo di conservazione dei dati.
+> - [Monitorare l'utilizzo e costi stimati](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) descrive come visualizzare l'utilizzo e costi stimati tra più funzionalità di monitoraggio di Azure per diversi modelli di determinazione prezzi. Illustra inoltre come modificare il modello di prezzi.
+
 Log Analytics include informazioni sulla quantità di dati raccolti, sui diversi tipi di dati inviati e sulle origini che li hanno inviati.  Usare il dashboard **Utilizzo di Analisi dei log** per esaminare l'utilizzo dei dati. Il dashboard mostra la quantità di dati raccolti da ogni soluzione e la quantità di dati inviata dai computer.
 
 ## <a name="understand-the-usage-dashboard"></a>Informazioni sul dashboard Utilizzo

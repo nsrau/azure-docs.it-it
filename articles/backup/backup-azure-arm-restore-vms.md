@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: eb47b1d8d3f2859b2b5c0b79633b2d37e5a40756
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f7561ef4978e19439eafb6ef1a6ca1275c0f2bc7
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380166"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804617"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usare il portale di Azure per ripristinare macchine virtuali
 È possibile proteggere i dati mediante la creazione di snapshot dei dati a intervalli definiti. Questi snapshot sono noti come punti di ripristino e vengono archiviati negli insiemi di credenziali dei servizi di ripristino. Se è necessario ripristinare o ricreare una macchina virtuale (VM), è possibile ripristinare la macchina virtuale da qualsiasi punto di ripristino salvato. Quando si ripristina un punto di ripristino, è possibile:
@@ -37,6 +37,7 @@ Il ripristino di una macchina virtuale o di tutti i dischi dal backup della macc
 * Selezionare il tipo di ripristino, creare una nuova VM o ripristinare i dischi e specificare i parametri necessari. 
 
 ## <a name="select-a-restore-point-for-restore"></a>Selezionare un punto di ripristino
+
 1. Accedere al [portale di Azure](http://portal.azure.com/).
 
 1. Nel portale di Azure selezionare **Sfoglia**. Nell'elenco di servizi digitare **Servizi di ripristino**. L'elenco di servizi viene modificato in base a quanto digitato. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
@@ -102,7 +103,7 @@ Dopo aver selezionato il punto di ripristino, scegliere una configurazione di ri
 Il portale offre un'opzione di **creazione rapida** per una VM ripristinata. Per personalizzare la configurazione della VM o i nomi delle risorse create come parte della creazione di una nuova opzione di VM, usare PowerShell o il portale per ripristinare i dischi di backup. Usare i comandi di PowerShell per associarli alla scelta della configurazione della VM. In alternativa, è possibile usare il modello integrato nei dischi ripristinati per personalizzare la VM ripristinata. Per informazioni su come ripristinare una VM che dispone di più schede di interfaccia di rete o nel bilanciamento del carico, vedere [Restore a VM with special network configurations](#restore-vms-with-special-network-configurations) (Ripristino di una VM con configurazioni di rete speciali). Se una VM Windows usa le [licenze HUB](../virtual-machines/windows/hybrid-use-benefit-licensing.md), ripristinare i dischi e usare PowerShell o il modello come specificato in questo articolo per creare la VM. Assicurarsi di specificare **Tipo di licenza** come "Windows_Server" durante la creazione della VM per poter accedere ai vantaggi HUB nella VM ripristinata. 
  
 ## <a name="create-a-new-vm-from-a-restore-point"></a>Creare una nuova VM da un punto di ripristino
-1. Se non lo si è già fatto, [selezionare un punto di ripristino](#restore-a vm-with-special-network-configurations) prima di iniziare a creare una nuova VM da un punto di ripristino. Dopo aver selezionato un punto di ripristino, nel pannello **Configurazione di ripristino** specificare o selezionare i valori per ogni campo seguente:
+1. Se non lo si è già fatto, [selezionare un punto di ripristino](#select-a-restore-point-for-restore) prima di iniziare a creare una nuova VM da un punto di ripristino. Dopo aver selezionato un punto di ripristino, nel pannello **Configurazione di ripristino** specificare o selezionare i valori per ogni campo seguente:
 
     a. **Tipo ripristino**. Creare una macchina virtuale.
 
@@ -239,9 +240,9 @@ Per ricreare completamente le VM dopo il ripristino su disco, seguire questa pro
 
    b. Creare una VM connessa a un [servizio di bilanciamento del carico con connessione Internet](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/).
 
-   c. Creare una VM [con più NIC](https://azure.microsoft.com/documentation/articles/virtual-networks-multiple-nics/).
+   c. Creare una VM [con più NIC](../virtual-machines/windows/multiple-nics.md).
 
-   d. Creare una VM con [più indirizzi IP riservati](https://azure.microsoft.com/documentation/articles/virtual-networks-reserved-public-ip/).
+   d. Creare una VM con [più indirizzi IP riservati](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo avere appreso come ripristinare le VM, è possibile vedere l'articolo sulla risoluzione dei problemi per ottenere informazioni sugli errori comuni con le macchine virtuali. Vedere anche l'articolo sulla gestione di attività con le macchine virtuali.

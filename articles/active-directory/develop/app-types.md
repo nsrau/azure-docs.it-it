@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 3ac97ac5e9ae0a7059d9c74c5918212f1ce02790
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959955"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816345"
 ---
 # <a name="application-types-in-v10"></a>Tipi di applicazioni nella versione 1.0
 
@@ -69,7 +69,7 @@ Per altre informazioni, vedere come [registrare un'app con l'endpoint v1.0 di Az
 Per comprendere meglio il provisioning, è utile chiarire che esistono due categorie di applicazioni che possono essere sviluppate e integrate con Azure AD:
 
 * **Applicazione con un singolo tenant**: un'applicazione con un singolo tenant è destinata all'uso in un'organizzazione. In genere si tratta di applicazioni line-of-business scritte da uno sviluppatore aziendale. Un'applicazione con un singolo tenant deve essere accessibile solo agli utenti di una directory e quindi è necessario eseguirne il provisioning in una sola directory. Queste applicazioni sono generalmente registrate da uno sviluppatore dell'organizzazione.
-* **Applicazione multi-tenant**: un'applicazione multi-tenant è destinata all'uso in molte organizzazioni, non solo in una. Si tratta generalmente di applicazioni SaaS (Software-as-a-Service) scritte da un fornitore di software indipendente (ISV). È necessario eseguire il provisioning delle applicazioni multi-tenant in ogni directory in cui verranno usate ed è richiesto il consenso dell'utente o dell'amministratore per registrarle. Questo processo di consenso inizia quando un'applicazione viene registrata nella directory e può accedere all'API Graph o magari a un'altra API Web. Quando un utente o amministratore di un'altra organizzazione esegue l'accesso per usare l'applicazione, viene visualizzata una finestra di dialogo in cui sono indicate le autorizzazioni richieste dall'applicazione. L'utente o amministratore può quindi concedere il consenso all'applicazione, in modo da fornirle l'accesso ai dati indicati e infine di registrarla nella propria directory. Per altre informazioni, vedere [Panoramica del framework di consenso](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework).
+* **Applicazione multi-tenant**: un'applicazione multi-tenant è destinata all'uso in molte organizzazioni, non solo in una. Si tratta generalmente di applicazioni SaaS (Software-as-a-Service) scritte da un fornitore di software indipendente (ISV). È necessario eseguire il provisioning delle applicazioni multi-tenant in ogni directory in cui verranno usate ed è richiesto il consenso dell'utente o dell'amministratore per registrarle. Questo processo di consenso inizia quando un'applicazione viene registrata nella directory e può accedere all'API Graph o magari a un'altra API Web. Quando un utente o amministratore di un'altra organizzazione esegue l'accesso per usare l'applicazione, viene visualizzata una finestra di dialogo in cui sono indicate le autorizzazioni richieste dall'applicazione. L'utente o amministratore può quindi concedere il consenso all'applicazione, in modo da fornirle l'accesso ai dati indicati e infine di registrarla nella propria directory. Per altre informazioni, vedere [Panoramica del framework di consenso](consent-framework.md).
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Considerazioni aggiuntive quando si sviluppano app multi-tenant o con un singolo tenant
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842448"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855426"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -101,7 +101,7 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 
 ## <a name="install-data-gateway"></a>Installare il gateway dati
 
-1. [Scaricare, salvare ed eseguire il programma di installazione del gateway in un computer locale](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+1. [Scaricare, salvare ed eseguire il programma di installazione del gateway in un computer locale](https://aka.ms/on-premises-data-gateway-installer).
 
 2. Accettare il percorso di installazione predefinito o specificare il percorso nel computer in cui installare il gateway.
 
@@ -182,7 +182,7 @@ Per modificare la posizione del gateway, spostare l'installazione del gateway in
 
 1. Dal **Pannello di controllo** del computer passare a **Programmi e funzionalità**. Nell'elenco dei programmi selezionare **Gateway dati locale** e quindi scegliere **Disinstalla**.
 
-2. [Reinstallare il gateway dati locale](http://go.microsoft.com/fwlink/?LinkID=820931&clcid=0x409).
+2. [Reinstallare il gateway dati locale](https://aka.ms/on-premises-data-gateway-installer).
 
 3. Quando viene aperto il programma di installazione, accedere con lo stesso account aziendale o dell'istituto di istruzione usato in precedenza per installare il gateway.
 
@@ -211,7 +211,7 @@ Per fornire al gateway informazioni sul proxy, vedere [Configurazione delle impo
 > [!NOTE]
 > Questo comando verifica solo la connettività di rete e la connettività per il bus di servizio di Azure. Il comando non ha nulla a che fare con il gateway o con il servizio cloud del gateway che crittografa e archivia le credenziali e i dettagli del gateway. 
 >
-> Questo comando è disponibile solo in Windows Server 2012 R2 o in una versione successiva e in Windows 8.1 o in una versione successiva. Nelle versioni precedenti del sistema operativo, è possibile usare Telnet per testare la connettività. Altre informazioni su [bus di servizio di Azure e soluzioni ibride](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+> Questo comando è disponibile solo in Windows Server 2012 R2 o in una versione successiva e in Windows 8.1 o in una versione successiva. Nelle versioni precedenti del sistema operativo, è possibile usare Telnet per testare la connettività. Altre informazioni su [bus di servizio di Azure e soluzioni ibride](../service-bus-messaging/service-bus-messaging-overview.md).
 
 I risultati dovrebbero essere simili all'esempio seguente, con **TcpTestSucceeded** impostato su **True**:
 
@@ -232,7 +232,7 @@ Il firewall può anche bloccare le connessioni tra il bus di servizio e i data c
 
 ## <a name="configure-ports"></a>Configurare le porte
 
-Il gateway crea una connessione in uscita al [Bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) e comunica sulle porte in uscita: TCP 443 (predefinita), 5671, 5672, 9350 attraverso 9354. Non sono richieste porte in ingresso. Altre informazioni su [bus di servizio di Azure e soluzioni ibride](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md).
+Il gateway crea una connessione in uscita al [Bus di servizio di Azure](https://azure.microsoft.com/services/service-bus/) e comunica sulle porte in uscita: TCP 443 (predefinita), 5671, 5672, 9350 attraverso 9354. Non sono richieste porte in ingresso. Altre informazioni su [bus di servizio di Azure e soluzioni ibride](../service-bus-messaging/service-bus-messaging-overview.md).
 
 Il gateway usa i nomi di dominio completi seguenti:
 

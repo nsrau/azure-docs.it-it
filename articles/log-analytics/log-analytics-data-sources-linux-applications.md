@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 528274844908f9a1b2a604de42d8e84f4dc7d6f2
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127352"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044570"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Raccogliere i contatori delle prestazioni per applicazioni Linux in Log Analytics 
 Questo articolo fornisce informazioni dettagliate per configurare l'[agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) in modo che raccolga i contatori delle prestazioni per applicazioni specifiche.  Le applicazioni incluse in questo articolo sono:  

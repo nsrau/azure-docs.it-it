@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4ff4a7085a8caeedebe2a734014afb1cb46d9fbf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 90dc7b8bc69c86128b65c16920886b7c4af5c5cf
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164396"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888306"
 ---
 # <a name="tutorial-5-extract-free-form-data"></a>Esercitazione 5: estrarre dati in formato libero
 
@@ -62,7 +62,7 @@ La lunghezza variabile include parole che potrebbero confondere LUIS circa la fi
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
-Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
 Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
@@ -70,7 +70,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 2. Importare il file JSON in una nuova app.
 
-3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `patt-any`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL.
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `patt-any`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
 ## <a name="add-example-utterances"></a>Aggiungere espressioni di esempio 
 Se è difficile creare e assegnare un'etichetta all'entità FormName, rimuovere l'entità keyPhrase predefinita. 

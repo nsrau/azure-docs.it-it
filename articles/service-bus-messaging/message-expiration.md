@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: c1c38370ae508dffc6888dd7e94514406b8da327
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e2efe2bfb26fa7a14a9e80c26fba1322f82cb0eb
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405272"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856922"
 ---
 # <a name="message-expiration-time-to-live"></a>Scadenza dei messaggi (durata)
 
@@ -59,7 +59,6 @@ La proprietà **autoDeleteOnIdle** deve essere impostata tramite un'operazione d
 
 Per altre informazioni sulla messaggistica del bus di servizio, vedere gli argomenti seguenti:
 
-* [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Code, argomenti e sottoscrizioni del bus di servizio](service-bus-queues-topics-subscriptions.md)
 * [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
 * [Come usare gli argomenti e le sottoscrizioni del bus di servizio](service-bus-dotnet-how-to-use-topics-subscriptions.md)

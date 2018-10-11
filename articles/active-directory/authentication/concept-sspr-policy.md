@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ee30ee4fa89ce47e8441845b088919b26ce32b31
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: a4ea483104a28e436ac35b50b962d3a153483789
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434277"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804175"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -119,27 +119,27 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
 2. Eseguire uno di questi comandi:
 
-   * Per vedere se la password di un singolo utente è impostata in modo da non scadere mai, eseguire il cmdlet seguente usando l'UPN (ad esempio, *aprilr@contoso.onmicrosoft.com*) o l'ID dell'utente che si desidera controllare: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * Per visualizzare l'impostazione **La password non scade mai** per tutti gli utenti, eseguire il cmdlet seguente: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * Per vedere se la password di un singolo utente è impostata in modo da non scadere mai, eseguire il cmdlet seguente usando l'UPN (ad esempio, *aprilr@contoso.onmicrosoft.com*) o l'ID dell'utente che si desidera controllare: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * Per visualizzare l'impostazione **La password non scade mai** per tutti gli utenti, eseguire il cmdlet seguente: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>Impostare una scadenza della password
 
 1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
 2. Eseguire uno di questi comandi:
 
-   * Per impostare la password di un utente in modo che scada, eseguire il cmdlet seguente usando l'UPN o l'ID dell'utente: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * Per impostare le password di tutti gli utenti dell'organizzazione in modo che scadano, usare il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * Per impostare la password di un utente in modo che scada, eseguire il cmdlet seguente usando l'UPN o l'ID dell'utente: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
+   * Per impostare le password di tutti gli utenti dell'organizzazione in modo che scadano, usare il cmdlet seguente: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
 
 ### <a name="set-a-password-to-never-expire"></a>Impostare una password senza scadenza
 
 1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
 2. Eseguire uno di questi comandi:
 
-   * Per impostare la password di un utente in modo che non scada mai, eseguire il cmdlet seguente usando l'UPN o l'ID dell'utente: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * Per impostare le password degli utenti in un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * Per impostare la password di un utente in modo che non scada mai, eseguire il cmdlet seguente usando l'UPN o l'ID dell'utente: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
+   * Per impostare le password degli utenti in un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`
 
    > [!WARNING]
-   > Le password impostate su `-PasswordNeverExpires $true` diventano comunque obsolete in base all'attributo `pwdLastSet`. Dopo che sono trascorsi più di 90 giorni, le password scadono anche se sono state impostate in modo da non scadere mai. In base all'attributo `pwdLastSet`, se si modifica la scadenza in `-PasswordNeverExpires $false`, all'accesso successivo l'utente sarà tenuto a cambiare tutte le password che hanno un attributo `pwdLastSet` che risale a più di 90 giorni prima. Questa modifica può riguardare un numero elevato di utenti. 
+   > Le password impostate su `-PasswordPolicies DisablePasswordExpiration` diventano comunque obsolete in base all'attributo `pwdLastSet`. Dopo che sono trascorsi più di 90 giorni, le password scadono anche se sono state impostate in modo da non scadere mai. In base all'attributo `pwdLastSet`, se si modifica la scadenza in `-PasswordPolicies None`, all'accesso successivo l'utente sarà tenuto a cambiare tutte le password che hanno un attributo `pwdLastSet` che risale a più di 90 giorni prima. Questa modifica può riguardare un numero elevato di utenti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

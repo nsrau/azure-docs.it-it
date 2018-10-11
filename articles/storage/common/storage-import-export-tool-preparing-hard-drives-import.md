@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 9d8509e97ad83dd636f0a1b1892a2fa67c69e0b7
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 7fc3e68e9d714ca95a28a28b470b1e1fdbff2c47
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521796"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870894"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 
@@ -124,7 +124,7 @@ Per preparare le unità per il processo di importazione, chiamare lo strumento W
 Prima sessione di copia di una directory singola o multipla in un disco singolo o multiplo, a seconda di quanto specificato nel file CSV - Comando PrepImport dello strumento WAImportExport per la prima sessione di copia di directory e/o file con una nuova sessione di copia:
 
 ```
-WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] /DataSet:<dataset.csv>
 ```
 
 **Esempio:**

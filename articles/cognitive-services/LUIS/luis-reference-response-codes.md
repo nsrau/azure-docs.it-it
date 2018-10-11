@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: diberry
-ms.openlocfilehash: 07982716ff655f980844ca3dbcf7e8d7df1827c4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f005c7f13cd05ce3ca6ce494c4a2670106cb3637
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031221"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900982"
 ---
 # <a name="luis-api-http-response-codes"></a>Codici di risposta HTTP delle API LUIS
 Le API di [creazione](https://aka.ms/luis-authoring-apis) e per [endpoint](https://aka.ms/luis-endpoint-apis) restituiscono codici di risposta HTTP. Mentre i messaggi di risposta includono informazioni specifiche per una richiesta, il codice di stato di risposta HTTP è generale. 

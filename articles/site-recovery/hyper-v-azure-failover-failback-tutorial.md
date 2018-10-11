@@ -3,16 +3,18 @@ title: Failover e failback di macchine virtuali Hyper-V replicate in Azure con S
 description: Informazioni su come eseguire il failover di macchine virtuali Hyper-V in Azure e il failback nel sito locale con Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: tutorial
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: f758939964045ed373703a211d4cbef00f0e42e7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.custom: MVC
+ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919547"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49076984"
 ---
 # <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Failover e failback di macchine virtuali Hyper-V replicate in Azure
 

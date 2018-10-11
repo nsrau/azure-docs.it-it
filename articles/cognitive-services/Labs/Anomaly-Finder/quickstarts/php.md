@@ -9,18 +9,20 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f81c99b77f931b5b259633fa8fcd0bf3e358e281
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f5f055be584aa9c6afb66ff651fd3c01851afd76
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375332"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246396"
 ---
 # <a name="use-the-anomaly-finder-api-with-php"></a>Usare l'API Ricerca di anomalie con PHP
 
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
+
 Questo articolo fornisce informazioni ed esempi di codice per aiutare a iniziare rapidamente a usare l'API Ricerca di anomalie con PHP per acquisire i risultati sulle anomalie per dati di serie temporali.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 

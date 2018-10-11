@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 74da7e96ed52b441bc63d5fb5a032db9c6d57774
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.component: ''
+ms.openlocfilehash: ac1b04d0b8c50939ff04a87a11fd1a315c2266ff
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494277"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042830"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>Connettere computer senza accesso a Internet usando il gateway OMS
 Questo documento descrive come configurare la comunicazione con Automazione di Azure e Log Analytics usando il gateway OMS quando i computer connessi direttamente o monitorati con Operations Manager non hanno accesso a Internet.  Il gateway OMS, che è un proxy di inoltro HTTP che supporta il tunneling HTTP con il comando HTTP CONNECT, può raccogliere dati e inviarli ad Automazione di Azure e Log Analytics per conto dei computer.  

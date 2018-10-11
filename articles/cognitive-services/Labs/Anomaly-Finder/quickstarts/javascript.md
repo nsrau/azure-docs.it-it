@@ -9,14 +9,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8a880e5924ec6bfbabb5ae4d71742f2a29bdea7f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665023"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246930"
 ---
 # <a name="use-the-anomaly-finder-api-with-javascript"></a>Usare l'API Ricerca di anomalie con Javascript
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Questo articolo fornisce informazioni ed esempi di codice per aiutare a iniziare rapidamente a usare l'API Rilevamento anomalie con Javascript per acquisire i risultati sul rilevamento di anomalie di dati di serie temporali.
 

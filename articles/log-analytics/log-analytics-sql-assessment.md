@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: e83a722ee58f49c20871faaca6aae7d7a5678361
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 43faf1b29f602d2930a2b5764dd83ea4ce1fc9ac
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130608"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043591"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Ottimizzare l'ambiente SQL Server con la soluzione Controllo integrità SQL Server in Log Analytics
 
@@ -40,7 +40,7 @@ Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard di *
 
 ![Immagine del dashboard di Controllo integrità SQL](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * La soluzione Controllo integrità SQL richiede l'installazione di una versione supportata di .NET Framework 4 in ogni computer in cui è installato Microsoft Monitoring Agent (MMA).  L'agente MMA viene usato da System Center 2016 Operations Manager e Operations Manager 2012 R2, oltre che dal servizio Log Analytics.  
 * La soluzione supporta SQL Server versioni 2012, 2014 e 2016.
@@ -174,8 +174,6 @@ Visualizzare il riepilogo delle valutazioni relative alla conformità per l'infr
 
 ## <a name="ignore-recommendations"></a>Ignorare le raccomandazioni
 Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Log Analytics userà per impedire la visualizzazione delle raccomandazioni nei risultati della valutazione.
-
-[!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Per identificare le raccomandazioni che verranno ignorate
 1. Nella pagina dell'area di lavoro di Log Analytics per l'area di lavoro selezionata del portale di Azure fare clic sul riquadro **Ricerca log**.

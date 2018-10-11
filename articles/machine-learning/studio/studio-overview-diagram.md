@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 04/04/2017
-ms.openlocfilehash: f1364435d2f7b50c642d1bb5b41708ec52bda533
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 240be0e7dc199a84130739244743d245b780b608
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946205"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902077"
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Diagramma della panoramica delle funzionalità di Azure Machine Learning Studio
 Il diagramma **Panoramica delle funzionalità di Microsoft Azure Machine Learning Studio** fornisce una panoramica di alto livello su come è possibile utilizzare Machine Learning Studio per sviluppare un modello di analisi predittiva e renderlo operativo nel cloud di Azure.
@@ -47,7 +47,7 @@ Scaricare il diagramma **Panoramica sulla funzionalità di Microsoft Azure Machi
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Altre informazioni su Machine Learning Studio
-* Per una panoramica di Microsoft Azure Machine Learning, vedere [Introduzione all’apprendimento automatico su Microsoft Azure](what-is-machine-learning.md)
+* Per una panoramica di Microsoft Azure Machine Learning, vedere [Introduzione all’apprendimento automatico su Microsoft Azure](../service/overview-what-is-azure-ml.md)
 * Per una panoramica di Machine Learning Studio, vedere [Cos'è Azure Machine Learning Studio?](what-is-ml-studio.md).
 * Per una descrizione dettagliata sugli algoritmi di apprendimento automatico disponibili in Machine Learning Studio, vedere [Come scegliere gli algoritmi per Microsoft Azure Machine Learning](algorithm-choice.md).
 

@@ -4,17 +4,16 @@ description: Usare AzCopy per migrare o copiare dati da o verso BLOB, tabelle e 
 services: storage
 author: roygara
 ms.service: storage
-ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: bfc87a30250dd98c1b26616f680b5981070623f5
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: b238e0f8059e7b4e5223c72ebed04f7d5178fbf2
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182553"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830957"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Eseguire la migrazione di dati locali in una risorsa di archiviazione cloud tramite AzCopy
 

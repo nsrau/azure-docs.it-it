@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.component: na
-ms.openlocfilehash: 661107779b74b6e21dec01aecf6d545ec2b7a702
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131753"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042845"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](log-analytics-itsmc-overview.md).
@@ -39,7 +39,7 @@ Sono supportati i prodotti/servizi ITSM seguenti. Selezionare il prodotto per vi
 
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto System Center Service Manager a Connettore di Gestione dei servizi IT in Azure.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
@@ -184,7 +184,7 @@ L'esempio seguente mostra i dettagli di una connessione riuscita:
 
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto ServiceNow a Connettore di Gestione dei servizi IT in Azure.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 - Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versioni supportate di ServiceNow: Kingston, Giacarta, Istanbul, Helsinki, Ginevra.
@@ -199,7 +199,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
     - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Ginevra)
 
 
-- Installare l'app utente per l'integrazione Microsoft OMS (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Installare l'app utente per l'integrazione Microsoft OMS (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )
 - Creare un ruolo utente integrazione per l'app utente installata. Per informazioni su come creare il ruolo utente di integrazione, vedere [qui](#create-integration-user-role-in-servicenow-app).
 
 ### <a name="connection-procedure"></a>**Procedura di connessione**
@@ -284,7 +284,7 @@ Al termine della creazione dell'utente, lo stato di **Check Installation Checkli
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Provance a Connettore di Gestione dei servizi IT in Azure.
 
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
@@ -337,7 +337,7 @@ Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei ser
 
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Cherwell a Connettore di Gestione dei servizi IT in Azure.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 

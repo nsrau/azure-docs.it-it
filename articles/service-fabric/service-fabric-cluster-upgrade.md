@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 8/10/2017
 ms.author: aljo
-ms.openlocfilehash: 3e5ef2cbc9d7bec82cadc0c7663de52636938505
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2fd62f8709bddfd981f4b1358c97d0acbaf7f12d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207700"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269104"
 ---
 # <a name="upgrade-an-azure-service-fabric-cluster"></a>Aggiornare un cluster di Azure Service Fabric
 > [!div class="op_single_selector"]

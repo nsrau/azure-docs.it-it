@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116164"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044655"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Data science con una macchina virtuale di data science Linux in Azure
 Questa procedura dettagliata illustra come eseguire varie attività comuni di analisi scientifica dei dati con la macchina virtuale Linux per l'analisi scientifica dei dati. La macchina virtuale Linux per l'analisi scientifica dei dati (DSVM) è un'immagine di macchina virtuale, disponibile in Azure, in cui è preinstallata una raccolta di strumenti usati comunemente per l'analisi dei dati e l'apprendimento automatico. I componenti software principali sono elencati nell'argomento [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](linux-dsvm-intro.md). L'immagine di macchina virtuale permette di iniziare le attività di analisi scientifica dei dati in pochi minuti, senza dover installare e configurare ogni strumento singolarmente. Se necessario, è possibile aumentare facilmente le prestazioni della macchina virtuale e arrestarla quando non viene usata, caratteristiche che rendono questa risorsa flessibile e conveniente.
@@ -544,6 +544,6 @@ Eseguire query con sqlcmd:
 È anche possibile eseguire query con Squirrel SQL. Seguire una procedura simile per PostgreSQL usando Microsoft JDBC Driver per SQL Server, disponibile in ***/usr/share/java/jdbcdrivers/sqljdbc42.jar***.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](http://aka.ms/datascienceprocess).
+Per una panoramica degli argomenti che forniscono informazioni dettagliate sulle attività che costituiscono il processo di analisi scientifica dei dati in Azure, vedere [Processo di analisi scientifica dei dati per i team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview).
 
 Per una descrizione di altre procedure dettagliate complete che illustrano i passaggi del processo per scenari specifici, vedere [Procedure dettagliate del Processo di analisi scientifica dei dati per i team](../team-data-science-process/walkthroughs.md). Le procedure dettagliate illustrano anche come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.

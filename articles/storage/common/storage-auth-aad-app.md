@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 06/12/2018
+ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 6a0b7139fd8d216397090154a4324c8e4305a939
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577705"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816379"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Eseguire l'autenticazione con Azure Active Directory da un'applicazione di Archiviazione di Azure (anteprima)
 
@@ -25,10 +25,7 @@ Prima di poter autenticare un'entità di sicurezza dall'applicazione di Archivia
 
 Per una panoramica del flusso di concessione del codice di OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web di Azure Active Directory mediante il flusso di concessione di OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
-> [!IMPORTANT]
-> Questa versione di anteprima è destinata solo per l'uso in ambienti non di produzione. Non saranno disponibili contratti di servizio per ambienti di produzione finché l'integrazione di Azure AD per Archiviazione di Azure non verrà dichiarata disponibile a livello generale. Se l'integrazione di Azure AD non è ancora supportata per il proprio scenario, continuare a usare l'autorizzazione con chiave condivisa o token di firma di accesso condiviso nelle applicazioni. Per altre informazioni sulla versione di anteprima, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)](storage-auth-aad.md).
->
-> Durante l'anteprima, la propagazione delle assegnazioni dei ruoli di controllo degli accessi in base al ruolo può richiedere fino a cinque minuti.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registrare l'applicazione nel tenant di Azure AD
 
@@ -36,7 +33,7 @@ Il primo passaggio per l'uso di Azure AD per autorizzare l'accesso a risorse di 
 
 Quando si registra l'applicazione, si danno informazioni sull'applicazione ad Azure AD. Azure AD fornisce quindi un ID client, chiamato anche *ID applicazione*, da usare per associare l'applicazione ad Azure AD in fase di esecuzione. Per altre informazioni sull'ID client, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
-Per registrare l'applicazione di Archiviazione di Azure, seguire i passaggi descritti nella sezione [Aggiunta di un'applicazione](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) in [Integrazione di applicazioni con Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido come **URI di reindirizzamento**. Il valore non deve essere un endpoint reale.
+Per registrare l'applicazione di Archiviazione di Azure, seguire i passaggi descritti nella sezione [Aggiunta di un'applicazione](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) in [Integrazione di applicazioni con Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido come **URI di reindirizzamento**. Il valore non deve essere un endpoint reale.
 
 ![Screenshot che mostra come registrare l'applicazione di archiviazione in Azure AD](./media/storage-auth-aad-app/app-registration.png)
 
@@ -176,7 +173,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sui ruoli RBAC per Archiviazione di Azure, vedere [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md) (Gestire i diritti di accesso ai dati di archiviazione con il controllo degli accessi in base al ruolo - anteprima).
-- Per informazioni sull'uso dell'identità del servizio gestita con Archiviazione di Azure, vedere [Eseguire l'autenticazione con Azure AD da un'identità del servizio gestita di Azure (anteprima)](storage-auth-aad-msi.md).
+- Per altre informazioni sull'uso delle identità gestite per le risorse di Azure con Archiviazione di Azure, vedere [Authenticate access to blobs and queues with Azure managed identities for Azure Resources (Preview)](storage-auth-aad-msi.md) (Autenticare l'accesso a BLOB e code con le identità gestite di Azure per le risorse di Azure - anteprima).
 - Per informazioni su come accedere all'interfaccia della riga di comando di Azure e a PowerShell con un'identità di Azure AD, vedere [Usare un'identità di Azure AD per accedere ad Archiviazione di Azure con l'interfaccia della riga di comando o PowerShell (anteprima)](storage-auth-aad-script.md).
 - Per altre informazioni sull'integrazione di Azure AD per BLOB e code di Azure, vedere il post di blog del team di Archiviazione di Azure sull'[annuncio della versione di anteprima di Autenticazione di Azure AD per Archiviazione di Azure](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
 

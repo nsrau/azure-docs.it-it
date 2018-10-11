@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
-ms.openlocfilehash: d72f1b986671bfab1d79772ac50935918da7e681
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8177808fd4d666ea04b1bc097f261c7643931704
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963271"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885048"
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench - Guida alla risoluzione dei problemi e problemi noti 
 Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso dell'applicazione Azure Machine Learning Workbench. 
@@ -25,7 +25,7 @@ Questo articolo consente di trovare e correggere errori o guasti riscontrati dur
 Quando si comunica con il team di supporto, è importante inserire il numero di build dell'app Workbench. In Windows, è possibile trovare il numero di build facendo clic sul menu **Guida** e scegliere **About Azure ML Workbench** (Informazioni su Azure ML Workbench). In MacOS, è possibile fare clic sul menu **Azure ML Workbench** e scegliere **About Azure ML Workbench** (Informazioni su Azure ML Workbench).
 
 ## <a name="machine-learning-msdn-forum"></a>Forum MSDN di Machine Learning
-È disponibile un forum MSDN in cui è possibile pubblicare domande. Il forum viene monitorato attivamente dal team del prodotto. L'URL del forum è [https://aka.ms/azureml-forum](https://aka.ms/azureml-forum). 
+È disponibile un forum MSDN in cui è possibile pubblicare domande. Il forum viene monitorato attivamente dal team del prodotto. L'URL del forum è [https://aka.ms/aml-forum-service](https://aka.ms/aml-forum-service). 
 
 ## <a name="gather-diagnostics-information"></a>Raccogliere informazioni di diagnostica
 In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto. Qui si trovano i file di log:

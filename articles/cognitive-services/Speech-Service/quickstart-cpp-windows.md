@@ -5,26 +5,26 @@ description: Informazioni sul riconoscimento vocale in C++ su Windows Desktop co
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: e6f8b8f2a3bcdf78de28bddc73502872e851da12
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 12faf7ae7e45e6f6ede739b24d9ead28ff26313e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434297"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886330"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In questo articolo, viene creata un'applicazione console C++ per Windows. Utilizzare i Servizi cognitivi [Speech SDK](speech-sdk.md) per trascrivere il riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK di Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).
+In questo articolo, viene creata un'applicazione console C++ per Windows. Utilizzare i Servizi cognitivi [Speech SDK](speech-sdk.md) per trascrivere il riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione si basa sul [pacchetto NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017 (qualsiasi edizione).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare l'Avvio rapido. È possibile ottenerne una gratuitamente. Vedere [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md) per informazioni dettagliate.
+È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Consultare [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md) per informazioni dettagliate.
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
@@ -54,7 +54,7 @@ In questo articolo, viene creata un'applicazione console C++ per Windows. Utiliz
 
     ![Screenshot di Esplora soluzioni, con l'opzione Gestisci pacchetti NuGet per la soluzione selezionata](media/sdk/qs-cpp-windows-03-manage-nuget-packages.png)
 
-1. Nell'angolo superiore a destra, nel campo **Origine pacchetto**, selezionare **Nuget.org**. Cercare il pacchetto `Microsoft.CognitiveServices.Speech` e installarlo nel progetto **helloworld**.
+1. Nell'angolo superiore a destra, nel campo **Origine pacchetto**, selezionare **nuget.org**. Cercare il pacchetto `Microsoft.CognitiveServices.Speech` e installarlo nel progetto **helloworld**.
 
     ![Screenshot della finestra di dialogo Gestisci pacchetti per la soluzione](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 

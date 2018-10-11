@@ -2,18 +2,17 @@
 title: Archiviazione immagini nel registro contenitori di Azure
 description: Contiene informazioni dettagliate sulla modalità di archiviazione delle immagini del contenitore Docker nel registro contenitori di Azure, tra cui sicurezza, ridondanza e capacità.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: marsma
-ms.openlocfilehash: 65ff60be992440c69e50a084b467a8efbb19574e
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: danlep
+ms.openlocfilehash: ba3c6a6bd4fb330eb64b5408eb72095f4de46a7b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307150"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856648"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Archiviazione immagini del contenitore nel registro contenitori di Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 0833a7ec71a0aea66f8ebfdfff81d88925019309
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701866"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857976"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Esercitazione sull'inoltro WCF di Azure
 
@@ -55,7 +55,7 @@ Il contratto di servizio specifica le operazioni (terminologia dei servizi Web p
 
 3. Installare il pacchetto NuGet del bus di servizio. Questo pacchetto aggiunge automaticamente i riferimenti alle librerie del bus di servizio, oltre all'oggetto **System.ServiceModel** di WCF. [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) è lo spazio dei nomi che consente l'accesso a livello di codice alle funzionalità di base di WCF. Il bus di servizio utilizza molti degli oggetti e degli attributi di WCF per definire i contratti di servizio.
 
-    In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Gestisci pacchetti NuGet...**. Fare clic sulla scheda **Sfoglia** e quindi cercare **WindowsAzure.ServiceBus**. Assicurarsi che il nome del progetto sia selezionato nella casella **Versione**. Fare clic su **Installa**e accettare le condizioni per l'utilizzo.
+    In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Gestisci pacchetti NuGet...**. Fare clic sulla scheda Sfoglia e quindi cercare **WindowsAzure.ServiceBus**. Assicurarsi che il nome del progetto sia selezionato nella casella **Versione**. Fare clic su **Installa**e accettare le condizioni per l'utilizzo.
 
     ![][3]
 4. In Esplora soluzioni fare doppio clic sul file Program.cs per aprirlo nell'editor, se non è già aperto.
@@ -719,7 +719,6 @@ Questa esercitazione ha illustrato come compilare un'applicazione client e di se
 
 Per altre informazioni sul servizio d'inoltro di Azure, vedere gli argomenti seguenti.
 
-* [Panoramica dell'architettura del bus di servizio di Azure](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Panoramica del servizio di inoltro di Azure](relay-what-is-it.md)
 * [Come usare il servizio di inoltro WCF con .NET](relay-wcf-dotnet-get-started.md)
 

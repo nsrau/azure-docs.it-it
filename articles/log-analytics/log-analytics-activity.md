@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 0b05dc17fc7ba567bf633c25a080fbf56903935c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: dab2dd2b1d020a7619b18f330640b7f555a1f8c1
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130327"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044383"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Raccogliere e analizzare i log attività di Azure in Log Analytics
 
@@ -59,7 +59,7 @@ A differenza della maggior parte delle soluzioni di Log Analytics, i dati per i 
 | [Gruppo di gestione SCOM](log-analytics-om-agents.md) | No  | La soluzione non raccoglie le informazioni dagli agenti in un gruppo di gestione SCOM connesso. |
 | [Account di archiviazione di Azure](log-analytics-azure-storage.md) | No  | La soluzione non raccoglie le informazioni dall'Archiviazione di Azure. |
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - L'accesso alle informazioni del log attività di Azure è consentito solo a chi dispone di una sottoscrizione di Azure.
 

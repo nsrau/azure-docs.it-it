@@ -6,16 +6,16 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 2c3705d28d6496c3d20999231de98572bc26e3be
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160248"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886161"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Esercitazione 4: estrarre criteri correlati in base al contesto
 
@@ -36,7 +36,7 @@ Poiché l'espressione di esempio `Move new employee Robert Williams from Sacrame
 
 Se si hanno difficoltà con il rilevamento di entità semplici perché l'entità è un nome, ad esempio una città, prendere in considerazione l'aggiunta di un elenco di frasi con valori simili. In questo modo il rilevamento del nome della città viene semplificato perché si indica a LUIS un'informazione aggiuntiva sul tipo di parola o frase specifica. Gli elenchi di frasi sono utili al criterio solo perché facilitano il rilevamento di entità, operazione necessaria per la corrispondenza del criterio. 
 
-**In questa esercitazione si apprenderà come:**
+**In questa esercitazione si imparerà come:**
 
 > [!div class="checklist"]
 > * Usare l'app di esercitazione esistente
@@ -52,7 +52,7 @@ Se si hanno difficoltà con il rilevamento di entità semplici perché l'entità
 [!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
-Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
 Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
@@ -60,7 +60,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 2. Importare il file JSON in una nuova app.
 
-3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `roles`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL.
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `roles`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
 ## <a name="create-new-entities"></a>Creare nuove entità
 

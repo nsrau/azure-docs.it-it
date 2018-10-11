@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: d06a450595a53fdc65fba74791345abe3a1b3db4
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c3e8c99f6648f0f4927140f3215978566afb9eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109570"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868905"
 ---
 # <a name="microsoftnetworkpublicipaddresscombo-ui-element"></a>Elemento Microsoft.Network.PublicIpAddressCombo dell'interfaccia utente
 Gruppo di controlli per la selezione di un indirizzo IP pubblico nuovo o esistente.
@@ -86,6 +86,7 @@ Se l'utente seleziona un indirizzo IP nuovo o esistente, il controllo restituisc
   "resourceGroup": "rg01",
   "domainNameLabel": "mydomain",
   "publicIPAllocationMethod": "Dynamic",
+  "sku": "Basic",
   "newOrExistingOrNone": "new"
 }
 ```

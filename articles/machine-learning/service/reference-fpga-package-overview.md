@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 344423ea9943e04dc5f02ebee0903d179be90bbd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162186"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887582"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Pacchetto di accelerazione hardware di Azure Machine Learning
 
@@ -148,7 +148,7 @@ Questo codice di esempio illustra l'uso dell'SDK per distribuire un modello in u
 
 ## <a name="reporting-issues"></a>Segnalazione di problemi
 
-Usare il [forum](https://aka.ms/aml-forum) per segnalare eventuali problemi riscontrati con il pacchetto.
+Usare il [forum](https://aka.ms/aml-forum-service) per segnalare eventuali problemi riscontrati con il pacchetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

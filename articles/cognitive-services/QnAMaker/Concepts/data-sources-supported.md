@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 29e894b0666b37d32f36b016603fda408e9d2746
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 982bcbb9060a3f29000de2a0487b61dc58e24f6e
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161053"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855460"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -26,7 +26,7 @@ La tabella seguente riepiloga i tipi di contenuto e di formato di file supportat
 |Tipo di origine|Content Type| Esempi|
 |--|--|--|
 |URL|Domande frequenti (con struttura piatta, a sezioni o con collegamenti ad altre pagine)|[Pagine semplici di domande frequenti](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), [pagine di domande frequenti con collegamenti](https://www.microsoft.com/software-download/faq), [pagine di domande frequenti con collegamenti ad altre pagine](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF/DOC|Domande frequenti, manuale del prodotto, brochure, documenti, volantino con i Criteri di Azure, guida di supporto tecnico, domanda-risposta strutturato e così via.|[Structured QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [Sample Product Manual.pdf](http://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [Sample semi-structured.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [Sample white paper.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
+|PDF/DOC|Domande frequenti, manuale del prodotto, brochure, documenti, volantino con i Criteri di Azure, guida di supporto tecnico, domanda-risposta strutturato e così via.|[Structured QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx), [Sample Product Manual.pdf](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf), [Sample semi-structured.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx), [Sample white paper.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
 |Excel|File domanda-risposta strutturato (tra cui RTF, supporto HTML)|[Sample QnA FAQ.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |TXT/TSV|File domanda-risposta strutturato|[Esempio chit-chat.tsv](https://raw.githubusercontent.com/Microsoft/BotBuilder-PersonalityChat/master/CSharp/Datasets/Queries_Responses_Friendly_QnAMaker.tsv)|
 
@@ -69,7 +69,7 @@ QnA Maker identifica sezioni, sottosezioni e relazioni nel file basandosi su ind
 
 ### <a name="product-manuals"></a>Manuali di prodotti
 
-Un manuale è in genere materiale di riferimento fornito insieme a un prodotto. Consente all'utente di configurare, usare e gestire un prodotto e di risolverne i problemi. Quando QnA Maker elabora un manuale, estrae i titoli e sottotitoli come domande e il contenuto successivo come risposte. Vedere un esempio [qui](http://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
+Un manuale è in genere materiale di riferimento fornito insieme a un prodotto. Consente all'utente di configurare, usare e gestire un prodotto e di risolverne i problemi. Quando QnA Maker elabora un manuale, estrae i titoli e sottotitoli come domande e il contenuto successivo come risposte. Vedere un esempio [qui](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf).
 
 Di seguito è riportato un esempio di un manuale con una pagina di indice e con contenuto gerarchico
 

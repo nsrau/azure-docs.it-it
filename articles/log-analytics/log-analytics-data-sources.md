@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 9a43774a5327536ae4fa1346ae933739ea629771
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: b8c3a2cc67c47753957963fc04b52f934b10ddfc
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130085"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041714"
 ---
 # <a name="data-sources-in-log-analytics"></a>Origini dati in Log Analytics
 Log Analytics raccoglie i dati dalle origini connesse e li archivia nell'area di lavoro di Log Analytics.  I dati raccolti da ogni origine sono definiti dalle origini dati configurate.  In Log Analytics i dati vengono archiviati come un set di record.  Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
@@ -59,7 +59,7 @@ Configurare le origini dati nel menu **Dati** in **Impostazioni avanzate** di Lo
 ## <a name="data-collection"></a>Raccolta dei dati
 Le configurazioni dell'origine dati vengono distribuite agli agenti connessi direttamente a Log Analytics entro pochi minuti.  I dati specificati vengono raccolti dall'agente e distribuiti direttamente a Log Analytics a intervalli specifici per ogni origine dati.  Per informazioni sugli intervalli specifici di ogni origine dati, vedere la documentazione.
 
-Per gli agenti di System Center Operations Manager in un gruppo di gestione connesso, le configurazioni dell'origine dati vengono convertite in Management Pack e recapitate al gruppo di gestione ogni 5 minuti per impostazione predefinita.  L'agente scarica il Management Pack e raccoglie i dati specificati. A seconda dell'origine dati, i dati verranno inviati a un server di gestione che li inoltrerà a Log Analytics oppure verranno inviati dall'agente a Log Analytics senza passare per il server di gestione. Per informazioni approfondite fare riferimento ai [dettagli sulla raccolta dei dati](log-analytics-add-solutions.md#data-collection-details).  È possibile leggere informazioni sulla connessione di Operations Manager e Log Analytics e sulla modifica della frequenza a cui tale configurazione viene distribuita nell'articolo relativo alla [configurazione dell'integrazione con System Center Operations Manager](log-analytics-om-agents.md).
+Per gli agenti di System Center Operations Manager in un gruppo di gestione connesso, le configurazioni dell'origine dati vengono convertite in Management Pack e recapitate al gruppo di gestione ogni 5 minuti per impostazione predefinita.  L'agente scarica il Management Pack e raccoglie i dati specificati. A seconda dell'origine dati, i dati verranno inviati a un server di gestione che li inoltrerà a Log Analytics oppure verranno inviati dall'agente a Log Analytics senza passare per il server di gestione. Per informazioni dettagliate, vedere [Informazioni dettagliate sulla raccolta dati per le soluzioni di gestione in Azure](../monitoring/monitoring-solutions-inventory.md).  È possibile leggere informazioni sulla connessione di Operations Manager e Log Analytics e sulla modifica della frequenza a cui tale configurazione viene distribuita nell'articolo relativo alla [configurazione dell'integrazione con System Center Operations Manager](log-analytics-om-agents.md).
 
 Se l'agente non riesce a connettersi a Log Analytics o a Operations Manager, continuerà a raccogliere dati che distribuirà quando stabilirà una connessione.  I dati possono andare persi se la quantità di dati raggiunge la dimensione massima della cache per il client o se l'agente non riesce a stabilire una connessione entro 24 ore.
 
@@ -67,6 +67,6 @@ Se l'agente non riesce a connettersi a Log Analytics o a Operations Manager, con
 Tutti i dati raccolti da Log Analytics vengono archiviati nell'area di lavoro come record.  I record raccolti da diverse origini dati avranno il proprio set di proprietà e verranno identificati dalla proprietà **Type** .  Per informazioni dettagliate su ogni tipo di record, vedere la documentazione per ogni origine dati e soluzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [soluzioni](log-analytics-add-solutions.md) che aggiungono funzionalità a Log Analytics e raccolgono dati nell'area di lavoro.
+* Informazioni sulle [soluzioni](../monitoring/monitoring-solutions.md) che aggiungono funzionalità a Log Analytics e raccolgono dati nell'area di lavoro.
 * Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
 * Configurare gli [avvisi](log-analytics-alerts.md) per inviare notifiche immediate sui dati critici raccolti da origini dati e soluzioni.

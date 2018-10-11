@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 54bb6056c41126aecada265eb0e079bc7c281be8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d5f5b66dee88a993347b6c1672fd9526ece09dc4
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865934"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269516"
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
 Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -31,7 +31,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   [Limita frequenza delle chiamate per chiave](#LimitCallRateByKey) : impedisce picchi di utilizzo delle API limitando la frequenza delle chiamata, per ogni chiave.  
 -   [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs) : filtra (permette/rifiuta) le chiamate provenienti da indirizzi IP e/o intervalli di indirizzi IP specifici.  
 -   [Imposta quota di utilizzo per sottoscrizione](api-management-access-restriction-policies.md#SetUsageQuota) : consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per sottoscrizione.  
--   [Imposta quota di utilizzo per chiave](#SetUsageQuotaByKey): consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave.  
+-   [Imposta quota di utilizzo per chiave](#SetUsageQuotaByKey) : consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave.  
 -   [validate-JWT](api-management-access-restriction-policies.md#ValidateJWT) : impone l'esistenza e la validità di un token JWT estratto da un'intestazione HTTP specificata o da un parametro di query specificato.  
   
 ##  <a name="CheckHTTPHeader"></a> Intestazione check-header  
@@ -58,17 +58,17 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|check-header|Elemento radice.|Sì|  
+|check-header|Elemento radice.|Yes|  
 |value|Valore dell'intestazione HTTP consentito. Quando vengono specificati più elementi per il valore, in caso di corrispondenza di uno dei valori il controllo ha esito positivo.|No |  
   
 ### <a name="attributes"></a>Attributi  
   
 |NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|failed-check-error-message|Messaggio di errore da restituire nel corpo della risposta HTTP se l'intestazione non esiste o presenta un valore non valido. I caratteri speciali eventualmente contenuti in questo messaggio devono essere adeguatamente preceduti da un carattere di escape.|Sì|N/D|  
-|failed-check-httpcode|Codice di stato HTTP da restituire se l'intestazione non esiste o presenta un valore non valido.|Sì|N/D|  
-|header-name|Il nome dell'intestazione HTTP da verificare.|Sì|N/D|  
-|ignore-case|Può essere impostato su True o False. Se impostato su True, il maiuscolo viene ignorato quando il valore dell'intestazione viene confrontato con il set di valori accettabili.|Sì|N/D|  
+|failed-check-error-message|Messaggio di errore da restituire nel corpo della risposta HTTP se l'intestazione non esiste o presenta un valore non valido. I caratteri speciali eventualmente contenuti in questo messaggio devono essere adeguatamente preceduti da un carattere di escape.|Yes|N/D|  
+|failed-check-httpcode|Codice di stato HTTP da restituire se l'intestazione non esiste o presenta un valore non valido.|Yes|N/D|  
+|header-name|Il nome dell'intestazione HTTP da verificare.|Yes|N/D|  
+|ignore-case|Può essere impostato su True o False. Se impostato su True, il maiuscolo viene ignorato quando il valore dell'intestazione viene confrontato con il set di valori accettabili.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -113,7 +113,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|set-limit|Elemento radice.|Sì|  
+|set-limit|Elemento radice.|Yes|  
 |api|Aggiungere almeno uno di questi elementi per imporre un limite di frequenza delle chiamate alle API all'interno del prodotto. I limiti alla frequenza delle chiamate API e al prodotto vengono applicati in modo indipendente. È possibile fare riferimento all'API tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.|No |  
 |operation|Aggiungere almeno uno di questi elementi per imporre un limite di frequenza delle chiamate alle operazioni all'interno di un'API. I limiti alla frequenza delle chiamate alle operazioni, all'API e al prodotto vengono applicati in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.|No |  
   
@@ -121,9 +121,9 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|name|Il nome dell'API a cui si desidera applicare il limite di frequenza.|Sì|N/D|  
-|calls|Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.|Sì|N/D|  
-|renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Sì|N/D|  
+|name|Il nome dell'API a cui si desidera applicare il limite di frequenza.|Yes|N/D|  
+|calls|Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.|Yes|N/D|  
+|renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -172,16 +172,16 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|set-limit|Elemento radice.|Sì|  
+|set-limit|Elemento radice.|Yes|  
   
 ### <a name="attributes"></a>Attributi  
   
 |NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|calls|Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.|Sì|N/D|  
-|counter-key|La chiave deve essere usata per i criteri relativi ai limiti di frequenza.|Sì|N/D|  
+|calls|Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.|Yes|N/D|  
+|counter-key|La chiave deve essere usata per i criteri relativi ai limiti di frequenza.|Yes|N/D|  
 |increment-condition|Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).|No |N/D|  
-|renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Sì|N/D|  
+|renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -215,7 +215,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|ip-filter|Elemento radice.|Sì|  
+|ip-filter|Elemento radice.|Yes|  
 |Address|Specifica un singolo indirizzo IP su cui applicare il filtro.|È obbligatorio almeno un elemento `address` o `address-range`.|  
 |address-range from="address" to="address"|Specifica un intervallo di indirizzi IP su cui applicare il filtro.|È obbligatorio almeno un elemento `address` o `address-range`.|  
   
@@ -224,7 +224,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|Intervallo di indirizzi IP per cui permettere o negare l'accesso.|Obbligatorio quando viene usato l'elemento `address-range`.|N/D|  
-|ip-filter action="allow &#124; forbid"|Specifica se le chiamate devono essere consentite o rifiutate per gli indirizzi e gli intervalli di indirizzi IP specificati.|Sì|N/D|  
+|ip-filter action="allow &#124; forbid"|Specifica se le chiamate devono essere consentite o rifiutate per gli indirizzi e gli intervalli di indirizzi IP specificati.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -268,7 +268,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|quota|Elemento radice.|Sì|  
+|quota|Elemento radice.|Yes|  
 |api|Aggiungere almeno uno di questi elementi per imporre una quota di chiamate API all'interno del prodotto. Le quote di chiamate API e del prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'API tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.|No |  
 |operation|Aggiungere almeno uno di questi elementi per imporre una quota di chiamate per le operazioni all'interno di un'API. Le quote di chiamate per le operazioni, l'API e il prodotto vengono applicate in modo indipendente. È possibile fare riferimento all'operazione tramite `name` o `id`. Se vengono specificati entrambi gli attributi, verrà usato `id` e `name` verrà ignorato.|No |  
   
@@ -276,10 +276,10 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|Predefinito|  
 |----------|-----------------|--------------|-------------|  
-|name|Nome dell'API o dell'operazione per cui è applicabile la quota.|Sì|N/D|  
+|name|Nome dell'API o dell'operazione per cui è applicabile la quota.|Yes|N/D|  
 |bandwidth|Il numero totale massimo di kilobyte consentiti durante l'intervallo di tempo specificato in `renewal-period`.|Devono essere specificati `calls`, `bandwidth` o entrambi.|N/D|  
 |calls|Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.|Devono essere specificati `calls`, `bandwidth` o entrambi.|N/D|  
-|renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Sì|N/D|  
+|renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -288,7 +288,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 -   **Ambiti del criterio:** prodotto  
   
 ##  <a name="SetUsageQuotaByKey"></a> Impostare la quota per chiave  
- Il criterio `quota-by-key` consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri. Per specificare le richieste da considerare nella quota, è possibile aggiungere una condizione opzionale di incremento.  
+ Il criterio `quota-by-key` consente di applicare una quota rinnovabile o permanente per il volume di chiamate e/o per la larghezza di banda, per chiave. La chiave può avere un valore di stringa arbitrario e viene indicata in genere usando un'espressione di criteri. Per specificare le richieste da considerare nella quota, è possibile aggiungere una condizione opzionale di incremento. All'attivazione di questo criterio, il chiamate riceve il codice di stato della risposta `403 Forbidden`.
   
  Per altre informazioni ed esempi su questo criterio, vedere [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/) (Limitazione avanzata delle richieste con Gestione API di Azure).  
   
@@ -329,7 +329,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |NOME|DESCRIZIONE|Obbligatoria|  
 |----------|-----------------|--------------|  
-|quota|Elemento radice.|Sì|  
+|quota|Elemento radice.|Yes|  
   
 ### <a name="attributes"></a>Attributi  
   
@@ -337,9 +337,9 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |----------|-----------------|--------------|-------------|  
 |bandwidth|Il numero totale massimo di kilobyte consentiti durante l'intervallo di tempo specificato in `renewal-period`.|Devono essere specificati `calls`, `bandwidth` o entrambi.|N/D|  
 |calls|Il numero totale massimo di chiamate consentite durante l'intervallo di tempo specificato in `renewal-period`.|Devono essere specificati `calls`, `bandwidth` o entrambi.|N/D|  
-|counter-key|La chiave deve essere usata per i criteri relativi alla quota.|Sì|N/D|  
+|counter-key|La chiave deve essere usata per i criteri relativi alla quota.|Yes|N/D|  
 |increment-condition|Espressione booleana che specifica se la richiesta deve essere conteggiata ai fini della quota (`true`).|No |N/D|  
-|renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Sì|N/D|  
+|renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
@@ -486,7 +486,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
   
 |Elemento|DESCRIZIONE|Obbligatoria|  
 |-------------|-----------------|--------------|  
-|validate-jwt|Elemento radice.|Sì|  
+|validate-jwt|Elemento radice.|Yes|  
 |audiences|Contiene un elenco di attestazioni "audience" accettabili che possono essere presenti nel token. Se sono presenti più valori "audience", viene provato ogni valore fino al completamento di tutti i valori (caso in cui la convalida ha esito negativo) o fino a quando un valore non ha esito positivo. È necessario specificare almeno un "audience".|No |  
 |issuer-signing-keys|Elenco di chiavi di sicurezza con codifica Base64 usato per convalidare i token firmati. Se sono presenti più chiavi di sicurezza, viene provata ogni chiave fino al completamento di tutte le chiavi (caso in cui la convalida ha esito negativo) o fino a quando una chiave non ha esito positivo. Gli elementi chiave contengono un attributo `id` facoltativo, usato per il confronto con l'attestazione `kid`.|No |  
 |issuers|Elenco di entità accettabili che hanno emesso il token. Se sono presenti più valori emittenti, viene provato ogni valore fino al completamento di tutti i valori (caso in cui la convalida ha esito negativo) o fino a quando un valore non ha esito positivo.|No |  
@@ -509,7 +509,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |require-scheme|Il nome dello schema di token, ad esempio "Bearer". Quando questo attributo è impostato, il criterio assicura che lo schema specificato sia presente nel valore dell'intestazione di autorizzazione.|No |N/D|
 |require-signed-tokens|Booleano. Specifica se è necessario firmare un token.|No |true|  
 |separator|Stringa. Specifica un separatore (ad esempio ",") da usare per l'estrazione di un set di valori da un'attestazione multivalore.|No |N/D| 
-|URL|URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. La risposta deve essere conforme alle specifiche, come definito nell'URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Per Azure Active Directory, usare il seguente URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`.|Sì|N/D|  
+|URL|URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. La risposta deve essere conforme alle specifiche, come definito nell'URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Per Azure Active Directory, usare il seguente URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
  Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  

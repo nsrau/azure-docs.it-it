@@ -8,14 +8,16 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: 1080bb0ad1d901a8b9a5ace4993d4e0d46924a03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2a0715d3becf695600ed84edbae38151acf055a8
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375353"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48246843"
 ---
 # <a name="what-is-anomaly-finder"></a>Informazioni su Ricerca di anomalie
+
+[!INCLUDE [PrivatePreviewNote](../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Ricerca di anomalie consente di monitorare i dati nel tempo e di rilevare anomalie mediante funzioni di apprendimento automatico che si adattano a varie casistiche di dati, applicando automaticamente il modello statistico appropriato indipendentemente dal settore, dallo scenario o dal volume di dati. Usando una serie temporale come input, l'API Ricerca di anomalie determina se un punto dati è un'anomalia, il valore previsto e i limiti superiore e inferiore per la visualizzazione. Come servizio predefinito di intelligenza artificiale, Ricerca di anomalie non richiede competenze di apprendimento automatico oltre alla capacità di usare un'API RESTful. Consente quindi di eseguire attività di sviluppo in modo semplice e versatile, in quanto funziona con qualsiasi serie temporale di dati e può anche essere integrato in sistemi di streaming di dati. Ricerca di anomalie comprende un'ampia gamma di casi d'uso, ad esempio strumenti finanziari per la gestione di frodi, furti, cambiamenti dei mercati e potenziali incidenti di business, o il monitoraggio del traffico di dispositivi IoT mantenendo al contempo l'anonimato. Questa soluzione può anche essere monetizzata come parte di un servizio per aiutare gli utenti finali a comprendere cambiamenti nei dati, nelle spese, nel ritorno sugli investimenti o nelle attività degli utenti.
 Provare l'API Ricerca di anomalie per acquisire una comprensione più approfondita dei propri dati. 

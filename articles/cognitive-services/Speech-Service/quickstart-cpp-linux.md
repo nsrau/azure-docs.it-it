@@ -5,16 +5,16 @@ description: Informazioni sul riconoscimento vocale in C++ su Linux con Speech S
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 98007a11ceadcdddbcd881607f7dda1222d90bc4
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: f3bcbc7bcbd57e9baa5a01f3a2ef572b09128260
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055918"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886246"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su Linux con Speech SDK
 
@@ -24,7 +24,7 @@ In questo articolo, viene creata un'applicazione console C++ per Linux Ubuntu 16
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare l'Avvio rapido. È possibile ottenerne una gratuitamente. Vedere [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md) per informazioni dettagliate.
+È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Vedere [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md) per informazioni dettagliate.
 
 ## <a name="install-speech-sdk"></a>Installare Speech SDK
 
@@ -121,7 +121,7 @@ Scaricare e installare SDK come indicato di seguito:
    ./helloworld
    ```
 
-1.  Nella finestra della console, viene visualizzato un prompt che richiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. I contenuti vocali vengono trasmessi al Servizio di riconoscimento vocale e trascritti in un testo che viene visualizzato nella stessa finestra.
+1.  Nella finestra della console, viene visualizzato un prompt che richiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale e trascritto in formato testo, che appare nella stessa finestra.
 
    ```text
    Say something...

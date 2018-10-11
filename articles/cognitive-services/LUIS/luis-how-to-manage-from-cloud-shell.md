@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: b0a02d2e5e0a1f1765098e1b1e258424b6443878
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039579"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870180"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Dati di utilizzo per il servizio LUIS tramite Azure Cloud Shell
 Il portale di Azure consente di usare i cmdlet di PowerShell per lavorare con le risorse LUIS. 
@@ -23,7 +23,7 @@ Il portale di Azure consente di usare i cmdlet di PowerShell per lavorare con le
 Questi cmdlet consentono di [creare](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) una sottoscrizione LUIS, ottenere informazioni sulla sottoscrizione, incluso l'[utilizzo](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), e [rimuovere](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) la sottoscrizione. 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Account di archiviazione di Azure Cloud Shell e autenticazione
-Per usare PowerShell nel portale di Azure [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), è necessario avere un account di archiviazione di Azure. Se non si ha un [account di archiviazione](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share), verrà chiesto di crearne uno. L'account di archiviazione consente di salvare gli script di PowerShell in Cloud Shell.  
+Per usare PowerShell nel portale di Azure [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell), è necessario avere un account di archiviazione di Azure. Se non si ha un [account di archiviazione](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage), verrà chiesto di crearne uno. L'account di archiviazione consente di salvare gli script di PowerShell in Cloud Shell.  
 
 È necessario eseguire l'autenticazione in Azure in Cloud Shell per accedere alle risorse. 
 
