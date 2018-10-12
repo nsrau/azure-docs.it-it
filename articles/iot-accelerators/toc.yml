@@ -81,6 +81,17 @@ items:
       href: iot-accelerators-remote-monitoring-deploy-simulated-device.md
     - name: Personalizzare l'interfaccia utente
       href: iot-accelerators-remote-monitoring-customize.md
+      items:
+      - name: Aggiungere una pagina
+        href: iot-accelerators-remote-monitoring-customize-page.md
+      - name: Aggiungere un servizio
+        href: iot-accelerators-remote-monitoring-customize-service.md
+      - name: Aggiungere una griglia
+        href: iot-accelerators-remote-monitoring-customize-grid.md
+      - name: Aggiungere un'uscita a destra
+        href: iot-accelerators-remote-monitoring-customize-flyout.md
+      - name: Aggiungere un pannello
+        href: iot-accelerators-remote-monitoring-customize-panel.md
     - name: Personalizzare e ridistribuire un microservizio
       href: iot-accelerators-microservices-example.md
     - name: Distribuire usando l'interfaccia della riga di comando
@@ -97,61 +108,6 @@ items:
       href: iot-accelerators-remote-monitoring-rbac.md
     - name: Concedere l'accesso allo strumento di esplorazione dei dati di telemetria
       href: iot-accelerators-remote-monitoring-rbac-tsi.md
-  - name: Monitoraggio remoto (versione precedente)
-    items:
-    - name: Che cosa sono le soluzioni preconfigurate?
-      href: ../iot-suite/iot-suite-v1-what-are-preconfigured-solutions.md
-    - name: Domande frequenti
-      href: ../iot-suite/iot-suite-v1-faq.md
-    - name: Attività iniziali
-      items:
-      - name: Introduzione alle soluzioni preconfigurate
-        href: ../iot-suite/iot-suite-v1-getstarted-preconfigured-solutions.md
-      - name: Autorizzazioni in azureiotsuite.com
-        href: ../iot-suite/iot-suite-v1-permissions.md
-      - name: Istruzioni dettagliate per la soluzione di monitoraggio remoto
-        href: ../iot-suite/iot-suite-v1-remote-monitoring-sample-walkthrough.md
-      - name: Connettere Raspberry Pi
-        href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-get-started.md
-        items:
-        - name: Usare C
-          items:
-          - name: Dati simulati
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-simulator.md
-          - name: Usare sensori reali
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-basic.md
-          - name: Implementare l'aggiornamento del firmware
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-c-get-started-advanced.md
-        - name: Usare Node.js
-          items:
-          - name: Dati simulati
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md
-          - name: Usare sensori reali
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md
-          - name: Implementare l'aggiornamento del firmware
-            href: ../iot-suite/iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md
-      - name: Connettere MXChip IoT DevKit
-        href: ../iot-hub/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring.md
-    - name: Guide alle procedure
-      items:
-      - name: Connettere un dispositivo simulato
-        items:
-        - name: C in Windows
-          href: ../iot-suite/iot-suite-v1-connecting-devices.md
-        - name: C in Linux
-          href: ../iot-suite/iot-suite-v1-connecting-devices-linux.md
-        - name: Node.js
-          href: ../iot-suite/iot-suite-v1-connecting-devices-node.md
-      - name: Connettere un'app per la logica alla soluzione di monitoraggio remoto
-        href: ../iot-suite/iot-suite-v1-logic-apps-tutorial.md
-      - name: Personalizzare un acceleratore di soluzioni
-        href: ../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md
-      - name: Usare la telemetria dinamica con la soluzione di monitoraggio remoto
-        href: ../iot-suite/iot-suite-v1-dynamic-telemetry.md
-      - name: Creare una regola personalizzata nella soluzione di monitoraggio remoto
-        href: ../iot-suite/iot-suite-v1-custom-rule.md
-      - name: Informazioni sui dispositivi nella soluzione di monitoraggio remoto
-        href: ../iot-suite/iot-suite-v1-remote-monitoring-device-info.md
   - name: Connected Factory
     items:
     - name: Usare il dashboard
@@ -203,7 +159,7 @@ items:
   - name: Soluzioni
     items:
     - name: Acceleratori di soluzioni IoT
-      href: /azure/iot-suite
+      href: /azure/iot-accelerators
     - name: IoT Central
       href: https://docs.microsoft.com/microsoft-iot-central/
   - name: Servizi della piattaforma
@@ -256,9 +212,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Percorso di apprendimento per gli acceleratori di soluzioni IoT
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: 935b9acf2eeaaee73745426eefb5625f470f62b7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: ff8e7cea540fcb722b5cc68bd811acaec3fac070
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365469"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091719"
