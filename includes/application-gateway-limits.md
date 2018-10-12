@@ -1,6 +1,6 @@
 | Risorsa | Limite predefinito | Note |
 | --- | --- | --- |
-| gateway applicazione |50 per sottoscrizione | Massimo 100 |
+| gateway applicazione |50 per sottoscrizione | Massimo 1000 |
 | Configurazioni IP front-end |2 |1 pubblica e 1 privata |
 | Porte front-end |20 | |
 | Pool di indirizzi back-end |20 | |

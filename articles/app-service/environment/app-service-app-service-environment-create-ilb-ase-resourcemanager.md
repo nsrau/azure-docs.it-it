@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
-ms.openlocfilehash: ea9407208f1bf555cf1a6d166825896dec89ec29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20531cb301cad23fbadb617bdf33e710a4481be4
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986836"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050035"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Come creare un ambiente del servizio app con servizio di bilanciamento del carico interno usando modelli di Azure Resource Manager
 
@@ -34,7 +34,7 @@ L'automazione della creazione di un ambiente del servizio app con servizio di bi
 
 1. Viene prima creato l'ambiente del servizio app di base in una rete virtuale usando un indirizzo di servizio di bilanciamento del carico interno anziché un indirizzo VIP pubblico.  Nell'ambito di questo passaggio viene assegnato un nome di dominio radice all'ambiente del servizio app con servizio di bilanciamento del carico interno.
 2. Dopo aver creato l'ambiente del servizio app con servizio di bilanciamento del carico interno, viene caricato un certificato SSL.  
-3. Il certificato SSL caricato viene assegnato in modo esplicito all'ambiente del servizio app con servizio di bilanciamento del carico interno come certificato "predefinito".  Questo certificato SSL verrà usato per il traffico SSL verso le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno quando si usa il dominio radice comune assegnato all'ambiente del servizio app, ad esempio https://someapp.mycustomrootcomain.com.
+3. Il certificato SSL caricato viene assegnato in modo esplicito all'ambiente del servizio app con servizio di bilanciamento del carico interno come certificato "predefinito".  Il certificato SSL verrà usato per il traffico SSL verso le app nell'ambiente del servizio app con bilanciamento del carico interno quando le app vengono indirizzate attraverso un dominio radice comune assegnato all'ambiente del servizio app (ad esempio https://someapp.mycustomrootcomain.com)
 
 ## <a name="creating-the-base-ilb-ase"></a>Creazione dell'ambiente del servizio app con servizio di bilanciamento del carico interno
 Un modello di Azure Resource Manager di esempio e il file dei parametri associati sono disponibili in GitHub [qui][quickstartilbasecreate].
@@ -55,7 +55,7 @@ Dopo che il file *azuredeploy.parameters.json* è stato compilato per un ambient
 Dopo aver inviato il modello di Azure Resource Manager, la creazione dell'ambiente del servizio app con servizio di bilanciamento del carico interno richiederà alcune ore.  Al termine della creazione, l'ambiente del servizio app con servizio di bilanciamento del carico interno verrà visualizzato nel portale nell'elenco di ambienti del servizio app per la sottoscrizione che ha attivato la distribuzione.
 
 ## <a name="uploading-and-configuring-the-default-ssl-certificate"></a>Caricamento e configurazione del certificato SSL "predefinito"
-Dopo aver creato l'ambiente del servizio app con servizio di bilanciamento del carico interno è necessario associare un certificato SSL all'ambiente del servizio app come certificato SSL "predefinito", per stabilire le connessioni SSL alle app.  Proseguendo con l'esempio dell'ipotetica Contoso Corporation, se il suffisso DNS predefinito dell'ambiente del servizio app è *internal-contoso.com*, una connessione a *https://some-random-app.internal-contoso.com* richiede un certificato SSL valido per **.internal-contoso.com*. 
+Dopo aver creato l'ambiente del servizio app con servizio di bilanciamento del carico interno è necessario associare un certificato SSL all'ambiente del servizio app come certificato SSL "predefinito", per stabilire le connessioni SSL alle app.  Proseguendo con l'esempio dell'ipotetica Contoso Corporation, se il suffisso DNS predefinito dell'ambiente del servizio app è *internal-contoso.com*, allora una connessione a *https://some-random-app.internal-contoso.com* richiede un certificato SSL che sia valido per **.internal-contoso.com*. 
 
 Esistono diversi modi per ottenere un certificato SSL valido, tra cui CA interne, l'acquisto di un certificato da un'autorità di certificazione esterna e l'uso di un certificato autofirmato.  Indipendentemente dall'origine del certificato SSL è necessario configurare correttamente gli attributi del certificato seguenti:
 
@@ -125,9 +125,9 @@ Dopo che il file *azuredeploy.parameters.json* è stato compilato, il certificat
 
     New-AzureRmResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-HERE" -TemplateFile $templatePath -TemplateParameterFile $parameterPath
 
-Dopo l'invio del modello di Azure Resource Manager, l'applicazione della modifica richiederà all'incirca 40 minuti per ogni front-end dell'ambiente del servizio app.  Per un ambiente del servizio app di dimensioni predefinite che usa due front-end, ad esempio, l'operazione richiederà all'incirca un'ora e venti minuti.  Durante l'esecuzione del modello, l'ambiente del servizio app non potrà essere ridimensionato.  
+Dopo l'invio del modello di Azure Resource Manager, ci vorranno circa 40 minuti per ogni front-end dell'ambiente del servizio app per apportare la modifica.  Per un ambiente del servizio app di dimensioni predefinite che usa due front-end, ad esempio, l'operazione richiederà all'incirca un'ora e venti minuti.  Durante l'esecuzione del modello, l'ambiente del servizio app non potrà essere ridimensionato.  
 
-Al termine dell'esecuzione del modello sarà possibile accedere alle app nell'ambiente del servizio app con servizio di bilanciamento del carico interno tramite HTTPS e le connessioni saranno protette con il certificato SSL predefinito.  Il certificato SSL predefinito verrà usato quando le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno vengono indirizzate usando una combinazione di nome applicazione e nome host predefinito.  *https://mycustomapp.internal-contoso.com*, ad esempio, userà il certificato SSL predefinito per **.internal-contoso.com*.
+Al termine dell'esecuzione del modello sarà possibile accedere alle app nell'ambiente del servizio app con servizio di bilanciamento del carico interno tramite HTTPS e le connessioni saranno protette con il certificato SSL predefinito.  Il certificato SSL predefinito verrà usato quando le app nell'ambiente del servizio app con servizio di bilanciamento del carico interno vengono indirizzate usando una combinazione di nome applicazione e nome host predefinito.  Ad esempio, *https://mycustomapp.internal-contoso.com* usa il certificato SSL predefinito per **.internal-contoso.com*.
 
 Proprio come le app in esecuzione nel servizio multi-tenant pubblico, gli sviluppatori possono tuttavia anche configurare nomi host personalizzati e associazioni univoche a certificati SNI SSL per le singole app.  
 

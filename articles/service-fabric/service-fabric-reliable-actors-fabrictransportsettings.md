@@ -1,5 +1,5 @@
 ---
-title: Modificare le impostazioni di FabricTransport nei microservizi di Azure | Microsoft Docs
+title: Modificare le impostazioni negli attori di Azure Service Fabric | Microsoft Docs
 description: Informazioni sulla configurazione delle impostazioni di comunicazione degli attori di Service Fabric di Azure.
 services: Service-Fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: f196859500d5de883a4de3f21b803c8f83e2f0b2
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: aa4339fa1fe4b21369004e748492ee71cbe6d616
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021413"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052140"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Configurare le impostazioni di FabricTransport per Reliable Actors
 
@@ -53,7 +53,7 @@ L'esempio seguente illustra come modificare il valore predefinito delle impostaz
 È possibile usare un [pacchetto di configurazione](service-fabric-application-and-service-manifests.md) per modificare la configurazione predefinita.
 
 > [!IMPORTANT]
-> Nei nodi di Linux i certificati devono essere formattati con estensione PEM. Per altre informazioni su individuazione e configurazione dei certificati per Linux, vedere [Configure certificates on Linux](./service-fabric-configure-certificates-linux.md) (Configurare i certificati in Linux). 
+> Nei nodi di Linux i certificati devono essere formattati con estensione PEM. Per altre informazioni sull'individuazione e la configurazione dei certificati per Linux, vedere [Configurare i certificati in Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Configurare le impostazioni di FabricTransport per il servizio attore

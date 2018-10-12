@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
-ms.openlocfilehash: 6800bf766deb2044d400f92dbe370fa15bdd5f00
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 87c9cd5955dda1a379733e5ad48d58f8361f0e6b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26047602"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051477"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Usare un certificato SSL nel codice dell'applicazione in Servizio app di Azure
 
@@ -28,7 +28,7 @@ Questo approccio all'uso dei certificati SSL nel codice adotta la funzionalità 
 
 Quando si consente al servizio app di gestire i certificati SSL, è possibile tenere separati i certificati e il codice dell'applicazione e proteggere i dati sensibili.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida pratica:
 
@@ -51,7 +51,7 @@ Tutti i certificati SSL caricati e importati per questa app Web vengono visualiz
 
 Nel riquadro di spostamento a sinistra fare clic su **Impostazioni dell'applicazione**.
 
-Aggiungere un'impostazione dell'app denominata `WEBSITE_LOAD_CERTIFICATES` e impostarne il valore sull'identificazione personale del certificato. Per rendere accessibili più certificati, usare valori di identificazione personale delimitati da virgole. Per rendere accessibili tutti i certificati, impostare il valore su `*`. 
+Aggiungere un'impostazione dell'app denominata `WEBSITE_LOAD_CERTIFICATES` e impostarne il valore sull'identificazione personale del certificato. Per rendere accessibili più certificati, usare valori di identificazione personale delimitati da virgole. Per rendere accessibili tutti i certificati, impostare il valore su `*`. Il certificato verrà inserito nell'archivio `CurrentUser\My`.
 
 ![Configurare l'impostazione dell'app](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143355"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054673"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Come vengono indicizzati i dati da Azure Cosmos DB?
 
@@ -57,7 +57,7 @@ Di conseguenza, durante la progettazione del sottosistema di indicizzazione di C
 È possibile personalizzare alcuni aspetti per ottenere il compromesso desiderato tra archiviazione, prestazioni di scrittura e query e coerenza delle query sostituendo i criteri di indicizzazione predefiniti in una raccolta di Azure Cosmos DB. È possibile configurare gli aspetti seguenti:
 
 * **Includere o escludere documenti e percorsi nell'indice**. È possibile escludere o includere documenti specifici nell'indice quando si inseriscono o sostituiscono i documenti nella raccolta. È anche possibile includere o escludere proprietà JSON specifiche, denominate anche *percorsi*, per l'indicizzazione tra documenti inclusi in un indice. I percorsi includono caratteri jolly.
-* **Configurare diversi tipi di indice**. Per ogni percorso incluso è possibile specificare il tipo di indice richiesto dal percorso per una raccolta. È possibile specificare il tipo di indice in base ai dati del percorso, al carico di lavoro delle query previsto e alla "precisione" numerica/di stringa.
+* **Configurare diversi tipi di indice**. Per ogni percorso incluso è possibile specificare il tipo di indice richiesto dal percorso per una raccolta. È possibile specificare il tipo di indice basato sui dati del percorso, l'atteso carico di lavoro di query e la "precisione" numerica e di stringa.
 * **Configurare le modalità di aggiornamento dell'indice**. Azure Cosmos DB supporta tre modalità di indicizzazione: coerente, differita e nessuna indicizzazione. È possibile configurare le modalità di indicizzazione tramite i criteri di indicizzazione in una raccolta di Azure Cosmos DB. 
 
 Il frammento di codice Microsoft .NET seguente mostra come impostare criteri di indicizzazione personalizzati durante la creazione di una raccolta. In questo esempio i criteri vengono impostati con un indice di intervallo per stringhe e numeri con la precisione massima. È possibile usare questi criteri per eseguire query ORDER BY su stringhe.

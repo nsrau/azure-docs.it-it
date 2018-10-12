@@ -2,24 +2,20 @@
 title: Associazioni di file esterni per Funzioni di Azure (sperimentale)
 description: Utilizzo di associazioni di file esterni in Funzioni di Azure
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: alkarche
-ms.openlocfilehash: 4e9c2c336df465d7488de84bd2a02cc5d9e42f30
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: be2d34202b88d0d424eb23c4e078c2fdc45c6ab6
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27607922"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093771"
 ---
 # <a name="azure-functions-external-file-bindings-experimental"></a>Associazioni di file esterni in Funzioni di Azure (sperimentale)
 Questo articolo illustra come modificare i file di diversi provider SaaS (ad esempio Dropbox o Google Drive) in Funzioni di Azure. Funzioni di Azure supporta associazioni di input, output e trigger per i file esterni. Queste associazioni creano connessioni API ai provider SaaS o usano le connessioni API esistenti del gruppo di risorse dell'app per le funzioni.
@@ -162,7 +158,7 @@ Ad esempio:
 "path": "images/{{20140101}}-{name}",
 ```
 
-Questo percorso troverà un file denominato *{20140101}-soundfile.mp3* nella cartella *images* e il valore della variabile `name` nel codice della funzione sarà *soundfile.mp3*.
+Questo percorso troverà un file nominato *{20140101}soundfile.mp3* nella cartella *Immagini* e il valore variabile `name` nel codice funzione sarà *soundfile.mp3*.
 
 ## <a name="trigger---usage"></a>Trigger - uso
 
