@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 54a81e6c5c6e1fe5c37b985e40174dc369edfe6d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cf6604730ab3bd9ee04fac36e703022f63dcb949
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630410"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090366"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Segnalare i dati di utilizzo di Azure Stack in Azure 
 
@@ -95,10 +95,6 @@ Per multinode Azure Stack, sono supportate le sottoscrizioni Enterprise Agreemen
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Esegue il reporting lavoro nel cloud con sovranità dei dati di utilizzo?
 
 In Azure Stack Development Kit, segnalazione errori dati di utilizzo richiede le sottoscrizioni che vengono create nel sistema Azure globale. Le sottoscrizioni create in uno dei cloud sovrani (cloud di Azure per enti pubblici, Azure Germania e Cina di Azure) non possono essere registrate con Azure, in modo che non supportano report sull'utilizzo dei dati.
-
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Come gli utenti possono identificare i dati di utilizzo dello Stack di Azure nel portale di fatturazione di Azure?
-
-Gli utenti possono visualizzare i dati di utilizzo di Azure Stack nel file di dettagli di utilizzo. Per altre informazioni su come ottenere il file di dettagli di utilizzo, vedere la [download di file di utilizzo dall'articolo centro Account Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Il file di dettagli di utilizzo contiene i contatori di Azure Stack che identificano le macchine virtuali e archiviazione di Azure Stack. Tutte le risorse usate in Azure Stack vengono segnalate sotto l'area denominata "Azure Stack."
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Il motivo per cui l'utilizzo segnalato in Azure Stack non corrisponde il report generato dal centro Account di Azure?
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 131ba3dfb8bd8ad8be893e26fcc22c5a0e65f145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431641"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050001"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Connettersi ad Azure Cosmos DB usando gli strumenti di analisi BI con il driver ODBC
 
@@ -173,7 +173,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 Per creare una visualizzazione dei dati, nella finestra **Editor schemi** passare alla colonna **Definizioni visualizzazioni** e fare clic su **Aggiungi** nella riga delle raccolte da campionare. Quindi eseguire le operazioni seguenti nella finestra **Definizioni visualizzazioni**:
 1. Fare clic su **Nuova**, immettere un nome per la visualizzazione, ad esempio EmployeesfromSeattleView, e fare clic su **OK**.
-1. Nella finestra **Modifica visualizzazione** inserire una query di Azure Cosmos DB. Deve trattarsi di una query SQL di Azure Cosmos DB, ad esempio `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`. Fare clic su **OK**.
+1. Nella finestra **Modifica visualizzazione** inserire una query di Azure Cosmos DB. Deve trattarsi di una query SQL di Azure Cosmos DB, ad esempio `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`. Fare clic su **OK**.
 
 È possibile creare un numero illimitato di visualizzazioni. Dopo aver definito le visualizzazioni, è possibile campionare i dati. 
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 2cae74224a9d59939175ac7e43d4d6b183ca3933
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141783"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050745"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Impostare automaticamente come scaduti i dati nelle raccolte di Cosmos DB usando la durata (TTL)
 Le applicazioni posso produrre e archiviare grandi quantità di dati. Alcuni di questi, come i dati eventi generati da computer, i registri e le informazioni sulle sessioni utente sono utili per un periodo di tempo limitato. Quando i dati eccedono le esigenze dell'applicazione, è possibile eliminarli e ridurre le risorse di archiviazione necessarie per l'applicazione.
@@ -31,7 +31,7 @@ La funzionalità TTL è controllata dalle proprietà TTL a livello di raccolta e
    
    * Se non è presente o è impostata su Null, i documenti non vengono eliminati automaticamente.
    * Se è presente e il valore è impostato su "-1" = infinito, i documenti non scadono per impostazione predefinita.
-   * Se è presente e il valore è impostato su un numero "n", i documenti scadono "n" secondi dopo l'ultima modifica.
+   * Se è presente e il valore è impostato su un numero ("n"), i documenti scadono "n" secondi dopo l'ultima modifica
 2. TTL per i documenti: 
    
    * La proprietà è applicabile solo se DefaultTTL è presente per la raccolta padre.
