@@ -257,8 +257,8 @@ items:
   items:
   - name: Supporto della community di Azure
     href: https://azure.microsoft.com/support/community/?product=search
-  - name: Roadmap per Azure
-    href: https://azure.microsoft.com/roadmap/?tag=azure-search
+  - name: Aggiornamenti di Azure
+    href: https://azure.microsoft.com/updates/?product=search
   - name: Siti di demo
     items:
     - name: Demo sui file finanziari
@@ -275,13 +275,11 @@ items:
     href: search-faq-frequently-asked-questions.md
   - name: Prezzi
     href: https://azure.microsoft.com/pricing/details/search/
-  - name: Aggiornamenti del servizio
-    href: https://azure.microsoft.com/updates/?product=search
   - name: Video
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 473b6940dda9ea906cf6ad2ddb400357fc8df7b9
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1ce3cf4ff32037d8e1e70a7c724aa4c53c2539ea
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831161"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116070"
