@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 410566e62daeb42100443e72f2d8a1acb8dad5a3
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c9106557c7c113281b04d37f1bc3d8b29e2087cc
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902281"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310454"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrare Azure Stack con Azure
 
@@ -45,7 +45,7 @@ Le informazioni contenute in questo articolo descrivono la registrazione di sist
 
 Prima di registrare Azure Stack con Azure, è necessario disporre di:
 
-- L'ID sottoscrizione per una sottoscrizione di Azure. Solo EA, CSP o CSP shared services sono supportate le sottoscrizioni per la registrazione. I CSP devono decidere se si desidera [usare una sottoscrizione CSP o CSPSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Per ottenere l'ID, accedere ad Azure, fare clic su **tutti i servizi**. Quindi, sotto il **generale** categoria, seleziona **sottoscrizioni**, scegliere la sottoscrizione da usare, quindi in **Essentials** è possibile trovare l'ID sottoscrizione.
+- L'ID sottoscrizione per una sottoscrizione di Azure. Solo EA, CSP o CSP shared services sono supportate le sottoscrizioni per la registrazione. I CSP devono decidere se si desidera [usare una sottoscrizione CSP o questi servizi avanzati](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Per ottenere l'ID, accedere ad Azure, fare clic su **tutti i servizi**. Quindi, sotto il **generale** categoria, seleziona **sottoscrizioni**, scegliere la sottoscrizione da usare, quindi in **Essentials** è possibile trovare l'ID sottoscrizione.
 
   > [!Note]  
   > Sottoscrizioni cloud Germania non sono attualmente supportate.

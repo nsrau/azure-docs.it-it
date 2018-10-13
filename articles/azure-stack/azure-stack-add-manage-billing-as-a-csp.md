@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: b8c00795c7777e5485f4725e1da63fc764973f43
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: b4df9d3b107945b2c0797875718f3266b7fd0b10
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628931"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166544"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Gestire l'utilizzo e fatturazione per Azure Stack come Provider di servizi Cloud 
 
@@ -35,7 +35,7 @@ Il diagramma seguente illustra i passaggi che dovrai scegliere l'account di serv
 
 ![Processo per l'abilitazione dell'utilizzo e la gestione come un Provider di servizi Cloud.](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png)
 
-## <a name="create-a-csp-or-cspss-subscription"></a>Creare una sottoscrizione CSP o CSPSS
+## <a name="create-a-csp-or-apss-subscription"></a>Creare una sottoscrizione CSP o questi servizi avanzati
 
 ### <a name="cloud-service-provider-subscription-types"></a>Tipi di sottoscrizione di Provider di servizi cloud
 
@@ -44,13 +44,13 @@ Il diagramma seguente illustra i passaggi che dovrai scegliere l'account di serv
  - Provider di servizi cloud 
  - Sottoscrizione partner di servizi condivisi 
 
-#### <a name="csp-shared-services"></a>Servizi condivisi di CSP
+#### <a name="azure-partner-shared-services"></a>Servizi condivisi di Partner di Azure
 
-Le sottoscrizioni cloud di Service Provider Shared Services (CSPSS) rappresentano la scelta preferita per la registrazione quando un CSP diretto o un server di distribuzione CSP opera Azure Stack.
+Le sottoscrizioni di Azure questi (Partner servizi avanzati Shared Services) rappresentano la scelta preferita per la registrazione quando un CSP diretto o un server di distribuzione CSP opera Azure Stack.
 
-Le sottoscrizioni CSPSS sono associate a un tenant di servizi condivisi. Quando si registra Azure Stack, è necessario fornire le credenziali per un account che è un proprietario della sottoscrizione. L'account usato per registrare Azure Stack può essere diverso dall'account amministratore usato per la distribuzione. Inoltre, i due account effettuare *non* devono appartenere allo stesso dominio. In altre parole, è possibile distribuire con il tenant che usi già. Ad esempio potrebbe usare ContosoCSP.onmicrosoft.com, quindi la registrazione usando un tenant diverso, ad esempio IURContosoCSP.onmicrosoft.com. È necessario ricordare che si accede tramite ContosoCSP.onmicrosoft.com quando si esegue l'operazione di amministrazione di Azure Stack giorno a tale scopo. Quando si accede ad Azure tramite IURContosoCSP.onmicrosoft.com quando è necessario eseguire le operazioni di registrazione.
+Le sottoscrizioni di questi servizi avanzati sono associate a un tenant di servizi condivisi. Quando si registra Azure Stack, è necessario fornire le credenziali per un account che è un proprietario della sottoscrizione. L'account usato per registrare Azure Stack può essere diverso dall'account amministratore usato per la distribuzione. Inoltre, i due account effettuare *non* devono appartenere allo stesso dominio. In altre parole, è possibile distribuire con il tenant che usi già. Ad esempio potrebbe usare ContosoCSP.onmicrosoft.com, quindi la registrazione usando un tenant diverso, ad esempio IURContosoCSP.onmicrosoft.com. È necessario ricordare che si accede tramite ContosoCSP.onmicrosoft.com quando si esegue l'operazione di amministrazione di Azure Stack giorno a tale scopo. Quando si accede ad Azure tramite IURContosoCSP.onmicrosoft.com quando è necessario eseguire le operazioni di registrazione.
 
-Vedere quanto segue per una descrizione delle sottoscrizioni CSPSS e istruzioni su come creare la sottoscrizione [Aggiungi Partner Azure Shared servizi](https://msdn.microsoft.com/partner-center/shared-services).
+Vedere quanto segue per una descrizione delle sottoscrizioni di questi servizi avanzati e istruzioni su come creare la sottoscrizione [Aggiungi Partner Azure Shared servizi](https://msdn.microsoft.com/partner-center/shared-services).
 
 #### <a name="csp-subscriptions"></a>Sottoscrizioni CSP
 
@@ -58,7 +58,7 @@ Le sottoscrizioni cloud di Service Provider (CSP) sono la scelta preferita per l
 
 ## <a name="register-azure-stack"></a>Registrare Azure Stack
 
-Usare la sottoscrizione CSPSS creato seguendo le informazioni nella sezione precedente per registrare Azure Stack con Azure. Per altre informazioni, vedere [registrare Azure Stack con la sottoscrizione di Azure](azure-stack-registration.md).
+Usare la sottoscrizione di questi servizi avanzati creato seguendo le informazioni nella sezione precedente per registrare Azure Stack con Azure. Per altre informazioni, vedere [registrare Azure Stack con la sottoscrizione di Azure](azure-stack-registration.md).
 
 ## <a name="add-end-customer"></a>Aggiungere utenti finali
 
@@ -72,7 +72,7 @@ Azure Stack usando il servizio registrazione possibile:
  - Inoltrare i dati di utilizzo di Azure Stack per e-Commerce di Azure e la fatturazione di una sottoscrizione di Azure.
  - Report sull'utilizzo di ogni cliente di una sottoscrizione diversa con una distribuzione multi-tenant di Azure Stack. Multi-tenancy consente a Azure Stack supportare diverse organizzazioni nella stessa istanza di Azure Stack.
 
-Per ogni Stack di Azure, è presente una sottoscrizione predefinita e molte sottoscrizioni del tenant. La sottoscrizione predefinita è una sottoscrizione di Azure che viene addebitata se non c'è una sottoscrizione specifico del tenant. Deve essere la prima sottoscrizione registrata. Creazione dei report di utilizzo di multi-tenant, la sottoscrizione deve essere una sottoscrizione CSP o CSPSS.
+Per ogni Stack di Azure, è presente una sottoscrizione predefinita e molte sottoscrizioni del tenant. La sottoscrizione predefinita è una sottoscrizione di Azure che viene addebitata se non c'è una sottoscrizione specifico del tenant. Deve essere la prima sottoscrizione registrata. Creazione dei report di utilizzo di multi-tenant, la sottoscrizione deve essere una sottoscrizione CSP o questi servizi avanzati.
 
 Quindi, la registrazione viene aggiornata con una sottoscrizione di Azure per ogni tenant che sta per usare Azure Stack. Le sottoscrizioni tenant devono essere del tipo CSP e devono rollup verso il partner proprietario della sottoscrizione predefinita. In altre parole, non è possibile registrare i clienti di un altro utente.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 70ed5d45701133434c708ad80aaafc58645297e8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077120"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309196"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Panoramica di piano, offerta, quote e sottoscrizione
 
@@ -40,7 +40,7 @@ Quando si distribuisce un servizio, seguire questi passaggi di alto livello:
 2. Creare un piano che dispone di uno o più servizi. Quando si crea un piano, selezionare o creare quote che definiscono i limiti delle risorse di ogni servizio nel piano.
 3. Creare un'offerta che contiene uno o più piani. L'offerta può includere piani base e i piani aggiuntivi facoltativi.
 
-Dopo aver creato l'offerta, gli utenti possono sottoscrivere per accedere ai servizi e risorse che fornisce l'offerta. Gli utenti possono sottoscrivere tante offerte che desiderano. Il diagramma seguente mostra un esempio semplice di un utente che ha sottoscritto due offerte. Ogni offerta prevede un piano o a due e ogni piano consente loro di accedere ai servizi.
+Dopo aver creato l'offerta, gli utenti possono sottoscrivere per accedere ai servizi e risorse che fornisce l'offerta. Gli utenti possono sottoscrivere tante offerte che desiderano. La figura seguente mostra un esempio semplice di un utente che ha sottoscritto due offerte. Ogni offerta prevede un piano o a due e ogni piano consente loro di accedere ai servizi.
 
 ![Sottoscrizione con offerte e piani di tenant](media/azure-stack-key-features/image4.png)
 
@@ -50,7 +50,7 @@ I piani sono raggruppamenti di uno o più servizi. Un operatore di Azure Stack, 
 
 ### <a name="quotas"></a>Quote
 
-Per aiutarti a gestire la capacità del cloud, è possibile utilizzare le quote preconfigurate o creare una nuova quota per ogni servizio in un piano. Le quote di definiscono i limiti di risorse superiore che può effettuare il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota potrebbe consentire all'utente di creare fino a cinque macchine virtuali (VM). Le macchine virtuali, ad esempio core CPU e RAM, impostare quote aggiuntive.
+Per aiutarti a gestire la capacità del cloud, è possibile usare preconfigurati *quote*, o creare una nuova quota per ogni servizio in un piano. Le quote di definiscono i limiti di risorse superiore che può effettuare il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota potrebbe consentire all'utente di creare fino a cinque macchine virtuali (VM).
 
 È possibile configurare le quote per area. Ad esempio, un piano che fornisce servizi di calcolo per l'area A potrebbe avere una quota di due macchine virtuali con 4 GB di RAM e 8 core di CPU.
 
@@ -61,11 +61,11 @@ Altre informazioni sulle [tipi di quote in Azure Stack](azure-stack-quota-types.
 
 ### <a name="base-plan"></a>Piano base
 
-Quando si crea un'offerta, l'amministratore del servizio può includere un piano base. Questi piani base sono inclusi per impostazione predefinita, quando un utente si iscrive per l'offerta. Quando un utente si iscrive, hanno accesso a tutti i provider di risorse specificato in tali piani base (con quote corrispondenti.)
+Quando si crea un'offerta, l'amministratore del servizio può includere un piano base. Questi piani base sono inclusi per impostazione predefinita, quando un utente si iscrive per l'offerta. Quando un utente si iscrive, hanno accesso a tutti i provider di risorse specificato in tali piani base (con le quote corrispondenti).
 
 ### <a name="add-on-plans"></a>Piani aggiuntivi
 
-Piani aggiuntivi sono facoltativi piani che si aggiunge a un'offerta. Piani aggiuntivi non sono inclusi per impostazione predefinita nella sottoscrizione. Componente aggiuntivo piani sono piani aggiuntivi (con quote) disponibili in un'offerta che è possibile aggiungere un sottoscrittore per le sottoscrizioni. Ad esempio, è possibile offrire un piano di base con risorse limitate per una versione di valutazione e un piano aggiuntivo con le risorse più sostanziali per i clienti che decide di adottare il servizio.
+Piani aggiuntivi sono facoltativi piani che si aggiunge a un'offerta. I piani aggiuntivi non sono inclusi per impostazione predefinita nella sottoscrizione. Componente aggiuntivo piani sono piani aggiuntivi (con quote) disponibili in un'offerta che è possibile aggiungere un sottoscrittore per le sottoscrizioni. Ad esempio, è possibile offrire un piano di base con risorse limitate per una versione di valutazione e un piano aggiuntivo con le risorse più sostanziali per i clienti che decide di adottare il servizio.
 
 ## <a name="offers"></a>Offerte
 
@@ -81,8 +81,8 @@ Ogni combinazione di un utente con un'offerta è una sottoscrizione univoca. Un 
 
 ### <a name="default-provider-subscription"></a>Sottoscrizione del provider predefinito
 
-La sottoscrizione del Provider predefinito viene creata automaticamente quando si distribuisce Azure Stack Development Kit. Questa sottoscrizione è utilizzabile per gestire Azure Stack, distribuire i provider di risorse aggiuntive e creare i piani e offerte per gli utenti. Per motivi di licenza e sicurezza, non deve essere usato per eseguire le applicazioni e carichi di lavoro.
+La sottoscrizione del provider predefinito viene creata automaticamente quando si distribuisce Azure Stack Development Kit. Questa sottoscrizione è utilizzabile per gestire Azure Stack, distribuire i provider di risorse aggiuntive e creare i piani e offerte per gli utenti. Per motivi di licenza e sicurezza, consigliabile non usarla per eseguire le applicazioni e carichi di lavoro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare un piano](azure-stack-create-plan.md)
+Per altre informazioni sui piani e offerte, vedere [creare un piano](azure-stack-create-plan.md).

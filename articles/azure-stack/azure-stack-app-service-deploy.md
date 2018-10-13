@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9f584213a65b9f2408d4ca2a06108cf18222376d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268800"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166883"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Aggiungere un provider di risorse del servizio App in Azure Stack
 
@@ -130,7 +130,7 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 11. Immettere i dettagli di SQL Server per l'istanza del server utilizzato per ospitare i database del provider risorse servizio App e quindi selezionare **successivo**. Il programma di installazione convalida le proprietà di connessione SQL.
 
     > [!NOTE]
-    > Il programma di installazione prova a verificare la connettività a SQL Server prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, potrebbe essere file di questo test di connettività. Si riceve un avviso e un prompt dei comandi per continuare. Se le informazioni di SQL Server siano corrette, continuare la distribuzione.
+    > Il programma di installazione prova a verificare la connettività a SQL Server prima di procedere. Tuttavia, se si distribuisce in una rete virtuale esistente, questo test di connettività potrebbe non riuscire. Si riceve un avviso e un prompt dei comandi per continuare. Se le informazioni di SQL Server siano corrette, continuare la distribuzione.
     >
     > Servizio App di Azure in Azure Stack 1.3 e versioni successive, il programma di installazione verificherà che SQL Server disponga di indipendenza del database abilitata a livello di SQL Server.  In caso contrario, verrà richiesto con l'eccezione seguente:
     > ```sql

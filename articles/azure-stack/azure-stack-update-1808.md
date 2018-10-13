@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: a870ba238239a20af154f611f88e7c2fdb95f9f7
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870928"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310899"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -40,7 +40,7 @@ Questo articolo descrive il contenuto del pacchetto di aggiornamento 1808. Il pa
 Questo aggiornamento include i miglioramenti seguenti per Azure Stack.
 
 <!--  2682594   | IS  --> 
-- **Tutti gli ambienti Azure Stack, ora, usare il formato di fuso orario Coordinated Universal Time (UTC).**  Tutti i dati di log e informazioni correlate a questo punto viene visualizzato in formato UTC. Se si aggiorna da una versione precedente che non è stata installata utilizzando il formato UTC, l'ambiente viene aggiornato per usare UTC. 
+- **Tutti gli ambienti Azure Stack, ora, usare il formato di fuso orario Coordinated Universal Time (UTC).**  Tutti i dati di log e informazioni correlate a questo punto visualizzare in formato UTC. Se si aggiorna da una versione precedente che non è stata installata utilizzando il formato UTC, l'ambiente viene aggiornato per usare UTC. 
 
 <!-- 2437250  | IS  ASDK --> 
 - **Sono supportati i dischi gestiti.** È ora possibile usare Managed Disks in macchine virtuali di Azure Stack e set di scalabilità di macchine virtuali. Per altre informazioni, vedere [Managed Disks di Azure Stack: differenze e considerazioni](/azure/azure-stack/user/azure-stack-managed-disk-considerations).
@@ -61,10 +61,10 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack.
 - **Supporto per le configurazioni di criteri IPSec/IKE personalizzati** per [i gateway VPN di Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 <!-- | IS ASDK--> 
-- **Elemento del marketplace Kubernetes**. È ora possibile distribuire cluster Kubernetes usando il [elemento del Marketplace di Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md). Gli utenti possono selezionare l'elemento di Kubernetes e inserire alcuni parametri per distribuire un cluster Kubernetes in Azure Stack. Lo scopo dei modelli è renderlo semplice per gli utenti alle distribuzioni di Kubernetes installazione sviluppo/test in pochi passaggi.
+- **Elemento del marketplace Kubernetes**. È ora possibile distribuire cluster Kubernetes usando il [elemento del Marketplace di Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md). Gli utenti possono selezionare l'elemento di Kubernetes e inserire alcuni parametri per distribuire un cluster Kubernetes in Azure Stack. Lo scopo dei modelli è per agevolare agli utenti di configurare le distribuzioni di Kubernetes sviluppo/test in pochi passaggi.
 
 <!-- | IS ASDK--> 
-- **I modelli di Blockchain**. È ora possibile eseguire [distribuzioni consortium Ethereum](azure-stack-ethereum.md) in Azure Stack. È possibile trovare tre nuovi modelli nel [i modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates). Consentono all'utente di distribuire e configurare una rete Ethereum multimembro consorzio con una minima conoscenza di Azure ed Ethereum. Lo scopo dei modelli è renderlo semplice per gli utenti alle distribuzioni di Blockchain installazione sviluppo/test in pochi passaggi.
+- **I modelli di Blockchain**. È ora possibile eseguire [distribuzioni consortium Ethereum](azure-stack-ethereum.md) in Azure Stack. È possibile trovare tre nuovi modelli nel [i modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates). Consentono all'utente di distribuire e configurare una rete Ethereum multimembro consorzio con una minima conoscenza di Azure ed Ethereum. Lo scopo dei modelli è per agevolare agli utenti di configurare le distribuzioni di Blockchain di sviluppo/test in pochi passaggi.
 
 <!-- | IS ASDK--> 
 - **L'API versione 2017-03-09-profilo è stato aggiornato a 2018-03-01-hybrid**. I profili delle API specificano il provider di risorse di Azure e la versione dell'API per gli endpoint REST di Azure. Per altre informazioni sui profili, vedere [profili della versione di gestione API in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
@@ -145,6 +145,13 @@ Questo aggiornamento contiene anche la mitigazione dei rischi per la vulnerabili
 
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento
 
+<!-- TBD - IS -->
+- Vengono visualizzati più volte e quindi non vengono più visualizzati nel sistema Azure Stack, è possibile visualizzare gli avvisi seguenti:
+   - *Istanza del ruolo di infrastruttura non disponibile*
+   - *Il nodo di unità di scala è offline*
+   
+  Eseguire la [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet per verificare l'integrità delle istanze del ruolo di infrastruttura e ridimensionare i nodi di unità. Se viene rilevato alcun problema dal [Test-AzureStack](azure-stack-diagnostic-test.md), è possibile ignorare questi avvisi. Se viene rilevato un problema, è possibile provare ad avviare l'istanza del ruolo di infrastruttura o un nodo tramite il portale di amministrazione o PowerShell.
+
 - Quando si esegue [Test-AzureStack](azure-stack-diagnostic-test.md) dopo l'aggiornamento 1808, viene visualizzato un messaggio di avviso da Baseboard Management Controller (BMC). È possibile ignorare questo avviso.
 
 <!-- 2468613 - IS --> 
@@ -170,7 +177,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 - La documentazione tecnica di Azure Stack è incentrato sulla versione più recente. A causa di un portale modifiche tra le versioni, ciò che viene visualizzato quando si utilizzano i portali di Azure Stack può variare da quelli visualizzati nella documentazione. 
 
 <!-- TBD - IS ASDK --> 
-- È possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, fare clic su **modifica Dashboard**, quindi fare clic e selezionare **predefinite reimpostati**.
+- È possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, fare clic su **modifica Dashboard**, quindi fare doppio clic e selezionare **predefinite reimpostati**.
 
 <!-- 2930718 - IS ASDK --> 
 - Nel portale di amministrazione, quando si accede ai dettagli di qualsiasi sottoscrizione utente, dopo aver chiuso il pannello e facendo clic su **recenti**, non viene visualizzato il nome della sottoscrizione utente.
@@ -226,7 +233,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 
 <!-- 2812138 | IS --> 
-- Si potrebbe essere visualizzato un avviso per **archiviazione** componente con i dettagli seguenti:
+- Si potrebbe essere visualizzato un avviso per **archiviazione** componente che contiene i dettagli seguenti:
 
    - NOME: Errore di comunicazione interna del servizio di archiviazione  
    - GRAVITÀ: critico  

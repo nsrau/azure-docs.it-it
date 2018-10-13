@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: cc7b1b9e96e32b090c0ec9ec9ab029588e5ec4ce
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722011"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166968"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotazione dei segreti in Azure Stack
 
@@ -81,7 +81,8 @@ Esecuzione di rotazione segreta usando le istruzioni seguenti verranno corregger
 
    > [!IMPORTANT]  
    > Verificare che la rotazione segreta non è ancora stata eseguita correttamente nell'ambiente. Se è già stata eseguita la rotazione segreta, aggiornare Azure Stack per 1807 o versione successiva prima di eseguire la rotazione segreta. 
-1.  Inviare notifiche agli utenti di tutte le operazioni di manutenzione. Pianificare finestre di manutenzione normale, quanto più possibile, durante non lavorative. I carichi di lavoro utente e operazioni nel portale, possono influire sulle operazioni di manutenzione.
+1.  Gli operatori potrebbero notare avvisi aprono e chiudono automaticamente durante la rotazione dei segreti di Azure Stack.  Questo comportamento è previsto e gli avvisi possono essere ignorati.  Gli operatori possono verificare la validità di questi avvisi tramite l'esecuzione di Test-AzureStack.  Per gli operatori tramite SCOM per monitorare i sistemi Azure Stack, impostazione di un sistema in modalità manutenzione, potrà raggiungere i propri sistemi di gestione dei servizi IT di questi avvisi ma continueranno a genera un avviso se il sistema Azure Stack non diventi irraggiungibile. 
+2. Inviare notifiche agli utenti di tutte le operazioni di manutenzione. Pianificare finestre di manutenzione normale, quanto più possibile, durante non lavorative. I carichi di lavoro utente e operazioni nel portale, possono influire sulle operazioni di manutenzione.
     > [!note]  
     > I passaggi successivi si applicano solo quando la rotazione dei segreti esterni di Azure Stack.
 3. Preparare un nuovo set di sostituzione di certificati esterni. Il nuovo set corrisponde al certificato alle specifiche di [requisiti dei certificati di infrastruttura a chiave pubblica di Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
