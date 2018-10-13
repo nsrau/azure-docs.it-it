@@ -699,16 +699,6 @@ items:
     items:
     - name: Avvisi
       items:
-      - name: Creazione di regole di avviso
-        items:
-        - name: Configurare nuovi avvisi di metriche o relativi ai log nel portale di Azure
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
-        - name: Configurare avvisi classici nel portale di Azure
-          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json
-        - name: Configurare avvisi classici con l'interfaccia della riga di comando
-          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
-        - name: Configurare avvisi classici con Azure PowerShell
-          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Usare gli avvisi delle metriche
         items:
         - name: Creare, visualizzare e gestire gli avvisi delle metriche in Monitoraggio di Azure
@@ -986,9 +976,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 521bcef045b39c442e4a981b07fff8099ece0c1d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 5b7956ee962c7f7bde31646617b86c55aaf32234
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116420"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311032"
