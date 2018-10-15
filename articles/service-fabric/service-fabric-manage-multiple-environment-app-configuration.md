@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 15ad606578970290cef440ec4efdd967ca0c0b32
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: dac96ef6fce38a0557444e181fa6eccb649cfb9a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205230"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298336"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>Gestire le applicazioni per più ambienti
 
@@ -42,7 +42,7 @@ Si prendano in considerazione due semplici esempi:
 
 > [!NOTE]
 > Non tutti gli attributi nei file manifesto dell'applicazione e del servizio supportano parametri.
-> In questi casi, è necessario ricorrere alla sostituzione di stringhe come parte del flusso di lavoro di distribuzione. In Visual Studio Team Services è possibile usare un'estensione come Replace Token: https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens oppure in Jenkins è possibile eseguire un'attività script per sostituire i valori.
+> In questi casi, è necessario ricorrere alla sostituzione di stringhe come parte del flusso di lavoro di distribuzione. In DevOps di Azure è possibile usare un'estensione come Replace token: https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens oppure in Jenkins è possibile eseguire un'attività script per sostituire i valori.
 >
 
 ## <a name="specifying-parameters-during-application-creation"></a>Definizione dei parametri durante la creazione dell'applicazione
@@ -51,7 +51,7 @@ Quando si creano istanze di un'applicazione denominata in Service Fabric, si ha 
 
   - In PowerShell il cmdlet [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) accetta i parametri delle applicazioni come tabella hash.
   - Se si usa sfctl, il comando [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) accetta i parametri come stringa JSON. Lo script install.sh usa sfctl.
-  - In Visual Studio, nella cartella Parametri del progetto dell'applicazione, è disponibile un set di file di parametri che vengono usati per la pubblicazione da Visual Studio, tramite Visual Studio Team Services o Team Foundation Server. In Visual Studio i file di parametri vengono passati allo script Deploy-FabricApplication.ps1.
+  - In Visual Studio, nella cartella Parametri del progetto dell'applicazione, è disponibile un set di file di parametri Questi file di parametri vengono utilizzati durante la pubblicazione da Visual Studio, usando i servizi di Azure DevOps o il Team Foundation Server. In Visual Studio i file di parametri vengono passati allo script Deploy-FabricApplication.ps1.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Gli articoli seguenti illustrano come applicare alcuni dei concetti descritti in questo articolo:

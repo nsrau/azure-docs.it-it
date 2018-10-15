@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437036"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304442"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Gestire l'accesso di utenti esterni tramite il controllo degli accessi in base al ruolo
 
@@ -42,7 +42,7 @@ Ecco due esempi comuni di uso del controllo degli accessi in base al ruolo:
 I ruoli RBAC possono essere concessi solo dai **proprietari** della sottoscrizione. Pertanto, l'amministratore deve eseguire l'accesso con un account utente a cui è preassegnato questo ruolo o che ha creato la sottoscrizione di Azure.
 
 Dopo avere eseguito l'accesso come amministratore dal portale di Azure, selezionare "Sottoscrizioni" e scegliere quella desiderata.
-![Pannello delle sottoscrizioni nel portale di Azure](./media/role-assignments-external-users/0.png) Per impostazione predefinita, se l'utente amministratore ha acquistato la sottoscrizione di Azure, l'utente verrà visualizzato come **amministratore dell'account**, vale a dire con il ruolo di sottoscrizione. Per altre informazioni sui ruoli di sottoscrizione di Azure, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](../billing/billing-add-change-azure-subscription-administrator.md).
+![Pannello delle sottoscrizioni nel portale di Azure](./media/role-assignments-external-users/0.png) Per impostazione predefinita, se l'utente amministratore ha acquistato la sottoscrizione di Azure, l'utente verrà visualizzato come **amministratore dell'account**, vale a dire con il ruolo di sottoscrizione. Per altre informazioni sui ruoli di sottoscrizione di Azure, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 In questo esempio l'utente "alflanigan@outlook.com" è **Proprietario** della sottoscrizione nella "versione di valutazione gratuita" nel tenant AAD "Default tenant Azure". Poiché questo utente ha creato la sottoscrizione di Azure con l'account Microsoft iniziale "Outlook" (account Microsoft = Outlook, Live e così via), il nome di dominio predefinito per tutti gli altri utenti aggiunti in questo tenant sarà **"\@alflaniganuoutlook.onmicrosoft.com"**. Per impostazione predefinita, la sintassi del nuovo dominio è costituita dalla combinazione di nome utente e nome dominio dell'utente che ha creato il tenant con l'aggiunta dell'estensione **".onmicrosoft.com"**.
 Gli utenti possono anche accedere con un nome di dominio personalizzato nel tenant dopo averlo aggiunto e verificato per il nuovo tenant. Per altre informazioni su come verificare un nome di dominio personalizzato in un tenant di Azure Active Directory, vedere [Aggiungere un nome di dominio personalizzato alla directory](/active-directory/active-directory-add-domain).

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666433"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025277"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
 
@@ -42,7 +42,7 @@ I requisiti di ridimensionamento del server di configurazione dipendono dalla fr
 | 12 vCPU (2 socket * 6 core \@ 2,5 GHz) |18 GB |600 GB |Da 500 GB a 1 TB |Replicare da 100 a 150 computer. |
 | 16 vCPU (2 socket * 8 core \@ 2,5 GHz) |32 GB |1 TB |Da 1 TB a 2 TB |Replicare da 150 a 200 computer. |
 
-Se si esegue la replica di più macchine virtuali VMware, leggere le [considerazioni sulla pianificazione della capacità](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Eseguire lo [strumento di pianificazione della distribuzione](site-recovery-deployment-planner.md) per la replica VMware.
+Se si esegue la replica di più macchine virtuali VMware, leggere le [considerazioni sulla pianificazione della capacità](site-recovery-plan-capacity-vmware.md). Eseguire lo [strumento di pianificazione della distribuzione](site-recovery-deployment-planner.md) per la replica VMware.
 
 ## <a name="download-the-template"></a>Scaricare il modello
 
@@ -119,9 +119,9 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 ## <a name="faq"></a>Domande frequenti
 
-1. È possibile usare la macchina virtuale in cui è installato il server di configurazione per scopi diversi?
+1. È possibile usare la macchina virtuale, in cui è installato il server di configurazione, per scopi diversi?
 
-    **No**, è consigliabile usare la macchina virtuale solo per il server di configurazione. Assicurarsi di seguire tutte le specifiche indicate nella [sezione precedente](vmware-azure-deploy-configuration-server.md#Prerequisites) per una gestione efficiente del ripristino di emergenza.
+    **No**, è consigliabile usare la macchina virtuale solo per il server di configurazione. Assicurarsi di seguire tutte le specifiche indicate in [Prerequisiti](#prerequisites) per una gestione efficiente del ripristino di emergenza.
 2. È possibile sostituire l'insieme di credenziali già registrate nel server di configurazione con un insieme di credenziali nuovo?
 
     **No**, una volta registrato con il server di configurazione, l'insieme di credenziali non può più essere cambiato.
@@ -130,10 +130,10 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
     **Sì**, lo stesso server di configurazione può essere usato per la replica di computer fisici e macchine virtuali. Tuttavia, è possibile eseguire il failback del computer fisico solo in una macchina virtuale VMware.
 4. Qual è lo scopo di un server di configurazione e dove viene usato?
 
-    Per altre informazioni sul server di configurazione e sulle sue funzionalità, fare riferimento all'architettura di Azure Site Recovery [qui](vmware-azure-architecture.md).
+    Per altre informazioni sul server di configurazione e sulle sue funzionalità, fare riferimento a [VMware per l'architettura di replica di Azure](vmware-azure-architecture.md).
 5. Dove è possibile trovare la versione più recente del server di configurazione?
 
-    Vedere l'articolo che illustra la procedura di aggiornamento del server di configurazione [tramite il portale](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Può essere inoltre scaricata direttamente dall'[Area download Microsoft](https://aka.ms/asrconfigurationserver).
+    Per informazioni sui passaggi da eseguire per aggiornare il server di configurazione tramite il portale, vedere [Aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Può essere inoltre scaricata direttamente dall'[Area download Microsoft](https://aka.ms/asrconfigurationserver).
 6. Dove è possibile scaricare la passphrase per il server di configurazione?
 
     Fare riferimento a [questo articolo](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) per scaricare la passphrase.
@@ -143,7 +143,7 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 
 ## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
 
-Per aggiornare il server di configurazione alla versione più recente, leggere i passaggi disponibili [qui](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+Per aggiornare il server di configurazione alla versione più recente, eseguire i seguenti [passaggi](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 
 ## <a name="manage-the-configuration-server"></a>Gestire il server di configurazione
 

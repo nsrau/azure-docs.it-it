@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 9d2043808cbd61d5e2a69cbe0f2a5a611e3afa31
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 86ab49cb0acd9ffee47fb1f8f531c3a0cd6e6730
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34839759"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297962"
 ---
 # <a name="team-lead-tasks"></a>Attività del responsabile del team
 
@@ -29,11 +29,11 @@ Un **responsabile del team** gestisce un team nell'unità di data science di un'
 
 ![1](./media/team-lead-tasks/team-leads-1-creating-teams.png)
 
->[AZURE.NOTE] Le attività nei blocchi 1 e 2 della figura sono necessarie se si usa Visual Studio Team Services (VSTS) come piattaforma di hosting del codice e si vuole disporre di un progetto team separato per il proprio team. Dopo che tutte le attività sono state completate, è possibile creare tutti i repository del team nel progetto team. 
+>[AZURE.NOTE] Le attività nei blocchi 1 e 2 della figura sono necessarie se si usa Azure DevOps come piattaforma di hosting del codice e se si vuole disporre di un progetto Azure DevOps separato per il proprio team. Dopo che tutte le attività sono state completate, è possibile creare tutti i repository del team nel progetto. 
 
 Dopo che il responsabile del gruppo ha completato le numerose attività preliminari specificate nella sezione che segue, è possibile completare le cinque attività di base, alcune delle quali sono facoltative, disponibili in questa esercitazione. Queste attività corrispondono alle sezioni principali numerate di questo argomento:
 
-1. Creare un **progetto team** nel server VSTS del gruppo e due repository del team nel progetto:
+1. Creare un **progetto** negli Azure DevOps Services del gruppo e due repository del team nel progetto:
     - **Repository ProjectTemplate** 
     - **Repository TeamUtilities**
 2. Effettuare il seeding del repository **ProjectTemplate** del team dal repository **GroupProjectTemplate** configurato dal responsabile del gruppo. 
@@ -43,76 +43,76 @@ Dopo che il responsabile del gruppo ha completato le numerose attività prelimin
 4. (Facoltativo) Montare la risorsa di archiviazione file di Azure nella **macchina virtuale data science** (DSVM) del responsabile del team e aggiungervi gli asset di dati.
 5. Configurare il **controllo di sicurezza** aggiungendo i membri del team e configurandone i privilegi.
 
->[AZURE.NOTE] Nelle istruzioni seguenti vengono illustrati i passaggi necessari per configurare un ambiente TDSP usando VSTS. Viene specificato come eseguire queste attività con VSTS poiché questa è la modalità di implementazione del TDSP usata in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano. È invece diverso il modo in cui devono essere completate.
+>[AZURE.NOTE] Nelle istruzioni seguenti vengono illustrati i passaggi necessari per configurare un ambiente TDSP usando Azure DevOps. Viene specificato come eseguire queste attività con Azure DevOps dal momento che questa è la modalità di implementazione di TDSP in Microsoft. Se si usa un'altra piattaforma di hosting del codice per il proprio gruppo, le attività che il responsabile del team deve completare di per sé non cambiano. È invece diverso il modo in cui devono essere completate.
 
 ## <a name="repositories-and-directories"></a>Repository e directory
 
-In questo argomento vengono usati nomi abbreviati per i repository e le directory, per permettere di seguire più facilmente le operazioni tra i repository e le directory. Questa notazione (**R** per i repository Git e **D** per le directory locali nel DSVM) viene usata nelle sezioni seguenti:
+In questo argomento vengono usati nomi abbreviati per i repository e le directory, per permettere di seguire più facilmente le operazioni tra i repository e le directory. Questa notazione (**R** per i repository Git e **D** per le directory locali nella DSVM) viene usata nelle sezioni seguenti:
 
-- **R1**: il repository **GroupProjectTemplate** in Git configurato dal responsabile del gruppo nel server VSTS del gruppo.
+- **R1**: il repository **GroupProjectTemplate** in Git configurato dal responsabile del gruppo nel server Azure DevOps del gruppo.
 - **R3**: il repository **ProjectTemplate** del team in Git configurato dall'utente.
 - **R4**: il repository **TeamUtilities** in Git configurato dall'utente.
 - **D1**: la directory locale clonata da R1 e copiata in D3.
 - **D3**: la directory locale clonata da R3, personalizzata e copiata nuovamente in R3.
 - **D4**: la directory locale clonata da R4, personalizzata e copiata nuovamente in R4.
 
-I nomi specificati per i repository e le directory in questa esercitazione sono finalizzati all'obiettivo di definire un progetto team separato per il proprio team all'interno di un gruppo di data science più grande. Esistono tuttavia altre opzioni che si possono scegliere in qualità di responsabile del team:
+I nomi specificati per i repository e le directory in questa esercitazione sono finalizzati all'obiettivo di definire un progetto separato per il proprio team all'interno di un gruppo di data science più grande. Esistono tuttavia altre opzioni che si possono scegliere in qualità di responsabile del team:
 
-- L'intero gruppo può scegliere di creare un singolo progetto team. In questo caso, tutti i progetti di tutti i team di data science rientrano nel progetto team singolo. È possibile a tal fine designare un amministratore Git che segua queste istruzioni per creare un progetto team singolo. Questo scenario potrebbe essere valido, ad esempio, per gli scenari seguenti:
+- L'intero gruppo può scegliere di creare un singolo progetto. In questo caso, tutti i progetti di tutti i team di data science rientrano nel progetto singolo. È possibile a tal fine designare un amministratore Git che segua queste istruzioni per creare un progetto singolo. Questo scenario potrebbe essere valido, ad esempio, per gli scenari seguenti:
     -  un gruppo di data science di piccole dimensioni che dispone di un solo team di data science 
     -  un gruppo di data science di dimensioni più grandi con più team di data science che intende comunque ottimizzare la collaborazione tra i team con attività come la pianificazione sprint a livello di gruppo. 
-- I team possono scegliere di usare modelli di progetto specifici del team o utilità specifiche del team nel progetto team singolo per l'intero gruppo. I responsabili dei team devono in questo caso creare repository di modelli di progetto team e/o repository di utilità dei team nello stesso progetto team. Assegnare a questi repository nomi secondo il formato *<TeamName\>ProjectTemplate* e *<TeamName\>Utilities*, ad esempio *TeamJohnProjectTemplate* e *TeamJohnUtilities*. 
+- I team possono scegliere di usare modelli di progetto specifici del team o utilità specifiche del team nel progetto singolo per l'intero gruppo. I responsabili dei team devono in questo caso creare repository di modelli di progetto e/o repository di utilità dei team nello stesso progetto. Assegnare a questi repository nomi secondo il formato *<TeamName\>ProjectTemplate* e *<TeamName\>Utilities*, ad esempio *TeamJohnProjectTemplate* e *TeamJohnUtilities*. 
 
-I responsabili dei team devono, in ogni caso, indicare ai membri dei rispettivi team quali repository di modelli e di utilità adottare quando configurano e clonano i repository del progetto e delle utilità. I responsabili di progetto devono eseguire le [attività di responsabile di progetto per un team di data science](project-lead-tasks.md) per creare i repository del progetto, indipendentemente che si sia scelto di usare progetti team separati o un progetto team singolo. 
+I responsabili dei team devono, in ogni caso, indicare ai membri dei rispettivi team quali repository di modelli e di utilità adottare quando configurano e clonano i repository del progetto e delle utilità. I responsabili di progetto devono eseguire le [attività di responsabile di progetto per un team di data science](project-lead-tasks.md) per creare i repository del progetto, indipendentemente che si sia scelto di usare progetti separati o un progetto singolo. 
 
 
-## <a name="0-prerequisites"></a>0. prerequisiti
+## <a name="0-prerequisites"></a>0. Prerequisiti
 
 I prerequisiti vengono soddisfatti completando le attività assegnate al responsabile del gruppo delineate in [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md). Di seguito vengono riepilogati i prerequisiti che è necessario soddisfare prima di iniziare le attività di responsabile del team: 
 
-- Il responsabile del gruppo deve avere configurato il **server VSTS del gruppo** (o l'account di gruppo in alcune altre piattaforme di hosting del codice).
+- Il responsabile del gruppo deve avere configurato gli **Azure DevOps Services del gruppo** (o l'account di gruppo in alcune altre piattaforme di hosting del codice).
 - Il responsabile del gruppo deve avere impostato il **repository GroupProjectTemplate** (R1) nell'account di gruppo nella piattaforma di hosting del codice che si intende usare.
 - Si deve disporre dell'**autorizzazione** nell'account di gruppo necessaria per creare i repository per il team.
 - Git deve essere installato nel computer in uso. Se si usa una macchina virtuale di data science (DSVM, Data Science Virtual Machine), Git è stato preinstallato ed è possibile iniziare. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).  
 - Se si usa una **DSVM per Windows**, è necessario avere installato [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) nel computer. Nel file README.md scorrere fino alla sezione **Download and Install** (Download e installazione) e fare clic su *latest installer* (programma di installazione più recente). Si passerà alla pagina del programma di installazione più recente. Scaricare da qui il file con estensione exe del programma di installazione ed eseguirlo. 
-- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla al server VSTS del gruppo. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
+- Se si usa una **DSVM per Linux**, creare una chiave pubblica SSH nella DSVM e aggiungerla agli Azure DevOps Services del gruppo. Per altre informazioni sul protocollo SSH, vedere la sezione **Creare una chiave pubblica SSH** nell'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix). 
     
-## <a name="1-create-a-team-project-and-repositories"></a>1. Creare un progetto team e i repository
+## <a name="1-create-a-project-and-repositories"></a>1. Creare un progetto e repository
 
-Completare questo passaggio se si usa VSTS come piattaforma di hosting del codice per il controllo delle versioni e la collaborazione. Questa sezione illustra come creare tre elementi nel server VSTS del gruppo:
+Completare questo passaggio se si usa Azure DevOps come piattaforma di hosting del codice per il controllo delle versioni e la collaborazione. Questa sezione illustra come creare tre elementi nel server Azure DevOps del gruppo:
 
-- Progetto **MyTeam** in VSTS
+- Progetto **MyTeam** in Azure DevOps
 - Repository **MyProjectTemplate** (**R3**) in Git
 - Repository **MyTeamUtilities** (**R4**) in Git
 
 ### <a name="create-the-myteam-project"></a>Creare il progetto MyTeam
 
-- Passare alla home page del server VSTS del gruppo nell'URL `https://<VSTS Server Name\>.visualstudio.com`. 
-- Fare clic su **Nuovo** per creare un progetto team. 
+- Visitare la home page degli Azure DevOps Services del gruppo nell'URL `https://<Azure DevOps Services Name\>.visualstudio.com`. 
+- Fare clic su **Nuovo** per creare un progetto. 
 
     ![2](./media/team-lead-tasks/team-leads-2-create-new-team.png)
 
-- Verrà visualizzata una finestra Crea progetto team in cui immettere il nome del progetto che, in questo esempio, è **MyTeam**. Verificare di selezionare **Agile** come **Modello di processo** e **Git** come **Controllo della versione**. 
+- Un finestra Crea progetto richiederà di inserire il nome del progetto (**MyTeam** in questo esempio). Verificare di selezionare **Agile** come **Modello di processo** e **Git** come **Controllo della versione**. 
 
     ![3](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
 
-- Fare clic su **Crea progetto**. In meno di un minuto verrà creato il progetto team **MyTeam**. 
+- Fare clic su **Crea progetto**. In meno di un minuto verrà creato il progetto **MyTeam**. 
 
-- Dopo che il progetto team **MyTeam** è stato creato, fare clic sul pulsante **Passa a progetto** per passare alla home page del progetto team. 
+- Dopo che il progetto **MyTeam** è stato creato, fare clic sul pulsante **Passa a progetto** per passare alla home page del progetto. 
 
     ![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
 
-- Se viene visualizzata una finestra popup **Congratulazioni**, fare clic sul pulsante **Aggiungi codice** nel riquadro rosso. In caso contrario, fare clic su **Codice** nel riquadro giallo. Questa azione apre la pagina del repository Git del progetto team. 
+- Se viene visualizzata una finestra popup **Congratulazioni**, fare clic sul pulsante **Aggiungi codice** nel riquadro rosso. In caso contrario, fare clic su **Codice** nel riquadro giallo. Questa azione apre la pagina del repository Git del progetto. 
 
     ![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Creare il repository MyProjectTemplate (R3) in Git
 
-- Nella pagina del repository Git del progetto team, fare clic sulla freccia verso il basso accanto al nome del repository **MyTeam**e selezionare **Gestisci repository**.
+- Nella pagina del repository Git del progetto, fare clic sulla freccia verso il basso accanto al nome del repository **MyTeam** e selezionare **Gestisci repository...**.
 
     ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
-- Nella scheda **Controllo della versione** del pannello di controllo del progetto team, fare clic su **MyTeam**, quindi selezionare **Rinomina repository**. 
+- Nella scheda **Controllo della versione** del pannello di controllo del progetto, fare clic su **MyTeam**, quindi selezionare **Rinomina repository**. 
 
     ![7](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
 
@@ -122,7 +122,7 @@ Completare questo passaggio se si usa VSTS come piattaforma di hosting del codic
 
 ### <a name="create-the-myteamutilities-repository-r4-on-git"></a>Creare il repository MyTeamUtilities (R4) in Git
 
-- Per creare un nuovo repository *<nome del team\>Utilities* nel progetto team, fare clic su **Nuovo repository** nella scheda **Controllo della versione** del pannello di controllo del progetto team.  
+- Per creare un nuovo repository *<nome del team\>Utilità* nel progetto, fare clic su **Nuovo repository** nella scheda **Controllo della versione** del pannello di controllo del progetto.  
 
     ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
 
@@ -130,7 +130,7 @@ Completare questo passaggio se si usa VSTS come piattaforma di hosting del codic
 
     ![10](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
 
-- Verificare che i due nuovi repository Git creati siano presenti nel progetto team **MyTeam**. Esempio: 
+- Verificare che i due nuovi repository Git creati siano presenti nel progetto **MyTeam**. Esempio: 
 
 - **MyTeamProjectTemplate** (R3) 
 - **MyTeamUtilities** (R4).
@@ -138,7 +138,7 @@ Completare questo passaggio se si usa VSTS come piattaforma di hosting del codic
     ![11](./media/team-lead-tasks/team-leads-11-two-repo-in-team.png)
 
 
-## <a name="2-seed-your-team-projecttemplate-and-teamutilities-repositories"></a>2. Effettuare il seeding dei repository ProjectTemplate e TeamUtilities del team
+## <a name="2-seed-your-projecttemplate-and-teamutilities-repositories"></a>2. Effettuare il seeding dei repository ProjectTemplate e TeamUtilities
 
 La procedura di seeding usa le directory nella DSVM locale come siti di staging intermedi. Se occorre personalizzare i repository **ProjectTemplate** e **TeamUtilities** per soddisfare alcune esigenze specifiche del team, è necessario attendere il penultimo passaggio della procedura seguente. Di seguito è riportato un riepilogo dei passaggi usati per effettuare il seeding del contenuto dei repository **MyTeamProjectTemplate** e **MyTeamUtilities** per un team di data science. I singoli passaggi corrispondono alle sottosezioni della procedura di seeding:
 
@@ -151,7 +151,7 @@ La procedura di seeding usa le directory nella DSVM locale come siti di staging 
 
 ### <a name="initialize-the-team-repositories"></a>Inizializzare i repository del team
 
-In questo passaggio, si inizializza il repository del modello di progetto team dal repository del modello di progetto del gruppo:
+In questo passaggio, si inizializza il repository del modello di progetto dal repository del modello di progetto del gruppo:
 
 - Repository **MyTeamProjectTemplate** (**R3**) dal repository **GroupProjectTemplate** (**R1**)
 
@@ -168,45 +168,45 @@ Per iniziare questa procedura:
 
 **Windows**
 
-    git clone https://<Your VSTS Server name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
+    git clone https://<Your Azure DevOps Services name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
     
 
 ![12](./media/team-lead-tasks/team-leads-12-create-two-group-repos.png)
 
 **Linux**
     
-    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
+    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
     
     
 ![13](./media/team-lead-tasks/team-leads-13-clone_two_group_repos_linux.png)
 
-Questi comandi clonano il repository **GroupProjectTemplate** (R1) nel server VSTS del gruppo nella directory locale **GitRepos\GroupCommon** del computer locale. Dopo la clonazione, viene creata la directory di **GroupProjectTemplate** (D1) nella directory **GitRepos\GroupCommon**. In questo caso, si presuppone che il responsabile del gruppo abbia creato un progetto team **GroupCommon**e il repository **GroupProjectTemplate** nel progetto team. 
+Questi comandi clonano il repository **GroupProjectTemplate** (R1) degli Azure DevOps Services del gruppo nella directory locale **GitRepos\GroupCommon** del computer locale. Dopo la clonazione, viene creata la directory di **GroupProjectTemplate** (D1) nella directory **GitRepos\GroupCommon**. In questo caso, si presuppone che il responsabile del gruppo abbia creato un progetto **GroupCommon** e il repository **GroupProjectTemplate** nel progetto. 
 
 
 ### <a name="clone-your-team-repositories-into-local-directories"></a>Clonare i repository del team nelle directory locali
 
-Questi comandi clonano i repository **MyTeamProjectTemplate** (R3) e **MyTeamUtilities** (R4) del progetto team **MyTeam** nel server VSTS del gruppo nelle directory **MyTeamProjectTemplate** (D3) e **MyTeamUtilities** (D4) nella directory **GitRepos\MyTeam** del computer locale. 
+Questi comandi clonano i repository **MyTeamProjectTemplate** (R3) e **MyTeamUtilities** (R4) del progetto **MyTeam** negli Azure DevOps Services del gruppo nelle directory **MyTeamProjectTemplate** (D3) e **MyTeamUtilities** (D4) nella directory **GitRepos\MyTeam** del computer locale. 
 
 - Passare alla directory **GitRepos\MyTeam**.
 - Eseguire i comandi riportati di seguito, in base alle esigenze, nel sistema operativo del computer locale. 
 
 **Windows**
 
-    git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
-    git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
+    git clone https://<Your Azure DevOps Services name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
+    git clone https://<Your Azure DevOps Services name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
 
 ![14](./media/team-lead-tasks/team-leads-14-clone_two_empty_team_repos.png)
         
 **Linux**
     
-    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
-    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
+    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
+    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
     
 ![15](./media/team-lead-tasks/team-leads-15-clone_two_empty_team_repos_linux.png)
 
-Dopo la clonazione, le due directory **MyTeamProjectTemplate** (D3) e **MyTeamUtilities** (D4) vengono create nella directory **GitRepos\MyTeam**. Si presuppone qui che i repository del modello del progetto team e delle utilità siano stati denominati **MyTeamProjectTemplate** e **MyTeamUtilities**. 
+Dopo la clonazione, le due directory **MyTeamProjectTemplate** (D3) e **MyTeamUtilities** (D4) vengono create nella directory **GitRepos\MyTeam**. Si presuppone in questo caso che i repository del modello del progetto e delle utilità siano stati denominati **MyTeamProjectTemplate** e **MyTeamUtilities**. 
 
-### <a name="copy-the-group-project-template-content-to-the-local-team-project-template-directory"></a>Copiare il contenuto del modello di progetto del gruppo nella directory del modello di progetto team locale
+### <a name="copy-the-group-project-template-content-to-the-local-project-template-directory"></a>Copiare il contenuto del modello di progetto del gruppo nella directory del modello di progetto locale
 
 Per copiare il contenuto della cartella **GroupProjectTemplate** (D1) locale nella cartella **MyTeamProjectTemplate** (D3) locale, eseguire uno degli script della shell seguenti: 
 
@@ -228,7 +228,7 @@ Per copiare il contenuto della cartella **GroupProjectTemplate** (D1) locale nel
 Gli script escludono i contenuti della directory .git. Gli script richiedono di inserire i **percorsi completi** alla directory di origine D1 e alla directory di destinazione D3.
         
 
-### <a name="customize-your-team-project-template-or-team-utilities-optional"></a>Personalizzare il modello di progetto team o le utilità team (facoltativo)
+### <a name="customize-your-project-template-or-team-utilities-optional"></a>Personalizzare il modello di progetto o le utilità dei team (facoltativo)
 
 Se necessario, personalizzare **MyTeamProjectTemplate** (D3) e **MyTeamUtilities** (D4) in questa fase del processo di impostazione. 
 
@@ -248,7 +248,7 @@ Per aggiungere il contenuto delle directory locali (facoltativamente personalizz
     
 ![18](./media/team-lead-tasks/team-leads-18-push-to-group-server-2.png)
 
-L'esecuzione di questo script determina la sincronizzazione praticamente istantanea dei file nel repository MyTeamProjectTemplate del server VSTS del gruppo.
+L'esecuzione di questo script determina la sincronizzazione quasi istantanea dei file nel repository MyTeamProjectTemplate degli Azure DevOps Services del gruppo.
 
 ![19](./media/team-lead-tasks/team-leads-19-push-to-group-server-showed-up.png)
 
@@ -299,7 +299,7 @@ Immettere il nome della risorsa di archiviazione file di Azure da creare. Sono a
 
 Per facilitare il montaggio e la condivisione di questa risorsa di archiviazione dopo averla creata, salvare le informazioni sulla risorsa di archiviazione file di Azure in un file di testo e prendere nota del relativo percorso. Questo file è necessario in particolare per montare la risorsa di archiviazione file di Azure nelle macchine virtuali di Azure nella sezione successiva. 
 
-È consigliabile archiviare il file di testo nel repository ProjectTemplate del team. Si consiglia di inserirlo nella directory **Docs\DataDictionaries**, in modo che tutti i progetti del team possano avere accesso a questo asset di dati. 
+È consigliabile archiviare il file di testo nel repository ProjectTemplate. Si consiglia di inserirlo nella directory **Docs\DataDictionaries**, in modo che tutti i progetti del team possano avere accesso a questo asset di dati. 
 
 ![26](./media/team-lead-tasks/team-leads-26-file-create-s5.png)
 
@@ -329,7 +329,7 @@ Immettere il nome della risorsa di archiviazione file di Azure da creare. Sono a
 
 Per facilitare l'accesso a questa risorsa di archiviazione dopo averla creata, salvare le informazioni sulla risorsa in un file di testo e prendere nota del relativo percorso. Questo file è necessario in particolare per montare la risorsa di archiviazione file di Azure nelle macchine virtuali di Azure nella sezione successiva.
 
-È consigliabile archiviare il file di testo nel repository ProjectTemplate del team. Si consiglia di inserirlo nella directory **Docs\DataDictionaries**, in modo che tutti i progetti del team possano avere accesso a questo asset di dati. 
+È consigliabile archiviare il file di testo nel repository ProjectTemplate. Si consiglia di inserirlo nella directory **Docs\DataDictionaries**, in modo che tutti i progetti del team possano avere accesso a questo asset di dati. 
 
 ![31](./media/team-lead-tasks/team-leads-31-file-create-linux-s5.png)
 
@@ -406,7 +406,7 @@ Verificare che una nuova unità F sia stata montata nel computer in uso.
 
 ## <a name="5-set-up-security-control-policy"></a>5. Configurare i criteri di controllo di sicurezza 
 
-Nella home page del server VSTS del gruppo fare clic sull'**icona a forma di ingranaggio** accanto al nome utente nell'angolo in alto a destra, quindi selezionare la scheda **Protezione**, in cui è possibile aggiungere membri al team con varie autorizzazioni.
+Dalla home page degli Azure DevOps Services del gruppo fare clic sull'**icona a forma di ingranaggio** accanto al nome utente nell'angolo in alto a destra, quindi selezionare la scheda **Sicurezza**. in cui è possibile aggiungere membri al team con varie autorizzazioni.
 
 ![44](./media/team-lead-tasks/team-leads-44-add-team-members.png)
 

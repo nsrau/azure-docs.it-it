@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888084"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052544"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -68,7 +68,7 @@ Per impostazione predefinita, l'emulatore di archiviazione viene installato in `
 
   Per indicare all'emulatore di usare l'istanza di SQL Server predefinita, digitare il comando seguente:
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   In alternativa, è possibile usare il comando seguente, che consente di inizializzare nuovamente l'istanza predefinita LocalDB:
 
@@ -93,10 +93,10 @@ Alcune librerie client dell'archiviazione di Azure, ad esempio la libreria Xamar
 È anche possibile generare un token di firma di accesso condiviso usando Azure PowerShell. L'esempio seguente genera un token di firma di accesso condiviso con autorizzazioni complete per un contenitore BLOB:
 
 1. Installare Azure PowerShell se non è già stato fatto. È consigliabile usare la versione più recente dei cmdlet di PowerShell. Per le istruzioni di installazione, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
-2. Aprire Azure PowerShell ed eseguire i comandi seguenti, sostituendo `ACCOUNT_NAME` e `ACCOUNT_KEY==` con le proprie credenziali e `CONTAINER_NAME` con il nome scelto:
+2. Aprire Azure PowerShell ed eseguire i comandi seguenti, sostituendo `CONTAINER_NAME` con il nome scelto:
 
 ```powershell
-$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+$context = New-AzureStorageContext -Local
 
 New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
@@ -108,7 +108,7 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 L'URI della firma di accesso condiviso risultante per il nuovo contenitore sarà simile a:
 
 ```
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 La firma di accesso condiviso creata con questo esempio è valida per un giorno. La firma concede l'accesso completo (lettura, scrittura, eliminazione ed elenco) ai BLOB all'interno del contenitore.

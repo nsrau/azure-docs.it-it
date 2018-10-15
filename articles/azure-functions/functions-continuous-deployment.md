@@ -4,26 +4,22 @@ description: Per pubblicare Funzioni di Azure, usare le funzionalità di distrib
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735704"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301549"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Distribuzione continua per Funzioni di Azure
-Le funzioni di Azure semplificano la distribuzione dell'app per le funzioni usando l'integrazione continua del servizio app. Le funzioni si integrano con Dropbox, GitHub, BitBucket e Visual Studio Team Services, VSTS. In questo modo viene abilitato un flusso di lavoro in cui gli aggiornamenti al codice della funzione vengono eseguiti tramite una di queste distribuzioni del trigger dei servizi integrati in Azure. Se non si ha familiarità con Funzioni di Azure, iniziare con [Panoramica di Funzioni di Azure](functions-overview.md).
+Le funzioni di Azure semplificano la distribuzione dell'app per le funzioni usando l'integrazione continua del servizio app. Le funzioni si integrano con BitBucket, Dropbox, GitHub e Azure DevOps. In questo modo viene abilitato un flusso di lavoro in cui gli aggiornamenti al codice della funzione vengono eseguiti tramite una di queste distribuzioni del trigger dei servizi integrati in Azure. Se non si ha familiarità con Funzioni di Azure, iniziare con [Panoramica di Funzioni di Azure](functions-overview.md).
 
 La distribuzione continua è un'ottima opzione per i progetti in cui vengono integrati contributi numerosi e frequenti. Consente anche di mantenere il controllo dell'origine del codice funzione. Sono attualmente supportate le origini di distribuzione seguenti:
 
@@ -33,7 +29,7 @@ La distribuzione continua è un'ottima opzione per i progetti in cui vengono int
 * [Archivio locale GIT](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
+* [Servizi di Azure DevOps](https://www.visualstudio.com/team-services/)
 
 Le distribuzioni sono configurate in base alla singola app per le funzioni. Dopo aver abilitato la distribuzione continua, l'accesso al codice di funzione nel portale viene impostato su *sola lettura*.
 
@@ -43,10 +39,10 @@ Le distribuzioni sono configurate in base alla singola app per le funzioni. Dopo
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Per poter distribuire da Visual Studio Team Services occorre per prima cosa collegare l'account di VSTS alla sottoscrizione di Azure. Per altre informazioni, vedere [Set up billing for your VSTS account](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal) (Impostare la fatturazione per l'account di VSTS).
+Per poter distribuire da Azure DevOps, è prima necessario collegare l'organizzazione di Azure DevOps nella sottoscrizione di Azure. Per altre informazioni, consultare [Impostare la fatturazione per l'organizzazione di Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Configurare la distribuzione continua
-Usare la procedura seguente per configurare la distribuzione continua per un'app per le funzioni esistente. Questa procedura illustra l'integrazione con un archivio di GitHub. Una procedura analoga si applica a Visual Studio Team Services o ad altri servizi di distribuzione.
+Usare la procedura seguente per configurare la distribuzione continua per un'app per le funzioni esistente. Questi passaggi illustrano come effettuare l'integrazione con un repository di GitHub, ma passaggi simili sono validi anche per Azure DevOps o altri servizi di distribuzione.
 
 1. Nell'app per le funzioni nel [portale di Azure](https://portal.azure.com) fare clic su **Funzionalità della piattaforma** e **Opzioni di distribuzione**. 
    

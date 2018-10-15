@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 34ee673ee1cf870e376ac8c954a9f3fc468abaa2
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3ec67488b238118067e771baf3dd5124308a84cf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42142359"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296194"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Risoluzione dei problemi di rallentamento delle prestazioni delle app Web nel Servizio app di Azure
 Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app Web nel [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -46,7 +46,7 @@ La risoluzione dei problemi prevede tre attività distinte, in ordine sequenzial
 2. [Raccogliere i dati](#collect)
 3. [Attenuare il problema](#mitigate)
 
-[app Web del servizio app](/services/app-service/web/) vengono presentate diverse opzioni per ogni passaggio.
+[app Web del servizio app](app-service-web-overview.md) vengono presentate diverse opzioni per ogni passaggio.
 
 <a name="observe" />
 
@@ -88,7 +88,7 @@ Per altre informazioni sul monitoraggio degli endpoint, vedere anche il video ch
 
 Ogni app Web del servizio app fornisce un endpoint di gestione estensibile che consente di usare un set avanzato di strumenti distribuiti come estensioni del sito. Le estensioni includono: 
 
-- Editor di codice sorgente come [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
+- Editor di codice sorgente come [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Strumenti di gestione per risorse connesse come un database MySQL connesso a un'app Web.
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) è un'altra estensione del sito disponibile per il monitoraggio delle prestazioni. Per usare Application Insights è necessario ricompilare il codice con un SDK. È anche possibile installare un'estensione che consente l'accesso a dati aggiuntivi. SDK consente di scrivere il codice per monitorare l'utilizzo e prestazioni dell'applicazione in modo più dettagliato. Per altre informazioni, vedere [Monitorare le prestazioni di applicazioni Web](../application-insights/app-insights-web-monitor-performance.md).
@@ -158,7 +158,7 @@ Elementi forniti dalla console Kudu:
 
 Inoltre, nel caso in cui l'applicazione generi eccezioni first-chance, è possibile usare Kudu e l'utilità della riga di comando Procdump dello strumento SysInternals per creare dump della memoria. I dump della memoria sono snapshot del processo e semplificano la risoluzione di problemi più complessi riscontrati nell'app Web.
 
-Per altre informazioni sulle funzionalità disponibili in Kudu, vedere il post di blog relativo agli [strumenti di Azure Websites Team Services che è opportuno conoscere](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Per altre informazioni sulle funzionalità disponibili in Kudu, vedere gli [strumenti DevOps che è opportuno conoscere](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 

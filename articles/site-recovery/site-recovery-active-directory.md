@@ -9,18 +9,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 28ea6c58eed110cfb57f3feaa6b828289bd20e64
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172239"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054547"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Usare Azure Site Recovery per proteggere Active Directory e DNS
 
 Le applicazioni aziendali, ad esempio SharePoint, Dynamics AX e SAP, dipendono dall'infrastruttura di Active Directory e DNS per funzionare correttamente. Quando si configura il ripristino di emergenza per le applicazioni, spesso è necessario ripristinare Active Directory e DNS prima di ripristinare altri componenti dell'applicazione in modo da garantirne il corretto funzionamento.
 
-È possibile usare [Site Recovery](site-recovery-overview.md) per creare un piano di ripristino di emergenza per Active Directory. Quando si verifica un'interruzione, è possibile avviare un failover. Active Directory può entrare in funzione in pochi minuti. Se è stato distribuito Active Directory per più applicazioni nel sito principale, ad esempio per SharePoint e SAP, si potrebbe voler eseguire il failover del sito completo. È possibile eseguire innanzitutto il failover di Active Directory usando Site Ricovery. Quindi eseguire il failover delle altre applicazioni usando i piani di ripristino specifici delle applicazioni.
+È possibile usare [Site Recovery](site-recovery-overview.md) per creare un piano di ripristino di emergenza per Active Directory. Quando si verifica un'interruzione, è possibile avviare un failover. Active Directory può entrare in funzione in pochi minuti. Se è stato distribuito Active Directory per più applicazioni nel sito principale, ad esempio per SharePoint e SAP, si potrebbe voler eseguire il failover del sito completo. È possibile eseguire in primis il failover di Active Directory attraverso Site Recovery. Quindi eseguire il failover delle altre applicazioni usando i piani di ripristino specifici delle applicazioni.
 
 Questo articolo spiega come creare una soluzione di ripristino di emergenza per Active Directory. Include i prerequisiti e le istruzioni di failover. È necessario conoscere Active Directory e Site Recovery prima di iniziare.
 

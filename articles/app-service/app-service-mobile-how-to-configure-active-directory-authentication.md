@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
-ms.openlocfilehash: 2530cb55cb054c02df5d55ccb86e959a061e2499
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0c2ae7e4cf0b19ab9e1c276504892a2a8aaa8dfc
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32155297"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297384"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-login"></a>Configurare un'applicazione dei servizi app per usare l'account di accesso di Azure Active Directory
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -51,7 +51,7 @@ Questo articolo descrive come configurare i servizi app di Azure per usare Azure
 7. A questo punto fare ora clic su **URL di risposta**, modificare il valore nel campo **URL di risposta**, incollare l'URL dell'applicazione copiato nel passaggio 1, modificare il protocollo in modo che sia **https://** e non http://, quindi aggiungere */.auth/login/aad/callback* alla fine dell'URL, ad esempio `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Fare clic su **Save**.   
 8.  A questo punto, copiare l'**ID applicazione** dell'app per usarlo in seguito. Questo valore sarà necessario per configurare l'applicazione dei servizi app.
 9. Chiudere la pagina **App registrata**. Nella pagina **Registrazioni per l'app** fare clic sul pulsante **Endpoint** nella parte superiore e quindi copiare il valore nel campo **URL documento metadati federazione**. 
-10. Aprire una nuova finestra del browser, incollare l'URL e passare alla pagina XML. Nella parte superiore del documento saranno presenti un elemento **EntityDescriptor** e un attributo **entityID** nel formato `https://sts.windows.net/` seguito da un GUID specifico per il tenant (denominato "ID tenant"). Copiare questo valore, che verrà usato come **URL dell'autorità di certificazione**. L'applicazione verrà configurata per l'uso di questo valore più avanti.
+10. Aprire una nuova finestra del browser, incollare l'URL e passare alla pagina XML. Nella parte superiore del documento è presente un elemento **EntityDescriptor**. Trovare l'attributo **entityID** e copiare il relativo valore. Verrà usato come **URL dell'autorità di certificazione**. L'applicazione verrà configurata per l'uso di questo valore più avanti.
 
 ### <a name="secrets"> </a>Aggiungere informazioni di Azure Active Directory all'applicazione dei servizi app
 1. Nel [portale di Azure] passare all'applicazione dei servizi app. Fare clic su **Autenticazione/autorizzazione**. Se la funzionalità di autenticazione/autorizzazione non è abilitata, impostare l'opzione in modo da **abilitarla**. Fare clic su **Azure Active Directory** in Provider di autenticazione per configurare l'app. Facoltativo: per impostazione predefinita, il servizio app fornisce l'autenticazione ma non limita l'accesso alle API e al contenuto del sito solo agli utenti autorizzati. È necessario autorizzare gli utenti nel codice dell'app. Impostare **Azione da eseguire quando la richiesta non è autenticata** selezionare **Accedi con Azure Active Directory**. Per poter usare questa opzione, è necessario che tutte le richieste vengano autenticate e che le richieste non autenticate vengano reindirizzate ad Azure Active Directory per l'autenticazione.
@@ -67,7 +67,7 @@ Azure Active Directory consente inoltre di registrare i client nativi, il che of
 2. Nel riquadro di spostamento a sinistra selezionare **Registrazioni per l'app**. Fare clic su **New app registration** (Nuova registrazione app) nella parte superiore.
 4. Nella pagina **Crea** immettere il nome della registrazione dell'app nel campo **Nome**. In **Tipo applicazione** selezionare **Nativo**.
 5. Nella casella **URI di reindirizzamento** immettere l'endpoint del sito */.auth/login/done*, usando lo schema HTTPS. Questo valore deve essere simile a *https://contoso.azurewebsites.net/.auth/login/done*. Se si crea un'applicazione Windows, usare invece il [SID pacchetto](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) come URI.
-5. Fare clic su **Crea**.
+5. Fare clic su **Create**(Crea).
 6. Dopo aver aggiunto la registrazione dell'app, selezionarla per aprirla. Trovare l'**ID applicazione** e prendere nota del valore.
 7. Fare clic su **Tutte le impostazioni** > **Autorizzazioni necessarie** > **Aggiungi** > **Selezionare un'API**.
 8. Digitare il nome dell'applicazione dei servizi app registrata in precedenza per cercarlo e fare clic su **Seleziona**. 
@@ -94,5 +94,5 @@ Ora è stata configurata un'applicazione client nativa che può accedere all'app
 
 <!-- URLs. -->
 
-[portale di Azure]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/
 [alternative method]:#advanced

@@ -10,18 +10,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 8e68a90c347d4802a99072d6ee4492e01dab54ca
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859977"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050188"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Usare la libreria Java dell'executor bulk per eseguire operazioni in blocco sui dati di Azure Cosmos DB
 
 Questa esercitazione fornisce le istruzioni per importare e aggiornare i documenti in Azure Cosmos DB usando la libreria Java BulkExecutor di Azure Cosmos DB. Per informazioni sulla libreria dell'executor bulk e su come consente di sfruttare il livello elevatissimo di velocità effettiva e archiviazione, vedere l'articolo [Panoramica della libreria dell'executor bulk](bulk-executor-overview.md). In questa esercitazione si compilerà un'applicazione Java che genera documenti casuali che verranno importati in blocco in un contenitore di Azure Cosmos DB. Dopo l'importazione alcune proprietà di un documento verranno aggiornate in blocco. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.  
 
@@ -120,7 +120,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    |List<Exception> getErrors() |  L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di importazione in blocco non vengono inseriti.       |
    |List<Object> getBadInputDocuments()  |    L'elenco di documenti con formato non valido che non sono stati importati correttamente nella chiamata API di importazione in blocco. L'utente deve correggere il problema nei documenti restituiti e ripetere l'importazione. I documenti con formato non valido includono i documenti con un valore ID diverso da stringa, ad esempio con un valore null o con qualsiasi altro tipo di dati.     |
 
-5. Dopo avere preparato l'applicazione di importazione in blocco, compilare lo strumento da riga di comando dall'origine usando il comando 'mvn clean package'. Questo comando genera un file jar nella cartella di destinazione:  
+5. Dopo avere preparato l'applicazione di importazione in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 
    ```java
    mvn clean package
@@ -183,7 +183,7 @@ Il repository clonato contiene due esempi "bulkimport" e "bulkupdate" relativi a
    |Duration getTotalTimeTaken()  |   Il tempo totale impiegato dalla chiamata API di aggiornamento in blocco per completare l'esecuzione.      |
    |List<Exception> getErrors()   |     L'elenco di errori se alcuni documenti del batch fornito alla chiamata API di aggiornamento in blocco non vengono inseriti.      |
 
-3. Dopo avere preparato l'applicazione di aggiornamento in blocco, compilare lo strumento da riga di comando dall'origine usando il comando 'mvn clean package'. Questo comando genera un file jar nella cartella di destinazione:  
+3. Dopo avere preparato l'applicazione di aggiornamento in blocco, compilare lo strumento da riga di comando dall'origine usando il comando "mvn clean package". Questo comando genera un file jar nella cartella di destinazione:  
 
    ```
    mvn clean package

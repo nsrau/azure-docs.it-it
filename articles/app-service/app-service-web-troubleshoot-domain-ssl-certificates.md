@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: genli
-ms.openlocfilehash: 59a9011edef49494288716ab16f30e28e440293b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5dd87c75638c3d084226becaace5c9454660c907
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195183"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303677"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Risolvere i problemi relativi al dominio e al certificato SSL nelle app Web di Azure
 
@@ -167,7 +167,7 @@ Questo problema si verifica per uno dei motivi seguenti:
 
 - Chi non è proprietario della sottoscrizione non è autorizzato ad acquistare un dominio.
 
-    **Soluzione**: [aggiungere il ruolo Proprietario](../billing/billing-add-change-azure-subscription-administrator.md) al proprio account. In alternativa, contattare l'amministratore della sottoscrizione per ottenere l'autorizzazione ad acquistare un dominio.
+    **Soluzione**: [assegnare il ruolo Proprietario](../role-based-access-control/role-assignments-portal.md) al proprio account. In alternativa, contattare l'amministratore della sottoscrizione per ottenere l'autorizzazione ad acquistare un dominio.
 - È stato raggiunto il limite di acquisto dei domini nella sottoscrizione. Il limite corrente è 20.
 
     **Soluzione**: per richiedere un aumento del limite, contattare il [supporto di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

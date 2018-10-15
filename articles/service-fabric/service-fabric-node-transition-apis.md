@@ -1,5 +1,5 @@
 ---
-title: Avviare e arrestare nodi di cluster per testare microservizi di Azure | Documentazione Microsoft
+title: Avviare e arrestare i nodi del cluster per testare le app di Azure Service Fabric | Microsoft Docs
 description: Informazioni su come usare la tecnologia fault injection per testare un'applicazione di Service Fabric avviando e arrestando nodi di cluster.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 0ed18097fa18101c237b4408d26dd1bc9c5d5648
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 95c3726caeb19d6bbf7153533951bb18cd7d0e57
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212579"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055404"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Sostituzione dell'API di avvio del nodo e dell'API di arresto del nodo con l'API di transizione del nodo
 
@@ -29,7 +29,7 @@ L'API di avvio del nodo (gestita: [StopNodeAsync()][stopnode], PowerShell: [Stop
 
 ## <a name="why-are-we-replacing-these"></a>Perché si sta procedendo alla relativa sostituzione?
 
-Come descritto in precedenza, un nodo *arrestato* di Service Fabric è un nodo di destinazione scelto intenzionalmente usando l'API di arresto del nodo.  Un nodo *inattivo* è un nodo che non è attivo per qualsiasi altro motivo, ad esempio, la VM o la macchina è disattivata.  Con l'API di arresto del nodo, il sistema non espone le informazioni per distinguere i nodi *arrestati* e i nodi *inattivi*.
+Come descritto in precedenza, un nodo *arrestato* di Service Fabric è un nodo di destinazione scelto intenzionalmente usando l'API di arresto del nodo.  Un nodo *inattivo* è un nodo che non è attivo per qualsiasi motivo, ad esempio, la VM o il computer sono disattivati.  Con l'API di arresto del nodo, il sistema non espone le informazioni per distinguere i nodi *arrestati* e i nodi *inattivi*.
 
 Inoltre, alcuni errori restituiti da queste API non offrono il massimo livello di dettaglio possibile.  Ad esempio, se si chiama l'API di arresto del nodo su un nodo già *arrestato* verrà restituito l'errore *InvalidAddress*.  Questa esperienza poteva essere migliorata.
 
@@ -42,12 +42,12 @@ Questi problemi sono stati risolti in un nuovo set di API.  La nuova API di tran
 
 **Utilizzo**
 
-Se l'API di transizione del nodo non genera un'eccezione quando viene richiamata, il sistema ha accettato l'operazione asincrona e la eseguirà.  Una chiamata eseguita correttamente non implica che l'operazione sia stata completata.  Per ottenere informazioni sullo stato corrente dell'operazione, chiamare l'API di avanzamento della transizione del nodo (gestito: [GetNodeTransitionProgressAsync()][gntp]) con il GUID usato per chiamare l'API di transizione di nodo per questa operazione.  L'API di avanzamento della transizione del nodo restituisce un oggetto NodeTransitionProgress.  La proprietà State dell'oggetto specifica lo stato corrente dell'operazione.  Se lo stato è "in esecuzione", l'operazione è in corso.  Se lo stato è completato, l'operazione è stata completata senza errori.  Se lo stato indica un errore, si è verificato un problema in fase di esecuzione.  La proprietà Exception della proprietà Result indicherà il problema riscontrato.  Vedere https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate per altre informazioni sulla proprietà State e la sezione "Esempio di utilizzo" riportata di seguito per esempi di codice.
+Se l'API di transizione del nodo non genera un'eccezione quando viene richiamata, il sistema ha accettato l'operazione asincrona e la eseguirà.  Una chiamata eseguita correttamente non implica che l'operazione sia stata completata.  Per ottenere informazioni sullo stato corrente dell'operazione, chiamare l'API di avanzamento della transizione del nodo (gestito: [GetNodeTransitionProgressAsync()][gntp]) con il GUID usato per chiamare l'API di transizione di nodo per questa operazione.  L'API di avanzamento della transizione del nodo restituisce un oggetto NodeTransitionProgress.  La proprietà State dell'oggetto specifica lo stato corrente dell'operazione.  Se lo stato è "In esecuzione", l'operazione è in corso.  Se lo stato è completato, l'operazione è stata completata senza errori.  Se lo stato indica un errore, si è verificato un problema in fase di esecuzione.  La proprietà Exception della proprietà Result indicherà il problema riscontrato.  Vedere https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate per altre informazioni sulla proprietà State e la sezione "Esempio di utilizzo" riportata di seguito per esempi di codice.
 
 
-**Differenze tra un nodo arrestato e un nodo inattivo** Se un nodo è stato *arrestato* usando l'API di transizione del nodo, l'output di una query del nodo (gestito: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) indicherà il valore true della proprietà *IsStopped* per questo nodo.  Si noti che questo valore è diverso dal valore della proprietà *NodeStatus* che indicherà lo stato *inattivo*.  Se la proprietà *NodeStatus* ha il valore *inattivo*, ma *IsStopped* restituisce false, il nodo non è stato arrestato usando l'API di transizione del nodo ed è *inattivo* per un altro motivo.  Se il valore della proprietà *IsStopped* è true e la proprietà *NodeStatus* indica lo stato *inattivo*, il nodo è stato arrestato usando l'API di transizione del nodo.
+**Differenze tra un nodo arrestato e un nodo inattivo** Se un nodo è stato *arrestato* usando l'API di transizione del nodo, l'output di una query del nodo (gestito: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) indicherà il valore true della proprietà *IsStopped* per questo nodo.  Si noti che questo valore è diverso dal valore della proprietà *NodeStatus* che indicherà lo stato *inattivo*.  Se la proprietà *NodeStatus* ha il valore *inattivo*, ma *IsStopped* è falso, il nodo non è stato arrestato usando l'API di transizione del nodo ed è *inattivo* per un altro motivo.  Se il valore della proprietà *IsStopped* è true e la proprietà *NodeStatus* indica lo stato *inattivo*, il nodo è stato arrestato usando l'API di transizione del nodo.
 
-L'avvio di un nodo *arrestato* usando l'API di transizione del nodo ne ripristina il funzionamento come membro normale del cluster.  L'output dell'API di query del nodo indicherà *IsStopped* come false e *NodeStatus* indicherà un valore che non è inattivo, ad esempio, attivo.
+L'avvio di un nodo *arrestato* usando l'API di transizione del nodo ne ripristina il funzionamento come membro normale del cluster.  L'output dell'API di query del nodo indicherà *IsStopped* come falso e *NodeStatus* indicherà un valore diverso da Inattivo, ad esempio, Attivo.
 
 
 **Durata limitata** quando si usa l'API di transizione di nodo per arrestare un nodo, uno dei parametri obbligatori, *stopNodeDurationInSeconds*, rappresenta il tempo in secondi per cui il nodo viene mantenuto *arrestato*.  Questo valore deve essere compreso nell'intervallo consentito, che include un minimo di 600 secondi e un massimo di 14.400 secondi.  Al termine di questo periodo, il nodo verrà riavviato automaticamente in uno stato attivo.  Fare riferimento all'esempio 1 di seguito per un esempio di utilizzo.
@@ -285,6 +285,6 @@ L'avvio di un nodo *arrestato* usando l'API di transizione del nodo ne ripristin
 [startnode]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.faultmanagementclient?redirectedfrom=MSDN#System_Fabric_FabricClient_FaultManagementClient_StartNodeAsync_System_String_System_Numerics_BigInteger_System_String_System_Int32_System_Fabric_CompletionMode_System_Threading_CancellationToken_
 [startnodeps]: https://msdn.microsoft.com/library/mt163520.aspx
 [nodequery]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient#System_Fabric_FabricClient_QueryClient_GetNodeListAsync_System_String_
-[nodequeryps]: https://docs.microsoft.com/powershell/servicefabric/vlatest/Get-ServiceFabricNode?redirectedfrom=msdn
+[nodequeryps]: https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricnode
 [snt]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_StartNodeTransitionAsync_System_Fabric_Description_NodeTransitionDescription_System_TimeSpan_System_Threading_CancellationToken_
 [gntp]: https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.testmanagementclient#System_Fabric_FabricClient_TestManagementClient_GetNodeTransitionProgressAsync_System_Guid_System_TimeSpan_System_Threading_CancellationToken_

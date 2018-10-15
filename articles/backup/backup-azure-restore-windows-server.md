@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/6/2018
+ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 20d2f289f4d40d773fde9f6b770dc49b87c34804
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576186"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297248"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Ripristinare file in un computer di Windows Server o in un client Windows con il modello di distribuzione di Resource Manager
 
@@ -54,6 +54,9 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 > [!IMPORTANT]
 > L'opzione per ripristinare *singoli file e cartelle* richiede .NET Framework versione 4.5.2 o successiva. Se l'opzione *Singoli file e cartelle* non viene visualizzata, è necessario eseguire l'aggiornamento di .NET Framework alla versione 4.5.2 o successiva e riprovare.
 
+> [!TIP]
+> L'opzione *Singoli file e cartelle* consente l'accesso rapido ai dati del punto di ripristino. È adatta per il ripristino di singoli file, con dimensioni massime di 80 GB e velocità di trasferimento e copia delle offerte fino a 6 MBps durante il ripristino. L'opzione *Volume* ripristina tutti i backup dei dati in un determinato volume. Questa opzione offre maggiore velocità di trasferimento (fino a 60 MBps), ideale per il ripristino di dati di grandi dimensioni o di interi volumi.
+
 5. Nel riquadro **Seleziona volume e data** selezionare il volume che contiene i file e/o le cartelle da ripristinare.
 
     Nel calendario selezionare un punto di ripristino. È possibile ripristinare da qualsiasi punto di ripristino. Le date in **grassetto** indicano la disponibilità di almeno un punto di ripristino. Dopo aver selezionato una data, se sono disponibili più punti di ripristino, scegliere quello appropriato dall'elenco a discesa **Ora**.
@@ -72,6 +75,7 @@ Se un file è stato eliminato accidentalmente e lo si vuole ripristinare nello s
 8. In Esplora risorse copiare i file e/o le cartelle che si desidera ripristinare e incollarle in qualsiasi posizione locale nel server o nel computer. È possibile aprire o trasmettere i file direttamente dal volume di ripristino e verificare che vengano ripristinate le versioni corrette.
 
     ![Copiare e incollare file e cartelle dal volume montato alla posizione locale](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+
 
 9. Dopo aver terminato il ripristino di file e/o cartelle, fare clic su **Smonta** nel riquadro **Cerca e ripristina file**. Fare clic su **Sì** per confermare che si desidera smontare il volume.
 

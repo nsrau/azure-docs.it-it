@@ -3,7 +3,7 @@ title: Configurare l'insieme di credenziali delle chiavi di Azure con rotazione 
 description: Usare questa procedura per configurare la rotazione delle chiavi e i log di controllo dell'insieme di credenziali delle chiavi.
 services: key-vault
 documentationcenter: ''
-author: swgriffith
+author: barclayn
 manager: mbaldwin
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
@@ -11,24 +11,30 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: stgriffi
-ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.topic: conceptual
+ms.date: 06/12/2018
+ms.author: barclayn
+ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31594121"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302018"
 ---
-# <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi end-to-end
+# <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi
+
 ## <a name="introduction"></a>Introduzione
-Dopo aver creato l'insieme di credenziali delle chiavi sarà possibile iniziare a usarlo per archiviare le chiavi e i segreti. Le applicazioni non devono più rendere persistenti le chiavi o i segreti, ma li richiederanno all'insieme di credenziali delle chiavi in base alle esigenze. In questo modo è possibile aggiornare le chiavi e i segreti senza influenzare il comportamento dell'applicazione. Si apre così un ampio ventaglio di possibilità per la gestione di chiavi e segreti.
+
+Dopo aver creato un insieme di credenziali delle chiavi, è possibile iniziare a usarle per archiviare le chiavi e i segreti. Le applicazioni non devono più rendere persistenti le chiavi o i segreti, ma li richiederanno all'insieme di credenziali delle chiavi in base alle esigenze. In questo modo è possibile aggiornare le chiavi e i segreti senza influenzare il comportamento dell'applicazione. Si apre così un ampio ventaglio di possibilità per la gestione di chiavi e segreti.
 
 >[!IMPORTANT]
 > Gli esempi inclusi in questo articolo vengono forniti solo a scopo illustrativo. Non sono destinati all'uso in ambienti di produzione. 
 
-Questo articolo illustra un esempio di uso dell'insieme di credenziali delle chiavi di Azure per archiviare un segreto, in questo caso una chiave dell'account di archiviazione di Azure a cui accede un'applicazione. Dimostra anche l'implementazione di una rotazione pianificata della chiave dell'account di archiviazione. Illustra infine come monitorare i log di controllo dell'insieme di credenziali delle chiavi e generare avvisi in caso di richieste impreviste.
+Questo articolo illustra:
+
+- Un esempio dell'uso dell'insieme di credenziali delle chiavi di Azure per archiviare un segreto. In questa esercitazione, il segreto archiviato è la chiave dell'account di Archiviazione di Azure a cui accede un'applicazione. 
+- Dimostra anche l'implementazione di una rotazione pianificata della chiave dell'account di archiviazione.
+- Viene illustrato come monitorare i log di controllo dell'insieme di credenziali delle chiavi e come generare avvisi quando vengono effettuate richieste impreviste.
 
 > [!NOTE]
 > Questa esercitazione non illustra nei dettagli la configurazione iniziale dell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Introduzione all'insieme di credenziali delle chiavi di Azure](key-vault-get-started.md). Per le istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [Gestire l'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando](key-vault-manage-with-cli2.md).
@@ -36,6 +42,7 @@ Questo articolo illustra un esempio di uso dell'insieme di credenziali delle chi
 >
 
 ## <a name="set-up-key-vault"></a>Configurare l'insieme di credenziali delle chiavi
+
 Per consentire a un'applicazione di recuperare un segreto dall'insieme di credenziali delle chiavi, è prima necessario creare il segreto e caricarlo nell'insieme di credenziali. Per eseguire queste operazioni, avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:
 
 ```powershell
@@ -69,6 +76,7 @@ $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
 Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
+
 Ottenere quindi l'URI per il segreto creato. L'URI viene usato in un secondo momento, quando si chiama l'insieme di credenziali delle chiavi per recuperare il segreto. Eseguire questo comando PowerShell e prendere nota del valore ID, che rappresenta l'URI del segreto:
 
 ```powershell
@@ -76,6 +84,7 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>Configurare l'applicazione
+
 Ora che il segreto è stato archiviato è possibile usare il codice per recuperarlo e usarlo. Per ottenere questo risultato, sono necessari alcuni passaggi. Il primo e più importante è registrare l'applicazione in Azure Active Directory e quindi indicare le informazioni sull'applicazione All'insieme di credenziali delle chiavi in modo da consentire richieste dall'applicazione.
 
 > [!NOTE]
@@ -83,29 +92,23 @@ Ora che il segreto è stato archiviato è possibile usare il codice per recupera
 >
 >
 
-Aprire la scheda Applicazioni di Azure Active Directory.
+1. Passare ad Azure Active Directory.
+2. Scegliere **Registrazioni app** 
+3. Scegliere **Registrazione di una nuova applicazione** per aggiungere un'applicazione ad Azure Active Directory.
 
-![Aprire applicazioni in Azure Active Directory](./media/keyvault-keyrotation/AzureAD_Header.png)
+    ![Aprire applicazioni in Azure Active Directory](./media/keyvault-keyrotation/azure-ad-application.png)
 
-Scegliere **Aggiungi** per aggiungere un'applicazione in Azure Active Directory.
+4. Nella sezione **Creare** lasciare il tipo di applicazione come **APPLICAZIONE WEB E/O API WEB** e assegnare un nome all'applicazione. Assegnare all'applicazione un **SIGN-ON URL**. Può trattarsi di qualsiasi operazione desiderata per questa demo.
 
-![Scegliere Aggiungi](./media/keyvault-keyrotation/Azure_AD_AddApp.png)
+    ![Creare una registrazione dell'applicazione](./media/keyvault-keyrotation/create-app.png)
 
-Lasciare il tipo di applicazione **Applicazione Web e/o API Web** e immettere un nome per l'applicazione.
+5. Dopo aver aggiunto l'applicazione ad Azure Active Directory verrà visualizzata la pagina dell'applicazione. Selezionare **Impostazioni**, quindi selezionare le proprietà. Copiare il valore **ID dell'applicazione**. Sarà necessario nei passaggi successivi.
 
-![Assegnare un nome all'applicazione](./media/keyvault-keyrotation/AzureAD_NewApp1.png)
+Generare quindi una chiave per l'applicazione in modo che possa interagire con Azure Active Directory. È possibile creare una chiave, passando alla sezione **Tasti** sotto **Impostazioni**. Prendere nota della chiave appena generata dall'applicazione di Azure Active Directory per usarla in un secondo momento. Si noti che la chiave non sarà disponibile dopo la disconnessione dalla sezione. 
 
-Immettere **URL accesso** e **URI ID app** per l'applicazione. È possibile usare qualsiasi valore per questa demo. Sarà comunque possibile modificarli in un secondo momento se necessario.
+![Chiavi delle applicazioni di Azure Active Directory](./media/keyvault-keyrotation/create-key.png)
 
-![Specificare gli URI necessari](./media/keyvault-keyrotation/AzureAD_NewApp2.png)
-
-Dopo aver aggiunto l'applicazione ad Azure Active Directory verrà visualizzata la pagina dell'applicazione. Fare clic sulla scheda **Configura** e quindi trovare e copiare il valore **ID client**. Annotare l'ID client per i passaggi successivi.
-
-Generare quindi una chiave per l'applicazione in modo che possa interagire con Azure Active Directory. La chiave può essere creata nella sezione **Chiavi** della scheda **Configurazione**. Prendere nota della chiave appena generata dall'applicazione di Azure Active Directory per usarla in un secondo momento.
-
-![Chiavi delle applicazioni di Azure Active Directory](./media/keyvault-keyrotation/Azure_AD_AppKeys.png)
-
-Prima di stabilire chiamate dall'applicazione nell'insieme di credenziali delle chiavi è necessario fornire informazioni sull'applicazione e le relative autorizzazioni all'insieme di credenziali delle chiavi. Il comando seguente recupera il nome dell'insieme di credenziali e l'ID client dall'app di Azure Active Directory e concede l'accesso **Get** all'insieme di credenziali delle chiavi per l'applicazione.
+Prima di stabilire chiamate dall'applicazione nell'insieme di credenziali delle chiavi è necessario fornire informazioni sull'applicazione e le relative autorizzazioni all'insieme di credenziali delle chiavi. Il comando seguente prende il nome dell'insieme di credenziali e l'ID dell'applicazione dall'app di Azure Active Directory e consente di **ottenere** accesso all'insieme di credenziali delle chiavi per l'applicazione.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
@@ -161,6 +164,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 Quando si esegue l'applicazione, verrà eseguita l'autenticazione in Azure Active Directory e quindi verrà recuperato il valore del segreto dall'insieme di credenziali delle chiavi di Azure.
 
 ## <a name="key-rotation-using-azure-automation"></a>Rotazione delle chiavi con Automazione di Azure
+
 Sono disponibili diverse opzioni per l'implementazione di una strategia di rotazione per i valori memorizzati come segreti dell'insieme di credenziali delle chiavi di Azure. La rotazione dei segreti può essere eseguita nell'ambito di un processo manuale, a livello di codice usando chiamate API oppure con uno script di automazione. In questo articolo verrà usato Azure PowerShell insieme ad Automazione di Azure per modificare una chiave di accesso dell'account di archiviazione di Azure. Verrà quindi aggiornato un segreto dell'insieme di credenziali delle chiavi con la nuova chiave.
 
 Per consentire ad Automazione di Azure di impostare i valori del segreto nell'insieme di credenziali delle chiavi, è necessario ottenere l'ID client per la connessione denominata AzureRunAsConnection, creata al momento della definizione dell'istanza di Automazione di Azure. È possibile trovare l'ID scegliendo **Asset** dall'istanza di Automazione di Azure. Scegliere quindi **Connessioni** e selezionare l'entità servizio **AzureRunAsConnection**. Prendere nota del valore di **ID applicazione**.
@@ -407,6 +411,7 @@ Aggiungere poi un file denominato project.json con il contenuto seguente:
        }
     }
 ```
+
 Dopo aver fatto clic su **Salva** , Funzioni di Azure scaricherà i file binari necessari.
 
 Passare alla scheda **Integra** e assegnare al parametro timer un nome significativo da usare all'interno della funzione. Nel codice precedente è previsto che il timer si chiami *myTimer*. Specificare un'[espressione CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) come segue: 0 \* \* \* \* \* per il timer che attiverà l'esecuzione della funzione una volta al minuto.
@@ -418,6 +423,7 @@ Aggiungere un output di tipo *Archiviazione BLOB di Azure*. Anche questo punter�
 A questo punto la funzione è pronta. Assicurarsi di tornare alla scheda **Sviluppo** e salvare il codice. Verificare se nella finestra di output sono presenti errori di compilazione ed eventualmente correggerli. Dopo la compilazione, il codice controllerà i log dell'insieme di credenziali delle chiavi ogni minuto, effettuando il push di eventuali nuovi eventi nella coda del bus di servizio definito. Le informazioni di registrazione verranno scritte nella finestra del log ogni volta che la funzione viene attivata.
 
 ### <a name="azure-logic-app"></a>App per la logica di Azure
+
 A questo punto è necessario creare un'app per la logica di Azure che seleziona gli eventi di cui la funzione effettua il push nella coda del bus di servizio, analizza il contenuto e invia un messaggio di posta elettronica in base alla soddisfazione di una condizione.
 
 Per [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) passare a **Nuovo -> App per la logica**.

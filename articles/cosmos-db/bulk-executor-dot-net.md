@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 842ec8f641fca80e469864dd4d81e14c863fd464
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cc0faa44501ea130309a02bb48d02f9c5b33febd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600058"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053381"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Usare la libreria .NET dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB
 
@@ -41,7 +41,7 @@ git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-st
 
 Il repository clonato contiene due esempi: "BulkImportSample" e "BulkUpdateSample". È possibile aprire una delle applicazioni di esempio, aggiornare le stringhe di connessione nel file App.config con le stringhe di connessione dell'account Azure Cosmos DB, compilare la soluzione ed eseguirla. 
 
-L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocco in Azure Cosmos DB. L'applicazione "BulkUpdateSample" aggiorna in blocco i documenti importati specificando le patch come operazioni da eseguire su campi di documenti specifici. Nelle sezioni successive verrà esaminato il codice in ognuna di queste app di esempio.
+L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocco in Azure Cosmos DB. L'applicazione "BulkUpdateSample" aggiorna in blocco i documenti importati, specificando le patch come operazioni da eseguire su campi di documenti specifici. Nelle sezioni successive verrà esaminato il codice in ognuna di queste app di esempio.
 
 ## <a name="bulk-import-data-to-azure-cosmos-db"></a>Importare in blocco i dati in Azure Cosmos DB
 
@@ -120,7 +120,7 @@ L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocc
 
 È possibile aggiornare i documenti esistenti tramite l'API BulkUpdateAsync. In questo esempio impostare il campo del nome su un nuovo valore e rimuovere il campo della descrizione dai documenti esistenti. Per il set completo di operazioni di aggiornamento di campi supportate, vedere la [documentazione dell'API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet). 
 
-1. Passare alla cartella "BulkUpdateSample" e aprire il file "BulkUpdateSample.sln".  
+1. Passare alla cartella "BulkImportSample" e aprire il file "BulkImportSample.sln".  
 
 2. Definire gli elementi di aggiornamento insieme alle operazioni di aggiornamento dei campi corrispondenti. In questo esempio si userà SetUpdateOperation per aggiornare il campo del nome e UnsetUpdateOperation per rimuovere il campo della descrizione da tutti i documenti. È possibile anche eseguire altre operazioni, ad esempio incrementare un campo del documento per un valore specifico, eseguire il push di valori specifici in un campo di matrice o rimuovere un valore specifico da un campo di matrice. Per informazioni sui diversi metodi forniti dall'API di aggiornamento in blocco, vedere la [documentazione dell'API](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 

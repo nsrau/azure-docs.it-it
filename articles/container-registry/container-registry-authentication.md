@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: be8adf9779c2d168c0ac7a0ed7dbc3e85935df68
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579521"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293729"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Eseguire l'autenticazione con un registro contenitori Docker privato
 
@@ -48,7 +48,7 @@ Le entità servizio consentono la connettività headless a un registro in entram
 
   * *Lettore*: distribuzioni di contenitori da un registro a sistemi di orchestrazione, inclusi Kubernetes, DC/OS e Docker Swarm. È anche possibile eseguire il pull da registri contenitori a servizi di Azure correlati, ad esempio [AKS](../aks/index.yml), [Servizio app](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) e altri ancora.
 
-  * *Collaboratore*: soluzioni di distribuzione e integrazione continua come Visual Studio Team Services o Jenkins, che creano immagini dei contenitori e ne eseguono il push a un registro.
+  * *Collaboratore*: soluzioni di integrazione continua e distribuzione come Azure DevOps o Jenkins che creano immagini dei contenitori e ne eseguono il push a un registro.
 
 > [!TIP]
 > È possibile rigenerare la password di un'entità servizio eseguendo il comando [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials).

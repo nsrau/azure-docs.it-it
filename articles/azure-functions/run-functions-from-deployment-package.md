@@ -5,27 +5,24 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.workload: na
-ms.date: 08/22/2018
+ms.date: 09/10/2018
 ms.author: glenga
-ms.openlocfilehash: 2b9cc3618bf21eac268e3c25f08b80124d52e6af
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a0e643397372e5b132119a7c23f251ecec876916
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669292"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346578"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Eseguire Funzioni di Azure da un file di pacchetto
 
 > [!NOTE]
-> La funzionalità descritta in questo articolo è attualmente in anteprima. Non è disponibile per le funzioni in Linux.
+> La funzionalità descritta in questo articolo non è disponibile per Funzioni di Linux.
 
-In Azure, è possibile eseguire le funzioni direttamente da un file di pacchetto di distribuzione nell'app per le funzioni. L'altra opzione consiste nel distribuire i file di progetto della funzione nella directory `d:\home\site\wwwroot` dell'app per le funzioni.
+In Azure, è possibile eseguire le funzioni direttamente da un file di pacchetto di distribuzione nell'app per le funzioni. L'altra opzione consiste nel distribuire i file nella directory `d:\home\site\wwwroot` dell'app per le funzioni.
 
 Questo articolo descrive i vantaggi dell'esecuzione delle funzioni da un pacchetto. Viene inoltre illustrato come abilitare questa funzionalità nell'app per le funzioni.
 
@@ -37,13 +34,13 @@ Esistono diversi vantaggi nell'esecuzione da un file di pacchetto:
 + Possono essere distribuiti in un'app di produzione (con il riavvio).
 + È possibile sapere con sicurezza quali file sono in esecuzione nell'app.
 + Migliora le prestazioni delle [distribuzioni Azure Resource Manager](functions-infrastructure-as-code.md).
-+ Può ridurre il tempo di avvio a freddo delle funzioni JavaScript.
++ Si possono ridurre i tempi di avvio a freddo, in particolare per le funzioni di JavaScript con grandi alberi del pacchetto npm.
 
 Per altre informazioni, vedere [questo annuncio](https://github.com/Azure/app-service-announcements/issues/84).
 
 ## <a name="enabling-functions-to-run-from-a-package"></a>Abilitazione di funzioni da eseguire da un pacchetto
 
-Per abilitare l'esecuzione dell'app per le funzioni da un pacchetto, è sufficiente aggiungere un'impostazione `WEBSITE_RUN_FROM_ZIP` alle impostazioni dell'app per le funzioni. L'impostazione `WEBSITE_RUN_FROM_ZIP` deve avere almeno uno dei valori seguenti:
+Per abilitare l'esecuzione dell'app per le funzioni da un pacchetto, è sufficiente aggiungere un'impostazione `WEBSITE_RUN_FROM_PACKAGE` alle impostazioni dell'app per le funzioni. L'impostazione `WEBSITE_RUN_FROM_PACKAGE` deve avere almeno uno dei valori seguenti:
 
 | Valore  | DESCRIZIONE  |
 |---------|---------|
@@ -59,9 +56,9 @@ Di seguito viene illustrata un'app per le funzioni configurata per l'esecuzione 
 
 ## <a name="integration-with-zip-deployment"></a>Integrazione con distribuzione di file ZIP
 
-[Distribuzione di file ZIP][Zip deployment for Azure Functions] è una funzione del Servizio app di Azure che consente di distribuire il progetto dell'app per le funzioni nella directory `wwwroot`. Il progetto viene impacchettato come un file di distribuzione di file ZIP. La stesse API possono essere usate per distribuire il pacchetto nella cartella `d:\home\data\SitePackages`. Con il valore `1` dell'impostazione dell'app `WEBSITE_RUN_FROM_ZIP`, le API di distribuzione di file ZIP copiano il pacchetto nella cartella `d:\home\data\SitePackages` invece di estrarre i file in `d:\home\site\wwwroot`. Questa operazione crea anche il file `packagename.txt`. L'app per le funzioni viene quindi eseguita dal pacchetto dopo il riavvio e `wwwroot` diventa di sola lettura. Per altre informazioni sulla distribuzione di file ZIP, vedere [Distribuzione di file ZIP nelle Funzioni di Azure](deployment-zip-push.md).
+[Distribuzione di file ZIP][Zip deployment for Azure Functions] è una funzione del Servizio app di Azure che consente di distribuire il progetto dell'app per le funzioni nella directory `wwwroot`. Il progetto viene impacchettato come un file di distribuzione di file ZIP. La stesse API possono essere usate per distribuire il pacchetto nella cartella `d:\home\data\SitePackages`. Con il valore `1` dell'impostazione dell'app `WEBSITE_RUN_FROM_PACKAGE`, le API di distribuzione di file ZIP copiano il pacchetto nella cartella `d:\home\data\SitePackages` invece di estrarre i file in `d:\home\site\wwwroot`. Questa operazione crea anche il file `packagename.txt`. L'app per le funzioni viene quindi eseguita dal pacchetto dopo il riavvio e `wwwroot` diventa di sola lettura. Per altre informazioni sulla distribuzione di file ZIP, vedere [Distribuzione di file ZIP nelle Funzioni di Azure](deployment-zip-push.md).
 
-## <a name="adding-the-websiterunfromzip-setting"></a>Aggiunta dell'impostazione WEBSITE_RUN_FROM_ZIP
+## <a name="adding-the-websiterunfrompackage-setting"></a>Aggiungere l'impostazione WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 

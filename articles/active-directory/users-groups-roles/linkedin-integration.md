@@ -1,5 +1,5 @@
 ---
-title: Abilitare le connessioni di LinkedIn per le app e i servizi Microsoft in Azure Active Directory | Microsoft Docs
+title: Abilitare l'integrazione delle connessioni di LinkedIn ad Azure Active Directory | Microsoft Docs
 description: Illustra come abilitare o disabilitare le connessioni dell'account LinkedIn per le app Microsoft in Azure Active Directory
 services: active-directory
 author: curtand
@@ -8,44 +8,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 4b3ff0b2481b42f516d28ac17f2616685730b7d5
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 0eaa2656313ecd9b64503051265dc16285f0a1f3
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870708"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44492840"
 ---
-# <a name="linkedin-account-connections-for-microsoft-apps-and-services"></a>Connessioni dell'account LinkedIn per app e servizi Microsoft
-Questo articolo spiega come gestire le connessioni dell'account LinkedIn per il tenant nell'interfaccia di amministrazione di Azure Active Directory (Azure AD). 
+# <a name="linkedin-account-connections"></a>Connessioni all'account LinkedIn
+
+Questo articolo spiega come abilitare o disabilitare le connessioni all'account LinkedIn per il tenant nell'interfaccia di amministrazione di Azure Active Directory (Azure AD).
 
 > [!IMPORTANT]
-> La funzionalità delle connessioni dell'account LinkedIn è attualmente in corso di distribuzione nei tenant di Azure AD. Quando viene distribuita nel tenant, questa funzionalità è abilitata per impostazione predefinita. Non è disponibile per i clienti del settore pubblico degli Stati Uniti e le organizzazioni con cassette postali di Exchange Online ospitate in Australia, Canada, Cina, Francia, Germania, India, Corea del Sud, Regno Unito, Giappone e Sudafrica. Il supporto per queste località delle cassette postali sarà presto disponibile.  Per una visualizzazione aggiornata delle informazioni di implementazione, vedere la pagina [Roadmap di Office 365](https://products.office.com/business/office-365-roadmap?filters=%26freeformsearch=linkedin#abc).
+> L'impostazione delle connessioni all'account LinkedIn è attualmente in corso di distribuzione nei tenant di Azure AD. Quando viene distribuita nel tenant, questa funzionalità è abilitata per impostazione predefinita. 
+> 
+> Eccezioni:
+> * L'impostazione non è disponibile per i clienti che usano Microsoft Cloud per il governo degli Stati Uniti, Microsoft Cloud per la Germania,oppure Azure e Office 365 gestito da 21Vianet in Cina.
+> * L'impostazione è disattivata per impostazione predefinita per i tenant sottoposti a provisioning in Germania. L'impostazione non è disponibile per i clienti che usano Microsoft Cloud per la Germania.
+> * L'impostazione è disattivata per impostazione predefinita per i tenant sottoposti a provisioning in Francia.
 
-## <a name="benefit-to-users"></a>Vantaggi per gli utenti
-Dopo che gli utenti connettono il proprio account LinkedIn, le informazioni di LinkedIn vengono usate per mostrare informazioni e funzionalità personalizzate in diversi servizi o app di Microsoft. Gli utenti possono visualizzare informazioni dettagliate sui propri colleghi nella scheda del profilo Microsoft, anche se si tratta di persone esterne all'organizzazione. Nel tempo, anche l'esperienza LinkedIn diventerà più personalizzata e pertinente al proprio lavoro. Ad esempio, LinkedIn può suggerire nuove connessioni in base ai collaboratori degli utenti o alle informazioni dettagliate di Surface sulle persone presenti nel calendario in tale giorno.
+> L'integrazione funziona solo se è stato abilitato *e* se si consente agli utenti di dare il consenso all'accesso delle app ai dati aziendali per loro conto. Per informazioni sull'impostazione di consenso, vedere [Come eliminare l'accesso di un utente a un'applicazione](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
-## <a name="how-linkedin-account-connections-appear-to-the-user"></a>Modalità di visualizzazione delle connessioni dell'account LinkedIn per l'utente
-Le connessioni dell'account LinkedIn consentono agli utenti di visualizzare le informazioni del profilo LinkedIn disponibili pubblicamente all'interno di alcune delle app Microsoft. Gli utenti nel tenant possono scegliere di connettere il proprio account LinkedIn e l'account Microsoft aziendale o dell'istituto di istruzione per visualizzare altre informazioni del profilo LinkedIn. Per altri dettagli, vedere [LinkedIn information and features in Microsoft apps and services](https://go.microsoft.com/fwlink/?linkid=850740) (Informazioni e funzionalità di LinkedIn nelle app e nei servizi Microsoft).
+## <a name="enable-or-disable-linkedin-account-connections-for-your-tenant-in-the-azure-portal"></a>Abilitare o disabilitare le connessioni all'account LinkedIn per il tenant nel portale di Azure
 
-Quando gli utenti dell'organizzazione connettono il proprio account LinkedIn e l'account Microsoft aziendale o dell'istituto di istruzione, hanno due possibilità: 
-* Concedere l'autorizzazione per condividere i dati tra entrambi gli account. Ciò significa che autorizzano il proprio account LinkedIn a condividere i dati con l'account Microsoft aziendale o dell'istituto di istruzione, nonché il proprio account Microsoft aziendale o dell'istituto di istruzione a condividere i dati con l'account LinkedIn. I dati condivisi con LinkedIn lasciano i servizi online. 
-* Concedere l'autorizzazione per condividere i dati solo dal proprio account LinkedIn all'account Microsoft aziendale o dell'istituto di istruzione.
-
-Per altre informazioni sui dati che vengono condivisi tra l'account LinkedIn e l'account Microsoft aziendale o dell'istituto di istruzione di un utente, vedere [LinkedIn in Microsoft applications at your work or school](https://www.linkedin.com/help/linkedin/answer/84077) (LinkedIn nelle applicazioni Microsoft in azienda o nell'istituto di istruzione). 
-* [Gli utenti possono disconnettere gli account](https://www.linkedin.com/help/linkedin/answer/85097) e rimuovere le autorizzazioni alla condivisione dei dati in qualsiasi momento. 
-* [Gli utenti possono controllare la modalità di visualizzazione del proprio profilo LinkedIn](https://www.linkedin.com/help/linkedin/answer/83), stabilendo ad esempio se consentire la visualizzazione del profilo all'interno delle app Microsoft.
-
-## <a name="privacy-considerations"></a>Considerazioni sulla privacy
-L'abilitazione delle connessioni dell'account LinkedIn consente alle app e ai servizi Microsoft di accedere ad alcune informazioni di LinkedIn degli utenti. Leggere l'[Informativa sulla privacy di Microsoft](https://privacy.microsoft.com/privacystatement/) per altre informazioni sulle considerazioni relative alla privacy quando si abilitano le connessioni dell'account LinkedIn in Azure AD. 
-
-## <a name="manage-linkedin-account-connections"></a>Gestire le connessioni dell'account LinkedIn
-La funzionalità delle connessioni dell'account LinkedIn è abilitata per impostazione predefinita per l'intero tenant. È possibile scegliere di disabilitare le connessioni dell'account LinkedIn per l'intero tenant oppure abilitare le connessioni dell'account LinkedIn per utenti selezionati nel tenant. 
-
-### <a name="enable-or-disable-linkedin-account-connection-for-your-tenant-in-the-azure-portal"></a>Abilitare o disabilitare la connessione dell'account LinkedIn per il tenant nel portale di Azure
+È possibile scegliere di abilitare o disabilitare le connessioni all'account LinkedIn per l'intero tenant oppure solo per utenti selezionati nel tenant.
 
 1. Accedere all'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com/) con un account amministratore globale per il tenant di Azure AD.
 2. Selezionare **Utenti**.
@@ -56,19 +46,25 @@ La funzionalità delle connessioni dell'account LinkedIn è abilitata per impost
   * Selezionare **No** per disabilitare le connessioni dell'account LinkedIn per tutti gli utenti ![Abilitazione delle connessioni dell'account LinkedIn](./media/linkedin-integration/linkedin-integration.png)
 5. Al termine salvare le impostazioni facendo clic su **Salva**.
 
-### <a name="enable-or-disable-linkedin-account-connections-for-your-organizations-office-2016-apps-using-group-policy"></a>Abilitare o disabilitare le connessioni dell'account LinkedIn per le app di Office 2016 dell'organizzazione tramite Criteri di gruppo
+## <a name="enable-or-disable-linkedin-account-connections-for-your-tenant-using-group-policy"></a>Abilitare o disabilitare le connessioni all'account LinkedIn per il tenant usando Criteri di gruppo
 
 1. Scaricare i [file dei modelli amministrativi di Office 2016 (ADMX/ADML)](https://www.microsoft.com/download/details.aspx?id=49030)
 2. Estrarre i file **ADMX** e copiarli nel repository centrale.
 3. Aprire Gestione Criteri di gruppo.
 4. Creare un oggetto Criteri di gruppo con le impostazioni seguenti: **Configurazione utente** > **Modelli amministrativi** > **Microsoft Office 2016** > **Varie** > **Show LinkedIn features in Office applications** (Mostra funzionalità di LinkedIn nelle applicazioni di Office).
 5. Selezionare **Abilitato** o **Disabilitato**.
-  * Se il criterio è **Abilitato**, l'impostazione **Show LinkedIn features in Office applications** (Mostra funzionalità di LinkedIn nelle applicazioni di Office) nella finestra di dialogo Opzioni di Office 2016 è abilitata. Ciò significa anche che gli utenti dell'organizzazione possono usare le funzionalità di LinkedIn nelle applicazioni di Office.
-  * Se il criterio è **Disabilitato**, l'impostazione **Show LinkedIn features in Office applications** (Mostra funzionalità di LinkedIn nelle applicazioni di Office) nella finestra di dialogo Opzioni di Office 2016 è disabilitata e gli utenti finali non possono modificare questa impostazione. Gli utenti dell'organizzazione non possono usare le funzionalità di LinkedIn nelle applicazioni di Office 2016.
+  
+ Stato | Effetto
+------ | ------
+**Enabled** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è abilitata nelle Opzioni di Office 2016. Gli utenti dell'organizzazione possono usare le funzionalità di LinkedIn nelle applicazioni di Office.
+ **Disabilitato** | L'impostazione **Visualizza funzionalità di LinkedIn nelle applicazioni di Office** è disabilitata nelle Opzioni di Office 2016 e gli utenti finali non possono modificare questa impostazione. Gli utenti dell'organizzazione non possono usare le funzionalità di LinkedIn nelle applicazioni di Office 2016.
 
-Questi Criteri di gruppo influiscono solo sulle app di Office 2016 per il computer locale. Gli utenti possono visualizzare in Office 365 le funzionalità di LinkedIn nella scheda del profilo anche se disabilitano LinkedIn per le app di Office 2016. 
+Questi Criteri di gruppo influiscono solo sulle app di Office 2016 per il computer locale. Gli utenti possono visualizzare in Office 365 le funzionalità di LinkedIn nella scheda del profilo anche se disabilitano LinkedIn per le app di Office 2016.
 
-### <a name="learn-more"></a>Altre informazioni 
+## <a name="learn-more"></a>Altre informazioni
+
+* [Integrare LinkedIn all'interno dell'organizzazione](linkedin-user-consent.md)
+
 * [About LinkedIn information and features in Microsoft apps and services](https://go.microsoft.com/fwlink/?linkid=850740) (Informazioni e funzionalità di LinkedIn nelle app e nei servizi Microsoft)
 
 * [Centro assistenza LinkedIn](https://www.linkedin.com/help/linkedin)

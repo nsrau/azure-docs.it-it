@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617219"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348569"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerazioni sulla pianificazione della capacità del cluster Service Fabric
 La pianificazione della capacità è un passaggio importante per qualsiasi distribuzione di produzione. Ecco alcuni aspetti da considerare nell'ambito di tale processo.
@@ -51,7 +51,7 @@ Per ogni tipo di nodo, che rappresenta un set di scalabilità distinto, è possi
 
 Un cluster di Service Fabric può comprendere più di un tipo di nodo. In tal caso, il cluster è costituito da un tipo di nodo primario e uno o più tipi di nodo non primari.
 
-Un tipo di nodo singolo non può superare i 100 nodi per ogni set di scalabilità di macchine virtuali. Per ottenere la scalabilità di destinazione potrebbe essere necessario aggiungere set di scalabilità di macchine virtuali. La scalabilità automatica non può aggiungere automaticamente set di scalabilità di macchine virtuali. L'aggiunta di set di scalabilità di macchine virtuali sul posto a un cluster in tempo reale è un'attività complessa che di norma spinge gli utenti a effettuare il provisioning di nuovi cluster con i tipi di nodo appropriati al momento della creazione. 
+Non è possibile per un tipo di nodo singolo ridimensionare in modo affidabile oltre 100 nodi per ciascun set di scalabilità di macchine virtuali, impostati per applicazioni Service Fabric. Per raggiungere in modo affidabile più di 100 nodi, è necessario aggiungere altri set di scalabilità di macchine virtuali.
 
 ### <a name="primary-node-type"></a>Tipo di nodo primario
 

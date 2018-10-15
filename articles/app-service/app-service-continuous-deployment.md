@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42140342"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298948"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
-Questo articolo illustra come configurare la distribuzione continua per il [servizio app di Azure](app-service-web-overview.md). Il servizio app consente la distribuzione continua da BitBucket, GitHub e [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) effettuando il pull degli aggiornamenti più recenti dal repository esistente in uno di questi servizi.
+Questo articolo illustra come configurare la distribuzione continua per il [servizio app di Azure](app-service-web-overview.md). Il servizio app consente la distribuzione continua da BitBucket, GitHub e [Azure DevOps Services](https://www.visualstudio.com/team-services/) effettuando il pull degli aggiornamenti più recenti dal repository esistente in uno di questi servizi.
 
 Per informazioni su come configurare manualmente la distribuzione continua da un repository cloud non elencato nel portale di Azure (ad esempio [GitLab](https://gitlab.com/)), vedere [Setting up continuous deployment using manual steps](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps) (Configurazione manuale della distribuzione continua).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-Pubblicare il repository preparato in uno dei servizi supportati. Per altre informazioni sulla pubblicazione di progetti in questi servizi, vedere gli articoli relativi a [creazione di repository (GitHub)], [creazione di repository (BitBucket)] e [VSTS].
+Pubblicare il repository preparato in uno dei servizi supportati. Per altre informazioni sulla pubblicazione di progetti in questi servizi, vedere gli articoli relativi a [creazione di repository (GitHub)], [creazione di repository (BitBucket)] e [Introduzione ad Azure DevOps Services].
 
 ## <a name="deploy-continuously-from-github"></a>Eseguire la distribuzione continua da GitHub
 
@@ -47,18 +47,18 @@ Nella pagina **Provider compilazione** scegliere il provider di compilazione e f
 
 Nella pagina **Configura** selezionare l'organizzazione, il repository e il ramo da cui si vuole eseguire la distribuzione continua. Al termine dell'operazione, fare clic su **Continua**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Opzione 2: usare la distribuzione continua di VSTS
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Opzione 2: usare il recapito continuo di Azure DevOps Services
 
 > [!NOTE]
-> Perché il servizio app crei la compilazione e le definizioni di versione necessarie nell'account di VSTS, l'account di Azure deve avere il ruolo di **Proprietario** nella sottoscrizione di Azure.
+> Per il servizio App per creare le Azure Pipelines necessarie nell'organizzazione di Azure DevOps Services, l'account di Azure deve avere il ruolo del **Proprietario** nella sottoscrizione di Azure.
 >
 
 Nella sezione **Codice** della pagina **Configura** selezionare l'organizzazione, il repository e il ramo da cui si vuole eseguire la distribuzione continua. Al termine dell'operazione, fare clic su **Continua**.
 
-Nella sezione **Compila** della pagina **Configura** configurare un nuovo account VSTS o specificare un account esistente. Al termine dell'operazione, fare clic su **Continua**.
+Nella sezione **Compila** della pagina **Configura**, configurare una nuova organizzazione di Azure DevOps Services o specificare un'organizzazione esistente. Al termine dell'operazione, fare clic su **Continua**.
 
 > [!NOTE]
-> Se si vuole usare un account VSTS esistente che non è elencato, è necessario [collegare l'account VSTS alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Se si desidera usare un'organizzazione di Azure DevOps Services esistente non elencata, è necessario [collegare l'organizzazione di Azure DevOps Services alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Nella pagina **Test** scegliere se abilitare i test di carico e fare clic su **Continua**.
 
@@ -90,11 +90,11 @@ Nella pagina **Riepilogo** verificare le opzioni e fare clic su **Fine**.
 
 Al termine della configurazione, i nuovi commit all'interno del repository selezionato vengono distribuiti in modo continuo nell'app del servizio app.
 
-## <a name="deploy-continuously-from-vsts"></a>Eseguire la distribuzione continua da VSTS
+## <a name="deploy-continuously-from-azure-devops-services"></a>Eseguire la distribuzione continua da Azure DevOps Services
 
-Per abilitare la distribuzione continua con VSTS, passare alla pagina dell'app del servizio app nel [portale di Azure](https://portal.azure.com).
+Per abilitare la distribuzione continua con Azure DevOps Services, passare alla pagina dell'app del servizio app nel [portale di Azure](https://portal.azure.com).
 
-Nel menu a sinistra fare clic su **Centro distribuzione** > **VSTS** > **Autorizza**. 
+Nel menu a sinistra fare clic su **Centro distribuzione** > **Azure DevOps Services** > **Continua**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
@@ -102,20 +102,20 @@ Nella pagina **Provider compilazione** scegliere il provider di compilazione e f
 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Opzione 1: usare il server di compilazione Kudu del servizio app
 
-Nella pagina **Configura** selezionare l'account VSTS, il progetto, il repository e il ramo da cui si vuole eseguire la distribuzione continua. Al termine dell'operazione, fare clic su **Continua**.
+Nella pagina **Configura** selezionare l'organizzazione, il progetto, il repository e il ramo Azure DevOps Services da cui si vuole eseguire la distribuzione continua. Al termine dell'operazione, fare clic su **Continua**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Opzione 2: usare la distribuzione continua di VSTS
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Opzione 2: usare il recapito continuo di Azure DevOps Services
 
 > [!NOTE]
-> Perché il servizio app crei la compilazione e le definizioni di versione necessarie nell'account di VSTS, l'account di Azure deve avere il ruolo di **Proprietario** nella sottoscrizione di Azure.
+> Per il servizio app per creare le Azure Pipelines necessarie nell'organizzazione di Azure DevOps Services, l'account di Azure deve avere il ruolo del **Proprietario** nella sottoscrizione di Azure.
 >
 
-Nella sezione **Codice** della pagina **Configura** selezionare l'account VSTS, il progetto, il repository e il ramo da cui si vuole eseguire la distribuzione continua. Al termine dell'operazione, fare clic su **Continua**.
+Nella sezione **Codice** della pagina **Configura**, selezionare l'organizzazione, il progetto, il repository e il ramo Azure DevOps Services da cui si vuole eseguire la distribuzione continua. Al termine dell'operazione, fare clic su **Continua**.
 
 > [!NOTE]
-> Se si vuole usare un account VSTS esistente che non è elencato, è necessario [collegare l'account VSTS alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Se si desidera usare un'organizzazione di Azure DevOps Services esistente non elencata, è necessario [collegare l'organizzazione di Azure DevOps Services alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-Nella sezione **Compila** della pagina **Configura** specificare il framework del linguaggio che VSTS userà per eseguire le attività di compilazione per il repository selezionato. Al termine dell'operazione, fare clic su **Continua**.
+Nella sezione **Compila** della pagina **Configura**, specificare il framework del linguaggio che Azure DevOps Services userà per eseguire le attività di compilazione per il repository selezionato. Al termine dell'operazione, fare clic su **Continua**.
 
 Nella pagina **Test** scegliere se abilitare i test di carico e fare clic su **Continua**.
 
@@ -131,7 +131,7 @@ Al termine della configurazione, i nuovi commit all'interno del repository selez
 
 Per disabilitare la distribuzione continua, passare alla pagina dell'app del servizio app nel [portale di Azure](https://portal.azure.com).
 
-Nel menu a sinistra fare clic su **Centro distribuzione** > **GitHub** oppure **VSTS** oppure **BitBucket** > **Disconnetti**.
+Nel menu a sinistra fare clic su **Centro distribuzione** > **GitHub** oppure **Azure DevOps Services** oppure **BitBucket** > **Disconnetti**.
 
 ![](media/app-service-continuous-deployment/disable.png)
 
@@ -153,4 +153,4 @@ Nel menu a sinistra fare clic su **Centro distribuzione** > **GitHub** oppure **
 
 [creazione di repository (GitHub)]: https://help.github.com/articles/create-a-repo
 [creazione di repository (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Introduzione ad Azure DevOps Services]: https://www.visualstudio.com/docs/vsts-tfs-overview

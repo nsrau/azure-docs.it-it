@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 57109848bf78311ea4d601b135c5dd304d613aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ece3511d0d3c12be13a649385ea9b6dd5c75bfe0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008128"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303711"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Come creare e distribuire un servizio Cloud
 Nel portale di Azure sono disponibili due modi per creare e distribuire un servizio cloud: *Creazione rapida* e *Creazione personalizzata*.
@@ -27,7 +27,7 @@ Nel portale di Azure sono disponibili due modi per creare e distribuire un servi
 In questo argomento viene descritto come usare il metodo di creazione rapida di un nuovo servizio cloud e come caricare e distribuire un pacchetto del servizio cloud in Azure tramite l'opzione **Carica** . Quando si usa questo metodo, il portale di Azure rende disponibili comodi collegamenti per completare tutti i requisiti man mano che si procede. Se si è pronti per distribuire il servizio cloud durante la creazione, è possibile effettuare contemporaneamente entrambe le operazioni usando Creazione personalizzata.
 
 > [!NOTE]
-> Se si prevede di pubblicare il servizio cloud da Visual Studio Team Services (VSTS), usare Creazione rapida, quindi configurare la pubblicazione VSTS da Azure Quickstart o dal dashboard. Per altre informazioni, vedere [Recapito continuo in Azure tramite Visual Studio Team Services][TFSTutorialForCloudService] o la guida alla pagina **Avvio rapido**.
+> Se si prevede di pubblicare il servizio cloud da Azure DevOps, usare Creazione rapida e quindi impostare la pubblicazione di Azure DevOps dall'avvio rapido di Azure o dal dashboard. Per altre informazioni, consultare [Recapito continuo in Azure usando Azure DevOps][TFSTutorialForCloudService] o la pagina **Avvio rapido**.
 >
 >
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40e67dfd4ffa427ac47198e88994762a4a45cc94
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223668"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023352"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Riferimento alle impostazioni di roaming di Windows 10
 Di seguito è riportato un elenco completo di tutte le impostazioni di cui verrà effettuato il roaming o il backup in Windows 10. 
@@ -44,10 +44,11 @@ I gruppi di impostazioni seguenti permettono agli utenti finali di abilitare o d
 
 * Tema: sfondo del desktop, icona utente, posizione della barra delle applicazioni e così via. 
 * Impostazioni di Internet Explorer: cronologia esplorazioni, URL tipizzati, Preferiti e così via. 
-* Password: [Casella di sicurezza delle credenziali di Windows](https://technet.microsoft.com/library/jj554668.aspx), inclusi i profili Wi-Fi. 
+* Password: gestione delle credenziali di Windows, inclusi i profili Wi-Fi 
 * Preferenze lingua: dizionario per il controllo ortografico, impostazioni della lingua del sistema. 
 * Accessibilità: Assistente vocale, tastiera su schermo, lente di ingrandimento. 
 * Altre impostazioni di Windows: vedere la sezione Dettagli relativi alle impostazioni di Windows.
+* Impostazioni del browser Edge: preferiti Microsoft Edge, elenco di lettura e altre impostazioni
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -73,7 +74,7 @@ Le impostazioni di cui non viene effettuato il roaming o la sincronizzazione non
 | **Dati app**: singole app possono sincronizzare i dati |backup sincronizzazione |backup sincronizzazione |Interne |
 | **Elenco app**: elenco delle app installate |X |backup |Altre |
 | **Bluetooth**: tutte le impostazioni Bluetooth |X |X | |
-| **Prompt dei comandi**: impostazioni dei valori predefiniti del prompt dei comandi |sync |X | |
+| **Prompt dei comandi**: impostazioni dei valori predefiniti del prompt dei comandi |sync |X |Interne |
 | **Credenziali**: Casella di sicurezza delle credenziali |sync |sync |password |
 | **Data, ora e opzioni internazionali**: ora automatica (sincronizzazione con l'ora Internet) |sync |sync |Linguaggio |
 | **Data, ora e opzioni internazionali**: formato a 24 ore |sync |X |Linguaggio |
