@@ -3,26 +3,28 @@ title: Impostare i criteri di sicurezza nel Centro sicurezza di Azure | Document
 description: Questo articolo illustra come configurare i criteri di sicurezza nel Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: terrylan
-ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: c68b55beba445b7f5d30efe7155a47e7f6f76690
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756992"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161289"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Impostare i criteri di sicurezza nel Centro sicurezza di Azure
 Questo articolo illustra come configurare i criteri di sicurezza nel Centro sicurezza.
+
+Per istruzioni su come impostare i criteri usando PowerShell, consulta [Guida introduttiva: Creare un'assegnazione di criteri per identificare le risorse non conformi con il modulo Azure RM di PowerShell](../azure-policy/assign-policy-definition-ps.md).
 
 ## <a name="how-security-policies-work"></a>Funzionamento dei criteri di sicurezza
 Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito per ogni sottoscrizione di Azure. Nel Centro sicurezza è possibile modificare i criteri e monitorarne la conformità.
@@ -37,13 +39,12 @@ I requisiti di sicurezza per le risorse usate per lo sviluppo o i test possono v
 
 1. Accedere al portale di Azure.
 
-2. Nel dashboard **Centro sicurezza** in **Generale** selezionare **Criteri di sicurezza**.
+2. Nel dashboard **Centro sicurezza** in **CRITERI E CONFORMITÀ** selezionare **Criteri di sicurezza**.
 
 3. Selezionare la sottoscrizione per cui abilitare un criterio di sicurezza.
 
-4. Nella sezione **Componenti dei criteri** selezionare **Criteri di sicurezza**.  
-    Questi sono i criteri predefiniti assegnati dal Centro sicurezza. È possibile attivare o disattivare le raccomandazioni sulla sicurezza disponibili.
-
+4. Attivare i criteri che si desidera abilitare per la sottoscrizione. Si otterranno suggerimenti in base a ogni criterio selezionato. 
+  ![elenco criteri](./media/security-center-policies/policies.png)
 5. Al termine delle modifiche, selezionare **Salva**.
 
 ## <a name="available-security-policy-definitions"></a>Definizioni di criteri di sicurezza disponibili

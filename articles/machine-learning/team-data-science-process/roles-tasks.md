@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 8cec2c2b72b88a27c4a6c15b197e859b879bef43
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 3e0e9a59d7f77355077fc1f7781eb3be4dbe0532
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308525"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296704"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Ruoli e attività del processo di data science per i team
 
 Il processo di data science per i team è un framework sviluppato da Microsoft che fornisce una metodologia strutturata per creare con efficienza soluzioni di analisi predittiva e applicazioni intelligenti. Questo articolo descrive i ruoli chiave del personale e le loro attività associate gestite da un team di data science che usa questo processo come standard. 
 
-Questa introduzione è collegata a esercitazioni che forniscono istruzioni su come configurare l'ambiente TDSP per l'intero gruppo di data science, i team di data science e i progetti. Fornisce indicazioni dettagliate sull'uso di Visual Studio Team Services (VSTS) nelle esercitazioni.  Visual Studio Team Services offre una piattaforma di hosting del codice e un flessibile strumento di pianificazione per gestire le attività del team, controllare l'accesso e gestire i repository. 
+Questa introduzione è collegata a esercitazioni che forniscono istruzioni su come configurare l'ambiente TDSP per l'intero gruppo di data science, i team di data science e i progetti. Fornisce materiale sussidiario dettagliato usando Azure DevOps nelle esercitazioni. Azure DevOps offre una piattaforma di hosting del codice e un flessibile strumento di pianificazione per gestire le attività del team, controllare l'accesso e gestire i repository. 
 
 È possibile usare queste informazioni anche per implementare TDSP nel proprio strumento di hosting del codice e di pianificazione. 
 
@@ -64,7 +64,7 @@ L'immagine seguente illustra le attività di primo livello del personale, per ru
 Questo schema e la successiva descrizione dettagliata delle attività che sono assegnate a ciascun ruolo nel TDSP consentono di scegliere l'esercitazione appropriata in base alle responsabilità dell'utente nell'organizzazione.
 
 > [!NOTE]
-> Nelle istruzioni seguenti vengono mostrati i passaggi per configurare un ambiente TDSP e completare altre attività di data science in Visual Studio Team Services (VSTS). Si spiega come eseguire queste attività con VSTS, perché è questo lo strumento utilizzato per implementare TDSP in Microsoft. VSTS facilita la collaborazione integrando la gestione degli elementi di lavoro che tengono traccia delle attività e un servizio di hosting del codice utilizzato per condividere le utilità, organizzare le versioni e fornire la sicurezza basata sui ruoli. Per implementare le attività illustrate dal TDSP è anche possibile scegliere altre piattaforme, se si preferisce. Tuttavia, a seconda della piattaforma, è possibile che alcune funzionalità di VSTS non siano disponibili. 
+> Le seguenti istruzioni mostrano i passaggi per configurare un ambiente TDSP e completare altre attività di data science in Azure DevOps. Viene specificato come portare a termine le attività con Azure DevOps, poiché è il metodo usato per l'implementazione di TDSP su Microsoft. Azure DevOps facilita la collaborazione integrando la gestione degli elementi di lavoro che tengono traccia delle attività e un servizio di hosting del codice usato per condividere le utilità, organizzare le versioni e fornire la sicurezza basata sui ruoli. Per implementare le attività illustrate dal TDSP è anche possibile scegliere altre piattaforme, se si preferisce. Tuttavia, a seconda della piattaforma, alcune funzionalità di Azure DevOps potrebbero non essere disponibili. 
 >
 >In queste istruzioni si usa anche la [macchina virtuale per data science (DSVM)](http://aka.ms/dsvm) nel cloud di Azure come desktop di analisi con diversi strumenti di data science comuni preconfigurati e integrati con vari software Microsoft e servizi di Azure. Per implementare TDSP è possibile usare la DSVM o qualsiasi altro ambiente di sviluppo. 
 
@@ -73,7 +73,7 @@ Questo schema e la successiva descrizione dettagliata delle attività che sono a
 
 Il responsabile del gruppo (o un amministratore di sistema TDSP designato) deve completare le attività seguenti per adottare il TDSP:
 
-- Creare un **account di gruppo** in una piattaforma di hosting del codice (ad esempio Github, Git, Visual Studio Team Services o altro)
+- Creare un **account di gruppo** in una piattaforma di hosting del codice (ad esempio Github, Git, Azure DevOps o altro)
 - Creare un **repository dei modelli di progetto** nell'account di gruppo ed eseguirne il seeding dal repository dei modelli di progetto sviluppato dal team TDSP di Microsoft. Il repository dei modelli di progetto TDSP di Microsoft 
     - fornisce una **struttura di directory standardizzata** che comprende directory per dati, codice e documenti 
     - e fornisce un set di **modelli di documento standardizzati** per guidare in modo efficiente il processo di data scienze. 
@@ -86,10 +86,10 @@ Per istruzioni dettagliate, vedere [Attività del responsabile del gruppo per un
 
 ## <a name="team-lead-tasks"></a>Attività del responsabile del team
 
-Il responsabile del team (o un amministratore del progetto team designato) deve completare le attività seguenti per adottare il TDSP:
+Il responsabile del team (o un amministratore di progetto designato) completa le attività seguenti per adottare il TDSP:
 
-- Se Visual Studio Team Services è stato scelto come piattaforma di hosting del codice per il controllo della versione e la collaborazione, creare un **progetto team** nel server VSTS del gruppo. In caso contrario, è possibile ignorare questa attività.
-- Creare il **repository dei modelli del progetto team** sotto il progetto team ed eseguirne il seeding dal repository dei modelli di progetto del gruppo configurato dal responsabile del gruppo o dal delegato del responsabile. 
+- Se Azure DevOps è stato scelto come piattaforma di hosting del codice per il controllo della versione e la collaborazione, creare un **progetto** nei Azure DevOps Services del gruppo. In caso contrario, è possibile ignorare questa attività.
+- Creare il **repository dei modelli del progetto** sotto il progetto ed eseguirne il seeding dal repository dei modelli di progetto del gruppo configurato dal manager del gruppo o dal suo delegato. 
 - Creare il **repository delle utilità del team** e aggiungere le utilità specifiche del team al repository. 
 - (Facoltativo) Creare una **[risorsa di archiviazione di file di Azure](https://azure.microsoft.com/services/storage/files/)** da usare per archiviare gli asset di dati che possono essere utili per l'intero team. Gli altri membri del team possono montare questo archivio file su cloud condiviso sui loro desktop di analisi.
 - (Facoltativo) Montare l'archivio file di Azure sulla **macchina virtuale per data science** (DSVM) del responsabile del team e aggiungere gli asset di dati in essa.
@@ -102,7 +102,7 @@ Per istruzioni dettagliate, vedere [Attività del responsabile del team per un t
 
 Il responsabile di progetto deve completare le attività seguenti per adottare il TDSP:
 
-- Creare un **repository di progetto** sotto il progetto team ed eseguirne il seeding dal repository dei modelli del progetto team. 
+- Creare un **repository di progetto** sotto il progetto ed eseguirne il seeding dal repository dei modelli del progetto. 
 - (Facoltativo) Creare una **risorsa di archiviazione di file di Azure** da usare per archiviare gli asset di dati per il progetto. 
 - (Facoltativo) Montare l'archivio file di Azure sulla **macchina virtuale per data science** (DSVM) del responsabile di progetto e aggiungere gli asset di dati del progetto in essa.
 - Configurare il **controllo di sicurezza** aggiungendo i membri del progetto e configurare i loro privilegi. 
@@ -125,7 +125,7 @@ Per istruzioni dettagliate per l'onboarding in un progetto, vedere [Singoli coll
  
 Seguendo il gruppo di istruzioni pertinente, data scientist, responsabile di progetto e responsabili dei team possono creare elementi di lavoro per tenere traccia di tutte le fasi necessarie per un progetto dall'inizio alla fine. Inoltre, usando Git, si promuove la collaborazione tra i data scientist e si garantisce che gli elementi generati durante l'esecuzione del progetto ricevano un adeguato controllo della versione e siano condivisi da tutti i membri del progetto.
 
-Le istruzioni fornite per l'esecuzione del progetto sono state sviluppate sulla base del presupposto che sia gli elementi di lavoro sia i repository Git del progetto si trovino in Visual Studio Team Services. Usando Visual Studio Team Services per entrambi è possibile collegare gli elementi di lavoro con i rami Git dei repository del progetto. In questo modo è possibile tenere traccia facilmente di ciò che è stato fatto per un elemento di lavoro. 
+Le istruzioni fornite per l'esecuzione del progetto sono state sviluppate sulla base del presupposto che sia gli elementi di lavoro sia i repository Git del progetto si trovino in Azure DevOps. Usando Azure DevOps per entrambi è possibile collegare gli elementi di lavoro con i rami Git dei repository del progetto. In questo modo è possibile tenere traccia facilmente di ciò che è stato fatto per un elemento di lavoro. 
 
 La figura seguente illustra questo flusso di lavoro per l'esecuzione del progetto usando il TDSP.
 

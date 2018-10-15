@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c2cd38001a9645011bbab84cff3b9366aa64b1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3bd77891cc7508eeb1fee2152d37478c654a7e37
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206141"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294704"
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Modelli e scenari per Service Fabric
 Se si vogliono sviluppare microservizi su larga scala con Azure Service Fabric, può essere utile imparare dagli esperti che hanno progettato questa piattaforma distribuita come servizio (PaaS, Platform as a Service). Per iniziare occorre scegliere l'architettura appropriata, per poi imparare le procedure per ottimizzare le risorse per l'applicazione. Il corso [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) (Modelli e procedure consigliate per Service Fabric) offre le risposte alle domande più frequenti dei clienti reali sugli scenari di utilizzo e le aree applicative di Service Fabric.
@@ -72,7 +72,7 @@ Informazioni sui giochi a turni, i giochi interattivi e l'hosting di motori di g
 </table>
 
 ## <a name="continuous-delivery"></a>Recapito continuo
-Presentazione dei concetti, tra i quali integrazione continua/recapito continuo con Visual Studio Team Services, flusso di lavoro di compilazione/creazione del pacchetto/pubblicazione, programma di installazione per più ambienti e pacchetto del servizio/condivisione.
+Vengono illustrati i concetti, tra i quali una continua integrazione e una continua distribuzione con Azure Pipelines, una costruzione, un pacchetto, una pubblicazione del flusso di lavoro, il programma di installazione di più ambienti e il pacchetto del servizio o una condivisione.
 
 <table><tr><th>Video</th><th>Presentazione di PowerPoint</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=78h5ofSGD_305167344">

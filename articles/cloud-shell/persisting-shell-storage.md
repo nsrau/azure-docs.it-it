@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9a22b14df18e10342bb2a872b82b94ab4ea62d0a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 606b36be4a2bbeff8dd226f41341d60e23f0d988
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859868"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163278"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -42,9 +42,7 @@ Con Bash in Cloud Shell è possibile eseguire un comando denominato `clouddrive`
 #### <a name="prerequisites-for-manual-mounting"></a>Prerequisiti per il montaggio manuale
 È possibile aggiornare la condivisione file associata a Cloud Shell usando il comando `clouddrive mount`.
 
-Se si monta una condivisione file esistente, gli account di archiviazione devono avere le caratteristiche seguenti:
-* Avere un account di archiviazione ridondante a livello locale o globale per supportare le condivisioni file.
-* Trovarsi nell'area assegnata. Durante l'onboarding, l'area a cui si è assegnati viene elencata nel nome del gruppo di risorse `cloud-shell-storage-<region>`.
+Se si monta una condivisione file esistente, gli account di archiviazione devono essere posizionati nell'area Cloud Shell selezionata. Recuperare il percorso eseguendo `env` da Bash e controllando il `ACC_LOCATION`.
 
 #### <a name="the-clouddrive-mount-command"></a>Comando `clouddrive mount`
 

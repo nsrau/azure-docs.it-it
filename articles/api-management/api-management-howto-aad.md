@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140768"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391879"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizzare gli account per sviluppatori usando Azure Active Directory in Gestione API di Azure
 
@@ -79,7 +79,10 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
 
     ![Caselle di controllo per le autorizzazioni](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. Selezionare **Concedere le autorizzazioni** dare il consenso delle autorizzazioni per l'applicazione.
+
     Per altre informazioni sulle autorizzazioni per l'applicazione e le autorizzazioni delegate, vedere [Accesso all'API Graph][Accessing the Graph API].
+    
 1. Nel riquadro sinistro copiare il valore di **ID applicazione**.
 
     ![Valore di "ID applicazione"](./media/api-management-howto-aad/application-id.png)
@@ -98,6 +101,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
     > Annotare il valore relativo alla chiave. Una volta chiuso il riquadro di configurazione di Azure AD, la chiave non potrà più essere visualizzata.
     > 
     > 
+
 1. Passare all'applicazione Gestione API. 
 
     Nella finestra **Aggiungi provider di identità** incollare la chiave nella casella di testo **Segreto client**.
@@ -106,6 +110,7 @@ Questo articolo illustra come abilitare l'accesso al portale per sviluppatori pe
     > Assicurarsi di aggiornare il **segreto client** prima della scadenza della chiave. 
     >  
     >
+
 1. La finestra **Aggiungi provider di identità** contiene anche la casella di testo **Tenant consentiti**. In questa casella specificare i domini delle istanze di Azure AD a cui si vuole concedere l'accesso alle API dell'istanza del servizio Gestione API. È possibile separare più domini con virgole, spazi o caratteri di nuova riga.
 
     Nella sezione **Tenant consentiti** si possono specificare più domini. Per consentire a un utente di accedere da un dominio diverso da quello originale in cui è stata registrata l'applicazione, un amministratore globale dell'altro dominio deve concedere l'autorizzazione che permette all'applicazione di accedere ai dati della directory. A tale scopo, l'amministratore globale deve:

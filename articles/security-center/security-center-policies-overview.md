@@ -1,38 +1,42 @@
 ---
-title: Introduzione ai criteri di sicurezza del Centro sicurezza di Azure | Microsoft Docs
-description: Informazioni sui criteri di sicurezza e sulle funzionalità principali del Centro sicurezza di Azure.
+title: Impostare i criteri di sicurezza del Centro sicurezza di Azure | Microsoft Docs
+description: Configurare le impostazioni dei criteri di sicurezza del Centro sicurezza di Azure.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
-ms.author: yurid
-ms.openlocfilehash: f552164edc22b450c4ace57cce5c051d1c93e780
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: ab8a289ea0de263871b76788514052c09a6bf4da
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776126"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295738"
 ---
-# <a name="security-policies-overview"></a>Panoramica dei criteri di sicurezza
+# <a name="security-policy-settings"></a>Impostazioni dei criteri di sicurezza
 Questo articolo offre una panoramica dei criteri di sicurezza del Centro sicurezza.
 
 ## <a name="what-are-security-policies"></a>Informazioni sui criteri di sicurezza
-Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza. Nel Centro sicurezza di Azure è possibile definire criteri per le sottoscrizioni di Azure e adattarli al tipo di carico di lavoro o alla riservatezza dei dati. Ad esempio, le applicazioni che usano dati regolamentati come le informazioni personali possono richiedere un livello di sicurezza maggiore di quello degli altri carichi di lavoro. 
+Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza. Nel Centro sicurezza di Azure è possibile definire criteri per le sottoscrizioni di Azure e adattarli al tipo di carico di lavoro o alla riservatezza dei dati. Ad esempio, le applicazioni che usano dati regolamentati come le informazioni personali possono richiedere un livello di sicurezza maggiore di quello degli altri carichi di lavoro.
 
-I criteri del Centro sicurezza includono i componenti seguenti:
+È possibile impostare quanto segue in Criteri di sicurezza:
 
 - **Raccolta di dati**: determina il provisioning dell'agente e le impostazioni della [raccolta di dati](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- **Criteri di sicurezza**: determina i controlli monitorati e consigliati dal Centro sicurezza. È possibile modificare i [criteri di sicurezza](https://docs.microsoft.com/azure/security-center/security-center-policies) nel Centro sicurezza. È anche possibile usare [Criteri di Azure](security-center-azure-policy.md) (in anteprima limitata) per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri a livello di gruppi di gestione.
-- **Notifiche tramite posta elettronica**: determina i contatti di sicurezza e le impostazioni di [notifica tramite posta elettronica](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
-- **Piano tariffario**: definisce la selezione del livello Gratuito o Standard del [piano tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing). Il piano scelto determina le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito. È possibile specificare un piano per sottoscrizioni, gruppi di risorse e aree di lavoro. 
+- **Criteri di sicurezza**: determina i controlli monitorati e consigliati dal Centro sicurezza. È possibile modificare i [criteri di sicurezza](security-center-policies.md) nel Centro sicurezza. È anche possibile usare [Criteri di Azure](security-center-azure-policy.md) per creare nuove definizioni, definire criteri aggiuntivi e assegnare criteri a livello di gruppi di gestione. 
+- **Notifiche tramite posta elettronica**: determina i contatti di sicurezza e le impostazioni di [notifica tramite posta elettronica](security-center-provide-security-contact-details.md).
+- **Piano tariffario**: definisce la selezione del livello Gratuito o Standard del [piano tariffario](security-center-pricing.md). Il piano scelto determina le funzionalità del Centro sicurezza disponibili per le risorse nell'ambito. È possibile specificare un piano per sottoscrizioni, gruppi di risorse e aree di lavoro.
+
+> [!NOTE]
+> È possibile impostare tutti questi componenti per ogni sottoscrizione. Per le aree di lavoro, è possibile impostare solo Raccolta di dati e Piano tariffario. Per i gruppi di risorse è possibile impostare solo Piano tariffario.
+>
 
 
 ## <a name="who-can-edit-security-policies"></a>Utenti che possono modificare i criteri di sicurezza
@@ -53,5 +57,3 @@ In questo articolo sono state fornite informazioni sui criteri di sicurezza nel 
 - [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md): informazioni sulla gestione e la protezione dei dati nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): risposte alle domande frequenti sull'uso del servizio.
 * [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
-
-

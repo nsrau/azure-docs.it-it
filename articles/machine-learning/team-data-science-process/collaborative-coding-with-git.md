@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: abb1c7a3f597804a84f06462b1e50bb5a63fb9b3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 78bbdb244d9bd52a06623f7a6fa3bca123ef3828
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837362"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300070"
 ---
 # <a name="collaborative-coding-with-git"></a>Creazione collaborativa di codice con Git
 
@@ -28,13 +28,13 @@ In questo articolo viene descritto come eseguire attività di sviluppo collabora
 
 ## 1. <a name='Linkaworkitemwithagitbranch-1'></a>Collegare un elemento di lavoro a un ramo Git 
 
-Visual Studio Team Services fornisce un modo pratico per connettere un elemento di lavoro (una storia o attività) a un ramo Git. In questo modo è possibile collegare direttamente la storia o l'attività al codice associato. 
+Servizi di Azure DevOps offre un modo pratico per connettere un elemento di lavoro (una storia o un'attività) a un ramo Git. In questo modo è possibile collegare direttamente la storia o l'attività al codice associato. 
 
 Per connettere un elemento di lavoro a un nuovo ramo, fare doppio clic su un elemento di lavoro e, nella finestra popup, fare clic su **Crea un nuovo ramo** in **+ Aggiungi collegamento**.  
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-Fornire le informazioni per il nuovo ramo, ad esempio il nome del ramo, il repository Git di base e il ramo. Il repository Git scelto deve essere il repository nello stesso progetto team a cui appartiene l'elemento di lavoro. Il ramo di base può essere il ramo master o un altro ramo esistente.
+Fornire le informazioni per il nuovo ramo, ad esempio il nome del ramo, il repository Git di base e il ramo. Il repository Git scelto deve essere quello nello stesso progetto team a cui appartiene l'elemento di lavoro. Il ramo di base può essere il ramo master o un altro ramo esistente.
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -70,11 +70,11 @@ Ora si supponga di apportare alcune modifiche al ramo *dati\_inserimento* per l'
 
 ![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## 3. <a name='CreateapullrequestonVSTS-3'></a>Creare una richiesta pull in Visual Studio Team Services 
+## 3. <a name='CreateapullrequestonVSTS-3'></a>Creare una richiesta pull nei servizi di Azure DevOps 
 
-Quando si è pronti dopo qualche commit e push, per unire il ramo corrente al relativo ramo di base, è possibile inviare una **richiesta pull** al server di Visual Studio Team Services. 
+Quando si è pronti dopo qualche commit e push, per unire il ramo corrente al relativo ramo di base, è possibile inviare una **richiesta pull** nei servizi di Azure DevOps. 
 
-Passare alla pagina principale del progetto team e fare clic su **CODICE**. Selezionare il ramo da unire e il nome del repository Git che si desidera unire al ramo. Quindi fare clic su **Richieste Pull**, fare clic su **Nuova richiesta pull** per creare una revisione della richiesta pull prima che il lavoro sul ramo venga unito al relativo ramo di base.
+Passare alla pagina principale del progetto e fare clic su **CODICE**. Selezionare il ramo da unire e il nome del repository Git che si desidera unire al ramo. Quindi fare clic su **Richieste Pull**, fare clic su **Nuova richiesta pull** per creare una revisione della richiesta pull prima che il lavoro sul ramo venga unito al relativo ramo di base.
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
