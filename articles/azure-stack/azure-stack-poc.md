@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/04/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 848df59b01cc0c03b9a5f3dae2644d469c8651bb
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: b2b81938eafe104369e52e72f9958e2adf2cca6f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234887"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345221"
 ---
 # <a name="what-is-azure-stack"></a>Cos'è Azure Stack?
 
-Microsoft Azure Stack è una piattaforma di cloud ibrido che consente di offrire servizi di Azure nel data center. Questa piattaforma è progettata per supportare i requisiti aziendali in continua evoluzione. Azure Stack può abilitare nuovi scenari per le applicazioni moderne, ad esempio ambienti perimetrali e disconnessi, oppure soddisfare specifici requisiti di sicurezza e conformità.
+Microsoft Azure Stack è una piattaforma di cloud ibrido che consente di offrire servizi di Azure nel data center. Questa piattaforma è progettata per supportare requisiti aziendali in continua evoluzione. Azure Stack può abilitare nuovi scenari per le applicazioni moderne, ad esempio ambienti perimetrali e disconnessi, oppure soddisfare specifici requisiti di sicurezza e conformità.
 
 Azure Stack è disponibile in due opzioni di distribuzione per le diverse esigenze.
 
@@ -34,18 +34,19 @@ I sistemi integrati di Azure Stack vengono offerti grazie alla collaborazione tr
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Development Kit
 
-Microsoft [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) è una distribuzione a nodo singolo di Azure Stack che può essere usata per valutare e apprendere Azure Stack.  È inoltre possibile utilizzare ASDK come un ambiente di sviluppo per compilare le app usando le API e strumenti che è coerente con Azure.
+Microsoft [Azure Stack Development Kit (ASDK)](.\asdk\asdk-what-is.md) è una distribuzione a nodo singolo di Azure Stack che può essere usata per valutare e apprendere Azure Stack.  È anche possibile usare ASDK come un ambiente di sviluppo per compilare le app usando le API e strumenti che è coerente con Azure.
 
 >[!Note]
->Il ASDK non dovrà essere utilizzato come un ambiente di produzione.
+>Il ASDK non dovrà essere utilizzato come ambiente di produzione.
 
 Il ASDK presenta le limitazioni seguenti:
 
-* ASDK viene associato a un singolo Azure Active Directory (Azure AD) o un provider di identità di Active Directory Federation Services (ADFS). È possibile creare più utenti in questa directory e assegnare sottoscrizioni a ogni utente.
-* Poiché i componenti di Azure Stack vengono distribuiti in un computer host, sono disponibili risorse fisiche limitate per le risorse tenant. Questa configurazione non è destinata alla valutazione di scalabilità o prestazioni.
-* Scenari di rete sono limitati a causa della singolo host e i requisiti di distribuzione di scheda di rete.
+* ASDK è associato a un singolo Azure Active Directory (Azure AD) o provider di identità di Active Directory Federation Services (ADFS). È possibile creare più utenti in questa directory e assegnare sottoscrizioni a ogni utente.
+* Poiché i componenti di Azure Stack vengono distribuiti in un computer host, sono disponibili risorse fisiche limitate per le risorse tenant. Questa configurazione non è la valutazione di scalabilità o prestazioni.
+* Scenari di rete sono limitati a causa il singolo host e i requisiti di distribuzione di interfaccia di rete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Funzionalità e concetti principali](azure-stack-key-features.md)
-- [Azure Stack: un'estensione di Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[Funzionalità e concetti principali](azure-stack-key-features.md)
+
+[Azure Stack: un'estensione di Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)

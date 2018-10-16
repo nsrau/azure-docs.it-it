@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: bce76827c56fd660b6ab4353fed1c43f88132587
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868820"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345272"
 ---
 # <a name="azure-stack-1807-update"></a>Aggiornamento di Azure Stack 1807
 
@@ -232,6 +232,14 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 
 ### <a name="health-and-monitoring"></a>Monitoraggio dell'integrità e
+
+<!-- TBD - IS -->
+- Vengono visualizzati più volte e quindi non vengono più visualizzati nel sistema Azure Stack, è possibile visualizzare gli avvisi seguenti:
+   - *Istanza del ruolo di infrastruttura non disponibile*
+   - *Il nodo di unità di scala è offline*
+   
+  Eseguire la [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet per verificare l'integrità delle istanze del ruolo di infrastruttura e ridimensionare i nodi di unità. Se viene rilevato alcun problema dal [Test-AzureStack](azure-stack-diagnostic-test.md), è possibile ignorare questi avvisi. Se viene rilevato un problema, è possibile provare ad avviare l'istanza del ruolo di infrastruttura o un nodo tramite il portale di amministrazione o PowerShell.
+
 <!-- 1264761 - IS ASDK -->  
 - Si potrebbero visualizzare avvisi per i **controller integrità** componente con i dettagli seguenti:  
 

@@ -1,6 +1,6 @@
 ---
-title: Introduzione a Azure Stack Development Kit (ASDK) | Documenti Microsoft
-description: Vengono descritte le funzionalità di ASDK e casi d'uso comuni per la valutazione di Microsoft Azure Stack.
+title: Introduzione a Azure Stack Development Kit (ASDK) | Microsoft Docs
+description: Descrive le novità di ASDK e casi d'uso comuni per la valutazione di Microsoft Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -13,71 +13,71 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 951cd1adc09373b9af560097b088fd740ceb51a8
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: fa20f746e55f784e02244355c96ac273b9906acc
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850628"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339543"
 ---
-# <a name="what-is-the-azure-stack-development-kit"></a>Che cos'è il Kit di sviluppo dello Stack di Azure?
-[Microsoft Azure Stack integrati sistemi](.\.\azure-stack-poc.md) intervallo dimensioni da 12 a 4 nodi e congiuntamente supportati da un partner di hardware e Microsoft. Usare sistemi Azure Stack integrato per abilitare i nuovi scenari per i carichi di lavoro di produzione. Se si ha un operatore di Stack di Azure che gestisce l'infrastruttura di sistemi integrati e offre servizi, vedere il nostro [documentazione operatore](https://docs.microsoft.com/azure/azure-stack).
+# <a name="what-is-the-azure-stack-development-kit"></a>Che cos'è Azure Stack Development Kit?
+[I sistemi integrati di Microsoft Azure Stack](.\.\azure-stack-poc.md) dimensioni variano da 4 a 12 nodi e congiuntamente supportati da un partner di hardware e Microsoft. Usare i sistemi integrati di Azure Stack per abilitare nuovi scenari per i carichi di lavoro di produzione. Se si ha un operatore di Azure Stack che gestisce l'infrastruttura di sistemi integrati e offre servizi, vedere la [documentazione dell'operatore](https://docs.microsoft.com/azure/azure-stack).
 
-Il Kit di sviluppo dello Stack di Azure (ASDK) è una distribuzione a nodo singolo dello Stack di Azure che è possibile scaricare e usare **gratuitamente**. Tutti i componenti ASDK installati nelle macchine virtuali in esecuzione in un singolo server computer host che deve soddisfare o superare i [requisiti hardware minimi](asdk-deploy-considerations.md#hardware). Il ASDK è progettato per fornire un ambiente in cui è possibile valutare dello Stack di Azure e sviluppare le applicazioni moderne tramite le API e strumenti coerenti con Azure in un *non di produzione* ambiente. 
+Azure Stack Development Kit (ASDK) è una distribuzione a nodo singolo di Azure Stack che è possibile scaricare e usare **gratuitamente**. Tutti i componenti ASDK sono installati in macchine virtuali in esecuzione in un singolo server computer host deve soddisfare o superare il [requisiti hardware minimi](asdk-deploy-considerations.md#hardware). Il ASDK è progettato per fornire un ambiente in cui è possibile valutare Azure Stack e sviluppare applicazioni moderne usando le API e strumenti coerenti con Azure in un *non di produzione* ambiente. 
 
 > [!IMPORTANT]
-> Il ASDK non può essere utilizzato o supportato in un ambiente di produzione.
+> Il ASDK non può essere usato o supportato in un ambiente di produzione.
 
-Poiché tutti i componenti ASDK vengono distribuiti in un computer host di kit sviluppo singolo, sono disponibili risorse fisiche limitate. Con le distribuzioni ASDK, le macchine virtuali di Azure Stack infrastruttura sia il tenant di macchine virtuali coesistono nello stesso computer server. Questa configurazione non è destinata la valutazione di scalabilità o prestazioni.
+Poiché tutti i componenti ASDK vengono distribuiti a un computer host kit di sviluppo singolo, sono disponibili risorse fisiche limitate. Con le distribuzioni ASDK, le macchine virtuali dell'infrastruttura di Azure Stack sia il tenant di macchine virtuali di coesistono sullo stesso computer server. Questa configurazione non è per la valutazione di scalabilità o prestazioni.
 
 Il ASDK è progettato per offrire un'esperienza di cloud ibrido coerenti con Azure per:
-- **Gli amministratori** (gli operatori di Azure Stack). Il ASDK è un'ottima risorsa per valutare e avere informazioni sui servizi disponibili Stack di Azure.
-- **Gli sviluppatori**. Il ASDK utilizzabile per sviluppare applicazioni moderne in locale (ambienti di sviluppo/test) o ibrida. Ciò offre ripetibilità di esperienza di sviluppo prima o insieme, le distribuzioni di produzione Azure Stack. 
+- **Gli amministratori** (operatori di Azure Stack). Il ASDK è un'ottima risorsa per valutare e ottenere informazioni sui servizi di Azure Stack disponibili.
+- **Gli sviluppatori**. Il ASDK utilizzabile per lo sviluppo di applicazioni moderne in locale (ambienti di sviluppo/test) o ibride. Questo offre la ripetibilità dell'esperienza di sviluppo precedenti a, o insieme, le distribuzioni di produzione di Azure Stack. 
 
-Guardare questo breve video per altre informazioni sul ASDK:
+Questo breve video per altre informazioni sul ASDK:
 
 > [!VIDEO https://www.youtube.com/embed/dbVWDrl00MM]
 
 
-## <a name="asdk-and-multi-node-azure-stack-differences"></a>Differenze di Stack Azure ASDK e a più nodi
-Distribuzioni a nodo singolo ASDK diversi da distribuzioni di più nodi Azure Stack alcune importanti differenze che è necessario essere consapevoli di.
+## <a name="asdk-and-multi-node-azure-stack-differences"></a>Differenze di Azure Stack ASDK e a nodi multipli
+Distribuzioni a nodo singolo ASDK differiscono dalle distribuzioni di Azure Stack con più nodi alcuni aspetti importanti che è necessario essere consapevoli di.
 
-|DESCRIZIONE|ASDK|A più nodi Azure Stack|
+|DESCRIZIONE|ASDK|A più nodi di Azure Stack|
 |-----|-----|-----|
-|**Ridimensionare**|Tutti i componenti vengono installati in un computer server a nodo singolo.|Possono variare nella dimensione, da 12 a 4 nodi.|
-|**Resilienza**|Configurazione a nodo singolo non fornisce la disponibilità elevata|[Ad alta disponibilità](.\.\azure-stack-key-features.md#high-availability-for-azure-stack) funzionalità sono supportate.|
-|**Rete**|Il ASDK utilizza una macchina virtuale denominata AzS BGPNAT01 per indirizzare tutto il traffico di rete ASDK. Non sono previsti requisiti aggiuntivi commutatore.|La macchina virtuale AzS BGPNAT01 non esiste nelle distribuzioni a più nodi. Più complessi [rete infrastruttura di routing](.\.\azure-stack-network.md#network-infrastructure) necessario inclusi Top-Of-Rack (TOR), Baseboard Management Controller (BMC) e commutatori bordo (Data Center di rete).|
-|**Processo di patch e aggiornamento**|Per spostare in una nuova versione di ASDK, è necessario ridistribuire il ASDK nel computer host kit di sviluppo.|[Aggiornamenti e patch](.\.\azure-stack-updates.md) processo utilizzato per aggiornare la versione installata di Stack di Azure.|
-|**Supporto**|Forum di MSDN Azure Stack. Il supporto tecnico Microsoft (CSS) supporta *non* disponibili per ambienti non di produzione.|[Forum di MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) e supporto completo CSS.|
+|**Ridimensionare**|Tutti i componenti vengono installati in un computer server a nodo singolo.|Può variare nella dimensione, da 4 a 12 nodi.|
+|**Resilienza**|Configurazione di nodo singolo non fornisce la disponibilità elevata|[Ottenere una disponibilità elevata](.\.\azure-stack-key-features.md#high-availability-for-azure-stack) funzionalità sono supportate.|
+|**Rete**|Il ASDK Usa una macchina virtuale denominata AzS-BGPNAT01 per instradare tutto il traffico di rete ASDK. Non sono previsti requisiti aggiuntivi switch.|La macchina virtuale AzS-BGPNAT01 non esiste nelle distribuzioni a più nodi. Più complessa [infrastruttura di routing di rete](.\.\azure-stack-network.md#network-infrastructure) è necessario come Top-Of-Rack (TOR), Baseboard Management Controller (BMC) e opzioni del bordo (rete datacenter).|
+|**Processo di patch e aggiornamento**|Per spostare in una nuova versione del ASDK, è necessario ridistribuire il ASDK nel computer host kit di sviluppo.|[Applicare patch e aggiornamenti](.\.\azure-stack-updates.md) processo usato per aggiornare la versione installata di Azure Stack.|
+|**Supporto**|Forum di MSDN Azure Stack. Il supporto tecnico Microsoft e supporto (CSS) è *non* disponibile per gli ambienti non di produzione.|[Forum di MSDN Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack) e supporto CSS completo.|
 | | |
 
-## <a name="learn-about-available-services"></a>Informazioni sui servizi disponibili
-Un operatore di Stack di Azure, è necessario sapere quali servizi è possibile rendere disponibili agli utenti. Stack di Azure supporta un sottoinsieme di servizi di Azure e l'elenco di servizi supportati continuerà a evolve nel tempo.
+## <a name="learn-about-available-services"></a>Informazioni su servizi disponibili
+Un operatore di Stack di Azure, è necessario sapere quali servizi è possibile rendere disponibili agli utenti. Azure Stack supporta un subset dei servizi di Azure e l'elenco di servizi supportati continuerà a evolversi nel tempo.
 
 ### <a name="foundational-services"></a>Servizi fondamentali
-Per impostazione predefinita, Azure Stack include i seguenti "fondamentali servizi" quando si distribuisce il ASDK:
+Per impostazione predefinita, Azure Stack include i servizi seguenti: "base" quando si distribuisce il ASDK:
 - Calcolo
 - Archiviazione
 - Rete
 - Key Vault
 
-Con questi servizi fondamentali, è possibile offrire Infrastructure-as-a-Service (IaaS) per gli utenti con la configurazione minima.
+Con questi servizi fondamentali, è possibile offrire agli utenti con la configurazione minima Infrastructure-as-a-Service (IaaS).
 
 ### <a name="additional-services"></a>Servizi aggiuntivi
-Attualmente, sono supportati i servizi Platform-as-a-Service (PaaS) aggiuntivi seguenti:
+Attualmente sono supportati i servizi Platform-as-a-Service (PaaS) aggiuntivi seguenti:
 - Servizio app
 - Funzioni di Azure
-- Database MySQL e SQL Server
+- Database SQL e MySQL
 
 > [!NOTE]
 > Questi servizi richiedono un'ulteriore configurazione prima di renderli disponibili agli utenti e non sono disponibili per impostazione predefinita quando si installa il ASDK.
 
 ## <a name="service-roadmap"></a>Guida di orientamento per servizio
-Stack Azure continuerà aggiungere il supporto per i servizi di Azure aggiuntivi. Per informazioni sulle novità successivo con lo Stack di Azure, vedere la [Guida di orientamento per Azure Stack](https://azure.microsoft.com/roadmap/?tag=azure-stack). 
+Azure Stack continuerà aggiungere il supporto per i servizi Azure aggiuntivi. Per altre informazioni sulle novità in arrivo con Azure Stack, vedere la [roadmap per Azure Stack](https://azure.microsoft.com/roadmap/?tag=azure-stack). 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per iniziare la valutazione dello Stack di Azure, è necessario preparare l'host di kit sviluppo computer server e quindi [installare la ASDK](asdk-install.md). Successivamente, è possibile accedere ai portali amministratore e utente per iniziare a usare Azure Stack.
+Per iniziare la valutazione di Azure Stack, è necessario innanzitutto [scaricare l'ultima ASDK](asdk-download.md) e preparare il computer host ASDK. Dopo aver preparato l'host del kit di sviluppo, è possibile installare il ASDK e accedere ai portali di amministratore e utente per iniziare a usare Azure Stack.

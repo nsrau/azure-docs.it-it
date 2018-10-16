@@ -11,33 +11,37 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/15/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: 9396d49f455f8f4af1abf7f0020e95e8fd0a14cc
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 67e1e22bc5569e7d6e20332ee86ffe4c7dd6a354
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729587"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343844"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Gestire la registrazione del tenant in Azure Stack
 
 *Si applica a: i sistemi integrati di Azure Stack*
 
-Questo articolo contiene informazioni dettagliate sulle operazioni che è possibile usare per gestire le registrazioni tenant e la modalità di rilevamento di utilizzo dei tenant. È possibile trovare informazioni dettagliate su come aggiungere, elenco, o rimuovere i mapping di tenant. È possibile usare PowerShell o gli endpoint API di fatturazione per gestire l'utilizzo di rilevamento.
+Questo articolo contiene informazioni dettagliate sulle operazioni di registrazione. È possibile usare queste operazioni:
+- Gestire le registrazioni dei tenant
+- Gestire il rilevamento dell'utilizzo di tenant
+
+È possibile trovare informazioni dettagliate su come aggiungere, elenco, o rimuovere i mapping di tenant. È possibile usare PowerShell o gli endpoint API di fatturazione per gestire l'utilizzo di rilevamento. È possibile trovare informazioni dettagliate su come aggiungere, elenco, o rimuovere i mapping di tenant. È possibile usare PowerShell o gli endpoint API di fatturazione per gestire l'utilizzo di rilevamento.
 
 ## <a name="add-tenant-to-registration"></a>Aggiungere registrazione tenant
 
-Questa operazione è usare quando si desidera aggiungere un nuovo tenant per la registrazione, in modo che il loro utilizzo viene segnalato in una sottoscrizione di Azure connessa con il tenant di Azure Active Directory (Azure AD).
+L'operazione è usare quando si desidera aggiungere un nuovo tenant per la registrazione. Utilizzo dei tenant viene segnalato in una sottoscrizione di Azure connessa con il tenant di Azure Active Directory (Azure AD).
 
-È anche possibile usare questa operazione se si desidera modificare la sottoscrizione associata a un tenant, è possibile chiamare nuovamente PUT/New-AzureRMResource. Il mapping precedente verrà sovrascritto.
+È anche possibile usare l'operazione se si desidera modificare la sottoscrizione associata a un tenant. Chiamata PUT/New-AzureRMResource per sovrascrivere il mapping precedente.
 
-Si noti che una sola sottoscrizione di Azure può essere associata a un tenant. Se si tenta di aggiungere una seconda sottoscrizione a un tenant esistente, la prima sottoscrizione viene sovrascrittura. 
+È possibile associare una singola sottoscrizione di Azure con un tenant. Se si tenta di aggiungere una seconda sottoscrizione a un tenant esistente, la prima sottoscrizione viene sovrascrittura.
 
 ### <a name="use-api-profiles"></a>Usare i profili delle API
 
-I cmdlet in questo articolo è necessario specificare un profilo di API quando si esegue PowerShell. I profili delle API rappresentano un set di provider di risorse di Azure e le versioni dell'API. Consentono di usare la versione corretta dell'API durante l'interazione con più cloud di Azure, ad esempio quando si lavora con globale di Azure e Azure Stack. I profili vengono specificati da un nome che corrisponde al loro data di rilascio. Con questo articolo, è necessario usare il **2017-09-03** profilo.
+I cmdlet di registrazione è necessario specificare un profilo di API quando si esegue PowerShell. I profili delle API rappresentano un set di provider di risorse di Azure e le versioni dell'API. Consentono di usare la versione corretta dell'API durante l'interazione con più cloud di Azure. Ad esempio, usare più cloud quando si lavora con globale di Azure e Azure Stack. I profili specificano un nome che corrisponda al loro data di rilascio. È necessario usare il **2017-09-03** profilo.
 
 Per altre informazioni su Azure Stack e i profili delle API, vedere [profili della versione di gestione API in Azure Stack](user/azure-stack-version-profiles.md). Per istruzioni su come iniziare e in esecuzione con il profilo di API con PowerShell, vedere [profili di usare l'API della versione per PowerShell in Azure Stack](user/azure-stack-version-profiles-powershell.md).
 
@@ -46,7 +50,7 @@ Per altre informazioni su Azure Stack e i profili delle API, vedere [profili del
 | Parametro                  | DESCRIZIONE |
 |---                         | --- |
 | registrationSubscriptionID | Sottoscrizione di Azure che è stata usata per la registrazione iniziale. |
-| customerSubscriptionID     | Sottoscrizione di Azure (non Azure Stack) che appartengono al cliente da registrare. Deve essere creato nell'offerta Cloud Service Provider (CSP). In pratica, ciò significa tramite Centro per i Partner. Se un cliente ha più di un tenant, è necessario creare la sottoscrizione nel tenant che verrà usato per accedere a Azure Stack. |
+| customerSubscriptionID     | Sottoscrizione di Azure (non Azure Stack) che appartengono al cliente da registrare. Deve essere creato nell'offerta Cloud Service Provider (CSP) tramite Centro per i Partner. Se un cliente ha più di un tenant, ha creato una sottoscrizione per il tenant di accedere a Azure Stack. |
 | resourceGroup              | Il gruppo di risorse in Azure in cui è archiviata la registrazione. |
 | registrationName           | Il nome della registrazione di Azure Stack. È un oggetto archiviato in Azure. Il nome è in genere in CloudID-azurestack form, in cui CloudID è l'ID Cloud della distribuzione di Azure Stack. |
 

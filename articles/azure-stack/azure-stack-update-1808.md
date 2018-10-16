@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e913881faadd4892ad1ebc8cb404efe6489eb0d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310899"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321819"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -145,13 +145,6 @@ Questo aggiornamento contiene anche la mitigazione dei rischi per la vulnerabili
 
 ### <a name="known-issues-with-the-update-process"></a>Problemi noti con il processo di aggiornamento
 
-<!-- TBD - IS -->
-- Vengono visualizzati più volte e quindi non vengono più visualizzati nel sistema Azure Stack, è possibile visualizzare gli avvisi seguenti:
-   - *Istanza del ruolo di infrastruttura non disponibile*
-   - *Il nodo di unità di scala è offline*
-   
-  Eseguire la [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet per verificare l'integrità delle istanze del ruolo di infrastruttura e ridimensionare i nodi di unità. Se viene rilevato alcun problema dal [Test-AzureStack](azure-stack-diagnostic-test.md), è possibile ignorare questi avvisi. Se viene rilevato un problema, è possibile provare ad avviare l'istanza del ruolo di infrastruttura o un nodo tramite il portale di amministrazione o PowerShell.
-
 - Quando si esegue [Test-AzureStack](azure-stack-diagnostic-test.md) dopo l'aggiornamento 1808, viene visualizzato un messaggio di avviso da Baseboard Management Controller (BMC). È possibile ignorare questo avviso.
 
 <!-- 2468613 - IS --> 
@@ -174,7 +167,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 ### <a name="portal"></a>Portale
 
-- La documentazione tecnica di Azure Stack è incentrato sulla versione più recente. A causa di un portale modifiche tra le versioni, ciò che viene visualizzato quando si utilizzano i portali di Azure Stack può variare da quelli visualizzati nella documentazione. 
+- La documentazione tecnica di Azure Stack è incentrato sulla versione più recente di Azure Stack. A causa di un portale modifiche tra le versioni, ciò che viene visualizzato quando si utilizzano i portali di Azure Stack può variare da quelli visualizzati nella documentazione. 
 
 <!-- TBD - IS ASDK --> 
 - È possibile visualizzare un dashboard vuoto nel portale. Per ripristinare il dashboard, fare clic su **modifica Dashboard**, quindi fare doppio clic e selezionare **predefinite reimpostati**.
@@ -214,6 +207,14 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 
 ### <a name="health-and-monitoring"></a>Monitoraggio dell'integrità e
+
+<!-- TBD - IS -->
+- Vengono visualizzati più volte e quindi non vengono più visualizzati nel sistema Azure Stack, è possibile visualizzare gli avvisi seguenti:
+   - *Istanza del ruolo di infrastruttura non disponibile*
+   - *Il nodo di unità di scala è offline*
+   
+  Eseguire la [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet per verificare l'integrità delle istanze del ruolo di infrastruttura e ridimensionare i nodi di unità. Se viene rilevato alcun problema dal [Test-AzureStack](azure-stack-diagnostic-test.md), è possibile ignorare questi avvisi. Se viene rilevato un problema, è possibile provare ad avviare l'istanza del ruolo di infrastruttura o un nodo tramite il portale di amministrazione o PowerShell.
+
 <!-- 1264761 - IS ASDK --> 
 - Si potrebbero visualizzare avvisi per i **controller integrità** componente con i dettagli seguenti:  
 

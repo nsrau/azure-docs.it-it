@@ -3,7 +3,7 @@ title: Nozioni fondamentali sull'amministrazione di Azure Stack | Microsoft Docs
 description: Informazioni su quello che devi sapere per amministrare Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
-ms.author: mabrigg
-ms.openlocfilehash: 39dc48b1357b07932efbccaf002f54ca58edae24
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/15/2018
+ms.author: jeffgilb
+ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093297"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339951"
 ---
 # <a name="azure-stack-administration-basics"></a>Nozioni fondamentali sull'amministrazione di Azure Stack
 Esistono diversi aspetti da sapere se si ha familiarità con amministrazione di Azure Stack. Questa guida fornisce una panoramica del ruolo operatore di Azure Stack e cosa occorre per informare gli utenti per loro diventare rapidamente produttivi.
@@ -144,6 +144,6 @@ Per il kit di sviluppo, è possibile porre domande relative al supporto nel [for
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Gestione area nello Stack di Azure](azure-stack-region-management.md)
+[Gestione area nello Stack di Azure](azure-stack-region-management.md)
 
 

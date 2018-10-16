@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 343c29db4ac5fba37d8ea1b17862b86566ae15ca
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309196"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318130"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Panoramica di piano, offerta, quote e sottoscrizione
 
@@ -52,7 +52,7 @@ I piani sono raggruppamenti di uno o più servizi. Un operatore di Azure Stack, 
 
 Per aiutarti a gestire la capacità del cloud, è possibile usare preconfigurati *quote*, o creare una nuova quota per ogni servizio in un piano. Le quote di definiscono i limiti di risorse superiore che può effettuare il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota potrebbe consentire all'utente di creare fino a cinque macchine virtuali (VM).
 
-È possibile configurare le quote per area. Ad esempio, un piano che fornisce servizi di calcolo per l'area A potrebbe avere una quota di due macchine virtuali con 4 GB di RAM e 8 core di CPU.
+È possibile configurare le quote per area. Ad esempio, un piano che fornisce servizi di calcolo per l'area A potrebbe avere una quota di due macchine virtuali.
 
 >[!NOTE]
 >In Azure Stack Development Kit, una sola area (denominato *locale*) è disponibile.
