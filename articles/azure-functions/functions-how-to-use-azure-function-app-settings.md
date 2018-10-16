@@ -4,23 +4,19 @@ description: Informazioni su come configurare le impostazioni dell'app per le fu
 services: ''
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283803"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301484"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Come gestire un'app per le funzioni nel portale di Azure 
 
@@ -34,7 +30,7 @@ Innanzitutto passare al [portale di Azure](http://portal.azure.com) e accedere a
 
 In alcuni casi può essere difficile trovare le risorse nel [portale di Azure]. Per rendere più semplice trovare le app per le funzioni create, aggiungere le app per le funzioni ai Preferiti nel portale. 
 
-1. Accedere al [portale di Azure].
+1. Accedere al [Portale di Azure].
 
 2. Fare clic sulla freccia in basso a sinistra per espandere tutti i servizi, digitare `Functions` nel campo **Filtro** e quindi fare clic sulla stella accanto a **App per le funzioni**.  
  
@@ -46,7 +42,7 @@ In alcuni casi può essere difficile trovare le risorse nel [portale di Azure]. 
  
     ![App per le funzioni nei Preferiti](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
  
-[portale di Azure]: https://portal.azure.com/
+[Portale di Azure]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Scheda delle impostazioni dell'app per le funzioni
 
@@ -115,7 +111,7 @@ Per altre informazioni su come usare le impostazioni del servizio app, vedere [C
 
 | | |
 |-|-|
-| ![Opzioni di distribuzione dell'app per le funzioni nel portale di Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Funzioni consente di sviluppare il codice della funzione sul computer locale. È quindi possibile caricare il progetto dell'app per le funzioni locale in Azure. Oltre al caricamento FTP tradizionale, Funzioni consente di distribuire l'app per le funzioni usando le soluzioni di integrazione continua più diffusi, come GitHub, VSTS, Dropbox, Bitbucket e altre. Per altre informazioni, vedere [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md). Per caricare manualmente tramite FTP o Git locale, è necessario anche [configurare le credenziali di distribuzione](functions-continuous-deployment.md#credentials). |
+| ![Opzioni di distribuzione dell'app per le funzioni nel portale di Azure](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Funzioni consente di sviluppare il codice della funzione sul computer locale. È quindi possibile caricare il progetto dell'app per le funzioni locale in Azure. Oltre al caricamento FTP tradizionale, Funzioni consente di distribuire app per le funzioni usando le soluzioni di integrazione continua più diffuse, come GitHub, Azure DevOps, Dropbox, Bitbucket e altre. Per altre informazioni, vedere [Distribuzione continua per Funzioni di Azure](functions-continuous-deployment.md). Per caricare manualmente tramite FTP o Git locale, è necessario anche [configurare le credenziali di distribuzione](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS

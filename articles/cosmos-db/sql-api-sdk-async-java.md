@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/20/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 97c7051252ecc8a29cf487f74a68055cd2b3e163
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e90c5640e571aaf28e184e9439f6228e3a5bbc6b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990277"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023563"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ SQL API Async Java SD differisce da SQL API Java SDK offrendo operazioni asincro
 
 <tr><td>**Download dell'SDK**</td><td>[Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)</td></tr>
 
-<tr><td>**Documentazione sull'API**</td><td>[Documentazione di riferimento API Java](https://docs.microsoft.com/java/api/cosmosdb/client/async?view=azure-java-stable)</td></tr>
+<tr><td>**Documentazione sull'API**</td><td>[Documentazione di riferimento API Java](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client?view=azure-java-stable)</td></tr>
 
 <tr><td>**Contribuire all'SDK**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-java)</td></tr>
 
@@ -52,6 +52,17 @@ SQL API Async Java SD differisce da SQL API Java SDK offrendo operazioni asincro
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Ulteriore supporto per Proxy.
+* Ulteriore supporto per l'autorizzazione del token della risorsa.
+* Correzione di un bug nella gestione delle chiavi di partizione di grandi dimensioni ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* Migliore qualità della documentazione.
+* SDK riorganizzato in più moduli granulari.
+
+### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
+* Risolto un bug per impostazioni locali non di lingua inglese ([github #51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
+* Aggiunti metodi di supporto nella risorsa dei conflitti.
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * Sostituzione della dipendenza da org.json con jackson per ottimizzare le prestazioni e la gestione delle licenze ([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
@@ -99,6 +110,8 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |5 settembre 2018|--- |
+| [2.0.1](#2.0.1) |16 agosto 2018|--- |
 | [2.0.0](#2.0.0) |20 giugno 2018|--- |
 | [1.0.2](#1.0.2) |18 maggio 2018|--- |
 | [1.0.1](#1.0.1) |20 aprile 2018|--- |

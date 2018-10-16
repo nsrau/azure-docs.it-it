@@ -10,8 +10,7 @@ Per creare e gestire macchine virtuali (VM) in modo coerente e scalabile, è in 
     - [Automazione di Azure](#azure-automation) può eseguire azioni nell'infrastruttura di Azure e in quella locale.
 
 - Automatizzare la distribuzione di applicazioni
-    - Gli esempi includono [Visual Studio Team Services](#visual-studio-team-services) e [Jenkins](#jenkins).
-
+    - Gli esempi includono [Azure DevOps Services](#visual-studio-team-services) e [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) è un motore di automazione per la gestione della configurazione, la creazione di macchine virtuali e la distribuzione di applicazioni. Ansible usa un modello senza agente, in genere con chiavi SSH, per autenticare e gestire i computer di destinazione. Le attività di configurazione vengono definite nei playbook, con alcuni moduli Ansible disponibili per eseguire attività specifiche. Per altre informazioni, vedere [How Ansible works](https://www.ansible.com/how-ansible-works) (Funzionamento di Ansible).
@@ -114,12 +113,12 @@ Automazione di Azure fornisce anche un servizio DSC (Desired State Configuration
 - [Usare Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
 
-## <a name="visual-studio-team-services"></a>Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/) è una famiglia di strumenti che permettono di condividere e monitorare il codice, usare compilazioni automatiche e creare una pipeline di sviluppo e integrazione continua completa. Team Services si integra con Visual Studio e altri editor per semplificare l'utilizzo. Team Services può anche creare e configurare macchine virtuali di Azure e quindi distribuire codice in queste macchine virtuali.
+## <a name="azure-devops-services"></a>Azure DevOps Services
+[Azure DevOps Services](https://www.visualstudio.com/team-services/) è una famiglia di strumenti che permette di condividere e monitorare il codice, usare compilazioni automatiche e creare una pipeline di sviluppo e integrazione continua completa (CI/CD). Azure DevOps Services si integra con Visual Studio e altri editor di testo per semplificare l'utilizzo. Azure DevOps Services può anche creare e configurare macchine virtuali di Azure e quindi distribuirvi il codice.
 
 È possibile passare agli argomenti seguenti:
 
-- [Creare una pipeline di integrazione continua con Team Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Creare una pipeline di integrazione continua con i servizi di Azure DevOps](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
 
 
 ## <a name="jenkins"></a>Jenkins
