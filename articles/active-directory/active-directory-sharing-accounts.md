@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: c8d7f1f5b793fcb684e9896bb93213a23d489860
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 163972329161f90ad364b25e7e60e9e5a04324d5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448544"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720005"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
 ## <a name="overview"></a>Panoramica
@@ -71,7 +71,7 @@ Per usare Azure AD per la condivisione di un account è necessario:
 Mediante Azure AD è possibile rendere l'account condiviso più sicuro tramite Multi-Factor Authentication (MFA) (altre informazioni sulla [sicurezza delle applicazioni con Azure AD](authentication/concept-mfa-whichversion.md)) ed è possibile delegare la capacità di gestire chi deve avere accesso all'applicazione mediante la gestione dei gruppi in [modalità self-service di Azure AD](users-groups-roles/groups-self-service-management.md).
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](active-directory-apps-index.md)
+* [Gestione di applicazioni con Azure Active Directory](manage-apps/what-is-application-management.md)
 * [Sicurezza delle app con l'accesso condizionale](active-directory-conditional-access-azure-portal.md)
 * [Gestione di gruppi self-service/SSAA](users-groups-roles/groups-self-service-management.md)
 

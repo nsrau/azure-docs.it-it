@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdf5685ad8072175bdabf8938ef293bed6f5cc13
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075707"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162309"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -263,7 +263,7 @@ Il modo per configurare il set di disponibilità di Azure è illustrato in quest
 
 
 ## <a name="azure-network-considerations"></a>Considerazioni sulla rete di Azure 
-Nelle distribuzioni di SAP su larga scala si consiglia di usare il progetto di [data center virtuale di Azure](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) per la configurazione e le autorizzazioni e le assegnazioni di ruolo a parti diverse della propria organizzazione.
+Nelle distribuzioni di SAP su larga scala si consiglia di usare il progetto di [data center virtuale di Azure](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) per la configurazione e le autorizzazioni e le assegnazioni di ruolo a parti diverse della propria organizzazione.
 
 Esistono molte procedure consigliate nate come risultato di centinaia di distribuzioni dei clienti:
 
@@ -272,6 +272,11 @@ Esistono molte procedure consigliate nate come risultato di centinaia di distrib
 - Le macchine virtuali all'interno della rete virtuale hanno un'allocazione statica dell'indirizzo IP privato. Vedere l'articolo [Tipi di indirizzi IP e metodi di allocazione in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) come riferimento.
 - Le limitazioni del routing da e verso le macchine virtuali DBMS **NON** vengono impostate con i firewall installati nelle macchine virtuali DBMS locali. Il routing del traffico viene invece definito con i [Gruppi di sicurezza di rete (NSG) di Azure](https://docs.microsoft.com/azure/virtual-network/security-overview).
 - Al fine di separare e isolare il traffico verso la VM DBMS, si assegnano schede di rete diverse alla macchina virtuale. Ogni scheda di rete dispone di un indirizzo IP diverso ed è assegnata a una subnet diversa della rete virtuale. Le subnet hanno regole NSG diverse. L'isolamento o la separazione del traffico di rete è solo una misura di routing e non consente di impostare quote per la velocità effettiva della rete.
+
+> [!NOTE]
+> È consigliabile assegnare indirizzi IP statici tramite Azure alle singole schede di interfaccia di rete virtuali. Non è opportuno assegnare indirizzi IP statici all'interno del sistema operativo guest a una scheda di interfaccia di rete virtuale. Alcuni servizi di Azure, come Backup di Azure, si basano sul fatto che almeno la scheda di interfaccia di rete virtuale primaria sia impostata su DHCP e non su indirizzi IP statici. Vedere anche il documento [Risolvere i problemi relativi al backup delle macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Se è necessario assegnare più indirizzi IP statici a una macchina virtuale, occorre assegnare più schede di interfaccia di rete virtuali a una macchina virtuale.
+>
+>
 
 Se si usano due macchine virtuali per la distribuzione DBMS di produzione in un set di disponibilità di Azure più un routing separato per il livello dell'applicazione SAP e il traffico operativo e di gestione verso le due macchine virtuali DBMS, il diagramma appare indicativamente come segue:
 

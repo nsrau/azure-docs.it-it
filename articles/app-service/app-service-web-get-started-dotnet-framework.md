@@ -1,6 +1,6 @@
 ---
-title: Creare un'app Web del framework ASP.NET in Azure | Microsoft Docs
-description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo l'app Web ASP.NET predefinita.
+title: Creare un'app Web ASP.NET Framework in C# in Azure | Microsoft Docs
+description: Informazioni su come eseguire app Web nel servizio app di Azure distribuendo l'app Web ASP.NET in C# predefinita.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,36 +12,32 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/30/2017
+ms.date: 09/05/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cce14d91509fe051beef87acdaeac9a92d998ef6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053779"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Creare un'app Web del framework ASP.NET in Azure
 
 Le [app Web di Azure](app-service-web-overview.md) forniscono un servizio di hosting Web ad alta scalabilità e con funzioni di auto-correzione.  Questa guida introduttiva illustra come distribuire la prima app Web ASP.NET in un'app Web di Azure. Al termine della procedura si avrà un gruppo di risorse costituito da un piano di servizio App e da un'app Web di Azure con un'applicazione Web distribuita.
 
-Guardare il video per osservare il funzionamento di questa guida introduttiva e quindi seguire personalmente la procedura per pubblicare la prima app .NET in Azure.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione:
+Per completare questa esercitazione, installare <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> con il carico di lavoro **Sviluppo ASP.NET e Web**.
 
-* Installare <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> con i carichi di lavoro seguenti:
-    - **Sviluppo Web e ASP.NET**
-    - **Sviluppo di Azure**
+Se Visual Studio 2017 è già installato:
 
-    ![Sviluppo Web e ASP.NET e sviluppo di Azure (in Web e Cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
-
-Se Visual Studio è già stato installato, aggiungere i carichi di lavoro in Visual Studio facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità**.
+- Installare gli aggiornamenti più recenti in Visual Studio facendo clic su **?** > **Controlla la disponibilità di aggiornamenti**.
+- Aggiungere il carico di lavoro facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità**.
 
 ## <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
 
@@ -63,17 +59,15 @@ Nel menu selezionare **Debug > Avvia senza eseguire debug** per eseguire l'app W
 
 ![Eseguire l'app in locale](./media/app-service-web-get-started-dotnet-framework/local-web-app.png)
 
-## <a name="publish-to-azure"></a>Pubblicazione in Azure
+## <a name="launch-the-publish-wizard"></a>Avviare la procedura guidata di pubblicazione
 
 In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **myFirstAzureWebApp** e scegliere **Pubblica**.
 
 ![Pubblicare da Esplora soluzioni](./media/app-service-web-get-started-dotnet-framework/solution-explorer-publish.png)
 
-Verificare che **Servizio app di Microsoft Azure** sia selezionato e scegliere **Pubblica**.
+La procedura guidata di pubblicazione viene avviata automaticamente. Selezionare **Servizio app** > **Pubblica** per aprire la finestra di dialogo **Crea servizio app**.
 
 ![Pubblicare dalla pagina di panoramica progetto](./media/app-service-web-get-started-dotnet-framework/publish-to-app-service.png)
-
-Viene visualizzata la finestra di dialogo **Crea servizio app**, che consente di creare tutte le risorse di Azure necessarie per eseguire l'app Web ASP.NET in Azure.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -98,9 +92,9 @@ Assegnare al gruppo di risorse il nome **myResourceGroup** e selezionare **OK**.
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-Accanto a **Piano di servizio app** selezionare **Nuovo**. 
+Accanto a **Piano di hosting** selezionare **Nuovo**. 
 
-Nella finestra di dialogo **Configura piano di servizio app** usare le impostazioni della tabella riportata sotto l'immagine.
+Nella finestra di dialogo **Configura piano di hosting** usare le impostazioni della tabella riportata sotto lo screenshot.
 
 ![Creare un piano di servizio app](./media/app-service-web-get-started-dotnet-framework/configure-app-service-plan.png)
 
@@ -114,17 +108,17 @@ Selezionare **OK**.
 
 ## <a name="create-and-publish-the-web-app"></a>Creare e pubblicare l'app Web
 
-In **Nome app Web** immettere un nome univoco dell'app, usando i caratteri validi `a-z`, `0-9` e `-`, o accettare il nome univoco generato automaticamente. L'URL dell'app Web è `http://<app_name>.azurewebsites.net`, dove `<app_name>` è il nome dell'app Web.
+In **Nome app** immettere un nome univoco dell'app, usando i caratteri validi `a-z`, `0-9` e `-`, o accettare il nome univoco generato automaticamente. L'URL dell'app Web è `http://<app_name>.azurewebsites.net`, dove `<app_name>` è il nome dell'app.
 
 Selezionare **Crea** per avviare la creazione delle risorse di Azure.
 
-![Configurare il nome dell'app Web](./media/app-service-web-get-started-dotnet-framework/web-app-name.png)
+![Configurare il nome dell'app](./media/app-service-web-get-started-dotnet-framework/web-app-name.png)
 
 Al termine della procedura guidata, l'app Web ASP.NET viene pubblicata in Azure e avviata nel browser predefinito.
 
 ![App Web ASP.NET pubblicata in Azure](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
-Il nome dell'app Web specificato nel passaggio relativo alla [creazione e pubblicazione](#create-and-publish-the-web-app) viene usato come prefisso dell'URL nel formato `http://<app_name>.azurewebsites.net`.
+Il nome dell'app specificato nel passaggio relativo alla [creazione e pubblicazione](#create-and-publish-the-web-app) viene usato come prefisso dell'URL nel formato `http://<app_name>.azurewebsites.net`.
 
 L'app Web ASP.NET è ora in esecuzione nel servizio app di Azure.
 
@@ -144,6 +138,7 @@ Trovare il tag HTML `<div class="jumbotron">` in alto e sostituire l'intero elem
 Per la ridistribuzione in Azure, fare clic con il pulsante destro del mouse sul progetto **myFirstAzureWebApp** in **Esplora soluzioni** e selezionare **Pubblica**.
 
 Nella pagina di pubblicazione selezionare **Pubblica**.
+![Pagina di riepilogo della pubblicazione di Visual Studio](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
 
 Al termine del processo di pubblicazione, Visual Studio avvia un browser sull'URL dell'app Web.
 
@@ -162,6 +157,12 @@ Verrà visualizzata la pagina di panoramica dell'app Web. Qui è possibile esegu
 ![Pannello del servizio app nel portale di Azure](./media/app-service-web-get-started-dotnet-framework/web-app-blade.png)
 
 Il menu a sinistra fornisce varie pagine per la configurazione dell'app. 
+
+## <a name="video"></a>Video
+
+Guardare il video per osservare il funzionamento di questa guida introduttiva e quindi seguire personalmente la procedura per pubblicare la prima app .NET in Azure.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

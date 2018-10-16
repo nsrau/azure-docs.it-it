@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 50e4b9b8b8f9433ec725aaa982e969cec7afb91c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/17/2018
+ms.openlocfilehash: ac5be20815b552c08e5cd1054bf24d7a10b56498
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265786"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124270"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Log del server nel Database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi. 
@@ -29,9 +29,9 @@ Nel portale di Azure selezionare il server del Database di Azure per MySQL. Nell
 Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere [Configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md).
 
 ## <a name="log-retention"></a>Conservazione dei log
-I log sono disponibili per un massimo di sette giorni dalla data di creazione. Se le dimensioni totali dei log disponibili superano 7,5 GB, i file meno recenti vengono eliminati finché non si rende disponibile spazio. 
+I log sono disponibili per un massimo di sette giorni dalla data di creazione. Se le dimensioni totali dei log disponibili superano 7 GB, i file meno recenti vengono eliminati fino a quando non è disponibile dello spazio. 
 
-I log vengono ruotati ogni 24 ore o in corrispondenza di 7,5 GB, a seconda del valore raggiunto per primo.
+I log vengono ruotati ogni 24 ore o 7 GB, a seconda del valore raggiunto per primo.
 
 
 ## <a name="configure-logging"></a>Configurare la registrazione 

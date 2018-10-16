@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: get-started-article
-ms.date: 09/07/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 8254f6c72141f7a9babfc5af3c319e7e66f30bbf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7966705df2a352f2011d5f7611277e92d8e2d11a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448670"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294238"
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Configurare Azure Active Directory per la gestione dei gruppi self-service
 Gli utenti possono creare e gestire gruppi di sicurezza o gruppi di Office 365 in Azure Active Directory (Azure AD). Gli utenti possono anche richiedere l'appartenenza a gruppi di sicurezza o gruppi di Office 365, che il proprietario del gruppo può quindi approvare o rifiutare. Il controllo giornaliero dell'appartenenza al gruppo può essere delegato a persone che conoscono il contesto aziendale pertinente. Le funzionalità di gestione self-service dei gruppi sono disponibili solo per i gruppi di sicurezza e i gruppi di Office 365, ma non per i gruppi di protezione abilitati alla posta o le liste di distribuzione.
@@ -46,6 +46,6 @@ Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
 * [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
 * [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](groups-settings-cmdlets.md)
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
+* [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Informazioni su Azure Active Directory](../fundamentals/active-directory-whatis.md)
-* [Integrare le identità locali con Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrare le identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

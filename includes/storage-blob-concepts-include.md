@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 63593ff5f02f5e37fc25c988c4cef071a03a00b4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a934a1b75e85e03b6803be5c8afcd8fe74b0fad5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066034"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45739199"
 ---
 L'archivio BLOB di Azure è la soluzione di archiviazione di oggetti Microsoft per il cloud. L'archivio BLOB è ottimizzato per l'archiviazione di enormi quantità di dati non strutturati, come dati di testo o binari.
+
+Archiviazione di oggetti a scalabilità molto elevata per dati non strutturati
 
 L'archivio BLOB è ideale per le operazioni seguenti:
 
@@ -36,7 +38,7 @@ L'archivio BLOB espone tre risorse: l'account di archiviazione, i contenitori ne
 
 ### <a name="storage-account"></a>Account di archiviazione
 
-L'accesso a tutti gli oggetti di dati in Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per altre informazioni, vedere [Informazioni sugli account di archiviazione di Azure](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+L'accesso a tutti gli oggetti di dati in Archiviazione di Azure viene eseguito esclusivamente tramite un account di archiviazione. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="container"></a>Contenitore
 

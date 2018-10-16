@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: 075e19ecb078bbbd5be0d46ed58405b18ebc8334
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45738468"
+---
 ## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
 Configurare quindi l'ambiente di sviluppo in Visual Studio per poter provare gli esempi di codice di questa guida.
 
@@ -41,7 +58,7 @@ Sono disponibili due opzioni relative all'ambiente per l'esecuzione degli esempi
 * È possibile eseguire il codice con un account di archiviazione di Azure nel cloud. 
 * È possibile eseguire il codice nell'emulatore di archiviazione di Azure. L'emulatore di archiviazione è un ambiente locale che emula un account di archiviazione di Azure nel cloud. L'emulatore è un'opzione gratuita per il test e il debug del codice durante lo sviluppo dell'applicazione. L'emulatore usa un account e una chiave noti. Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](../articles/storage/common/storage-use-emulator.md).
 
-Se si specifica come destinazione un account di archiviazione nel cloud, immettere la chiave di accesso primaria per tale account tramite il portale di Azure. Per altre informazioni, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
+Se si specifica come destinazione un account di archiviazione nel cloud, immettere la chiave di accesso primaria per tale account tramite il portale di Azure. Per altre informazioni, vedere [Chiavi di accesso](../articles/storage/common/storage-account-manage.md#access-keys).
 
 > [!NOTE]
 > È possibile impostare come destinazione l'emulatore di archiviazione per evitare di incorrere negli eventuali costi associati al servizio Archiviazione di Azure. Se però si sceglie di impostare come destinazione un account di archiviazione di Azure nel cloud, i costi per eseguire questa esercitazione saranno minimi.
