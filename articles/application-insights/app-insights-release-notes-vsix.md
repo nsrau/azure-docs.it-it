@@ -1,23 +1,25 @@
 ---
 title: Note sulla versione per l'estensione di Visual Studio per Developer Analytics
-description: "Aggiornamenti più recenti per Strumenti di Visual Studio per Developer Analytics"
+description: Aggiornamenti più recenti per Strumenti di Visual Studio per Developer Analytics
 services: application-insights
-documentationcenter: 
-author: acearun
+documentationcenter: ''
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2017
+ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: b1181698deee265e4b6b2df8bb18e2297cdc8599
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303745"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Note sulla versione per Strumenti di analisi per sviluppatori
 
@@ -192,7 +194,7 @@ Viene aperta la finestra di dialogo di caricamento di HockeyApp, simile a quella
 
 In questa procedura guidata è presente un nuovo campo per specificare la versione dell'app. Per le app di Windows universale, le informazioni vengono inserite dal manifesto. Le app di Windows Form, purtroppo, non hanno una funzionalità equivalente. Sarà necessario specificarle manualmente.
 
-Il resto del flusso è simile a quello delle app di Windows universale: scelta della build e delle opzioni per la versione, aggiunta delle note sulla versione, caricamento e gestione nel portale di HockeyApp.
+Il resto del flusso è simile alle app di Windows universale: scegliere le opzioni per Azure Pipelines, aggiungere note di rilascio, caricare e gestire nel portale di HockeyApp.
 
 È davvero semplice. È possibile provare e inviare commenti e suggerimenti.
 
@@ -289,8 +291,3 @@ Non è più necessario accedere ad Azure per aggiungere pacchetti di Application
 
 ![Finestra di dialogo Nuovo progetto](./media/app-insights-release-notes-vsix/newproject.png)
 
-### <a name="device-support"></a>Supporto dei dispositivi
-Al *Connect();* 2015 [è stato annunciato](https://azure.microsoft.com/blog/deep-diagnostics-for-web-apps-with-application-insights/) che l'esperienza per sviluppatori di dispositivi mobili è HockeyApp. HockeyApp consente di distribuire le build beta ai tester, raccogliere e analizzare tutti gli arresti anomali dell'app e raccogliere commenti e suggerimenti direttamente dai clienti.
-HockeyApp supporta l'app su qualsiasi piattaforma scelta per la compilazione, sia essa iOS, Android, Windows o una soluzione multipiattaforma come Xamarin, Cordova o Unity.
-
-Nelle versioni future dell'estensione Application Insights sarà introdotta un'esperienza maggiormente integrata tra HockeyApp e Visual Studio. Per ora è possibile iniziare a usare HockeyApp semplicemente aggiungendo il riferimento NuGet. Per altre informazioni, vedere la [documentazione](http://support.hockeyapp.net/kb/client-integration-windows-and-windows-phone) .

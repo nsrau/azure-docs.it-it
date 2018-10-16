@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 5e7b321c9fc8f8568cd8109cea0ae877048d3663
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6e2fa77273ef35fae6c3b232cb36fa913faf879d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841419"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299050"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuire la prima app a Cloud Foundry in Microsoft Azure
 
@@ -145,7 +145,7 @@ L'esecuzione del comando `cf app` nell'applicazione indica che Cloud Foundry sta
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Leggere la documentazione di Cloud Foundry][cloudfoundry-docs]
-- [Configurare il plug-in Visual Studio Team Services per Cloud Foundry][vsts-plugin]
+- [Configurare il plug-in Azure DevOps Services per Cloud Foundry][vsts-plugin]
 - [Configurare il nozzle di Microsoft Log Analytics per Cloud Foundry][loganalytics-nozzle]
 
 <!-- LINKS -->

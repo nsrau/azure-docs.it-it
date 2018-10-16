@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 4b0c5d55c8a62dadbe11382997f4d258e66e1a31
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0c5cfaad096b5702f321eead1f3da0d9225f4b53
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951142"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302861"
 ---
-# <a name="platforms-and-tools-for-data-science-team-projects"></a>Piattaforme e strumenti per i progetti team di data science
+# <a name="platforms-and-tools-for-data-science-projects"></a>Piattaforme e strumenti per progetti di data science
 
 Microsoft offre una gamma completa di servizi e risorse dati e di analisi per piattaforme cloud o locali che possono essere distribuiti per rendere efficiente e scalabile l'esecuzione dei progetti di data science. Le linee guida destinate ai team per l'implementazione dei progetti di data science in modo tracciabile, con controllo della versione e collaborativo sono indicate nel [processo di data science per i team](overview.md) (TDSP, Team data Science Process).  Per una descrizione dei ruoli del personale e delle rispettive attività associate che un team di data science gestisce allo scopo di normalizzare il processo, vedere [Team Data Science Process roles and tasks](roles-tasks.md) (Ruoli e attività del processo di data science per i team).
 
@@ -126,7 +126,7 @@ Per installare Git in computer Linux (CentOS), eseguire questo comando bash:
 
 ### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>Generare una chiave SSH pubblica su computer Linux (CentOS)
 
-Se si usano computer Linux (CentOS) per eseguire i comandi Git, è necessario aggiungere la chiave SSH pubblica del proprio computer al server di Visual Studio Team Services, in modo che il computer venga riconosciuto da tale server. È prima necessario generare una chiave SSH pubblica e aggiungerla alle chiavi SSH pubbliche nella pagina delle impostazioni di sicurezza di Visual Studio Team Services. 
+Se si usano computer Linux (CentOS) per eseguire i comandi Git, è necessario aggiungere la chiave SSH pubblica del computer per Azure DevOps Services, in modo che il computer venga riconosciuto da Azure DevOps Services. In primo luogo, è necessario generare una chiave SSH pubblica e aggiungere la chiave alle chiavi pubbliche SSH nella pagina delle impostazioni di sicurezza di Azure DevOps Services. 
 
 - Per generare la chiave SSH, eseguire questi due comandi: 
 
@@ -136,7 +136,7 @@ Se si usano computer Linux (CentOS) per eseguire i comandi Git, è necessario ag
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copiare l'intera chiave SSH, incluso *ssh-rsa*. 
-- Accedere al server di Visual Studio Team Services. 
+- Accedere a Azure DevOps Services. 
 - Fare clic su **<Your Name\>** (Nome) nell'angolo superiore destro della pagina e quindi fare clic su **Sicurezza**. 
     
     ![](./media/platforms-and-tools/resources-2-user-setting.png)

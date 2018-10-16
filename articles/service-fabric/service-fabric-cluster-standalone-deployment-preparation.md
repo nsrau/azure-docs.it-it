@@ -11,14 +11,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/12/2017
+ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 89fb9d97acd5cb658b58f957d35d426ecdacc75d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7357577ea7aff467288578673110b1a6dda7ccef
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205111"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391048"
 ---
 <a id="preparemachines"></a>
 
@@ -66,7 +66,7 @@ Di seguito sono indicate le specifiche per ogni computer da aggiungere al cluste
 * Un minimo di 40 GB di spazio disponibile su disco
 * CPU 4 core o superiore
 * Connessione a una o più reti protette per tutti i computer
-* Windows Server 2012 R2 o Windows Server 2016
+* Sistema operativo Windows Server installato (versioni valide: 2012 R2, 2016, 1709, o 1803)
 * [.NET Framework 4.5.1 o versione successiva](https://www.microsoft.com/download/details.aspx?id=40773), installazione completa
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * Il [servizio RemoteRegistry](https://technet.microsoft.com/library/cc754820) deve essere eseguito in tutti i computer.

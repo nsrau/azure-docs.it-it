@@ -3,23 +3,23 @@ title: Connessione del gateway applicazione di Microsoft Azure al Centro sicurez
 description: Informazioni su come integrare il gateway applicazione e il Centro sicurezza di Azure per migliorare la sicurezza complessiva delle risorse.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
-ms.topic: article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2018
-ms.author: terrylan
-ms.openlocfilehash: 7c15e5a86df7ff2a374aa9b62d2775b1eb035fc6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 5638b71147592ae71c741ca86da68ddfec668af5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29854283"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299067"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Connessione del gateway applicazione di Microsoft Azure al Centro sicurezza di Azure
 Questo documento illustra come configurare l'integrazione con il web application firewall (WAF) del gateway applicazione e con il Centro sicurezza.
@@ -37,9 +37,9 @@ Il Centro sicurezza individua istanze WAF distribuite in precedenza nella sottos
 
 1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
 
-2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
+2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**.
 
-3. In **Panoramica** selezionare **Soluzioni di sicurezza**.
+3. Nella sezione **PROTEZIONE DELLA SICUREZZA DELE RISORSE**, selezionare **Soluzioni di sicurezza**.
 
   ![Panoramica del Centro sicurezza](./media/security-center-connect-application-gateway/overview.png)
 
