@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: e50390a1b6385cabfd0e6b30340634860a062d8d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 32390b05d2ec258a68ed4f53135399675105a7e9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838943"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302086"
 ---
 # <a name="track-progress-of-data-science-projects"></a>Monitorare l'avanzamento dei progetti di data science
 
-I manager del gruppo, i lead dei team e i lead del progetto di data science devono tenere traccia dell'avanzamento dei rispettivi progetti team, che lavoro è stato svolto su di essi e da chi e cosa resta negli elenchi delle attività da eseguire. 
+I manager del gruppo, i lead dei team e i lead del progetto di data science devono tenere traccia dell'avanzamento dei rispettivi progetti, che lavoro è stato svolto su di essi e da chi e cosa resta negli elenchi delle attività da eseguire. 
 
-## <a name="vsts-dashboards"></a>Dashboard VSTS
-Se si usa Visual Studio Team Services (VSTS), si è in grado di compilare dei dashboard per tenere traccia delle attività e degli elementi di lavoro associati a un determinato progetto agile. 
+## <a name="azure-devops-dashboards"></a>Dashboard di Azure DevOps
+Se si usa Azure DevOps, è possibile compilare dashboard per tenere traccia delle attività e degli elementi di lavoro associati a un determinato progetto agile. 
 
-Per altre informazioni su come creare e personalizzare i dashboard e i widget in Visual Studio Team Services, vedere i set di istruzioni seguenti:
+Per altre informazioni su come creare e personalizzare i dashboard e i widget in Azure DevOps, vedere i set di istruzioni seguenti:
 
-- [Add and manage dashboards](https://docs.microsoft.com/vsts/report/dashboards/dashboards) (Aggiungere e gestire i dashboard)
-- [Add widgets to a dashboard](https://docs.microsoft.com/vsts/report/dashboards/add-widget-to-dashboard) (Aggiungere widget a un dashboard).
+- [Add and manage dashboards](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards) (Aggiungere e gestire i dashboard)
+- [Add widgets to a dashboard](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard) (Aggiungere widget a un dashboard).
 
 ## <a name="example-dashboard"></a>Dashboard di esempio
 
@@ -49,7 +49,7 @@ I pannelli rimanenti mostrano il diagramma di flusso cumulativo, il burn-down e 
 
 ![dashboard](./media/track-progress/dashboard.png)
 
-Per informazioni su come creare questi grafici, vedere le guide introduttive e le esercitazioni in [Dashboards](https://docs.microsoft.com/vsts/report/dashboards/) (Dashboard).
+Per informazioni su come creare questi grafici, vedere le guide introduttive e le esercitazioni in [Dashboards](https://docs.microsoft.com/azure/devops/report/dashboards/) (Dashboard).
  
 ## <a name="next-steps"></a>Passaggi successivi
 

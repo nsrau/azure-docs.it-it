@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968792"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304289"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps per le applicazioni di intelligenza artificiale: creazione di una pipeline di integrazione continua in Azure mediante Docker e Kubernetes
 Per un'applicazione di intelligenza artificiale sono spesso presenti due flussi di lavoro: i data scientist che compilano modelli di Machine Learning e gli sviluppatori di app che compilano l'applicazione e la espongono per gli utenti finali. Questo articolo illustra come implementare una pipeline di integrazione continua/recapito continuo per un'applicazione di intelligenza artificiale. L'applicazione di intelligenza artificiale è una combinazione del codice di applicazione incorporato con un modello di Machine Learning (ML) di cui è stato eseguito il training. In questo articolo viene recuperato un modello di cui è già stato eseguito il training da un account di archiviazione BLOB privato di Azure, ma è possibile usare anche un account AWS S3. Nell'articolo viene usata una semplice applicazione Web Python Flask.
@@ -35,7 +35,7 @@ Per un'applicazione di intelligenza artificiale sono spesso presenti due flussi 
 
 ## <a name="pre-requisites"></a>Prerequisiti
 I prerequisiti seguenti si applicano alla pipeline di integrazione continua/recapito continuo descritta di seguito:
-* [Account di Visual Studio Team Services](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Organizzazione DevOps di Azure](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Cluster del servizio contenitore di Azure (AKS) che esegue Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 * [Account del Registro contenitori di Azure (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
@@ -49,23 +49,23 @@ L'applicazione esegue il pull del modello più recente da un account di archivia
 
 L'architettura della pipeline è descritta di seguito. 
 
-![Architecture](./media/ci-cd-flask/Architecture.PNG?raw=true)
+![Architettura](./media/ci-cd-flask/Architecture.PNG?raw=true)
 
 ## <a name="steps-of-the-cicd-pipeline"></a>Passaggi della pipeline di integrazione continua/recapito continuo
 1. Gli sviluppatori usano l'IDE preferito nel codice dell'applicazione.
-2. Eseguono il commit del codice nel controllo del codice sorgente desiderato (VSTS supporta diversi controlli del codice sorgente)
+2. Eseguono il commit del codice nel controllo del codice sorgente desiderato (Azure DevOps supporta diversi controlli del codice sorgente)
 3. Il data scientist lavora separatamente per lo sviluppo del modello.
 4. Al termine, il modello viene pubblicato in un repository di modelli, in questo caso un account di archiviazione BLOB. È anche possibile usare il servizio di gestione modelli di Azure Machine Learning Workbench attraverso le API REST.
-5. Viene avviata una compilazione in Visual Studio Team Services in base al commit in GitHub.
-6. La pipeline di compilazione VSTS esegue il pull del modello più recente dal contenitore BLOB e crea un contenitore.
-7. VSTS esegue il push dell'immagine nel repository delle immagini privato nel Registro contenitori di Azure
+5. Viene avviata una compilazione in Azure DevOps in base al commit in GitHub.
+6. La pipeline di compilazione Azure DevOps esegue il pull del modello più recente dal contenitore BLOB e crea un contenitore.
+7. Azure DevOps esegue il push dell'immagine nel repository delle immagini privato nel Registro contenitori di Azure
 8. La pipeline di versione viene avviata in base alla pianificazione impostata (notturna).
 9. Viene eseguito il pull dell'immagine più recente di ACR che viene distribuita nel cluster Kubernetes in ACS.
 10. La richiesta dell'app da parte degli utenti avviene tramite il server DNS.
 11. Il server DNS inoltra la richiesta al bilanciamento del carico e invia la risposta all'utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Fare riferimento all'[esercitazione]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)) per i dettagli e per implementare la pipeline di integrazione continua/recapito continuo per l'applicazione.
+* Fare riferimento all'[esercitazione](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) per i dettagli e per implementare la pipeline di integrazione continua/recapito continuo per l'applicazione.
 
 ## <a name="references"></a>Riferimenti
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)

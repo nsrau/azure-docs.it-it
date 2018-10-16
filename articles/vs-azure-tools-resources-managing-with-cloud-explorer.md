@@ -7,23 +7,24 @@ manager: douge
 assetId: 6347dc53-f497-49d5-b29b-e8b9f0e939d7
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: 9d8ae465e80ab38c1d7b0f6082865c110c0ff06b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 596db56a71d4cc73517b9a9cbfe9b97e536aa83a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794073"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378847"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer
 Cloud Explorer consente di visualizzare le risorse di Azure e i gruppi di risorse, controllare le relative proprietà ed eseguire azioni di diagnostica fondamentali per gli sviluppatori dall'interno di Visual Studio. 
 
 Cloud Explorer è basato sullo stack di Azure Resource Manager, proprio come il [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). Pertanto riconosce risorse, come i gruppi di risorse di Azure e i servizi di Azure, come le app per la logica e le app per le API. Supporta infine il [controllo degli accessi in base al ruolo](role-based-access-control/role-assignments-portal.md) (RBAC). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 - [Visual Studio 2017](https://www.visualstudio.com/downloads/) con il **carico di lavoro di Azure** selezionato o una versione precedente di Visual Studio con [Microsoft Azure SDK per .NET 2.9](https://www.microsoft.com/en-us/download/details.aspx?id=51657).
 - Account di Microsoft Azure: se non si ha un account, è possibile [iscriversi per ottenere una versione di valutazione gratuita](http://go.microsoft.com/fwlink/?LinkId=623901) oppure [attivare i vantaggi della sottoscrizione di Visual Studio](http://go.microsoft.com/fwlink/?LinkId=623901).
 
@@ -39,9 +40,9 @@ Per visualizzare le risorse associate a un account di Azure, è innanzitutto nec
 
     ![Icona delle impostazioni account di Azure di Cloud Explorer](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Selezionare **Aggiungi un nuovo account**. 
+1. Selezionare **Gestisci account**. 
 
-    ![Collegamento per l'aggiunta dell'account di Cloud Explorer](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
+    ![Collegamento per l'aggiunta dell'account di Cloud Explorer](media/vs-azure-tools-resources-managing-with-cloud-explorer/manage-accounts-link.png)
 
 1. Accedere all'account di Azure di cui si vogliono esplorare le risorse. 
 
@@ -55,13 +56,17 @@ Per visualizzare le risorse associate a un account di Azure, è innanzitutto nec
 
 ## <a name="remove-an-azure-account-from-cloud-explorer"></a>Rimuovere un account di Azure da Cloud Explorer 
 
-1. In **Cloud Explorer**, selezionare **Impostazioni account Azure**.
+1. In **Cloud Explorer** scegliere **Gestione account**.
 
     ![Icona delle impostazioni account di Azure di Cloud Explorer](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Accanto all'account che si desidera rimuovere, selezionare **Rimuovi**.
+1. Accanto all'account che si desidera rimuovere, selezionare **Gestisci account**.
 
     ![Icona delle impostazioni account di Azure di Cloud Explorer](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
+
+1. Scegli **Rimuovi** per rimuovere un account.
+
+    ![Finestra di dialogo Gestisci account di Cloud Explorer](media/vs-azure-tools-resources-managing-with-cloud-explorer/accountmanage.PNG)
 
 ## <a name="view-resource-types-or-resource-groups"></a>Visualizzare i tipi o i gruppi di risorse
 Per visualizzare le risorse di Azure, è possibile scegliere la visualizzazione **Tipi di risorsa** o **Gruppi di risorse**.
