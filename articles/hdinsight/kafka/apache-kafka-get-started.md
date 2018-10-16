@@ -1,25 +1,19 @@
 ---
-title: Iniziare a usare Apache Kafka - Avvio rapido di Azure HDInsight | Microsoft Docs
+title: Iniziare a usare Apache Kafka - Avvio rapido di Azure HDInsight
 description: Questa guida di avvio rapido illustra come creare un cluster Apache Kafka in Azure HDInsight tramite il portale di Azure. Illustra inoltre gli argomenti, i sottoscrittori e i consumer di Kafka.
 services: hdinsight
-documentationcenter: ''
-author: dhgoelmsft
-manager: jhubbard
-ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 776705281a1909cbeee657f7915d4c83ec8bbabe
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 82979adb3dd640c238bd4e5fcd1bc4d645f018fe
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342154"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069489"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>Guida introduttiva: Creare un cluster Kafka in HDInsight
 
@@ -34,7 +28,7 @@ Questa guida introduttiva illustra come creare un cluster[Apache Kafka](https://
 >
 > Per altre informazioni, vedere il documento [Connettersi a Kafka da una rete locale](apache-kafka-connect-vpn-gateway.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -75,7 +69,7 @@ Per creare un cluster Kafka in HDInsight seguire questa procedura:
     | Impostazione | Valore |
     | --- | --- |
     | Tipo di cluster | Kafka |
-    | Version | Kafka 1.0.0 (HDI 3.6) |
+    | Version | Kafka 1.1.0 (HDI 3.6) |
 
     Usare il pulsante **Seleziona** per salvare le impostazioni del tipo di cluster e tornare a __Informazioni di base__.
 
@@ -100,7 +94,7 @@ Per creare un cluster Kafka in HDInsight seguire questa procedura:
 
     Usare il pulsante __Avanti__ per completare la configurazione di base.
 
-5. In **Archiviazione** selezionare o creare un account di archiviazione. Per la procedura illustrata in questo documento, negli altri campi mantenere i valori predefiniti. Usare il pulsante __Avanti__ per salvare la configurazione della risorsa di archiviazione. Per maggiori informazioni sull'uso di Data Lake Storage Gen2, vedere [Avvio rapido: impostazione dei cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+5. In **Archiviazione** selezionare o creare un account di archiviazione. Per la procedura illustrata in questo documento, negli altri campi mantenere i valori predefiniti. Usare il pulsante __Avanti__ per salvare la configurazione della risorsa di archiviazione. Per altre informazioni sull'uso di Data Lake Storage Gen2, vedi [Guida introduttiva: impostazione dei cluster in HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
     ![Configurare le impostazioni dell'account di archiviazione per HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
 

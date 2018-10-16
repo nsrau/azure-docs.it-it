@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14feb7ad09a24904034f9ae90cf4a54cf786a44c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40183221"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369227"
 ---
 La famiglia di macchine virtuali della serie B consente di scegliere le dimensioni di VM che offrono le prestazioni di livello base necessarie per il carico di lavoro, con la possibilità di aumentare le prestazioni della CPU fino al 100% per una vCPU con processore Intel® Broadwell E5-2673 v4 2.3 GHz o Intel® Haswell 2.4 GHz E5-2673 v3.
 
-Le VM della serie B sono ideali per carichi di lavoro che non necessitano in modo continuativo delle prestazioni complete della CPU, ad esempio server Web, database di piccole dimensioni e ambienti di sviluppo e test. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre la possibilità di acquistare una dimensione di VM con prestazioni baseline e l'istanza della VM accumula crediti quando il relativo utilizzo è inferiore alla baseline. Quando la VM ha accumulato crediti, può eseguire il burst rispetto alla baseline, usando fino al 100% della vCPU quando l'applicazione richiede prestazioni superiori per la CPU.
+Le macchine virtuali della serie B sono ideali per carichi di lavoro che non necessitano delle prestazioni complete della CPU in modo continuo, ad esempio server Web, modelli di verifica, database di piccole dimensioni e ambienti di sviluppo build. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre la possibilità di acquistare una dimensione di VM con prestazioni baseline e l'istanza della VM accumula crediti quando il relativo utilizzo è inferiore alla baseline. Quando la VM ha accumulato crediti, può eseguire il burst rispetto alla baseline, usando fino al 100% della vCPU quando l'applicazione richiede prestazioni superiori per la CPU.
 
 La serie B offre le sei dimensioni seguenti per le macchine virtuali:
 
@@ -47,11 +47,11 @@ Per altre informazioni su come accedere ai dati delle metriche per Azure, vedere
 ### <a name="q-how-are-credits-accumulated"></a>D: In che modo vengono accumulati i crediti?
 **R**: La velocità di accumulo e di utilizzo delle VM viene impostata in modo che una VM in esecuzione esattamente al rispettivo livello di prestazioni di base non avrà alcun accumulo netto o alcun utilizzo di crediti di burst.  Una VM presenterà un incremento netto in crediti in caso di esecuzione a un livello inferiore al rispettivo livello di prestazioni di base e presenterà una riduzione netta in crediti in caso di utilizzo della CPU da parte della VM a un livello superiore rispetto al rispettivo livello di prestazioni di base.
 
-**Esempio**: Si distribuisce una VM usando le dimensioni B1ms per una piccola applicazione di database relativa a orari e presenze. Queste dimensioni consentono all'applicazione di usare fino al 20% di una vCPU come baseline, che corrisponde a 0,2 crediti al minuto utilizzabili o accumulabili. 
+**Esempio**: Si distribuisce una VM usando le dimensioni B1ms per una piccola applicazione di database relativa a orari e presenze. Queste dimensioni consentono all'applicazione di usare fino al 20% di una vCPU come baseline, che corrisponde a 0,2 crediti al minuto che si possono usare o accumulare. 
 
-L'applicazione è occupata all'inizio o alla fine della giornata lavorativa dei dipendenti, tra le 7:00-9:00 e le 16:00-18:00. Durante le altre 20 ore della giornata l'applicazione è solitamente inattiva e usa solo il 10% della vCPU. Per gli orari non di picco si accumulano 0,2 crediti al minuto ma si utilizzano solo 0,1 crediti al minuto, quindi la VM accumulerà 0,1 x 60 = 6 crediti all'ora.  Per le 20 ore non di picco, si accumuleranno 120 crediti.  
+L'applicazione è occupata all'inizio o alla fine della giornata lavorativa dei dipendenti, tra le 7:00-9:00 e le 16:00-18:00. Durante le altre 20 ore della giornata l'applicazione è solitamente inattiva e usa solo il 10% della vCPU. Per gli orari non di picco, si accumulano 0,2 crediti al minuto ma si usano solo 0,0 l crediti al minuto, pertanto la VM accumulerà 0,1 x 60 = 6 crediti all'ora.  Per le 20 ore non di picco, si accumuleranno 120 crediti.  
 
-Durante le ore di picco l'applicazione utilizza in media il 60% della vCPU, quindi si accumulano comunque 0,2 crediti al minuto ma si utilizzano 0,6 crediti al minuto, per un costo netto di 0,4 crediti al minuto o 0,4 x 60 = 24 crediti all'ora. Ogni giorno presenta 4 ore di picco di utilizzo, quindi il costo del picco di utilizzo è pari a 4 x 24 = 96 crediti.
+Durante le ore di picco l'applicazione utilizza in media il 60% della vCPU, pertanto si accumulano comunque 0,2 crediti al minuto ma si usano 0,6 crediti al minuto, per un costo netto di 0,4 crediti un minuto o 0,4 x 60 = 24 crediti all'ora. Ogni giorno presenta 4 ore di picco di utilizzo, quindi il costo del picco di utilizzo è pari a 4 x 24 = 96 crediti.
 
 Se si considerano i 120 crediti accumulati negli orari non di picco e si sottraggono i 96 crediti usati per le ore di picco, ogni giorni si accumulano 24 crediti che possono essere usati per altri burst delle attività.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 5092bf377f6ab213a2db52e01fb7b89ff0c218ce
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127488"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295871"
 ---
 # <a name="production-readiness-checklist"></a>Elenco di controllo per l'idoneità per la produzione
 
@@ -45,7 +45,7 @@ L'applicazione e il cluster sono pronti ad accettare il traffico della produzion
 15. Definire un Obiettivo del punto di ripristino (RPO) per il servizio, configurare un [processo di ripristino di emergenza](service-fabric-disaster-recovery.md) e testarlo.
 16. Pianificare il [ridimensionamento](service-fabric-cluster-scaling.md) del cluster manualmente o a livello di codice.
 17. Pianificare l'[applicazione di patch](service-fabric-patch-orchestration-application.md) ai nodi del cluster. 
-18. Configurare una pipeline di integrazione continua/distribuzione continua (CI/CD) in modo che le modifiche più recenti vengano continuamente testate, usando ad esempio [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+18. Configurare una pipeline di integrazione continua/distribuzione continua (CI/CD) in modo che le modifiche più recenti vengano continuamente testate, Ad esempio, usando [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 19. Testare i cluster di sviluppo e gestione temporanea in condizioni di carico con il [servizio di analisi degli errori](service-fabric-testability-overview.md) e indurre una condizione di [chaos](service-fabric-controlled-chaos.md) in un ambiente controllato. 
 20. Pianificare il [ridimensionamento](service-fabric-concepts-scalability.md) delle applicazioni. 
 

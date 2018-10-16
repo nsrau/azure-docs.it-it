@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2097ce5cf249e7ff895769142d63b6cf47eed06d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5d3833d3218a4b6252c9591bb67686ddc1c3cdf9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161008"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298575"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurare il server Azure MFA per la disponibilità elevata
 
@@ -29,9 +29,9 @@ L'architettura di servizio del server Azure MFA include diversi componenti, come
 
 Un server MFA è un'istanza di Windows Server in cui è installato il software Azure Multi-Factor Authentication. Per funzionare, l'istanza del server MFA deve essere attivata dal servizio MFA in Azure. È possibile installare più di un server MFA locale.
 
-Per impostazione predefinita, la prima istanza del server MFA installata rappresenta il server master MFA al momento dell'attivazione da parte del servizio Azure MFA. L'istanza master del server MFA include una copia scrivibile del database PhoneFactor.pfdata. Le installazioni successive delle istanze del server MFA sono note con il nome di slave. Gli slave di MFA includono una copia replicata di sola lettura del database PhoneFactor.pfdata. I server MFA replicano le informazioni mediante Remote Procedure Call (RPC). Tutti i server MFA devono essere collettivamente aggiunti a un dominio o autonomi per replicare informazioni.
+Per impostazione predefinita, la prima istanza del server MFA installata rappresenta il server master MFA al momento dell'attivazione da parte del servizio Azure MFA. L'istanza master del server MFA include una copia scrivibile del database PhoneFactor.pfdata. Le installazioni successive delle istanze del Server MFA sono note come subordinate. Le subordinate di MFA sono una copia replicata di sola lettura del database PhoneFactor.pfdata. I server MFA replicano le informazioni mediante Remote Procedure Call (RPC). Tutti i server MFA devono essere collettivamente aggiunti a un dominio o autonomi per replicare informazioni.
 
-Le istanze master e slave dei server MFA comunicano con il servizio MFA quando è necessaria l'autenticazione a due fattori. Ad esempio, quando un utente tenta di accedere a un'applicazione che richiede l'autenticazione a due fattori, l'utente verrà prima autenticato da un provider di identità, ad esempio Active Directory (AD).
+Sia il master MFA che i server MFA subordinati comunicano con il servizio MFA quando è necessaria l'autenticazione a due fattori. Ad esempio, quando un utente tenta di accedere a un'applicazione che richiede l'autenticazione a due fattori, l'utente verrà prima autenticato da un provider di identità, ad esempio Active Directory (AD).
 
 In seguito all'autenticazione con AD, il server MFA comunicherà con il servizio MFA. Il server MFA attende la notifica dal servizio MFA per consentire o negare l'accesso dell'utente all'applicazione.
 
@@ -42,7 +42,7 @@ Se l'istanza master del server MFA è offline, è comunque possibile elaborare l
 Considerare gli aspetti fondamentali seguenti per eseguire il bilanciamento del carico del server Azure MFA e dei componenti correlati.
 
 * **Uso dello standard RADIUS per conseguire disponibilità elevata**. Se si usano server Azure MFA come server RADIUS, è possibile configurare un server MFA come destinazione di autenticazione RADIUS primaria e altri server Azure MFA come destinazioni di autenticazione secondarie. Questo metodo per conseguire la disponibilità elevata, tuttavia, potrebbe non risultare pratico, poiché è necessario attendere che si verifichi un timeout quando l'autenticazione ha esito negativo nella destinazione di autenticazione primaria prima che sia possibile eseguire l'autenticazione con la destinazione di autenticazione secondaria. È più efficiente eseguire il bilanciamento del carico del traffico RADIUS tra il client RADIUS e i server RADIUS (in questo caso, le istanze del server Azure MFA che operano come server RADIUS) in modo da poter configurare i client RADIUS con un singolo URL a cui possano puntare.
-* **Necessità di alzare manualmente di livello le istanze slave di MFA**. Se l'istanza master del server Azure MFA è offline, le istanze secondarie del server Azure MFA continuano a elaborare le richieste MFA. Tuttavia, fino a quando è disponibile un'istanza master del server MFA, gli amministratori non possono aggiungere utenti o modificare le impostazioni di autenticazione a più fattori e gli utenti non possono apportare modifiche tramite il portale per gli utenti. L'aumento di livello di un'istanza slave di MFA al ruolo master è sempre un processo manuale.
+* **Necessità di alzare manualmente di livello le istanze subordinate di MFA**. Se l'istanza master del server Azure MFA è offline, le istanze secondarie del server Azure MFA continuano a elaborare le richieste MFA. Tuttavia, fino a quando è disponibile un'istanza master del server MFA, gli amministratori non possono aggiungere utenti o modificare le impostazioni di autenticazione a più fattori e gli utenti non possono apportare modifiche tramite il portale per gli utenti. L'innalzamento di livello di un MFA subordinato al ruolo di master è sempre un processo manuale.
 * **Separabilità dei componenti**. Il server Azure MFA è costituito da diversi componenti che possono essere installati nella stessa istanza di Windows Server o in istanze diverse. Questi componenti includono il portale per gli utenti, il servizio Web per app per dispositivi mobili e la scheda AD FS (agente). Questa separabilità permette di usare il proxy applicazione Web per pubblicare il portale per gli utenti e il server Web per app per dispositivi mobili dalla rete perimetrale. Questo tipo di configurazione contribuisce alla sicurezza complessiva delle progettazioni, come illustrato nel diagramma seguente. È anche possibile distribuire il portale per gli utenti MFA e il server Web per app per dispositivi mobili in configurazioni con bilanciamento del carico a disponibilità elevata.
 
    ![Server MFA con una rete perimetrale](./media/howto-mfaserver-deploy-ha/mfasecurity.png)
@@ -62,7 +62,7 @@ Tenere presente gli elementi seguenti per l'area numerata corrispondente del dia
    ![Server Azure MFA - Elevata disponibilità del server app](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > Poiché RPC usa porte dinamiche, non è consigliabile aprire i firewall fino all'intervallo di porte dinamiche che RPC può usare. Se è presente un firewall **tra** i server applicativi MFA, è consigliabile configurare il server MFA per le comunicazioni su una porta statica per il traffico di replica tra i server master e slave e aprire la porta sul firewall. È possibile forzare la porta statica creando un valore del Registro di sistema DWORD in ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` denominato ```Pfsvc_ncan_ip_tcp_port``` e impostando il valore su una porta statica disponibile. Le connessioni vengono sempre avviate dall'istanza slave del server MFA all'istanza master, la porta statica è necessaria solo nell'istanza master, ma poiché è possibile alzare di livello un server slave in un master in qualsiasi momento, è consigliabile impostare la porta statica in tutte le istanze del server MFA.
+   > Poiché RPC usa porte dinamiche, non è consigliabile aprire i firewall fino all'intervallo di porte dinamiche che RPC può usare. Se è presente un firewall **tra** i server applicativi MFA, è necessario configurare il Server MFA per comunicare su una porta statica per il traffico di replica tra server master e subordinati e aprire la porta nel firewall. È possibile forzare la porta statica creando un valore del Registro di sistema DWORD in ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` denominato ```Pfsvc_ncan_ip_tcp_port``` e impostando il valore su una porta statica disponibile. Le connessioni vengono sempre avviate dai server MFA subordinati al master, la porta statica è necessaria solo sul master, ma poiché è possibile alzare di livello un server subordinato in un master in qualsiasi momento, è consigliabile impostare la porta statica in tutte le istanze del server MFA.
 
 2. I due server del portale per gli utenti e delle app per dispositivi mobili MFA (MFA-UP-MAS1 e MFA-UP-MAS2) sono sottoposti a bilanciamento del carico in una configurazione **con stato** (mfa.contoso.com). Tenere presente che le sessioni permanenti sono un requisito necessario per il bilanciamento del carico del portale per gli utenti MFA e del servizio per app per dispositivi mobili.
    ![Server Azure MFA - Disponibilità elevata per il portale per gli utenti e per il servizio per app per dispositivi mobili](./media/howto-mfaserver-deploy-ha/mfaportal.png)

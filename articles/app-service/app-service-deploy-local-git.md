@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42146252"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303695"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione dell'archivio Git locale nel servizio app di Azure
 
@@ -101,10 +101,10 @@ Nell'output potrebbe essere visualizzata l'automazione specifica di runtime, ad 
 
 Passare all'app per verificare che il contenuto sia stato distribuito.
 
-## <a name="deploy-from-local-git-with-vsts-builds"></a>Distribuire dall'archivio Git locale con le compilazioni VSTS
+## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Distribuire dall'archivio Git locale con le compilazioni di Azure DevOps Services
 
 > [!NOTE]
-> Perché il servizio app crei la compilazione e le definizioni di versione necessarie nell'account di VSTS, l'account di Azure deve avere il ruolo di **Proprietario** nella sottoscrizione di Azure.
+> Per il servizio App per creare le Azure Pipelines necessarie nell'organizzazione di servizi di Azure DevOps, l'account di Azure deve avere il ruolo di **Proprietario** nella sottoscrizione di Azure.
 >
 
 Per abilitare la distribuzione dell'archivio Git locale per l'app con il server di compilazione Kudu, accedere all'app dal [portale di Azure](https://portal.azure.com).
@@ -113,14 +113,14 @@ Nel riquadro di spostamento a sinistra della pagina dell'app fare clic su **Cent
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Fare clic su **Distribuzione continua di VSTS** > **Continua**.
+Fare clic su **Recapito continuo di servizi di Azure DevOps Services** > **Continua**.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-Nella pagina **Configura** configurare un nuovo account VSTS o specificare un account esistente. Al termine dell'operazione, fare clic su **Continua**.
+Nella pagina **Configura**, configurare una nuova organizzazione di Azure DevOps Services o specificare un'organizzazione esistente. Al termine dell'operazione, fare clic su **Continua**.
 
 > [!NOTE]
-> Se si vuole usare un account VSTS esistente che non è elencato, è necessario [collegare l'account VSTS alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Se si desidera usare un'organizzazione di Azure DevOps Services esistente non presente in elenco, è necessario [collegare l'organizzazione di Azure DevOps Services alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Nella pagina **Test** scegliere se abilitare i test di carico e fare clic su **Continua**.
 
@@ -128,7 +128,7 @@ In base al [piano tariffario](https://azure.microsoft.com/pricing/details/app-se
 
 Nella pagina **Riepilogo** verificare le opzioni e fare clic su **Fine**.
 
-Sono necessari alcuni minuti prima che l'account VSTS sia pronto. Quando è pronto, copiare l'URL dell'archivio Git nel centro di distribuzione.
+Sono necessari alcuni minuti perché l'organizzazione di Azure DevOps Services sia pronta. Quando è pronto, copiare l'URL dell'archivio Git nel centro di distribuzione.
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -138,7 +138,7 @@ Nella _finestra del terminale locale_ aggiungere un'istanza remota di Azure al r
 git remote add vsts <url>
 ```
 
-Effettuare il push all'istanza remota di Azure per distribuire l'app con il comando seguente. Quando richiesto da Git Credential Manager, accedere con l'account utente di visualstudio.com. Per altri metodi di autenticazione, vedere [VSTS authentication overview](/vsts/git/auth-overview?view=vsts) (Panoramica dell'autenticazione VSTS).
+Effettuare il push all'istanza remota di Azure per distribuire l'app con il comando seguente. Quando richiesto da Git Credential Manager, accedere con l'account utente di visualstudio.com. Per altri metodi di autenticazione, consultare la [Panoramica dell'autenticazione di Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master

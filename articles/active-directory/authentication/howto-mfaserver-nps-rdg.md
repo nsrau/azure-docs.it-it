@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: f5511486650d538bc136449c32babfd88efab86a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 99ed74a9664fbeeb65d90e51d0afcd97dd0b0ca0
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159635"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346494"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway Desktop remoto e server Azure Multi-Factor Authentication utilizzando RADIUS
 
-Gateway Desktop remoto usa il server dei criteri di rete locale per autenticare gli utenti. Questo articolo descrive come inoltrare richieste RADIUS da Gateway Desktop remoto (tramite il server dei criteri di rete locale) al server Multi-Factor Authentication. La combinazione di Azure MFA e Gateway Desktop remoto consente agli utenti di accedere agli ambienti di lavoro da qualsiasi luogo eseguendo l'autenticazione avanzata. 
+Gateway Desktop remoto usa il [server dei criteri di rete](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) locale per autenticare gli utenti. Questo articolo descrive come inoltrare richieste RADIUS da Gateway Desktop remoto (tramite il server dei criteri di rete locale) al server Multi-Factor Authentication. La combinazione di Azure MFA e Gateway Desktop remoto consente agli utenti di accedere agli ambienti di lavoro da qualsiasi luogo eseguendo l'autenticazione avanzata. 
 
 Dato che l'autenticazione di Windows per Servizi terminal non è supportata per Server 2012 R2, usare RADIUS e Gateway Desktop remoto per l'integrazione con il server MFA. 
 
@@ -28,6 +28,7 @@ Installare il server Multi-Factor Authentication in un server separato, che tras
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un server MFA di Azure aggiunto a un dominio. Se il server non è già installato, seguire i passaggi in [Introduzione al server Azure Multi-Factor Authentication](howto-mfaserver-deploy.md).
+- Un server dei criteri di rete esistente e configurato.
 - Un'istanza di Gateway Desktop remoto che esegue l'autenticazione con il server dei criteri di rete.
 
 ## <a name="configure-the-remote-desktop-gateway"></a>Configurare Gateway Desktop remoto

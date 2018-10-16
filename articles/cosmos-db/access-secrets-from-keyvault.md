@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: 11aac0ab4476494f74453ca64a1b77964197adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42751526"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053085"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Usare Key Vault per archiviare e accedere alle chiavi di Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault so
 
 ## <a name="create-an-azure-web-application"></a>Creare un'applicazione Web di Azure
 
-1. Creare un'applicazione Web di Azure oppure scaricarla dal [repository GitHub](https://github.com/rsarosh/CosmosDB-KeyVault). È una semplice applicazione MVC.  
+1. Creare un'applicazione Web di Azure oppure scaricarla dal [repository GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). È una semplice applicazione MVC.  
 
 2. Decomprimere l'applicazione scaricata e aprire il file **HomeController.cs**. Aggiornare l'ID del segreto nella riga seguente:
 
@@ -87,11 +87,9 @@ A questo punto, se si esegue l'applicazione, è possibile leggere il segreto da 
 
 ![Applicazione distribuita con il segreto](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-Analogamente, è possibile aggiungere un utente per l'accesso all'insieme di credenziali delle chiavi. È necessario aggiungersi all'insieme di credenziali delle chiavi facendo clic su "Criteri di accesso" e quindi fornire tutte le autorizzazioni necessarie per eseguire l'applicazione da Visual Studio. Quando questa applicazione è in esecuzione sul desktop, assume l'identità dell'utente.
+Analogamente, è possibile aggiungere un utente per l'accesso all'insieme di credenziali delle chiavi. È necessario aggiungersi manualmente all'insieme di credenziali delle chiavi selezionando **Criteri di accesso** e quindi fornire tutte le autorizzazioni necessarie per eseguire l'applicazione da Visual studio. Quando questa applicazione è in esecuzione sul desktop, assume l'identità dell'utente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per configurare un firewall per Azure Cosmos DB, vedere l'articolo [Supporto del firewall di Azure Cosmos DB](firewall-support.md).
 * Per configurare l'endpoint di servizio di rete virtuale, vedere l'articolo relativo alla [protezione dell'accesso tramite l'endpoint di servizio di rete virtuale](vnet-service-endpoint.md).
-
-
