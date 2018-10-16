@@ -7,21 +7,22 @@ manager: douge
 ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
+ms.custom: vs-azure
 ms.topic: conceptual
-ms.workload: azure
+ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: fe8b2b59616246743b38aa3b7a7972c092529b5d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788467"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304055"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Abilitare una connessione Desktop remoto per un ruolo in Servizi cloud di Azure con Visual Studio
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [portale di Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -29,7 +30,7 @@ Desktop remoto consente di accedere al desktop di un ruolo in esecuzione in Azur
 
 La pubblicazione guidata fornita da Visual Studio per i servizi cloud include un'opzione per abilitare Desktop remoto durante il processo di pubblicazione, usando le credenziali fornite dall'utente. L'uso di questa opzione è indicato quando si usa Visual Studio 2017 versione 15.4 e precedenti.
 
-Con Visual Studio 2017 versione 15.5 e successive, tuttavia, si consiglia di evitare di abilitare Desktop remoto tramite la pubblicazione guidata, a meno che non si stia lavorando solo come sviluppatore singolo. Per qualsiasi situazione in cui il progetto può essere aperto da altri sviluppatori, Desktop remoto dovrà invece essere abilitato tramite il portale di Azure, tramite PowerShell o da una definizione di versione in un flusso di lavoro di distribuzione continua. Questa indicazione è dovuta a una modifica nel modo in cui Visual Studio comunica con Desktop remoto nella macchina virtuale del servizio cloud, come illustrato in questo articolo.
+Con Visual Studio 2017 versione 15.5 e successive, tuttavia, si consiglia di evitare di abilitare Desktop remoto tramite la pubblicazione guidata, a meno che non si stia lavorando solo come sviluppatore singolo. Per qualsiasi situazione in cui il progetto può essere aperto da altri sviluppatori, Desktop remoto dovrà invece essere abilitato tramite il portale di Azure, tramite PowerShell o da una pipeline di versione in un flusso di lavoro di distribuzione continua. Questa indicazione è dovuta a una modifica nel modo in cui Visual Studio comunica con Desktop remoto nella macchina virtuale del servizio cloud, come illustrato in questo articolo.
 
 ## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>Configurare Desktop remoto tramite Visual Studio 2017 versione 15.4 e precedenti
 
@@ -81,9 +82,9 @@ Se si condivide il progetto con un team, è quindi consigliabile deselezionare l
 
 ### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>Distribuzione da un server di compilazione con Visual Studio 2017 versione 15.5 e successive
 
-È possibile distribuire un progetto di servizio cloud da un server di compilazione (ad esempio, con Visual Studio Team Services) dove Visual Studio 2017 versione 15.5 o successive è installato nell'agente di compilazione. In questo modo la distribuzione avviene dallo stesso computer in cui è disponibile il certificato di crittografia.
+È possibile distribuire un progetto di servizio cloud da un server di compilazione (ad esempio, con Azure DevOps Services) dove Visual Studio 2017 versione 15.5 o successive è installato nell'agente di compilazione. In questo modo la distribuzione avviene dallo stesso computer in cui è disponibile il certificato di crittografia.
 
-Per usare l'estensione RDP da Visual Studio Team Services, includere i dettagli seguenti nella definizione di compilazione:
+Per usare l'estensione RDP da Azure DevOps Services, includere i dettagli seguenti nella pipeline di compilazione:
 
 1. Includere `/p:ForceRDPExtensionOverPlugin=true` negli argomenti di MSBuild per assicurarsi che la distribuzione funzioni con l'estensione RDP anziché con il plug-in RDP. Ad esempio: 
 

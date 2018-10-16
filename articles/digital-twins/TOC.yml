@@ -1,0 +1,111 @@
+items:
+- name: Nozioni fondamentali su Azure IoT
+  href: /azure/iot-fundamentals
+- name: Gemelli digitali di Azure
+  href: index.yml
+- name: Panoramica
+  items:
+  - name: Informazioni su Gemelli digitali di Azure
+    href: about-digital-twins.md
+- name: Guide introduttive
+  items:
+  - name: Trovare le stanze disponibili
+    href: quickstart-view-occupancy-dotnet.md
+- name: Esercitazioni
+  items:
+  - name: Monitorare un edificio con Gemelli digitali
+    items:
+    - name: Distribuire e configurare
+      href: tutorial-facilities-setup.md
+    - name: Effettuare il provisioning e monitorare le condizioni
+      href: tutorial-facilities-udf.md
+    - name: Inviare notifiche con App per la logica
+      href: tutorial-facilities-events.md
+    - name: Visualizzare gli eventi con Time Series Insights
+      href: tutorial-facilities-analyze.md
+- name: Concetti
+  items:
+  - name: Modello a oggetti di Gemelli digitali e grafico di intelligenza spaziale
+    href: concepts-objectmodel-spatialgraph.md
+  - name: Connettività dei dispositivi e dati di telemetria in ingresso
+    href: concepts-device-ingress.md
+  - name: Elaborazione dati e funzioni definite dall'utente
+    href: concepts-user-defined-functions.md
+  - name: Routing di eventi e messaggi
+    href: concepts-events-routing.md
+  - name: Limiti del servizio durante l'anteprima pubblica
+    href: concepts-service-limits.md
+  - name: Sicurezza
+    items:
+    - name: Procedure di sicurezza consigliate
+      href: security-best-practices.md
+    - name: Controllo degli accessi in base al ruolo
+      href: security-role-based-access-control.md
+    - name: Creare e gestire le assegnazioni di ruoli
+      href: security-create-manage-role-assignments.md
+    - name: Autenticazione per le API di gestione
+      href: security-authenticating-apis.md
+- name: Guide alle procedure
+  items:
+  - name: Come abilitare applicazioni multi-tenant
+    href: how-to-multitenant-applications.md
+  - name: Come creare funzioni definite dall'utente
+    href: how-to-user-defined-functions.md
+  - name: Come indirizzare eventi e messaggi tramite endpoint
+    href: how-to-egress-endpoints.md
+  - name: Come usare Swagger per Gemelli digitali
+    href: how-to-use-swagger.md
+- name: Risorse correlate
+  items:
+  - name: Soluzioni
+    items:
+    - name: Acceleratori di soluzioni IoT
+      href: /azure/iot-accelerators
+    - name: IoT Central
+      href: https://docs.microsoft.com/microsoft-iot-central/
+  - name: Servizi della piattaforma
+    items:
+    - name: Hub IoT
+      href: /azure/iot-hub
+    - name: Servizio Device Provisioning in hub IoT
+      href: /azure/iot-dps
+    - name: IoT SDK per servizi
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+    - name: Mappe
+      href: /azure/azure-maps
+    - name: Time Series Insights
+      href: /azure/time-series-insights
+  - name: Microsoft Edge
+    items:
+    - name: IoT Edge
+      href: /azure/iot-edge
+    - name: IoT SDK per dispositivi
+      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+- name: Risorse
+  items:
+  - name: Esempi di Gemelli digitali di Azure per C# (.NET)
+    href: https://github.com/Azure-Samples/digital-twins-samples-csharp
+  - name: API REST per Gemelli digitali di Azure
+    href: https://docs.westcentralus.azuresmartspaces.net/management/swagger
+  - name: Prezzi
+    href: https://azure.microsoft.com/pricing/details/digital-twins/
+  - name: Calcolatore prezzi
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-digital-twins
+  - name: Forum MSDN
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azuredigitaltwins
+  - name: Casi di successo dei clienti
+    href: https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/
+  - name: Centro per sviluppatori Azure IoT
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Video
+    href: https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true
+ms.openlocfilehash: ac70217527d885eeaaa52d4715421d2560393d91
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49323030"

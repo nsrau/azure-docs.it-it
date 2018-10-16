@@ -33,7 +33,7 @@ items:
     href: storage-quickstart-blobs-ruby.md
   - name: Usare i BLOB - Node.js (Storage SDK v10)
     href: storage-quickstart-blobs-nodejs-v10.md
-  - name: Usare i BLOB - Node.js
+  - name: Usare i BLOB - Node.js (Storage SDK v2)
     href: storage-quickstart-blobs-nodejs.md
   - name: Usare i BLOB - JS/HTML
     href: storage-quickstart-blobs-javascript-client-libraries.md
@@ -349,9 +349,11 @@ items:
     href: storage-blob-static-website.md
   - name: Trasferire i dati
     items:
-    - name: AzCopy in Windows
+    - name: AzCopy (v10)
+      href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: AzCopy in Windows (v8)
       href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: AzCopy in Linux
+    - name: AzCopy in Linux (v8)
       href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Montare l'archivio BLOB come file system in Linux
       href: storage-how-to-mount-container-linux.md
@@ -459,9 +461,9 @@ items:
       href: https://github.com/Azure/azure-storage-ruby
     - name: iOS
       href: https://github.com/Azure/azure-storage-ios
-ms.openlocfilehash: bcbeff3cb506aefd47c26a548489d8f24f2ef2cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 572de357212ac82d8977cdcef99de5b2a09cb901
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978166"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344711"
