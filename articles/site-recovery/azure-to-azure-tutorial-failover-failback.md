@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 61b354dfd6f704eb0677991c02f28de08e49ee37
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1c9af5c94aa05f60220080b779921a2c79c322f3
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917500"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067432"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Eseguire il failover e il failback delle macchine virtuali di Azure tra aree di Azure
 
@@ -26,11 +26,11 @@ Questa esercitazione descrive come eseguire il failover di una singola macchina 
 > * Eseguire il failover della macchina virtuale di Azure
 > * Riproteggere la macchina virtuale secondaria di Azure in modo che possa essere replicata nell'area primaria
 > * Eseguire il failback della macchina virtuale secondaria
-> * Riprotteggere la macchina virtuale primaria anche nell'area secondaria
+> * Riproteggere la macchina virtuale primaria anche nell'area secondaria
 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Assicurarsi di aver completato un'[analisi di ripristino di emergenza](azure-to-azure-tutorial-dr-drill.md) per verificare che tutto funzioni come previsto.
 - Verificare le proprietà della macchina virtuale prima di eseguire il failover di test. La macchina virtuale deve essere conforme ai [requisiti di Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
@@ -71,4 +71,4 @@ Dopo aver eseguito il failover della macchina virtuale, è necessario proteggerl
 
 ## <a name="fail-back-to-the-primary-region"></a>Eseguire il failback nell'area primaria
 
-Dopo aver riprotetto le macchine virtuali, è possibile eseguirne il failback nell'area primaria, se necessario. A questo scopo, seguire le istruzioni di [failover](#run-a-failover).
+Dopo aver riprotetto le macchine virtuali, è possibile eseguirne il failback nell'area primaria, se necessario. A questo scopo, configurare un failover dall'area secondaria all'area primaria, come descritto in questo articolo.

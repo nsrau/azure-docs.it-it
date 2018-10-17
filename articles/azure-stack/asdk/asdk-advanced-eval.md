@@ -1,6 +1,6 @@
 ---
-title: Attività di valutazione di Azure Stack avanzate | Documenti Microsoft
-description: In questo articolo descrive le attività di valutazione avanzate dello Stack di Azure.
+title: Attività di valutazione di Azure Stack avanzate | Microsoft Docs
+description: Questo articolo descrive le attività di valutazione avanzate Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,36 +12,36 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c4bf76aa07ec5025d9e53b5518929199ace27e18
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 0b65f37310b911184c05fd8fb8554eeb824814b8
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29976350"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364813"
 ---
-# <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Attività di valutazione avanzate Kit di sviluppo di Azure Stack
-Una volta acquisite una certa familiarità con le funzionalità di servizio basic Azure Stack Development Kit (ASDK), è possibile approfondire la comprensione dello Stack Azure ulteriormente da testare gli scenari più avanzati. Queste attività di valutazione più avanzate sono documentate completamente nella documentazione di Azure Stack operatore.
+# <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Attività di valutazione di Azure Stack Development Kit avanzate
+Dopo che acquisite familiarità con le caratteristiche di servizio di Azure Stack Development Kit (ASDK) basic, è possibile approfondire la comprensione di Azure Stack ulteriormente verificando gli scenari più avanzati. Queste attività di valutazione più avanzate sono documentate completamente nella documentazione di Azure Stack operatore.
 
 > [!NOTE]
-> Anche se molte attività di operatore sono supportate per ASDK e produzione, le distribuzioni di Azure Stack a più nodi, non tutti gli scenari di utilizzo sono supportati per le distribuzioni ASDK. Vedere [ASDK e le differenze dello Stack di Azure multi-node](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences) per altre informazioni.
+> Anche se molte attività operatore sono supportate per ASDK e la produzione, le distribuzioni di Azure Stack con più nodi, non tutti gli scenari di utilizzo sono supportati per le distribuzioni ASDK. Visualizzare [ASDK e le differenze di Azure Stack con più nodi](asdk-what-is.md#asdk-and-multi-node-azure-stack-differences) per altre informazioni.
 
 ## <a name="delegate-offers-in-azure-stack"></a>Delegare offerte in Azure Stack
-Come l'operatore di Stack di Azure, è spesso necessario inserire altri utenti responsabile della creazione di offerte e iscrizione gli utenti. Ad esempio, se si è un provider di servizi, è possibile rivenditori per iscriversi a clienti e gestirli per conto dell'utente. O se si fa parte di un gruppo IT centrale in un'organizzazione, potrebbe essere controllate da effettuare l'iscrizione gli utenti senza l'intervento dell'utente.
+L'operatore di Stack di Azure, è spesso necessario inserire altri utenti responsabile della creazione di offerte e iscrizione gli utenti. Ad esempio, se sei un provider di servizi, è possibile i rivenditori a effettuare l'iscrizione ai clienti e gestirli per tuo conto. In alternativa, se si fa parte di un gruppo IT centrale in un'organizzazione, è possibile affiliate per l'iscrizione agli utenti senza l'intervento dell'utente.
 
-[Delega dell'offerta in Azure Stack](.\.\azure-stack-delegated-provider.md) consente di queste attività grazie alla possibilità di accedere e gestire più utenti, è possibile direttamente. 
+[Delegare offerte in Azure Stack](.\.\azure-stack-delegated-provider.md) aiuta con queste attività grazie alla possibilità di raggiungere e gestire più utenti rispetto alla configurazione diretta. 
 
-## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti dello Stack di Azure SQL database
-Un operatore di Stack di Azure, è possibile creare offerte che consentono agli utenti di database SQL che possono essere utilizzati con le app cloud nativo, i siti Web e i carichi di lavoro di creare (tenant). Grazie agli utenti i database personalizzati, su richiesta, basato su cloud, è possibile salvarli tempo e risorse. 
+## <a name="make-sql-databases-available-to-your-azure-stack-users"></a>Rendere disponibili i database SQL per gli utenti di Azure Stack
+Un operatore di Stack di Azure, è possibile creare offerte di consentono agli utenti (tenant) creare i database SQL che possono essere utilizzati con le app native del cloud, siti Web e i carichi di lavoro. Fornendo questi database personalizzati, on demand, basato sul cloud per gli utenti, è possibile salvarli tempo e risorse. 
 
-Utilizzare l'adapter di provider di risorse SQL Server per [rendere disponibili agli utenti dello Stack di Azure SQL database](.\.\azure-stack-tutorial-sql-server.md) come servizio dello Stack di Azure. Dopo aver installato il provider di risorse è connettersi a una o più istanze di SQL Server.
+Utilizzare l'adapter di provider di risorse SQL Server per [rendere disponibili i database SQL per gli utenti di Azure Stack](.\.\azure-stack-tutorial-sql-server.md) come un servizio di Azure Stack. Dopo aver installato il provider di risorse è connettersi a uno o più istanze di SQL Server.
 
-## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti di Azure Stack App web e API
-Un operatore di Stack di Azure, è possibile creare offerte che consentono agli utenti di Azure funzioni e API di applicazioni web di creare (tenant). Fornendo l'accesso a queste App su richiesta, basato su cloud agli utenti, è possibile salvarli tempo e risorse.
+## <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Rendere disponibili agli utenti di Azure Stack web e App per le API
+Un operatore di Stack di Azure, è possibile creare offerte di consentono agli utenti (tenant) creare applicazioni web e funzioni di Azure e API. Fornendo l'accesso a queste App on demand, basato sul cloud per gli utenti, è possibile salvarli tempo e risorse.
 
-Distribuire il provider di risorse di servizio App a [rendere web e App per le API disponibili agli utenti di Azure Stack](.\.\azure-stack-tutorial-app-service.md)
+Distribuire il provider di risorse del servizio App di [rendere disponibili agli utenti di Azure Stack web e App per le API](.\.\azure-stack-tutorial-app-service.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni sull'offerta di servizi con i sistemi Azure Stack integrato](.\.\azure-stack-offer-services-overview.md)
+[Altre informazioni sull'offerta di servizi con i sistemi integrati di Azure Stack](.\.\azure-stack-offer-services-overview.md)

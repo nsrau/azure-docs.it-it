@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 6e3679a994a7340fc38bf98f370efd359785fd90
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214966"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857925"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Esercitazione: Associare un certificato SSL personalizzato esistente ad app Web di Azure
 
@@ -66,7 +66,7 @@ Per poter essere usato nel servizio app, il certificato deve soddisfare tutti i 
 
 ## <a name="prepare-your-web-app"></a>Preparare l'app Web
 
-Per associare un certificato SSL personalizzato all'app Web, il [piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/) in uso deve essere di livello **Basic**, **Standard** o **Premium**. In questo passaggio si verifica che l'app Web sia supportata dal piano tariffario adeguato.
+Per associare un certificato SSL personalizzato all'app Web, il [piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/) in uso deve essere di livello **Basic**, **Standard**, **Premium** o **Isolato**. In questo passaggio si verifica che l'app Web sia supportata dal piano tariffario adeguato.
 
 ### <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -237,11 +237,11 @@ Al termine dell'operazione, scegliere uno degli URL HTTP che fanno riferimento a
 - `http://contoso.com`
 - `http://www.contoso.com`
 
-## <a name="enforce-tls-1112"></a>Applicare TLS 1.1/1.2
+## <a name="enforce-tls-versions"></a>Applicare versioni di TLS
 
-L'app consente [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 per impostazione predefinita, che non è più considerato sicuro in base agli standard di settore, ad esempio [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Per applicare versioni di TLS più recenti, seguire questa procedura:
+L'app consente [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 per impostazione predefinita, che è il livello TLS consigliato dagli standard di settore, ad esempio [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). Per applicare versioni di TLS diverse, seguire questa procedura:
 
-Nel riquadro di spostamento a sinistra della pagina dell'app Web selezionare **Impostazioni SSL**. In **TLS version** (Versione TLS) selezionare la versione minima di TLS da usare.
+Nel riquadro di spostamento a sinistra della pagina dell'app Web selezionare **Impostazioni SSL**. In **TLS version** (Versione TLS) selezionare la versione minima di TLS da usare. Questa impostazione controlla solo le chiamate in ingresso. 
 
 ![Applicare TLS 1.1 o 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
@@ -304,7 +304,7 @@ New-AzureRmWebAppSSLBinding `
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Aggiornare il piano tariffario dell'app

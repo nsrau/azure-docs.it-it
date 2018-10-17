@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e984dc985100bcdabbee4fb86bd1819a329301a5
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452633"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888144"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Installazione personalizzata di Azure AD Connect
 **Impostazioni personalizzate** di Azure AD Connect viene usato quando sono necessarie altre opzioni per l'installazione. Viene usato se sono presenti più foreste o per configurare funzionalità facoltative non incluse nell'installazione rapida. Viene usato in tutti i casi in cui l'opzione di [**installazione rapida**](how-to-connect-install-express.md) non soddisfa la distribuzione o la topologia.
@@ -156,12 +156,19 @@ In una distribuzione di produzione completa è difficile mantenere un singolo gr
 ### <a name="optional-features"></a>Funzionalità facoltative
 Questa schermata consente di selezionare le funzionalità facoltative per gli scenari specifici.
 
+>[!WARNING]
+>Le versioni di Azure AD Connect **1.0.8641.0** e precedenti si basano sul servizio di controllo di accesso di Microsoft Azure per il writeback delle password.  Questo servizio non sarà più disponibile a partire dal **7 novembre 2018**.  Se si usa una di queste versioni di Azure AD Connect ed è stato abilitato il writeback delle password, gli utenti potrebbero perdere la possibilità di modificare o reimpostare le password quando il servizio non sarà più disponibile. Il writeback delle password non sarà supportato con queste versioni di Azure AD Connect.
+>
+>Per altre informazioni sul servizio di controllo di accesso di Microsoft Azure, vedere [Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Azure](../develop/active-directory-acs-migration.md)
+>
+>Fare clic [qui](https://www.microsoft.com/en-us/download/details.aspx?id=47594) per scaricare la versione più recente di Azure AD Connect.
+
 ![Funzionalità facoltative](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > Se attualmente è attivo DirSync o Azure AD Sync, non attivare nessuna delle funzionalità di writeback in Azure AD Connect.
->
->
+
+
 
 | Funzionalità facoltative | DESCRIZIONE |
 | --- | --- |
@@ -190,6 +197,9 @@ In base ai servizi selezionati nel passaggio precedente, questa pagina visualizz
 
 ### <a name="directory-extension-attribute-sync"></a>Sincronizzazione attributi estensione della directory
 È possibile estendere lo schema in Azure AD con attributi personalizzati aggiunti dall'organizzazione o altri attributi in Active Directory. Per usare questa funzionalità, selezionare **Sincronizzazione attributi estensione della directory** nella pagina **Funzionalità facoltative**. È possibile selezionare altri attributi da sincronizzare in questa pagina.
+
+>[!NOTE]
+>La casella Attributi disponibili fa distinzione tra maiuscole e minuscole.
 
 ![Estensioni della directory](./media/how-to-connect-install-custom/extension2.png)
 

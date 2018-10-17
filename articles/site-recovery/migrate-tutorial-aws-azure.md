@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922658"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078937"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -31,12 +31,14 @@ Questa esercitazione illustra come eseguire la migrazione di macchine virtuali A
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/pricing/free-trial/) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 - Assicurarsi che nelle macchine virtuali di cui si vuole eseguire la migrazione sia in esecuzione una versione supportata del sistema operativo. Le versioni supportate includono: 
-    - Windows Server 2016
-    - Red Hat Enterprise Linux 6.7 (solo istanze virtualizzate di HVM) e solo con driver Citrix PV o AWS PV. Le istanze che eseguono driver RedHat PV **non** sono supportate.
-
-- Il servizio Mobility deve essere installato in ogni macchina virtuale da replicare. 
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - Versione a 64 bit di Windows Server 2008 R2 SP1 o versione successiva
+  - Red Hat Enterprise Linux 6.7 (solo istanze virtualizzate di HVM) con un driver Citrix PV o AWS PV. Le istanze che eseguono driver RedHat PV *non* sono supportate.
+ - Il servizio Mobility deve essere installato in ogni macchina virtuale da replicare. 
 
     > [!IMPORTANT]
     > Site Recovery installa il servizio automaticamente quando si abilita la replica per la macchina virtuale. Per l'installazione automatica è necessario preparare un account nelle istanze EC2 che Site Recovery userà per accedere alla macchina virtuale. È possibile usare un account di dominio o locale. 
@@ -237,10 +239,9 @@ In alcuni scenari, il failover richiede ulteriore elaborazioni. Per il completam
 Eseguire un failover per le istanze EC2 per eseguirne la migrazione alle macchine virtuali di Azure:
 
 1. In **Elementi protetti** > **Elementi replicati** selezionare le istanze AWS e quindi selezionare **Failover**.
-2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. Selezionare l'ultimo punto di ripristino.
-3. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
-4. Assicurarsi che la macchina virtuale venga visualizzata in **Elementi replicati**.
-5. Fare clic con il pulsante destro del mouse su ogni macchina virtuale e quindi selezionare **Completa la migrazione**. Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
+2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. Selezionare l'ultimo punto di ripristino e avviare il failover. Nella pagina **Processi** è possibile seguire lo stato del failover.
+1. Assicurarsi che la macchina virtuale venga visualizzata in **Elementi replicati**.
+2. Fare clic con il pulsante destro del mouse su ogni macchina virtuale e quindi selezionare **Completa la migrazione**. Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
 
     ![Completare la migrazione](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

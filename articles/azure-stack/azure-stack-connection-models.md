@@ -1,6 +1,6 @@
 ---
-title: Azure Stack ha integrato i modelli di connessione di sistemi | Documenti Microsoft
-description: Determinare le decisioni per lo Stack di Azure multi-node la pianificazione della distribuzione.
+title: I modelli di connessione di sistemi integrati di Azure Stack | Microsoft Docs
+description: Determinare le decisioni per lo Stack di Azure multi-nodo di pianificazione della distribuzione.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,42 +12,42 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e6c94ef1172ea6380a94d5907c24069ed8c48ff5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7509d00815f56dc46bd276ffc67c4c607c54070a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118789"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338897"
 ---
-# <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack ha integrato i modelli di connessione di sistemi
-Se si è interessati in un sistema integrato dello Stack di Azure, è necessario comprendere [diverse considerazioni relative all'integrazione di Data Center](azure-stack-datacenter-integration.md) per la distribuzione di Azure Stack determinare come il sistema rientra in un Data Center. Inoltre, è necessario stabilire esattamente come si integrerà Stack Azure nell'ambiente cloud ibrido. In questo articolo viene fornita una panoramica di queste decisioni principali inclusi connessione di Azure, archivio di identità, fatturazione e le decisioni del modello.
+# <a name="azure-stack-integrated-systems-connection-models"></a>I modelli di connessione di sistemi integrati di Azure Stack
+Se si è interessati a un sistema integrato Azure Stack, è necessario comprendere [diverse considerazioni relative all'integrazione di Data Center](azure-stack-datacenter-integration.md) per la distribuzione di Azure Stack determinare come il sistema possa essere inserito nel tuo Data Center. Inoltre, è necessario decidere esattamente come si integrerà Azure Stack nell'ambiente cloud ibrido. Questo articolo offre una panoramica di queste decisioni principali, inclusi connessione di Azure, archivio di identità, fatturazione e le decisioni del modello.
 
-Se si decide di acquistare un sistema integrato, il fornitore dell'hardware (OEM) original equipment manufacturer consente una Guida per la maggior parte del processo di pianificazione in modo più dettagliato. Eseguono anche la distribuzione effettiva.
+Se si decide di acquistare un sistema integrato, il fornitore dell'hardware (OEM) original equipment manufacturer Guida l'utente attraverso la maggior parte del processo di pianificazione in modo più dettagliato. Si eseguirà anche la distribuzione effettiva.
 
 ## <a name="choose-an-azure-stack-deployment-connection-model"></a>Scegliere un modello di connessione di distribuzione Azure Stack
-È possibile scegliere di distribuire Azure Stack disconnessi o connessi a internet (e in Azure). Per ottenere il massimo vantaggio dallo Stack di Azure, inclusi gli scenari di ibrido tra Stack di Azure e Azure, si desidera distribuire connesso ad Azure. Questa scelta definisce quali opzioni sono disponibili per l'archivio di identità (Azure Active Directory o Active Directory Federation Services) e il modello di fatturazione (pagare come è basata sull'utilizzo o di fatturazione basato su capacità di fatturazione) come riepilogato nel diagramma e nella tabella seguente: 
+È possibile scegliere di distribuire Azure Stack sia connesso a internet (e in Azure) o disconnesso. Per ottenere il massimo vantaggio da Azure Stack, inclusi scenari ibridi tra Azure Stack e Azure, si potrebbe voler distribuire connesso ad Azure. Questa scelta definisce quali opzioni sono disponibili per l'archivio di identità (Azure Active Directory o Active Directory Federation Services) e il modello di fatturazione (pagare quando si usa basata su fatturazione o basati su capacità di fatturazione) come riepilogato nel diagramma e nella tabella seguente: 
 
-![Distribuzione di Stack Azure e gli scenari di fatturazione](media/azure-stack-connection-models/azure-stack-scenarios.png)  
+![Distribuzione di Stack e gli scenari di fatturazione Azure](media/azure-stack-connection-models/azure-stack-scenarios.png)  
   
 > [!IMPORTANT]
-> Si tratta di un punto di decisione chiave! Scelta di Active Directory Federation Services (ADFS) o Azure Active Directory (Azure AD) è una decisione occasionale che è necessario eseguire in fase di distribuzione. È possibile sostituire questa in un secondo momento, senza ridistribuire l'intero sistema.  
+> Questo è un punto di decisione fondamentale. La scelta di Active Directory Federation Services (ADFS) o Azure Active Directory (Azure AD) è una decisione una-tantum che è necessario prendere in fase di distribuzione. È possibile modificare questo in un secondo momento senza ridistribuzione dell'intero sistema.  
 
 
-|Opzioni|Connesso a Azure|Disconnessione da Azure|
+|Opzioni|Connesso ad Azure|Disconnessione da Azure|
 |-----|-----|-----|
 |Azure AD|![Supportato](media/azure-stack-connection-models/check.png)| |
 |AD FS|![Supportato](media/azure-stack-connection-models/check.png)|![Supportato](media/azure-stack-connection-models/check.png)|
 |Fatturazione in base al consumo|![Supportato](media/azure-stack-connection-models/check.png)| |
 |Fatturazione basata sulla capacità|![Supportato](media/azure-stack-connection-models/check.png)|![Supportato](media/azure-stack-connection-models/check.png)|
-|Scaricare i pacchetti di aggiornamento direttamente allo Stack di Azure|![Supportato](media/azure-stack-connection-models/check.png)|  |
+|Scaricare i pacchetti di aggiornamento direttamente in Azure Stack|![Supportato](media/azure-stack-connection-models/check.png)|  |
 
-Dopo aver stabilito il modello di connessione di Azure da utilizzare per la distribuzione di Azure Stack, decisioni aggiuntive e connessione dipendenti devono essere eseguite per l'archivio di identità e il metodo di fatturazione. 
+Dopo aver scelto il modello di connessione di Azure da utilizzare per la distribuzione di Azure Stack, è necessario prendere decisioni aggiuntive, dipendenti dalla connessione per l'archivio identità e un metodo di fatturazione. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Azure connesse decisioni di distribuzione di Azure Stack](azure-stack-connected-deployment.md)
+[Azure connesso decisioni di distribuzione di Azure Stack](azure-stack-connected-deployment.md)
 
-[Azure disconnesso decisioni di distribuzione Azure Stack](azure-stack-disconnected-deployment.md)
+[Azure disconnesso decisioni relative alla distribuzione di Azure Stack](azure-stack-disconnected-deployment.md)

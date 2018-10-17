@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporoate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 0b8de4d04d9cca47423634164e458e8699154f30
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 10b73843e2ca2e0ee0af766ef1ad7ee9cbf61f94
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405309"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854606"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Esercitazione: Creare un'associazione ExpressRoute con la rete WAN virtuale di Azure (anteprima)
 
@@ -41,30 +41,14 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="register"></a>Registrare questa funzionalità
 
-Fare clic sul pulsante **Prova** per registrare facilmente questa funzionalità tramite Azure Cloud Shell.
+Prima di poter configurare la rete WAN virtuale, è necessario registrare la sottoscrizione nell'anteprima. In caso contrario, non sarà possibile utilizzare la rete WAN virtuale nel portale. Per eseguire la registrazione, inviare un messaggio di posta elettronica all'indirizzo **azurevirtualwan@microsoft.com** con l'ID della sottoscrizione. Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione.
 
->[!NOTE]
->Se non si registra la funzionalità, non sarà possibile usarla, né vederla nel portale.
->
->
+**Considerazioni sull'anteprima:**
 
-Dopo aver fatto clic su **Prova** per aprire Azure Cloud Shell, copiare e incollare i comandi seguenti:
+* Disponibilità a livello di area: Stati Uniti centro-occidentali
+* Il circuito ExpressRoute deve essere abilitato in un paese che supporta il servizio [Copertura globale di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
 
-```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
- 
-```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowCortexExpressRouteGateway
-```
-
-Una volta che la funzionalità viene contrassegnata come registrata, registrare nuovamente la sottoscrizione nello spazio dei nomi Microsoft.Network.
-
-```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
-```
-
-## <a name="vnet"></a>1. Crea rete virtuale
+## <a name="vnet"></a>1. Creare una rete virtuale
 
 [!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
 
@@ -134,7 +118,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare una rete WAN virtuale

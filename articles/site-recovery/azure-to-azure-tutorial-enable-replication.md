@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154782"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069098"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria
 
@@ -169,6 +169,19 @@ Per eseguire l'override delle impostazioni predefinite per i criteri di replica,
 
 > [!IMPORTANT]
   Se si abilita la coerenza tra più macchine virtuali, i computer inclusi nel gruppo di replica comunicano tra loro sulla porta 20004. Verificare che nessuna appliance firewall blocchi la comunicazione interna tra VM sulla porta 20004. Se le VM Linux devono far parte di un gruppo di replica, verificare che il traffico in uscita sulla porta 20004 venga aperto manualmente in base alle indicazioni della versione Linux specifica.
+
+### <a name="configure-encryption-settings"></a>Configurare le impostazioni di crittografia
+
+Se nella macchina virtuale di origine è abilitata la Crittografia dischi di Azure, verrà visualizzata la sezione seguente relativa alle impostazioni di crittografia.
+
+- **Insiemi di credenziali delle chiavi di crittografia del disco**: per impostazione predefinita, Azure Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione il cui nome contiene il suffisso "asr" basato sulle chiavi di crittografia del disco della macchina virtuale di origine. Nel caso in cui l'insieme di credenziali delle chiavi creato da Azure Site Recovery esista già, verrà riutilizzato.
+- **Insiemi di credenziali delle chiavi di crittografia della chiave**: per impostazione predefinita, Azure Site Recovery crea un nuovo insieme di credenziali delle chiavi nell'area di destinazione il cui nome contiene il suffisso "asr" basato sulle chiavi di crittografia della chiave della macchina virtuale di origine. Nel caso in cui l'insieme di credenziali delle chiavi creato da Azure Site Recovery esista già, verrà riutilizzato.
+
+Fare clic su 'Personalizza' accanto alle impostazioni di crittografia per eseguire l'override delle impostazioni predefinite e selezionare insiemi di credenziali delle chiavi personalizzati.
+
+>[!NOTE]
+>Azure Site Recovery supporta attualmente solo macchine virtuali di Azure che eseguono il sistema operativo Windows e che sono [enabled abilitate per la crittografia con l'app Azure AD](https://aka.ms/ade-aad-app).
+>
 
 ### <a name="track-replication-status"></a>Tenere traccia dello stato della replica
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 93626e6a8f199841b285fb8a6e302e6c3054db0d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b1b903b945a60cebe2001a1ae41201b9b665c556
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918034"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078818"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurare il ripristino di emergenza in Azure per le macchine virtuali VMware locali
 
@@ -70,7 +70,7 @@ Per configurare il server di configurazione come macchina virtuale VMware a disp
 > Questa esercitazione usa un modello OVA per creare la macchina virtuale VMware del server di configurazione. Se non si sa come eseguire questa operazione, è possibile [configurare il server di configurazione manualmente](physical-manage-configuration-server.md).
 
 > [!TIP]
-> In questa esercitazione, Site Recovery scarica e installa MySQL nel server di configurazione. Se non si vuole che Site Recovery esegua questa operazione, è possibile configurarlo manualmente. [Altre informazioni](vmware-azure-deploy-configuration-server.md#configure-settings).
+> In questa esercitazione, Site Recovery scarica e installa MySQL nel server di configurazione. Se non si vuole che Site Recovery esegua questa operazione, è possibile configurarlo manualmente. [Altre informazioni](vmware-azure-deploy-configuration-server.md#configure-settings)
 
 
 ### <a name="download-the-vm-template"></a>Scaricare il modello di VM
@@ -132,7 +132,7 @@ Per aggiungere un'altra scheda di interfaccia di rete al server di configurazion
 4. Selezionare **Installa VMware PowerCLI**. Prima di eseguire questa operazione, assicurarsi che tutte le finestre del browser siano chiuse. Selezionare quindi **Continua**.
 5. In **Convalida la configurazione dell'appliance** i prerequisiti vengono verificati prima di continuare.
 6. In **Configura vCenter Server/vSphere ESXi** immettere il nome di dominio completo o l'indirizzo IP del server vCenter o dell'host vSphere in cui si trovano le macchine virtuali da replicare. Immettere la porta su cui è in ascolto il server. Immettere un nome descrittivo da usare per il server VMware nell'insieme di credenziali.
-7. Immettere le credenziali che verranno usate dal server di configurazione per connettersi al server VMware. Site Recovery usa queste credenziali per individuare automaticamente le macchine virtuali VMware disponibili per la replica. Selezionare **Aggiungi** e quindi **Continua**.
+7. Immettere le credenziali utente che verranno usate dal server di configurazione per connettersi al server VMware. Assicurarsi che il nome utente e la password siano corretti e che l'utente faccia parte del gruppo Amministratori della macchina virtuale da proteggere. Site Recovery usa queste credenziali per individuare automaticamente le macchine virtuali VMware disponibili per la replica. Selezionare **Aggiungi** e quindi **Continua**.
 8. In **Configura le credenziali della macchina virtuale** immettere il nome utente e la password che verranno usati per installare automaticamente il servizio Mobility nelle macchine virtuali quando la replica è abilitata.
     - Per i computer Windows, l'account deve avere privilegi di amministratore locale nei computer da replicare.
     - Per Linux, specificare i dettagli dell'account radice.

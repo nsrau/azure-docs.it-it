@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: d063e4b79819a881dbf018979654d4d7d96b904a
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.reviewer: quying
+ms.openlocfilehash: fbdf12af5c14b65f69734c601916fad2b3d825ef
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390928"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361875"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>Distribuire il provider di risorse di SQL Server in Azure Stack
 
@@ -83,7 +83,7 @@ Eseguire lo script DeploySqlProvider.ps1, che completa le attività seguenti:
 | **AzCredential** | Le credenziali per l'account di amministratore del servizio di Azure Stack. Usare le stesse credenziali usate per la distribuzione di Azure Stack. | _Obbligatorio_ |
 | **VMLocalCredential** | Le credenziali per l'account amministratore locale del provider di risorse SQL macchina virtuale. | _Obbligatorio_ |
 | **PrivilegedEndpoint** | L'indirizzo IP o nome DNS dell'endpoint con privilegi. |  _Obbligatorio_ |
-| **AzureEnvironment** | Ambiente di azure dell'account di amministratore del servizio che usato per la distribuzione di Azure Stack. Obbligatorio solo se non è ad FS. I nomi di ambiente supportati sono **AzureCloud**, **AzureUSGovernment**, o se si usa un China Azure Active Directory **AzureChinaCloud**. | AzureCloud |
+| **AzureEnvironment** | Ambiente di Azure dell'account di amministratore del servizio che usato per la distribuzione di Azure Stack. Obbligatorio solo per le distribuzioni di Azure AD. I nomi di ambiente supportati sono **AzureCloud**, **AzureUSGovernment**, o se si usa un China Azure Active Directory **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Per i sistemi integrati, i file con estensione pfx del certificato deve trovarsi in questa directory. È facoltativamente possibile copiare un pacchetto di Windows Update MSU qui. | _Facoltativo_ (_obbligatorio_ per i sistemi integrati) |
 | **DefaultSSLCertificatePassword** | La password per il certificato con estensione pfx. | _Obbligatorio_ |
 | **MaxRetryCount** | Il numero di volte in cui che si desidera ripetere ogni operazione se si verifica un errore.| 2 |
@@ -93,9 +93,9 @@ Eseguire lo script DeploySqlProvider.ps1, che completa le attività seguenti:
 
 ## <a name="deploy-the-sql-resource-provider-using-a-custom-script"></a>Distribuire il provider di risorse SQL usando uno script personalizzato
 
-<a name="to-eliminate-any-manual-configuration-when-deploying-the-resource-provider-you-can-customize-the-following-script"></a>Per eliminare qualsiasi configurazione manuale quando si distribuisce il provider di risorse, è possibile personalizzare lo script seguente.  
--  
-- Modificare le informazioni sull'account predefinito e le password in base alle esigenze per la distribuzione di Azure Stack.
+Per eliminare qualsiasi configurazione manuale quando si distribuisce il provider di risorse, è possibile personalizzare lo script seguente.  
+
+Modificare le informazioni sull'account predefinito e le password in base alle esigenze per la distribuzione di Azure Stack.
 
 
 ```powershell
@@ -109,6 +109,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -135,6 +138,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
     -VMLocalCredential $vmLocalAdminCreds `
     -CloudAdminCredential $cloudAdminCreds `
     -PrivilegedEndpoint $privilegedEndpoint `
+    -AzureEnvironment $AzureEnvironment `
     -DefaultSSLCertificatePassword $PfxPass `
     -DependencyFilesLocalPath $tempDir\cert
 

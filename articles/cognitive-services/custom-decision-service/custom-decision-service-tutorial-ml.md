@@ -1,21 +1,23 @@
 ---
-title: Machine Learning - Servizi cognitivi di Azure | Microsoft Docs
-description: Un'esercitazione di apprendimento automatico per il Servizio decisionale personalizzato di Azure, un'API basata su cloud per la gestione di processi decisionali contestualizzati.
+title: 'Esercitazione: Definizione e specifica di funzioni - Servizio decisionale personalizzato'
+titlesuffix: Azure Cognitive Services
+description: Esercitazione per la definizione e la specifica di funzioni di Machine Learning nel Servizio decisionale personalizzato.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh
-ms.openlocfilehash: 50814d67ee39c6657954610358462d877843416e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: 1e5d012706d1de5a201eecb8ad805b4d6faaf411
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377025"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869591"
 ---
-# <a name="machine-learning"></a>Machine learning
+# <a name="tutorial-featurization-and-feature-specification"></a>Esercitazione: Definizione e specifica di funzioni
 
 Questa esercitazione illustra la funzionalità avanzata di apprendimento automatico del Servizio decisionale personalizzato. L'esercitazione è costituita da due parti: [definizione delle funzioni](#featurization-concepts-and-implementation) e [specifica delle funzioni](#feature-specification-format-and-apis). La definizione delle funzioni è la rappresentazione dei dati come "funzioni" per l'apprendimento automatico. La specifica delle funzioni riguarda il formato JSON e le API ausiliarie per specificare le funzioni.
 

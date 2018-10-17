@@ -2,27 +2,24 @@
 title: Usare Servizio Migrazione del database di Azure per eseguire la migrazione a Istanza gestita di database SQL di Azure | Microsoft Docs
 description: Informazioni su come eseguire la migrazione da SQL Server locale all'istanza gestita di database SQL di Azure con il servizio Migrazione del database di Azure.
 services: dms
-author: edmacauley
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/15/2018
-ms.openlocfilehash: 4d2714305f1852a91614ce29ec5e74f489487c5a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 10/10/2018
+ms.openlocfilehash: 2e8e9706a9572b85030a636dd75d4809447eabbc
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918336"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067892"
 ---
-# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure con Servizio Migrazione del database di Azure
+# <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure offline con Servizio Migrazione del database di Azure
 È possibile usare il servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di SQL Server locale a un'[istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance.md). Per altri metodi che potrebbero richiedere un qualche intervento manuale, vedere [Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-migrate.md).
-
-> [!IMPORTANT]
-> I progetti di migrazione da SQL Server a Istanza gestita di database SQL di Azure sono in anteprima e sono soggetti alle [condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In questa esercitazione si eseguirà la migrazione del database **AdventureWorks2012** da un'istanza locale di SQL Server a un'istanza gestita di database SQL di Azure tramite il servizio Migrazione del database di Azure.
 
@@ -100,9 +97,9 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 
 1. Nel portale di Azure selezionare **Tutti i servizi**, eseguire la ricerca di Servizio Migrazione del database di Azure e quindi selezionare **Servizio Migrazione del database di Azure**.
 
-    ![Individuare tutte le istanze del Servizio Migrazione del database di Azure](media\tutorial-sql-server-to-azure-sql\dms-search.png)
+    ![Individuare tutte le istanze del Servizio Migrazione del database di Azure](media\tutorial-sql-server-to-managed-instance\dms-search.png)
 
-2. Nella schermata **Servizio Migrazione del database di Azure** cercare il nome dell'istanza appena creata e quindi selezionare l'istanza.
+2. Nella schermata **Servizio Migrazione del database di Azure** cercare il nome dell'istanza creata e quindi selezionarla.
  
 3. Selezionare **+ Nuovo progetto di migrazione**.
 
@@ -135,9 +132,9 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 
 ## <a name="specify-target-details"></a>Specificare i dettagli della destinazione
 
-1.  Nella schermata **Dettagli destinazione della migrazione** specificare i dettagli di connessione per la destinazione, ovvero l'istanza gestita di database SQL di Azure di cui è già stato effettuato il provisioning e in cui deve essere eseguita la migrazione del database **AdventureWorks2012**.
+1.  Nella schermata **Dettagli destinazione della migrazione** specificare i dettagli di connessione per la destinazione, che è l'istanza gestita di database SQL di Azure di cui è già stato effettuato il provisioning e verso cui si esegue la migrazione del database **AdventureWorks2012**.
 
-    Se non è ancora stato eseguito il provisioning dell'Istanza gestita di database SQL di Azure, selezionare **No** per ottenere un collegamento utile per il provisioning dell'istanza. È comunque possibile procedere con la creazione del progetto e quindi, quando l'Istanza gestita di database SQL di Azure è pronta, tornare a questo progetto specifico per eseguire la migrazione.   
+    Se non si è ancora effettuato il provisioning dell'istanza gestita di database SQL di Azure, selezionare **No** per usare un collegamento utile per il provisioning dell'istanza. È comunque possibile procedere con la creazione del progetto e quindi, quando l'Istanza gestita di database SQL di Azure è pronta, tornare a questo progetto specifico per eseguire la migrazione.   
  
        ![Selezionare la destinazione](media\tutorial-sql-server-to-managed-instance\dms-target-details2.png)
 
@@ -168,12 +165,12 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 
     | | |
     |--------|---------|
-    |**Scegliere l'opzione di backup di origine** | Scegliere l'opzione **Verranno forniti i file di backup più recenti** quando sono già disponibili i file di backup completi per il Servizio Migrazione del database da usare per la migrazione del database. Scegliere l'opzione **Consentire al Servizio Migrazione del database di Azure di creare i file di backup** per fare in modo che il Servizio Migrazione del database salvi prima il backup completo del database di origine e lo usi per la migrazione. |
+    |**Scegliere l'opzione di backup di origine** | Scegliere l'opzione **Verranno forniti i file di backup più recenti** quando sono già disponibili file di backup completo che possono essere usati da Servizio Migrazione del database per la migrazione del database. Scegliere l'opzione **Consentire al Servizio Migrazione del database di Azure di creare i file di backup** per fare in modo che il Servizio Migrazione del database salvi prima il backup completo del database di origine e lo usi per la migrazione. |
     |**Condivisione del percorso di rete** | Condivisione di rete SMB locale dove il Servizio Migrazione del database di Azure può salvare i backup del database di origine. L'account del servizio che esegue l'istanza di SQL Server di origine deve disporre dei privilegi di scrittura in questa condivisione di rete. Specificare l'FQDN o l'indirizzo IP del server nella condivisione di rete, ad esempio '\\\nomeserver.nomedominio.com\cartellabackup' o '\\\indirizzoIP\cartellabackup'.|
-    |**Nome utente** | Verificare che l'utente di Windows abbia i privilegi di controllo completo sulla condivisione di rete fornita in precedenza. Il Servizio Migrazione del database di Azure rappresenterà le credenziali utente necessarie per caricare i file di backup nel contenitore di archiviazione di Azure per l'operazione di ripristino. Se vengono selezionati per la migrazione database abilitati per TDE, l'utente di Windows precedente deve essere l'account predefinito Administrator e [Controllo dell'account utente](https://docs.microsoft.com/en-us/windows/security/identity-protection/user-account-control/user-account-control-overview) deve essere disabilitato per consentire al Servizio Migrazione del database di Azure di caricare ed eliminare i file dei certificati. |
+    |**Nome utente** | Verificare che l'utente di Windows abbia i privilegi di controllo completo sulla condivisione di rete fornita in precedenza. Il Servizio Migrazione del database di Azure rappresenterà le credenziali utente necessarie per caricare i file di backup nel contenitore di archiviazione di Azure per l'operazione di ripristino. Se vengono selezionati per la migrazione database abilitati per TDE, l'utente di Windows precedente deve essere l'account predefinito Administrator e [Controllo dell'account utente](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) deve essere disabilitato per consentire al Servizio Migrazione del database di Azure di caricare ed eliminare i file dei certificati. |
     |**Password** | Password per l'utente. |
     |**Impostazioni account di archiviazione** | URI di firma di accesso condiviso che consente al servizio Migrazione del database di Azure di accedere al contenitore dell'account di archiviazione dell'utente per il caricamento dei file di backup e che verrà usato per la migrazione dei database all'Istanza gestita di database SQL di Azure. [Informazioni su come ottenere l'URI di firma di accesso condiviso per un contenitore BLOB](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
-    |**Impostazioni TDE** | Se si esegue la migrazione dei database di origine con Transparent Data Encryption (TDE) abilitato, è necessario avere privilegi di scrittura per l'istanza gestita di database SQL di Azure.  Selezionare la sottoscrizione in cui l'istanza gestita di database SQL di Azure ha effettuato il provisioning dal menu a discesa.  Selezionare l'istanza gestita di database SQL di Azure di destinazione nel menu a discesa. |
+    |**Impostazioni TDE** | Se si esegue la migrazione dei database di origine con la funzionalità Transparent Data Encryption (TDE) abilitata, è necessario avere privilegi di scrittura per l'istanza gestita di database SQL di Azure di destinazione.  Selezionare la sottoscrizione in cui l'istanza gestita di database SQL di Azure ha effettuato il provisioning dal menu a discesa.  Selezionare l'**istanza gestita di database SQL di Azure** di destinazione nel menu a discesa. |
     
     ![Configurare le impostazioni di migrazione](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings3.png)
 

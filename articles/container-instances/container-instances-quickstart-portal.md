@@ -1,26 +1,25 @@
 ---
-title: Avvio rapido - Creare il primo contenitore di 	Istanze di contenitore di Azure con il portale di Azure
-description: In questa guida introduttiva si userà il portale di Azure per distribuire un contenitore in Istanze di contenitore di Azure
+title: "Guida introduttiva: eseguire un'applicazione in Istanze di contenitore di Azure"
+description: In questa guida introduttiva si userà il portale di Azure per distribuire un'applicazione in esecuzione in un contenitore Docker in Istanze di contenitore di Azure
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 10/02/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6aa6fb27b2aa7c8b9614e5812fadc629b1e185f8
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076239"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857721"
 ---
-# <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Guida introduttiva: Creare il primo contenitore in Istanze di contenitore di Azure
+# <a name="quickstart-run-an-application-in-azure-container-instances"></a>Guida introduttiva: eseguire un'applicazione in Istanze di contenitore di Azure
 
-Istanze di contenitore di Azure semplifica la creazione e gestione di contenitori Docker in Azure, senza dover eseguire il provisioning di macchine virtuali o di adottare un servizio di livello superiore. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore in Azure, che viene quindi esposto a Internet con un nome di dominio completo (FQDN). Dopo aver configurato alcune impostazioni, nel browser verrà visualizzato quanto segue:
+Le Istanze di contenitore di Azure consentono di eseguire i contenitori Docker in Azure in modo semplice e rapido, senza la necessità di distribuire macchine virtuali o usare una piattaforma di orchestrazione di contenitori completa come Kubernetes. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore in Azure e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Dopo la configurazione di alcune impostazioni e la distribuzione del contenitore, è possibile passare all'applicazione in esecuzione:
 
-![App distribuita usando Istanze di contenitore di Azure visualizzata nel browser][aci-portal-07]
+![App distribuita in Istanze di contenitore di Azure visualizzata nel browser][aci-portal-07]
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -38,7 +37,7 @@ Immettere i valori seguenti nelle caselle di testo **Nome contenitore**, **Immag
 
 * Nome contenitore: `mycontainer`
 * Immagine del contenitore: `microsoft/aci-helloworld`
-* Gruppo di risorse: `myResourceGroup`
+* Gruppo di risorse: **Crea nuovo** > `myResourceGroup`
 
 ![Configurazione delle impostazioni di base per una nuova istanza di contenitore nel portale di Azure][aci-portal-03]
 
@@ -54,11 +53,11 @@ Al termine della convalida, viene visualizzato un riepilogo delle impostazioni d
 
 ![Riepilogo delle impostazioni per una nuova istanza di contenitore nel portale di Azure][aci-portal-05]
 
-All'avvio della distribuzione, nel dashboard del portale viene visualizzato un riquadro che indica che la distribuzione è in corso. Dopo la distribuzione, il riquadro visualizza la nuova istanza di contenitore.
+All'avvio della distribuzione, viene visualizzata una notifica che indica che la distribuzione è in corso. Un'altra notifica viene visualizzata dopo che il gruppo di contenitori è stato distribuito.
 
 ![Stato di avanzamento della creazione di una nuova istanza di contenitore nel portale di Azure][aci-portal-08]
 
-Selezionare l'istanza di contenitore **mycontainer** per visualizzare le relative proprietà. Prendere nota dell'**FQDN** (nome di dominio completo) dell'istanza di contenitore, nonché dello **Stato**.
+Aprire la panoramica per il gruppo di contenitori passando a **Gruppi di risorse** > **myResourceGroup** > **mycontainer**. Prendere nota dell'**FQDN** (nome di dominio completo) dell'istanza di contenitore, nonché dello **Stato**.
 
 ![Panoramica del gruppo di contenitori nel portale di Azure][aci-portal-06]
 
@@ -88,7 +87,7 @@ Selezionare **Sì** quando viene visualizzata la finestra di dialogo di conferma
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare personalmente un'immagine del contenitore e a distribuirla in Istanze di contenitore di Azure da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di contenitore di Azure.
+In questa guida introduttiva è stata creata un'istanza di contenitore di Azure da un'immagine nel registro nell'hub Docker pubblico. Per provare a creare un'immagine del contenitore e a distribuirla da un registro contenitori di Azure privato, passare all'esercitazione su Istanze di contenitore di Azure.
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Istanze di contenitore di Azure](./container-instances-tutorial-prepare-app.md)

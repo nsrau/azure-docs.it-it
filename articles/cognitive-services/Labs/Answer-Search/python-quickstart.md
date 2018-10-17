@@ -1,25 +1,27 @@
 ---
-title: Guida introduttiva a Servizi cognitivi Microsoft per Python, Project Answer Search | Microsoft Docs
-description: Esempio in Python di introduzione all'uso di Project Answer Search, Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: Project Answer Search, Python'
+titlesuffix: Azure Cognitive Services
+description: Esempio di Python per iniziare a usare Project Answer Search.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9cb5406c616ed8e96d73c00c788a0d20f66dcabd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c33a88b65dcdf5ddddff9f5109afbe0cca7247c4
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376137"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869830"
 ---
-# <a name="project-answer-search-python-quickstart"></a>Guida introduttiva a Project Answer Search per Python
+# <a name="quickstart-project-answer-search-with-python"></a>Guida introduttiva: Project Answer Search con Python
 
 L'esempio in Python seguente crea e invia una richiesta di informazioni su "Rock of Gibraltar".
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
 

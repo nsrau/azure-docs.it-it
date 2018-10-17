@@ -2,16 +2,17 @@
 title: Eseguire un'analisi di ripristino di emergenza per computer locali in Azure tramite Azure Site Recovery | Microsoft Docs
 description: Informazioni sull'esecuzione di un'analisi di ripristino di emergenza locale in Azure, con Azure Site Recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/13/2018
+ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3be3631d8d917fe9ff85e8471a35ac2ddece80b7
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41919765"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078155"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure
 
@@ -19,7 +20,7 @@ In questo articolo viene illustrato come eseguire un'analisi del ripristino di e
 
 Questa è la quarta esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali o macchine virtuali Hyper-V.
 
-Per questa esercitazione si presuppone che siano state completate le prime tre esercitazioni: 
+Per questa esercitazione si presuppone che siano state completate le prime tre esercitazioni:
     - Nella [prima esercitazione](tutorial-prepare-azure.md) sono stati configurati i componenti di Azure necessari per il ripristino di emergenza di VMware.
     - Nella [seconda esercitazione](vmware-azure-tutorial-prepare-on-premises.md) sono stati preparati i componenti locali per il ripristino di emergenza e sono stati esaminati i prerequisiti.
     - Nella [terza esercitazione](vmware-azure-tutorial.md) è stata configurata e abilitata la replica per la macchina virtuale VMware locale.
@@ -44,6 +45,14 @@ Prima di eseguire un failover di test, verificare le proprietà della macchina v
 4. È possibile visualizzare e modificare le impostazioni di rete, tra cui la rete/subnet in cui si troverà la macchina virtuale di Azure dopo il failover e l'indirizzo IP che le verrà assegnato.
 5. In **Dischi** è possibile vedere le informazioni sul sistema operativo e sui dischi dati della VM.
 
+## <a name="create-a-network-for-test-failover"></a>Creare una rete per il failover di test
+
+Durante un failover di test, è consigliabile scegliere una rete isolata dalla rete del sito di ripristino di produzione specificata nelle impostazioni **Calcolo e rete** di ogni macchina virtuale. Quando si crea una rete virtuale di Azure, per impostazione predefinita è isolata dalle altre reti. La rete di test dovrà simulare la rete di produzione:
+
+- La rete di test dovrà avere lo stesso numero di subnet della rete di produzione. Le subnet dovranno avere lo stesso nome.
+- La rete di test dovrà usare lo stesso intervallo di indirizzi IP.
+- Aggiornare il DNS della rete di test con l'indirizzo IP specificato per la macchina virtuale DNS nelle impostazioni **Calcolo e rete**. Per altri dettagli, vedere [Considerazioni sul failover di test per Active Directory](site-recovery-active-directory.md#test-failover-considerations).
+
 ## <a name="run-a-test-failover-for-a-single-vm"></a>Eseguire un failover di test per una singola macchina virtuale
 
 Quando si esegue un failover di test, si verifica quanto segue:
@@ -64,6 +73,12 @@ Eseguire il failover di test come descritto di seguito:
 7. Per eliminare le macchine virtuali di Azure create durante il failover di test, fare clic su **Pulisci failover di test** nella VM. Fare clic su **Note** per registrare e salvare eventuali osservazioni associate al failover di test.
 
 In alcuni scenari il failover richiede un'altra elaborazione il cui completamento richiede da 8 a 10 minuti. L'esecuzione del failover di test potrebbe richiedere più tempo per computer Linux VMware, macchine virtuali VMware per cui non è abilitato il servizio DHCP e macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparare la connessione alle macchine virtuali di Azure dopo il failover
+
+Per connettersi alle macchine virtuali di Azure con RDP/SSH dopo il failover, attenersi ai requisiti riepilogati in [questa](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover) tabella.
+
+Seguire i passaggi descritti [qui](site-recovery-failover-to-azure-troubleshoot.md) per risolvere gli eventuali problemi di connettività riscontrati dopo il failover.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

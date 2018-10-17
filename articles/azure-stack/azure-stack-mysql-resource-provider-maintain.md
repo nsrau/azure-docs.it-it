@@ -1,6 +1,6 @@
 ---
-title: Mantenere il provider di risorse MySQL nello Stack di Azure | Documenti Microsoft
-description: Informazioni su come è possibile gestire il servizio provider di risorse MySQL nello Stack di Azure.
+title: Mantenere il provider di risorse MySQL in Azure Stack | Microsoft Docs
+description: Informazioni su come è possibile gestire il servizio provider di risorse MySQL in Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,46 +11,46 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: bc1c96d2f027d459ca20fccb70cd94ac9e5cae94
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.reviewer: quying
+ms.openlocfilehash: 76a164ffcf918ebedcf4647f24a61ca3a271e967
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130139"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361916"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>Operazioni di manutenzione del provider di risorse MySQL
 
-Il provider di risorse MySQL viene eseguito in una macchina virtuale bloccata. Per abilitare le operazioni di manutenzione, è necessario aggiornare la protezione della macchina virtuale. A tale scopo di utilizzo del principio di privilegio minimo, è possibile utilizzare endpoint PowerShell Just Enough Administration (JEA) DBAdapterMaintenance. Il pacchetto di installazione di provider di risorse include uno script per questa operazione.
+Il provider di risorse MySQL viene eseguito in una macchina virtuale bloccata. Per abilitare le operazioni di manutenzione, è necessario aggiornare la protezione della macchina virtuale. A questo scopo si utilizza il principio del privilegio minimo, è possibile usare PowerShell Just Enough Administration (JEA) endpoint DBAdapterMaintenance. Il pacchetto di installazione di provider di risorse include uno script per questa operazione.
 
 ## <a name="update-the-virtual-machine-operating-system"></a>Aggiornare il sistema operativo della macchina virtuale
 
-Poiché il provider di risorse viene eseguito su un *utente* macchina virtuale, è necessario applicare le patch e aggiornamenti quando sono rilasciati. È possibile utilizzare i pacchetti di aggiornamento di Windows che vengono forniti come parte del ciclo di patch e aggiornamento per applicare gli aggiornamenti per la macchina virtuale.
+Poiché il provider di risorse viene eseguito su un *utente* macchina virtuale, è necessario applicare le patch necessarie e gli aggiornamenti quando vengono rilasciate. È possibile usare i pacchetti di aggiornamento di Windows che vengono forniti come parte del ciclo di patch e aggiornamento per applicare gli aggiornamenti per la macchina virtuale.
 
-Aggiornare la macchina virtuale del provider utilizzando uno dei metodi seguenti:
+Aggiornare la macchina virtuale di provider usando uno dei metodi seguenti:
 
 - Installare il pacchetto di provider di risorse più recente usando un'immagine di Windows Server 2016 Core attualmente con patch.
-- Installa un pacchetto di Windows Update durante l'installazione di, o aggiornare il provider di risorse.
+- Installare un pacchetto di Windows Update durante l'installazione di, o aggiornare il provider di risorse.
 
 ## <a name="update-the-virtual-machine-windows-defender-definitions"></a>Aggiornare le definizioni di Windows Defender di macchina virtuale
 
-Per aggiornare le definizioni, seguire questi passaggi:
+Per aggiornare le definizioni di Defender, seguire questa procedura:
 
-1. Download di aggiornare le definizioni di Windows Defender [Windows Defender definizione](https://www.microsoft.com/en-us/wdsi/definitions).
+1. Scaricare le definizioni di Windows Defender Aggiorna da [definizione di Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions).
 
-    Nella pagina definizioni, scorrere fino alla "Scaricare e installare manualmente le definizioni". Scaricare il file a 64 bit "Antivirus Windows Defender per Windows 8.1 e Windows 10".
+    Nella pagina definizioni, scorrere fino alla "Scaricare e installare manualmente le definizioni di". Scaricare il file a 64 bit "Windows Defender Antivirus per Windows 10 e Windows 8.1".
 
-    In alternativa, usare [questo collegamento diretto](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) al download/eseguire il file fpam fe.exe.
+    In alternativa, usare [questo collegamento diretto](https://go.microsoft.com/fwlink/?LinkID=121721&arch=x64) download/esecuzione file fpam fe.exe.
 
-2. Aprire una sessione di PowerShell all'endpoint di manutenzione MySQL resource provider scheda della macchina virtuale.
+2. Aprire una sessione di PowerShell all'endpoint di gestione di MySQL resource provider della scheda della macchina virtuale.
 
-3. Copiare il file di aggiornamento delle definizioni per l'adapter di provider di risorse macchina virtuale che utilizza la sessione di endpoint di manutenzione.
+3. Copiare il file di aggiornamento delle definizioni per l'adapter del provider di risorse macchina virtuale tramite la sessione di endpoint di manutenzione.
 
-4. Nella sessione di PowerShell di manutenzione, eseguire la _aggiornamento DBAdapterWindowsDefenderDefinitions_ comando.
+4. Nella sessione di PowerShell di manutenzione, eseguire la _Update-DBAdapterWindowsDefenderDefinitions_ comando.
 
-5. Dopo aver installato le definizioni, è consigliabile eliminare il file di aggiornamento di definizioni utilizzando il _Remove-ItemOnUserDrive)_ comando.
+5. Dopo aver installato le definizioni, è consigliabile eliminare il file di aggiornamento delle definizioni usando il _Remove-ItemOnUserDrive)_ comando.
 
 **Esempio di script di PowerShell per l'aggiornamento delle definizioni.**
 
@@ -90,14 +90,14 @@ $session | Remove-PSSession
 
 ```
 
-## <a name="secrets-rotation"></a>Rotazione di segreti
+## <a name="secrets-rotation"></a>Rotazione dei segreti
 
-*Queste istruzioni si applicano solo a Azure Stack integrata sistemi versione 1804 e versioni successive. Non provare a eseguire la rotazione dei segreti sul versioni pre-1804 dello Stack di Azure.*
+*Queste istruzioni si applicano solo per i sistemi integrati di Azure Stack.*
 
-Quando tramite i provider di risorse MySQL e SQL Server con lo Stack di Azure integrati sistemi, è possibile ruotare i segreti dell'infrastruttura (distribuzione) seguenti:
+Quando i sistemi integrati di utilizzando il provider di risorse SQL e MySQL con Azure Stack, l'operatore di Azure Stack è responsabile per la rotazione i segreti di infrastruttura del provider di risorse seguenti per assicurarsi che non scadono:
 
-- Certificato SSL esterno [fornito durante la distribuzione](azure-stack-pki-certs.md).
-- La risorsa provider VM password di amministratore locale fornite durante la distribuzione.
+- Certificato SSL esterno [specificato durante la distribuzione](azure-stack-pki-certs.md).
+- Resource provider VM account password dell'amministratore locale specificate durante la distribuzione.
 - Password utente diagnostica (dbadapterdiag) provider di risorse.
 
 ### <a name="powershell-examples-for-rotating-secrets"></a>Esempi di PowerShell per la rotazione dei segreti
@@ -127,7 +127,7 @@ Quando tramite i provider di risorse MySQL e SQL Server con lo Stack di Azure in
 
 ```
 
-**Modificare la password dell'account amministratore locale macchina virtuale.**
+**Modificare la password dell'account amministratore locale della macchina virtuale.**
 
 ```powershell
 .\SecretRotationMySQLProvider.ps1 `
@@ -154,48 +154,48 @@ Quando tramite i provider di risorse MySQL e SQL Server con lo Stack di Azure in
 
 |Parametro|DESCRIZIONE|
 |-----|-----|
-|AzCredential|Credenziale dell'account di amministrazione di Stack dei servizi Azure.|
-|CloudAdminCredential|Azure Stack cloud admin dominio credenziale dell'account.|
-|PrivilegedEndpoint|Endpoint dei privilegi necessari per l'accesso AzureStackStampInformation Get.|
-|DiagnosticsUserPassword|Password dell'account utente diagnostica.|
-|VMLocalCredential|L'account administrator locale nella VM MySQLAdapter.|
+|AzCredential|Credenziale dell'account di Azure Stack amministratore del servizio.|
+|CloudAdminCredential|Azure Stack cloud amministratore dominio credenziale dell'account.|
+|PrivilegedEndpoint|Endpoint il privilegio di accesso Get-AzureStackStampInformation.|
+|DiagnosticsUserPassword|Password dell'account utente di diagnostica.|
+|VMLocalCredential|L'account amministratore locale nella VM MySQLAdapter.|
 |DefaultSSLCertificatePassword|Certificato SSL predefinito (* pfx) la Password.|
-|DependencyFilesLocalPath|Percorso locale i file di dipendenza.|
+|DependencyFilesLocalPath|Percorso locale per i file delle dipendenze.|
 |     |     |
 
 ### <a name="known-issues"></a>Problemi noti
 
 **Problema:**<br>
-I log per la rotazione dei segreti non vengono raccolti automaticamente se lo script di rotazione secret ha esito negativo quando viene eseguito.
+I log per la rotazione dei segreti non vengono raccolti automaticamente se lo script di rotazione segreta non riesce quando viene eseguito.
 
 **Soluzione alternativa:**<br>
-Usare il cmdlet Get-AzsDBAdapterLogs per raccogliere tutti i log di provider di risorse, inclusi AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, salvato in c:\Logs.
+Usare il cmdlet Get-AzsDBAdapterLogs per raccogliere tutti i log di provider di risorse, tra cui AzureStack.DatabaseAdapter.SecretRotation.ps1_*.log, salvato in C:\Logs.
 
 ## <a name="collect-diagnostic-logs"></a>Raccogliere i log di diagnostica
 
-Per raccogliere i log dalla macchina virtuale bloccata, è possibile utilizzare l'endpoint di PowerShell Just Enough Administration (JEA) DBAdapterDiagnostics. Questo endpoint vengono forniti i comandi seguenti:
+Per raccogliere i log dalla macchina virtuale bloccata, è possibile usare l'endpoint PowerShell Just Enough Administration (JEA) DBAdapterDiagnostics. Questo endpoint fornisce i comandi seguenti:
 
-- **Get-AzsDBAdapterLog**. Questo comando crea un pacchetto zip dei log di diagnostica del provider di risorse e Salva il file nell'unità utente della sessione. È possibile eseguire questo comando senza parametri e le ultime quattro ore dei log sono raccolti.
+- **Get-AzsDBAdapterLog**. Questo comando crea un pacchetto con estensione zip dei log di diagnostica del provider di risorse e Salva il file nell'unità utente della sessione. È possibile eseguire questo comando senza parametri e le ultime quattro ore di log vengono raccolti.
 
-- **Remove-AzsDBAdapterLog**. Questo comando rimuove i pacchetti di log esistenti nel provider di risorse macchina virtuale.
+- **Remove-AzsDBAdapterLog**. Questo comando rimuove i pacchetti esistenti di log per il provider di risorse della macchina virtuale.
 
-### <a name="endpoint-requirements-and-process"></a>Processo e i requisiti di endpoint
+### <a name="endpoint-requirements-and-process"></a>Processo e sui requisiti di endpoint
 
-Quando un provider di risorse viene installato o aggiornato, viene creato l'account utente dbadapterdiag. Si utilizzerà questo account per raccogliere i log di diagnostica.
+Quando un provider di risorse viene installato o aggiornato, viene creato l'account utente dbadapterdiag. Si userà questo account per raccogliere i log di diagnostica.
 
 >[!NOTE]
->La password dell'account dbadapterdiag equivale la password utilizzata per l'amministratore locale nella macchina virtuale creata durante un aggiornamento o la distribuzione del provider.
+>La password dell'account dbadapterdiag è uguale a quella usata per l'amministratore locale nella macchina virtuale che viene creata durante un aggiornamento o la distribuzione del provider.
 
 Usare la _DBAdapterDiagnostics_ comandi, creare una sessione remota di PowerShell per la macchina virtuale del provider di risorse ed eseguire il **Get-AzsDBAdapterLog** comando.
 
-Impostare l'intervallo di tempo per la raccolta di log utilizzando il **FromDate** e **ToDate** parametri. Se non si specifica uno o entrambi questi parametri, vengono utilizzati i valori predefiniti seguenti:
+Impostare l'intervallo di tempo per la raccolta di log utilizzando il **FromDate** e **ToDate** parametri. Se non si specifica uno o entrambi questi parametri, vengono usati i valori predefiniti seguenti:
 
 * FromDate corrisponde a quattro ore prima dell'ora corrente.
 * ToDate è l'ora corrente.
 
 **Esempio di script di PowerShell per la raccolta dei log.**
 
-Lo script seguente viene illustrato come raccogliere i log di diagnostica dai provider di risorse macchina virtuale.
+Lo script seguente illustra come raccogliere i log di diagnostica dai provider di risorse della macchina virtuale.
 
 ```powershell
 # Create a new diagnostics endpoint session.

@@ -1,22 +1,25 @@
 ---
-title: Rilevamento anomalie in un'app C# - Servizi cognitivi Microsoft | Microsoft Docs
-description: Esplorare un'app C# che usa l'API Rilevamento anomalie in Servizi cognitivi Microsoft. Inviare i punti dati originali all'API e ottenere i punti dei valori previsti e delle anomalie.
+title: 'Esercitazione: Rilevamento anomalie, C#'
+titlesuffix: Azure Cognitive Services
+description: Esplorare un'app C# che usa l'API Rilevamento anomalie. Inviare i punti dati originali all'API e ottenere i punti dei valori previsti e delle anomalie.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 7d4f6a12c94620f447b5d6df4d7715d32eac2d98
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41929934"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887650"
 ---
-# <a name="anomaly-detection-c-application"></a>Rilevamento anomalie in un'app C#
+# <a name="tutorial-anomaly-detection-with-c-application"></a>Esercitazione: Rilevamento anomalie con un'applicazione C#
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Esplorare un'applicazione Windows di base che usa l'API Rilevamento anomalie per rilevare le anomalie nell'input. Nell'esempio vengono inviati i dati di una serie temporale all'API Rilevamento anomalie con la chiave di sottoscrizione dell'utente e si ottengono quindi dall'API tutti i punti di anomalie e il valore previsto per ogni punto dati.
 

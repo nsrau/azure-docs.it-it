@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 776f70b6b24288006d52cb0e91797d1074180160
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 7eb17138f42cdada10edd5ef08873eb2afee91fe
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452616"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068979"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare i dati in Azure Data Box Disk ed eseguire la verifica
 
@@ -163,7 +163,75 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
 > -  Durante la copia dei dati assicurarsi che la dimensione dei dati sia conforme ai valori descritti nei [limiti delle risorse di archiviazione e di Data Box Disk in Azure](data-box-disk-limits.md). 
 > - Se i dati caricati dal Data Box Disk vengono caricati contemporaneamente da altre applicazioni all'esterno del Data Box Disk, è possibile che si verifichino errori del processo di caricamento e il danneggiamento di dati.
 
-## <a name="verify-data"></a>Verificare i dati 
+### <a name="split-and-copy-data-to-disks"></a>Dividere e copiare i dati sui dischi
+
+Scegliere questa procedura facoltativa quando si usano più dischi e si ha un set di dati di grandi dimensioni che deve essere suddiviso e copiato tra tutti i dischi. Lo strumento di divisione della copia di Data Box aiuta a dividere e copiare i dati in un computer Windows.
+
+1. Nel computer Windows, assicurarsi di avere scaricato ed estratto in una cartella locale lo strumento di divisione della copia di Data Box. Questo strumento è stato scaricato quando è stato scaricato il set di strumenti di Data Box Disk per Windows.
+2. Aprire Esplora file. Prendere nota dell'unità di origine dati e le lettere di unità assegnate al Data Box Disk. 
+
+     ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-1.png)
+ 
+3. Identificare i dati di origine da copiare. Ad esempio, in questo caso:
+    - Sono stati identificati i seguenti dati di BLOB in blocchi.
+
+         ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+
+    - Sono stati identificati i seguenti dati di BLOB di pagine.
+
+         ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+ 
+4. Passare alla cartella in cui è stato estratto il software. Trovare il file SampleConfig.json in tale cartella. Si tratta di un file di sola lettura che è possibile modificare e salvare.
+
+   ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+ 
+5. Modificare il file SampleConfig.json.
+ 
+    - Specificare un nome per il processo. Viene creata una cartella nel Data Box Disk che infine diventa il contenitore nell'account di archiviazione di Azure associato a tali dischi. Il nome del processo deve seguire le convenzioni di denominazione di contenitori di Azure. 
+    - Specificare un percorso di origine prendendo nota del formato del percorso nel SampleConfigFile.json. 
+    - Immettere le lettere di unità corrispondenti ai dischi di destinazione. I dati vengono prelevati dal percorso di origine e copiati tra più dischi.
+    - Specificare un percorso per i file di log. Per impostazione predefinita, viene inviato alla directory corrente in cui si trova il file EXE.
+
+     ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+
+6. Per convalidare il formato di file, passare a JSONlint. Salvare il file come ConfigFile.json. 
+
+     ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+ 
+7. Aprire una finestra del prompt dei comandi. 
+
+8. Eseguire il file DataBoxDiskSplitCopy.exe. type
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
+
+     ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+ 
+9. Premere INVIO per continuare lo script.
+
+    ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+  
+10. Dopo aver diviso e copiato il set di dati, viene visualizzato il riepilogo dello strumento Copia suddivisa per la sessione di copia. Di seguito è riportato un output di esempio.
+
+    ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+ 
+11. Verificare che i dati siano stati suddivisi tra i dischi di destinazione. 
+ 
+    ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Divisione della copia dati](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+     
+    Se si esamina ulteriormente il contenuto dell'unità n:, si noterà che le due sottocartelle vengono create in corrispondenza dei dati in formato BLOB in blocchi e BLOB di pagine.
+    
+     ![Divisione della copia dati ](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+
+12. Se la sessione di copia non riesce, per recuperarla e riprenderla usare il comando seguente:
+
+    `DataBoxDiskSplitCopy.exe PrepImport /config:<configFile.json> /ResumeSession`
+
+
+Dopo aver completato la copia dei dati, il passaggio successivo consiste nel convalidare i dati. 
+
+
+## <a name="validate-data"></a>Convalidare i dati 
 
 Seguire questa procedura per verificare i dati.
 
@@ -177,7 +245,7 @@ Seguire questa procedura per verificare i dati.
 
     > [!TIP]
     > - Reimpostare lo strumento dopo ogni esecuzione.
-    > - Usare l'opzione 1 per convalidare i file nel caso di set di dati di grandi dimensioni che contengono file piccoli (~KB). In questi casi, la generazione dei checksum può richiedere molto tempo e le prestazioni potrebbero risultare molto lente.
+    > - Usare l'opzione 1 per convalidare i file nel caso di set di dati di grandi dimensioni che contengono file piccoli (~ KB). In questi casi, la generazione dei checksum può richiedere molto tempo e le prestazioni potrebbero risultare molto lente.
 
 3. Se si usano più dischi, eseguire il comando per ciascun disco.
 

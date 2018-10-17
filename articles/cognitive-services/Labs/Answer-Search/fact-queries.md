@@ -1,22 +1,23 @@
 ---
-title: Query di fatti per Project Answer Search - Servizi cognitivi Microsoft | Microsoft Docs
+title: 'Guida introduttiva: Query di fatti con Project Answer Search'
+titlesuffix: Azure Cognitive Services
 description: Query per i fatti con Project Answer Search
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 0a9d1925d5ae26f40824676fbebdcb0ffc450c53
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: ae8a42b95df70cff9cb845d4d553fbbb33cbdec9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376172"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868347"
 ---
-# <a name="query-for-facts"></a>Query per i fatti
+# <a name="quickstart-query-for-facts"></a>Guida introduttiva: Query per fatti
 
 Se la query è per un fatto, ad esempio una data o informazioni personali, la risposta può contenere risposte `facts`. Le risposte di fatti contengono i risultati pertinenti estratti da paragrafi di documenti Web.  Queste query restituiscono sempre pagine Web, e i [fatti](fact-queries.md) e/o le [entità](entity-queries.md) dipendono dalla query.
 

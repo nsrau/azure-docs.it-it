@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 62c8ff225b9c649afa7532ad5edfdd627e573d81
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a6f085b0fa11f117b181714a3b92cdc3a7c9e9a9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032232"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870673"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione alla macchina virtuale data science di Azure per Linux e Windows
 
@@ -30,9 +30,9 @@ Questo argomento illustra le operazioni possibili con la VM per l'analisi scient
 
 
 ## <a name="what-can-i-do-with-the-data-science-virtual-machine"></a>Usi della macchina virtuale per l'analisi scientifica dei dati
-L'obiettivo della macchina virtuale per l'analisi scientifica dei dati è offrire ai professionisti dei dati, in tutti i livelli e i ruoli, un ambiente di analisi scientifica dei dati privo di problemi, preconfigurato e totalmente integrato. Anziché implementare un'area di lavoro analoga, è possibile effettuare il provisioning di una macchina virtuale per l'analisi scientifica e risparmiare così giorni o persino _settimane_ per i processi di installazione, configurazione e gestione dei pacchetti. Dopo aver allocato la macchina virtuale per l'analisi scientifica, è possibile iniziare immediatamente a lavorare al progetto di analisi scientifica dei dati.
+L'obiettivo di Data Science Virtual Machine (DSVM) è offrire ai professionisti dei dati, a tutti i livelli di competenza e in tutti i settori, un ambiente di data science privo di problemi, preconfigurato e totalmente integrato. Anziché implementare un'area di lavoro analoga, è possibile effettuare il provisioning di una macchina virtuale per l'analisi scientifica e risparmiare così giorni o persino _settimane_ per i processi di installazione, configurazione e gestione dei pacchetti. Dopo aver allocato la macchina virtuale per l'analisi scientifica, è possibile iniziare immediatamente a lavorare al progetto di analisi scientifica dei dati.
 
-La VM data science è progettata e configurata per essere usata in un'ampia gamma di scenari di utilizzo. È possibile aumentare e ridurre le prestazioni dell'ambiente a seconda delle esigenze del progetto. Può essere usato il linguaggio preferito per programmare le attività di analisi scientifica dei dati. È inoltre possibile installare altri strumenti e personalizzare il sistema in base alle esigenze specifiche.
+La VM data science è progettata e configurata per essere usata in un'ampia gamma di scenari di utilizzo. È possibile ridimensionare l'ambiente in base alle esigenze del progetto, usare il linguaggio preferito per programmare le attività di data science e installare altri strumenti per personalizzare il sistema in base alle proprie esigenze.
 
 ## <a name="key-scenarios"></a>Scenari chiave
 Questa sezione suggerisce alcuni scenari chiave per i quali può essere distribuita la VM per l'analisi scientifica dei dati.
@@ -47,13 +47,13 @@ Gli istruttori e i formatori aziendali che insegnano l'analisi scientifica dei d
 Gli hackathon e i concorsi di analisi scientifica dei dati o la modellazione e l'esplorazione di dati su larga scala richiedono una maggiore capacità hardware, in genere per brevi periodi di tempo. La VM per l'analisi scientifica dei dati consente di replicare rapidamente e su richiesta l'ambiente di analisi scientifica dei dati su server con maggiore capacità, che consentono di eseguire esperimenti che richiedono l'esecuzione di risorse di calcolo con potenza elevata.
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Valutazione e sperimentazione a breve termine
-La VM per l'analisi scientifica dei dati può essere usata per valutare o imparare a usare strumenti quali Microsoft ML Server, SQL Server, strumenti di Visual Studio, Jupyter, toolkit di deep learning/ML e i nuovi strumenti popolari nella comunità con il minimo sforzo di installazione. La VM per l'analisi scientifica dei dati può essere configurata rapidamente, pertanto può essere usata anche in altri scenari di utilizzo a breve termine, ad esempio nella replica di esperimenti pubblicati, nell'esecuzione di demo e di procedure dettagliate in sessioni online, nonché in esercitazioni in conferenza.
+La VM per l'analisi scientifica dei dati può essere usata per valutare o imparare a usare strumenti quali Microsoft ML Server, SQL Server, strumenti di Visual Studio, Jupyter, toolkit di deep learning/ML e i nuovi strumenti popolari nella comunità con il minimo sforzo di installazione. La Data Science VM può essere configurata rapidamente, quindi può essere applicata in altri scenari di utilizzo a breve termine come la replica di esperimenti pubblicati, l'esecuzione di demo, l'esecuzione di procedure dettagliate nelle sessioni online e le esercitazioni in conferenza.
 
 ### <a name="deep-learning"></a>Apprendimento avanzato
-La VM di analisi scientifica dei dati può essere usata per il training del modello usando gli algoritmi di apprendimento avanzato sull'hardware basato su GPU (unità di elaborazione grafica). Grazie alle funzioni di scalabilità delle VM del cloud di Azure, la DSVM consente di usare hardware basato su GPU nel cloud in base alle necessità. È possibile passare a una VM basata su GPU durante il training di modelli di grandi dimensioni o quando sono necessari calcoli ad alta velocità, mantenendo lo stesso disco del sistema operativo.  Nell'edizione Windows Server 2016 della DSVM sono preinstallati i driver GPU, i framework e la versione GPU dei framework di apprendimento avanzato. Su Linux, l'apprendimento avanzato su GPU è abilitato sulle DSVM CentOS e Ubuntu. È possibile distribuire l'edizione Ubuntu, CentOS o Windows 2016 della VM data science alla macchina virtuale di Azure non basata su GPU, nel qual caso tutti i framework di apprendimento avanzato eseguiranno il fallback alla modalità CPU. 
+La Data science VM può essere usata per il training di modelli con algoritmi di apprendimento avanzato su hardware basato su GPU (unità di elaborazione grafica). Grazie alle funzioni di scalabilità delle VM del cloud di Azure, la DSVM consente di usare hardware basato su GPU nel cloud in base alle necessità. È possibile passare a una VM basata su GPU durante il training di modelli di grandi dimensioni o quando sono necessari calcoli ad alta velocità, mantenendo lo stesso disco del sistema operativo.  Nell'edizione Windows Server 2016 della DSVM sono preinstallati i driver GPU, i framework e la versione GPU dei framework di apprendimento avanzato. Nell'edizione Linux, l'apprendimento avanzato su GPU è abilitato sulle DSVM CentOS e Ubuntu. È possibile distribuire l'edizione Ubuntu, CentOS o Windows 2016 della Data Science VM a una macchina virtuale di Azure non basata su GPU. In questo caso, tutti i framework di apprendimento avanzato eseguiranno il fallback alla modalità CPU. 
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Funzionalità incluse nella VM per l'analisi scientifica dei dati
-La macchina virtuale per l'analisi scientifica dei dati ha già installati e configurati numerosi strumenti comuni per l'analisi scientifica dei dati e l'apprendimento avanzato. Include inoltre strumenti che semplificano l'uso di vari prodotti di Azure per l'analisi e per i dati. È possibile esplorare e creare modelli predittivi in set di dati su larga scala usando ML Server (R, Python) o SQL Server 2017. Sono inclusi anche una serie di altri strumenti della community open source e di Microsoft, nonché esempi di codice e blocchi appunti. La tabella seguente indica in modo dettagliato e confronta i componenti principali inclusi nelle edizioni per Windows e Linux della macchina virtuale per l'analisi scientifica dei dati.
+La macchina virtuale per l'analisi scientifica dei dati ha già installati e configurati numerosi strumenti comuni per l'analisi scientifica dei dati e l'apprendimento avanzato. Include anche strumenti che semplificano l'uso di vari prodotti di analisi e dati di Azure, ad esempio Microsoft ML Server (R, Python) per la creazione di modelli predittivi o SQL Server 2017 per l'esplorazione di set di dati su larga scala. Sono inclusi anche una serie di altri strumenti della community open source e di Microsoft, nonché esempi di codice e blocchi appunti. La tabella seguente indica in modo dettagliato e confronta i componenti principali inclusi nelle edizioni per Windows e Linux della macchina virtuale per l'analisi scientifica dei dati.
 
 
 | **Strumento**                                                           | **Edizione per Windows** | **Edizione per Linux** |

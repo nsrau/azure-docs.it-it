@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: overview
-ms.date: 09/15/2018
+ms.date: 10/10/2018
 ms.author: nolachar
-ms.openlocfilehash: fd92e91989bd1a37626227b327d644c9d704ab6c
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: cf761342bb434100920c3888f2f441b9f8c8de08
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983016"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077918"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
@@ -38,8 +38,8 @@ Video Indexer di Azure è un'applicazione cloud creata sulla base di Analisi Ser
 - **Estrazione di marchi**: estrae i marchi da parlato e testo visivo.
 - **Rilevamento volto**: rileva e raggruppa i visi visualizzati nel video.
 - **Estrazione dell'anteprima per i visi ("viso migliore")**: identifica automaticamente il viso migliore acquisito in ogni gruppo di visi (in base a qualità, dimensioni e posizione frontale) e lo estrae come risorsa immagine.
-- **Identificazione di celebrità**: riconosce le celebrità nel video in base a un database di 1 milione di celebrità. Queste informazioni provengono da IMDB, Wikipedia e i principali influencer di Linkedin.
-- **Identificazione dei visi personalizzata**: riconosce i visi nel video in base a un modello personalizzato sottoposto a training per l'account specifico.
+- **Identificazione di celebrità**: Video Indexer identifica automaticamente oltre 1 milione di celebrità, ad esempio leader mondiali, attori e attrici, atleti, ricercatori, imprenditori e leader tecnologici in tutto il mondo. I dati relativi a queste celebrità possono anche essere trovati su diversi siti Web noti, ad esempio IMDB e Wikipedia.
+- **Identificazione viso basata sull'account**: Video Indexer esegue il training di un modello per un account specifico. Riconosce quindi i visi presenti nel video sulla base del modello sottoposto a training specifico per i video di quell'account.
 - **Moderazione del contenuto testuale**: rileva testo esplicito nella trascrizione audio.
 - **Rilevamento inquadratura**: determina i cambi di scena nel video.
 - **Rilevamento fotogramma nero**: identifica i fotogrammi neri presentati nel video.

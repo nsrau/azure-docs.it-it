@@ -1,27 +1,28 @@
 ---
-title: Guida introduttiva per Project Answer Search in Java - Servizi cognitivi Microsoft | Microsoft Docs
+title: 'Guida introduttiva: Project Answer Search, Java'
+titlesuffix: Azure Cognitive Services
 description: Iniziare a usare Project Answer Search in Java.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 4e1f606e1564981589e638e0e51a8b42633ca7b0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 1e10ecf685aaf5b60b94a5e9e0d8e118f45e5168
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376148"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867035"
 ---
-# <a name="project-answer-search-query-in-java"></a>Query di Project Answer Search in Java
+# <a name="quickstart-project-answer-search-query-in-java"></a>Guida introduttiva: Query di Project Answer Search in Java
 Questo articolo usa Java per illustrare l'API Bing Answer Search, parte di Servizi cognitivi Microsoft in Azure. L'API è un servizio Web REST compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare i dati JSON.
  
 L'esempio di codice usa Java con dipendenze esterne minime.  È anche possibile eseguirlo in Linux o Mac OS X con Mono.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
 

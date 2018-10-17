@@ -1,6 +1,6 @@
 ---
-title: Usare l'insieme di credenziali delle chiavi di Azure da un'esercitazione per applicazione Web | Microsoft Docs
-description: In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web.
+title: "Esercitazione: Usare Azure Key Vault da un'applicazione Web | Microsoft Docs"
+description: In questa esercitazione si apprenderà a usare Azure Key Vault da un'applicazione Web.
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -9,18 +9,18 @@ ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/09/2018
 ms.author: barclayn
-ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b66c9912ba0b6508c2beb786d2327efa779c6645
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171324"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079464"
 ---
-# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Esercitazione: usare l'insieme di credenziali chiave di Azure da un'applicazione Web
+# <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Esercitazione: Usare Azure Key Vault da un'applicazione Web
 
-In questa esercitazione si apprenderà a usare l'insieme di credenziali chiave di Azure da un'applicazione Web in Azure. Mostra il processo di accesso a un segreto da Azure Key Vault per l'uso in un'applicazione Web. L'esercitazione quindi si basa sul processo e usa un certificato al posto di un segreto client. Questa esercitazione è destinata agli sviluppatori Web che conoscono le nozioni di base della creazione di applicazioni Web in Azure.
+In questa esercitazione si apprenderà a usare Azure Key Vault da un'applicazione Web in Azure. Mostra il processo di accesso a un segreto da Azure Key Vault per l'uso in un'applicazione Web. L'esercitazione quindi si basa sul processo e usa un certificato al posto di un segreto client. Questa esercitazione è destinata agli sviluppatori Web che conoscono le nozioni di base della creazione di applicazioni Web in Azure.
 
 In questa esercitazione si apprenderà come: 
 
@@ -36,21 +36,20 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
-* Un URI di un segreto in un insieme di credenziali chiave di Azure.
-* Un ID client e un segreto client per un'applicazione Web registrata con Azure Active Directory che abbia accesso all'insieme di credenziali chiave.
+* Un URI di un segreto in Azure Key Vault.
+* Un ID client e un segreto client per un'applicazione Web registrata con Azure Active Directory che abbia accesso Azure Key Vault.
 * Un'applicazione Web. Questa esercitazione mostra i passaggi per un'applicazione ASP.NET MVC distribuita in Azure come app Web.
 
-Completare i passaggi descritti in [Introduzione ad Azure Key Vault](key-vault-get-started.md) per ottenere l'URI per un segreto, ID client e segreto client e registrare l'applicazione. L'applicazione Web accede all’insieme di credenziali e deve essere registrata in Azure Active Directory. Deve anche disporre dei diritti di accesso a Key Vault. Se non è così, tornare a Registrare un'applicazione nell'esercitazione introduttiva e ripetere i passaggi elencati. Per altre informazioni sulla creazione di app Web di Azure, vedere [Panoramica delle app Web](../app-service/app-service-web-overview.md).
+Completare i passaggi descritti in [Introduzione ad Azure Key Vault](key-vault-get-started.md) per ottenere l'URI per un segreto, ID client e segreto client e registrare l'applicazione. L'applicazione Web accede all'insieme di credenziali e deve essere registrata in Azure Active Directory. Deve anche disporre dei diritti di accesso a Key Vault. Se non è così, tornare a Registrare un'applicazione nell'esercitazione introduttiva e ripetere i passaggi elencati. Per altre informazioni sulla creazione di app Web di Azure, vedere [Panoramica delle app Web](../app-service/app-service-web-overview.md).
 
-Questo esempio dipende dall’esecuzione manuale del provisioning delle identità Azure Active Directory. È tuttavia preferibile usare l'[identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/msi-overview). Le identità del servizio gestite possono effettuare automaticamente il provisioning delle identità di Azure AD. Per ulteriori informazioni, consultare l’esempio su [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e la relativa [esercitazione Identità del servizio gestita con funzioni e servizio app](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). È anche possibile esaminare l'[esercitazione sull'identità del servizio gestita](tutorial-web-application-keyvault.md) specifica di Key Vault
-
+Questo esempio dipende dall'esecuzione manuale del provisioning delle identità di Azure Active Directory. È invece consigliabile usare [identità gestite per risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md), che effettua automaticamente il provisioning delle identità di Azure AD. Per altre informazioni, vedere l'[esempio in GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e l'[esercitazione correlata su Servizio app e Funzioni](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). È anche possibile eseguire l'[esercitazione Configurare un'applicazione Web di Azure per la lettura di un segreto da un insieme di credenziali delle chiavi](tutorial-web-application-keyvault.md) specifica del Key Vault.
 
 ## <a id="packages"></a>Aggiungere i pacchetti NuGet
 
 Sono due i pacchetti che devono essere installati nell'applicazione Web.
 
 * Active Directory Authentication Library: dispone dei metodi per interagire con Azure Active Directory e gestire l'identità utente
-* Azure Key Vault Library: dispone dei metodi per interagire con l'insieme di credenziali chiave di Azure
+* Azure Key Vault Library: dispone dei metodi per interagire con Azure Key Vault
 
 È possibile installare entrambi i pacchetti con la Console di Gestione pacchetti usando il comando Install-Package.
 
@@ -132,7 +131,7 @@ Nell'app Web di Azure è ora possibile aggiungere i valori effettivi per AppSett
 
 ## <a name="authenticate-with-a-certificate-instead-of-a-client-secret"></a>Autenticazione con un certificato anziché un client secret
 
-Dopo aver compreso l'autenticazione di un'app di Azure AD usando l'ID client e il segreto client, vediamo l’uso di un ID Client e di un certificato. Per utilizzare un certificato in un'applicazione Web di Azure, eseguire i seguenti passaggi:
+Dopo aver compreso l'autenticazione di un'app di Azure AD usando l'ID client e il segreto client, vediamo come usare un ID Client e un certificato. Per utilizzare un certificato in un'applicazione Web di Azure, eseguire i seguenti passaggi:
 
 1. Ottenere o creare un certificato
 2. Associare il certificato a un'applicazione di Azure AD
@@ -145,14 +144,19 @@ Dopo aver compreso l'autenticazione di un'app di Azure AD usando l'ID client e i
 
 ```powershell
 #Create self-signed certificate and export pfx and cer files 
-$PfxFilePath = "c:\data\KVWebApp.pfx" 
-$CerFilePath = "c:\data\KVWebApp.cer" 
-$DNSName = "MyComputer.Contoso.com" 
-$Password ="MyPassword" 
+$PfxFilePath = 'KVWebApp.pfx'
+$CerFilePath = 'KVWebApp.cer'
+$DNSName = 'MyComputer.Contoso.com'
+$Password = 'MyPassword"'
+
+$StoreLocation = 'CurrentUser' #be aware that LocalMachine requires elevated privileges
+$CertBeginDate = Get-Date
+$CertExpiryDate = $CertBeginDate.AddYears(1)
+
 $SecStringPw = ConvertTo-SecureString -String $Password -Force -AsPlainText 
-$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\LocalMachine\My" -NotBefore 05/15/2018 -NotAfter 05/15/2019 
-Export-PfxCertificate -cert $cert -FilePath $PFXFilePath -Password $SecStringPw 
-Export-Certificate -cert $cert -FilePath $CerFilePath 
+$Cert = New-SelfSignedCertificate -DnsName $DNSName -CertStoreLocation "cert:\$StoreLocation\My" -NotBefore $CertBeginDate -NotAfter $CertExpiryDate -KeySpec Signature
+Export-PfxCertificate -cert $Cert -FilePath $PFXFilePath -Password $SecStringPw 
+Export-Certificate -cert $Cert -FilePath $CerFilePath 
 ```
 
 Prendere nota della data finale e della password per il formato con estensione pfx (in questo esempio: 15 maggi 2019 e MyPassword). Saranno necessarie per lo script seguente. 
@@ -172,7 +176,7 @@ $adapp = New-AzureRmADApplication -DisplayName "KVWebApp" -HomePage "http://kvwe
 $sp = New-AzureRmADServicePrincipal -ApplicationId $adapp.ApplicationId
 
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets all -ResourceGroupName 'contosorg'
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'contosokv' -ServicePrincipalName "http://kvwebapp" -PermissionsToSecrets get,list,set,delete,backup,restore,recover,purge -ResourceGroupName 'contosorg'
 
 # get the thumbprint to use in your app settings
 $x509.Thumbprint
@@ -256,7 +260,7 @@ Come ultima cosa, occorre aggiungere un'impostazione dell'applicazione all'app W
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
-Quando non sono più necessari, eliminare il servizio app, l’insieme di credenziali delle chiavi e l’applicazione di Azure AD che è stata usata per l'esercitazione.  
+Quando non sono più necessari, eliminare il servizio app, l'insieme di credenziali delle chiavi e l'applicazione di Azure AD che è stata usata per l'esercitazione.  
 
 
 ## <a id="next"></a>Passaggi successivi

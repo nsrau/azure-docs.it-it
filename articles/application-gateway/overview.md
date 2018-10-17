@@ -8,14 +8,14 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 045443637c06745472458dd9e33670875a33352b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8352a95fa0701f6d2a0261d8d2fe2431971eccef
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193068"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068096"
 ---
 # <a name="what-is-azure-application-gateway"></a>Cos'è il gateway applicazione di Azure?
 
@@ -27,7 +27,38 @@ I servizi di bilanciamento del carico tradizionali operano a livello di trasport
 
 Questo tipo di routing è detto bilanciamento del carico a livello di applicazione (OSI livello 7). Il gateway applicazione di Azure può eseguire il routing basato su URL e molto altro. 
 
-Il gateway applicazione di Azure offre le funzionalità seguenti: 
+Il gateway applicazione di Azure offre le funzionalità seguenti:
+
+## <a name="autoscaling-public-preview"></a>Anteprima pubblica della scalabilità automatica
+
+Oltre alle funzionalità descritte in questo articolo, il gateway applicazione offre anche un'anteprima pubblica di un nuovo SKU [Standard_V2] che offre la scalabilità automatica e altri miglioramenti critici delle prestazioni.
+
+- **Scalabilità automatica**: le distribuzioni del gateway applicazione o WAF nello SKU con scalabilità automatica possono passare a un piano superiore o inferiore in base alle modifiche dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. 
+
+- **Ridondanza della zona**: una distribuzione del gateway applicazione o WAF può estendersi a più zone di disponibilità, eliminando la necessità di effettuare il provisioning e aggiungere istanze del gateway applicazione separate in ogni zona con un'utilità di gestione del traffico.
+
+- **VIP statico**: l'indirizzo VIP del gateway applicazione supporta ora esclusivamente il tipo di indirizzo VIP statico. Questa funzionalità garantisce che l'indirizzo VIP associato al gateway applicazione non cambi neppure dopo il riavvio.
+
+- **Tempi di distribuzione e aggiornamento più rapidi** rispetto allo SKU disponibile a livello generale. 
+
+- **Prestazioni di offload SSL 5 volte migliori** rispetto allo SKU disponibile a livello generale.
+
+Per altre informazioni sulle funzionalità dell'anteprima pubblica del gateway applicazione, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md).
+
+## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Anteprima del controller di ingresso del servizio Kubernetes di Azure (AKS) 
+
+Il controller di ingresso del gateway applicazione viene eseguito come pod all'interno del cluster AKS e consente al gateway applicazione di fungere da ingresso per un cluster AKS. 
+
+Per altre informazioni, vedere [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/) (Controller di ingresso del gateway applicazione di Azure).
+
+## <a name="connection-draining"></a>Esaurimento delle connessioni
+
+Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri del pool back-end durante gli aggiornamenti pianificati del servizio. Questa modalità viene abilitata tramite l'impostazione http back-end e può essere applicata a tutti i membri di un pool back-end durante la creazione delle regole. Quando è abilitata, il gateway applicazione assicura che tutte le istanze di un pool back-end che stanno annullando la registrazione non ricevano nuove richieste e che le richieste esistenti vengano completate entro un limite di tempo configurato. Questo vale sia per le istanze back-end che vengono rimosse dal pool back-end in modo esplicito mediante una chiamata API, sia per le istanze back-end che vengono segnalate come non integre, come determinato dai probe di integrità.
+
+## <a name="custom-error-pages"></a>Pagine di errore personalizzate
+Il gateway applicazione consente di creare pagine di errore personalizzate da visualizzare al posto delle pagine di errore predefinite. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali.
+
+Per altre informazioni, vedere [Create Application Gateway custom error pages](custom-error.md) (Creare pagine di errore personalizzate del gateway applicazione).
 
 ## <a name="secure-sockets-layer-ssl-termination"></a>Terminazione di Secure Sockets Layer (SSL)
 

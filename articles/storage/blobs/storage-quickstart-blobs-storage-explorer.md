@@ -1,29 +1,31 @@
 ---
-title: Guida introduttiva di Azure - Creare un BLOB nell'archivio oggetti con Azure Storage Explorer | Microsoft Docs
-description: In questa guida introduttiva si usa Azure Storage Explorer con l'archivio oggetti (BLOB). Si usa quindi Storage Explorer per caricare un BLOB in Archiviazione di Azure, scaricare un BLOB ed elencare i BLOB presenti in un contenitore.
+title: "Guida introduttiva: Usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti"
+description: In questa guida introduttiva verrà illustrato come usare Azure Storage Explorer per creare un contenitore e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in un contenitore. Si vedrà anche come creare uno snapshot di un BLOB, gestire i criteri di accesso al contenitore e creare una firma di accesso condiviso.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 10/09/2018
 ms.author: tamram
-ms.openlocfilehash: 83698abd3006671c5edce37e3cada26d07d25b8f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 336fecf95dab36dcf00b5a0c92b700297622cc6d
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399637"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902978"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-storage-explorer"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Azure Storage Explorer
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Guida introduttiva: Usare Azure Storage Explorer per creare un BLOB nell'archiviazione di oggetti
 
-[Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) è un'interfaccia utente multipiattaforma usata per gestire i contenuti degli account di archiviazione. Questa guida descrive l'uso di Azure Storage Explorer per trasferire file tra un disco locale e l'archiviazione BLOB di Azure.
+In questa guida introduttiva verrà illustrato come usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per creare un contenitore e un BLOB. Verrà successivamente illustrato come scaricare il BLOB nel computer locale e come visualizzare tutti i BLOB in un contenitore. Si vedrà anche come creare uno snapshot di un BLOB, gestire i criteri di accesso al contenitore e creare una firma di accesso condiviso.
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-La guida rapida richiede l'installazione di Azure Storage Explorer. Se è necessario installarlo, vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per scaricarlo per Windows, Macintosh o Linux.
+Questa guida introduttiva richiede l'installazione di Azure Storage Explorer. Per installare Azure Storage Explorer per Windows, Macintosh o Linux, vedere [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
+[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## <a name="log-in-to-storage-explorer"></a>Accedere a Storage Explorer
 

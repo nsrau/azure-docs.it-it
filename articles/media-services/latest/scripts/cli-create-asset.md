@@ -4,7 +4,7 @@ description: Lo script dell'interfaccia della riga di comando di Azure in questo
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
@@ -12,16 +12,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/15/2018
+ms.date: 10/09/2018
 ms.author: juliako
-ms.openlocfilehash: 89120daf971586e8c2e360e9b6b064b10b14f707
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: d2fe1718999bcdc33fcde6891fa891373a9ea5cb
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093147"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069353"
 ---
-# <a name="cli-example-create-an-azure-media-services-account"></a>Esempio dell'interfaccia della riga di comando: creare un account di Servizi multimediali di Azure
+# <a name="cli-example-create-an-asset"></a>Esempio dell'interfaccia della riga di comando: Creare un asset
 
 Lo script dell'interfaccia della riga di comando di Azure in questo articolo mostra come creare un asset di Servizi multimediali di Azure in cui caricare contenuto.
 
@@ -35,4 +35,4 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri esempi, vedere [Azure CLI samples](../cli-samples.md) (Esempi dell'interfaccia della riga di comando di Azure).
+Per altri esempi, vedere [Esempi di interfaccia della riga di comando di Azure per Servizi multimediali di Azure](../cli-samples.md).

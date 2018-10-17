@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84783472adda9a4a74670f0579790aac69feb23d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094995"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854525"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
 
@@ -25,7 +25,7 @@ In Funzioni di Azure le associazioni di input e di output forniscono una modalit
 
 ![Messaggio della coda visualizzato in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa guida introduttiva:
 
@@ -39,70 +39,80 @@ In questa sezione si usa l'interfaccia utente del portale per aggiungere un'asso
 
 1. Nel portale di Azure aprire la pagina dell'app per le funzioni creata in [Creare la prima funzione nel portale di Azure](functions-create-first-azure-function.md). A tale scopo, selezionare **Tutti i servizi > App per le funzioni** e quindi selezionare l'app per le funzioni.
 
-2. Selezionare la funzione creata nella guida introduttiva precedente.
+1. Selezionare la funzione creata nella guida introduttiva precedente.
 
 1. Selezionare **Integrazione > Nuovo output > Archiviazione code di Azure**.
 
 1. Fare clic su **Seleziona**.
-    
+
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding.png)
 
-3. In **Azure Queue Storage output** (Output archiviazione code di Azure) usare le impostazioni specificate nella tabella riportata dopo lo screenshot: 
+1. Se viene visualizzato un messaggio **Estensioni non installate**, scegliere **Installa** per installare l'estensione dei binding di Archiviazione nell'app per le funzioni. L'operazione potrebbe richiedere un paio di minuti.
+
+    ![Installare l'estensione dei binding di Archiviazione](./media/functions-integrate-storage-queue-output-binding/functions-integrate-install-binding-extension.png)
+
+1. In **Azure Queue Storage output** (Output archiviazione code di Azure) usare le impostazioni specificate nella tabella riportata dopo lo screenshot: 
 
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/function-add-queue-storage-output-binding-2.png)
 
-    | Impostazione      |  Valore consigliato   | DESCRIZIONE                              |
+    | Impostazione      |  Valore consigliato   | Descrizione                              |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nome del parametro del messaggio** | outputQueueItem | Nome del parametro di binding di output. | 
     | **Connessione dell'account di archiviazione** | AzureWebJobsStorage | È possibile usare la connessione dell'account di archiviazione già usata dall'app per le funzioni oppure crearne una nuova.  |
     | **Nome coda**   | outqueue    | Nome della coda a cui connettersi nell'account di archiviazione. |
 
-4. Fare clic su **Salva** per aggiungere il binding.
- 
+1. Fare clic su **Salva** per aggiungere il binding.
+
 Dopo aver definito un binding di output, è necessario ora aggiornare il codice in modo da usare il binding per aggiungere messaggi a una coda.  
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Aggiungere il codice che usa l'associazione di output
 
 In questa sezione si aggiunge il codice che scrive un messaggio nella coda di output. Il messaggio include il valore passato al trigger HTTP nella stringa di query. Se, ad esempio, la stringa di query include `name=Azure`, il messaggio della coda sarà *Name passed to the function: Azure*.
 
-1. Selezionare la funzione per visualizzare il codice funzione nell'editor. 
+1. Selezionare la funzione per visualizzare il codice funzione nell'editor.
 
-2. Per una funzione C#, aggiungere un parametro del metodo per l'associazione e scrivere codice per usarla:
+1. Aggiornare il codice della funzione a seconda del linguaggio della funzione:
 
-   Aggiungere un parametro **outputQueueItem** alla firma del metodo come illustrato nell'esempio seguente. Il nome del parametro è lo stesso immesso in **Nome del parametro del messaggio** al momento della creazione dell'associazione.
+    # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
-   ```cs   
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, 
-       ICollector<string> outputQueueItem, TraceWriter log)
-   {
-       ...
-   }
-   ```
+    Aggiungere un parametro **outputQueueItem** alla firma del metodo come illustrato nell'esempio seguente.
 
-   Nel corpo della funzione C#, subito prima dell'istruzione `return`, aggiungere il codice che usa il parametro per creare un messaggio della coda.
+    ```cs
+    public static async Task<IActionResult> Run(HttpRequest req,
+        ICollector<string> outputQueueItem, ILogger log)
+    {
+        ...
+    }
+    ```
 
-   ```cs
-   outputQueueItem.Add("Name passed to the function: " + name);     
-   ```
+    Nel corpo della funzione, subito prima dell'istruzione `return`, aggiungere il codice che usa il parametro per creare un messaggio della coda.
 
-3. Per una funzione JavaScript, aggiungere il codice che usa l'associazione di output nell'oggetto `context.bindings` per creare un messaggio della coda. Aggiungere questo codice prima dell'istruzione `context.done`.
+    ```cs
+    outputQueueItem.Add("Name passed to the function: " + name);
+    ```
 
-   ```javascript
-   context.bindings.outputQueueItem = "Name passed to the function: " + 
-               (req.query.name || req.body.name);
-   ```
+    # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-4. Selezionare **Salva** per salvare le modifiche.
- 
-## <a name="test-the-function"></a>Testare la funzione 
+    Aggiungere il codice che usa il binding di output nell'oggetto `context.bindings` per creare un messaggio della coda. Aggiungere questo codice prima dell'istruzione `context.done`.
+
+    ```javascript
+    context.bindings.outputQueueItem = "Name passed to the function: " + 
+                (req.query.name || req.body.name);
+    ```
+
+    ---
+
+1. Selezionare **Salva** per salvare le modifiche.
+
+## <a name="test-the-function"></a>Testare la funzione
 
 1. Dopo aver salvato le modifiche al codice, selezionare **Esegui**. 
 
     ![Aggiungere un binding di output di Archiviazione code a una funzione nel portale di Azure.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-   Si noti che in **Corpo della richiesta** è presente il valore di `name` *Azure*. Questo valore viene visualizzato nel messaggio della coda creato quando viene richiamata la funzione.
-
-   Al posto di fare clic su **Esegui**, in questo caso è possibile chiamare la funzione immettendo un URL in un browser e specificando il valore di `name` nella stringa di query. Il metodo tramite browser è illustrato nella [guida introduttiva precedente](functions-create-first-azure-function.md#test-the-function).
+    Si noti che in **Corpo della richiesta** è presente il valore di `name` *Azure*. Questo valore viene visualizzato nel messaggio della coda creato quando viene richiamata la funzione.
+    
+    Al posto di fare clic su **Esegui**, in questo caso è possibile chiamare la funzione immettendo un URL in un browser e specificando il valore di `name` nella stringa di query. Il metodo tramite browser è illustrato nella [guida introduttiva precedente](functions-create-first-azure-function.md#test-the-function).
 
 2. Controllare i log per assicurarsi che la funzione abbia avuto esito positivo. 
 

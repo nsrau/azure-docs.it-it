@@ -1,26 +1,29 @@
 ---
-title: Rilevamento anomalie in un'app Python - Servizi cognitivi Microsoft | Microsoft Docs
-description: Esplorare un notebook Python che usa l'API Rilevamento anomalie in Servizi cognitivi Microsoft. Inviare i punti dati originali all'API e ottenere i punti dei valori previsti e delle anomalie.
+title: 'Esercitazione: Rilevamento anomalie, Python'
+titlesuffix: Azure Cognitive Services
+description: Esplorare un notebook Python che usa l'API Rilevamento anomalie. Inviare i punti dati originali all'API e ottenere i punti dei valori previsti e delle anomalie.
 services: cognitive-services
 author: chliang
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: d35f41ddab21aa155376ad52ff4084298dab8fc5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 98f83fbc4db8685526833c3d4f1d15903419ad3f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376145"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887752"
 ---
-# <a name="anomaly-detection-python-application"></a>Rilevamento anomalie in un'app Python
+# <a name="tutorial-anomaly-detection-with-python-application"></a>Esercitazione: Rilevamento anomalie con un'applicazione Python
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Questa esercitazione illustra come usare l'API Rilevamento anomalie in Python e come visualizzare i risultati usando librerie comuni. Si userà Jupyter per svolgere l'esercitazione e si useranno per prova i propri dati con la propria chiave di sottoscrizione. Per informazioni su come iniziare a usare i notebook Jupyter interattivi, fare riferimento alla [documentazione di Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Sottoscrivere Rilevamento anomalie e ottenere una chiave di sottoscrizione 
 

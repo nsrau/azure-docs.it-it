@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e4a913aaeb6eeb3c58b70dbcd714f1360875594f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b1e647c6aee251bebd257db5e4e631deba0be3fa
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161537"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068809"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Esercitazione: Disimballare, collegare e sbloccare Azure Data Box Disk
 
@@ -76,12 +76,14 @@ A seconda se si è connessi a un client Windows o Linux, la procedura per sblocc
 Eseguire la procedura seguente per collegare e sbloccare i dischi.
      
 1. Nel portale di Azure passare a **Generale > Dettagli dispositivo**. 
-2. Scaricare il set di strumenti di Data Box Disk corrispondente al client Windows. 
+2. Scaricare il set di strumenti di Data Box Disk corrispondente al client Windows. Questo set include tre strumenti di Data Box Disk: sblocco, convalida e divisione della copia. 
+
+    In questa procedura si userà solo lo strumento di sblocco di Data Box Disk. Gli altri due strumenti saranno usati in seguito.
 
     > [!div class="nextstepaction"]
     > [Scaricare il set di strumenti di Data Box Disk per Windows](http://aka.ms/databoxdisktoolswin)         
 
-3. Estrarre lo strumento sullo stesso computer che verrà usato per la copia dei dati.
+3. Estrarre il set di strumenti sullo stesso computer che verrà usato per la copia dei dati. 
 4. Aprire una finestra del prompt dei comandi o eseguire Windows PowerShell come amministratore sullo stesso computer.
 5. (Facoltativo) Per verificare se il computer in uso per sbloccare il disco soddisfa i requisiti del sistema operativo, eseguire il comando di verifica del sistema. Di seguito è riportato un output di esempio. 
 

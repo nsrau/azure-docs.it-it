@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.openlocfilehash: 9bc84a9b08c4cfbdf7f24416c923e0dbd7076556
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d606b7b536147b7e1d96bfb6cebf2522e5b4f85f
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161931"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078858"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box"></a>Esercitazione: Copiare i dati in Azure Data Box 
 
@@ -88,11 +88,11 @@ Se si usa un computer host Windows Server, eseguire la procedura seguente per co
     The command completed successfully.
     ```
 
-4. Premere WINDOWS+R. Nella finestra **Esegui** specificare `\\<device IP address>`. Fare clic su **OK**. Si apre Esplora file.
+4. Premere WINDOWS+R. Nella finestra **Esegui** specificare `\\<device IP address>`. Fare clic su **OK**. Si apre Esplora file. Ora le condivisioni dovrebbero essere visualizzate come cartelle.
     
     ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
-5. Ora le condivisioni dovrebbero essere visualizzate come cartelle. Creare una cartella per i file da copiare (in questo caso modelli). A volte sulle cartelle potrebbe essere visualizzata una croce grigia. Questa croce non denota una condizione di errore. Le cartelle vengono contrassegnate dall'applicazione per indicarne lo stato.
+5.  **Creare sempre una cartella per i file che si intendono copiare nella condivisione e quindi copiare i file in tale cartella**. A volte sulle cartelle potrebbe essere visualizzata una croce grigia. Questa croce non denota una condizione di errore. Le cartelle vengono contrassegnate dall'applicazione per indicarne lo stato.
     
     ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Connettersi a una condivisione tramite Esplora file 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
 
@@ -239,11 +239,14 @@ Se si usa l'opzione rsync per una copia multithread, seguire queste indicazioni:
 
  - Installare il pacchetto **CIFS Utils** o **NFS Utils** in base al file system usato dal client Linux.
 
-    `sudo apt-get install cifs-utils` `sudo apt-get install nfs-utils`
+    `sudo apt-get install cifs-utils`
+
+    `sudo apt-get install nfs-utils`
 
  -  Installare **Rsync** e **Parallel** (varia in base alla versione distribuita di Linux).
 
     `sudo apt-get install rsync`
+   
     `sudo apt-get install parallel` 
 
  - Creare un punto di montaggio.

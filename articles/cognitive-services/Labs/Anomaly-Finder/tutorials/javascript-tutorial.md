@@ -1,26 +1,29 @@
 ---
-title: Rilevamento anomalie in un'app Javascript - Servizi cognitivi Microsoft | Microsoft Docs
-description: Esplorare un'app Web Javascript che usa l'API Rilevamento anomalie in Servizi cognitivi Microsoft. Inviare i punti dati originali all'API e ottenere i punti dei valori previsti e delle anomalie.
+title: 'Esercitazione: Rilevamento anomalie con JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Esplorare un'app Web JavaScript che usa l'API Rilevamento anomalie. Inviare i punti dati originali all'API e ottenere i punti dei valori previsti e delle anomalie.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 42c3941a05efe8b74f818cd99f3606b3073892a9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cd65a5275fac651968197c9000b2d4cd3962693b
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453170"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883704"
 ---
-# <a name="anomaly-detection-javascript-application"></a>Rilevamento anomalie in un'applicazione Javascript
+# <a name="tutorial-anomaly-detection-with-javascript-application"></a>Esercitazione: Rilevamento anomalie con un'applicazione JavaScript
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Si esplorerà un'applicazione Web che usa l'API REST Rilevamento anomalie per rilevare un'anomalia. Nell'esempio vengono inviati i dati di una serie temporale all'API Rilevamento anomalie con la chiave di sottoscrizione dell'utente e si ottengono quindi dall'API tutti i punti di anomalie e il valore previsto per ogni punto dati.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="platform-requirements"></a>Requisiti di piattaforma
 

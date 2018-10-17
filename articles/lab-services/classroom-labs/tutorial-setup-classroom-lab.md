@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 10/05/2018
 ms.author: spelluru
-ms.openlocfilehash: d1315753baf08cc80fda5811bd43bf59609781b7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216024"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856639"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -32,7 +32,7 @@ In questa esercitazione vengono completate le azioni seguenti:
 > * Inviare un collegamento di registrazione agli studenti
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per configurare un lab per le classi in un account del lab, è necessario essere un membro del ruolo **Autore di laboratori** nell'account del lab. L'account usato per creare un account del lab viene aggiunto automaticamente a questo ruolo. Un proprietario del lab può aggiungere altri utenti al ruolo Autore di laboratori seguendo i passaggi nell'articolo seguente: [Aggiungere un utente al ruolo di Autore di laboratori](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+Per configurare un lab per le classi in un account del lab, è necessario essere un membro del ruolo **Autore di lab** nell'account del lab. L'account usato per creare un account del lab viene aggiunto automaticamente a questo ruolo. Un proprietario del lab può aggiungere altri utenti al ruolo Autore di laboratori seguendo i passaggi nell'articolo seguente: [Aggiungere un utente al ruolo di Autore di laboratori](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 
 ## <a name="create-a-classroom-lab"></a>Creare un lab per le classi
@@ -40,80 +40,74 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 1. Accedere al [sito Web di Azure Lab Services](https://labs.azure.com). 
 2. Selezionare **Accedi** e immettere le credenziali. Azure Lab Services supporta gli account aziendali e gli account Microsoft. 
 3. Nella finestra **New Lab** (Nuovo lab) eseguire queste operazioni: 
-    1. Specificare un **nome** per il lab per le classi. 
-    2. Selezionare le **dimensioni** della macchina virtuale che si intende usare nella classe.
-    3. Selezionare l'**immagine** da usare per creare la macchina virtuale.
-    4. Specificare le **credenziali predefinite** per la registrazione alle macchine virtuali nel lab. 
-    7. Selezionare **Salva**.
+    1. Specificare un **nome** per il lab. 
+    2. Specificare il **numero di utenti** massimo consentito nel lab. 
+    6. Selezionare **Salva** (Save).
 
         ![Creare un lab per le classi](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+4. Nella pagina **Select virtual machine specifications** (Seleziona le specifiche delle macchine virtuali) eseguire le operazioni seguenti:
+    1. Selezionare le **dimensioni** per le macchine virtuali create nel lab. 
+    2. Selezionare l'**area** in cui si vogliono creare le macchine virtuali. 
+    3. Selezionare l'**immagine della macchina virtuale** da usare per creare macchine virtuali nel lab. 
+    4. Selezionare **Next** (Avanti).
+
+        ![Immettere le specifiche delle macchine virtuali](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
+5. Nella pagina **Set credentials** (Imposta le credenziali) specificare le credenziali predefinite per tutte le macchine virtuali del lab. 
+    1. Specificare il **nome dell'utente** per tutte le macchine virtuali del lab.
+    2. Specificare la **password** dell'utente. 
+
+        > [!IMPORTANT]
+        > Prendere nota del nome utente e della password perché non verranno più visualizzati.
+    3. Selezionare **Create**. 
+
+        ![Impostare le credenziali](../media/tutorial-setup-classroom-lab/set-credentials.png)
+6. Nella pagina **Configure template** (Configura modello) viene visualizzato lo stato del processo di creazione del lab. La creazione del modello nel lab richiede fino a 20 minuti. 
+
+    ![Configurare il modello](../media/tutorial-setup-classroom-lab/configure-template.png)
+7. Dopo aver completato la configurazione del modello verrà visualizzata la pagina seguente: 
+
+    ![Pagina di configurazione del modello al termine dell'operazione](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
+8. I passaggi seguenti sono facoltativi in questa esercitazione: 
+    1. Avviare la macchina virtuale modello selezionando **Start** (Avvia).
+    2. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). 
+    3. Installare e configurare il software nella macchina virtuale modello. 
+    4. **Arrestare** la VM.  
+    5. Immettere una **descrizione** per il modello.
+
+        ![Pulsante Next (Avanti) nella pagina di configurazione del modello](../media/tutorial-setup-classroom-lab/configure-template-next.png)
+9. Selezionare **Next** (Avanti) nella pagina del modello. 
+10. Nella pagina **Publish the template** (Pubblica il modello) eseguire le azioni seguenti. 
+    1. Per pubblicare immediatamente il modello, selezionare la casella di controllo *I understand I can't modify the template after publishing. This process can only be done once and can take up to an hour* (Sono consapevole che il modello non sarà modificabile dopo la pubblicazione. Questo processo può essere eseguito una sola volta e richiede fino a un'ora), quindi selezionare **Publish** (Pubblica).  
+
+        > [!WARNING]
+        > L'operazione di pubblicazione non può essere annullata. 
+    2. Per eseguire la pubblicazione in un secondo momento, selezionare **Save for later** (Salva per dopo). È possibile pubblicare la macchina virtuale modello al termine della procedura guidata. Per informazioni dettagliate su come configurare e pubblicare il modello al termine della procedura guidata, vedere la sezione [Pubblicare il modello](how-to-manage-classroom-labs.md#publish-the-template) nell'articolo [Gestire i lab per le classi in Azure Lab Services](how-to-manage-classroom-labs.md).
+
+        ![Pubblicare il modello](../media/tutorial-setup-classroom-lab/publish-template.png)
+11. Viene visualizzato lo **stato di pubblicazione** del modello. Questo processo può richiedere fino a un'ora. 
+
+    ![Pubblicazione del modello - stato](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
+12. Al termine dell'operazione di pubblicazione del modello, viene visualizzata la pagina seguente. Selezionare **Done** (Fine).
+
+    ![Pubblicazione del modello - operazione completata](../media/tutorial-setup-classroom-lab/publish-success.png)
 1. Verrà visualizzato il **dashboard** del lab. 
     
     ![Dashboard del lab per le classi](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-
-## <a name="configure-usage-policy"></a>Configurare i criteri di utilizzo
-
-1. Selezionare **Usage policy** (Criteri di utilizzo). 
-2. Nelle impostazioni di **Usage policy** (Criteri di utilizzo) immettere il **numero di utenti** a cui è consentito usare il lab.
-3. Selezionare **Salva**. 
-
-    ![Criteri di utilizzo](../media/tutorial-setup-classroom-lab/usage-policy-settings.png)
-
-
-## <a name="set-up-the-template"></a>Configurare il modello 
-Un modello in un lab è un'immagine della macchina virtuale di base da cui vengono create tutte le macchine virtuali di tutti gli utenti. Configurare la macchina virtuale modello con tutte le caratteristiche che si vuole fornire agli utenti del lab. È possibile specificare un nome e una descrizione del modello che verranno visualizzati dagli utenti del lab. Pubblicare il modello per rendere disponibili agli utenti del lab le istanze della macchina virtuale modello. 
-
-### <a name="set-title-and-description"></a>Impostare titolo e descrizione
-1. Nella sezione **Modello** selezionare **Modifica** (icona a forma di matita) per il modello. 
-2. Nella finestra **User view** (Visualizzazione utente) immettere un **titolo** per il modello.
-3. Immettere una **descrizione** per il modello.
-4. Selezionare **Salva**.
-
-    ![Descrizione del lab per le classi](../media/tutorial-setup-classroom-lab/lab-description.png)
-
-### <a name="set-up-the-template-vm"></a>Configurare la macchina virtuale modello
- Connettersi alla macchina virtuale modello e installarvi tutto il software necessario prima di renderla disponibile agli studenti. 
-
-1. Attendere che la macchina virtuale modello sia pronta. Una volta pronta, viene abilitato il pulsante **Avvia**. Per avviare la macchina virtuale, selezionare **Avvia**.
-
-    ![Avviare la macchina virtuale modello](../media/tutorial-setup-classroom-lab/start-template-vm.png)
-1. Per connettersi alla macchina virtuale, selezionare **Connetti** e seguire le istruzioni. 
-
-    ![Connettersi alla macchina virtuale modello](../media/tutorial-setup-classroom-lab/connect-template-vm.png)
-1. Installare tutto il software necessario agli studenti per eseguire il lab, ad esempio, Visual Studio, Azure Storage Explorer e così via. 
-2. Disconnettersi dalla macchina virtuale modello, ovvero chiudere la sessione di accesso remota. 
-3. **Arrestare** la macchina virtuale modello selezionando **Arresta**. 
-
-    ![Arrestare la macchina virtuale modello](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
-
-### <a name="publish-the-template"></a>Pubblicare il modello 
-Quando si pubblica un modello, Azure Lab Services crea le macchine virtuali nel lab usando il modello. Il numero di macchine virtuali create in questo processo corrisponde al numero massimo di utenti consentiti nel lab, che è possibile impostare nei criteri di utilizzo del lab. Tutte le macchine virtuali hanno la stessa configurazione del modello. 
-
-1. Selezionare **Pubblica** nella sezione **Modello**. 
-
-    ![Pubblicare la macchina virtuale modello](../media/tutorial-setup-classroom-lab/public-access.png)
-1. Nella finestra **Pubblica** selezionare l'opzione **Pubblicato**. 
-2. Selezionare ora il pulsante **Pubblica**. Questo processo potrebbe richiedere alcuni minuti a seconda del numero di macchine virtuali da creare, che è uguale al numero di utenti consentiti nel lab.
-    
-    > [!IMPORTANT]
-    > Non è possibile annullare la pubblicazione di un modello, dopo che questo è stato pubblicato. 
-4. Passare alla pagina **Macchine virtuali** e verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. 
-
-    ![Macchine virtuali](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Attendere finché le macchine virtuali non vengono create. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
+4. Passare alla pagina **Virtual machines** (Macchine virtuali) e verificare che vengano visualizzate macchine virtuali con lo stato **Unassigned** (Non assegnato). Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Stopped** (Arrestato). In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
 
     ![Macchine virtuali nello stato arrestato](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 ## <a name="send-registration-link-to-students"></a>Inviare un collegamento di registrazione agli studenti
 
-1. Passare alla visualizzazione **Dashboard**. 
+1. Passare alla visualizzazione **Dashboard** selezionando **Dashboard** nel menu a sinistra. 
 2. Selezionare il riquadro **User registration** (Registrazione utente).
 
     ![Collegamento di registrazione dello studente](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
 1. Nella finestra di dialogo **User registration** (Registrazione utente) selezionare il pulsante **Copia**. Il collegamento viene copiato negli Appunti. Incollarlo in un editor di posta elettronica e inviare un messaggio di posta elettronica allo studente. 
 
     ![Collegamento di registrazione dello studente](../media/tutorial-setup-classroom-lab/registration-link.png)
-2. Nella finestra di dialogo **User registration** (Registrazione utente) selezionare il pulsante **Chiudi**. 
+2. Nella finestra di dialogo **User registration** (Registrazione utente) selezionare il pulsante **Close** (Chiudi). 
+3. Condividere il collegamento di registrazione con uno studente in modo che possa eseguire la registrazione alla classe. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

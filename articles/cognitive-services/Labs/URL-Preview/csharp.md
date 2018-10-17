@@ -1,25 +1,27 @@
 ---
-title: Guida introduttiva a Project URL Preview in C# - Servizi cognitivi Microsoft | Microsoft Docs
-description: Introduzione all'uso di Project URL Preview in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: Progetto Anteprima URL, C#'
+titlesuffix: Azure Cognitive Services
+description: Introduzione all'uso di Progetto Anteprima URL con C#.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 03/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 17d44bd0c23d0a1e67da5a0e91248700d3166c1a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 8d31d3a83f9873ce550b9c78626eea0d96ac39bb
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376265"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867443"
 ---
-# <a name="url-preview-query-in-c"></a>Query di URL Preview in C#
+# <a name="quickstart-url-preview-query-in-c"></a>Guida introduttiva: Query di Anteprima URL in C#
 
 L'esempio in C# seguente crea un'anteprima URL per il sito Web SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la versione gratuita Community Edition.
 

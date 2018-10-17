@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6997d40603bd6ebf39f8797a3e354e92c04da58d
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: de856aed32b596209f7af2861b76ed6648d0caca
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422746"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067823"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge (anteprima)
 
@@ -139,7 +139,9 @@ Usando i tre elementi di input, di output e di query, questa sezione crea un pro
 
 Per preparare la distribuzione del processo di Analisi di flusso in un dispositivo IoT Edge, è necessario associare il processo a un contenitore in un account di archiviazione. Quando si inizia a distribuire il processo, la definizione del processo viene esportata nel contenitore di archiviazione. 
 
-1. In **Configura** selezionare **Impostazioni di IoT Edge**.
+1. In **Configura** selezionare **Impostazioni account di archiviazione**.
+
+1. Selezionare **Aggiungi account di archiviazione**. 
 
 1. Selezionare il proprio **account di archiviazione** dal menu a discesa.
 

@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: v-deken
-ms.openlocfilehash: 030a8351a8f41c7404fa4ca8d243fff1ad818c2f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 9a0acae20a6361f5a9b69e427d46dd1b9c7db05e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433600"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869347"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -61,7 +61,7 @@ Visione artificiale può analizzare immagini che rispettano i requisiti seguenti
 - L'immagine deve essere presentata in formato JPEG, PNG, GIF o BMP
 - Le dimensioni del file dell'immagine devono essere minori di 4 megabyte (MB)
 - Le dimensioni dell'immagine devono essere superiori a 50 x 50 pixel  
-  Per OCR le dimensioni dell'immagine devono essere comprese tra 50 x 50 e 4200 x 4200 pixel e l'immagine non può avere dimensioni superiori a 10 megapixel.
+  Per l'OCR, le dimensioni dell'immagine devono essere comprese tra 50 x 50 e 4200 x 4200 pixel
 
 ## <a name="next-steps"></a>Passaggi successivi
 

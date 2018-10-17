@@ -1,25 +1,27 @@
 ---
-title: Guida introduttiva a Project URL Preview in Java - Servizi cognitivi Microsoft | Microsoft Docs
-description: Esempio di script per iniziare a usare Project URL Preview in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: Progetto Anteprima URL, Java'
+titlesuffix: Azure Cognitive Services
+description: Esempio di script per iniziare a usare Progetto Anteprima URL con Java.
 services: cognitive-services
 author: mikedodaro
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 2de74f48882605bfcf05f65723ba5d8993587f51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 95e33ceddc2fbbab51d3c4f0164b410847430244
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376268"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867117"
 ---
-# <a name="url-preview-java-quickstart"></a>Guida introduttiva a URL Preview in Java
+# <a name="quickstart-url-preview-with-java"></a>Guida introduttiva: Anteprima URL con Java
 
 L'esempio in Java seguente crea un'anteprima URL per il sito Web SwiftKey: https://swiftkey.com/en.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Ottenere una chiave di accesso per la versione di valutazione gratuita di [Lab di Servizi cognitivi](https://aka.ms/answersearchsubscription)
 

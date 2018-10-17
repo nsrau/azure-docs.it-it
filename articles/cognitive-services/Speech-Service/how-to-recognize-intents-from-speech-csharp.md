@@ -6,16 +6,16 @@ description: >
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: Speech
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 16424c44003be14e3ba04f6b5cce0ce518a0d7e8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063031"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884343"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Esercitazione: riconoscere le finalità dai contenuti vocali con Speech SDK per C#
 
@@ -120,10 +120,10 @@ Le sezioni seguenti includono una discussione del codice.
 
 ## <a name="create-an-intent-recognizer"></a>Creare un sistema di riconoscimento delle finalità
 
-Il primo passaggio del riconoscimento finalità nel riconoscimento vocale consiste nel creare una configurazione di riconoscimento vocale dalla chiave endpoint e area LUIS. Configurazione riconoscimento vocale può essere usata per creare sistemi di riconoscimento per le diverse funzionalità di Speech SDK. La configurazione di riconoscimento vocale specifica in diversi modi la sottoscrizione da usare; In questo caso, usare `FromSubscription`, che accetta la chiave di sottoscrizione e la regione.
+Il primo passaggio del riconoscimento finalità nel riconoscimento vocale consiste nel creare una configurazione di riconoscimento vocale dalla chiave endpoint e area LUIS. Configurazione riconoscimento vocale può essere usata per creare sistemi di riconoscimento per le diverse funzionalità di Speech SDK. La configurazione di riconoscimento vocale specifica in diversi modi la sottoscrizione da usare; In questo caso, usare `FromSubscription`, che accetta la chiave di sottoscrizione e l'area.
 
 > [!NOTE]
-> Usare la chiave e la regione di sottoscrizione di LUIS, non la sottoscrizione del riconoscimento vocale.
+> Usare la chiave e l'area della sottoscrizione LUIS, non di una sottoscrizione del servizio Voce.
 
 Creare un sistema di riconoscimento delle finalità tramite `new IntentRecognizer(config)`. La configurazione conosce già quale sottoscrizione usare, non serve specificare nuovamente la chiave di sottoscrizione e l'endpoint quando si crea un sistema di riconoscimento.
 
@@ -166,7 +166,7 @@ L'applicazione di esercitazione non analizza il risultato JSON, ma lo visualizza
 
 ## <a name="specify-recognition-language"></a>Specificare lingua di riconoscimento
 
-Per impostazione predefinita, LUIS riconosce le finalità in inglese Americano (`en-us`). Tramite l'assegnazione di un codice impostazioni locali alla proprietà `SpeechRecognitionLanguage` della configurazione del riconoscimento vocale, questa è in grado di riconoscere le finalità in altre lingue. Ad esempio, aggiungere `config.SpeechRecognitionLanguage = "de-de";` nell'applicazione dell'esercitazione prima di creare il sistema di riconoscimento per riconoscere le finalità in tedesco. Vedere [Lingue supportate](supported-languages.md#speech-to-text).
+Per impostazione predefinita, LUIS riconosce le finalità in inglese Americano (`en-us`). Tramite l'assegnazione di un codice impostazioni locali alla proprietà `SpeechRecognitionLanguage` della configurazione del riconoscimento vocale, questa è in grado di riconoscere le finalità in altre lingue. Ad esempio, aggiungere `config.SpeechRecognitionLanguage = "de-de";` nell'applicazione dell'esercitazione prima di creare il sistema di riconoscimento per riconoscere le finalità in tedesco. Vedere [Lingue supportate](language-support.md#speech-to-text).
 
 ## <a name="continuous-recognition-from-a-file"></a>Riconoscimento vocale continuo da un file
 

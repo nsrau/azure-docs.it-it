@@ -1,27 +1,30 @@
 ---
-title: Rilevamento anomalie in un'app Java - Servizi cognitivi Microsoft | Microsoft Docs
-description: Esplorare un'app Java che usa l'API Rilevamento anomalie in Servizi cognitivi Microsoft. Inviare i punti dati originali all'API e ottenere i punti dei valori previsti e delle anomalie.
+title: 'Esercitazione: Rilevamento anomalie, Java'
+titlesuffix: Azure Cognitive Services
+description: Esplorare un'app Java che usa l'API Rilevamento anomalie. Inviare i punti dati originali all'API e ottenere i punti dei valori previsti e delle anomalie.
 services: cognitive-services
 author: wenya
 manager: bix
 ms.service: cognitive-services
-ms.technology: anomaly-detection
-ms.topic: article
+ms.component: anomaly-detection
+ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 228d440da358eba1322e2228c54f21e925e36ecd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4b544e2e59a40cebf75042c4040b84bceebcecf7
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597949"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887701"
 ---
-# <a name="anomaly-detection-java-application"></a>Rilevamento anomalie in un'app Java
+# <a name="tutorial-anomaly-detection-with-java-application"></a>Esercitazione: Rilevamento anomalie con un'applicazione Java
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 Questo articolo illustra l'uso di una semplice applicazione Java per richiamare l'API Rilevamento anomalie.  
 Nell'esempio vengono inviati i dati di una serie temporale all'API Rilevamento anomalie con la chiave di sottoscrizione dell'utente e si ottengono quindi dall'API tutti i punti di anomalie e il valore previsto per ogni punto dati.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="platform-requirements"></a>Requisiti di piattaforma
 

@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: e84411535b82b3e4861b529f490bdde0eb25fd42
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983886"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884307"
 ---
 # <a name="example-upload-and-index-your-videos"></a>Esempio: Caricare e indicizzare i video  
 
@@ -36,6 +36,11 @@ L'articolo illustra anche alcuni parametri che è possibile impostare per l'API 
 - Quando si carica il video in base all'URL (scelta preferita), l'endpoint deve essere protetto con il protocollo TLS 1.2 (o versione successiva)
 - L'opzione della matrice di byte è limitata a 2 GB e scade dopo 30 minuti
 - L'URL fornito nel parametro `videoURL` deve essere codificato.
+
+> [!Tip]
+> È consigliabile usare .NET framework versione 4.6.2. o versione successiva perché le versioni precedenti di .NET Framework non usano per impostazione predefinita TLS 1.2.
+>
+> Se è necessario usare versioni di .NET Framework precedenti, aggiungere una riga al codice prima di effettuare la chiamata API REST:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
 ## <a name="configurations-and-params"></a>Configurazioni e parametri
 
@@ -243,8 +248,14 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
+## <a name="common-errors"></a>Errori comuni
 
+L'operazione di caricamento può restituire i codici di stato elencati nella tabella seguente.
 
+|Codice di stato|ErrorType (nel corpo della risposta)|DESCRIZIONE|
+|---|---|---|
+|400|VIDEO_ALREADY_IN_PROGRESS|Lo stesso video è già in fase di elaborazione nell'account specificato.|
+|400|VIDEO_ALREADY_FAILED|Lo stesso video ha restituito un errore di elaborazione nell'account specificato meno di 2 ore prima. I client API devono attendere almeno 2 ore prima di caricare nuovamente un video.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

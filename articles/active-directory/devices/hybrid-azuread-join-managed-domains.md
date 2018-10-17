@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ff2a161cbc39cdb4cf35cad2b8bd403ef2d3260c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b3a3baaf22fa9c382bb45a5b2a2065ef7678faf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222168"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855955"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta ad Azure Active Directory ibrido per domini gestiti
 
@@ -68,7 +68,7 @@ L'aggiunta ad Azure AD ibrido richiede che i dispositivi abbiano accesso alle ri
 - https://device.login.microsoftonline.com
 - https://autologon.microsoftazuread-sso.com (Se si usa o si pensa di usare Seamless SSO)
 
-Se l'organizzazione richiede l'accesso a Internet attraverso un proxy in uscita, a partire da Windows 10 1709 è possibile configurare le impostazioni proxy nel computer usando un oggetto Criteri di gruppo (GPO). Se nel computer è in esecuzione una versione precedente a Windows 10 1709, è necessario implementare Web Proxy Auto-Discovery (WPAD) per consentire ai computer Windows 10 di registrare i dispositivi con Azure AD. 
+Se l'organizzazione richiede l'accesso a Internet attraverso un proxy in uscita, a partire da Windows 10 1709 è possibile [configurare le impostazioni proxy nel computer usando un oggetto Criteri di gruppo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Se nel computer è in esecuzione una versione precedente a Windows 10 1709, è necessario implementare Web Proxy Auto-Discovery (WPAD) per consentire ai computer Windows 10 di registrare i dispositivi con Azure AD. 
 
 Se l'organizzazione richiede l'accesso a Internet attraverso un proxy in uscita autenticato, è necessario assicurarsi che i computer Windows 10 possano eseguire l'autenticazione al proxy in uscita. Poiché i computer Windows 10 eseguono la registrazione dei dispositivi usando il contesto del computer, è necessario configurare l'autenticazione del proxy in uscita usando il contesto del computer. Per i requisiti di configurazione, contattare il provider del proxy in uscita. 
 

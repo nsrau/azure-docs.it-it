@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 05dd53fdfda5446cf848a7b8503a09bc5e5c2d20
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 347fc291fc7357481bfdc88c9019c3d688925c2f
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433464"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067518"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creare un'app Web Node.js in Azure
 
@@ -46,10 +46,15 @@ Per completare questa guida introduttiva:
 
 Scaricare il progetto di esempio di Node.js da [https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip](https://github.com/Azure-Samples/nodejs-docs-hello-world/archive/master.zip) ed estrarre l'archivio ZIP.
 
-In una finestra del terminale passare alla directory radice del progetto Node.js di esempio (quello contenente _index.js_).
+Aprire _index.js_ e individuare la riga seguente:
 
-> [!NOTE]
-> Non è necessario usare l'app di esempio, se si desidera, è possibile usare il proprio codice Node. Tenere presente, tuttavia, che la porta per l'app verrà impostata in fase di esecuzione da Azure, ed è disponibile come `process.env.PORT`. Se si usa express, assicurarsi di avere un controllo all'avvio (`app.listen`) per `process.env.PORT || 3000`. Se si non esegue questa operazione e la porta non corrisponde a ciò che viene impostata in fase di esecuzione da Azure, verrà visualizzato un messaggio `Service Unavailable`. 
+```javascript
+var port = process.env.PORT || 1337;
+```
+
+Il Servizio app inserisce process.env.PORT nell'applicazione, di conseguenza il codice usa la variabile per conoscere la porta su cui essere in ascolto. 
+
+In una finestra del terminale passare alla directory radice del progetto Node.js di esempio (quello contenente _index.js_).
 
 ## <a name="run-the-app-locally"></a>Eseguire l'app in locale
 
@@ -68,7 +73,7 @@ Nella pagina verrà visualizzato il messaggio **Hello World** dell'app di esempi
 Nella finestra del terminale premere **CTRL+C** per uscire dal server Web.
 
 > [!NOTE]
-> Nel servizio app di Azure l'app viene eseguita in IIS usando [iisnode](https://github.com/tjanczuk/iisnode). Per potere eseguire l'app con iisnode, la directory radice dell'app contiene un file web.config. Il file è leggibile da IIS e le impostazioni correlate a iisnode sono documentate nel [repository GitHub di iisnode](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config).
+> Nel servizio app di Azure l'app viene eseguita in IIS usando [iisnode](https://github.com/Azure/iisnode). Per potere eseguire l'app con iisnode, la directory radice dell'app contiene un file web.config. Il file è leggibile da IIS e le impostazioni correlate a iisnode sono documentate nel [repository GitHub di iisnode](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 

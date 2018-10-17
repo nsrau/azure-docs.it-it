@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 10/2/2018
 ms.author: victorh
-ms.openlocfilehash: 919051a945d423a104b286e9c5703c5b749cf026
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946460"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856072"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -134,6 +134,28 @@ $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
+## <a name="create-and-configure-the-onprem-vnet"></a>Creare e configurare la rete virtuale locale
+
+Definire le subnet da includere nella rete virtuale:
+
+```azurepowershell
+$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
+$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
+```
+
+Creare ora la rete virtuale locale:
+
+```azurepowershell
+$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
+-Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
+```
+Richiedere un indirizzo IP pubblico da allocare per il gateway che verrà creato per la rete virtuale. Si noti che *AllocationMethod* è **dinamico**. Non è possibile specificare l'indirizzo IP che si desidera usare. Viene allocato in modo dinamico per il gateway. 
+
+  ```azurepowershell
+  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
+  -Location $Location1 -AllocationMethod Dynamic
+```
+
 ## <a name="configure-and-deploy-the-firewall"></a>Configurare e distribuire il firewall
 
 Distribuire ora il firewall nella rete virtuale dell'hub.
@@ -154,11 +176,13 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>Configurare le regole di rete
 
+<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+   -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
+
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
-$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
-   -DestinationAddress $VNetSpokePrefix -DestinationPort *
+
 $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
@@ -182,7 +206,7 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Creare e connettere i gateway VPN
 
-Le reti virtuali dell'hub e locale sono connesse tramite un gateway VPN.
+Le reti virtuali dell'hub e locale sono connesse tramite gateway VPN.
 
 ### <a name="create-a-vpn-gateway-for-the-hub-vnet"></a>Creare un gateway VPN per la rete virtuale dell'hub
 
@@ -262,27 +286,7 @@ Al termine dell'esecuzione del cmdlet, visualizzare i valori. Nell'esempio segue
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>Creare e configurare la rete virtuale locale
 
-Definire le subnet da includere nella rete virtuale:
-
-```azurepowershell
-$Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
-$GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
-```
-
-Creare ora la rete virtuale locale:
-
-```azurepowershell
-$VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
--Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
-```
-Richiedere un indirizzo IP pubblico da allocare per il gateway che verrà creato per la rete virtuale. Si noti che *AllocationMethod* è **dinamico**. Non è possibile specificare l'indirizzo IP che si desidera usare. Viene allocato in modo dinamico per il gateway. 
-
-  ```azurepowershell
-  $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
-  -Location $Location1 -AllocationMethod Dynamic
-```
 
 ## <a name="peer-the-hub-and-spoke-vnets"></a>Eseguire il peering tra le reti virtuali dell'hub e spoke
 
@@ -300,6 +304,9 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 Creare quindi due route: 
 - Una route dalla subnet del gateway dell'hub alla subnet spoke attraverso l'indirizzo IP del firewall
 - Una route predefinita dalla subnet spoke attraverso l'indirizzo IP del firewall
+
+> [!NOTE]
+> Per apprendere le reti locali, Firewall di Azure usa il protocollo BGP. Può trattarsi di una route predefinita, che reinstrada il traffico Internet attraverso la rete locale. Se invece si vuole che il traffico Internet venga inviato direttamente dal firewall a Internet, aggiungere una route predefinita (0.0.0.0/0) definita dall'utente in AzureFirewallSubnet con tipo di hop successivo impostato su **Internet**. Il traffico destinato a livello locale viene gestito tramite tunneling forzato attraverso il gateway VPN/ExpressRoute usando le route più specifiche apprese dal protocollo BGP.
 
 ```azurepowershell
 #Create a route table
@@ -397,8 +404,9 @@ Set-AzureRmVMExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server"}' `
     -Location $Location1
+```
 
-#Create a host firewall rule to allow ping in
+<!---#Create a host firewall rule to allow ping in
 Set-AzureRmVMExtension `
     -ResourceGroupName $RG1 `
     -ExtensionName IIS `
@@ -407,8 +415,8 @@ Set-AzureRmVMExtension `
     -ExtensionType CustomScriptExtension `
     -TypeHandlerVersion 1.4 `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
-    -Location $Location1
-```
+    -Location $Location1--->
+
 
 ### <a name="create-the-onprem-virtual-machine"></a>Creare la macchina virtuale locale
 Si tratta di una macchina virtuale semplice a cui è possibile connettersi tramite Desktop remoto con l'indirizzo IP pubblico. Da qui, è quindi possibile connettersi al server locale attraverso il firewall. Quando richiesto, digitare il nome utente e la password per la macchina virtuale.
@@ -431,10 +439,10 @@ $NIC.IpConfigurations.privateipaddress
 ```
 
 1. Dal portale di Azure connettersi alla macchina virtuale **VM-Onprem**.
-2. Aprire un prompt dei comandi di Windows PowerShell in **VM-Onprem** ed effettuare il ping dell'IP privato per **VM-spoke-01**.
+<!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
-   Si dovrebbe ricevere una risposta.
-1. Aprire un Web browser in **VM-Onprem** e andare a http://\<IP privato VM-spoke-01\>
+   You should get a reply.--->
+2. Aprire un Web browser in **VM-Onprem** e andare a http://\<IP privato VM-spoke-01\>
 
    Dovrebbe essere visualizzata la pagina predefinita di Internet Information Services.
 
@@ -444,7 +452,7 @@ $NIC.IpConfigurations.privateipaddress
 
 A questo punto si è verificato che le regole del firewall funzionano:
 
-- È possibile effettuare il ping del server nella rete virtuale spoke.
+<!---- You can ping the server on the spoke VNet.--->
 - È possibile esplorare il Web server nella rete virtuale spoke.
 - È possibile connettersi al server nella rete virtuale spoke tramite RDP.
 
@@ -468,7 +476,7 @@ A questo punto rieseguire i test, che dovrebbero avere tutti esito negativo. Chi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Configurare l'ambiente di rete

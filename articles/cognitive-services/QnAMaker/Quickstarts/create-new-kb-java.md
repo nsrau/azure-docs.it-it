@@ -1,21 +1,21 @@
 ---
-title: 'Guida introduttiva: API di Java - creare knowledge base - QnA Maker'
+title: "Guida introduttiva: Creare una knowledge base con l'API Java - QnA Maker"
 titlesuffix: Azure Cognitive Services
 description: Questa guida introduttiva illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 5dfea3a8b4b5a79585b910fd2fad4ffbda4729fd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8a876d1e5416547d0eead0882b69bdf68818c5d
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037610"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886212"
 ---
 # <a name="create-a-new-knowledge-base-in-java"></a>Creare una nuova knowledge base in Java
 
@@ -27,7 +27,7 @@ Di seguito sono indicati due URL di domande frequenti di esempio (in "kb.urls" d
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). È possibile usare l'ambiente di sviluppo integrato Java preferito, ma è sufficiente anche un editor di testo.
+Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). È possibile usare l'ambiente di sviluppo integrato Java preferito, ma è sufficiente anche un editor di testo.
 
 È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con **QnA Maker** selezionato come risorsa. È infine necessaria una chiave di sottoscrizione a pagamento del nuovo account configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices). Una delle due chiavi sarà utilizzabile per questa guida introduttiva.
 

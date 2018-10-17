@@ -1,22 +1,23 @@
 ---
-title: Query per le entità con Ricerca di risposte progetto - Servizi cognitivi Microsoft | Microsoft Docs
+title: 'Guida introduttiva: Query per le entità con Project Answer Search'
+titlesuffix: Azure Cognitive Services
 description: Query per le entità con Ricerca di risposte progetto
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.component: project-answer-search
+ms.topic: quickstart
 ms.date: 04/16/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 2b8382b791c02514e5110097700e223d98fafd6a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: rosh
+ms.openlocfilehash: 0845f491772b905599bb60e8ec555d14b6d6b15f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376201"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883602"
 ---
-# <a name="query-for-entities"></a>Query per le entità
+# <a name="quickstart-query-for-entities"></a>Guida introduttiva: Query per le entità
 
 Se la query richiede informazioni su una persona, un luogo o una cosa, la risposta può contenere un riscontro `entities`.  Le query restituiscono sempre pagine Web e i [fatti](fact-queries.md) e/o le [entità](entity-queries.md) dipendono dalla query.
 

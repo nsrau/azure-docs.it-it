@@ -1,251 +1,254 @@
 ---
-title: Esercitazione - Automatizzare la compilazione di immagini dei contenitori con ACR Build
-description: Questa esercitazione illustra come configurare un'attività di compilazione per attivare automaticamente compilazioni delle immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente in un repository Git.
+title: 'Esercitazione: Automatizzare la compilazione di immagini dei contenitori con ACR Tasks'
+description: Questa esercitazione illustra come configurare un'attività per attivare automaticamente compilazioni delle immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente in un repository Git.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 05/11/2018
-ms.author: marsma
+ms.date: 09/24/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 71ea0f489df6969f0916ac14d187e10a90a520cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722712"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857228"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-build"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori con ACR Build
+# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>Esercitazione: Automatizzare la compilazione di immagini dei contenitori con ACR Tasks
 
-Oltre alla [compilazione rapida](container-registry-tutorial-quick-build.md), ACR Build supporta la compilazione automatica di immagini dei contenitori Docker con l'*attività di compilazione*. In questa esercitazione si usa l'interfaccia della riga di comando di Azure per creare un'attività di compilazione che attiva automaticamente compilazioni delle immagini nel cloud quando si esegue il commit di codice sorgente in un repository Git.
+Oltre a un'[attività rapida](container-registry-tutorial-quick-task.md), ACR Tasks supporta la compilazione automatica di immagini dei contenitori Docker con l'*attività di compilazione*. In questa esercitazione si usa l'interfaccia della riga di comando di Azure per creare un'attività che attiva automaticamente compilazioni delle immagini nel cloud quando si esegue il commit di codice sorgente in un repository Git.
 
 In questa esercitazione, la seconda della serie, vengono illustrate le seguenti attività:
 
 > [!div class="checklist"]
-> * Creare un'attività di compilazione
-> * Testare l'attività di compilazione
-> * Visualizzare lo stato delle compilazioni
-> * Attivare l'attività di compilazione con un commit di codice
+> * Crea un'attività
+> * Testare l'attività
+> * Visualizzare lo stato dell'attività
+> * Attivare l'attività con un commit di codice
 
-Questa esercitazione presuppone che siano già state completate le procedure dell'[esercitazione precedente](container-registry-tutorial-quick-build.md). Se non è già stato fatto, prima di procedere eseguire i passaggi descritti nella sezione [Prerequisiti](container-registry-tutorial-quick-build.md#prerequisites) dell'esercitazione precedente.
-
-[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
+Questa esercitazione presuppone che siano già state completate le procedure dell'[esercitazione precedente](container-registry-tutorial-quick-task.md). Se non è già stato fatto, prima di procedere eseguire i passaggi descritti nella sezione [Prerequisiti](container-registry-tutorial-quick-task.md#prerequisites) dell'esercitazione precedente.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario che sia installata l'interfaccia della riga di comando di Azure versione **2.0.32** o successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
+Se si preferisce usare l'interfaccia della riga di comando di Azure in locale, è necessario che sia installata l'interfaccia della riga di comando di Azure versione **2.0.46** o successiva ed eseguire l'accesso con [az login][az-login]. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli].
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="get-sample-code"></a>Ottenere il codice di esempio
 
-Questa esercitazione presuppone che siano già state completate le procedure dell'[esercitazione precedente](container-registry-tutorial-quick-build.md) e che siano state eseguite la copia tramite fork e la clonazione del repository di esempio. Se non è già stato fatto, prima di procedere eseguire i passaggi descritti nella sezione [Prerequisiti](container-registry-tutorial-quick-build.md#prerequisites) dell'esercitazione precedente.
+Questa esercitazione presuppone che siano già state completate le procedure dell'[esercitazione precedente](container-registry-tutorial-quick-task.md) e che siano state eseguite la copia tramite fork e la clonazione del repository di esempio. Se non è già stato fatto, prima di procedere eseguire i passaggi descritti nella sezione [Prerequisiti](container-registry-tutorial-quick-task.md#prerequisites) dell'esercitazione precedente.
 
 ### <a name="container-registry"></a>Registro contenitori
 
-Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un registro contenitori di Azure. Se è necessario un registro, vedere l'[esercitazione precedente](container-registry-tutorial-quick-build.md) oppure [Guida introduttiva: Creare un registro contenitori con l'interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
+Per completare questa esercitazione è necessario che la sottoscrizione di Azure includa un registro contenitori di Azure. Se è necessario un registro, vedere l'[esercitazione precedente](container-registry-tutorial-quick-task.md) oppure [Guida introduttiva: Creare un registro contenitori con l'interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md).
 
-## <a name="build-task"></a>Attività di compilazione
+## <a name="overview-of-acr-tasks"></a>Panoramica di ACR Tasks
 
-Un'attività di compilazione definisce le proprietà di una compilazione automatica, come la posizione del codice sorgente dell'immagine del contenitore e l'evento che attiva la compilazione. Quando si verifica un evento definito nell'attività di compilazione, ad esempio un commit in un repository Git, ACR Build avvia la compilazione di un'immagine del contenitore nel cloud. Per impostazione predefinita, esegue quindi il push dell'immagine compilata correttamente nel registro contenitori di Azure specificato nell'attività.
+Un'attività definisce le proprietà di una compilazione automatica, come la posizione del codice sorgente dell'immagine del contenitore e l'evento che attiva la compilazione. Quando si verifica un evento definito nell'attività, ad esempio un commit in un repository Git, ACR Tasks avvia la compilazione di un'immagine del contenitore nel cloud. Per impostazione predefinita, esegue quindi il push dell'immagine compilata correttamente nel registro contenitori di Azure specificato nell'attività.
 
-Per l'attività di compilazione, ACR Build supporta attualmente i trigger seguenti:
+ACR Tasks attualmente supporta i trigger seguenti:
 
 * Commit in un repository Git
 * Aggiornamento dell'immagine di base
 
 ## <a name="create-a-build-task"></a>Creare un'attività di compilazione
 
-In questa sezione si crea prima di tutto un token di accesso personale GitHub da usare con ACR Build. Si crea quindi un'attività di compilazione che attiva una compilazione quando viene eseguito il commit di codice nel fork del repository.
+In questa sezione si crea prima di tutto un token di accesso personale GitHub da usare con ACR Tasks. Si crea quindi un'attività che attiva una compilazione quando viene eseguito il commit di codice nel fork del repository.
 
 ### <a name="create-a-github-personal-access-token"></a>Creare un token di accesso personale GitHub
 
-Per attivare una compilazione in caso di commit in un repository Git, ACR Build necessita di un token di accesso personale per accedere al repository. Per generare un token di accesso personale in GitHub, seguire questa procedura:
+Per attivare una compilazione in caso di commit in un repository Git, ACR Tasks necessita di un token di accesso personale per accedere al repository. Per generare un token di accesso personale in GitHub, seguire questa procedura:
 
 1. Passare alla pagina per la creazione di token di accesso personali in GitHub all'indirizzo https://github.com/settings/tokens/new
-1. Immettere una breve **descrizione** del token, ad esempio "ACR Build Task Demo".
+1. Immettere una breve **descrizione** del token, ad esempio "ACR Tasks Demo".
 1. In **repo** abilitare **repo:status** e **public_repo**.
 
    ![Screenshot della pagina per la generazione di token di accesso personali in GitHub][build-task-01-new-token]
 
 1. Selezionare il pulsante **Generate token** (Genera token). Potrebbe essere richiesto di confermare la password.
-1. Copiare e salvare il token generato in una **posizione sicura**. Questo token verrà usato per definire un'attività di compilazione nella sezione seguente.
+1. Copiare e salvare il token generato in una **posizione sicura**. Questo token verrà usato per definire un'attività nella sezione seguente.
 
    ![Screenshot del token di accesso personale generato in GitHub][build-task-02-generated-token]
 
 ### <a name="create-the-build-task"></a>Creare l'attività di compilazione
 
-Dopo aver completato i passaggi necessari per consentire ad ACR Build di leggere lo stato del commit e creare webhook in un repository, è possibile creare un'attività di compilazione che attiva la compilazione di un'immagine del contenitore in caso di commit nel repository.
+Dopo aver completato i passaggi necessari per consentire ad ACR Tasks di leggere lo stato del commit e creare webhook in un repository, è possibile creare un'attività che attiva la compilazione di un'immagine del contenitore in caso di commit nel repository.
 
-Per prima cosa, popolare queste variabili di ambiente della shell con i valori appropriati per l'ambiente in uso. Questa operazione non è obbligatoria, ma semplifica in parte l'esecuzione dei comandi su più righe dell'interfaccia della riga di comando di Azure. Se non si popolano queste variabili, sarà necessario sostituire manualmente ogni valore in ogni occorrenza nei comandi di esempio.
+Per prima cosa, popolare queste variabili di ambiente della shell con i valori appropriati per l'ambiente in uso. Questo passaggio non è obbligatorio, ma semplifica in parte l'esecuzione dei comandi su più righe dell'interfaccia della riga di comando di Azure. Se non si popolano queste variabili di ambiente, sarà necessario sostituire manualmente ogni valore in ogni occorrenza nei comandi di esempio.
 
 ```azurecli-interactive
-ACR_NAME=mycontainerregistry # The name of your Azure container registry
-GIT_USER=gituser             # Your GitHub user account name
-GIT_PAT=personalaccesstoken  # The PAT you generated in the previous section
+ACR_NAME=<registry-name>        # The name of your Azure container registry
+GIT_USER=<github-username>      # Your GitHub user account name
+GIT_PAT=<personal-access-token> # The PAT you generated in the previous section
 ```
 
-Creare quindi l'attività di compilazione eseguendo questo comando [az acr build-task create][az-acr-build-task-create]:
+Creare quindi l'attività eseguendo questo comando [az acr task create][az-acr-task-create]:
 
 ```azurecli-interactive
-az acr build-task create \
+az acr task create \
     --registry $ACR_NAME \
-    --name buildhelloworld \
-    --image helloworld:{{.Build.ID}} \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node \
+    --name taskhelloworld \
+    --image helloworld:{{.Run.ID}} \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
     --branch master \
+    --file Dockerfile \
     --git-access-token $GIT_PAT
 ```
 
-L'attività di compilazione specifica che ogni volta che verrà eseguito il commit di codice nel ramo *principale* del repository specificato da `--context`, ACR Build compilerà l'immagine del contenitore dal codice in tale ramo. L'argomento `--image` specifica un valore `{{.Build.ID}}` con parametri per la parte della versione del tag dell'immagine, affinché l'immagine compilata sia correlata a una compilazione specifica e contrassegnata con un tag univoco.
+> [!IMPORTANT]
+> Se in precedenza sono state create attività durante l'anteprima con il comando `az acr build-task`, tali attività devono essere ricreate con il comando [az acr task][az-acr-task].
 
-L'output di un comando [az acr build-task create][az-acr-build-task-create] riuscito è simile al seguente:
+L'attività specifica che ogni volta che verrà eseguito il commit di codice nel ramo *principale* del repository specificato da `--context`, ACR Tasks compilerà l'immagine del contenitore dal codice in tale ramo. Viene usato il documento Dockerfile specificato da `--file` presente nella radice del repository. L'argomento `--image` specifica un valore `{{.Run.ID}}` con parametri per la parte della versione del tag dell'immagine, affinché l'immagine compilata sia correlata a una compilazione specifica e contrassegnata con un tag univoco.
+
+L'output di un comando [az acr task create][az-acr-task-create] riuscito è simile al seguente:
 
 ```console
-$ az acr build-task create \
+$ az acr task create \
 >     --registry $ACR_NAME \
->     --name buildhelloworld \
->     --image helloworld:{{.Build.ID}} \
->     --context https://github.com/$GIT_USER/acr-build-helloworld-node \
+>     --name taskhelloworld \
+>     --image helloworld:{{.Run.ID}} \
+>     --context https://github.com/$GIT_USER/acr-build-helloworld-node.git \
 >     --branch master \
+>     --file Dockerfile \
 >     --git-access-token $GIT_PAT
 {
-  "additionalProperties": {},
-  "alias": "buildhelloworld",
-  "creationDate": "2018-05-10T19:34:48.086776+00:00",
-  "id": "/subscriptions/<Subscription ID>/resourceGroups/mycontainerregistry/providers/Microsoft.ContainerRegistry/registries/mycontainerregistry/buildTasks/buildhelloworld",
-  "location": "eastus",
-  "name": "buildhelloworld",
-  "platform": {
-    "additionalProperties": {},
-    "cpu": 1,
-    "osType": "Linux"
+  "agentConfiguration": {
+    "cpu": 2
   },
-  "properties": {
-    "additionalProperties": {
-      "imageName": null
-    },
+  "creationDate": "2018-09-14T22:42:32.972298+00:00",
+  "id": "/subscriptions/<Subscription ID>/resourceGroups/myregistry/providers/Microsoft.ContainerRegistry/registries/myregistry/tasks/taskhelloworld",
+  "location": "westcentralus",
+  "name": "taskhelloworld",
+  "platform": {
+    "architecture": "amd64",
+    "os": "Linux",
+    "variant": null
+  },
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myregistry",
+  "status": "Enabled",
+  "step": {
+    "arguments": [],
     "baseImageDependencies": null,
-    "baseImageTrigger": "Runtime",
-    "branch": "master",
-    "buildArguments": [],
-    "contextPath": null,
+    "contextPath": "https://github.com/gituser/acr-build-helloworld-node",
     "dockerFilePath": "Dockerfile",
     "imageNames": [
-      "helloworld:{{.Build.ID}}"
+      "helloworld:{{.Run.ID}}"
     ],
     "isPushEnabled": true,
     "noCache": false,
-    "provisioningState": "Succeeded",
     "type": "Docker"
   },
-  "provisioningState": "Succeeded",
-  "resourceGroup": "mycontainerregistry",
-  "sourceRepository": {
-    "additionalProperties": {},
-    "isCommitTriggerEnabled": true,
-    "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
-    "sourceControlAuthProperties": null,
-    "sourceControlType": "GitHub"
-  },
-  "status": "Enabled",
   "tags": null,
   "timeout": 3600,
-  "type": "Microsoft.ContainerRegistry/registries/buildTasks"
+  "trigger": {
+    "baseImageTrigger": {
+      "baseImageTriggerType": "Runtime",
+      "name": "defaultBaseimageTriggerName",
+      "status": "Enabled"
+    },
+    "sourceTriggers": [
+      {
+        "name": "defaultSourceTriggerName",
+        "sourceRepository": {
+          "branch": "master",
+          "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
+          "sourceControlAuthProperties": null,
+          "sourceControlType": "Github"
+        },
+        "sourceTriggerEvents": [
+          "commit"
+        ],
+        "status": "Enabled"
+      }
+    ]
+  },
+  "type": "Microsoft.ContainerRegistry/registries/tasks"
 }
 ```
 
 ## <a name="test-the-build-task"></a>Testare l'attività di compilazione
 
-È ora disponibile un'attività di compilazione che definisce la compilazione. Per testare tale definizione, attivare manualmente una compilazione eseguendo il comando [az acr build-task run][az-acr-build-task-run]:
+È ora disponibile un'attività che definisce la compilazione. Per testare la pipeline di compilazione, attivare manualmente una compilazione eseguendo il comando [az acr task run][az-acr-task-run]:
 
 ```azurecli-interactive
-az acr build-task run --registry $ACR_NAME --name buildhelloworld
+az acr task run --registry $ACR_NAME --name taskhelloworld
 ```
 
-Quando viene eseguito dall'utente, il comando `az acr build-task run` per impostazione predefinita trasmette l'output di log alla console. L'output seguente mostra che la compilazione **aa2** è stata inserita in coda e compilata.
+Quando viene eseguito dall'utente, il comando `az acr task run` per impostazione predefinita trasmette l'output di log alla console.
 
 ```console
-$ az acr build-task run --registry $ACR_NAME --name buildhelloworld
-Queued a build with build ID: aa2
-Waiting for a build agent...
-time="2018-05-10T19:37:17Z" level=info msg="Running command git clone https://x-access-token:*************@github.com/gituser/acr-build-helloworld-node /root/acr-builder/src"
-Cloning into '/root/acr-builder/src'...
-time="2018-05-10T19:37:17Z" level=info msg="Running command git checkout master"
-Already on 'master'
-Your branch is up to date with 'origin/master'.
-920f16cfafa36d0bc3f397c3dd48185a03499404
-time="2018-05-10T19:37:17Z" level=info msg="Running command git rev-parse --verify HEAD"
-time="2018-05-10T19:37:17Z" level=info msg="Running command docker build --pull -f Dockerfile -t mycontainerregistry.azurecr.io/helloworld:aa2 ."
-Sending build context to Docker daemon  209.9kB
+$ az acr task run --registry $ACR_NAME --name taskhelloworld
+
+2018/09/17 22:51:00 Using acb_vol_9ee1f28c-4fd4-43c8-a651-f0ed027bbf0e as the home volume
+2018/09/17 22:51:00 Setting up Docker configuration...
+2018/09/17 22:51:02 Successfully set up Docker configuration
+2018/09/17 22:51:02 Logging in to registry: myregistry.azurecr.io
+2018/09/17 22:51:03 Successfully logged in
+2018/09/17 22:51:03 Executing step: build
+2018/09/17 22:51:03 Obtaining source code and scanning for dependencies...
+2018/09/17 22:51:05 Successfully obtained source code and scanned for dependencies
+Sending build context to Docker daemon  23.04kB
 Step 1/5 : FROM node:9-alpine
 9-alpine: Pulling from library/node
-Digest: sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3
+Digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
 Status: Image is up to date for node:9-alpine
- ---> 7af437a39ec2
+ ---> a56170f59699
 Step 2/5 : COPY . /src
- ---> 48a7735fa94e
+ ---> 5f574fcf5816
+Step 3/5 : RUN cd /src && npm install
+ ---> Running in b1bca3b5f4fc
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN helloworld@1.0.0 No repository field.
 
+up to date in 0.078s
+Removing intermediate container b1bca3b5f4fc
+ ---> 44457db20dac
+Step 4/5 : EXPOSE 80
+ ---> Running in 9e6f63ec612f
+Removing intermediate container 9e6f63ec612f
+ ---> 74c3e8ea0d98
+Step 5/5 : CMD ["node", "/src/server.js"]
+ ---> Running in 7382eea2a56a
+Removing intermediate container 7382eea2a56a
+ ---> e33cd684027b
+Successfully built e33cd684027b
+Successfully tagged myregistry.azurecr.io/helloworld:da2
+2018/09/17 22:51:11 Executing step: push
+2018/09/17 22:51:11 Pushing image: myregistry.azurecr.io/helloworld:da2, attempt 1
+The push refers to repository [myregistry.azurecr.io/helloworld]
+4a853682c993: Preparing
 [...]
-
-26b0c207c4a9: Pushed
-917e7cdebc8b: Pushed
-aa2: digest: sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89 size: 1367
-time="2018-05-10T19:37:57Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" mycontainerregistrtyy.azurecr.io/helloworld:aa2"
-"["mycontainerregistrtyy.azurecr.io/helloworld@sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89"]"
-time="2018-05-10T19:37:57Z" level=info msg="Running command docker inspect --format \"{{json .RepoDigests}}\" node:9-alpine"
-"["node@sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3"]"
-ACR Builder discovered the following dependencies:
+4a853682c993: Pushed
+[...]
+da2: digest: sha256:c24e62fd848544a5a87f06ea60109dbef9624d03b1124bfe03e1d2c11fd62419 size: 1366
+2018/09/17 22:51:21 Successfully pushed image: myregistry.azurecr.io/helloworld:da2
+2018/09/17 22:51:21 Step id: build marked as successful (elapsed time in seconds: 7.198937)
+2018/09/17 22:51:21 Populating digests for step id: build...
+2018/09/17 22:51:22 Successfully populated digests for step id: build
+2018/09/17 22:51:22 Step id: push marked as successful (elapsed time in seconds: 10.180456)
+The following dependencies were found:
 - image:
-    registry: mycontainerregistrtyy.azurecr.io
+    registry: myregistry.azurecr.io
     repository: helloworld
-    tag: aa2
-    digest: sha256:6975f01e2e202c084581e676acbe6047788fbe616836328b0b31ce8c58e9fc89
+    tag: da2
+    digest: sha256:c24e62fd848544a5a87f06ea60109dbef9624d03b1124bfe03e1d2c11fd62419
   runtime-dependency:
     registry: registry.hub.docker.com
     repository: library/node
     tag: 9-alpine
-    digest: sha256:5149aec8f508d48998e6230cdc8e6832cba192088b442c8ef7e23df3c6892cd3
+    digest: sha256:8dafc0968fb4d62834d9b826d85a8feecc69bd72cd51723c62c7db67c6dec6fa
   git:
-    git-head-revision: 920f16cfafa36d0bc3f397c3dd48185a03499404
+    git-head-revision: 68cdf2a37cdae0873b8e2f1c4d80ca60541029bf
 
-Build complete
-Build ID: aa2 was successful after 46.491407373s
-```
 
-## <a name="view-build-status"></a>Visualizzare lo stato delle compilazioni
-
-In alcuni casi può essere utile visualizzare lo stato di una compilazione in corso che non è stata attivata manualmente, ad esempio durante la risoluzione dei problemi relativi alle compilazioni attivate da commit del codice sorgente. In questa sezione si attiva una compilazione manuale eliminando però il comportamento predefinito in base al quale il log della compilazione viene trasmesso alla console. Si usa quindi il comando `az acr build-task logs` per monitorare la compilazione in corso.
-
-Per prima cosa, attivare manualmente una compilazione come è stato fatto in precedenza, specificando però l'argomento `--no-logs` per eliminare la registrazione nella console:
-
-```azurecli-interactive
-az acr build-task run --registry $ACR_NAME --name buildhelloworld --no-logs
-```
-
-Usare quindi il comando `az build-task logs` per visualizzare il log della compilazione attualmente in esecuzione:
-
-```azurecli-interactive
-az acr build-task logs --registry $ACR_NAME
-```
-
-Il log della compilazione attualmente in esecuzione viene trasmesso alla console e dovrebbe essere simile all'output seguente (qui troncato):
-
-```console
-$ az acr build-task logs --registry $ACR_NAME
-Showing logs for the last updated build
-Build ID: aa3
-
-[...]
-
-Build complete
-Build ID: aa3 was successful after 1m14.26397548s
+Run ID: da2 was successful after 27s
 ```
 
 ## <a name="trigger-a-build-with-a-commit"></a>Attivare una compilazione con un commit
 
-Dopo aver testato l'attività di compilazione eseguendola manualmente, attivarla automaticamente con una modifica del codice sorgente.
+Dopo aver testato l'attività eseguendola manualmente, attivarla automaticamente con una modifica del codice sorgente.
 
 Per prima cosa, verificare di trovarsi nella directory contenente il clone locale del [repository][sample-repo]:
 
@@ -258,7 +261,7 @@ Eseguire quindi questi comandi per eseguire la creazione, il commit e il push di
 ```azurecli-interactive
 echo "Hello World!" > hello.txt
 git add hello.txt
-git commit -m "Testing ACR Build"
+git commit -m "Testing ACR Tasks"
 git push origin master
 ```
 
@@ -270,48 +273,48 @@ Username for 'https://github.com': <github-username>
 Password for 'https://githubuser@github.com': <personal-access-token>
 ```
 
-Dopo aver eseguito il push di un commit nel repository, il webhook creato da ACR Build viene attivato e avvia una compilazione in Registro contenitori di Azure. Visualizzare i log della compilazione attualmente in esecuzione per verificarne e monitorarne lo stato di avanzamento:
+Dopo aver eseguito il push di un commit nel repository, il webhook creato da ACR Tasks viene attivato e avvia una compilazione in Registro contenitori di Azure. Visualizzare i log dell'attività attualmente in esecuzione per verificarne e monitorarne lo stato di avanzamento:
 
 ```azurecli-interactive
-az acr build-task logs --registry $ACR_NAME
+az acr task logs --registry $ACR_NAME
 ```
 
-L'output è simile al seguente e mostra la compilazione attualmente in esecuzione o l'ultima compilazione eseguita:
+L'output è simile al seguente e mostra l'attività attualmente in esecuzione o l'ultima attività eseguita:
 
 ```console
-$ az acr build-task logs --registry $ACR_NAME
-Showing logs for the last updated build
-Build ID: aa4
+$ az acr task logs --registry $ACR_NAME
+Showing logs of the last created run.
+Run ID: da4
 
 [...]
 
-Build complete
-Build ID: aa4 was successful after 39.164385024s
+Run ID: da4 was successful after 38s
 ```
 
 ## <a name="list-builds"></a>Elencare le compilazioni
 
-Per visualizzare un elenco delle compilazioni completate da ACR Build per il registro, eseguire il comando [az acr build-task list-builds][az-acr-build-task-list-builds]:
+Per visualizzare un elenco delle esecuzioni delle attività che ACR Tasks ha completato per il registro, eseguire il comando [az acr task list-runs][az-acr-task-list-runs]:
 
 ```azurecli-interactive
-az acr build-task list-builds --registry $ACR_NAME --output table
+az acr task list-runs --registry $ACR_NAME --output table
 ```
 
-L'output del comando dovrebbe essere simile al seguente e mostra le compilazioni eseguite da ACR Build, con "Git Commit" nella colonna TRIGGER per la compilazione più recente:
+L'output del comando dovrebbe essere simile al seguente e mostra le esecuzioni eseguite da ACR Tasks, con "Git Commit" nella colonna TRIGGER per l'attività più recente:
 
 ```console
-$ az acr build-task list-builds --registry $ACR_NAME --output table
-BUILD ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
-----------  ---------------  ----------  ---------  ----------  --------------------  ----------
-aa4         buildhelloworld  Linux       Succeeded  Git Commit  2018-05-10T19:49:40Z  00:00:45
-aa3         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:41:50Z  00:01:20
-aa2         buildhelloworld  Linux       Succeeded  Manual      2018-05-10T19:37:11Z  00:00:50
-aa1                          Linux       Succeeded  Manual      2018-05-10T19:10:14Z  00:00:55
+$ az acr task list-runs --registry $ACR_NAME --output table
+
+RUN ID    TASK             PLATFORM    STATUS     TRIGGER     STARTED               DURATION
+--------  --------------  ----------  ---------  ----------  --------------------  ----------
+da4       taskhelloworld  Linux       Succeeded  Git Commit  2018-09-17T23:03:45Z  00:00:44
+da3       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:55:35Z  00:00:35
+da2       taskhelloworld  Linux       Succeeded  Manual      2018-09-17T22:50:59Z  00:00:32
+da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59Z  00:00:57
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato illustrato come usare un'attività di compilazione per attivare automaticamente compilazioni delle immagini dei contenitori in Azure quando si esegue il commit di codice sorgente in un repository Git. Passare all'esercitazione successiva per informazioni su come creare attività di compilazione che attivano compilazioni quando viene aggiornata l'immagine di base di un'immagine del contenitore.
+In questa esercitazione è stato illustrato come usare un'attività per attivare automaticamente compilazioni delle immagini dei contenitori in Azure quando si esegue il commit di codice sorgente in un repository Git. Passare all'esercitazione successiva per informazioni su come creare attività che attivano compilazioni quando viene aggiornata l'immagine di base di un'immagine del contenitore.
 
 > [!div class="nextstepaction"]
 > [Automatizzare la compilazione in caso di aggiornamento dell'immagine di base](container-registry-tutorial-base-image-update.md)
@@ -321,10 +324,11 @@ In questa esercitazione è stato illustrato come usare un'attività di compilazi
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
-[az-acr-build-task]: /cli/azure/acr#az-acr-build-task
-[az-acr-build-task-create]: /cli/azure/acr#az-acr-build-task-create
-[az-acr-build-task-run]: /cli/azure/acr#az-acr-build-task-run
-[az-acr-build-task-list-builds]: /cli/azure/acr#az-acr-build-task-list-build
+[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-task-create]: /cli/azure/acr#az-acr-task-create
+[az-acr-task-run]: /cli/azure/acr#az-acr-task-run
+[az-acr-task-list-runs]: /cli/azure/acr#az-acr-task-list-runs
+[az-login]: /cli/azure/reference-index#az-login
 
 <!-- IMAGES -->
 [build-task-01-new-token]: ./media/container-registry-tutorial-build-tasks/build-task-01-new-token.png

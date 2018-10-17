@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 07/31/2018
+ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: f52551e9d57ccfc44502992b59412878c4092c0d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: caf3607dbd33d75916ff65b0ab498fa228e2a823
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436904"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068914"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guida introduttiva: distribuire un cluster di Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Questa guida introduttiva presuppone una conoscenza di base dei concetti relativ
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.43 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questa guida introduttiva richiede la versione 2.0.46 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -55,7 +55,7 @@ Output:
 
 ## <a name="create-aks-cluster"></a>Creare un cluster del servizio contenitore di Azure
 
-Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio contenitore di Azure. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Il monitoraggio dell'integrità dei contenitori viene abilitato con il parametro *--enable-addons monitoring*. Per altre informazioni sul monitoraggio dell'integrità del contenitore, vedere [Monitorare l'integrità del servizio Kubernetes di Azure][aks-monitor].
+Usare il comando [az aks create][az-aks-create] per creare un cluster del servizio contenitore di Azure. L'esempio seguente crea un cluster denominato *myAKSCluster* con un nodo. Viene inoltre abilitato Monitoraggio di Azure per i contenitori mediante il parametro *--enable-addons monitoring*. Per altre informazioni sul monitoraggio dell'integrità del contenitore, vedere [Monitorare l'integrità del servizio Kubernetes di Azure][aks-monitor].
 
 ```azurecli-interactive
 az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
@@ -114,6 +114,13 @@ spec:
       containers:
       - name: azure-vote-back
         image: redis
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 6379
           name: redis
@@ -142,6 +149,13 @@ spec:
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         ports:
         - containerPort: 80
         env:
@@ -209,16 +223,19 @@ Quando è stato creato il cluster del servizio Kubernetes di Azure, è stato abi
 Per visualizzare lo stato corrente, i tempi di attività e l'utilizzo delle risorse per i pod di Azure Vote, seguire questa procedura:
 
 1. In un Web browser passare al portale di Azure [https://portal.azure.com][azure-portal].
-1. Selezionare il gruppo di risorse, ad esempio *myResourceGroup*, quindi selezionare il cluster del servizio Kubernetes di Azure, ad esempio *myAKSCluster*. 
-1. Scegliere **Monitorare l'integrità dei contenitori**, selezionare lo spazio dei nomi **predefinito**, quindi selezionare **Contenitori**.
+1. Selezionare il gruppo di risorse, ad esempio *myResourceGroup*, quindi selezionare il cluster del servizio Kubernetes di Azure, ad esempio *myAKSCluster*.
+1. Sulla sinistra, sotto **Monitoraggio**, scegliere **Informazioni dettagliate (anteprima)**
+1. Nella parte superiore scegliere **+ Aggiungi filtro**
+1. Selezionare *Spazio dei nomi* come proprietà, quindi scegliere *\<All but kube-system\>* (Tutti tranne kube-system)
+1. Scegliere di visualizzare i **Contenitori**.
 
-L'inserimento di questi dati nel portale di Azure potrebbe richiedere alcuni minuti. Vedere l'esempio seguente:
+Verranno visualizzati i contenitori *azure-vote-back* e *azure-vote-front*, come mostrato in questo esempio:
 
-![Creare un cluster del servizio contenitore di Azure - 1](media/kubernetes-walkthrough/view-container-health.png)
+![Visualizzare l'integrità dei contenitori in esecuzione nel servizio Kubernetes di Azure](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Per visualizzare i log per il pod `azure-vote-front`, selezionare il collegamento **Visualizza log** sul lato destro dell'elenco dei contenitori. Questi log includono i flussi *stdout* e *stderr* del contenitore.
+Per visualizzare i log per il pod `azure-vote-front`, selezionare il collegamento **View container logs** (Visualizza log contenitore) sul lato destro dell'elenco dei contenitori. Questi log includono i flussi *stdout* e *stderr* del contenitore.
 
-![Creare un cluster del servizio contenitore di Azure - 1](media/kubernetes-walkthrough/view-container-logs.png)
+![Visualizzare i log dei contenitori nel servizio Kubernetes di Azure](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
 ## <a name="delete-cluster"></a>Eliminare il cluster
 

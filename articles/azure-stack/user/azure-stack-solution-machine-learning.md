@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410205"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353717"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Esercitazione: Creare una bordo soluzione di machine learning con Azure e Azure Stack
 
@@ -210,7 +210,7 @@ Posizionare la nuova macchina virtuale data SCIENCE nello stesso gruppo di risor
 
     d.  Per il **Account di archiviazione di diagnostica**, selezionare l'account di archiviazione creato in precedenza.
 
-    e.  Nota: Con AAD abilitate e configurate per la sottoscrizione di Azure, Managed Service Identity può essere abilitata anche.
+    e.  Nota: Con AAD abilitate e configurate per la sottoscrizione di Azure, le identità gestite per le risorse di Azure possono essere abilitate anche.
 
 2.  Selezionare **OK**.
 
@@ -287,7 +287,7 @@ Usare il portale di Azure per effettuare il provisioning di account di Azure Mac
     | Impostazione | Valore consigliato per l'esercitazione | DESCRIZIONE |
     |---------------------------------------|----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Nome account di Experimentation | Nome univoco | Immettere un nome univoco che identifica l'account. Usare un nome di reparto o progetto che identifica meglio l'esperimento. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). |
-    | Sottoscrizione | Sottoscrizione | Scegliere la sottoscrizione di Azure da usare per l'esperimento. In presenza di più sottoscrizioni, scegliere la sottoscrizione appropriata in cui viene fatturata la risorsa. |
+    | Sottoscrizione | La sottoscrizione | Scegliere la sottoscrizione di Azure da usare per l'esperimento. In presenza di più sottoscrizioni, scegliere la sottoscrizione appropriata in cui viene fatturata la risorsa. |
     | Gruppo di risorse | Gruppo di risorse | Usare un gruppo di risorse nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse per questo account di sperimentazione. |
     | Località | L'area più vicina agli utenti | Scegliere la località più vicina agli utenti e le risorse di dati. |
     | Number of seats (Numero di postazioni) | 2 | Immettere il numero di postazioni. Informazioni sull'[impatto delle postazioni sui prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).<br><br>Per questa Guida introduttiva, sono necessari solo due postazioni. È possibile aggiungere o rimuovere le postazioni secondo necessità nel portale di Azure. |
@@ -357,8 +357,8 @@ Azure Machine Learning Workbench è disponibile per Windows o macOS. Visualizzar
     |-------------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Project name (Nome progetto) | myIris | Immettere un nome univoco che identifica l'account. Usare il reparto o progetto nome che identifica meglio l'esperimento. Il nome deve avere una lunghezza compresa tra 2 e 32 caratteri. Può contenere solo caratteri alfanumerici e il trattino (-). |
     | Directory del progetto | c:\Temp\ | Specificare la directory in cui viene creato il progetto. |
-    | Descrizione del progetto | Lasciare vuoto | Campo facoltativo utile per descrivere i progetti. |
-    | URL repository GIT Visualstudio.com | Lasciare vuoto | Campo facoltativo. Associare un progetto a un repository Git in Visual Studio Team Services per la collaborazione e controllo del codice sorgente. [Informazioni su come configurare un repository](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project). |
+    | Descrizione del progetto | lasciare vuoto | Campo facoltativo utile per descrivere i progetti. |
+    | URL repository GIT Visualstudio.com | lasciare vuoto | Campo facoltativo. Associare un progetto a un repository Git in Visual Studio Team Services per la collaborazione e controllo del codice sorgente. [Informazioni su come configurare un repository](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/using-git-ml-project). |
     | Area di lavoro selezionata | IrisGarden (se esistente) | Scegliere un'area di lavoro creato per l'account di sperimentazione nel portale di Azure. <br>Utilizzo dell'avvio rapido, viene elencato l'area di lavoro dal nome del IrisGarden. In caso contrario, usare l'area di lavoro con il nome dell'account di sperimentazione, o un nome di account preferito. |
     | Modello di progetto | Classificazione del set di dati Iris | I modelli contengono script e i dati usati per esplorare il prodotto. Questo modello contiene gli script e i dati necessari per questa Guida introduttiva e le altre esercitazioni in questo sito della documentazione. |
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.reviewer: quying
+ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "36300911"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364096"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Operazioni di manutenzione del provider di risorse SQL
 
@@ -53,9 +53,9 @@ Per modificare le impostazioni, selezionare **esplorare** &gt; **risorse amminis
 
 ## <a name="secrets-rotation"></a>Rotazione dei segreti
 
-*Queste istruzioni si applicano solo a Azure Stack integrati sistemi versione 1804 e versioni successive. Non provare a eseguire la rotazione dei segreti nelle versioni di pre-1804 Azure Stack.*
+*Queste istruzioni si applicano solo per i sistemi integrati di Azure Stack.*
 
-Quando i sistemi integrati di utilizzando il provider di risorse SQL e MySQL con Azure Stack, è possibile ruotare i segreti dell'infrastruttura (distribuzione) seguenti:
+Quando i sistemi integrati di utilizzando il provider di risorse SQL e MySQL con Azure Stack, l'operatore di Azure Stack è responsabile per la rotazione i segreti di infrastruttura del provider di risorse seguenti per assicurarsi che non scadono:
 
 - Certificato SSL esterno [specificato durante la distribuzione](azure-stack-pki-certs.md).
 - Resource provider VM account password dell'amministratore locale specificate durante la distribuzione.

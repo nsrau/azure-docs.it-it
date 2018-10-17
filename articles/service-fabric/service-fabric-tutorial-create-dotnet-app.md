@@ -1,5 +1,5 @@
 ---
-title: Creare un’app .NET su Service Fabric in Azure | Microsoft Docs
+title: Creare un'app .NET su Service Fabric in Azure | Microsoft Docs
 description: Questa esercitazione illustra come creare un'applicazione con un front-end ASP.NET Core e un back-end con stato Reliable Services e come distribuire l'applicazione in un cluster.
 services: service-fabric
 documentationcenter: .net
@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/28/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4aac44d46b6c5d202431aa34a1dc7b962466c799
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346189"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078495"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 
@@ -40,7 +40,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * Creare un'applicazione di Service Fabric .NET
 > * [Distribuire l'applicazione in un cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Aggiungere un endpoint HTTPS a un servizio front-end ASP.NET Core](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
-> * [Configurare l'integrazione continua e la distribuzione continua usando Visual Studio Team Services](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configurare CI/CD usando Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -455,6 +455,9 @@ In questo successivo passaggio, connettere i due servizi e configurare l'applica
 L'infrastruttura di servizi offre la massima flessibilità nella comunicazione con Reliable Services. All'interno di una singola applicazione possono esserci servizi accessibili tramite TCP. Altri servizi potrebbero essere accessibili tramite un'API REST HTTP e altri ancora tramite Web Socket. Per informazioni sulle opzioni disponibili e sui compromessi necessari, vedere [Comunicazione con i servizi](service-fabric-connect-and-communicate-with-services.md).
 
 In questa esercitazione usare l'[API Web di ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md) e il [proxy inverso di Service Fabric](service-fabric-reverseproxy.md) affinché il servizio Web front-end VotingWeb possa comunicare con il servizio back-end VotingData. Per impostazione predefinita, il proxy inverso viene configurato per usare la porta 19081. Dovrebbe funzionare per questa esercitazione. La porta è impostata nel modello di ARM usato per configurare il cluster. Per individuare quale porta viene usata, verificare il modello di cluster nella risorsa **Microsoft.ServiceFabric/clusters** o esaminare l'elemento HttpApplicationGatewayEndpoint nel manifesto del cluster.
+
+> [!NOTE]
+> Il proxy inverso è supportato solo in un cluster che esegue Windows 8 e versioni successive oppure Windows Server 2012 e versioni successive.
 
 <u>Risorsa reverseProxyEndpointPort di Microsoft.ServiceFabric/clusters </u>
 

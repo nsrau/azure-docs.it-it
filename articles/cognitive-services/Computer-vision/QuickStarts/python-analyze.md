@@ -1,63 +1,56 @@
 ---
-title: API Visione artificiale - Guida introduttiva all'analisi di un'immagine remota con Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si analizza un'immagine remota usando Visione artificiale con Python in Servizi cognitivi.
+title: "Guida introduttiva: Analizzare un'immagine remota - REST, Python - Visione artificiale"
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si analizza un'immagine remota usando l'API Visione artificiale con Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 65f9b0d4fb007a6a9b8ef489ca59f384e047a0dd
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772338"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883942"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-python"></a>Guida introduttiva: Analizzare un'immagine remota - REST, Python
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST e Python in Visione artificiale
 
-In questa guida introduttiva si analizza un'immagine remota usando Visione artificiale. Per analizzare un'immagine locale, vedere [Analizzare un'immagine locale con Python](python-disk.md).
+In questa guida introduttiva si analizza un'immagine archiviata in remoto per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
 
 È possibile seguire passo passo la procedura descritta in questa guida introduttiva usando un notebook di Jupyter in [MyBinder](https://mybinder.org). Per avviare Binder, selezionare il pulsante seguente:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Visione artificiale, è necessario avere una chiave di sottoscrizione. A tale scopo, vedere [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Come ottenere chiavi di sottoscrizione).
+- È necessario installare [Python](https://www.python.org/downloads/) se si vuole eseguire l'esempio in locale.
+- È necessario disporre di una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere le sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-remote-image"></a>Analizzare un'immagine remota
+## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
-Con il [metodo Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), è possibile estrarre caratteristiche visive in base al contenuto di un'immagine. È possibile caricare un'immagine o specificare l'URL di un'immagine e scegliere le caratteristiche da restituire, tra cui:
+Per creare ed eseguire l'esempio, seguire la seguente procedura:
 
-* Un elenco dettagliato di tag correlati al contenuto dell'immagine.
-* Una frase completa di descrizione del contenuto dell'immagine.
-* Le coordinate, il sesso e l'età di tutti i visi presenti nell'immagine.
-* Il tipo di immagine (ClipArt o disegno di linee).
-* Il colore principale, il colore dominante o l'indicazione se un'immagine è in bianco e nero.
-* La categoria definita in questa [tassonomia](../Category-Taxonomy.md).
-* L'indicazione se l'immagine presenta contenuto per adulti o con riferimenti sessuali.
-
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Copiare il codice seguente in un nuovo file di script Python.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `vision_base_url` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, modificare il valore di `image_url` impostando un'altra immagine.
-1. Eseguire lo script.
-
-Il codice seguente usa la libreria `requests` di Python per chiamare il metodo Analyze Image dell'API Visione artificiale. I risultati vengono restituiti come oggetto JSON. La chiave API viene passata tramite il dizionario `headers`. I tipi di caratteristiche da riconoscere vengono passati tramite il dizionario `params`.
-
-## <a name="analyze-image-request"></a>Richiesta di analisi dell'immagine
+1. Copiare il codice seguente in un editor di testo.
+1. Apportare le modifiche seguenti al codice dove necessario:
+    1. Sostituire il valore di `subscription_key` con la chiave di sottoscrizione.
+    1. Se necessario, sostituire il valore di `vision_base_url` con l'URL endpoint per la risorsa Visione artificiale nell'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Sostituire il valore di `image_url` con l'URL di un'immagine diversa da analizzare (facoltativo).
+1. Salvare il codice come file con estensione `.py`. Ad esempio: `analyze-image.py`.
+1. Aprire una finestra del prompt dei comandi.
+1. Al prompt, usare il comando `python` per eseguire l'esempio. Ad esempio: `python analyze-image.py`.
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 #%matplotlib inline
 import matplotlib.pyplot as plt
+import json
 from PIL import Image
 from io import BytesIO
 
@@ -89,7 +82,7 @@ response.raise_for_status()
 # The 'analysis' object contains various fields that describe the image. The most
 # relevant caption for the image is obtained from the 'description' property.
 analysis = response.json()
-print(analysis)
+print(json.dumps(response.json()))
 image_caption = analysis["description"]["captions"][0]["text"].capitalize()
 
 # Display the image and overlay it with the caption.
@@ -97,11 +90,12 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 plt.imshow(image)
 plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
+plt.show()
 ```
 
-## <a name="analyze-image-response"></a>Riposta alla richiesta di analisi dell'immagine
+## <a name="examine-the-response"></a>Analisi dei risultati
 
-Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
+Una risposta con esito positivo viene restituita in JSON. La pagina Web di esempio analizza e visualizza una risposta con esito positivo nella finestra del prompt dei comandi, come nell'esempio seguente:
 
 ```json
 {
@@ -175,9 +169,13 @@ Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
 }
 ```
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non è più necessario, eliminare il file.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare un'applicazione Python che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente le API Visione artificiale, provare la [console di test delle API aperta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare un'applicazione Python che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente API Visione artificiale, selezionare [Apri console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Esercitazione per Python dell'API Visione artificiale](../Tutorials/PythonTutorial.md)
