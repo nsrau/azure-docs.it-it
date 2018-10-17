@@ -1,127 +1,134 @@
+items:
 - name: Documentazione su Hub di notifica
   href: index.yml
 - name: Panoramica
   items:
-    - name: Informazioni sugli hub di notifica
-      href: notification-hubs-push-notification-overview.md
+  - name: Informazioni sugli hub di notifica
+    href: notification-hubs-push-notification-overview.md
 - name: Esercitazioni
   items:
-    - name: 1 - Effettuare il push di notifiche a tutti i dispositivi registrati
-      items:
-        - name: Android (Firebase Cloud Messaging)
-          href: notification-hubs-android-push-notification-google-fcm-get-started.md
-        - name: Android (Google Cloud Messaging)
-          href: notification-hubs-android-push-notification-google-gcm-get-started.md
-        - name: Baidu
-          href: notification-hubs-baidu-china-android-notifications-get-started.md
-        - name: Chrome
-          href: notification-hubs-chrome-push-notifications-get-started.md
-        - name: iOS
-          href: notification-hubs-ios-apple-push-notification-apns-get-started.md
-        - name: Kindle
-          href: notification-hubs-kindle-amazon-adm-push-notification.md
-        - name: Windows
-          href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-        - name: Windows Phone
-          href: notification-hubs-windows-mobile-push-notifications-mpns.md
-        - name: Xamarin.Android
-          href: xamarin-notification-hubs-push-notifications-android-gcm.md
-        - name: Xamarin.iOS
-          href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
-    - name: 2 - Effettuare il push di notifiche a dispositivi specifici
-      items:
-        - name: Android
-          href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-        - name: iOS
-          href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-        - name: Windows
-          href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-        - name: Windows Phone
-          href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-    - name: 3 - Eseguire il push di notifiche localizzate
-      items:
-        - name: iOS
-          href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-        - name: Windows
-          href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
-    - name: 4 - Eseguire il push di notifiche a utenti specifici
-      items:
-        - name: Android
-          href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-        - name: iOS
-          href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-        - name: Windows
-          href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-    - name: 5 - Eseguire il push di notifiche basate sulla posizione
-      items:
-        - name: Windows
-          href: notification-hubs-push-bing-spartial-data-geofencing-notification.md
+  - name: 1 - Effettuare il push di notifiche a tutti i dispositivi registrati
+    items:
+    - name: Android (Firebase Cloud Messaging)
+      href: notification-hubs-android-push-notification-google-fcm-get-started.md
+    - name: Android (Google Cloud Messaging)
+      href: notification-hubs-android-push-notification-google-gcm-get-started.md
+    - name: Baidu
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
+    - name: Chrome
+      href: notification-hubs-chrome-push-notifications-get-started.md
+    - name: iOS
+      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+    - name: Kindle
+      href: notification-hubs-kindle-amazon-adm-push-notification.md
+    - name: Windows
+      href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+    - name: Windows Phone
+      href: notification-hubs-windows-mobile-push-notifications-mpns.md
+    - name: Xamarin.Android
+      href: xamarin-notification-hubs-push-notifications-android-gcm.md
+    - name: Xamarin.iOS
+      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
+  - name: 2 - Effettuare il push di notifiche a dispositivi specifici
+    items:
+    - name: Android
+      href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+    - name: iOS
+      href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+    - name: Windows
+      href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+    - name: Windows Phone
+      href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
+  - name: 3 - Eseguire il push di notifiche localizzate
+    items:
+    - name: iOS
+      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
+    - name: Windows
+      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+  - name: 4 - Eseguire il push di notifiche a utenti specifici
+    items:
+    - name: Android
+      href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
+    - name: iOS
+      href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+    - name: Windows
+      href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+  - name: 5 - Eseguire il push di notifiche basate sulla posizione
+    items:
+    - name: Windows
+      href: notification-hubs-push-bing-spartial-data-geofencing-notification.md
 - name: Esempi
   items:
-    - name: Esempi di codice
-      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=notification-hubs'
-    - name: PowerShell
-      href: samples-powershell.md
+  - name: Esempi di codice
+    href: https://azure.microsoft.com/resources/samples/?service=notification-hubs
+  - name: PowerShell
+    href: samples-powershell.md
 - name: Concetti
   items:
-    - name: Guida all'architettura push aziendale
-      href: notification-hubs-enterprise-push-notification-architecture.md
-    - name: Registrazioni del dispositivo
-      href: notification-hubs-push-notification-registration-management.md
-      items:
-        - name: Tag per le registrazioni
-          href: notification-hubs-tags-segment-push-message.md
-        - name: Registrazioni modello
-          href: notification-hubs-templates-cross-platform-push-messages.md
+  - name: Guida all'architettura push aziendale
+    href: notification-hubs-enterprise-push-notification-architecture.md
+  - name: Registrazioni del dispositivo
+    href: notification-hubs-push-notification-registration-management.md
+    items:
+    - name: Tag per le registrazioni
+      href: notification-hubs-tags-segment-push-message.md
+    - name: Registrazioni modello
+      href: notification-hubs-templates-cross-platform-push-messages.md
 - name: Guide alle procedure
   items:
-    - name: Inviare notifiche multipiattaforma
-      href: notification-hubs-aspnet-cross-platform-notification.md
-    - name: Eseguire il push di contenuti multimediali nei dispositivi
-      href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
-    - name: Inviare notifiche pianificate
-      href: notification-hubs-send-push-notifications-scheduled.md
-    - name: Creare un hub di notifica tramite SDK
-      items:
-        - name: Creare un hub di notifica - .NET
-          href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
-        - name: Creare un hub di notifica - Node.js
-          href: notification-hubs-nodejs-push-notification-tutorial.md
-        - name: Creare un hub di notifica - Java
-          href: notification-hubs-java-push-notification-tutorial.md
-        - name: Creare un hub di notifica - PHP
-          href: notification-hubs-php-push-notification-tutorial.md
-        - name: Creare un hub di notifica - Python
-          href: notification-hubs-python-push-notification-tutorial.md
-    - name: Registrazione con il back-end dell'applicazione
-      href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
-    - name: Usare l'autenticazione basata su token con i dispositivi Apple
-      href: notification-hubs-push-notification-http2-token-authentification.md
-    - name: Risolvere i problemi delle notifiche eliminate
-      href: notification-hubs-push-notification-fixer.md
-- name: Riferimenti
+  - name: Inviare notifiche multipiattaforma
+    href: notification-hubs-aspnet-cross-platform-notification.md
+  - name: Eseguire il push di contenuti multimediali nei dispositivi
+    href: notification-hubs-aspnet-backend-ios-apple-push-notification-service-apns-rich.md
+  - name: Inviare notifiche pianificate
+    href: notification-hubs-send-push-notifications-scheduled.md
+  - name: Creare un hub di notifica tramite SDK
+    items:
+    - name: Creare un hub di notifica - .NET
+      href: /dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
+    - name: Creare un hub di notifica - Node.js
+      href: notification-hubs-nodejs-push-notification-tutorial.md
+    - name: Creare un hub di notifica - Java
+      href: notification-hubs-java-push-notification-tutorial.md
+    - name: Creare un hub di notifica - PHP
+      href: notification-hubs-php-push-notification-tutorial.md
+    - name: Creare un hub di notifica - Python
+      href: notification-hubs-python-push-notification-tutorial.md
+  - name: Registrazione con il back-end dell'applicazione
+    href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
+  - name: Usare l'autenticazione basata su token con i dispositivi Apple
+    href: notification-hubs-push-notification-http2-token-authentification.md
+  - name: Risolvere i problemi delle notifiche eliminate
+    href: notification-hubs-push-notification-fixer.md
+- name: riferimento
   items:
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.notificationhubs
-    - name: PowerShell
-      href: /powershell/module/azurerm.notificationhubs
-    - name: API REST
-      href: /rest/api/notificationhubs
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.notificationhubs
+  - name: PowerShell
+    href: /powershell/module/azurerm.notificationhubs
+  - name: API REST
+    href: /rest/api/notificationhubs
 - name: Risorse
   items:
-    - name: Domande frequenti
-      href: notification-hubs-push-notification-faq.md
-    - name: Roadmap per Azure
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Prezzi
-      href: 'https://azure.microsoft.com/pricing/details/notification-hubs/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-notificationhub'
-    - name: Richiedere una funzionalità
-      href: 'https://feedback.azure.com/forums/218849-notification-hubs'
-    - name: Aree di disponibilità
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Opzioni di supporto
-      href: 'https://azure.microsoft.com/support/options/'
+  - name: Domande frequenti
+    href: notification-hubs-push-notification-faq.md
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prezzi
+    href: https://azure.microsoft.com/pricing/details/notification-hubs/
+  - name: Forum MSDN
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-notificationhub
+  - name: Richiedere una funzionalità
+    href: https://feedback.azure.com/forums/218849-notification-hubs
+  - name: Aree di disponibilità
+    href: https://azure.microsoft.com/regions/services/
+  - name: Opzioni di supporto
+    href: https://azure.microsoft.com/support/options/
+ms.openlocfilehash: cfd93332b994359f0bbaa71369be9d33b7d22ae6
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364048"

@@ -185,12 +185,18 @@ items:
         href: sql-api-sql-query-metrics.md
       - name: Stored procedure, trigger e UDF
         href: programming.md
+      - name: Partizionamento dei dati SQL
+        href: sql-api-partition-data.md
       - name: Tipi di dati
         items:
         - name: Datetime
           href: working-with-dates.md
         - name: GeoSpatial
           href: geospatial.md
+        - name: BulkExecutor - Libreria .NET
+          href: bulk-executor-dot-net.md
+        - name: BulkExecutor - Libreria Java
+          href: bulk-executor-java.md
     - name: riferimento
       items:
       - name: .NET
@@ -281,6 +287,8 @@ items:
       items:
       - name: Importare i dati del grafico
         href: bulk-executor-graph-dotnet.md
+      - name: Partizionamento dei dati del grafico
+        href: graph-partitioning.md
   - name: Documentazione sull'API Cassandra
     items:
     - name: Introduzione
@@ -418,8 +426,6 @@ items:
         href: performance-testing.md
     - name: Operazioni di lettura e scrittura convenienti
       href: key-value-store-cost.md
-    - name: Partizionamento dei dati SQL
-      href: sql-api-partition-data.md
   - name: Integrare il servizio con altri servizi di Azure
     items:
     - name: Soluzione di e-commerce per feed di modifiche
@@ -458,10 +464,6 @@ items:
     items:
     - name: Informazioni sulla libreria dell'executor bulk
       href: bulk-executor-overview.md
-    - name: BulkExecutor - Libreria .NET
-      href: bulk-executor-dot-net.md
-    - name: BulkExecutor - Libreria Java
-      href: bulk-executor-java.md
 - name: Risorse
   items:
   - name: Sviluppare le proprie competenze con Microsoft Learn
@@ -490,9 +492,9 @@ items:
       href: use-cases.md
     - name: App di social media
       href: social-media-apps.md
-ms.openlocfilehash: 8111949d7069066b63c12a851324d21feda8bac2
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: f87f429439c338809a59a09760fc0c381faaeea9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868593"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365442"

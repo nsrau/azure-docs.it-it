@@ -59,7 +59,7 @@ items:
 - name: Esempi
   items:
   - name: Esempi di codice
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
+    href: https://azure.microsoft.com/resources/samples/?service=functions
   - name: Interfaccia della riga di comando di Azure
     href: functions-cli-samples.md
   - name: Recipe di Funzioni di Azure
@@ -289,10 +289,10 @@ items:
   - name: Repository GitHub di Funzioni di Azure
     href: https://github.com/Azure/Azure-Functions/
   - name: Aggiornamenti del servizio
-    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 6971effaf321883f3a1f318fa117bc47e71766b7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+    href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
+ms.openlocfilehash: 556470698471429e62f040636e38da5bb6d6605d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853624"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363696"

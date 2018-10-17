@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/20/2018
 ms.author: mtillman
-ms.openlocfilehash: 646d1639c7cdd4f9a21ec1c8ac65587cab4f4e12
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 3be7c42b52f6af36451a79ea8592e983cc98f42b
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585204"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354360"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -74,7 +74,7 @@ ms.locfileid: "47585204"
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="">Sviluppare le proprie competenze con Microsoft Learn</a></h3> 
+                                                                    <h3><a href="/learn/">Sviluppare le proprie competenze con Microsoft Learn</a></h3> 
                                                                     <p>
                                                                         <a href="/learn/modules/secure-azure-resources-with-conditional-access/">Proteggere le risorse di Azure con l'accesso condizionale</a><br>
                                                                         <a href="/learn/browse/?products=azure-active-directory">Altre risorse di apprendimento interattivo</a><br>
@@ -99,7 +99,7 @@ ms.locfileid: "47585204"
                                                             <a href="manage-apps/application-proxy.md">Proxy dell'applicazione per app locali</a><br>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="authentication/index.yml">Autenticazione</a></h3>
+                                                        <h3><a href="authentication/index.yml">autenticazione</a></h3>
                                                         <p>
                                                             <a href="authentication/tutorial-mfa-applications.md">Abilitare Multi-Factor Authentication per il portale di Azure</a><br>
                                                             <a href="authentication/quickstart-sspr.md">Abilitare la reimpostazione self-service delle password</a><br>
