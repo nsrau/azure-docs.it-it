@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Ottenere le lingue supportate con Python | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Java in Servizi cognitivi.
+title: 'Guida introduttiva: Ottenere le lingue supportate - Traduzione testuale, Python'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 3ae3c6be814f79541e39eddd3be137b71cc1a494
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a68a1b31cb844a4873bf34c6a292beeb2a4b61c0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43771009"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121737"
 ---
 # <a name="quickstart-get-supported-languages-with-python"></a>Guida introduttiva: Ottenere le lingue supportate con Python
 
