@@ -5,15 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 09/06/2018
 ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 8a49653b4083cbfd17656d701225dcb14f91f637
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 01a62fe7abb8a79f9afc08c0ff707cdfbb97ddac
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197102"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44343151"
 ---
 Ogni computer client che si connette a una rete virtuale usando la soluzione Da punto a sito deve avere un certificato client installato. Il certificato client viene generato dal certificato radice e viene installato in ogni computer client. Se non è stato installato un certificato client valido e il client prova a connettersi alla rete virtuale, l'autenticazione avrà esito negativo.
 
@@ -30,5 +29,6 @@ Ogni computer client che si connette a una rete virtuale usando la soluzione Da 
 
   * [Istruzioni per Windows 10 PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientcert): queste istruzioni richiedono Windows 10 e PowerShell per generare i certificati. I certificati generati possono essere installati in qualsiasi client da punto a sito supportato.
   * [Istruzioni per MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md): se non si ha accesso a un computer con Windows 10, è possibile usare MakeCert per generare i certificati. MakeCert è deprecato, ma è comunque possibile usarlo per generare i certificati. I certificati generati possono essere installati in qualsiasi client da punto a sito supportato.
+  * [Istruzioni per Linux](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)
 
   Se si genera un certificato client da un certificato radice autofirmato usando le istruzioni precedenti, viene eseguita l'installazione automatica nel computer usato per generarlo. Se si vuole installare un certificato client in un altro computer client, è necessario esportarlo come file con estensione pfx, insieme all'intera catena di certificati. Viene creato un file PFX contenente le informazioni del certificato radice necessarie per la corretta autenticazione del client. Per i passaggi per l'esportazione di un certificato, vedere [Certificati - Esportare un certificato client](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport).

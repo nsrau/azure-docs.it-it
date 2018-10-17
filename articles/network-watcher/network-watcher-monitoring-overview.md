@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 31a3a0618330b74c611afcdf70560ce47eeb85e3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7cccb47bd7489e88649ee82c4d52c72af0d91e8e
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626356"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390946"
 ---
 # <a name="what-is-azure-network-watcher"></a>Informazioni su Azure Network Watcher
 
@@ -36,6 +36,8 @@ Gli endpoint possono essere un'altra macchina virtuale (VM), un nome di dominio 
 Se un endpoint smette di essere raggiungibile, la funzionalità di risoluzione dei problemi di connessione informa l'utente del motivo. Le cause possibili sono un problema di risoluzione del nome DNS, la CPU, la memoria o un firewall nel sistema operativo di una macchina virtuale oppure il tipo di hop di una route personalizzata o una regola di sicurezza per la macchina virtuale o la subnet della connessione in uscita. Leggere altre informazioni sulle [regole di sicurezza](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) e sui [tipi di hop delle route](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) in Azure.
 
 La funzionalità di monitoraggio connessione indica anche la latenza minima, media e massima osservata nel corso del tempo. Dopo aver appreso la latenza per una connessione, è possibile riuscire a ridurla spostando le risorse di Azure in aree di Azure diverse. Leggere altre informazioni su come determinare le [latenze relative tra aree di Azure e provider di servizi Internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) e su come monitorare la comunicazione tra una macchina virtuale e un endpoint con la funzionalità di [monitoraggio connessione](connection-monitor.md). Se si preferisce testare una connessione in un determinato momento invece che monitorarla nel tempo come con la funzionalità di monitoraggio connessione, usare la funzionalità di [risoluzione dei problemi di connessione](#connection-troubleshoot).
+
+Monitoraggio prestazioni rete è una soluzione di monitoraggio reti ibrida basata sul cloud che consente di monitorare le prestazioni della rete tra vari punti dell'infrastruttura di rete. Consente anche di monitorare la connettività di rete al servizio e agli endpoint dell'applicazione e di monitorare le prestazioni di Microsoft Azure ExpressRoute. Monitoraggio prestazioni rete rileva i problemi di rete, ad esempio buchi neri del traffico, errori di routing e altri problemi che i metodi di monitoraggio di rete tradizionali non riescono a rilevare. La soluzione genera avvisi e invia notifiche quando viene superata una soglia per un collegamento di rete. Garantisce anche una tempestiva individuazione dei problemi legati alle prestazioni di rete e localizza l'origine del problema in un dispositivo o segmento di rete specifico. Altre informazioni su [Monitoraggio prestazioni rete](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Visualizzare le risorse in una rete virtuale e le relative relazioni
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: aad7a24d8b0e0bc74815cad3604db1cc21a6db96
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616516"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163227"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Trasmettere Big Data a un data warehouse
 
@@ -184,6 +184,7 @@ Dopo aver pubblicato la funzione, si è pronti per sottoscrivere l'evento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Per informazioni sulle differenze tra i servizi di messaggistica di Azure, vedere [Scegliere tra i servizi di Azure che recapitano messaggi](compare-messaging-services.md).
 * Per un'introduzione a Griglia di eventi, vedere [Informazioni su Griglia di eventi](overview.md).
 * Per informazioni introduttive alla funzionalità di acquisizione di Hub eventi, vedere [Abilitare Acquisizione di Hub eventi usando il portale di Azure](../event-hubs/event-hubs-capture-enable-through-portal.md).
 * Per altre informazioni sulla configurazione e l'esecuzione dell'esempio, vedere l'[esempio della funzionalità di acquisizione di Hub eventi e della Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ba93aab14c8eaccf9e3ed9ae9db0d169f41dddea
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114974"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024046"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare Ambiente del servizio app con il tunneling forzato
 
@@ -105,7 +105,7 @@ Per il tunneling di tutto il traffico in uscita dall'ambiente del servizio app, 
 
 3. Ottenere gli indirizzi che saranno usati per tutto il traffico in uscita dall'ambiente del servizio app a Internet. Se si esegue il routing del traffico in locale, questi indirizzi corrisponderanno ai NAT o agli IP del gateway. Se si vuole instradare il traffico in uscita di Ambiente del servizio app attraverso un'appliance virtuale di rete, l'indirizzo in uscita è l'indirizzo IP pubblico dell'appliance virtuale di rete.
 
-4. _Per impostare gli indirizzi in uscita in un ambiente del servizio app esistente:_ passare a resource.azure.com e quindi a Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Sarà possibile visualizzare il codice JSON che descrive Ambiente del servizio app. Assicurarsi che sia specificato **Lettura/Scrittura** nella parte superiore. Selezionare **Modifica**. Scorrere fino alla fine. Modificare il valore di **userWhitelistedIpRanges** da **null** a un altro valore simile al seguente. Usare gli indirizzi che si desidera impostare come intervallo degli indirizzi in uscita. 
+4. _Per impostare gli indirizzi in uscita in un ambiente del servizio app esistente:_ passare a resources.azure.com e quindi a Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Sarà possibile visualizzare il codice JSON che descrive Ambiente del servizio app. Assicurarsi che sia specificato **Lettura/Scrittura** nella parte superiore. Selezionare **Modifica**. Scorrere fino alla fine. Modificare il valore di **userWhitelistedIpRanges** da **null** a un altro valore simile al seguente. Usare gli indirizzi che si desidera impostare come intervallo degli indirizzi in uscita. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 

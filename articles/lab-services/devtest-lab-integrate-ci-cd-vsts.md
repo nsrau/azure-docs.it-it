@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438784"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301209"
 ---
-# <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Integrare Azure DevTest Labs nella pipeline di integrazione e distribuzione continue di Visual Studio Team Services
-È possibile usare l'estensione *Azure DevTest Labs Tasks*, installata in Visual Studio Team Services (VSTS), per integrare facilmente la pipeline di compilazione e rilascio di integrazione continua/distribuzione continua con Azure DevTest Labs. L'estensione installa tre attività: 
+# <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrare Azure DevTest Labs nella pipeline di integrazione e distribuzione continue di Azure DevOps
+È possibile usare l'estensione *Azure DevTest Labs Tasks*, installata in Azure DevOps, per integrare facilmente la pipeline di compilazione e versione di integrazione continua/distribuzione continua con Azure DevTest Labs. L'estensione installa tre attività: 
 * Creare una macchina virtuale
 * Creare un'immagine personalizzata da una VM
 * Eliminare una macchina virtuale 
@@ -85,16 +85,16 @@ Questa sezione descrive come creare il modello di Azure Resource Manager usato p
 
 1. Archiviare lo script nel sistema di controllo del codice sorgente. Assegnare allo script un nome simile a **GetLabVMParams.ps1**.
 
-   Quando si esegue questo script nell'agente come parte della definizione di versione e si usano passaggi di attività come *Copia dei file di Azure* o *PowerShell in computer di destinazione*, lo script raccoglie i valori necessari per distribuire l'app nella macchina virtuale. Queste attività vengono normalmente usate per distribuire app in una macchina virtuale di Azure. Le attività richiedono valori come il nome del gruppo di risorse della macchina virtuale, l'indirizzo IP e il nome di dominio completo (FDQN).
+   Quando si esegue questo script nell'agente come parte della pipeline di versione e si usano passaggi di attività come *Copia dei file di Azure* o *PowerShell in computer di destinazione*, lo script raccoglie i valori necessari per distribuire l'app nella macchina virtuale. Queste attività vengono normalmente usate per distribuire app in una macchina virtuale di Azure. Le attività richiedono valori come il nome del gruppo di risorse della macchina virtuale, l'indirizzo IP e il nome di dominio completo (FDQN).
 
-## <a name="create-a-release-definition-in-release-management"></a>Creare una definizione di versione in Release Management
-Per creare una definizione di versione, eseguire le operazioni seguenti:
+## <a name="create-a-release-pipeline-in-release-management"></a>Creare una pipeline di versione in Release Management
+Per creare la pipeline di versione, eseguire le operazioni seguenti:
 
 1. Nella scheda **Versioni** dell'hub **Compilazione e versione** selezionare il segno di addizione (+).
 1. Nella finestra **Crea definizione di versione** selezionare il modello **Vuoto** e quindi fare clic su **Avanti**.
-1. Selezionare **Scegli dopo** e quindi **Crea** per creare una nuova definizione di versione con un ambiente predefinito e nessun elemento collegato.
-1. Per aprire il menu di scelta rapida, nella nuova definizione di versione selezionare i puntini di sospensione (...) accanto al nome dell'ambiente e quindi fare clic su **Configura variabili**. 
-1. Nella finestra **Configura ambiente** immettere i valori seguenti per le variabili usate nelle attività della definizione di versione:
+1. Selezionare **Scegliere in un secondo momento**, quindi selezionare **Crea** per creare una nuova pipeline di versione con un ambiente predefinito e nessun elemento collegato.
+1. Per aprire il menu a comparsa, nella nuova pipeline di versione selezionare i puntini di sospensione (...) accanto al nome dell'ambiente e quindi selezionare **Configura variabili**. 
+1. Nella finestra **Configura ambiente**, immettere i valori seguenti per le variabili usate nelle attività della pipeline di versione:
 
    a. Per **vmName** immettere il nome assegnato alla macchina virtuale durante la creazione del modello di Resource Manager nel portale di Azure.
 
@@ -106,13 +106,13 @@ Per creare una definizione di versione, eseguire le operazioni seguenti:
 
 La fase successiva della distribuzione consiste nel creare la macchina virtuale da usare come "immagine finale" per le distribuzioni successive. È necessario creare la macchina virtuale all'interno dell'istanza di Azure DevTest Labs usando l'attività sviluppata appositamente a questo scopo. 
 
-1. Nella definizione di versione selezionare **Aggiungi attività**.
+1. Nella pipeline di versione selezionare **Aggiungi attività**.
 1. Nella scheda **Distribuisci** aggiungere un'attività *Crea macchina virtuale* di Azure DevTest Labs. Configurare le attività in questo modo:
 
    > [!NOTE]
    > Per creare la macchina virtuale da usare per le distribuzioni successive, vedere [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm) (Endpoint di servizio di Azure Resource Manager).
+   a. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Endpoint di servizio di Azure Resource Manager).
 
    b. Per **Nome del lab** selezionare il nome dell'istanza creata in precedenza.
 
@@ -135,14 +135,14 @@ La fase successiva della distribuzione consiste nel creare la macchina virtuale 
    ```
 
 1. Eseguire lo script creato in precedenza per raccogliere i dettagli della macchina virtuale DevTest Labs. 
-1. Nella definizione di versione selezionare **Aggiungi attività** e quindi aggiungere un'attività **Azure PowerShell** nella scheda *Distribuisci*. Configurare le attività in questo modo:
+1. Nella pipeline di versione selezionare **Aggiungi attività** e quindi, nella scheda **Distribuisci**, aggiungere un'attività *Azure PowerShell*. Configurare le attività in questo modo:
 
    > [!NOTE]
    > Per raccogliere i dettagli della macchina virtuale DevTest Labs, vedere [Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) ed eseguire lo script.
 
    a. Per **Tipo di connessione ad Azure** selezionare **Azure Resource Manager**.
 
-   b. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco in **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm) (Endpoint di servizio di Azure Resource Manager).
+   b. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco in **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Endpoint di servizio di Azure Resource Manager).
 
    c. Per **Tipo di script** selezionare **File di script**.
  
@@ -154,22 +154,22 @@ La fase successiva della distribuzione consiste nel creare la macchina virtuale 
       ```
       -labVmId '$(labVMId)'
       ```
-    Lo script raccoglie i valori necessari e li archivia in variabili di ambiente all'interno della definizione di versione, per permettere di farvi riferimento facilmente nei passaggi successivi.
+    Lo script raccoglie i valori necessari e li archivia in variabili di ambiente all'interno della pipeline di versione per permettere di farvi riferimento facilmente nei passaggi successivi.
 
 1. Distribuire l'app nella nuova macchina virtuale DevTest Labs. Le attività usate normalmente per distribuire l'app sono *Copia dei file di Azure* e *PowerShell in computer di destinazione*.
-   Le informazioni sulla macchina virtuale necessaria per i parametri di queste attività sono archiviate in tre variabili di configurazione denominate **labVmRgName**, **labVMIpAddress** e **labVMFqdn** all'interno della definizione di versione. Se si vuole solo provare a creare una macchina virtuale DevTest Labs e un'immagine personalizzata, senza distribuirvi un'app, è possibile ignorare questo passaggio.
+   Le informazioni sulla macchina virtuale necessarie per i parametri di queste attività sono archiviate in tre variabili di configurazione denominate **labVmRgName**, **labVMIpAddress** e **labVMFqdn** all'interno della pipeline di versione. Se si vuole solo provare a creare una macchina virtuale DevTest Labs e un'immagine personalizzata, senza distribuirvi un'app, è possibile ignorare questo passaggio.
 
 ### <a name="create-an-image"></a>Creare un'immagine
 
 La fase successiva consiste nel creare un'immagine della nuova macchina virtuale distribuita nell'istanza di Azure DevTest Labs. È quindi possibile usare l'immagine per creare copie della macchina virtuale on demand ogni volta che si vuole eseguire un'attività di sviluppo o svolgere alcuni test. 
 
-1. Nella definizione di versione selezionare **Aggiungi attività**.
+1. Nella pipeline di versione selezionare **Aggiungi attività**.
 1. Nella scheda **Distribuisci** aggiungere un'attività **Crea immagine personalizzata** di Azure DevTest Labs. Configurare l'app come segue:
 
    > [!NOTE]
    > Per creare l'immagine, vedere [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm) (Endpoint di servizio di Azure Resource Manager).
+   a. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Endpoint di servizio di Azure Resource Manager).
 
    b. Per **Nome del lab** selezionare il nome dell'istanza creata in precedenza.
 
@@ -185,17 +185,17 @@ La fase successiva consiste nel creare un'immagine della nuova macchina virtuale
 
 La fase finale consiste nell'eliminare la macchina virtuale distribuita nell'istanza di Azure DevTest Labs. La macchina virtuale viene normalmente eliminata dopo l'esecuzione delle attività di sviluppo o dei test necessari nella macchina virtuale distribuita. 
 
-1. Nella definizione di versione selezionare **Aggiungi attività** e quindi aggiungere un'attività **Delete VM** (Elimina macchina virtuale) di Azure DevTest Labs nella scheda *Distribuisci*. Configurare l'app come segue:
+1. Nella pipeline di versione selezionare **Aggiungi attività** e quindi, nella scheda **Distribuisci**, aggiungere un'attività  *Azure DevTest Labs Delete VM*. Configurare l'app come segue:
 
       > [!NOTE]
       > Per eliminare la macchina virtuale, vedere [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm) (Endpoint di servizio di Azure Resource Manager).
+   a. Per **Sottoscrizione di Gestione risorse di Azure** selezionare una connessione nell'elenco **Connessioni ai servizi di Azure disponibili** oppure creare una connessione con autorizzazioni con maggiori restrizioni alla sottoscrizione di Azure. Per altre informazioni, vedere [Azure Resource Manager service endpoint](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm) (Endpoint di servizio di Azure Resource Manager).
  
    b. Per **Lab VM ID** (ID macchina virtuale lab), se è stato modificato il nome predefinito della variabile di ambiente automaticamente popolata con l'ID della macchina virtuale lab in un'attività precedente, è possibile modificarlo qui. Il valore predefinito è **$(labVMId)**.
 
-1. Immettere un nome per la definizione di versione e quindi salvarla.
-1. Creare una nuova versione, selezionare la build più recente e distribuirla nel singolo ambiente nella definizione.
+1. Immettere un nome per la pipeline di versione e quindi salvarlo.
+1. Creare una nuova versione, selezionare la build più recente e distribuirla nel singolo ambiente nella pipeline.
 
 In ogni fase aggiornare la visualizzazione dell'istanza di DevTest Labs nel portale di Azure per visualizzare la macchina virtuale e l'immagine create, insieme alla macchina virtuale eliminata di nuovo.
 
@@ -207,5 +207,5 @@ In ogni fase aggiornare la visualizzazione dell'istanza di DevTest Labs nel port
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni su come [Creare un ambiente con più VM con i modelli di Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
 * È possibile esplorare altri modelli di avvio rapido di Resource Manager per l'automazione di DevTest Labs nel [repository pubblico GitHub per DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
-* Se necessario, vedere la pagina [VSTS Troubleshooting](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting) (Risoluzione dei problemi relativi a Visual Studio Team Services).
+* Se necessario, vedere la pagina [Risoluzione dei problemi di Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting).
  

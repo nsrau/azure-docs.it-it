@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: f45cb6a47756fae7b75d8c3df80a0bc754742063
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "27998050"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299005"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rilevare e diagnosticare le eccezioni di runtime con Azure Application Insights
 
@@ -30,7 +30,7 @@ Azure Application Insights raccoglie i dati di telemetria dall'applicazione per 
 > * Creare un nuovo elemento di lavoro per correggere il codice non corretto
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -62,20 +62,17 @@ Application Insights raccoglie gli eventuali errori nell'applicazione e consente
 
     ![Finestra Richieste non riuscite](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-5. Fare clic su **Visualizza dettagli** per visualizzare i dettagli dell'operazione,  incluso un diagramma di Gantt che mostra due dipendenze non riuscite che collettivamente hanno impiegato circa metà secondo per il completamento.  È possibile ottenere maggiori informazioni sull'analisi dei problemi di prestazioni completando l'esercitazione in [Rilevare e diagnosticare i problemi di prestazioni con Azure Application Insights](app-insights-tutorial-performance.md).
+5. Vedere i campioni correlati facendo clic sul pulsante con il numero di risultati filtrati. I campioni "consigliati" contengono i dati di telemetria correlati di tutti i componenti, anche se il campionamento potrebbe non essere stato attivo in alcun componente. Fare clic su un risultato della ricerca per visualizzare i dettagli dell'errore.
 
-    ![Dettagli delle richieste non riuscite](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
+    ![Campioni di richieste non riuscite](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. I dettagli delle operazioni rivelano inoltre un'eccezione di tipo FormatException che sembra aver causato l'errore.  Fare clic sull'eccezione o sul conteggio **Primi 3 tipi di eccezione** per visualizzarne i dettagli.  Si può notare che il problema è causato da un codice postale non valido.
+6. I dettagli della richiesta non riuscita vengono illustrati nel diagramma di Gantt che mostra che si sono verificati due errori di dipendenza in questa transazione, attribuiti a oltre il 50% della durata totale della transazione. Questa esperienza presenta tutti i dati di telemetria, in tutti i componenti di un'applicazione distribuita correlati a questo ID operazione. [Altre informazioni sulla nuova esperienza](app-insights-transaction-diagnostics.md). È possibile selezionare uno degli elementi per visualizzarne i dettagli sul lato destro. 
+
+    ![Dettagli richieste non riuscite](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
+
+7. I dettagli delle operazioni rivelano inoltre un'eccezione di tipo FormatException che sembra aver causato l'errore.  Si può notare che il problema è causato da un codice postale non valido. È possibile aprire lo snapshot di debug per visualizzare le informazioni di debug a livello di codice in Visual Studio.
 
     ![Dettagli eccezione](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
-
-> [!NOTE]
-Abilitare la [versione di anteprima](app-insights-previews.md) di "Unified details: E2E Transaction Diagnostics" (Dettagli unificati: diagnostica della transazione end-to-end) per visualizzare in un'unica vista tutti i relativi dati di telemetria sul lato server come richieste, dipendenze, eccezioni, tracce, eventi e così via. 
-
-Con l'anteprima abilitata è possibile visualizzare il tempo impiegato nelle chiamate di dipendenza, insieme a eventuali errori o eccezioni in un'esperienza unificata. Per le transazioni tra componenti, il diagramma di Gantt e il riquadro dei dettagli consentono di diagnosticare rapidamente il componente, la dipendenza o l'eccezione che provoca il problema. È possibile espandere la sezione nella parte inferiore per visualizzare la sequenza temporale di tracce o eventi raccolti per il funzionamento del componente selezionato. [Altre informazioni sulla nuova esperienza](app-insights-transaction-diagnostics.md)  
-
-![Diagnostica delle transazioni](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>Identificare il codice responsabile dell'errore
 Il debugger di snapshot raccoglie gli snapshot delle eccezioni più frequenti nell'applicazione per agevolare la diagnosi della causa radice nell'ambiente di produzione.  È possibile visualizzare gli snapshot di debug nel portale per vedere lo stack di chiamate e ispezionare le variabili in ogni stack frame di chiamate. È quindi possibile eseguire il debug del codice sorgente scaricando lo snapshot e aprendolo in Visual Studio 2017.
@@ -106,7 +103,7 @@ Tutti i dati raccolti da Application Insights sono archiviati in Log Analytics d
 9. Fare clic su **Analizza l'impatto** per aprire Analytics in Application Insights,  che viene popolato con diverse query che forniscono informazioni dettagliate sulle richieste non riuscite, ad esempio gli utenti, le aree e i browser interessati.<br><br>![Analisi](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>Aggiungere un elemento di lavoro
-Se si connette Application Insights a un sistema di verifica come Visual Studio Team Services o GitHub, è possibile creare un elemento di lavoro direttamente da Application Insights.
+Se si connette Application Insights a un sistema di verifica come Azure DevOps o GitHub, è possibile creare un elemento di lavoro direttamente da Application Insights.
 
 1. Tornare al pannello **Proprietà eccezione** in Application Insights.
 2. Fare clic su **Nuovo elemento di lavoro**.

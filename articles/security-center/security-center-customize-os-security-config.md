@@ -3,23 +3,23 @@ title: Personalizzare le configurazioni di sicurezza del sistema operativo nel C
 description: Questo articolo illustra come personalizzare le valutazioni del centro sicurezza
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2018
-ms.author: terrylan
-ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 18/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 08174a6781772abdebd9e203a3433a1a4ac82859
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200011"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378364"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizzare le configurazioni di sicurezza del sistema operativo nel Centro sicurezza di Azure (anteprima)
 
@@ -53,29 +53,27 @@ Per personalizzare la configurazione di sicurezza predefinita del sistema operat
 
 1.  Aprire il dashboard **Centro sicurezza**.
 
-2.  Nel riquadro di sinistra selezionare **Criteri di sicurezza**.  
-    Viene aperta la finestra **Centro sicurezza - Criteri di sicurezza**.
+2.  Nel riquadro di sinistra selezionare **Criteri di sicurezza**.      
 
-    ![Elenco Criteri di sicurezza](media/security-center-customize-os-security-config/open-security-policy.png)
+    ![Elenco Criteri di sicurezza](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Selezionare la sottoscrizione per cui si vuole eseguire la personalizzazione.
+3.  Nella riga della sottoscrizione che si desidera personalizzare, fare clic su **Modifica impostazioni**.
 
-4. In **Componenti dei criteri** selezionare **Modifica le configurazioni della sicurezza**.  
-    Viene aperta la finestra **Modifica le configurazioni della sicurezza**.
-
+4. Selezionare **Modifica le configurazioni di sicurezza**.  
+    
     ![Finestra "Modifica le configurazioni della sicurezza"](media/security-center-customize-os-security-config/blade.png)
 
-5. Nel riquadro di destra seguire i passaggi per il download, la modifica e il caricamento del file modificato.
+5. Seguire i passaggi per scaricare, modificare e caricare il file modificato.
 
    > [!NOTE]
    > Per impostazione predefinita, il file di configurazione scaricato è in formato *json*. Per istruzioni sulla modifica di questo file, vedere [Personalizzare il file di configurazione](#customize-the-configuration-file).
    >
 
-   Dopo avere salvato il file, la configurazione viene applicata a tutte le macchine virtuali e a tutti i computer connessi a tutte le aree di lavoro nella sottoscrizione. Il processo in genere richiede alcuni minuti, ma possono servirne di più, a seconda delle dimensioni dell'infrastruttura.
-
 6. Per eseguire il commit della modifica, selezionare **Salva**. In caso contrario, i criteri non vengono archiviati.
 
     ![Pulsante Salva](media/security-center-customize-os-security-config/save-successfully.png)
+
+   Una volta completato il salvataggio del file, la configurazione viene applicata a tutte le macchine virtuali e a tutti i computer connessi a tutte le aree di lavoro della sottoscrizione. Il processo in genere richiede alcuni minuti, ma possono servirne di più, a seconda delle dimensioni dell'infrastruttura.
 
 In qualsiasi momento, è possibile ripristinare lo stato predefinito della configurazione dei criteri corrente. A questo scopo, nella finestra **Modifica le regole di configurazione della sicurezza del sistema operativo** selezionare **Reimposta**. Confermare questa opzione selezionando **Sì** nella finestra popup di conferma.
 
@@ -116,9 +114,7 @@ Ogni categoria ha il proprio set di attributi. È possibile modificare gli attri
 
 -   **state**: la stringa può contenere le opzioni *Disabled* o *Enabled*. In questa versione di anteprima privata la stringa fa distinzione tra maiuscole e minuscole.
 
-Questi sono gli unici campi che possono essere configurati. In caso di violazione del formato o delle dimensioni del file, non sarà possibile salvare le modifiche. Il messaggio di errore seguente viene visualizzato quando il file non può essere elaborato:
-
-![Messaggio di errore di configurazione della sicurezza](media/security-center-customize-os-security-config/invalid-json.png)
+Questi sono gli unici campi che possono essere configurati. In caso di violazione del formato o delle dimensioni del file, non sarà possibile salvare le modifiche. Si visualizza un messaggio di errore che informa che è necessario caricare un file di configurazione JSON valido.
 
 Per un elenco di altri potenziali errori, vedere [Codici di errore](#error-codes).
 
@@ -267,9 +263,7 @@ Esempio di nuova regola personalizzata:
 
 ## <a name="file-upload-failures"></a>Errori di caricamento file
 
-Se il file di configurazione inviato non è valido a causa di errori nei valori o nella formattazione, viene visualizzato un errore. È possibile scaricare un report dettagliato sugli errori con estensione csv per risolvere e correggere gli errori prima inviare di nuovo un file di configurazione corretto.
-
-![Messaggio di errore "Non è stato possibile eseguire l'azione di salvataggio"](media/security-center-customize-os-security-config/invalid-configuration.png)
+Se il file di configurazione inviato non è valido a causa di errori nei valori o nella formattazione, viene visualizzato un messaggio di errore, ad esempio **Non è stato possibile eseguire l'azione di salvataggio**. È possibile scaricare un report dettagliato sugli errori con estensione csv per risolvere e correggere gli errori prima inviare di nuovo un file di configurazione corretto.
 
 Esempio di file di errore:
 
@@ -284,7 +278,7 @@ Tutti i potenziali errori sono elencati nella tabella seguente:
 | BaselineConfiguratiohSchemaVersionError  | La proprietà *schemaVersion* non è valida o è vuota. Il valore deve essere impostato su *{0}*.                                                         |
 | BaselineInvalidStringError               | La proprietà *{0}* non può contenere *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | L'elenco di regole di configurazione di base contiene una regola con il valore *null*.                                                                         |
-| BaselineRuleCceIdNotUniqueError          | L'ID CCE *{0}* non è univoco.                                                                                                                  |
+| BaselineRuleCceIdNotUniqueError          | L'ID CCE *{0}* non è univoca.                                                                                                                  |
 | BaselineRuleEmptyProperty                | La proprietà *{0}* manca o non è valida.                                                                                                       |
 | BaselineRuleIdNotInDefault               | La regola ha una proprietà di origine *Microsoft*, ma non è stata trovata nel set di regole predefinite Microsoft.                                                   |
 | BaselineRuleIdNotUniqueError             | L'ID della regola non è univoco.                                                                                                                       |
@@ -295,7 +289,7 @@ Tutti i potenziali errori sono elencati nella tabella seguente:
 | BaselineRuleNotFoundError                | La regola non è stata trovata nel set di regole di base predefinito.                                                                                        |
 | BaselineRuleNotInPlace                   | La regola corrisponde a una regola predefinita con il tipo {0} ed è inclusa nell'elenco {1}.                                                                       |
 | BaselineRulePropertyTooLong              | La proprietà *{0}* è troppo lunga. Lunghezza massima consentita: {1}.                                                                                        |
-| BaselineRuleRegTypeInvalidError          | Il valore previsto *{0}* non corrisponde al tipo valore del Registro di sistema definito.                                                              |
+| BaselineRuleRegTypeInvalidError          | Il valore previsto *{0}* non corrisponde al tipo valore del registro definito.                                                              |
 | BaselineRulesetAdded                     | Il set di regole con l'ID *{0}* non è stato trovato nella configurazione predefinita. Il set di regole non può essere aggiunto.                                               |
 | BaselineRulesetIdMustBeUnique            | Il set di regole di base specificato *{0}* deve essere univoco.                                                                                           |
 | BaselineRulesetNotFound                  | Il set di regole con ID *{0}* e nome *{1}* non è stato trovato nella configurazione specificata. Il set di regole non può essere eliminato.                                |
@@ -309,7 +303,7 @@ Tutti i potenziali errori sono elencati nella tabella seguente:
 | ErrorNullRulesetsPropertyOnCustom        | Lo stato della configurazione specificato è *Custom*, ma la proprietà *BaselineRulesets* è null o vuota.                                             |
 | ErrorParsingBaselineConfig               | La configurazione specificata non è valida. Uno o più valori definiti hanno un valore null o un tipo non valido.                                  |
 | ErrorParsingIsDefaultProperty            | Il valore *configurationStatus* specificato *{0}* non è valido. Il valore può essere solo *Default* o *Custom*.                                         |
-| InCompatibleViewVersion                  | La versione della visualizzazione *{0}* *non* è supportata in questo tipo di area di lavoro.                                                                                   |
+| InCompatibleViewVersion                  | La versione di visualizzazione *{0}* non*è* supportata in questo tipo di area di lavoro.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | La configurazione di base specificata contiene uno o più errori di convalida del tipo.                                                          |
 | ViewConversionError                      | La versione della visualizzazione è precedente a quella supportata dall'area di lavoro. Conversione della visualizzazione non riuscita: {0}.                                                                 |
 

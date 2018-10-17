@@ -4,29 +4,23 @@ description: Informazioni su come usare Ansible per configurare un set di scalab
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scalabilità di macchine virtuali, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: b9c8058606e13c0db4908530e98cddb69d2caf50
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.topic: tutorial
+ms.date: 09/11/2018
+ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011499"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391471"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Distribuire applicazioni nei set di scalabilità di macchine virtuali in Azure tramite Ansible
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per distribuire le applicazioni in Azure. Questo articolo illustra come distribuire un'applicazione Java in un set di scalabilità di macchine virtuali di Azure (VMSS).  
 
 ## <a name="prerequisites"></a>Prerequisiti
 - **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
-- **Configurare Ansible** - [Creare le credenziali di Azure e configurare Ansible](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible e i moduli Python SDK di Azure** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Set di scalabilità di macchine virtuali** - Se non si dispone già di un set di scalabilità di macchine virtuali, è possibile [creare un set di scalabilità di macchine virtuali con Ansible](ansible-create-configure-vmss.md). 
 - **git** - [git](https://git-scm.com) viene usato per scaricare un esempio di Java usato in questa esercitazione.
 - **Java SE Development Kit (JDK)** -JDK viene usato per compilare il progetto Java di esempio.
@@ -37,7 +31,7 @@ Ansible consente di automatizzare la distribuzione e la configurazione delle ris
 
 ## <a name="get-host-information"></a>Ottenere informazioni sugli host
 
-Questa sezione illustra come usare Ansible per recuperare informazioni sull'host per un gruppo di macchine virtuali di Azure. Di seguito è riportato un playbook di Ansible di esempio. Il codice ottiene gli indirizzi IP pubblici e il bilanciamento del carico all'interno del gruppo di risorse specificato e crea un gruppo host denominato **saclesethosts** nell'inventario. 
+Questa sezione illustra come usare Ansible per recuperare informazioni sull'host per un gruppo di macchine virtuali di Azure. Di seguito è riportato un playbook di Ansible di esempio. Il codice ottiene gli indirizzi IP pubblici e il bilanciamento del carico all'interno del gruppo di risorse specificato e crea un gruppo host denominato **scalesethosts** nell'inventario. 
 
 Salvare il playbook di esempio seguente come `get-hosts-tasks.yml`: 
 
@@ -159,7 +153,7 @@ Per usare il tipo di connessione ssh con le password è necessario installare il
   - Per Ubunto 16.04, eseguire il comando `apt-get install sshpass`.
   - Per CentOS 7.4, eseguire il comando `yum install sshpass`.
 
-Potrebbe essere visualizzato l'errore **Non è possibile usare una password SSH anziché una chiave perché è abilitato il controllo della chiave host e sshpass non supporta questa opzione.  Aggiungere l'impronta digitale dell'host al proprio file known_hosts per gestire questo host.** Se viene visualizzato questo errore, è possibile disabilitare il controllo della chiave host aggiungendo la riga seguente al file `/etc/ansible/ansible.cfg` o al file `~/.ansible.cfg`:
+Potrebbe essere visualizzato l'errore **Non è possibile usare una password SSH anziché una chiave perché è abilitato il controllo della chiave host e sshpass non supporta questa opzione. Aggiungere l'impronta digitale dell'host al proprio file known_hosts per gestire questo host.** Se viene visualizzato questo errore, è possibile disabilitare il controllo della chiave host aggiungendo la riga seguente al file `/etc/ansible/ansible.cfg` o al file `~/.ansible.cfg`:
   ```bash
   [defaults]
   host_key_checking = False

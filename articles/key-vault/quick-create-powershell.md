@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva di Azure - Creare un'istanza di Key Vault con PowerShell | Microsoft Docs
+title: Guida introduttiva di Azure - Impostare e recuperare un segreto da Key Vault tramite PowerShell | Microsoft Docs
 description: ''
 services: key-vault
 author: barclayn
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/10/2018
+ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 4acd8286cb8635f9a76815c936328a7c441e3115
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f3ea500c8e48f4a509782657ad2fe750bf3a7ed6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187149"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025656"
 ---
-# <a name="quickstart-create-an-azure-key-vault-using-powershell"></a>Guida introduttiva: Creare un'istanza di Key Vault usando PowerShell
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite PowerShell
 
 Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. Per altre informazioni su Key Vault, vedere la [panoramica](key-vault-overview.md). In questa guida introduttiva si usa PowerShell per creare un'istanza di Key Vault. Verrà quindi archiviato un segreto nell'insieme di credenziali appena creato.
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell 5.1.1 o versione successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
 
-```azurepowershell
+```azurepowershell-interactive
 Login-AzureRmAccount
 ```
 
@@ -39,7 +39,7 @@ Login-AzureRmAccount
 
 Creare un gruppo di risorse di Azure con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. 
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name ContosoResourceGroup -Location EastUS
 ```
 
@@ -53,7 +53,7 @@ Anche se si usa "Contoso KeyVault2" come nome dell'istanza di Key Vault in quest
 - **Nome del gruppo di risorse** ContosoResourceGroup.
 - **Posizione**: Stati Uniti orientali.
 
-```azurepowershell
+```azurepowershell-interactive
 New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
 ```
 
@@ -72,19 +72,19 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio d
 
 Convertire prima di tutto il valore di Pa$$w0rd in una stringa sicura digitando:
 
-```azurepowershell
+```azurepowershell-interactive
 $secretvalue = ConvertTo-SecureString 'Pa$$w0rd' -AsPlainText -Force
 ```
 
 Digitare i comandi di PowerShell seguenti per creare in Key Vault un segreto denominato **ExamplePassword** con il valore **Pa$$w0rd**:
 
-```azurepowershell
+```azurepowershell-interactive
 $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'ExamplePassword' -SecretValue $secretvalue
 ```
 
 Per visualizzare il valore contenuto nel segreto come testo normale:
 
-```azurepowershell
+```azurepowershell-interactive
 (Get-AzureKeyVaultSecret -vaultName "Contosokeyvault" -name "ExamplePassword").SecretValueText
 ```
 
@@ -96,7 +96,7 @@ A questo punto è stata creata un'istanza di Key Vault nella quale è stato arch
 
 Quando non sono più necessari, è possibile usare il comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuovere il gruppo di risorse, l'istanza di Key Vault e tutte le risorse correlate.
 
-```azurepowershell
+```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 ```
 
@@ -105,4 +105,4 @@ Remove-AzureRmResourceGroup -Name ContosoResourceGroup
 In questa guida introduttiva è stata creata un'istanza di Key Vault nella quale è stata archiviata una chiave software. Per altre informazioni su Key Vault e su come usarlo con le applicazioni, passare all'esercitazione per le applicazioni Web che usano Key Vault.
 
 > [!div class="nextstepaction"]
-> Per informazioni su come leggere un segreto da Key Vault in un'applicazione Web usando le identità del servizio gestito, proseguire con l'esercitazione seguente [Configurare un'applicazione Web di Azure per leggere un segreto da Key Vault](tutorial-web-application-keyvault.md).
+> Per informazioni su come leggere un segreto da Key Vault in un'applicazione Web usando le identità gestite per le risorse di Azure, proseguire con l'esercitazione [Configurare un'applicazione Web di Azure per leggere un segreto da Key Vault](quick-create-net.md).

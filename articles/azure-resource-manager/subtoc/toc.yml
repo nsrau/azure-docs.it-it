@@ -208,6 +208,13 @@ items:
   - name: Account Batch
     href: /azure/templates/Microsoft.Batch/batchAccounts
     items:
+    - name: APPLICAZIONI
+      href: /azure/templates/Microsoft.Batch/batchAccounts/applications
+      items:
+      - name: Versioni
+        href: /azure/templates/Microsoft.Batch/batchAccounts/applications/versions
+        maintainContext: true
+      maintainContext: true
     - name: Certificati
       href: /azure/templates/Microsoft.Batch/batchAccounts/certificates
       maintainContext: true
@@ -225,6 +232,23 @@ items:
     maintainContext: true
   - name: Processi
     href: /azure/templates/Microsoft.BatchAI/jobs
+    maintainContext: true
+  - name: Aree di lavoro
+    href: /azure/templates/Microsoft.BatchAI/workspaces
+    items:
+    - name: Cluster
+      href: /azure/templates/Microsoft.BatchAI/workspaces/clusters
+      maintainContext: true
+    - name: Sperimentazioni
+      href: /azure/templates/Microsoft.BatchAI/workspaces/experiments
+      items:
+      - name: Processi
+        href: /azure/templates/Microsoft.BatchAI/workspaces/experiments/jobs
+        maintainContext: true
+      maintainContext: true
+    - name: File server
+      href: /azure/templates/Microsoft.BatchAI/workspaces/fileServers
+      maintainContext: true
     maintainContext: true
 - name: Cache
   items:
@@ -407,6 +431,10 @@ items:
       maintainContext: true
     - name: Trigger
       href: /azure/templates/Microsoft.DataFactory/factories/triggers
+      items:
+      - name: Rieseguire i trigger
+        href: /azure/templates/Microsoft.DataFactory/factories/triggers/rerunTriggers
+        maintainContext: true
       maintainContext: true
     maintainContext: true
 - name: Data Lake Analytics
@@ -623,6 +651,11 @@ items:
     maintainContext: true
   - name: Test Web
     href: /azure/templates/Microsoft.insights/webtests
+    maintainContext: true
+- name: IoT Central
+  items:
+  - name: App IoT
+    href: /azure/templates/Microsoft.IotCentral/IotApps
     maintainContext: true
 - name: Key Vault
   items:
@@ -1433,9 +1466,9 @@ items:
         maintainContext: true
       maintainContext: true
     maintainContext: true
-ms.openlocfilehash: ca2143fbe061561b27f8d8f6f0181820181634a0
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 773ae8c38cb98e9c8daff6ef2819d4a3dc687739
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902655"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353952"

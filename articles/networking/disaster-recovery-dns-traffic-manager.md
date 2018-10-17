@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ce3e8f31c7fee6afdeabf931485a49934e98f81b
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112987"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391352"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Ripristino di emergenza con DNS di Azure e Gestione traffico
 
 Il ripristino di emergenza consiste nel recupero da una grave perdita di funzionalità delle applicazioni. Per scegliere una soluzione di ripristino di emergenza, i proprietari di aziende e tecnologia devono prima di tutto determinare il livello di funzionalità richiesto durante un'emergenza, ad esempio mancanza totale di disponibilità, disponibilità parziale con funzionalità ridotta, disponibilità ritardata o disponibilità completa.
 La maggior parte dei clienti aziendali sceglie un'architettura distribuita su più aree per garantire resilienza in caso di failover a livello di applicazione o infrastruttura. I clienti possono adottare diversi approcci per ottenere failover e disponibilità elevata tramite un'architettura ridondante. Ecco alcuni degli approcci più diffusi:
 
-- **Attivo-Passivo con cold standby**: in questa soluzione di failover le VM e le altre appliance eseguite nell'area di standby non sono attive finché non è necessario il failover. Tuttavia, l'ambiente di produzione è replicato sotto forma di backup, immagini di VM o modelli di Resource Manager, in un'altra area. Questo meccanismo di failover è economico, ma richiede più tempo nel caso di un failover completo.
+- **Attivo-Passivo con cold standby**: in questa soluzione di failover le VM e le altre appliance eseguite nell'area di standby non sono attive finché non c'è necessità di failover. Tuttavia, l'ambiente di produzione è replicato sotto forma di backup, immagini di VM o modelli di Resource Manager, in un'altra area. Questo meccanismo di failover è economico, ma richiede più tempo nel caso di un failover completo.
  
     ![Approccio Attivo-Passivo con cold standby](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     

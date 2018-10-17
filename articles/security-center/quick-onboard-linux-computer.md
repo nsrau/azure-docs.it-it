@@ -3,7 +3,7 @@ title: Guida introduttiva del Centro sicurezza di Azure - Caricare i computer Li
 description: Questa guida introduttiva illustra come caricare i computer Linux nel Centro sicurezza.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,21 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1eab54d16dcc0facace9a51a4cf5b5d1243baf4f
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630098"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025394"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guida introduttiva: Caricare i computer Linux nel Centro sicurezza di Azure
 Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse di Linux in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning dell'agente Linux.
 
 Questa guida introduttiva mostra come installare l'agente Linux in un computer Linux.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 Prima di iniziare questa guida introduttiva, è necessario essere nel piano tariffario Standard del Centro sicurezza. Vedere [Guida introduttiva per il Centro sicurezza di Azure](security-center-get-started.md) per istruzioni sull'aggiornamento. È possibile provare gratuitamente il livello Standard del Centro sicurezza per i primi 60 giorni.
@@ -39,13 +39,12 @@ Prima di iniziare questa guida introduttiva, è necessario essere nel piano tari
 
  ![Panoramica del Centro sicurezza di Azure][2]
 
-3. Selezionare **Onboarding nella sicurezza avanzata** nel menu principale del Centro sicurezza.
-4. Selezionare **Aggiungere computer non Azure?**.
-   ![Passare alla sicurezza avanzata][3]
+3. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
+4. Selezionare la scheda **Introduzione**. ![Introduzione][3]
 
-5. In **Aggiungi nuovi computer non Azure** viene visualizzato un elenco delle aree di lavoro di Log Analytics. L'elenco include, se applicabile, l'area di lavoro predefinita creata dal Centro sicurezza quando è stato abilitato il provisioning automatico. Selezionare questa area di lavoro o un'altra area di lavoro che si desidera usare.
+5. Fare clic su **Configura** in **Aggiungi nuovi computer non Azure**. Viene visualizzato un elenco delle aree di lavoro di Log Analytics. L'elenco include, se applicabile, l'area di lavoro predefinita creata dal Centro sicurezza quando è stato abilitato il provisioning automatico. Selezionare l'area di lavoro che si vuole usare.
 
-    ![Aggiungere computer non Azure][4]
+    ![Aggiungere computer non Azure](./media/quick-onboard-linux-computer/non-azure.png)
 
 6.  Nella pagina **Direct Agent** (Agente diretto) sotto **DOWNLOAD AND ONBOARD AGENT FOR LINUX** (SCARICARE E CARICARE L'AGENTE PER LINUX) selezionare il pulsante di **copia** per copiare il comando *wget*.
 
@@ -91,7 +90,7 @@ In questa Guida introduttiva è stato eseguito il provisioning dell'agente in un
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png
 [2]: ./media/quick-onboard-linux-computer/overview.png
-[3]: ./media/quick-onboard-linux-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-linux-computer/get-started.png
 [4]: ./media/quick-onboard-linux-computer/add-computer.png
 [5]: ./media/quick-onboard-linux-computer/pgrep-command.png
 [6]: ./media/quick-onboard-linux-computer/logs-for-agent.png

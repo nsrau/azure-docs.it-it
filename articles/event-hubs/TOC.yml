@@ -21,10 +21,10 @@ items:
       href: event-hubs-quickstart-powershell.md
   - name: Inviare eventi a Hub eventi
     items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: .NET Standard
       href: event-hubs-dotnet-standard-getstarted-send.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Java
       href: event-hubs-java-get-started-send.md
     - name: C
@@ -37,10 +37,10 @@ items:
       href: event-hubs-node-get-started-send.md
   - name: Ricevere eventi da Hub eventi
     items:
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
     - name: .NET Standard
       href: event-hubs-dotnet-standard-getstarted-receive-eph.md
+    - name: .NET Framework
+      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
     - name: Java
       href: event-hubs-java-get-started-receive-eph.md
     - name: Go
@@ -79,15 +79,8 @@ items:
     href: event-hubs-features.md
   - name: Panoramica dell'host processore di eventi
     href: event-hubs-event-processor-host.md
-  - name: Filtri di connessione IP
-    href: event-hubs-ip-filtering.md
-  - name: Endpoint del servizio Rete virtuale
-    href: event-hubs-service-endpoints.md
   - name: Guida alla programmazione
     href: event-hubs-programming-guide.md
-  - name: Integrazione con Griglia di eventi
-    href: ../event-grid/event-grid-event-hubs-integration.md
-    maintainContext: true
   - name: Identità gestita per le risorse di Azure
     href: event-hubs-managed-service-identity.md
   - name: Controllo degli accessi in base al ruolo (anteprima)
@@ -100,8 +93,6 @@ items:
     href: event-hubs-authentication-and-security-model-overview.md
   - name: Disponibilità e coerenza
     href: event-hubs-availability-and-consistency.md
-  - name: Ridimensionamento automatico delle unità elaborate
-    href: event-hubs-auto-inflate.md
   - name: Log di diagnostica
     href: event-hubs-diagnostic-logs.md
   - name: Guida al protocollo AMQP 1.0
@@ -111,6 +102,12 @@ items:
   items:
   - name: Creare un hub eventi
     href: event-hubs-create.md
+  - name: Usare filtri di connessione IP
+    href: event-hubs-ip-filtering.md
+  - name: Usare endpoint servizio di rete virtuale
+    href: event-hubs-service-endpoints.md
+  - name: Ridimensionamento automatico delle unità elaborate
+    href: event-hubs-auto-inflate.md
   - name: Hub eventi per Apache Kafka
     items:
     - name: Creare hub eventi con supporto per Apache Kafka
@@ -188,9 +185,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-eventhub
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=event-hubs
-ms.openlocfilehash: a86952f2f9857cd70f7b45957dfcbf67cd63ff80
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 87a0088b54385a0a1af225db6f285dbf892253e7
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351972"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362790"

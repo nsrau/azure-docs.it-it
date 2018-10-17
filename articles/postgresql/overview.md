@@ -2,20 +2,20 @@
 title: Panoramica del servizio di database relazionale Database di Azure per PostgreSQL
 description: Offre una panoramica del servizio di database relazionale Database di Azure per PostgreSQL.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/02/2018
-ms.openlocfilehash: fab3aa7d0b1fe0f4fafd4b2fdca24ad0e8a3d03c
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 06/15/2018
+ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737232"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092158"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Che cos'è Database di Azure per PostgreSQL
 
@@ -56,7 +56,7 @@ Il servizio Database di Azure per PostgreSQL usa la crittografia di archiviazion
 Per impostazione predefinita, il servizio Database di Azure per PostgreSQL è configurato per richiedere la [sicurezza della connessione SSL](./concepts-ssl-connection-security.md) per i dati che si spostano attraverso la rete. L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione. Se l'applicazione client non supporta la connettività SSL, si è liberi di disabilitare l'opzione di richiesta SSL per la connessione al servizio di database.
 
 ## <a name="contacts"></a>Contatti
-Per eventuali domande o suggerimenti sull'uso di Database di Azure per MySQL, inviare un messaggio di posta elettronica al team di Database di Azure per MySQL ([ @Ask Azure DB per PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Si noti che questo non è un alias di supporto tecnico.
+Per eventuali domande o suggerimenti sull'uso di Database di Azure per PostgreSQL, inviare un messaggio di posta elettronica al team di Database di Azure per PostgreSQL ([@Ask Azure DB per PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Si noti che questo non è un alias di supporto tecnico.
 
 Inoltre, prendere in considerazione i seguenti punti di contatto in base alle specifiche esigenze:
 - Per contattare il supporto di Azure, [creare un ticket dal portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

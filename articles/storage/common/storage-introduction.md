@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 59e6f4126e8a39ab695015fae2a2013529383418
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 693ba07e46900ba6f3e025d97cb34aad9e244ace
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919815"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027045"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduzione ad Archiviazione di Azure
 
@@ -93,7 +93,7 @@ Questa tabella mostra i diversi tipi di account di archiviazione e gli oggetti c
 
 |**Tipo di account di archiviazione**|**Utilizzo generico Standard**|**Utilizzo generico Premium**|**Archiviazione BLOB, livelli ad accesso frequente e ad accesso sporadico**|
 |-----|-----|-----|-----|
-|**Servizi supportati**| Servizi BLOB, file, code | Servizio BLOB | Servizio BLOB|
+|**Servizi supportati**| Servizi BLOB, file, code e tabelle | Servizio BLOB | Servizio BLOB|
 |**Tipi di BLOB supportati**|BLOB in blocchi, BLOB di pagine e BLOB di aggiunta | BLOB di pagine | BLOB in blocchi e BLOB di aggiunta|
 
 ### <a name="general-purpose-storage-accounts"></a>Account di archiviazione per utilizzo generico

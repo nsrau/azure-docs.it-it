@@ -1,6 +1,6 @@
 ---
-title: Guida introduttiva - Creare un servizio pubblico di bilanciamento del carico di base con il portale di Azure | Microsoft Docs
-description: In questa guida introduttiva si apprende come creare un servizio pubblico di bilanciamento del carico di base con il portale di Azure.
+title: 'Avvio rapido: Creare un servizio di bilanciamento del carico Basic pubblico tramite il portale di Azure | Microsoft Docs'
+description: In questo avvio rapido si apprende come creare un servizio di bilanciamento del carico Basic pubblico tramite il portale di Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -17,26 +17,26 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304879"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378432"
 ---
-# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Guida introduttiva - Creare un servizio pubblico di bilanciamento del carico di base con il portale di Azure
+# <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico Basic pubblico tramite il portale di Azure
 
-Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. È possibile usare il portale di Azure per creare un servizio di bilanciamento del carico dedicato alle macchine virtuali. In questa guida introduttiva si apprende come creare risorse di rete, server back-end e un servizio di bilanciamento del carico con il piano tariffario Basic.
+Il bilanciamento del carico offre un livello più elevato di disponibilità e scalabilità distribuendo le richieste in ingresso tra più macchine virtuali. È possibile usare il portale di Azure per creare un servizio di bilanciamento del carico dedicato alle macchine virtuali. In questo avvio rapido si apprende come creare risorse di rete, server back-end e un servizio di bilanciamento del carico con il piano tariffario Basic.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Per tutte le attività di questa guida rapida, accedere al [portale di Azure](http://portal.azure.com).
+Per tutte le attività di questo avvio rapido, accedere al [portale di Azure](http://portal.azure.com).
 
-## <a name="create-a-basic-load-balancer"></a>Creare un servizio di bilanciamento del carico di base
+## <a name="create-a-basic-load-balancer"></a>Creare un servizio di bilanciamento del carico Basic
 
-In questa sezione viene creato un servizio pubblico di bilanciamento del carico di base usando il portale. L'indirizzo IP pubblico viene configurato automaticamente come front-end del servizio di bilanciamento del carico quando si creano l'indirizzo IP pubblico e la risorsa di bilanciamento del carico usando il portale. Il nome del front-end è **LoadBalancerFrontend**.
+In questa sezione viene creato un servizio di bilanciamento del carico Basic pubblico tramite il portale. L'indirizzo IP pubblico viene configurato automaticamente come front-end del servizio di bilanciamento del carico quando si creano l'indirizzo IP pubblico e la risorsa di bilanciamento del carico usando il portale. Il nome del front-end è **myLoadBalancer**.
 
 1. In alto a sinistra nel portale selezionare **Crea una risorsa** > **Rete** > **Load Balancer**.
 2. Nel riquadro **Crea servizio di bilanciamento del carico**, immettere i valori seguenti:
@@ -51,10 +51,10 @@ In questa sezione viene creato un servizio pubblico di bilanciamento del carico 
 
 ## <a name="create-back-end-servers"></a>Creare i server back-end
 
-In questa sezione viene creata una rete virtuale e due macchine virtuali per il pool back-end del servizio di bilanciamento del carico di base. Viene quindi installato Internet Information Services (IIS) nelle macchine virtuali per testare il servizio di bilanciamento del carico.
+In questa sezione viene creata una rete virtuale e due macchine virtuali per il pool back-end del servizio di bilanciamento del carico Basic. Viene quindi installato Internet Information Services (IIS) nelle macchine virtuali per testare il servizio di bilanciamento del carico.
 
 ### <a name="create-a-virtual-network"></a>Crea rete virtuale
-1. Sul lato superiore sinistro del portale, selezionare **Nuova** > **Rete** > **Rete virtuale**.
+1. In alto a sinistra nel portale selezionare **Nuova** > **Rete** > **Rete virtuale**.
 2. Nel riquadro **Crea rete virtuale** immettere i valori seguenti e quindi selezionare **Crea**:
    - **myVnet** come nome della rete virtuale.
    - **myResourceGroupLB** come nome del gruppo di risorse esistente.
@@ -64,7 +64,7 @@ In questa sezione viene creata una rete virtuale e due macchine virtuali per il 
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-1. Sul lato superiore sinistro del portale, selezionare **Nuovo** > **Calcolo** > **Windows Server 2016 Datacenter**. 
+1. In alto a sinistra nel portale selezionare **Nuovo** > **Calcolo** > **Windows Server 2016 Datacenter**. 
 2. Immettere i valori seguenti per la macchina virtuale, quindi selezionare **OK**:
    - **myVM1** come nome della macchina virtuale.        
    - **azureuser** come nome utente dell'amministratore.    
@@ -128,7 +128,7 @@ In questa sezione vengono create le regole NSG per consentire connessioni in ing
    - Seguire le istruzioni per completare il resto della procedura guidata. 
 7. Ripetere i passaggi da 1 a 6 per la macchina virtuale **myVM2**.
 
-## <a name="create-resources-for-the-basic-load-balancer"></a>Creare le risorse del servizio di bilanciamento del carico di base
+## <a name="create-resources-for-the-basic-load-balancer"></a>Creare le risorse del servizio di bilanciamento del carico Basic
 
 In questa sezione vengono configurate le impostazioni del servizio di bilanciamento del carico per un pool di indirizzi back-end e un probe di integrità. Vengono inoltre specificate le regole NAT e di bilanciamento del carico.
 
@@ -151,7 +151,7 @@ Per distribuire il traffico alle macchine virtuali, è necessario che un pool di
 
 ### <a name="create-a-health-probe"></a>Creare un probe di integrità
 
-Per consentire al servizio di bilanciamento del carico di base di monitorare lo stato dell'app, viene usato un probe di integrità. Il probe di integrità aggiunge o rimuove in modo dinamico le VM nella rotazione del servizio di bilanciamento del carico in base alla rispettiva risposta ai controlli di integrità. Creare un probe di integrità denominato **myHealthProbe** per monitorare l'integrità delle macchine virtuali.
+Per consentire al servizio di bilanciamento del carico Basic di monitorare lo stato dell'app, viene usato un probe di integrità. Il probe di integrità aggiunge o rimuove in modo dinamico le VM nella rotazione del servizio di bilanciamento del carico in base alla rispettiva risposta ai controlli di integrità. Creare un probe di integrità denominato **myHealthProbe** per monitorare l'integrità delle macchine virtuali.
 
 1. Nel menu a sinistra selezionare **Tutte le risorse** e quindi **myLoadBalancer** nell'elenco di risorse.
 2. In **Impostazioni** selezionare **Probe integrità**, quindi selezionare **Aggiungi**.
@@ -195,7 +195,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il servizio di b
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è appreso come creare un gruppo di risorse, le risorse di rete e i server back-end. Tali risorse sono state quindi usate per creare un'istanza di Load Balancer Basic. Per altre informazioni su Azure Load Balancer, passare alle esercitazioni su Azure Load Balancer.
+In questo avvio rapido si è appreso come creare un gruppo di risorse, le risorse di rete e i server back-end. Tali risorse sono state quindi usate per creare un'istanza di Load Balancer Basic. Per altre informazioni su Azure Load Balancer, passare alle esercitazioni su Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Esercitazioni su Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

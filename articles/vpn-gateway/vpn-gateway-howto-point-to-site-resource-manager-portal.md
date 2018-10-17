@@ -1,30 +1,23 @@
 ---
 title: "Connettere un computer a una rete virtuale di Azure da punto a sito con l'autenticazione del certificato di Azure nativo: portale di Azure | Microsoft Docs"
-description: Connettere i client Windows e Mac OS X in modo sicuro a una rete virtuale di Azure tramite certificati da punto a sito e autofirmati o certificati rilasciati da un'autorità di certificazione. Questo articolo usa il portale di Azure.
+description: Connettere i client Windows, Mac OS X e Linux in modo sicuro a una rete virtuale di Azure tramite connessione da punto a sito e certificati autofirmati o rilasciati da un'autorità di certificazione. Questo articolo usa il portale di Azure.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
 tags: azure-resource-manager
-ms.assetid: a15ad327-e236-461f-a18e-6dbedbf74943
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4fd82c110590c3aa5ede729b317fb722e58cc406
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 477913ba13c2bcfe6dd7ba88ee4e53546fd69be6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41921054"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303541"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: portale di Azure
 
-Questo articolo illustra come connettere in modo sicuro singoli client che eseguono Windows o Mac OS X a una rete virtuale di Azure. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. È anche possibile usare una VPN da punto a sito al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. La modalità da punto a sito crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol) o IKEv2. Per altre informazioni sulle connessioni VPN da punto a sito, vedere [Informazioni sulla VPN da punto a sito](point-to-site-about.md).
+Questo articolo illustra come connettere in modo sicuro singoli client che eseguono Windows, Linux o Mac OS X a una rete virtuale di Azure. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. È anche possibile usare una VPN da punto a sito al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale. Le connessioni da punto a sito non richiedono un dispositivo VPN o un indirizzo IP pubblico. La modalità da punto a sito crea la connessione VPN tramite SSTP (Secure Sockets Tunneling Protocol) o IKEv2. Per altre informazioni sulle connessioni VPN da punto a sito, vedere [Informazioni sulla VPN da punto a sito](point-to-site-about.md).
 
 ![Connettere un computer a una rete virtuale di Azure: diagramma di connessione da punto a sito](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 

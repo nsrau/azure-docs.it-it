@@ -15,18 +15,18 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 68c3306656ade6ce95a3f18fec19de32bd9cf319
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: c8d72e473831da13e05598256bcb24660003368a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170838"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300784"
 ---
 # <a name="web-apps-overview"></a>Panoramica di App Web
 
 Le *app Web del servizio app di Azure* , o semplicemente app Web, sono un servizio per l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito tra .NET, .NET Core, Java, Ruby, Node.js, PHP o Python. Le applicazioni vengono eseguite e ridimensionate con facilità negli ambienti basati su Windows. Per gli ambienti basati su Linux, vedere [Servizio app su Linux](containers/app-service-linux-intro.md). 
 
-Le app Web non si limitano ad aggiungere la potenza di Microsoft Azure all'applicazione, in termini di sicurezza, bilanciamento del carico, ridimensionamento automatico e gestione automatizzata. Permettono anche di usufruire delle funzionalità DevOps, come la distribuzione continua da Visual Studio Team Services, GitHub, Hub Docker e altre origini, la gestione dei pacchetti, gli ambienti di staging, il dominio personalizzato e i certificati SSL. 
+Le app Web non si limitano ad aggiungere la potenza di Microsoft Azure all'applicazione, in termini di sicurezza, bilanciamento del carico, ridimensionamento automatico e gestione automatizzata. Permettono anche di usufruire delle funzionalità DevOps, come la distribuzione continua da Azure DevOps, GitHub, Hub Docker e altre origini, la gestione dei pacchetti, gli ambienti di gestione temporanea, il dominio personalizzato e i certificati SSL. 
 
 Il servizio app permette di pagare solo le risorse di calcolo di Azure usate. La quantità di risorse di calcolo usate è determinata dal _piano di servizio app_ in cui vengono eseguite le app Web. Per altre informazioni, vedere [Panoramica approfondita dei piani del servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).
 
@@ -35,7 +35,7 @@ Il servizio app permette di pagare solo le risorse di calcolo di Azure usate. La
 Ecco alcune delle funzionalità principali delle app Web del servizio app:
 
 * **Più linguaggi e framework**: l'app Web offrono un supporto eccellente per ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP o Python. È anche possibile eseguire [PowerShell e altri script o eseguibili](web-sites-create-web-jobs.md) come servizi in background.
-* **Ottimizzazione della metodologia DevOps**: è possibile configurare [integrazione e distribuzione continua](app-service-continuous-deployment.md) con Visual Studio Team Services, GitHub, BitBucket, l'hub Docker o Registro contenitori di Azure, alzare di livello gli aggiornamenti tramite [ambienti di testing e di staging](web-sites-staged-publishing.md), Gestire le app Web con [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando multipiattaforma](/cli/azure/install-azure-cli).
+* **Ottimizzazione della metodologia DevOps**: è possibile configurare [l'integrazione continua e la distribuzione continua](app-service-continuous-deployment.md) con Azure DevOps, GitHub, BitBucket, Hub Docker o Registro contenitori di Azure, alzare di livello gli aggiornamenti tramite [ambienti di testing e di staging](web-sites-staged-publishing.md), Gestire le app Web con [Azure PowerShell](/powershell/azureps-cmdlets-docs) o l'[interfaccia della riga di comando multipiattaforma](/cli/azure/install-azure-cli).
 * **Scalabilità globale con disponibilità elevata**: è possibile [aumentare le prestazioni](web-sites-scale.md) o il [numero di istanze](../monitoring-and-diagnostics/insights-how-to-scale.md) manualmente o automaticamente. Le app possono essere ospitate ovunque nell'infrastruttura globale di data center Microsoft e il [contratto di servizio](https://azure.microsoft.com/support/legal/sla/app-service/) per il servizio app assicura disponibilità elevata.
 * **Connessioni a piattaforme SaaS e dati locali**: è possibile scegliere tra oltre 50 [connettori](../connectors/apis-list.md) per sistemi aziendali (come SAP), servizi SaaS (come Salesforce) e servizi Internet (come Facebook), nonché accedere ai dati locali con [connessioni ibride](../biztalk-services/integration-hybrid-connection-overview.md) e [reti virtuali di Azure](web-sites-integrate-with-vnet.md).
 * **Sicurezza e conformità** : il servizio app è [conforme a ISO, SOC e PCI](https://www.microsoft.com/en-us/trustcenter). Autenticare gli utenti con [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md) o con l'account di accesso ai social, ad esempio [Google](app-service-mobile-how-to-configure-google-authentication.md), [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md), [Twitter](app-service-mobile-how-to-configure-twitter-authentication.md) o [ Microsoft](app-service-mobile-how-to-configure-microsoft-authentication.md). Creare [restrizioni per gli indirizzi IP](app-service-ip-restrictions.md) e [gestire le identità del servizio](app-service-managed-service-identity.md).

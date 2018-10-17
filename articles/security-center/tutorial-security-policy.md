@@ -3,7 +3,7 @@ title: Esercitazione per il Centro sicurezza di Azure - Definire e valutare i cr
 description: Esercitazione per il Centro sicurezza di Azure - Definire e valutare i criteri di sicurezza
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358609"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027062"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Esercitazione: Definire e valutare i criteri di sicurezza
 Il Centro sicurezza consente di assicurare la conformità ai requisiti di sicurezza aziendali o normativi, usando criteri di sicurezza per definire la configurazione desiderata per i carichi di lavoro. Dopo aver definito i criteri per le sottoscrizioni di Azure e averli adattati al tipo di carico di lavoro o di sensibilità dei dati, il Centro sicurezza può fornire consigli sulla sicurezza per le risorse di calcolo, dell'applicazione, di rete, di dati e archiviazione e di identità e accesso. In questa esercitazione si apprenderà come:
@@ -42,8 +42,7 @@ Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito pe
 
   ![Criteri di sicurezza](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-3. In **COMPONENTI DEI CRITERI** selezionare **Criteri di sicurezza**.
-4. Per ogni configurazione di sicurezza che si vuole monitorare, selezionare **Sì**. Il Centro sicurezza valuterà continuamente la configurazione dell'ambiente e genererà una raccomandazione di sicurezza se esiste una vulnerabilità. Selezionare **No** se la configurazione di sicurezza non è consigliata o pertinente. Ad esempio, in un ambiente di sviluppo o test potrebbe non essere necessario lo stesso livello di sicurezza di un ambiente di produzione. Dopo aver selezionato i criteri applicabili all'ambiente, fare clic su **Salva**.
+3. In **Risorse di calcolo e app**, **Rete**, e **Dati**, impostare ogni configurazione di sicurezza da monitorare su **Sì**. Il Centro sicurezza valuterà continuamente la configurazione dell'ambiente e genererà una raccomandazione di sicurezza se esiste una vulnerabilità. Selezionare **No** se la configurazione di sicurezza non è consigliata o pertinente. Ad esempio, in un ambiente di sviluppo o test potrebbe non essere necessario lo stesso livello di sicurezza di un ambiente di produzione. Dopo aver selezionato i criteri applicabili all'ambiente, fare clic su **Salva**.
 
   ![Configurazione di sicurezza](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 

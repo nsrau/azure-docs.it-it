@@ -97,6 +97,8 @@ items:
         href: sql-database-service-tiers-general-purpose-business-critical.md
       - name: Hyperscale
         href: sql-database-service-tier-hyperscale.md
+      - name: Domande frequenti su Hyperscale
+        href: sql-database-service-tier-hyperscale-faq.md
     - name: Piani di servizio DTU
       href: sql-database-service-tiers-dtu.md
     - name: Pagare in anticipo la capacità riservata
@@ -161,6 +163,8 @@ items:
       href: sql-database-business-continuity.md
     - name: Disponibilità elevata
       href: sql-database-high-availability.md
+    - name: Ripristino accelerato del database
+      href: sql-database-accelerated-database-recovery.md
     - name: Backup del database
       href: sql-database-automated-backups.md
     - name: Conservazione del backup a lungo termine
@@ -179,13 +183,13 @@ items:
         href: sql-database-geo-replication-portal.md
       - name: Configurare la sicurezza per le repliche
         href: sql-database-geo-replication-security-config.md
-    - name: Ripristino del database
+    - name: Opzioni di ripristino del database
       items:
-      - name: Ripristino del database
+      - name: Ripristino con backup
         href: sql-database-recovery-using-backups.md
-      - name: Ripristino dopo un'interruzione del servizio
+      - name: Indicazioni per il ripristino in seguito a interruzioni
         href: sql-database-disaster-recovery.md
-      - name: Eseguire un'esercitazione sul ripristino
+      - name: Analisi di ripristino
         href: sql-database-disaster-recovery-drills.md
     - name: Progettazione di app
       items:
@@ -319,7 +323,7 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Confronto delle funzionalità SQL
     href: sql-database-features.md
-  - name: Prestazioni e ottimizzazione
+  - name: Prestazioni e monitoraggio
     items:
     - name: Prestazioni intelligenti
       items:
@@ -630,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Casi di successo dei clienti
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: abafd9d9022b306ce090b618ecc9477cd95c714e
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e39e94ccbf1da42b10cd8c618cd27c2a7eb214de
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869245"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353511"

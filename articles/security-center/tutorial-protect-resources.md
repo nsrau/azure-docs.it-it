@@ -3,7 +3,7 @@ title: Esercitazione per Centro sicurezza di Azure - Protezione delle risorse co
 description: Questa esercitazione illustra come configurare i criteri di accesso JIT alle macchine virtuali e i criteri di controllo delle applicazioni.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: b882f9740a9b29cddb2cbe0359056cf66c293717
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1d3d775a13f83ada6ca702eb984262668507f7e9
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363755"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025447"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Esercitazione: Protezione delle risorse con Centro sicurezza di Azure
 Centro sicurezza di Azure limita l'esposizione a minacce usando i controlli di accesso e delle applicazioni per bloccare le attività dannose. L'accesso JIT alle macchine virtuali (VM) riduce l'esposizione agli attacchi grazie alla possibilità di negare l'accesso permanente alle macchine virtuali. In alternativa, è possibile fornire l'accesso controllato alle macchine virtuali solo quando è necessario. I controlli delle applicazioni adattivi consentono di applicare la protezione avanzata delle macchine virtuali contro il malware controllando quali applicazioni possono essere eseguite nelle macchine virtuali. Il Centro sicurezza usa Machine Learning per analizzare i processi in esecuzione nella macchina virtuale e, grazie a questa funzionalità intelligente, aiuta ad applicare regole di inserimento nell'elenco elementi consentiti.
@@ -41,7 +41,7 @@ L'accesso JIT alle macchine virtuali può essere usato per bloccare il traffico 
 
 Non è necessario lasciare aperte le porte di gestione in qualsiasi momento. Devono essere aperte solo durante la connessione alla macchina virtuale, ad esempio per eseguire attività di gestione o manutenzione. Quando la funzionalità JIT è abilitata, Centro sicurezza usa le regole del gruppo di sicurezza di rete (NSG), che limitano l'accesso alle porte di gestione per impedire che possano essere attaccate da utenti malintenzionati.
 
-1. Dal menu principale del Centro sicurezza di Azure selezionare **Accesso Just-In-Time alla VM** in **DIFESA CLOUD AVANZATA**.
+1. Nel menu principale del Centro sicurezza di Azure selezionare **Accesso Just-In-Time alla VM** in **DIFESA CLOUD AVANZATA**.
 
   ![Accesso Just-In-Time alla VM][1]
 

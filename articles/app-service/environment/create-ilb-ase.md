@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436693"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378279"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -56,7 +56,7 @@ Quando si usa un ambiente del servizio app con bilanciamento del carico interno,
 
 Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
-1. Nel portale di Azure selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **Ambiente del servizio app**.
+1. Nel portale di Azure selezionare **Crea una risorsa** > **Web**  > **Ambiente del servizio app**.
 
 1. Selezionare la propria sottoscrizione.
 
@@ -209,7 +209,7 @@ Il nome del sito di gestione controllo servizi consente di passare alla console 
 
 Nel servizio app multi-tenant e in un ambiente del servizio app esterno, è incluso l'accesso Single Sign-On tra il portale di Azure e la console Kudu. Per l'ambiente del servizio app ILB, è necessario usare invece le credenziali di pubblicazione per accedere alla console Kudu.
 
-I sistemi di integrazione continua basati su Internet, come GitHub e Visual Studio Team Services, continueranno a funzionare con un ambiente del servizio app ILB se l'agente di compilazione è accessibile da Internet e si trova nella stessa rete dell'ambiente del servizio app ILB. Quindi, nel caso di Visual Studio Team Services, se l'agente di compilazione viene creato nella stessa rete virtuale dell'ambiente del servizio app ILB (anche se la subnet è diversa), potrà eseguire il pull del codice dal GIT VSTS e distribuirlo nell'ambiente del servizio app ILB. Se non si vuole creare il proprio agente di compilazione, è necessario usare un sistema di integrazione continua che adotta un modello pull, ad esempio Dropbox.
+I sistemi di integrazione continua basati su Internet, come GitHub e Azure DevOps, continueranno a funzionare con un ambiente del servizio app ILB se l'agente di compilazione è accessibile da Internet e si trova nella stessa rete dell'ambiente del servizio app ILB. Quindi, nel caso di Azure DevOps, se l'agente di compilazione viene creato nella stessa rete virtuale dell'ambiente del servizio app ILB (anche se la subnet è diversa), potrà eseguire il pull del codice dal GIT di Azure DevOps e distribuirlo nell'ambiente del servizio app ILB. Se non si vuole creare il proprio agente di compilazione, è necessario usare un sistema di integrazione continua che adotta un modello pull, ad esempio Dropbox.
 
 Gli endpoint di pubblicazione per le app in un ambiente del servizio app con bilanciamento del carico interno usano il dominio con cui l'ambiente del servizio app con bilanciamento del carico interno è stato creato, che può essere visualizzato nel profilo di pubblicazione dell'app e nel pannello del portale dell'app (in **Panoramica** > **Informazioni di base** e anche in **Proprietà**). Se si dispone di un ambiente del servizio app ILB con il sottodominio *contoso.net* e di un'app denominata *mytest*, usare *mytest.contoso.net* per FTP e *mytest.scm.contoso.net* per la distribuzione Web.
 

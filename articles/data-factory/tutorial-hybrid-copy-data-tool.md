@@ -8,15 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: f47582cf9fa1a58295c9d32c480ed894179cd92d
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: a6c17fc897dae765f9789840262cb001d598b731
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918829"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297743"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure con lo strumento Copia dati
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ### <a name="azure-roles"></a>Ruoli di Azure
 Per creare istanze di Data Factory, all'account utente usato per accedere ad Azure deve essere assegnato un ruolo *collaboratore* o *proprietario* oppure l'account deve essere un *amministratore* della sottoscrizione di Azure. 
 
-Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al portale di Azure. Selezionare il nome utente nell'angolo superiore destro e quindi **Autorizzazioni**. Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio sull'aggiunta di un utente a un ruolo, vedere l'articolo su come [aggiungere i ruoli](../billing/billing-add-change-azure-subscription-administrator.md).
+Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al portale di Azure. Selezionare il nome utente nell'angolo superiore destro e quindi **Autorizzazioni**. Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio sull'aggiunta di un utente a un ruolo, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
 In questa esercitazione si usa un database di SQL Server locale come archivio dati di *origine*. La pipeline nella data factory creata in questa esercitazione copia i dati da questo database di SQL Server locale (origine) a un archivio BLOB (sink). Si crea quindi una tabella denominata **emp** nel database di SQL Server e si inseriscono alcune voci di esempio nella tabella. 

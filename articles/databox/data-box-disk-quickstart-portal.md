@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 20dc414c5cdd309434ba53acf2d7f6716d3edfe5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009927"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378347"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Guida introduttiva: Distribuire Azure Data Box Disk tramite il portale di Azure (anteprima)
 
@@ -31,7 +31,7 @@ Per istruzioni dettagliate sulla distribuzione e il monitoraggio, vedere [Eserci
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
-> Data Box Disk è disponibile in anteprima. Esaminare le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di distribuire questa soluzione.
+> Data Box Disk è disponibile in anteprima. Prima di distribuire questa soluzione, esaminare le [condizioni per le anteprime di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -54,7 +54,6 @@ Questo passaggio richiede circa 5 minuti.
 
 Dopo aver creato l'ordine, i dischi vengono preparati per la spedizione. 
 
-
 ## <a name="unpack"></a>Controllare il pacchetto
 
 Questo passaggio richiede circa 5 minuti.
@@ -64,21 +63,18 @@ I dischi di Data Box vengono spediti tramite una scatola UPS Express Box. Aprire
 - Da 1 a 5 dischi USB avvolti in pluriball.
 - Un cavo di collegamento per ogni disco. 
 - Un'etichetta per la spedizione di ritorno.
- 
 
 ## <a name="connect-and-unlock"></a>Collegare e sbloccare
 
 Questo passaggio richiede circa 5 minuti.
 
-1. Usare il cavo in dotazione per collegare il disco a un computer Windows che esegue una versione supportata. Per altre informazioni sulle versioni del sistema operativo supportate, vedere i [requisiti di sistema di Azure Data Box Disk](data-box-disk-system-requirements.md). 
+1. Usare il cavo in dotazione per collegare il disco a un computer Windows/Linux che esegue una versione supportata. Per altre informazioni sulle versioni del sistema operativo supportate, vedere i [requisiti di sistema di Azure Data Box Disk](data-box-disk-system-requirements.md). 
 2. Per sbloccare il disco:
 
     1. Nel portale di Azure passare a **Generale > Dettagli dispositivo** e recuperare la passkey.
-    2. Scaricare ed estrarre lo strumento per sbloccare i dischi di Data Box nel computer usato per copiare i dati nei dischi. 
-    3. Eseguire *DataBoxDiskUnlock.exe* e specificare la passkey. Ripetere il passaggio per eventuali reinserimenti dei dischi.
+    2. Scaricare ed estrarre lo strumento per sbloccare i dischi di Data Box specifici del sistema nel computer usato per copiare i dati nei dischi. 
+    3. Eseguire lo strumento per sbloccare i dischi di Data Box e fornire la passkey. Per ogni reinserimento del disco, eseguire nuovamente lo strumento di sblocco e fornire la passkey. **Non usare la finestra di dialogo BitLocker o la chiave BitLocker per sbloccare il disco.** Per altre informazioni su come sbloccare i dischi, vedere [Sbloccare i dischi in un client Windows]() oppure [Sbloccare i dischi in un client Linux]().
     4. La lettera di unità assegnata al disco viene visualizzata dallo strumento. Prendere nota della lettera di unità del disco. Verrà usata nei passaggi successivi.
-
-
 
 ## <a name="copy-data-and-verify"></a>Copiare i dati e verificare
 
@@ -90,9 +86,9 @@ Il tempo per completare questa operazione dipende dalla dimensione dei dati.
 
     > [!NOTE] 
     > - Tutti i contenitori e i BLOB devono essere conformi alle [convenzioni di denominazione di Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Se queste regole non vengono rispettate, il caricamento di dati in Azure avrà esito negativo.
-    > - Assicurarsi che i file non superino circa 4,7 TiB per i BLOB in blocchi e circa 8 TiB per i BLOB di pagine.
+    > - Assicurarsi che i file non superino circa 4,75 TiB per i BLOB in blocchi e circa 8 TiB per i BLOB di pagine.
 
-2. (Facoltativo) Al termine della copia, è consigliabile eseguire il file `AzureExpressDiskService.ps1` disponibile nella cartella *AzureImportExport* per generare i checksum per la convalida. A seconda delle dimensioni dei dati, questo passaggio può richiedere tempo. 
+2. (Facoltativo) Al termine della copia, è consigliabile eseguire il file `DataBoxDiskValidation.cmd` disponibile nella cartella *AzureImportExport* per generare i checksum per la convalida. A seconda delle dimensioni dei dati, questo passaggio può richiedere tempo. 
 3. Scollegare l'unità. 
 
 
@@ -116,7 +112,6 @@ Il tempo per completare questa operazione dipende dalla dimensione dei dati.
     1. Controllare i log degli errori per rilevare eventuali errori e intraprendere le azioni appropriate.
     2. Verificare la presenza dei dati negli account di archiviazione prima di eliminarli dall'origine.
 
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Il completamento di questo passaggio richiede 2-3 minuti.
@@ -131,7 +126,7 @@ Per ripulire, è possibile annullare l'ordine di Data Box e quindi eliminarlo.
 
     Per eliminare l'ordine, passare a **Panoramica** e fare clic su **Elimina** dalla barra dei comandi.
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-steps"></a>Passaggi successivi
 
 In questa guida introduttiva si è visto come distribuire il servizio Azure Data Box Disk per facilitare l'importazione dei dati in Azure. Per altre informazioni sulla gestione di Azure Data Box Disk, passare all'esercitazione seguente: 
 

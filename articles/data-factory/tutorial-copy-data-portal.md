@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: ef61b94a52d88ad2919e5a70fcdcc0a8d7c3f8ec
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f7d6f34c75069f91e06d58c960249d040b2bda8a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41918976"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299200"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con Azure Data Factory
 In questa esercitazione viene creata una data factory con l'interfaccia utente di Azure Data Factory. La pipeline in questa data factory copia i dati da un archivio BLOB di Azure a un database SQL. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -229,7 +229,7 @@ Per convalidare la pipeline, selezionare **Convalida** dalla barra degli strumen
 È possibile visualizzare il codice JSON associato alla pipeline facendo clic su **Codice** in alto a destra.
 
 ## <a name="debug-and-publish-the-pipeline"></a>Eseguire il debug della pipeline e pubblicarla
-È possibile eseguire il debug di una pipeline prima di pubblicare gli elementi (servizi collegati, set di dati e pipeline) in Data Factory o nel proprio repository Visual Studio Team Services Git. 
+È possibile eseguire il debug di una pipeline prima di pubblicare gli artefatti (servizi collegati, set di dati e pipeline) in Data Factory o nel proprio repository GIT di Azure Repos. 
 
 1. Per eseguire il debug della pipeline, selezionare **Debug** sulla barra degli strumenti. Lo stato dell'esecuzione della pipeline verrà visualizzato nella scheda **Output** nella parte inferiore della finestra. 
 

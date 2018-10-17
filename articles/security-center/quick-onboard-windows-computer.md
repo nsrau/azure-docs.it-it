@@ -3,7 +3,7 @@ title: Guida introduttiva per il Centro sicurezza di Azure - Onboarding di compu
 description: Questa Guida introduttiva illustra come eseguire il provisioning di Microsoft Monitoring Agent in un computer Windows.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,21 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38702658"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023001"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guida introduttiva: Onboarding di computer Windows su Centro sicurezza
 Dopo l'onboarding delle sottoscrizioni di Azure, è possibile abilitare il Centro sicurezza per le risorse in esecuzione all'esterno di Azure, ad esempio in locale o in altri cloud, effettuando il provisioning di Microsoft Monitoring Agent.
 
 Questa Guida introduttiva illustra come installare Microsoft Monitoring Agent in un computer Windows.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 Prima di iniziare questa guida introduttiva, è necessario essere nel piano tariffario Standard del Centro sicurezza. Vedere [Guida introduttiva per il Centro sicurezza di Azure](security-center-get-started.md) per istruzioni sull'aggiornamento. È possibile provare gratuitamente il livello Standard del Centro sicurezza per i primi 60 giorni.
@@ -39,14 +39,14 @@ Prima di iniziare questa guida introduttiva, è necessario essere nel piano tari
 
  ![Panoramica del Centro sicurezza di Azure][2]
 
-3. Selezionare **Onboarding nella sicurezza avanzata** nel menu principale del Centro sicurezza.
-4. Selezionare **Aggiungere computer non Azure?**.
+3. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
+4. Selezionare la scheda **Introduzione**.
 
-   ![Passare alla sicurezza avanzata][3]
+   ![Attività iniziali][3]
 
-5. In **Aggiungi nuovi computer non Azure** viene visualizzato un elenco delle aree di lavoro di Log Analytics. L'elenco include, se applicabile, l'area di lavoro predefinita creata dal Centro sicurezza quando è stato abilitato il provisioning automatico. Selezionare questa area di lavoro o un'altra area di lavoro che si desidera usare.
+5. Fare clic su **Configura** sotto alla voce **Aggiungi nuovi computer non Azure**. Viene visualizzato un elenco delle aree di lavoro di Log Analytics. L'elenco include, se applicabile, l'area di lavoro predefinita creata dal Centro sicurezza quando è stato abilitato il provisioning automatico. Selezionare l'area di lavoro che si vuole usare.
 
-    ![Aggiungere computer non Azure][4]
+    ![Aggiungere computer non Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
   Il pannello **Agente diretto** si apre con un collegamento per scaricare un agente Windows e le chiavi per l'ID dell'area di lavoro da usare nella configurazione dell'agente.
 
@@ -104,7 +104,7 @@ In questa Guida introduttiva è stato eseguito il provisioning di Microsoft Moni
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png
-[3]: ./media/quick-onboard-windows-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-windows-computer/get-started.png
 [4]: ./media/quick-onboard-windows-computer/add-computer.png
 [5]: ./media/quick-onboard-windows-computer/log-analytics-mma-setup-laworkspace.png
 [6]: ./media/quick-onboard-windows-computer/compute.png

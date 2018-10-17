@@ -3,23 +3,23 @@ title: Caricamento del livello Standard di Centro sicurezza di Azure per la sicu
 description: " Informazioni su come caricare il livello Standard del Centro sicurezza di Azure per la sicurezza avanzata. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479462"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379996"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Caricamento del livello Standard di Centro sicurezza di Azure per la sicurezza avanzata
 Eseguire l'aggiornamento al livello Standard di Centro sicurezza di Azure per la sicurezza avanzata per sfruttare i vantaggi della gestione della sicurezza avanzata e la protezione dalle minacce per i carichi di lavoro cloud ibridi.  È possibile provare gratuitamente il livello Standard per 60 giorni. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
@@ -40,59 +40,40 @@ Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro
 >
 >
 
-## <a name="upgrade-an-azure-subscription"></a>Aggiornare una sottoscrizione di Azure
-Per aggiornare tutte le sottoscrizioni al livello Standard:
-1. Selezionare **Onboarding nella sicurezza avanzata** nel menu principale del Centro sicurezza.
-2. In **Onboarding nella sicurezza avanzata**, il Centro sicurezza di Azure elenca tutte le sottoscrizioni idonee per il caricamento. È possibile aggiornare tutte le sottoscrizioni elencate selezionando **Applica il piano Standard**.
+## <a name="upgrade-an-azure-subscription-or-workspace"></a>Aggiornare una sottoscrizione o area di lavoro di Azure
+Per aggiornare una sottoscrizione o area di lavoro al livello Standard:
+1. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
+  ![Introduzione](./media/security-center-onboarding/get-started.png)
+2. In **Aggiorna** il Centro sicurezza di Azure elenca le sottoscrizioni e le aree di lavoro idonee per il caricamento. 
+   - È possibile espandere **Applica la versione di prova gratuita** per visualizzare un elenco di tutte le sottoscrizioni e aree di lavoro con il relativo stato di idoneità di valutazione.
+   -    È possibile aggiornare le sottoscrizioni e le aree di lavoro che non sono idonee per la versione di prova gratuita.
+   -    È possibile selezionare le aree di lavoro e le sottoscrizioni idonee per avviare la versione di prova gratuita.
+3.  Fare clic su **Avvia versione di prova gratuita** per avviare la versione di prova gratuita nelle sottoscrizioni selezionate.
+  ![Selezionare la sottoscrizione](./media/security-center-onboarding/select-subscription.png)
 
-  ![Aggiornare tutte le sottoscrizioni][1]
-
-Per aggiornare una singola sottoscrizione al livello Standard, è possibile eseguire l'aggiornamento di una sottoscrizione da **Onboarding** selezionando **Applica il piano Standard**. Per aggiornare un gruppo di risorse nella sottoscrizione al livello Standard, selezionare la sottoscrizione:
-1. Selezionare una sottoscrizione.  **Criteri di sicurezza** fornisce informazioni sul gruppo di risorse contenuto nella sottoscrizione.
-2. Selezionare la sottoscrizione o un gruppo di risorse.
-
-  ![Aggiornare tutte le sottoscrizioni][2]
-
-3. Selezionare **Standard** per eseguire l'aggiornamento dal piano Gratuito a quello Standard.
-4. Selezionare **Salva**.
-
-> [!NOTE]
-> L'aggiornamento di una sottoscrizione a Standard attiverà il [provisioning automatico](security-center-enable-data-collection.md), se disabilitato. Si consiglia il provisioning automatico degli agenti di monitoraggio.
->
->
-
-## <a name="upgrade-a-workspace"></a>Aggiornare un'area di lavoro
-L'applicazione del piano Standard all'area di lavoro vale per tutte le risorse che inviano dati all'area di lavoro.
-
-1. Tornare al pannello **Onboarding**.
-2. Selezionare un'area di lavoro.
-
-  ![Aggiornare un'area di lavoro][8]
-
-3. Selezionare **Standard** per eseguire l'aggiornamento.  
-4. Selezionare **Salva**.
 
    > [!NOTE]
-   > Esiste uno scenario in cui potrebbe non essere disponibile il piano Gratuito o Standard applicato all'area di lavoro. Se si seleziona Gratuito, le funzionalità gratuite del Centro di sicurezza vengono applicate solo alle macchine virtuali di Azure. Non vengono applicate ai computer non Azure. Se si seleziona Standard, le funzionalità Standard vengono applicate a tutte le macchine virtuali di Azure e ai computer non Azure che inviano dati all'area di lavoro. Si consiglia di applicare il piano Standard per fornire la sicurezza avanzata per le risorse Azure e non Azure.
+   > Le funzionalità gratuite del Centro di sicurezza vengono applicate solo alle macchine virtuali di Azure. Non vengono applicate ai computer non Azure. Se si seleziona Standard, le funzionalità Standard vengono applicate a tutte le macchine virtuali di Azure e ai computer non Azure che inviano dati all'area di lavoro. Si consiglia di applicare il piano Standard per fornire la sicurezza avanzata per le risorse Azure e non Azure.
    >
    >
 
 ## <a name="onboard-non-azure-computers"></a>Eseguire il caricamento di computer non Azure
-Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezza dei computer non Azure, ma è necessario prima caricare queste risorse. È possibile aggiungere computer non Azure dal **pannello Onboarding** o **Calcolo**. Verranno esaminati in dettaglio entrambi i metodi.
+Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezza dei computer non Azure, ma è necessario prima caricare queste risorse. È possibile aggiungere computer non Azure dal pannello **Introduzione** o dal pannello **Calcolo**. Verranno esaminati in dettaglio entrambi i metodi.
 
-### <a name="add-new-non-azure-computers-from-onboarding"></a>Aggiungere nuovi computer non Azure da Onboarding
+### <a name="add-new-non-azure-computers-from-getting-started"></a>Aggiungere nuovi computer non Azure da **Introduzione**
 
-1. Tornare a **Onboarding**.   
-2. Selezionare **Do you want to add new non-Azure computers** (Aggiungere nuovi computer non Azure?).
+1. Tornare a **Introduzione**.   
+2. Selezionare la scheda **Introduzione**.
 
-  ![Aggiungere computer non Azure][3]
+  ![Non Azure](./media/security-center-onboarding/non-azure.png)
+
+3. Fare clic su **Configura** in **Aggiungi nuovi computer non Azure**. Viene visualizzato un elenco delle aree di lavoro di Log Analytics. L'elenco include, se applicabile, l'area di lavoro predefinita creata dal Centro sicurezza quando è stato abilitato il provisioning automatico. Selezionare l'area di lavoro che si desidera usare.
+
+  ![Aggiungere computer non Azure][7]
 
 Se sono disponibili, le aree di lavoro esistenti vengono elencate sotto **Add new Non-Azure computers** (Aggiungi nuovi computer non Azure). È possibile aggiungere computer a un'area di lavoro esistente o creare una nuova area di lavoro. Per creare una nuova area di lavoro, selezionare il collegamento per **aggiungere una nuova area di lavoro**.
 
-Verranno esaminati in dettaglio entrambi i metodi:
-
-- Creare una nuova area di lavoro e aggiungere i computer
-- Selezionare un'area di lavoro esistente e aggiungere i computer
+### <a name="add-new-non-azure-computers-from-compute"></a>Aggiungere nuovi computer non Azure da **Calcolo**
 
 **Creare una nuova area di lavoro e aggiungere i computer**
 
@@ -122,7 +103,7 @@ Verranno esaminati in dettaglio entrambi i metodi:
 
    ![Aggiungere computer][7]
 
- Il pannello **Agente diretto** fornisce un collegamento per scaricare un agente Windows o Linux e le chiavi per l'ID dell'area di lavoro da usare nella configurazione dell'agente.   
+ Il pannello **Agente diretto** fornisce un collegamento per scaricare un agente Windows o Linux, nonché l'ID dell'area di lavoro e le chiavi da usare nella configurazione dell'agente.   
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo illustra come caricare risorse Azure e non Azure per trarre vantaggio dalla sicurezza avanzata del Centro sicurezza di Azure.  Per eseguire altre operazioni con le risorse caricate, vedere
@@ -134,9 +115,9 @@ Questo articolo illustra come caricare risorse Azure e non Azure per trarre vant
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png
 [2]: ./media/security-center-onboarding/onboard-subscription.png
-[3]: ./media/security-center-onboarding/add-non-azure-resource.png
+[3]: ./media/security-center-onboarding/get-started.png
 [4]: ./media/security-center-onboarding/create-workspace.png
 [5]: ./media/security-center-onboarding/overview.png
 [6]: ./media/security-center-onboarding/compute-blade.png
-[7]: ./media/security-center-onboarding/add-non-azure-computer.png
+[7]: ./media/security-center-onboarding/add-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png

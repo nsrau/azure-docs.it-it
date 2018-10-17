@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/23/2018
 ms.author: victorh
-ms.openlocfilehash: f706e267675dbb3d5465977157f40824efc96e48
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: cf3e051e4833c6b654e5ff89cd084911521b3d67
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389243"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049240"
 ---
-# <a name="azure-application-gatewaty-url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL nel gatewaty applicazione di Azure
+# <a name="azure-application-gateway-url-path-based-routing-overview"></a>Panoramica del routing basato su percorso URL nel gateway applicazione di Azure
 
 Il routing basato su percorso URL consente di instradare il traffico a pool di server back-end in base ai percorsi URL della richiesta. 
 

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 5ed6a94eb0a8737cc8a6a7d5b26d3aa7e84ef1e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a0ee180475c0264d8fce5856b6354830a42ff963
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952529"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352521"
 documentType: LandingData
 title: Documentazione di Hub eventi di Azure
 metadata:
@@ -12,28 +12,28 @@ metadata:
   title: Documentazione di Hub eventi di Azure - Esercitazioni, guide introduttive e informazioni di riferimento sulle API
   meta.description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
   services: event-hubs
-  author: sethmanheim
+  author: spelluru
   manager: timlt
   ms.service: event-hubs
   ms.topic: landing-page
-  ms.date: 05/14/2018
-  ms.author: sethm
+  ms.date: 10/15/2018
+  ms.author: spelluru
 abstract:
-  description: Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. <p>Per la pubblicazione di eventi in un hub eventi, il servizio supporta i protocolli HTTPS, AMQP 1.0 e Apache Kafka 1.0. Negli ecosistemi Apache Kafka supporta Apache Kafka MirrorMaker, Apache Flink e Akka Streams.</p>
+  description: Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Hub eventi per Apache Kafka consente a client, strumenti e applicazioni Kafka nativi, come Mirror Maker, Apache Flink e Akka Streams, di interagire senza problemi con Hub eventi richiedendo solo modifiche alla configurazione.
   aside:
     image:
       alt: 
       height: 110
-      src: /azure/event-hubs/media/index/azure-messaging-and-event-based-architecture.png
+      src: /azure/event-hubs/media/index/stream-big-data-kafka-event-hubs.png
       width: 250
-    title: Messaggistica di Azure e architettura basata su eventi (1:24:32)
-    href: https://azure.microsoft.com/resources/videos/build-2018-azure-messaging-and-event-based-architecture-in-the-real-world-lessons-learned-rebuilding-microsoft-s-supply-chain-on-azure-serverless/
+    title: Streaming di Big Data in Azure con Kafka e Hub eventi (1:20:13)
+    href: https://azure.microsoft.com/resources/videos/streaming-big-data-in-azure-with-kafka-and-event-hubs/
     width: 250
 sections:
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
-    text: 'Informazioni su come trasmettere dati con Hub eventi:'
+    text: 'Informazioni su come <b>creare</b> un hub eventi:'
   - type: list
     style: icon48
     items:
@@ -49,6 +49,68 @@ sections:
         src: /azure/event-hubs/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/event-hubs/event-hubs-quickstart-powershell
+  - type: paragraph
+    text: 'Informazioni su come <b>inviare eventi</b> a un hub eventi:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/event-hubs/media/index/logo_net.svg
+      text: .NET Framework
+      href: /azure/event-hubs/event-hubs-dotnet-framework-getstarted-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_netcore.svg
+      text: .NET Standard
+      href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_java.svg
+      text: Java
+      href: /azure/event-hubs/event-hubs-java-get-started-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_python.svg
+      text: Python
+      href: /azure/event-hubs/event-hubs-python-get-started-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/event-hubs/event-hubs-node-get-started-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_go.svg
+      text: Go
+      href: /azure/event-hubs/event-hubs-go-get-started-send
+    - image:
+        src: /azure/event-hubs/media/index/logo_c.svg
+      text: C
+      href: /azure/event-hubs/event-hubs-c-getstarted-send
+  - type: paragraph
+    text: 'Informazioni su come <b>ricevere eventi</b> da un hub eventi:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /azure/event-hubs/media/index/logo_net.svg
+      text: .NET Framework
+      href: /azure/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph
+    - image:
+        src: /azure/event-hubs/media/index/logo_netcore.svg
+      text: .NET Standard
+      href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph
+    - image:
+        src: /azure/event-hubs/media/index/logo_java.svg
+      text: Java
+      href: /azure/event-hubs/event-hubs-java-get-started-receive-eph
+    - image:
+        src: /azure/event-hubs/media/index/logo_python.svg
+      text: Python
+      href: /azure/event-hubs/event-hubs-python-get-started-receive
+    - image:
+        src: /azure/event-hubs/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /azure/event-hubs/event-hubs-node-get-started-receive
+    - image:
+        src: /azure/event-hubs/media/index/logo_go.svg
+      text: Go
+      href: /azure/event-hubs/event-hubs-go-get-started-receive-eph
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph

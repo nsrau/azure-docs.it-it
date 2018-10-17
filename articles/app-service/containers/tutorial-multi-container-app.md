@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e99d6e917df1bf3bbb4658524f1b3e249a01da72
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ff3659bd0f4001424ce27484f08a645f364c2ef6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433885"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054639"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Esercitazione: Creare un'app multi-contenitore (anteprima) in App Web per contenitori
 
-[App Web per contenitori](app-service-linux-intro.md) offre un modo flessibile per usare le immagini Docker. In questa esercitazione si apprenderà come creare un'app multi-contenitore usando WordPress e MySQL. Questa esercitazione verrà completata in Cloud Shell, ma gli stessi comandi possono essere eseguiti anche in locale con [Cloud Shell](/cli/azure/install-azure-cli) (2.0.32 o versioni successive).
+[App Web per contenitori](app-service-linux-intro.md) offre un modo flessibile per usare le immagini Docker. In questa esercitazione si apprenderà come creare un'app multi-contenitore usando WordPress e MySQL. Questa esercitazione verrà completata in Cloud Shell, ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.32 o versioni successive).
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
@@ -588,6 +588,30 @@ Al termine della creazione del database, Cloud Shell visualizza informazioni sim
 }
 ```
 
+### <a name="create-a-multi-container-app-kubernetes"></a>Creare un'app multi-contenitore (Kubernetes)
+
+In Cloud Shell creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel gruppo di risorse `myResourceGroup` e il piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
+
+```bash
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
+```
+
+Dopo la creazione dell'app Web, Cloud Shell visualizza un output simile all'esempio seguente:
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
 ### <a name="configure-database-variables-in-wordpress"></a>Configurare le variabili di database in WordPress
 
 Per connettere l'app WordPress a questo nuovo server MySQL occorre configurare alcune variabili di ambiente specifiche di WordPress. Per apportare questa modifica, usare il comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. Le impostazioni delle app applicano la distinzione tra maiuscole e minuscole e sono separate da spazi.
@@ -645,30 +669,6 @@ Al termine della creazione delle impostazioni app, Cloud Shell visualizza inform
     "value": "TRUE"
   }
 ]
-```
-
-### <a name="create-a-multi-container-app-kubernetes"></a>Creare un'app multi-contenitore (Kubernetes)
-
-In Cloud Shell creare un'[app Web](app-service-linux-intro.md) multi-contenitore nel gruppo di risorse `myResourceGroup` e il piano di servizio app `myAppServicePlan` con il comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Non dimenticare di sostituire _\<app_name>_ con un nome univoco per l'app.
-
-```bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
-```
-
-Dopo la creazione dell'app Web, Cloud Shell visualizza un output simile all'esempio seguente:
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
 ```
 
 ### <a name="browse-to-the-app"></a>Passare all'app

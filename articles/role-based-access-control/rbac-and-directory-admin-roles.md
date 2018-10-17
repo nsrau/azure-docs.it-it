@@ -1,5 +1,5 @@
 ---
-title: Ruoli di amministratore sottoscrizione classica, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD | Microsoft Docs
+title: Ruoli di amministratore sottoscrizione classico, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD | Microsoft Docs
 description: 'Vengono descritti i diversi ruoli disponibili in Azure: i ruoli di amministratore sottoscrizione classica, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD'
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 401c9a3df4cb132769e05cb0487a763f4080dd23
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714095"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304077"
 ---
-# <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>Ruoli di amministratore sottoscrizione classica, di controllo degli accessi in base al ruolo di Azure e di amministratore di Azure AD
+# <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Ruoli di amministratore sottoscrizione classico, ruoli di controllo degli accessi in base al ruolo di Azure e ruoli di amministratore di Azure AD
 
 Se non si ha familiarità con Azure, può risultare un difficile comprendere i diversi ruoli disponibili in Azure. Questo articolo descrive i ruoli seguenti e il loro utilizzo:
 - Ruoli di amministratore sottoscrizione classica
@@ -44,15 +44,15 @@ Amministratore account, Amministratore del servizio e Coamministratore sono i tr
 
 | Amministratore sottoscrizione classica | Limite | Autorizzazioni | Note |
 | --- | --- | --- | --- |
-| Amministratore dell'account | 1 per ogni account di Azure | <ul><li>Accedere al [Centro account di Azure](https://account.azure.com/Subscriptions)</li><li>Gestire tutte le sottoscrizioni in un account</li><li>Creare nuove sottoscrizioni</li><li>Annullare le sottoscrizioni</li><li>Modificare la fatturazione per una sottoscrizione</li><li>Modificare l'amministratore del servizio</li></ul> | Concettualmente, il proprietario della fatturazione della sottoscrizione.|
-| Amministratore del servizio | 1 per ogni sottoscrizione di Azure | <ul><li>Gestire i servizi nel [portale di Azure](https://portal.azure.com)</li><li>Assegnare utenti al ruolo di coamministratore</li></ul> | Per impostazione predefinita, per una nuova sottoscrizione l'amministratore account è anche amministratore del servizio.<br>L'amministratore del servizio ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione. |
+| Amministratore dell'account | 1 per ogni account di Azure | <ul><li>Accedere al [Centro account di Azure](https://account.azure.com/Subscriptions)</li><li>Gestire tutte le sottoscrizioni in un account</li><li>Creare nuove sottoscrizioni</li><li>Annullare le sottoscrizioni</li><li>Modificare la fatturazione per una sottoscrizione</li><li>Modificare l'amministratore del servizio</li></ul> | Concettualmente, il proprietario della fatturazione della sottoscrizione.<br>L'amministratore account non ha accesso al portale di Azure. |
+| Amministratore del servizio | 1 per ogni sottoscrizione di Azure | <ul><li>Gestire i servizi nel [portale di Azure](https://portal.azure.com)</li><li>Assegnare utenti al ruolo di coamministratore</li></ul> | Per impostazione predefinita, per una nuova sottoscrizione l'amministratore account è anche amministratore del servizio.<br>L'amministratore del servizio ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione.<br>L'amministratore del servizio ha accesso completo al portale di Azure. |
 | Coamministratore | 200 per ogni sottoscrizione | <ul><li>Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure</li><li>Può assegnare utenti al ruolo di coamministratore, ma non può modificare l'amministratore del servizio</li></ul> | Il coamministratore ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione. |
 
 Nel portale di Azure è possibile visualizzare gli utenti cui è assegnato il ruolo di amministratore account e amministratore del servizio visualizzando le proprietà della sottoscrizione.
 
 ![Account amministratore e amministratore del servizio nel portale di Azure](./media/rbac-and-directory-admin-roles/account-admin-service-admin.png)
 
-Per informazioni su come aggiungere o modificare gli amministratori delle sottoscrizioni, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../billing/billing-add-change-azure-subscription-administrator.md) nella documentazione relativa alla fatturazione di Azure.
+Per informazioni su come aggiungere o modificare gli amministratori classici delle sottoscrizioni, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../billing/billing-add-change-azure-subscription-administrator.md) nella documentazione relativa alla fatturazione di Azure.
 
 ### <a name="azure-account-and-azure-subscriptions"></a>Account e sottoscrizioni di Azure
 

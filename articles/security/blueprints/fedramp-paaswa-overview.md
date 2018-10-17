@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 20aa842fb8168bc28a388c817f4e4eedbdd63ebd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: eb8db75a8ff5af11b98ee2c61628f923a8422153
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726692"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299934"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Progetto per la sicurezza e la conformità di Azure: Applicazione Web PaaS per FedRAMP
 
@@ -28,7 +28,7 @@ Questa architettura di riferimento, le guide all'implementazione dei controlli a
 ## <a name="architecture-diagram-and-components"></a>Diagramma dell'architettura e componenti
 Questa soluzione fornisce un'architettura di riferimento per un'applicazione Web PaaS con un back-end del database SQL di Azure. L'applicazione Web è ospitata in un ambiente del servizio app di Azure isolato, vale a dire un ambiente dedicato privato in un data center di Azure. L'ambiente esegue il bilanciamento del carico del traffico per l'applicazione Web tra le macchine virtuali gestite da Azure. Questa architettura include anche i gruppi di sicurezza di rete, un gateway applicazione, DNS di Azure e Load Balancer. Inoltre, Microsoft Operations Management Suite fornisce analisi in tempo reale dell'integrità e della sicurezza del sistema. **Azure consiglia di configurare una rete VPN o una connessione ExpressRoute per la gestione e l'importazione dei dati in questa subnet dell'architettura di riferimento.**
 
-![Diagramma dell'architettura di riferimento per un'applicazione Web PaaS per FedRAMP](images/fedramp-paaswa-architecture.png?raw=true) "Diagramma dell'architettura di riferimento per un'applicazione Web PaaS per FedRAMP"
+![Diagramma dell'architettura di riferimento dell'applicazione Web PaaS per FedRAMP](images/fedramp-paaswa-architecture.png?raw=true "Diagramma dell'architettura di riferimento dell'applicazione Web PaaS per FedRAMP")
 
 Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
 
@@ -73,7 +73,7 @@ L'uso di ambienti del servizio app per questa architettura è consentito per i c
 
 La sezione [Indicazioni e consigli](#guidance-and-recommendations) contiene altre informazioni sugli ambienti del servizio app.
 
-**App Web di Azure**: [App Web di Azure](https://docs.microsoft.com/azure/app-service/) consente ai clienti di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente le distribuzioni automatizzate da GitHub, Visual Studio Team Services o qualsiasi repository Git.
+**App Web di Azure**: [App Web di Azure](https://docs.microsoft.com/azure/app-service/) consente ai clienti di creare e ospitare applicazioni Web nel linguaggio di programmazione preferito, senza dovere gestire l'infrastruttura. Offre la scalabilità automatica e la disponibilità elevata, supporta sia Windows che Linux e consente distribuzioni automatiche da GitHub, Azure DevOps o qualsiasi repository Git.
 
 ### <a name="virtual-network"></a>Rete virtuale
 L'architettura definisce una rete privata virtuale con spazio degli indirizzi 10.200.0.0/16.

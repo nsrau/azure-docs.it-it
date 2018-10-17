@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: b34fd81532e27960d0dd92f172790aee3cd82ca5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d32fb6e1a85865d89a2f8ee1483eb8fd599b4bb6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639419"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408913"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Guida introduttiva: Creare un server Database di Azure per PostgreSQL nel portale di Azure
 
@@ -50,7 +50,7 @@ Per creare un database di Azure per il server PostgreSQL, seguire questa procedu
     Accesso amministratore server |*myadmin*| Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** o **public**. Non può iniziare con **pg_**.
     Password |Password| Nuova password per l'account amministratore del server. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (da 0 a 9) e caratteri non alfanumerici (!, $, #, % e così via).
     Località|Area più vicina ai propri utenti| Località più vicina agli utenti.
-    Version|Ultima versione| Versione più recente di PostgreSQL, a meno che non si abbiano requisiti specifici diversi.
+    Version|La versione principale più recente| La versione principale più recente di PostgreSQL, a meno che non si abbiano requisiti specifici diversi.
     Piano tariffario | **Utilizzo generico**, **Generazione 4**, **2 vCore**, **5 GB**, **7 giorni**, **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario**. Selezionare quindi la scheda **Utilizzo generico**. *Generazione 4*, *2 vCore*, *5 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo**, **vCore**, **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
 
     > [!IMPORTANT]
@@ -78,13 +78,10 @@ Database di Azure per PostgreSQL crea un firewall a livello di server, che imped
 
 3. In **Regole del firewall** selezionare la casella di testo vuota nella colonna **Nome regola** per iniziare a creare la regola del firewall. 
 
-    Per questa guida introduttiva verranno consentiti tutti gli indirizzi IP nel server. Inserire nella casella di testo di ogni colonna i valori seguenti:
+   Compilare le caselle di testo con un nome e l'intervallo IP di inizio e di fine dei client che avranno accesso ai server. Se si tratta di un singolo indirizzo IP, usare lo stesso valore per l'indirizzo IP iniziale e l'indirizzo IP finale.
 
-    Nome regola | Indirizzo IP iniziale | Indirizzo IP finale 
-    ---|---|---
-    AllowAllIps | 0.0.0.0 | 255.255.255.255
-
-     ![Impostare le regole del firewall](./media/quickstart-create-database-portal/5-firewall-2.png)
+   ![Impostare le regole del firewall](./media/quickstart-create-database-portal/5-firewall-2.png)
+     
 
 4. Sulla barra degli strumenti superiore della pagina **Sicurezza connessione** selezionare **Salva**. Prima di continuare, attendere che venga visualizzata la notifica che informa che l'aggiornamento della sicurezza della connessione è stato completato.
 

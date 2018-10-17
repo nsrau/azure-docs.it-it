@@ -3,7 +3,7 @@ title: Guida introduttiva di Centro sicurezza di Azure - Caricamento della sotto
 description: Questa Guida introduttiva illustra come eseguire l'aggiornamento al piano tariffario Standard del Centro sicurezza per aumentare la sicurezza.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,21 +13,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
-ms.author: terrylan
-ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: dc4c07b54085dfea6d97f2ca43a8cdddfcb9e57c
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059855"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025465"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guida introduttiva: Caricamento della sottoscrizione di Azure al livello Standard del Centro di sicurezza
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione dalle minacce per carichi di lavoro cloud ibridi. Mentre il livello gratuito offre sicurezza limitata delle risorse di Azure, il livello Standard estende le funzionalità in locale e in altri ambienti cloud. Il livello Standard del Centro sicurezza consente di individuare e risolvere le vulnerabilità di sicurezza, di applicare i controlli su applicazioni e accessi per bloccare le attività dannose, di rilevare le minacce usando funzioni di analisi e di intelligenza e di rispondere rapidamente in caso di attacco. È possibile provare gratuitamente il livello Standard del Centro sicurezza per i primi 60 giorni.
 
 Questo articolo descrive come eseguire l'aggiornamento al livello Standard per aumentare la sicurezza e come installare Microsoft Monitoring Agent nelle macchine virtuali per monitorare le vulnerabilità di sicurezza e le minacce.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 Per aggiornare una sottoscrizione al livello Standard, è necessario disporre del ruolo di proprietario della sottoscrizione, collaboratore alla sottoscrizione o amministratore della sicurezza.
@@ -53,20 +53,18 @@ Per sfruttare al meglio il Centro sicurezza, è necessario completare i passaggi
 ## <a name="upgrade-to-the-standard-tier"></a>Eseguire l'aggiornamento al livello Standard
 Ai fini della Guida introduttiva e delle esercitazioni per il Centro di sicurezza è necessario eseguire l'aggiornamento al livello Standard. I primi 60 giorni sono gratuiti ed è possibile tornare al livello gratuito in qualsiasi momento.
 
-1. Selezionare **Onboarding nella sicurezza avanzata** nel menu principale del Centro sicurezza.
+1. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
+ 
+  ![Attività iniziali][4]
 
-2. In **Onboarding nella sicurezza avanzata** il Centro sicurezza di Azure elenca tutte le sottoscrizioni e i carichi di lavoro idonei per il caricamento. Selezionare una sottoscrizione nell'elenco.
+2. In **Aggiorna**, il Centro sicurezza di Azure elenca tutte le sottoscrizioni e i carichi di lavoro idonei per il caricamento. 
+   - È possibile espandere **Apply your trial** (Applicare la versione di valutazione) per visualizzare un elenco di tutte le sottoscrizioni e aree di lavoro con il relativo stato di idoneità alla versione di valutazione.
+   -    È possibile aggiornare le sottoscrizioni e le aree di lavoro che non sono idonee per la versione di valutazione.
+   -    È possibile selezionare le aree di lavoro e le sottoscrizioni idonee per avviare la versione di valutazione.
+3.  Fare clic su **Avvia versione di valutazione** per avviare la versione di valutazione nelle sottoscrizioni selezionate.
 
-  ![Selezionare una sottoscrizione][4]
 
-3. L'opzione **Criteri di sicurezza** offre informazioni sui gruppi di risorse contenuti nella sottoscrizione. Viene inoltre visualizzata la finestra **Prezzi**.
-4. In **Prezzi** selezionare **Standard** per eseguire l'aggiornamento da gratuito a standard e quindi fare clic su **Salva**.
-
-  ![Selezionare Standard][5]
-
-Ora che è stato eseguito l'aggiornamento al livello Standard, si dispone di accesso alle funzionalità aggiuntive del Centro sicurezza, ad esempio **controlli adattivi sulle applicazioni**, **accesso Just-In-Time alle macchine virtuali**, **avvisi di sicurezza**, **funzioni intelligenti contro le minacce**, **playbook di automazione** e altro ancora. Si noti che gli avvisi di sicurezza verranno visualizzata solo quando il Centro sicurezza rileva attività dannose.
-
-  ![Avvisi di sicurezza][7]
+  ![Avvisi di sicurezza][9]
 
 ## <a name="automate-data-collection"></a>Automatizzare la raccolta dei dati
 Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer senza Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. Per impostazione predefinita, il Centro sicurezza crea una nuova area di lavoro per l'utente.
@@ -76,31 +74,29 @@ Dopo aver abilitato il provisioning automatico, il Centro sicurezza installa Mic
 Per abilitare il provisioning automatico di Microsoft Monitoring Agent:
 
 1. selezionare **Criteri di sicurezza** nel menu principale Centro sicurezza.
-2. Selezionare la sottoscrizione.
-3. In **Criteri di sicurezza** selezionare **Raccolta dati**.
-4. In **Raccolta dati** selezionare l'opzione di attivazione**per** abilitare il provisioning automatico.
-5. Selezionare **Salva**.
-
+2. Sulla riga della sottoscrizione, selezionare **Modifica impostazioni>**.
+3. Nella scheda **Raccolta dati**, impostare **Provisioning automatico** su **Sì**.
+4. Selezionare **Salva**.
+****
   ![Abilitare il provisioning automatico][6]
 
 Grazie a queste nuove informazioni sulle macchine virtuali di Azure, il Centro sicurezza può offrire indicazioni aggiuntive correlate allo stato di aggiornamento del sistema, alle configurazioni di sicurezza del sistema operativo e alla protezione di endpoint, nonché generare avvisi di sicurezza aggiuntivi.
 
-  ![Raccomandazioni][8]
+  ![Consigli][8]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide introduttive e le esercitazioni successive, continuare a eseguire il livello Standard e tenere abilitato il provisioning automatico. Se non si intende proseguire oppure si vuole tornare al livello gratuito:
 
 1. Tornare al menu principale del Centro sicurezza e selezionare **Criteri di sicurezza**.
-2. Selezionare la sottoscrizione o i criteri per i quali si vuole tornare al livello gratuito. Viene visualizzata la finestra **Criteri di sicurezza**.
-3. In **COMPONENTI DEI CRITERI** selezionare **Piano tariffario**.
-4. Selezionare **Gratuito** per modificare il livello della sottoscrizione da Standard a Gratuito.
+2. Sulla riga della sottoscrizione che si vuole riportare al livello gratuito, selezionare **Modifica impostazioni>**.
+3. Selezionare **Piano tariffario** e quindi **Gratuito** per modificare il livello della sottoscrizione da Standard a Gratuito.
 5. Selezionare **Salva**.
 
 Se si vuole disabilitare il provisioning automatico:
 
 1. Tornare al menu principale del Centro sicurezza e selezionare **Criteri di sicurezza**.
-2. Selezionare la sottoscrizione per cui si desidera disabilitare il provisioning automatico.
-3. In **Criteri di sicurezza - Raccolta dati** selezionare **No** in **Onboarding** per disabilitare il provisioning automatico.
+2. Sulla riga della sottoscrizione per la quale si vuole disabilitare il provisioning automatico, selezionare **Modifica impostazioni>**.
+3. Nella scheda **Raccolta dati**, impostare **Provisioning automatico** su **No**.
 4. Selezionare **Salva**.
 
 >[!NOTE]
@@ -115,8 +111,9 @@ In questa Guida rapida è stato eseguito l'aggiornamento al livello Standard ed 
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png
-[4]: ./media/security-center-get-started/onboarding.png
+[4]: ./media/security-center-get-started/get-started.png
 [5]: ./media/security-center-get-started/pricing.png
 [6]: ./media/security-center-get-started/enable-automatic-provisioning.png
 [7]: ./media/security-center-get-started/security-alerts.png
 [8]: ./media/security-center-get-started/recommendations.png
+[9]: ./media/security-center-get-started/select-subscription.png

@@ -10,12 +10,12 @@ keywords: automazione di azure, DSC, powershell, configurazione dello stato desi
 ms.date: 03/15/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: ce30a9eb11cd951ca7d8197c15c3becba333f5a9
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e09a1b1c1a849e9957c2969da2b8e4c1d00347ff
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053777"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297696"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Introduzione ad Automazione di Azure
 
@@ -65,7 +65,7 @@ Cercare runbook e moduli nella [raccolta di Automazione](automation-runbook-gall
 
 Automazione di Azure gestisce il ciclo di vita dell'infrastruttura e delle applicazioni. È possibile trasferire nel sistema informazioni sul modo in cui l'organizzazione distribuisce e gestisce i carichi di lavoro. Eseguire attività di creazione in linguaggi comuni come PowerShell, configurazione dello stato desiderato, Python e runbook grafici. Ottenere un inventario completo delle risorse distribuite per targeting, creazione di report e conformità. Identificare le modifiche che possono causare errori di configurazione e migliorare la conformità operativa.
 
-* **Compilare/distribuire risorse**: distribuire VM in un ambiente ibrido usando i runbook e i modelli di Azure Resource Manager. Eseguire l'integrazione in strumenti di sviluppo come Jenkins e Visual Studio Team Services.
+* **Compilare/distribuire risorse**: distribuire VM in un ambiente ibrido usando i runbook e i modelli di Azure Resource Manager. Eseguire l'integrazione negli strumenti di sviluppo come Jenkins e Azure DevOps.
 * **Configurare le macchine virtuali**: valutare e configurare macchine Windows e Linux con la configurazione desiderata per l'infrastruttura e l'applicazione.
 * **Monitorare**: identificare le modifiche che causano problemi e correggere o inoltrare il problema ai sistemi di gestione.
 * **Proteggere**: mettere la VM in quarantena se viene generato un avviso di sicurezza. Definire i requisiti nel guest.

@@ -8,20 +8,20 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5099ca70503ba2ed4ae8f4969a9199816c4986fb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047456"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302572"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integrazione e distribuzione continue in Azure IoT Edge
 
-Questo articolo descrive come usare le funzionalità di integrazione continua e di distribuzione continua di Visual Studio Team Services (VSTS) e Microsoft Team Foundation Server (TFS) per compilare, testare e distribuire applicazioni in Azure IoT Edge in modo rapido ed efficiente. 
+Questo articolo descrive come usare le funzionalità di integrazione continua e di distribuzione continua di Azure DevOps Services e Microsoft Team Foundation Server (TFS) per compilare, testare e distribuire applicazioni in Azure IoT Edge in modo rapido ed efficiente. 
 
 In questo articolo verrà spiegato come:
 * Creare e archiviare un esempio di soluzione IoT Edge contenente unit test.
-* Installare l'estensione Azure IoT Edge per VSTS.
+* Installare l'estensione Azure IoT Edge per Azure DevOps.
 * Configurare l'integrazione continua (CI) per compilare la soluzione ed eseguire gli unit test.
 * Configurare la distribuzione continua (CD) per distribuire la soluzione e vedere i responsi.
 
@@ -277,31 +277,31 @@ In questa sezione si crea una soluzione IoT Edge di esempio contenente unit test
 
     ![Unit test](./media/how-to-ci-cd/unit-test.png)
 
-7. Salvare i progetti, quindi archiviarli nel repository di VSTS o TFS.
+7. Salvare i progetti, quindi archiviarli nel repository di Azure DevOps o TFS.
     
 
 > [!NOTE]
-> Per altre informazioni sull'utilizzo dei repository di codice VSTS, vedere [Share your code with Visual Studio and VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts) (Condividere il codice con Visual Studio e il git VSTS).
+> Per altre informazioni sull'uso di Azure Repos, vedere [Condividere il codice con Visual Studio e Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
 ## <a name="configure-continuous-integration"></a>Configurare l'integrazione continua
-In questa sezione si crea una definizione di compilazione che viene configurata per l'esecuzione automatica quando si archiviano modifiche all'esempio di soluzione IoT Edge e che esegue automaticamente gli unit test che contiene.
+In questa sezione si crea una pipeline di compilazione che viene configurata per l'esecuzione automatica quando si archiviano modifiche all'esempio di soluzione IoT Edge e che esegue automaticamente gli unit test che contiene.
 
-1. Accedere al proprio account VSTS (**https://**_account-personale_**.visualstudio.com**) e aprire il progetto in cui è stata archiviata l'app di esempio.
+1. Accedere all'organizzazione Azure DevOps (**https://**_account-personale_**.visualstudio.com**) e aprire il progetto in cui è stata archiviata l'app di esempio.
 
     ![Archiviare il codice](./media/how-to-ci-cd/init-project.png)
 
-1. Visitare la pagina [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) nel VSTS Marketplace. Fare clic su **Get it free** e seguire le istruzioni per installare questa estensione nell'account VSTS o scaricarla in TFS.
+1. Visita [Azure IoT Edge per Azure DevOps](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) in Marketplace di Azure DevOps. Fare clic su **Get it free** e seguire la procedura guidata per installare l'estensione nell'organizzazione Azure DevOps o scaricarla in TFS.
 
     ![Installare l'estensione](./media/how-to-ci-cd/install-extension.png)
 
-1. In VSTS, aprire l'hub **Compilazione e &amp; versione**, quindi nella scheda **Compilazioni** scegliere **+ Nuova definizione**. In alternativa, se si dispone già di definizioni di compilazione, scegliere il pulsante **+ Nuova**. 
+1. In Azure DevOps, aprire l'hub **Compilazione e &amp; versione**, quindi nella scheda **Compilazioni** scegliere **+ Nuova pipeline**. In alternativa, se si dispone già di pipeline di compilazione, scegliere il pulsante **+ Nuova**. 
 
     ![Nuova compilazione](./media/how-to-ci-cd/add-new-build.png)
 
-1. Se richiesto, selezionare il tipo di origine **Git VSTS**. Selezionare quindi progetto, repository e ramo in cui si trova il codice. Scegliere **Continua**.
+1. Se richiesto, selezionare il tipo di origine **Git Azure DevOps**. Selezionare quindi progetto, repository e ramo in cui si trova il codice. Scegliere **Continua**.
 
-    ![Selezionare il git VSTS](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Selezionare Git Azure DevOps](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. Nella finestra **Select a template** (Selezionare un modello) scegliere **start with an Empty process** (iniziare con un processo vuoto).
 
@@ -343,9 +343,9 @@ In questa sezione si crea una definizione di compilazione che viene configurata 
 
     ![Trigger](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Salvare la nuova definizione di compilazione e accodare una nuova compilazione. Fare clic sul pulsante **Save & queue** (Salva e accoda).
+1. Salvare la nuova pipeline di compilazione e accodare una nuova compilazione. Fare clic sul pulsante **Save & queue** (Salva e accoda).
 
-1. Scegliere il collegamento alla compilazione nella barra dei messaggi che viene visualizzata. Passare in alternativa alla definizione di compilazione per visualizzare il processo di compilazione in coda più recente.
+1. Scegliere il collegamento alla compilazione nella barra dei messaggi che viene visualizzata. Passare in alternativa alla pipeline di compilazione per visualizzare il processo di compilazione in coda più recente.
 
     ![Compilare](./media/how-to-ci-cd/build-def.png)
 

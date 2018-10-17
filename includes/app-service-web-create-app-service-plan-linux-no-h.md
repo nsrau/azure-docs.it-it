@@ -2,10 +2,10 @@ In Cloud Shell creare un piano di servizio app nel gruppo di risorse con il coma
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-L'esempio seguente crea un piano di servizio app denominato `myAppServicePlan` nel piano tariffario **Standard** (`--sku S1`) e in un contenitore Linux (`--is-linux`).
+L'esempio seguente crea un piano di servizio app denominato `myAppServicePlan` nel piano tariffario **Basic** (`--sku B1`) e in un contenitore Linux (`--is-linux`).
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 ```
 
 Al termine della creazione del piano di servizio app, l'interfaccia della riga di comando di Azure visualizza informazioni simili all'esempio seguente:

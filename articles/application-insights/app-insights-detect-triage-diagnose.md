@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
-ms.date: 06/26/2017
+ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b83d08b9dac4fccc033ad4537afd343a6fbe02c2
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 799593758bf24924d91d38bd6a626b945247183b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23660596"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050239"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>Panoramica di Application Insights per DevOps
 
@@ -50,7 +50,7 @@ Ci si concentra ora parte del ciclo dedicata ai commenti e suggerimenti:
 ## <a name="detect-poor-availability"></a>Rilevare scarsa disponibilità
 Marcela Markova è un senior developer del team di OBS e accetta di essere responsabile del monitoraggio delle prestazioni online. Imposta alcuni [test di disponibilità](app-insights-monitor-web-app-availability.md):
 
-* Un test con singolo URL per la pagina di destinazione principale per l'app, http://fabrikambank.com/onlinebanking/. Imposta i criteri del codice HTTP 200 e il testo 'Benvenuto'. Se il test ha esito negativo, è presente un grave problema relativo alla rete o ai server o forse un problema di distribuzione, oppure un utente ha modificato il messaggio di benvenuto nella pagina senza comunicarlo a lei.
+* Un test con singolo URL per la pagina di destinazione principale dell'app, http://fabrikambank.com/onlinebanking/. Imposta i criteri del codice HTTP 200 e il testo 'Benvenuto'. Se il test ha esito negativo, è presente un grave problema relativo alla rete o ai server o forse un problema di distribuzione, oppure un utente ha modificato il messaggio di benvenuto nella pagina senza comunicarlo a lei.
 * Un test più approfondito in più passaggi, che registra e ottiene un elenco di account corrente, che verifica alcuni dettagli chiave in ogni pagina. Questo test verifica che il collegamento al database degli account sia funzionante. Usa un id cliente fittizio: alcuni vengono mantenuti a scopo di test.
 
 Con questi test impostati, Marcela è certa che il team verrà rapidamente a conoscenza di ogni interruzione.  
@@ -64,7 +64,7 @@ Ma soprattutto viene inviato al team di sviluppo un avviso su eventuali errori m
 ## <a name="monitor-performance"></a>Monitorare le prestazioni
 Nella pagina Panoramica in Application Insights è presente un grafico che mostra una serie di [metriche chiave](app-insights-web-monitor-performance.md).
 
-![Alcuni criteri di misurazione](./media/app-insights-detect-triage-diagnose/05-perfMetrics.png)
+![Schermata panoramica dei grafi degli indicatori KPI](./media/app-insights-detect-triage-diagnose/overview-graphs.png)
 
 Il tempo di caricamento della pagina del browser deriva dai dati di telemetria inviati direttamente dalle pagine Web. Il tempo di risposta del server, il numero di richieste al server e il numero di richieste non riuscite sono tutti misurati nel server Web e inviati direttamente ad Application Insights.
 
@@ -72,7 +72,7 @@ Marcela è un po' in apprensione riguardo al grafico di risposta del server, che
 
 Apre i grafici dei server:
 
-![Alcuni criteri di misurazione](./media/app-insights-detect-triage-diagnose/06.png)
+![Alcuni criteri di misurazione](./media/app-insights-detect-triage-diagnose/002-servers.png)
 
 Apparentemente non si rilevano limitazioni delle risorse, quindi magari i salti nei grafici di risposta del server sono solo una coincidenza.
 
@@ -154,7 +154,7 @@ Eccezioni ed eventi vengono visualizzati nel pannello [Ricerca diagnostica](app-
 ## <a name="monitor-proactively"></a>Monitorare in modo proattivo
 Marcela non resta ferma in attesa di avvisi. Subito dopo ogni ridistribuzione, esamina i [tempi di risposta](app-insights-web-monitor-performance.md), sia la figura nel suo complesso che la tabella delle richieste più lente, nonché il numero di eccezioni.  
 
-![Grafico dei tempi di risposta e griglia dei tempi di risposta del server.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Grafico dei tempi di risposta e griglia dei tempi di risposta del server.](./media/app-insights-detect-triage-diagnose/response-time.png)
 
 Marcela riesce a valutare l'impatto sulle prestazioni di ogni distribuzione, in genere confrontando ogni settimana con l'ultima. Se si verifica un improvviso peggioramento, lo segnala agli sviluppatori rilevanti.
 
@@ -168,8 +168,6 @@ Al contrario, un aumento significativo e stabile nel grafico del numero di eccez
 Una tattica di valutazione utile è fare una prova in prima persona. Se si rileva lo stesso problema, risulta chiaro che è reale.
 
 Quale parte di utenti è interessata? Per ottenere una risposta approssimativa, dividere la percentuale di errori per il numero di sessioni.
-
-![Grafici delle sessioni e richieste non riuscite](./media/app-insights-detect-triage-diagnose/10-failureRate.png)
 
 Quando le risposte sono lente, confrontare la tabella delle richieste che rispondono più lentamente con la frequenza d'uso di ogni pagina.
 
@@ -203,7 +201,6 @@ Il team di sviluppo della banca Fabrikam adotta un approccio più strutturato pe
 * Gli obiettivi delle prestazioni erano impostati in termini di misure specifiche nella pagina di panoramica di Application Insights.
 * Progettano le misurazioni di prestazioni nell'applicazione fin dall'inizio, ad esempio le metriche che misurano l'avanzamento utente tramite 'grafici'.  
 
-
 ## <a name="monitor-user-activity"></a>Monitorare l'attività dell'utente
 Quando il tempo di risposta è coerentemente adeguato e sono presenti poche eccezioni, il team di sviluppo può passare all'usabilità. Si può pensare a come migliorare l'esperienza degli utenti e a incoraggiare più utenti affinché raggiungano gli obiettivi desiderati.
 
@@ -211,7 +208,7 @@ Application Insights consente anche di essere usato per informazioni sulle opera
 
 Ad esempio, un tipico percorso utente nel sito Web presenta chiaramente un "imbuto." Molti clienti esaminano le frequenze dei diversi tipi di prestito. Un numero inferiore compila il modulo delle offerte. Tra quelli che ricevono un'offerta, alcuni proseguono per avere il prestito.
 
-![Numero di visualizzazioni della pagina](./media/app-insights-detect-triage-diagnose/12-funnel.png)
+![Numero di visualizzazioni della pagina](./media/app-insights-detect-triage-diagnose/funnel.png)
 
 Considerando il punto in cui la maggior parte degli utenti abbandona, l'azienda può valutare come fare in modo che più utenti completino il percorso fino alla fine. In alcuni casi potrebbe trattarsi di un errore dell'esperienza utente, ad esempio, è difficile trovare il pulsante "Avanti" o le istruzioni non sono intuitive. Più probabilmente, esistono motivi aziendali più significativi per gli abbandoni: forse i tassi di prestito sono troppo alti.
 

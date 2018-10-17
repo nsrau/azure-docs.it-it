@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972292"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302470"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry in Azure
 
@@ -60,9 +60,9 @@ Se si usa Pivotal Cloud Foundry, il Service Broker è anche [disponibile come ri
 
 ## <a name="related-resources"></a>Risorse correlate
 
-### <a name="visual-studio-team-services-plugin"></a>Plug-in di Visual Studio Team Services
+### <a name="azure-devops-services-plugin"></a>Plug-in di Azure DevOps Services
 
-Cloud Foundry è particolarmente adatto per Agile Software Development e l'uso dell'integrazione continua e del recapito continuo. Se si usa Visual Studio Team Services (VSTS) per gestire i progetti e si vuole configurare una pipeline di integrazione continua/recapito continuo per Cloud Foundry, è possibile usare l'[estensione di VSTS per la compilazione per Cloud Foundry](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Il plug-in semplifica la configurazione e l'automazione delle distribuzioni in Cloud Foundry, indipendentemente dal fatto che vengano eseguite in Azure o in un altro ambiente.
+Cloud Foundry è particolarmente adatto per Agile Software Development e l'uso dell'integrazione continua e del recapito continuo. Se si usa Azure DevOps Services per gestire i progetti e si desidera configurare una pipeline CI/CD per Cloud Foundry, è possibile usare l'[estensione di Azure DevOps Services per la compilazione per Cloud Foundry](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Il plug-in semplifica la configurazione e l'automazione delle distribuzioni in Cloud Foundry, indipendentemente dal fatto che vengano eseguite in Azure o in un altro ambiente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

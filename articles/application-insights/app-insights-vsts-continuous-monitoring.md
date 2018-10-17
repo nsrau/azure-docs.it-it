@@ -1,33 +1,34 @@
 ---
-title: Monitoraggio continuo della pipeline di versione di DevOps con VSTS e Azure Application Insights | Microsoft Docs
+title: Monitoraggio continuo della pipeline di versione di DevOps con Azure DevOps e Azure Application Insights | Microsoft Docs
 description: Vengono fornite istruzioni per configurare rapidamente il monitoraggio continuo con Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/13/2017
 ms.service: application-insights
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bfbdd0033f966422a84071a694845627827f016
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301626"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Aggiungere un monitoraggio continuo alla pipeline di versione
 
-Visual Studio Team Services (VSTS) si integra con Azure Application Insights per consentire il monitoraggio continuo della pipeline di versione di DevOps in tutto il ciclo di vita di sviluppo del software. 
+Azure DevOps Services si integra con Azure Application Insights per consentire il monitoraggio continuo della pipeline di versione di DevOps in tutto il ciclo di vita di sviluppo del software. 
 
-VSTS supporta ora il monitoraggio continuo con cui le pipeline di versione possono incorporare i dati di monitoraggio da Application Insights e da altre risorse di Azure. Quando si rileva un avviso di Application Insights, la distribuzione può rimanere controllata o essere sottoposta a rollback fino alla risoluzione dell'avviso. Se si superano tutti i controlli, le distribuzioni possono passare automaticamente dal test alla produzione senza la necessità di interventi manuali. 
+Azure DevOps Services supporta ora il monitoraggio continuo con cui le pipeline di versione possono incorporare i dati di monitoraggio da Application Insights e da altre risorse di Azure. Quando si rileva un avviso di Application Insights, la distribuzione può rimanere controllata o essere sottoposta a rollback fino alla risoluzione dell'avviso. Se si superano tutti i controlli, le distribuzioni possono passare automaticamente dal test alla produzione senza la necessità di interventi manuali. 
 
 ## <a name="configure-continuous-monitoring"></a>Configurare il monitoraggio continuo
 
-1. Selezionare un progetto VSTS esistente.
+1. Selezionare un progetto Azure DevOps Services.
 
 2. Passare il mouse su **Compilazione e versione** > selezionare **Versioni** > fare clic sul **segno di addizione** > **Crea definizione di versione** > cercare **Monitoraggio** > **Azure App Service Deployment with Continuous Monitoring (Distribuzione del servizio app di Azure con monitoraggio continuo).**
 
-   ![Nuova definizione della versione di VSTS](.\media\app-insights-continuous-monitoring\001.png)
+   ![Nuova pipeline di versione di Azure DevOps Services](.\media\app-insights-continuous-monitoring\001.png)
 
 3. Fare clic su **Apply** (Applica).
 
@@ -39,8 +40,8 @@ VSTS supporta ora il monitoraggio continuo con cui le pipeline di versione posso
 
     | Parametro        | Valore |
    | ------------- |:-----|
-   | **Nome ambiente**      | Nome che descrive l'ambiente di definizione di versione |
-   | **Sottoscrizione di Azure** | L'elenco a discesa si popola con le sottoscrizioni di Azure collegate all'account di VSTS|
+   | **Nome ambiente**      | Nome che descrive l'ambiente della pipeline di versione |
+   | **Sottoscrizione di Azure** | L'elenco a discesa si popola con le sottoscrizioni di Azure collegate all'organizzazione di Azure DevOps Services|
    | **Nome del servizio app** | In base alle altre selezioni, per questo campo potrebbe essere necessaria l'immissione manuale di un nuovo valore |
    | **Gruppo di risorse**    | L'elenco a discesa si popola con i gruppi di risorse disponibili |
    | **Nome risorsa di Application Insights** | L'elenco a discesa si popola con tutte le risorse di Application Insights che corrispondono al gruppo di risorse selezionato in precedenza.
@@ -89,4 +90,4 @@ Per osservare questo comportamento, selezionare **Versioni** > fare clic con il 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Compilazione e versione di VSTS provare queste [guide rapide.](https://docs.microsoft.com/vsts/build-release/)
+Per altre informazioni su Azure Pipelines consultare le seguenti [guide introduttive.](https://docs.microsoft.com/azure/devops/pipelines)
