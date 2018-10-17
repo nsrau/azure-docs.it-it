@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216309"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735580"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Sviluppare soluzioni di calcolo parallele su larga scala con Batch
 
@@ -79,11 +79,13 @@ Un account Batch è un'entità identificata in modo univoco all'interno del serv
 
 La maggior parte delle soluzioni Batch usa l'Archiviazione di Azure per archiviare i file delle risorse e i file di output. Ad esempio, le attività di Batch, incluse le attività standard, le attività di avvio, le attività di preparazione del processo e le attività di rilascio del processo, devono specificare in genere file di risorse che si trovano in un account di archiviazione.
 
-Batch supporta le [opzioni dell'account](../storage/common/storage-account-options.md) seguenti di Archiviazione di Azure:
+Batch supporta i tipi di account di Archiviazione di Azure seguenti:
 
 * Account per utilizzo generico v2 
 * Account per utilizzo generico v1
 * Gli account di archiviazione BLOB (attualmente supportati per i pool nella configurazione macchina virtuale)
+
+Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../storage/common/storage-account-overview.md).
 
 È possibile associare un account di archiviazione all'account Batch quando si crea un account Batch o in seguito. Prendere in considerazione i requisiti relativi a costi e prestazioni durante la scelta di un account di archiviazione. Ad esempio, le opzioni dell'account di archiviazione per utilizzo generico v2 e BLOB supportano [limiti di capacità e scalabilità](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) superiori rispetto all'utilizzo generico v1. Contattare il supporto tecnico di Azure per richiedere un incremento del limite di archiviazione. Queste opzioni dell'account possono migliorare le prestazioni delle soluzioni Batch che contengono un numero elevato di attività parallele che leggono da o scrivono nell'account di archiviazione.
 
@@ -288,7 +290,7 @@ Se un'attività di avvio non riesce in un nodo di calcolo, lo stato del nodo vie
 Se si aggiunge o si aggiorna l'attività di avvio per un pool esistente, è necessario riavviare i relativi nodi di calcolo per applicare l'attività di avvio ai nodi.
 
 >[!NOTE]
-> La dimensione totale di un'attività di avvio deve essere inferiore o uguale a 32768 caratteri, inclusi i file di risorse e le variabili di ambiente. Per assicurarsi che l'attività di avvio soddisfi questo requisito, è possibile usare uno dei due approcci seguenti:
+> Batch limita le dimensioni totali di un'attività di avvio, che include i file di risorse e le variabili di ambiente. Se è necessario ridurre le dimensioni di un'attività di avvio, è possibile usare uno dei due approcci:
 >
 > 1. È possibile usare i pacchetti dell'applicazione per distribuire le applicazioni o i dati in ogni nodo del pool di Batch. Per altre informazioni sui pacchetti dell'applicazione, vedere [Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch](batch-application-packages.md).
 > 2. È possibile creare manualmente un archivio compresso contenente i file delle applicazioni. Caricare l'archivio compresso in Archiviazione di Azure come BLOB. Specificare l'archivio compresso come file di risorse per l'attività di avvio. Prima di eseguire la riga di comando per l'attività di avvio, decomprimere l'archivio dalla riga di comando. 
@@ -540,7 +542,7 @@ Nei casi in cui alcune attività non riescono, il servizio o l'applicazione clie
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
+[py_add_user]: https://docs.microsoft.com/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

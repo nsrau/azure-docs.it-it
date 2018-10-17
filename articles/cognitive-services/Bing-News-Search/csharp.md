@@ -1,22 +1,23 @@
 ---
-title: Avvio rapido di C# per Servizi cognitivi di Azure, API Ricerca notizie Bing | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca notizie Bing in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: API Ricerca notizie Bing, C#'
+titlesuffix: Azure Cognitive Services
+description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Ricerca notizie Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 0364d5754539c0e83318d595fd00b3e7b7e79c08
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 48c6bf413ab2b5a45b5daa54ad31afe2c0fdf8f1
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377369"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804267"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-c"></a>Avvio rapido per l'API Ricerca notizie Bing con C#
+# <a name="quickstart-bing-news-search-api-with-c"></a>Guida introduttiva: API Ricerca notizie Bing con C#
 
 Questo articolo spiega come usare l'API di ricerca Bing, inclusa in Servizi cognitivi Microsoft in Azure. Questo articolo riguarda C#, ma l'API è un servizio Web RESTful compatibile con qualsiasi linguaggio di programmazione che sia in grado di effettuare richieste HTTP e analizzare una stringa JSON. 
 
@@ -24,9 +25,9 @@ L'esempio di codice è scritto in C# come applicazione .NET Core, con dipendenze
 
 Per i dettagli tecnici sulle API, vedere le [informazioni di riferimento sulle API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo Avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo Avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 
 ## <a name="bing-news-search"></a>Ricerca notizie Bing
 
@@ -34,7 +35,7 @@ L'[API Ricerca notizie Bing](https://docs.microsoft.com/rest/api/cognitiveservic
 
 1. Creare una nuova soluzione console in Visual Studio; la Community Edition va bene.
 1. Sostituire Program.cs con il codice fornito di seguito.
-1. Sostituire il valore `accessKey` con una chiave di accesso valida per la sottoscrizione.
+1. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
 1. Eseguire il programma.
 
 ```csharp
@@ -190,7 +191,7 @@ namespace BingNewsSearchCSharpCore
 
 **Risposta**
 
-Una risposta con esito positivo viene restituita in JSON, come illustrato nell'esempio seguente:
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
 
 ```json
 {

@@ -1,27 +1,27 @@
 ---
-title: Esercitazione per l'API Viso in Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Informazioni sull'uso dell'API Viso con Python SDK per rilevare visi umani in un'immagine in Servizi cognitivi.
+title: "Esercitazione: Rilevare e incorniciare i visi in un'immagine - API Viso, Python"
+titleSuffix: Azure Cognitive Services
+description: Informazioni sull'uso dell'API Viso con Python SDK per rilevare visi umani in un'immagine.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 90d74d8df2ed59e6f3313ef7c620284d1022a667
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049112"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127738"
 ---
-# <a name="getting-started-with-face-api-in-python-tutorial"></a>Esercitazione introduttiva per l'API Viso in Python
+# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>Esercitazione: Rilevare e incorniciare i visi con l'API Viso e Python 
 
 In questa esercitazione si apprenderà come richiamare l'API Viso tramite Python SDK per rilevare visi umani in un'immagine.
 
-## <a name="prerequisites"></a> Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per usare l'esercitazione è necessario eseguire le operazioni seguenti:
 
@@ -35,7 +35,7 @@ pip install cognitive_face
 
 - Ottenere una [chiave di sottoscrizione](https://azure.microsoft.com/try/cognitive-services/) per Servizi cognitivi Microsoft. In questa esercitazione è possibile usare la chiave primaria o quella secondaria. Tenere presente che per usare qualsiasi API Viso è necessario avere una chiave di sottoscrizione valida.
 
-## <a name="sdk-example"></a> Rilevare un viso in un'immagine
+## <a name="detect-a-face-in-an-image"></a>Rilevare un viso in un'immagine
 
 ```python
 import cognitive_face as CF
@@ -93,7 +93,7 @@ for face in faces:
 img.show()
 ```
 
-## <a name='further'></a> Esplorazione aggiuntiva
+## <a name="further-exploration"></a>Esplorazione aggiuntiva
 
 Se si vuole esplorare ulteriormente l'API Viso, questa esercitazione offre un esempio di interfaccia utente grafica. Per eseguirla, installare prima [wxPython](https://wxpython.org/pages/downloads/) e quindi eseguire il comando seguente.
 
@@ -103,11 +103,11 @@ cd Cognitive-Face-Python
 python sample
 ```
 
-## <a name="summary"></a> Riepilogo
+## <a name="summary"></a>Summary
 
 In questa esercitazione si è appreso il processo di base per l'uso dell'API Viso tramite la chiamata di Python SDK. Per altre informazioni sui dettagli dell'API, vedere le guide pratiche e le [informazioni di riferimento dell'API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="related"></a> Argomenti correlati
+## <a name="related-topics"></a>Argomenti correlati
 
 - [Getting Started with Face API in CSharp](FaceAPIinCSharpTutorial.md) (Introduzione all'API Viso in CSharp)
 - [Getting Started with Face API in Java for Android](FaceAPIinJavaForAndroidTutorial.md) (Introduzione all'API Viso in Java per Android)

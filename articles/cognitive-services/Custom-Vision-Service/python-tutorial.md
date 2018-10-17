@@ -1,35 +1,36 @@
 ---
-title: Esercitazione del Servizio visione artificiale personalizzato con Python - Servizi cognitivi di Azure | Microsoft Docs
-description: In questa esercitazione si esplora un'app di base Python che usa l'API Visione personalizzata in Servizi cognitivi Microsoft. Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
+title: 'Esercitazione: Creare un progetto di classificazione immagini - Servizio visione artificiale personalizzato, Python'
+titlesuffix: Azure Cognitive Services
+description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: tutorial
+ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 0359935bf266d4f2a5cf845dd0d23183f4f77b72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375276"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363378"
 ---
-# <a name="custom-vision-api-python-tutorial"></a>Esercitazione dell'API Visione personalizzata con Python
+# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Esercitazione: Creare un progetto di classificazione immagini usando il Servizio visione artificiale personalizzato con Python
 
 Informazioni su come creare un progetto di classificazione immagini con il Servizio visione artificiale personalizzato e uno script Python di base. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app usando l'API Visione personalizzata.
 
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - Python 2.7+ o Python 3.5.+.
 - Strumento pip.
 
 ## <a name="get-the-training-and-prediction-keys"></a>Ottenere le chiavi di training e di stima
 
-Per ottenere le chiavi usate in questo esempio, visitare la [pagina Web di Servizio visione artificiale personalizzato](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Accounts__ (Account) copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
+Per ottenere le chiavi usate in questo esempio, visitare la [pagina Web di Servizio visione artificiale personalizzato](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Account__ copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
 
 ![Immagine dell'interfaccia utente delle chiavi](./media/python-tutorial/training-prediction-keys.png)
 

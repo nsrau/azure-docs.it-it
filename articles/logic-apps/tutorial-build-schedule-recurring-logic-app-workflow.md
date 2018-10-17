@@ -1,28 +1,23 @@
 ---
 title: Creare flussi di lavoro automatizzati basati su utilità di pianificazione - App per la logica di Azure | Microsoft Docs
-description: Questa esercitazione illustra come creare un flusso di lavoro automatizzato basato su utilità di pianificazione e ricorrente con App per la logica di Azure
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: 'Esercitazione: come creare un flusso di lavoro automatizzato basato su utilità di pianificazione e ricorrente con App per la logica di Azure'
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300770"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042292"
 ---
-# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Controllare il traffico con un'app per la logica basata su utilità di pianificazione
+# <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Controllare il traffico in base a una pianificazione con App per la logica di Azure
 
 App per la logica di Azure aiuta ad automatizzare i flussi di lavoro eseguiti in base a una pianificazione. Questa esercitazione illustra come creare un'[app per la logica](../logic-apps/logic-apps-overview.md) con un trigger che funziona come utilità di pianificazione, che viene eseguito al mattino di ogni giorno feriale e controlla il tempo di viaggio, incluso il traffico, tra due luoghi. Se il tempo supera un limite specifico, l'app per la logica invia un messaggio di posta elettronica in cui sono indicati il tempo di viaggio e il tempo aggiuntivo necessario per raggiungere la destinazione.
 
@@ -42,7 +37,7 @@ Al termine, a livello generale l'app per la logica dovrebbe avere un flusso di l
 
 Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account di Azure gratuito</a> prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account di posta elettronica di un provider supportato da App per la logica, ad esempio un account Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](https://docs.microsoft.com/connectors/). Questa guida introduttiva usa un account Outlook.com. Se si usa un account di posta elettronica diverso, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
 
@@ -62,7 +57,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
    ![Specificare le informazioni sull'app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | Impostazione | Valore | DESCRIZIONE | 
+   | Impostazione | Valore | Descrizione | 
    | ------- | ----- | ----------- | 
    | **Nome** | LA-TravelTime | Nome dell'app per la logica | 
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Nome della sottoscrizione di Azure | 
@@ -93,7 +88,7 @@ Aggiungere quindi il [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    ![Specificare i dettagli relativi a pianificazione e ricorrenza](./media/tutorial-build-scheduled-recurring-logic-app-workflow/schedule-recurrence-trigger-settings.png)
 
-   | Impostazione | Valore | DESCRIZIONE | 
+   | Impostazione | Valore | Descrizione | 
    | ------- | ----- | ----------- | 
    | **Interval** | 1 | Numero di intervalli di attesa tra i controlli | 
    | **Frequenza** | Settimana | Unità di tempo da usare per la ricorrenza | 
@@ -128,7 +123,7 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-overvi
 
    ![Selezionare l'azione "Bing Maps - Get route" (Bing Maps - Ottieni itinerario)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | Impostazione | Valore | DESCRIZIONE |
+   | Impostazione | Valore | Descrizione |
    | ------- | ----- | ----------- |
    | **Connection Name** (Nome connessione) | BingMapsConnection | Specificare un nome per la connessione. | 
    | **Chiave API** | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. Se non si ha una chiave di Bing Maps, leggere le informazioni su <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">come ottenere una chiave</a>. | 
@@ -140,7 +135,7 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-overvi
 
    ![Specificare le informazioni per l'azione "Bing Maps - Get route" (Bing Maps - Ottieni itinerario)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
-   | Impostazione | Valore | DESCRIZIONE |
+   | Impostazione | Valore | Descrizione |
    | ------- | ----- | ----------- |
    | **Punto di tragitto 1** | <*luogo-di-partenza*> | Origine dell'itinerario | 
    | **Punto di tragitto 2** | <*luogo-di-arrivo*> | Destinazione dell'itinerario | 
@@ -174,7 +169,7 @@ Per impostazione predefinita, l'azione **Get route** (Ottieni itinerario) preced
 
 4. Specificare i dettagli per la variabile come descritto di seguito:
 
-   | Impostazione | Valore | DESCRIZIONE | 
+   | Impostazione | Valore | Descrizione | 
    | ------- | ----- | ----------- | 
    | **Nome** | travelTime | Nome della variabile | 
    | **Tipo** | Integer | Tipo di dati della variabile | 

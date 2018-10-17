@@ -1,23 +1,23 @@
 ---
-title: Guida introduttiva all'SDK di Ricerca personalizzata per C# | Microsoft Docs
-titleSuffix: Cognitive Services
+title: 'Guida introduttiva: Custom Search SDK, C#'
+titleSuffix: Azure Cognitive Services
 description: Configurazione dell'SDK di Ricerca personalizzata per l'applicazione console in C#.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6c9917e3a63515f36b386e444edcc53de07799fc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5abf1027059bed9c685e0eb44f17ab41dfabf655
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949928"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816770"
 ---
-# <a name="c-sdk-quickstart"></a>Guida introduttiva per C# SDK
+# <a name="quickstart-using-the-bing-custom-search-sdk-with-c"></a>Guida introduttiva: Uso di Bing Custom Search SDK con C#
 
 L'SDK di Ricerca personalizzata Bing offre un modello di programmazione più semplice rispetto all'API REST di Ricerca personalizzata Bing. Questa sezione illustra in dettaglio la creazione delle prime chiamate di Ricerca personalizzata tramite C# SDK.
 
@@ -27,7 +27,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 
 - Un'istanza di Ricerca personalizzata pronta per l'uso. Vedere [Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md).  
   
-- Una chiave di sottoscrizione. È possibile ottenere una chiave di sottoscrizione quando si attiva la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure (vedere [Account delle API di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
+- Una chiave di sottoscrizione. È possibile ottenere una chiave di sottoscrizione quando si attiva la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search). In alternativa è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure (vedere [Account delle API di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
   
 - Visual Studio 2017 installato. Se non è stato ancora installato, è possibile scaricare **gratuitamente** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).  
   

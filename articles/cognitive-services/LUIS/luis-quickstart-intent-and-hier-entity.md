@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 92b6327cbb97ed871cd4b10977bcd73a81494e20
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042126"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831025"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Esercitazione 5: estrarre dati correlati in base al contesto
 Questa esercitazione illustra come trovare informazioni correlate di dati basati sul contesto. Ad esempio, spostare una località di origine e destinazione di un computer fisico da un edificio e un ufficio a un altro edificio e ufficio sono informazioni correlate. Per generare un ordine di lavoro potrebbero essere necessarie entrambi i dati, i quali sono correlati tra loro.  
@@ -44,7 +44,7 @@ L'entità gerarchica è una buona soluzione per questo tipo di dati, perché i d
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
-Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
 Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
@@ -52,7 +52,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 2. Importare il file JSON in una nuova app.
 
-3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `hier`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL. 
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `hier`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL. 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Rimuovere l'entità numero predefinita dall'app
 Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerarchici, è necessario rimuovere temporaneamente l'entità numero predefinita.
@@ -61,7 +61,7 @@ Per visualizzare l'intera espressione e contrassegnare gli elementi figlio gerar
 
 2. Selezionare **Entità** nel menu a sinistra.
 
-3. Selezionare i puntini di sospensione ***(...)*** a destra dell'entità number nell'elenco. Selezionare **Elimina**. 
+3. Selezionare la casella di controllo a sinistra dell'entità numero nell'elenco. Selezionare **Elimina**. 
 
 ## <a name="add-utterances-to-moveemployee-intent"></a>Aggiungere espressioni alla finalità MoveEmployee
 

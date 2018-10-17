@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.author: markvi
-ms.reviewer: jairoc
-ms.openlocfilehash: f9664e22be5d7a17dd2a2a7c328593d8168c26f0
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.reviewer: spunukol
+ms.openlocfilehash: 1b8a6e6a6b5f482a4e3575c4da18a02a958c4081
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434739"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249367"
 ---
 # <a name="how-to-manage-the-stale-devices-in-azure-ad"></a>Procedura: Gestire i dispositivi non aggiornati in Azure AD
 
@@ -111,7 +111,7 @@ Se il dispositivo è sotto il controllo di Intune o di qualsiasi altra soluzione
 
 ### <a name="system-managed-devices"></a>Dispositivi gestiti dal sistema
 
-Non eliminare i dispositivi gestiti dal sistema. Si tratta in genere di dispositivi come il pilota automatico e, una volta eliminati, non possono essere sottoposti a nuovo provisioning. Per impostazione predefinita, il nuovo cmdlet Get-MmsolDevice esclude i dispositivi gestiti dal sistema. 
+Non eliminare i dispositivi gestiti dal sistema. Si tratta in genere di dispositivi come il pilota automatico e, una volta eliminati, non possono essere sottoposti a nuovo provisioning. Per impostazione predefinita, il nuovo cmdlet `get-msoldevice` esclude i dispositivi gestiti dal sistema. 
 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti all'identità ibrida di Azure AD
@@ -137,7 +137,7 @@ Disabilitare o eliminare i dispositivi registrati in Azure AD in Azure AD.
 
 
 
-## <a name="cleanup-stale-devices-in-the-azure-portal"></a>Eseguire la pulizia dei dispositivi non aggiornati nel portale di Azure  
+## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Eseguire la pulizia dei dispositivi non aggiornati nel portale di Azure  
 
 Anche se è possibile eliminare i dispositivi non aggiornati nel portale di Azure, è più efficiente gestire questo processo tramite uno script di PowerShell. Usare il modulo PowerShell V1 più recente per usare il filtro timestamp ed escludere tramite filtro i dispositivi gestiti dal sistema come il pilota automatico. A questo punto, non è consigliabile usare PowerShell V2.
 
@@ -150,7 +150,9 @@ Una tipica routine comprende i passaggi seguenti:
 
 3. Disabilitare il dispositivo usando il cmdlet [Disable-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/disable-msoldevice?view=azureadps-1.0). 
 
-4. Rimuovere il dispositivo usando il cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
+4. Attendere il periodo di tolleranza del numero di giorni specificati prima di eliminare il dispositivo.
+
+5. Rimuovere il dispositivo usando il cmdlet [Remove-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/remove-msoldevice?view=azureadps-1.0).
 
 ### <a name="get-the-list-of-devices"></a>Ottenere l'elenco dei dispositivi
 

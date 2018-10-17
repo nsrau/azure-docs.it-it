@@ -6,15 +6,15 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 10/5/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ff8df51011ef664950ecfeb9eef0b201306c8ad5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221653"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801880"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -186,6 +186,10 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 10. Fare clic su **Subnet** e quindi su **Associa**.
 11. Fare clic su **Rete virtuale** e quindi selezionare **Test-FW-VN**.
 12. In **Subnet** fare clic su **Workload-SN**.
+
+    > [!IMPORTANT]
+    > Assicurarsi di selezionare solo la subnet **Workload-SN** per questa route; in caso contrario, il firewall non funzionerà correttamente.
+
 13. Fare clic su **OK**.
 14. Fare clic su **Route** e quindi su **Aggiungi**.
 15. In **Nome route** immettere **FW-DG**.
@@ -193,8 +197,8 @@ Per la subnet **Workload-SN** configurare la route predefinita in uscita per pas
 17. In **Tipo hop successivo** selezionare **Appliance virtuale**.
 
     Firewall di Azure è in effetti un servizio gestito, ma in questa situazione è possibile usare un'appliance virtuale.
-1. In **Indirizzo hop successivo** immettere l'indirizzo IP privato per il firewall annotato in precedenza.
-2. Fare clic su **OK**.
+18. In **Indirizzo hop successivo** immettere l'indirizzo IP privato per il firewall annotato in precedenza.
+19. Fare clic su **OK**.
 
 
 ## <a name="configure-application-rules"></a>Configurare le regole di applicazione
@@ -267,7 +271,7 @@ A questo punto si è verificato che le regole del firewall funzionano:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Configurare la rete

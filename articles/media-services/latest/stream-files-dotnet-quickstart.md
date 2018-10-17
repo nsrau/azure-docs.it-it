@@ -4,28 +4,29 @@ description: Seguire i passaggi di questa guida introduttiva per creare un nuovo
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: azure media services, streaming
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8bef52bb7cb56646b0f09e2cb7910bab3f55e0c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701039"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223543"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Guida introduttiva: Eseguire lo streaming di file video - .NET
 
 > [!NOTE]
 > La versione più recente di Servizi multimediali di Azure è disponibile in anteprima e può essere indicata come v3. Per iniziare a usare le API v3, è necessario creare un nuovo account di Servizi multimediali, come descritto in questa guida introduttiva. 
 
-Questa guida introduttiva illustra quanto sia facile iniziare a eseguire lo streaming di video su un'ampia gamma di browser e dispositivi tramite Servizi multimediali di Azure. L'esempio in questo argomento codifica contenuti resi accessibili tramite un URL HTTPS. 
+Questa guida introduttiva illustra quanto sia facile codificare e iniziare a eseguire lo streaming di video su un'ampia gamma di browser e dispositivi tramite Servizi multimediali di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi ai file che si trovano nell'archivio BLOB di Azure.
+L'esempio in questo argomento codifica contenuti resi accessibili tramite un URL HTTPS. Si noti che attualmente AMS v3 non supporta la codifica di trasferimenti in blocchi su URL HTTPS.
 
 Al termine della guida introduttiva, sarà possibile eseguire lo streaming di un video.  
 
@@ -33,7 +34,7 @@ Al termine della guida introduttiva, sarà possibile eseguire lo streaming di un
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Se Visual Studio non è installato, è possibile scaricare [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 
@@ -42,7 +43,7 @@ Se Visual Studio non è installato, è possibile scaricare [Visual Studio Commun
 Clonare nel computer un repository GitHub contenente l'esempio .NET di streaming usando il comando seguente:  
 
  ```bash
- git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+ git clone http://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
 L'esempio è disponibile nella cartella [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles).

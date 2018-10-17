@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 514b2a026ea34f4bd82f13ebc73c09f71637ce30
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978353"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48784638"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box tramite il portale di Azure
 
@@ -31,21 +31,22 @@ Per istruzioni dettagliate sulla distribuzione e sul monitoraggio, vedere [Tutor
 
 Prima di iniziare:
 
-- Assicurarsi che la sottoscrizione usata per il servizio Data Box sia una dei tipi seguenti:
+- La sottoscrizione usata per il servizio Data Box sia di uno dei tipi seguenti:
     - Contratto Enterprise Microsoft. Altre informazioni sui [contratti Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Altre informazioni sul [programma Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Pagamento in base al consumo. Altre informazioni sulle [sottoscrizioni con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) di Azure.
+    - Con pagamento in base al consumo. Altre informazioni sulle [sottoscrizioni con pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/) di Azure.
+    - Microsoft Azure Sponsorship Altre informazioni sul [programma Azure Sponsorship](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/). 
 
-- Assicurarsi di avere accesso come proprietario o collaboratore alla sottoscrizione per creare un ordine Data Box.
+- Si abbia accesso alla sottoscrizione come proprietario o collaboratore per creare un ordine Data Box.
 - Esaminare le [linee guida di sicurezza per Data Box](data-box-safety.md).
-- Accertarsi che sia disponibile un computer host con i dati da copiare in Data Box. Il computer host deve:
+- Sia disponibile un computer host con i dati da copiare nel Data Box. Il computer host deve:
     - Eseguire un [sistema operativo supportato](data-box-system-requirements.md).
     - Essere connesso a una rete ad alta velocità. È consigliabile disporre di una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà. 
-- È necessario avere accesso a una superficie piana su cui posizionare Data Box. Per posizionare il dispositivo su uno scaffale standard, è necessario uno slot 7U nel rack del data center. È possibile posizionare il dispositivo in posizione piatta o in verticale nel rack.
-- Assicurarsi di disporre dei cavi seguenti per la connessione di Data Box al computer host.
-    - Due cavi in rame SFP+ Twinax a 10 GbE (da usare con interfacce di rete DATA 1, DATA 2)
-    - Un cavo di rete RJ-45 CAT 6 (da usare con interfaccia di rete MGMT)
-    - Un cavo di rete RJ-45 CAT 6A o RJ-45 CAT 6 (da usare con l'interfaccia di rete DATA 3 configurata rispettivamente come 10 Gbps o 1 Gbps)
+- Si abbia accesso a una superficie piana su cui posizionare il Data Box. Per posizionare il dispositivo su uno scaffale standard, è necessario uno slot 7U nel rack del data center. È possibile posizionare il dispositivo in piano o in verticale nel rack.
+- Si disponga dei cavi seguenti per collegare il Data Box al computer host.
+    - Due cavi in rame SFP+ Twinax a 10 GbE (da usare con le interfacce di rete DATA 1, DATA 2)
+    - Un cavo di rete RJ-45 CAT 6 (da usare con l'interfaccia di rete MGMT)
+    - Un cavo di rete RJ-45 CAT 6A oppure RJ-45 CAT 6 (da usare con l'interfaccia di rete DATA 3 configurata rispettivamente come 10 Gbps o 1 Gbps)
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 

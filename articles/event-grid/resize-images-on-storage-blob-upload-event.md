@@ -9,15 +9,15 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 922c87f2d577aff86d51a1fde53f221ebd2fa82c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446691"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585578"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizzare il ridimensionamento delle immagini caricate con Griglia di eventi
 
@@ -43,6 +43,16 @@ Per completare questa esercitazione:
 È necessario aver completato l'esercitazione precedente sull'archiviazione BLOB: [Upload image data in the cloud with Azure Storage][previous-tutorial] (Caricare dati dell'immagine nel cloud con Archiviazione di Azure).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+Se il provider di risorse di Griglia di eventi non è stato registrato in precedenza nella sottoscrizione, assicurarsi che sia registrato.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.EventGrid
+```
+
+```azurecli-interactive
+az provider register --namespace Microsoft.EventGrid
+```
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -91,8 +101,10 @@ storageConnectionString=$(az storage account show-connection-string \
 az functionapp config appsettings set --name <function_app> \
 --resource-group myResourceGroup \
 --settings myblobstorage_STORAGE=$storageConnectionString \
-myContainerName=thumbnails
+myContainerName=thumbnails FUNCTIONS_EXTENSION_VERSION=~2
 ```
+
+Con l'impostazione `FUNCTIONS_EXTENSION_VERSION=~2` l'app per le funzioni viene eseguita nella versione 2.x del runtime di Funzioni di Azure.
 
 È ora possibile distribuire un progetto di codice funzione in quest'app per le funzioni.
 
@@ -110,9 +122,8 @@ az functionapp deployment source config --name <function_app> \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
-La funzione di ridimensionamento di esempio Node.js è disponibile in [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Distribuire il progetto di codice funzione nell'app per le funzioni usando il comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config). 
-
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+La funzione di ridimensionamento di esempio Node.js è disponibile in [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node). Distribuire il progetto di codice funzione nell'app per le funzioni usando il comando [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config).
 
 Nel comando seguente `<function_app>` è il nome dell'app per le funzioni creata in precedenza.
 
@@ -177,7 +188,7 @@ Si noti che quando l'immagine caricata scompare, nella sequenza video **Generate
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * creare un account generale di Archiviazione di Azure

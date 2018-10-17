@@ -1,6 +1,6 @@
 ---
-title: Configurare Azure AD Privileged Identity Management | Documentazione Microsoft
-description: Argomento che descrive Azure AD Privileged Identity Management e illustra come usare PIM per migliorare la sicurezza del cloud.
+title: Che cos'è Azure AD Privileged Identity Management? | Microsoft Docs
+description: Fornisce una panoramica su Azure Active Directory Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8ac1dad9413d9e2710722127c2e837223a5b6f7f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618853"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465861"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Che cos'è Azure AD Privileged Identity Management?
 
-Con Azure Active Directory (AD) Privileged Identity Management è possibile gestire, il controllo e monitorare l'accesso all'interno dell'organizzazione. È incluso l'accesso alle risorse in Azure AD, Risorse di Azure (Anteprima) e altri Servizi online Microsoft, ad esempio Office 365 o Microsoft Intune.
+Con Azure Active Directory (Azure AD) Privileged Identity Management è possibile gestire, controllare e monitorare gli accessi all'interno dell'organizzazione, incluso l'accesso alle risorse in Azure AD, alle risorse di Azure e ad altri Servizi online Microsoft, ad esempio Office 365 o Microsoft Intune.
 
 > [!NOTE]
 > Quando si abilita Privileged Identity Management per il tenant, è necessaria una licenza valida per Azure AD Premium P2 o Enterprise Mobility + Security E5 a pagamento o di valutazione per ogni utente che riceve un vantaggio dal servizio o che interagisce con esso. Gli esempi includono gli utenti o gli utenti in un gruppo che sono:
@@ -39,11 +39,11 @@ Le organizzazioni desiderano ridurre al minimo il numero di utenti che hanno acc
 
 Azure AD Privileged Identity Management consente all'azienda di eseguire le operazioni seguenti:
 
-- Vedere a quali utenti vengono assegnati i ruoli con privilegi per gestire le risorse di Azure (Anteprima), nonché a quali utenti vengono assegnati i ruoli amministrativi in Azure AD
-- Abilitare l'accesso come amministratore JIT su richiesta ai Microsoft Online Services, ad esempio Office 365 e, e alle risorse di Azure (Anteprima) delle sottoscrizioni, ai gruppi di risorse e alle singole risorse, ad esempio le Macchine Virtuali 
--   Visualizzare una cronologia dell'attivazione dell'amministratore, comprese le modifiche che gli amministratori hanno apportato alle risorse di Azure (Anteprima)
+- Vedere a quali utenti vengono assegnati i ruoli con privilegi per gestire le risorse di Azure, nonché a quali utenti vengono assegnati i ruoli amministrativi in Azure AD
+- Abilitare l'accesso come amministratore JIT su richiesta ai Microsoft Online Services, ad esempio Office 365 e Intune, e alle risorse di Azure delle sottoscrizioni, ai gruppi di risorse e alle singole risorse, come le macchine virtuali 
+- Visualizzare una cronologia dell'attivazione dell'amministratore, comprese le modifiche che gli amministratori hanno apportato alle risorse di Azure
 - Ottenere gli avvisi sulle modifiche apportate nelle assegnazioni di amministratore
-- Richiedere l'approvazione per attivare i ruoli di amministratore con privilegi di Azure AD (Anteprima) 
+- Richiedere l'approvazione per attivare i ruoli di amministratore con privilegi di Azure AD
 - Esaminare l'appartenenza dei ruoli di amministratore e richiedere agli utenti di fornire una giustificazione per l'appartenenza continua
 
 In Azure AD, Azure AD Privileged Identity Management è in grado di gestire gli utenti assegnati ai ruoli aziendali predefiniti di Azure Active Directory, ad esempio Amministratore globale. In Azure, Azure AD Privileged Identity Management è possibile gestire gli utenti e i gruppi assegnati tramite i ruoli di Azure RBAC, compresi il Proprietario o il Collaboratore.
@@ -51,6 +51,35 @@ In Azure AD, Azure AD Privileged Identity Management è in grado di gestire gli 
 ## <a name="just-in-time-administrator-access"></a>Accesso amministratore just-in-time
 
 In passato, era possibile assegnare un utente a un ruolo di amministratore tramite il portale di Azure, altri portali di Microsoft Online Services o i cmdlet di Azure AD in Windows PowerShell. Di conseguenza l'utente diventa **amministratore permanente**, sempre attivo nel ruolo assegnato. Azure AD Privileged Identity Management introduce il concetto di **amministratore idoneo**. Gli amministratori idonei devono essere utenti che necessitano dell'accesso con privilegi in modo occasionale, non con cadenza quotidiana, per tutto il giorno. Il ruolo è inattivo fino a quando l'utente che necessita dell'accesso non completa un processo di attivazione e diventa amministratore attivo per un periodo di tempo predeterminato. Sempre più organizzazioni scelgono di usare questo approccio per ridurre o eliminare l'"accesso di amministratore permanente" a ruoli con privilegi.
+
+
+## <a name="terminology"></a>Terminologia
+
+*Eligible Role User (Utente con ruolo idoneo)*: un utente con ruolo idoneo è un utente dell’organizzazione assegnato come idoneo a un ruolo Azure AD (ruolo che richiede l’attivazione).
+
+*Delegated Approver* (Responsabile approvazione con delega): un responsabile approvazione con delega è una o più persone o gruppi nell'istanza di Azure AD responsabili dell'approvazione delle richieste di attivazione dei ruoli.
+
+## <a name="scenarios"></a>Scenari
+
+Privileged Identity Management supporta gli scenari seguenti:
+
+**Come amministratore del ruolo con privilegi, è possibile:**
+
+- Abilitare l’approvazione per ruoli specifici
+- Specificare utenti e/o gruppi approvatori per approvare le richieste
+- Visualizzare la cronologia delle richieste e delle approvazioni per tutti i ruoli con privilegi
+
+**Come responsabile approvazione designato, è possibile:**
+
+- Visualizzare le approvazioni (richieste) in sospeso
+- Approvare o rifiutare le richieste di elevazione del ruolo (singolarmente e/o in blocco)
+- Fornire una giustificazione per l’approvazione/il rifiuto 
+
+**Come utente con ruolo idoneo, è possibile:**
+
+- Richiedere l’attivazione di un ruolo che richiede l’approvazione
+- Visualizzare lo stato della richiesta da attivare
+- Completare l’attività in Azure AD se l’attivazione è stata approvata
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>Abilitare Privileged Identity Management per la directory
 
@@ -71,17 +100,17 @@ Per i ruoli di Azure RBAC, le assegnazioni per altri amministratori di Azure AD 
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Panoramica di Privileged Identity Management (Punto di ingresso)
 
-Azure AD Privileged Identity Management supporta l'amministrazione dei ruoli della directory di Azure AD e le risorse di Azure (Anteprima). La funzione di ruoli per le risorse di Azure differisce dai ruoli amministrativi in Azure AD. I ruoli delle risorse di Azure forniscono le autorizzazioni di granularità per la risorsa in cui sono assegnati e tutte le risorse subordinate nella gerarchia di risorse (nota come ereditarietà). [Altre informazioni su RBAC, gerarchia delle risorse ed ereditarietà](../../role-based-access-control/role-assignments-portal.md). È possibile amministrare PIM sia per i ruoli della directory di Azure AD che per le Risorse di Azure (Anteprima) accedendo al collegamento appropriato nella sezione Gestisci del menu di spostamento a sinistra del punto di ingresso della Panoramica di PIM.
+Azure AD Privileged Identity Management supporta l'amministrazione dei ruoli della directory di Azure AD e le risorse di Azure. La funzione di ruoli per le risorse di Azure differisce dai ruoli amministrativi in Azure AD. I ruoli delle risorse di Azure forniscono le autorizzazioni di granularità per la risorsa in cui sono assegnati e tutte le risorse subordinate nella gerarchia di risorse (nota come ereditarietà). [Altre informazioni su RBAC, gerarchia delle risorse ed ereditarietà](../../role-based-access-control/role-assignments-portal.md). È possibile amministrare PIM sia per i ruoli della directory di Azure AD sia per le risorse di Azure accedendo al collegamento appropriato nella sezione Gestisci del menu di spostamento a sinistra del punto di ingresso della Panoramica di PIM.
 
 PIM offre un comodo accesso per l'attivazione di ruoli, la visualizzazione delle attivazioni/richieste in sospeso, delle approvazioni in sospeso (per i ruoli della directory di Azure AD) e delle verifiche in sospeso in attesa della risposta dell'utente dalla sezione Attività nel menu di spostamento a sinistra.
 
-Quando si accede a una delle voci del menu Attività dal punto di ingresso Panoramica, la visualizzazione risultante contiene i risultati per i ruoli della directory di Azure AD e per i ruoli delle risorse di Azure (Anteprima).
+Quando si accede a una delle voci del menu Attività dal punto di ingresso Panoramica, la visualizzazione risultante contiene i risultati per i ruoli della directory di Azure AD e per i ruoli delle risorse di Azure.
 
 ![Avvio rapido](./media/pim-configure/quick-start.png)
 
-Ruoli personali contiene un elenco delle assegnazioni a ruoli attivi e idonei dell'utente per i ruoli della directory di Azure AD e per i ruoli delle risorse di Azure (Anteprima). [Altre informazioni sull'attivazione di assegnazioni di ruolo idonee](pim-how-to-activate-role.md).
+Ruoli personali contiene un elenco delle assegnazioni a ruoli attivi e idonei dell'utente per i ruoli della directory di Azure AD e per i ruoli delle risorse di Azure. [Altre informazioni sull'attivazione di assegnazioni di ruolo idonee](pim-how-to-activate-role.md).
 
-L'attivazione dei ruoli per Risorse di Azure (Anteprima) introduce una nuova esperienza che consente ai membri di un ruolo idoneo di pianificare l'attivazione per una data/ora futura e selezionare una durata di attivazione specifica entro il valore massimo, consentito dagli amministratori.
+L'attivazione dei ruoli per le risorse di Azure introduce una nuova esperienza che consente ai membri di un ruolo idoneo di pianificare l'attivazione per una data/ora futura e selezionare una durata di attivazione specifica entro il valore massimo, consentito dagli amministratori.
 
 ![](./media/pim-configure/activations.png)
 
@@ -97,15 +126,15 @@ In Azure AD Privileged Identity Management è disponibile un dashboard dell'ammi
 * Numero di utenti assegnati a ogni ruolo con privilegi  
 * Numero di amministratori permanenti e idonei
 * Un grafo di attivazioni del ruolo con privilegi nella directory
-*   Il numero di JIT, del limite di tempo e delle assegnazioni permanenti per i ruoli delle risorse di Azure (Anteprima)
-*   Utenti e gruppi con nuove assegnazioni di ruolo negli ultimi 30 giorni (Ruoli delle risorse di Azure)
+* Il numero di JIT, del limite di tempo e delle assegnazioni permanenti per i ruoli delle risorse di Azure
+* Utenti e gruppi con nuove assegnazioni di ruolo negli ultimi 30 giorni (ruoli delle risorse di Azure)
 
 
 ![Dashboard PIM - Schermata](./media/pim-configure/PIM_Admin_Overview.png)
 
 ## <a name="privileged-role-management"></a>Gestione dei ruoli con privilegi
 
-Con Azure AD Privileged Identity Management è possibile gestire gli amministratori tramite l'aggiunta o la rimozione di amministratori permanenti o idonei a ogni ruolo per i ruoli della directory di Azure AD. Con PIM per le Risorse di Azure (Anteprima), i proprietari, gli amministratori dell'accesso utente e gli amministratori globali che consentono la gestione delle sottoscrizioni al proprio tenant possono assegnare utenti o gruppi ai ruoli delle risorse di Azure come ad esempio idoneo (accesso JIT), Limite di tempo (attivazione non necessaria) con una data/ora di inizio e di fine o permanente (se abilitato nelle impostazioni del ruolo).
+Con Azure AD Privileged Identity Management è possibile gestire gli amministratori tramite l'aggiunta o la rimozione di amministratori permanenti o idonei a ogni ruolo per i ruoli della directory di Azure AD. Con PIM per le risorse di Azure, i proprietari, gli amministratori dell'accesso utente e gli amministratori globali che consentono la gestione delle sottoscrizioni al proprio tenant possono assegnare utenti o gruppi ai ruoli delle risorse di Azure come ad esempio idoneo (accesso JIT), Limite di tempo (attivazione non necessaria) con una data/ora di inizio e di fine o permanente (se abilitato nelle impostazioni del ruolo).
 
 ![Aggiunta/Rimozione di amministratori PIM - Schermata](./media/pim-configure/PIM_AddRemove.png)
 
@@ -117,13 +146,13 @@ L'uso delle [impostazioni del ruolo](pim-how-to-change-default-settings.md) cons
 * Notifica di attivazione del ruolo
 * Informazioni che l'utente deve specificare durante il processo di attivazione del ruolo
 * Ticket di servizio o numero dell'evento imprevisto
-* [Requisiti del flusso di lavoro di approvazione - Anteprima](./azure-ad-pim-approval-workflow.md)
+* [Requisiti del flusso di lavoro di approvazione](./azure-ad-pim-approval-workflow.md)
 
 ![Impostazioni di PIM - Attivazione dell'amministratore - Schermata](./media/pim-configure/PIM_Settings_w_Approval_Disabled.png)
 
 Nell'immagine notare che i pulsanti per **Multi-Factor Authentication** sono disabilitati. Per determinati ruoli con privilegi elevati, è necessaria l'autenticazione MFA per una protezione avanzata.
 
-Le impostazioni di ruolo per i ruoli di risorse di Azure (Anteprima) consentono agli amministratori di configurare delle impostazioni JIT e dirette, tra cui:
+Le impostazioni di ruolo per i ruoli delle risorse di Azure consentono agli amministratori di configurare delle impostazioni JIT e dirette, tra cui:
 
 - La possibilità di assegnare l'utente o i gruppi ai ruoli senza una data/ora di fine (assegnazione permanente)
 - La durata predefinita di un'assegnazione (quando non permanente)
@@ -144,7 +173,7 @@ L'attivazione del ruolo è personalizzabile. Nelle impostazioni di PIM è possib
 
 ## <a name="review-role-activity"></a>Verificare l'attività del ruolo
 
-È possibile verificare l'uso dei ruoli con privilegi da parte di dipendenti e amministratori in due modi. La prima opzione consiste nell'uso della [Cronologia di controllo dei ruoli della directory](pim-how-to-use-audit-log.md). La cronologia di controllo registra il rilevamento delle modifiche nelle assegnazioni di ruolo con privilegi, nella cronologia di attivazione del ruolo e nelle modifiche alle impostazioni per i ruoli di risorse di Azure (Anteprima). 
+È possibile verificare l'uso dei ruoli con privilegi da parte di dipendenti e amministratori in due modi. La prima opzione consiste nell'uso della [Cronologia di controllo dei ruoli della directory](pim-how-to-use-audit-log.md). La cronologia di controllo registra il rilevamento delle modifiche nelle assegnazioni di ruolo con privilegi, nella cronologia di attivazione del ruolo e nelle modifiche alle impostazioni per i ruoli delle risorse di Azure. 
 
 ![Cronologia di attivazione PIM - Schermata](./media/pim-configure/PIM_ActivationHistory.png)
 
@@ -157,4 +186,6 @@ Se l'azienda non rinnova Azure AD Premium P2 o la versione di valutazione scade,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Requisiti della sottoscrizione per usare PIM](subscription-requirements.md)
+- [Ruoli directory di Azure AD che è possibile gestire in PIM](pim-roles.md)
+- [Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

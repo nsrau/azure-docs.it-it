@@ -1,20 +1,21 @@
 ---
-title: Informazioni su Ricerca personalizzata Bing | Microsoft Docs
-description: Panoramica generale di Ricerca personalizzata Bing
+title: Informazioni su Ricerca personalizzata Bing
+titlesuffix: Azure Cognitive Services
+description: Panoramica generale di Ricerca personalizzata Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: overview
 ms.date: 09/29/2017
 ms.author: v-brapel
-ms.openlocfilehash: b6f50844d6571cca6d63c1db7a85863e3d22d411
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2483bf36bb18af21bc454e08f3321b33094c43c8
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948078"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814305"
 ---
 # <a name="what-is-bing-custom-search"></a>Informazioni su Ricerca personalizzata Bing
 

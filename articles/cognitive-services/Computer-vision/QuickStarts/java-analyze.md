@@ -1,73 +1,65 @@
 ---
-title: API Visione artificiale - Guida introduttiva a Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si analizza un'immagine usando Visione artificiale con Java in Servizi cognitivi.
+title: "Guida introduttiva: Analizzare un'immagine remota - REST, Java - Visione artificiale"
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si analizzerà un'immagine usando l'API Visione artificiale con Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 9faa8d05a747855ceb0a468845c3d3a82aa71337
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 901fb2c592d78bf26e36e0ecd0417ee995bc5771
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772155"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631090"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-java"></a>Guida introduttiva: Analizzare un'immagine remota - REST, Java
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-java-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST e Java in Visione artificiale
 
-In questa guida introduttiva si analizza un'immagine per estrarre le caratteristiche visive usando Visione artificiale.
+In questa guida introduttiva si analizzerà un'immagine archiviata in remoto per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Visione artificiale, è necessario avere una chiave di sottoscrizione. A tale scopo, vedere [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Come ottenere chiavi di sottoscrizione).
+- È necessario aver installato la piattaforma [Java&trade; Standard Edition Development Kit 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 o 8).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Richiesta di analisi dell'immagine
+## <a name="create-and-run-the-sample-application"></a>Creare ed eseguire l'applicazione di esempio
 
-Con il [metodo Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), è possibile estrarre caratteristiche visive in base al contenuto di un'immagine. È possibile caricare un'immagine o specificare l'URL di un'immagine e scegliere le caratteristiche da restituire, tra cui:
+Per creare ed eseguire l'esempio, seguire questa procedura:
 
-* Un elenco dettagliato di tag correlati al contenuto dell'immagine.
-* Una frase completa di descrizione del contenuto dell'immagine.
-* Le coordinate, il sesso e l'età di tutti i visi presenti nell'immagine.
-* Il tipo di immagine (ClipArt o disegno di linee).
-* Il colore principale, il colore dominante o l'indicazione se un'immagine è in bianco e nero.
-* La categoria definita in questa [tassonomia](../Category-Taxonomy.md).
-* L'indicazione se l'immagine presenta contenuto per adulti o con riferimenti sessuali.
+1. Creare un nuovo progetto Java nell'IDE o nell'editor preferito. Se l'opzione è disponibile, creare il progetto Java da un modello di applicazione della riga di comando.
+1. Importare le librerie seguenti nel progetto Java. Se si usa Maven, verranno fornite le coordinate di Maven per ogni libreria.
+   - [Client HTTP Apache](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
+   - [HTTP Apache core](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
+   - [Libreria JSON](https://github.com/stleary/JSON-java) (org.json:json:20180130)
+1. Aggiungere le istruzioni `import` seguenti al file che contiene la classe pubblica `Main` del progetto.  
 
-Per eseguire l'esempio, seguire questa procedura:
+   ```java
+   import java.net.URI;
+   import org.apache.http.HttpEntity;
+   import org.apache.http.HttpResponse;
+   import org.apache.http.client.methods.HttpPost;
+   import org.apache.http.entity.StringEntity;
+   import org.apache.http.client.utils.URIBuilder;
+   import org.apache.http.impl.client.CloseableHttpClient;
+   import org.apache.http.impl.client.HttpClientBuilder;
+   import org.apache.http.util.EntityUtils;
+   import org.json.JSONObject;
+   ```
 
-1. Crea una nuova app da riga di comando.
-1. Sostituire la classe Main con il codice seguente (mantenere le eventuali istruzioni `package`).
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `uriBase` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, modificare il valore di `imageToAnalyze` impostando un'altra immagine.
-1. Scaricare queste librerie dal repository Maven nella directory `lib` del progetto:
-   * `org.apache.httpcomponents:httpclient:4.5.5`
-   * `org.apache.httpcomponents:httpcore:4.4.9`
-   * `org.json:json:20180130`
-1. Eseguire 'Main'.
+1. Sostituire la classe pubblica `Main` con il codice seguente e quindi apportare le modifiche seguenti nel codice, dove necessario:
+   1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
+   1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+   1. Facoltativamente, sostituire il valore di `imageToAnalyze` con l'URL di un'altra immagine da analizzare.
+1. Salvare e quindi compilare il progetto Java.
+1. Se si usa un ambiente di sviluppo integrato, eseguire `Main`. In caso contrario, aprire una finestra del prompt dei comandi e usare il comando `java` per eseguire la classe compilata. Ad esempio: `java Main`.
 
 ```java
-// This sample uses the following libraries:
-//  - Apache HTTP client (org.apache.httpcomponents:httpclient:4.5.5)
-//  - Apache HTTP core (org.apache.httpcomponents:httpccore:4.4.9)
-//  - JSON library (org.json:json:20180130).
-
-import java.net.URI;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONObject;
-
 public class Main {
     // **********************************************
     // *** Update or verify the following values. ***
@@ -76,12 +68,14 @@ public class Main {
     // Replace <Subscription Key> with your valid subscription key.
     private static final String subscriptionKey = "<Subscription Key>";
 
-    // You must use the same region in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URI below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
     //
-    // Free trial subscription keys are generated in the westcentralus region. If you
-    // use a free trial subscription key, you shouldn't need to change this region.
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     private static final String uriBase =
             "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze";
 
@@ -99,7 +93,7 @@ public class Main {
             builder.setParameter("visualFeatures", "Categories,Description,Color");
             builder.setParameter("language", "en");
 
-            // Prepare the URI for the REST API call.
+            // Prepare the URI for the REST API method.
             URI uri = builder.build();
             HttpPost request = new HttpPost(uri);
 
@@ -112,7 +106,7 @@ public class Main {
                     new StringEntity("{\"url\":\"" + imageToAnalyze + "\"}");
             request.setEntity(requestEntity);
 
-            // Make the REST API call and get the response entity.
+            // Call the REST API method and get the response entity.
             HttpResponse response = httpClient.execute(request);
             HttpEntity entity = response.getEntity();
 
@@ -131,9 +125,9 @@ public class Main {
 }
 ```
 
-## <a name="analyze-image-response"></a>Riposta alla richiesta di analisi dell'immagine
+## <a name="examine-the-response"></a>Esaminare i risultati
 
-Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
+Una risposta con esito positivo viene restituita in JSON. L'applicazione di esempio analizza e visualizza una risposta con esito positivo nella finestra della console, come nell'esempio seguente:
 
 ```json
 REST Response:
@@ -192,9 +186,13 @@ REST Response:
 }
 ```
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non sono più necessari, eliminare il progetto Java con la classe compilata e le librerie importate.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare un'applicazione Java Swing che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente le API Visione artificiale, provare la [console di test delle API aperta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare un'applicazione Java Swing che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Esercitazione in Java per l'API Visione artificiale](../Tutorials/java-tutorial.md)

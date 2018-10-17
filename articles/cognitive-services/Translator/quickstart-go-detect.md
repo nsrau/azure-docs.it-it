@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Identificare la lingua del testo con Go | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si identifica la lingua del testo di origine usando l'API Traduzione testuale con Go in Servizi cognitivi.
+title: 'Guida introduttiva: Identificare la lingua dal testo - Traduzione testuale, Go'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si identifica la lingua del testo di origine usando l'API Traduzione testuale con Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 29fac1a079455a65cc3d430c3030fed99f5cfce1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 25834fae2ce60d93ebeb3a25298b97294748bf9b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43771290"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129710"
 ---
 # <a name="quickstart-identify-language-from-text-with-go"></a>Guida introduttiva: Identificare la lingua del testo con Go
 

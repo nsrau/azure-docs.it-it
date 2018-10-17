@@ -6,19 +6,19 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 06/18/2018
+ms.date: 09/25/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f721af16e894ec24e85cdb1ff100d83d58ffadd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ff52c0fa647dd0e86b22bcfdf7af04062a135f94
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954603"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392806"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Esercitazione: Eseguire il rendering di una scena con Azure Batch 
 
-Azure Batch offre funzionalità di rendering su scala cloud con pagamento in base al consumo. Il servizio Rendering di Batch supporta app di rendering tra cui Autodesk Maya, 3ds Max, Arnold e V-Ray. Questa esercitazione descrive i passaggi necessari per eseguire il rendering di una breve scena con Batch usando l'interfaccia della riga di comando di Azure. Si apprenderà come:
+Azure Batch offre funzionalità di rendering su scala cloud con pagamento in base al consumo. Azure Batch supporta app di rendering tra cui Autodesk Maya, 3ds Max, Arnold e V-Ray. Questa esercitazione descrive i passaggi necessari per eseguire il rendering di una breve scena con Batch usando l'interfaccia della riga di comando di Azure. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Caricare una scena nell'archiviazione di Azure
@@ -27,11 +27,11 @@ Azure Batch offre funzionalità di rendering su scala cloud con pagamento in bas
 > * Ridimensionare il pool ed eseguire il rendering di una scena a più frame
 > * Scaricare l'output sottoposto a rendering
 
-In questa esercitazione si eseguirà il rendering di una scena 3ds Max usando il renderer di ray tracing [Arnold](https://www.autodesk.com/products/arnold/overview). 
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+In questa esercitazione si eseguirà il rendering di una scena 3ds Max usando il renderer di ray tracing [Arnold](https://www.autodesk.com/products/arnold/overview). Il pool di Batch usa un'immagine del Marketplace con immagini e applicazioni di rendering pre-installate che offrono licenze con pagamento in base al consumo.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+Per usare le applicazioni di rendering in Batch con pagamento in base al consumo è necessaria una sottoscrizione con pagamento in base al consumo o un'altra opzione di acquisto di Azure. Le licenze con pagamento in base al consumo non sono supportate se si usa un'offerta gratuita di Azure che garantisce un credito monetario.
 
 La scena 3ds Max di esempio per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), insieme a uno script Bash di esempio e ai file di configurazione JSON. La scena 3ds Max proviene dai [file di esempio di Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). I file di esempio di Autodesk 3ds Max sono disponibili con una licenza con dicitura "Attribuzione - Non commerciale - Condividi allo stesso modo" di Creative Commons. Copyright © Autodesk, Inc.
 

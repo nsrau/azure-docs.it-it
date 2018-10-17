@@ -1,29 +1,31 @@
 ---
-title: Guida introduttiva all'API Emozioni C# | Microsoft Docs
-description: Ottenere informazioni e un esempio di codice per iniziare rapidamente a usare l'API Emozioni con C# in Servizi cognitivi.
+title: "Guida introduttiva: Riconoscere le emozioni espresse dai visi in un'immagine - API Emozioni, C#"
+titlesuffix: Azure Cognitive Services
+description: Ottenere informazioni e un esempio di codice per iniziare a usare rapidamente l'API Emozioni con C#.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/02/2017
 ms.author: anroth
-ms.openlocfilehash: 89735ae54395447e3cb421f45db3d6b99001ecd6
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 530d05887e585884b184635e01031c1332fad3fb
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016566"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239371"
 ---
-# <a name="emotion-api-c-quick-start"></a>Guida introduttiva all'API Emozioni C#
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Guida introduttiva: Creare un'app per il riconoscimento delle emozioni espresse dai visi in un'immagine.
 
 > [!IMPORTANT]
-> L'anteprima dell'API Video è terminata il 30 ottobre 2017. Per estrarre facilmente informazioni dai video, provare la nuova [Anteprima dell'API Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/). È anche possibile utilizzarla per migliorare l'esperienza di individuazione dei contenuti, come i risultati di ricerca, grazie al rilevamento di testo parlato, facce, caratteri ed emozioni. Per altre informazioni, vedere la panoramica [Anteprima di Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> L'API Emozioni verrà deprecata il 15 febbraio 2019. La funzionalità di riconoscimento delle emozioni è ora generalmente disponibile nell'ambito dell'[API Viso](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-Questo articolo include informazioni ed esempi di codice per iniziare rapidamente a usare il [metodo di riconoscimento dell'API Emozioni](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) con C#. È possibile usarlo per riconoscere le emozioni espresse da una o più persone in un'immagine. 
+Questo articolo include informazioni ed esempi di codice per iniziare rapidamente a usare il [metodo di riconoscimento dell'API Emozioni](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) con C#. È possibile usarlo per riconoscere le emozioni espresse da una o più persone in un'immagine.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Ottenere l'[API Emozioni Windows SDK](https://www.nuget.org/packages/Microsoft.ProjectOxford.Emotion/) di Servizi cognitivi.
 * Ottenere la [chiave di sottoscrizione](https://azure.microsoft.com/try/cognitive-services/) gratuita.
 
@@ -71,10 +73,10 @@ namespace CSHttpClientSample
             var client = new HttpClient();
 
             // Request headers - replace this example key with your valid key.
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); // 
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "<your-subscription-key>"); //
 
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URI below with "westcentralus".
             string uri = "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?";
             HttpResponseMessage response;
@@ -124,10 +126,10 @@ namespace CSHttpClientSample
 Una chiamata completata con successo restituisce una matrice di voci relative ai visi con associati punteggi relativi alle emozioni. Questi sono suddivisi per dimensioni del rettangolo faccia in ordine decrescente. Una risposta vuota indica che non sono stati individuati visi. Una voce contenente emozioni include i campi seguenti:
 
 * faceRectangle: posizione del rettangolo del viso nell'immagine
-* scores: punteggi delle emozioni per ogni viso nell'immagine 
+* scores: punteggi delle emozioni per ogni viso nell'immagine
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

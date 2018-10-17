@@ -1,20 +1,21 @@
 ---
-title: Ricerca entità Bing in un'app Web a pagina singola | Microsoft Docs
+title: "Esercitazione: Ricerca entità Bing in un'app Web a pagina singola"
+titlesuffix: Azure Cognitive Services
 description: Illustra come usare l'API Ricerca entità Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/08/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 91c60913cd806baf100e5511cbf59299bf9a84f0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9aabecbec144797b9fbafdff7179213b68921447
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377457"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815546"
 ---
 # <a name="tutorial-single-page-web-app"></a>Esercitazione: App Web a pagina singola
 
@@ -60,11 +61,11 @@ Questa esercitazione illustra solo alcune parti del codice sorgente. Il codice s
 Come qualsiasi app Web a pagina singola, l'applicazione di esercitazione include tre parti:
 
 > [!div class="checklist"]
-> * HTML - Definisce la struttura e il contenuto della pagina
-> * CSS - Definisce l'aspetto della pagina
-> * JavaScript - Definisce il comportamento della pagina
+> * HTML, che definisce la struttura e il contenuto della pagina
+> * CSS, che definisce l'aspetto della pagina
+> * JavaScript, che definisce il comportamento della pagina
 
-Questa esercitazione non affronta in dettaglio il codice HTML o CSS, poiché sono piuttosto semplici.
+Questa esercitazione non tratta dettagliatamente il codice HTML o CSS, perché sono piuttosto semplici.
 
 Il codice HTML contiene il modulo di ricerca in cui l'utente immette una query e sceglie le opzioni di ricerca. Il modulo è connesso a JavaScript che esegue effettivamente la ricerca usando l'attributo `onsubmit` del tag `<form>`:
 
@@ -133,7 +134,7 @@ Il modulo HTML include i controlli seguenti:
 
 | | |
 |-|-|
-|`where`|Un menu a discesa per la selezione del mercato (località e lingua) usato per la ricerca.|
+|`where`|Un menu a discesa per la selezione del mercato, ovvero località e lingua, utilizzato per la ricerca.|
 |`query`|Il campo di testo in cui inserire i termini di ricerca.|
 |`safe`|Una casella di controllo che indica se SafeSearch è attivato (limita i risultati "per adulti")|
 |`what`|Un menu per scegliere se cercare entità, località o entrambe.|
@@ -379,7 +380,7 @@ function handleBingResponse() {
 
 La maggior parte del codice in entrambe le funzioni precedenti è dedicata alla gestione degli errori. Possono verificarsi errori nelle fasi seguenti:
 
-|Fase|Errori potenziali|Gestito da|
+|Fase|Errori potenziali|Gestiti da|
 |-|-|-|
 |Compilazione dell'oggetto richiesta JavaScript|URL non valido|Blocco `try`/`catch`|
 |Invio della richiesta|Errori di rete, connessioni interrotte|Gestori degli eventi `error` e `abort`|
@@ -395,7 +396,7 @@ Viene invece usata la raccolta `rankingResponse` nei risultati della ricerca per
 
 `rankingResponse` può contenere fino a tre raccolte di risultati della ricerca, designate `pole`, `mainline` e `sidebar`. 
 
-`pole`, se presente, è il risultato della ricerca più pertinente e deve essere visualizzato in primo piano. `mainline` fa riferimento alla maggior parte dei risultati della ricerca. I risultati di tipo mainline devono essere visualizzati immediatamente dopo `pole` (o prima, se `pole` non è presente). 
+`pole`, se presente, è il risultato della ricerca più pertinente e deve essere visualizzato in primo piano. `mainline` fa riferimento alla maggior parte dei risultati della ricerca. I risultati di tipo mainline devono essere visualizzati immediatamente dopo `pole`, o prima se `pole` non è presente. 
 
 Infine, `sidebar` si riferisce a risultati ausiliari della ricerca. Possono essere visualizzati in un'effettiva barra laterale o semplicemente dopo i risultati di tipo mainline. Per l'app di esercitazione è stato scelto il secondo caso.
 
@@ -403,15 +404,15 @@ Ogni elemento in una raccolta `rankingResponse` fa riferimento agli effettivi el
 
 | | |
 |-|-|
-|`id`|`id` è simile a un URL, ma non deve essere usato per i collegamenti. Il tipo `id` di un risultato di classificazione corrisponde al tipo `id` di un elemento di risultati della ricerca in una raccolta di risposte *o* un'intera raccolta di risposte (ad esempio, `Entities`).
-|`answerType`<br>`resultIndex`|`answerType` fa riferimento alla raccolta di risposte di primo livello contenente il risultato (ad esempio, `Entities`). `resultIndex` fa riferimento all'indice del risultato all'interno della raccolta. Se `resultIndex` viene omesso, il risultato di classificazione si riferisce all'intera raccolta.
+|`id`|`id` è simile a un URL, ma non deve essere usato per i collegamenti. Il tipo `id` di un risultato di classificazione corrisponde al tipo `id` di un elemento dei risultati della ricerca in una raccolta di risposte *o* un'intera raccolta di risposte, ad esempio `Entities`.
+|`answerType`<br>`resultIndex`|`answerType` fa riferimento alla raccolta di risposte di massimo livello contenente il risultato, ad esempio `Entities`. `resultIndex` fa riferimento all'indice del risultato all'interno della raccolta. Se `resultIndex` viene omesso, il risultato di classificazione si riferisce all'intera raccolta.
 
 > [!NOTE]
 > Per altre informazioni su questa parte della risposta della ricerca, vedere [Classificare i risultati](rank-results.md).
 
 È possibile usare un metodo qualsiasi per individuare in modo più conveniente l'elemento referenziato dei risultati della ricerca per l'applicazione. Nel codice dell'esercitazione vengono usati `answerType` e `resultIndex` per individuare ogni risultato della ricerca.
 
-È infine giunto il momento di osservare la funzione `renderSearchResults()`. Questa funzione esegue l'iterazione nelle tre raccolte `rankingResponse` che rappresentano le tre sezioni dei risultati della ricerca. Per ogni sezione viene chiamato `renderResultsItems()` per eseguire il rendering dei risultati della sezione.
+È infine giunto il momento di osservare la funzione `renderSearchResults()`. Questa funzione esegue l'iterazione sulle tre raccolte `rankingResponse` che rappresentano le tre sezioni dei risultati della ricerca. Per ogni sezione viene chiamato `renderResultsItems()` per eseguire il rendering dei risultati della sezione.
 
 ```javascript
 // render the search results given the parsed JSON response
@@ -431,7 +432,7 @@ function renderSearchResults(results) {
 
 ## <a name="rendering-result-items"></a>Rendering degli elementi di risultati
 
-Nel codice JavaScript l'oggetto `searchItemRenderers` contiene i *renderer:* funzioni che generano codice HTML per ciascun tipo di risultato della ricerca.
+Nel codice JavaScript l'oggetto `searchItemRenderers` contiene i *renderer*: funzioni che generano codice HTML per ciascun tipo di risultato della ricerca.
 
 ```javascript
 searchItemRenderers = { 
@@ -521,10 +522,10 @@ Innanzitutto, consente al motore di ricerca Bing di applicare contesto passato a
 
 In secondo luogo, Bing potrebbe selezionare utenti in modo casuale per provare nuove funzionalità prima di renderle disponibili. Fornire lo stesso ID client per tutte le richieste fa sì che gli utenti selezionati per la visualizzazione di una funzione la visualizzino sempre. Senza un ID client, l'utente potrebbe vedere una funzionalità apparire e scomparire apparentemente in modo casuale nei risultati delle ricerche.
 
-I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione `X-MSEdge-ClientID` sia disponibile per JavaScript. Questa limitazione si verifica quando la risposta della ricerca ha un'origine diversa dalla pagina che l'ha richiesta. In un ambiente di produzione è necessario soddisfare questo criterio tramite l'hosting di uno script sul lato server che esegue la chiamata API nello stesso dominio della pagina Web. Poiché lo script ha la stessa origine della pagina Web, l'intestazione `X-MSEdge-ClientID` diventa quindi disponibile per JavaScript.
+I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione `X-MSEdge-ClientID` sia disponibile per JavaScript. Questa limitazione si verifica quando la risposta della ricerca ha un'origine diversa dalla pagina che l'ha richiesta. In un ambiente di produzione è necessario soddisfare questo criterio tramite l'hosting di uno script sul lato server che esegue la chiamata API nello stesso dominio della pagina Web. Poiché lo script ha la stessa origine della pagina Web, l'intestazione `X-MSEdge-ClientID` diventa disponibile per JavaScript.
 
 > [!NOTE]
-> In un'applicazione Web di produzione è consigliabile comunque eseguire la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web in cui è disponibile a chiunque visualizzi l'origine. All'utente vengono addebitati costi per tutto l'utilizzo della chiave di sottoscrizione API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
+> In un'applicazione Web di produzione è consigliabile comunque eseguire la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web, dove sarà disponibile per chiunque visualizzi l'origine. All'utente vengono addebitati costi per tutto l'utilizzo della chiave di sottoscrizione API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
 
 A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
 
@@ -532,15 +533,15 @@ A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing t
 
     npm install -g cors-proxy-server
 
-Successivamente, modificare l'endpoint di Ricerca Web Bing nel file HTML in:
+Poi modificare l'endpoint di Ricerca Web Bing nel file HTML in:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Infine, avviare il proxy CORS con il comando seguente:
+Infine avviare il proxy CORS con il comando seguente:
 
     cors-proxy-server
 
-Lasciare aperta la finestra di comando durante l'uso dell'applicazione di esercitazione. Se si chiude la finestra, il proxy si arresta. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile visualizzare l'intestazione `X-MSEdge-ClientID` (tra le altre) e verificare che sia la stessa per ogni richiesta.
+Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile vedere l'intestazione `X-MSEdge-ClientID`, tra le altre, e verificare che sia la stessa per ogni richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2018
+ms.date: 10/01/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 5a173340be424c74c76da659816b1b95b74c465f
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a96aa2ee8b474bcc4e3e9362d6b1ba755e3fdbc3
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419543"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017449"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in VMware (anteprima)
 
@@ -96,7 +96,7 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 
 1. Copiare l'immagine del dispositivo virtuale nel sistema. Si tratta dell'immagine virtuale (due file) scaricata tramite il portale di Azure. Prendere nota della posizione in cui è stata copiata l'immagine da usare più avanti nella procedura.
 
-2. Accedere al server ESXi tramite il client di vSphere. È necessario disporre dei privilegi di amministratore per creare una macchina virtuale.
+2. Accedere al server ESXi con il client Web di vSphere. È necessario disporre dei privilegi di amministratore per creare una macchina virtuale.
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
@@ -104,7 +104,10 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 
    ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
-4. Nel riquadro a destra in **Datastores**selezionare l'archivio dati in cui si vuole caricare il file VMDK. L'archivio dati deve essere di tipo VMFS 5. Deve inoltre disporre di spazio libero sufficiente per il sistema operativo e i dischi dati.
+4. Nel riquadro a destra in **Datastores**selezionare l'archivio dati in cui si vuole caricare il file VMDK. 
+
+    - L'archivio dati deve essere di tipo VMFS5. 
+    - Deve inoltre disporre di spazio libero sufficiente per il sistema operativo e i dischi dati.
    
 5. Fare clic con il pulsante destro del mouse e scegliere **Browse Datastore** (Sfoglia archivio dati).
 
@@ -145,11 +148,11 @@ Eseguire i passaggi seguenti per il provisioning di un dispositivo virtuale in h
 15. Nella pagina **Select storage** (Seleziona risorsa di archiviazione) selezionare l'archivio dati che si vuole usare per il provisioning della macchina virtuale. Fare clic su **Avanti**.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. Nella pagina **Customize settings** (Personalizza impostazioni) impostare **CPU** su 4, **Memory** (Memoria) su 8192 MB (o su un valore superiore) e **Hard disk 1** (Disco rigido 1) su 2 TB (o su un valore superiore). Scegliere il tipo di **disco rigido SCSI** da aggiungere. In questo caso si tratta di LSI Logic SAS. **I dischi IDE statici non sono supportati.** **Hard disk 1** (Disco rigido 1) è il disco dati virtuale. Si noti che, una volta effettuato il provisioning del disco, non è possibile ridurlo.
+16. Nella pagina **Customize settings** (Personalizza impostazioni) impostare **CPU** su 4, **Memory** (Memoria) su 8192 MB (o su un valore superiore) e **Hard disk 1** (Disco rigido 1) su 2 TB (o su un valore superiore). Scegliere il **disco rigido SCSI** da aggiungere. In questo caso si tratta di LSI Logic SAS. **I dischi IDE statici non sono supportati.** **Hard disk 1** (Disco rigido 1) è il disco dati virtuale. Si noti che, una volta effettuato il provisioning del disco, non è possibile ridurlo.
 
     ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
-    Nella stessa pagina fare clic su **Add hard disk** (Aggiungi disco rigido) e quindi selezionare **Existing hard disk** (Disco rigido esistente). Verrà aggiunto un disco del sistema operativo. 
+    Nella stessa pagina fare clic su **Add hard disk** (Aggiungi disco rigido) e quindi selezionare **Existing hard disk** (Disco rigido esistente). Selezionare il file VMDK nell'archivio dati. Verrà aggiunto un disco del sistema operativo. 
 
      ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 

@@ -1,29 +1,29 @@
 ---
-title: Aggiungere visi con l'API Viso | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Usare l'API Viso in Servizi cognitivi per aggiungere visi nelle immagini.
+title: 'Esempio: Aggiungere visi - API Viso'
+titleSuffix: Azure Cognitive Services
+description: Usare l'API Viso per aggiungere visi nelle immagini.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 3306c13d6c3d231ddbda38cfcbc5419fcdbd30db
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb5d03e2cb3c11daf7a94966fda46345ee910ded
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372993"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125103"
 ---
-# <a name="how-to-add-faces"></a>Come aggiungere visi
+# <a name="example-how-to-add-faces"></a>Esempio: Come aggiungere visi
 
 Questa guida illustra la procedura consigliata per aggiungere un numero elevato di persone e visi in un PersonGroup.
 La stessa strategia si applica anche a FaceList e LargePersonGroup.
 Gli esempi sono scritti in C# usando la libreria client dell'API Viso.
 
-## <a name="step1"></a> Passaggio 1: Inizializzazione
+## <a name="step-1-initialization"></a>Passaggio 1: Inizializzazione
 
 Vengono dichiarate più variabili e viene implementata una funzione helper per pianificare le richieste.
 
@@ -60,7 +60,7 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step2"></a> Passaggio 2: Autorizzare la chiamata all'API
+## <a name="step-2-authorize-the-api-call"></a>Passaggio 2: Autorizzare la chiamata API
 
 Quando si usa una libreria client, la chiave di sottoscrizione viene passata tramite il costruttore della classe FaceServiceClient. Ad esempio: 
 
@@ -70,7 +70,7 @@ FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>"
 
 La chiave di sottoscrizione può essere ottenuta nella pagina Marketplace del portale di Azure. Vedere [Sottoscrizioni](https://www.microsoft.com/cognitive-services/en-us/sign-up).
 
-## <a name="step3"></a> Passaggio 3: Creare il PersonGroup
+## <a name="step-3-create-the-persongroup"></a>Passaggio 3: Creare il PersonGroup
 
 Per salvare le persone viene creato un PersonGroup denominato "MyPersonGroup".
 L'ora della richiesta viene accodata in `_timeStampQueue` per garantire la convalida generale.
@@ -82,7 +82,7 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step4"></a> Passaggio 4: Creare le persone nel PersonGroup
+## <a name="step-4-create-the-persons-to-the-persongroup"></a>Passaggio 4: Creare le persone nel PersonGroup
 
 Le persone vengono create contemporaneamente e viene anche applicata l'attesa `await WaitCallLimitPerSecondAsync()` per evitare il superamento del limite di chiamate.
 
@@ -97,7 +97,7 @@ Parallel.For(0, PersonCount, async i =>
 });
 ```
 
-## <a name="step5"></a> Passaggio 5: Aggiungere i visi per le persone
+## <a name="step-5-add-faces-to-the-persons"></a>Passaggio 5: Aggiungere i visi per le persone
 
 L'aggiunta di visi per le diverse persone viene elaborata in contemporanea, mentre per una persona specifica è un processo in sequenza.
 Anche in questo caso viene richiamata la funzione `await WaitCallLimitPerSecondAsync()` per assicurarsi che la frequenza delle richieste rientri nei limiti previsti.
@@ -120,7 +120,7 @@ Parallel.For(0, PersonCount, async i =>
 });
 ```
 
-## <a name="summary"></a> Riepilogo
+## <a name="summary"></a>Summary
 
 In questa guida si è appreso il processo di creazione di un PersonGroup con un numero elevato di persone e visi. Alcuni promemoria:
 
@@ -135,7 +135,8 @@ Di seguito è riportata una rapida sintesi delle funzionalità illustrate e dimo
 - Creazione di persone con l'API[PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) (PersonGroup Person - Creazione)
 - Aggiunta di visi per le persone con l'API [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) (PersonGroup Person - Aggiunta viso)
 
-## <a name="related"></a> Argomenti correlati
+## <a name="related-topics"></a>Argomenti correlati
+
 - [Come identificare visi nelle immagini](HowtoIdentifyFacesinImage.md)
 - [Come rilevare visi nelle immagini](HowtoDetectFacesinImage.md)
 - [Come usare la funzionalità su larga scala](how-to-use-large-scale.md)

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1ee3000ab26dbb0eea33de828812959fe709aaa2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 2f503a534f79440e6e6c572b7fb29ce3048ee7bc
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410018"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831570"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Esercitazione: distribuire un cluster Windows di Service Fabric in una rete virtuale di Azure
 
@@ -69,7 +69,7 @@ Il certificato del cluster deve:
 * essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange);
 * avere un nome del soggetto corrispondente al dominio usato per accedere al cluster di Service Fabric. Questa corrispondenza è necessaria per fornire SSL per gli endpoint di gestione HTTPS del cluster e Service Fabric Explorer. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio .cloudapp.azure.com. È necessario ottenere un nome di dominio personalizzato per il cluster. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato usato per il cluster.
 
-L'insieme di credenziali delle chiavi di Azure viene usato per gestire i certificati dei cluster di Service Fabric in Azure.  Quando viene distribuito un cluster in Azure, il provider di risorse di Azure responsabile della creazione di cluster Service Fabric estrae i certificati dall'insieme di credenziali delle chiavi e li installa nelle macchine virtuali del cluster.
+L'insieme di credenziali delle chiavi di Azure viene usato per gestire i certificati dei cluster di Service Fabric in Azure.  Quando viene distribuito un cluster in Azure, il provider di risorse di Azure responsabile della creazione di cluster di Service Fabric estrae i certificati dall'insieme di credenziali delle chiavi e li installa nelle macchine virtuali del cluster.
 
 Questa esercitazione visualizza un cluster con cinque nodi in un tipo a nodo singolo. La [pianificazione della capacità](service-fabric-cluster-capacity.md), tuttavia, è un passaggio importante per qualsiasi distribuzione di cluster di produzione. Di seguito sono elencati alcuni aspetti da considerare nell'ambito di questo processo.
 
@@ -88,7 +88,7 @@ Questo modello distribuisce un cluster sicuro di cinque macchine virtuali e un s
 
 ### <a name="service-fabric-cluster"></a>Cluster di Service Fabric
 
-Viene distribuito un cluster Windows con le caratteristiche seguenti.
+Nella risorsa **Microsoft.ServiceFabric/clusters** viene configurato un cluster Windows con le caratteristiche seguenti:
 
 * Unico tipo di nodo
 * Cinque nodi del tipo di nodo primario (configurabile nei parametri del modello)
@@ -103,7 +103,7 @@ Viene distribuito un cluster Windows con le caratteristiche seguenti.
 
 ### <a name="azure-load-balancer"></a>Servizio di bilanciamento del carico di Azure
 
-Viene distribuito un servizio di bilanciamento del carico e vengono configurati probe e regole per le porte seguenti:
+Nella risorsa **Microsoft.Network/loadBalancers** viene configurato un servizio di bilanciamento del carico e vengono impostate probe e regole per le porte seguenti:
 
 * Endpoint di connessione client: 19000
 * Endpoint del gateway HTTP: 19080
@@ -111,16 +111,16 @@ Viene distribuito un servizio di bilanciamento del carico e vengono configurati 
 * Porta applicazione: 443
 * Proxy inverso di Service Fabric: 19081
 
-Se sono necessarie altre porte dell'applicazione, si dovranno modificare le risorse Microsoft.Network/loadBalancers e Microsoft.Network/networkSecurityGroups in modo da consentire il traffico in ingresso.
+Se sono necessarie altre porte dell'applicazione, si dovranno modificare le risorse **Microsoft.Network/loadBalancers** e **Microsoft.Network/networkSecurityGroups** in modo da consentire il traffico in ingresso.
 
 ### <a name="virtual-network-subnet-and-network-security-group"></a>Rete virtuale, subnet e gruppo di sicurezza di rete
 
-I nomi della rete virtuale, della subnet e del gruppo di sicurezza di rete vengono dichiarati nei parametri del modello,  così come gli spazi indirizzi della rete virtuale e della subnet.
+I nomi della rete virtuale, della subnet e del gruppo di sicurezza di rete vengono dichiarati nei parametri del modello,  così come gli spazi indirizzi della rete virtuale e della subnet. Questi ultimi vengono configurati nella risorsa **Microsoft.Network/virtualNetworks**:
 
 * Spazio indirizzi della rete virtuale: 172.16.0.0/20
 * Spazio indirizzi della subnet di Service Fabric: 172.16.2.0/23
 
-Nel gruppo di sicurezza di rete vengono abilitate le regole per il traffico in ingresso riportate di seguito. È possibile modificare i valori di porta modificando le variabili del modello.
+Le regole per il traffico in ingresso seguenti vengono abilitate nella risorsa **Microsoft.Network/networkSecurityGroups**. È possibile modificare i valori di porta modificando le variabili del modello.
 
 * Endpoint di connessione client (TCP): 19000
 * Endpoint del gateway HTTP (HTTP/TCP): 19080
@@ -131,7 +131,7 @@ Nel gruppo di sicurezza di rete vengono abilitate le regole per il traffico in i
 * Intervallo di porte dell'applicazione: da 49152 a 65534 (quelle usate per la comunicazione tra servizi e di altro tipo non vengono aperte nel servizio di bilanciamento del carico)
 * Bloccare tutte le altre porte
 
-Se sono necessarie altre porte dell'applicazione, si dovranno modificare le risorse Microsoft.Network/loadBalancers e Microsoft.Network/networkSecurityGroups in modo da consentire il traffico in ingresso.
+Se sono necessarie altre porte dell'applicazione, si dovranno modificare le risorse **Microsoft.Network/loadBalancers** e **Microsoft.Network/networkSecurityGroups** in modo da consentire il traffico in ingresso.
 
 ## <a name="set-template-parameters"></a>Impostare i parametri del modello
 
@@ -250,7 +250,7 @@ Gli altri articoli in questa serie di esercitazioni usano il cluster appena crea
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare una rete virtuale in Azure usando PowerShell

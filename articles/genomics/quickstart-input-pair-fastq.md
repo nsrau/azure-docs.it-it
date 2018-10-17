@@ -1,24 +1,22 @@
 ---
-title: 'Guida introduttiva: Inviare un flusso di lavoro usando input FASTQ | Microsoft Docs'
+title: 'Guida introduttiva: Inviare un flusso di lavoro usando input FASTQ - Genomica di Microsoft'
 titleSuffix: Azure
 description: Nella guida introduttiva si presuppone che il client msgen sia installato e che siano stati eseguiti i dati di esempio tramite il servizio.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: f093397803f21c023a2c32e42709ecfcd0e3aec7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: acbcceb32ec54ab85db05ef743e9c10cd8cf025c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684484"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735850"
 ---
-# <a name="submit-a-workflow-using-fastq-file-inputs"></a>Inviare un flusso di lavoro usando input di file FASTQ
+# <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Inviare un flusso di lavoro usando input FASTQ in Genomica di Microsoft
 
 Questa guida introduttiva illustra come inviare un flusso di lavoro al servizio Genomica di Microsoft se i file di input sono costituiti da una singola coppia di file FASTQ. In questo argomento si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se è già stato inviato un flusso di lavoro con i dati di esempio forniti, è possibile proseguire con questa guida introduttiva. 
 

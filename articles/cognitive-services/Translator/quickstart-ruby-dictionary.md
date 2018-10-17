@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Trovare traduzioni alternative con Ruby | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Ruby in Servizi cognitivi.
+title: 'Guida introduttiva: Trovare traduzioni alternative - Traduzione testuale, Ruby'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 6462a48c2f15c8ac4a6b9bce49d23ea3d38dcbd5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7cd34e3482df666de8b974380302ee6b4c592496
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771067"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122808"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-ruby"></a>Guida introduttiva: Trovare traduzioni alternative ed esempi d'uso con Ruby
 

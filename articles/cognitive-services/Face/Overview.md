@@ -1,24 +1,24 @@
 ---
-title: Panoramica del servizio API Viso | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Il glossario contiene termini che è probabile trovare durante l'uso del servizio API Viso.
+title: Che cos'è il servizio API Viso?
+titleSuffix: Azure Cognitive Services
+description: Il glossario include spiegazioni dei termini che è possibile incontrare durante l'uso del servizio API Viso.
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: overview
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: fb1d14ff80bf53adc3008d79cc998739ffffde1b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 15de899be5ab85e9fe84ba1b6284bc9419fcf8a1
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048670"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123471"
 ---
-# <a name="what-is-face-api"></a>Informazioni sull'API Viso
+# <a name="what-is-the-face-api-service"></a>Che cos'è il servizio API Viso?
 
-L'API Viso Microsoft è un servizio basato sul cloud che offre gli algoritmi facciali più avanzati. L'API Viso ha due funzioni principali: il rilevamento viso con attributi e il riconoscimento volto.
+Il servizio API Viso è un servizio basato sul cloud che offre gli algoritmi facciali più avanzati. L'API Viso ha due funzioni principali: il rilevamento viso con attributi e il riconoscimento volto.
 
 ## <a name="face-detection"></a>Rilevamento viso
 

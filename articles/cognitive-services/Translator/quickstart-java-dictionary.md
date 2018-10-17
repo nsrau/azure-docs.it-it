@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Trovare traduzioni alternative con Java | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Java in Servizi cognitivi.
+title: 'Guida introduttiva: Trovare traduzioni alternative - Traduzione testuale, Java'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 0abb9c1a39b8183730bacde285eff05607754191
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c0e7fc3d51772df40bd5da7c762c15c40ad5744f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771136"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127075"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-java"></a>Guida introduttiva: Trovare traduzioni alternative ed esempi d'uso con Java
 

@@ -3,20 +3,20 @@ title: Usare il Servizio Migrazione del database di Azure per eseguire la migraz
 description: Informazioni su come eseguire la migrazione online da MySQL locale in Database di Azure per MySQL con il servizio Migrazione del database di Azure.
 services: dms
 author: HJToland3
-ms.author: jtoland
+ms.author: scphang
 manager: craigg
 ms.reviewer: ''
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/31/2018
-ms.openlocfilehash: c36a771266f595f6d8dc8575d100fa5bb9496584
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.date: 10/06/2018
+ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714930"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829852"
 ---
 # <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Eseguire la migrazione di MySQL in Database di Azure per MySQL online mediante il servizio Migrazione del database
 È possibile usare il servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di MySQL locale a [Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/) con tempi di inattività minimi. In altre parole, la migrazione può essere eseguita con tempi di inattività minimi per l'applicazione. In questa esercitazione si esegue la migrazione del database di esempio **Employees** da un'istanza locale di MySQL 5.7 a Database di Azure per MySQL usando un'attività di migrazione online nel servizio Migrazione del database di Azure.
@@ -50,13 +50,23 @@ Per completare questa esercitazione, è necessario:
 - Database di Azure per MySQL supporta solo le tabelle InnoDB. Per convertire le tabelle MyISAM in InnoDB, vedere l'articolo [Converting Tables from MyISAM to InnoDB](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) (Conversione di tabelle da MyISAM a InnoDB). 
 
 - Abilitare la registrazione binaria nel file my.ini (Windows) o my.cnf (Unix) nel database di origine usando la configurazione seguente:
+
+    - **server_id** = 1 o superiore (rilevante solo per MySQL 5.6)
+    - **log-bin** =<path> (rilevante solo per MySQL 5.6)
+
+        Ad esempio: log-bin = E:\MySQL_logs\BinLog
+    - **binlog_format** = row
+    - **Expire_logs_days** = 5 (è consigliabile non usare zero; rilevante solo per MySQL 5.6)
+    - **Binlog_row_image** = full (rilevante solo per MySQL 5.6)
+    - **log_slave_updates** = 1
+ 
 - L'utente deve avere il ruolo ReplicationAdmin con i privilegi seguenti:
     - **REPLICATION CLIENT** : necessario solo per le attività di elaborazione delle modifiche. In altre parole, le attività che eseguono solo il caricamento completo non richiedono questo privilegio.
     - **REPLICATION REPLICA**: necessario solo per le attività di elaborazione delle modifiche. In altre parole, le attività che eseguono solo il caricamento completo non richiedono questo privilegio.
     - **SUPER**: necessario solo nelle versioni precedenti a MySQL 5.6.6.
 
 ## <a name="migrate-the-sample-schema"></a>Eseguire la migrazione dello schema di esempio
-Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indici e stored procedure, è necessario estrarre lo schema dal database di origine e applicarlo al database. Per estrarre lo schema, è possibile usare mysqldump con il parametro --no-data.
+Per completare tutti gli oggetti di database, ad esempio schemi di tabella, indici e stored procedure, è necessario estrarre lo schema dal database di origine e applicarlo al database. Per estrarre lo schema, è possibile usare mysqldump con il parametro `--no-data`.
  
 Supponendo di avere il database MySQL di esempio employees nel sistema locale, il comando per eseguire la migrazione dello schema con mysqldump è:
 ```

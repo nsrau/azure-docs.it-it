@@ -1,27 +1,27 @@
 ---
-title: Avvio rapido per l'API Suggerimenti automatici Bing con Python | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Suggerimenti automatici Bing in Servizi cognitivi di Azure.
+title: 'Guida introduttiva: API Suggerimenti automatici Bing, Python'
+titlesuffix: Azure Cognitive Services
+description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Suggerimenti automatici Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 721dba50e1d296066c06e0f00c9f36227391018d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 60585b2d5884962d0f988597ef1e50107e548122
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377252"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830618"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-python"></a>Avvio rapido per l'API Suggerimenti automatici Bing con Python
-<a name="HOLTop"></a>
 
 Questo articolo spiega come usare l'[API Suggerimenti automatici Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) con Python. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale che l'utente immette nella casella di ricerca. In genere si chiama questa API ogni volta che l'utente digita un nuovo carattere nella casella di ricerca e quindi si mostrano i suggerimenti nell'elenco a discesa della casella di ricerca. Questo articolo spiega come inviare una richiesta che restituisce le stringhe di query suggerite per *sail*.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questo codice è necessario [Python 3.x](https://www.python.org/downloads/).
 
@@ -31,7 +31,7 @@ Per eseguire questo codice è necessario [Python 3.x](https://www.python.org/dow
 
 1. Creare un nuovo progetto Python nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```python
@@ -69,7 +69,7 @@ print (json.dumps(json.loads(result), indent=4))
 
 ### <a name="response"></a>Risposta
 
-Una risposta con esito positivo viene restituita in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {

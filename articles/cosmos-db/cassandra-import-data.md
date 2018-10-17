@@ -9,12 +9,12 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 0bf5e47513ded4b2c65e7291db497e53a42776a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976177"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247851"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Eseguire la migrazione dei dati nell'account dell'API Cassandra di Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Dopo avere identificato i requisiti del carico di lavoro esistente, è necessari
 
 ## <a name="prerequisites-for-migration"></a>Prerequisiti per la migrazione
 
-* **Creare le tabelle nell'account dell'API Cassandra di Azure Cosmos DB:** prima di iniziare la migrazione dei dati, creare in anticipo tutte le tabelle dal portale di Azure o da cqlsh.
+* **Creare le tabelle nell'account dell'API Cassandra di Azure Cosmos DB:** prima di iniziare la migrazione dei dati, creare in anticipo tutte le tabelle dal portale di Azure o da cqlsh. Se si esegue la migrazione a un account Azure Cosmos DB con velocità effettiva a livello di database, assicurarsi di fornire una chiave di partizione quando si creano i contenitori di Azure Cosmos DB.
 
 * **Aumentare la velocità effettiva:** la durata della migrazione dei dati dipende dalla velocità effettiva di cui è stato eseguito il provisioning per le tabelle in Azure Cosmos DB. Aumentare la velocità effettiva per la durata della migrazione. Con una velocità effettiva più elevata, è possibile evitare la limitazione di velocità e completare più rapidamente la migrazione. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva, vedere [impostare la velocità effettiva](set-throughput.md) per i contenitori di Azure Cosmos DB. È consigliabile anche disporre di account Azure Cosmos DB nella stessa area del database di origine. 
 

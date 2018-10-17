@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Identificare la lingua del testo con Node.js | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si identifica la lingua del testo di origine usando l'API Traduzione testuale con Node.js in Servizi cognitivi.
+title: 'Guida introduttiva: Identificare la lingua dal testo - Traduzione testuale, Node.js'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si identifica la lingua del testo di origine usando l'API Traduzione testuale con Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 8e6fecf74d1291e9660076572d385bb234edc222
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: bb2118c9c05cff093bb5affe91a388986ba85a38
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770802"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126208"
 ---
 # <a name="quickstart-identify-language-from-text-with-nodejs"></a>Guida introduttiva: Identificare la lingua del testo con Node.js
 

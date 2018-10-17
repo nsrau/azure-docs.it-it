@@ -1,44 +1,45 @@
 ---
-title: API Visione artificiale - Guida introduttiva al riconoscimento ottico dei caratteri con C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si estrae testo stampato da un'immagine usando Visione artificiale con C# in Servizi cognitivi.
+title: 'Guida introduttiva: Estrarre testo stampato (OCR) - REST, C# - Visione artificiale'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 46193e7aa27285a887005a67bb662449e18d7b36
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d3074b9c5b62ea41aa0ee4c577a18b9f582dc80a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772337"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631532"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-c35"></a>Guida introduttiva: Estrarre testo stampato (OCR) - REST, C&#35;
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-c35-in-computer-vision"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST e C&#35; in Visione artificiale
 
-In questa guida introduttiva si estrae testo stampato da un'immagine, con una tecnica nota come riconoscimento ottico dei caratteri (OCR, Optical Character Recognition), usando Visione artificiale.
+In questa guida introduttiva si estrarrà testo stampato da un'immagine con la tecnica di riconoscimento ottico dei caratteri (OCR, Optical Character Recognition) usando l'API REST di Visione artificiale. Con il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Visione artificiale, è necessario avere una chiave di sottoscrizione. A tale scopo, vedere [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Come ottenere chiavi di sottoscrizione).
+- È necessario avere [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o versione successiva.
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Richiesta di riconoscimento ottico dei caratteri
+## <a name="create-and-run-the-sample-application"></a>Creare ed eseguire l'applicazione di esempio
 
-Con il [metodo OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
+Per creare l'esempio in Visual Studio, seguire questa procedura:
 
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Creare una nuova app console Visual C# in Visual Studio.
+1. Creare una nuova soluzione di Visual Studio in Visual Studio usando il modello di app console di Visual C#.
 1. Questo codice usa il pacchetto NuGet Newtonsoft.Json.
     1. Nel menu fare clic su **Strumenti**, selezionare **Gestione pacchetti NuGet** e quindi **Gestisci pacchetti NuGet per la soluzione**.
     1. Fare clic sulla scheda **Sfoglia** e nella casella di **ricerca** digitare "Newtonsoft.Json".
     1. Selezionare la voce **Newtonsoft.Json** quando viene visualizzata, quindi fare clic sulla casella di controllo accanto al nome del progetto e infine su **Installa**.
-1. Sostituire `Program.cs` con il codice seguente.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `uriBase` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
+1. Sostituire il codice in `Program.cs` con il codice seguente e quindi apportare le modifiche seguenti nel codice, dove necessario:
+    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
+    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
 1. Eseguire il programma.
 1. Al prompt immettere il percorso di un'immagine locale.
 
@@ -57,12 +58,12 @@ namespace CSHttpClientSample
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to
-        // get your subscription keys. For example, if you got your
-        // subscription keys from westus, replace "westcentralus" in the URL
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =
@@ -77,7 +78,7 @@ namespace CSHttpClientSample
 
             if (File.Exists(imageFilePath))
             {
-                // Make the REST API call.
+                // Call the REST API method.
                 Console.WriteLine("\nWait a moment for the results to appear.\n");
                 MakeOCRRequest(imageFilePath).Wait();
             }
@@ -104,30 +105,36 @@ namespace CSHttpClientSample
                 client.DefaultRequestHeaders.Add(
                     "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-                // Request parameters.
+                // Request parameters. 
+                // The language parameter doesn't specify a language, so the 
+                // method detects it automatically.
+                // The detectOrientation parameter is set to true, so the method detects and
+                // and corrects text orientation before detecting text.
                 string requestParameters = "language=unk&detectOrientation=true";
 
-                // Assemble the URI for the REST API Call.
+                // Assemble the URI for the REST API method.
                 string uri = uriBase + "?" + requestParameters;
 
                 HttpResponseMessage response;
 
-                // Request body. Posts a locally stored JPEG image.
+                // Read the contents of the specified local image
+                // into a byte array.
                 byte[] byteData = GetImageAsByteArray(imageFilePath);
 
+                // Add the byte array as an octet stream to the request body.
                 using (ByteArrayContent content = new ByteArrayContent(byteData))
                 {
-                    // This example uses content type "application/octet-stream".
+                    // This example uses the "application/octet-stream" content type.
                     // The other content types you can use are "application/json"
                     // and "multipart/form-data".
                     content.Headers.ContentType =
                         new MediaTypeHeaderValue("application/octet-stream");
 
-                    // Make the REST API call.
+                    // Asynchronously call the REST API method.
                     response = await client.PostAsync(uri, content);
                 }
 
-                // Get the JSON response.
+                // Asynchronously get the JSON response.
                 string contentString = await response.Content.ReadAsStringAsync();
 
                 // Display the JSON response.
@@ -147,9 +154,11 @@ namespace CSHttpClientSample
         /// <returns>The byte array of the image data.</returns>
         static byte[] GetImageAsByteArray(string imageFilePath)
         {
+            // Open a read-only file stream for the specified file.
             using (FileStream fileStream =
                 new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
             {
+                // Read the file's contents into a byte array.
                 BinaryReader binaryReader = new BinaryReader(fileStream);
                 return binaryReader.ReadBytes((int)fileStream.Length);
             }
@@ -158,85 +167,89 @@ namespace CSHttpClientSample
 }
 ```
 
-## <a name="ocr-response"></a>Risposta alla richiesta di riconoscimento ottico dei caratteri
+## <a name="examine-the-response"></a>Esaminare i risultati
 
-Se l'esito è positivo, i risultati restituiti dal riconoscimento ottico dei caratteri includono il testo e i rettangoli delimitatori per aree, linee e parole, ad esempio:
+Una risposta con esito positivo viene restituita in JSON. L'applicazione di esempio analizza e visualizza una risposta con esito positivo nella finestra della console, come nell'esempio seguente:
 
 ```json
 {
-   "language": "en",
-   "textAngle": -1.5000000000000335,
-   "orientation": "Up",
-   "regions": [
-      {
-         "boundingBox": "154,49,351,575",
-         "lines": [
-            {
-               "boundingBox": "165,49,340,117",
-               "words": [
-                  {
-                     "boundingBox": "165,49,63,109",
-                     "text": "A"
-                  },
-                  {
-                     "boundingBox": "261,50,244,116",
-                     "text": "GOAL"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "165,169,339,93",
-               "words": [
-                  {
-                     "boundingBox": "165,169,339,93",
-                     "text": "WITHOUT"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "159,264,342,117",
-               "words": [
-                  {
-                     "boundingBox": "159,264,64,110",
-                     "text": "A"
-                  },
-                  {
-                     "boundingBox": "255,266,246,115",
-                     "text": "PLAN"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "161,384,338,119",
-               "words": [
-                  {
-                     "boundingBox": "161,384,86,113",
-                     "text": "IS"
-                  },
-                  {
-                     "boundingBox": "274,387,225,116",
-                     "text": "JUST"
-                  }
-               ]
-            },
-            {
-               "boundingBox": "154,506,341,118",
-               "words": [
-                  {
-                     "boundingBox": "154,506,62,111",
-                     "text": "A"
-                  },
-                  {
-                     "boundingBox": "248,508,247,116",
-                     "text": "WISH"
-                  }
-               ]
-            }
-         ]
-      }
-   ]
+    "language": "en",
+    "textAngle": -1.5000000000000335,
+    "orientation": "Up",
+    "regions": [
+        {
+            "boundingBox": "154,49,351,575",
+            "lines": [
+                {
+                    "boundingBox": "165,49,340,117",
+                    "words": [
+                        {
+                            "boundingBox": "165,49,63,109",
+                            "text": "A"
+                        },
+                        {
+                            "boundingBox": "261,50,244,116",
+                            "text": "GOAL"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "165,169,339,93",
+                    "words": [
+                        {
+                            "boundingBox": "165,169,339,93",
+                            "text": "WITHOUT"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "159,264,342,117",
+                    "words": [
+                        {
+                            "boundingBox": "159,264,64,110",
+                            "text": "A"
+                        },
+                        {
+                            "boundingBox": "255,266,246,115",
+                            "text": "PLAN"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "161,384,338,119",
+                    "words": [
+                        {
+                            "boundingBox": "161,384,86,113",
+                            "text": "IS"
+                        },
+                        {
+                            "boundingBox": "274,387,225,116",
+                            "text": "JUST"
+                        }
+                    ]
+                },
+                {
+                    "boundingBox": "154,506,341,118",
+                    "words": [
+                        {
+                            "boundingBox": "154,506,62,111",
+                            "text": "A"
+                        },
+                        {
+                            "boundingBox": "248,508,247,116",
+                            "text": "WISH"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
 ```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non è più necessaria, eliminare la soluzione di Visual Studio. A tale scopo, aprire Esplora file, passare alla cartella in cui è stata creata la soluzione di Visual Studio ed eliminare la cartella.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

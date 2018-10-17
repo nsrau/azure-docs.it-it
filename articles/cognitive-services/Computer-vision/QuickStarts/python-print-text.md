@@ -1,49 +1,49 @@
 ---
-title: API Visione artificiale - Guida introduttiva al riconoscimento ottico dei caratteri con Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si estrae testo stampato da un'immagine usando Visione artificiale con Python in Servizi cognitivi.
+title: 'Guida introduttiva: Estrarre testo stampato (OCR) - REST, Python - Visione artificiale'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 60d0435083bdb38b3aee4ff8a8f022e76d06407f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b02a3f382dd0049b635ca2ca99c2e102d364a1f6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771904"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629386"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-python"></a>Guida introduttiva: Estrarre testo stampato (OCR) - REST, Python
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST e Python in Visione artificiale
 
-In questa guida introduttiva si estrae testo stampato da un'immagine, con una tecnica nota come riconoscimento ottico dei caratteri (OCR, Optical Character Recognition), usando Visione artificiale.
+In questa guida introduttiva si estrarrà testo stampato da un'immagine con la tecnica di riconoscimento ottico dei caratteri (OCR, Optical Character Recognition) usando l'API REST di Visione artificiale. Con il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
 
 È possibile seguire passo passo la procedura descritta in questa guida introduttiva usando un notebook di Jupyter in [MyBinder](https://mybinder.org). Per avviare Binder, selezionare il pulsante seguente:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Visione artificiale, è necessario avere una chiave di sottoscrizione. A tale scopo, vedere [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Come ottenere chiavi di sottoscrizione).
+- È necessario installare [Python](https://www.python.org/downloads/) se si vuole eseguire l'esempio in locale.
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="extract-printed-text"></a>Estrarre testo stampato
+## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
-Con il [metodo OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
+Per creare ed eseguire l'esempio, seguire questa procedura:
 
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Copiare il codice seguente in un nuovo file di script Python.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `vision_base_url` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, modificare il valore di `image_url` impostando un'altra immagine.
-1. Eseguire lo script.
-
-Il codice seguente usa la libreria `requests` di Python per chiamare il metodo Analyze Image dell'API Visione artificiale. I risultati vengono restituiti come oggetto JSON. La chiave API viene passata tramite il dizionario `headers`.
-
-## <a name="ocr-request"></a>Richiesta di riconoscimento ottico dei caratteri
+1. Copiare il codice seguente in un editor di testo.
+1. Apportare le modifiche seguenti al codice, dove necessario:
+    1. Sostituire il valore di `subscription_key` con la chiave di sottoscrizione.
+    1. Se necessario, sostituire il valore di `vision_base_url` con l'URL endpoint per la risorsa Visione artificiale nell'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Facoltativamente, sostituire il valore di `image_url` con l'URL di un'altra immagine da cui si vuole estrarre il testo stampato.
+1. Salvare il codice in un file con estensione `.py`. Ad esempio: `get-printed-text.py`.
+1. Aprire una finestra del prompt dei comandi.
+1. Al prompt usare il comando `python` per eseguire l'esempio. Ad esempio: `python get-printed-text.py`.
 
 ```python
 import requests
@@ -104,9 +104,9 @@ for word in word_infos:
 plt.axis("off")
 ```
 
-## <a name="ocr-response"></a>Risposta alla richiesta di riconoscimento ottico dei caratteri
+## <a name="examine-the-response"></a>Esaminare i risultati
 
-Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
+Una risposta con esito positivo viene restituita in JSON. La pagina Web di esempio analizza e visualizza una risposta con esito positivo nella finestra del prompt dei comandi, come nell'esempio seguente:
 
 ```json
 {
@@ -207,9 +207,13 @@ Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
 }
 ```
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non è più necessario, eliminare il file.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare un'applicazione Python che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente le API Visione artificiale, provare la [console di test delle API aperta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare un'applicazione Python che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Esercitazione per Python dell'API Visione artificiale](../Tutorials/PythonTutorial.md)

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7121c83aea75f3b23820a7b0504fa704ec9f3016
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702545"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984306"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Esercitazione: Definire un nuovo tipo di dispositivo nell'applicazione Azure IoT Central
 
@@ -265,7 +265,7 @@ Le *impostazioni* sono usate per permettere a un operatore di inviare dati di co
     | Valore minimo        | 20              |
     | Valore massimo        | 200             |
     | Valore iniziale        | 80              |
-    | Descrizione          | Impostare la temperatura di destinazione per il condizionatore |
+    | DESCRIZIONE          | Impostare la temperatura di destinazione per il condizionatore |
 
     Quindi scegliere **Salva**:
 
@@ -295,7 +295,7 @@ Le *proprietà* sono usate per archiviare informazioni sul dispositivo nell'appl
     | Nome visualizzato         | Località             |
     | Nome campo           | location             |
     | Valore iniziale        | Seattle, WA          |
-    | Descrizione          | Posizione dispositivo      |
+    | DESCRIZIONE          | Posizione dispositivo      |
 
     Mantenere i valori predefiniti per gli altri campi.
 
@@ -312,7 +312,7 @@ Le *proprietà* sono usate per archiviare informazioni sul dispositivo nell'appl
     | Nome visualizzato         | Data ultimo utilizzo       |
     | Nome campo           | serviceDate             |
     | Valore iniziale        | 1/1/2018                |
-    | Descrizione          | Ultimo utilizzo           |
+    | DESCRIZIONE          | Ultimo utilizzo           |
 
     ![Configurare le proprietà del dispositivo](./media/tutorial-define-device-type/configureproperties2.png)
 
@@ -343,7 +343,7 @@ I _comandi_ si usano per consentire a un operatore di eseguire i comandi diretta
     | Nome campo           | echo (eco)            |
     | Timeout predefinito      | 30              |
     | Tipo schermo         | text            |
-    | Descrizione          | Comando del dispositivo  |  
+    | DESCRIZIONE          | Comando del dispositivo  |  
 
 È possibile aggiungere altri input al comando facendo clic su **+** per gli input.
 
@@ -427,7 +427,7 @@ Dopo aver definito il modello di dispositivo **Condizionatore connesso**, è pos
     | Title                   | Numero di serie |
     | Impostazioni e proprietà | Numero di serie |
 
-    ![Impostazioni di proprietà del numero di serie](./media/tutorial-define-device-type/propertysettings1.png)
+    ![Impostazioni di proprietà del numero di serie](./media/tutorial-define-device-type/propertysettings3.png)
 
     Quindi scegliere **Salva**.
 
@@ -442,7 +442,7 @@ Dopo aver definito il modello di dispositivo **Condizionatore connesso**, è pos
     | Title                   | Versione del firmware |
     | Impostazioni e proprietà | Versione del firmware |
 
-    ![Impostazioni di proprietà del numero di serie](./media/tutorial-define-device-type/propertysettings2.png)
+    ![Impostazioni di proprietà del numero di serie](./media/tutorial-define-device-type/propertysettings3.png)
 
     Quindi scegliere **Salva**.
 

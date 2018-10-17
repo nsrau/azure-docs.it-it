@@ -8,15 +8,15 @@ ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a9772ae9ac346daa205c146263a4632a641ee038
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 02b715ade9a9a537f6bd0e476ada299140bff4bb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722814"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815512"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Esercitazione: Eseguire un carico di lavoro parallelo con Azure Batch usando l'API .NET
 
@@ -35,9 +35,9 @@ In questa esercitazione file multimediali MP4 vengono convertiti in parallelo in
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs) o [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) per Linux, macOS o Windows.
 
 * Un account Batch e un account di archiviazione di Azure collegato. Per creare questi account, vedere le guide introduttive di Batch usando il [portale di Azure](quick-create-portal.md) o l'[interfaccia della riga di comando di Azure](quick-create-cli.md).
 
@@ -46,7 +46,6 @@ In questa esercitazione file multimediali MP4 vengono convertiti in parallelo in
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
-
 
 ## <a name="add-an-application-package"></a>Aggiungere un pacchetto dell'applicazione
 
@@ -85,13 +84,18 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 Assicurarsi inoltre che il riferimento al pacchetto dell'applicazione ffmpeg nella soluzione corrisponda all'ID e alla versione del pacchetto ffmpeg caricato nell'account Batch.
 
 ```csharp
 const string appPackageId = "ffmpeg";
 const string appPackageVersion = "3.4";
 ```
+
 ### <a name="build-and-run-the-sample-project"></a>Compilare ed eseguire il progetto di esempio
+
+Compilare ed eseguire l'applicazione in Visual Studio oppure eseguire i comandi `dotnet build` e `dotnet run` dalla riga di comando. Dopo l'esecuzione dell'applicazione, esaminare il codice per comprendere le operazioni eseguite da ogni parte dell'applicazione. Ad esempio, in Visual Studio:
 
 * In Esplora soluzioni fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Compila soluzione**. 
 
@@ -134,7 +138,7 @@ Quando si esegue l'applicazione con la configurazione predefinita, il tempo di e
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Nelle sezioni seguenti si esamineranno in dettaglio i singoli passaggi eseguiti dall'applicazione di esempio per l'elaborazione di un carico di lavoro nel servizio Batch. Fare riferimento alla soluzione aperta in Visual Studio mentre si legge la parte restante di questo articolo, perché non vengono illustrate tutte le righe di codice dell'esempio.
+Nelle sezioni seguenti si esamineranno in dettaglio i singoli passaggi eseguiti dall'applicazione di esempio per l'elaborazione di un carico di lavoro nel servizio Batch. Fare riferimento al file `Program.cs` nella soluzione mentre si legge la parte restante di questo articolo, perché non vengono illustrate tutte le righe di codice dell'esempio.
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Autenticare i client BLOB e Batch
 
@@ -143,7 +147,7 @@ Per interagire con l'account di archiviazione collegato, l'app usa la libreria c
 ```csharp
 // Construct the Storage account connection string
 string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-StorageAccountName, StorageAccountKey);
+                                StorageAccountName, StorageAccountKey);
 
 // Retrieve the storage account
 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
@@ -162,41 +166,43 @@ using (BatchClient batchClient = BatchClient.Open(sharedKeyCredentials))
 
 ### <a name="upload-input-files"></a>Caricare i file di input
 
-L'app passa l'oggetto `blobClient` al metodo `CreateContainerIfNotExist` per creare un contenitore di archiviazione per i file di input (formato MP4) e un contenitore per l'output dell'attività.
+L'app passa l'oggetto `blobClient` al metodo `CreateContainerIfNotExistAsync` per creare un contenitore di archiviazione per i file di input (formato MP4) e un contenitore per l'output dell'attività.
 
 ```csharp
-  CreateContainerIfNotExist(blobClient, inputContainerName;
-  CreateContainerIfNotExist(blobClient, outputContainerName);
+CreateContainerIfNotExistAsync(blobClient, inputContainerName;
+CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
 I file vengono quindi caricati nel contenitore di input dalla cartella `InputFiles` locale. I file nel contenitore di archiviazione sono definiti come oggetti [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) di Batch che successivamente Batch può scaricare nei nodi di calcolo. 
 
 Per il caricamento dei file vengono usati due metodi in `Program.cs`:
 
-* `UploadResourceFilesToContainer`: restituisce una raccolta di oggetti ResourceFile e chiama internamente `UploadResourceFileToContainer` per caricare ogni file passato nel parametro `filePaths`.
-* `UploadResourceFileToContainer`: carica ogni file come BLOB nel contenitore di input. Dopo il caricamento del file, ottiene una firma di accesso condiviso per il BLOB e restituisce un oggetto ResourceFile che lo rappresenta. 
+* `UploadResourceFilesToContainerAsync`: restituisce una raccolta di oggetti ResourceFile e chiama internamente `UploadResourceFileToContainerAsync` per caricare ogni file passato nel parametro `inputFilePaths`.
+* `UploadResourceFileToContainerAsync`: carica ogni file come BLOB nel contenitore di input. Dopo il caricamento del file, ottiene una firma di accesso condiviso per il BLOB e restituisce un oggetto ResourceFile che lo rappresenta. 
 
 ```csharp
-  List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(@"..\..\InputFiles", "*.mp4",
-      SearchOption.TopDirectoryOnly));
+string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
 
-  List<ResourceFile> inputFiles = UploadResourceFilesToContainer(
-    blobClient,
-    inputContainerName,
-    inputFilePaths);
+List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(inputPath, "*.mp4",
+    SearchOption.TopDirectoryOnly));
+
+List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
+  blobClient,
+  inputContainerName,
+  inputFilePaths);
 ```
 
-Per informazioni dettagliate sul caricamento di file come BLOB in un account di archiviazione con .NET, vedere [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
+Per informazioni dettagliate sul caricamento di file come BLOB in un account di archiviazione con .NET, vedere [Caricare, scaricare ed elencare BLOB con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md).
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Creare un pool di nodi di calcolo
 
-L'esempio crea quindi un pool di nodi di calcolo nell'account Batch con una chiamata a `CreatePoolIfNotExist`. Questo metodo definito usa il metodo [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) per impostare il numero di nodi, le dimensioni delle VM e una configurazione del pool. In questo caso, un oggetto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) specifica un oggetto [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) che fa riferimento a un'immagine di Windows Server pubblicata in Azure Marketplace. Batch supporta una vasta gamma di immagini di VM in Azure Marketplace, oltre che immagini di VM personalizzate.
+L'esempio crea quindi un pool di nodi di calcolo nell'account Batch con una chiamata a `CreatePoolIfNotExistAsync`. Questo metodo definito usa il metodo [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) per impostare il numero di nodi, le dimensioni delle VM e una configurazione del pool. In questo caso, un oggetto [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) specifica un oggetto [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference) che fa riferimento a un'immagine di Windows Server pubblicata in Azure Marketplace. Batch supporta una vasta gamma di immagini di VM in Azure Marketplace, oltre che immagini di VM personalizzate.
 
 Il numero di nodi e le dimensioni delle VM vengono impostati usando costanti definite. Batch supporta nodi dedicati e [nodi per priorità bassa](batch-low-pri-vms.md) e nei pool è possibile usare uno di questi tipi o entrambi. I nodi dedicati sono riservati per il pool. I nodi per priorità bassa vengono offerti a un prezzo ridotto usando la capacità in eccesso delle VM in Azure. I nodi per priorità bassa non sono disponibili se Azure non ha capacità sufficiente. L'esempio crea per impostazione predefinita un pool che contiene solo 5 nodi per priorità bassa con dimensioni *Standard_A1_v2*. 
 
 L'applicazione ffmpeg viene distribuita nei nodi di calcolo aggiungendo un oggetto [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) alla configurazione del pool. 
 
-Il metodo [Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) invia il pool al servizio Batch.
+Il metodo [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) invia il pool al servizio Batch.
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -223,30 +229,30 @@ pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
     ApplicationId = appPackageId,
     Version = appPackageVersion}};
 
-pool.Commit();  
+await pool.CommitAsync();  
 ```
 
 ### <a name="create-a-job"></a>Creare un processo
 
-Un processo Batch specifica un pool in cui eseguire le attività e impostazioni facoltative, ad esempio una priorità e una pianificazione per il lavoro. L'esempio crea un processo con una chiamata a `CreateJobIfNotExist`. Questo metodo definito usa il metodo [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) per creare un processo nel pool. 
+Un processo Batch specifica un pool in cui eseguire le attività e impostazioni facoltative, ad esempio una priorità e una pianificazione per il lavoro. L'esempio crea un processo con una chiamata a `CreateJobAsync`. Questo metodo definito usa il metodo [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) per creare un processo nel pool. 
 
-Il metodo [Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) invia il processo al servizio Batch. Inizialmente il processo è privo di attività.
+Il metodo [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) invia il processo al servizio Batch. Inizialmente il processo è privo di attività.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob();
-    job.Id = JobId;
-    job.PoolInformation = new PoolInformation { PoolId = PoolId };
+job.Id = JobId;
+job.PoolInformation = new PoolInformation { PoolId = PoolId };
 
-job.Commit();        
+await job.CommitAsync();
 ```
 
 ### <a name="create-tasks"></a>Creare le attività
 
-L'esempio crea le attività del processo con una chiamata al metodo `AddTasks`, che crea un elenco di oggetti [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Ogni oggetto `CloudTask` esegue ffmpeg per elaborare un oggetto `ResourceFile` di input usando una proprietà [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). Lo strumento ffmpeg è stato installato in precedenza in ogni nodo al momento della creazione del pool. In questo caso, la riga di comando esegue ffmpeg per convertire ogni file (video) MP4 di input in un file (audio) MP3.
+L'esempio crea le attività del processo con una chiamata al metodo `AddTasksAsync`, che crea un elenco di oggetti [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask). Ogni oggetto `CloudTask` esegue ffmpeg per elaborare un oggetto `ResourceFile` di input usando una proprietà [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). Lo strumento ffmpeg è stato installato in precedenza in ogni nodo al momento della creazione del pool. In questo caso, la riga di comando esegue ffmpeg per convertire ogni file (video) MP4 di input in un file (audio) MP3.
 
 L'esempio crea un oggetto [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) per il file MP3 dopo l'esecuzione della riga di comando. I file di output di ogni attività, in questo caso uno, vengono caricati in un contenitore nell'account di archiviazione collegato, usando la proprietà [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) dell'attività.
 
-L'esempio aggiunge quindi le attività al processo con il metodo [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask), che le accoda per l'esecuzione nei nodi di calcolo. 
+L'esempio aggiunge quindi le attività al processo con il metodo [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync), che le accoda per l'esecuzione nei nodi di calcolo. 
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -264,7 +270,6 @@ for (int i = 0; i < inputFiles.Count; i++)
     // Create a cloud task (with the task ID and command line) 
     CloudTask task = new CloudTask(taskId, taskCommandLine);
     task.ResourceFiles = new List<ResourceFile> { inputFiles[i] };
-   
 
     // Task output file
     List<OutputFile> outputFileList = new List<OutputFile>();
@@ -278,7 +283,8 @@ for (int i = 0; i < inputFiles.Count; i++)
 }
 
 // Add tasks as a collection
-batchClient.JobOperations.AddTask(jobId, tasks);
+await batchClient.JobOperations.AddTaskAsync(jobId, tasks);
+return tasks
 ```
 
 ### <a name="monitor-tasks"></a>Monitorare le attività
@@ -291,21 +297,23 @@ Sono disponibili molti approcci al monitoraggio dell'esecuzione delle attività.
 TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
 try
 {
-    batchClient.Utilities.CreateTaskStateMonitor().WaitAll(addedTasks, TaskState.Completed, timeout);
+    await taskStateMonitor.WhenAll(addedTasks, TaskState.Completed, timeout);
 }
 catch (TimeoutException)
 {
-    batchClient.JobOperations.TerminateJob(jobId, failureMessage);
-    Console.WriteLine(failureMessage);
+    batchClient.JobOperations.TerminateJob(jobId);
+    Console.WriteLine(incompleteMessage);
+    return false;
 }
-batchClient.JobOperations.TerminateJob(jobId, successMessage);
+batchClient.JobOperations.TerminateJob(jobId);
+ Console.WriteLine(completeMessage);
 ...
 
 ```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine dell'esecuzione delle attività, l'app elimina automaticamente il contenitore di archiviazione di input creato e consente di scegliere se eliminare il processo e il pool di Batch. Le classi [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) e [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) di BatchClient hanno entrambe metodi di eliminazione corrispondenti, che vengono chiamati se l'utente conferma l'eliminazione. Anche se non vengono addebitati costi per i processi e per le attività, vengono invece addebiti costi per i nodi di calcolo. È quindi consigliabile allocare solo i pool necessari. Quando si elimina il pool, tutto l'output delle attività nei nodi viene eliminato. I file di input e output rimangono tuttavia nell'account di archiviazione.
+Al termine dell'esecuzione delle attività, l'app elimina automaticamente il contenitore di archiviazione di input creato e consente di scegliere se eliminare il processo e il pool di Batch. Le classi [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) e [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) di BatchClient hanno entrambe metodi di eliminazione corrispondenti, che vengono chiamati se l'utente conferma l'eliminazione. Anche se non vengono addebitati costi per i processi e per le attività, vengono invece addebiti costi per i nodi di calcolo. È quindi consigliabile allocare solo i pool necessari. Quando si elimina il pool, tutto l'output delle attività nei nodi viene eliminato. I file di output rimangono tuttavia nell'account di archiviazione.
 
 Quando non sono più necessari, eliminare il gruppo di risorse, l'account Batch e l'account di archiviazione. A tale scopo, nel portale di Azure selezionare il gruppo di risorse per l'account Batch e fare clic su **Elimina gruppo di risorse**.
 
@@ -325,4 +333,4 @@ In questa esercitazione si è appreso a:
 Per altri esempi di uso dell'API .NET per pianificare ed elaborare i carichi di lavoro di Batch, vedere gli esempi su GitHub.
 
 > [!div class="nextstepaction"]
-> [Esempi C# per Batch](https://github.com/Azure/azure-batch-samples/tree/master/CSharp)
+> [Esempi C# per Batch](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp)

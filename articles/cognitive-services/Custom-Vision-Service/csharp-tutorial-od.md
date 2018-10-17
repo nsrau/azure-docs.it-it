@@ -1,22 +1,24 @@
 ---
-title: Compilare un progetto di rilevamento degli oggetti in C# - Servizio visione artificiale personalizzato - Servizi cognitivi di Azure | Microsoft Docs
-description: In questa esercitazione si esplora un'app di base per Windows che usa l'API Visione personalizzata in Servizi cognitivi Microsoft. Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
+title: 'Esercitazione: Compilare un progetto di rilevamento degli oggetti in C# - Servizio visione artificiale personalizzato'
+titlesuffix: Azure Cognitive Services
+description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "36301081"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366914"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Usare l'API Visione personalizzata per compilare un progetto di rilevamento degli oggetti con C&#35; 
+# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Esercitazione: Usare l'API Servizio visione artificiale personalizzato per compilare un progetto di rilevamento degli oggetti con C#
+
 Informazioni su come usare un'applicazione Windows di base che usa l'API Visione artificiale per creare un progetto di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app per Windows usando l'API Visione personalizzata.
 
 ## <a name="prerequisites"></a>Prerequisiti

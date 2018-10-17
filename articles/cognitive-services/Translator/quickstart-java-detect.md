@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Identificare la lingua del testo con Java | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si identifica la lingua del testo di origine usando l'API Traduzione testuale con Java in Servizi cognitivi.
+title: 'Guida introduttiva: Identificare la lingua dal testo - Traduzione testuale, Java'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si identifica la lingua del testo di origine usando l'API Traduzione testuale con Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: bf7d10e447fa536a4ff4310bacc14729f3c6b3b1
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 244ba0bb3836923536cd77fa697b4250f751668e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43770737"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129421"
 ---
 # <a name="quickstart-identify-language-from-text-with-java"></a>Guida introduttiva: Identificare la lingua del testo con Java
 

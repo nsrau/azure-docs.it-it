@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Ottenere la lunghezza delle frasi con Java | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
+title: 'Guida introduttiva: Ottenere la lunghezza delle frasi - Traduzione testuale, Java'
+titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identifica la lunghezza delle frasi nel testo usando l'API Traduzione testuale con Java in Servizi cognitivi.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 1e68f6b888aa670644ef1e05e5f4f3e26cf70b18
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d0459b04bbd0dbbda3dab80623a39742a6f843b2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43770738"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122623"
 ---
 # <a name="quickstart-get-sentence-lengths-with-java"></a>Guida introduttiva: Ottenere la lunghezza delle frasi con Java
 

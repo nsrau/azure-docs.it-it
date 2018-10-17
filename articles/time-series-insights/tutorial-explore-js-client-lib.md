@@ -8,18 +8,18 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 445584ef8f9a2534d7f183a4452df19ee87d0025
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 85d6ac0084343dc821a4eaf91c8053c9885ccfeb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626995"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366047"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Esercitazione: Esplorare la libreria client JavaScript per Azure Time Series Insights
 
 Per permettere agli sviluppatori Web di eseguire facilmente query e visualizzare i dati archiviati in Time Series Insights, è stata sviluppata una libreria client per Time Series Insights basata su JavaScript D3.  Usando un'applicazione Web di esempio, questa esercitazione permette di esplorare la libreria client per Time Series Insights e il modello di programmazione correlato.
 
-Gli argomenti trattati offrono alcune opportunità di sperimentare con la libreria, acquisire una comprensione approfondita di come accedere ai dati di Time Series Insights e usare controlli grafico per il rendering e la visualizzazione dei dati. L'obiettivo è fornire dettagli sufficienti in modo da usare la libreria nell'applicazione Web personale.
+Gli argomenti trattati offrono alcune opportunità di sperimentare la libreria, acquisire una comprensione approfondita di come accedere ai dati di Time Series Insights e usare controlli grafico per il rendering e la visualizzazione dei dati. L'obiettivo è fornire dettagli sufficienti in modo da usare la libreria nell'applicazione Web personale.
 
 Questa esercitazione descrive quanto segue:
 
@@ -27,6 +27,12 @@ Questa esercitazione descrive quanto segue:
 > * Applicazione di esempio Time Series Insights.
 > * Libreria client JavaScript per Time Series Insights.
 > * Modo in cui l'applicazione di esempio usa la libreria per visualizzare i dati di Time Series Insights.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-introduce-the-open-source-time-series-insights-javascript-sdkbr"></a>In questo video viene presentato JavaScript SDK open source per Time Series Insights.</br>
+
+> [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -81,7 +87,7 @@ Visualizzare prima di tutto il codice sorgente HTML e JavaScript alla base della
 
    ![Elementi div del corpo](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)
 
-4. Espandere ora l'elemento `<script type="text/javascript">` direttamente al di sotto dell'elemento `<div class="chartsWrapper">`. Notare l'inizio della sezione JavaScript a livello di pagina, usata per gestire tutta la logica della pagina: l'autenticazione, la chiamata delle API del servizio Time Series Insights, il rendering dei controlli grafico e altro ancora:
+4. Espandere ora l'elemento `<script type="text/javascript">` direttamente al di sotto dell'elemento `<div class="chartsWrapper">`. Notare l'inizio della sezione JavaScript a livello di pagina, usata per gestire tutta la logica della pagina: l'autenticazione, la chiamata delle API del servizio Time Series Insights, il rendering dei controlli grafico e altro ancora.
 
    ![Script del corpo](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)
 
@@ -182,7 +188,7 @@ Attualmente la libreria client per Time Series Insights espone otto controlli an
 
 Esaminare il codice alla base di alcuni controlli grafico standard mostrati nell'applicazione e quindi i modelli di programmazione per la creazione dei controlli. In particolare, esaminare la sezione del codice HTML al di sotto del commento `// Example 3/4/5`, che esegue il rendering dei controlli con valori di ID `chart3`, `chart4` e `chart5`.
 
-Come specificato nel passaggio 3 della sezione [Codice sorgente e struttura della pagina](#page-source-and-structure), i controlli grafico sono disposti in righe sulla pagina e per ognuno è presente una riga per un titolo descrittivo. In questo esempio i tre grafici vengono popolati sotto dell'elemento `<div>` del titolo "Multiple Chart Types From the Same Data" (Più tipi di grafico dagli stessi dati) e sono associati ai tre elementi `<div>` sottostanti:
+Come specificato nel passaggio 3 della sezione [Codice sorgente e struttura della pagina](#page-source-and-structure), i controlli grafico sono disposti in righe sulla pagina e per ognuno è presente una riga per un titolo descrittivo. In questo esempio i tre grafici vengono popolati sotto l'elemento `<div>` del titolo "Multiple Chart Types From the Same Data" (Più tipi di grafico dagli stessi dati) e sono associati ai tre elementi `<div>` sottostanti:
 
 [!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
@@ -213,7 +219,7 @@ Osservare il codice sottostante alla sezione del codice HTML sotto il commento `
 
 2. Viene quindi definita la struttura `events5` per "Incidents", che contiene una matrice di elementi evento di cui tenere traccia. La struttura della matrice ha la stessa forma di quella descritta per `events4`.
 
-3. Infine viene eseguito il rendering del grafico a linee, passando le due strutture con i parametri delle opzioni del grafico `events:` e `states:`. Notare i parametri delle altre opzioni, per specificare un elemento `tooltip:`, `theme:` o `grid:`.
+3. Infine viene eseguito il rendering del grafico a linee, passando le due strutture con i parametri delle opzioni del grafico `events:` e `states:`. Notare i parametri delle altre opzioni per specificare un elemento `tooltip:`, `theme:` o `grid:`.
 
 [!code-javascript[code-sample-states-events](~/samples-javascript/pages/tutorial/index.html?range=337-389&highlight=5,26,51)]
 

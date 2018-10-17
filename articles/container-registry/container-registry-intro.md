@@ -3,18 +3,17 @@ title: Registri per contenitori Docker privati in Azure
 description: Introduzione al servizio Registro contenitori di Azure, che offre registri Docker privati, gestiti e basati sul cloud.
 services: container-registry
 author: stevelas
-manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/08/2018
+ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: 394297e87ef03541725aad0689f11bca17c05ed9
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 5d60144c6b3aada74e4b89c905085835dd5b32d2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576301"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031332"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduzione ai registri per contenitori Docker privati in Azure
 
@@ -28,12 +27,12 @@ Per informazioni su Docker e sui contenitori, vedere [Docker overview](https://d
 
 Effettuare il pull di immagini da un registro contenitori di Azure a varie destinazioni di distribuzione:
 
-* **Sistemi di orchestrazione scalabili** che gestiscono applicazioni in contenitori in cluster di host, quali [DC/OS](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) e [Kubernetes](http://kubernetes.io/docs/).
-* **Servizi di Azure** che supportano la creazione e l'esecuzione di applicazioni su vasta scala, inclusi [Azure Kubernetes Service, ovvero AKS](../aks/index.yml), [Servizio app](/app-service/index.md), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) e altri.
+* **Sistemi di orchestrazione scalabili** che gestiscono applicazioni in contenitori fra più cluster host, quali [Kubernetes](http://kubernetes.io/docs/), [DC/OS](https://docs.mesosphere.com/) e [Docker Swarm](https://docs.docker.com/swarm/).
+* **Servizi di Azure** che supportano la creazione e l'esecuzione di applicazioni su vasta scala, inclusi [Azure Kubernetes Service, ovvero AKS](../aks/index.yml), [Servizio app](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) e altri.
 
-Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un Registro di sistema del contenitore da uno strumento di distribuzione e integrazione continua, quali [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) o [Jenkins](https://jenkins.io/).
+Gli sviluppatori possono anche effettuare il push in un registro contenitori nell'ambito di un flusso di lavoro di sviluppo di contenitori, ad esempio specificando come destinazione un Registro di sistema del contenitore da uno strumento di distribuzione e integrazione continua, quale [Azure DevOps Services](https://www.visualstudio.com/docs/overview) o [Jenkins](https://jenkins.io/).
 
-Configurare le attività di compilazione della [build del Registro contenitori di Azure](#azure-container-registry-build) per ricompilare automaticamente le immagini dell'applicazione quando vengono aggiornate le immagini di base. Usare la build del Registro contenitori di Azure per automatizzare le build delle immagini quando il team esegue il commit del codice in un repository GIT. *La build del Registro contenitori di Azure è attualmente in anteprima.*
+Configurare [attività del Registro contenitori di Azure](#azure-container-registry-build) per ricompilare automaticamente le immagini delle applicazioni quando vengono aggiornate le immagini di base. Usare le attività del Registro contenitori di Azure per automatizzare le build delle immagini quando il team esegue il commit del codice in un repository GIT.
 
 ## <a name="key-concepts"></a>Concetti chiave
 
@@ -51,14 +50,14 @@ Configurare le attività di compilazione della [build del Registro contenitori d
 
 * **Contenitore**. Un contenitore definisce e racchiude un'applicazione software e le relative dipendenze in un file system completo, con codice, runtime, strumenti di sistema e librerie. I contenitori Docker vengono eseguiti in base alle immagini Windows o Linux di cui si effettua il pull da un registro contenitori. I contenitori eseguiti in un singolo computer condividono il kernel del sistema operativo. I contenitori Docker sono completamente portatili in tutte le principali distribuzioni Linux, MacOS e Windows.
 
-## <a name="azure-container-registry-build-preview"></a>Anteprima della build del Registro contenitori di Azure
+## <a name="azure-container-registry-tasks"></a>Attività del Registro contenitori di Azure
 
-La [build del Registro contenitori di Azure](container-registry-build-overview.md) è un gruppo di funzionalità del Registro contenitori di Azure che consente una compilazione efficiente e semplificata delle immagini del contenitore Docker in Azure. Usare la build del Registro contenitori di Azure per estendere il ciclo interno di sviluppo nel cloud usando le operazioni di offload `docker build` in Azure. Configurare le attività di compilazione per automatizzare la pipeline di applicazione delle patch al sistema operativo e al framework del contenitore e compilare automaticamente le immagini quando il team esegue il commit del codice nel controllo dell'origine.
+Le [attività del Registro contenitori di Azure](container-registry-tasks-overview.md) sono un gruppo di funzionalità del Registro contenitori di Azure che consente una compilazione efficiente e semplificata delle immagini del contenitore Docker in Azure. Usare le attività del Registro contenitori di Azure per estendere il ciclo interno di sviluppo nel cloud usando le operazioni di offload `docker build` in Azure. Configurare le attività di compilazione per automatizzare la pipeline di applicazione delle patch al sistema operativo e al framework del contenitore e compilare automaticamente le immagini quando il team esegue il commit del codice nel controllo dell'origine.
 
-[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
+[Attività a più passaggi](container-registry-tasks-overview.md#multi-step-tasks-preview), una funzionalità in anteprima delle attività del Registro contenitori di Azure, consente di definire ed eseguire attività in più passaggi per compilare, testare e correggere immagini contenitore nel cloud. I passaggi dell'attività definiscono singole operazioni di compilazione e push dell'immagine contenitore. Possono anche definire l'esecuzione di uno o più contenitori, in cui ogni passaggio usa il contenitore come ambiente di esecuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un registro contenitori con il portale di Azure](container-registry-get-started-portal.md)
 * [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure)
-* Anteprima di [Automate OS and framework patching with ACR Build](container-registry-build-overview.md) (Automatizzare l'applicazione di patch al sistema operativo e al framework con la build del Registro contenitori di Azure)
+* [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md) (Automatizzare la correzione di sistema operativo e framework con le attività del Registro contenitori di Azure)

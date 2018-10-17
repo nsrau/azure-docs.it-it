@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: dcc0456637c17e779593b121025596149398afba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410222"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239184"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint del servizio Rete virtuale
 
@@ -49,7 +49,7 @@ Per le notifiche più aggiornate, vedere la pagina [Aggiornamenti della rete vir
 
 Gli endpoint di servizio offrono i vantaggi seguenti:
 
-- **Maggiore sicurezza per le risorse dei servizi di Azure**: con gli endpoint di servizio è possibile associare le risorse dei servizi di Azure alla rete virtuale. In questo modo si ottiene una maggiore sicurezza perché si rimuove completamente l'accesso Internet pubblico alle risorse, consentendo solo il traffico dalla rete virtuale.
+- **Maggiore sicurezza per le risorse dei servizi di Azure**: lo spazio indirizzi privato della rete virtuale può essere sovrapposto e quindi non può essere usato per identificare in modo univoco il traffico proveniente dalla rete virtuale. Gli endpoint di servizio consentono di proteggere le risorse dei servizi di Azure in modo che siano limitate alla rete virtuale estendendo l'identità della rete virtuale al servizio. Quando gli endpoint di servizio sono abilitati nella rete virtuale, è possibile associare le risorse del servizio di Azure alla rete virtuale aggiungendo una regola della rete virtuale alle risorse. In questo modo si ottiene una maggiore sicurezza perché si impedisce completamente l'accesso alle risorse da Internet pubblico, consentendo solo il traffico dalla rete virtuale.
 - **Routing ottimale per il traffico del servizio di Azure dalla rete virtuale**: attualmente le route nella rete virtuale che forzano il transito del traffico Internet attraverso appliance locali e/o virtuali, eseguendo così un tunneling forzato, forzano anche il traffico del servizio di Azure nella stessa route del traffico Internet. Gli endpoint di servizio forniscono il routing ottimale per il traffico di Azure. 
 
   Gli endpoint instradano sempre il traffico del servizio direttamente dalla rete virtuale al servizio nella rete backbone di Microsoft Azure. Mantenendo il traffico nella rete backbone di Azure è possibile continuare a monitorare e verificare il traffico Internet in uscita dalle reti virtuali, tramite il tunneling forzato, senza conseguenze per il traffico del servizio. Vedere altre informazioni sulle [route definite dall'utente e il tunneling forzato](virtual-networks-udr-overview.md).

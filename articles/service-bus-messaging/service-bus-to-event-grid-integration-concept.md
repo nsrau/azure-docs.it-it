@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 02/15/2018
+ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 2b6f46c10603e54f0f77a635b3233073aadac0cd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9e7e853ad7562bf5d449479ad730a5dabd6a97b8
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700124"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585425"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi
 
@@ -129,9 +129,9 @@ Per creare una nuova sottoscrizione di Griglia di eventi, seguire questa procedu
 2. Nel riquadro a sinistra selezionare **Griglia eventi**. 
 3. Selezionare **Sottoscrizione di eventi**.  
 
-   L'immagine seguente mostra uno spazio dei nomi con alcune sottoscrizioni di Griglia di eventi:
+   L'immagine seguente mostra uno spazio dei nomi con una sottoscrizione di Griglia di eventi:
 
-   ![20][]
+   ![Sottoscrizioni di Griglia di eventi](./media/service-bus-to-event-grid-integration-concept/sbtoeventgridportal.png)
 
    L'immagine seguente mostra come sottoscrivere una funzione o un webhook senza filtri specifici:
 
@@ -176,7 +176,7 @@ A questo punto è possibile esplorare le altre opzioni di configurazione oppure 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Ottenere [esempi](service-bus-to-event-grid-integration-example.md) relativi al bus di servizio e Griglia di eventi.
-* Altre informazioni su [Griglia di eventi](https://docs.microsoft.com/azure/azure-functions/).
+* Altre informazioni su [Griglia di eventi](https://docs.microsoft.com/azure/event-grid/).
 * Altre informazioni su [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/).
 * Altre informazioni su [App per la logica](https://docs.microsoft.com/azure/logic-apps/).
 * Altre informazioni sul [bus di servizio](https://docs.microsoft.com/azure/azure-functions/).

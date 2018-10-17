@@ -9,15 +9,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: 52b1ec9a1f69273723129050820bb3b4efd7f36d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f1cc1b728a91c22f9b4b2062ed5c423314e561c8
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441341"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017585"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Trasformare dati nel cloud usando un'attività Spark in Azure Data Factory
 In questa esercitazione si usa il portale di Azure per creare una pipeline di Azure Data Factory. Questa pipeline trasforma i dati usando un'attività Spark e un servizio collegato su richiesta di Azure HDInsight. 
@@ -34,6 +34,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 * **Account di archiviazione di Azure**. Creare uno script Python e un file di input, quindi caricarli in Archiviazione di Azure. L'output del programma Spark viene archiviato in questo account di archiviazione. Il cluster Spark su richiesta usa lo stesso account di archiviazione come risorsa di archiviazione primaria.  
+
+> [!NOTE]
+> HDInsight supporta solo gli account di archiviazione per utilizzo generico di livello Standard. Assicurarsi che l'account non sia un account di archiviazione Premium o solo BLOB.
+
 * **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 
@@ -98,12 +102,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. Per **Versione** selezionare **V2**.
 1. Per **Località** selezionare la località per la data factory. 
 
-   Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analitics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio HDInsight) usati da Data Factory possono trovarsi in altre aree.
-1. Selezionare **Aggiungi al dashboard**.     
-1. Selezionare **Crea**.
-1. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory): 
+   Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [ Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio HDInsight) usati da Data Factory possono trovarsi in altre aree.
 
-   ![Riquadro "Deploying data factory" (Distribuzione della data factory)](media//tutorial-transform-data-spark-portal/deploying-data-factory.png)
+1. Selezionare **Create**.
+
 1. Al termine della creazione verrà visualizzata la pagina **Data factory**. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Data Factory in una scheda separata.
 
     ![Home page della data factory, con il riquadro "Crea e monitora"](./media/tutorial-transform-data-spark-portal/data-factory-home-page.png)
@@ -157,11 +159,11 @@ In questa sezione vengono creati due servizi collegati:
    
    h. Espandere **Tipo di sistema operativo**.
    
-   i. Immettere un nome per l'utente del cluster. 
+   i. Immettere un nome in **Nome dell'utente del cluster**. 
    
-   j. Immettere la password dell'utente. 
+   j. Immettere la **password del cluster** per l'utente. 
    
-   k. Selezionare **Salva**. 
+   k. Selezionare **Fine**. 
 
    ![Impostazioni servizio collegato HDInsight](./media/tutorial-transform-data-spark-portal/azure-hdinsight-linked-service-settings.png)
 

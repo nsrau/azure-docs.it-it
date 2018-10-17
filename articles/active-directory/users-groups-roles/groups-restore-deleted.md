@@ -14,16 +14,16 @@ ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 02c1cb90fef4472e97ec16f9eca0fc8a3b6a11c0
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 3b2264817dce63885ce0c428fe4df8427f7cdde6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842812"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049246"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Ripristinare un gruppo di Office 365 eliminato in Azure Active Directory
 
-Quando si elimina un gruppo di Office 365 in Azure Active Directory (Azure AD), il gruppo eliminato viene conservato ma non è visibile per 30 giorni dalla data di eliminazione. In questo modo il gruppo e i relativi contenuti possono essere ripristinati se necessario. Questa funzionalità è limitata esclusivamente ai gruppi di Office 365 in Azure AD. Non è disponibile per i gruppi di sicurezza e i gruppi di distribuzione.
+Quando si elimina un gruppo di Office 365 in Azure Active Directory (Azure AD), il gruppo eliminato viene conservato ma non è visibile per 30 giorni dalla data di eliminazione. In questo modo è possibile ripristinare il gruppo e i relativi contenuti se necessario. Questa funzionalità è limitata esclusivamente ai gruppi di Office 365 in Azure AD. Non è disponibile per i gruppi di sicurezza e i gruppi di distribuzione.
 
 > [!NOTE]
 > Non usare `Remove-MsolGroup`, perché elimina definitivamente il gruppo. Usare sempre `Remove-AzureADMSGroup` per eliminare un gruppo di Office 365.
@@ -34,7 +34,7 @@ Ruolo | Autorizzazioni
 --------- | ---------
 Amministratore della società, supporto partner di livello 2 e amministratori del servizio di InTune | Possono ripristinare qualsiasi gruppo di Office 365 eliminato
 Amministratore dell'account utente e supporto partner di livello 1 | Possono ripristinare qualsiasi gruppo di Office 365 eliminato, ad eccezione di quelli assegnati al ruolo di amministratore della società
-Utente | Possono ripristinare qualsiasi gruppo di Office 365 di proprietà eliminato
+Utente | Possono ripristinare qualsiasi gruppo di Office 365 eliminato che era di loro proprietà
 
 
 ## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore"></a>Visualizzare i gruppi di Office 365 eliminati che è possibile ripristinare

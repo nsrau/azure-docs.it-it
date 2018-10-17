@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969292"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220888"
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
 L'infrastruttura per l'applicazione è in genere costituita da vari componenti, ad esempio una macchina virtuale, un account di archiviazione e una rete virtuale oppure un'app Web, un database, un server di database e servizi di terze parti. Questi componenti non appaiono come entità separate, ma come parti correlate e interdipendenti di una singola entità e devono essere distribuite, gestite e monitorate come gruppo. Gestione risorse di Azure consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un modello; questo modello può essere usato per diversi ambienti, ad esempio di testing, staging e produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione. 
@@ -155,6 +155,12 @@ Dopo aver definito il modello è possibile distribuire le risorse in Azure. Per 
 * [Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure](resource-group-template-deploy-portal.md)
 * [Distribuire le risorse con i modelli e l'API REST di Resource Manager](resource-group-template-deploy-rest.md)
 
+## <a name="safe-deployment-practices"></a>Procedure di distribuzione sicure
+
+Quando si distribuisce un servizio complesso in Azure, è necessario distribuire il servizio in più aree e verificarne l'integrità prima di procedere al passaggio successivo. Usare [Azure Deployment Manager](deployment-manager-overview.md) per coordinare un'implementazione per fasi del servizio. Con l'implementazione temporanea del servizio, è possibile individuare potenziali problemi prima che il servizio sia distribuito in tutte le aree. Se non sono necessarie queste precauzioni, le operazioni di distribuzione nella sezione precedente sono la scelta migliore.
+
+Deployment Manager è attualmente disponibile nella versione di anteprima pubblica.
+
 ## <a name="tags"></a>Tag
 Gestione risorse di Azure offre una funzionalità di categorizzazione che consente di suddividere le risorse in categorie in base ai requisiti di gestione o fatturazione. Usare i tag quando si ha un insieme complesso di gruppi di risorse e risorse ed è necessario visualizzare tali risorse nel modo più razionale. Ad esempio, è possibile contrassegnare le risorse che svolgono un ruolo simile nell'organizzazione o che appartengono allo stesso reparto. Senza tag è possibile che gli utenti dell'organizzazione creino più risorse che possono risultare difficili da identificare e gestire in un secondo momento. Si supponga ad esempio di voler eliminare tutte le risorse per un progetto specifico. Se le risorse non hanno tag per il progetto, sarà necessario trovarle manualmente. L'assegnazione di tag può essere un modo importante per ridurre i costi non necessari nella sottoscrizione. 
 
@@ -176,20 +182,6 @@ L'esempio seguente illustra un tag applicato a una macchina virtuale.
   }
 ]
 ```
-
-Per recuperare tutte le risorse con un valore di tag, usare il cmdlet di PowerShell seguente:
-
-```powershell
-Find-AzureRmResource -TagName costCenter -TagValue Finance
-```
-
-In alternativa, usare il comando dell'interfaccia della riga di comando di Azure seguente:
-
-```azurecli
-az resource list --tag costCenter=Finance
-```
-
-È anche possibile visualizzare le risorse con tag tramite il portale di Azure.
 
 Il [report di uso](../billing/billing-understand-your-bill.md) della sottoscrizione include valori e nomi di tag per suddividere i costi per tag. Per altre informazioni sui tag, vedere [Uso dei tag per organizzare le risorse di Azure](resource-group-using-tags.md).
 
@@ -228,29 +220,8 @@ In alcuni casi è necessario eseguire codice o uno script che acceda alle risors
 
 È anche possibile bloccare in modo esplicito le risorse critiche per impedire agli utenti di eliminarle o modificarle. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
-## <a name="activity-logs"></a>Log attività
-Resource Manager registra tutte le operazioni che creano, modificano o eliminano una risorsa. È possibile usare i log attività per trovare un errore durante la risoluzione dei problemi o monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa. I log possono essere filtrati in base a molti valori diversi, incluso l'utente che ha avviato l'operazione. Per informazioni sull'uso dei log attività, vedere [Visualizzare i log attività per gestire le risorse di Azure](resource-group-audit.md).
-
 ## <a name="customized-policies"></a>Criteri personalizzati
 Gestione risorse consente di creare criteri personalizzati per gestire le risorse. I tipi di criteri creati possono includere diversi scenari. È possibile applicare una convenzione di denominazione alle risorse e limitare i tipi e le istanze di risorse che possono essere distribuiti o le aree che possono ospitare un tipo di risorsa. È possibile richiedere l'applicazione di un valore di tag per le risorse per organizzare la fatturazione per i reparti. Creare criteri per ridurre i costi e mantenere la coerenza della sottoscrizione. 
-
-Definire criteri con JSON e quindi applicarli nell'intera sottoscrizione o all'interno di un gruppo di risorse. I criteri sono diversi dal controllo degli accessi in base al ruolo perché vengono applicati ai tipi di risorse.
-
-L'esempio seguente illustra un criterio che garantisce la coerenza dei tag specificando che tutte le risorse debbano includere un tag costCenter.
-
-```json
-{
-  "if": {
-    "not" : {
-      "field" : "tags",
-      "containsKey" : "costCenter"
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}
-```
 
 È possibile creare molti altri tipi di criteri. Per altre informazioni, vedere [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md).
 

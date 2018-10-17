@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c9350704943bebada217338488e51b97acc550ca
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 188e3c0e8b9a9d421b40e142e534aca2741fee56
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423613"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248888"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Azure Machine Learning come modulo di IoT Edge (anteprima)
 
@@ -46,11 +46,8 @@ Un dispositivo Azure IoT Edge:
 Risorse cloud:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) del livello gratuito in Azure. 
-* Un account di Azure Machine Learning. Seguire le istruzioni riportate in [Creare account di Azure Machine Learning e installare Azure Machine Learning Workbench](../machine-learning/desktop-workbench/quickstart-installation.md). Non è necessario installare l'applicazione workbench per questa esercitazione. 
+* Un'area di lavoro di Azure Machine Learning. Per crearne una, seguire le istruzioni incluse in [Preparare la distribuzione di modelli nei dispositivi IoT Edge](../machine-learning/service/how-to-deploy-to-iot.md).
 
-Risorse per lo sviluppo:
-
-* Gestione dei modelli per Azure Machine Learning. Per configurare l'ambiente e creare un account, attenersi alle istruzioni riportate in [Configurazione di Gestione modelli](../machine-learning/desktop-workbench/deployment-setup-configuration.md). Durante la configurazione della distribuzione è consigliabile scegliere la procedura locale anziché quella cluster, dove possibile.
 
 ### <a name="disable-process-identification"></a>Disabilitare l'identificazione di un processo
 
@@ -94,18 +91,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ## <a name="create-the-azure-ml-container"></a>Creare il contenitore di Azure ML
 In questa sezione scaricare i file del modello sottoposto a training e convertirli in un contenitore di Azure ML.
 
-Nel computer che esegue Gestione modelli per Azure ML scaricare e salvare [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) e [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) dal toolkit di Azure ML IoT su GitHub. Questi file definiscono il modello di Machine Learning sottoposto a training che verrà distribuito al dispositivo Iot Edge.
-
-Usare il modello sottoposto a training per creare un contenitore che può essere distribuito ai dispositivi IoT Edge. Usare il comando seguente per:
-
-   * Registrare il modello.
-   * Creare un manifesto.
-   * Creare un'immagine del contenitore Docker denominata *machinelearningmodule*.
-   * Distribuire l'immagine nel cluster AKS (Azure Kubernetes Service).
-
-```cmd
-az ml service create realtime --model-file model.pkl -f iot_score.py -n machinelearningmodule -r python
-```
+Per creare un contenitore Docker con il modello di Machine Learning, seguire le istruzioni incluse nell'argomento [Preparare la distribuzione di modelli nei dispositivi IoT Edge](../machine-learning/service/how-to-deploy-to-iot.md) della documentazione.  Tutti i componenti necessari per l'immagine Docker sono disponibili nel [repository GIT di AI Toolkit per Azure IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
 
 ### <a name="view-the-container-repository"></a>Visualizzare il repository di contenitori
 

@@ -1,23 +1,23 @@
 ---
-title: Guida introduttiva all'SDK di Ricerca notizie per Node | Microsoft Docs
-description: Configurare l'applicazione console dell'SDK di Ricerca notizie
-titleSuffix: Azure cognitive services
+title: 'Guida introduttiva: Bing News Search SDK, Node'
+titleSuffix: Azure Cognitive Services
+description: Configurare l'applicazione console Bing News Search SDK
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4ae99aa100b697a0dd75863c6f0c3c556dfa3d21
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2279a6475ab8c39b3ff599f7244caea59d622651
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377940"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803002"
 ---
-# <a name="news-search-sdk-node-quickstart"></a>Guida introduttiva all'SDK di Ricerca notizie per Node
+# <a name="quickstart-bing-news-search-sdk-with-node"></a>Guida introduttiva: Bing News Search SDK con Node
 
 L'SDK di Ricerca notizie Bing contiene la funzionalità dell'API REST per query di notizie e analisi dei risultati. 
 

@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 030774716e1af4a7d6817d64ae66ded2bcaf4081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fde063cb593ca1f610dc35cd044fe41e34ab9202
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41920718"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578367"
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Report di sicurezza Utenti contrassegnati per il rischio nel portale di Azure Active Directory
 
@@ -29,9 +29,9 @@ Azure Active Directory rileva le azioni sospette correlate agli account utente. 
 
 Gli eventi di rischio rilevati vengono usati per calcolare:
 
-- **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. Per altre informazioni, vedere [Accessi a rischio](../identity-protection/overview.md#risky-sign-ins). 
+- **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. Per altre informazioni, vedere [Come configurare i criteri di rischio di accesso](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per altre informazioni, vedere [Utenti contrassegnati per il rischio](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per altre informazioni, vedere [Come configurare i criteri di rischio utente](../identity-protection/howto-user-risk-policy.md).  
 
 Nel Portale di Azure, è possibile trovare i report di sicurezza nel pannello di **Azure Active Directory** nella sezione **Sicurezza**.  
 
@@ -78,13 +78,13 @@ Questa finestra di dialogo offre la possibilità di:
 
 Il report Utenti contrassegnati per il rischio della versione Premium di Azure Active Directory offre:
 
-- Un [elenco di account di utenti](../identity-protection/overview.md#users-flagged-for-risk) che potrebbero essere stati compromessi 
+- Un elenco di account utente che potrebbero essere stati compromessi 
 
 - informazioni aggregate sui [tipi di evento di rischio](concept-risk-events.md) che sono stati rilevati
 
 - Un'opzione per scaricare il report
 
-- avere un'opzione per configurare i [criteri per la correzione del rischio per gli utenti](../identity-protection/overview.md#user-risk-security-policy)  
+- avere un'opzione per configurare i [criteri per la correzione del rischio per gli utenti](../identity-protection/howto-user-risk-policy.md)  
 
 
 ![Accessi a rischio](./media/concept-user-at-risk/71.png)
@@ -103,7 +103,7 @@ Quando si seleziona un utente, si ottiene la visualizzazione di un report dettag
 ![Accessi a rischio](./media/concept-user-at-risk/324.png)
 
 
-Per analizzare un evento di rischio, selezionarne uno nell'elenco per aprire il pannello **Dettagli** dell'evento di rischio. Nel pannello **Dettagli**, è possibile [chiudere manualmente un evento di rischio](../identity-protection/overview.md#closing-risk-events-manually) o riattivare un evento di rischio chiuso manualmente. 
+Per analizzare un evento di rischio, selezionarne uno nell'elenco per aprire il pannello **Dettagli** dell'evento di rischio. Nel pannello **Dettagli**, è possibile chiudere manualmente un evento di rischio o riattivare un evento di rischio chiuso manualmente. 
 
 
 ![Accessi a rischio](./media/concept-user-at-risk/325.png)

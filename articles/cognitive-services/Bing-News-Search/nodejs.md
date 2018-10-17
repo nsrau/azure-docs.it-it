@@ -1,20 +1,21 @@
 ---
-title: Avvio rapido di Node.js per Servizi cognitivi di Azure, API Ricerca notizie Bing | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca notizie Bing in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: API Ricerca notizie Bing, Node.js'
+titlesuffix: Azure Cognitive Services
+description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Ricerca notizie Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 1c68e75319a34f4ac9726c047fc7d6d0269634ba
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 923566dc2764037164725f795e411beef939d92a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377372"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802071"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-nodejs"></a>Avvio rapido per l'API Ricerca notizie Bing con Node.js
 
@@ -24,9 +25,9 @@ L'esempio è scritto in JavaScript ed eseguito in Node.js 6.
 
 Per i dettagli tecnici sulle API, vedere le [informazioni di riferimento sulle API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo Avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questo Avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 
 ## <a name="bing-news-search"></a>Ricerca notizie Bing
 
@@ -34,7 +35,7 @@ L'[API Ricerca notizie Bing](https://docs.microsoft.com/rest/api/cognitiveservic
 
 1. Creare un nuovo progetto Node.js nell'IDE o nell'editor preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```javascript
@@ -97,7 +98,7 @@ bing_news_search(term);
 
 **Risposta**
 
-Una risposta con esito positivo viene restituita in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {

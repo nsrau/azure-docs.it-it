@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f7856edef3bb93300fce0ff00d9434400e239f8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917047"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391369"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover e failback di macchine virtuali VMware e server fisici replicati in Azure
 
@@ -67,7 +67,7 @@ Verificare le proprietà della macchina virtuale e assicurarsi che sia conforme 
 1. In **Impostazioni** > **Elementi replicati**, fare clic sulla macchina virtuale > **Failover**.
 
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
-   - **Più recente** (predefinita): questa opzione elabora prima tutti i dati inviati a Site Recovery. Offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale di Azure creata dopo il failover contiene tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
+   - **Più recente**: questa opzione elabora prima tutti i dati inviati a Site Recovery. Offre il valore RPO (Recovery Point Objective) più basso perché la macchina virtuale di Azure creata dopo il failover contiene tutti i dati che sono stati replicati in Site Recovery all'attivazione del failover.
    - **Elaborato più recente**: questa opzione consente di eseguire il failover della macchina virtuale nel punto di ripristino più recente elaborato da Site Recovery. Offre un RTO (Recovery Time Objective) basso poiché non viene impiegato tempo per elaborare dati non elaborati.
    - **Coerente con l'app più recente**: questa opzione esegue il failover della macchina virtuale nel punto di ripristino coerente con l'app più recente elaborato da Site Recovery.
    - **Personalizzato**: specificare un punto di ripristino.
@@ -82,11 +82,14 @@ In alcuni scenari il failover richiede un'altra elaborazione il cui completament
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Stabilire la connessione alla macchina virtuale in cui è stato eseguito il failover
 
-1. Dopo il failover, passare alla macchina virtuale e convalidarla [connettendosi](../virtual-machines/windows/connect-logon.md) a essa.
-2. Dopo la convalida, fare clic su **Esegui commit** per finalizzare il punto di recupero della macchina virtuale dopo il failover. Dopo il commit, tutti gli altri punti di recupero disponibili vengono eliminati. In questo modo, viene completata l'attività di failover.
+1. Per connettersi alle macchine virtuali di Azure con RDP/SSH dopo il failover, seguire i requisiti riepilogati nella tabella [qui](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+2. Dopo il failover, passare alla macchina virtuale e convalidarla [connettendosi](../virtual-machines/windows/connect-logon.md) a essa.
+3. Dopo la convalida, fare clic su **Esegui commit** per finalizzare il punto di recupero della macchina virtuale dopo il failover. Dopo il commit, tutti gli altri punti di recupero disponibili vengono eliminati. In questo modo, viene completata l'attività di failover.
 
 >[!TIP]
 > L'opzione **Modifica punto di ripristino** aiuta nella scelta di un punto di recupero diverso dopo il failover se non si è soddisfatti della macchina virtuale scelta per il failover. Dopo il **commit**, questa opzione non sarà disponibile.
+
+Seguire i passaggi descritti [qui](site-recovery-failover-to-azure-troubleshoot.md) per risolvere i problemi di connettività dopo il failover.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Preparazione per la riprotezione della macchina virtuale di Azure
 

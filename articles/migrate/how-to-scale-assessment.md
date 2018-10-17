@@ -4,14 +4,14 @@ description: Questo articolo descrive come valutare un elevato numero di compute
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 1f049b3e05ac17e416379762a0bced8340ae25d5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666544"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325023"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -22,8 +22,7 @@ Azure Migrate ha un limite di 1500 computer per progetto; questo articolo descri
 - **VMware**: le macchine virtuali di cui si intende eseguire la migrazione devono essere gestite dal server vCenter versione 5.5, 6.0 o 6.5. È inoltre necessario disporre di un unico host ESXi versione 5.0 o successiva per distribuire la macchina virtuale che funge da agente di raccolta.
 - **Account vCenter**: occorre avere un account di sola lettura per accedere al server vCenter. Azure Migrate usa questo account per individuare le macchine virtuali.Azure Migrate usa questo account per individuare le macchine virtuali locali.
 - **Autorizzazioni**: nel server vCenter è necessario disporre delle autorizzazioni per creare una macchina virtuale importando un file in formato OVA.
-- **Impostazioni delle statistiche**: prima di iniziare la distribuzione, è consigliabile impostare le statistiche del server vCenter sul livello 3. Il livello delle statistiche deve essere impostato su 3 per ogni intervallo di raccolta giornaliero, settimanale e mensile. Se si imposta un livello inferiore a 3 per uno dei tre intervalli di raccolta, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. I consigli relativi alle dimensioni si baseranno quindi sui dati delle prestazioni per la CPU e la memoria e sui dati di configurazione per le schede del disco e di rete.
-
+- **Impostazioni delle statistiche**: questo requisito è applicabile solo al modello di [individuazione una tantum](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods). Per il modello di individuazione una tantum, le impostazioni delle statistiche del server vCenter devono essere impostate sul livello 3 prima di iniziare la distribuzione. Il livello delle statistiche deve essere impostato su 3 per ogni intervallo di raccolta giornaliero, settimanale e mensile. Se si imposta un livello inferiore a 3 per uno dei tre intervalli di raccolta, viene eseguita la valutazione, ma non vengono raccolti i dati sulle prestazioni per l'archiviazione e la rete. I consigli relativi alle dimensioni si baseranno quindi sui dati delle prestazioni per la CPU e la memoria e sui dati di configurazione per le schede del disco e di rete.
 
 ### <a name="set-up-permissions"></a>Impostare le autorizzazioni
 
@@ -32,26 +31,28 @@ Azure Migrate deve avere accesso ai server VMware per l'individuazione automatic
 - Tipo di utente: almeno un utente di sola lettura
 - Autorizzazioni: Data Center object (Oggetto data center) > Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura)
 - Dettagli: l'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.
-- Per limitare l'accesso, assegnare il ruolo No access (Nessun accesso) con Propagate to child object (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, VM e reti).
+- Per limitare l'accesso, assegnare il ruolo No access (Nessun accesso) con Propagate to Child Object (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, macchine virtuali e reti).
 
 Se si esegue la distribuzione in un ambiente tenant, ecco un modo per impostare questa funzionalità:
 
 1.  Creare un utente per ogni tenant e, tramite [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assegnare autorizzazioni di sola lettura a tutte le macchine virtuali appartenenti a un particolare tenant. Usare quindi queste credenziali per l'individuazione. RBAC assicura che l'utente vCenter corrispondente possa accedere solo al tenant della macchina virtuale specifica.
-2. È possibile impostare RBAC per utenti tenant diversi, come descritto nell'esempio seguente per Utente#1 e Utente#2:
+2. È possibile impostare RBAC per utenti tenant diversi, come descritto nell'esempio seguente per l'Utente n. 1 e l'Utente n. 2:
 
     - In **Nome utente** e **Password** specificare le credenziali dell'account di sola lettura che verranno usate dall'agente di raccolta per individuare le macchine virtuali in
-    - Datacenter1 - assegnare autorizzazioni di sola lettura per Utente#1 e Utente#2. Non propagare tali autorizzazioni per tutti gli oggetti figlio, perché le autorizzazioni verranno impostate in macchine virtuali singole.
+    - Datacenter1 - assegnare autorizzazioni di sola lettura all'Utente n. 1 e all'Utente n. 2. Non propagare tali autorizzazioni a tutti gli oggetti figlio, perché le autorizzazioni verranno impostate in macchine virtuali singole.
 
-      - VM1 (Tenant#1) (autorizzazione di sola lettura all'Utente#1)
-      - VM2 (Tenant#1) (autorizzazione di sola lettura all'Utente#1)
-      - VM3 (Tenant#2) (autorizzazione di sola lettura all'Utente#2)
-      - VM4 (Tenant#2) (autorizzazione di sola lettura all'Utente#2)
+      - VM1 (Tenant n. 1) (autorizzazione di sola lettura all'Utente n. 1)
+      - VM2 (Tenant n. 1) (autorizzazione di sola lettura all'Utente n. 1)
+      - VM3 (Tenant n. 2) (autorizzazione di sola lettura all'Utente n. 2)
+      - VM4 (Tenant n. 2) (autorizzazione di sola lettura all'Utente n. 2)
 
-   - Se si esegue l'individuazione usando le credenziali dell'Utente#1, verranno individuate solo VM1 e VM2.
+   - Se si esegue l'individuazione usando le credenziali dell'Utente n. 1, verranno individuate solo VM1 e VM2.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Pianificare i progetti di migrazione e le individuazioni
 
-Un singolo agente di raccolta Azure Migrate supporta l'individuazione di più server vCenter (uno dopo l'altro) e supporta anche l'individuazione su più progetti di migrazione (uno dopo l'altro). L'agente di raccolta opera in un modello fire-and-forget; una volta fatta l'individuazione, è possibile usare lo stesso agente di raccolta per raccogliere dati da un server vCenter diverso o inviarli a un progetto di migrazione diverso.
+Un singolo agente di raccolta Azure Migrate supporta l'individuazione di più server vCenter (uno dopo l'altro) e supporta anche l'individuazione su più progetti di migrazione (uno dopo l'altro).
+
+L'agente di raccolta, in caso di individuazione una tantum, opera in un modello fire-and-forget; una volta fatta l'individuazione, è possibile usare lo stesso agente di raccolta per raccogliere dati da un server vCenter diverso o inviarli a un progetto di migrazione diverso. In caso di individuazione continua, un'appliance è connessa solo a un singolo progetto, in modo che non sia possibile utilizzare lo stesso agente di raccolta per attivare una seconda individuazione.
 
 Pianificare le individuazioni e le valutazioni in base ai limiti seguenti:
 
@@ -70,20 +71,31 @@ Tenere presente le considerazioni seguenti sulla pianificazione:
 A seconda dello scenario, è possibile dividere le individuazioni come stabilito di seguito:
 
 ### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Più server vCenter con meno di 1500 macchine virtuali
+Se si hanno più server vCenter nell'ambiente in uso e il numero totale di macchine virtuali è inferiore a 1500, è possibile usare l'approccio seguente in base allo scenario:
 
-Se si dispone di più server vCenter nell'ambiente e il numero totale di macchine virtuali è inferiore a 1500, è possibile usare un singolo agente di raccolta e un singolo progetto di migrazione per individuare tutte le macchine virtuali in tutti i server vCenter. Poiché l'agente di raccolta consente di individuare un server vCenter alla volta, è possibile eseguire lo stesso agente di raccolta su tutti i server vCenter, uno dopo l'altro e puntare l'agente di raccolta allo stesso progetto di migrazione. Dopo aver completato tutte le individuazioni è possibile creare le valutazioni per i computer.
+**Individuazione una tantum:** è possibile usare un singolo agente di raccolta e un progetto di migrazione singolo per individuare tutte le macchine virtuali in tutti i server vCenter. Poiché l'agente di raccolta dell'individuazione una tantum consente di individuare un server vCenter alla volta, è possibile eseguire lo stesso agente di raccolta su tutti i server vCenter, uno dopo l'altro e puntare l'agente di raccolta allo stesso progetto di migrazione. Dopo aver completato tutte le individuazioni è possibile creare le valutazioni per i computer.
+
+**Individuazione continua:** in caso di individuazione continua, un'appliance può essere connessa solo a un singolo progetto. Pertanto, è necessario distribuire un'appliance per ogni server vCenter e quindi creare un progetto per ogni appliance e le individuazioni di trigger corrispondenti.
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Più server vCenter con più di 1500 macchine virtuali
 
-Se si dispone di più server vCenter con meno di 1500 macchine virtuali per ciascun server vCenter, ma più di 1500 macchine virtuali tra tutti i server vCenter, è necessario creare più progetti di migrazione (un progetto di migrazione può contenere solo 1500 macchine virtuali). È possibile ottenere questo risultato creando un progetto di migrazione per server vCenter e suddividere le individuazioni. È possibile usare un singolo agente di raccolta per individuare ciascun server vCenter (uno dopo l'altro). Se si desidera che le individuazioni inizino contemporaneamente, è anche possibile distribuire più appliance ed eseguire le individuazioni in parallelo.
+Se si dispone di più server vCenter con meno di 1500 macchine virtuali per ciascun server vCenter, ma più di 1500 macchine virtuali tra tutti i server vCenter, è necessario creare più progetti di migrazione (un progetto di migrazione può contenere solo 1500 macchine virtuali). È possibile ottenere questo risultato creando un progetto di migrazione per server vCenter e suddividere le individuazioni.
+
+**Individuazione una tantum:** è possibile usare un singolo agente di raccolta per individuare ciascun server vCenter (uno dopo l'altro). Se si desidera che le individuazioni inizino contemporaneamente, è anche possibile distribuire più appliance ed eseguire le individuazioni in parallelo.
+
+**Individuazione continua:** è necessario creare più appliance dell'agente di raccolta (una per ogni server vCenter) e connettere ogni appliance a un progetto e attivare l'individuazione di conseguenza.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Più di 1500 macchine in un singolo server vCenter
 
-Se si hanno più di 1500 macchine virtuali in un singolo server vCenter, è necessario suddividere l'individuazione in più progetti di migrazione. Per suddividere le individuazioni, è possibile sfruttare il campo Ambito nell'appliance e specificare l'host, il cluster, la cartella o il data center che si desidera individuare. Ad esempio, se si dispone di due cartelle nel server vCenter, una con 1000 macchine virtuali (Cartella1) e l'altro con 800 macchine virtuali (Cartella2), è possibile usare un singolo agente di raccolta ed eseguire due individuazioni. Nella prima individuazione, è possibile specificare Cartella1 come ambito e indirizzarla al primo progetto di migrazione. Al termine della prima individuazione è possibile usare lo stesso l'agente di raccolta, modificare l'ambito con Cartella2 e i dettagli del secondo progetto di migrazione ed eseguire la seconda individuazione.
+Se si hanno più di 1500 macchine virtuali in un singolo server vCenter, è necessario suddividere l'individuazione in più progetti di migrazione. Per suddividere le individuazioni, è possibile sfruttare il campo Ambito nell'appliance e specificare l'host, il cluster, la cartella o il data center che si desidera individuare. Ad esempio, se si dispone di due cartelle nel server vCenter, una con 1000 macchine virtuali (Cartella1) e l'altra con 800 macchine virtuali (Cartella2), è possibile usare il campo ambito per suddividere le individuazioni tra le cartelle.
+
+**Individuazione una tantum:** è possibile usare lo stesso agente di raccolta per attivare entrambe le individuazioni. Nella prima individuazione, è possibile specificare Cartella1 come ambito e indirizzarla al primo progetto di migrazione. Al termine della prima individuazione è possibile usare lo stesso l'agente di raccolta, modificare l'ambito con Cartella2 e i dettagli del secondo progetto di migrazione ed eseguire la seconda individuazione.
+
+**Individuazione continua:** In questo caso, è necessario creare due appliance dell'agente di raccolta, per il primo agente di raccolta, specificare l'ambito come Cartella1 e connetterla al primo progetto di migrazione. È possibile avviare in parallelo l'individuazione della Cartella2 usando l'appliance del secondo agente di raccolta e connetterla al secondo progetto di migrazione.
 
 ### <a name="multi-tenant-environment"></a>Ambienti multi-tenant
 
-Se si dispone di un ambiente condiviso da più tenant e non si desidera individuare le macchine virtuali di un tenant nella sottoscrizione di un altro tenant, è possibile usare il campo Ambito nell'appliance dell'agente di raccolta per impostare l'ambito di individuazione. Se i tenant condividono gli host, creare una credenziale con accesso in sola lettura alle macchine virtuali che appartengono al tenant specifico e quindi usare le credenziali nell'appliance dell'agente di raccolta e specificare Ambito come host per eseguire l'individuazione. In alternativa, è inoltre possibile creare cartelle nel server vCenter (si supponga cartella1 per tenant1 e cartella2 per tenant2), nell'host condiviso, spostare le macchine virtuali per tenant1 nella cartella1 e per tenant2 nella cartella2 e quindi impostare di conseguenza l'ambito delle individuazioni nell'agente di raccolta specificando la cartella appropriata.
+Se si dispone di un ambiente condiviso da più tenant e non si desidera individuare le macchine virtuali di un tenant nella sottoscrizione di un altro tenant, è possibile usare il campo Ambito nell'appliance dell'agente di raccolta per impostare l'ambito di individuazione. Se i tenant condividono gli host, creare una credenziale con accesso in sola lettura alle macchine virtuali che appartengono al tenant specifico e quindi usare le credenziali nell'appliance dell'agente di raccolta e specificare Ambito come host per eseguire l'individuazione.
 
 ## <a name="discover-on-premises-environment"></a>Individuazione dell'ambiente locale
 
@@ -107,8 +119,16 @@ Azure Migrate crea una macchina virtuale locale definita appliance dell'agente d
 
 In presenza di più progetti, occorre scaricare l'appliance dell'agente di raccolta una sola volta nel server vCenter. Dopo avere scaricato e configurato l'appliance, la si esegue per ogni progetto e si specificano la chiave e l'ID di progetto univoci.
 
-1. Nel progetto di Azure Migrate selezionare **Attività iniziali** > **Individua e valuta** > **Individua macchine virtuali**.
-2. In **Individua macchine virtuali** fare clic su **Scarica** per scaricare il file con estensione ova.
+1. Nel progetto di Azure Migrate fare clic su **Attività iniziali** > **Individua e valuta** > **Individua macchine virtuali**.
+2. In **Individua macchine virtuali** sono disponibili due opzioni per l'appliance: fare clic su **Scarica** per scaricare l'appliance appropriata in base alle proprie preferenze.
+
+    a. **Individuazione una tantum:** l'appliance per questo modello comunica con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Per la raccolta dati sulle prestazioni delle macchine virtuali, si basa sui dati cronologici relativi alle prestazioni archiviati nel server vCenter e raccoglie la cronologia delle prestazioni dell'ultimo mese. In questo modello, Azure Migrate raccoglie un contatore relativo al valore medio (anziché un contatore del valore di picco) per ogni metrica. [Ulteriori informazioni] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Poiché si tratta di un'individuazione una tantum, le modifiche nell'ambiente locale non vengono riflesse una volta completata l'individuazione. Se si desidera che le modifiche siano riflesse, è necessario eseguire una nuova individuazione dello stesso ambiente allo stesso progetto.
+
+    b. **Individuazione continua:** l'appliance per questo modello profila in modo continuo l'ambiente locale per raccogliere i dati di utilizzo in tempo reale per ogni macchina virtuale. In questo modello vengono raccolti i contatori di picco per ogni metrica (utilizzo della CPU, utilizzo della memoria e così via). Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per la raccolta dei dati sulle prestazioni. È possibile interrompere la profilazione continua in qualsiasi momento dall'appliance.
+
+    > [!NOTE]
+    > La funzionalità di individuazione continua è disponibile in anteprima.
+
 3. In **Copiare le credenziali del progetto** copiare l'ID e la chiave del progetto. Queste informazioni sono necessarie per configurare l'agente di raccolta.
 
 
@@ -126,53 +146,49 @@ Prima di distribuire il file con estensione ova, verificarne la sicurezza:
 
 3. Verificare che il valore hash generato corrisponda alle impostazioni seguenti.
 
-    Per OVA versione 1.0.9.14
+#### <a name="one-time-discovery"></a>Individuazione una tantum
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
-    
-    Per OVA versione 1.0.9.12
+Per OVA versione 1.0.9.14
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | d0363e5d1b377a8eb08843cf034ac28a
-    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
-    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
-    Per OVA versione 1.0.9.8
+Per OVA versione 1.0.9.12
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | b5d9f0caf15ca357ac0563468c2e6251
-    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | d0363e5d1b377a8eb08843cf034ac28a
+SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
-    Per OVA versione 1.0.9.7
+Per OVA versione 1.0.9.8
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | b5d9f0caf15ca357ac0563468c2e6251
+SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
 
-    Per OVA versione 1.0.9.5
+Per OVA versione 1.0.9.7
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | fb11ca234ed1f779a61fbb8439d82969
-    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
-    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | d5b6a03701203ff556fa78694d6d7c35
+SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-    Per OVA versione 1.0.9.2
+#### <a name="continuous-discovery"></a>Individuazione continua
 
-    **Algoritmo** | **Valore hash**
-    --- | ---
-    MD5 | 7326020e3b83f225b794920b7cb421fc
-    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
-    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+Per OVA versione 1.0.10.4
+
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ### <a name="create-the-collector-vm"></a>Creare la macchina virtuale dell'agente di raccolta
 
@@ -199,25 +215,35 @@ Se si hanno più progetti, assicurarsi di identificare l'ID e la chiave di ognun
     ![Copiare le credenziali del progetto](./media/how-to-scale-assessment/copy-project-credentials.png)
 
 ### <a name="set-the-vcenter-statistics-level"></a>Impostare il livello delle statistiche vCenter
-Di seguito è riportato l'elenco dei contatori delle prestazioni che vengono raccolti durante l'individuazione. Per impostazione predefinita, i contatori sono disponibili a vari livelli nel server vCenter.
 
-È consigliabile impostare il livello comune più alto (livello 3) per le statistiche in modo che tutti i contatori vengano raccolti correttamente. Se vCenter è impostato su un livello inferiore, è possibile che solo alcuni contatori vengano raccolti completamente, mentre i restanti vengono impostati su 0. La valutazione potrebbe di conseguenza generare dati incompleti.
+L'appliance dell'agente di raccolta individua i metadati statici seguenti relativi alle macchine virtuali selezionate.
 
-La tabella seguente indica anche i risultati della valutazione che saranno compromessi se un determinato contatore non viene raccolto.
+1. Nome visualizzato della macchina virtuale (in vCenter)
+2. Percorso dell'inventario della macchina virtuale (host/cartella in vCenter)
+3. Indirizzo IP
+4. Indirizzo MAC
+5. Sistema operativo
+5. Numero di core, dischi, schede di interfaccia di rete
+6. Dimensione della memoria, dimensioni dei dischi
+7. Contatori delle prestazioni per macchina virtuale, disco e rete, come indicato nella tabella di seguito.
 
-| Contatore                                 | Level | Livello per dispositivo | Impatto sulla valutazione                    |
-| --------------------------------------- | ----- | ---------------- | ------------------------------------ |
-| cpu.usage.average                       | 1     | ND               | Dimensione e costi consigliati della macchina virtuale         |
-| mem.usage.average                       | 1     | ND               | Dimensione e costi consigliati della macchina virtuale         |
-| virtualDisk.read.average                | 2     | 2                | Dimensione disco, costi di archiviazione e dimensione della macchina virtuale |
-| virtualDisk.write.average               | 2     | 2                | Dimensione disco, costi di archiviazione e dimensione della macchina virtuale |
-| virtualDisk.numberReadAveraged.average  | 1     | 3                | Dimensione disco, costi di archiviazione e dimensione della macchina virtuale |
-| virtualDisk.numberWriteAveraged.average | 1     | 3                | Dimensione disco, costi di archiviazione e dimensione della macchina virtuale |
-| net.received.average                    | 2     | 3                | Dimensione della macchina virtuale e costi della rete             |
-| net.transmitted.average                 | 2     | 3                | Dimensione della macchina virtuale e costi della rete             |
+Per l'individuazione una tantum, la tabella seguente contiene un elenco preciso dei contatori delle prestazioni raccolti e un elenco dei risultati della valutazione che saranno compromessi se un determinato contatore non viene raccolto.
+
+Per l'individuazione continua, gli stessi contatori vengono raccolti in tempo reale (intervallo di 20 secondi), pertanto non è presente alcuna dipendenza a livello di statistiche di vCenter. L'appliance quindi esegue il rollup degli esempi di 20 secondi per creare un singolo punto dati per ogni 15 minuti selezionando il valore di picco dagli esempi di 20 secondi e li invia ad Azure.
+
+|Contatore                                  |Level    |Livello per dispositivo  |Impatto sulla valutazione                               |
+|-----------------------------------------|---------|------------------|------------------------------------------------|
+|cpu.usage.average                        | 1       |ND                |Dimensione e costi consigliati della macchina virtuale                    |
+|mem.usage.average                        | 1       |ND                |Dimensione e costi consigliati della macchina virtuale                    |
+|virtualDisk.read.average                 | 2       |2                 |Dimensione disco, costi di archiviazione e dimensione della macchina virtuale         |
+|virtualDisk.write.average                | 2       |2                 |Dimensione disco, costi di archiviazione e dimensione della macchina virtuale         |
+|virtualDisk.numberReadAveraged.average   | 1       |3                 |Dimensione disco, costi di archiviazione e dimensione della macchina virtuale         |
+|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Dimensione disco, costi di archiviazione e dimensione della macchina virtuale         |
+|net.received.average                     | 2       |3                 |Dimensione della macchina virtuale e costi della rete                        |
+|net.transmitted.average                  | 2       |3                 |Dimensione della macchina virtuale e costi della rete                        |
 
 > [!WARNING]
-> Se è stato appena impostato un livello più alto per le statistiche, la generazione dei contatori delle prestazioni richiederà fino a un giorno. È quindi consigliabile eseguire l'individuazione dopo un giorno.
+> Per l'individuazione una tantum, se è stato appena impostato un livello più alto per le statistiche, la generazione dei contatori delle prestazioni richiederà fino a un giorno. È quindi consigliabile eseguire l'individuazione dopo un giorno. Per il modello di individuazione continua, attendere almeno un giorno dall'inizio dell'individuazione affinché l'appliance profili l'ambiente e quindi creare la valutazione.
 
 ### <a name="run-the-collector-to-discover-vms"></a>Eseguire l'agente di raccolta per individuare le macchine virtuali
 
@@ -249,9 +275,11 @@ Per ogni individuazione da eseguire, è necessario eseguire l'agente di raccolta
 
 #### <a name="verify-vms-in-the-portal"></a>Verificare le macchine virtuali nel portale
 
-Il tempo di individuazione dipende dal numero di macchine virtuali da individuare. L'individuazione di 100 macchine virtuali termina in genere circa un'ora dopo l'esecuzione dell'agente di raccolta.
+Per l'individuazione una tantum, il tempo di individuazione dipende dal numero di macchine virtuali da individuare. In genere, per 100 macchine virtuali, dopo che l'agente di raccolta termina l'esecuzione, è necessaria circa un'ora per completare la raccolta dei dati di configurazione e sulle prestazioni. È possibile creare le valutazioni (sia basate sulle prestazioni che come valutazioni locali) immediatamente dopo che l'individuazione è stata eseguita.
 
-1. Nel progetto di Azure Migrate selezionare **Gestisci** > **Macchine virtuali**.
+Per l'individuazione continua (in anteprima), l'agente di raccolta eseguirà il profiling continuo dell'ambiente locale e continuerà a inviare i dati sulle prestazioni a intervalli di un'ora. È possibile esaminare le macchine virtuali nel portale dopo un'ora dall'avvio del processo di individuazione. Si consiglia vivamente di attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni per le macchine virtuali.
+
+1. Nel progetto di migrazione fare clic su **Gestisci** > **Macchine virtuali**.
 2. Verificare che le macchine virtuali da individuare siano visualizzate nel portale.
 
 

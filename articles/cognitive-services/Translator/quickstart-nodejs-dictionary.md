@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Trovare traduzioni alternative con Node.js | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Node.js in Servizi cognitivi.
+title: 'Guida introduttiva: Trovare traduzioni alternative - Traduzione testuale, Node.js'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: aeb97e1c4e7c4e8df852bea55383e857f7d5a690
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5361dce567743e239e0499352affa179b7d40382
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771081"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127228"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-nodejs"></a>Guida introduttiva: Trovare traduzioni alternative ed esempi d'uso con Node.js
 

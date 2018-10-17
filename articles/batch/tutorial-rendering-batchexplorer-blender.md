@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8df9054e069540398c137290e682bb4160b4a799
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036478"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392554"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Esercitazione: Eseguire il rendering di una scena di Blender con Batch Explorer
 
@@ -24,11 +24,11 @@ In questa esercitazione si apprenderà come:
 > * Eseguire il rendering di più fotogrammi
 > * Visualizzare e scaricare i file dei fotogrammi sottoposti a rendering
 
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-Account Azure Batch con un account di archiviazione associato.  Per creare un account Batch, vedere una delle guide introduttive di Batch, ad esempio l'[articolo relativo all'interfaccia della riga di comando](https://docs.microsoft.com/azure/batch/quick-create-cli).
+Per usare le applicazioni di rendering in Batch con pagamento in base al consumo è necessaria una sottoscrizione con pagamento in base al consumo o un'altra opzione di acquisto di Azure. Le licenze con pagamento in base al consumo non sono supportate se si usa un'offerta gratuita di Azure che garantisce un credito monetario.
+
+È necessario un account Azure Batch con un account di archiviazione associato.  Per creare un account Batch, vedere una delle guide introduttive di Batch, ad esempio l'[articolo relativo all'interfaccia della riga di comando](https://docs.microsoft.com/azure/batch/quick-create-cli).
 
 Quota di core per priorità bassa con almeno 50 core, necessaria per la dimensione di VM e il numero di macchine virtuali specificati in questa esercitazione. È possibile usare la quota predefinita, ma dovrà essere usata una dimensione di VM inferiore con cui il rendering delle immagini richiederà più tempo. Il processo per richiedere un incremento della quota di core è illustrato in dettaglio in [questo articolo](https://docs.microsoft.com/azure/batch/batch-quota-limit).
 

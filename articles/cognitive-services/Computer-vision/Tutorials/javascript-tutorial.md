@@ -1,30 +1,31 @@
 ---
-title: Esercitazione in JavaScript per l'API Visione artificiale | Microsoft Docs
-description: In questa esercitazione si esamina un'app JavaScript di base che usa l'API Visione artificiale in Servizi cognitivi Microsoft. Si effettua il riconoscimento ottico dei caratteri (OCR), si creano anteprime e si usano le caratteristiche visive in un'immagine.
+title: 'Esercitazione: API Visione artificiale con JavaScript'
+titlesuffix: Azure Cognitive Services
+description: In questa esercitazione si esamina un'app JavaScript di base che usa l'API Visione artificiale in Servizi cognitivi di Azure. Si effettua il riconoscimento ottico dei caratteri (OCR), si creano anteprime e si usano le caratteristiche visive in un'immagine.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 89bdc0524e07c1cb6a1473e0a52791fe20271e06
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373444"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984925"
 ---
-# <a name="computer-vision-api-javascript-tutorial"></a>Esercitazione in JavaScript per l'API Visione artificiale
+# <a name="tutorial-computer-vision-api-javascript"></a>Esercitazione: API Visione artificiale con JavaScript
 
-Questa esercitazione illustra le funzionalità dell'API REST Visione artificiale di Servizi cognitivi Microsoft.
+Questa esercitazione illustra le funzionalità dell'API REST Visione artificiale di Servizi cognitivi di Azure.
 
 Si esamina un'applicazione JavaScript che usa l'API REST Visione artificiale per effettuare il riconoscimento ottico dei caratteri (OCR), creare immagini di anteprima con ritaglio intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, in un'immagine. L'esempio consente di inviare un URL di un'immagine per l'analisi o l'elaborazione. È possibile usare questo esempio open source come modello per la creazione di un'app personalizzata in JavaScript per l'uso dell'API REST Visione artificiale.
 
 L'applicazione JavaScript è già stata scritta, ma non include la funzionalità di Visione artificiale. In questa esercitazione si aggiunge codice specifico dell'API REST Visione artificiale per completare le funzionalità dell'applicazione.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 ### <a name="platform-requirements"></a>Requisiti di piattaforma
 
@@ -32,7 +33,7 @@ Questa esercitazione è stata sviluppata usando un semplice editor di testo.
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>Effettuare la sottoscrizione dell'API Visione artificiale e ottenere una chiave di sottoscrizione 
 
-Prima di creare l'esempio, è necessario effettuare la sottoscrizione dell'API Visione artificiale, che fa parte di Servizi cognitivi Microsoft. Per informazioni dettagliate sulla sottoscrizione e sulla gestione delle chiavi, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). In questa esercitazione è possibile usare sia la chiave primaria sia quella secondaria. 
+Prima di creare l'esempio, è necessario effettuare la sottoscrizione dell'API Visione artificiale, che fa parte di Servizi cognitivi di Azure. Per informazioni dettagliate sulla sottoscrizione e sulla gestione delle chiavi, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). In questa esercitazione è possibile usare sia la chiave primaria sia quella secondaria. 
 
 ## <a name="download-the-tutorial-project"></a>Scaricare il progetto dell'esercitazione
 

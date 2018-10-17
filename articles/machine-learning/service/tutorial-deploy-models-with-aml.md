@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: eda4a1dabd20eee73cfbfa4dc0dd2b0eaa56788e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031238"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785342"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Esercitazione n. 2: distribuire un modello di classificazione di immagini nell'istanza di contenitore di Azure (ACI)
 
@@ -35,14 +35,14 @@ ACI non è ideale per le distribuzioni di produzione, ma è ideale per i test e 
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
-Per comodità, questa esercitazione è disponibile anche come notebook di Jupyter. Usare uno di questi metodi per eseguire il notebook `tutorials/02.deploy-models.ipynb`:
+Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/02.deploy-models.ipynb). Eseguire il notebook `02.deploy-models.ipynb` in Azure Notebooks o nel server di Jupyter Notebook personale.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare il modello di training sul notebook [Esercitazione n. 1: eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning.](tutorial-train-models-with-aml.md)  
+Completare il modello di training nel notebook [Esercitazione n. 1: Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning](tutorial-train-models-with-aml.md).  
 
 
 ## <a name="set-up-the-environment"></a>Configurare l'ambiente
@@ -374,7 +374,7 @@ service.delete()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione di Azure Machine Learning è stato usato Python per:
+In questa esercitazione sul servizio Azure Machine Learning è stato usato Python per:
 
 > [!div class="checklist"]
 > * Configurare l'ambiente di test
@@ -383,4 +383,4 @@ In questa esercitazione di Azure Machine Learning è stato usato Python per:
 > * Distribuire il modello in ACI
 > * Testare il modello distribuito
  
-È anche possibile provare l'esercitazione [Selezione algoritmo automatica]() per informazioni su come Azure Machine Learning può selezionare automaticamente e ottimizzare l'algoritmo migliore per il modello e compilare tale modello per l'utente.
+È anche possibile provare l'esercitazione [Selezione algoritmo automatica]() per informazioni su come il servizio Azure Machine Learning può selezionare automaticamente e ottimizzare l'algoritmo migliore per il modello e compilare tale modello per l'utente.

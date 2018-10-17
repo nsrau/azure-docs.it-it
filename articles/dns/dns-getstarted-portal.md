@@ -8,18 +8,18 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 6/13/2018
 ms.author: victorh
-ms.openlocfilehash: 3ec2c44c168b47fd66d1ffa9a0c8d0069600ecb0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0acb5bf18c078d8b7eb6a5c14a61fcef622f9f2d
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958102"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831128"
 ---
 # <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Guida introduttiva: Configurare DNS di Azure per la risoluzione dei nomi con il portale di Azure
 
  È possibile configurare DNS di Azure per la risoluzione dei nomi host nel dominio pubblico. Ad esempio, se è stato acquistato il nome di dominio contoso.com da un registrar di nomi di dominio, è possibile configurare DNS di Azure in modo da ospitare il dominio contoso.com e risolvere www.contoso.com all'indirizzo IP del server Web o dell'app Web.
 
-In questa guida introduttiva verrà creato un dominio di test e quindi sarà creato un record di indirizzo denominato "www" per risolvere l'indirizzo IP 10.10.10.10.
+In questa guida introduttiva verrà creato un dominio di test e quindi un record di indirizzo denominato "www" per risolvere l'indirizzo IP 10.10.10.10.
 
 È importante tenere presente che tutti i nomi e gli indirizzi IP usati in questa guida introduttiva sono solo esempi e non intendono rappresentare uno scenario reale. Tuttavia, dove applicabile, sono anche descritti scenari reali.
 
@@ -38,12 +38,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
     ![Zona DNS](./media/dns-getstarted-portal/openzone650.png)
 
-4. Nella pagina **Crea zona DNS** immettere i valori seguenti, quindi fare clic su **Crea**:
+4. Nella pagina **Crea zona DNS** immettere i valori seguenti e fare clic su **Crea**:
 
 
    | **Impostazione** | **Valore** | **Dettagli** |
    |---|---|---|
-   |**Nome**|contoso.xyz|Nome della zona DNS per questo esempio. È possibile usare qualsiasi valore per questa guida introduttiva, a condizione che non sia già configurato nei server di DNS di Azure. Un valore reale sarebbe un dominio acquistato da un registrar di nomi di dominio.|
+   |**Nome**|contoso.xyz|Il nome della zona DNS per questo esempio può essere qualsiasi valore per questa guida introduttiva, a condizione che non sia già configurato nei server DNS di Azure. Un valore reale sarebbe un dominio acquistato da un registrar di nomi di dominio.|
    |**Sottoscrizione**|[Sottoscrizione]|Selezionare una sottoscrizione in cui creare la zona DNS.|
    |**Gruppo di risorse**|**Crea nuovo:** dns-test|Creare un gruppo di risorse. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione selezionata. |
    |**Posizione**|Stati Uniti orientali||
@@ -74,7 +74,7 @@ Poiché nell'ambito di questa guida introduttiva non si acquista effettivamente 
 
 ## <a name="test-the-name-resolution"></a>Testare la risoluzione dei nomi
 
-Dopo aver creato una zona di test, con un record "A" di test al suo interno, è possibile testare la risoluzione dei nomi con uno strumento denominato nslookup. 
+Dopo aver creato una zona di test, con un record "A" di test al suo interno, è possibile testare la risoluzione dei nomi con uno strumento denominato *nslookup*. 
 
 1. Innanzitutto, è necessario prendere nota dei server dei nomi di DNS di Azure da usare con nslookup. 
 

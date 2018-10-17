@@ -1,23 +1,25 @@
 ---
-title: Analisi dei video in tempo reale con l'API Visione artificiale | Microsoft Docs
-description: Informazioni su come eseguire l'analisi near real time di fotogrammi acquisiti da un video in diretta streaming usando l'API Visione artificiale di Servizi cognitivi.
+title: "Esempio: Analisi dei video in tempo reale con l'API Visione artificiale"
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come eseguire l'analisi near real time di fotogrammi acquisiti da un video in diretta streaming usando l'API Visione artificiale.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: sample
 ms.date: 01/20/2017
 ms.author: kefre
-ms.openlocfilehash: d75b1a887e5e4557d5464d8062e1bde628e7adab
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 058f2ad58665a88d2d3cf3ce20b43ac0fad30000
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374169"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983196"
 ---
 # <a name="how-to-analyze-videos-in-real-time"></a>Come analizzare video in tempo reale
 Questa guida mostra come eseguire l'analisi near real time su fotogrammi acquisiti da un video in diretta streaming. Le fasi fondamentali di questo tipo di sistema sono:
+
 - Acquisizione di fotogrammi da un'origine video
 - Selezione dei fotogrammi da analizzare
 - Invio di tali fotogrammi all'API
@@ -59,10 +61,10 @@ while (true)
     }
 }
 ```
-Questa operazione avvia ogni analisi in un'attività separata, che può essere eseguita in background mentre si continua ad acquisire nuovi fotogrammi. Questa soluzione evita il blocco del thread principale durante l'attesa dei risultati di una chiamata all'API, tuttavia fa perdere alcune delle garanzie offerte dalla versione semplice. Potrebbero infatti verificarsi più chiamate all'API in parallelo e i risultati potrebbero venire restituiti nell'ordine errato. Ciò può inoltre fare sì che più thread entrino nella funzione ConsumeResult() simultaneamente. Questo comportamento potrebbe essere pericoloso se la funzione non è thread-safe. Questo codice semplice, inoltre, non tiene traccia delle attività che vengono create, pertanto le eventuali eccezioni scompaiono silenziosamente. L'ingrediente finale da aggiungere, quindi, è un thread "consumer" che tenga traccia delle attività di analisi, generi eccezioni, interrompa le attività a esecuzione prolungata e assicuri che i risultati vengano usati nell'ordine corretto e uno alla volta.
+Questo approccio avvia ciascuna analisi in un'attività separata, che può essere eseguita in background mentre si continua ad acquisire nuovi fotogrammi. Questa soluzione evita il blocco del thread principale durante l'attesa dei risultati di una chiamata API, ma fa perdere alcune delle garanzie offerte dalla versione semplice. Possono infatti verificarsi più chiamate API in parallelo e i risultati potrebbero venire restituiti in un ordine non corretto. Questo approccio può anche fare in modo che più thread entrino nella funzione ConsumeResult() simultaneamente. Questo comportamento può essere pericoloso, se la funzione non è thread-safe. Questo codice semplice, inoltre, non tiene traccia delle attività che vengono create, pertanto le eventuali eccezioni scompaiono silenziosamente. L'ingrediente finale da aggiungere, quindi, è un thread "consumer" che tenga traccia delle attività di analisi, generi eccezioni, interrompa le attività a esecuzione prolungata e assicuri che i risultati vengano usati nell'ordine corretto e uno alla volta.
 
 ### <a name="a-producer-consumer-design"></a>Progetto producer-consumer
-Nel sistema "producer-consumer" finale è presente un thread producer che assomiglia molto al ciclo infinito precedente. Invece di usare i risultati dell'analisi man mano che diventano disponibili, il producer inserisce semplicemente le attività in una coda per tenerne traccia.
+Nel sistema "producer-consumer" finale è presente un thread producer simile al ciclo infinito precedente. Invece di usare i risultati dell'analisi man mano che diventano disponibili, il producer inserisce semplicemente le attività in una coda per tenerne traccia.
 ```CSharp
 // Queue that will contain the API call tasks. 
 var taskQueue = new BlockingCollection<Task<ResultWrapper>>();
@@ -171,7 +173,7 @@ namespace VideoFrameConsoleApplication
     }
 }
 ```
-La seconda app di esempio è un po' più interessante e consente di scegliere quale API chiamare sui fotogrammi video. Sul lato sinistro, l'app visualizza un'anteprima del video in diretta, mentre sul lato destro mostra il risultato più recente dell'API sovrapposto al frame corrispondente.
+La seconda app di esempio è un po' più interessante e consente di scegliere quale API chiamare sui fotogrammi video. Sul lato sinistro, l'app visualizza un'anteprima del video in diretta, mentre sul lato destro visualizza il risultato più recente dell'API sovrapposto al frame corrispondente.
 
 Nella maggior parte delle modalità, vi sarà un ritardo visibile tra il video in diretta a sinistra e l'analisi visualizzata a destra. Il ritardo è il tempo necessario per effettuare la chiamata all'API. La modalità "EmotionsWithClientFaceDetect" fa eccezione. Questa modalità esegue il rilevamento del viso localmente nel computer client usando OpenCV, prima di inviare le immagini a Servizi cognitivi. In questo modo è possibile visualizzare immediatamente il viso rilevato e quindi aggiornare le emozioni in un secondo momento dopo che la chiamata all'API ha prodotto il risultato. Ciò dimostra la possibilità di un approccio "ibrido", in cui è possibile eseguire una semplice elaborazione nel client e successivamente usare le API Servizi cognitivi per potenziare l'elaborazione con questa analisi più avanzata quando necessario.
 
@@ -199,7 +201,7 @@ Quando si è pronti per l'integrazione, **fare semplicemente riferimento alla li
 Come con tutti i Servizi cognitivi, gli sviluppatori che usano le API e gli esempi Microsoft sono tenuti a rispettare il "[Codice di comportamento per lo sviluppatore per Servizi cognitivi Microsoft](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)". 
 
 
-Le funzionalità di riconoscimento delle immagini, della voce, dei video o del testo di VideoFrameAnalyzer usano Servizi cognitivi Microsoft. Microsoft riceve le immagini, l'audio, i video e altri dati che vengono caricati (tramite questa app) e può usarli per migliorare i servizi. Gli sviluppatori devono aiutare a proteggere i dati degli utenti inviati dall'app a Servizi cognitivi Microsoft. 
+Le funzionalità di riconoscimento delle immagini, della voce, dei video o del testo di VideoFrameAnalyzer usano Servizi cognitivi di Azure. Microsoft riceve le immagini, l'audio, i video e altri dati che vengono caricati (tramite questa app) e può usarli per migliorare i servizi. Gli sviluppatori devono aiutare a proteggere i dati degli utenti inviati dall'app a Servizi cognitivi di Azure. 
 
 
 ## <a name="summary"></a>Summary

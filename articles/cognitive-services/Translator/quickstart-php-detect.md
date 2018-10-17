@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Identificare la lingua del testo con PHP | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si identifica la lingua del testo di origine usando l'API Traduzione testuale con PHP in Servizi cognitivi.
+title: 'Guida introduttiva: Identificare la lingua dal testo - Traduzione testuale, PHP'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si identifica la lingua del testo di origine usando l'API Traduzione testuale con PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 2888ea96ac31d56f6870b2f2ccbb04ff8328a1b8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cb643503f72f9cf21c83f35477ca6878d8938339
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771192"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125970"
 ---
 # <a name="quickstart-identify-language-from-text-with-php"></a>Guida introduttiva: Identificare la lingua del testo con PHP
 

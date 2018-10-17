@@ -9,28 +9,28 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 620d8b370b050a4d91ee6d94cba2c133b4313aed
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159985"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239261"
 ---
-# <a name="what-happened-to-workbench-in-azure-machine-learning-preview"></a>Che cosa è successo a Workbench in Azure Machine Learning (anteprima)?
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Che cosa è successo a Workbench in Azure Machine Learning (anteprima)?
 
-L'applicazione Workbench e alcune altre funzionalità di anteprima sono state deprecate nella versione di settembre 2018 per lasciare il posto a un miglioramento dell'[architettura](concept-azure-machine-learning-architecture.md). Questa versione contiene molti aggiornamenti significativi derivanti dal feedback dei clienti per migliorare l'esperienza dell'utente. Le funzionalità di base, dalle esecuzioni sperimentali alla distribuzione del modello, non sono cambiate, ma ora è possibile usare le solide funzionalità <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> e [CLI](reference-azure-machine-learning-cli.md) per portare a termine attività di apprendimento automatico e pipeline.  
+L'applicazione Workbench e alcune altre funzionalità di anteprima sono state sostituite nella versione di settembre 2018 per lasciare il posto a un miglioramento dell'[architettura](concept-azure-machine-learning-architecture.md). Questa versione contiene molti aggiornamenti significativi derivanti dal feedback dei clienti per migliorare l'esperienza dell'utente. Le funzionalità di base, dalle esecuzioni sperimentali alla distribuzione del modello, non sono cambiate, ma ora è possibile usare le solide funzionalità <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> e [CLI](reference-azure-machine-learning-cli.md) per portare a termine attività di apprendimento automatico e pipeline.  
 
 Questo articolo illustra cosa è cambiato e gli effetti sul lavoro preesistente con il servizio Azure Machine Learning.
 
 ## <a name="what-changed"></a>Cosa è cambiato?
 
-L'ultima versione di Azure Machine Learning comprende:
+La versione più recente del servizio Azure Machine Learning comprende:
 + Un [modello semplificato delle risorse di Azure](concept-azure-machine-learning-architecture.md)
 + [Nuova interfaccia utente del portale](how-to-track-experiments.md) per gestire gli esperimenti e le destinazioni di calcolo
 + Python <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> nuovo e più completo
 + Una nuova [estensione ampliata dell'interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md) per l'apprendimento automatico
 
-L'[architettura](concept-azure-machine-learning-architecture.md) è stata riprogettata con l'obiettivo della facilità d'uso. Invece di più risorse e account di Azure, è sufficiente avere un'[area di lavoro di Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace).  Le aree di lavoro possono essere create rapidamente nel [portale di Azure](quickstart-get-started.md).  Un'area di lavoro può essere usata da più utenti per archiviare destinazioni di calcolo di formazione e distribuzione, gli esperimenti di modello, le immagini Docker, i modelli distribuiti e così via.
+L'[architettura](concept-azure-machine-learning-architecture.md) è stata riprogettata con l'obiettivo della facilità d'uso. Invece di più risorse e account di Azure, è sufficiente avere un'[area di lavoro del servizio Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace).  Le aree di lavoro possono essere create rapidamente nel [portale di Azure](quickstart-get-started.md).  Un'area di lavoro può essere usata da più utenti per archiviare destinazioni di calcolo di formazione e distribuzione, gli esperimenti di modello, le immagini Docker, i modelli distribuiti e così via.
 
 Nella versione corrente sono disponibili client SDK e CLI nuovi e migliorati, ma l'applicazione desktop Workbench stessa è stata deprecata. Ora è possibile monitorare gli esperimenti nel [dashboard dell'area di lavoro del portale Web di Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Attraverso il dashboard è possibile accedere alla cronologia degli esperimenti, gestire le destinazioni di calcolo collegate all'area di lavoro, gestire i modelli e le immagini Docker, nonché distribuire servizi Web.
 
@@ -73,7 +73,7 @@ Con set di dati limitati, è possibile usare l'<a href="http://aka.ms/aml-sdk" t
 
 ## <a name="will-projects-persist"></a>I progetti saranno mantenuti?
 
-Non si perderà il codice o il lavoro svolto. Nella versione precedente, i progetti sono entità cloud con una directory locale. Nella versione più recente, si collegano le directory locali all'area di lavoro di Azure Machine Learning mediante un file di configurazione locale. [Vedere un diagramma dell'architettura più recente](concept-azure-machine-learning-architecture.md).
+Non si perderà il codice o il lavoro svolto. Nella versione precedente, i progetti sono entità cloud con una directory locale. Nella versione più recente si collegano le directory locali all'area di lavoro del servizio Azure Machine Learning tramite un file di configurazione locale. [Vedere un diagramma dell'architettura più recente](concept-azure-machine-learning-architecture.md).
 
 Poiché gran parte del contenuto del progetto era già nel computer locale, è sufficiente creare un file di configurazione in tale directory e farvi riferimento nel codice per collegarlo all'area di lavoro. [Informazioni su come eseguire la migrazione dei progetti esistenti.](how-to-migrate.md#projects)
 

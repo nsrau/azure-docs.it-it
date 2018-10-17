@@ -1,52 +1,49 @@
 ---
-title: API Visione artificiale - Guida introduttiva all'analisi di un'immagine locale con Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si analizza un'immagine locale usando Visione artificiale con Python in Servizi cognitivi.
+title: "Guida introduttiva: Analizzare un'immagine locale - REST, Python - Visione artificiale"
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si analizzerà un'immagine locale usando l'API Visione artificiale con Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: a1f3fce5a547f143f7c4884c6642e78f53d160e9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 48a6602c9f3029cc008f3db7d4701499c14e7ce1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43771917"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633861"
 ---
-# <a name="quickstart-analyze-a-local-image---rest-python"></a>Guida introduttiva: Analizzare un'immagine locale - REST, Python
+# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine locale usando l'API REST e Python in Visione artificiale
 
-In questa guida introduttiva si analizza un'immagine locale usando Visione artificiale. Per analizzare un'immagine remota, vedere [Analizzare un'immagine remota con Python](python-analyze.md).
+In questa guida introduttiva si analizza un'immagine archiviata in locale per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
 
 È possibile seguire passo passo la procedura descritta in questa guida introduttiva usando un notebook di Jupyter in [MyBinder](https://mybinder.org). Per avviare Binder, selezionare il pulsante seguente:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Visione artificiale, è necessario avere una chiave di sottoscrizione. A tale scopo, vedere [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Come ottenere chiavi di sottoscrizione).
+- È necessario installare [Python](https://www.python.org/downloads/) se si vuole eseguire l'esempio in locale.
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-a-local-image"></a>Analizzare un'immagine locale
+## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
-Questo esempio è simile a quello illustrato in [Analizzare un'immagine remota con Python](python-analyze.md) tranne per il fatto che l'immagine da analizzare viene letta in locale dal disco. Sono necessarie due modifiche:
+Per creare ed eseguire l'esempio, seguire questa procedura:
 
-- Aggiungere un'intestazione `{"Content-Type": "application/octet-stream"}` alla richiesta.
-- Aggiungere i dati dell'immagine (matrice di byte) al corpo della richiesta.
-
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Copiare il codice seguente in un nuovo file di script Python.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `vision_base_url` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Modificare il valore di `image_path` impostando il percorso di un'immagine locale.
-1. Eseguire lo script.
-
-Il codice seguente usa la libreria `requests` di Python per chiamare il metodo Analyze Image dell'API Visione artificiale. I risultati vengono restituiti come oggetto JSON. La chiave API viene passata tramite il dizionario `headers`. I tipi di caratteristiche da riconoscere vengono passati tramite il dizionario `params`. I dati dell'immagine binaria vengono passati tramite il parametro `data` a `requests.post`.
-
-## <a name="analyze-image-request"></a>Richiesta di analisi dell'immagine
+1. Copiare il codice seguente in un editor di testo.
+1. Apportare le modifiche seguenti al codice, dove necessario:
+    1. Sostituire il valore di `subscription_key` con la chiave di sottoscrizione.
+    1. Se necessario, sostituire il valore di `vision_base_url` con l'URL endpoint per la risorsa Visione artificiale nell'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Facoltativamente, sostituire il valore di `image_path` con il percorso e il nome file di un'altra immagine da analizzare.
+1. Salvare il codice in un file con estensione `.py`. Ad esempio: `analyze-local-image.py`.
+1. Aprire una finestra del prompt dei comandi.
+1. Al prompt usare il comando `python` per eseguire l'esempio. Ad esempio: `python analyze-local-image.py`.
 
 ```python
 import requests
@@ -96,9 +93,9 @@ plt.axis("off")
 _ = plt.title(image_caption, size="x-large", y=-0.1)
 ```
 
-## <a name="analyze-image-response"></a>Riposta alla richiesta di analisi dell'immagine
+## <a name="examine-the-response"></a>Esaminare i risultati
 
-Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
+Una risposta con esito positivo viene restituita in JSON. La pagina Web di esempio analizza e visualizza una risposta con esito positivo nella finestra del prompt dei comandi, come nell'esempio seguente:
 
 ```json
 {
@@ -172,9 +169,13 @@ Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
 }
 ```
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non è più necessario, eliminare il file.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare un'applicazione Python che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente le API Visione artificiale, provare la [console di test delle API aperta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare un'applicazione Python che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Esercitazione per Python dell'API Visione artificiale](../Tutorials/PythonTutorial.md)

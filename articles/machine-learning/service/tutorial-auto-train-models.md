@@ -9,18 +9,18 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 1db13ee31ea826833d2b13f20b3b0a2be8ef4444
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: df1c19c0e16b9862b09dcc652ef2831e0c5bf3a5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220869"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802356"
 ---
-# <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning"></a>Esercitazione: Eseguire il training di un modello di classificazione con apprendimento automatico in Azure Machine Learning
+# <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Esercitazione: Eseguire il training di un modello di classificazione con apprendimento automatico nel servizio Azure Machine Learning
 
-In questa esercitazione viene descritto come generare un modello di Machine Learning usando l'apprendimento automatico.  Azure Machine Learning può eseguire pre-elaborazione dei dati e selezione automatica di algoritmi e iperparametri. Il modello finale può quindi essere distribuito seguendo il flusso di lavoro presentato nell'esercitazione [Distribuire un modello](tutorial-deploy-models-with-aml.md).
+In questa esercitazione viene descritto come generare un modello di Machine Learning usando l'apprendimento automatico.  Il servizio Azure Machine Learning può eseguire automaticamente la pre-elaborazione dei dati e la selezione di algoritmi e iperparametri. Il modello finale può quindi essere distribuito seguendo il flusso di lavoro presentato nell'esercitazione [Distribuire un modello](tutorial-deploy-models-with-aml.md).
 
-[ ![Diagramma di flusso](./media/tutorial-auto-train-models/flow2.png) ](./media/tutorial-auto-train-models/flow2.png#lightbox)
+![Diagramma di flusso](./media/tutorial-auto-train-models/flow2.png)
 
 Analogamente all'[esercitazione sui modelli di training](tutorial-train-models-with-aml.md), questa esercitazione classifica immagini scritte a mano di cifre (da 0 a 9) dal set di dati [MNIST](http://yann.lecun.com/exdb/mnist/). Tuttavia, questa volta non è necessario specificare un algoritmo o ottimizzare gli iperparametri. La tecnica automatizzata di Machine Learning esegue l'iterazione su molte combinazioni di algoritmi e iperparametri finché non trova il modello migliore in base al criterio definito.
 
@@ -38,7 +38,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
-Per comodità, questa esercitazione è disponibile anche come notebook di Jupyter. Usare uno di questi metodi per eseguire il notebook `tutorials/03.auto-train-models.ipynb`:
+Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/03.auto-train-models.ipynb). Eseguire il notebook `03.auto-train-models.ipynb` in Azure Notebooks o nel server di Jupyter Notebook personale.
+
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -104,13 +105,9 @@ from sklearn import datasets
 
 digits = datasets.load_digits()
 
-# only take the first 100 rows if you want the training steps to run faster
-X_digits = digits.data[:100,:]
-y_digits = digits.target[:100]
-
-# use full dataset
-#X_digits = digits.data
-#y_digits = digits.target
+# Exclude the first 100 rows from training so that they can be used for test.
+X_train = digits.data[100:,:]
+y_train = digits.target[100:]
 ```
 
 ### <a name="display-some-sample-images"></a>Visualizzare alcune immagini di esempio
@@ -121,13 +118,13 @@ Caricare i dati in matrici `numpy`. Usare quindi `matplotlib` per tracciare 30 i
 count = 0
 sample_size = 30
 plt.figure(figsize = (16, 6))
-for i in np.random.permutation(X_digits.shape[0])[:sample_size]:
+for i in np.random.permutation(X_train.shape[0])[:sample_size]:
     count = count + 1
     plt.subplot(1, sample_size, count)
     plt.axhline('')
     plt.axvline('')
-    plt.text(x = 2, y = -2, s = y_digits[i], fontsize = 18)
-    plt.imshow(X_digits[i].reshape(8, 8), cmap = plt.cm.Greys)
+    plt.text(x = 2, y = -2, s = y_train[i], fontsize = 18)
+    plt.imshow(X_train[i].reshape(8, 8), cmap = plt.cm.Greys)
 plt.show()
 ```
 La figura seguente rappresenta un campione casuale di immagini:
@@ -146,14 +143,14 @@ Per eseguire automaticamente il training di un modello, definire innanzitutto le
 
 Definire le impostazioni dell'esperimento e le impostazioni del modello.
 
-|Proprietà| Valore in questa esercitazione |DESCRIZIONE|
+|Proprietà| Valore in questa esercitazione |Descrizione|
 |----|----|---|
 |**primary_metric**|AUC Weighted | Metrica che si vuole ottimizzare.|
 |**max_time_sec**|12000|Limite di tempo in secondi per ogni iterazione|
 |**iterations**|20|Numero di iterazioni. In ogni iterazione il training del modello viene eseguito con i dati con una pipeline specifica|
 |**n_cross_validations**|3|Numero di suddivisioni di convalida incrociata|
 |**preprocess**|False| *True/False* permette all'esperimento di eseguire la pre-elaborazione dell'input.  La pre-elaborazione gestisce i *dati mancanti* ed esegue alcune attività comuni di *estrazione delle funzionalità*|
-|**exit_score**|0,995|Valore *double* che indica la destinazione per *primary_metric*. Quando la destinazione viene superata, l'esecuzione termina|
+|**exit_score**|0,9985|Valore *double* che indica la destinazione per *primary_metric*. Quando la destinazione viene superata, l'esecuzione termina|
 |**blacklist_algos**|['kNN', 'LinearSVM']|*Matrice* di *stringhe* che indica gli algoritmi da ignorare.
 |
 
@@ -167,10 +164,10 @@ Automl_config = AutoMLConfig(task = 'classification',
                              iterations = 20,
                              n_cross_validations = 3,
                              preprocess = False,
-                             exit_score = 0.995,
+                             exit_score = 0.9985,
                              blacklist_algos = ['kNN','LinearSVM'],
-                             X = X_digits,
-                             y = y_digits,
+                             X = X_train,
+                             y = y_train,
                              path=project_folder)
 ```
 
@@ -497,8 +494,10 @@ Poiché l'accuratezza del modello è elevata, potrebbe essere necessario eseguir
 ```python
 # find 30 random samples from test set
 n = 30
-sample_indices = np.random.permutation(X_digits.shape[0])[0:n]
-test_samples = X_digits[sample_indices]
+X_test = digits.data[:100, :]
+y_test = digits.target[:100]
+sample_indices = np.random.permutation(X_test.shape[0])[0:n]
+test_samples = X_test[sample_indices]
 
 
 # predict using the  model
@@ -514,11 +513,11 @@ for s in sample_indices:
     plt.axvline('')
     
     # use different color for misclassified sample
-    font_color = 'red' if y_digits[s] != result[i] else 'black'
-    clr_map = plt.cm.gray if y_digits[s] != result[i] else plt.cm.Greys
+    font_color = 'red' if y_test[s] != result[i] else 'black'
+    clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
     
     plt.text(x = 2, y = -2, s = result[i], fontsize = 18, color = font_color)
-    plt.imshow(X_digits[s].reshape(8, 8), cmap = clr_map)
+    plt.imshow(X_test[s].reshape(8, 8), cmap = clr_map)
     
     i = i + 1
 plt.show()
@@ -534,7 +533,7 @@ plt.show()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione di Azure Machine Learning è stato usato Python per:
+In questa esercitazione sul servizio Azure Machine Learning è stato usato Python per:
 
 > [!div class="checklist"]
 > * Configurazione dell'ambiente di sviluppo

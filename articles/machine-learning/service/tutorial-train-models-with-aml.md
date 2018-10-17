@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning'
+title: 'Esercitazione: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning'
 description: Questa esercitazione mostra come usare il servizio Azure Machine Learning per eseguire il training di un modello di classificazione delle immagini con scikit-learn in un notebook Jupyter per Python. Questa esercitazione è la prima di una serie in due parti.
 services: machine-learning
 ms.service: machine-learning
@@ -9,18 +9,18 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 6fbca5e83d8ab4b3c34c6448c7a2303697da623b
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7110d8df5ee837829f97fec8ab26d929689e3436
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181399"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785139"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning"></a>Esercitazione n.1: Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning
+# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>Esercitazione n. 1: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning
 
 In questa esercitazione si eseguirà il training di un modello di Machine Learning sia in locale che su risorse di calcolo remote. Si userà il flusso di lavoro di training e distribuzione per il servizio Azure Machine Learning (anteprima) in un notebook Jupyter per Python.  È quindi possibile usare il notebook come modello per eseguire il training di un modello di Machine Learning con i propri dati di training. Questa esercitazione è la **prima di una serie in due parti**.  
 
-Questa esercitazione esegue il training di una semplice regressione logistica usando il set di dati [MNIST](http://yann.lecun.com/exdb/mnist/) e [scikit-learn](http://scikit-learn.org) con Azure Machine Learning.  MNIST è un set di dati noto costituito da 70.000 immagini in scala di grigi. Ogni immagine è una cifra scritta a mano di 28x28 pixel, che rappresenta un numero compreso tra 0 e 9. L'obiettivo è creare un classificatore multiclasse per identificare la cifra rappresentata da una determinata immagine. 
+Questa esercitazione esegue il training di una semplice regressione logistica usando il set di dati [MNIST](http://yann.lecun.com/exdb/mnist/) e [scikit-learn](http://scikit-learn.org) con il servizio Azure Machine Learning.  MNIST è un set di dati noto costituito da 70.000 immagini in scala di grigi. Ogni immagine è una cifra scritta a mano di 28x28 pixel, che rappresenta un numero compreso tra 0 e 9. L'obiettivo è creare un classificatore multiclasse per identificare la cifra rappresentata da una determinata immagine. 
 
 È possibile passare agli argomenti seguenti:
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="get-the-notebook"></a>Ottenere il notebook
 
-Per comodità, questa esercitazione è disponibile anche come notebook di Jupyter. Usare uno dei due metodi seguenti per clonare il [repository GitHub di notebook di esempio di Machine Learning](https://github.com/Azure/MachineLearningNotebooks) ed eseguire il notebook `tutorials/01.train-models.ipynb`:
+Per comodità, questa esercitazione è disponibile anche come [notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb). Eseguire il notebook `01.train-models.ipynb` in Azure Notebooks o nel server di Jupyter Notebook personale.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -454,7 +454,7 @@ compute_target.delete()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione di Azure Machine Learning è stato usato Python per:
+In questa esercitazione sul servizio Azure Machine Learning è stato usato Python per:
 
 > [!div class="checklist"]
 > * Configurazione dell'ambiente di sviluppo

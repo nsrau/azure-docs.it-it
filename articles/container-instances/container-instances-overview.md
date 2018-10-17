@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/19/2018
+ms.date: 10/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160451"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802101"
 ---
 # <a name="azure-container-instances"></a>Istanze di contenitore di Azure
 
@@ -54,9 +54,19 @@ Istanze di contenitore di Azure supporta le immagini di Windows che si basano su
 
 Istanze di contenitore di Azure supporta la pianificazione di [gruppi multi-contenitore](container-instances-container-groups.md) che condividono un computer host, una rete locale, un archivio e un ciclo di vita. Questo consente di combinare il contenitore dell'applicazione principale con altri contenitori di ruoli di supporto, come quelli collaterali di registrazione.
 
+## <a name="virtual-network-deployment-preview"></a>Distribuzione in una rete virtuale (anteprima)
+
+Questa funzionalità di Istanze di contenitore di Azure, attualmente in anteprima, consente [la distribuzione di istanze di contenitore in una rete virtuale di Azure](container-instances-vnet.md). Quando sono distribuite in una subnet all'interno della rete virtuale, le istanze di contenitore possono comunicare in modo sicuro con altre risorse nella rete virtuale, incluse le risorse in locale (tramite [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ ExpressRoute](../expressroute/expressroute-introduction.md)).
+
+> [!IMPORTANT]
+> La distribuzione di gruppi di contenitori in una rete virtuale è attualmente in anteprima e si applicano [alcune limitazioni](container-instances-vnet.md#preview-limitations). Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Provare a distribuire un contenitore in Azure con un comando singolo, seguendo le indicazioni della guida introduttiva:
 
 > [!div class="nextstepaction"]
 > [Guida introduttiva di Istanze di contenitore di Azure](container-instances-quickstart.md)
+
+<!-- LINKS - External -->
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

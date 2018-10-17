@@ -1,6 +1,6 @@
 ---
 title: Configurare Azure Data Box| Microsoft Docs
-description: Informazioni sui requisiti relativi al software e alla rete per Azure Data Box
+description: Informazioni su come cablare e connettersi ad Azure Data Box
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.openlocfilehash: 6623744a26d79ccbc8b68ba84baf3a37024e0ed7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952308"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785637"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Esercitazione: Cablare e connettersi ad Azure Data Box
 
@@ -36,12 +36,12 @@ In questa esercitazione si apprenderà come:
 Prima di iniziare, verificare che:
 
 1. Sia stata completata l'[Esercitazione: Ordinare Azure Data Box](data-box-deploy-ordered.md).
-2. Sia stato ricevuto il Data Box e lo stato dell'ordine nel portale sia **Recapitato**. 
+2. Sia stato ricevuto il Data Box e lo stato dell'ordine nel portale sia **Recapitato**. L'involucro trasparente fissato al dispositivo sotto l'attuale etichetta contenga un'etichetta di spedizione. Tenere al sicuro quest'etichetta perché servirà per la spedizione di restituzione.
 3. Siano state esaminate le [linee guida per la sicurezza del Data Box](data-box-safety.md).
 4. Si sia ricevuto un cavo di alimentazione a terra da usare con il dispositivo di archiviazione da 100 TB.
 5. Sia disponibile un computer host con i dati da copiare nel Data Box. Il computer host deve:
     - Eseguire un [sistema operativo supportato](data-box-system-requirements.md).
-    - Essere connesso a una rete ad alta velocità. È consigliabile disporre di una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà. 
+    - Essere connesso a una rete ad alta velocità. È consigliabile avere una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE, ma la velocità dell'operazione di copia ne risentirà. 
 6. Si abbia accesso a una superficie piana su cui posizionare il Data Box. Per posizionare il dispositivo su uno scaffale standard, è necessario uno slot 7U nel rack del data center. È possibile posizionare il dispositivo in piano o in verticale nel rack.
 7. Si disponga dei cavi seguenti per collegare il Data Box al computer host.
     - Due cavi in rame SFP+ Twinax a 10 GbE (da usare con le interfacce di rete DATA 1, DATA 2)
@@ -62,7 +62,7 @@ Per cablare il dispositivo, eseguire la procedura seguente.
     2. Usare il cavo RJ-45 CAT 6 per collegare la porta MGMT a un'estremità e un portatile all'altra estremità.            
     3. Collegare il cavo RJ-45 CAT 6A alla porta DATA 3 a un'estremità. La porta DATA 3 è configurata a 10 GbE se si usa un cavo RJ-45 CAT 6A e a 1 GbE se si usa un cavo RJ-45 CAT 6.
     4. Usare i cavi in rame SFP+ Twinax a 10 GbE per collegare le porte DATA 1 e DATA 2 rispettivamente. 
-    5. Le altre estremità dei cavi dalle porte dati vengono collegate al computer mediante un commutatore a 10 GbE.
+    5. Le altre estremità dei cavi dalle porte dati vengono collegate al computer con un commutatore a 10 GbE.
 
 4. Individuare il pulsante di accensione sul pannello operativo anteriore del dispositivo. Accendere il dispositivo.
 

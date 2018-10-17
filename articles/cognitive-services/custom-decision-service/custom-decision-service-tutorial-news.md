@@ -1,21 +1,23 @@
 ---
-title: Personalizzazione di articoli - Servizi cognitivi Microsoft di Azure | Microsoft Docs
-description: Un'esercitazione di personalizzazione di articoli con il Servizio decisionale personalizzato di Azure, un'API basata su cloud per la gestione di processi decisionali contestualizzati.
+title: 'Esercitazione: Personalizzazione degli articoli - Servizio decisionale personalizzato'
+titlesuffix: Azure Cognitive Services
+description: Esercitazione per la personalizzazione degli articoli per i processi decisionali contestuali.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 35d0567f81a23d4726461059eb6fd31e04228697
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377012"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366336"
 ---
-# <a name="article-personalization"></a>Personalizzazione degli articoli
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Esercitazione: Personalizzazione degli articoli per i processi decisionali contestuali
 
 Questa esercitazione si concentra sulla personalizzazione della selezione di articoli nella pagina principale di un sito Web. Il Servizio decisionale personalizzato influisce, ad esempio, su *più* elenchi di articoli nella pagina iniziale. Si supponga che la pagina sia un sito Web di notizie che tratta solo di politica e sport. Mostrerebbe tre elenchi di articoli classificati: politica, sport e recenti.
 

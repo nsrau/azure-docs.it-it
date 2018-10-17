@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767103"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736003"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Guida introduttiva: Creare un account di Servizi multimediali di Azure
 
@@ -58,7 +58,7 @@ az group create -n <myresourcegroup> -l westus2
 
 Quando si crea un account di Servizi multimediali, è necessario specificare l'ID di una risorsa dell'account di archiviazione di Azure. L'account di archiviazione specificato è collegato all'account personale di Servizi multimediali. 
 
-È necessario avere un account di archiviazione **primario**, quindi è possibile avere un numero qualsiasi di account di archiviazione **secondari** associati all'account di Servizi multimediali. Servizi multimediali supporta account **Utilizzo generico v2** (GPv2) o **Utilizzo generico v1** (GPv1). Gli account solo BLOB non sono consentiti come **primari**. Per altre informazioni sugli account di archiviazione, vedere [Opzioni di account di archiviazione di Azure](../../storage/common/storage-account-options.md). 
+È necessario avere un account di archiviazione **primario** ed è possibile avere un numero qualsiasi di account di archiviazione **secondari** associati all'account di Servizi multimediali. Servizi multimediali supporta account **Utilizzo generico v2** o **Utilizzo generico v1**. Gli account di archiviazione BLOB non sono consentiti come **primari**. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../../storage/common/storage-account-overview.md). 
 
 Il comando seguente crea l'account di archiviazione che verrà associato all'account di Servizi multimediali (primario). Nello script seguente sostituire il segnaposto *storageaccountforams*. L'oggetto "account_name" deve avere lunghezza inferiore a 24 caratteri.
 

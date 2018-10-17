@@ -1,23 +1,23 @@
 ---
-title: Guida introduttiva all'API Controllo ortografico Bing | Microsoft Docs
+title: 'Guida introduttiva: API Controllo ortografico Bing'
+titlesuffix: Azure Cognitive Services
 description: Illustra come iniziare a usare l'API Controllo ortografico Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: AF8EB1F0-386D-4555-9354-735611435F04
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
-ms.topic: article
+ms.topic: quickstart
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: cae8353e5be6e70eca90e5995b29b6774fc7d6a9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 29ee7cb4ee648d20b425939553ba31cd9ac150f0
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372897"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804192"
 ---
-# <a name="your-first-spell-check-request"></a>La prima richiesta di controllo ortografico
+# <a name="quickstart-your-first-spell-check-request"></a>Guida introduttiva: Prima richiesta di controllo ortografico
 
 Prima di poter effettuare la prima chiamata, è necessario ottenere una chiave di sottoscrizione di Servizi cognitivi. Per ottenere una chiave, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api).
 

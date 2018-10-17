@@ -1,22 +1,23 @@
 ---
-title: Rilevamento di oggetti con Python e l'API Visione personalizzata - Servizi cognitivi di Azure | Microsoft Docs
-description: In questa esercitazione si esplora un'app di base per Windows che usa l'API Visione personalizzata in Servizi cognitivi Microsoft. Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
+title: 'Esercitazione: Creare un progetto di rilevamento degli oggetti - API Visione personalizzata, Python'
+titlesuffix: Azure Cognitive Services
+description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213582"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363701"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Usare l'API Visione personalizzata per compilare un progetto di rilevamento degli oggetti con Python
+# <a name="tutorial-build-an-object-detection-project-with-python"></a>Esercitazione: Compilare un progetto di rilevamento degli oggetti con Python
 
 In questo articolo si esplora uno script Python di base che usa l'API Visione artificiale per creare un progetto di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app usando l'API Visione personalizzata.
 

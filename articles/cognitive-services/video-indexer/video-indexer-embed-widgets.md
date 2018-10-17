@@ -10,12 +10,12 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: 0d75a58ddf0607286d41867828119fdd05e07d22
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3d9e00a97355c03da5360846d4cd9f27a8540ed6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985581"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017433"
 ---
 # <a name="example-embed-video-indexer-widgets-into-your-applications"></a>Esempio: Incorporare i widget di Video Indexer nelle applicazioni
 
@@ -47,15 +47,16 @@ Un widget **Player** consente di eseguire lo streaming del video a bitrate adatt
 ## <a name="embedding-public-content"></a>Incorporamento di contenuto pubblico
 
 1. Passare al sito Web di [Video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
-2. Fare clic sul pulsante di incorporamento che compare sotto il video.
+2. Fare clic sul video da usare.
+3. Fare clic sul pulsante di incorporamento che compare sotto il video.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
 
     Dopo aver fatto clic sul pulsante verrà visualizzata una finestra modale di incorporamento in cui è possibile scegliere il widget da incorporare nell'applicazione.
     La selezione di un widget (**Player** oppure **Cognitive Insights**) genera il codice di incorporamento da incollare nell'applicazione.
  
-3. Scegliere il tipo di widget desiderato (**Cognitive Insights** oppure **Player**).
-4. Copiare il codice di incorporamento e aggiungerlo all'applicazione. 
+4. Scegliere il tipo di widget desiderato (**Cognitive Insights** oppure **Player**).
+5. Copiare il codice di incorporamento e aggiungerlo all'applicazione. 
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 

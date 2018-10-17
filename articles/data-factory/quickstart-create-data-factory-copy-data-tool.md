@@ -8,15 +8,15 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 401f5fb6eeff2b9ca033dd24872ea88bd696253c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a4e41408a3af2e6bb68c14f2e34bf1141bf349c1
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443205"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017808"
 ---
 # <a name="use-the-copy-data-tool-to-copy-data"></a>Usare lo strumento Copia dati per copiare i dati 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
@@ -52,13 +52,9 @@ In questa guida introduttiva si userà il portale di Azure per creare una data f
 1. Per **Versione** selezionare **V2**.
 1. Per **Località** selezionare la località per la data factory. 
 
-   L'elenco include solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio, HDInsight) usati da Data Factory possono trovarsi in altre località/aree.
+   L'elenco mostra solo le località supportate da Data Factory e in cui verranno archiviati i metadati di Azure Data Factory. Si noti che gli archivi dati associati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio, Azure HDInsight) usati da Data Factory possono essere eseguiti in altre aree.
 
-1. Selezionare **Aggiungi al dashboard**.     
-1. Selezionare **Crea**.
-1. Nel dashboard viene visualizzato il riquadro seguente con lo stato **Deploying Data Factory** (Distribuzione della data factory): 
-
-    ![Riquadro "Deploying data factory" (Distribuzione della data factory)](media/quickstart-create-data-factory-copy-data-tool/deploying-data-factory.png)
+1. Selezionare **Create**.
 1. Al termine della creazione verrà visualizzata la pagina **Data factory**. Selezionare il riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Azure Data Factory in una scheda separata.
    
    ![Home page della data factory, con il riquadro "Crea e monitora"](./media/quickstart-create-data-factory-copy-data-tool/data-factory-home-page.png)

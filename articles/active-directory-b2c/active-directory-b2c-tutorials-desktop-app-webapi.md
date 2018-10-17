@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 98c86f5613116dce5423aa9ca6a2ff43e5414592
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594781"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603195"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Esercitazione: concedere l'accesso a un'API Web Node.js da un'app desktop usando Azure Active Directory B2C
 
@@ -110,7 +110,7 @@ Per chiamare un'API Web protetta da un'app, è necessario concedere all'app le a
 
 5. Fare clic su **OK**.
 
-L'**App WPF di esempio** è registrata per chiamare l'**API Web Node.js di esempio** protetta. Gli utenti [eseguono l'autenticazione](../active-directory/develop/developer-glossary.md#authentication) con Azure AD B2C per usare l'app desktop WPF. L'app desktop ottiene una [concessione di autorizzazione](../active-directory/develop/developer-glossary.md#authorization-grant) da Azure AD B2C per l'accesso all'API Web protetta.
+L'**App WPF di esempio** è registrata per chiamare l'**API Web Node.js di esempio** protetta. Gli utenti [eseguono l'autenticazione](../active-directory/develop/developer-glossary.md#authentication) con Azure AD B2C per usare l'applicazione desktop WPF. L'applicazione desktop ottiene una [concessione di autorizzazione](../active-directory/develop/developer-glossary.md#authorization-grant) da Azure AD B2C per l'accesso all'API Web protetta.
 
 ## <a name="update-web-api-code"></a>Aggiornare il codice dell'API Web
 

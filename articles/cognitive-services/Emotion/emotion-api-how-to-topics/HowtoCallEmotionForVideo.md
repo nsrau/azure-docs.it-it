@@ -1,32 +1,34 @@
 ---
-title: Chiamare l'API Emozioni per i video | Microsoft Docs
+title: "Esempio: Chiamare l'API Emozioni per un video"
+titlesuffix: Azure Cognitive Services
 description: Informazioni su come chiamare l'API Emozioni per i video in Servizi cognitivi.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: sample
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 0875013b2061a84e3e23ae90c1106382672fdca6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 2687145a89c11efb4a3bcb1494a39806e9aae551
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374156"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238608"
 ---
-# <a name="how-to-call-emotion-api-for-video"></a>Come chiamare l'API Emozioni per i video
+# <a name="example-call-emotion-api-for-video"></a>Esempio: Chiamare l'API Emozioni per un video
 
 > [!IMPORTANT]
-> L'anteprima dell'API Video terminerà il 30 ottobre 2017. La nuova [anteprima API Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) consente di estrarre facilmente informazioni dettagliate dai video e di ottimizzare le esperienze di individuazione del contenuto, ad esempio i risultati della ricerca, tramite l'individuazione di parole, visi, caratteri ed emozioni. [Altre informazioni](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> L'API Emozioni verrà deprecata il 15 febbraio 2019. La funzionalità di riconoscimento delle emozioni è ora generalmente disponibile nell'ambito dell'[API Viso](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 Questa guida descrive come chiamare l'API Emozioni per i video. Gli esempi sono scritti in C# e usano la libreria client dell'API Emozioni per i video.
 
-### <a name="Prep">Operazioni preliminari</a> 
+### <a name="Prep">Operazioni preliminari</a>
 Per usare l'API Emozioni per i video, occorre un video che includa persone, preferibilmente con il viso rivolto verso la telecamera.
 
-### <a name="Step1">Passaggio 1: Autorizzare la chiamata all'API</a> 
+### <a name="Step1">Passaggio 1: Autorizzare la chiamata all'API</a>
 Ogni chiamata all'API Emozioni per i video richiede una chiave di sottoscrizione. Questa chiave deve essere passata tramite un parametro di stringa di query o essere specificata nell'intestazione della richiesta. Per passare la chiave di sottoscrizione tramite una stringa di query, fare riferimento all'URL della richiesta seguente per l'API Emozioni per i video, ad esempio:
 
 ```
@@ -44,7 +46,7 @@ Quando si usa una libreria client, la chiave di sottoscrizione viene passata tra
 ```
 var emotionServiceClient = new emotionServiceClient("Your subscription key");
 ```
-Per ottenere una chiave di sottoscrizione, vedere [sottoscrizioni] (https://azure.microsoft.com/try/cognitive-services/)). 
+Per ottenere una chiave di sottoscrizione, vedere [sottoscrizioni] (https://azure.microsoft.com/try/cognitive-services/)).
 
 ### <a name="Step2">Passaggio 2: Caricare un video nel servizi e controllarne lo stato</a>
 Il modo più semplice per eseguire una qualsiasi chiamata all'API Emozioni per i video consiste nel caricare il video direttamente. Si invia a tal fine una richiesta "POST" con il tipo di contenuto del flusso applicazione/flusso di ottetti insieme ai dati letti da un file video. La dimensione massima del video è di 100 MB.
@@ -71,7 +73,7 @@ Operation videoOperation = await videoServiceClient.CreateOperationAsync(videoUr
 
 ```
 
-Questo metodo di caricamento sarà lo stesso per tutte le chiamate all'API Emozioni per i video. 
+Questo metodo di caricamento sarà lo stesso per tutte le chiamate all'API Emozioni per i video.
 
 Dopo aver caricato un video, l'operazione successiva consiste nel verificarne lo stato. Poiché i file video sono in genere più grandi e più diversi rispetto agli altri file, gli utenti devono prevedere un tempo di elaborazione lungo in questo passaggio. Il tempo dipende dalla dimensione e dalla durata del file.
 

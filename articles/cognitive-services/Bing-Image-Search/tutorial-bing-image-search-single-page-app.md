@@ -1,86 +1,89 @@
 ---
-title: Ricerca immagini Bing in un'app Web a pagina singola | Microsoft Docs
-description: Illustra come usare l'API Ricerca immagini Bing in un'applicazione Web a pagina singola.
+title: "Esercitazione: Creare un'app Web di una pagina - API Ricerca immagini Bing"
+titleSuffix: Azure cognitive services
+description: L'API Ricerca immagini Bing consente di cercare nel Web immagini pertinenti di alta qualità. Usare questa esercitazione per compilare un'applicazione Web composta da una sola pagina in grado di inviare query di ricerca all'API e visualizzare i risultati all'interno della pagina Web.
 services: cognitive-services
-author: v-jerkin
-manager: ehansen
+author: aahi
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 10/04/2017
-ms.author: v-jerkin
-ms.openlocfilehash: d0e1dc24513c8fc3a405cf1c18f531a0c58fad13
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: tutorial
+ms.date: 9/12/2018
+ms.author: aahi
+ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377028"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297452"
 ---
-# <a name="tutorial-single-page-web-app"></a>Esercitazione: app Web a pagina singola
+# <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Esercitazione: Creare un'app di una pagina con l'API Ricerca immagini Bing
 
-L'API Ricerca immagini Bing consente di eseguire ricerche sul Web e di ottenere come risultati immagini pertinenti alla query di ricerca. In questa esercitazione viene compilata un'applicazione Web a pagina singola che usa l'API Ricerca immagini Bing per visualizzare i risultati della ricerca direttamente nella pagina. L'applicazione include componenti HTML, CSS e JavaScript.
-
-<!-- Remove until we can sanitize images
-![[Single-page Bing Image Search app]](media/cognitive-services-bing-images-api/image-search-spa-demo.png)
--->
-
-> [!NOTE]
-> Quando si fa clic sulle intestazioni JSON e HTTP nella parte inferiore della pagina, vengono visualizzate le informazioni relative alla risposta JSON e alla richiesta HTTP. Questi dettagli risultano utili durante l'esplorazione del servizio.
+L'API Ricerca immagini Bing consente di cercare nel Web immagini pertinenti di alta qualità. Usare questa esercitazione per compilare un'applicazione Web composta da una sola pagina in grado di inviare query di ricerca all'API e visualizzare i risultati all'interno della pagina Web. Questa esercitazione è simile all'[esercitazione corrispondente](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md) per Ricerca Web Bing.
 
 L'applicazione di esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Eseguire una chiamata all'API Ricerca immagini Bing in JavaScript
-> * Passare le opzioni di ricerca all'API Ricerca immagini Bing
-> * Visualizzare i risultati della ricerca
-> * Sfogliare i risultati della ricerca
-> * Gestire l'ID del client Bing e la chiave di sottoscrizione dell'API
-> * Gestire gli errori che potrebbero verificarsi
+> * Migliorare i risultati della ricerca con le opzioni di ricerca
+> * Visualizzare e sfogliare i risultati della ricerca
+> * Richiedere e gestire una chiave di sottoscrizione API e un ID client Bing.
 
-La pagina dell'esercitazione è autonoma, non usa framework, fogli di stile o file di immagine esterni. Usa solo funzionalità del linguaggio JavaScript ampiamente supportate e funziona con le versioni correnti di tutti i Web browser principali.
+Il codice sorgente completo di questa esercitazione è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search).
 
-Questa esercitazione illustra solo alcune parti del codice sorgente. Il codice sorgente completo è disponibile [in un'altra pagina](tutorial-bing-image-search-single-page-app-source.md). Copiare e incollare il codice in un editor di testo e salvarlo come `bing.html`.
+## <a name="prerequisites"></a>Prerequisiti
 
-> [!NOTE]
-> Questa esercitazione è essenzialmente simile all'[esercitazione su Ricerca Web Bing in un'app a pagina singola](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), ma gestisce solo i risultati delle ricerche di immagini.
+* La versione più recente di [Node.js](https://nodejs.org/).
+* Il framework [Express.js](https://expressjs.com/) per Node.js. Le istruzioni di installazione del codice sorgente sono disponibili nel file Leggimi di esempio di GitHub.
 
-## <a name="app-components"></a>Componenti dell'app
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Come qualsiasi app Web a pagina singola, l'applicazione di esercitazione include tre parti:
+## <a name="manage-and-store-user-subscription-keys"></a>Gestire e archiviare le chiavi di sottoscrizione utente
 
-> [!div class="checklist"]
-> * HTML, che definisce la struttura e il contenuto della pagina
-> * CSS, che definisce l'aspetto della pagina
-> * JavaScript, che definisce il comportamento della pagina
+Questa applicazione usa l'archivio permanente dei Web browser per archiviare le chiavi di sottoscrizione API. Se non è archiviata alcuna chiave, la pagina Web richiede la chiave dell'utente e la archivia per uso futuro. Se in seguito la chiave viene rifiutata dall'API, l'app la rimuove dall'archivio.
 
-Questa esercitazione non tratta dettagliatamente il codice HTML o CSS, perché sono piuttosto semplici.
 
-Il codice HTML contiene il modulo di ricerca in cui l'utente immette una query e sceglie le opzioni di ricerca. Il modulo è connesso a JavaScript che esegue effettivamente la ricerca usando l'attributo `onsubmit` del tag `<form>`:
-
-```html
-<form name="bing" onsubmit="return newBingImageSearch(this)">
-```
-
-Il gestore `onsubmit` restituisce `false`, che impedisce che il modulo venga inviato a un server. Il codice JavaScript esegue le operazioni di raccolta delle informazioni necessarie dal modulo ed esegue la ricerca.
-
-Il codice HTML contiene anche le divisioni, ovvero tag HTML `<div>`, in cui vengono visualizzati i risultati della ricerca.
-
-## <a name="managing-subscription-key"></a>Gestione della chiave di sottoscrizione
-
-Per evitare di includere la chiave di sottoscrizione dell'API di ricerca Bing nel codice, viene usata l'archiviazione permanente del browser per archiviare la chiave. Se non è archiviata alcuna chiave, viene richiesta la chiave dell'utente e viene archiviata per uso futuro. Se in un secondo momento la chiave viene rifiutata dall'API, la chiave archiviata viene invalidata e l'utente riceverà nuovamente la richiesta.
-
-Si definiscono le funzioni `storeValue` e `retrieveValue` che usano l'oggetto `localStorage`, se il browser lo supporta, o un cookie. La funzione `getSubscriptionKey()` usa queste funzioni per archiviare e recuperare la chiave dell'utente.
+Occorre definire le funzioni `storeValue` e `retrieveValue` per usare l'oggetto `localStorage`, se il browser lo supporta, o un cookie.
 
 ```javascript
-// cookie names for data we store
+// Cookie names for data being stored
 API_KEY_COOKIE   = "bing-search-api-key";
 CLIENT_ID_COOKIE = "bing-search-client-id";
-
+// The Bing Image Search API endpoint
 BING_ENDPOINT = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
 
-// ... omitted definitions of storeValue() and retrieveValue()
+try { //Try to use localStorage first
+    localStorage.getItem;   
 
-// get stored API subscription key, or prompt if it's not found
+    window.retrieveValue = function (name) {
+        return localStorage.getItem(name) || "";
+    }
+    window.storeValue = function(name, value) {
+        localStorage.setItem(name, value);
+    }
+} catch (e) {
+    //If the browser doesn't support localStorage, try a cookie
+    window.retrieveValue = function (name) {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var keyvalue = cookies[i].split("=");
+            if (keyvalue[0].trim() === name) return keyvalue[1];
+        }
+        return "";
+    }
+    window.storeValue = function (name, value) {
+        var expiry = new Date();
+        expiry.setFullYear(expiry.getFullYear() + 1);
+        document.cookie = name + "=" + value.trim() + "; expires=" + expiry.toUTCString();
+    }
+}
+```
+
+La funzione `getSubscriptionKey()` cerca di recuperare una chiave archiviata in precedenza usando `retrieveValue`. Se non ne trova una, chiede all'utente di immettere la propria chiave e la archivia mediante `storeValue`.
+
+```javascript
+
+// Get the stored API subscription key, or prompt if it's not found
 function getSubscriptionKey() {
     var key = retrieveValue(API_KEY_COOKIE);
     while (key.length !== 32) {
@@ -95,36 +98,43 @@ function getSubscriptionKey() {
 Il tag `onsubmit` HTML `<form>` chiama la funzione `bingWebSearch` per restituire i risultati della ricerca. `bingWebSearch` usa `getSubscriptionKey` per autenticare ciascuna query. Come indicato nella definizione precedente, `getSubscriptionKey` richiede all'utente la chiave se non è stata immessa. La chiave viene quindi archiviata per continuare a essere usata dall'applicazione.
 
 ```html
-<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
-    bingSearchOptions(this), getSubscriptionKey())">
+<form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value,
+bingSearchOptions(this), getSubscriptionKey())">
 ```
 
-## <a name="selecting-search-options"></a>Selezione delle opzioni di ricerca
+## <a name="send-search-requests"></a>Inviare le richieste di ricerca
+
+Questa applicazione usa un `<form>` HTML per inviare inizialmente le richieste di ricerca degli utenti, usando l'attributo `onsubmit` per chiamare `newBingImageSearch()`.
+
+```html
+<form name="bing" onsubmit="return newBingImageSearch(this)">
+```
+
+Per impostazione predefinita, il gestore `onsubmit` restituisce `false`, che impedisce che il modulo venga inviato.
+
+## <a name="select-search-options"></a>Selezionare le opzioni di ricerca
 
 ![[Modulo di Ricerca immagini Bing]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-Il modulo HTML include i controlli seguenti:
+L'API Ricerca immagini Bing offre diversi [parametri di filtro delle query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#filter-query-parameters) per restringere e filtrare i risultati della ricerca. Il modulo HTML in questa applicazione usa e visualizza le opzioni di parametri seguenti:
 
-| | |
-|-|-|
-|`where`|Un menu a discesa per la selezione del mercato, ovvero località e lingua, utilizzato per la ricerca.|
-|`query`|Il campo di testo in cui inserire i termini di ricerca.|
-|`aspect`|Pulsante di opzione per scegliere le proporzioni delle immagini trovate: approssimativamente quadrate, larghe o alte.|
-|`color`|Seleziona colore o bianco e nero o un colore predominante.
-|`when`|Menu a discesa per limitare facoltativamente la ricerca all'ultimo giorno, settimana o mese.|
-|`safe`|Una casella di controllo che indica se usare la funzionalità SafeSearch di Bing per filtrare i risultati con contenuti "per soli adulti".|
-|`count`|Campo nascosto. Il numero di risultati della ricerca da restituire per ogni richiesta. Modificarlo per visualizzare un numero maggiore o minore di risultati per pagina.|
-|`offset`|Campo nascosto. Lo scostamento del primo risultato della ricerca nella richiesta; utilizzato per il paging. Viene reimpostato su `0` per una nuova richiesta.|
-|`nextoffset`|Campo nascosto. Quando riceve un risultato della ricerca, questo campo è impostato sul valore di `nextOffset` nella risposta. L'uso di questo campo consente di evitare risultati sovrapposti nelle pagine successive.|
-|`stack`|Campo nascosto. Un elenco con codifica JSON degli scostamenti delle pagine di risultati di ricerca precedenti, per tornare alle pagine precedenti.|
+|              |                                                                                                                                                                                    |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `where`      | Un menu a discesa per la selezione del mercato (località e lingua) usato per la ricerca.                                                                                             |
+| `query`      | Il campo di testo in cui inserire i termini di ricerca.                                                                                                                                 |
+| `aspect`     | Pulsanti di opzione per scegliere le proporzioni delle immagini trovate: approssimativamente quadrate, larghe o alte.                                                                                     |
+| `color`      |                                                                                                                                                                                    |
+| `when`       | Menu a discesa per limitare facoltativamente la ricerca all'ultimo giorno, settimana o mese.                                                                                          |
+| `safe`       | Una casella di controllo che indica se usare la funzionalità SafeSearch di Bing per filtrare i risultati con contenuti "per soli adulti".                                                                                      |
+| `count`      | Campo nascosto. Il numero di risultati della ricerca da restituire per ogni richiesta. Modificarlo per visualizzare un numero maggiore o minore di risultati per pagina.                                                            |
+| `offset`     | Campo nascosto. Lo scostamento del primo risultato della ricerca nella richiesta; utilizzato per il paging. Viene reimpostato su `0` per una nuova richiesta.                                                           |
+| `nextoffset` | Campo nascosto. Quando riceve un risultato della ricerca, questo campo è impostato sul valore di `nextOffset` nella risposta. L'uso di questo campo consente di evitare risultati sovrapposti nelle pagine successive. |
+| `stack`      | Campo nascosto. Un elenco con codifica JSON degli scostamenti delle pagine di risultati di ricerca precedenti, per tornare alle pagine precedenti.                                                      |
 
-> [!NOTE]
-> Ricerca immagini Bing offre molti altri parametri di query. Qui ne vengono usati solo alcuni.
-
-La funzione JavaScript `bingSearchOptions()` converte questi campi in una stringa di query parziale nel formato richiesto dall'API di ricerca Bing.
+La funzione `bingSearchOptions()` formatta queste opzioni in una stringa di query parziale, che può essere usata nelle richieste API dell'app.  
 
 ```javascript
-// build query options from the HTML form
+// Build query options from the HTML form
 function bingSearchOptions(form) {
 
     var options = [];
@@ -146,11 +156,10 @@ function bingSearchOptions(form) {
 }
 ```
 
-Ad esempio, la funzione SafeSearch può essere `strict`, `moderate` o `off`, con `moderate` come impostazione predefinita. Il modulo, tuttavia, usa una casella di controllo che presenta solo due stati. Il codice JavaScript converte questa impostazione in `strict` o `off`; `moderate` non viene usato.
-
 ## <a name="performing-the-request"></a>Esecuzione della richiesta
 
-Dati la query, la stringa delle opzioni e la chiave API, la funzione `BingImageSearch` usa un oggetto `XMLHttpRequest` per effettuare la richiesta all'endpoint di Ricerca immagini Bing.
+Usando la query di ricerca, la stringa delle opzioni e la chiave API, la funzione `BingImageSearch()` usa un oggetto XMLHttpRequest per inviare la richiesta all'endpoint di Ricerca immagini Bing.
+
 
 ```javascript
 // perform a search given query, options string, and API key
@@ -169,7 +178,7 @@ function bingImageSearch(query, options, key) {
     // open the request
     try {
         request.open("GET", queryurl);
-    } 
+    }
     catch (e) {
         renderErrorMessage("Bad request (invalid URL)\n" + queryurl);
         return false;
@@ -180,10 +189,10 @@ function bingImageSearch(query, options, key) {
     request.setRequestHeader("Accept", "application/json");
     var clientid = retrieveValue(CLIENT_ID_COOKIE);
     if (clientid) request.setRequestHeader("X-MSEdge-ClientID", clientid);
-    
+
     // event handler for successful response
     request.addEventListener("load", handleBingResponse);
-    
+
     // event handler for erorrs
     request.addEventListener("error", function() {
         renderErrorMessage("Error completing request");
@@ -200,7 +209,7 @@ function bingImageSearch(query, options, key) {
 }
 ```
 
-Al completamento corretto della richiesta HTTP, JavaScript chiama il gestore dell'evento `load`, la funzione `handleBingResponse()`, per gestire una richiesta HTTP GET corretta all'API. 
+Al completamento corretto della richiesta HTTP, JavaScript chiama il gestore dell'evento "load" `handleBingResponse()` per gestire una richiesta HTTP GET corretta.
 
 ```javascript
 // handle Bing search request results
@@ -219,7 +228,7 @@ function handleBingResponse() {
 
     // show raw JSON and HTTP request
     showDiv("json", preFormat(JSON.stringify(jsobj, null, 2)));
-    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " + 
+    showDiv("http", preFormat("GET " + this.responseURL + "\n\nStatus: " + this.status + " " +
         this.statusText + "\n" + this.getAllResponseHeaders()));
 
     // if HTTP response is 200 OK, try to render search results
@@ -267,21 +276,11 @@ function handleBingResponse() {
 ```
 
 > [!IMPORTANT]
-> Una richiesta HTTP corretta *non* necessariamente indica che la ricerca sia andata a buon fine. Se si verifica un errore nell'operazione di ricerca, l'API Ricerca immagini Bing restituisce un codice di stato HTTP non-200 e include le informazioni sull'errore nella risposta JSON. Inoltre, se la richiesta era a frequenza limitata, l'API restituisce una risposta vuota.
+> Le richieste HTTP riuscite possono contenere informazioni sulle ricerche non riuscite. Se si verifica un errore durante l'operazione di ricerca, l'API Ricerca immagini Bing restituisce un codice di stato HTTP non-200 e le informazioni sull'errore nella risposta JSON. Inoltre, se la richiesta era a frequenza limitata, l'API restituisce una risposta vuota.
 
-La maggior parte del codice in entrambe le precedenti funzioni è dedicata alla gestione degli errori. Possono verificarsi errori nelle fasi seguenti:
+## <a name="display-the-search-results"></a>Visualizzare i risultati della ricerca
 
-|Fase|Errori potenziali|Gestito da|
-|-|-|-|
-|Compilazione dell'oggetto richiesta JavaScript|URL non valido|Blocco `try`/`catch`|
-|Invio della richiesta|Errori di rete, connessioni interrotte|Gestori degli eventi `error` e `abort`|
-|Esecuzione della ricerca|Richiesta non valida, JSON non valido, limiti di frequenza|Test nel gestore eventi `load`|
-
-Gli errori vengono gestiti chiamando `renderErrorMessage()` con tutti i dettagli noti dell'errore. Se la risposta supera la serie completa dei test di errore, viene chiamato `renderSearchResults()` per visualizzare i risultati della ricerca nella pagina.
-
-## <a name="displaying-search-results"></a>Visualizzazione dei risultati della ricerca
-
-La funzione principale per la visualizzazione dei risultati della ricerca è `renderSearchResults()`. Questa funzione accetta la stringa JSON restituita dal servizio Ricerca immagini Bing ed esegue il rendering delle immagini e delle ricerche correlate, se presenti.
+I risultati della ricerca vengono visualizzati dalla funzione `renderSearchResults()`, che accetta la stringa JSON restituita dal servizio Ricerca immagini Bing e chiama una funzione renderer appropriata su tutte le immagini restituite e sulle ricerche correlate.
 
 ```javascript
 function renderSearchResults(results) {
@@ -290,14 +289,14 @@ function renderSearchResults(results) {
     var pagingLinks = renderPagingLinks(results);
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
-    
+
     showDiv("results", renderImageResults(results.value));
     if (results.relatedSearches)
         showDiv("sidebar", renderRelatedItems(results.relatedSearches));
 }
 ```
 
-I risultati della ricerca immagini principale vengono restituiti come oggetto di massimo livello `value` nella risposta JSON. Questi vengono inviati alla funzione `renderImageResults()` che esegue un'iterazione su essi e chiama una funzione separata per il rendering di ciascun elemento in HTML. Il codice HTML risultante viene restituito a `renderSearchResults()`, dove viene inserito nella divisione `results` della pagina.
+I risultati della ricerca immagini sono contenuti nell'oggetto di primo livello `value` nella risposta JSON. Questi risultati vengono passati a `renderImageResults()`, che li scorre e converte ogni elemento in codice HTML.
 
 ```javascript
 function renderImageResults(items) {
@@ -315,39 +314,42 @@ function renderImageResults(items) {
 }
 ```
 
-L'API Ricerca immagini Bing restituisce fino a quattro tipi di risultati correlati, ognuno dei quali nel proprio oggetto di massimo livello. Sono:
+L'API Ricerca immagini Bing può restituire quattro tipi di suggerimenti per la ricerca per facilitare le esperienze di ricerca degli utenti, ognuna nel proprio oggetto di primo livello:
 
-|||
-|-|-|
-|`pivotSuggestions`|Query che sostituiscono una parola pivot nella ricerca originale con una parola diversa. Ad esempio, se si cerca "fiori rossi", una parola pivot potrebbe essere "rossi" e un suggerimento pivot potrebbe essere "fiori gialli".|
-|`queryExpansions`|Query che restringono la ricerca originale con l'aggiunta di nuovi termini. Ad esempio, se si cerca "Microsoft Surface", un'espansione della query potrebbe essere "Microsoft Surface Pro".|
-|`relatedSearches`|Query che sono state inserite anche da altri utenti che hanno immesso la ricerca originale. Ad esempio, se si cerca "Mount Rainier", una ricerca correlata potrebbe essere "Mt. Saint Helens".|
-|`similarTerms`|Query che sono simili nel significato alla ricerca originale. Ad esempio, se si cerca "gattino", un termine simile potrebbe essere "furbo".|
+| Suggerimento         | Descrizione                                                                                                                                                                                                         |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `pivotSuggestions` | Query che sostituiscono una parola pivot nella ricerca originale con una parola diversa. Ad esempio, se si cerca "fiori rossi", una parola pivot potrebbe essere "rossi" e un suggerimento pivot potrebbe essere "fiori gialli". |
+| `queryExpansions`  | Query che restringono la ricerca originale con l'aggiunta di nuovi termini. Ad esempio, se si cerca "Microsoft Surface", un'espansione della query potrebbe essere "Microsoft Surface Pro".                                   |
+| `relatedSearches`  | Query che sono state inserite anche da altri utenti che hanno immesso la ricerca originale. Ad esempio, se si cerca "Mount Rainier", una ricerca correlata potrebbe essere "Mt. Saint Helens".                       |
+| `similarTerms`     | Query che sono simili nel significato alla ricerca originale. Ad esempio, se si cerca "gattino", un termine simile potrebbe essere "furbo".                                                                   |
 
-Come illustrato in precedenza in `renderSearchResults()`, viene eseguito il rendering solo dei suggerimenti `relatedItems` e i collegamenti risultanti vengono inseriti nella barra laterale della pagina.
+L'applicazione esegue il rendering solo dei suggerimenti `relatedItems` e inserisce i collegamenti risultanti nella barra laterale della pagina.
 
-## <a name="rendering-result-items"></a>Rendering degli elementi dei risultati
+## <a name="rendering-search-results"></a>Rendering dei risultati della ricerca
 
-Nel codice JavaScript l'oggetto `searchItemRenderers` contiene i *renderer*: funzioni che generano codice HTML per ciascun tipo di risultato della ricerca.
+In questa applicazione l'oggetto `searchItemRenderers` contiene funzioni renderer che generano codice HTML per ciascun tipo di risultato della ricerca.
 
 ```javascript
-searchItemRenderers = { 
+searchItemRenderers = {
     images: function(item, index, count) { ... },
     relatedSearches: function(item) { ... }
 }
 ```
 
-Una funzione renderer può accettare i parametri seguenti:
+Queste funzioni renderer accettano i parametri seguenti:
 
-| | |
-|-|-|
-|`item`|L'oggetto JavaScript che contiene le proprietà dell'elemento, ad esempio l'URL e la relativa descrizione.|
-|`index`|L'indice dell'elemento dei risultati all'interno della raccolta.|
-|`count`|Il numero di elementi nella raccolta degli elementi dei risultati della ricerca.|
+| Parametro         | Descrizione                                                                                              |
+|---------|----------------------------------------------------------------------------------------------|
+| `item`  | L'oggetto JavaScript che contiene le proprietà dell'elemento, ad esempio l'URL e la relativa descrizione. |
+| `index` | L'indice dell'elemento di risultato all'interno della raccolta.                                          |
+| `count` | Il numero di elementi nella raccolta degli elementi di risultati della ricerca.                                  |
 
-I parametri `index` e `count` possono essere usati per numerare i risultati, per generare codice HTML speciale per l'inizio o la fine di una raccolta, per inserire le interruzioni di riga dopo un certo numero di elementi e così via. Se un renderer non necessita di questa funzionalità, non è necessario che accetti questi due parametri.
+I parametri `index` e `count` vengono usati per numerare i risultati, generare codice HTML per le raccolte e organizzare il contenuto. Nello specifico:
 
-Analizziamo in dettaglio il renderer `images`:
+* Calcola le dimensioni dell'anteprima immagine; la larghezza varia da un minimo di 120 pixel, mentre l'altezza è fissa a 90 pixel.
+* Compila il tag HTML `<img>` per visualizzare l'anteprima dell'immagine.
+* Compila i tag HTML `<a>` che collegano l'immagine e la pagina che la contiene.
+* Compila la descrizione che consente di visualizzare informazioni sull'immagine e il sito in cui si trova.
 
 ```javascript
     images: function (item, index, count) {
@@ -357,7 +359,7 @@ Analizziamo in dettaglio il renderer `images`:
         if (index === 0) html.push("<p class='images'>");
         var title = escape(item.name) + "\n" + getHost(item.hostPageDisplayUrl);
         html.push("<p class='images' style='max-width: " + width + "px'>");
-        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width + 
+        html.push("<img src='"+ item.thumbnailUrl + "&h=" + height + "&w=" + width +
             "' height=" + height + " width=" + width + "'>");
         html.push("<br>");
         html.push("<nobr><a href='" + item.contentUrl + "'>Image</a> - ");
@@ -367,17 +369,7 @@ Analizziamo in dettaglio il renderer `images`:
     }, // relatedSearches renderer omitted
 ```
 
-La funzione renderer dell'immagine:
-
-> [!div class="checklist"]
-> * Calcola le dimensioni dell'anteprima immagine; la larghezza varia da un minimo di 120 pixel, mentre l'altezza è fissa a 90 pixel.
-> * Compila il tag HTML `<img>` per visualizzare l'anteprima dell'immagine. 
-> * Compila i tag HTML `<a>` che collegano l'immagine e la pagina che la contiene.
-> * Compila la descrizione che consente di visualizzare informazioni sull'immagine e il sito in cui si trova.
-
-Sarà testata la variabile `index` per inserire un tag `<p>` prima della prima immagine dei risultati. In caso contrario le anteprime sono una vicina all'altra e vanno a capo come necessario nella finestra del browser.
-
-La dimensione dell'anteprima viene usata sia nel tag `<img>` che nei campi `h` e `w` dell'URL dell'anteprima. Il [servizio di anteprima Bing](resize-and-crop-thumbnails.md) invia un'anteprima esattamente di tali dimensioni.
+I valori `height` e `width` dell'immagine di anteprima vengono usati sia nel tag `<img>` che nei campi `h` e `w` dell'URL dell'anteprima. Questo consente a Bing di restituire [un'anteprima](resize-and-crop-thumbnails.md) esattamente di quelle dimensioni.
 
 ## <a name="persisting-client-id"></a>ID client persistente
 
@@ -392,11 +384,11 @@ In secondo luogo, Bing potrebbe selezionare utenti in modo casuale per provare n
 I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione `X-MSEdge-ClientID` sia disponibile per JavaScript. Questa limitazione si verifica quando la risposta della ricerca ha un'origine diversa dalla pagina che l'ha richiesta. In un ambiente di produzione è necessario soddisfare questo criterio tramite l'hosting di uno script sul lato server che esegue la chiamata API nello stesso dominio della pagina Web. Poiché lo script ha la stessa origine della pagina Web, l'intestazione `X-MSEdge-ClientID` diventa disponibile per JavaScript.
 
 > [!NOTE]
-> In un'applicazione Web di produzione è consigliabile comunque eseguire la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web, dove sarà disponibile per chiunque visualizzi l'origine. All'utente vengono addebitati i costi per tutto l'utilizzo della chiave di sottoscrizione dell'API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
+> In un'applicazione Web di produzione è consigliabile comunque eseguire la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web, dove sarà disponibile per chiunque visualizzi l'origine. All'utente vengono addebitati costi per tutto l'utilizzo della chiave di sottoscrizione API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
 
 A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
 
-È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID del client. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Digitare quindi il comando seguente in una finestra di comando:
+È facile installare un proxy CORS per consentire all'applicazione di esercitazione di accedere all'intestazione ID client. Se non è disponibile, per prima cosa [installare Node.js](https://nodejs.org/en/download/). Digitare quindi il comando seguente in una finestra di comando:
 
     npm install -g cors-proxy-server
 
@@ -408,10 +400,13 @@ Infine avviare il proxy CORS con il comando seguente:
 
     cors-proxy-server
 
-Lasciare aperta la finestra di comando durante l'uso dell'applicazione di esercitazione. Se si chiude la finestra, il proxy si arresta. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile vedere l'intestazione `X-MSEdge-ClientID`, tra le altre, e verificare che sia la stessa per ogni richiesta.
+Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile vedere l'intestazione `X-MSEdge-ClientID`, tra le altre, e verificare che sia la stessa per ogni richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento per l'API Ricerca immagini Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+> [Estrarre i dettagli dell'immagine usando l'API Ricerca immagini Bing](tutorial-image-post.md)
 
+## <a name="see-also"></a>Vedere anche 
+
+* [Informazioni di riferimento per l'API Ricerca immagini Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

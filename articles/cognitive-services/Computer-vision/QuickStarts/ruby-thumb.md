@@ -1,42 +1,45 @@
 ---
-title: API Visione artificiale - Guida introduttiva a Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si genera un'anteprima da un'immagine usando Visione artificiale con Ruby in Servizi cognitivi.
+title: "Guida introduttiva: Generare un'anteprima - REST, Ruby - Visione artificiale"
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva, si genererà l'anteprima di un'immagine usando l'API Visione artificiale con Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: a5f6c345b3e1f5e4dab923d43dd239344c66aab1
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 117e1fcc49aea5b3cef3e8d3b299a1eec90527db
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772142"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632943"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-ruby"></a>Guida introduttiva: Generare un'anteprima - REST, Ruby
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>Guida introduttiva: Generare un'anteprima con l'API REST e Ruby in Visione artificiale
 
-In questa guida introduttiva si genera un'anteprima da un'immagine usando Visione artificiale.
+In questa guida introduttiva si genererà l'anteprima di un'immagine usando l'API REST di Visione artificiale. Il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) consente di generare l'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale usa il ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Visione artificiale, è necessario avere una chiave di sottoscrizione. A tale scopo, vedere [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Come ottenere chiavi di sottoscrizione).
+- È necessario aver installato [Ruby](https://www.ruby-lang.org/en/downloads/) 2.4.x o versione successiva.
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="get-thumbnail-request"></a>Richiesta di generazione di un'anteprima
+## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
-Con il [metodo Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), è possibile generare un'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale usa il ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
+Per creare ed eseguire l'esempio, seguire questa procedura:
 
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Copiare il codice seguente in un editor.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `uri` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, modificare l'immagine (`{\"url\":\"...`) da analizzare.
-1. Salvare il file con estensione `.rb`.
-1. Aprire il prompt dei comandi di Ruby ed eseguire il file, ad esempio: `ruby myfile.rb`.
+1. Copiare il codice seguente in un editor di testo.
+1. Apportare le modifiche seguenti al codice, dove necessario:
+    1. Sostituire `<Subscription Key>` con la chiave di sottoscrizione.
+    1. Se necessario, sostituire `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze` con l'URL endpoint per il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Facoltativamente, sostituire `https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\` con l'URL di un'altra immagine per la quale si vuole generare un'anteprima.
+1. Salvare il codice in un file con estensione `.rb`. Ad esempio: `get-thumbnail.rb`.
+1. Aprire una finestra del prompt dei comandi.
+1. Al prompt usare il comando `ruby` per eseguire l'esempio. Ad esempio: `ruby get-thumbnail.rb`.
 
 ```ruby
 require 'net/http'
@@ -70,13 +73,17 @@ end
 #puts response.body
 ```
 
-## <a name="get-thumbnail-response"></a>Risposta alle richiesta di generazione di un'anteprima
+## <a name="examine-the-response"></a>Esaminare i risultati
 
-Una risposta con esito positivo contiene il file binario dell'immagine di anteprima. Se invece la richiesta ha esito negativo, la risposta contiene un codice di errore e un messaggio per determinarne la causa.
+Una risposta positiva è costituita dai dati binari che rappresentano i dati dell'immagine per l'anteprima. Se la richiesta ha esito negativo, la risposta viene visualizzata nella finestra della console. La risposta a una richiesta con esito negativo contiene un codice di errore e un messaggio utile per determinarne la causa.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non è più necessario, eliminare il file.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le API Visione artificiale usate per analizzare un'immagine, rilevare celebrità e luoghi di interesse, creare un'anteprima ed estrarre testo scritto a mano e stampato. Per sperimentare rapidamente le API Visione artificiale, provare la [console di test delle API aperta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare l'API Visione artificiale usata per analizzare un'immagine, rilevare celebrità e luoghi di interesse, creare un'anteprima ed estrarre testo scritto a mano e stampato. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Esaminare le API Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Esplorare l'API Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

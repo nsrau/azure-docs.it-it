@@ -1,37 +1,39 @@
 ---
-title: Guida introduttiva - Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node | Microsoft Docs
-description: Guida introduttiva - Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node
+title: "Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node | Microsoft Docs"
+description: "Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web Node"
 services: key-vault
 author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 0188d06e5c58287e1040f6a15456d3ffe291b04a
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023081"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604179"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET
 
-In questa guida introduttiva vengono presentati i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni dall'insieme di credenziali delle chiavi usando le identità del servizio gestito. Si apprenderà come:
+In questa guida introduttiva vengono seguiti i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni da Azure Key Vault usando le identità gestite per le risorse di Azure. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali delle chiavi.
 > * Archiviare un segreto nell'insieme di credenziali delle chiavi.
 > * Recuperare un segreto dall'insieme di credenziali delle chiavi.
 > * Creare un'applicazione Web di Azure.
-> * [Abilitare le identità del servizio gestite](../active-directory/managed-service-identity/overview.md).
-> * Concedere le autorizzazioni necessarie per l'applicazione Web per la lettura dei dati da un insieme di credenziali delle chiavi.
+> * Abilitare un'[identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per l'app Web.
+> * Concedere le autorizzazioni necessarie per l'applicazione Web per la lettura dei dati dall'insieme di credenziali delle chiavi.
 
 Prima di continuare, leggere i [concetti di base](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
-Per capire i motivi per cui l'esercitazione seguente rappresenta la procedura consigliata, è necessario comprendere alcuni concetti. Key Vault è un repository centrale per archiviare i segreti a livello di codice. Per farlo, tuttavia, le applicazioni o gli utenti devono prima autenticarsi in Key Vault, ad esempio presentando un segreto. Per seguire le procedure consigliate per la sicurezza, questo primo segreto deve essere ruotato periodicamente. Con l'[identità del servizio gestita](../active-directory/managed-service-identity/overview.md), alle applicazioni in esecuzione in Azure viene assegnata un'identità gestita automaticamente da Azure. Ciò aiuta a risolvere il **problema di introduzione del segreto**, con utenti o applicazioni che possono seguire le procedure consigliate senza doversi preoccupare della rotazione del primo segreto
+>Key Vault è un repository centrale per archiviare i segreti a livello di codice. Per farlo, tuttavia, le applicazioni e gli utenti devono prima autenticarsi in Key Vault, ovvero devono presentare un segreto. Per seguire le procedure consigliate per la sicurezza, questo primo segreto deve essere ruotato periodicamente. 
+>
+>Con le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md), alle applicazioni in esecuzione in Azure viene assegnata un'identità gestita automaticamente da Azure. Ciò aiuta a risolvere il *problema di introduzione del segreto*, in modo tale che gli utenti e le applicazioni possano seguire le procedure consigliate senza doversi preoccupare della rotazione del primo segreto.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,16 +44,16 @@ Per capire i motivi per cui l'esercitazione seguente rappresenta la procedura co
   * [.NET Core 2.1 SDK o versione successiva](https://www.microsoft.com/net/download/windows)
 
 * Su Mac:
-  * https://visualstudio.microsoft.com/vs/mac/
+  * Vedere [Novità di Visual Studio per Mac](https://visualstudio.microsoft.com/vs/mac/).
 
 * Tutte le piattaforme:
-  * Scaricare GIT da [qui](https://git-scm.com/downloads).
+  * Git ([download](https://git-scm.com/downloads)).
   * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-  * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) È necessaria l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. È disponibile per Windows, Mac e Linux
+  * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) versione 2.0.4 o versioni successive. È disponibile per Windows, Mac e Linux.
 
-## <a name="login-to-azure"></a>Accedere ad Azure
+## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-   Per accedere ad Azure tramite l'interfaccia della riga di comando, è possibile digitare:
+Per accedere ad Azure tramite l'interfaccia della riga di comando di Azure, immettere:
 
 ```azurecli
 az login
@@ -62,21 +64,21 @@ az login
 Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
 Selezionare il nome di un gruppo di risorse e compilare il segnaposto.
-L'esempio seguente crea un gruppo di risorse denominato *<YourResourceGroupName>* nella località *eastus*.
+L'esempio seguente crea un gruppo di risorse nell'area Stati Uniti orientali:
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "East US"
 ```
 
-In tutto l'articolo viene usato il gruppo di risorse appena creato.
+Il gruppo di risorse appena creato viene usato in tutto l'articolo.
 
-## <a name="create-an-azure-key-vault"></a>Creare un Azure Key Vault
+## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Verrà di seguito creato un insieme di credenziali delle chiavi nel gruppo di risorse creato nel passaggio precedente. Specificare le informazioni seguenti:
+Viene ora creato un insieme di credenziali delle chiavi nel gruppo di risorse creato nel passaggio precedente. Specificare le informazioni seguenti:
 
-* Nome dell'insieme di credenziali: **selezionare il nome dell'insieme di credenziali delle chiavi**. Il nome di Key Vault deve essere una stringa composta da un minimo di 3 a un massimo di 24 caratteri e contenente solo (0-9, a-z, A-Z e -).
-* Nome del gruppo di risorse: **selezionare il nome di un gruppo di risorse**.
+* Nome dell'insieme di credenziali delle chiavi: il nome deve essere una stringa di 3-24 caratteri e deve contenere solo (0-9, a-z, A-Z e -).
+* Nome del gruppo di risorse.
 * Località: **Stati Uniti orientali**.
 
 ```azurecli
@@ -85,11 +87,11 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 A questo punto, l'account Azure è l'unico autorizzato a eseguire qualsiasi operazione su questo nuovo insieme di credenziali.
 
-## <a name="add-a-secret-to-key-vault"></a>Aggiungere un segreto all'istanza di Key Vault
+## <a name="add-a-secret-to-the-key-vault"></a>Aggiungere un segreto all'insieme di credenziali delle chiavi
 
-Verrà aggiunto un segreto per illustrare il funzionamento di questa operazione. Si potrebbe archiviare una stringa di connessione SQL o qualsiasi altra informazione che è necessario conservare in modo sicuro, rendendola però disponibile per l'applicazione. In questa esercitazione la password sarà denominata **AppSecret** e archivierà il valore **MySecret**.
+Verrà aggiunto un segreto per illustrare il funzionamento di questa operazione. Si potrebbe archiviare una stringa di connessione SQL o qualsiasi altra informazione che è necessario conservare in modo sicuro, rendendola però disponibile per l'applicazione.
 
-Digitare i comandi seguenti per creare un segreto nell'insieme di credenziali delle chiavi chiamato **AppSecret** che archivierà il valore **MySecret**:
+Digitare i comandi seguenti per creare un segreto nell'insieme di credenziali delle chiavi denominato **AppSecret**. Questo segreto archivierà il valore **MySecret**.
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
@@ -101,11 +103,11 @@ Per visualizzare il valore contenuto nel segreto come testo normale:
 az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 ```
 
-Questo comando mostra le informazioni del segreto, incluso l'URI. Dopo aver completato questi passaggi sarà disponibili un URI per un segreto in Azure Key Vault. Prendere nota di queste informazioni. Saranno necessarie in un passaggio successivo.
+Questo comando mostra le informazioni del segreto, incluso l'URI. Dopo aver completato questi passaggi si avrà un URI per un segreto in un insieme di credenziali delle chiavi. Prendere nota di queste informazioni. Saranno necessarie in un passaggio successivo.
 
 ## <a name="clone-the-repo"></a>Clonare il repository
 
-Clonare il repository per creare una copia locale e modificare l'origine eseguendo il comando seguente:
+Clonare il repository per creare una copia locale in cui è possibile modificare l'origine. Eseguire il comando seguente:
 
 ```
 git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
@@ -113,47 +115,47 @@ git clone https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart.git
 
 ## <a name="open-and-edit-the-solution"></a>Aprire e modificare la soluzione
 
-Modificare il file program.cs per poter eseguire l'esempio con il nome dell'insieme di credenziali delle chiavi specifico.
+Modificare il file program.cs per eseguire l'esempio con il nome dell'insieme di credenziali delle chiavi specifico:
 
-1. Passare alla cartella key-vault-dotnet-core-quickstart
-2. Aprire il file key-vault-dotnet-core-quickstart.sln in Visual Studio 2017
-3. Aprire il file Program.cs e aggiornare il segnaposto <YourKeyVaultName> con il nome dell'insieme di credenziali delle chiavi creato in precedenza.
+1. Passare alla cartella key-vault-dotnet-core-quickstart.
+2. Aprire il file key-vault-dotnet-core-quickstart.sln in Visual Studio 2017.
+3. Aprire il file Program.cs e aggiornare il segnaposto *ourKeyVaultName* con il nome dell'insieme di credenziali delle chiavi creato in precedenza.
 
-Questa soluzione usa le librerie NuGet [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
+Questa soluzione usa le librerie NuGet [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
 ## <a name="run-the-app"></a>Esecuzione dell'app
 
-Dal menu principale di Visual Studio 2017 scegliere Debug > Avvia senza eseguire debug. Quando viene visualizzato il browser, passare alla pagina About. Viene visualizzato il valore per AppSecret.
+Dal menu principale di Visual Studio 2017 selezionare **Debug** > **Avvia** senza eseguire debug. Quando viene visualizzato il browser, passare alla pagina **Informazioni su**. Viene visualizzato il valore per **AppSecret**.
 
 ## <a name="publish-the-web-application-to-azure"></a>Pubblicare l'applicazione Web in Azure
 
-L'app verrà pubblicata in Azure per visualizzarla come un'app Web e anche per verificare che venga recuperato il valore del segreto
+Pubblicare questa app in Azure per visualizzarla come un'app Web e per verificare che venga recuperato il valore del segreto:
 
 1. In Visual Studio selezionare il progetto **key-vault-dotnet-core-quickstart**.
-2. Selezionare **Publish** (Pubblica), quindi **Start** (Inizia).
-3. Creare un nuovo **servizio app** e selezionare **Publish**.
-4. Modificare il nome dell'app in "keyvaultdotnetcorequickstart"
+2. Selezionare **Pubblica** > **Avvia**.
+3. Creare un nuovo **servizio app** e quindi selezionare **Pubblica**.
+4. Modificare il nome dell'app in **keyvaultdotnetcorequickstart**.
 5. Selezionare **Create**.
 
 >[!VIDEO https://sec.ch9.ms/ch9/e93d/a6ac417f-2e63-4125-a37a-8f34bf0fe93d/KeyVault_high.mp4]
 
-## <a name="enable-managed-service-identities-msi"></a>Abilitare le identità del servizio gestite
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Abilitare un'identità gestita per l'app Web
 
-Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Azure Key Vault per recuperarli. Identità del servizio gestita semplifica questa attività, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
+Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarle. [La panoramica delle identità gestite per le risorse Azure](../active-directory/managed-identities-azure-resources/overview.md) consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
 
-1. Tornare all'interfaccia della riga di comando di Azure
+1. Tornare all'interfaccia della riga di comando di Azure.
 2. Eseguire il comando assign-identity per creare l'identità per l'applicazione:
 
-```azurecli
-az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
-```
+   ```azurecli
+   az webapp identity assign --name "keyvaultdotnetcorequickstart" --resource-group "<YourResourceGroupName>"
+   ```
 
 >[!NOTE]
->Questo comando equivale a passare al portale e impostare **Identità del servizio gestito** su **Attivato** nelle proprietà dell'applicazione Web.
+>Il comando in questa procedura equivale a passare al portale e impostare **Identità/Assegnato dal sistema** su **Attivato** nelle proprietà dell'applicazione Web.
 
 ## <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Assegnare le autorizzazioni all'applicazione per la lettura dei segreti da Key Vault
 
-Prendere nota dell'output quando si [pubblica l'applicazione in Azure][]. Deve essere nel formato seguente:
+Prendere nota dell'output quando si pubblica l'applicazione in Azure. Deve essere nel formato seguente:
         
         {
           "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
@@ -161,19 +163,19 @@ Prendere nota dell'output quando si [pubblica l'applicazione in Azure][]. Deve e
           "type": "SystemAssigned"
         }
         
-Eseguire quindi questo comando usando il nome dell'insieme di credenziali delle chiavi e il valore PrincipalId copiato in precedenza:
+Eseguire quindi questo comando usando il nome dell'insieme di credenziali delle chiavi e il valore **PrincipalId**:
 
 ```azurecli
 
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
 
 ```
 
-**A questo punto, quando si esegue l'applicazione viene visualizzato il valore del segreto recuperato**
+A questo punto, quando si esegue l'applicazione viene visualizzato il valore del segreto recuperato. Nel comando precedente si concedono all'identità del servizio gestita del servizio app le autorizzazioni per eseguire le operazioni **get** e **list** in Key Vault
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Home page di Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 * [Documentazione su Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
 * [Azure SDK per .NET](https://github.com/Azure/azure-sdk-for-net)
-* [Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/keyvault/)
+* [Informazioni di riferimento sulle API REST di Azure](https://docs.microsoft.com/rest/api/keyvault/)

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/06/2018
+ms.date: 010/01/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: da9e1ce17e21f4d87286c0be5d425419f6ed0300
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1af4cdb361c1db378991201fc42f17dcbf67fe67
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408511"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238766"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Esercitazione: ridimensionare un cluster di Service Fabric in Azure
 
@@ -121,7 +121,7 @@ La riduzione del numero di istanze è identica all'aumento, ma si usa un valore 
 > [!NOTE]
 > Questa parte si applica solo al livello di durabilità *Bronzo*. Per altre informazioni sulla durabilità, vedere [Pianificazione della capacità dei cluster di Service Fabric][durability].
 
-Quando si riduce il numero di istanze di un set di scalabilità di macchine virtuali, il set di scalabilità di macchine virtuali (nella maggior parte dei casi) rimuove l'istanza della macchina virtuale creata per ultima. È quindi necessario trovare il nodo di Service Fabric corrispondente creato per ultimo. È possibile trovare quest'ultimo nodo controllando il valore della proprietà `NodeInstanceId` più elevato nei nodi di Service Fabric. Gli esempi di codice seguenti ordinano per nodo l'istanza e restituiscono i dettagli sull'istanza con il valore di ID più elevato.
+Per garantire la distribuzione uniforme dei nodi del cluster tra i domini di aggiornamento e di errore e consentirne quindi un utilizzo uniforme, è opportuno rimuovere per primo l'ultimo nodo creato. In altre parole, i nodi devono essere rimossi in ordine inverso rispetto a quello in cui sono stati creati. L'ultimo nodo creato è quello che presenta il valore più elevato per la proprietà `virtual machine scale set InstanceId`. Negli esempi di codice seguenti viene restituito l'ultimo nodo creato.
 
 ```powershell
 Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
@@ -145,7 +145,7 @@ sfctl: `sfctl node transition --node-transition-type Stop`
 PowerShell: `Remove-ServiceFabricNodeState`  
 sfctl: `sfctl node remove-state`
 
-Dopo avere applicato questi tre passaggi al nodo, è possibile rimuoverlo dal set di scalabilità. Se si usa un livello di durabilità superiore a [Bronze][durability], questi passaggi vengono eseguiti automaticamente quando viene rimossa l'istanza del set di scalabilità.
+Dopo avere applicato questi tre passaggi al nodo, è possibile rimuoverlo dal set di scalabilità. Se si usa un livello di durabilità superiore a [Bronzo][durability], questi passaggi vengono eseguiti automaticamente quando viene rimossa l'istanza del set di scalabilità.
 
 Il blocco di codice seguente ottiene l'ultimo nodo creato, disabilita, arresta e rimuove il nodo dal cluster.
 
@@ -253,7 +253,7 @@ az vmss scale -g sfclustertutorialgroup -n nt1vm --new-capacity 5
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Leggere il conteggio dei nodi del cluster

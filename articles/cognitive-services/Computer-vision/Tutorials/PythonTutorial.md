@@ -1,22 +1,23 @@
 ---
-title: Esercitazione per Python dell'API Visione artificiale | Microsoft Docs
-description: Informazioni sull'uso dell'API Visione artificiale con Python usando Jupyter Notebook in Servizi cognitivi Microsoft. Visualizzare i risultati usando le librerie comuni.
+title: 'Esercitazione: API Visione artificiale, Python'
+titlesuffix: Azure Cognitive Services
+description: Informazioni sull'uso dell'API Visione artificiale con Python usando Jupyter Notebook. Visualizzare i risultati usando le librerie comuni.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/25/2017
 ms.author: kefre
-ms.openlocfilehash: a093c2d066e70a8daf1fe1cd33ccf794ecb196af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 59e88ecb253bc6da803ddf34a4a02229b99e259d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374065"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981712"
 ---
-# <a name="computer-vision-api-python-tutorial"></a>Esercitazione per Python dell'API Visione artificiale
+# <a name="tutorial-computer-vision-api-python"></a>Esercitazione: API Visione artificiale, Python
 
 Questa esercitazione illustra come usare l'API Visione artificiale di Python e come visualizzare i risultati usando alcune librerie comuni. Usare Jupyter per eseguire l'esercitazione. Per informazioni su come iniziare a usare interattivo i Jupyter Notebook, fare riferimento alla [documentazione di Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
 
@@ -30,7 +31,7 @@ Questa esercitazione illustra come usare l'API Visione artificiale di Python e c
 
 ### <a name="running-the-tutorial"></a>Eseguire l'esercitazione
 
-Per usare il notebook, è necessaria una chiave di sottoscrizione per l'API Visione artificiale. Visitare la [pagina delle sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/) per effettuare l'iscrizione. Nella pagina di "Accesso" usare l'account Microsoft per accedere; sarà possibile eseguire la sottoscrizione e ottenere le chiavi gratuite. Dopo aver completato il processo di iscrizione, incollare la chiave nella sezione delle variabili del notebook (riportate sotto). Funziona sia la chiave primaria che la chiave secondaria. Assicurarsi di racchiudere la chiave tra virgolette per renderla una stringa.
+Per usare il notebook, è necessaria una chiave di sottoscrizione per l'API Visione artificiale. Visitare la [pagina delle sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/) per effettuare l'iscrizione. Nella pagina di "Accesso" usare l'account Microsoft per accedere; sarà possibile eseguire la sottoscrizione e ottenere le chiavi gratuite. Dopo aver completato il processo di iscrizione, incollare la chiave nella sezione delle variabili del notebook (riportate sotto). Può essere usata indifferentemente la chiave primaria o quella secondaria. Assicurarsi di racchiudere la chiave tra virgolette perché venga interpretata come una stringa.
 
 ```python
 # Variables

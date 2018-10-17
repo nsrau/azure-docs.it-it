@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: d1f638c9825ea5eedf6eaee0e0ca2ccfd5a491bc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 00e6f2ed866afd13343df37de625e2913f613dfa
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "33933709"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092404"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizzare lo stile delle pagine del portale per sviluppatori
 
@@ -37,7 +37,7 @@ In questa esercitazione si apprenderà come:
 
 ![personalizzare lo stile](./media/modify-developer-portal-style/developer_portal.png)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
@@ -82,5 +82,4 @@ Questa esercitazione illustra come:
 > * Personalizzare lo stile degli elementi delle pagine del portale per **sviluppatori**
 > * Visualizzare la modifica
 
-> [!div class="nextstepaction"]
-> [Personalizzare il portale per sviluppatori di Gestione API di Azure con i modelli](api-management-developer-portal-templates.md)
+Un altro argomento di interesse è [come personalizzare il portale per sviluppatori di Gestione API di Azure usando i modelli](api-management-developer-portal-templates.md).

@@ -1,44 +1,46 @@
 ---
-title: API Visione artificiale - Guida introduttiva al riconoscimento ottico dei caratteri con Go | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si estrae testo stampato da un'immagine usando Visione artificiale con Go in Servizi cognitivi.
+title: 'Guida introduttiva: Estrarre testo stampato (OCR) - REST, Go - Visione artificiale'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: b0de66e31c3537198831dd0f31590dbaf3fda89b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 459b53dbde08e2729951249e984f075449943e31
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772197"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629577"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-go"></a>Guida introduttiva: Estrarre testo stampato (OCR) - REST, Go
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST e Go in Visione artificiale
 
-In questa guida introduttiva si estrae testo stampato da un'immagine, con una tecnica nota come riconoscimento ottico dei caratteri (OCR, Optical Character Recognition), usando Visione artificiale.
+In questa guida introduttiva si estrarrà testo stampato da un'immagine con la tecnica di riconoscimento ottico dei caratteri (OCR, Optical Character Recognition) usando l'API REST di Visione artificiale. Con il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Visione artificiale, è necessario avere una chiave di sottoscrizione. A tale scopo, vedere [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Come ottenere chiavi di sottoscrizione).
+- È necessario aver installato [Go](https://golang.org/dl/).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Richiesta di riconoscimento ottico dei caratteri
+## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
-Con il [metodo OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
+Per creare ed eseguire l'esempio, seguire questa procedura:
 
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Copiare il codice seguente in un editor.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `uriBase` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, modificare il valore di `imageUrl` impostandolo sull'immagine che si vuole analizzare.
-1. Salvare il file con estensione `.go`.
-1. Aprire un prompt dei comandi in un computer in cui è installato Go.
-1. Compilare il file, ad esempio: `go build get-printed-text.go`.
-1. Eseguire il file, ad esempio: `get-printed-text`.
+1. Copiare il codice seguente in un editor di testo.
+1. Apportare le modifiche seguenti al codice, dove necessario:
+    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
+    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Facoltativamente, sostituire il valore di `imageUrl` con l'URL di un'altra immagine da analizzare.
+1. Salvare il codice in un file con estensione `.go`. Ad esempio: `get-printed-text.go`.
+1. Aprire una finestra del prompt dei comandi.
+1. Al prompt, eseguire il comando `go build` per compilare il pacchetto dal file. Ad esempio: `go build get-printed-text.go`.
+1. Al prompt, eseguire il pacchetto compilato. Ad esempio: `get-printed-text`.
 
 ```go
 package main
@@ -53,12 +55,17 @@ import (
 )
 
 func main() {
-    // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+    // Replace <Subscription Key> with your valid subscription key.
     const subscriptionKey = "<Subscription Key>"
 
-    // You must use the same location in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URL below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
+    //
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     const uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr"
     const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" +
@@ -110,9 +117,9 @@ func main() {
 }
 ```
 
-## <a name="ocr-response"></a>Risposta alla richiesta di riconoscimento ottico dei caratteri
+## <a name="examine-the-response"></a>Esaminare i risultati
 
-Se l'esito è positivo, i risultati restituiti dal riconoscimento ottico dei caratteri includono il testo e i rettangoli delimitatori per aree, linee e parole, ad esempio:
+Una risposta con esito positivo viene restituita in JSON. L'applicazione di esempio analizza e visualizza una risposta con esito positivo nella finestra del prompt dei comandi, come nell'esempio seguente:
 
 ```json
 {
@@ -213,9 +220,13 @@ Se l'esito è positivo, i risultati restituiti dal riconoscimento ottico dei car
 }
 ```
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non servono più, eliminare il pacchetto compilato e il file da cui è stato compilato e quindi chiudere la finestra del prompt dei comandi e l'editor di testo.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le API Visione artificiale usate per analizzare un'immagine, rilevare celebrità e luoghi di interesse, creare un'anteprima ed estrarre testo scritto a mano e stampato. Per sperimentare rapidamente le API Visione artificiale, provare la [console di test delle API aperta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare l'API Visione artificiale usata per analizzare un'immagine, rilevare celebrità e luoghi di interesse, creare un'anteprima ed estrarre testo scritto a mano e stampato. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Esaminare le API Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Esplorare l'API Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

@@ -1,31 +1,31 @@
 ---
-title: Avvio rapido di Java per Servizi cognitivi di Azure, API Ricerca entità Bing | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca entità Bing in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: API Ricerca entità Bing, Java'
+titlesuffix: Azure Cognitive Services
+description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Ricerca entità Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 9b11471e08360cb5fe92f1506516bf88dd5ee72a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0cf1103b37572b43585e4a977dc4d034e7a50e2f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377332"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814475"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-java"></a>Avvio rapido per l'API Ricerca entità Microsoft Bing con Java 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-java"></a>Guida introduttiva all'API Ricerca entità Bing con Java 
 
 Questo articolo spiega come usare l'[API Ricerca entità Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) con Java.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Se si preferisce, è possibile usare un ambiente di sviluppo Java ma è sufficiente un editor di testo.
 
-È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Ricerca entità Bing**. Per questo avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Ricerca entità Bing**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 
 ## <a name="search-entities"></a>Entità di ricerca
 
@@ -33,7 +33,7 @@ Per eseguire l'applicazione seguire questa procedura.
 
 1. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```java
@@ -119,7 +119,7 @@ public class EntitySearch {
 
 **Risposta**
 
-Viene restituita una risposta con esito positivo in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -188,5 +188,5 @@ Viene restituita una risposta con esito positivo in JSON, come illustrato nell'e
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Ricerca entità Bing](../tutorial-bing-entities-search-single-page-app.md)
-> [Panoramica su Ricerca entità Bing entità](../search-the-web.md )
+> [Panoramica su Ricerca entità Bing](../search-the-web.md )
 > [Informazioni di riferimento per l'API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

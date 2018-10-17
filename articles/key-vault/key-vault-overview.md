@@ -14,20 +14,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: b509bf9575c3fdeedd1673d4ffe1395d46e3d919
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: aae7836448ff27b4c80d7bb53e108034ee52db1c
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051613"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586292"
 ---
 # <a name="what-is-azure-key-vault"></a>Cos'è l'insieme di credenziali chiave di Azure?
 
 Azure Key Vault contribuisce a risolvere i problemi seguenti:
-- Azure Key Vault può essere usato per archiviare in modo sicuro e controllare rigorosamente l'accesso a token, password, certificati, chiavi API e altri segreti.
-- Azure Key Vault può essere usato anche come soluzione di gestione delle chiavi. Con Azure Key Vault è semplice creare e controllare le chiavi di crittografia usate per crittografare i dati. 
-- Azure Key Vault è anche un servizio che facilita il provisioning, la gestone e la distribuzione dei certificati Secure Sockets Layer/Transport Layer Security (TLS/SSL) pubblici e privati da usare con Azure e le risorse connesse interne. 
-- Le chiavi e i segreti possono essere protetti da software o da moduli di protezione hardware certificati FIPS 140-2 livello 2.
+- **Gestione dei segreti**: Azure Key Vault può essere usato per archiviare in modo sicuro e controllare rigorosamente l'accesso a token, password, certificati, chiavi API e altri segreti.
+- **Gestione delle chiavi**: Azure Key Vault può essere usato anche come soluzione di gestione delle chiavi. Con Azure Key Vault è semplice creare e controllare le chiavi di crittografia usate per crittografare i dati. 
+- **Gestione dei certificati**: Azure Key Vault è anche un servizio che facilita il provisioning, la gestone e la distribuzione dei certificati Secure Sockets Layer/Transport Layer Security (TLS/SSL) pubblici e privati da usare con Azure e le risorse connesse interne. 
+- **Archiviare i segreti supportati da moduli di protezione hardware**: le chiavi e i segreti possono essere protetti da software o da moduli di protezione hardware certificati FIPS 140-2 livello 2.
 
 ## <a name="why-use-azure-key-vault"></a>Vantaggi di Azure Key Vault
 
@@ -65,7 +65,7 @@ Quando si archiviano dati importanti, è necessario eseguire diversi passaggi. L
 
 - Eliminando la necessità di competenze interne in materia di moduli di protezione hardware
 - Aumentando le prestazioni con breve preavviso per soddisfare i picchi d'uso dell'organizzazione.
-- Replicando i contenuti di un'area di Key Vault in un'area secondaria. Key Vault garantisce la disponibilità elevata ed elimina la necessità di interventi da parte dell'amministratore per l'attivazione del failover.
+- Replicando i contenuti di un'area di Key Vault in un'area secondaria. Ciò garantisce la disponibilità elevata ed elimina la necessità di azioni da parte dell'amministratore per l'attivazione del failover.
 - Fornendo opzioni standard di amministrazione di Azure tramite il portale, l'interfaccia della riga di comando di Azure e PowerShell.
 - Automatizzando determinate attività sui certificati acquistati da autorità di certificazione pubbliche, ad esempio la registrazione e il rinnovo.
 
@@ -73,7 +73,7 @@ Azure Key Vault consente anche di separare i segreti delle applicazioni. Le appl
 
 ### <a name="integrate-with-other-azure-services"></a>Integrare il servizio con altri servizi di Azure
 
-Essendo un archivio sicuro in Azure, Key Vault è stato usato per semplificare scenari quali [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md), la funzionalità [Always Encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) in SQL server e Azure SQL, [Web app di Azure]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault può integrarsi con account di archiviazione, hub eventi e Log Analytics.
+Essendo un archivio sicuro in Azure, Key Vault è stato usato per semplificare scenari quali [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md), la funzionalità [Always Encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) in SQL server e database SQL di Azure, [Web app di Azure]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). Key Vault può integrarsi con account di archiviazione, hub eventi e Log Analytics.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

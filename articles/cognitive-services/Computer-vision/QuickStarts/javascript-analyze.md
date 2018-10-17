@@ -1,51 +1,45 @@
 ---
-title: API Visione artificiale - Guida introduttiva a JavaScript | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si analizza un'immagine usando Visione artificiale con JavaScript in Servizi cognitivi.
+title: "Guida introduttiva: Analizzare un'immagine remota - REST, JavaScript - Visione artificiale"
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si analizzerà un'immagine usando l'API Visione artificiale con JavaScript.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 5ae39743a812bca9716e8022c192d6a0d06b6fd4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e6874bde0231199b6a6805b5f27842d80dab6aaf
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772225"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631107"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-javascript"></a>Guida introduttiva: Analizzare un'immagine remota - REST, JavaScript
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST e JavaScript in Visione artificiale
 
-In questa guida introduttiva si analizza un'immagine usando Visione artificiale.
+In questa guida introduttiva si analizzerà un'immagine archiviata in remoto per estrarre le caratteristiche visive usando l'API REST di Visione artificiale. Con il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) è possibile estrarre caratteristiche visive in base al contenuto di un'immagine.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Visione artificiale, è necessario avere una chiave di sottoscrizione. A tale scopo, vedere [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Come ottenere chiavi di sottoscrizione).
+È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Richiesta di analisi dell'immagine
+## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
-Con il [metodo Analyze Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), è possibile estrarre caratteristiche visive in base al contenuto di un'immagine. È possibile caricare un'immagine o specificare l'URL di un'immagine e scegliere le caratteristiche da restituire, tra cui:
+Per creare ed eseguire l'esempio, seguire questa procedura:
 
-* Un elenco dettagliato di tag correlati al contenuto dell'immagine.
-* Una frase completa di descrizione del contenuto dell'immagine.
-* Le coordinate, il sesso e l'età di tutti i visi presenti nell'immagine.
-* Il tipo di immagine (ClipArt o disegno di linee).
-* Il colore principale, il colore dominante o l'indicazione se un'immagine è in bianco e nero.
-* La categoria definita in questa [tassonomia](../Category-Taxonomy.md).
-* L'indicazione se l'immagine presenta contenuto per adulti o con riferimenti sessuali.
-
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Copiare il codice seguente e salvarlo in un file, ad esempio `analyze.html`.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `uriBase` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Selezionare il file e trascinarlo nel browser.
-1. Fare clic sul pulsante `Analyze image`.
-
-In questo esempio viene usato jQuery 1.9.0. Per un esempio che usa JavaScript senza jQuery, vedere [Generare un'anteprima in modo intelligente](javascript-thumb.md).
+1. Copiare il codice seguente in un editor di testo.
+1. Apportare le modifiche seguenti al codice, dove necessario:
+    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
+    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Facoltativamente, sostituire il valore dell'attributo `value` relativo al controllo `inputImage` con l'URL di un'altra immagine da analizzare.
+1. Salvare il codice in un file con estensione `.html`. Ad esempio: `analyze-image.html`.
+1. Aprire una finestra del browser.
+1. Trascinare e rilasciare il file nella finestra del browser.
+1. Quando nel browser viene visualizzata la pagina Web, scegliere il pulsante **Analyze Image** (Analizza immagine).
 
 ```html
 <!DOCTYPE html>
@@ -65,11 +59,12 @@ In questo esempio viene usato jQuery 1.9.0. Per un esempio che usa JavaScript se
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
@@ -144,9 +139,9 @@ Image to analyze:
 </html>
 ```
 
-## <a name="analyze-image-response"></a>Riposta alla richiesta di analisi dell'immagine
+## <a name="examine-the-response"></a>Esaminare i risultati
 
-Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
+Una risposta con esito positivo viene restituita in JSON. La pagina Web di esempio analizza e visualizza una risposta con esito positivo nella finestra del browser, come nell'esempio seguente:
 
 ```json
 {
@@ -214,9 +209,13 @@ Viene restituita una risposta con esito positivo in formato JSON, ad esempio:
 }
 ```
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non è più necessario, eliminare il file.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare un'applicazione JavaScript che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente le API Visione artificiale, provare la [console di test delle API aperta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare un'applicazione JavaScript che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Esercitazione in JavaScript per l'API Visione artificiale](../Tutorials/javascript-tutorial.md)

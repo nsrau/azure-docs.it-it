@@ -1,22 +1,23 @@
 ---
-title: Come eseguire l'estrazione di espressioni chiave nell'API REST di Analisi del testo (Servizi cognitivi Microsoft in Azure) | Microsoft Docs
-description: In questa esercitazione dettagliata si apprenderà come estrarre espressioni chiave usando l'API REST di Analisi del testo in Servizi cognitivi Microsoft in Azure.
+title: 'Esempio: Come estrarre espressioni chiave in Analisi del testo'
+titleSuffix: Azure Cognitive Services
+description: Informazioni su come estrarre espressioni chiave usando l'API REST Analisi del testo.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 78b100e737242fa9f56e50275ef2038d8895349e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373873"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605488"
 ---
-# <a name="how-to-extract-key-phrases-in-text-analytics"></a>Come estrarre espressioni chiave in Analisi del testo
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Esempio: Come estrarre espressioni chiave in Analisi del testo
 
 L'API [Estrazione frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) valuta il testo non strutturato e restituisce un elenco di espressioni chiave per ogni documento JSON. 
 
@@ -66,7 +67,7 @@ Le dimensioni dei singoli documenti devono essere inferiori a 5000 caratteri e s
     
 ## <a name="step-1-structure-the-request"></a>Passaggio 1: Strutturare la richiesta
 
-I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come richiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
+I dettagli sulla definizione della richiesta sono reperibili in [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Come chiamare l'API Analisi del testo). Per comodità si ridefiniscono i punti seguenti:
 
 + Creare una richiesta **POST**. Esaminare la documentazione dell'API per questa richiesta: [API Estrazione frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
@@ -140,7 +141,7 @@ Di seguito è illustrato un esempio dell'output per l'estrazione di espressioni 
 
 Come indicato, l'analizzatore trova e ignora le parole non essenziali e mantiene singoli termini o espressioni che sembrano essere il soggetto o l'oggetto di una frase. 
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questo articolo si sono appresi i concetti e il flusso di lavoro per l'estrazione di espressioni chiave tramite Analisi del testo in Servizi cognitivi. In sintesi:
 

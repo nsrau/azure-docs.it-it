@@ -1,29 +1,30 @@
 ---
-title: Guida introduttiva all'API Emozioni di Java per Android | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Emozioni con Java per Android in Servizi cognitivi.
+title: "Guida introduttiva: Riconoscere le emozioni espresse dai visi in un'immagine - API Emozioni, Java"
+description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Emozioni con Java per Android.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 0e7d3991b195a83a8b87e306b3b34fbed2098581
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ROBOTS: NOINDEX
+ms.openlocfilehash: 5c845c07eff2d4627dd756a49f4b3fee2fca6a7a
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018027"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237621"
 ---
-# <a name="emotion-api-java-for-android-quick-start"></a>Guida introduttiva all'API Emozioni di Java per Android
+# <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Guida introduttiva: Creare un'app per il riconoscimento delle emozioni espresse dai visi in un'immagine.
 
 > [!IMPORTANT]
-> L'anteprima dell'API Video terminerà il 30 ottobre 2017. La nuova [anteprima API Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) consente di estrarre informazioni dettagliate dai video e ottimizzare le esperienze di individuazione del contenuto, ad esempio risultati della ricerca, tramite l'individuazione di parole, visi, caratteri ed emozioni. [Altre informazioni](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> L'API Emozioni verrà deprecata il 15 febbraio 2019. La funzionalità di riconoscimento delle emozioni è ora generalmente disponibile nell'ambito dell'[API Viso](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
-Questo articolo include informazioni ed esempi di codice per iniziare rapidamente a usare il [metodo di riconoscimento delle emozioni](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) nella libreria client Android dell'API Emozioni. L'esempio illustra come usare Java per riconoscere le emozioni espresse dalle persone. 
+Questo articolo include informazioni ed esempi di codice per iniziare rapidamente a usare il [metodo di riconoscimento delle emozioni](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) nella libreria client Android dell'API Emozioni. L'esempio illustra come usare Java per riconoscere le emozioni espresse dalle persone.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Per ottenere l'API Emozioni di Java per Android SDK, fare clic [qui](https://github.com/Microsoft/Cognitive-emotion-android)
 * Per ottenere la chiave di sottoscrizione gratuita fare clic [qui](https://azure.microsoft.com/try/cognitive-services/)
 
@@ -50,7 +51,7 @@ public class Main
         try
         {
             // NOTE: You must use the same region in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URL below with "westcentralus".
             URIBuilder uriBuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize");
 
@@ -82,12 +83,12 @@ public class Main
 ```
 
 ## <a name="recognize-emotions-sample-response"></a>Risposta di esempio delle emozioni riconosciute
-Una chiamata completata con successo restituisce una matrice di voci relative ai visi con associati punteggi relativi alle emozioni, ordinate in base alle dimensioni del rettangolo del viso in ordine decrescente. Una risposta vuota indica che non sono stati individuati visi. Una voce contenente emozioni include i campi seguenti:
+Una chiamata completata con successo restituisce una matrice di voci relative ai visi con associati punteggi relativi alle emozioni, ordinate in base alle dimensioni del rettangolo del viso in ordine decrescente. Una risposta vuota indica che non sono stati rilevati visi. Una voce relativa alle emozioni include i campi seguenti:
 * faceRectangle: posizione del rettangolo del viso nell'immagine.
-* scores: punteggi delle emozioni per ogni viso nell'immagine. 
+* scores: punteggi delle emozioni per ogni viso nell'immagine.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

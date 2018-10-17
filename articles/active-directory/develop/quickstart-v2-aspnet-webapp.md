@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7196cd6c18680583494a485c136081d90960464d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cabc4f2212e18d774066efad70d9654bb70020d5
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991284"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831501"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
@@ -45,7 +45,7 @@ Questa guida introduttiva descrive come un'app Web ASP.NET può consentire l'acc
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per far funzionare l'esempio di codice di questa guida introduttiva, è necessario aggiungere un URL di risposta come `https://localhost:44368/`.
+> Per il funzionamento dell'esempio di codice di questa guida introduttiva è necessario aggiungere un URL di risposta come `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >
@@ -58,7 +58,7 @@ Questa guida introduttiva descrive come un'app Web ASP.NET può consentire l'acc
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passaggio 3: Configurare il progetto di Visual Studio
 
-1. Estrarre il file con estensione zip in una cartella locale, ad esempio **C:\Azure-Samples**.
+1. Estrarre il file con estensione zip in una cartella locale vicina alla cartella radice, ad esempio **C:\Azure-Samples**
 1. Aprire la soluzione in Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. Modificare il file **Web.config** e sostituire `Enter_the_Application_Id_here` con l'ID dell'applicazione già registrata:
 
@@ -72,7 +72,7 @@ Questa guida introduttiva descrive come un'app Web ASP.NET può consentire l'acc
 
 ## <a name="more-information"></a>Altre informazioni
 
-Questa sezione include una panoramica del codice necessario a effettuare l'accesso degli utenti. La panoramica aiuta a capire il funzionamento del codice, gli argomenti principali e anche se si desidera aggiungere l'accesso a un'applicazione ASP.NET esistente.
+Questa sezione include una panoramica del codice necessario per consentire l'accesso degli utenti. La panoramica aiuta a capire il funzionamento del codice, gli argomenti principali e anche se si desidera aggiungere l'accesso a un'applicazione ASP.NET esistente.
 
 ### <a name="owin-middleware-nuget-packages"></a>Pacchetti NuGet middleware OWIN
 

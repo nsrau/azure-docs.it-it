@@ -1,20 +1,21 @@
 ---
-title: Applicazione di ricerca notizie Bing a pagina singola | Microsoft Docs
+title: "Esercitazione: Ricerca notizie Bing in un'app a pagina singola"
+titlesuffix: Azure Cognitive Services
 description: Illustra come usare l'API Ricerca notizie Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: fb8cd24dfdfb03500cc86ee1b1f0126ec044a873
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d27751d12c82736ca519bb3a0e9bcd49bef4a47
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377436"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803648"
 ---
 # <a name="tutorial-single-page-news-search-app"></a>Esercitazione: App Ricerca notizie a pagina singola
 L'API Ricerca notizie Bing consente di eseguire ricerche sul Web e di ottenere risultati relativi al tipo di notizie corrispondenti a una query di ricerca. In questa esercitazione viene compilata un'applicazione Web a pagina singola che usa l'API Ricerca notizie Bing per visualizzare i risultati della ricerca nella pagina. L'applicazione include componenti HTML, CSS e JavaScript.
@@ -35,32 +36,32 @@ L'applicazione di esercitazione illustra come:
 > * Gestire l'ID del client Bing e la chiave di sottoscrizione dell'API
 > * Gestire gli errori che potrebbero verificarsi
 
-La pagina dell'esercitazione è completa, non usa framework esterni, fogli di stile o file di immagine. Usa solo funzionalità del linguaggio JavaScript ampiamente supportate e funziona con le versioni correnti di tutti i Web browser principali.
+La pagina dell'esercitazione è autonoma, non usa framework, fogli di stile o file di immagine esterni. Usa solo funzionalità del linguaggio JavaScript ampiamente supportate e funziona con le versioni correnti di tutti i Web browser principali.
 
-Questa esercitazione illustra parti selezionate del codice sorgente. Il [codice sorgente](tutorial-bing-news-search-single-page-app-source.md) completo è disponibile. Per eseguire l'esempio, copiare e incollare il codice sorgente in un editor di testo e salvarlo come `bing.html`.
+Questa esercitazione illustra parti selezionate del codice sorgente. È disponibile il [codice sorgente](tutorial-bing-news-search-single-page-app-source.md) completo. Per eseguire l'esempio, copiare e incollare il codice sorgente in un editor di testo e salvarlo come `bing.html`.
 
 ## <a name="app-components"></a>Componenti dell'app
-Come qualsiasi applicazione Web a singola pagina, questa applicazione di esercitazione include tre parti:
+Come qualsiasi applicazione Web a pagina singola, questa applicazione di esercitazione include tre parti:
 
 > [!div class="checklist"]
-> * HTML - definisce la struttura e il contenuto della pagina
-> * CSS - definisce l'aspetto della pagina
-> * JavaScript - definisce il comportamento della pagina
+> * HTML, che definisce la struttura e il contenuto della pagina
+> * CSS, che definisce l'aspetto della pagina
+> * JavaScript, che definisce il comportamento della pagina
 
-La maggior parte del codice HTML e CSS è convenzionale, pertanto l'esercitazione non tratta questo argomento. Il codice HTML contiene il modulo di ricerca in cui l'utente immette una query e sceglie le opzioni di ricerca. Il modulo è connesso a JavaScript che esegue effettivamente la ricerca usando l'attributo `onsubmit` del tag `<form>`:
+La maggior parte del codice HTML e CSS è convenzionale, pertanto l'esercitazione non lo descrive. Il codice HTML contiene il modulo di ricerca in cui l'utente immette una query e sceglie le opzioni di ricerca. Il modulo è connesso a JavaScript che esegue effettivamente la ricerca usando l'attributo `onsubmit` del tag `<form>`:
 
 ```html
 <form name="bing" onsubmit="return newBingNewsSearch(this)">
 ```
-Il gestore `onsubmit` restituisce `false`, che impedisce che il modulo venga inviato a un server. Il codice JavaScript esegue le operazioni di raccolta delle informazioni necessarie dal modulo ed effettua la ricerca.
+Il gestore `onsubmit` restituisce `false`, che impedisce che il modulo venga inviato a un server. Il codice JavaScript esegue le operazioni di raccolta delle informazioni necessarie dal modulo ed esegue la ricerca.
 
-Il codice HTML contiene anche le divisioni (tag HTML `<div>`) in cui vengono visualizzati i risultati della ricerca.
+Il codice HTML contiene anche le divisioni, ovvero tag HTML `<div>`, in cui vengono visualizzati i risultati della ricerca.
 
 ## <a name="managing-subscription-key"></a>Gestione della chiave di sottoscrizione
 
-Per evitare di includere la chiave di sottoscrizione dell'API di ricerca Bing nel codice, viene usata l'archiviazione permanente del browser per archiviare la chiave. Prima che la chiave venga archiviata, viene richiesta la chiave dell'utente. Se in un secondo momento la chiave viene rifiutata dall'API, viene invalidata la chiave archiviata in modo tale che l'utente riceverà nuovamente le richiesta.
+Per evitare di includere la chiave di sottoscrizione dell'API di ricerca Bing nel codice, viene usata l'archiviazione permanente del browser per archiviare la chiave. Prima che la chiave venga archiviata, viene richiesta la chiave dell'utente. Se in un secondo momento la chiave viene rifiutata dall'API, la chiave archiviata viene invalidata e l'utente riceverà nuovamente la richiesta.
 
-Vengono definite le funzioni `storeValue` e `retrieveValue` che usano l'oggetto `localStorage` (non supportato da tutti i browser) o un cookie. La funzione `getSubscriptionKey()` usa queste funzioni per archiviare e recuperare la chiave dell'utente.
+Vengono definite le funzioni `storeValue` e `retrieveValue` che usano l'oggetto `localStorage`, non supportato da tutti i browser, o un cookie. La funzione `getSubscriptionKey()` usa queste funzioni per archiviare e recuperare la chiave dell'utente.
 
 ``` javascript
 // Cookie names for data we store
@@ -87,7 +88,7 @@ function getSubscriptionKey() {
     return key;
 }
 ```
-La tag `onsubmit` HTML `<form>` chiama la funzione `bingWebSearch` per restituire i risultati della ricerca. `bingWebSearch` usa `getSubscriptionKey()` per autenticare ciascuna query. Come indicato nella precedente definizione, `getSubscriptionKey` richiede all'utente la chiave se non è stata immessa. La chiave viene quindi archiviata per continuare a essere usata dall'applicazione.
+Il tag `onsubmit` HTML `<form>` chiama la funzione `bingWebSearch` per restituire i risultati della ricerca. `bingWebSearch` usa `getSubscriptionKey()` per autenticare ciascuna query. Come indicato nella definizione precedente, `getSubscriptionKey` richiede all'utente la chiave se non è stata immessa. La chiave viene quindi archiviata per continuare a essere usata dall'applicazione.
 
 ```html
 <form name="bing" onsubmit="this.offset.value = 0; return bingWebSearch(this.query.value, 
@@ -107,8 +108,8 @@ Il modulo HTML include elementi con i nomi seguenti:
 | `category` | Caselle di controllo per innalzare il livello di determinati tipi di risultati. Innalzare il livello di Salute, ad esempio, aumenta la classifica delle notizie relative alla salute. |
 | `when` | Menu a discesa per limitare facoltativamente la ricerca al giorno, settimana o mese più recente. |
 | `safe` | Una casella di controllo che indica se usare la funzionalità SafeSearch di Bing per filtrare i risultati con contenuti "per soli adulti". |
-| `count` | Campo nascosto. Il numero di risultati della ricerca da restituire per ogni richiesta. Modificarlo per visualizzare più o meno risultati per pagina. |
-| `offset`|  Campo nascosto. Lo scostamento del primo risultato della ricerca nella richiesta; usato per il paging. Viene reimpostato su `0` per una nuova richiesta. |
+| `count` | Campo nascosto. Il numero di risultati della ricerca da restituire per ogni richiesta. Modificarlo per visualizzare un numero maggiore o minore di risultati per pagina. |
+| `offset`|  Campo nascosto. Lo scostamento del primo risultato della ricerca nella richiesta; utilizzato per il paging. Viene reimpostato su `0` per una nuova richiesta. |
 
 > [!NOTE]
 > Ricerca Web Bing offre altri parametri di query. Qui ne vengono usati solo alcuni.
@@ -137,7 +138,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-Ad esempio, il parametro `SafeSearch` in una chiamata API effettiva può essere `strict`, `moderate` o `off` con `moderate` come valore predefinito. Il modulo, tuttavia, usa una casella di controllo che presenta solo due stati. Il codice JavaScript converte questa impostazione in `strict` o `off` (`moderate` non viene usato).
+Ad esempio, il parametro `SafeSearch` in una chiamata API effettiva può essere `strict`, `moderate` o `off` con `moderate` come valore predefinito. Il modulo, tuttavia, usa una casella di controllo che presenta solo due stati. Il codice JavaScript converte questa impostazione in `strict` o `off`; `moderate` non viene usato.
 
 ## <a name="performing-the-request"></a>Esecuzione della richiesta
 Ricevuta la query, la stringa delle opzioni e la chiave API, la funzione `BingNewsSearch` usa un oggetto `XMLHttpRequest` per effettuare la richiesta all'endpoint di Ricerca notizie Bing.
@@ -317,11 +318,11 @@ L'API di Ricerca notizie Bing restituisce fino a quattro tipi di risultati corre
 |Relazione|DESCRIZIONE|
 |-|-|
 |`pivotSuggestions`|Query che sostituiscono una parola pivot nella ricerca originale con una parola diversa. Ad esempio, se si cerca "fiori rossi", una parola pivot potrebbe essere "rossi" e un suggerimento pivot potrebbe essere "fiori gialli".|
-|`queryExpansions`|Query che restringono la ricerca originale con l'aggiunta di nuovi termini. Ad esempio, se si cerca "Microsoft Surface," un'espansione della query potrebbe essere "Microsoft Surface Pro".|
-|`relatedSearches`|Query che sono state inserite anche da altri utenti che hanno immesso la ricerca originale. Ad esempio, se si cerca "Mount Rainier," una ricerca correlata potrebbe essere "Mt. Saint Helens".|
-|`similarTerms`|Query che sono simili nel significato alla ricerca originale. Ad esempio, se si cerca "scuole," un termine simile potrebbe essere "istruzione".|
+|`queryExpansions`|Query che restringono la ricerca originale con l'aggiunta di nuovi termini. Ad esempio, se si cerca "Microsoft Surface", un'espansione della query potrebbe essere "Microsoft Surface Pro".|
+|`relatedSearches`|Query che sono state inserite anche da altri utenti che hanno immesso la ricerca originale. Ad esempio, se si cerca "Mount Rainier", una ricerca correlata potrebbe essere "Mt. Saint Helens".|
+|`similarTerms`|Query che sono simili nel significato alla ricerca originale. Ad esempio, se si cerca "scuole", un termine simile potrebbe essere "istruzione".|
 
-Come illustrato in precedenza in `renderSearchResults()`, viene eseguito il rendering solo dei suggerimenti `relatedItems` e vengono inseriti i collegamenti risultanti nell'intestazione laterale della pagina.
+Come illustrato in precedenza in `renderSearchResults()`, viene eseguito il rendering solo dei suggerimenti `relatedItems` e i collegamenti risultanti vengono inseriti nella barra laterale della pagina.
 
 ## <a name="rendering-result-items"></a>Rendering degli elementi di risultati
 
@@ -375,7 +376,7 @@ Il renderer `news` viene mostrato nell'estratto di codice javascript seguente:
 La funzione renderer delle notizie:
 > [!div class="checklist"]
 > * Crea un tag di paragrafo, lo assegna alla classe `news` e lo inserisce nella matrice html.
-> * Calcola le dimensioni dell'anteprima dell'immagine (la larghezza è fissata a 60 pixel, l'altezza è calcolata in proporzione).
+> * Calcola le dimensioni dell'anteprima dell'immagine: la larghezza è fissa a 60 pixel, l'altezza è calcolata in proporzione.
 > * Compila il tag HTML `<img>` per visualizzare l'anteprima dell'immagine. 
 > * Compila i tag HTML `<a>` che collegano l'immagine e la pagina che la contiene.
 > * Compila la descrizione che consente di visualizzare informazioni sull'immagine e il sito in cui si trova.
@@ -387,14 +388,14 @@ Le risposte dalle API di ricerca Bing potrebbero includere un'intestazione `X-MS
 
 Fornire l'intestazione `X-MSEdge-ClientID` consente alle API Bing di associare tutte le ricerche di un utente, cosa che presenta due vantaggi importanti.
 
-Innanzitutto, consente al motore di ricerca Bing di applicare contesto passato alle ricerche per trovare i risultati che meglio soddisfano l'utente. Se un utente ha cercato in precedenza termini correlati alla navigazione, ad esempio, una successiva ricerca di "nodi" potrebbe restituire preferibilmente informazioni sui nodi usati nella navigazione.
+Innanzitutto, consente al motore di ricerca Bing di applicare un contesto passato alle ricerche per trovare i risultati che meglio soddisfano l'utente. Se un utente ha cercato in precedenza termini correlati alla navigazione, ad esempio, una successiva ricerca di "nodi" potrebbe restituire preferibilmente informazioni sui nodi utilizzati nella navigazione.
 
-In secondo luogo, Bing potrebbe selezionare utenti in modo casuale per provare nuove funzionalità prima di renderle disponibili. Fornire lo stesso ID client per tutte le richieste fa sì che gli utenti che visualizzano la funzione la visualizzano sempre. Senza un ID client, l'utente potrebbe vedere una funzionalità apparire e scomparire apparentemente in modo casuale nei risultati delle ricerche.
+In secondo luogo, Bing potrebbe selezionare utenti in modo casuale per provare nuove funzionalità prima di renderle disponibili. Fornire lo stesso ID client per tutte le richieste fa sì che gli utenti che visualizzano la funzione la visualizzino sempre. Senza un ID client, l'utente potrebbe vedere una funzionalità apparire e scomparire apparentemente in modo casuale nei risultati delle ricerche.
 
-I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione `X-MSEdge-ClientID` sia disponibile per JavaScript. Questa limitazione si verifica quando la risposta della ricerca ha un'origine diversa dalla pagina che l'ha richiesta. In un ambiente di produzione è necessario soddisfare questo criterio tramite l'hosting di uno script sul lato server che esegue la chiamata API nello stesso dominio della pagina Web. Poiché lo script ha la stessa origine della pagina Web, l'intestazione `X-MSEdge-ClientID` diventa quindi disponibile per JavaScript.
+I criteri di sicurezza del browser (CORS) potrebbero impedire che l'intestazione `X-MSEdge-ClientID` sia disponibile per JavaScript. Questa limitazione si verifica quando la risposta della ricerca ha un'origine diversa dalla pagina che l'ha richiesta. In un ambiente di produzione è necessario soddisfare questo criterio tramite l'hosting di uno script sul lato server che esegue la chiamata API nello stesso dominio della pagina Web. Poiché lo script ha la stessa origine della pagina Web, l'intestazione `X-MSEdge-ClientID` diventa disponibile per JavaScript.
 
 > [!NOTE]
-> In un'applicazione Web di produzione è necessario effettuare la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web in cui è disponibile a chiunque visualizzi l'origine. All'utente vengono addebitati costi per tutto l'utilizzo della chiave di sottoscrizione API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
+> In un'applicazione Web di produzione è necessario effettuare la richiesta lato server. In caso contrario, la chiave dell'API di ricerca Bing deve essere inclusa nella pagina Web, dove sarà disponibile per chiunque visualizzi l'origine. All'utente vengono addebitati costi per tutto l'utilizzo della chiave di sottoscrizione API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
 
 A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
 
@@ -402,15 +403,15 @@ A scopo di sviluppo, è possibile effettuare la richiesta API Ricerca Web Bing t
 
     npm install -g cors-proxy-server
 
-Successivamente, modificare l'endpoint di Ricerca Web Bing nel file HTML in:
+Poi modificare l'endpoint di Ricerca Web Bing nel file HTML in:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
-Infine, avviare il proxy CORS con il comando seguente:
+Infine avviare il proxy CORS con il comando seguente:
 
     cors-proxy-server
 
-Lasciare aperta la finestra di comando durante l'uso dell'applicazione di esercitazione. Se si chiude la finestra, il proxy si arresta. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile visualizzare l'intestazione `X-MSEdge-ClientID` (tra le altre) e verificare che sia la stessa per ogni richiesta.
+Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile vedere l'intestazione `X-MSEdge-ClientID`, tra le altre, e verificare che sia la stessa per ogni richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]

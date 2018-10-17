@@ -1,23 +1,23 @@
 ---
-title: Suggerimenti automatici con l'API Suggerimenti automatici Bing (Servizi cognitivi di Azure) | Microsoft Docs
+title: "Esercitazione: Ottenere risultati di suggerimenti automatici usando l'API Suggerimenti automatici Bing"
+titlesuffix: Azure Cognitive Services
 description: Informazioni sull'uso di Suggerimenti automatici Bing.
 services: cognitive-services
 author: v-jaswel
-manager: kamrani
-ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: f66af61ed06f4c6a7fe36cd44aa7781b71bb18ea
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b93ab8ebb4bb50723ec6ebae617fe9d95c6c7a47
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377009"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831439"
 ---
-# <a name="build-a-web-page-autosuggest-client"></a>Creare una pagina Web per i suggerimenti automatici
+# <a name="tutorial-build-a-web-page-autosuggest-client"></a>Esercitazione: Creare un client di suggerimenti automatici per una pagina Web
 
 In questa esercitazione verrà creata una pagina Web che consente agli utenti di eseguire query sull'API Suggerimenti automatici Bing.
 
@@ -106,7 +106,7 @@ La funzione helper getSubscriptionKeyCookie chiede all'utente il valore della ch
     }
 ```
 
-La funzione helper getSubscriptionKeyLocalStorage tenta innanzitutto di recuperare la chiave dell'API Suggerimenti automatici Bing cercando il cookie appropriato. Se il cookie non viene trovato, la funzione chiede all'utente il valore della chiave, quindi lo restituisce.
+La funzione helper getSubscriptionKeyLocalStorage tenta innanzitutto di recuperare la chiave dell'API Suggerimenti automatici Bing cercando il cookie appropriato. Se il cookie non viene trovato, la funzione chiede all'utente il valore della chiave, e quindi lo restituisce.
 
 ```html
     function getSubscriptionKeyLocalStorage() {

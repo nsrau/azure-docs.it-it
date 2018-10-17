@@ -1,25 +1,27 @@
 ---
-title: Esercitazione in C# sull'API Emozioni | Microsoft Docs
-description: In questa esercitazione si esplora un'applicazione di base per Windows che usa l'API Emozioni di Servizi cognitivi per riconoscere le emozioni espresse dai visi in un'immagine.
+title: "Esercitazione: Riconoscere le emozioni su un viso in un'immagine - API Emozioni, C#"
+titlesuffix: Azure Cognitive Services
+description: Esplorare un'app Windows di base per il riconoscimento delle emozioni espresse dai visi in un'immagine.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/23/2017
 ms.author: anroth
-ms.openlocfilehash: f015e5720f65d0951a77de76ce8882a6dcdc1c3b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: f3a84a68718fba29e2a4b2fae057e68976119c95
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374177"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237025"
 ---
-# <a name="emotion-api-in-c35-tutorial"></a>Esercitazione in C&#35 sull'API Emozioni
+# <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>Esercitazione: Riconoscere le emozioni espresse da un viso in un'immagine.
 
 > [!IMPORTANT]
-> L'anteprima dell'API Video terminerà il 30 ottobre 2017. La nuova [anteprima API Video Indexer](https://azure.microsoft.com/services/cognitive-services/video-indexer/) consente di estrarre informazioni dettagliate dai video e ottimizzare le esperienze di individuazione del contenuto, ad esempio risultati della ricerca, tramite l'individuazione di parole, visi, caratteri ed emozioni. [Altre informazioni](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> L'API Emozioni verrà deprecata il 15 febbraio 2019. La funzionalità di riconoscimento delle emozioni è ora generalmente disponibile nell'ambito dell'[API Viso](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 In questa esercitazione si esplora un'applicazione di base per Windows che usa l'API Emozioni per riconoscere le emozioni espresse dai visi in un'immagine. L'esempio seguente consente di inviare un URL di immagine o un file archiviato localmente. È possibile usare questo esempio open source come modello per creare una propria applicazione per Windows che usa l'API Emozioni e WPF (Windows Presentation Foundation), nell'ambito di .NET Framework.
 
@@ -51,37 +53,37 @@ Prima di creare l'esempio è necessario sottoscrivere l'API Emozioni, che fa par
 ## <a name="Step3">Passaggio 3: Eseguire l'esempio</a>
 1.  Al termine della compilazione, premere **F5** o fare clic su **Avvia** nel menu della barra multifunzione per eseguire l'esempio.
 2.  Individuare la finestra dell'API Emozioni con la **casella di testo** "**Paste your subscription key here to start**" (Incollare qui la chiave di sottoscrizione per iniziare). Incollare la chiave di sottoscrizione nella casella di testo, come mostrato nello screenshot seguente. È possibile scegliere di conservare la chiave di sottoscrizione nel PC o laptop facendo clic sul pulsante "Salva chiave". Quando si desidera eliminare la chiave di sottoscrizione dal sistema, fare clic su "Elimina chiave" per rimuoverla dal PC o laptop.
-  
+
   ![Interfaccia della funzionalità Emozioni](../Images/EmotionKey.png)
 
 3.  In "**Selezionare uno scenario**" fare clic per usare uno dei due scenari disponibili, "**Detect emotion using a stream**" (Rileva emozione usando un flusso) o "**Detect emotion using a URL**" (Rileva emozione usando un URL) e quindi seguire le istruzioni visualizzate. Microsoft riceve le immagini che vengono caricate e può usarle per migliorare l'API Emozioni e i servizi correlati. Quando si invia un'immagine, si conferma di avere rispettato il [Codice di comportamento per gli sviluppatori](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 4.  Vi sono immagini di esempio da usare con questa applicazione di esempio. Queste immagini sono disponibili nel [repository GitHub dell'API Viso](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data), nella cartella **Data**. Si noti che l'uso di queste immagini è concesso in licenza in base ai principi del Fair Use, vale a dire che è possibile usarle per testare questo esempio, ma non per la ripubblicazione.
 
 ## <a name="Review">Esame e apprendimento</a>
-Con l'applicazione in esecuzione, è ora possibile esaminare in che modo l'app di esempio si integra con Servizi cognitivi Microsoft. In questo modo diventerà più facile continuare a sviluppare questa applicazione o sviluppare un'app propria usando l'API Emozioni di Microsoft. 
+Con l'applicazione in esecuzione, è ora possibile esaminare in che modo l'app di esempio si integra con Servizi cognitivi Microsoft. In questo modo diventerà più facile continuare a sviluppare questa applicazione o sviluppare un'app propria usando l'API Emozioni di Microsoft.
 
 Questa app di esempio usa la libreria client dell'API Emozioni, un wrapper thin client C# per l'API Emozioni di Microsoft. Quando è stata creata l'app di esempio nella procedura precedente, la libreria client è stata ottenuta da un pacchetto NuGet. È possibile esaminare il codice sorgente della libreria client nella cartella denominata "[Client Library](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary)" in **Emozioni**, **Windows**, **Client Library**, che fa parte del repository di file scaricati indicato nei [Prerequisiti](#Prerequisites).
- 
-Si può anche scoprire come usare il codice della libreria client in **Esplora soluzioni**: in **EmotionAPI-WPF_Samples** espandere **DetectEmotionUsingStreamPage.xaml** per individuare **DetectEmotionUsingStreamPage.xaml.cs**, che viene usato per passare a un file archiviato in locale, oppure espandere **DetectEmotionUsingURLPage.xaml** per trovare **DetectEmotionUsingURLPage.xaml.cs**, che viene usato quando si carica l'URL di un'immagine. Fare doppio clic sui file con estensione xaml.cs per aprirli in nuove finestre di Visual Studio. 
+
+Si può anche scoprire come usare il codice della libreria client in **Esplora soluzioni**: in **EmotionAPI-WPF_Samples** espandere **DetectEmotionUsingStreamPage.xaml** per individuare **DetectEmotionUsingStreamPage.xaml.cs**, che viene usato per passare a un file archiviato in locale, oppure espandere **DetectEmotionUsingURLPage.xaml** per trovare **DetectEmotionUsingURLPage.xaml.cs**, che viene usato quando si carica l'URL di un'immagine. Fare doppio clic sui file con estensione xaml.cs per aprirli in nuove finestre di Visual Studio.
 
 Per vedere in che modo la libreria client di Emozioni viene usata nell'app di esempio, verranno ora esaminati due frammenti di codice da **DetectEmotionUsingStreamPage.xaml.cs** e **DetectEmotionUsingURLPage.xaml.cs**. Ogni file contiene commenti di codice che indicano "KEY SAMPLE CODE STARTS HERE" e "KEY SAMPLE CODE ENDS HERE", che aiutano a individuare i frammenti di codice riportati di seguito.
 
-L'API Emozioni è in grado di usare l'URL di un'immagine o dati immagine binari (in forma di flusso di ottetti) come input. Le due opzioni vengono esaminate di seguito. In entrambi i casi si trova prima di tutto una direttiva using, che consente di usare la libreria client di Emozioni. 
+L'API Emozioni è in grado di usare l'URL di un'immagine o dati immagine binari (in forma di flusso di ottetti) come input. Le due opzioni vengono esaminate di seguito. In entrambi i casi si trova prima di tutto una direttiva using, che consente di usare la libreria client di Emozioni.
 ```csharp
 
-            // ----------------------------------------------------------------------- 
-            // KEY SAMPLE CODE STARTS HERE 
-            // Use the following namespace for EmotionServiceClient 
-            // ----------------------------------------------------------------------- 
-            using Microsoft.ProjectOxford.Emotion; 
-            using Microsoft.ProjectOxford.Emotion.Contract; 
-            // ----------------------------------------------------------------------- 
-            // KEY SAMPLE CODE ENDS HERE 
-            // ----------------------------------------------------------------------- 
+            // -----------------------------------------------------------------------
+            // KEY SAMPLE CODE STARTS HERE
+            // Use the following namespace for EmotionServiceClient
+            // -----------------------------------------------------------------------
+            using Microsoft.ProjectOxford.Emotion;
+            using Microsoft.ProjectOxford.Emotion.Contract;
+            // -----------------------------------------------------------------------
+            // KEY SAMPLE CODE ENDS HERE
+            // -----------------------------------------------------------------------
 ```
-#### <a name="detectemotionusingurlpagexamlcs"></a>DetectEmotionUsingURLPage.xaml.cs 
+#### <a name="detectemotionusingurlpagexamlcs"></a>DetectEmotionUsingURLPage.xaml.cs
 
-Questo frammento di codice mostra come usare la libreria client per inviare la chiave di sottoscrizione e un URL di fotografia al servizio API Emozioni. 
+Questo frammento di codice mostra come usare la libreria client per inviare la chiave di sottoscrizione e un URL di fotografia al servizio API Emozioni.
 
 ```csharp
 
@@ -115,9 +117,9 @@ Questo frammento di codice mostra come usare la libreria client per inviare la c
             // KEY SAMPLE CODE ENDS HERE
             // -----------------------------------------------------------------------
 ```
-#### <a name="detectemotionusingstreampagexamlcs"></a>DetectEmotionUsingStreamPage.xaml.cs 
+#### <a name="detectemotionusingstreampagexamlcs"></a>DetectEmotionUsingStreamPage.xaml.cs
 
-Il frammento di codice seguente mostra come inviare la chiave di sottoscrizione e un'immagine archiviata in locale all'API Emozioni. 
+Il frammento di codice seguente mostra come inviare la chiave di sottoscrizione e un'immagine archiviata in locale all'API Emozioni.
 
 
 ```csharp

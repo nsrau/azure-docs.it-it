@@ -1,21 +1,21 @@
 ---
-title: Guida introduttiva all'uso dell'API Viso con Ruby | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si rileveranno i visi in un'immagine usando l'API Viso con Ruby in Servizi cognitivi.
+title: "Guida introduttiva: Rilevare i visi in un'immagine - API Viso, Ruby"
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si userà l'API Viso con Ruby per rilevare i visi in un'immagine.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
-ms.openlocfilehash: b7fc23259475b7d165171ce42f1d0dff90d1069c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a76be6d6afa198762448cea7125b5c49e7fc1009
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "43769462"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124797"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-ruby"></a>Guida introduttiva: rilevare i visi in un'immagine con Ruby
 
@@ -37,7 +37,7 @@ Usare il metodo [Face - Detect](https://westcentralus.dev.cognitive.microsoft.co
 Per eseguire l'esempio, seguire questa procedura:
 
 1. Copiare il codice seguente in un editor.
-1. Sostituire il valore di `<Subscription Key>` con la propria chiave di sottoscrizione valida.
+1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
 1. Modificare il valore di `uri` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
 1. Facoltativamente, impostare `imageUri` sull'immagine che si vuole analizzare.
 1. Salvare il file con estensione `.rb`.

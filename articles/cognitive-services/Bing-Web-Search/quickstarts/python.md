@@ -1,60 +1,56 @@
 ---
-title: Chiamata e risposta - Guida introduttiva a Python per Servizi cognitivi di Azure, API Ricerca Web Bing | Microsoft Docs
-description: Informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca Web Bing in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: Eseguire una ricerca con Python - API Ricerca Web Bing'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si apprenderà come eseguire la prima chiamata all'API Ricerca Web Bing usando Python e ricevere una risposta JSON.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 8d4df9db60c7a74a5b9e53d4622528c0054b4f19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 22dc88d2b924587818f7767105872f01f2e43faf
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374145"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129149"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-python"></a>Chiamata e risposta: la prima query di Ricerca Web Bing in Python
+# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare Python per chiamare l'API Ricerca Web Bing  
 
-L'API Ricerca Web Bing offre un'esperienza simile a Bing.com/Search restituendo i risultati della ricerca che Bing ritiene rilevanti per la query dell'utente. I risultati possono includere pagine Web, immagini, video, notizie ed entità, oltre a query di ricerca correlate, correzioni ortografiche, fusi orari, conversioni di unità, traduzioni e calcoli. I tipi di risultati che si ottengono sono basati sulla pertinenza e sul livello delle API di ricerca Bing di cui si effettua la sottoscrizione.
+Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere una risposta JSON in meno di 10 minuti.  
 
-Per i dettagli tecnici sulle API, vedere le [informazioni di riferimento sull'API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-È possibile eseguire questo esempio come notebook Jupyter in [MyBinder](https://mybinder.org) facendo clic sulla notifica di avvio di Binder: 
+Questo esempio viene eseguito come notebook di Jupyter su [MyBinder](https://mybinder.org). Fare clic sulla notifica di avvio di Binder:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
+## <a name="define-variables"></a>Definire le variabili
 
-## <a name="prerequisites"></a>prerequisiti
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con le **API di ricerca Bing**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
-
-## <a name="running-the-walkthrough"></a>Eseguire la procedura dettagliata
-
-Impostare `subscription_key` sulla chiave API per il servizio API Bing.
-
+Sostituire il valore di `subscription_key` con una chiave di sottoscrizione valida del proprio account Azure.
 
 ```python
-subscription_key = None
+subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Verificare quindi che l'endpoint `search_url` sia corretto. Al momento della pubblicazione di questo documento, per le API di ricerca Bing viene usato un solo endpoint. Se si verificano errori di autorizzazione, verificare di nuovo questo valore nell'endpoint di ricerca Bing nel dashboard di Azure.
-
+Dichiarare l'endpoint dell'API Ricerca Web Bing. Se si verificano errori di autorizzazione, controllare questo valore rispetto all'endpoint di ricerca Bing nel dashboard di Azure.
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
 ```
 
-Impostare `search_term` per cercare Servizi cognitivi Microsoft in Bing.
-
+È possibile personalizzare la query di ricerca sostituendo il valore per `search_term`.
 
 ```python
-search_term = "Microsoft Cognitive Services"
+search_term = "Azure Cognitive Services"
 ```
 
-Il blocco seguente usa la libreria `requests` di Python per chiamare le API di ricerca Bing e restituire i risultati come oggetto JSON. Osservare che la chiave API viene passata attraverso il dizionario `headers` e il termine di ricerca attraverso il dizionario `params`. Per visualizzare l'intero elenco di opzioni che è possibile usare per filtrare i risultati della ricerca, vedere la documentazione dell'[API REST](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference).
+## <a name="make-a-request"></a>Effettuare una richiesta
 
+Questo blocco usa la libreria `requests` per chiamare l'API Ricerca Web Bing e restituire i risultati come oggetto JSON. La chiave API viene passata nel dizionario `headers`, mentre il termine di ricerca e i parametri della query vengono passati nel dizionario `params`. Vedere la documentazione dell'[API Ricerca Web Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) per un elenco completo di opzioni e parametri.
 
 ```python
 import requests
@@ -66,8 +62,9 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-L'oggetto `search_results` contiene i risultati della ricerca, oltre ai metadati, ad esempio pagine e query correlate. Le righe di codice seguenti formattano le prime pagine restituite dalla query.
+## <a name="format-and-display-the-response"></a>Formattare e visualizzare la risposta
 
+L'oggetto `search_results` contiene i risultati della ricerca e i metadati, ad esempio le pagine e le query correlate. Questo codice usa la libreria `IPython.display` per formattare e visualizzare la risposta nel browser.
 
 ```python
 from IPython.display import HTML
@@ -80,14 +77,13 @@ rows = "\n".join(["""<tr>
 HTML("<table>{0}</table>".format(rows))
 ```
 
+## <a name="sample-code-on-github"></a>Codice di esempio su GitHub
+
+Se si vuole eseguire questo codice in locale, l'intero [esempio è disponibile in GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Esercitazione sull'app a singola pagina di Ricerca Web Bing](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>Vedere anche  
-
-[Panoramica di Ricerca Web Bing](../overview.md)  
-[Prova](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Ottenere una chiave di accesso di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-[Bing Web Search API reference (Informazioni di riferimento sull'API Ricerca Web Bing)](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

@@ -1,6 +1,6 @@
 ---
-title: Creazione di report in Azure Active Directory | Microsoft Docs
-description: Offre una panoramica generale della creazione di report in Azure Active Directory.
+title: Che cosa sono i report di Azure Active Directory? | Microsoft Docs
+description: Offre una panoramica generale sui report di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -9,23 +9,23 @@ editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 96faeaefc6c58f03328a85b626528267396121a5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 220f27ccf2d3eaefd8347e1d52824be2d601d9c9
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146416"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364394"
 ---
-# <a name="azure-active-directory-reporting"></a>Creazione di report in Azure Active Directory
+# <a name="what-are-azure-active-directory-reports"></a>Che cosa sono i report di Azure Active Directory?
 
-La creazione di report in Azure Active Directory permette di ottenere informazioni approfondite sullo stato dell'ambiente.  
+I report di Azure Active Directory consentono di ottenere informazioni dettagliate sullo stato dell'ambiente.  
 I dati forniti consentono di:
 
 - Determinare l'utilizzo di app e servizi da parte degli utenti
@@ -50,6 +50,7 @@ Azure Active Directory prevede due tipi di report sulla sicurezza:
 - **Accessi a rischio**: il [report sulla sicurezza relativo agli accessi a rischio](concept-risky-sign-ins.md) offre una indicazione sui tentativi di accesso che potrebbero essere stati eseguiti da qualcuno che non è il legittimo proprietario di un account utente. 
 
 **Quale licenza di Azure AD è necessaria per accedere a un report sulla sicurezza?**  
+
 Tutte le edizioni di Azure Active Directory offrono report sugli utenti contrassegnati per il rischio e sugli accessi a rischio.  
 Tuttavia, il livello di granularità dei report varia a seconda delle edizioni: 
 
@@ -69,9 +70,7 @@ Azure Active Directory prevede due tipi di report sull'attività:
 - **Accessi**: il [report sull'attività relativo agli accessi](concept-sign-ins.md) permette di determinare chi ha eseguito le attività segnalate nel report dei log di controllo.
 
 
-
-Il **report dei log di controllo** include i record delle attività di sistema per la conformità.
-I dati forniti consentono, tra l'altro, di risolvere scenari comuni. Ad esempio:
+Il **report dei log di controllo** include i record delle attività di sistema per la conformità. Questi dati consentono di risolvere scenari comuni, ad esempio:
 
 - Un utente del tenant ha avuto accesso a un gruppo amministrativo e si vuole sapere chi ha concesso tale accesso. 
 
@@ -81,10 +80,10 @@ I dati forniti consentono, tra l'altro, di risolvere scenari comuni. Ad esempio:
 
 
 **Quale licenza di Azure AD è necessaria per accedere al report dei log di controllo?**  
+
 Il report dei log di controllo è disponibile per le funzionalità per le quali si possiede una licenza. Se è disponibile una licenza per una funzionalità specifica, si ha anche accesso alle relative informazioni del log di controllo.
 
 Per altre informazioni, vedere il **Confronto tra le funzionalità generalmente disponibili nelle edizioni Free, Basic e Premium**  in [Caratteristiche e funzionalità di Azure Active Directory ](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
-
 
 
 Il **report attività relativo agli accessi** permette di rispondere a domande come:
@@ -95,8 +94,8 @@ Il **report attività relativo agli accessi** permette di rispondere a domande c
 
 
 **Quale licenza di Azure AD è necessaria per accedere al report sull'attività relativo agli accessi?**  
-Per visualizzare il report sull'attività relativo agli accessi, è necessario che al tenant sia associata una licenza di Azure AD Premium
 
+Per visualizzare il report sull'attività relativo agli accessi, è necessario che al tenant sia associata una licenza di Azure AD Premium
 
 ## <a name="programmatic-access"></a>Accesso a livello di codice
 
@@ -105,17 +104,6 @@ Oltre all'interfaccia utente, la creazione di report di Azure Active Directory o
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui vari tipi di report in Azure Active Directory, vedere:
-
-- [Report sugli utenti contrassegnati per il rischio](concept-user-at-risk.md)
 - [Report sugli accessi a rischio](concept-risky-sign-ins.md)
 - [Report dei log di controllo](concept-audit-logs.md)
 - [Report dei log di accesso](concept-sign-ins.md)
-
-Per altre informazioni sull'accesso ai dati dei report tramite l'API di creazione report, vedere: 
-
-- [Introduzione all'API di creazione report di Azure Active Directory](concept-reporting-api.md)
-
-
-<!--Image references-->
-[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

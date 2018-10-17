@@ -1,22 +1,23 @@
 ---
-title: 'Guida introduttiva di Java per Servizi cognitivi di Azure: API Analisi del testo | Microsoft Docs'
-description: Informazioni ed esempi di codice per iniziare rapidamente a usare l'API Analisi del testo di Servizi cognitivi Microsoft in Azure.
+title: "Guida introduttiva: Uso di Java per chiamare l'API Analisi del testo"
+titleSuffix: Azure Cognitive Services
+description: Informazioni ed esempi di codice per iniziare a usare l'API Analisi del testo nei Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
-documentationcenter: ''
-author: ashmaka
+author: noellelacharite
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 05/02/2018
-ms.author: ashmaka
-ms.openlocfilehash: 720459f65b9572a0599205c631d7de1b4d39f30b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: quickstart
+ms.date: 10/01/2018
+ms.author: nolachar
+ms.openlocfilehash: 8ea45d202e550e16a7afd11e056738b2b21bd963
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376513"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267716"
 ---
-# <a name="quickstart-for-text-analytics-api-with-java"></a>Guida introduttiva per l'API Analisi del testo con Java 
+# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Java per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
 
 Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711) con Java.
@@ -25,19 +26,19 @@ Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Analisi del testo**. Per completare questa guida introduttiva è possibile usare il **livello gratuito per 5.000 transazioni al mese**.
-È necessario anche avere [la chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
+È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Analisi del testo**. Per completare questo Avvio rapido è possibile usare il **livello gratuito per 5.000 transazioni/mese**.
+È anche necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Rileva lingua
 
-L'API Rilevamento lingua rileva la lingua di un documento di testo usando l'apposito [metodo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+L'API Rilevamento lingua rileva la lingua di un documento di testo usando il [metodo per il rilevamento della lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
 1. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice fornito di seguito.
+2. Aggiungere il codice riportato di seguito.
 3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
-4. Sostituire la località in `host` (attualmente `westus`) con l'area per cui è stata effettuata l'iscrizione.
+4. Sostituire la località in `host` (attualmente `westus`) con l'area per cui è stata fatta l'iscrizione.
 5. Eseguire il programma.
 
 ```java
@@ -160,7 +161,7 @@ public class DetectLanguage {
 
 **Risposta di Rilevamento lingua**
 
-Una risposta con esito positivo viene restituita in formato JSON come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 
@@ -209,9 +210,9 @@ Una risposta con esito positivo viene restituita in formato JSON come illustrato
 L'API Analisi del sentiment rileva il sentiment di un set di record di testo, usando l'apposito [metodo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). L'esempio seguente assegna un punteggio a due documenti, uno in inglese e un altro in spagnolo.
 
 1. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice fornito di seguito.
+2. Aggiungere il codice riportato di seguito.
 3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
-4. Sostituire la località in `uriBase` (attualmente `westus`) con l'area per cui è stata effettuata l'iscrizione.
+4. Sostituire la località in `uriBase` (attualmente `westus`) con l'area per cui è stata fatta l'iscrizione.
 5. Eseguire il programma.
 
 ```java
@@ -333,7 +334,7 @@ public class GetSentiment {
 ```
 **Risposta di Analisi del sentiment**
 
-Una risposta con esito positivo viene restituita in formato JSON come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -355,12 +356,12 @@ Una risposta con esito positivo viene restituita in formato JSON come illustrato
 
 ## <a name="extract-key-phrases"></a>Estrarre le frasi chiave
 
-L'API Estrazione frasi chiave estrae le frasi chiave da un documento di testo usando l'apposito [metodo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). L'esempio seguente estrae le frasi chiave per i documenti in inglese e in spagnolo.
+L'API Estrazione frasi chiave consente di estrarre le frasi chiave da un documento di testo usando il [metodo per le frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). L'esempio seguente estrae le frasi chiave per i documenti in inglese e in spagnolo.
 
 1. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice fornito di seguito.
+2. Aggiungere il codice riportato di seguito.
 3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
-4. Sostituire la località in `uriBase` (attualmente `westus`) con l'area per cui è stata effettuata l'iscrizione.
+4. Sostituire la località in `uriBase` (attualmente `westus`) con l'area per cui è stata fatta l'iscrizione.
 5. Eseguire il programma.
 
 ```java
@@ -483,7 +484,7 @@ public class GetKeyPhrases {
 ```
 **Risposta di Estrazione frasi chiave**
 
-Una risposta con esito positivo viene restituita in formato JSON come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -522,14 +523,14 @@ Una risposta con esito positivo viene restituita in formato JSON come illustrato
 ```
 <a name="Entities"></a>
 
-## <a name="identify-linked-entities"></a>Identificare le entità collegate
+## <a name="identify-entities"></a>Identificare le entità
 
-L'API Entity Linking identifica le entità note in un documento di testo usando il [metodo di collegamento delle entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). L'esempio seguente identifica le entità per i documenti in inglese.
+L'API Entità identifica le entità note in un documento di testo usando il metodo [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). L'esempio seguente identifica le entità per i documenti in inglese.
 
 1. Creare un nuovo progetto Java nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice fornito di seguito.
+2. Aggiungere il codice riportato di seguito.
 3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
-4. Sostituire la località in `uriBase` (attualmente `westus`) con l'area per cui è stata effettuata l'iscrizione.
+4. Sostituire la località in `uriBase` (attualmente `westus`) con l'area per cui è stata fatta l'iscrizione.
 5. Eseguire il programma.
 
 ```java
@@ -597,7 +598,7 @@ public class GetEntities {
 // a free trial access key, you should not need to change this region.
     static String host = "https://westus.api.cognitive.microsoft.com";
 
-    static String path = "/text/analytics/v2.0/entities";
+    static String path = "/text/analytics/v2.1-preview/entities";
     
     public static String GetEntities (Documents documents) throws Exception {
         String text = new Gson().toJson(documents);
@@ -637,8 +638,8 @@ public class GetEntities {
     public static void main (String[] args) {
         try {
             Documents documents = new Documents ();
-            documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
-            documents.add ("2", "en", "The Seattle Seahawks won the Super Bowl in 2014.");
+            documents.add ("1", "en", "Jeff bought three dozen eggs because there was a 50% discount.");
+            documents.add ("2", "en", "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.");
 
             String response = GetEntities (documents);
             System.out.println (prettify (response));
@@ -649,67 +650,163 @@ public class GetEntities {
     }
 }
 ```
-**Risposta di Entity Linking**
+**Risposta di estrazione di entità**
 
-Una risposta con esito positivo viene restituita in formato JSON come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
 

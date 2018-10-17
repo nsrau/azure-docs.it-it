@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Trovare traduzioni alternative con Python | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Python in Servizi cognitivi.
+title: 'Guida introduttiva: Trovare traduzioni alternative - Traduzione testuale, Python'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 4f7c91bfa6fe82f19e84e13b4b7442b59b126cb9
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 9035f718dda4cd1a8b34aa72272cfa376be99cac
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770881"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122723"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-python"></a>Guida introduttiva: Trovare traduzioni alternative ed esempi d'uso con Python
 

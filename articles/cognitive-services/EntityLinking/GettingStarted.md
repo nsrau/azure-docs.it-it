@@ -1,22 +1,23 @@
 ---
-title: Introduzione all'API Entity Linking | Microsoft Docs
-description: Analizzare il testo e collegare entità denominate in una Knowledge Base tramite l'API Entity Linking in Servizi cognitivi.
+title: "Esercitazione: Creare un'app Entity Linking - C#"
+titlesuffix: Azure Cognitive Services
+description: Analizzare il testo e collegare entità denominate a voci pertinenti in una Knowledge Base tramite l'API Entity Linking.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 54c4a3bbb3637c248bd7705ed291633368b542c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373257"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365639"
 ---
-# <a name="get-started-with-entity-linking-api-in-c35"></a>Introduzione all'API Entity Linking in C&#35;
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Esercitazione: Creare un'app Entity Linking con C#
 
 Microsoft Entity Linking è uno strumento di elaborazione del linguaggio naturale per analizzare il testo e collegare entità denominate a voci pertinenti in una Knowledge Base. 
 

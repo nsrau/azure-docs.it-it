@@ -1,23 +1,23 @@
 ---
-title: Avvio rapido per l'API Ricerca notizie | Microsoft Docs
+title: 'Guida introduttiva: API Ricerca notizie Bing'
+titlesuffix: Azure Cognitive Services
 description: Illustra come iniziare a usare l'API Ricerca notizie Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 9CF6EAF3-42D8-4321-983C-4AC3896E8E03
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: b3f2b36034ab33b4f5eec2d138103c3e4d8e21f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bc3d2e43983791cf8f666660675a7dd537f04d77
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034332"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802526"
 ---
-# <a name="your-first-news-search-query"></a>La prima query di ricerca notizie
+# <a name="quickstart-your-first-news-search-query"></a>Guida introduttiva: Prima query di ricerca notizie
 
 Prima di poter effettuare la prima chiamata, è necessario ottenere una chiave di sottoscrizione di Servizi cognitivi. Per ottenere una chiave, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api).
 

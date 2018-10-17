@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 696139a3e37f7bd1e32b4e7cec836b3c66df16a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8751e3485b97b67fd8dd4821480fecd7735c08cd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974324"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268513"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Esercitazione: Autenticazione del servizio Azure SignalR
 
@@ -29,7 +29,7 @@ Questa esercitazione spiegherà come implementare la propria autenticazione e in
 
 L'autenticazione utilizzata inizialmente nell'applicazione di chat room della guida di avvio rapido è troppo semplice per gli scenari reali. L'applicazione consente a ogni client di dichiarare la propria identità, mentre il server si limita ad accettare tale identità. Questo approccio non è molto utile nelle applicazioni reali in cui un utente non autorizzato potrebbe rappresentare altri utenti per accedere a dati sensibili. 
 
-[GitHub](https://github.com/) fornisce API di autenticazione basate su un diffuso protocollo standard di settore chiamato [OAuth](https://oauth.net/). Queste API consentono alle applicazioni di terze parti di autenticare account GitHub. Le API saranno usate in questa esercitazione per implementare l'autenticazione tramite un account Github prima di consentire accessi dei client all'applicazione di chat room. Dopo l'autenticazione di un account GitHub, le informazioni sull'account verranno aggiunte come cookie che potrà essere usato dal client Web per l'autenticazione.
+[GitHub](https://github.com/) fornisce API di autenticazione basate su un diffuso protocollo standard di settore chiamato [OAuth](https://oauth.net/). Queste API consentono alle applicazioni di terze parti di autenticare account GitHub. Le API saranno usate in questa esercitazione per implementare l'autenticazione tramite un account GitHub prima di consentire accessi dei client all'applicazione di chat room. Dopo l'autenticazione di un account GitHub, le informazioni sull'account verranno aggiunte come cookie che potrà essere usato dal client Web per l'autenticazione.
 
 Per altre informazioni sulle API di autenticazione OAuth fornite tramite GitHub, vedere [Basics of Authentication](https://developer.github.com/v3/guides/basics-of-authentication/) (Nozioni di base sull'autenticazione).
 

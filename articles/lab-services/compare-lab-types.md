@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 7e86ba2b7fc729bd4663503282a936a5eaddf3ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8cf779f203850ca03942ba2395baf07412712610
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637874"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092970"
 ---
 # <a name="compare-managed-labs-in-azure-lab-services-and-devtest-labs"></a>Confrontare lab gestiti in Azure Lab Services e DevTest Labs
 È possibile creare due tipi di lab, **lab gestiti** con Azure Lab Services e **lab personalizzati** con Azure DevTest Labs. Se si vuole semplicemente indicare le caratteristiche richieste per il lab e consentire al servizio di configurare e gestire l'infrastruttura necessaria per il lab, scegliere uno dei **lab gestiti**. Attualmente il **lab per le classi** è l'unico tipo di lab gestito che è possibile creare con Azure Lab Services. Se si vuole gestire la propria infrastruttura, creare un lab tramite Azure DevTest Labs.
 
 Le sezioni seguenti includono altre informazioni dettagliate su queste opzioni. 
 
-## <a name="managed-labs"></a>Lab gestiti
-I lab gestiti includono diversi tipi di lab per soddisfare esigenze specifiche. Attualmente Azure Lab Services supporta solo il **lab per le classi** come lab gestito. I lab gestiti consentono di iniziare subito, con una configurazione minima. Il servizio controlla completamente la gestione dell'infrastruttura per il lab, dall'attivazione delle macchine virtuali alla gestione degli errori e alla scalabilità dell'infrastruttura. Per creare un lab gestito, è necessario creare innanzitutto un account del lab per l'organizzazione. L'account del lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. 
+## <a name="managed-lab-types"></a>Tipi di lab gestiti
+Azure Lab Services consente di creare lab la cui infrastruttura viene gestita da Azure. In questo articolo sono indicati con il nome di lab gestiti. I lab gestiti includono diversi tipi di lab per soddisfare esigenze specifiche. Attualmente l'unico tipo di lab gestito supportato è il **lab di tipo classe**. 
+
+I lab gestiti consentono di iniziare subito, con una configurazione minima. Il servizio controlla completamente la gestione dell'infrastruttura per il lab, dall'attivazione delle macchine virtuali alla gestione degli errori e alla scalabilità dell'infrastruttura. Per creare un lab gestito, ad esempio un lab di tipo classe, è necessario creare innanzitutto un account del lab per l'organizzazione. L'account del lab funge da account centrale in cui vengono gestiti tutti i lab dell'organizzazione. 
 
 Quando si creano e si usano risorse di Azure in questi lab gestiti, il servizio crea e gestisce le risorse nelle sottoscrizioni interne di Microsoft. Le risorse non vengono create nella sottoscrizione di Azure. Il servizio tiene traccia dell'utilizzo di tali risorse nelle sottoscrizioni interne di Microsoft. Il costo di tale utilizzo viene addebitato alla sottoscrizione di Azure che contiene l'account del lab.   
 
@@ -51,11 +53,11 @@ Ecco alcuni **casi d'uso per DevTest Labs**:
 - Offrire sessioni di training ai clienti usando un lab configurato con la versione più recente del prodotto. Assegnare a ogni cliente un numero limitato di ore per l'uso del lab. 
 
 
-## <a name="managed-labs-vs-devtest-labs"></a>Confronto tra lab gestiti e DevTest Labs
+## <a name="managed-lab-types-vs-devtest-labs"></a>Tipi di lab gestiti contro DevTest Labs
 La tabella seguente confronta due tipi di lab supportati da Azure Lab Services: 
 
 | Funzionalità | Lab gestiti | DevTest Labs |
-| -------- | ----------------  | ---------- |
+| -------- | ----------------- | ---------- |
 | Gestione dell'infrastruttura di Azure nel lab. |  Gestita automaticamente dal servizio | Gestita autonomamente  |
 | Resilienza predefinita per i problemi dell'infrastruttura | Gestita automaticamente dal servizio | Gestita autonomamente  |
 | Gestione sottoscrizioni | Il servizio gestisce l'allocazione delle risorse all'interno delle sottoscrizioni di Microsoft che supportano il servizio. La scalabilità viene gestita automaticamente dal servizio. | Gestita autonomamente nella propria sottoscrizione di Azure. Nessuna scalabilità automatica delle sottoscrizioni. |

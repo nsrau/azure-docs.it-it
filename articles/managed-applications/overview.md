@@ -8,20 +8,20 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 628a936d85eb94a1ee332205047527b0f9795d50
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 67797f3bc5eadc126bad1051e793a8d3bc4590e5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990515"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800945"
 ---
 # <a name="azure-managed-applications-overview"></a>Panoramica delle applicazioni gestite di Azure
 
 Le applicazioni gestite di Azure consentono di offrire soluzioni cloud semplici da distribuire e gestire per i consumer. È sufficiente implementare l'infrastruttura e garantire un supporto continuativo. Per rendere un'applicazione gestita disponibile a tutti i clienti, pubblicarla in Azure Marketplace. Per renderla disponibile ai soli utenti dell'organizzazione, pubblicarla in un catalogo interno. 
 
-Un'applicazione gestita è simile a un modello di soluzione del Marketplace, con una differenza essenziale. In un'applicazione gestita il provisioning delle risorse viene eseguito in un gruppo di risorse gestito dall'entità di pubblicazione dell'app. Il gruppo di risorse è presente nella sottoscrizione del consumer, ma un'identità nel tenant dell'entità di pubblicazione dell'app ha accesso al gruppo di risorse. In qualità di entità di pubblicazione dell'app, è possibile specificare il costo del supporto continuativo per la soluzione.
+Un'applicazione gestita è simile a un modello di soluzione del Marketplace, con una differenza essenziale. In un'applicazione gestita le risorse vengono distribuite in un gruppo di risorse gestito dall'entità di pubblicazione dell'app. Il gruppo di risorse è presente nella sottoscrizione del consumer, ma un'identità nel tenant dell'entità di pubblicazione dell'app ha accesso al gruppo di risorse. In qualità di entità di pubblicazione dell'app, è possibile specificare il costo del supporto continuativo per la soluzione.
 
 ## <a name="advantages-of-managed-applications"></a>Vantaggi delle applicazioni gestite
 
@@ -29,9 +29,9 @@ Le applicazioni gestite riducono le barriere per i consumer, tramite soluzioni u
 
 Le applicazioni gestite consentono di stabilire un rapporto continuativo con i consumer. È sufficiente definire le condizioni di gestione dell'applicazione e tutti gli addebiti vengono gestiti con la fatturazione di Azure.
 
-Sebbene i clienti distribuiscano le applicazioni gestite nelle proprie sottoscrizioni, non devono occuparsi della gestione, degli aggiornamenti o della manutenzione. È possibile garantire che tutti i clienti usino versioni approvate. I clienti non devono sviluppare una conoscenza approfondita delle caratteristiche delle applicazioni per gestirle. Inoltre, possono acquisire automaticamente gli aggiornamenti delle applicazioni senza doversi preoccupare di individuare, diagnosticare e risolvere eventuali problemi. 
+Sebbene i clienti distribuiscano le applicazioni gestite nelle proprie sottoscrizioni, non devono occuparsi della gestione, degli aggiornamenti o della manutenzione. È possibile fare in modo che tutti i clienti usino versioni approvate. I clienti non devono sviluppare una conoscenza approfondita delle caratteristiche delle applicazioni per gestirle. Inoltre, possono acquisire automaticamente gli aggiornamenti delle applicazioni senza doversi preoccupare di individuare, diagnosticare e risolvere eventuali problemi. 
 
-Per i team IT, le applicazioni gestite consentono di offrire soluzioni approvate agli utenti dell'organizzazione. Assicurarsi che tali soluzioni siano conformi agli standard aziendali.
+Per i team IT, le applicazioni gestite consentono di offrire soluzioni approvate agli utenti dell'organizzazione. Si ha la certezza che tali soluzioni siano conformi agli standard aziendali.
 
 ## <a name="types-of-managed-applications"></a>Tipi di applicazioni gestite
 
@@ -41,7 +41,7 @@ Per i team IT, le applicazioni gestite consentono di offrire soluzioni approvate
 
 ### <a name="service-catalog"></a>Catalogo di servizi
 
-Il catalogo di servizi è un catalogo interno di soluzioni approvate per gli utenti in un'organizzazione. Il catalogo può essere usato per garantire la conformità a determinati standard aziendali e offrire al contempo soluzioni ottimali per l'organizzazione. I dipendenti lo usano per trovare facilmente le applicazioni consigliate e approvate dai reparti IT o per visualizzare le applicazioni gestite che altri utenti dell'organizzazione hanno condiviso con loro.
+Il catalogo di servizi è un catalogo interno di soluzioni approvate per gli utenti in un'organizzazione. Il catalogo può essere usato per garantire la conformità agli standard aziendali e offrire al contempo soluzioni ottimali per l'organizzazione. I dipendenti lo usano per trovare facilmente le applicazioni consigliate e approvate dai reparti IT o per visualizzare le applicazioni gestite che altri utenti dell'organizzazione hanno condiviso con loro.
 
 Per informazioni sulla pubblicazione di un'applicazione gestita del catalogo di servizi, vedere [Creare un'applicazione del catalogo di servizi](publish-service-catalog-app.md).
 
@@ -55,7 +55,7 @@ Per informazioni sulla pubblicazione di applicazioni gestite in Azure Marketplac
 
 Le risorse per un'applicazione gestita si trovano in genere in due gruppi di risorse. Il consumer gestisce un gruppo di risorse, mentre l'entità di pubblicazione ne gestisce un altro. Quando si definisce l'applicazione gestita, l'entità di pubblicazione specifica i livelli di accesso. La limitazione dell'accesso per [operazioni sui dati](../role-based-access-control/role-definitions.md) non è attualmente supportata per tutti i provider di dati in Azure.
 
-La figura seguente illustra uno scenario in cui l'entità di pubblicazione richiede il ruolo di proprietario per il gruppo di risorse gestite. L'entità di pubblicazione ha inserito un blocco di sola lettura in questo gruppo di risorse per il consumer. Le identità degli autori a cui è concesso l'accesso al gruppo di risorse gestito sono esenti dal blocco.
+La figura seguente illustra uno scenario in cui l'entità di pubblicazione richiede il ruolo di proprietario per il gruppo di risorse gestite. L'entità di pubblicazione ha inserito un blocco di sola lettura in questo gruppo di risorse per il consumer. Le identità dell'entità di pubblicazione a cui è concesso l'accesso al gruppo di risorse gestite sono esenti dal blocco.
 
 ![Accesso al gruppo di risorse](./media/overview/access.png)
 
@@ -77,6 +77,7 @@ Quando il consumer elimina l'applicazione gestita, viene eliminato anche il grup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un'introduzione alla definizione e alla distribuzione di un'applicazione gestita, vedere [Creare e distribuire un'applicazione gestita di Azure con l'interfaccia della riga di comando di Azure](managed-apps-quickstart-cli.md)
-* Per informazioni sulla pubblicazione di un'applicazione interna, vedere [Creare un'applicazione del catalogo di servizi](publish-service-catalog-app.md).
-* Per informazioni sulla pubblicazione di applicazioni gestite in Azure Marketplace, vedere [Create marketplace application](publish-marketplace-app.md) (Creare un'applicazione del Marketplace).
+In questo articolo si sono visti i vantaggi dell'uso di applicazioni gestite. Nel prossimo articolo si vedrà come creare una definizione di applicazione gestita.
+
+> [!div class="nextstepaction"]
+> [Guida introduttiva: Pubblicare una definizione di applicazione gestita di Azure](publish-managed-app-definition-quickstart.md)

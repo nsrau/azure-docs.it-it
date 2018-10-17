@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: c0b42c3efd5e015eaf1fbd750f835d8de8818de9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43185852"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47038290"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Esercitazione: Personalizzare la visualizzazione dell'operatore in Azure IoT Central
 
@@ -50,9 +50,9 @@ I creatori possono definire le informazioni visualizzate sul dashboard di un dis
 
     ![Selezionare il condizionatore connesso](media/tutorial-customize-operator/selectdevice.png)
 
-    Quando si apporta una modifica a un dispositivo, ad esempio **Condizionatore connesso 1**, si apporta una modifica al modello sottostante. Per altre informazioni, vedere [Creare una nuova versione del modello di dispositivo](howto-version-devicetemplate.md).
+    Dall'interno di un dispositivo, ad esempio **Condizionatore connesso 1**, è possibile selezionare **Modifica modello** per apportare una modifica al modello sottostante. Per altre informazioni, vedere [Creare una nuova versione del modello di dispositivo](howto-version-devicetemplate.md).
 
-3. Per modificare il dashboard, scegliere **Dashboard**:
+3. Per modificare il dashboard, scegliere **Dashboard** e selezionare **Modifica modello**:
 
     ![Pagina dashboard del modello di dispositivo](media/tutorial-customize-operator/dashboard.png)
 
@@ -77,11 +77,13 @@ I creatori possono definire le informazioni visualizzate sul dashboard di un dis
 
     ![Modificare il layout del dashboard](media/tutorial-customize-operator/dashboardlayout.png)
 
+7. Dopo aver apportato tutte le modifiche desiderate, fare clic su **Fine**.
+
 ## <a name="configure-your-settings-layout"></a>Configurare il layout delle impostazioni
 
 I creatori possono anche configurare la visualizzazione delle impostazioni del dispositivo da parte dell'operatore. Un operatore usa la pagina di impostazioni del dispositivo per configurarlo. Ad esempio, può usare la pagina di impostazioni per impostare la temperatura di destinazione del condizionatore.
 
-1. Per modificare il layout di impostazioni per il condizionatore connesso, scegliere **Impostazioni**:
+1. Per modificare il layout delle impostazioni per il condizionatore connesso, scegliere **Impostazioni** e selezionare **Modifica modello**:
 
     ![Pagina Impostazioni](media/tutorial-customize-operator/settings.png)
 
@@ -89,14 +91,16 @@ I creatori possono anche configurare la visualizzazione delle impostazioni del d
 
     ![Modificare il layout delle impostazioni](media/tutorial-customize-operator/settingslayout.png)
 
+3. Dopo aver apportato tutte le modifiche desiderate, fare clic su **Fine**.
+
 > [!NOTE]
-> In **Modalità progettazione** non è possibile modificare i valori delle impostazioni.
+> In modalità **Modifica modello** non è possibile modificare i valori delle impostazioni.
 
 ## <a name="configure-your-properties-layout"></a>Configurare il layout delle proprietà
 
 Oltre ai dashboard e alle impostazioni, è possibile configurare anche la visualizzazione delle proprietà del dispositivo da parte dell'operatore. Un operatore usa la pagina delle proprietà del dispositivo per gestirne i metadati. Ad esempio, può usare la pagina delle proprietà per visualizzare il numero di serie di un dispositivo o per aggiornare i dettagli di contatto del produttore.
 
-1. Per modificare il layout delle proprietà per il condizionatore connesso, scegliere **Proprietà**:
+1. Per modificare il layout delle proprietà per il condizionatore connesso, scegliere **Proprietà** e selezionare **Modifica modello**:
 
     ![Pagina Proprietà](media/tutorial-customize-operator/properties.png)
 
@@ -104,16 +108,18 @@ Oltre ai dashboard e alle impostazioni, è possibile configurare anche la visual
 
     ![Modificare il layout delle proprietà](media/tutorial-customize-operator/propertieslayout.png)
 
+3. Dopo aver apportato tutte le modifiche desiderate, fare clic su **Fine**.
+
 > [!NOTE]
-> In **Modalità progettazione** non è possibile modificare i valori delle proprietà.
+> In modalità **Modifica modello** non è possibile modificare i valori delle proprietà.
 
 ## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>Visualizzare in anteprima il condizionatore connesso come operatore
 
-In **Modalità progettazione** è possibile personalizzare il dashboard e le pagine di impostazioni e proprietà per un operatore. Se si disattiva la **Modalità progettazione**, è possibile visualizzare l'applicazione come un operatore.
+In modalità **Modifica modello** è possibile personalizzare il dashboard e le pagine di impostazioni e proprietà per un operatore. Se non si lavora in modalità **Modifica modello**, è possibile visualizzare l'applicazione come operatore.
 
-1. Per visualizzare il condizionatore connesso come un operatore è necessario disattivare la **Modalità progettazione**. Per disattivare la **Modalità progettazione**, portare in posizione disattivata l'opzione **Modalità progettazione** in alto a destra nella pagina.
+1. Per visualizzare il condizionatore connesso come operatore è necessario fare clic su **Fine** per arrestare la modifica del modello. Si torna alla visualizzazione operatore del dispositivo.
 
-2. Per aggiornare il numero di serie del dispositivo, modificare il valore nel relativo riquadro e scegliere **Salva**:
+2. Per aggiornare la posizione del dispositivo, modificare il valore nel riquadro Posizione e scegliere **Salva**:
 
     ![Modificare il valore di una proprietà](media/tutorial-customize-operator/editproperty.png)
 
@@ -131,7 +137,7 @@ In **Modalità progettazione** è possibile personalizzare il dashboard e le pag
 
 Quando un creatore o un operatore accede a un'applicazione Azure IoT Central, vedrà l'home page. I creatori possono configurare i contenuti dell'home page in modo che includa quelli più utili per gli operatori.
 
-1. Per personalizzare l'home page predefinita, passare alla pagina **Home** e attivare la **Modalità progettazione** in alto a destra nella pagina. Dopo avere attivato la **Modalità progettazione**, verrà visualizzato un pannello dal lato destro con un elenco di oggetti che è possibile aggiungere alla home page.
+1. Per personalizzare l'home page predefinita, passare alla pagina **Home** e selezionare **Modifica** in alto a destra nella pagina. Selezionando **Modifica** verrà visualizzato un pannello dal lato destro con un elenco di oggetti che è possibile aggiungere alla home page.
 
     ![Pagina Application Builder (Generatore applicazioni)](media/tutorial-customize-operator/builderhome.png)
 
@@ -150,7 +156,7 @@ Quando un creatore o un operatore accede a un'applicazione Azure IoT Central, ve
 
 ## <a name="preview-the-default-home-page-as-an-operator"></a>Visualizzare in anteprima l'home page predefinita come operatore
 
-Per visualizzare l'home page come operatore, disattivare la **Modalità progettazione** in alto a destra nella pagina:
+Per visualizzare l'home page in anteprima come operatore e smettere di eseguire modifiche, selezionare **Fine** in alto a destra nella pagina
 
 ![Attivare/Disattivare la Modalità progettazione](media/tutorial-customize-operator/operatorviewhome.png)
 

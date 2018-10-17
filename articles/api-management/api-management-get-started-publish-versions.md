@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1cbe63184578f7d1e72992577a11c58b9b83a002
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: a7e5051248a579b0943fa69620215b060bd1e235
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937318"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47092694"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>Pubblicare più versioni dell'API 
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderà come:
 
 ![Versione visualizzata sul portale per sviluppatori](media/api-management-getstarted-publish-versions/azure_portal.PNG)
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 * Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
@@ -44,7 +44,7 @@ In questa esercitazione si apprenderà come:
 
 ![Menu di scelta rapida delle API - Aggiungere versione](media/api-management-getstarted-publish-versions/AddVersionMenu.png)
 
-1. Selezionare **Conference API** (API Conferenza) nell'elenco di API.
+1. Selezionare **Demo Conference API** (API Demo Conference) nell'elenco di API.
 2. Selezionare il menu di scelta rapida (**...**).
 3. Selezionare **+ Aggiungi versione**.
 
@@ -58,37 +58,39 @@ In Gestione API di Azure è possibile scegliere come consentire ai chiamanti di 
 ![Aggiungere una schermata di versione](media/api-management-getstarted-publish-versions/AddVersion.PNG)
 
 1. Lasciare **percorso** selezionato come lo **schema di controllo delle versioni**.
-2. Aggiungere **v1** come **identificatore di versione**.
+2. Aggiungere **v1** come **Nome** e **Identificatore della versione**.
 
     > [!TIP]
     > Se si seleziona **intestazione** o **stringa di query** come schema di controllo delle versioni, è necessario fornire un altro valore, ovvero il nome dell'intestazione o il parametro della stringa di query.
 
-3. Aggiungere un'eventuale descrizione.
-4. Selezionare **Crea** per impostare la nuova versione.
-5. Nell'elenco delle API al di sotto di **Big Conference API** (API Grande conferenza), verranno visualizzate due API distinte - **Originale**, e **v1**.
+3. Selezionare **Crea** per impostare la nuova versione.
+4. Nell'elenco delle API sotto a **Demo Conference API** (API Demo Conference) verranno mostrate due API distinte: **Original** e **v1**.
 
     ![Versioni elencate per un'API nel portale di Azure](media/api-management-getstarted-publish-versions/VersionList.PNG)
 
     > [!Note]
     > Se si aggiunge una versione a un'API senza versione, viene automaticamente creata una versione **originale**, che risponde dall'URL predefinito. Ciò garantisce che i chiamanti esistenti non subiscano interruzioni a causa della procedura di aggiunta della versione. Se si crea una nuova API con le versioni abilitate sin dall'inizio, non viene creato alcun originale.
 
-6. È ora possibile modificare e configurare **v1** come API distinta dall'**originale**. Le modifiche apportate a una versione non influiscono sulle altre.
+5. È ora possibile modificare e configurare **v1** come API distinta dall'**originale**. Le modifiche apportate a una versione non influiscono sulle altre.
 
 ## <a name="add-the-version-to-a-product"></a>Aggiungere la versione a un prodotto
 
 Perché i chiamanti possano visualizzare la nuova versione, questa deve essere aggiunta a un **prodotto**.
 
 1. Selezionare **Prodotti** nella pagina del modello di distribuzione classica.
+
+    ![Prodotti Gestione API](media/api-management-getstarted-publish-versions/Products.png)
+
 2. Selezionare **Illimitato**.
 3. Selezionare **API**.
 4. Selezionare **Aggiungi**.
-5. Selezionare **Conference API, Version v1** (API Conferenza, Versione v1).
+5. Selezionare **Demo Conference API, Version v1** (API Demo Conference, versione v1).
 6. Passare alla pagina di gestione del servizio e selezionare **API**.
 
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>Passare al portale per sviluppatori per visualizzare la versione
 
 1. Selezionare **Portale per sviluppatori** dal menu principale.
-2. Selezionare **API** e notare che **Conference API** (API Conferenza) visualizza sia la versione **Original** (Originale), sia la versione **v1**.
+2. Selezionare **API** e notare che **Demo Conference API** (API Demo Conference) mostra le versioni **Original** e **v1**.
 3. Selezionare **v1**.
 4. Si noti l'**URL della richiesta** della prima operazione nell'elenco. Mostra che il percorso dell'URL dell'API include **v1**.
 
@@ -107,4 +109,4 @@ In questa esercitazione si apprenderà come:
 Passare all'esercitazione successiva:
 
 > [!div class="nextstepaction"]
-> [Aggiornare e ridimensionare](upgrade-and-scale.md)
+> [Personalizzare lo stile delle pagine del portale per sviluppatori](api-management-customize-styles.md)

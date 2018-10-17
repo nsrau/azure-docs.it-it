@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 69898358026eab716c057f339d8594df43db136f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11112e01e38f85db9f71280c53c27b130275d86f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629372"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498267"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Presentazione dell'interfaccia utente di Azure IoT Central
 
@@ -39,7 +39,7 @@ Usare il menu di spostamento a sinistra per accedere alle diverse aree dell'appl
 
 | Menu | DESCRIZIONE |
 | ---- | ----------- |
-| ![Menu di spostamento a sinistra](media/overview-iot-central-tour/navigationbar.png) | <ul><li>Il pulsante **Home** consente di visualizzare la home page dell'applicazione. I generatori possono personalizzare questa home page per gli operatori.</li><li>Il pulsante **Device Explorer** (Esplora dispositivi) consente di visualizzare un elenco dei modelli di dispositivo definiti nell'applicazione, nonché dei dispositivi simulati e reali associati a ogni modello di dispositivo. Gli operatori usano **Device Explorer** (Esplora dispositivi) per gestire i dispositivi connessi.</li><li>Il pulsante **Device Sets** (Set di dispositivi) consente di visualizzare e creare set di dispositivi. Gli operatori possono creare set di dispositivi come raccolta logica di dispositivi specificati da una query.</li><li>Il pulsante **Analytics** (Analisi) consente di visualizzare l'analisi derivata dai dati di telemetria dei dispositivi per dispositivi e set di dispositivi. Gli operatori possono creare visualizzazioni personalizzate basate sui dati dei dispositivi per derivare informazioni dettagliate dall'applicazione.</li><li>Il pulsante **Application Builder** (Generatore applicazioni) consente di visualizzare gli strumenti usati da un generatore, ad esempio lo strumento **Create Device Template** (Crea modello di dispositivo).</li><li>Il pulsante **Administration** (Amministrazione) consente di visualizzare le pagine di amministrazione dell'applicazione in cui un amministratore può gestire impostazioni, utenti e ruoli.</li></ul> |
+| ![Menu di spostamento a sinistra](media/overview-iot-central-tour/navigationbar.png) | <ul><li>Il pulsante **Home** consente di visualizzare la home page dell'applicazione. I generatori possono personalizzare questa home page per gli operatori.</li><li>Il pulsante **Device Explorer** (Esplora dispositivi) consente di visualizzare un elenco dei modelli di dispositivo definiti nell'applicazione, nonché dei dispositivi simulati e reali associati a ogni modello di dispositivo. Gli operatori usano **Device Explorer** (Esplora dispositivi) per gestire i dispositivi connessi.</li><li>Il pulsante **Device Sets** (Set di dispositivi) consente di visualizzare e creare set di dispositivi. Gli operatori possono creare set di dispositivi come raccolta logica di dispositivi specificati da una query.</li><li>Il pulsante **Analytics** (Analisi) consente di visualizzare l'analisi derivata dai dati di telemetria dei dispositivi per dispositivi e set di dispositivi. Gli operatori possono creare visualizzazioni personalizzate basate sui dati dei dispositivi per derivare informazioni dettagliate dall'applicazione.</li><li>Il pulsante **Processi** abilita la gestione dei dispositivi in blocco consentendo di eseguire aggiornamenti su vasta scala tramite la creazione e l'esecuzione di processi.</li><li>Il pulsante **Application Builder** (Generatore applicazioni) consente di visualizzare gli strumenti usati da un generatore, ad esempio lo strumento **Create Device Template** (Crea modello di dispositivo).</li><li>Il pulsante **Administration** (Amministrazione) consente di visualizzare le pagine di amministrazione dell'applicazione in cui un amministratore può gestire impostazioni, utenti e ruoli.</li></ul> |
 
 ## <a name="search-help-and-support"></a>Ricerca, guida e supporto tecnico
 
@@ -81,6 +81,12 @@ La pagina _Device Sets_ (Set di dispositivi) visualizza i set di dispositivi cre
 ![Pagina Analytics (Analisi)](media/overview-iot-central-tour/analytics.png)
 
 La pagina Analytics (Analisi) visualizza grafici che consentono di comprendere il comportamento dei dispositivi connessi all'applicazione. Gli operatori usano questa pagina per controllare e analizzare i problemi relativi ai dispositivi connessi. I generatori possono definire i grafici visualizzati in questa pagina. Per altre informazioni, vedere l'articolo sulla [creazione di analisi personalizzate per l'applicazione Azure IoT Central](howto-create-analytics.md).
+
+## <a name="jobs"></a>Processi
+
+![Pagina dei processi](media/overview-iot-central-tour/jobs.png)
+
+La pagina dei processi consente di eseguire operazioni di gestione in blocco per i dispositivi. Il generatore usa questa pagina per aggiornare le proprietà, le impostazioni e i comandi del dispositivo. Per altre informazioni, vedere l'articolo [Eseguire un processo](howto-run-a-job.md).
 
 ## <a name="application-builder"></a>Application Builder (Generatore applicazioni)
 

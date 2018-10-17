@@ -1,22 +1,23 @@
 ---
-title: Chiamare l'endpoint tramite Java - Ricerca personalizzata Bing - Servizi cognitivi Microsoft
+title: "Guida introduttiva: Chiamare l'endpoint usando Java - Ricerca personalizzata Bing"
+titlesuffix: Azure Cognitive Services
 description: Questa guida introduttiva mostra come richiedere risultati delle ricerche dall'istanza di ricerca personalizzata usando Java per chiamare l'endpoint di Ricerca personalizzata Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 7ef4de749d5b9152bbe043a26d3c60fe7f09f869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951815"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814118"
 ---
-# <a name="call-bing-custom-search-endpoint-java"></a>Chiamare l'endpoint di Ricerca personalizzata Bing (Java)
+# <a name="quickstart-call-bing-custom-search-endpoint-java"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing (Java)
 
 Questa guida introduttiva mostra come richiedere risultati delle ricerche dall'istanza di ricerca personalizzata usando Java per chiamare l'endpoint di Ricerca personalizzata Bing. 
 
@@ -26,7 +27,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 
 - Un'istanza di Ricerca personalizzata pronta per l'uso. Vedere [Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md).
 - [Java](https://www.java.com) installato.
-- Una chiave di sottoscrizione. È possibile ottenere una chiave di sottoscrizione quando si attiva la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure (vedere [Account delle API di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Una chiave di sottoscrizione. È possibile ottenere una chiave di sottoscrizione quando si attiva la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search). In alternativa è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure (vedere [Account delle API di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## <a name="run-the-code"></a>Eseguire il codice
 

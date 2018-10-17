@@ -1,44 +1,56 @@
 ---
-title: API Visione artificiale - Guida introduttiva al riconoscimento ottico dei caratteri con Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si estrae testo stampato da un'immagine usando Visione artificiale con Node.js in Servizi cognitivi.
+title: 'Guida introduttiva: Estrarre testo stampato (OCR) - REST, Node.js - Visione artificiale'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si estrarrà testo stampato da un'immagine usando l'API Visione artificiale con Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 73fe11800d7141c9e6e7272a0d008d2bcdf6d6af
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: af22b17d52b654438ae52c1eb85e523dbaf638fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772002"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628914"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-nodejs"></a>Guida introduttiva: Estrarre testo stampato (OCR) - REST, Node.js
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Guida introduttiva: Estrarre testo stampato (OCR) usando l'API REST e Node.js in Visione artificiale
 
-In questa guida introduttiva si estrae testo stampato da un'immagine, con una tecnica nota come riconoscimento ottico dei caratteri (OCR, Optical Character Recognition), usando Visione artificiale.
+In questa guida introduttiva si estrarrà testo stampato da un'immagine con la tecnica di riconoscimento ottico dei caratteri (OCR, Optical Character Recognition) usando l'API REST di Visione artificiale. Con il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Visione artificiale, è necessario avere una chiave di sottoscrizione. A tale scopo, vedere [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Come ottenere chiavi di sottoscrizione).
+- È necessario aver installato [Node.js](https://nodejs.org) 4.x o versione successiva.
+- È necessario aver installato [npm](https://www.npmjs.com/).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Richiesta di riconoscimento ottico dei caratteri
+## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
-Con il [metodo OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) è possibile rilevare il testo stampato in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
+Per creare ed eseguire l'esempio, seguire questa procedura:
 
-Per eseguire l'esempio, seguire questa procedura:
+1. Installare il pacchetto [`request`](https://www.npmjs.com/package/request) npm.
+   1. Aprire una finestra del prompt dei comandi come amministratore.
+   1. Eseguire il comando seguente:
 
-1. Copiare il codice seguente in un editor.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `uriBase` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Facoltativamente, modificare il valore di `imageUrl` impostandolo sull'immagine che si vuole analizzare.
-1. Salvare il file con estensione `.js`.
-1. Aprire il prompt dei comandi di Node.js ed eseguire il file, ad esempio: `node myfile.js`.
+      ```console
+      npm install request
+      ```
 
-Questo esempio usa il pacchetto [request](https://www.npmjs.com/package/request) di npm.
+   1. Dopo l'installazione del pacchetto, chiudere la finestra del prompt dei comandi.
+
+1. Copiare il codice seguente in un editor di testo.
+1. Apportare le modifiche seguenti al codice, dove necessario:
+    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
+    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Facoltativamente, sostituire il valore di `imageUrl` con l'URL di un'altra immagine da cui si vuole estrarre il testo stampato.
+1. Salvare il codice in un file con estensione `.js`. Ad esempio: `get-printed-text.js`.
+1. Aprire una finestra del prompt dei comandi.
+1. Al prompt usare il comando `node` per eseguire il file. Ad esempio: `node get-printed-text.js`.
 
 ```nodejs
 'use strict';
@@ -84,9 +96,9 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="ocr-response"></a>Risposta alla richiesta di riconoscimento ottico dei caratteri
+## <a name="examine-the-response"></a>Esaminare i risultati
 
-Se l'esito è positivo, i risultati restituiti dal riconoscimento ottico dei caratteri includono il testo e i rettangoli delimitatori per aree, linee e parole, ad esempio:
+Una risposta con esito positivo viene restituita in JSON. L'esempio analizza e visualizza una risposta con esito positivo nella finestra del prompt dei comandi, come nell'esempio seguente:
 
 ```json
 {
@@ -187,9 +199,22 @@ Se l'esito è positivo, i risultati restituiti dal riconoscimento ottico dei car
 }
 ```
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non servono più, eliminare il file e quindi disinstallare il pacchetto `request` npm. Per disinstallare il pacchetto NuGet, seguire questa procedura:
+
+1. Aprire una finestra del prompt dei comandi come amministratore.
+2. Eseguire il comando seguente:
+
+   ```console
+   npm uninstall request
+   ```
+
+3. Dopo la disinstallazione del pacchetto, chiudere la finestra del prompt dei comandi.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare le API Visione artificiale usate per analizzare un'immagine, rilevare celebrità e luoghi di interesse, creare un'anteprima ed estrarre testo scritto a mano e stampato. Per sperimentare rapidamente le API Visione artificiale, provare la [console di test delle API aperta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare l'API Visione artificiale usata per analizzare un'immagine, rilevare celebrità e luoghi di interesse, creare un'anteprima ed estrarre testo scritto a mano e stampato. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Esaminare le API Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Esplorare l'API Visione artificiale](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

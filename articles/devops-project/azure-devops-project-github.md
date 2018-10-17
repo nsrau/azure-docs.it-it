@@ -1,5 +1,5 @@
 ---
-title: Creare una pipeline di CI/CD per il codice esistente con il progetto DevOps di Azure | Esercitazione di VSTS
+title: Creare una pipeline di CI/CD per il codice esistente con il progetto DevOps di Azure | Esercitazione di Azure DevOps Services
 description: Il progetto DevOps consente di iniziare a usare Azure in modo semplice. Consente di usare il proprio codice e repository di GitHub per avviare un'app in un servizio di Azure di propria scelta in pochi rapidi passaggi.
 services: vsts
 documentationcenter: vs-devops-build
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 4e0e28ff9ea14e42e1df7ce35bb90e8720a0d0b6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205562"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407298"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Creare una pipeline di CI/CD per il codice esistente con il progetto DevOps di Azure
 
@@ -33,9 +33,9 @@ Si apprenderà come:
 > [!div class="checklist"]
 > * Creare un progetto DevOps di Azure
 > * Configurare l'accesso al repository GitHub e scegliere un framework
-> * Configurare VSTS e una sottoscrizione di Azure 
+> * Configurare Azure DevOps Services e una sottoscrizione di Azure 
 > * Eseguire il commit delle modifiche in GitHub e la distribuzione automatica in Azure
-> * Esaminare la pipeline di CI/CD VSTS
+> * Esaminare la pipeline CI/CD di Azure DevOps Services
 > * Configurare il monitoraggio di Azure Application Insights
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -45,11 +45,11 @@ Si apprenderà come:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
-Il progetto DevOps di Azure crea una pipeline di CI/CD in VSTS.  È possibile creare un **nuovo account VSTS** oppure usare un **account esistente**.  Il progetto DevOps di Azure crea anche **risorse di Azure** nella **sottoscrizione di Azure** di propria scelta.
+Il Progetto DevOps di Azure crea una pipeline CI/CD in Azure DevOps Services.  È possibile creare una **nuova organizzazione di Azure DevOps Services** o usare un'**organizzazione esistente**.  Il progetto DevOps di Azure crea anche **risorse di Azure** nella **sottoscrizione di Azure** di propria scelta.
 
 1. Accedere al [portale di Microsoft Azure](https://portal.azure.com).
 
-1. Scegliere l'icona **Nuovo** sulla barra di spostamento sinistra e quindi cercare **Progetto DevOps**.  Scegliere **Create**.
+1. Scegliere l'icona **+ Nuovo** sulla barra di spostamento sinistra e quindi cercare **Progetto DevOps**.  Scegliere **Create**.
 
     ![Avvio del recapito continuo](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -65,13 +65,11 @@ Il progetto DevOps di Azure crea una pipeline di CI/CD in VSTS.  È possibile cr
 
 1. Il framework applicazione, scelto nei passaggi precedenti, determina il tipo di destinazione della distribuzione del servizio di Azure disponibile.  Selezionare il **servizio di destinazione** preferito.  Al termine, scegliere **Avanti**.
 
-## <a name="configure-vsts-and-an-azure-subscription"></a>Configurare VSTS e una sottoscrizione di Azure 
+## <a name="configure-azure-devops-services-and-an-azure-subscription"></a>Configurare Azure DevOps Services e una sottoscrizione di Azure 
 
-1. Creare un **nuovo** account VSTS oppure scegliere un account **esistente**.  Scegliere un **nome** per il progetto VSTS.  Selezionare la **sottoscrizione di Azure** e la **posizione** e scegliere un **nome** per l'applicazione.  Al termine, scegliere **Fine**.
+1. Creare gratuitamente una **nuova** organizzazione Azure DevOps Services oppure selezionare un'organizzazione **esistente**.  Scegliere un **nome** per il progetto Azure DevOps.  Selezionare la **sottoscrizione di Azure** e la **posizione** e scegliere un **nome** per l'applicazione.  Al termine, scegliere **Fine**.
 
-    ![Immettere le informazioni su VSTS](_img/azure-devops-project-github/vstsazureinfo.png)
-
-1. In pochi minuti, il **dashboard del progetto** viene caricato nel portale di Azure.  Viene configurata un'applicazione di esempio in un repository nell'account VSTS, viene eseguita una compilazione e l'applicazione viene distribuita in Azure.  Questo dashboard fornisce visibilità sul **repository di codice** GitHub, la **pipeline di CI/CD VSTS** e l'**applicazione in Azure**.  A destra del dashboard selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
+1. In pochi minuti, il **dashboard del progetto DevOps di Azure** viene caricato nel portale di Azure.  Viene configurata un'applicazione di esempio in un repository nell'organizzazione Azure DevOps Services, viene eseguita una compilazione e l'applicazione viene distribuita in Azure.  Questo dashboard fornisce visibilità sul **repository di codice** GitHub, la **pipeline di CI/CD di Azure DevOps Services** e l'**applicazione in Azure**.  A destra del dashboard selezionare **Sfoglia** per visualizzare l'applicazione in esecuzione.
 
     ![Visualizzazione dashboard](_img/azure-devops-project-github/dashboardnopreview.png) 
     
@@ -79,41 +77,41 @@ Il progetto DevOps di Azure configura automaticamente un trigger di compilazione
 
 ## <a name="commit-changes-to-github-and-automatically-deploy-to-azure"></a>Eseguire il commit delle modifiche in GitHub e la distribuzione automatica in Azure 
 
-A questo punto, si è pronti per collaborare con un team a un'app con un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.  Ogni modifica al repository GitHub avvia una compilazione in VSTS e una definizione di gestione del rilascio VSTS esegue una distribuzione in Azure.
+A questo punto, si è pronti per collaborare con un team a un'app con un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.  Ogni modifica al repository GitHub avvia una compilazione in DevOps di Azure e una pipeline di CD di DevOps di Azure esegue una distribuzione in Azure.
 
 1.  Apportare una modifica all'applicazione ed eseguire il **commit** della modifica nel repository GitHub.
-2.  Dopo alcuni istanti, viene avviata una compilazione in VSTS.  È possibile monitorare lo stato della compilazione con il dashboard del progetto DevOps oppure nel browser con l'account VSTS.
+2.  Dopo alcuni istanti, viene avviata una compilazione in Azure DevOps Services.  È possibile monitorare lo stato della compilazione con il dashboard di Progetto DevOps di Azure oppure nel browser con l'organizzazione di Azure DevOps Services.
 3.  Dopo il completamento della compilazione, **aggiornare l'applicazione** nel browser per verificare le modifiche.
 
-## <a name="examine-the-vsts-cicd-pipeline"></a>Esaminare la pipeline di CI/CD VSTS
+## <a name="examine-the-azure-devops-services-cicd-pipeline"></a>Esaminare la pipeline CI/CD di Azure DevOps Services
 
-Il progetto DevOps di Azure ha configurato automaticamente una pipeline di CI/CD VSTS completa nell'account VSTS.  Esplorare e personalizzare la pipeline in base alle esigenze.  Attenersi alla procedura seguente per acquisire familiarità con le definizioni di compilazione e di versione di VSTS.
+Il progetto DevOps di Azure configura automaticamente una pipeline CI/CD di Azure DevOps Services nell'organizzazione di Azure DevOps Services.  Esplorare e personalizzare la pipeline in base alle esigenze.  Attenersi alla procedura seguente per acquisire familiarità con le pipeline di compilazione e di versione di Azure DevOps Services.
 
-1. Selezionare **Pipeline di compilazione** nella parte **superiore** del dashboard del progetto DevOps di Azure.  Questo collegamento apre una scheda del browser e la definizione di compilazione VSTS per il nuovo progetto.
+1. Selezionare **Pipeline di compilazione** nella parte **superiore** del dashboard del progetto DevOps di Azure.  Questo collegamento apre una scheda del browser e la pipeline di compilazione di Azure DevOps Services per il nuovo progetto.
 
-1. Spostare il cursore del mouse a destra della definizione di compilazione accanto al campo **Stato**. Selezionare i **puntini di sospensione** visualizzati.  Questa azione apre un menu da cui è possibile avviare diverse attività, ad esempio accodare una nuova compilazione, sospendere una compilazione e modificare la definizione di compilazione.
+1. Spostare il cursore del mouse a destra della pipeline di compilazione accanto al campo **Stato**. Selezionare i **puntini di sospensione** visualizzati.  Questa azione apre un menu da cui è possibile avviare diverse attività, ad esempio accodare una nuova compilazione, sospendere una compilazione e modificare la pipeline di compilazione.
 
 1. Selezionare **Modifica**.
 
-1. In questa visualizzazione **esaminare le diverse attività** per la definizione di compilazione.  La compilazione esegue diverse attività, ad esempio il recupero delle origini dal repository Git, il ripristino delle dipendenze e la pubblicazione degli output usati per le distribuzioni.
+1. In questa visualizzazione **esaminare le diverse attività** per la pipeline di compilazione.  La compilazione esegue diverse attività, ad esempio il recupero delle origini dal repository Git, il ripristino delle dipendenze e la pubblicazione degli output usati per le distribuzioni.
 
-1. Nella parte superiore della definizione di compilazione selezionare il **nome della definizione di compilazione**.
+1. Nella parte superiore della pipeline di compilazione, selezionare il **nome della pipeline di compilazione**.
 
-1. Modificare il **nome** della definizione di compilazione scegliendo un testo più descrittivo.  Selezionare **Salva e accoda** e quindi **Salva**.
+1. Modificare il **nome** della pipeline di compilazione scegliendo un testo più descrittivo.  Selezionare **Salva e accoda** e quindi **Salva**.
 
-1. Sotto il nome della definizione di compilazione selezionare **Cronologia**.  Verrà visualizzato un log di controllo delle modifiche recenti per la compilazione.  VSTS tiene traccia di tutte le modifiche apportate alla definizione di compilazione e consente di confrontare le versioni.
+1. Sotto il nome della pipeline di compilazione selezionare **Cronologia**.  Verrà visualizzato un log di controllo delle modifiche recenti per la compilazione.  Azure DevOps Services tiene traccia di tutte le modifiche apportate alla pipeline di compilazione e consente di confrontare le versioni.
 
-1. Selezionare **Trigger**.  Il progetto DevOps di Azure ha creato automaticamente un trigger di integrazione continua e ogni commit nel repository avvia una nuova compilazione.  Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
+1. Selezionare **Trigger**.  Progetto Azure DevOps ha creato automaticamente un trigger di CI e ogni commit nel repository avvia una nuova compilazione.  Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
 
 1. Selezionare **Conservazione**.  In base allo scenario specifico, è possibile indicare i criteri per conservare o rimuovere un determinato numero di compilazioni.
 
-1. Selezionare **Compilazione e versione** e quindi scegliere **Versioni**.  Il progetto DevOps di Azure ha creato una definizione di versione VSTS per gestire le distribuzioni in Azure.
+1. Selezionare **Compilazione e versione** e quindi scegliere **Versioni**.  Il progetto DevOps di Azure ha creato una pipeline di versione di Azure DevOps Services per gestire le distribuzioni in Azure.
 
-1. Sul lato sinistro del browser selezionare i **puntini di sospensione** accanto alla definizione di versione e quindi scegliere **Modifica**.
+1. Sul lato sinistro del browser selezionare i **puntini di sospensione** accanto alla pipeline di versione e quindi scegliere **Modifica**.
 
-1. La definizione di versione contiene una **pipeline** che definisce il processo per la versione.  In **Artefatti** selezionare **Elimina**.  La definizione di compilazione esaminata nei passaggi precedenti produce l'output usato per l'artefatto. 
+1. La pipeline di versione contiene una **pipeline** che definisce il processo per la versione.  In **Artefatti** selezionare **Elimina**.  La pipeline di compilazione esaminata nei passaggi precedenti produce l'output usato per l'artefatto. 
 
-1. A destra dell'icona **Elimina** selezionare **Trigger di distribuzione continua**.  Questa definizione di versione ha un trigger di distribuzione continua abilitato, che esegue una distribuzione ogni volta che è disponibile un nuovo artefatto di compilazione.  Facoltativamente, è possibile disabilitare il trigger, in modo che le distribuzioni richiedano l'esecuzione manuale. 
+1. A destra dell'icona **Elimina** selezionare **Trigger di distribuzione continua**.  Questa pipeline di versione ha un trigger di distribuzione continua abilitato, che esegue una distribuzione ogni volta che è disponibile un nuovo artefatto di compilazione.  Facoltativamente, è possibile disabilitare il trigger, in modo che le distribuzioni richiedano l'esecuzione manuale. 
 
 1. Sul lato sinistro del browser selezionare **Attività**.  Le attività sono le operazioni eseguite dal processo di distribuzione.  In questo esempio è stata creata un'attività per la distribuzione in **Servizio app di Azure**.
 
@@ -159,17 +157,17 @@ Quando Servizio app di Azure e le risorse correlate create in questa guida intro
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Quando è stato configurato il processo di CI/CD in questa esercitazione, sono state create automaticamente definizioni di compilazione e di versione nel progetto VSTS. È possibile modificare queste definizioni di compilazione e di versione in base alle esigenze del team. Si è appreso come:
+Quando è stato configurato il processo di CI/CD in questa esercitazione, sono state create automaticamente pipeline di compilazione e di versione nel progetto DevOps di Azure. È possibile modificare queste pipeline di compilazione e di versione in base alle esigenze del team. Si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un progetto DevOps di Azure
 > * Configurare l'accesso al repository GitHub e scegliere un framework
-> * Configurare VSTS e una sottoscrizione di Azure 
+> * Configurare Azure DevOps Services e una sottoscrizione di Azure 
 > * Eseguire il commit delle modifiche in GitHub e la distribuzione automatica in Azure
-> * Esaminare la pipeline di CI/CD VSTS
+> * Esaminare la pipeline CI/CD di Azure DevOps Services
 > * Configurare il monitoraggio di Azure Application Insights
 
-Per altre informazioni sulla pipeline VSTS, vedere questa esercitazione:
+Per altre informazioni sulla pipeline CI/CD di Azure DevOps Services, vedere questa esercitazione:
 
 > [!div class="nextstepaction"]
-> [Personalizzare il processo di distribuzione continua](https://docs.microsoft.com/vsts/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalizzare il processo di distribuzione continua](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)

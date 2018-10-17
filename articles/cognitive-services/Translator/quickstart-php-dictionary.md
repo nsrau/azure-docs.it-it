@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Trovare traduzioni alternative con PHP | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con PHP in Servizi cognitivi.
+title: 'Guida introduttiva: Trovare traduzioni alternative - Traduzione testuale, PHP'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 3f3f98d42a327602352735db97ad1844061aa3a2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 85b19be02ed019a9834783c8f6c951593e0fd0d5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43771094"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123097"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-php"></a>Guida introduttiva: Trovare traduzioni alternative ed esempi d'uso con PHP
 

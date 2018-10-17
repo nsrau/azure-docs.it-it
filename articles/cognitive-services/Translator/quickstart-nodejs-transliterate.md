@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Convertire testo da un sistema di scrittura a un altro con Node.js | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale con Node.js in Servizi cognitivi.
+title: 'Guida introduttiva: Convertire script di testo - Traduzione testuale, Node.js'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale con Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: b16af911e5822deaa7cc7bcfe792245ae154eb26
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 53ebcd6c37141a783303dd71666d5c8d4805ca49
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770833"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127694"
 ---
 # <a name="quickstart-transliterate-text-with-nodejs"></a>Guida introduttiva: Traslitterare testo con Node.js
 

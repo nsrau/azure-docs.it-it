@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Convertire testo da un sistema di scrittura a un altro con Python | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale con Python in Servizi cognitivi.
+title: 'Guida introduttiva: Convertire script di testo - Traduzione testuale, Python'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale con Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 41fb0f72c5974a1ab034680a820dca6aa7bbdc6d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 24fe0dc23703bdca4ce74ba1a527990a70ac2ffc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770882"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122112"
 ---
 # <a name="quickstart-transliterate-text-with-python"></a>Guida introduttiva: Traslitterare testo con Python
 

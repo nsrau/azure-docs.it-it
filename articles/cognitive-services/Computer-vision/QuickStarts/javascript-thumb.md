@@ -1,41 +1,45 @@
 ---
-title: API Visione artificiale - Guida introduttiva a JavaScript | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si genera un'anteprima da un'immagine usando Visione artificiale con JavaScript in Servizi cognitivi.
+title: "Guida introduttiva: Generare un'anteprima - REST, JavaScript - Visione artificiale"
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si genererà l'anteprima di un'immagine usando l'API Visione artificiale con JavaScript.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 60da5216ed6b1bfc8d5e5ec04c02e93e1e85335c
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: ef0cdad796623b4453f71e8b593ba4304a41ee0f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43772156"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629455"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-javascript"></a>Guida introduttiva: Generare un'anteprima - REST, JavaScript
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-javascript-in-computer-vision"></a>Guida introduttiva: Generare un'anteprima con l'API REST e JavaScript in Visione artificiale
 
-In questa guida introduttiva si genera un'anteprima da un'immagine usando Visione artificiale.
+In questa guida introduttiva si genererà l'anteprima di un'immagine usando l'API REST di Visione artificiale. Il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) consente di generare l'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale usa il ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare Visione artificiale, è necessario avere una chiave di sottoscrizione. A tale scopo, vedere [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Come ottenere chiavi di sottoscrizione).
+È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="get-thumbnail-request"></a>Richiesta di generazione di un'anteprima
+## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
-Con il [metodo Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), è possibile generare un'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale usa il ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
+Per creare ed eseguire l'esempio, seguire questa procedura:
 
-Per eseguire l'esempio, seguire questa procedura:
-
-1. Copiare il codice seguente e salvarlo in un file, ad esempio `thumbnail.html`.
-1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modificare il valore di `uriBase` impostando l'indirizzo in cui si sono ottenute le chiavi di sottoscrizione, se necessario.
-1. Selezionare il file e trascinarlo nel browser.
-1. Fare clic sul pulsante `Generate thumbnail`.
+1. Copiare il codice seguente in un editor di testo.
+1. Apportare le modifiche seguenti al codice, dove necessario:
+    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
+    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
+    1. Facoltativamente, sostituire il valore dell'attributo `value` relativo al controllo `inputImage` con l'URL di un'altra immagine da analizzare.
+1. Salvare il codice in un file con estensione `.html`. Ad esempio: `get-thumbnail.html`.
+1. Aprire una finestra del browser.
+1. Trascinare e rilasciare il file nella finestra del browser.
+1. Quando nel browser viene visualizzata la pagina Web, scegliere il pulsante **Generate thumbnail** (Genera anteprima).
 
 ```html
 <!DOCTYPE html>
@@ -54,11 +58,12 @@ Per eseguire l'esempio, seguire questa procedura:
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
@@ -155,19 +160,17 @@ Image for thumbnail:
 </html>
 ```
 
-## <a name="get-thumbnail-response"></a>Risposta alle richiesta di generazione di un'anteprima
+## <a name="examine-the-response"></a>Esaminare i risultati
 
-Una risposta con esito positivo contiene il file binario dell'immagine di anteprima. Se invece la richiesta ha esito negativo, la risposta contiene un codice di errore e un messaggio per determinarne la causa. Il testo seguente presenta un esempio di risposta con esito positivo.
+Una risposta positiva è costituita dai dati binari che rappresentano i dati dell'immagine per l'anteprima. Se la richiesta ha esito positivo, l'anteprima viene generata dai dati binari della risposta e visualizzata nella finestra del browser. Se la richiesta ha esito negativo, la risposta viene visualizzata nella finestra della console. La risposta a una richiesta con esito negativo contiene un codice di errore e un messaggio utile per determinarne la causa.
 
-```text
-Response:
+## <a name="clean-up-resources"></a>Pulire le risorse
 
-"Content-Type: image/jpeg\r\n"
-```
+Quando non è più necessario, eliminare il file.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare un'applicazione JavaScript che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente le API Visione artificiale, provare la [console di test delle API aperta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare un'applicazione JavaScript che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Esercitazione in JavaScript per l'API Visione artificiale](../Tutorials/javascript-tutorial.md)

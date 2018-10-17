@@ -1,31 +1,31 @@
 ---
-title: Avvio rapido di Ruby per Servizi cognitivi di Azure, API Ricerca entità Bing | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Ricerca entità Bing in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: API Ricerca entità Bing, Ruby'
+titlesuffix: Azure Cognitive Services
+description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Ricerca entità Bing.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 0b47430886e70421e51438b56decc9b86d88d0fb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7e2b3fa520c17bb85fa04ca12bb762ce8f370371
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377345"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814458"
 ---
-# <a name="quickstart-for-microsoft-bing-entity-search-api-with-ruby"></a>Avvio rapido per l'API Ricerca entità Microsoft Bing con Ruby 
-<a name="HOLTop"></a>
+# <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Guida introduttiva all'API Ricerca entità Bing con Ruby
 
 Questo articolo spiega come usare l'[API Ricerca entità Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) con Ruby.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire il codice è necessario [Ruby 2.4](https://www.ruby-lang.org/en/downloads/) o versioni successive.
 
-È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Ricerca entità Bing**. Per questo Avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+È necessario avere un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Ricerca entità Bing**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 
 ## <a name="search-entities"></a>Entità di ricerca
 
@@ -33,7 +33,7 @@ Per eseguire l'applicazione seguire questa procedura.
 
 1. Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore `key` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```ruby
@@ -69,7 +69,7 @@ puts JSON::pretty_generate (JSON (response.body))
 
 **Risposta**
 
-Una risposta con esito positivo viene restituita in JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
 
 ```json
 {
@@ -138,5 +138,5 @@ Una risposta con esito positivo viene restituita in JSON, come illustrato nell'e
 
 > [!div class="nextstepaction"]
 > [Esercitazione su Ricerca entità Bing](../tutorial-bing-entities-search-single-page-app.md)
-> [Panoramica su Ricerca entità Bing entità](../search-the-web.md )
+> [Panoramica su Ricerca entità Bing](../search-the-web.md )
 > [Informazioni di riferimento per l'API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

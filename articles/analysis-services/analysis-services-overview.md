@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/21/2018
+ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: a23e9dc8fad52bac85de834c53d2c710423211c7
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937938"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269242"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -39,7 +39,7 @@ Azure Analysis Services è disponibile nei livelli **Developer**, **Basic** e **
 
 ### <a name="developer-tier"></a>Livello Developer
 
-Questo livello è consigliato per gli scenari di valutazione, sviluppo e test. Un singolo piano include le stesse funzionalità del livello Standard, ma con limitazioni per potenza di elaborazione, QPU e dimensioni della memoria. L'aumento del numero di istanze delle repliche delle query non è disponibile per questo livello. Questo livello non offre alcun Contratto di servizio.
+Questo livello è consigliato per gli scenari di valutazione, sviluppo e test. Un singolo piano include le stesse funzionalità del livello Standard, ma con limitazioni per potenza di elaborazione, QPU e dimensioni della memoria. L'aumento del numero di istanze delle repliche delle query *non è disponibile* per questo livello. Questo livello non offre alcun Contratto di servizio.
 
 |Pianificazione  |QPU  |Memoria (GB)  |
 |---------|---------|---------|
@@ -81,13 +81,13 @@ Azure Analysis Services è supportato in aree di tutto il mondo. La disponibilit
 |Brasile meridionale     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canada centrale    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Stati Uniti orientali     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|Stati Uniti orientali 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|Stati Uniti orientali 2     |     B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>1    |
 |Stati Uniti centro-settentrionali     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Stati Uniti centrali     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Stati Uniti centro-meridionali     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Stati Uniti centro-occidentali   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
-|Stati Uniti occidentali     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
-|Stati Uniti occidentali 2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
+|Stati Uniti occidentali     |    B1, B2, S0, S1, S2, S4, D1  <br>S8, S9   |    7<br>2  |
+|Stati Uniti occidentali 2    |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9  |    3<br>1     |
 
 ### <a name="europe"></a>Europa
 
@@ -95,18 +95,17 @@ Azure Analysis Services è supportato in aree di tutto il mondo. La disponibilit
 |---------|---------|:---------:|
 |Europa settentrionale     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Regno Unito meridionale   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Europa occidentale     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
+|Europa occidentale     |    B1, B2, S0, S1, S2, S4, D1   <br>S8, S9    |    7<br>1     |
 
 ### <a name="asia-pacific"></a>Asia/Pacifico 
 
 |Region  | Piani supportati | Repliche delle query (solo piani Standard) |
 |---------|---------|:---------:|
-|Australia sudorientale     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Australia sud-orientale     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Australia orientale     |    B1, B2, S0, S1, S2, S4    <br>S8, S9    |    3<br>1     |
 |Giappone orientale  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Asia sudorientale     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
+|Asia sud-orientale     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   1      |
 |India occidentale     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-
-\* I piani S8 ed S9 nel livello Standard supportano una sola replica delle query.
 
 ## <a name="scale-to-your-needs"></a>Ridimensionare in base alle esigenze specifiche
 

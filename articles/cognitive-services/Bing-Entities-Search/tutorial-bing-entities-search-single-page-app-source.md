@@ -1,24 +1,25 @@
 ---
-title: Ricerca immagini Bing in un'app Web a pagina singola (codice sorgente)| Microsoft Docs
-description: Codice sorgente per un'esercitazione che illustra come usare l'API Ricerca immagini Bing in un'applicazione Web a pagina singola.
+title: "Esercitazione: Ricerca entità Bing in un'app Web a pagina singola (codice sorgente)"
+titlesuffix: Azure Cognitive Services
+description: Codice sorgente per un'esercitazione che illustra come usare l'API Ricerca entità Bing in un'applicazione Web a pagina singola.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 988d4c809fdfb528c9cef2b3cdbefa00c274d33e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 09cb10002be43d65ff10e3c238a880cf138aa064
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373028"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815053"
 ---
 # <a name="tutorial-single-page-web-app-source"></a>Esercitazione: Codice sorgente di un'app Web a pagina singola
 
-Qui è riportato il codice sorgente completo descritto nell'[esercitazione sull'app a pagina singola](tutorial-bing-entities-search-single-page-app.md) per l'API Ricerca immagini Bing. Per eseguire l'app, copiare il codice sorgente nel Blocco note o un altro editor di testo e salvarlo come `bing.html`. Quindi aprire il file salvato in Microsoft Edge o un altro browser comune.
+Questo è il codice sorgente completo descritto nell'[esercitazione sull'app a pagina singola](tutorial-bing-entities-search-single-page-app.md) per l'API Ricerca entità Bing. Per eseguire l'app, copiare il codice sorgente nel Blocco note o un altro editor di testo e salvarlo come `bing.html`. Quindi aprire il file salvato in Microsoft Edge o un altro browser comune.
 
 ```html
 <!DOCTYPE html>

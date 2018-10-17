@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7c78636a210ae90c5bfe1d0bfd35e4e05633f5cd
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188200"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419526"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Esercitazione: Creare un modello di Azure Resource Manager per la distribuzione di un account di archiviazione crittografato
 
@@ -30,9 +30,7 @@ Questa esercitazione illustra le attività seguenti:
 
 > [!div class="checklist"]
 > * Aprire un modello di avvio rapido
-> * Comprendere il formato del modello
-> * Usare i parametri nel modello
-> * Usare le variabili nel modello
+> * Comprendere il modello
 > * Modificare il modello
 > * Distribuire il modello
 
@@ -111,12 +109,17 @@ Per usare la variabile definita nel modello:
 
 ## <a name="edit-the-template"></a>Modificare il modello
 
-Per trovare la configurazione dell'account di archiviazione correlata alla crittografia, è possibile usare le informazioni di riferimento sui modelli dell'account di archiviazione di Azure.
+L'obiettivo di questa esercitazione consiste nel definire un modello per creare un account di archiviazione crittografato.  Il modello di esempio crea solo un account di archiviazione non crittografato di base. Per trovare la configurazione correlata alla crittografia, è possibile usare le informazioni di riferimento sui modelli dell'account di archiviazione di Azure.
 
 1. Passare a [Modelli di Azure](https://docs.microsoft.com/azure/templates/).
-2. Dal sommario a sinistra selezionare **Riferimento**->**Archiviazione**->**Account di archiviazione**. La pagina contiene le informazioni per la definizione di un account di archiviazione.
-3. Esplorare le informazioni relative alla crittografia.  
-4. All'interno dell'elemento properties della definizione di risorsa dell'account di archiviazione, aggiungere il codice JSON seguente:
+2. In **Filtra per titolo**, immettere **account di archiviazione**.
+3. Selezionare **Riferimento/Riferimento al modello/Archiviazione/ Account di archiviazione** come illustrato nello screenshot seguente:
+
+    ![Account di archiviazione di riferimento al modello di Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-template-resources-reference-storage-accounts
+1. Esplorare le informazioni relative alla crittografia.  
+1. All'interno dell'elemento properties della definizione di risorsa dell'account di archiviazione, aggiungere il codice JSON seguente:
 
     ```json
     "encryption": {
@@ -130,59 +133,17 @@ Per trovare la configurazione dell'account di archiviazione correlata alla critt
     ```
     Questa parte abilita la funzione di crittografia del servizio di archiviazione BLOB.
 
-L'aspetto finale dell'elemento resources è simile al seguente:
+In Visual Studio Code modificare il modello in modo che l'elemento finale delle risorse sia simile al seguente:
 
 ![Account di archiviazione crittografato del modello di Resource Manager - risorse](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Per distribuire i modelli sono disponibili molti metodi.  In questa esercitazione si usa Cloud Shell dal portale di Azure. Cloud Shell supporta sia l'interfaccia della riga di comando di Azure che Azure PowerShell. Le istruzioni riportate di seguito riguardano l'interfaccia della riga di comando.
+Vedere la sezione [Distribuire il modello](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) della guida introduttiva di Visual Studio Code per la procedura di distribuzione.
 
-1. Accedere al [portale di Azure](https://portal.azure.com)
-2. Selezionare **Cloud Shell** nell'angolo superiore destro come illustrato nell'immagine seguente:
+Lo screenshot seguente mostra il comando dell'interfaccia della riga di comando per elencare l'account di archiviazione appena creato, che indica che la crittografia è stata abilitata per l'archiviazione BLOB.
 
-    ![Cloud Shell nel portale di Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell.png)
-
-3. Selezionare la freccia rivolta verso il basso e quindi selezionare **Bash** se non è Bash. In questa esercitazione si usa l'interfaccia della riga di comando di Azure.
-
-    ![Interfaccia della riga di comando in Cloud Shell nel portale di Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-choose-cli.png)
-4. Selezionare **Riavvia** per riavviare la shell.
-5. Selezionare **Carica/Scarica file** e quindi **Carica**.
-
-    ![Caricare file in Cloud Shell nel portale di Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-upload-file.png)
-6. Selezionare il file salvato in precedenza in questa esercitazione. Il nome predefinito è **azuredeploy.json**.
-7. In Cloud Shell eseguire il comando **ls** per verificare che il file sia stato caricato. È anche possibile usare il comando **cat** per verificare il contenuto del modello.
-
-    ![Elencare file in Cloud Shell nel portale di Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-list-file.png)
-8. In Cloud Shell eseguire questi comandi:
-
-    ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file azuredeploy.json
-    ```
-    Di seguito è riportato lo screenshot di una distribuzione di esempio:
-
-    ![Distribuire il modello in Cloud Shell nel portale di Azure](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-deploy-template.png)
-
-    Nello screenshot vengono usati i valori riportati di seguito.
-
-    * **&lt;ResourceGroupName>**: myresourcegroup0719. Sono presenti due occorrenze del parametro.  Assicurarsi di usare lo stesso valore.
-    * **&lt;AzureLocation>**: eastus2
-    * **&lt;DeployName>**: mydeployment0719
-    * **&lt;TemplateFile>**: azuredeploy.json
-
-    Nell'output dello screenshot, il nome dell'account di archiviazione è *fhqbfslikdqdsstandardsa*. 
-
-9. Eseguire questo comando di PowerShell per visualizzare l'account di archiviazione appena creato:
-
-    ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
-    ```
-
-    Verrà visualizzato un output simile allo screenshot seguente, che indica che la crittografia è stata abilitata per l'archiviazione BLOB.
-
-    ![Account di archiviazione crittografato di Azure Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
+![Account di archiviazione crittografato di Azure Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -195,7 +156,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato descritto come usare le informazioni di riferimento sui modelli per personalizzare un modello esistente. Il modello usato in questa esercitazione contiene una sola risorsa di Azure.  Nell'esercitazione successiva verrà sviluppato un modello con più risorse,  alcune con risorse dipendenti.
+In questa esercitazione è stato descritto come usare le informazioni di riferimento sui modelli per personalizzare un modello esistente. Per informazioni su come creare più istanze dell'account di archiviazione, vedere:
 
 > [!div class="nextstepaction"]
-> [Creare più risorse](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Creare più istanze](./resource-manager-tutorial-create-multiple-instances.md)

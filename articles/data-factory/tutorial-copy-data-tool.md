@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1be4769a8a07ac5d4a968ed5aa15ed2e0a2b6db2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c1f94c04db69ad44203ef1ada1c3b9fa3df2d779
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086827"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718090"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copiare dati da un archivio BLOB di Azure a un database SQL con lo strumento Copia dati
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -72,13 +72,7 @@ Preparare l'archivio BLOB e il database SQL per l'esercitazione seguendo questa 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Consentire ai servizi di Azure di accedere a SQL Server. Verificare che per il server che esegue SQL Server sia abilitata l'impostazione **Consenti l'accesso a Servizi di Azure**, che consente a Data Factory di scrivere dati nell'istanza di SQL Server. Per verificare e attivare l'impostazione, seguire questa procedura:
-
-    a. A sinistra selezionare **Altri servizi** e quindi **SQL Server**.
-
-    b. Selezionare il server e quindi **IMPOSTAZIONI** > **Firewall**.
-
-    c. Nella pagina **Impostazioni del firewall** impostare l'opzione **Consenti l'accesso a Servizi di Azure** su **SÌ**.
+2. Consentire ai servizi di Azure di accedere a SQL Server. Verificare che per il server che esegue il database SQL sia abilitata l'impostazione **Consenti l'accesso a Servizi di Azure**, che consente a Data Factory di scrivere dati nell'istanza di database. Per verificare e attivare l'impostazione, passare a: server di Azure SQL > **Sicurezza** > **Firewall e reti virtuali** > impostare l'opzione **Consenti l'accesso a Servizi di Azure** su **ON**.
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 

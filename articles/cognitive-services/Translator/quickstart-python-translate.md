@@ -1,21 +1,21 @@
 ---
-title: 'Traduzione testuale: Tradurre testo con Python | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale con Python in Servizi cognitivi.
+title: 'Guida introduttiva: Tradurre testo - Traduzione testuale, Python'
+titleSuffix: Azure Cognitive Services
+description: In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale con Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 8f70ffb77e21131990d6b77a1cb13c9d5c054d06
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: cd1941c0a815d959f3e2e98fdd809062f4e01014
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43770865"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129194"
 ---
 # <a name="quickstart-translate-text-with-python"></a>Guida introduttiva: Tradurre testo con Python
 

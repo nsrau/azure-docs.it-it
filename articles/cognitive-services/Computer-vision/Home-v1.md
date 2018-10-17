@@ -1,26 +1,27 @@
 ---
-title: API Visione artificiale per Servizi cognitivi Microsoft | Microsoft Docs
-description: Usare gli algoritmi avanzati dell'API Visione artificiale che consentono di elaborare immagini e restituire informazioni in Servizi cognitivi Microsoft.
+title: Che cos'è l'API Visione artificiale?
+titlesuffix: Azure Cognitive Services
+description: L'API Visione artificiale consente agli sviluppatori di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione delle informazioni.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 86e0441c600162e479c678d3cb1dbeaad423ddb5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377220"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982104"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Informazioni sull'API Visione artificiale versione 1.0?
 
 > [!IMPORTANT]
 > Per informazioni sulla nuova versione dell'API Visione artificiale, vedere:
->- [Panoramica](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
+>- [Overview](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
 >- [API Visione artificiale versione 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
 
 L'API Visione artificiale basata sul cloud consente agli sviluppatori di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione delle informazioni. Caricando un'immagine o specificando l'URL di un'immagine, gli algoritmi di Visione artificiale di Microsoft possono analizzare i contenuti visivi in diversi modi in base agli input e alle scelte dell'utente. L'API Visione artificiale consente agli utenti di eseguire queste operazioni:
@@ -48,7 +49,7 @@ L'API Visione artificiale restituisce tag basati su più di 2000 oggetti riconos
 Dopo il caricamento di un'immagine o la specifica di un URL dell'immagine, gli algoritmi dell'API Visione artificiale assegnano i tag in base a oggetti, essere umani e azioni identificati nell'immagine. L'assegnazione di tag non è limitata al soggetto principale, ad esempio una persona in primo piano, ma include anche scenari (interni o esterni), arredamenti, strumenti, piante, animali, accessori, gadget e così via.
 
 ### <a name="example"></a>Esempio
-![House_Yard](./Images/house_yard.jpg) '
+![House_Yard](./Images/house_yard.png) '
 
 ```json
 Returned Json
@@ -95,15 +96,15 @@ Oltre ai tag e alla descrizione, l'API Visione artificiale restituisce le catego
 ### <a name="the-86-category-concept"></a>Categoria basata su 86 concetti
 In base a un elenco di 86 concetti illustrati nel diagramma seguente, le caratteristiche visivi presenti in un'immagine possono essere classificate a partire da un concetto ampio fino ad arrivare a uno più specifico. Per la classificazione completa in formato testo, vedere [Category Taxonomy](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) (Tassonomia delle categorie).
 
-![Analisi delle categorie](./Images/analyze_categories.jpg)
+![Analisi delle categorie](./Images/analyze_categories.png)
 
-Immagine                                                  | Risposta
+Image                                                  | Risposta
 ------------------------------------------------------ | ----------------
-![Donna su un tetto](./Images/woman_roof.jpg)                 | people
-![Foto di famiglia](./Images/family_photo.jpg)             | people_crowd
-![Cucciolo di cane](./Images/cute_dog.jpg)                     | animal_dog
-![Panorama montano](./Images/mountain_vista.jpg)       | outdoor_mountain
-![Pane - Analisi visione](./Images/bread.jpg)       | food_bread
+![Donna su un tetto](./Images/woman_roof.png)                 | people
+![Foto di famiglia](./Images/family_photo.png)             | people_crowd
+![Cucciolo di cane](./Images/cute_dog.png)                     | animal_dog
+![Panorama montano](./Images/mountain_vista.png)       | outdoor_mountain
+![Pane - Analisi visione](./Images/bread.png)       | food_bread
 
 ## <a name="identifying-image-types"></a>Identificazione dei tipi di immagine
 Le immagini possono essere classificate in diversi modi. API Visione artificiale consente di impostare un flag booleano per indicare se un'immagine è in bianco e nero oppure a colori. L'API può anche impostare un flag per indicare se un'immagine è un disegno di linee o meno o se si tratta di un'immagine ClipArt e per indicarne la qualità, ad esempio in una scala compresa tra 0 e 3.
@@ -118,23 +119,23 @@ Valore | Significato
 2     | normal-clip-art
 3     | good-clip-art
 
-Immagine|Risposta
+Image|Risposta
 ----|----
-![ClipArt formaggio - Analisi visione](./Images/cheese_clipart.jpg)|3 good-clip-art
-![Casa con giardino - Analisi visione](./Images/house_yard.jpg)|0 Non-clip-art
+![ClipArt formaggio - Analisi visione](./Images/cheese_clipart.png)|3 good-clip-art
+![Casa con giardino - Analisi visione](./Images/house_yard.png)|0 Non-clip-art
 
 ### <a name="line-drawing-type"></a>Tipo disegno di linee
 Rileva se un'immagine è un disegno di linee o meno.
 
-Immagine|Risposta
+Image|Risposta
 ----|----
-![Disegno di leone - Analisi visione](./Images/lion_drawing.jpg)|True 
-![Fiore - Analisi visione](./Images/flower.jpg)|False
+![Disegno di leone - Analisi visione](./Images/lion_drawing.png)|True 
+![Fiore - Analisi visione](./Images/flower.png)|False
 
 ### <a name="faces"></a>Visi
 Rileva i visi in un'immagine e genera le coordinate del viso e il rettangolo per viso, genere ed età. Queste funzionalità visive sono un subset di metadati generati per il viso. Per altre informazioni sui metadati generati per i visi (identificazione del viso, rilevamento della posa e altro ancora), usare l'API Viso.  
 
-Immagine|Risposta
+Image|Risposta
 ----|----
 ![Viso di donna su tetto - Analisi visione](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
 ![Viso di mamma e figlia - Analisi visione](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
@@ -159,7 +160,7 @@ Esegue l'analisi per indicare dettagli aggiuntivi relativi alle categorie della 
 Gli algoritmi dell'API Visione artificiale analizzano il contenuto in un'immagine. Tale analisi costituisce la base per una descrizione visualizzata come linguaggio leggibile dall'utente in frasi complete. La descrizione riepiloga gli elementi trovati nell'immagine. Gli algoritmi dell'API Visione artificiale generano descrizioni diverse in base agli oggetti identificati nell'immagine. Tutte le descrizioni vengono valutate e per ognuna viene generato un punteggio di attendibilità. Viene quindi restituito un elenco dei punteggi di attendibilità in ordine decrescente. Un esempio di un bot che usa questa tecnologia per generare didascalie di immagine è disponibile [qui](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ### <a name="example-description-generation"></a>Generazione di descrizioni di esempio
-![Edifici in bianco e nero](./Images/bw_buildings.jpg) '
+![Edifici in bianco e nero](./Images/bw_buildings.png) '
 ```json
  Returned Json
 
@@ -200,29 +201,29 @@ Gli algoritmi dell'API Visione artificiale analizzano il contenuto in un'immagin
 ## <a name="perceiving-color-schemes"></a>Percezione delle combinazioni di colori
 L'algoritmo di Visione artificiale estrae colori da un'immagine. I colori vengono analizzati in tre contesti diversi, ovvero primo piano, sfondo e complessivo. I colori vengono raggruppati in dodici colori principali dominanti, ovvero nero, blu, marrone, grigio, verde, arancione, rosa, viola, rosso, verde acqua, bianco e giallo. A seconda dei colori in un'immagine, il semplice bianco e nero oppure i colori principali possono essere restituiti in codici esadecimali.
 
-Immagine                                                       | Primo piano |Sfondo| Colori
+Image                                                       | Primo piano |Background| Colori
 ----------------------------------------------------------- | --------- | ------- | ------
-![Panorama montano](./Images/mountain_vista.jpg)            | Nero     | Nero   | Bianco
-![Fiore - Analisi visione](./Images/flower.jpg)               | Nero     | Bianco   | Bianco, nero, verde
-![Stazione ferroviaria - Analisi visione](./Images/train_station.jpg) | Nero     | Nero   | Nero
+![Panorama montano](./Images/mountain_vista.png)            | Nero     | Nero   | Bianco
+![Fiore - Analisi visione](./Images/flower.png)               | Nero     | Bianco   | Bianco, nero, verde
+![Stazione ferroviaria - Analisi visione](./Images/train_station.png) | Nero     | Nero   | Nero
 
 ### <a name="accent-color"></a>Colore principale
 Colore estratto da un'immagine pensato per rappresentare il colore più acceso tramite una combinazione di colori dominanti e di saturazione
 
-Immagine                                                       | Risposta
+Image                                                       | Risposta
 ----------------------------------------------------------- | ----
-![Panorama montano](./Images/mountain_vista.jpg)            | #BC6F0F
-![Fiore - Analisi visione](./Images/flower.jpg)               | #CAA501
-![Stazione ferroviaria - Analisi visione](./Images/train_station.jpg) | #484B83
+![Panorama montano](./Images/mountain_vista.png)            | #BC6F0F
+![Fiore - Analisi visione](./Images/flower.png)               | #CAA501
+![Stazione ferroviaria - Analisi visione](./Images/train_station.png) | #484B83
 
 
 ### <a name="black--white"></a>Bianco e nero
 Flag booleano che indica se un'immagine è in bianco e nero o meno.
 
-Immagine                                                      | Risposta
+Image                                                      | Risposta
 ---------------------------------------------------------- | ----
-![Edificio - Analisi visione](./Images/bw_buildings.jpg)      | True 
-![Casa con giardino - Analisi visione](./Images/house_yard.jpg)      | False
+![Edificio - Analisi visione](./Images/bw_buildings.png)      | True 
+![Casa con giardino - Analisi visione](./Images/house_yard.png)      | False
 
 ## <a name="flagging-adult-content"></a>Contrassegno di contenuti per adulti
 Le diverse categorie visive includono anche il gruppo di contenuto spinti e per adulti, che consente d rilevare materiali per adulti e di limitare la visualizzazione delle immagini con contenuto sessuale. Il filtro per il rilevamento del contenuto spinto e per adulti può essere impostato tramite un indicatore di scorrimento in base alle preferenze dell'utente.

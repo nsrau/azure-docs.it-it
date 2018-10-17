@@ -1,23 +1,23 @@
 ---
-title: Guida introduttiva all'SDK di Ricerca notizie Bing per Java | Microsoft Docs
-description: Informazioni su come configurare l'applicazione console dell'SDK di Ricerca notizie Bing.
+title: 'Guida introduttiva: Bing News Search SDK, Java'
 titleSuffix: Azure Cognitive Services
+description: Informazioni su come configurare l'applicazione console dell'SDK di Ricerca notizie Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: a6d4baf307fa3edcc0886d32204f2872fe310ce2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377916"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802478"
 ---
-# <a name="bing-news-search-sdk-java-quickstart"></a>Guida introduttiva all'SDK di Ricerca notizie Bing per Java
+# <a name="quickstart-bing-news-search-sdk-with-java"></a>Guida introduttiva: Bing News Search SDK con Java
 
 L'SDK di Ricerca notizie Bing assicura la funzionalità dell'API REST per query di notizie e analisi dei risultati. 
 

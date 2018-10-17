@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 3b187b5d776a099fd41e3db5b5c14c67f3ef9483
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: b965fea3d4f166b1a801dda7cafd8e4190790c68
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30325940"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45739505"
 ---
 Le opzioni di replica per un account di archiviazione includono:
 
-* [Archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md): la strategia di replica a basso costo e più semplice offerta da Archiviazione di Azure.
-* [Archiviazione con ridondanza della zona](../articles/storage/common/storage-redundancy-zrs.md): opzione semplice per durabilità e disponibilità elevata.
+* [Archiviazione con ridondanza locale](../articles/storage/common/storage-redundancy-lrs.md): una strategia di replica semplice e a basso costo. I dati vengono replicati all'interno di una singola unità di scala di archiviazione.
+* [Archiviazione con ridondanza della zona](../articles/storage/common/storage-redundancy-zrs.md): replica per durabilità e disponibilità elevata. I dati vengono replicati in modo sincrono in tre zone di disponibilità. 
 * [Archiviazione con ridondanza geografica](../articles/storage/common/storage-redundancy-grs.md): replica tra più aree per evitare eventi di indisponibilità a livello di area.
 * [Archiviazione con ridondanza geografica e accesso in lettura](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage): replica tra più aree con accesso in lettura alla replica.

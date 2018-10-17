@@ -1,30 +1,37 @@
 ---
-title: Uso del Servizio visione artificiale personalizzato da un'applicazione C# - Servizi cognitivi di Azure | Microsoft Docs
-description: In questa esercitazione si esplora un'applicazione di base C# che usa l'API Visione artificiale personalizzata in Servizi cognitivi Microsoft. Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
+title: "Esercitazione: Creare un'app Windows per il Servizio visione artificiale personalizzato con C#"
+titlesuffix: Azure Cognitive Services
+description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 80cb022808748ed2c60dff7c363d6020cb4043a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374721"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366642"
 ---
-# <a name="use-the-custom-vision-service-from-a-c35-application"></a>Usare il Servizio visione artificiale personalizzato da un'applicazione C&#35;
+# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Esercitazione: Usare il Servizio visione artificiale personalizzato da un'applicazione C#
 
 Informazioni su come usare il Servizio visione artificiale personalizzato da un'applicazione C#. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app per Windows usando l'API Servizio visione artificiale personalizzato.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-* Qualsiasi edizione di Visual Studio 2015 o 2017 per Windows.
+* Qualsiasi edizione di Visual Studio 2017 per Windows.
 
-* L' [SDK del Servizio visione artificiale personalizzato](http://github.com/Microsoft/Cognitive-CustomVision-Windows/). Include l'esempio e le immagini usate in questo documento.
+## <a name="get-the-custom-vision-sdk-and-samples"></a>Ottenere l'SDK e gli esempi di Visione personalizzata
+Per compilare questo esempio sono necessari i pacchetti NuGet dell'SDK del Servizio visione artificiale personalizzato:
+
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+
+È possibile scaricare le immagini con gli [esempi per C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
 
 ## <a name="get-the-training-and-prediction-keys"></a>Ottenere le chiavi di training e di stima
 

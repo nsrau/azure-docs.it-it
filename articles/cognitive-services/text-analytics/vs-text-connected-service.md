@@ -1,23 +1,23 @@
 ---
-title: Esercitazione in C# di Analisi del testo | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 'Esercitazione: Analisi del testo con C#'
+titleSuffix: Azure Cognitive Services
 description: Connettersi ad Analisi del testo da un'applicazione Web ASP.NET Core.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: conceptual
-ms.date: 06/01/2018
+ms.topic: tutorial
+ms.date: 09/12/2018
 ms.author: ghogen
-ms.openlocfilehash: eb9730f785b01a620e36a265216488c401eac63a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 95de174087fb2a73ad6c75a2e96caf872c351854
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068489"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605233"
 ---
-# <a name="connect-to-the-text-analytics-service-by-using-connected-services-in-visual-studio"></a>Connettersi al servizio Analisi del testo usando Servizi connessi in Visual Studio
+# <a name="tutorial-connect-to-the-text-analytics-cognitive-service-by-using-connected-services-in-visual-studio"></a>Esercitazione: Connettersi al servizio cognitivo Analisi del testo usando Servizi connessi in Visual Studio
 
 Grazie al servizio Analisi del testo è possibile estrarre informazioni complete per categorizzare ed elaborare i dati visuali ed eseguire la moderazione delle immagini basata su Machine Learning per aiutare a gestire i servizi.
 
