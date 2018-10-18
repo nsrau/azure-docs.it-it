@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288255"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318538"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Servizio di controllo di Azure SQL Data Warehouse
 
@@ -112,7 +112,7 @@ Prima di impostare il controllo verificare che si stia utilizzando un ["Client d
 
 ## <a id="subheading-3"></a>Analizzare i log di controllo e i report
 
-###<a name="server-level-policy-audit-logs"></a>Log di controllo dei criteri a livello di server
+### <a name="server-level-policy-audit-logs"></a>Log di controllo dei criteri a livello di server
 I log di controllo a livello di server vengono scritti nei **BLOB di accodamento**  nell'archivio BLOB di Azure della sottoscrizione di Azure. Questi log vengono salvati come raccolta di file BLOB in un contenitore denominato **sqldbauditlogs**.
 
 Per altri dettagli sulla gerarchia della cartella di archiviazione, le convenzioni di denominazione e il formato dei log, vedere le [informazioni di riferimento sul formato dei log del controllo BLOB](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -147,7 +147,7 @@ Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>Log di controllo dei criteri a livello di database
+### <a name="database-level-policy-audit-logs"></a>Log di controllo dei criteri a livello di database
 I log di controllo a livello di database vengono aggregati in una raccolta di tabelle di archiviazione con il prefisso **SQLDBAuditLogs** nell'account di archiviazione di Azure scelto durante l'installazione. È possibile visualizzare i file di log con uno strumento come [Esplora archivi di Azure](http://azurestorageexplorer.codeplex.com).
 
 È possibile scaricare un modello di report dashboard preconfigurato in formato [foglio di calcolo di Excel](http://go.microsoft.com/fwlink/?LinkId=403540), che consente di analizzare rapidamente i dati di log. Per usare il modello nei log di controllo sono necessari Excel 2013 o versione successiva e Power Query, disponibile per il download [qui](http://www.microsoft.com/download/details.aspx?id=39379).

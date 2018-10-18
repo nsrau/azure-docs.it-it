@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001804"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390024"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Come integrare Gestione API di Azure con Azure Application Insights
 
@@ -37,7 +37,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 2. Fare clic su **+ Aggiungi**.  
     ![Creazione di Application Insights](media/api-management-howto-app-insights/apim-app-insights-instance-2.png)  
 3. Compilare il modulo. Selezionare **Generale** come **tipo di applicazione**.
-4. Fare clic su **Crea**.
+4. Fare clic su **Create**(Crea).
 
 ## <a name="create-a-connection-between-azure-application-insights-and-azure-api-management-service-instance"></a>Creare una connessione tra Azure Application Insights e l'istanza del servizio Gestione API di Azure
 
@@ -46,12 +46,12 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 3. Fare clic su **+ Aggiungi**.  
     ![Logger di Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-1.png)  
 4. Selezionare l'istanza di **Application Insights** creata in precedenza e immettere una breve descrizione.
-5. Fare clic su **Crea**.
+5. Fare clic su **Create**(Crea).
 6. È appena stato creato un logger di Azure Application Insights con una chiave di strumentazione. Verrà ora visualizzato nell'elenco.  
     ![Logger di Application Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> A parte, viene creata un'entità [Logger](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) nell'istanza di gestione API, contenente la chiave di strumentazione dell'istanza di Application Insights.
+> A parte, viene creata un'entità [Logger](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) nell'istanza di gestione API, contenente la chiave di strumentazione dell'istanza di Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Abilitare la registrazione di Application Insights per l'API
 
@@ -68,7 +68,7 @@ Prima di poter usare Azure Application Insights, è necessario creare un'istanza
 10. Fare clic su **Save**.
 
 > [!NOTE]
-> A parte viene creata un'entità [Diagnostica](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) denominata "applicationinsights" a livello di API.
+> A parte viene creata un'entità [Diagnostica](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) denominata "applicationinsights" a livello di API.
 
 | Nome impostazione                        | Tipo di valore                        | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -115,7 +115,13 @@ In base ai test di carico interni, l'abilitazione di questa funzionalità ha cau
 
 Evitando di registrare le intestazioni e il corpo di richieste e risposte, si riducono considerevolmente anche i problemi di prestazioni.
 
+## <a name="video"></a>Video
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ Altre informazioni su [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
++ Altre informazioni su [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
 + Considerare la possibilità di eseguire la [registrazione con Hub eventi di Azure](api-management-howto-log-event-hubs.md).

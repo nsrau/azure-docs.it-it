@@ -3,19 +3,19 @@ title: "Guida introduttiva: Rilevare i visi in un'immagine - API Viso, Go"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API Viso con Go per rilevare i visi in un'immagine.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/25/2018
-ms.author: nolachar
-ms.openlocfilehash: 0c8a70153ac9a54f3e46e5fb1a2ee3404a960dd3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: 1717d32f679d0f5196d8ff03a27415c9e41e0c23
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125426"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344951"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-go"></a>Guida introduttiva: rilevare i visi in un'immagine con Go
 

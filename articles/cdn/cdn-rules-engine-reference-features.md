@@ -3,8 +3,8 @@ title: Funzionalità del motore regole della rete CDN di Azure | Documentazione 
 description: Documentazione di riferimento per le funzionalità del motore regole della rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
-ms.openlocfilehash: e1e002b51aa5a93e7fcc800f5cf48ac401c5cb2d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: magattus
+ms.openlocfilehash: d5be292c66a07f43b40d12e10e4939d9d91559e1
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011425"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395242"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Funzionalità del motore regole della rete CDN di Azure
 Questo articolo offre una descrizione dettagliata delle funzionalità disponibili per il [motore regole](cdn-rules-engine.md) della rete di distribuzione dei contenuti (CDN) di Azure.
@@ -333,7 +333,7 @@ Per duplicare il comportamento di memorizzazione nella cache della stringa di qu
 
 Il seguente esempio di utilizzo per questa funzionalità fornisce un esempio di richiesta e la chiave di cache predefinita:
 
-- **Richiesta di esempio:** http://wpc.0001.&lt;Domain&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
+- **Richiesta di esempio:** http://wpc.0001.&lt;Dominio&gt;/800001/Origin/folder/asset.htm?sessionid=1234&language=EN&userid=01
 - **Chiave di cache predefinita:** /800001/Origin/folder/asset.htm
 
 ##### <a name="include"></a>Includi
@@ -497,8 +497,8 @@ Il formato per specificare le intestazioni di richiesta e risposta è definito c
 
 Tipo di intestazione|Format|Esempi
 -|-|-
-Intestazione di richiesta|%{[RequestHeader]()}[i]() | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
-Intestazione di risposta|%{[ResponseHeader]()}[o]()| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
+Intestazione di richiesta|`%{[RequestHeader]()}[i]()` | %{Accept-Encoding}i <br/> {Referer}i <br/> %{Authorization}i
+Intestazione di risposta|`%{[ResponseHeader]()}[o]()`| %{Age}o <br/> %{Content-Type}o <br/> %{Cookie}o
 
 Informazioni chiave:
 
@@ -1256,7 +1256,7 @@ Questo reindirizzamento URL può essere ottenuto tramite la configurazione segue
         - URL richiesta (dopo il reindirizzamento): http:\//cdn.mydomain.com/resources/widgets.pdf  
     - Scenario di esempio #2: 
         - Richiesta di esempio (URL CNAME perimetrale): http:\//marketing.mydomain.com/brochures/widgets.pdf 
-        - URL richiesta (dopo il reindirizzamento): http:\//cdn.mydomain.com/resources/widgets.pdf  Sample scenario
+        - URL richiesta (dopo il reindirizzamento): http:\//cdn.mydomain.com/resources/widgets.pdf
     - Scenario di esempio #3: 
         - Richiesta di esempio (URL CNAME perimetrale): http:\//brochures.mydomain.com/campaignA/final/productC.ppt 
         - URL richiesta (dopo il reindirizzamento): http:\//cdn.mydomain.com/resources/campaignA/final/productC.ppt  

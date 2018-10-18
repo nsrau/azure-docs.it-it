@@ -3,18 +3,18 @@ title: Provare gratuitamente il Servizio di riconoscimento vocale
 description: Di seguito viene descritto come è possibile provare il servizio di riconoscimento vocale senza alcun costo.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 1615e3a492cd91fb998680094f131db454945303
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.author: erhopf
+ms.openlocfilehash: 7ca423a4953dbe05af119d6b6eb12976c722e374
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182570"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393270"
 ---
 # <a name="try-the-speech-service-for-free"></a>Provare gratuitamente il Servizio di riconoscimento vocale
 
@@ -67,7 +67,7 @@ Dopo aver creato il proprio account Azure, seguire i passaggi nella sezione succ
 
 Per aggiungere una risorsa del servizio vocale (gratuita o a pagamento) al proprio account Azure:
 
-1. Accedere al [portale di Azure](https://ms.portal.azure.com/) mediante il proprio account Microsoft.
+1. Accedere al [portale di Azure](https://portal.azure.com/) mediante il proprio account Microsoft.
 
 1. Selezionare **Crea una risorsa** in alto a sinistra sul portale.
 

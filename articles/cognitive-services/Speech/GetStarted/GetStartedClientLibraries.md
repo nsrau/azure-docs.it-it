@@ -1,22 +1,25 @@
 ---
-title: Introduzione all'API Riconoscimento vocale Microsoft tramite le librerie client di Riconoscimento vocale Bing| Microsoft Docs
-description: Usare le librerie client di Riconoscimento vocale Microsoft in Servizi cognitivi Microsoft per sviluppare applicazioni per la conversione di audio parlato in testo.
+title: Introduzione all'API Riconoscimento vocale Bing tramite le librerie client | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Usare le librerie client di Riconoscimento vocale Bing in Servizi cognitivi Microsoft per sviluppare applicazioni per la conversione di audio parlato in testo.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: f4b6a97260c6dc176600af8844001e4de819ff7c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 2682236ae9f9256b91d1259248e72139c907c8e5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42357511"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345017"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Introduzione alle librerie client del Servizio Riconoscimento vocale Bing
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Oltre a eseguire richieste HTTP dirette tramite un'API REST, Servizio Riconoscimento vocale Bing fornisce agli sviluppatori delle librerie client per il riconoscimento vocale in varie lingue. Le librerie client per il riconoscimento vocale:
 
@@ -32,9 +35,6 @@ Attualmente sono disponibili le seguenti librerie client per Servizio Riconoscim
 - [Libreria Java per Android](GetStartedJavaAndroid.md)
 - [Libreria Objective-C per iOS](Get-Started-ObjectiveC-iOS.md)
 
-> [!NOTE] 
-Nel mese di maggio 2018, è stato rilasciato anche il nuovo [servizio di riconoscimento vocale](/speech-service/overview.md) in anteprima pubblica. Si consiglia di [provarlo gratuitamente](/speech-service/get-started.md). 
-
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 - La pagina degli [esempi](../samples.md) fornisce degli esempi completi per usare le librerie client per il riconoscimento vocale.
@@ -43,3 +43,4 @@ Nel mese di maggio 2018, è stato rilasciato anche il nuovo [servizio di riconos
 ## <a name="license"></a>Licenza
 
 Tutti gli SDK e gli esempi di Servizi cognitivi sono concessi su licenza con la licenza MIT. Per altre informazioni, vedere [Licenza](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+

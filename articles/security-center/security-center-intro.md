@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: bd0e517845b9cfcbe6090dff8d656edcca782c83
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1b0a6c6d6daa686404021afb2e10b25bb9f54191
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126293"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319388"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. Con il Centro sicurezza, è possibile applicare i criteri di sicurezza sui carichi di lavoro, limitare l'esposizione alle minacce, rilevare e rispondere agli attacchi.
@@ -113,7 +113,7 @@ Sul lato destro del dashboard, in **Risorse**, è disponibile un elenco dei cons
 
 Si tratta del consiglio con il maggiore impatto presente nell'ambiente. Applicandolo si otterrà il massimo livello di conformità. In questo esempio il consiglio è "Applica la crittografia del disco". Selezionando **Migliorare la conformità** viene visualizzata una descrizione del consiglio e un elenco delle risorse interessate.
 
-![Applica la crittografia del disco][12]
+![Applicare Crittografia dischi][12]
 
 ## <a name="threat-protection"></a>Protezione dalle minacce
 Questa area fornisce visibilità sugli avvisi di sicurezza rilevati sulle risorse e sul livello di gravità di tali avvisi.

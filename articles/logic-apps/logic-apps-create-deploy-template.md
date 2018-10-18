@@ -2,24 +2,20 @@
 title: Creare modelli di distribuzione per le app per la logica di Azure | Microsoft Docs
 description: Creare modelli di Azure Resource Manager per la distribuzione di app per la logica
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: SyntaxC4
-editor: ''
-ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.custom: H1Hack27Feb2017
+ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.author: LADocs; estfan
-ms.openlocfilehash: 91d93a02bb9bf48c5bda0304c9d3d52c22e30209
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304238"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creare modelli di Azure Resource Manager per la distribuzione di app per la logica
 
@@ -177,7 +173,7 @@ Se si dispone di un progetto Gruppo di risorse esistente, è possibile aggiunger
 
 ## <a name="deploy-a-logic-app-template"></a>Distribuire un modello di app per la logica
 
-Per distribuire il modello, è possibile usare alcuni strumenti, inclusi PowerShell, API REST, [Visual Studio Team Services Release Management](#team-services) e la distribuzione dei modelli attraverso il Portale di Azure.
+Per distribuire il modello, è possibile usare alcuni strumenti, inclusi PowerShell, API REST, [Azure DevOps Release Management](#team-services) e la distribuzione dei modelli attraverso il portale di Azure.
 Per archiviare i valori per i parametri, è inoltre consigliabile creare un [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
 Sono disponibili informazioni su come [distribuire risorse con i modelli di Azure Resource Manager e PowerShell](../azure-resource-manager/resource-group-template-deploy.md) o [distribuire risorse con i modelli di Azure Resource Manager e il Portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -189,13 +185,13 @@ Per autorizzare le connessioni OAuth, aprire l'app per la logica nella finestra 
 Nel progetto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) è presente uno script di esempio su GitHub.
 
 <a name="team-services"></a>
-## <a name="visual-studio-team-services-release-management"></a>Visual Studio Team Services Release Management
+## <a name="azure-devops-release-management"></a>Azure DevOps - Release Management
 
-Uno scenario comune per la distribuzione e la gestione di ambienti consiste nell'usare uno strumento come Release Management di Visual Studio Team Services con un modello di distribuzione di app per la logica. Visual Studio Team Services include un'attività [Distribuisci gruppo di risorse di Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) , che può essere aggiunta in una build o in una pipeline di rilascio. Per l'autorizzazione alla distribuzione è necessario avere un'[entità servizio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Sarà quindi possibile generare la definizione della versione.
+Uno scenario comune per la distribuzione e la gestione di ambienti consiste nell'usare uno strumento come Release Management per Azure DevOps con un modello di distribuzione di app per la logica. Azure DevOps include un'attività [Distribuisci gruppo di risorse di Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) che può essere aggiunta in una pipeline di versione o di compilazione. Per l'autorizzazione alla distribuzione è necessario avere un'[entità servizio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Sarà quindi possibile generare la pipeline di versione.
 
-1. In Release Management selezionare **Vuoto** per creare una definizione vuota.
+1. In Release Management selezionare **Vuoto** per creare una pipeline vuota.
 
-    ![Creare una definizione vuota][1]
+    ![Creare una pipeline vuota][1]
 
 2. Scegliere le risorse necessarie, possibilmente includendo il modello di app per la logica generato manualmente o nell'ambito del processo di compilazione.
 3. Aggiungere un'attività **Distribuzione gruppo di risorse di Azure** .

@@ -1,25 +1,28 @@
 ---
-title: Guida introduttiva a Node.js per Servizi cognitivi di Azure, API Traduzione vocale Microsoft | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Traduzione vocale Microsoft in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: API Traduzione vocale con Node.js'
+titlesuffix: Azure Cognitive Services
+description: Informazioni ed esempi di codice per iniziare a usare rapidamente l'API Traduzione vocale.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e652ee1e201e60d0d75f10bb8fceb4fbcd205381
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 3db4e242ad630949533823c22a16587daa4f9786
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41929818"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389701"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-nodejs"></a>Guida introduttiva per l'API Traduzione vocale Microsoft con Node.js 
+# <a name="quickstart-translator-speech-api-with-nodejs"></a>Guida introduttiva: API Traduzione vocale con Node.js 
 <a name="HOLTop"></a>
 
-Questo articolo illustra come usare l'API Traduzione vocale Microsoft per tradurre il testo parlato in un file con estensione wav.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+Questo articolo illustra come usare l'API Traduzione vocale per tradurre il testo parlato in un file con estensione wav.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -27,7 +30,7 @@ Per eseguire questo codice è necessario [Node.js 6](https://nodejs.org/en/downl
 
 Per Node.js è necessario installare il [pacchetto Websocket](https://www.npmjs.com/package/websocket).
 
-È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file .wav dall'[API sintesi vocale](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file .wav dall'[API sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 È necessario disporre di un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Traduzione vocale Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -65,7 +68,7 @@ let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
 You can obtain such a .wav file using the Text to Speech API. See:
-https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech
+https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech
 */
 let input_path = 'speak.wav';
 

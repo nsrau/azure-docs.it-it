@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 54c99cc9dde6a9706c75401dd75b98f8f5de7cec
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068071"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302589"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla distribuzione per app Web in Azure
 
@@ -62,7 +62,7 @@ Se viene visualizzato questo messaggio, è probabile che sia stato raggiunto il 
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Come si configura la distribuzione continua dell'app Web del servizio app?
 
-È possibile impostare la distribuzione continua da diverse risorse, tra cui Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox e altri repository Git. Queste opzioni sono disponibili nel portale. [Distribuzione continua nel servizio app](app-service-continuous-deployment.md) è un'utile esercitazione che illustra come configurare la distribuzione continua.
+È possibile impostare la distribuzione continua da diverse risorse, tra cui, Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox e altri repository Git. Queste opzioni sono disponibili nel portale. [Distribuzione continua nel servizio app](app-service-continuous-deployment.md) è un'utile esercitazione che illustra come configurare la distribuzione continua.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Come si risolvono i problemi con la distribuzione continua da GitHub e Bitbucket?
 
@@ -85,9 +85,9 @@ Avvio rapido di Azure è progettato per semplificare la distribuzione dell'app c
 
 Per informazioni sulle circostanze in cui la distribuzione di un'applicazione può provocare un riavvio, vedere [Deployment vs runtime issues](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts") (Problemi di distribuzione e runtime). Come descritto nell'articolo, il servizio app distribuisce i file nella cartella wwwroot. Non riavvia mai direttamente l'app.
 
-## <a name="how-do-i-integrate-visual-studio-team-services-code-with-app-service"></a>Come si integra il codice di Visual Studio Team Services con il servizio app?
+## <a name="how-do-i-integrate-azure-devops-code-with-app-service"></a>Come integrare il codice di Azure DevOps con il servizio app?
 
-Sono disponibili due opzioni per l'uso della distribuzione continua con Visual Studio Team Services:
+Sono disponibili due opzioni per l'uso della distribuzione continua con Azure DevOps:
 
 *   Usare un progetto Git. Connettersi tramite servizio app usando le opzioni di distribuzione per il repository.
 *   Usare un progetto di controllo della versione di Team Foundation. Eseguire la distribuzione usando l'agente di compilazione per il servizio app.
@@ -95,7 +95,7 @@ Sono disponibili due opzioni per l'uso della distribuzione continua con Visual S
 La distribuzione continua di codice per entrambe le opzioni dipende dai flussi di lavoro di sviluppo esistenti e dalle procedure di archiviazione. Per altre informazioni, vedere questi articoli: 
 
 *   [Implementare la distribuzione continua dell'app in un sito Web di Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
-*   [Configurare un account di Visual Studio Team Services per la distribuzione in un'app Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
+*   [Configurare un'organizzazione di Azure DevOps in modo da distribuirla in un'app Web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Come si usa FTP o FTPS per distribuire l'app nel servizio app?
 

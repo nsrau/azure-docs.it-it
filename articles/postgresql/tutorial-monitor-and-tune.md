@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e4d625cd123583baa30fde8e9826f5b57da49fe
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ef8809afa2da36f44384d784e32532b7b121e3a9
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393589"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379145"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Esercitazione: Monitorare e ottimizzare i Database di Azure per PostgreSQL
 
@@ -28,7 +28,7 @@ Il Database di Azure per PostgreSQL offre funzionalità che consentono di ricono
 È necessario un Database di Azure per il server PostgreSQL con la versione 9.6 o 10 di PostgreSQL. È possibile eseguire i passaggi in [Crea esercitazione](tutorial-design-database-using-azure-portal.md) per creare un server.
 
 > [!IMPORTANT]
-> **Query Store**, **Informazioni dettagliate prestazioni query**, e **Raccomandazione per le prestazioni** sono in anteprima pubblica in un numero limitato di aree.
+> **Query Store**, **Informazioni dettagliate prestazioni query**, e **Raccomandazione per le prestazioni** sono in anteprima pubblica.
 
 ## <a name="enabling-data-collection"></a>Abilitazione della raccolta dati
 Il [Query Store](concepts-query-store.md) acquisisce una cronologia delle query e delle statistiche di attesa nel server e la archivia nel database **azure_sys** nel server. È una funzionalità che prevede il consenso esplicito. Per abilitarla:

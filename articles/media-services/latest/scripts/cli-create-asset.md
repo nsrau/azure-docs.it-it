@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/09/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: d2fe1718999bcdc33fcde6891fa891373a9ea5cb
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4535e6c1b7b90c53a11ccb6b10d814ad4631c9f6
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069353"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377532"
 ---
 # <a name="cli-example-create-an-asset"></a>Esempio dell'interfaccia della riga di comando: Creare un asset
 
@@ -35,4 +35,4 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altri esempi, vedere [Esempi di interfaccia della riga di comando di Azure per Servizi multimediali di Azure](../cli-samples.md).
+Per altri esempi, vedere [Azure CLI samples](../cli-samples.md) (Esempi dell'interfaccia della riga di comando di Azure).

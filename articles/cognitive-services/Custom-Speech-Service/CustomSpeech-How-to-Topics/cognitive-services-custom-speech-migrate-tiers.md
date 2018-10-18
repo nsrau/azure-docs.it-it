@@ -1,24 +1,25 @@
 ---
-title: Eseguire la migrazione dei piani tariffari degli endpoint - Servizio di riconoscimento vocale personalizzato
-titlesuffix: Azure Cognitive Services
-description: Informazioni su come eseguire la migrazione delle distribuzioni dai piani S0 e S1 a S2 degli endpoint del Servizio di riconoscimento vocale personalizzato.
+title: Eseguire la migrazione dei piani tariffari degli endpoint dal Servizio di riconoscimento vocale personalizzato su Azure | Microsoft Docs
+description: Informazioni su come eseguire la migrazione delle distribuzioni dai piani S0 e S1 a S2 degli endpoint del Servizio di riconoscimento vocale personalizzato in Servizi cognitivi.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/05/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 560aa0a7b9748f75cdde99691db7f33e2fc10221
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a9bdb257137db0063d39f028a69e2164eccbdc31
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224852"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340461"
 ---
 # <a name="migrate-deployments-to-the-new-pricing-model"></a>Eseguire la migrazione delle distribuzioni al nuovo modello tariffario
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Da luglio 2017, il Servizio di riconoscimento vocale personalizzato offre un [nuovo modello tariffario](https://azure.microsoft.com/pricing/details/cognitive-services/custom-speech-service/). Il nuovo modello è *più facile da comprendere*, consente di *calcolare i costi in modo più semplice* ed è *più flessibile* in termini di scalabilità. Per la scalabilità, Microsoft ha introdotto il concetto di un'unità di scala. Ogni unità di scala può gestire cinque richieste simultanee. La scalabilità per le richieste simultanee nel modello precedente era impostata a 5 richieste simultanee per il piano S0 e a 12 richieste simultanee per il piano S1. Questi limiti sono stati aperti per offrire maggiore flessibilità con i requisiti dei casi d'uso.
 
 Se si esegue un livello S0 o S1 precedente, si consiglia di eseguire la migrazione delle distribuzioni esistenti al nuovo livello S2. Il nuovo livello S2 comprende i livelli S0 e S1. È possibile visualizzare le opzioni disponibili nella figura seguente:

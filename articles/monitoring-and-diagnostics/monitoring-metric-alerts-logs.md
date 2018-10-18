@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: abfe7f0b39463a842b1eb167661af7da90bc9eca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980849"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388311"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creare avvisi delle metriche per i log in Monitoraggio di Azure  
 
@@ -58,11 +58,11 @@ Per informazioni dettagliate ed esempi, vedere [Creating and managing  metric al
 - Il segnale scelto per l'avviso delle metriche per l'*area di lavoro di Log Analytics* deve essere di tipo **Metrica**
 - Il filtro per condizioni o risorse specifiche deve essere applicato tramite filtri di dimensione perché le metriche per i log sono multidimensionali
 - Quando si configura un *segnale logico*, un singolo avviso può essere creato per essere distribuito su più valori di dimensione (ad esempio computer)
-- Se **non** si usa il portale di Azure per creare un avviso delle metriche per l'*area di lavoro di Log Analytics selezionata*, l'utente deve prima creare manualmente una regola esplicita per convertire i dati di log in una metrica usando [Monitoraggio di Azure - Regole di query pianificate](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules
+- Se **non** si usa il portale di Azure per creare un avviso delle metriche per l'*area di lavoro di Log Analytics selezionata*, l'utente deve prima creare manualmente una regola esplicita per convertire i dati di log in una metrica usando [Monitoraggio di Azure - Regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
 ).
 
 > [!NOTE]
-> Quando si crea un avviso delle metriche per l'area di lavoro di Log Analytics tramite il portale di Azure, una regola corrispondente per la conversione dei dati di log in una metrica tramite [Monitoraggio di Azure - Regole di query pianificate](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules) viene create automaticamente in background, *senza la necessità di alcun intervento o azione da parte dell'utente*. Per la creazione di avvisi delle metriche per i log tramite il portale di Azure, vedere la sezione [Modello di risorse per gli avvisi delle metriche per i log](#resource-template-for-metric-alerts-for-logs) sugli strumenti di esempio per creare una regola di conversione da log a metrica basata su una regola di query pianificata prima della creazione degli avvisi delle metriche. In caso contrario, non sarà presente alcun dato per l'avviso delle metriche sui log creati.
+> Quando si crea un avviso delle metriche per l'area di lavoro di Log Analytics tramite il portale di Azure, una regola corrispondente per la conversione dei dati di log in una metrica tramite [Monitoraggio di Azure - Regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) viene create automaticamente in background, *senza la necessità di alcun intervento o azione da parte dell'utente*. Per la creazione di avvisi delle metriche per i log tramite il portale di Azure, vedere la sezione [Modello di risorse per gli avvisi delle metriche per i log](#resource-template-for-metric-alerts-for-logs) sugli strumenti di esempio per creare una regola di conversione da log a metrica basata su una regola di query pianificata prima della creazione degli avvisi delle metriche. In caso contrario, non sarà presente alcun dato per l'avviso delle metriche sui log creati.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>Modello di risorse per gli avvisi delle metriche per i log
 Come indicato in precedenza, il processo per la creazione di avvisi delle metriche a partire dai log è costituito da due passaggi:

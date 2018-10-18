@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: nolachar
-ms.openlocfilehash: 47ac3c81b85424a5cacab00863cd88fab9463fb9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124661"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385026"
 ---
 # <a name="what-is-translator-text-api"></a>Informazioni sull'API Traduzione testuale
 
@@ -27,7 +27,7 @@ L'API Traduzione testuale fa parte della raccolta delle [API dei Servizi cogniti
 
 Microsoft Translator è un servizio di traduzione automatica basato sul cloud. Al centro di questo servizio vi sono l'API Traduzione testuale e l'[API Traduzione vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation) che sono alla base di vari prodotti e servizi Microsoft e vengono usate da migliaia di aziende in tutto il mondo nelle applicazioni e nei flussi di lavoro, consentendo ai loro contenuti di raggiungere un pubblico mondiale.
 
-La traduzione vocale è disponibile anche tramite l'[anteprima di Riconoscimento vocale di Servizi cognitivi](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/), che combina l'API Traduzione vocale, l'API Riconoscimento vocale Bing e il Servizio di riconoscimento vocale personalizzato (anteprima) in un servizio unificato e completamente personalizzabile.  
+La traduzione vocale è disponibile anche tramite l'[anteprima di Riconoscimento vocale di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/speech-service/), che combina l'API Traduzione vocale, l'API Riconoscimento vocale Bing e il Servizio di riconoscimento vocale personalizzato (anteprima) in un servizio unificato e completamente personalizzabile.  
 
 Per altre informazioni, vedere il [servizio Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx)
 

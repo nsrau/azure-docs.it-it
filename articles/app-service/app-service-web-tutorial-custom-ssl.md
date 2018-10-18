@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: abd751cf867fea2e634161c4cf0b1e84acbe18c6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857925"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354106"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Esercitazione: Associare un certificato SSL personalizzato esistente ad app Web di Azure
 
@@ -64,45 +64,7 @@ Per poter essere usato nel servizio app, il certificato deve soddisfare tutti i 
 > [!NOTE]
 > Sebbene non siano descritti in questo articolo, i **certificati di crittografia a curva ellittica (ECC)** possono essere usati con il servizio app. Per informazioni sulla procedura per creare i certificati ECC, rivolgersi all'autorità di certificazione.
 
-## <a name="prepare-your-web-app"></a>Preparare l'app Web
-
-Per associare un certificato SSL personalizzato all'app Web, il [piano di servizio app](https://azure.microsoft.com/pricing/details/app-service/) in uso deve essere di livello **Basic**, **Standard**, **Premium** o **Isolato**. In questo passaggio si verifica che l'app Web sia supportata dal piano tariffario adeguato.
-
-### <a name="log-in-to-azure"></a>Accedere ad Azure
-
-Aprire il [portale di Azure](https://portal.azure.com).
-
-### <a name="navigate-to-your-web-app"></a>Accedere all'app Web
-
-Nel menu a sinistra fare clic su **Servizi app** e quindi sul nome dell'app Web.
-
-![Selezionare l'app Web](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-Viene visualizzata la pagina di gestione dell'app Web.  
-
-### <a name="check-the-pricing-tier"></a>Scegliere il piano tariffario
-
-Nel riquadro di spostamento a sinistra della pagina dell'app Web scorrere fino alla sezione **Impostazioni** e selezionare **Scala verticalmente (piano di servizio app)**.
-
-![Menu di scalabilità verticale](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-Verificare che l'app Web non sia inclusa nel livello **F1** o **D1**. Il livello corrente dell'app Web è evidenziato da una casella blu scuro.
-
-![Controllare il piano tariffario](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-Il certificato SSL personalizzato non è supportato nel livello **F1** o **D1**. Se è necessario passare a un livello superiore, seguire la procedura della sezione successiva. In caso contrario, chiudere la pagina **Aumenta** e passare a [Caricare il certificato SSL e Associare il certificato SSL](#upload).
-
-### <a name="scale-up-your-app-service-plan"></a>Passare a un piano di servizio app superiore
-
-Selezionare uno dei livelli non gratuiti (**B1**, **B2**, **B3** o uno qualsiasi dei livelli della categoria **Produzione**). Per altre opzioni, fare clic su **Visualizza opzioni aggiuntive**.
-
-Fare clic su **Apply**.
-
-![Scegliere un piano tariffario](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-La visualizzazione della notifica seguente indica che l'operazione di passaggio al livello superiore è stata completata.
-
-![Notifica di passaggio al livello superiore](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 

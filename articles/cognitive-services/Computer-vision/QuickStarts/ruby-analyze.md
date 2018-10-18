@@ -3,19 +3,19 @@ title: "Guida introduttiva: Analizzare un'immagine remota - REST, Ruby - Visione
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizzerà un'immagine usando l'API Visione artificiale con Ruby.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: bf17e8213ad2bbdc793f979471d9861578cac8e2
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: a00b7d8fd56c28edd220d90f85df76892a54db6a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628863"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341572"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST e Ruby in Visione artificiale
 

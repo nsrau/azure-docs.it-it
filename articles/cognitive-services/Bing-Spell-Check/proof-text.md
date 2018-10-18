@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 81c80ab6c8d10d263de96566f5554709a2404a24
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802594"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361712"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Informazioni sull'API Controllo ortografico Bing
 
@@ -36,7 +36,7 @@ Questo correttore ortografico può gestire qualsiasi scenario di elaborazione di
 
 ## <a name="spell-check-modes"></a>Modalità di controllo ortografico
 
-L'API supporta due modalità di controllo ortografico, `Proof` e `Spell`.  Alcuni esempi sono disponibili [qui](https://azure.microsoft.com/en-us/services/cognitive-services/spell-check/).
+L'API supporta due modalità di controllo ortografico, `Proof` e `Spell`.  Alcuni esempi sono disponibili [qui](https://azure.microsoft.com/services/cognitive-services/spell-check/).
 ### <a name="proof---for-documents-scenario"></a>Proof - Per scenari relativi ai documenti
 La modalità predefinita è `Proof`. La modalità di controllo ortografico `Proof` offre i controlli più completi, incluse la distinzione tra maiuscole e minuscole, la punteggiatura di base e altre funzionalità utili per la creazione di documenti. È tuttavia disponibile solo nei mercati en-US (Inglese - Stati Uniti), es-ES (Spagnolo), pt-BR (Portoghese). Nota: per lo spagnolo e il portoghese è disponibile solo la versione beta. Per tutti gli altri mercati è necessario impostare su Spell il parametro della query per la modalità. 
 <br /><br/>**NOTA:** se la lunghezza del testo della query è superiore a 4096, il testo verrà troncato a 4096 caratteri e quindi verrà elaborato. 

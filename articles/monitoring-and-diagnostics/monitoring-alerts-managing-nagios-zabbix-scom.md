@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 0a3e0f1ecc40213aca37e37e80c9ba35abedb3d6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d9d0cb326fb063e0a6bbfaab6a85961ab2b35416
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961214"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389389"
 ---
 # <a name="manage-alerts-from-other-monitoring-services"></a>Gestire gli avvisi di altri servizi di monitoraggio
 
@@ -21,8 +21,8 @@ ms.locfileid: "46961214"
 
 ## <a name="prerequisites"></a>Prerequisiti
 Qualsiasi record nel repository di Log Analytics con un tipo di avviso verrà importato nell'esperienza di avvisi unificati, pertanto è necessario eseguire la configurazione necessaria per raccogliere questi record.
-1. Per gli avvisi di **Nagios** e **Zabbix**, [configurare tali server](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents) per inviare avvisi a Log Analytics.
-1. Per gli avvisi **SCOM**, [connettere il gruppo di gestione Operations Manager all'area di lavoro Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-om-agents). Tutti gli avvisi creati in System Center Operations Manager vengono importati in Log Analytics.
+1. Per gli avvisi di **Nagios** e **Zabbix**, [configurare tali server](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) per inviare avvisi a Log Analytics.
+1. Per gli avvisi **SCOM**, [connettere il gruppo di gestione Operations Manager all'area di lavoro Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Tutti gli avvisi creati in System Center Operations Manager vengono importati in Log Analytics.
 
 ## <a name="view-your-alert-instances"></a>Visualizzare le istanze di avviso
 Dopo aver configurato l'importazione in Log Analytics, è possibile iniziare a visualizzare le istanze degli avvisi da questi servizi di monitoraggio nell'[esperienza di avvisi unificati](https://aka.ms/azure-alerts-overview). Dopo che sono presenti nell'esperienza di avvisi unificati, è possibile [gestire le istanze di avviso](https://aka.ms/managing-alert-instances), [gestire i gruppi intelligenti creati in questi avvisi](https://aka.ms/managing-smart-groups) e [modificare lo stato degli avvisi e dei gruppi intelligenti](https://aka.ms/managing-alert-smart-group-states).

@@ -2,7 +2,7 @@
 title: 'Monitoraggio delle prestazioni delle applicazioni Web: Azure Application Insights | Microsoft Docs'
 description: Funzione di Application Insights nel ciclo devOps
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 24e249bb515c509f2fba1f943ac5e23a1ea9965e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298643"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostica completa per servizi e app Web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Funzione di Application Insights
@@ -151,7 +152,7 @@ Inoltre, quando Application Insights esegue un'eccezione, è possibile visualizz
 Durante il debug, è possibile scegliere di mantenere i dati di telemetria nel computer su cui si esegue lo sviluppo, visualizzandoli in Visual Studio, ma senza inviarli al portale. Con l'opzione locale si evita di mischiare il debug e la telemetria della produzione.
 
 ### <a name="build-annotations"></a>Annotazioni sulla compilazione
-Se si utilizza Visual Studio Team Services per compilare e distribuire l'app, nei grafici sul portale vengono visualizzate annotazioni sulla distribuzione. Qualunque effetto sulle metriche dovuto alla versione più recente risulterà molto evidente.
+Se si utilizza Azure DevOps per compilare e distribuire l'app, nei grafici sul portale vengono visualizzate annotazioni sulla distribuzione. Qualunque effetto sulle metriche dovuto alla versione più recente risulterà molto evidente.
 
 ![Annotazioni sulla compilazione](./media/app-insights-devops/070.png)
 

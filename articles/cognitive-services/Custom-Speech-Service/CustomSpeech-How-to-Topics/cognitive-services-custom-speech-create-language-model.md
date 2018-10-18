@@ -1,24 +1,24 @@
 ---
-title: 'Esercitazione: Creare un modello linguistico - Servizio di riconoscimento vocale personalizzato'
-titlesuffix: Azure Cognitive Services
-description: In questa esercitazione si apprenderà come creare un modello linguistico con Servizio di riconoscimento vocale personalizzato.
+title: Esercitazione per creare un modello linguistico con il servizio di riconoscimento vocale personalizzato - Servizi cognitivi Microsoft | Microsoft Docs
+description: In questa esercitazione si apprenderà come creare un modello linguistico con il servizio di riconoscimento vocale personalizzato in servizi cognitivi Microsoft.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: b7216688efb6a2124748cd08111d57b122085143
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6af2da9ffc7678a58fcf1c647ba89c586066d2ad
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219315"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339097"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Esercitazione: Creare un modello linguistico personalizzato
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 In questa esercitazione si crea un modello linguistico personalizzato per le query di testo o per le espressioni che si prevede vengano digitate o pronunciate dagli utenti in un'applicazione. È quindi possibile usare il modello insieme ai modelli conversione voce/testo Microsoft avanzati esistenti per aggiungere l'interazione vocale alla propria applicazione.
 

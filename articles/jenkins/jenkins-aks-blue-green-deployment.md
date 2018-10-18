@@ -1,26 +1,19 @@
 ---
 title: Eseguire la distribuzione nel servizio Kubernetes di Azure (AKS) usando Jenkins e il modello di distribuzione di tipo blu-verde
 description: Di seguito viene spiegato come eseguire la distribuzione nel servizio Kubernetes di Azure (AKS) usando Jenkins e il modello di distribuzione di tipo blu-verde.
-services: app-service\web
-documentationcenter: ''
+ms.service: jenkins
+keywords: jenkins, azure, devops, kubernetes, k8s, aks, distribuzione di tipo blu-verde, recapito continuo, cd
 author: tomarcher
-manager: jpconnock
-editor: ''
-ms.assetid: ''
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
-ms.date: 07/23/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.custom: jenkins
-ms.openlocfilehash: 384681ae0ba212b485022ac81743528f96075ec8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.topic: tutorial
+ms.date: 10/11/2018
+ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716459"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387385"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Eseguire la distribuzione nel servizio Kubernetes di Azure (AKS) usando Jenkins e il modello di distribuzione di tipo blu-verde
 
@@ -39,7 +32,7 @@ In questa esercitazione è possibile scoprire come si eseguono le seguenti attiv
 
 ## <a name="prerequisites"></a>Prerequisiti
 - [Account GitHub](https://github.com): è necessario per clonare il repository di esempio.
-- [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest): viene usata per creare il cluster Kubernetes.
+- [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): viene usata per creare il cluster Kubernetes.
 - [Chocolatey](https://chocolatey.org): una gestione pacchetti usata per installare kubectl.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): interfaccia della riga di comando usata per l'esecuzione di comandi per i cluster Kubernetes.
 - [jq](https://stedolan.github.io/jq/download/): processore JSON leggero da riga di comando.
@@ -72,7 +65,7 @@ Nel repository Microsoft in GitHub è possibile trovare un'app di esempio che il
 
 1. Cambiare directory fino alla posizione in cui si vuole memorizzare la copia locale (clone) del repository.
 
-1. Usando il comando `git clone` e clonare l'URL copiato in precedenza.
+1. Usando il comando `git clone`, clonare l'URL copiato in precedenza.
 
     ![Schermata del comando di clonazione in Git Bash](./media/jenkins-aks-blue-green-deployment/git-clone-command.png)
 
@@ -90,9 +83,6 @@ In questa sezione si segue questa procedura:
 - Informazioni su come configurare un cluster usando lo script di installazione o manualmente.
 - Creare un’istanza del servizio di registro contenitori di Azure.
 
-> [!NOTE]   
-> AKS è attualmente in fase di anteprima. Per informazioni su come abilitare l'anteprima per la sottoscrizione di Azure, vedere [Guida introduttiva: distribuire un cluster di Azure Kubernetes Service (AKS)](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
-
 ### <a name="use-the-azure-cli-20-to-create-a-managed-kubernetes-cluster"></a>Usare l'interfaccia della riga di comando di Azure 2.0 per creare un cluster Kubernetes gestito
 Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), assicurarsi di usare la versione dell'interfaccia della riga di comando di Azure 2.0.25 o successiva.
 
@@ -108,7 +98,7 @@ Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comand
     az account set -s <your-subscription-id>
     ```
 
-1. Creare un gruppo di risorse. Sostituire il segnaposto &lt;your-resource-group-name > con il nome del nuovo gruppo di risorse e sostituire il segnaposto &lt;your-location > con la località. Il comando `az account list-locations` visualizza tutte le località di Azure. Durante l'anteprima del servizio Kubernetes di Azure non tutte le località sono disponibili. Se si immette una località non valida in questo momento, nel messaggio di errore vengono elencate le località disponibili.
+1. Creare un gruppo di risorse. Sostituire il segnaposto &lt;your-resource-group-name > con il nome del nuovo gruppo di risorse e sostituire il segnaposto &lt;your-location > con la località. Il comando `az account list-locations` visualizza tutte le località di Azure. Durante l'anteprima di AKS non tutte le località sono disponibili. Se si immette una località non valida in questo momento, nel messaggio di errore vengono elencate le località disponibili.
 
     ```bash
     az group create -n <your-resource-group-name> -l <your-location>

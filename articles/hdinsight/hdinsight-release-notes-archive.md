@@ -2,19 +2,19 @@
 title: Note sulla versione archiviata di Azure HDInsight
 description: Note sulla versione archiviata e versioni di Azure HDInsight.
 services: hdinsight
-editor: jasonwhowell
+ms.reviewer: jasonh
 author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 34536316fef5f30df4ef1e3c89ddaaafed188c5d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f3be4b5e74c0c5cac9acd281b86e55c96b011763
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600085"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363793"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Note sulla versione archiviata di Azure HDInsight
 
@@ -24,7 +24,7 @@ Per gli aggiornamenti della versione **più recente** di Azure HDInsight, vedere
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere l'[articolo sul controllo delle versioni di HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>Note per 27/06/2018: rilascio delle nuove versioni open source, ADLS Gen2 e così via per HDInsight 3.6
-La versione di giugno 2018 di HDInsight è una versione importante che contiene molti nuovi aggiornamenti e molte nuove funzionalità per i clienti. Per altri dettagli, vedere questo [post](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/).
+La versione di giugno 2018 di HDInsight è una versione importante che contiene molti nuovi aggiornamenti e molte nuove funzionalità per i clienti. Per altri dettagli, vedere questo [post](https://azure.microsoft.com/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/).
 
 Di seguito le informazioni più importanti. Per le note sulla versione dettagliate, la risoluzione di bug, i problemi noti e così via, vedere [Note sulla versione per Azure HDInsight](hdinsight-release-notes.md).
 

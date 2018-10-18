@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 87bcd23983c1d973f7e90caf806092c909b7b9e4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 103da0c65bcf9b9bd24130082f844b9bd12a9a02
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032547"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389718"
 ---
 # <a name="create-a-qna-maker-service"></a>Creare un servizio QnA Maker
 
@@ -41,10 +41,10 @@ Questa configurazione distribuisce alcune risorse di Azure. Insieme, queste riso
     * Scegliere la **sottoscrizione** in cui verrà distribuita la risorsa QnA Maker.
     * Selezionare il **piano tariffario** per i servizi di gestione di QnA Maker (portale e API di gestione). Vedere [qui](https://aka.ms/qnamaker-pricing) per informazioni dettagliate sui prezzi degli SKU.
     * Creare un nuovo **gruppo di risorse** (scelta consigliata) o usare un gruppo di risorse esistente in cui distribuire questa risorsa QnA Maker.
-    * Scegliere il **piano tariffario** per il servizio Ricerca di Azure. Se l'opzione Livello gratuito è disabilitata, nella sottoscrizione è già stato distribuito un livello gratuito per Ricerca di Azure. In tal caso è necessario iniziare con il livello Basic di Ricerca di Azure. Vedere [qui](https://azure.microsoft.com/en-us/pricing/details/search/) i dettagli dei prezzi di Ricerca di Azure.
+    * Scegliere il **piano tariffario** per il servizio Ricerca di Azure. Se l'opzione Livello gratuito è disabilitata, nella sottoscrizione è già stato distribuito un livello gratuito per Ricerca di Azure. In tal caso è necessario iniziare con il livello Basic di Ricerca di Azure. Vedere [qui](https://azure.microsoft.com/pricing/details/search/) i dettagli dei prezzi di Ricerca di Azure.
     * Scegliere il **percorso di ricerca** per la distribuzione dei dati di Ricerca di Azure. Le limitazioni relative ai percorsi in cui devono essere archiviati i dati dei clienti determinano il percorso scelto per Ricerca di Azure.
     * Assegnare un nome al servizio app in **Nome app**.
-    * Per impostazione predefinita, il servizio app è impostato sul livello Standard (S1). È possibile modificare il piano dopo la creazione. Vedere [qui](https://azure.microsoft.com/en-in/pricing/details/app-service/) per altri dettagli sui prezzi del servizio app.
+    * Per impostazione predefinita, il servizio app è impostato sul livello Standard (S1). È possibile modificare il piano dopo la creazione. Vedere [qui](https://azure.microsoft.com/pricing/details/app-service/) per altri dettagli sui prezzi del servizio app.
     * Scegliere il percorso del **sito Web** in cui verrà distribuito il servizio app.
 
         > [!NOTE]

@@ -1,22 +1,25 @@
 ---
 title: Come trasferire in blocchi il flusso audio | Microsoft Docs
-description: Come usare il trasferimento in blocchi per inviare flusso audio al Servizio di riconoscimento vocale
+titlesuffix: Azure Cognitive Services
+description: Come usare il trasferimento in blocchi per inviare flusso audio al servizio Riconoscimento vocale Bing
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7d02340932dfc547893c4c40cbe08978b7b93756
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 510bc258aae80582e85478936c3281198e89d755
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373788"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343164"
 ---
 # <a name="chunked-transfer-encoding"></a>Codifica di trasferimento in blocchi
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Per trascrivere il parlato in testo, l'API Riconoscimento vocale Microsoft consente di inviare l'audio come un unico blocco oppure di suddividere l'audio in blocchi di piccole dimensioni. Per ottenere uno streaming audio efficiente e ridurre la latenza di trascrizione, è consigliabile usare la [codifica di trasferimento in blocchi](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) per inviare il flusso audio al servizio. Altre implementazioni possono comportare una latenza maggiore percepita dall'utente. Per altre informazioni, vedere la pagina [Flussi audio](../concepts.md#audio-streams).
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505112"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388321"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Indicazioni su Trusted Internet Connections
 
@@ -83,7 +83,7 @@ Azure crea automaticamente route di sistema e assegna le route a ogni subnet in 
 - Gli spazi di indirizzi privati designati per IANA come 10.0.0.0/8 vengono eliminati, a meno che non siano inclusi nello spazio di indirizzi della rete virtuale.
 - È disponibile il routing "di emergenza" di 0.0.0.0/0 per l'endpoint Internet della rete virtuale.
 
-![Tunneling forzato del TIC](media/tic-diagram-c.png)
+![Forzatura di tunneling del TIC](media/tic-diagram-c.png)
 
 Per assicurarsi che tutto il traffico attraversi il TIC del D/A, tutto il traffico in uscita dalla rete virtuale deve essere inoltrato tramite la connessione locale. Le route personalizzate vengono create con route definite dall'utente oppure scambiando route BGP (Border Gateway Protocol) tra un gateway di rete locale e un gateway VPN di Azure. Per altre informazioni sulle route definite dall'utente, vedere [Routing del traffico di rete virtuale: Route definite dall'utente](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined). Per altre informazioni sul protocollo BGP, vedere [Routing del traffico di rete virtuale: Border Gateway Protocol](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol).
 
@@ -134,7 +134,7 @@ Le tabelle seguenti elencano i servizi che supportano la distribuzione di istanz
 
 ### <a name="support-for-service-endpoints"></a>Supporto per gli endpoint di servizio
 
-|Servizio                        |Disponibilità      |
+|Service                        |Disponibilità      |
 |-------------------------------|------------------|
 |Azure Key Vault                | Anteprima privata  |
 |Azure Cosmos DB                | Anteprima privata  |
@@ -143,12 +143,12 @@ Le tabelle seguenti elencano i servizi che supportano la distribuzione di istanz
 |Database di Azure per PostgreSQL  | Anteprima privata  |
 |Database di Azure per MySQL       | Anteprima privata  |
 |Azure SQL Data Warehouse       | Anteprima pubblica   |
-|Database SQL di Azure             | Disponibilità generale (GA) |
+|database SQL di Azure             | Disponibilità generale (GA) |
 |Archiviazione di Azure                  | GA               |
 
 ### <a name="support-for-virtual-network-injection"></a>Supporto per l'integrazione di una rete virtuale
 
-|Servizio                               |Disponibilità      |
+|Service                               |Disponibilità      |
 |--------------------------------------|------------------|
 |Istanza gestita di database SQL di Azure   | Anteprima pubblica   |
 |Azure Kubernetes Service (AKS)        | Anteprima pubblica   |
@@ -223,7 +223,7 @@ I criteri di esempio seguenti possono essere utili per gli scenari di conformit�
 
 ### <a name="network-watcher-traffic-analytics"></a>Analisi del traffico di Network Watcher
 
-[Analisi del traffico](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) di Network Watcher usa i dati dei log di flusso e altri log per fornire una panoramica generale del traffico di rete. Questi dati sono utili per controllare la conformità al TIC e identificare le aree problematiche. È possibile usare il dashboard generale per visualizzare rapidamente le macchine virtuali che comunicano con Internet e ottenere un elenco specifico per il routing del TIC.
+[Analisi del traffico](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) di Network Watcher usa i dati dei log di flusso e altri log per fornire una panoramica generale del traffico di rete. Questi dati sono utili per controllare la conformità al TIC e identificare le aree problematiche. È possibile usare il dashboard generale per visualizzare rapidamente le macchine virtuali che comunicano con Internet e ottenere un elenco specifico per il routing del TIC.
 
 ![Analisi del traffico](media/tic-traffic-analytics-1.png)
 
@@ -249,25 +249,25 @@ Le reti nelle aree monitorate da Network Watcher possono eseguire test di hop su
 
 | Categoria | Carico di lavoro | IaaS | PaaS dedicato/Integrazione di rete virtuale  | Endpoint di servizio  |
 |---------|---------|---------|---------|--------|
-| Calcolo | Macchine virtuali Linux in Azure | Sì | | |
-| Calcolo | Macchine virtuali Windows in Azure | Sì | | |
-| Calcolo | Set di scalabilità di macchine virtuali | Sì | | |
+| Calcolo | Macchine virtuali Linux in Azure | Yes | | |
+| Calcolo | Macchine virtuali Windows in Azure | Yes | | |
+| Calcolo | set di scalabilità di macchine virtuali | Yes | | |
 | Calcolo | Funzioni di Azure | | Ambiente del servizio app | |
 | Web e dispositivi mobili | Applicazione Web interna | | Ambiente del servizio app| |
 | Web e dispositivi mobili | Applicazione mobile interna | | Ambiente del servizio app | |
 | Web e dispositivi mobili | Applicazioni per le API | | Ambiente del servizio app | |
-| Contenitori | Servizio contenitore di Azure | | | Sì |
-| Contenitori | Servizio Kubernetes di Azure (AKS) \* | | | Sì |
-| Database | Database SQL di Azure | | Istanza gestita di database SQL di Azure \* | SQL di Azure |
-| Database | Database di Azure per MySQL | | | Sì |
-| Database | Database di Azure per PostgreSQL | | | Sì |
-| Database | Azure SQL Data Warehouse | | | Sì |
-| Database | Azure Cosmos DB | | | Sì |
-| Database | Cache Redis di Azure | | Sì | |
-| Archiviazione | Archivio BLOB di Azure | Sì | | |
-| Archiviazione | File di Azure | Sì | | |
-| Archiviazione | Archiviazione code di Azure | Sì | | |
-| Archiviazione | Archiviazione tabelle di Azure | Sì | | |
-| Archiviazione | Archiviazione su disco di Azure | Sì | | |
+| Contenitori | Servizio contenitore di Azure | | | Yes |
+| Contenitori | Servizio Kubernetes di Azure (AKS) \* | | | Yes |
+| Database | database SQL di Azure | | Istanza gestita di database SQL di Azure \* | SQL di Azure |
+| Database | Database di Azure per MySQL | | | Yes |
+| Database | Database di Azure per PostgreSQL | | | Yes |
+| Database | Azure SQL Data Warehouse | | | Yes |
+| Database | Azure Cosmos DB | | | Yes |
+| Database | Cache Redis di Azure | | Yes | |
+| Archiviazione | Archivio BLOB di Azure | Yes | | |
+| Archiviazione | File di Azure | Yes | | |
+| Archiviazione | Archiviazione code di Azure | Yes | | |
+| Archiviazione | Archiviazione tabelle di Azure | Yes | | |
+| Archiviazione | Archiviazione su disco di Azure | Yes | | |
 
 \* Anteprima pubblica in Azure per enti pubblici, a partire da maggio 2018.

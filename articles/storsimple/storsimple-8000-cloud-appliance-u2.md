@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665006"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387685"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Distribuire e gestire un'appliance cloud StorSimple in Azure (aggiornamento 3 e versioni successive)
 
@@ -265,7 +265,7 @@ Per interrompere tutti gli addebiti, è necessario eliminare l'appliance cloud. 
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Risolvere gli errori di connettività Internet
 Se durante la creazione di un'appliance cloud non è disponibile connettività a Internet, il passaggio della creazione ha esito negativo. Per risolvere gli errori di connettività Internet, seguire questa procedura nel portale di Azure:
 
-1. [Creare una macchina virtuale Windows nel portale di Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Questa macchina virtuale dovrà usare lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet usati dall'appliance cloud. Se esiste già un host Windows Server in Azure che usa lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet, è anche possibile risolvere i problemi di connettività Internet usando tale host.
+1. [Creare una macchina virtuale Windows nel portale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Questa macchina virtuale dovrà usare lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet usati dall'appliance cloud. Se esiste già un host Windows Server in Azure che usa lo stesso account di archiviazione, la stessa rete virtuale e la stessa subnet, è anche possibile risolvere i problemi di connettività Internet usando tale host.
 2. Eseguire l'accesso remoto alla macchina virtuale creata nel passaggio precedente.
 3. Aprire una finestra di comando nella macchina virtuale (premere tasto WINDOWS + R e quindi digitare `cmd`).
 4. Al prompt eseguire questo comando:

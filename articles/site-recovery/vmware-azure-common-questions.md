@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: fe20cae4c316462e3af3f0a5e7e6052f6ba5719d
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 487e0c763ca4b247f1818b2beaf3282734fc4e27
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344424"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388443"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
@@ -22,7 +22,7 @@ Questo articolo fornisce le risposte alle domande frequenti relative alla replic
 
 ## <a name="general"></a>Generale
 ### <a name="how-is-site-recovery-priced"></a>Come viene stabilito il prezzo di Site Recovery?
-Vedere [Dettagli relativi ai prezzi di Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
+Vedere [Dettagli relativi ai prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 ### <a name="how-do-i-pay-for-azure-vms"></a>Come vengono addebitati i costi per le macchine virtuali di Azure?
 Durante la replica, i dati vengono replicati in Archiviazione di Azure e non viene addebitato alcun costo per le modifiche alle macchine virtuali. Quando si esegue un failover in Azure, Site Recovery crea automaticamente le macchine virtuali IaaS di Azure. In seguito vengono fatturate le risorse di calcolo utilizzate in Azure.
@@ -41,7 +41,7 @@ Sono necessari una sottoscrizione di Azure, un insieme di credenziali di Servizi
 È necessario un account di archiviazione con ridondanza locale o con ridondanza geografica. È consigliabile usare l'archiviazione con ridondanza geografica per una maggiore resilienza dei dati in caso di interruzione del servizio a livello di area o se non è possibile recuperare l'area primaria. L'account di archiviazione Premium è supportato.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>L'account Azure deve avere le autorizzazioni per creare macchine virtuali?
-L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie. Se non si ha questo ruolo, sono necessarie le autorizzazioni per creare una macchina virtuale di Azure nel gruppo di risorse e nella rete virtuale specificata durante la configurazione di Site Recovery e le autorizzazioni di scrittura per l'account di archiviazione selezionato. [Altre informazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+L'amministratore della sottoscrizione ha le autorizzazioni di replica necessarie. Se non si ha questo ruolo, sono necessarie le autorizzazioni per creare una macchina virtuale di Azure nel gruppo di risorse e nella rete virtuale specificata durante la configurazione di Site Recovery e le autorizzazioni di scrittura per l'account di archiviazione selezionato. [Altre informazioni](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)
 
 
 
@@ -134,7 +134,7 @@ Scaricare la versione più recente dall'[Area download Microsoft](https://aka.ms
 Occorre installare gli aggiornamenti cumulativi. Le informazioni più recenti sugli aggiornamenti sono disponibili nella [pagina wiki degli aggiornamenti](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>È consigliabile eseguire il backup del server di configurazione distribuito?
-Si consiglia di eseguire backup pianificati regolari del server di configurazione. Affinché il failback riesca, la macchina virtuale di cui si esegue il failback deve esistere nel database del server di configurazione e il server di configurazione deve essere in esecuzione e in uno stato connesso. Altre informazioni sulle attività comuni di gestione del server di configurazione sono disponibili [qui](vmware-azure-manage-configuration-server.md).
+Si consiglia di eseguire backup pianificati regolari del server di configurazione. Affinché il failback riesca, la macchina virtuale di cui si esegue il failback deve esistere nel database del server di configurazione e il server di configurazione deve essere in esecuzione e in uno stato connesso. Atre informazioni sulle attività comuni di gestione del server di configurazione sono disponibili [qui](vmware-azure-manage-configuration-server.md).
 
 ## <a name="mobility-service"></a>Servizio Mobility
 
@@ -157,7 +157,7 @@ Site Recovery richiede l'accesso ai server VMware per:
 
 ### <a name="what-access-does-site-recovery-need-to-vmware-vms"></a>A quale scopo Site Recovery deve accedere alle macchine virtuali VMware?
 
-- Per eseguire la replica, il servizio Mobility di Site Recovery deve essere installato e in esecuzione su una macchina virtuale VMware. È possibile distribuire lo strumento manualmente o specificare che Site Recovery esegua un'installazione push del servizio quando si abilita la replica per una macchina virtuale. Per l'installazione push Site Recovery necessita di un account da usare per installare il componente del servizio. [Altre informazioni](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-mobility-service-installation). Questa installazione viene eseguita dal server di elaborazione, che per impostazione predefinita è in esecuzione nel server di configurazione. [Altre informazioni](vmware-azure-install-mobility-service.md) sull'installazione del servizio Mobility.
+- Per eseguire la replica, il servizio Mobility di Site Recovery deve essere installato e in esecuzione su una macchina virtuale VMware. È possibile distribuire lo strumento manualmente o specificare che Site Recovery esegua un'installazione push del servizio quando si abilita la replica per una macchina virtuale. Per l'installazione push Site Recovery necessita di un account da usare per installare il componente del servizio. [Altre informazioni](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-mobility-service-installation) Questa installazione viene eseguita dal server di elaborazione, che per impostazione predefinita è in esecuzione nel server di configurazione. [Altre informazioni](vmware-azure-install-mobility-service.md) sull'installazione del servizio Mobility.
 - Durante la replica, le macchine virtuali comunicano con Site Recovery nel modo seguente:
     - Le macchine virtuali comunicano con il server di configurazione sulla porta HTTPS 443 per la gestione delle repliche.
     - Le macchine virtuali inviano i dati di replica al server di elaborazione sulla porta HTTPS 9443 (può essere modificata).
@@ -190,7 +190,7 @@ Azure è progettato nell'ottica della resilienza. Site Recovery è progettato pe
 Il [failover](site-recovery-failover.md) non è automatico. Può essere avviato con un singolo clic nel portale oppure mediante [PowerShell](/powershell/module/azurerm.siterecovery).
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>È possibile eseguire il failback in una posizione diversa?
-Sì, se è stato effettuato il failover ad Azure, è possibile eseguire il failback in una posizione diversa se quella originale non è disponibile. [Altre informazioni](concepts-types-of-failback.md#alternate-location-recovery-alr).
+Sì, se è stato effettuato il failover ad Azure, è possibile eseguire il failback in una posizione diversa se quella originale non è disponibile. [Altre informazioni](concepts-types-of-failback.md#alternate-location-recovery-alr)
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Perché è necessaria una VPN o ExpressRoute per eseguire il failback?
 
@@ -205,7 +205,7 @@ Sì. È possibile automatizzare i flussi di lavoro di Site Recovery usando l'API
 
 ## <a name="performance-and-capacity"></a>Prestazioni e capacità
 ### <a name="can-i-throttle-replication-bandwidth"></a>È possibile limitare la larghezza di banda per la replica?
-Sì. [Altre informazioni](site-recovery-plan-capacity-vmware.md).
+Sì. [Altre informazioni](site-recovery-plan-capacity-vmware.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

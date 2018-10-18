@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 934520764749b5abce9aefe22b8eb9a5d8e490f2
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746492"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387855"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Esercitazione: Integrazione di Azure Active Directory con Dome9 Arc
 
@@ -150,7 +150,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     d. Fare clic su **OK**.
     
     > [!NOTE]
-    > Consultare questo [collegamento](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management) sulle modalità di configurazione e impostazione dei ruoli per l'applicazione.
+    > Consultare questo [collegamento](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) sulle modalità di configurazione e impostazione dei ruoli per l'applicazione.
 
 7. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 

@@ -1,7 +1,7 @@
 ---
-title: "Guida introduttiva: Chiamare l'endpoint usando Node.js - Ricerca personalizzata Bing"
+title: "Guida introduttiva: Chiamare l'endpoint usando C# - Ricerca personalizzata Bing"
 titlesuffix: Azure Cognitive Services
-description: Questa guida introduttiva mostra come richiedere risultati delle ricerche dall'istanza di ricerca personalizzata usando Node.js per chiamare l'endpoint di Ricerca personalizzata Bing.
+description: Questa guida introduttiva mostra come richiedere risultati delle ricerche dall'istanza di ricerca personalizzata usando C# per chiamare l'endpoint di Ricerca personalizzata Bing.
 services: cognitive-services
 author: brapel
 manager: cgronlun
@@ -10,24 +10,25 @@ ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: af77b4c06b61cda4fd18d19ac3578129004c4914
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1c3b1031c2d08b1f346216b54d351c99f01db933
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816702"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167308"
 ---
-# <a name="quickstart-call-bing-custom-search-endpoint-nodejs"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing (Node.js)
+# <a name="quickstart-call-bing-custom-search-endpoint-c"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing (C#)
 
-Questa guida introduttiva illustra come chiamare l'endpoint di Ricerca personalizzata Bing eseguendo una ricerca dall'istanza di ricerca personalizzata tramite Node.js. 
+Questa guida introduttiva mostra come richiedere risultati delle ricerche dall'istanza di ricerca personalizzata usando C# per chiamare l'endpoint di Ricerca personalizzata Bing. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
 
 - Un'istanza di Ricerca personalizzata pronta per l'uso. Vedere [Creare la prima istanza di Ricerca personalizzata Bing](quick-start.md).
-- [Node.js](https://www.nodejs.org/) installato.
+- [.Net Core](https://www.microsoft.com/net/download/core) installato.
 - Una chiave di sottoscrizione. È possibile ottenere una chiave di sottoscrizione quando si attiva la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search). In alternativa è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure (vedere [Account delle API di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+
 
 ## <a name="run-the-code"></a>Eseguire il codice
 
@@ -37,48 +38,99 @@ Per eseguire l'esempio, seguire questa procedura:
   
 2. Da un terminale o un prompt dei comandi passare alla cartella appena creata.  
   
-3. Installare il modulo Node **request**:
-    <pre>
-    npm install request
-    </pre>  
-    
-4. Creare un file denominato BingCustomSearch.py nella cartella creata e copiare il codice seguente nel file. Sostituire **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** con la chiave di sottoscrizione e l'ID di configurazione.  
+3. Eseguire i comandi seguenti:
+    ```
+    dotnet new console -o BingCustomSearch
+    cd BingCustomSearch
+    dotnet add package Newtonsoft.Json
+    dotnet restore
+    ```
   
-    ``` javascript
-    var request = require("request");
+4. Copiare il codice seguente in Program.cs. Sostituire **YOUR-SUBSCRIPTION-KEY** e **YOUR-CUSTOM-CONFIG-ID** con la chiave di sottoscrizione e l'ID di configurazione.
+
+    ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Web;
+    using Newtonsoft.Json;
     
-    var subscriptionKey = 'YOUR-SUBSCRIPTION-KEY';
-    var customConfigId = 'YOUR-CUSTOM-CONFIG-ID';
-    var searchTerm = 'microsoft';
+    namespace bing_custom_search_example_dotnet
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+                var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
+                var searchTerm = args.Length > 0 ? args[0]: "microsoft";            
     
-    var options = {
-        url: 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 
-          'q=' + searchTerm + 
-          '&customconfig=' + customConfigId,
-        headers: {
-            'Ocp-Apim-Subscription-Key' : subscriptionKey
+                var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
+                    "q=" + searchTerm +
+                    "&customconfig=" + customConfigId;
+    
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+                var httpResponseMessage = client.GetAsync(url).Result;
+                var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
+                BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
+                
+                for(int i = 0; i < response.webPages.value.Length; i++)
+                {                
+                    var webPage = response.webPages.value[i];
+                    
+                    Console.WriteLine("name: " + webPage.name);
+                    Console.WriteLine("url: " + webPage.url);                
+                    Console.WriteLine("displayUrl: " + webPage.displayUrl);
+                    Console.WriteLine("snippet: " + webPage.snippet);
+                    Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
+                    Console.WriteLine();
+                }            
+            }
+        }
+    
+        public class BingCustomSearchResponse
+        {        
+            public string _type{ get; set; }            
+            public WebPages webPages { get; set; }
+        }
+    
+        public class WebPages
+        {
+            public string webSearchUrl { get; set; }
+            public int totalEstimatedMatches { get; set; }
+            public WebPage[] value { get; set; }        
+        }
+    
+        public class WebPage
+        {
+            public string name { get; set; }
+            public string url { get; set; }
+            public string displayUrl { get; set; }
+            public string snippet { get; set; }
+            public DateTime dateLastCrawled { get; set; }
+            public string cachedPageUrl { get; set; }
+            public OpenGraphImage openGraphImage { get; set; }        
+        }
+        
+        public class OpenGraphImage
+        {
+            public string contentUrl { get; set; }
+            public int width { get; set; }
+            public int height { get; set; }
         }
     }
+    ```
+6. Compilare l'applicazione usando il comando seguente. Prendere nota del percorso della DLL a cui viene fatto riferimento nell'output del comando.
+
+    <pre>
+    dotnet build 
+    </pre>
     
-    request(options, function(error, response, body){
-        var searchResponse = JSON.parse(body);
-        for(var i = 0; i < searchResponse.webPages.value.length; ++i){
-            var webPage = searchResponse.webPages.value[i];
-            console.log('name: ' + webPage.name);
-            console.log('url: ' + webPage.url);
-            console.log('displayUrl: ' + webPage.displayUrl);
-            console.log('snippet: ' + webPage.snippet);
-            console.log('dateLastCrawled: ' + webPage.dateLastCrawled);
-            console.log();
-        }
-    })
-    ```  
-  
-6. Eseguire il codice tramite il comando seguente:  
-  
-    ```    
-    node BingCustomSearch.js
-    ``` 
+7. Eseguire l'applicazione usando il comando seguente e sostituendo **PATH TO OUTPUT** con il percorso DLL a cui viene fatto riferimento nel passaggio 6.
+
+    <pre>    
+    dotnet **PATH TO OUTPUT**
+    </pre>
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare l'esperienza dell'interfaccia utente ospitata](./hosted-ui.md)

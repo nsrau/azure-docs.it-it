@@ -3,19 +3,19 @@ title: "Guida introduttiva: Analizzare un'immagine remota - REST, Python - Visio
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizza un'immagine remota usando l'API Visione artificiale con Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: pafarley
+ms.openlocfilehash: 8f8503277ec03bd6036431bcacd3719dac7378de
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883942"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338740"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Analizzare un'immagine remota usando l'API REST e Python in Visione artificiale
 
@@ -30,20 +30,20 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario installare [Python](https://www.python.org/downloads/) se si vuole eseguire l'esempio in locale.
-- È necessario disporre di una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere le sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="create-and-run-the-sample"></a>Creare ed eseguire l'esempio
 
-Per creare ed eseguire l'esempio, seguire la seguente procedura:
+Per creare ed eseguire l'esempio, seguire questa procedura:
 
 1. Copiare il codice seguente in un editor di testo.
-1. Apportare le modifiche seguenti al codice dove necessario:
+1. Apportare le modifiche seguenti al codice, dove necessario:
     1. Sostituire il valore di `subscription_key` con la chiave di sottoscrizione.
     1. Se necessario, sostituire il valore di `vision_base_url` con l'URL endpoint per la risorsa Visione artificiale nell'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
     1. Sostituire il valore di `image_url` con l'URL di un'immagine diversa da analizzare (facoltativo).
-1. Salvare il codice come file con estensione `.py`. Ad esempio: `analyze-image.py`.
+1. Salvare il codice in un file con estensione `.py`. Ad esempio: `analyze-image.py`.
 1. Aprire una finestra del prompt dei comandi.
-1. Al prompt, usare il comando `python` per eseguire l'esempio. Ad esempio: `python analyze-image.py`.
+1. Al prompt usare il comando `python` per eseguire l'esempio. Ad esempio: `python analyze-image.py`.
 
 ```python
 import requests
@@ -93,7 +93,7 @@ _ = plt.title(image_caption, size="x-large", y=-0.1)
 plt.show()
 ```
 
-## <a name="examine-the-response"></a>Analisi dei risultati
+## <a name="examine-the-response"></a>Esaminare i risultati
 
 Una risposta con esito positivo viene restituita in JSON. La pagina Web di esempio analizza e visualizza una risposta con esito positivo nella finestra del prompt dei comandi, come nell'esempio seguente:
 
@@ -175,7 +175,7 @@ Quando non è più necessario, eliminare il file.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare un'applicazione Python che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente API Visione artificiale, selezionare [Apri console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare un'applicazione Python che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Esercitazione per Python dell'API Visione artificiale](../Tutorials/PythonTutorial.md)

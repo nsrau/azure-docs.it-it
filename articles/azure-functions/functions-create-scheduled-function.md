@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 5a5e14c2a8501ce2672923545df8d32a32dee8fa
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 4809c09b5aa7b8212981cc13589602a365a23a37
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093986"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113615"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Creare una funzione in Azure attivata da un timer
 
-Informazioni su come usare Funzioni di Azure per creare una funzione [senza server](https://azure.microsoft.com/overview/serverless-computing/) eseguita in base a una pianificazione definita.
+Informazioni su come usare Funzioni di Azure per creare una funzione [senza server](https://azure.microsoft.com/solutions/serverless/) eseguita in base a una pianificazione definita.
 
 ![Creare un'app per le funzioni nel portale di Azure](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b2b0a0bbc91115de22eda98df91fb104eb5972ed
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826059"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094944"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promuovere la propria attività con Microsoft  
 Microsoft ha l'obiettivo di supportare i partner (l'utente) e di semplificare la vendita di app o offerte nelle vetrine del Marketplace. La pubblicazione di un'inserzione nel Marketplace consente di accedere ai programmi e alle risorse nel Marketplace. 

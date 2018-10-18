@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: f47654d056a26f5a58b1ccc2c200f774bee1f19f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348202"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979520"
 ---
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "37348202"
 | Numero totale di core della VM per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area | Contattare il supporto tecnico |
 | Core di VM per ogni serie (Dv2, F e così via) per ogni [sottoscrizione](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per area | Contattare il supporto tecnico |
 | [Coamministratori](../articles/billing-add-change-azure-subscription-administrator.md) per sottoscrizione |Illimitato |Illimitato |
-| [Account di archiviazione](../articles/storage/common/storage-create-storage-account.md) per area per sottoscrizione |200 |200<sup>2</sup> |
+| [Account di archiviazione](../articles/storage/common/storage-quickstart-create-account.md) per area per sottoscrizione |200 |200<sup>2</sup> |
 | [Gruppi di risorse](../articles/azure-resource-manager/resource-group-overview.md) per sottoscrizione |980 |980 |
 | [Set di disponibilità](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per sottoscrizione |2.000 per area |2.000 per area |
 | Letture API Gestione risorse |15.000 all'ora |15.000 all'ora |
@@ -31,6 +31,7 @@ ms.locfileid: "37348202"
 | Calcoli di tag univoco per sottoscrizione<sup>3</sup> | 10.000 | 10.000 |
 | [Servizi cloud](../articles/cloud-services/cloud-services-choose-me.md) per sottoscrizione |Non applicabile<sup>4</sup> |Non applicabile<sup>4</sup> |
 | [Gruppi di affinità](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per sottoscrizione |Non applicabile<sup>4</sup> |Non applicabile<sup>4</sup> |
+| [Distribuzioni a livello di sottoscrizione](../articles/azure-resource-manager/deploy-to-subscription.md) per area | 800 | 800 |
 
 <sup>1</sup>I limiti predefiniti variano in base al tipo di categoria di offerta, ad esempio Versione di valutazione gratuita, Pagamento in base al consumo, e al tipo di serie, ad esempio Dv2, F, G e così via.
 

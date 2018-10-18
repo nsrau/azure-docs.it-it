@@ -4,23 +4,17 @@ description: Questo articolo illustra Azure Data Box, una soluzione cloud che co
 services: databox
 documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 9c27efa133ab093c6aaae85d976d08cf16147233
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1beecd4c37ef333464e96b93294c25d182ffdf91
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967507"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090807"
 ---
 # <a name="what-is-azure-data-box"></a>Che cos'è Azure Data Box?
 

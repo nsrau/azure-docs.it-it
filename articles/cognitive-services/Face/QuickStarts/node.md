@@ -3,19 +3,19 @@ title: "Guida introduttiva: rilevare i visi in un'immagine - API Viso, Node.js"
 titleSuffix: Azure Cognitive Services
 description: In questa introduttiva si rileveranno i visi in un'immagine usando l'API Viso con Node.js in Servizi cognitivi.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/08/2018
-ms.author: nolachar
-ms.openlocfilehash: 53d5ed6c13c2f2822374134d8b403493079e1956
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: 4ac68a2b0e843e69d3c902abf2feada985f23849
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123998"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338733"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-nodejs"></a>Guida introduttiva: rilevare i visi in un'immagine con Node.js
 
