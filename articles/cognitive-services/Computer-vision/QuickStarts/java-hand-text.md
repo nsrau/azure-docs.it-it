@@ -3,19 +3,19 @@ title: 'Guida introduttiva: Estrarre testo scritto a mano - REST, Java - Visione
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API Visione artificiale con Java.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: b69d36652838f5d5d6caa3ebb7a3287e234b32cf
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: d30d0e088338c4cddac97dc4b4d5d6199b549ffd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629444"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340410"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-java-in-computer-vision"></a>Guida introduttiva: Estrarre testo scritto a mano usando l'API REST e Java in Visione artificiale
 

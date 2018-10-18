@@ -2,18 +2,18 @@
 title: 'Guida introduttiva: Eseguire query sui dati con la libreria di Esplora dati di Azure per Python'
 description: Questa guida introduttiva descrive come eseguire query sui dati da Esplora dati di Azure tramite Python.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: fee982812456548ed6d1e15d86151df88532389f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 17504cec6ddf98aca8ddfc6c91d21d34055902f6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956099"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394853"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Guida introduttiva: Eseguire query sui dati con la libreria di Esplora dati di Azure per Python
 
@@ -32,7 +32,7 @@ Questa guida introduttiva è disponibile anche come [Notebook di Azure](https://
 Installare *azure-kusto-data*.
 
 ```python
-pip install azure-kusto-data
+pip install azure-kusto-data==0.0.13
 ```
 
 ## <a name="add-import-statements-and-constants"></a>Aggiungere le costanti e le istruzioni import
@@ -42,6 +42,7 @@ Importare le classi dalla libreria, nonché *pandas*, una libreria di analisi de
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
+from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
 ```
 
@@ -51,10 +52,10 @@ Per autenticare un'applicazione, Esplora dati di Azure usa l'ID tenant AAD. Per 
 https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
 ```
 
-Ad esempio, se il dominio è *contoso.com*, l'URL è: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Fare clic su questo URL per visualizzare i risultati; la prima riga è come indicato di seguito. 
+Ad esempio, se il dominio è *contoso.com*, l'URL è: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Fare clic su questo URL per visualizzare i risultati; la prima riga è come indicato di seguito.
 
 ```
-`"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"`
+"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
 ```
 
 Il tenant ID in questo caso è `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. Prima di eseguire questo codice, impostare il valore di AAD_TENANT_ID.
@@ -80,7 +81,7 @@ Eseguire una query sul cluster e archiviare l'output in un frame di dati. Quando
 KUSTO_CLIENT  = KustoClient(KCSB)
 KUSTO_QUERY  = "StormEvents | sort by StartTime desc | take 10"
 
-df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute(KUSTO_DATABASE, KUSTO_QUERY)
 ```
 
 ## <a name="explore-data-in-dataframe"></a>Esplorare i dati in DataFrame
@@ -88,6 +89,7 @@ df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, KUSTO_QUERY).primary_results[0].
 Dopo che è stato eseguito l'accesso, la query restituisce risultati, che vengono archiviati in un frame di dati. È possibile usare i risultati in modo analogo a qualsiasi altro frame di dati.
 
 ```python
+df = dataframe_from_result_table(RESPONSE.primary_results[0])
 df
 ```
 

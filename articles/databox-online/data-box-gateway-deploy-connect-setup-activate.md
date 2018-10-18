@@ -1,26 +1,19 @@
 ---
 title: Connettersi ad Azure Data Box Gateway, configurarlo e attivarlo nel portale di Azure | Microsoft Docs
 description: La terza esercitazione relativa alla distribuzione di Data Box Gateway illustra come connettersi al dispositivo virtuale, quindi configurarlo e attivarlo.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: 77ccc6ebbb48ab3d7ce22d6c593bd62aa8dec3ac
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 2126871472b044f9b8c0df99c7cb14df348eab0e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419481"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166747"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Esercitazione: Connettersi ad Azure Data Box Gateway (Anteprima), configurarlo e attivarlo 
 

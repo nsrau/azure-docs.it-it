@@ -1,24 +1,25 @@
 ---
-title: Usare la pronuncia personalizzata - Servizio di riconoscimento vocale personalizzato
-titlesuffix: Azure Cognitive Services
-description: Informazioni su come creare un modello linguistico con il Servizio di riconoscimento vocale personalizzato.
+title: Usare la pronuncia personalizzata con il Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
+description: Informazioni su come creare un modello linguistico con il Servizio di riconoscimento vocale personalizzato in Servizi cognitivi.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6442eec3e622282ecf6a3bf884110cd435fc18be
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1e9de9755ef4baee7e2a0e6c093e2cf27cb4281f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223475"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339815"
 ---
 # <a name="enable-custom-pronunciation"></a>Abilitare la pronuncia personalizzata
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 La pronuncia personalizzata consente agli utenti di definire la forma fonetica e la visualizzazione di una parola o un termine. È utile per gestire i termini personalizzati, come i nomi di prodotto o gli acronimi. Tutto ciò che serve è un file di pronunce, un semplice file con estensione txt.
 
 e funziona nel modo seguente: In un singolo file TXT è possibile immettere più voci di pronuncia personalizzate. La struttura è analoga alla seguente:

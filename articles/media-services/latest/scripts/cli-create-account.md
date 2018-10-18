@@ -1,10 +1,10 @@
 ---
-title: "Esempio di script dell'interfaccia della riga di comando di Azure: creare un account di Servizi multimediali di Azure | Microsoft Docs"
+title: Creare un account di Servizi multimediali di Azure - Interfaccia della riga di comando di Azure| Microsoft Docs
 description: Usare lo script dell'interfaccia della riga di comando di Azure per creare un account di Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 783dc0fd37f98a12d9240ad4b3ee72aa98212eff
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 9e6279b2f93cb68043fa96866d8269b7d60b9b25
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159714"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379247"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>Esempio dell'interfaccia della riga di comando: creare un account di Servizi multimediali di Azure
 
@@ -27,7 +27,7 @@ Lo script dell'interfaccia della riga di comando di Azure in questo argomento mo
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.20 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli). 
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, questo articolo richiede la versione 2.0.20 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
 ## <a name="example-script"></a>Script di esempio
 
@@ -47,11 +47,11 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Crea un account di archiviazione. |
+| [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Crea un account di archiviazione. |
 | [az ams account create](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest#az-ams-account-create) | Crea un account di Servizi multimediali. |
 | [az ams account sp create](https://docs.microsoft.com/cli/azure/ams/account/sp?view=azure-cli-latest#az-ams-account-sp-create) | Crea un'entità servizio con password e configura l'accesso a un account di Servizi multimediali di Azure. 
-| [az group delete](/cli/azure/group#az_group_delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [az group delete](/cli/azure/group#az-group-delete) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

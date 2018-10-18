@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: cad5ec059c88290b94919c58ff6bd1071a2b8fdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972105"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389069"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>Esercitazione: Scrivere una funzione C# definita dall'utente per un processo Edge di Analisi di flusso di Azure in Visual Studio (anteprima)
 
@@ -37,7 +37,7 @@ Prima di iniziare, verificare che i prerequisiti seguenti siano disponibili:
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Creare un contenitore nell'account di archiviazione di Azure
 
-Il contenitore creato verrà usato per archiviare il pacchetto C# compilato e distribuire il pacchetto al dispositivo IoT Edge. Usare un contenitore dedicato per ogni processo di Analisi di flusso. Non è supportato il riutilizzo dello stesso contenitore per più processi Edge di Analisi di flusso. Se è già disponibile un account di archiviazione con contenitori esistenti, è possibile usarli. In caso contrario, sarà necessario [creare un nuovo contenitore](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). 
+Il contenitore creato verrà usato per archiviare il pacchetto C# compilato e distribuire il pacchetto al dispositivo IoT Edge. Usare un contenitore dedicato per ogni processo di Analisi di flusso. Non è supportato il riutilizzo dello stesso contenitore per più processi Edge di Analisi di flusso. Se è già disponibile un account di archiviazione con contenitori esistenti, è possibile usarli. In caso contrario, sarà necessario [creare un nuovo contenitore](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 ## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>Creare un progetto Edge di Analisi di flusso in Visual Studio
 
@@ -146,7 +146,7 @@ Dopo aver testato la query in locale, selezionare **Invia ad Azure** nell'editor
 ![Inviare il progetto Edge di Analisi di flusso in Azure da Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>Distribuire nei dispositivi IoT Edge
-Il processo di Analisi di flusso è ora pronto per essere distribuito come modulo di IoT Edge. Seguire la [guida introduttiva di IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) per creare un hub IoT, registrare un dispositivo IoT Edge, quindi installare e avviare il runtime di IoT Edge nel dispositivo. Seguire poi l'esercitazione per [distribuire il processo](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) per distribuire il processo di Analisi di flusso come modulo IoT Edge. 
+Il processo di Analisi di flusso è ora pronto per essere distribuito come modulo di IoT Edge. Seguire la [guida introduttiva di IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) per creare un hub IoT, registrare un dispositivo IoT Edge, quindi installare e avviare il runtime di IoT Edge nel dispositivo. Seguire poi l'esercitazione per [distribuire il processo](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) per distribuire il processo di Analisi di flusso come modulo IoT Edge. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

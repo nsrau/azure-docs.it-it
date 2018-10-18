@@ -1,25 +1,27 @@
 ---
-title: Metodo per le lingue dell'API Traduzione vocale Microsoft | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Usare il metodo per le lingue dell'API Traduzione vocale Microsoft.
+title: Metodo per le lingue dell'API Traduzione vocale
+titleSuffix: Azure Cognitive Services
+description: Usare il metodo per le lingue dell'API Traduzione vocale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: 5396e3be17345c3c36197a9b6cbace86e1f574c1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378464"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345204"
 ---
-# <a name="speech-api-languages"></a>API Riconoscimento vocale: Lingue
+# <a name="translator-speech-api-languages"></a>API Traduzione vocale: lingue
 
-Microsoft Translator espande continuamente l'elenco delle lingue supportate dai suoi servizi. Usare quest'API per individuare il set di lingue attualmente disponibili per l'uso con il servizio di traduzione vocale.
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+Traduzione vocale espande continuamente l'elenco delle lingue supportate dai suoi servizi. Usare quest'API per individuare il set di lingue attualmente disponibili per l'uso con il servizio Traduzione vocale.
 
 Nel [sito GitHub di Microsoft Translator](https://github.com/MicrosoftTranslator) è possibile trovare esempi di codice che illustrano l'uso dell'API per ottenere le lingue disponibili.
 
@@ -35,7 +37,7 @@ Un client usa il parametro di query `scope` per definire i set di lingue desider
 * **Traduzione testuale:** usare il parametro di query `scope=text` per recuperare il set di lingue disponibili per la traduzione del testo trascritto.
 * **Sintesi vocale:** usare il parametro di query `scope=tts` per recuperare il set di lingue e voci disponibili per sintetizzare il testo tradotto di nuovo in output vocale.
 
-Un client può recuperare più set contemporaneamente specificando un elenco di opzioni delimitato da virgole. Ad esempio, `scope=speech,text,tts`.
+Un client può recuperare più set contemporaneamente specificando un elenco di opzioni delimitato da virgole. Ad esempio: `scope=speech,text,tts`.
 
 Una risposta corretta è un oggetto JSON con una proprietà per ogni set richiesto.
 

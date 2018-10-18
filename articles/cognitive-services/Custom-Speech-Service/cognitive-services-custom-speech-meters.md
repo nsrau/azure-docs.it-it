@@ -1,24 +1,24 @@
 ---
-title: Contatori e quote del Servizio di riconoscimento vocale personalizzato
-titlesuffix: Azure Cognitive Services
+title: Contatori e quote del Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
 description: Informazioni sui contatori e le quote del Servizio di riconoscimento vocale personalizzato in Azure.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 68fba1d6038a044336ba6aecd3ff163d29131b1d
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bd39976691aab0c2333afe9fafc9c5a8cc518b67
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224699"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339560"
 ---
 # <a name="custom-speech-service-meters-and-quotas"></a>Contatori e quote del Servizio di riconoscimento vocale personalizzato
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Il Servizio di riconoscimento vocale personalizzato è un servizio basato sul cloud che consente agli utenti di personalizzare i modelli conversione voce/testo per la trascrizione della voce in testo scritto.
 
@@ -51,6 +51,6 @@ Scalabilità orizzontale è una nuova funzionalità rilasciata con il nuovo mode
 Per altre informazioni su come usare il Servizio di riconoscimento vocale personalizzato, passare al [portale del Servizio di riconoscimento vocale personalizzato](https://cris.ai).
 
 * [Introduzione](cognitive-services-custom-speech-get-started.md)
-* [DOMANDE FREQUENTI](cognitive-services-custom-speech-faq.md)
+* [Domande frequenti](cognitive-services-custom-speech-faq.md)
 * [Glossario](cognitive-services-custom-speech-glossary.md)
  

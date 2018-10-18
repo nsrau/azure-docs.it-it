@@ -4,7 +4,7 @@ description: Esempi che illustrano l'uso di U-SQL in Azure Data Lake per eseguir
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: c2779fd99c0cce6eb4e8a9d0c3b8b2c886ac99e1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6625a2b1e02801a3adea08fc0e301c56d8db3f1b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838613"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392428"
 ---
 # <a name="azure-data-lake-data-science-walkthroughs-using-u-sql"></a>Procedure dettagliate di data science per Azure Data Lake con U-SQL
 

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: acd9d9ff0b97bf0eaaca2f8ae9a6909e18e320d6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168179"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385907"
 ---
 # <a name="tutorial-luis-bot-in-nodejs"></a>Esercitazione: Bot LUIS in Node.js
 Usando Node.js, è possibile creare un chat bot integrato con Language Understanding (LUIS). Questo bot Usa l'app HomeAutomation per implementare una soluzione di bot. Il bot viene compilato con il [bot per app Web](https://docs.microsoft.com/azure/bot-service/) di Azure e la [versione Bot Framework](https://github.com/Microsoft/botbuilder-js) 4.
@@ -62,10 +62,10 @@ https://github.com/Microsoft/BotBuilder-Samples/tree/v4/javascript_nodejs/12.nlp
     |Impostazione|Scopo|Selezione|
     |--|--|--|
     |Versione dell'SDK|Versione di Bot Framework|**SDK v4**|
-    |Linguaggio SDK|Linguaggio di programmazione di bot|**Node.JS**|
+    |Linguaggio SDK|Linguaggio di programmazione di bot|**Node.js**|
     |Bot echo/di base|Tipo di bot|**Bot di base**|
     
-5. Selezionare **Create**. Il servizio bot viene creato e distribuito in Azure. Parte di questo processo permette di creare una nuova app LUIS denominata `luis-nodejs-bot-XXXX`. Questo nome è basato sul nome del bot e dell'app nella sezione precedente.
+5. Selezionare **Create**. Il servizio bot viene creato e distribuito in Azure. Parte di questo processo permette di creare una nuova app denominata LUIS`luis-nodejs-bot-XXXX`. Questo nome è basato sul nome del bot e dell'app nella sezione precedente.
 
     [ ![Creare bot app Web](./media/bfv4-nodejs/create-web-app-service.png) ](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
@@ -105,7 +105,7 @@ Per sviluppare il codice di bot app Web, scaricare il codice da usare sul comput
 
 2. Nel portale di Azure, selezionare **Build** (Compila) dalla sezione **Bot Management** (Gestione bot). 
 
-3. Selezionare **Download Bot source code** (Scarica il codice sorgente del bot). 
+3. Selezionare **Scarica il codice sorgente del bot**. 
 
     [ ![Scarica il codice sorgente del bot dell'app Web per il bot di base](../../../includes/media/cognitive-services-luis/bfv4/download-code.png) ](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
@@ -350,9 +350,9 @@ Nel file `bot.js`, aggiungere il codice per gestire le nuove finalità.
 ## <a name="learn-more-about-bot-framework"></a>Ulteriori informazioni su Bot Framework
 Il servizio Azure Bot utilizza l’SDK Bot Framework. Ulteriori informazioni su SDK e bot framework:
 
-* Documentazione del [servizio Azure Bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
+* Documentazione del [servizio Azure Bot](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
 * [Esempi di Bot Builder](https://github.com/Microsoft/botbuilder-samples)
-* [SDK Bot Builder](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [SDK Bot Builder](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Strumenti di Bot Builder](https://github.com/Microsoft/botbuilder-tools):
 
 ## <a name="next-steps"></a>Passaggi successivi

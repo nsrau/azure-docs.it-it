@@ -4,22 +4,21 @@ description: Questo argomento fornisce informazioni generali su Servizi multimed
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 7a5e9723-c379-446b-b4d6-d0e41bd7d31f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/24/2018
-ms.author: juliako;anilmur
-ms.openlocfilehash: 65f38ca477cf1a861c1285e6195598be705005d7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: cc6cb768e9403a09ea09309e0ffd85ce9012cb41
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163750"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352087"
 ---
 # <a name="azure-media-services-overview"></a>Panoramica di Servizi multimediali di Azure 
 
@@ -53,7 +52,7 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Servizi multimediali di Azure per Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js). Questa è una versione non Microsoft di Node.js SDK. È gestita da una community e attualmente non copre al 100% le API AMS.
 * Strumenti esistenti:
-    * [portale di Azure](https://portal.azure.com/)
+    * [Portale di Azure](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) è un'applicazione Winforms/C# per Windows)
 
 > [!NOTE]

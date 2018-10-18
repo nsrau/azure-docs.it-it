@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: d0f36551fb06e04b50af464bac6953dda64c6202
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 2e8c5b3d9624d3a622f16d770f68bc8614993d36
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054149"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387483"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Avvisi e monitoraggio delle data factory con Monitoraggio di Azure
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
@@ -231,7 +231,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
     "identity": null
 }
 ```
-[Altre informazioni sono disponibili qui](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings)
+[Altre informazioni sono disponibili qui](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 
 ## <a name="schema-of-logs--events"></a>Schema di log ed eventi
 

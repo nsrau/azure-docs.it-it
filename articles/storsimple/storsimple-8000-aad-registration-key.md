@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: e6e792c31f9856bcaf1d777e534dcac8d8be3dd3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b1ea195ab0b06c4ca0fab37fe7e5701229b34938
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113528"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387039"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Usare la nuova autenticazione per StorSimple
 
@@ -28,7 +28,7 @@ ms.locfileid: "37113528"
 Il servizio Gestione dispositivi StorSimple viene eseguito in Microsoft Azure e si connette a più dispositivi StorSimple. Finora il servizio Gestione dispositivi di StorSimple ha usato un Servizio di controllo di accesso per autenticare il servizio nel dispositivo StorSimple. Il meccanismo di ACS verrà presto deprecato e sostituito da un'autenticazione di Azure Active Directory (AAD). Per altre informazioni, vedere gli annunci seguenti relativi alla deprecazione di ACS e all'uso dell'autenticazione di AAD.
 
 - [The future of Azure ACS is Azure Active Directory](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/) (Il futuro di Servizio di controllo di accesso di Azure è Azure Active Directory)
-- [Upcoming changes to the Microsoft Access Control Service](https://azure.microsoft.com/en-in/blog/acs-access-control-service-namespace-creation-restriction/) (Modifiche imminenti al Servizio di controllo di accesso Microsoft)
+- [Upcoming changes to the Microsoft Access Control Service](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/) (Modifiche imminenti al Servizio di controllo di accesso Microsoft)
 
 Questo articolo descrive in dettaglio l'autenticazione di AAD, la nuova chiave di registrazione del servizio associata e le modifiche alle regole del firewall applicabili ai dispositivi StorSimple. Le informazioni contenute in questo articolo si applicano solo ai dispositivi StorSimple serie 8000.
 

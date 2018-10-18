@@ -11,19 +11,19 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/15/2018
+ms.openlocfilehash: 1177703dc67e81e537d7682dcf9bbeb475748315
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064102"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353935"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifiche tramite posta elettronica per l'ottimizzazione automatica
 
 I suggerimenti di ottimizzazione per i database SQL vengono generati dall'opzione [Ottimizzazione automatica](sql-database-automatic-tuning.md) per database SQL di Azure. Questa soluzione monitorizza e analizza costantemente i carichi di lavoro di database SQL e offre suggerimenti di ottimizzazione personalizzati per ogni database inerenti, ad esempio, alla creazione dell'indice, all'eliminazione dell'indice e all'ottimizzazione dei piani di esecuzione delle query.
 
-I suggerimenti di ottimizzazione automatica per database SQL possono essere visualizzati nel [portale di Azure](sql-database-advisor-portal.md), recuperati con chiamate all'[API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) oppure usando comandi di [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Questo articolo si basa sull'utilizzo di uno script di PowerShell per recuperare suggerimenti di ottimizzazione automatica.
+I suggerimenti di ottimizzazione automatica per database SQL possono essere visualizzati nel [portale di Azure](sql-database-advisor-portal.md), recuperati con chiamate all'[API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/databaserecommendedactions_listbydatabaseadvisor) oppure usando comandi di [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e [ PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Questo articolo si basa sull'utilizzo di uno script di PowerShell per recuperare suggerimenti di ottimizzazione automatica.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatizzare le notifiche tramite posta elettronica per i suggerimenti di ottimizzazione automatica
 
@@ -99,7 +99,7 @@ In caso di più sottoscrizioni, è possibile aggiungerle come delimitate da virg
 #
 # Microsoft Azure SQL Database team, 2018-01-22.
 
-# Set subscriptions : IMPORTANT – REPLACE <SUBSCRIPTION_ID_WITH_DATABASES> WITH YOUR SUBSCRIPTION ID 
+# Set subscriptions : IMPORTANT – REPLACE <SUBSCRIPTION_ID_WITH_DATABASES> WITH YOUR SUBSCRIPTION ID
 $subscriptions = ("<SUBSCRIPTION_ID_WITH_DATABASES>", "<SECOND_SUBSCRIPTION_ID_WITH_DATABASES>", "<THIRD_SUBSCRIPTION_ID_WITH_DATABASES>")
 
 # Get credentials
@@ -112,8 +112,8 @@ $advisors = ("CreateIndex", "DropIndex");
 $results = @()
 
 # Loop through all subscriptions
-foreach($subscriptionId in $subscriptions) {    
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId    
+foreach($subscriptionId in $subscriptions) {
+    Select-AzureRmSubscription -SubscriptionId $subscriptionId
     $rgs = Get-AzureRmResourceGroup
 
     # Loop through all resource groups
@@ -122,7 +122,7 @@ foreach($subscriptionId in $subscriptions) {
 
         # Loop through all resource types
         foreach($resourceType in $resourceTypes) {
-            $resources = Get-AzureRmResource -ResourceGroupName $rgname -ResourceType $resourceType    
+            $resources = Get-AzureRmResource -ResourceGroupName $rgname -ResourceType $resourceType
 
             # Loop through all databases
             # Extract resource groups, servers and databases
@@ -141,7 +141,7 @@ foreach($subscriptionId in $subscriptions) {
                 if ($resourceId -match ".*/DATABASES/(?<content>.*)") {
                     $DatabaseName = $matches['content']
                 } else {
-                    continue 
+                    continue
                 }
 
                 # Skip if master
@@ -163,7 +163,7 @@ foreach($subscriptionId in $subscriptions) {
                             $results += $object
                         }
                     }
-                }                
+                }
             }
         }
     }
@@ -174,7 +174,7 @@ $table = $results | Format-List
 Write-Output $table
 ```
 
-Fare clic sul pulsante "**Salva**" nell'angolo superiore destro per salvare lo script. Quando si è soddisfatti dello script, fare clic sul pulsante "**Pubblica**" per pubblicare il runbook. 
+Fare clic sul pulsante "**Salva**" nell'angolo superiore destro per salvare lo script. Quando si è soddisfatti dello script, fare clic sul pulsante "**Pubblica**" per pubblicare il runbook.
 
 Nel riquadro principale del runbook è possibile scegliere di fare clic sul pulsante "**Avvia**" per **testare** lo script. Fare clic su "**Output**" per visualizzare i risultati dello script eseguito. Questo output diventerà il contenuto del messaggio di posta elettronica. L'output dello script di esempio può essere visualizzato nella schermata seguente.
 
@@ -186,7 +186,7 @@ Nel corso della procedura precedente è stato caricato in Automazione di Azure l
 
 ## <a name="automate-the-email-jobs-with-microsoft-flow"></a>Automatizzare i processi di posta elettronica con Microsoft Flow
 
-Per completare la soluzione, come ultimo passaggio, creare un flusso di automazione in Microsoft Flow composto da tre azioni (processi): 
+Per completare la soluzione, come ultimo passaggio, creare un flusso di automazione in Microsoft Flow composto da tre azioni (processi):
 
 1. "**Azure Automation - Create job**" (Automazione di Azure - Creare il processo): consente di eseguire lo script di PowerShell per recuperare i suggerimenti di ottimizzazione automatica nel runbook di Automazione di Azure
 2. "**Azure Automation - Get job output**" (Automazione di Azure - Ottenere l'output del processo): consente di recuperare l'output dello script di PowerShell eseguito
@@ -205,25 +205,28 @@ I prerequisiti per questo passaggio comprendono la sottoscrizione di un account 
 Il passaggio successivo consiste nell'aggiunta dei tre processi (creazione, acquisizione dell'output e invio del messaggio di posta elettronica) al flusso ricorrente appena creato. Per aggiungere al flusso i tre processi richiesti, seguire questa procedura:
 
 1. Creare l'azione per eseguire lo script di PowerShell per recuperare i suggerimenti di ottimizzazione
-- Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
-- Nel campo di ricerca digitare "**automation**" (automazione) e selezionare"**Azure Automation – Create job**" (Automazione di Azure - Creare il processo) nei risultati della ricerca
-- Nel riquadro di creazione del processo configurare le proprietà del processo. Per questa configurazione saranno necessari l'ID della sottoscrizione di Azure, il gruppo di risorse e l'account di Automazione **precedentemente annotati** dal **riquadro dell'account di Automazione**. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation - Create Job](https://docs.microsoft.com/connectors/azureautomation/#create-job) (Automazione di Azure - Creare il processo).
-- Completare la creazione di questa azione facendo clic su "**Salva flusso**"
+
+   - Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
+   - Nel campo di ricerca digitare "**automation**" (automazione) e selezionare"**Azure Automation – Create job**" (Automazione di Azure - Creare il processo) nei risultati della ricerca
+   - Nel riquadro di creazione del processo configurare le proprietà del processo. Per questa configurazione saranno necessari l'ID della sottoscrizione di Azure, il gruppo di risorse e l'account di Automazione **precedentemente annotati** dal **riquadro dell'account di Automazione**. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation - Create Job](https://docs.microsoft.com/connectors/azureautomation/#create-job) (Automazione di Azure - Creare il processo).
+   - Completare la creazione di questa azione facendo clic su "**Salva flusso**"
 
 2. Creare un'azione per recuperare l'output dello script di PowerShell eseguito
-- Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
-- Nel campo di ricerca digitare "**automation**" (automazione) e selezionare"**Azure Automation – Get job output**" (Automazione di Azure - Ottenere l'output del processo) nei risultati della ricerca. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#get-job-output) (Automazione di Azure - Ottenere l'output del processo).
-- Compilare i campi richiesti (simile alla creazione del processo precedente): inserire l'ID della sottoscrizione, il gruppo di risorse e un account di Automazione (come specificati nel riquadro dell'account di Automazione)
-- Fare clic all'interno del campo "**ID processo**" per consentire la visualizzazione del menu "**Contenuto dinamico**". In questo menu selezionare l'opzione "**ID processo**".
-- Completare la creazione di questa azione facendo clic su "**Salva flusso**"
+
+   - Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
+   - Nel campo di ricerca digitare "**automation**" (automazione) e selezionare"**Azure Automation – Get job output**" (Automazione di Azure - Ottenere l'output del processo) nei risultati della ricerca. Per altre informazioni sulle opzioni disponibili in questa sezione, vedere [Azure Automation – Get job output](https://docs.microsoft.com/connectors/azureautomation/#get-job-output) (Automazione di Azure - Ottenere l'output del processo).
+   - Compilare i campi richiesti (simile alla creazione del processo precedente): inserire l'ID della sottoscrizione, il gruppo di risorse e un account di Automazione (come specificati nel riquadro dell'account di Automazione)
+   - Fare clic all'interno del campo "**ID processo**" per consentire la visualizzazione del menu "**Contenuto dinamico**". In questo menu selezionare l'opzione "**ID processo**".
+   - Completare la creazione di questa azione facendo clic su "**Salva flusso**"
 
 3. Creare l'azione per inviare messaggi di posta elettronica mediante l'integrazione di Office 365
-- Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
-- Nel campo di ricerca digitare "**send an email**" (inviare un messaggio di posta elettronica) e selezionare"**Office 365 Outlook - Send an email**" (Office 365 Outlook - Inviare un messaggio di posta elettronica) nei risultati della ricerca
-- Nel campo "**A**" digitare l'indirizzo di posta elettronica a cui inviare il messaggio di notifica
-- Nel campo "**Oggetto**" digitare l'oggetto del messaggio di posta elettronica, ad esempio "Notifica tramite posta elettronica dei suggerimenti di ottimizzazione automatica"
-- Fare clic all'interno del campo "**Corpo**" per consentire la visualizzazione del menu "**Contenuto dinamico**". In questo menu, sotto "**Get job output**" (Ottenere l'output del processo), selezionare "**Contenuto**" 
-- Completare la creazione di questa azione facendo clic su "**Salva flusso**"
+
+   - Selezionare "**+Nuovo passaggio**", seguito da "**Aggiungi un'azione**" nel riquadro del flusso Ricorrenza
+   - Nel campo di ricerca digitare "**send an email**" (inviare un messaggio di posta elettronica) e selezionare"**Office 365 Outlook - Send an email**" (Office 365 Outlook - Inviare un messaggio di posta elettronica) nei risultati della ricerca
+   - Nel campo "**A**" digitare l'indirizzo di posta elettronica a cui inviare il messaggio di notifica
+   - Nel campo "**Oggetto**" digitare l'oggetto del messaggio di posta elettronica, ad esempio "Notifica tramite posta elettronica dei suggerimenti di ottimizzazione automatica"
+   - Fare clic all'interno del campo "**Corpo**" per consentire la visualizzazione del menu "**Contenuto dinamico**". In questo menu, sotto "**Get job output**" (Ottenere l'output del processo), selezionare "**Contenuto**"
+   - Completare la creazione di questa azione facendo clic su "**Salva flusso**"
 
 > [!TIP]
 > Per inviare messaggi di posta elettronica automatizzati a destinatari diversi, creare flussi separati. In questi flussi aggiuntivi, modificare l'indirizzo di posta elettronica del destinatario nel campo "A" e la riga dell'oggetto del messaggio di posta elettronica nel campo "Oggetto". La creazione di nuovi runbook in Automazione di Azure con script di PowerShell personalizzati (ad esempio, modificando l'ID della sottoscrizione di Azure) consente un'ulteriore personalizzazione degli scenari automatizzati, ad esempio l'invio di messaggi di posta elettronica a destinatari separati in merito ai suggerimenti di ottimizzazione automatica per sottoscrizioni separate.
@@ -247,7 +250,7 @@ L'output finale del messaggio di posta elettronica automatizzato è simile al se
 
 Modificando lo script di PowerShell è possibile modificare l'output e la formattazione del messaggio di posta elettronica automatizzato in base alle proprie esigenze.
 
-In base agli scenari personalizzati, è possibile anche personalizzare ulteriormente la soluzione in modo da creare notifiche tramite posta elettronica basate su uno specifico evento di ottimizzazione. 
+In base agli scenari personalizzati, è possibile anche personalizzare ulteriormente la soluzione in modo da creare notifiche tramite posta elettronica basate su uno specifico evento di ottimizzazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

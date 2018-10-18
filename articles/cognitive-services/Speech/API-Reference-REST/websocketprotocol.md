@@ -1,24 +1,27 @@
 ---
-title: Protocollo WebSocket per il riconoscimento vocale Microsoft | Microsoft Docs
-description: Documentazione del protocollo per il Servizio di riconoscimento vocale basato su tecnologia WebSocket
+title: Protocollo WebSocket di Riconoscimento vocale Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Documentazione del protocollo per Riconoscimento vocale Bing basato su tecnologia WebSocket
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 17954536e8bdb49c09204c2e522586b79cb1bef5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373985"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341821"
 ---
-# <a name="speech-service-websocket-protocol"></a>Protocollo WebSocket per il Servizio di riconoscimento vocale
+# <a name="bing-speech-websocket-protocol"></a>Protocollo WebSocket di Riconoscimento vocale Bing
 
-  Il Servizio di riconoscimento vocale è una piattaforma basata sul cloud che offre gli algoritmi più avanzati disponibili per la conversione di audio parlato in testo. Il protocollo del Servizio di riconoscimento vocale definisce la [configurazione della connessione](#connection-establishment) tra le applicazioni client e il servizio e i messaggi di riconoscimento vocale scambiati tra le controparti ([Messaggi generati dal client](#client-originated-messages) e [Messaggi generati dal servizio](#service-originated-messages)). In questo articolo sono inoltre incluse sezioni sui [messaggi di telemetria](#telemetry-schema) e sulla [gestione degli errori](#error-handling).
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+Riconoscimento vocale Bing è una piattaforma basata sul cloud che offre gli algoritmi più avanzati disponibili per la conversione di audio parlato in testo. Il protocollo di Riconoscimento vocale Bing definisce la [configurazione della connessione](#connection-establishment) tra le applicazioni client e il servizio e i messaggi di riconoscimento vocale scambiati tra le controparti ([Messaggi generati dal client](#client-originated-messages) e [Messaggi generati dal servizio](#service-originated-messages)). In questo articolo sono inoltre incluse sezioni sui [messaggi di telemetria](#telemetry-schema) e sulla [gestione degli errori](#error-handling).
 
 ## <a name="connection-establishment"></a>Attivazione della connessione
 
@@ -74,9 +77,9 @@ Content-Length: 0
 
 Per l'accesso tramite token, l'intestazione deve includere le informazioni seguenti.
 
-| Nome | Formato | Descrizione |
+| NOME | Format | DESCRIZIONE |
 |----|----|----|
-| Ocp-Apim-Subscription-Key | ASCII | Chiave di sottoscrizione |
+| Ocp-Apim-Subscription-Key | ASCII | Your subscription key (Chiave della sottoscrizione) |
 
 Il servizio token restituisce il token di accesso JWT come `text/plain`. Il token JWT viene quindi passato come `Base64 access_token` all'handshake sotto forma di intestazione *Authorization* preceduta dalla stringa `Bearer`. Ad esempio: 
 
@@ -94,9 +97,9 @@ I client *devono* supportare i meccanismi di reindirizzamento standard definiti 
 
 I client *devono* usare un endpoint appropriato del Servizio di riconoscimento vocale. L'endpoint è basato sulla lingua e sulla modalità di riconoscimento. La tabella seguente illustra alcuni esempi.
 
-| Modalità | Percorso | URI del servizio |
+| Mode | path | URI del servizio |
 | -----|-----|-----|
-| Interattiva | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| Interattività | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | Conversazione | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
 | Dettatura | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
@@ -148,7 +151,7 @@ Le intestazioni seguenti sono obbligatorie per tutti i messaggi generati dal cli
 
 | Intestazione | Valore |
 |----|----|
-| Path | Percorso del messaggio come specificato in questo documento |
+| path | Percorso del messaggio come specificato in questo documento |
 | X-RequestId | UUID nel formato senza trattini |
 | X-Timestamp | Timestamp UTC dell'orologio del client in formato ISO 8601 |
 
@@ -168,7 +171,7 @@ Il Servizio di riconoscimento vocale deve conoscere le caratteristiche dell'appl
 
 I client *devono* inviare un messaggio `speech.config` immediatamente dopo aver stabilito la connessione al Servizio di riconoscimento vocale e prima di inviare messaggi `audio`. È necessario inviare un messaggio `speech.config` una sola volta per ogni connessione.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 |----|----|
 | Codifica del messaggio WebSocket | Text |
 | Corpo | Payload come struttura JSON |
@@ -177,7 +180,7 @@ I client *devono* inviare un messaggio `speech.config` immediatamente dopo aver 
 
 | Nome intestazione | Valore |
 |----|----|
-| Path | `speech.config` |
+| path | `speech.config` |
 | X-Timestamp | Timestamp UTC dell'orologio del client in formato ISO 8601 |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -213,19 +216,19 @@ L'elemento system.version del messaggio `speech.config` contiene la versione del
 
 ##### <a name="os-element"></a>Elemento os
 
-| Campo | Descrizione | Uso |
+| Campo | DESCRIZIONE | Uso |
 |-|-|-|
-| os.platform | Piattaforma del sistema operativo che ospita l'applicazione, ad esempio Windows, Android, iOS o Linux |Obbligatorio |
-| os.name | Nome del sistema operativo, ad esempio Debian o Windows 10 | Obbligatorio |
-| os.version | Versione del sistema operativo nel formato *major.minor.build.branch* | Obbligatorio |
+| os.platform | Piattaforma del sistema operativo che ospita l'applicazione, ad esempio Windows, Android, iOS o Linux |Obbligatoria |
+| os.name | Nome del sistema operativo, ad esempio Debian o Windows 10 | Obbligatoria |
+| os.version | Versione del sistema operativo nel formato *major.minor.build.branch* | Obbligatoria |
 
 ##### <a name="device-element"></a>Elemento device
 
-| Campo | Descrizione | Uso |
+| Campo | DESCRIZIONE | Uso |
 |-|-|-|
-| device.manufacturer | Produttore dell'hardware del dispositivo | Obbligatorio |
-| device.model | Modello del dispositivo | Obbligatorio |
-| device.version | Versione del software del dispositivo definita dal produttore. Questo valore specifica una versione del dispositivo di cui può tenere traccia il produttore. | Obbligatorio |
+| device.manufacturer | Produttore dell'hardware del dispositivo | Obbligatoria |
+| device.model | Modello del dispositivo | Obbligatoria |
+| device.version | Versione del software del dispositivo definita dal produttore. Questo valore specifica una versione del dispositivo di cui può tenere traccia il produttore. | Obbligatoria |
 
 ### <a name="message-audio"></a>Messaggio `audio`
 
@@ -237,7 +240,7 @@ I client possono inviare facoltativamente un messaggio `audio` con un corpo di l
 
 Il Servizio di riconoscimento vocale usa il primo messaggio `audio` contenente un identificatore di richiesta univoco per segnalare l'inizio di un nuovo ciclo, o *turno*, di richiesta/risposta. Non appena riceve un messaggio `audio` con un nuovo identificatore di richiesta, il servizio rimuove gli eventuali messaggi in coda o non inviati associati a turni precedenti.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 |-------------|----------------|
 | Codifica del messaggio WebSocket | Binary |
 | Corpo | Dati binari del blocco audio. La dimensione massima è pari a 8192 byte. |
@@ -248,7 +251,7 @@ Le intestazioni seguenti sono obbligatorie per tutti i messaggi `audio`.
 
 | Intestazione         |  Valore     |
 | ------------- | ---------------- |
-| Path | `audio` |
+| path | `audio` |
 | X-RequestId | UUID nel formato senza trattini |
 | X-Timestamp | Timestamp UTC dell'orologio del client in formato ISO 8601 |
 | Content-Type | Tipo di contenuto audio. Deve essere *audio/x-wav* (PCM) o *audio/silk* (SILK). |
@@ -301,10 +304,10 @@ Le applicazioni client *devono* confermare la fine di ogni turno inviando i dati
 
 I client devono confermare la fine di un turno inviando un messaggio `telemetry` subito dopo aver ricevuto un messaggio `turn.end`. La conferma di `turn.end` deve essere eseguita il prima possibile. Se un'applicazione client non riesce a eseguire questa operazione, il Servizio di riconoscimento vocale potrebbe terminare la connessione con un errore. I client devono inviare un solo messaggio `telemetry` per ogni richiesta e risposta identificate dal valore *X-RequestId*.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | ------------- | ---------------- |
 | Codifica del messaggio WebSocket | Text |
-| Path | `telemetry` |
+| path | `telemetry` |
 | X-Timestamp | Timestamp UTC dell'orologio del client in formato ISO 8601 |
 | Content-Type | `application/json` |
 | Corpo | Struttura JSON contenente le informazioni del client relative al turno |
@@ -323,10 +326,10 @@ Questa sezione descrive i messaggi generati dal Servizio di riconoscimento vocal
 
 Il messaggio `speech.startDetected` indica che il Servizio di riconoscimento vocale ha rilevato la presenza di parlato nel flusso audio.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | ------------- | ---------------- |
 | Codifica del messaggio WebSocket | Text |
-| Path | `speech.startDetected` |
+| path | `speech.startDetected` |
 | Content-Type | application/json; charset=utf-8 |
 | Corpo | Struttura JSON contenente le informazioni sulle condizioni relative al momento in cui è stato rilevato l'inizio del parlato. Il campo *Offset* in questa struttura specifica lo scarto temporale (in unità di 100 nanosecondi) tra il momento in cui è stato rilevato il parlato nel flusso audio e l'inizio effettivo del flusso. |
 
@@ -348,10 +351,10 @@ Durante il riconoscimento vocale, il servizio genera periodicamente ipotesi rela
 
  Il messaggio `speech.hypothesis` è applicabile ai client che includono alcune funzionalità di rendering del testo e vogliono fornire quasi in tempo reale alcuni suggerimenti al parlante in merito al riconoscimento vocale in corso.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | ------------- | ---------------- |
 | Codifica del messaggio WebSocket | Text |
-| Path | `speech.hypothesis` |
+| path | `speech.hypothesis` |
 | X-RequestId | UUID nel formato senza trattini |
 | Content-Type | application/json |
 | Corpo | Struttura JSON contenente ipotesi di riconoscimento vocale |
@@ -380,10 +383,10 @@ I client non devono formulare supposizioni riguardo alla frequenza, all'interval
 
 Quando stabilisce di avere informazioni sufficienti per generare un risultato stabile, il Servizio di riconoscimento vocale genera un messaggio `speech.phrase`. I risultati di questo tipo vengono generati quando il servizio rileva che l'utente ha terminato di pronunciare una frase o un'espressione.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | ------------- | ---------------- |
 | Codifica del messaggio WebSocket | Text |
-| Path | `speech.phrase` |
+| path | `speech.phrase` |
 | Content-Type | application/json |
 | Corpo | Struttura JSON relativa all'espressione del parlato |
 
@@ -408,10 +411,10 @@ X-RequestId: 123e4567e89b12d3a456426655440000
 
 Il messaggio `speech.endDetected` specifica che l'applicazione client deve arrestare il flusso audio verso il servizio.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | ------------- | ---------------- |
 | Codifica del messaggio WebSocket | Text |
-| Path | `speech.endDetected` |
+| path | `speech.endDetected` |
 | Corpo | Struttura JSON contenente il valore dello scarto temporale relativo al momento in cui è stata rilevata la fine del parlato. Questo valore è espresso in unità di 100 nanosecondi calcolate rispetto all'inizio del flusso audio usato per il riconoscimento. |
 | Content-Type | application/json; charset=utf-8 |
 
@@ -433,10 +436,10 @@ L'elemento *Offset* specifica lo scarto temporale (in unità di 100 nanosecondi)
 
 Il messaggio `turn.start` segnala l'inizio di un turno dal punto di vista del servizio. `turn.start` è sempre il primo messaggio di risposta che si riceve per qualsiasi richiesta. Se non si riceve un messaggio `turn.start`, è presumibile che lo stato della connessione del servizio non sia valido.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | ------------- | ---------------- |
 | Codifica del messaggio WebSocket | Text |
-| Path | `turn.start` |
+| path | `turn.start` |
 | Content-Type | application/json; charset=utf-8 |
 | Corpo | Struttura JSON |
 
@@ -460,11 +463,11 @@ Il corpo del messaggio `turn.start` è costituito da una struttura JSON contenen
 
 `turn.end` segnala la fine di un turno dal punto di vista del servizio. Il messaggio `turn.end` è sempre l'ultimo messaggio di risposta che si riceve per qualsiasi richiesta. I client possono usare la ricezione di questo messaggio come segnale per avviare le attività di pulizia e la transizione a uno stato di inattività. Se non si riceve un messaggio `turn.end`, è presumibile che lo stato della connessione del servizio non sia valido. In casi come questo, chiudere la connessione esistente al servizio e riconnettersi.
 
-| Campo | Descrizione |
+| Campo | DESCRIZIONE |
 | ------------- | ---------------- |
 | Codifica del messaggio WebSocket | Text |
-| Path | `turn.end` |
-| Corpo | Nessuno |
+| path | `turn.end` |
+| Corpo | Nessuna |
 
 #### <a name="sample-message"></a>Messaggio di esempio
 
@@ -502,25 +505,25 @@ I client devono includere informazioni sugli eventi che si sono verificati duran
 
 La metrica `Connection` specifica i dettagli relativi ai tentativi di connessione eseguiti dal client e deve includere i timestamp corrispondenti ai momenti in cui la connessione WebSocket è stata avviata e terminata. La metrica `Connection` è obbligatoria *solo per il primo turno di una connessione*. I turni successivi non devono includere queste informazioni. Se un client esegue più tentativi prima di riuscire a stabilire una connessione, devono essere incluse le informazioni relative a *tutti* i tentativi di connessione. Per altre informazioni, vedere [Telemetria degli errori di connessione](#connection-failure-telemetry).
 
-| Campo | Descrizione | Uso |
+| Campo | DESCRIZIONE | Uso |
 | ----- | ----------- | ----- |
-| Name | `Connection` | Obbligatorio |
-| Id | Valore dell'identificatore di connessione che è stato usato nell'intestazione *X-ConnectionId* per la richiesta di connessione | Obbligatorio |
-| Start | Data e ora in cui il client ha inviato la richiesta di connessione | Obbligatorio |
-| End | Data e ora in cui il client ha ricevuto la notifica che la connessione è stata stabilita correttamente o, in caso di errore, è stata respinta o rifiutata oppure non è riuscita | Obbligatorio |
-| Error | Descrizione dell'eventuale errore. Se la connessione ha avuto esito positivo, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
+| NOME | `Connection` | Obbligatoria |
+| ID | Valore dell'identificatore di connessione che è stato usato nell'intestazione *X-ConnectionId* per la richiesta di connessione | Obbligatoria |
+| Inizia | Data e ora in cui il client ha inviato la richiesta di connessione | Obbligatoria |
+| End | Data e ora in cui il client ha ricevuto la notifica che la connessione è stata stabilita correttamente o, in caso di errore, è stata respinta o rifiutata oppure non è riuscita | Obbligatoria |
+| Tipi di errore | Descrizione dell'eventuale errore. Se la connessione ha avuto esito positivo, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
 
 La descrizione dell'errore deve includere al massimo 50 caratteri e dovrebbe preferibilmente specificare uno dei valori elencati nella tabella seguente. Se la condizione di errore non corrisponde a uno di questi valori, i client possono usare una breve descrizione della condizione di errore usando la notazione [camelCase](https://en.wikipedia.org/wiki/Camel_case) senza spazi vuoti. Per l'invio di un messaggio di *telemetria* è necessario che sia attiva la connessione al servizio. Nel messaggio di *telemetria* possono pertanto essere segnalate solo condizioni di errore transitorie o temporanee. Le condizioni di errore che causano il blocco *permanente* della connessione del client al servizio impediscono al client di inviare messaggi al servizio, inclusi quelli di *telemetria*.
 
-| Errore | Uso |
+| Tipi di errore | Uso |
 | ----- | ----- |
 | DNSfailure | Il client non è riuscito a connettersi al servizio a causa di un errore DNS nello stack di rete. |
 | NoNetwork | Il client ha tentato una connessione, ma lo stack di rete ha segnalato che non era disponibile alcuna rete fisica. |
 | NoAuthorization | La connessione client non è riuscita durante il tentativo di acquisire un token di autorizzazione per la connessione. |
 | NoResources | Il client ha esaurito alcune risorse locali, ad esempio la memoria, durante il tentativo di stabilire una connessione. |
-| Forbidden | Il client non è riuscito a connettersi al servizio perché quest'ultimo ha restituito un codice di stato HTTP `403 Forbidden` nella richiesta di aggiornamento a WebSocket. |
-| Unauthorized | Il client non è riuscito a connettersi al servizio perché quest'ultimo ha restituito un codice di stato HTTP `401 Unauthorized` nella richiesta di aggiornamento a WebSocket. |
-| BadRequest | Il client non è riuscito a connettersi al servizio perché quest'ultimo ha restituito un codice di stato HTTP `400 Bad Request` nella richiesta di aggiornamento a WebSocket. |
+| Accesso negato | Il client non è riuscito a connettersi al servizio perché quest'ultimo ha restituito un codice di stato HTTP `403 Forbidden` nella richiesta di aggiornamento a WebSocket. |
+| Non autorizzata | Il client non è riuscito a connettersi al servizio perché quest'ultimo ha restituito un codice di stato HTTP `401 Unauthorized` nella richiesta di aggiornamento a WebSocket. |
+| RichiestaNonValida | Il client non è riuscito a connettersi al servizio perché quest'ultimo ha restituito un codice di stato HTTP `400 Bad Request` nella richiesta di aggiornamento a WebSocket. |
 | ServerUnavailable | Il client non è riuscito a connettersi al servizio perché quest'ultimo ha restituito un codice di stato HTTP `503 Server Unavailable` nella richiesta di aggiornamento a WebSocket. |
 | ServerError | Il client non è riuscito a connettersi al servizio perché quest'ultimo ha restituito un codice di stato di errore interno `HTTP 500` nella richiesta di aggiornamento a WebSocket. |
 | Timeout | Si è verificato il timeout della richiesta di connessione del client senza una risposta proveniente dal servizio. Il campo *End* contiene la data e l'ora in cui si è verificato il timeout del client o è stata interrotta l'attesa della connessione. |
@@ -542,12 +545,12 @@ Usare gli esempi seguenti come linee guida per la registrazione dei valori tempo
 
 Il valore temporale *End* per la metrica `Microphone` registra il momento in cui l'applicazione client ha arrestato il flusso audio di input. Nella maggior parte delle situazioni questo evento si verifica subito dopo che il client ha ricevuto il messaggio `speech.endDetected` dal servizio. Le applicazioni client possono verificare la conformità al protocollo assicurandosi che il valore temporale *End* della metrica `Microphone` sia successivo a quello di ricezione per il messaggio `speech.endDetected`. Inoltre, poiché in genere si verifica un ritardo tra la fine di un turno e l'inizio di un altro, i client possono verificare la conformità al protocollo assicurandosi che il valore *Start* della metrica `Microphone` per i turni successivi registri correttamente la data e l'ora in cui il client ha *iniziato* a usare il microfono per inviare il flusso audio di input al servizio.
 
-| Campo | Descrizione | Uso |
+| Campo | DESCRIZIONE | Uso |
 | ----- | ----------- | ----- |
-| Name | Microphone | Obbligatorio |
-| Start | Data e ora in cui il client ha iniziato a usare l'input audio proveniente dal microfono o un altro flusso audio oppure ha ricevuto un trigger dal rilevatore di parole chiave | Obbligatorio |
-| End | Data e ora in cui il client ha arrestato l'uso del microfono o del flusso audio | Obbligatorio |
-| Error | Descrizione dell'eventuale errore. Se le operazioni del microfono sono state eseguite correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
+| NOME | Microphone | Obbligatoria |
+| Inizia | Data e ora in cui il client ha iniziato a usare l'input audio proveniente dal microfono o un altro flusso audio oppure ha ricevuto un trigger dal rilevatore di parole chiave | Obbligatoria |
+| End | Data e ora in cui il client ha arrestato l'uso del microfono o del flusso audio | Obbligatoria |
+| Tipi di errore | Descrizione dell'eventuale errore. Se le operazioni del microfono sono state eseguite correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
 
 ### <a name="metric-listeningtrigger"></a>Metrica `ListeningTrigger`
 La metrica `ListeningTrigger` misura il tempo in cui l'utente esegue l'azione che avvia l'input vocale. La metrica `ListeningTrigger` è facoltativa, ma ne è consigliato l'uso nei client.
@@ -562,12 +565,12 @@ Usare gli esempi seguenti come linee guida per la registrazione dei valori tempo
 
 * Un'applicazione client sta elaborando il secondo turno di una richiesta con più turni e riceve un messaggio di risposta del servizio in cui viene chiesto di attivare il microfono per raccogliere l'input relativo al secondo turno. L'applicazione client *non* deve includere una metrica `ListeningTrigger` per questo turno.
 
-| Campo | Descrizione | Uso |
+| Campo | DESCRIZIONE | Uso |
 | ----- | ----------- | ----- |
-| Name | ListeningTrigger | Facoltativo |
-| Start | Data e ora in cui il trigger di ascolto del client è iniziato | Obbligatorio |
-| End | Data e ora in cui il trigger di ascolto del client è terminato | Obbligatorio |
-| Error | Descrizione dell'eventuale errore. Se l'operazione di trigger è stata eseguita correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
+| NOME | ListeningTrigger | Facoltativo |
+| Inizia | Data e ora in cui il trigger di ascolto del client è iniziato | Obbligatoria |
+| End | Data e ora in cui il trigger di ascolto del client è terminato | Obbligatoria |
+| Tipi di errore | Descrizione dell'eventuale errore. Se l'operazione di trigger è stata eseguita correttamente, i client devono omettere questo campo. Il campo può contenere al massimo 50 caratteri. | Obbligatorio in caso di errore, altrimenti omesso |
 
 #### <a name="sample-message"></a>Messaggio di esempio
 
@@ -683,23 +686,23 @@ Come altro esempio, si supponga che un utente pronunci una parola chiave trigger
 
 ### <a name="http-status-codes"></a>Codici di stato HTTP
 
-| Stato codice HTTP | Descrizione | Risoluzione dei problemi |
+| Stato codice HTTP | DESCRIZIONE | risoluzione dei problemi |
 | - | - | - |
 | 400 - Richiesta non valida | Il client ha inviato una richiesta di connessione WebSocket non corretta. | Controllare di avere specificato tutte le intestazioni HTTP e tutti i parametri obbligatori e che i valori siano corretti. |
 | 401 - Non autorizzato | Il client non ha incluso tutte le informazioni richieste per l'autorizzazione. | Controllare di inviare l'intestazione *Authorization* nella connessione WebSocket. |
 | 403 - Accesso negato | Il client ha inviato le informazioni per l'autorizzazione ma non erano valide. | Controllare di non inviare un valore scaduto o non valido nell'intestazione *Authorization*. |
 | 404 - Non trovato | Il client ha provato ad accedere a un percorso URL non supportato. | Controllare di usare l'URL corretto per la connessione WebSocket. |
-| 500 - Errore del server | Il servizio ha rilevato un errore interno e non ha potuto soddisfare la richiesta. | Nella maggior parte dei casi, questo errore è temporaneo. Ripetere la richiesta. |
-| 503 - Servizio non disponibile | Il servizio non era disponibile per gestire la richiesta. | Nella maggior parte dei casi, questo errore è temporaneo. Ripetere la richiesta. |
+| 500 - Errore del server | Il servizio ha rilevato un errore interno e non ha potuto soddisfare la richiesta. | Nella maggior parte dei casi, questo errore è temporaneo. ripetere la richiesta. |
+| 503 - Servizio non disponibile | Il servizio non era disponibile per gestire la richiesta. | Nella maggior parte dei casi, questo errore è temporaneo. ripetere la richiesta. |
 
 ### <a name="websocket-error-codes"></a>Codici di errore di WebSocket
 
-| Codice di stato WebSocket | Descrizione | Risoluzione dei problemi |
+| Codice di stato WebSocket | DESCRIZIONE | risoluzione dei problemi |
 | - | - | - |
 | 1000 - Chiusura normale | Il servizio ha chiuso la connessione WebSocket senza errori. | Se la chiusura della connessione WebSocket non era prevista, rileggere la documentazione per verificare di avere compreso come e quando il servizio può terminare la connessione WebSocket. |
 | 1002 - Errore del protocollo | Il client non è riuscito a soddisfare i requisiti del protocollo. | Assicurarsi di comprendere il contenuto della documentazione relativa al protocollo e di conoscere esattamente i requisiti. Leggere la documentazione precedente sui motivi degli errori per verificare se si stanno violando requisiti del protocollo. |
 | 1007 - Dati di payload non validi | Il client ha inviato un payload non valido in un messaggio del protocollo. | Controllare la presenza di eventuali errori nell'ultimo messaggio inviato al servizio. Leggere la documentazione precedente sugli errori di payload. |
-| 1011 - Errore del server | Il servizio ha rilevato un errore interno e non ha potuto soddisfare la richiesta. | Nella maggior parte dei casi, questo errore è temporaneo. Ripetere la richiesta. |
+| 1011 - Errore del server | Il servizio ha rilevato un errore interno e non ha potuto soddisfare la richiesta. | Nella maggior parte dei casi, questo errore è temporaneo. ripetere la richiesta. |
 
 ## <a name="related-topics"></a>Argomenti correlati
 

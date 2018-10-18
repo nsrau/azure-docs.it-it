@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare una knowledge base - QnA Maker'
+title: 'Guida introduttiva: creazione di una Knowledge Base - QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. La Knowledge Base di QnA Maker in questo esempio viene creata da una semplice pagina Web di domande frequenti per rispondere alle domande sul recupero chiavi di BitLocker.
 author: diberry
@@ -9,12 +9,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886563"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389667"
 ---
 # <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Guida introduttiva: Creare, eseguire il training e pubblicare la knowledge base
 
@@ -41,7 +41,7 @@ ms.locfileid: "48886563"
 
 5. Nel passaggio 3, denominare la KB **Mia KB di domande e risposte di esempio**.
 
-6. Per aggiungere contenuto alla Knowledge Base, selezionare tre tipi di origini dati. Nel passaggio 4, sotto **Popola la KB**, aggiungere l'URL [domande frequenti sul ripristino di BitLocker](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) nella casella **URL**.
+6. Per aggiungere contenuto alla Knowledge Base, selezionare tre tipi di origini dati. Nel passaggio 4, sotto **Popola la KB**, aggiungere l'URL [domande frequenti sul ripristino di BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) nella casella **URL**.
 
    ![Selezionare una knowledge base del servizio QnA](../media/qnamaker-quickstart-kb/add-datasources.png)
 
@@ -69,7 +69,7 @@ ms.locfileid: "48886563"
 
 15. Nel menu accanto a **Modifica**, selezionare **Pubblica**. Quindi, per confermare, selezionare **Pubblica** nella pagina.
 
-16. Il servizio QnA Maker viene pubblicato correttamente. È possibile usare l'endpoint nel codice dell'applicazione o del bot.
+16. Il servizio QnA Maker viene pubblicato correttamente. Utilizza l'endpoint nell’applicazione o nel codice bot.
 
    ![Pubblica](../media/qnamaker-quickstart-kb/publish-sucess.png)
 

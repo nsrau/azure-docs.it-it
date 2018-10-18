@@ -2,18 +2,18 @@
 title: Inserire i dati di esempio in Esplora dati di Azure
 description: Informazioni su come inserire (caricare) i dati di esempio relativi al meteo in Esplora dati di Azure.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 7eb0e48a5b66775ac97ed0cab751db0ef367f667
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7fdd32f9263b4d1694a0516a98b681ba8744ab6b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964616"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394579"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Inserire i dati di esempio in Esplora dati di Azure
 
@@ -24,7 +24,7 @@ Questo articolo illustra come inserire (caricare) i dati di esempio in un databa
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Cluster di prova e database](create-cluster-database-portal.md)
+[Un cluster e un database di test](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>Inserire dati
 
@@ -32,7 +32,7 @@ Il set di dati di esempio **StormEvents** contiene dati relativi al meteo del [N
 
 1. Accedere a [https://dataexplorer.azure.com](https://dataexplorer.azure.com).
 
-1. In alto a sinistra dell'applicazione, selezionare **Add cluster** (Aggiungi cluster).
+1. In alto a sinistra dell'applicazione, selezionare **Aggiungi cluster**.
 
 1. Nella finestra di dialogo **Add cluster** (Aggiungi cluster) immettere l'URL del cluster nel modulo`https://<ClusterName>.<Region>.kusto.windows.net/`, quindi selezionare **Aggiungi**.
 

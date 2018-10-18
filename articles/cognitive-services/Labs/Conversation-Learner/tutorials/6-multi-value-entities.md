@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a80577bb226cbec080edf5e06dbd0f31c80a5890
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173102"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321428"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Come usare le entità multivalore con un modello di Conversation Learner
 Questa esercitazione illustra la proprietà "multivalore" dell'entità.
@@ -24,7 +24,7 @@ Questa esercitazione illustra la proprietà "multivalore" dell'entità.
 
 [![Anteprima esercitazione 6](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
-##<a name="requirements"></a>Requisiti
+## <a name="requirements"></a>Requisiti
 Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
 
     npm run tutorial-general
@@ -58,13 +58,13 @@ Concretamente, se un'entità è contrassegnata come "multivalore", ogni istanza 
 1. Fare clic su Actions (Azioni) e quindi su New Action (Nuova azione).
 2. In Response (Risposta) digitare 'What toppings do you want?'.
 3. In Disqualifying Entities (Entità non qualificanti) immettere "Toppings".
-3. Click Create
+3. Fare clic su Crea
 
 Creare quindi la seconda azione.
 
 1. Fare clic su Actions (Azioni) e quindi su New Action (Nuova azione) per creare una seconda azione.
 3. In Response (Risposta) digitare 'Here are your toppings: $Toppings'.
-4. Click Create
+4. Fare clic su Crea
 
 Sono ora disponibili due azioni.
 

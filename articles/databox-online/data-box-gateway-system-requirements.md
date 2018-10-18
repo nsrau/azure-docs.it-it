@@ -1,25 +1,19 @@
 ---
 title: Requisiti di sistema di Microsoft Azure Data Box Gateway | Microsoft Docs
 description: Informazioni sui requisiti relativi al software e alla rete per Azure Data Box Gateway
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 915190f6f2773d22d14c75be1140f96b7dd40559
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f70cd5de29cc3050142dfff905acae2008dab115
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991573"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379123"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisiti di sistema di Azure Data Box Gateway (anteprima)
 
@@ -118,7 +112,7 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 
 |     Modello URL                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Componente/funzionalità                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://*.databoxedge.azure.com/*<br>https://*.accesscontrol.windows.net/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Servizio Azure Data Box Gateway<br>Servizio di controllo di accesso<br>Bus di servizio di Azure<br>Servizio di autenticazione    |
+|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Servizio Azure Data Box Gateway<br>Bus di servizio di Azure<br>Servizio di autenticazione    |
 |    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Attivazione del dispositivo                                                                                    |
 |    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Revoca del certificato                                                                               |
 |    https://*.core.windows.net/*   https://*.data.microsoft.com   http://*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Account di archiviazione di Azure e monitoraggio                                                                |

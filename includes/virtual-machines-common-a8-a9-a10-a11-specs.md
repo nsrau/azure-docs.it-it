@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: azcspmt;jonbeck;cynthn;danlep
 ms.custom: include file
-ms.openlocfilehash: 296e92d803bb69376f286aa60cfb4a955b08010f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c12fff63cdb7241d89e7511a3dac2ff9c1363ae6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34669347"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49346105"
 ---
 ## <a name="deployment-considerations"></a>Considerazioni sulla distribuzione
 * **Sottoscrizione di Azure**: per distribuire numerose istanze a elevato utilizzo di calcolo, prendere in considerazione una sottoscrizione con pagamento in base al consumo o altre opzioni di acquisto. Con un [account gratuito di Azure](https://azure.microsoft.com/free/)è possibile usare solo un numero limitato di core di calcolo di Azure.
 
-* **Prezzi e disponibilità**: queste dimensioni di VM sono offerte solo con il piano tariffario Standard. Per informazioni sulla disponibilità nelle aree di Azure, vedere [Prodotti disponibili in base all'area] (https://azure.microsoft.com/regions/services/). 
+* **Prezzi e disponibilità**: queste dimensioni di VM sono offerte solo con il piano tariffario Standard. Per informazioni sulla disponibilità nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) . 
 * **Quota di core**: potrebbe essere necessario aumentare la quota di core nella sottoscrizione di Azure rispetto al valore predefinito. La sottoscrizione può anche limitare il numero di core che è possibile distribuire in alcune famiglie di dimensioni di macchina virtuale, inclusa la serie H. Per richiedere un aumento della quota, è possibile [aprire una richiesta di assistenza clienti online](../articles/azure-supportability/how-to-create-azure-support-request.md) senza alcun addebito. I limiti predefiniti possono variare in base alla categoria della sottoscrizione.
   
   > [!NOTE]
@@ -37,4 +37,3 @@ Questa interfaccia consente alle istanze con supporto per RDMA di comunicare att
 > In Azure, IP over IB non è supportato. Solo RDMA over IB è supportato.
 >
 
-Distribuire le macchine virtuali HPC con supporto per RDMA nello stesso set di disponibilità o in un set di scalabilità di macchine virtuali, se si usa il modello di distribuzione Azure Resource Manager, o nello stesso servizio cloud, se si usa il modello di distribuzione classica. Se si usa un set di scalabilità di macchine virtuali, assicurarsi comunque di limitare la distribuzione a un singolo gruppo di posizionamento; ad esempio, in un modello di Gestione Risorse, impostare la proprietà *singlePlacementGroup* su *true*. Seguono altri requisiti per le macchine virtuali HPC con supporto per RDMA per accedere alla rete RDMA di Azure.

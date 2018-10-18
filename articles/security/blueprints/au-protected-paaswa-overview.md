@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: ea9c9d773cb863c6ee2b052fcbd097275f00fc87
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bd6ac05da5f60fdbe86897ce03ccd6646e6bf191
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300988"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390263"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Progetto per la sicurezza e la conformità di Azure - Applicazione Web PaaS per Australia PROTECTED
 
@@ -82,7 +82,6 @@ Questa soluzione crea una macchina virtuale come bastion host aggiunto al domini
 -   [Estensione di Diagnostica di Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) tramite Azure Key Vault
 -   [Criteri di arresto automatico](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) per ridurre il consumo di risorse della macchina virtuale quando non è in uso
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) abilitato, in modo che le credenziali e altri segreti vengano eseguiti in un ambiente protetto, isolato dal sistema operativo in esecuzione
 
 **Ambiente del servizio app v2**: l'[ambiente del servizio app di Azure](https://docs.microsoft.com/azure/app-service/environment/intro) è una funzionalità del servizio app che fornisce un ambiente completamente isolato e dedicato per l'esecuzione sicura di applicazioni del servizio app su vasta scala.
 
@@ -202,7 +201,7 @@ Le seguenti [soluzioni di gestione](https://docs.microsoft.com/azure/log-analyti
 
 **Monitoraggio di Azure**: [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) consente agli utenti di tenere traccia delle prestazioni, mantenere la sicurezza e identificare le tendenze, consentendo alle organizzazioni di controllare, creare avvisi e archiviare i dati, incluso il rilevamento delle chiamate API nelle relative risorse di Azure.
 
-Azure Network Watcher: [Azure Network Watcher]9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) fornisce gli strumenti per il monitoraggio, la diagnostica, la visualizzazione delle metriche e l'abilitazione o la disabilitazione dei log per le risorse in una rete virtuale di Azure.  Le entità del Commonwealth devono implementare i log dei flussi di Network Watcher per i gruppi di sicurezza di rete e le macchine virtuali. Questi log devono essere archiviati in un account di archiviazione dedicato in cui vengono archiviati solo i log di sicurezza e l'accesso all'account di archiviazione deve essere protetto con controlli degli accessi in base al ruolo.
+Azure Network Watcher: [Azure Network Watcher]9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornisce gli strumenti per il monitoraggio, la diagnostica, la visualizzazione delle metriche e l'abilitazione o la disabilitazione dei log per le risorse in una rete virtuale di Azure.  Le entità del Commonwealth devono implementare i log dei flussi di Network Watcher per i gruppi di sicurezza di rete e le macchine virtuali. Questi log devono essere archiviati in un account di archiviazione dedicato in cui vengono archiviati solo i log di sicurezza e l'accesso all'account di archiviazione deve essere protetto con controlli degli accessi in base al ruolo.
 
 ## <a name="threat-model"></a>Modello di minaccia
 

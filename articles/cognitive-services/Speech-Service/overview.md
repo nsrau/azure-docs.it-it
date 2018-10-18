@@ -3,18 +3,18 @@ title: Informazioni sul Servizio di riconoscimento vocale
 description: 'Il servizio Voce, parte dei Servizi Cognitivi Microsoft, unisce diversi servizi vocali di Azure precedentemente disponibili in modo separato: Riconoscimento vocale Bing (che comprende il riconoscimento vocale e la sintesi vocale), Riconoscimento vocale personalizzato e Traduzione vocale.'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b014144dd819aa354596175068bfb2c5905a4377
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: erhopf
+ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857993"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365459"
 ---
 # <a name="what-is-the-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale
 
@@ -29,11 +29,10 @@ Le funzionalità principali del servizio Voce sono Riconoscimento vocale (anche 
 
 |Funzione|Funzionalità|
 |-|-|
-|[Riconoscimento vocale](speech-to-text.md)| <ul><li>Esegue la trascrizione del parlato continuo in tempo reale in testo.<li>Consente di eseguire trascrizioni batch da registrazioni audio. <li>Supporta risultati intermedi, rilevamento della fine del parlato, formattazione automatica del testo e maschera per il contenuto volgare. <li>Può chiamare [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) per derivare la finalità dell'utente dal parlato trascritto.\*|
-|[Sintesi vocale](text-to-speech.md)| <ul><li>Converte il testo scritto in un audio che suona naturale. <li>Offre più sessi e/o dialetti per numerose lingue supportate. <li>Supporta l'input di testo normale o il linguaggio SSML (Speech Synthesis Markup Language). |
-|[Traduzione vocale](speech-translation.md)| <ul><li>Traduce l'audio in streaming quasi in tempo reale.<li> Può anche elaborare audio registrato.<li>Fornisce i risultati come testo o voce sintetizzata. |
+|[Riconoscimento vocale](speech-to-text.md)| <li>Esegue la trascrizione del parlato continuo in tempo reale in testo.<li>Consente di eseguire trascrizioni batch da registrazioni audio. <li>Supporta risultati intermedi, rilevamento della fine del parlato, formattazione automatica del testo e maschera per il contenuto volgare. <li>Può chiamare [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) per derivare la finalità dell'utente dal parlato trascritto.\*|
+|[Sintesi vocale](text-to-speech.md)| <li>Converte il testo scritto in un audio che suona naturale. <li>Offre più sessi e/o dialetti per numerose lingue supportate. <li>Supporta l'input di testo normale o il linguaggio SSML (Speech Synthesis Markup Language). |
+|[Traduzione vocale](speech-translation.md)| <li>Traduce l'audio in streaming quasi in tempo reale.<li> Può anche elaborare audio registrato.<li>Fornisce i risultati come testo o voce sintetizzata. |
 
-\* *Il riconoscimento della finalità richiede una sottoscrizione di LUIS.*
 
 ## <a name="customize-speech-features"></a>Personalizzare le funzionalità vocali
 
@@ -54,7 +53,7 @@ Per semplificare lo sviluppo di applicazioni con funzioni vocali, Microsoft offr
 
 Il servizio Voce dispone inoltre di un'[API REST](rest-apis.md) che funziona con qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP. L'interfaccia REST non offre le funzionalità di streaming in tempo reale offerte invece dall'SDK.
 
-|<br>Metodo|Sintesi vocale<br>Riconoscimento vocale|Sintesi vocale<br>Sintesi vocale|Sintesi vocale<br>Traduzione|<br>Descrizione|
+|<br>Metodo|Sintesi vocale<br>Riconoscimento vocale|Sintesi vocale<br>Sintesi vocale|Sintesi vocale<br>Traduzione|<br>DESCRIZIONE|
 |-|-|-|-|-|
 |[Speech SDK](speech-sdk.md)|Yes|No |Yes|API native per C#, C++ e Java per semplificare lo sviluppo.|
 |[REST](rest-apis.md)|Yes|Yes|No |Una semplice API basata su HTTP che agevola l'aggiunta di funzionalità vocali alle applicazioni.|
@@ -69,41 +68,6 @@ Se il codice esistente usa Riconoscimento vocale Bing o Traduzione vocale tramit
 
 [Speech Devices SDK](speech-devices-sdk.md) è una piattaforma hardware e software integrata per gli sviluppatori di dispositivi abilitati ai servizi voce. Il partner per l'hardware fornisce i progetti di riferimento e le unità di sviluppo. Microsoft fornisce un SDK ottimizzato per i dispositivi che sfrutta al meglio tutte le funzionalità dell'hardware.
 
-## <a name="why-move-to-the-speech-service"></a>Perché passare al servizio Voce?
-
-Il servizio Voce offre tutte le funzionalità dell'API Riconoscimento vocale Bing e di altri tre servizi di riconoscimento vocale di Azure, ovvero Riconoscimento vocale personalizzato, Modello voce personalizzato e Traduzione vocale. Invitiamo gli utenti di questi servizi a eseguire la migrazione al servizio Voce.
-
-Il servizio Voce incorpora numerosi aggiornamenti di questi altri servizi, tra cui:
-
-* Offre una maggiore accuratezza del riconoscimento vocale. I modelli usati nel servizio vengono infatti migliorati regolarmente.
-
-* È caratterizzato da una maggiore scalabilità. Il servizio può gestire facilmente più richieste simultanee, con conseguente riduzione della latenza.
-
-* Il servizio Voce usa un modello tariffario basato sul tempo. Per informazioni dettagliate, vedere [Prezzi di Servizi cognitivi - Servizi Voce](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
-
-* Il servizio Voce è disponibile in [più aree](regions.md) per soddisfare le esigenze di clienti in tutto il mondo. È necessaria una [sottoscrizione di Azure](https://docs.microsoft.com/azure/cognitive-services/welcome) per ogni area usata dall'applicazione.
-
-* Un'unica chiave di sottoscrizione del servizio Voce consente di accedere alle funzionalità seguenti. Ogni funzionalità viene misurata separatamente, di conseguenza vengono addebitati solo i consumi delle funzionalità usate.
-
-    * [Riconoscimento vocale](speech-to-text.md)
-    * [Riconoscimento vocale personalizzato](https://cris.ai/CustomSpeech)
-    * [Sintesi vocale](text-to-speech.md)
-    * [Voci personalizzate per Sintesi vocale](https://cris.ai/CustomVoice)
-    * [Traduzione vocale](speech-translation.md) (non include la [traduzione testuale](https://docs.microsoft.com/azure/cognitive-services/translator/translator-info-overview))
-
-* La funzione di riconoscimento vocale del servizio Voce si integra con il servizio [Language Understanding Service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) per fornire il riconoscimento delle finalità del parlante. Con il servizio Voce è anche possibile usare una chiave dell'endpoint LUIS. Per informazioni dettagliate, vedere l'[esercitazione sul riconoscimento delle finalità](how-to-recognize-intents-from-speech-csharp.md).
-
-* Per il riconoscimento vocale non è più necessario specificare una modalità di riconoscimento.
-
-* Il servizio Voce supporta voci a 24 KHz per il riconoscimento vocale, di conseguenza la qualità audio risulta migliorata. All'epoca della stesura di questo documento sono disponibili due voci (solo per inglese Stati Uniti), ovvero `Jessa24kRUS` e `Guy24kRUS`.
-
-* La funzionalità di [trascrizione batch](batch-transcription.md) del servizio Voce consente di trascrivere in modo efficiente volumi elevati di parlato registrato, ad esempio le registrazioni di call center, in modo da poterle analizzare e usare nelle ricerche.
-
-* Quando si usa Speech SDK, non esiste alcun limite temporale alla trascrizione dei dati del riconoscimento vocale.
-
-* [Speech SDK](speech-sdk.md) offre un'API per il servizio Voce utilizzabile in diversi linguaggi di programmazione e ambienti di esecuzione (inclusi Windows 10, piattaforma UWP e .NET Core), facilitando di fatto lo sviluppo in particolare su più piattaforme.
-
-* Il servizio Voce è compatibile con le API REST e il protocollo WebSockets usati da altri servizi di riconoscimento vocale di Azure in modo che sia possibile eseguire facilmente la migrazione di applicazioni client esistenti al servizio Voce.
 
 ## <a name="speech-scenarios"></a>Scenari di riconoscimento vocale
 
@@ -116,15 +80,13 @@ Casi d'uso per il servizio Voce:
 
 ### <a name="voice-user-interface"></a>Interfaccia utente vocale
 
-L'input vocale è un ottimo modo per rendere l'app flessibile utilizzabile in vivavoce e rapida da usare. In un'app con il riconoscimento vocale, gli utenti possono semplicemente chiedere le informazioni desiderate.
+L’input vocale è un ottimo modo per rendere l'app flessibile, da utilizzare a mani libere e in modo rapido. In un'app con il riconoscimento vocale, gli utenti possono semplicemente chiedere le informazioni desiderate.
 
 Se l'app è destinata al pubblico generale, è possibile usare i modelli di riconoscimento vocale predefiniti. Questi consentono di riconoscere un'ampia gamma di parlanti negli ambienti più comuni.
 
 Se l'app è destinata a un dominio specifico, ad esempio medicina o IT, è possibile creare un [modello di lingua](how-to-customize-language-model.md). Il modello può essere usato per insegnare al servizio Voce la terminologia speciale usata dall'app.
 
 Se l'app è destinata a un ambiente rumoroso, come una fabbrica, è possibile creare un [modello acustico](how-to-customize-acoustic-models.md) personalizzato. Questo modello consente al servizio Voce di distinguere meglio la voce dal rumore.
-
-Le procedure iniziali sono molto semplici. Scaricare [Speech SDK](speech-sdk.md) e seguire l'[articolo introduttivo](quickstart-csharp-dotnet-windows.md) pertinente.
 
 ### <a name="call-center-transcription"></a>Trascrizioni di call center
 

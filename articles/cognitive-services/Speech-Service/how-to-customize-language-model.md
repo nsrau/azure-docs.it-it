@@ -8,12 +8,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 01a386d37841c78e4aae96111e4671ec33b87e00
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d74a5ded7d86969b3ca2cc20a59ddc20af7dc932
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017552"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364116"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Esercitazione: Creare un modello linguistico personalizzato
 
@@ -98,8 +98,6 @@ Prima di intraprendere qualsiasi azione, è necessario selezionare le impostazio
 Nella pagina Crea modello linguistico immettere **Nome** e **Descrizione** per tenere traccia delle informazioni pertinenti sul modello, ad esempio il set di dati usato. Quindi, selezionare **Modello linguistico di base** dal menu a discesa. Questo modello sarà il punto di partenza per la personalizzazione. 
 
 Esistono due modelli linguistici di base tra cui scegliere. Il modello Search and Dictation (Ricerca e dettatura) è appropriato per un parlato diretto a un'applicazione, ad esempio comandi, query di ricerca o dettatura. Il modello Conversational (Colloquiale) è adatto per il riconoscimento vocale di una conversazione. Questo tipo di parlato è solitamente diretto a un'altra persona e si verifica nei call center o nelle riunioni. 
-
-Nella pagina "Crea modello linguistico" immettere **Nome** e **Descrizione** per tenere traccia delle informazioni pertinenti sul modello, ad esempio il set di dati usato. Quindi, selezionare **Modello linguistico di base** dal menu a discesa. Questo modello sarà il punto di partenza per la personalizzazione. Esistono due modelli linguistici di base tra cui scegliere. 
 
 Il modello Search and Dictation (Ricerca e dettatura) è appropriato per un parlato diretto a un'applicazione, ad esempio comandi, query di ricerca o dettatura. Il modello Conversational (Colloquiale) è adatto per il riconoscimento vocale di una conversazione. Questo tipo di parlato è solitamente diretto a un'altra persona e si verifica nei call center o nelle riunioni. È inoltre disponibile al pubblico un nuovo modello chiamato "Universal" (Universale). Il modello universale mira ad affrontare tutti gli scenari e a sostituire il modello di ricerca e dettatura e il modello colloquiale.
 

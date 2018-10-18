@@ -3,18 +3,18 @@ title: Rete accelerata con il ripristino di emergenza di macchine virtuali di Az
 description: Procedura per abilitare Rete accelerata con Azure Site Recovery per il ripristino di emergenza di macchine virtuali di Azure
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 08/24/2018
-ms.author: manayar
-ms.openlocfilehash: af29333956fb962ed31133260ecbc9607de38fd3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: bb4a3f433f213984c4c351439760ddd3327cda73
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052064"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353137"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Rete accelerata con il ripristino di emergenza di macchine virtuali di Azure
 
@@ -88,4 +88,4 @@ La procedura appena illustrata deve essere seguita anche per le macchine virtual
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sui [vantaggi della funzionalità Rete accelerata](../virtual-network/create-vm-accelerated-networking-powershell.md#benefits)
 - Altre informazioni sulle limitazioni e i vincoli della funzionalità Rete accelerata per [macchine virtuali Windows](../virtual-network/create-vm-accelerated-networking-powershell.md#limitations-and-constraints) e [macchine virtuali Linux](../virtual-network/create-vm-accelerated-networking-cli.md#limitations-and-constraints).
-- Altre informazioni sui [piani di ripristino](site-recovery-create-recovery-plans.md) per automatizzare il failover delle applicazioni.
+- Leggere altre informazioni sui [piani di ripristino](site-recovery-create-recovery-plans.md) per automatizzare il failover delle applicazioni.

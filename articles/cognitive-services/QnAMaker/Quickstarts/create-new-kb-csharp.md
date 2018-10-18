@@ -10,19 +10,19 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: diberry
-ms.openlocfilehash: 260ec46d292e244dfe51a3714e8b97e9d4689068
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: e6b8c769082b688b07bac78bca5e2dca59a2d9c2
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883416"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389412"
 ---
 # <a name="quickstart-create-a-qna-maker-knowledge-base-in-c"></a>Guida introduttiva: Creare una knowledge base QnA Maker in C#
 
 Questa guida introduttiva illustra come creare a livello di codice una knowledge base QnA Maker di esempio. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/data-sources-supported.md). Il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API. 
 
 In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
-* [Create KnowledgeBase](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) (Creare la knowledge base)
+* [Create Knowledgebase](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) (Creare la knowledge base)
 * [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Ottenere i dettagli dell'operazione)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -36,7 +36,7 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 
 [!INCLUDE [Create Visual Studio Project](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-create-project.md)] 
 
-## <a name="add-the-required-dependencies"></a>Aggiungere le dipendenze obbligatorie
+## <a name="add-the-required-dependencies"></a>Aggiungere le dipendenze richieste
 
 [!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-dependencies.md)]  
 
@@ -69,8 +69,8 @@ static string kb = @"
     }
   ],
   'urls': [
-    'https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs',
-    'https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq'
+    'https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs',
+    'https://docs.microsoft.com/bot-framework/resources-bot-framework-faq'
   ],
   'files': []
 }

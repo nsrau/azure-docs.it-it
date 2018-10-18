@@ -19,7 +19,7 @@ I valori validi per il provider sono "aad", "facebook", "google", "microsoftacco
 
 In questo caso, il Servizio app di Azure gestisce il flusso di autenticazione OAuth 2.0.  Viene visualizzata la pagina di accesso al provider selezionato e viene generato un token di autenticazione del Servizio app dopo aver eseguito correttamente l'accesso con il provider di identità. La funzione login, una volta completata, restituisce un oggetto JSON che espone l'ID utente e il token di autenticazione del servizio app rispettivamente nei campi userId e authenticationToken. È possibile memorizzare questo token nella cache e riutilizzarlo fino alla scadenza.
 
-###<a name="client-auth"></a>Procedura: Eseguire l'autenticazione con un provider (flusso client)
+### <a name="client-auth"></a>Procedura: Eseguire l'autenticazione con un provider (flusso client)
 
 L'app può anche contattare il provider di identità in modo indipendente e quindi fornire il token restituito al servizio app per l'autenticazione. Mediante il flusso client è possibile consentire agli utenti di effettuare l'accesso un'unica volta o recuperare dal provider di identità dati utente aggiuntivi.
 
@@ -61,7 +61,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 Questo esempio ottiene un token da Live Connect, che viene fornito al servizio app chiamando la funzione login.
 
-###<a name="auth-getinfo"></a>Procedura: Ottenere informazioni relative all'utente autenticato
+### <a name="auth-getinfo"></a>Procedura: Ottenere informazioni relative all'utente autenticato
 
 Le informazioni di autenticazione possono essere recuperate dall'endpoint `/.auth/me` usando una chiamata HTTP con una libreria AJAX qualsiasi.  Assicurarsi di impostare l'intestazione `X-ZUMO-AUTH` sul token di autenticazione.  Il token di autenticazione è memorizzato in `client.currentUser.mobileServiceAuthenticationToken`.  Ad esempio, per usare l'API fetch:
 

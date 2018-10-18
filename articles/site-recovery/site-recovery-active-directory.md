@@ -3,18 +3,18 @@ title: Proteggere Active Directory e DNS con Azure Site Recovery | Documentazion
 description: Questo articolo descrive come implementare una soluzione di ripristino di emergenza per Active Directory usando Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/19/2018
-ms.author: manayar
-ms.openlocfilehash: 28ea6c58eed110cfb57f3feaa6b828289bd20e64
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 1072c903e9bd9ccb3d63cae426283a677d10077e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054547"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354292"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Usare Azure Site Recovery per proteggere Active Directory e DNS
 

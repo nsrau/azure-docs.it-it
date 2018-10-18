@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 061a4f2d1b6a1661e341166ec0a1541af073c1f5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: cf69fdf87f1ce64bd78478f07e575d7ae75c16e0
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41918068"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394245"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Esercitazione: Archiviare i log di Azure AD in un account di archiviazione di Azure (anteprima)
 
@@ -77,4 +77,4 @@ Per usare questa funzionalità, sono necessari:
 
 * [Interpretare lo schema dei log di controllo in Monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
 * [Interpretare lo schema dei log di accesso in Monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
-* [Domande frequenti e problemi noti](overview-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Domande frequenti e problemi noti](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

@@ -4,19 +4,19 @@ description: Questo argomento descrive le quote e le limitazioni in Servizi mult
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: b50ba825f675c84f551f9a1d191aa93eaed9a628
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 5c0fbf396faa0e07ecca4ae16c775a39404c6fc9
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070865"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376517"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quote e limitazioni in Servizi multimediali di Azure v3
 
@@ -36,7 +36,6 @@ Questo articolo descrive le quote e le limitazioni in Servizi multimediali di Az
 | LiveEvent per ogni account di Servizi multimediali |5|
 | Account di Servizi multimediali in una singola sottoscrizione | 25 (fisso) |
 | LiveOutput in esecuzione per ogni LiveEvent |3|
-| LiveOutput arrestati per ogni LiveEvent |50|
 | Account di archiviazione | 100<sup>(4)</sup> (fisso) |
 | Endpoint di streaming in esecuzione per ogni account di Servizi multimediali|2|
 | StreamingPolicy | 100 <sup>(3)</sup> |
@@ -61,4 +60,4 @@ Per le risorse non fisse, è possibile richiedere l'aumento delle quote aprendo 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Panoramica](media-services-overview.md)
+[Overview](media-services-overview.md)

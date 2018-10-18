@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d22758d84d7b5acb3c5f7f1b3f26a9d8ef78b12
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3df0087a21547585883f791d4d385025f92580c7
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732177"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395038"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretare lo schema dei log di controllo di Azure AD in Monitoraggio di Azure (anteprima)
 
@@ -136,4 +136,4 @@ Questo articolo illustra lo schema del log di controllo di Azure Active Director
 
 * [Interpretare lo schema dei log di accesso in Monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
 * [Panoramica dei log di diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Domande frequenti e problemi noti](concept-activity-logs-in-azure-monitor.md#frequently-asked-questions)
+* [Domande frequenti e problemi noti](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

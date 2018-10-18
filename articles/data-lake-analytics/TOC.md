@@ -4,11 +4,11 @@
 ## [Che cos'è Data Lake Analytics?](data-lake-analytics-overview.md)
 
 # Attività iniziali
-## [portale di Azure](data-lake-analytics-get-started-portal.md)
+## [Portale di Azure](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [Interfaccia della riga di comando di Azure](data-lake-analytics-get-started-cli2.md)
+## [Interfaccia della riga di comando di Azure](data-lake-analytics-get-started-cli.md)
 
 # Procedure
 
@@ -21,7 +21,7 @@
 #### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
 #### [Python](data-lake-analytics-manage-use-python-sdk.md)
 #### [Java](data-lake-analytics-manage-use-java-sdk.md)
-#### [Node.JS](data-lake-analytics-manage-use-nodejs.md)
+#### [Node.js](data-lake-analytics-manage-use-nodejs.md)
 ### [Aggiungere utenti](data-lake-analytics-add-users.md)
 ### [Criteri](data-lake-analytics-policies.md)
 ### [Proteggere le cartelle processi](data-lake-analytics-secure.md)
@@ -41,7 +41,7 @@
 #### [Guida alla programmabilità](data-lake-analytics-u-sql-programmability-guide.md)
 
 ### Visual Studio
-#### [Installare](data-lake-analytics-data-lake-tools-install.md)
+#### [Installa](data-lake-analytics-data-lake-tools-install.md)
 #### [Esecuzione locale](data-lake-analytics-data-lake-tools-local-run.md)
 #### [Debug locale](data-lake-analytics-data-lake-tools-local-debug.md)
 #### [Sviluppare database U-SQL](data-lake-analytics-data-lake-tools-develop-usql-database.md)
@@ -70,16 +70,16 @@
 # riferimento
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
-## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
+## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
+## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
-## [Interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/dla)
+## [CLI](https://docs.microsoft.com/cli/azure/dla)
 
 # Risorse
 ## [Blog di Azure Data Lake](https://blogs.msdn.microsoft.com/azuredatalake/)
 ## [Roadmap per Azure](https://azure.microsoft.com/roadmap/?category=intelligence-analytics)
 ## [Richiedere modifiche](https://feedback.azure.com/forums/327234-data-lake)
-## [Forum di MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
+## [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake)
 ## [Prezzi](https://azure.microsoft.com/pricing/details/data-lake-analytics/)
 ## [Calcolatore prezzi](https://azure.microsoft.com/pricing/calculator/)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=data-lake-analytics)

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: efdcf57fb0f175be51e6b9f8e72e4a02fcbeb5f3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162322"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384950"
 ---
 # <a name="qna-maker-limits"></a>Limiti di QnA Maker
 Elenco completo dei limiti di QnA Maker.
@@ -29,7 +29,7 @@ Elenco completo dei limiti di QnA Maker.
 |Numero massimo di knowledge base pubblicate consentite (indici massimi -- 1 (riservato al test)|2|14|49|199|199|2999|
 
 ## <a name="extraction-limits"></a>Limiti di estrazione
-* Numero massimo di file che possono essere estratti e dimensione massima dei file: vedere [Prezzi di QnAMaker](https://azure.microsoft.com/en-in/pricing/details/cognitive-services/qna-maker/)
+* Numero massimo di file che possono essere estratti e dimensione massima dei file: vedere [Prezzi di QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
 * Numero massimo di deep link su cui può essere eseguita la ricerca per l'estrazione di QnA dalle pagine HTML delle FAQ: 20
 
 ## <a name="metadata-limits"></a>Limiti di metadati
@@ -49,7 +49,7 @@ Limiti complessivi sul contenuto nella knowledge base:
 * Lunghezza del nome file: 200
 * Formati di file supportati: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Numero massimo di domande alternative: 100
-* Numero massimo di coppie di risposta alla domanda: dipende dal [livello di ricerca di Azure](https://docs.microsoft.com/en-in/azure/search/search-limits-quotas-capacity#document-limits) scelto 
+* Numero massimo di coppie di risposta alla domanda: dipende dal [livello di ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) scelto 
 
 ## <a name="create-knowledge-base-call-limits"></a>Creare i limiti di chiamata per la Knowledge base:
 Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ovvero, fare clic su *Crea KB* o richiamare l'API di Crea Knowledge Base.

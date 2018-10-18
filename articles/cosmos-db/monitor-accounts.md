@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: sngun
-ms.openlocfilehash: 1e5dba722f240bd6535ba64494912a153e9224c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f4bf4ba660e83be9879c56d04b27c932d563e17
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612640"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354068"
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorare Azure Cosmos DB
 È possibile monitorare gli account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/). Per ogni account di Azure Cosmos DB, è disponibile un set completo di metriche per il monitoraggio di velocità effettiva, archiviazione, disponibilità, latenza e coerenza.
@@ -76,7 +76,7 @@ Per accedere a metriche aggiuntive, usare l'[SDK di Monitoraggio di Azure](https
 
 Le query per recuperare le singole metriche usano il formato seguente:
 
-    https://management.azure.com/subscriptions/{SubecriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+    https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 
 Per altre informazioni, vedere [Retrieving Resource Metrics via the Azure Insights API](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/)(Recupero delle metriche delle risorse tramite l'API REST del Monitoraggio di Azure). Si noti che il nuovo nome di Azure Insights è Monitoraggio di Azure.  Nel blog si usa ancora il nome precedente.
 

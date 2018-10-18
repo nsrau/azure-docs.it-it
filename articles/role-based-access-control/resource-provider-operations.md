@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ee2a72a65902347a2e58f79d0f621c9d08178104
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410307"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354394"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -3346,8 +3346,6 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Aggiunge un pool di indirizzi di back-end del servizio di bilanciamento del carico |
 > | Azione | Microsoft.Network/loadBalancers/backendAddressPools/read | Ottiene una definizione del pool di indirizzi di back-end del servizio di bilanciamento del carico |
 > | Azione | Microsoft.Network/loadBalancers/delete | Elimina un servizio di bilanciamento del carico |
-> | Azione | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Crea un join della configurazione IP del front-end del servizio di bilanciamento del carico. |
-> | Azione | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Ottiene una definizione della configurazione IP del front-end del servizio di bilanciamento del carico |
 > | Azione | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Aggiunge un pool NAT in entrata del servizio di bilanciamento del carico |
 > | Azione | Microsoft.Network/loadBalancers/inboundNatPools/read | Ottiene una definizione del pool NAT in entrata del servizio di bilanciamento del carico |
 > | Azione | Microsoft.Network/loadBalancers/inboundNatRules/delete | Elimina una regola NAT in entrata del servizio di bilanciamento del carico |
@@ -3477,10 +3475,6 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Network/publicIPAddresses/dnsAliases/read | Ottiene una risorsa alias DNS di un indirizzo IP pubblico |
 > | Azione | Microsoft.Network/publicIPAddresses/dnsAliases/write | Crea una risorsa alias DNS di un indirizzo IP pubblico |
 > | Azione | Microsoft.Network/publicIPAddresses/join/action | Aggiunge un indirizzo IP pubblico |
-> | Azione | Microsoft.Network/publicIPAddresses/loadBalancerPools/delete | Elimina un pool back-end di bilanciamento del carico con indirizzo IP pubblico |
-> | Azione | Microsoft.Network/publicIPAddresses/loadBalancerPools/join/action | Aggiunge un pool back-end di bilanciamento del carico con indirizzo IP pubblico |
-> | Azione | Microsoft.Network/publicIPAddresses/loadBalancerPools/read | Recupera la definizione di un pool back-end di bilanciamento del carico con indirizzo IP pubblico |
-> | Azione | Microsoft.Network/publicIPAddresses/loadBalancerPools/write | Crea un pool back-end di bilanciamento del carico con indirizzo IP pubblico o ne aggiorna uno esistente |
 > | Azione | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene le impostazioni di diagnostica dell'indirizzo IP pubblico |
 > | Azione | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna le impostazioni di diagnostica dell'indirizzo IP pubblico |
 > | Azione | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Ottiene le definizioni di log di un indirizzo IP pubblico |

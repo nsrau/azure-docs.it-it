@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 18f4d2656ec7f027557d73959531b781be1d8d44
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 4c3354786d7320caee0dfe2f0eca44909d77f2fe
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42023955"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386852"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Guida introduttiva: Creare un account di archiviazione della versione di anteprima di Azure Data Lake Storage Gen2
 
@@ -49,7 +49,7 @@ Il pulsante avvia una shell interattiva che è possibile usare per eseguire i pa
 
 ### <a name="install-the-cli-locally"></a>Installare l'interfaccia della riga di comando in locale
 
-È anche possibile installare e usare l'interfaccia della riga di comando di Azure in locale. Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.38 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli).
+È anche possibile installare e usare l'interfaccia della riga di comando di Azure in locale. Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.38 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Panoramica della creazione di un account di Azure Data Lake Storage Gen2
 
@@ -58,7 +58,7 @@ Prima di creare un account, è necessario un gruppo di risorse che funge da cont
 > [!NOTE]
 > È necessario creare nuovi account di archiviazione con tipo **Archiviazione V2 (utilizzo generico v2)** per sfruttare le funzionalità di Data Lake Storage Gen2.  
 
-Per altre informazioni sui tipi di account di archiviazione, vedere [Opzioni di account di archiviazione di Azure](../common/storage-account-options.md).
+Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 
 Quando si assegna un nome all'account di archiviazione, tenere presenti queste regole:
 
@@ -87,7 +87,7 @@ Per creare un gruppo di risorse nel portale di Azure, seguire questa procedura:
 Per creare un account di archiviazione per utilizzo generico v2 nel portale di Azure, eseguire questa procedura:
 
 > [!NOTE]
-> Lo spazio dei nomi gerarchico è abilitato solo nelle aree Stati Uniti occidentali 2 e Stati Uniti centro-occidentali. Assicurarsi di specificare una di queste posizioni quando si crea l'account di archiviazione.
+> Lo spazio dei nomi gerarchico è abilitato solo in Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Europa settentrionale, Europa occidentale, Asia sud-orientale e Australia orientale. Assicurarsi di specificare una di queste posizioni quando si crea l'account di archiviazione.
 
 1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **Tutti i servizi**. Scorrere quindi verso il basso fino ad **Archiviazione** e scegliere **Account di archiviazione**. Nella finestra **Account di archiviazione** visualizzata scegliere **Aggiungi**.
 2. Immettere un nome per l'account di archiviazione.
@@ -135,7 +135,7 @@ Quindi riavviare la shell.
 Per creare un nuovo gruppo di risorse con PowerShell, usare il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup): 
 
 > [!NOTE]
-> Lo spazio dei nomi gerarchico è abilitato solo nelle aree Stati Uniti occidentali 2 e Stati Uniti centro-occidentali. Assicurarsi di specificare una di queste posizioni quando si crea l'account di archiviazione.
+> Lo spazio dei nomi gerarchico è abilitato solo in Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Europa settentrionale, Europa occidentale, Asia sud-orientale e Australia orientale. Assicurarsi di specificare una di queste posizioni quando si crea l'account di archiviazione.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -196,7 +196,7 @@ az group create \
 ```
 
 > [!NOTE]
-> Lo spazio dei nomi gerarchico è abilitato solo nelle aree Stati Uniti occidentali 2 e Stati Uniti centro-occidentali. Assicurarsi di specificare una di queste posizioni quando si crea l'account di archiviazione.
+> Lo spazio dei nomi gerarchico è abilitato solo in Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Europa settentrionale, Europa occidentale, Asia sud-orientale e Australia orientale. Assicurarsi di specificare una di queste posizioni quando si crea l'account di archiviazione.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Creare un account di archiviazione per utilizzo generico v2
 
@@ -224,4 +224,4 @@ az group delete --name myResourceGroup
 
 In questa guida introduttiva è stato creato un account di archiviazione di Data Lake Storage Gen2. Per informazioni su come caricare e scaricare BLOB nell'account di archiviazione, passare alla guida introduttiva su Archiviazione BLOB.
 
-* [Spostamento dei dati da e verso l'archivio BLOB di Azure tramite AzCopy](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)
+* [Spostamento dei dati da e verso l'archivio BLOB di Azure tramite AzCopy](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

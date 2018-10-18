@@ -4,21 +4,21 @@ description: Questo argomento offre una panoramica degli scenari e della disponi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809280"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352815"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
@@ -30,7 +30,7 @@ Questo argomento illustra scenari comuni per la distribuzione di contenuti [live
 
 ## <a name="overview"></a>Panoramica
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre di quanto segue:
 
@@ -158,7 +158,7 @@ I clienti di AMS possono ridimensionare gli endpoint di streaming, l'elaborazion
     Per altre informazioni, vedere l'argomento relativo al [ridimensionamento dell'elaborazione di contenuti multimediali](media-services-portal-scale-media-processing.md).
 * È anche possibile ridimensionare l'account di Servizi multimediali aggiungendo account di archiviazione. Per ogni account di archiviazione è previsto un limite di 500 TB. Per espandere lo spazio di archiviazione oltre i limiti predefiniti, è possibile scegliere di collegare più account di archiviazione a un singolo account di Servizi Multimediali. Per altre informazioni, vedere l'argomento relativo alla [gestione degli account di archiviazione](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a>Disponibilità delle funzionalità di Servizi multimediali nei data center
+## <a id="availability"></a>Disponibilità delle funzionalità di Servizi multimediali nei data center
 
 Questa sezione offre informazioni dettagliate sulla disponibilità delle funzionalità di Servizi multimediali nei data center.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a40f4489e63c30a101dd708b5a175c25788fb04b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976755"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387889"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Come rinnovare i certificati X.509 dei dispositivi
 
@@ -52,7 +52,7 @@ Quando è inizialmente sottoposto a provisioning automatico, il dispositivo vien
 
 Dopo l'assegnazione di un nuovo certificato foglia, il dispositivo non può più connettersi all'hub IoT perché usa un nuovo certificato, mentre l'hub IoT riconosce solo il dispositivo con il certificato precedente. Il tentativo di connessione del dispositivo ha quindi come risultato un errore di connessione "non autorizzata". Per risolvere questo errore, è necessario aggiornare la voce di registrazione per il dispositivo in base al nuovo certificato foglia. Al termine del nuovo provisioning del dispositivo, il servizio di provisioning può aggiornare di conseguenza le informazioni del registro dei dispositivi dell'hub IoT. 
 
-Una possibile eccezione a questo errore di connessione è data da uno scenario in cui è stato creato un [gruppo di registrazioni](concepts-service.md#enrollment-group) per il dispositivo nel servizio di provisioning. In questo caso, anche se non si rinnova il certificato radice o intermedio nella catena di certificati del dispositivo, quest'ultimo viene riconosciuto se il nuovo certificato fa parte della catena di certificati definita nel gruppo di registrazioni. Se questo scenario si presenta come reazione a una violazione della sicurezza, è necessario inserire nell'elenco di elementi non consentiti almeno i certificati dei dispositivi nel gruppo che sono stati presumibilmente violati. Per altre informazioni, vedere [Inserire dispositivi specifici in un gruppo di registrazione nell'elenco di elementi non consentiti](https://docs.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
+Una possibile eccezione a questo errore di connessione è data da uno scenario in cui è stato creato un [gruppo di registrazioni](concepts-service.md#enrollment-group) per il dispositivo nel servizio di provisioning. In questo caso, anche se non si rinnova il certificato radice o intermedio nella catena di certificati del dispositivo, quest'ultimo viene riconosciuto se il nuovo certificato fa parte della catena di certificati definita nel gruppo di registrazioni. Se questo scenario si presenta come reazione a una violazione della sicurezza, è necessario inserire nell'elenco di elementi non consentiti almeno i certificati dei dispositivi nel gruppo che sono stati presumibilmente violati. Per altre informazioni, vedere [Inserire dispositivi specifici in un gruppo di registrazione nell'elenco di elementi non consentiti](https://docs.microsoft.com/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group).
 
 L'aggiornamento delle voci di registrazione per i certificati rinnovati viene eseguito nella pagina **Gestisci registrazioni**. Per accedere alla pagina, seguire questa procedura:
 

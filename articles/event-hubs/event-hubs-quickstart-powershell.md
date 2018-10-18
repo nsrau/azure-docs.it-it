@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/26/2018
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: a8a29484af7c95e9cffa1c7048c0f7b8d642c868
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 305776db1d3e0bacc266e514e0a59fe6b3fbd4b4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42023016"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388528"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Guida introduttiva: Creare un hub eventi usando Azure PowerShell
 
@@ -33,7 +33,7 @@ Per completare questa esercitazione, accertarsi di avere:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se si usa PowerShell in locale, è necessario eseguire la versione più recente di PowerShell per completare questa guida introduttiva. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+Se si usa PowerShell in locale, è necessario eseguire la versione più recente di PowerShell per completare questa guida introduttiva. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
 ## <a name="provision-resources"></a>Effettuare il provisioning delle risorse
 

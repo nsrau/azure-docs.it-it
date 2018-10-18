@@ -1,5 +1,6 @@
 ---
 title: Introduzione all'API Riconoscimento vocale Microsoft in Java per dispositivi Android | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Usare l'API Riconoscimento vocale Microsoft per sviluppare applicazioni Android che convertono audio parlato in testo.
 services: cognitive-services
 author: zhouwangzw
@@ -7,18 +8,20 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: a10f7be1c36fb431016a9867f606e26be858069e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4c5243ec14a4494222168bb33b3e840b96f8465e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373892"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345255"
 ---
-# <a name="get-started-with-speech-recognition-in-java-on-android"></a>Introduzione all'API Riconoscimento vocale in Java per dispositivi Android
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-Con l'API Riconoscimento vocale, è possibile sviluppare applicazioni Android che usano il Servizio di riconoscimento vocale basato sul cloud per convertire audio parlato in testo. L'API supporta lo streaming in tempo reale, in modo che l'applicazione possa ricevere in modo asincrono e simultaneo risultati parziali di riconoscimento e inviare audio al servizio.
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Guida introduttiva: Usare l'API Riconoscimento vocale Bing in Java per dispositivi Android
+
+Con l'API Riconoscimento vocale Bing è possibile sviluppare applicazioni Android che usano il Servizio di riconoscimento vocale Bing basato sul cloud per convertire audio parlato in testo. L'API supporta lo streaming in tempo reale, in modo che l'applicazione possa ricevere in modo asincrono e simultaneo risultati parziali di riconoscimento e inviare audio al servizio.
 
 Questo articolo usa un'applicazione di esempio per illustrare come usare la libreria client per il riconoscimento vocale per Android per sviluppare applicazioni di riconoscimento vocale in Java per dispositivi Android.
 
@@ -136,7 +139,7 @@ Quando si crea il client con `SpeechRecognitionServiceFactory`, è inoltre neces
 * **Eventi con errore**: chiamati quando il servizio rileva un errore.
 * **Eventi con finalità**: chiamati nei client "WithIntent" (solo nella modalità `ShortPhrase`) dopo che il risultato finale di riconoscimento viene analizzato come finalità JSON strutturata.
 * **Eventi con risultato**:
-  * Nella modalità `ShortPhrase` questi eventi vengono chiamati e restituiscono N risultati migliori quando l'utente finisce di parlare.
+  * Nella modalità `ShortPhrase` vengono chiamati questi eventi e restituiscono N risultati migliori quando l'utente finisce di parlare.
   * Nella modalità `LongDictation` il gestore di eventi viene chiamato più volte, in base alle posizioni di pausa della frase identificate dal servizio.
   * **Per ognuna delle N scelte migliori**, vengono restituiti un valore di attendibilità e diverse forme del testo riconosciuto. Per altre informazioni, vedere [Formato di output](../Concepts.md#output-format).
 

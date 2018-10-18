@@ -7,14 +7,14 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 2cb89606986645d567136655d5ab3f07223ba70d
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 04cdfd487036e79eccbb4fb879902a12e077d104
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434773"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341651"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C# per .NET Core su Windows con Speech SDK
 
@@ -25,7 +25,7 @@ In questo articolo, si crea un'applicazione console C# per .NET Core su Windows 
 > [!NOTE]
 > .NET core è una multipiattaforma open source, multipiattaforma di .NET che implementa la specifica [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
 
-È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Vedere [Prova il servizio di riconoscimento vocale gratuitamente](get-started.md) per i dettagli.
+È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Consultare [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md) per informazioni dettagliate.
 
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
@@ -61,11 +61,11 @@ Dopo aver installato il pacchetto, viene visualizzato un messaggio di conferma n
 
 1. Aprire `Program.cs` e sostituire tutto il codice in questo file con quanto segue.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore/helloworld/Program.cs#code)]
 
 1. Nello stesso file, sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione.
 
-1. Inoltre, sostituire la stringa `YourServiceRegion` con la [regione](regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
+1. Inoltre, sostituire la stringa `YourServiceRegion` con l'[area](regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
 
 1. Salvare le modifiche apportate al progetto.
 
@@ -81,7 +81,7 @@ Dopo aver installato il pacchetto, viene visualizzato un messaggio di conferma n
 
 1. Si apre una finestra della console che chiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale e trascritto in formato testo, che appare nella stessa finestra.
 
-    ![Risultato sulla console dopo il riconoscimento efficace](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Risultato sulla console dopo il riconoscimento efficace")
+    ![Risultato sulla console dopo un riconoscimento riuscito](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Risultato sulla console dopo un riconoscimento riuscito")
 
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Ricercare questo esempio nella cartella `quickstart/csharp-dotnetcore-windows`.

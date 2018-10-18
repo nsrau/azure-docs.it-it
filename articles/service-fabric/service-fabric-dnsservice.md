@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: a420033d96a1366a79f5f2032693c38d7eca4ac3
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830974"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387939"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servizio DNS in Azure Service Fabric
 Il servizio DNS è un servizio di sistema facoltativo che è possibile abilitare nel cluster per individuare altri servizi usando il protocollo DNS. 
@@ -132,7 +132,7 @@ Dopo aver distribuito l'applicazione, l'istanza del servizio in Service Fabric E
 
 ![Endpoint del servizio](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-Nell'esempio seguente il nome DNS per un servizio con stato viene impostato su `statefulsvc.app`. Il servizio usa uno schema di partizionamento denominato. Si noti che i nomi di partizioni sono in minuscolo. Questo è un requisito per le partizioni che verranno usate come destinazione nelle query DNS; per altre informazioni, vedere [Effettuare query DNS su una partizione del servizio con stato](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+Nell'esempio seguente il nome DNS per un servizio con stato viene impostato su `statefulsvc.app`. Il servizio usa uno schema di partizionamento denominato. Si noti che i nomi di partizioni sono in minuscolo. Questo è un requisito per le partizioni che verranno usate come destinazione nelle query DNS; per altre informazioni, vedere [Effettuare query DNS su una partizione del servizio con stato](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />

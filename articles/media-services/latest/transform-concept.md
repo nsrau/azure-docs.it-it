@@ -4,19 +4,19 @@ description: Quando si usa Servizi multimediali, è necessario creare un oggetto
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: b755e0573098d3dbed1bea18a40af634be609f76
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 214d4d3d11255e417f3df1e5f6e648b2a30225ea
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272081"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377309"
 ---
 # <a name="transforms-and-jobs"></a>Trasformazioni e processi
 
@@ -78,5 +78,4 @@ Si supponga di voler estrarre il primo frame di tutti i video come immagine di a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Eseguire lo streaming di file video](stream-files-dotnet-quickstart.md)
+[Eseguire lo streaming di file video](stream-files-dotnet-quickstart.md)

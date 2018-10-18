@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857532"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387226"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -107,7 +107,7 @@ Per creare il comando git, usare la password codificata con il nome utente e il 
 git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 ```
 
-Una volta clonato il repository, è possibile visualizzarlo e usarlo nel file system locale. Per altre informazioni, vedere [Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale](#file-and-folder-structure-reference-of-local-git-repository).
+Dopo che il repository è stato clonato, è possibile visualizzarlo e usarlo nel file system locale. Per altre informazioni, vedere [Informazioni di riferimento sulla struttura di file e cartelle del repository Git locale](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Per aggiornare il repository locale con la configurazione dell'istanza del servizio più recente
 
@@ -219,14 +219,14 @@ L'impostazione finale, `$ref-policy`, esegue il mapping al file di istruzioni de
 ### <a name="apis-folder"></a>Cartella apis
 La cartella `apis` contiene, per ogni API nell'istanza del servizio, una cartella contenente a sua volta gli elementi seguenti.
 
-* `apis\<api name>\configuration.json`: configurazione dell'API. Contiene informazioni relative all'URL del servizio back-end e alle operazioni. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario [ottenere un'API specifica](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) con `export=true` nel formato `application/json`.
-* `apis\<api name>\api.description.html`: descrizione dell'API. Corrisponde alla proprietà `description` dell'[entità relativa all'API](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\`: questa cartella contiene i file `<operation name>.description.html` mappati alle operazioni nell'API. Ogni file contiene la descrizione di una singola operazione dell'API che esegue il mapping alla proprietà `description` dell' [entità relativa all'operazione](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) nell'API REST.
+* `apis\<api name>\configuration.json`: configurazione dell'API. Contiene informazioni relative all'URL del servizio back-end e alle operazioni. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario [ottenere un'API specifica](https://docs.microsoft.com/rest/api/apimanagement/api/get) con `export=true` nel formato `application/json`.
+* `apis\<api name>\api.description.html`: descrizione dell'API. Corrisponde alla proprietà `description` dell'[entità relativa all'API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\`: questa cartella contiene i file `<operation name>.description.html` mappati alle operazioni nell'API. Ogni file contiene la descrizione di una singola operazione dell'API che esegue il mapping alla proprietà `description` dell'[entità relativa all'operazione](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) nell'API REST.
 
 ### <a name="groups-folder"></a>Cartella groups
 La cartella `groups` contiene una cartella per ogni gruppo definito nell'istanza del servizio.
 
-* `groups\<group name>\configuration.json`: configurazione del gruppo. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un gruppo specifico](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) .
+* `groups\<group name>\configuration.json`: configurazione del gruppo. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un gruppo specifico](https://docs.microsoft.com/rest/api/apimanagement/group/get) .
 * `groups\<group name>\description.html`: descrizione del gruppo. Corrisponde alla proprietà `description` dell'[entità relativa al gruppo](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>Cartella policies
@@ -246,7 +246,7 @@ La cartella `portalStyles` contiene la configurazione e i fogli di stile delle p
 ### <a name="products-folder"></a>Cartella products
 La cartella `products` contiene una cartella per ogni prodotto definito nell'istanza del servizio.
 
-* `products\<product name>\configuration.json`: configurazione del prodotto. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un prodotto specifico](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) .
+* `products\<product name>\configuration.json`: configurazione del prodotto. Si tratta delle stesse informazioni che verrebbero restituite se fosse necessario chiamare l'operazione per [ottenere un prodotto specifico](https://docs.microsoft.com/rest/api/apimanagement/product/get) .
 * `products\<product name>\product.description.html`: descrizione del prodotto. Corrisponde alla proprietà `description` dell'[entità relativa al prodotto](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) nell'API REST.
 
 ### <a name="templates"></a>Modelli
@@ -259,8 +259,8 @@ La cartella `templates` contiene la configurazione per i [modelli di posta elett
 Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
 
 * Gestire l'istanza del servizio con i cmdlet di PowerShell seguenti
-  * [Informazioni di riferimento sui cmdlet di PowerShell per la distribuzione dei servizi](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [Informazioni di riferimento sui cmdlet di PowerShell per la gestione dei servizi](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [Informazioni di riferimento sui cmdlet di PowerShell per la distribuzione dei servizi](https://docs.microsoft.com/powershell/module/wds)
+  * [Informazioni di riferimento sui cmdlet di PowerShell per la gestione dei servizi](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Gestire l'istanza del servizio tramite l'API REST
   * [Informazioni di riferimento sull'API REST di Gestione API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

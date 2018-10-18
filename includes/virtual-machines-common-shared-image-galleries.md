@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6a64d85cc476c7494a1730959b96e9480115cd90
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046367"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400404"
 ---
 Raccolta di immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini di VM personalizzate. Raccolta di immagini condivise fornisce tre principali proposte di valore
 - Gestione semplificata
@@ -128,7 +128,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **D.** Come si condividono immagini personali tra sottoscrizioni?
  
- R. È possibile condividere immagini tra sottoscrizioni usando il Controllo degli accessi in base al ruolo (RBAC). Qualsiasi utente che disponga di autorizzazioni di lettura per una versione di immagine, persino tra sottoscrizioni, sarà in grado di distribuire una macchina virtuale usando la versione dell'immagine.
+ R. È possibile condividere immagini tra sottoscrizioni usando il Controllo di accesso in base al ruolo (RBAC). Qualsiasi utente che disponga di autorizzazioni di lettura per la versione immagine, perfino tra sottoscrizioni, riuscirà a distribuire una macchina virtuale usando la versione immagine.
 
 
 **D.** È possibile spostare l'immagine esistente nella raccolta di immagini condivise?
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **D.** È possibile creare una versione di immagine da un disco specializzato?
 
- R. No, attualmente non sono supportati dischi specializzati come immagini. Se si dispone di un disco specializzato, è necessario [creare una macchina virtuale dal disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) collegando il disco specializzato a una nuova macchina virtuale. Una volta che si dispone di una macchina virtuale in esecuzione, è necessario seguire le istruzioni per creare un'immagine gestita dalla [macchina virtuale Windows] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) oppure dalla [macchina virtuale Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images). Una volta che si dispone di un'immagine gestita generalizzata, è possibile avviare il processo per creare una descrizione di immagine condivisa e una versione dell'immagine.
+ R. No, attualmente non sono supportati dischi specializzati come immagini. Se si dispone di un disco specializzato, è necessario [creare una macchina virtuale dal disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) collegando il disco specializzato a una nuova macchina virtuale. Una volta che si dispone di una macchina virtuale in esecuzione, è necessario seguire le istruzioni per creare un'immagine gestita dalla [macchina virtuale Windows] (https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) oppure dalla [macchina virtuale Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Una volta che si dispone di un'immagine gestita generalizzata, è possibile avviare il processo per creare una descrizione di immagine condivisa e una versione dell'immagine.
 
 
 **D.** È possibile creare una raccolta di immagini condivise, una definizione di immagine e una versione dell'immagine tramite il portale di Azure?

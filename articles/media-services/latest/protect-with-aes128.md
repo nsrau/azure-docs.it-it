@@ -4,21 +4,21 @@ description: Distribuire i contenuti crittografati con chiavi di crittografia AE
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 3e5de521570a587b049702dabd3e3692c4227796
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8d071f64df0097b4029884a9efa84c6f2708fd44
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114794"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376602"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi
 
@@ -33,7 +33,7 @@ L'articolo si basa sull'esempio [EncryptWithAES](https://github.com/Azure-Sample
 
 Per completare l'esercitazione è necessario quanto segue.
 
-* Rivedere l'articolo [Panoramica della protezione del contenuto](content-protection-overview.md).
+* Vedere l'articolo [Panoramica della protezione del contenuto](content-protection-overview.md).
 * Installare Visual Studio Code o Visual Studio
 * Creare un nuovo account di Servizi multimediali in Azure, come descritto in [questa guida introduttiva](create-account-cli-quickstart.md).
 * Ottenere le credenziali necessarie per usare le API di Servizi multimediali seguendo [Accedere alle API](access-api-cli-how-to.md)
@@ -49,7 +49,7 @@ Clonare nel computer un repository GitHub contenente l'esempio .NET completo tra
 L'esempio "Encrypt with AES-128" (Crittografia con AES) si trova nella cartella [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES).
 
 > [!NOTE]
-> L'esempio crea risorse univoche ogni volta che si esegue l'applicazione. In genere, si riutilizzeranno le risorse esistenti, ad esempio criteri e trasformazioni, se le risorse esistenti hanno le configurazioni richieste. 
+> L'esempio crea risorse univoche ogni volta che si esegue l'applicazione. In genere si riutilizzano le risorse esistenti, ad esempio criteri e trasformazioni, se hanno le configurazioni richieste. 
 
 ## <a name="start-using-media-services-apis-with-net-sdk"></a>Iniziare a usare le API di Servizi multimediali con .NET SDK
 
@@ -75,7 +75,7 @@ Prima di creare un nuovo oggetto [Transform](https://docs.microsoft.com/rest/api
 
 Come indicato sopra, l'oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms) è la serie di istruzioni, mentre l'oggetto [Job](https://docs.microsoft.com/rest/api/media/jobs) è la richiesta effettiva inviata a Servizi multimediali per applicare l'oggetto **Transform** a determinati contenuti audio o video di input. L'oggetto **Job** specifica informazioni come la posizione del video di input e quella dell'output.
 
-In questa esercitazione si crea l'input del processo in base a un file che viene inserito direttamente da un [URL di origine HTTPS](job-input-from-http-how-to.md).
+In questa esercitazione si crea l'input del processo in base a un file che viene inserito direttamente da un [URL di origine HTTPs](job-input-from-http-how-to.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#SubmitJob)]
 
@@ -89,7 +89,7 @@ L'oggetto **Job** assume progressivamente gli stati seguenti: **Scheduled**, **Q
 
 ## <a name="create-a-contentkeypolicy"></a>Creare un ContentKeyPolicy
 
-Una chiave simmetrica consente l'accesso sicuro alle entità Asset. È necessario creare un **ContentKeyPolicy** che consente di configurare la modalità in cui la chiave simmetrica viene distribuita per i client finali. La chiave simmetrica è associata a **StreamingLocator**. Servizi multimediali fornisce anche il servizio di distribuzione delle chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. 
+Una chiave simmetrica consente l'accesso sicuro agli asset. È necessario creare un **ContentKeyPolicy** che consente di configurare la modalità in cui la chiave simmetrica viene distribuita per i client finali. La chiave simmetrica è associata a **StreamingLocator**. Servizi multimediali fornisce anche il servizio di distribuzione delle chiavi che distribuisce chiavi di crittografia agli utenti autorizzati. 
 
 Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chiave specificata per crittografare dinamicamente il contenuto, in questo caso mediante AES. Per decrittografare il flusso, il lettore richiede la chiave dal servizio di distribuzione delle chiavi. Per decidere se l'utente è autorizzato a ottenere la chiave, il servizio valuta i criteri di chiave simmetrica specificati per tale chiave.
 
@@ -97,14 +97,14 @@ Quando un flusso viene richiesto da un lettore, Servizi multimediali usa la chia
 
 ## <a name="create-a-streaminglocator"></a>Creare un StreamingLocator
 
-Quando la codifica è terminata e i criteri della chiave simmetrica sono stati impostati, il passaggio successivo consiste nel rendere disponibile ai client il video nell'asset di output per la riproduzione. Eseguire questa operazione in due passaggi: 
+Al termine della codifica e dopo l'impostazione dei criteri di chiave simmetrica, il passaggio successivo consiste nel rendere disponibile ai client il video nell'asset di output per la riproduzione. Per eseguire questa operazione sono previsti due passaggi: 
 
-1. Creare un [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
-2. Compilare l'URL di streaming che i client possono usare. 
+1. Creare uno [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
+2. Creare gli URL di streaming che i client possono usare. 
 
-Il processo di creazione dell'oggetto **StreamingLocator** è detto pubblicazione. Per impostazione predefinita, l'oggetto **StreamingLocator** è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
+Il processo di creazione di uno **StreamingLocator** è detto pubblicazione. Per impostazione predefinita, l'oggetto **StreamingLocator** è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
 
-Quando si crea un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questa esercitazione si usa uno dei PredefinedStreamingPolicies che indica come pubblicare il contenuto per lo streaming di servizi multimediali di Azure. In questo esempio si applica la crittografia AES Envelope, nota anche come crittografia ClearKey perché la chiave viene distribuita al client di riproduzione tramite HTTPS e non una licenza DRM.
+Quando si crea un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questa esercitazione si usa uno dei PredefinedStreamingPolicies che indica a Servizi multimediali di Azure come pubblicare il contenuto per lo streaming. In questo esempio si applica la crittografia AES Envelope, nota anche come crittografia ClearKey perché la chiave viene distribuita al client di riproduzione tramite HTTPS e non una licenza DRM.
 
 > [!IMPORTANT]
 > Quando si usa un oggetto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizzato, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusarli per gli oggetti StreamingLocator ogni volta che si devono usare gli stessi protocolli e opzioni di crittografia. L'account di Servizi multimediali prevede una quota per il numero di occorrenze di StreamingPolicy. Evitare quindi di creare un nuovo oggetto StreamingPolicy per ogni StreamingLocator.
@@ -113,7 +113,7 @@ Quando si crea un oggetto [StreamingLocator](https://docs.microsoft.com/rest/api
 
 ## <a name="get-a-test-token"></a>Ottenere un token di test
         
-In questa esercitazione si specifica una restrizione token per i criteri di chiave simmetrica. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) e saranno configurati in questo modo nell'esempio.
+In questa esercitazione si specifica una restrizione del token per i criteri di chiave simmetrica. I criteri con restrizione del token richiedono la presenza di un token rilasciato da un servizio token di sicurezza. Servizi multimediali supporta i token nei formati [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) e saranno configurati in questo modo nell'esempio.
 
 In ContentKeyPolicy viene usato ContentKeyIdentifierClaim, il che significa che il token presentato al servizio di distribuzione delle chiavi deve contenere l'identificatore dell'entità ContentKey. Nell'esempio non si specifica una chiave simmetrica quando si crea StreamingLocator, ma il sistema crea un valore casuale. Per generare il token di test, è necessario ottenere il ContentKeyId da inserire nell'attestazione ContentKeyIdentifierClaim.
 
