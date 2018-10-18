@@ -1,25 +1,28 @@
 ---
-title: Guida introduttiva a Java per Servizi cognitivi di Azure, API Traduzione vocale Microsoft | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Traduzione vocale Microsoft in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: API Traduzione vocale - Java'
+titlesuffix: Azure Cognitive Services
+description: Informazioni ed esempi di codice per iniziare a usare rapidamente l'API Traduzione vocale.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b06ee0c37d52f81db1a3bad6907690619002ef7c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 4147e164434109a90a2a044565a1fb0b2e1b48bf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205504"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386503"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>Guida introduttiva per l'API Traduzione vocale Microsoft con Java 
+# <a name="quickstart-translator-speech-api-with-java"></a>Guida introduttiva: API Traduzione vocale con Java 
 <a name="HOLTop"></a>
 
-Questo articolo illustra come usare l'API Traduzione vocale Microsoft per tradurre il testo parlato in un file con estensione wav.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+Questo articolo illustra come usare l'API Traduzione vocale per tradurre il testo parlato in un file con estensione wav.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -36,7 +39,7 @@ Sono necessario i file seguenti.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (o più recente)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (o più recente)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file .wav dall'[API sintesi vocale](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file .wav dall'[API sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 È necessario disporre di un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Traduzione vocale Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -277,4 +280,4 @@ Se il risultato è positivo, viene creato un file denominato "speak2.wav" conten
 ## <a name="see-also"></a>Vedere anche  
 
 [Panoramica di Traduzione vocale](../overview.md)
-[Informazioni di riferimento sull'API](http://docs.microsofttranslator.com/speech-translate.html)
+[Informazioni di riferimento sull'API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)
