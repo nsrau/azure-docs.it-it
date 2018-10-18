@@ -3,19 +3,19 @@ title: Rilevamento delle combinazioni di colori - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi al rilevamento della combinazione di colori nelle immagini tramite l'API Visione artificiale.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: c01433ed3ef1279bf3db9bdcf76e57aad2208895
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: 5d0cb6ca751c844846288e8fe26f6ae542e89831
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983598"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339493"
 ---
 # <a name="detecting-color-schemes"></a>Rilevamento delle combinazioni di colori
 
@@ -49,7 +49,7 @@ L'esempio seguente illustra la risposta JSON restituita da Visione artificiale q
 
 La tabella seguente descrive, per ogni immagine di esempio, i colori dominanti in primo piano, sullo sfondo e nell'intera immagine, come restituiti da Visione artificiale.
 
-| Immagine | Colori dominanti |
+| Image | Colori dominanti |
 |-------|-----------------|
 |![Fiore - Analisi visione](./Images/flower.png)| Primo piano: nero<br/>Sfondo: bianco<br/>Colori: nero, bianco, verde|
 ![Stazione ferroviaria - Analisi visione](./Images/train_station.png) | Primo piano: nero<br/>Sfondo: nero<br/>Colori: nero |
@@ -58,7 +58,7 @@ La tabella seguente descrive, per ogni immagine di esempio, i colori dominanti i
 
  La tabella seguente descrive, per ogni immagine di esempio, il colore principale espresso in un valore di colore HTML esadecimale, come restituito da Visione artificiale.
 
-| Immagine | Colore principale |
+| Image | Colore principale |
 |-------|--------------|
 |![Panorama montano](./Images/mountain_vista.png) | #BB6D10 |
 |![Fiore - Analisi visione](./Images/flower.png) | #C6A205 |
@@ -68,7 +68,7 @@ La tabella seguente descrive, per ogni immagine di esempio, i colori dominanti i
 
 La tabella seguente indica se ogni immagine di esempio è in bianco e nero, in base alle informazioni restituite da Visione artificiale.
 
-| Immagine | Bianco e nero? |
+| Image | Bianco e nero? |
 |-------|----------------|
 |![Edificio - Analisi visione](./Images/bw_buildings.png) | true |
 |![Casa con giardino - Analisi visione](./Images/house_yard.png) | false |

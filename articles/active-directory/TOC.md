@@ -25,7 +25,7 @@
 # Procedure
 ## Pianificare e progettare
 ### [Informazioni sull'architettura di Azure AD](fundamentals/active-directory-architecture.md)
-### [Mapping di attestazioni in Azure Active Directory](active-directory-claims-mapping.md)
+### [Mapping di attestazioni in Azure Active Directory](develop/active-directory-claims-mapping.md)
 ### [Distribuire una soluzione ibrida di gestione delle identità](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Determinare i requisiti
 ##### [Identità](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
@@ -72,7 +72,7 @@
 #### [Condivisione esterna di Office 365 e B2B](b2b/o365-external-user.md)
 #### [Licenze B2B](b2b/licensing-guidance.md)
 #### [Limitazioni correnti](b2b/current-limitations.md)
-#### [DOMANDE FREQUENTI](b2b/faq.md)
+#### [Domande frequenti](b2b/faq.md)
 #### [Risoluzione dei problemi B2B](b2b/troubleshoot.md)
 #### [Informazioni sull'utente B2B](b2b/user-properties.md)
 #### [Token utente B2B](b2b/user-token.md)
@@ -92,7 +92,7 @@
 ### [Accessi a rischio](reports-monitoring/concept-risky-sign-ins.md)
 ### [Eventi di rischio](reports-monitoring/concept-risk-events.md)
 ### [Monitoraggio dei log con Monitoraggio di Azure](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
-### [DOMANDE FREQUENTI](reports-monitoring/reports-faq.md)
+### [Domande frequenti](reports-monitoring/reports-faq.md)
 
 ### Attività
 #### [Scaricare un report relativo agli accessi](reports-monitoring/quickstart-download-sign-in-report.md)
@@ -105,6 +105,7 @@
 #### [Archiviare i log attività in un account di archiviazione di Azure](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Integrare i log attività con Splunk usando Monitoraggio di Azure](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 #### [Integrare i log attività con SumoLogic usando Monitoraggio di Azure](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
+#### [Integrare i log attività con Log Analytics usando Monitoraggio di Azure](reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ### riferimento
 #### [Conservazione](reports-monitoring/reference-reports-data-retention.md)
@@ -127,7 +128,7 @@
 ## [Gestire le password](authentication/concept-sspr-howitworks.md)
 
 ## Gestire le app
-### [Overview](manage-apps/what-is-application-management.md)
+### [Panoramica](manage-apps/what-is-application-management.md)
 ### [Introduzione](manage-apps/plan-an-application-integration.md)
 ### [Esercitazioni sull'integrazione di app SaaS](saas-apps/tutorial-list.md)
 
@@ -194,13 +195,13 @@
 #### [Nascondere un'applicazione dall'esperienza di un utente](manage-apps/hide-application-from-user-portal.md)
 ### [Configurare l'accelerazione automatica dell'accesso tramite i criteri HRD](manage-apps/configure-authentication-for-federated-users-portal.md)
 ### [Eseguire la migrazione di app di AD FS in Azure AD](manage-apps/migrate-adfs-apps-to-azure.md) 
-### [Gestire l'accesso alle app](manage-apps/what-is-access-management.md)
+### [Manage access to apps](manage-apps/what-is-access-management.md) (Gestire l'accesso alle app)
 #### [Accesso SSO](manage-apps/what-is-single-sign-on.md)
 #### [Certificati per SSO](manage-apps/manage-certificates-for-federated-single-sign-on.md)
 #### [Restrizioni relative ai tenant](manage-apps/tenant-restrictions.md)
 #### [Use SCIM provision users](manage-apps/use-scim-to-provision-users-and-groups.md) (Usare SCIM per il provisioning degli utenti)
 
-### [Informazioni sulle esperienze di consenso per applicazioni Azure AD](application-consent-experience.md)
+### [Informazioni sulle esperienze di consenso per applicazioni Azure AD](develop/application-consent-experience.md)
 
 ### Risolvere problemi
 
@@ -281,7 +282,7 @@
 
 #### Single sign-on
 ##### [Scegliere un metodo](manage-apps/single-sign-on-modes.md)
-##### [Configura](develop/registration-config-sso-how-to.md)
+##### [Configurare](develop/registration-config-sso-how-to.md)
 ##### [Configurare l'accesso federato - App della raccolta](manage-apps/configure-federated-single-sign-on-gallery-applications.md)
 ##### [Problemi comuni della configurazione dell'accesso federato - App della raccolta](manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md)
 ##### [Configurare l'accesso federato - App non della raccolta](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
@@ -323,7 +324,7 @@
 
 ### [Integrare le identità locali usando Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
-### [Configure token lifetimes](active-directory-configurable-token-lifetimes.md) (Configurare la durata dei token)
+### [Configure token lifetimes](develop/active-directory-configurable-token-lifetimes.md) (Configurare la durata dei token)
 
 ## Proteggere le identità
 
@@ -343,7 +344,7 @@
 
 # riferimento
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=active-directory)
-## [Cmdlet di Azure PowerShell](/powershell/azure/overview)
+## [cmdlet di Azure PowerShell](/powershell/azure/overview)
 ## [Informazioni di riferimento sulle API Java](/java/api)
 ## [API .NET](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 
@@ -352,7 +353,7 @@
 ## [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ## [Azure AD Connect Health](hybrid/whatis-hybrid-identity-health.md)
 ## [Azure AD per sviluppatori](./develop/active-directory-how-to-integrate.md)
-## [Gestione identità con privilegi di Azure AD](./privileged-identity-management/pim-configure.md)
+## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # Risorse
 ## [Piani di distribuzione di Azure AD](./fundamentals/active-directory-deployment-plans.md)

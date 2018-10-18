@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 2e40f0520c0f5e605974f883b3327699ff26313e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3843898ba2d7cdd3697236a9f4cc19070c6f07c3
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321819"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395174"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -261,6 +261,10 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
    2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
       1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4467062/).
       2. Seguire i passaggi descritti in [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
+      
+<!-- 3179561 - IS --> 
+- Utilizzo di dischi gestito viene segnalato nelle ore, come descritto nel [domande frequenti sull'utilizzo di Azure Stack](azure-stack-usage-related-faq.md#managed-disks). Tuttavia, la fatturazione di Azure Stack Usa invece il prezzo mensile in modo che possono ottenere in modo non corretto addebitate spese di utilizzo di Managed Disks o prima il 27 settembre. Abbiamo temporaneamente sospeso gli addebiti per i dischi gestiti dopo il 27 settembre fino a quando non viene risolto il problema di fatturazione. Se siano state addebitate in modo non corretto per l'uso di Managed Disks, contattare il supporto di fatturazione di Microsoft.
+Report sull'utilizzo generate in seguito l'utilizzo di Azure Stack API indicano la quantità corretta e può essere utilizzato.
 
 <!-- 2869209 – IS, ASDK --> 
 - Quando si usa la [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), è necessario usare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. Se si usa il percorso locale del disco, il cmdlet non riesce con l'errore seguente: *operazione a esecuzione prolungata non è riuscita con stato 'Non riuscita'*. 

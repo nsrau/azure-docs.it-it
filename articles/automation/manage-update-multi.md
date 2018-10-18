@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248142"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498233"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -50,7 +50,7 @@ Gestione aggiornamenti è supportata nei sistemi operativi seguenti:
 
 Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.
 
-Questa soluzione non supporta un agente di Operations Management Suite (OMS) per Linux configurato per l'invio di report a più aree di lavoro di Log Analytics.
+Questa soluzione non supporta un agente di Log Analytics per Linux configurato per l'invio di report a più aree di lavoro di Log Analytics di Azure.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Abilitare Gestione aggiornamenti per le macchine virtuali di Azure
 
@@ -104,7 +104,7 @@ Gli agenti installati in macchine virtuali e computer raccolgono i dati sugli ag
 
 La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
-| Origine connessa | Supportato | DESCRIZIONE |
+| Origine connessa | Supportato | Descrizione |
 | --- | --- | --- |
 | Agenti di Windows |Yes |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
 | Agenti Linux |Yes |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
@@ -127,7 +127,8 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
 
 - **Nome**: immettere un nome univoco per identificare la distribuzione di aggiornamenti.
 - **Sistema operativo**: selezionare **Windows** o **Linux**.
-- **Computer da aggiornare**: selezionare una ricerca salvata, gruppo importato, o selezionare le macchine virtuali, per scegliere i computer che si desidera aggiornare. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. È possibile visualizzare lo stato di integrità del computer prima di pianificare la distribuzione degli aggiornamenti. Per ulteriori informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+- **Gruppi da aggiornare (anteprima)**: definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. Per altre informazioni, vedere [Gruppi dinamici](automation-update-management.md#using-dynamic-groups)
+- **Computer da aggiornare**: selezionare una ricerca salvata, gruppo importato, o selezionare le macchine virtuali, per scegliere i computer che si desidera aggiornare. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**. È possibile visualizzare lo stato di integrità del computer prima di pianificare la distribuzione degli aggiornamenti. Per altre informazioni sui diversi metodi di creazione di gruppi di computer in Log Analytics, vedere [gruppi di Computer in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Riquadro Nuova distribuzione di aggiornamenti](./media/manage-update-multi/update-select-computers.png)
 
@@ -141,18 +142,20 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
   - Strumenti
   - Aggiornamenti
 
-- **Aggiornamenti da escludere**: selezionando questa opzione si apre la pagina **Escludi**. Immettere gli articoli della Knowledge Base o i nomi dei pacchetti da escludere.
+- **Includi/Escludi aggiornamenti**: apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per altre informazioni sulla modalità di gestione dell'inclusione, vedere il [comportamento dell'inclusione](automation-update-management.md#inclusion-behavior)
 
 - **Impostazioni pianificazione**: è possibile accettare la data e l'ora predefinite, ossia 30 minuti dopo l'ora corrente, ma anche specificare un momento diverso.
 
    Si può anche specificare se la distribuzione deve essere eseguita una sola volta o in base a una pianificazione ricorrente. Per configurare una pianificazione ricorrente, selezionare **Ricorrente** in **Ricorrenza**.
 
    ![Finestra di dialogo Impostazioni pianificazione](./media/manage-update-multi/update-set-schedule.png)
+
+- **Pre-script e post-script**: selezionare gli script da eseguire prima e dopo la distribuzione. Per altre informazioni, vedere [Gestire i pre-script e i post-script](pre-post-scripts.md).
 - **Finestra di manutenzione (minuti)**: specificare il periodo di tempo in cui deve avvenire la distribuzione di aggiornamenti. Questa impostazione consente di garantire che le modifiche vengano eseguite negli intervalli di servizio definiti.
 
 - **Controllo riavvio:** questa impostazione determina come vengono gestiti i riavvii per la distribuzione degli aggiornamenti.
 
-   |Opzione|DESCRIZIONE|
+   |Opzione|Descrizione|
    |---|---|
    |Riavvia se necessario| **(Impostazione predefinita)** Se necessario, viene eseguito il riavvio se la finestra di manutenzione lo consente.|
    |Riavvia sempre|Il computer viene riavviato indipendentemente dal fatto che il riavvio sia richiesto o no. |

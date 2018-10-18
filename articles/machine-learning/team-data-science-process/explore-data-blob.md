@@ -1,6 +1,6 @@
 ---
 title: Esplorare i dati nell'archiviazione BLOB di Azure con Pandas | Microsoft Docs
-description: Come esplorare i dati archiviati nel contenitore BLOB di Azure utilizzando Pandas.
+description: Come esplorare i dati archiviati nel contenitore BLOB di Azure usando Pandas.
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: 61943da154483d8e815fa135fba30b136724b011
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b80fcecf28eaaf05e7fc199a9c318fd4148b9212
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246658"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497859"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Esplorare i dati nell'archiviazione BLOB di Azure con Pandas
-In questo documento viene descritto come esplorare i dati archiviati nel contenitore BLOB di Azure mediante il pacchetto Python [Pandas](http://pandas.pydata.org/) .
+Questo documento descrive come esplorare i dati archiviati nel contenitore BLOB di Azure mediante il pacchetto Python [Pandas](http://pandas.pydata.org/).
 
 Il **menu** seguente collega ad argomenti che descrivono come usare gli strumenti per esplorare i dati da vari ambienti di archiviazione. Questa attività è un passaggio del [Processo di analisi scientifica dei dati](overview.md).
 
@@ -35,8 +35,8 @@ Questo articolo presuppone che l'utente abbia:
 * Creato un account di archiviazione di Azure. Per istruzioni, vedere [Creare un account di archiviazione di Azure](../../storage/common/storage-quickstart-create-account.md)
 * I dati sono stati archiviati in un account di archiviazione BLOB di Azure. Per le istruzioni, vedere [Spostamento dei dati da e verso Archiviazione di Azure](../../storage/common/storage-moving-data.md)
 
-## <a name="load-the-data-into-a-pandas-dataframe"></a>Caricare i dati in un intervallo di dati Pandas
-Per esplorare e modificare un set di dati, i dati devono essere innanzitutto scaricati dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
+## <a name="load-the-data-into-a-pandas-dataframe"></a>Caricare i dati in un frame di dati Pandas
+Per esplorare e modificare un set di dati, è necessario innanzitutto scaricarlo dall'origine BLOB in un file locale che può essere quindi caricato in un frame di dati Pandas. Ecco i passaggi da seguire per questa procedura:
 
 1. Scaricare i dati da BLOB Azure con l’esempio di codice Python riportato di seguito utilizzando il servizio BLOB. Sostituire la variabile nel codice seguente con i valori specifici: 
    
@@ -62,8 +62,8 @@ Per esplorare e modificare un set di dati, i dati devono essere innanzitutto sca
 
 A questo punto si è pronti per esplorare i dati e generare le funzionalità di questo set di dati.
 
-## <a name="blob-dataexploration"></a>Esempi di esplorazione dei dati utilizzando Pandas
-Di seguito sono riportati alcuni esempi dei modi per esplorare i dati utilizzando Pandas:
+## <a name="blob-dataexploration"></a>Esempi di esplorazione dei dati tramite Pandas
+Di seguito sono riportati alcuni esempi dei modi per esplorare i dati usando Pandas:
 
 1. Controllare il **numero di righe e colonne** 
    

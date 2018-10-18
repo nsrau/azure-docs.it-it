@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: cb659a79f374b7a48cd3cc29f9f46bc6598c04dc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/17/2018
-ms.locfileid: "49366701"
+ms.locfileid: "49386384"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Esercitazione: Offrono disponibilità elevata SQL database
 
@@ -123,7 +123,7 @@ Nelle istanze SQL secondarie (sostituire < availability_group_name > con il nome
 >  ![Script dell'istanza di SQL secondario](./media/azure-stack-tutorial-sqlrp/sql2.png)
 
 ### <a name="configure-contained-database-authentication"></a>Configurare l'autenticazione del database indipendente
-Prima di aggiungere un database indipendente a un gruppo di disponibilità, verificare che l'opzione di database indipendente l'autenticazione server è impostato su 1 per ogni istanza del server che ospita una replica di disponibilità per il gruppo di disponibilità. Per altre informazioni, vedere [l'autenticazione del database indipendente](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
+Prima di aggiungere un database indipendente a un gruppo di disponibilità, verificare che l'opzione di database indipendente l'autenticazione server è impostato su 1 per ogni istanza del server che ospita una replica di disponibilità per il gruppo di disponibilità. Per altre informazioni, vedere [l'autenticazione del database indipendente](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017).
 
 Usare i comandi seguenti per impostare l'opzione di server di autenticazione di database indipendente per ogni istanza di SQL Server nel gruppo di disponibilità:
 

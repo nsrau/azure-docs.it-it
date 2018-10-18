@@ -1,5 +1,6 @@
 ---
-title: Concetti | Microsoft Docs
+title: Concetti relativi a Riconoscimento vocale Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Concetti di base usati nel servizio di riconoscimento vocale Microsoft.
 services: cognitive-services
 author: zhouwangzw
@@ -7,16 +8,18 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: bc23f4fb7dfc045a0f8cc87155c31875c4de8450
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373972"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344926"
 ---
 # <a name="basic-concepts"></a>Concetti di base
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Questa pagina descrive alcuni concetti di base del servizio di riconoscimento vocale Microsoft. È consigliabile leggere la pagina prima di usare l'API di riconoscimento vocale Microsoft nell'applicazione.
 
@@ -73,14 +76,14 @@ Il servizio di riconoscimento vocale Microsoft partecipa ad alcuni stati e di co
 Il servizio di riconoscimento vocale Microsoft consente agli sviluppatori di aggiungere le funzioni di riconoscimento vocale in due modi diversi.
 
 - [API REST](GetStarted/GetStartedREST.md): gli sviluppatori possono usare chiamate HTTP dalle proprie app al servizio per il riconoscimento vocale.
-- [Librerie client](GetStarted/GetStartedClientLibraries.md): per le funzionalità avanzate, gli sviluppatori possono scaricare librerie client del riconoscimento vocale Microsoft e collegarle alle proprie app.  Le librerie client sono disponibili su diverse piattaforme (Windows, Android, iOS) tramite linguaggi diversi (C#, Java, JavaScript, ObjectiveC).
+- [Librerie client](GetStarted/GetStartedClientLibraries.md): per le funzionalità avanzate, gli sviluppatori possono scaricare le librerie client del riconoscimento vocale Microsoft e collegarle alle proprie app.  Le librerie client sono disponibili su diverse piattaforme (Windows, Android, iOS) con linguaggi diversi (C#, Java, JavaScript, ObjectiveC).
 
 | Casi d'uso | [API REST](GetStarted/GetStartedREST.md) | [Librerie client](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
-| Conversione di un breve audio, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Sì | Sì |
-| Conversione di un audio lungo (> 15 secondi) | No  | Sì |
-| Flusso audio con risultati temporanei desiderati | No  | Sì |
-| Comprensione del testo convertito dall'audio tramite LUIS | No  | Sì |
+| Convertire breve contenuto vocale, ad esempio comandi (lunghezza audio < 15 secondi) senza risultati temporanei | Yes | Yes |
+| Convertire contenuto audio lungo (> 15 secondi) | No  | Yes |
+| Trasmettere un flusso audio con risultati temporanei desiderati | No  | Yes |
+| Comprendere il testo convertito dall'audio tramite LUIS | No  | Yes |
 
  Se la lingua o la piattaforma non dispone ancora di un componente SDK, è possibile creare la propria implementazione in base alla [documentazione del protocollo](API-Reference-REST/websocketprotocol.md).
 
@@ -156,13 +159,13 @@ Le risposte di trascrizione restituiscono il testo convertito dall'audio ai clie
 
 - `RecognitionStatus` specifica lo stato del riconoscimento. I valori possibili sono indicati nella tabella seguente.
 
-| Stato | Descrizione |
+| Status | DESCRIZIONE |
 | ------------- | ---------------- |
 | Success | Il riconoscimento ha avuto esito positivo e il campo DisplayText è presente |
 | NoMatch | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. Per altri dettagli, vedere [NoMatch Recognition Status(#nomatch-recognition-status)  |
 | InitialSilenceTimeout | La parte iniziale del flusso audio conteneva solo silenzio e il servizio ha raggiunto il timeout in attesa della parte parlata |
 | BabbleTimeout | La parte iniziale del flusso audio conteneva solo rumore e il servizio ha raggiunto il timeout in attesa della parte parlata |
-| Error | Il servizio di riconoscimento ha rilevato un errore interno e non è in grado di continuare |
+| Tipi di errore | Il servizio di riconoscimento ha rilevato un errore interno e non è in grado di continuare |
 
 - `DisplayText` rappresenta l'espressione riconosciuta dopo l'applicazione di maiuscole/minuscole, punteggiatura e normalizzazione del testo inverso e dopo che il contenuto volgare è stato mascherato con asterischi. Il campo DisplayText è presente *solo* se nel campo `RecognitionStatus` è presente il valore `Success`.
 
@@ -186,7 +189,7 @@ Il servizio di riconoscimento vocale Microsoft può restituire una vasta gamma d
 
 È possibile controllare il formato di un'espressione restituita specificando il parametro di query dell'URL `format`. Per impostazione predefinita, il servizio restituisce `simple` risultati.
 
-| Formato | Descrizione |
+| Format | DESCRIZIONE |
 |-----|-----|
 | `simple` | Risultato di un'espressione semplificata contenente lo stato di riconoscimento e il testo riconosciuto nella forma di visualizzazione. |
 | `detailed` | Stato di riconoscimento ed elenco degli N migliori risultati in cui ogni espressione restituita contiene tutte le quattro forme di riconoscimento e un punteggio di attendibilità. |
@@ -303,7 +306,7 @@ Il formato di payload dell'espressione `detailed` restituita è il seguente:
 
 Il servizio di riconoscimento vocale Microsoft riconosce tutte le forme del parlare umano, tra cui parole ed espressioni che molte persone classificherebbero come "contenuto volgare". È possibile controllare il modo in cui il servizio gestisce il contenuto volgare usando il parametro di query *profanity*. Per impostazione predefinita, il servizio maschera il contenuto volgare nei risultati *speech.phrase* e non restituisce messaggi *speech.hypothesis* in cui è presente contenuto volgare.
 
-| Valore di *profanity* | Descrizione |
+| Valore di *profanity* | DESCRIZIONE |
 | - | - |
 | `masked` | Maschera il contenuto volgare con asterischi. Questo è il comportamento predefinito. | 
 | `removed` | Rimuove il contenuto volgare da tutti i risultati. |

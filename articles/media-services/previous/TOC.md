@@ -1,6 +1,6 @@
 # [Documentazione su Servizi multimediali](index.md)
 
-# [Panoramica](media-services-overview.md)
+# [Overview](media-services-overview.md)
 ## [Scenari e disponibilità](scenarios-and-availability.md)
 ## [Concetti](media-services-concepts.md)
 
@@ -64,6 +64,7 @@
 ##### [Personalizzare i set di impostazioni di Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md)
 ##### [Come generare anteprime usando Media Encoder Standard con .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
 ##### [Ritagliare video con Media Encoder Standard](media-services-crop-video.md)
+##### [Generare uno sprite di anteprima](generate-thumbnail-sprite.md)
 #### Schemi MES
 ##### [Schema Media Encoder Standard](media-services-mes-schema.md)
 ##### [Metadati di input](media-services-input-metadata-schema.md)
@@ -227,10 +228,10 @@
 ### [Codici di errore](media-services-error-codes.md)
 ### [Logica di ripetizione dei tentativi](media-services-retry-logic-in-dotnet-sdk.md)
 
-# Riferimenti
+# riferimento
 ## [Esempi di codice](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
-## [Azure PowerShell (gestione dei servizi)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell (gestione dei servizi)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)
 ## Specifiche

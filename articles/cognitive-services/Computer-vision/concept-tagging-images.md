@@ -3,19 +3,19 @@ title: Assegnazione di tag alle immagini - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi all'assegnazione di tag alle immagini tramite l'API Visione artificiale.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: 159a1b9404f6ce635dcc8bb6007e52b7346ef98d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: 0025cdcfaa64a262a5ca54ab4db5a84f6a5768ba
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982966"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338914"
 ---
 # <a name="tagging-images"></a>Assegnazione di tag alle immagini
 

@@ -3,19 +3,19 @@ title: "Esercitazione: Creare un'app di elaborazione delle immagini - C#"
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: In questa esercitazione si esplora un'applicazione di base per Windows che usa l'API Visione artificiale in Servizi cognitivi Microsoft. Si effettua il riconoscimento ottico dei caratteri (OCR), si creano anteprime e si usano le caratteristiche visive in un'immagine.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 9ea562e7fa2ec3e32da2f0f1453db36dda319303
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: pafarley
+ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295853"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342654"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Esercitazione: Creare un'app di elaborazione delle immagini - C&#35;
 
@@ -32,7 +32,7 @@ Esaminare un'applicazione Windows di base che usa Visione artificiale per esegui
 Prima di esplorare l'app di esempio, verificare che i prerequisiti seguenti siano soddisfatti:
 
 * È necessario disporre di [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) o versioni successive.
-* È necessario disporre di una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="get-the-sample-app"></a>Ottenere l'app di esempio
 
@@ -87,7 +87,7 @@ Prima di poter eseguire o esplorare l'app di esempio, è necessario compilarla i
 
 1. In **Select a scenario** (Seleziona uno scenario) nel riquadro di spostamento selezionare uno degli scenari attualmente inclusi nell'app di esempio:  
 
-   | Scenario | Descrizione |
+   | Scenario | DESCRIZIONE |
    |----------|-------------|
    |Analyze Image (Analisi dell'immagine) | Usa l'operazione [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analizza immagine) per analizzare un'immagine locale o remota. È possibile scegliere le caratteristiche visive e la lingua per l'analisi e visualizzare sia l'immagine che i risultati.  |
    |Analyze Image with Domain Model (Analisi dell'immagine con modello di dominio) | Usa l'operazione [List Domain Specific Models](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) (Elenca modelli di dominio specifici) per elencare i modelli di dominio che è possibile selezionare e l'operazione [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Riconosci contenuti specifici del dominio) per analizzare un'immagine locale o remota usando il modello di dominio selezionato. È anche possibile scegliere la lingua per l'analisi. |
@@ -98,7 +98,7 @@ Prima di poter eseguire o esplorare l'app di esempio, è necessario compilarla i
    |Get Thumbnail (Generazione dell'anteprima) | Usa l'operazione [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (Ottieni anteprima) per generare un'anteprima per un'immagine locale o remota. |
 
    > [!IMPORTANT]
-   > Microsoft riceve le immagini che vengono caricate e può usarle per migliorare l'API Visione artificiale e i servizi correlati. Quando si invia un'immagine, si conferma di aver rispettato il [Codice di comportamento per gli sviluppatori](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
+   > Microsoft riceve le immagini che vengono caricate e può usarle per migliorare l'API Visione artificiale e i servizi correlati. Quando si invia un'immagine, si conferma di avere rispettato il [Codice di comportamento per gli sviluppatori](https://azure.microsoft.com/support/legal/developer-code-of-conduct/).
 
    Lo screenshot seguente illustra la pagina visualizzata per lo scenario di analisi dell'immagine dopo l'analisi di un'immagine di esempio.
    ![Pagina dello scenario di analisi dell'immagine](../Images/Analyze_Image_Example.PNG)

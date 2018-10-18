@@ -1,0 +1,118 @@
+items:
+- name: Documentazione sui report e sul monitoraggio
+  href: index.yml
+- name: Panoramica
+  items:
+  - name: Informazioni sui report di Azure AD
+    href: overview-reports.md
+  - name: Informazioni sul monitoraggio di Azure AD
+    href: overview-monitoring.md
+- name: Guide introduttive
+  items:
+  - name: Report
+    items:
+    - name: Scaricare un report relativo agli accessi
+      href: quickstart-download-sign-in-report.md
+    - name: Scaricare un report di controllo
+      href: quickstart-download-audit-report.md
+    - name: Configurare località denominate
+      href: quickstart-configure-named-locations.md
+    - name: Installare un pacchetto di contenuto di Power BI
+      href: quickstart-install-power-bi-content-pack.md
+  - name: Monitoraggio
+    items:
+    - name: Indirizzare i log all'account di archiviazione
+      href: quickstart-azure-monitor-route-logs-to-storage-account.md
+  expanded: true
+- name: Esercitazioni
+  items:
+  - name: Report
+    items:
+    - name: Accedere all'API di creazione di report con certificati
+      href: tutorial-access-api-with-certificates.md
+  - name: Monitoraggio
+    items:
+    - name: Eseguire lo streaming dei log in un hub eventi
+      href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Integrare i log attività con Splunk
+      href: tutorial-integrate-activity-logs-with-splunk.md
+- name: Concetti
+  items:
+  - name: Report
+    items:
+    - name: Log di controllo
+      href: concept-audit-logs.md
+    - name: Log di accesso
+      href: concept-sign-ins.md
+    - name: Accessi a rischio
+      href: concept-risky-sign-ins.md
+    - name: Eventi di rischio
+      href: concept-risk-events.md
+    - name: Utenti a rischio.
+      href: concept-user-at-risk.md
+    - name: API di creazione di report
+      href: concept-reporting-api.md
+  - name: Monitoraggio
+    items:
+    - name: Log di Azure AD in Monitoraggio di Azure
+      href: concept-activity-logs-in-azure-monitor.md
+- name: Guide alle procedure
+  items:
+  - name: Report
+    items:
+    - name: Trovare report sull'attività
+      href: howto-find-activity-reports.md
+    - name: Correggere gli utenti contrassegnati per il rischio
+      href: howto-remediate-users-flagged-for-risk.md
+    - name: Usare il pacchetto di contenuto di Power BI per i report di Azure AD
+      href: howto-power-bi-content-pack.md
+    - name: Configurare i prerequisiti per l'API di creazione di report
+      href: howto-configure-prerequisites-for-reporting-api.md
+  - name: Monitoraggio
+    items:
+    - name: Integrare i log attività con Log Analytics
+      href: howto-integrate-activity-logs-with-log-analytics.md
+    - name: Analizzare i log attività in Log Analytics
+      href: howto-analyze-activity-logs-log-analytics.md
+    - name: Installare e usare le viste di Log Analytics per Azure AD
+      href: howto-install-use-log-analytics-views.md
+    - name: Integrare i log attività con SumoLogic
+      href: howto-integrate-activity-logs-with-sumologic.md
+  - name: Risolvere problemi
+    items:
+    - name: Dati di controllo mancanti
+      href: troubleshoot-missing-audit-data.md
+    - name: Dati mancanti nel download
+      href: troubleshoot-missing-data-download.md
+    - name: Non è possibile accedere alle API Graph per la creazione di report
+      href: troubleshoot-graph-api.md
+    - name: Errori nel pacchetto di contenuto di Power BI
+      href: troubleshoot-content-pack.md
+  expanded: true
+- name: riferimento
+  items:
+  - name: Report
+    items:
+    - name: Attività di controllo
+      href: reference-audit-activities.md
+    - name: Criteri di conservazione dei dati
+      href: reference-reports-data-retention.md
+    - name: Latenze della creazione di report
+      href: reference-reports-latencies.md
+    - name: Codici errore di accesso
+      href: reference-sign-ins-error-codes.md
+    - name: Domande frequenti
+      href: reports-faq.md
+  - name: Monitoraggio
+    items:
+    - name: Schema del log di controllo
+      href: reference-azure-monitor-audit-log-schema.md
+    - name: Schema dei log di accesso
+      href: reference-azure-monitor-sign-ins-log-schema.md
+  expanded: true
+ms.openlocfilehash: 1ab811294846ae59c0d83efe658b7b9b4f7f8a9a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395055"

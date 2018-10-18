@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: e4bb17bd068076a9ffa9bcab5826f0efa84a19d7
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 362ee7e84229c421f69ff0db0c8cfb040b105c97
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406006"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394513"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Domande frequenti in API di utilizzo di Azure Stack
 
@@ -128,102 +128,102 @@ L'utilizzo viene segnalato il provider di risorse seguenti:
 
 **ID contatore**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Nome misuratore**: S4   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: disco: 32 GB gestito Standard 
 
 **ID contatore**: dc9fc6a9-0782-432a-b8dc-978130457494   
 **Nome misuratore**: S6   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: Standard di Managed Disks: 64 GB 
 
 **ID contatore**: e5572fce-9f58-49d7-840c-b168c0f01fff   
 **Nome misuratore**: S10   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: disco – 128 GB gestito Standard 
 
 **ID contatore**: 9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
 **Nome misuratore**: Ds15   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: disco: 256 GB gestito Standard 
 
 **ID contatore**: 5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
 **Nome misuratore**: S20   
-**Unità**: numero di dischi      
+**Unit**: numero di dischi\*ore      
 **Note sulla**: Standard di Managed Disks: 512 GB 
 
 **ID contatore**: 7705a158-bd8b-4b2b-b4c2-0782343b81e6   
 **Nome misuratore**: S30   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: Standard di Managed Disks: 1024 GB 
 
 **ID contatore**: d9aac1eb-a5d1-42f2-b617-9e3ea94fed88   
 **Nome misuratore**: S40   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: Standard di Managed Disks: 2048 GB 
 
 **ID contatore**: a54899dd-458e-4a40-9abd-f57cafd936a7   
 **Nome misuratore**: S50   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: Standard di Managed Disks: 4096 GB 
 
 **ID contatore**: 5c105f5f-cbdf-435c-b49b-3c7174856dcc   
 **Nome misuratore**: P4   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: disco: 32 GB gestito Premium 
 
 **ID contatore**: 518b412b-1927-4f25-985f-4aea24e55c4f   
 **Nome misuratore**: P6   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: disco – 64 GB gestito Premium 
 
 **ID contatore**: 5cfb1fed-0902-49e3-8217-9add946fd624   
 **Nome misuratore**: P10   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: disco – 128 GB gestito Premium  
 
 **ID contatore**: 8de91c94-f740-4d9a-b665-bd5974fa08d4   
 **Nome misuratore**: P15  
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: disco: 256 GB gestito Premium 
 
 **ID contatore**: c7e7839c-293b-4761-ae4c-848eda91130b   
 **Nome misuratore**: P20   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: disco – 512 GB gestito Premium 
 
 **ID contatore**: 9f502103-adf4-4488-b494-456c95d23a9f   
 **Nome misuratore**: P30   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: Premium Managed Disks: 1024 GB 
 
 **ID contatore**: 043757fc-049f-4e8b-8379-45bb203c36b1   
 **Nome misuratore**: P40   
-**Unità**: numero di dischi    
+**Unit**: numero di dischi\*ore    
 **Note sulla**: disco – 2048 GB gestito Premium 
 
 **ID contatore**: c0342c6f-810b-4942-85d3-6eaa561b6570   
 **Nome misuratore**: P50   
-**Unità**: numero di dischi   
+**Unit**: numero di dischi\*ore   
 **Note sulla**: disco – 4096 GB gestito Premium 
 
 **ID contatore**: 8a409390-1913-40ae-917b-08d0f16f3c38   
 **Nome misuratore**: ActualStandardDiskSize   
-**Unità**: Byte      
+**Unit**: Byte\*ore      
 **Note sulla**: le dimensioni effettive su disco del disco gestito standard  
 
 **ID contatore**: 1273b16f-8458-4c34-8ce2-a515de551ef6  
 **Nome misuratore**: ActualPremiumDiskSize   
-**Unità**: Byte      
+**Unit**: Byte\*ore      
 **Note sulla**: le dimensioni effettive su disco Premium un disco gestito 
 
 **ID contatore**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
 **Nome misuratore**: ActualStandardSnapshotSize   
-**Unità**: Byte   
+**Unit**: Byte\*ore   
 **Note sulla**: le dimensioni effettive sul disco di snapshot gestito standard.  
 
 **ID contatore**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Nome misuratore**: ActualPremiumSnapshotSize   
-**Unità**: Byte   
+**Unit**: Byte\*ore   
 **Note sulla**: le dimensioni effettive sul disco gestito Premium.   
 
 ### <a name="sql-rp"></a>Provider di risorse SQL

@@ -1,5 +1,5 @@
 ---
-title: Creare un'identità per un'app Azure con PowerShell | Documentazione Microsoft
+title: Creare un'identità per un'app Azure con PowerShell | Microsoft Docs
 description: Descrive come usare Azure PowerShell per creare un'applicazione Azure Active Directory e un'entità servizio e concedere l'accesso alle risorse tramite il controllo degli accessi in base al ruolo. Illustra come autenticare l'applicazione con un certificato.
 services: azure-resource-manager
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 57cfa44a0eb114503b89733b2c3e309b65d5b7e5
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 84b32cadbd7d574e01053b61ace1203d495983b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023325"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498607"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Usare Azure PowerShell per creare un'entità servizio con un certificato
 
@@ -29,7 +29,7 @@ Quando si ha un'app o uno script che deve accedere alle risorse, è possibile co
 * Usare un certificato per l'autenticazione in caso di esecuzione di uno script automatico.
 
 > [!IMPORTANT]
-> Anziché creare un'entità servizio, considerare l'uso dell'identità del servizio gestito di Azure Active Directory per l'identità dell'applicazione. MSI di Azure Active Directory è una funzionalità di anteprima pubblica di Azure Active Directory che semplifica la creazione di un'identità per il codice. Se il codice viene eseguito in un servizio che supporta MSI di Azure Active Directory e accede alle risorse che supportano l'autenticazione di Azure Active Directory, MSI di Azure Active Directory è un'opzione migliore. Per altre informazioni su MSI di Azure Active Directory, inclusi i servizi che al momento lo supportano, vedere [Identità del servizio gestito per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
+> Anziché creare un'entità servizio, considerare l'uso delle identità gestite per le risorse di Azure per l'identità dell'applicazione. Se il codice viene eseguito in un servizio che supporta le identità gestite e accede alle risorse che supportano l'autenticazione di Azure Active Directory, le identità gestite rappresentano un'opzione migliore. Per altre informazioni sulle identità gestite per le risorse di Azure, inclusi i servizi attualmente supportati, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Questo articolo illustra come creare un'entità servizio che esegue l'autenticazione con un certificato. Per configurare un'entità servizio con password, vedere come [creare un'entità servizio di Azure con Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps).
 
@@ -207,7 +207,7 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 
 Durante la creazione di un'entità servizio, è possibile riscontrare gli errori seguenti:
 
-* **"Authentication_Unauthorized"** o **"Nessuna sottoscrizione trovata nel contesto".** - Questo errore viene visualizzato quando l'account non ha le [autorizzazioni necessarie](#required-permissions) in Azure Active Directory per registrare un'app. In genere, l'errore si verifica quando solo gli utenti amministratori di Azure Active Directory possono registrare le app e l'account in uso non è un account di amministratore. Chiedere all'amministratore di essere assegnati a un ruolo di amministratore oppure di consentire agli utenti di registrare le app.
+* **"Authentication_Unauthorized"** o **"Nessuna sottoscrizione trovata nel contesto".** - Questo errore viene visualizzato quando l'account non ha le [autorizzazioni necessarie](#required-permissions) in Azure Active Directory per registrare un'app. L'errore si verifica in genere quando solo gli utenti amministratori di Azure Active Directory possono registrare le app e l'account in uso non è un account amministratore. Chiedere all'amministratore di essere assegnati a un ruolo di amministratore oppure di consentire agli utenti di registrare le app.
 
 * L'account **"non è autorizzato a eseguire l'azione 'Microsoft.Authorization/roleAssignments/write' nell'ambito '/subscriptions/{guid}'."** - Questo errore viene visualizzato quando l'account non dispone di autorizzazioni sufficienti per assegnare un ruolo a un'identità. Chiedere all'amministratore della sottoscrizione di essere aggiunti al ruolo Amministratore accessi utente.
 

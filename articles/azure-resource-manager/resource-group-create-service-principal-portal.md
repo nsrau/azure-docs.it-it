@@ -1,5 +1,5 @@
 ---
-title: Creare un'identità per un'app Azure nel portale | Documentazione Microsoft
+title: Creare un'identità per un'app Azure nel portale | Microsoft Docs
 description: Descrive come creare una nuova applicazione ed entità servizio di Azure Active Directory da usare con il controllo degli accessi in base al ruolo in Gestione risorse di Azure per gestire l'accesso alle risorse.
 services: azure-resource-manager
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: fc0ccd84f493fd69c84515331386592ec11a887e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2f053f6dd98b9f4e97d69e51bce933a003633277
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025294"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497944"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse
 
@@ -27,7 +27,7 @@ Quando il codice deve accedere alle risorse o modificarle, è necessario configu
 Questo articolo illustra come eseguire questa procedura tramite il portale. È incentrato su un'applicazione con un tenant singolo dove si prevede che l'applicazione venga eseguita all'interno di una sola organizzazione. Le applicazioni con un tenant singolo si usano in genere per applicazioni line-of-business eseguite all'interno dell'organizzazione.
 
 > [!IMPORTANT]
-> Anziché creare un'entità servizio, considerare l'uso dell'identità del servizio gestito di Azure Active Directory per l'identità dell'applicazione. MSI di Azure Active Directory è una funzionalità di anteprima pubblica di Azure Active Directory che semplifica la creazione di un'identità per il codice. Se il codice viene eseguito in un servizio che supporta MSI di Azure Active Directory e accede alle risorse che supportano l'autenticazione di Azure Active Directory, MSI di Azure Active Directory è un'opzione migliore. Per altre informazioni su MSI di Azure Active Directory, inclusi i servizi che al momento lo supportano, vedere [Identità del servizio gestito per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
+> Anziché creare un'entità servizio, considerare l'uso delle identità gestite per le risorse di Azure per l'identità dell'applicazione. Se il codice viene eseguito in un servizio che supporta le identità gestite e accede alle risorse che supportano l'autenticazione di Azure Active Directory, le identità gestite rappresentano un'opzione migliore. Per altre informazioni sulle identità gestite per le risorse di Azure, inclusi i servizi attualmente supportati, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="required-permissions"></a>Autorizzazioni necessarie
 
@@ -84,7 +84,7 @@ Per controllare le proprie autorizzazioni di sottoscrizione:
 
    ![Aggiungere l'app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Specificare un nome e un URL per l'applicazione. Selezionare **App Web/API** come tipo di applicazione da creare. Non è possibile creare credenziali per un'applicazione di tipo [nativo](../active-directory/manage-apps/application-proxy-configure-native-client-application.md). Pertanto, tale tipo non è valido per un'applicazione automatica. Dopo aver impostato i valori selezionare **Crea**.
+1. Specificare un nome e un URL per l'applicazione. Selezionare **App Web/API** come tipo di applicazione da creare. Non è possibile creare credenziali per un'[applicazione di tipo nativo](../active-directory/manage-apps/application-proxy-configure-native-client-application.md). Pertanto, tale tipo non è valido per un'applicazione automatica. Dopo aver impostato i valori selezionare **Crea**.
 
    ![assegnare un nome all'applicazione](./media/resource-group-create-service-principal-portal/create-app.png)
 

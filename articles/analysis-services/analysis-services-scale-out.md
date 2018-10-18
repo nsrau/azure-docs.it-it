@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 09/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 7c0aa2d43001100a392f8882316b7998838d90b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840990"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121941"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -27,9 +27,11 @@ Con il ridimensionamento orizzontale è possibile creare un pool di query con un
 
 Indipendentemente dal numero di repliche di query presenti in un pool di query, i carichi di lavoro di elaborazione non sono distribuiti tra le repliche di query. Un unico server funge da server di elaborazione. Le repliche di query servono solo le query per i modelli sincronizzati tra ogni replica nel pool di query. 
 
-Quando si esegue il ridimensionamento orizzontale, le nuove repliche delle query vengono aggiunte al pool di query in modo incrementale. Per includere le nuove risorse di replica delle query nel pool di query sono necessari fino a 5 minuti, in modo che sia pronto per ricevere le query e le connessioni client. Quando tutte le nuove repliche delle query sono attive e in esecuzione, le nuove connessioni client vengono sottoposte al bilanciamento del carico in tutte le risorse del pool di query. Le connessioni client esistenti non vengono modificate dalla risorsa alla quale sono attualmente connesse.  Durante il ridimensionamento verticale, tutte le connessioni client esistenti a una risorsa del pool di query che viene rimossa dal pool di query vengono terminate. Vengono riconnesse a una risorsa del pool di query rimanente al termine del ridimensionamento verticale.
+Quando si esegue il ridimensionamento orizzontale, le nuove repliche delle query vengono aggiunte al pool di query in modo incrementale. Per includere le nuove risorse di replica delle query nel pool di query possono essere necessari fino a 5 minuti. Quando tutte le nuove repliche delle query sono attive e in esecuzione, le nuove connessioni client vengono sottoposte al bilanciamento del carico in tutte le risorse del pool di query. Le connessioni client esistenti non vengono modificate dalla risorsa alla quale sono attualmente connesse.  Durante il ridimensionamento verticale, tutte le connessioni client esistenti a una risorsa del pool di query che viene rimossa dal pool di query vengono terminate. Al termine del ridimensionamento verticale le connessioni vengono reindirizzate a una risorsa del pool di query rimanente. Questa operazione può richiedere fino a 5 minuti.
 
 Durante l'elaborazione dei modelli, al termine delle operazioni di elaborazione, è necessario effettuare una sincronizzazione tra il server di elaborazione e le repliche di query. Quando si automatizzano le operazioni di elaborazione, è importante configurare un'operazione di sincronizzazione subito dopo il completamento delle operazioni di elaborazione stesse. La sincronizzazione può essere eseguita manualmente nel portale oppure tramite PowerShell o l'API REST. 
+
+### <a name="separate-processing-from-query-pool"></a>Separare l'elaborazione dal pool di query
 
 Per ottenere prestazioni ottimali sia delle operazioni di elaborazione che delle operazioni di query, è possibile scegliere di separare il server di elaborazione dal pool di query. Quando sono separati, le connessioni client nuove ed esistenti vengono assegnate alle repliche delle query solo nel pool di query. Se le operazioni di elaborazione richiedono pochi minuti, è possibile scegliere di separare il server di elaborazione dal pool di query solo per il tempo necessario per eseguire le operazioni di elaborazione e sincronizzazione e quindi includerlo nuovamente nel pool di query. 
 
@@ -53,14 +55,13 @@ Il numero di repliche di query che è possibile configurare dipende dall'area in
 
 1. Nel portale di Azure fare clic su **Aumenta**. Usare il dispositivo di scorrimento per selezionare il numero di server di replica di query. Il numero di repliche scelto viene aggiunto al server esistente.
 
-2. In **Separare il server di elaborazione dal pool di query** selezionare Sì per escludere il server di elaborazione dal server di query.
+2. In **Separare il server di elaborazione dal pool di query** selezionare Sì per escludere il server di elaborazione dal server di query. Le connessioni client che usano la stringa di connessione predefinita (senza :rw) vengono reindirizzate alle repliche nel pool di query. 
 
    ![Dispositivo di scorrimento di ridimensionamento orizzontale](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
 3. Fare clic su **Salva** per effettuare il provisioning dei nuovi server di replica di query. 
 
 I modelli tabulari nel server primario vengono sincronizzati con i server di replica. Al termine della sincronizzazione, il pool di query inizia la distribuzione delle query in ingresso tra i server di replica. 
-
 
 ## <a name="synchronization"></a>Sincronizzazione 
 
@@ -88,9 +89,7 @@ Per impostare il numero di repliche di query, usare [Set-AzureRmAnalysisServices
 
 Per eseguire la sincronizzazione, usare [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
-
-
-## <a name="connections"></a>connessioni
+## <a name="connections"></a>Connessioni
 
 Nella pagina Panoramica del server sono presenti due nomi di server. Se il ridimensionamento orizzontale non è stato ancora configurato per un server, entrambi i nomi di server funzionano allo stesso modo. Dopo che per un server è stato configurato il ridimensionamento orizzontale, è necessario specificare il nome del server appropriato a seconda del tipo di connessione. 
 
@@ -99,6 +98,12 @@ Per le connessioni client destinate agli utenti finali, ad esempio Power BI Desk
 Per SSMS ed SSDT, nonché per le stringhe di connessione in PowerShell, per le app di Funzioni di Azure e AMO, usare il **nome del server di gestione**. Il nome del server di gestione include un qualificatore (lettura e scrittura) `:rw` speciale. Tutte le operazioni di elaborazione si verificano nel server di gestione.
 
 ![Nomi dei server](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="troubleshoot"></a>Risolvere problemi
+
+**Problema:** viene restituito un errore per segnalare che **non è possibile trovare l'istanza del server '\<nome del server>' in modalità di connessione 'ReadOnly'.**
+
+**Soluzione:** quando si seleziona l'opzione **Separare il server di elaborazione dal pool di query**, le connessioni client che usano la stringa di connessione predefinita (senza :rw) vengono reindirizzate alle repliche del pool di query. Se le repliche nel pool di query non sono ancora online perché la sincronizzazione non è stata ancora completata, le connessioni client reindirizzate possono avere esito negativo. Per evitare questo problema, scegliere di non separare il server di elaborazione dal pool di query fino al completamento di un'operazione di ridimensionamento orizzontale e sincronizzazione. È possibile usare le metriche di memoria e di QPU per monitorare lo stato della sincronizzazione.
 
 ## <a name="related-information"></a>Informazioni correlate
 

@@ -3,19 +3,19 @@ title: Classificazione delle immagini - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Concetti relativi alla classificazione delle immagini tramite l'API Visione artificiale.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: 345432cbc8a552ba7f6a4902cec72bcc1bf9feac
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: 602ea8028cf89b23df692d5c2fb9b781f64bcad4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983553"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341685"
 ---
 # <a name="categorizing-images"></a>Classificazione delle immagini
 
@@ -52,7 +52,7 @@ La risposta JSON seguente illustra le informazioni restituite da Visione artific
 
 La tabella seguente illustra una serie di immagini tipiche e la categoria restituita da Visione artificiale per ogni immagine.
 
-| Immagine | Categoria |
+| Image | Categoria |
 |-------|----------|
 | ![Foto di famiglia](./Images/family_photo.png) | people_group |
 | ![Cucciolo di cane](./Images/cute_dog.png) | animal_dog |

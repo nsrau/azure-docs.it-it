@@ -1,21 +1,22 @@
 ---
-title: Uso della classificazione per visualizzare i risultati di ricerca | Microsoft Docs
+title: Uso della classificazione per visualizzare i risultati di ricerca
+titleSuffix: Azure Cognitive Services
 description: Viene illustrato come usare la RankingResponse di Bing per visualizzare i risultati della ricerca in ordine di classificazione.
 services: cognitive-services
 author: bradumbaugh
-manager: bking
+manager: cgronlun
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: brumbaug
-ms.openlocfilehash: 0dd3a2057e73adda3224e7cebe7c492572f94105
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3e55830fcfdbea91581a75fcfc343fd522485c5a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41929807"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123403"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Compilare un client di ricerca app console in C#
 
@@ -45,8 +46,8 @@ Assegnare all'applicazione il nome **MyConsoleSearchApp** e fare clic su **OK**.
 
 JSON.net consente di lavorare con le risposte JSON restituite dall'API. Aggiungere il pacchetto NuGet al progetto:
 
-- In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. 
-- Nella scheda **Sfoglia**, cercare `Newtonsoft.Json`. Selezionare la versione più recente e fare clic su **Installa**. 
+- In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**.
+- Nella scheda **Sfoglia**, cercare `Newtonsoft.Json`. Selezionare la versione più recente e fare clic su **Installa**.
 - Fare clic su **OK** nella finestra **Rivedi modifiche**.
 - Chiudere la scheda di Visual Studio intitolata **NuGet: MyConsoleSearchApp**.
 
@@ -60,7 +61,7 @@ Questa esercitazione si basa sull'assembly `System.Web`. Aggiungere un riferimen
 
 ## <a name="add-some-necessary-using-statements"></a>Aggiungere alcune istruzioni per l'uso necessarie
 
-Il codice in questa esercitazione richiede altre tre istruzioni per l'uso. Aggiungere queste istruzioni sotto le istruzioni `using` esistenti nella parte superiore di **Program.cs**: 
+Il codice in questa esercitazione richiede altre tre istruzioni per l'uso. Aggiungere queste istruzioni sotto le istruzioni `using` esistenti nella parte superiore di **Program.cs**:
 
 ```csharp
 using System.Web;
@@ -145,7 +146,7 @@ Assicurarsi di impostare il valore di `Ocp-Apim-Subscription-Key` sulla chiave d
 
 ## <a name="display-ranked-results"></a>Visualizzare i risultati classificati
 
-Prima di capire come visualizzare i risultati in ordine classificato, esaminare un esempio di risposta della ricerca Web: 
+Prima di capire come visualizzare i risultati in ordine classificato, esaminare un esempio di risposta della ricerca Web:
 
 ```json
 {
@@ -171,7 +172,7 @@ Prima di capire come visualizzare i risultati in ordine classificato, esaminare 
         },
 
         ...
-        
+
         ],
         "someResultsRemoved" : true
     },
@@ -184,7 +185,7 @@ Prima di capire come visualizzare i risultati in ordine classificato, esaminare 
         }
 
         ...
-        
+
         ]
     },
     "rankingResponse" : {
@@ -220,7 +221,7 @@ Prima di capire come visualizzare i risultati in ordine classificato, esaminare 
 }
 ```
 
-L'oggetto JSON `rankingResponse` ([documentazione](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità: 
+L'oggetto JSON `rankingResponse` ([documentazione](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) descrive l'ordine di visualizzazione appropriato per i risultati di ricerca. Include uno o più dei gruppi seguenti, in ordine di priorità:
 
 - `pole`: i risultati della ricerca da rendere più visibili (visualizzati ad esempio sopra la riga principale e la barra laterale).
 - `mainline`: i risultati di ricerca da visualizzare nella riga principale.
@@ -273,7 +274,7 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 Questo metodo:
 
 - Si sovrappone ai gruppi `rankingResponse` contenuti nella risposta
-- Visualizza gli elementi in ciascun gruppo chiamando `DisplaySpecificResults(...)` 
+- Visualizza gli elementi in ciascun gruppo chiamando `DisplaySpecificResults(...)`
 
 In **Program.cs** aggiungere i due metodi seguenti:
 

@@ -1,57 +1,54 @@
 ---
-title: Eseguire l'autenticazione con Azure AD da un'identità del servizio gestita di una macchina virtuale di Azure (anteprima) | Microsoft Docs
-description: Eseguire l'autenticazione con Azure AD da un'identità del servizio gestita di una macchina virtuale di Azure (anteprima).
+title: Autenticare l'accesso a BLOB e code con identità gestite di Azure Active Directory per le risorse di Azure (anteprima) - Archiviazione di Azure | Microsoft Docs
+description: Archiviazione di BLOB e coda di Azure supporta l'autenticazione con identità gestite di Azure Active Directory per le risorse di Azure. È possibile usare le identità gestite per le risorse di Azure per autenticare l'accesso a BLOB e code da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Usando le identità gestite per le risorse di Azure e sfruttando tutte le potenzialità dell'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni in esecuzione nel cloud.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 09/05/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6ddae66ee6408a3cab905826cd0d7c0831607d33
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67e0731c1f10bb635baa4e0d1a26dce0a336b555
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526386"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090356"
 ---
-# <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Eseguire l'autenticazione con Azure AD da un'identità del servizio gestita di una macchina virtuale di Azure (anteprima)
+# <a name="authenticate-access-to-blobs-and-queues-with-azure-managed-identities-for-azure-resources-preview"></a>Autenticare l'accesso a BLOB e code con identità gestite di Azure per Risorse di Azure (anteprima)
 
-Archiviazione di Azure supporta l'autenticazione di Azure Active Directory (Azure AD) con un'[identità del servizio gestita](../../active-directory/managed-service-identity/overview.md). L'identità del servizio gestita fornisce un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare l'identità del servizio gestita per eseguire l'autenticazione in Archiviazione di Azure da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Usando l'identità del servizio gestita e sfruttando tutte le potenzialità dell'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni in esecuzione nel cloud.  
+Archiviazione di BLOB e coda di Azure supporta l'autenticazione con [identità gestite di Azure Active Directory per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). È possibile usare le identità gestite per le risorse di Azure per autenticare l'accesso a BLOB e code da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Usando le identità gestite per le risorse di Azure e sfruttando tutte le potenzialità dell'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni in esecuzione nel cloud.  
 
-Per concedere le autorizzazioni a un'identità del servizio gestita per contenitori o code di archiviazione, è necessario assegnare un ruolo di controllo degli accessi in base al ruolo che comprenda le autorizzazioni di archiviazione per l'identità del servizio gestita. Per altre informazioni sui ruoli di controllo degli accessi in base al ruolo per l'archiviazione, vedere [Gestire i diritti di accesso a dati di archiviazione con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md). 
+Per concedere autorizzazioni a un'identità gestita per un contenitore blob o una coda, si assegna un ruolo di controllo degli accessi in base al ruolo all'identità gestita che include le autorizzazioni per la risorsa nell'ambito appropriato. Per altre informazioni sui ruoli di controllo degli accessi in base al ruolo per l'archiviazione, vedere [Gestire i diritti di accesso a dati di archiviazione con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md). 
 
-> [!IMPORTANT]
-> Questa versione di anteprima è destinata solo per l'uso in ambienti non di produzione. Non saranno disponibili contratti di servizio per ambienti di produzione finché l'integrazione di Azure AD per Archiviazione di Azure non verrà dichiarata disponibile a livello generale. Se l'integrazione di Azure AD non è ancora supportata per il proprio scenario, continuare a usare l'autorizzazione con chiave condivisa o token di firma di accesso condiviso nelle applicazioni. Per altre informazioni sulla versione di anteprima, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)](storage-auth-aad.md).
->
-> Durante l'anteprima, la propagazione delle assegnazioni dei ruoli di controllo degli accessi in base al ruolo può richiedere fino a cinque minuti.
+Questo articolo mostra come eseguire l'autenticazione in Archiviazione BLOB di Azure o Coda con un'identità gestita da una macchina virtuale di Azure.  
 
-Questo articolo mostra come eseguire l'autenticazione in Archiviazione di Azure con un'identità del servizio gestita da una macchina virtuale di Azure.  
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
-## <a name="enable-msi-on-the-vm"></a>Abilitare l'identità del servizio gestita nella macchina virtuale
+## <a name="enable-managed-identities-on-a-vm"></a>Abilitare le identità gestite su una macchina virtuale
 
-Prima di poter usare l'identità del servizio gestita per eseguire l'autenticazione in Archiviazione di Azure dalla macchina virtuale, è necessario abilitare l'identità del servizio gestita nella macchina virtuale. Per informazioni su come abilitare l'identità del servizio gestita, vedere uno di questi articoli:
+Prima di poter utilizzare le identità gestite per le risorse di Azure per autenticare l'accesso a BLOB e code dalla macchina virtuale, abilitare le identità gestite per le risorse di Azure sulla macchina virtuale. Per informazioni su come abilitare identità gestite per le risorse di Azure, vedere uno di questi articoli:
 
 - [Portale di Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
-- [Interfaccia della riga di comando di Azure](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
-- [Modello di Azure Resource Manager](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
-- [Azure SDK](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
+- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Interfaccia della riga di comando di Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Modello di Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-## <a name="get-an-msi-access-token"></a>Ottenere un token di accesso per l'identità del servizio gestita
+## <a name="get-a-managed-identity-access-token"></a>Ottenere token di accesso a un'identità gestita
 
-Per eseguire l'autenticazione con l'identità del servizio gestita, l'applicazione o lo script deve acquisire un token di accesso per l'identità del servizio gestita. Per altre informazioni su come acquisire un token di accesso, vedere [Come usare un'identità del servizio gestita di una macchina virtuale di Azure per l'acquisizione di token](../../active-directory/managed-service-identity/how-to-use-vm-token.md).
+Per eseguire l'autenticazione con un'identità gestita, l'applicazione o lo script deve acquisire un token di accesso di identità gestita. Per informazioni su come acquisire un token di accesso, vedere [Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## <a name="net-code-example-create-a-block-blob"></a>Esempio di codice .NET: creare un BLOB in blocchi
 
-L'esempio di codice presuppone la disponibilità di un token di accesso per l'identità del servizio gestita. Il token di accesso viene usato per autorizzare l'identità del servizio gestita per la creazione di un BLOB in blocchi.
+L'esempio di codice presuppone la disponibilità di un token di accesso per l'identità gestita. Il token di accesso viene usato per autorizzare l'identità gestita per la creazione di un BLOB in blocchi.
 
 ### <a name="add-references-and-using-statements"></a>Aggiungere riferimenti e istruzioni using  
 
 In Visual Studio installare la versione di anteprima della libreria client di Archiviazione di Azure. Scegliere **Gestione pacchetti NuGet** dal menu **Strumenti** e quindi fare clic su **Console di Gestione pacchetti**. Digitare il comando seguente nella console:
 
 ```
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0  
+Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
 ```
 
 Aggiungere le istruzioni using seguenti al codice:
@@ -60,13 +57,13 @@ Aggiungere le istruzioni using seguenti al codice:
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
-### <a name="create-credentials-from-the-msi-access-token"></a>Creare credenziali dal token di accesso dell'identità del servizio gestita
+### <a name="create-credentials-from-the-managed-identity-access-token"></a>Creare credenziali dal token di accesso dell'identità gestita
 
-Per creare il BLOB in blocchi, usare la classe **TokenCredentials** fornita dal pacchetto di anteprima. Creare una nuova istanza di **TokenCredentials**, passando il token di accesso dell'identità del servizio gestita ottenuto in precedenza:
+Per creare il BLOB in blocchi, usare la classe **TokenCredentials** fornita dal pacchetto di anteprima. Creare una nuova istanza di **TokenCredentials**, passando il token di accesso dell'identità gestita ottenuto in precedenza:
 
 ```dotnet
-// Create storage credentials from your MSI access token.
-TokenCredential tokenCredential = new TokenCredential(msiAccessToken);
+// Create storage credentials from your managed identity access token.
+TokenCredential tokenCredential = new TokenCredential(accessToken);
 StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
 // Create a block blob using the credentials.

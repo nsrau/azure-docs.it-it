@@ -1,23 +1,26 @@
 ---
-title: Interfaccia API Web nell'API Knowledge Exploration Service | Microsoft Docs
-description: Usare l'interfaccia API Web per creare un'esperienza di ricerca semantica avanzata nell'API Knowledge Exploration Service (KES) in Servizi cognitivi.
+title: Interfaccia API Web - API Knowledge Exploration Service
+titlesuffix: Azure Cognitive Services
+description: Usare l'interfaccia API Web per creare un'esperienza di ricerca semantica avanzata nell'API Knowledge Exploration Service (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 16c5680eb4f249a5d37e6b90eea92cfff7090eef
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5be39e8dce6aeeef32d20273c56650620d6fe986
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372956"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122026"
 ---
 # <a name="web-api-interface"></a>Interfaccia API Web
+
 I file di modello compilati da Knowledge Exploration Service possono essere ospitati e sono accessibili tramite un set di API Web.  Le API possono essere ospitate nel computer locale usando il comando [`host_service`](CommandLine.md#host_service-command) o possono essere distribuite in un servizio cloud di Azure usando il comando [`deploy_service`](CommandLine.md#deploy_service-command).  Entrambe le tecniche espongono gli endpoint API seguenti:
+
 * [*interpret*](interpretMethod.md): interpreta una stringa di query in linguaggio naturale. Restituisce interpretazioni con note per consentire esperienze avanzate di completamento automatico della casella di ricerca, in grado di prevedere ciò che l'utente sta digitando.
 * [*evaluate*](evaluateMethod.md): valuta e restituisce l'output di un'espressione di query strutturata.
 * [*calchistogram*](calchistogramMethod.md): calcola un istogramma dei valori degli attributi per gli oggetti restituiti da un'espressione di query strutturata.

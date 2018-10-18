@@ -1,25 +1,25 @@
 ---
-title: Note sulla versione per il servizio API Viso | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: Note sulla versione - Servizio API Viso
+titleSuffix: Azure Cognitive Services
 description: Le note sulla versione per il servizio API Viso includono una cronologia delle modifiche delle varie versioni.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 918b3ea5dbaaa44e4eee1a679354c7becffd4686
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6fd3d33d40b0ed142127e46dd7c9173de39947c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377668"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121992"
 ---
 # <a name="face-api-release-notes"></a>Note sulla versione dell'API Viso
 
-Questo articolo si riferisce al servizio API Viso Microsoft versione 1.0.
+Questo articolo si riferisce al servizio API Viso versione 1.0.
 
 ### <a name="release-changes-in-may-2018"></a>Modifiche alla versione di maggio 2018
 

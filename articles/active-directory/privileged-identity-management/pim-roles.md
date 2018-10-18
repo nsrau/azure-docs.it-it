@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 63f4c4c48dd0fed3130dc99929a0e84c3cba2026
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666337"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466048"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Ruoli della directory di Azure AD che è possibile gestire in PIM
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -34,20 +34,20 @@ Non esiste alcuna differenza sostanziale tra l'accesso concesso a un utente con 
 ## <a name="roles-managed-in-pim"></a>Ruoli gestiti in PIM
 Privileged Identity Management consente di assegnare utenti a ruoli di amministratore comuni, tra cui:
 
-* **amministratore globale** , noto anche come amministratore della società, ha accesso a tutte le funzionalità amministrative. Si può avere più di un amministratore globale nell'organizzazione. La persona che esegue l'iscrizione per l'acquisto di Office 365 diventa automaticamente un amministratore globale.
-* **amministratore dei ruoli con privilegi** gestisce Azure AD PIM e aggiorna le assegnazioni dei ruoli per gli altri utenti.  
-* **Amministratore fatturazione** : effettua acquisti, gestisce le sottoscrizioni, gestisce i ticket di supporto e monitora l'integrità del servizio.
-* **Amministratore password** : reimposta le password, gestisce le richieste di servizio e monitora l'integrità del servizio. Gli amministratori password sono limitati alla reimpostazione delle password per gli utenti.
-* **Amministratore del servizio** : gestisce le richieste di servizio e monitora l'integrità del servizio.
+* **Amministratore globale**, noto anche come amministratore della società, ha accesso a tutte le funzionalità amministrative. Possono esistere più amministratori globali nell'organizzazione. La persona che esegue l'iscrizione per l'acquisto di Office 365 diventa automaticamente un amministratore globale.
+* **Amministratore dei ruoli con privilegi** gestisce Azure AD PIM e aggiorna le assegnazioni dei ruoli per gli altri utenti.  
+* **Amministratore fatturazione**: effettua gli acquisti, gestisce le sottoscrizioni, gestisce i ticket di supporto e monitora l'integrità del servizio.
+* **Amministratore password**: reimposta le password, gestisce le richieste di servizio e monitora l'integrità del servizio. Il ruolo degli amministratori password è limitato alla reimpostazione delle password per gli utenti.
+* **Amministratore del servizio**: gestisce le richieste di servizio e monitora l'integrità del servizio.
   
   > [!NOTE]
-  > Se si usa Office 365, prima di assegnare il ruolo di amministratore del servizio a un utente, prima di tutto assegnare all'utente autorizzazioni amministrative per un servizio, ad esempio Exchange Online.
+  > Se si usa Office 365, prima di assegnare il ruolo di amministratore del servizio a un utente, assegnare all'utente autorizzazioni amministrative per un servizio, ad esempio Exchange Online.
   > 
   > 
-* **amministratore Gestione utenti** reimposta le password, effettua il monitoraggio dell'integrità del servizio e gestisce gli account utente, i gruppi di utenti e le richieste di servizio. L'amministratore Gestione utenti non può eliminare un amministratore globale, creare altri ruoli amministrativi o reimpostare le password per gli amministratori fatturazione, globali e dei servizi.
-* **amministratore di Exchange** ha accesso amministrativo a Exchange Online tramite l'interfaccia di amministrazione di Exchange e può eseguire quasi tutte le attività in Exchange Online.
-* **amministratore di SharePoint (anteprima)** ha accesso amministrativo a SharePoint Online tramite l'interfaccia di amministrazione di SharePoint Online e può eseguire quasi tutte le attività in SharePoint Online. Questo ruolo è attualmente in fase di anteprima. Potrebbero verificarsi ritardi se gli utenti idonei usano il ruolo all'interno di SharePoint dopo l'attivazione di PIM.
-* **amministratore di Skype for Business** ha accesso amministrativo a Skype for Business tramite l'interfaccia di amministrazione di Skype for Business e può eseguire quasi tutte le attività in Skype for Business Online.
+* **Amministratore utente**: reimposta le password, monitora l'integrità del servizio e gestisce gli account utente, i gruppi di utenti e le richieste di servizio. L'amministratore utente non può eliminare un amministratore globale, creare altri ruoli amministrativi o reimpostare le password per gli amministratori fatturazione, globali e del servizio.
+* **Amministratore di Exchange**: ha accesso amministrativo a Exchange Online tramite l'interfaccia di amministrazione di Exchange e può eseguire quasi tutte le attività in Exchange Online.
+* **Amministratore di SharePoint**: ha accesso amministrativo a SharePoint Online tramite l'interfaccia di amministrazione di SharePoint Online e può eseguire quasi tutte le attività in SharePoint Online. Potrebbero verificarsi ritardi se gli utenti idonei usano il ruolo all'interno di SharePoint dopo l'attivazione di PIM.
+* **Amministratore di Skype for Business**: ha accesso amministrativo a Skype for Business tramite l'interfaccia di amministrazione di Skype for Business e può eseguire quasi tutte le attività in Skype for Business Online.
 
 Leggere gli articoli seguenti per altre informazioni sull'[assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) e sull'[assegnazione dei ruoli di amministratore in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).
 
@@ -63,21 +63,19 @@ Se si vuole concedere a un altro utente l'accesso per la gestione all'interno de
 ## <a name="roles-not-managed-in-pim"></a>Ruoli non gestiti in PIM
 I ruoli in Exchange Online o SharePoint Online, ad eccezione di quelli indicati in precedenza, non sono rappresentati in Azure AD e quindi non sono visibili in PIM. Per altre informazioni sulla modifica delle assegnazioni di ruolo specifiche in questi servizi di Office 365, vedere [Autorizzazioni in Office 365](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-In Azure AD non sono rappresentati neanche i gruppi di risorse e le sottoscrizioni di Azure. Per informazioni su come gestire le sottoscrizioni di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Per altre informazioni sul controllo degli accessi in base al ruolo di Azure, vedere [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md).
-
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 
 
 ## <a name="user-roles-and-signing-in"></a>Ruoli utente e accesso
 Per alcuni servizi e applicazioni Microsoft l'assegnazione di un utente a un ruolo potrebbe non essere sufficiente per abilitarlo al ruolo di amministratore.
 
-L'accesso al portale di Azure richiede che l'utente sia un amministratore del servizio o un coamministratore in una sottoscrizione di Azure, anche se l'utente non deve gestire le sottoscrizioni di Azure.  Ad esempio, per gestire le impostazioni di configurazione per Azure AD, un utente deve essere sia un amministratore globale di Azure AD sia un coamministratore della sottoscrizione in una sottoscrizione di Azure.  Per informazioni su come aggiungere utenti alle sottoscrizioni di Azure, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../../billing/billing-add-change-azure-subscription-administrator.md).
+L'accesso al portale di Azure richiede che l'utente sia proprietario di una sottoscrizione di Azure, anche se non deve gestire le sottoscrizioni di Azure.  Ad esempio, per gestire le impostazioni di configurazione per Azure AD, un utente deve essere sia amministratore globale di Azure AD che proprietario di una sottoscrizione di Azure.  Per informazioni su come aggiungere utenti alle sottoscrizioni di Azure, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../..//role-based-access-control/role-assignments-portal.md).
 
 L'accesso a Microsoft Online Services può richiedere che all'utente sia assegnata anche una licenza prima di poter aprire il portale del servizio o eseguire attività amministrative.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Assegnazione di una licenza a un utente in Azure AD
 
-1. Accedere al [portale di Azure](http://portal.azure.com) con un account di amministratore globale o di coamministratore.
+1. Accedere al [portale di Azure](http://portal.azure.com) con il ruolo di amministratore globale o proprietario.
 
 1. Selezionare la directory di Azure AD con cui si intende lavorare e a cui sono associate licenze.
 
