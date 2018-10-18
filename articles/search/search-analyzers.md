@@ -8,12 +8,12 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: e858966fb5a15b84af1952399a5eff3ca50d0d59
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795698"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116371"
 ---
 # <a name="analyzers-in-azure-search"></a>Analizzatori in Ricerca di Azure
 
@@ -134,7 +134,7 @@ Passaggi di questo esempio:
      "tokenizers":[
         {
            "name":"my_standard_tokenizer",
-           "@odata.type":"#Microsoft.Azure.Search.StandardTokenizer",
+           "@odata.type":"#Microsoft.Azure.Search.StandardTokenizerV2",
            "maxTokenLength":20
         }
      ],

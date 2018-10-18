@@ -3,8 +3,8 @@ title: Configurare il failover in più endpoint della rete CDN di Azure con Gest
 description: Informazioni su come configurare Gestione traffico di Azure con gli endpoint della rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: v-deasim
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b52cad1f32cc3d16cf70bb81640dcb1d9f8614bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2d184cc849eb3da60bbf0c387655da9fdf878853
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133365"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091607"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurare il failover in più endpoint della rete CDN di Azure con Gestione traffico di Azure
 
@@ -28,12 +28,12 @@ Quando si configura la rete per la distribuzione di contenuti, o rete CDN di Azu
  
 Se si dispone di più profili di rete CDN, è possibile migliorare ulteriormente la disponibilità e le prestazioni con Gestione traffico di Azure. È possibile usare Gestione traffico di Azure con la rete CDN di Azure per bilanciare il carico tra più endpoint della rete CDN per il failover, il bilanciamento del carico geografico e altri scenari. In uno scenario di failover tipico tutte le richieste client vengono indirizzate innanzitutto al profilo della rete CDN primario; se il profilo non è disponibile, le richieste vengono passate al profilo della rete CDN secondario fino a quando il profilo della rete CDN primario torna online. Usando Gestione traffico di Azure in questo modo si garantisce che l'applicazione Web sia sempre disponibile. 
 
-Questo articolo include materiale sussidiario e un esempio di come configurare il failover con i profili **rete CDN standard di Azure di Verizon** e **rete CDN standard di Azure di Akamai**.
+Questo articolo include materiale sussidiario e un esempio di come configurare il failover con i profili **rete CDN Standard di Azure di Verizon** e **rete CDN Standard di Azure di Akamai**.
 
 ## <a name="set-up-azure-cdn"></a>Configurare la rete CDN di Azure 
-Creare due o più profili ed endpoint di rete CDN di Azure con diversi provider.
+Creare due o più profili ed endpoint di rete CDN di Azure con provider diversi.
 
-1. Creare un profilo **rete CDN standard di Azure di Verizon** e un profilo **rete CDN standard di Azure di Akamai** seguendo i passaggi descritti in [Creare un nuovo profilo di rete CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
+1. Creare un profilo **rete CDN Standard di Azure di Verizon** e un profilo **rete CDN Standard di Azure di Akamai** seguendo i passaggi descritti in [Creare un nuovo profilo di rete CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
  
    ![Più profili CDN](./media/cdn-traffic-manager/cdn-multiple-profiles.png)
 
@@ -46,7 +46,7 @@ Creare un profilo di Gestione traffico di Azure e configurare il bilanciamento d
 
     Per **Routing method** (Metodo di routing) selezionare **Priority** (Priorità).
 
-2. Aggiungere gli endpoint della rete CDN nel profilo di Gestione traffico seguendo la procedura descritta in [Aggiungere endpoint di Gestione traffico](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
+2. Aggiungere gli endpoint della rete CDN nel profilo di Gestione traffico seguendo la procedura descritta in [Aggiungere endpoint di Gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
 
     Per **Type** (Tipo) selezionare **External endpoints** (Endpoint esterni). Per **Priority** (Priorità) immettere un numero.
 
@@ -92,7 +92,7 @@ Dopo aver configurato i profili della rete CDN e di Gestione traffico, seguire q
 Dopo aver completato questi passaggi, il servizio con più reti CDN e funzionalità di failover è configurato con Gestione traffico di Azure. Si potrà accedere agli URL di test dal dominio personalizzato. Per testare la funzionalità, disabilitare l'endpoint primario della rete CDN e verificare che la richiesta sia spostata correttamente all'endpoint secondario della rete CDN. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-È possibile anche configurare altri metodi di routing, ad esempio il routing geografico, per bilanciare il carico tra diversi endpoint della rete CDN. Per altre informazioni, vedere [Configurare il metodo di routing del traffico Geografico tramite Gestione traffico](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+È possibile anche configurare altri metodi di routing, ad esempio il routing geografico, per bilanciare il carico tra endpoint diversi della rete CDN. Per altre informazioni, vedere [Configurare il metodo di routing del traffico Geografico tramite Gestione traffico](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
 
 

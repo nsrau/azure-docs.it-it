@@ -12,18 +12,18 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16d6dd6a589256ad98a37465e64e847778d0cc7e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 7483ac4521b0b997111dcc5705ba8c28a8443299
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092594"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116403"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Creare la prima funzione con Java e Maven (anteprima)
 
 [!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
-Questa guida introduttiva fornisce istruzioni dettagliate su come creare un progetto di funzione [senza server](https://azure.microsoft.com/overview/serverless-computing/) con Maven, eseguirne il test in locale e distribuirlo in Funzioni di Azure. Al termine, si otterrà un'app per le funzioni attivate da HTTP in esecuzione in Azure.
+Questa guida introduttiva fornisce istruzioni dettagliate su come creare un progetto di funzione [senza server](https://azure.microsoft.com/solutions/serverless/) con Maven, eseguirne il test in locale e distribuirlo in Funzioni di Azure. Al termine, si otterrà un'app per le funzioni attivate da HTTP in esecuzione in Azure.
 
 ![Accedere a una funzione di Hello World dalla riga di comando con cURL](media/functions-create-java-maven/hello-azure.png)
 

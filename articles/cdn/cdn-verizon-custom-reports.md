@@ -3,8 +3,8 @@ title: Report personalizzati di Verizon | Microsoft Docs
 description: 'È possibile visualizzare i modelli di utilizzo per la rete CDN usando i report seguenti: Larghezza di banda, Dati trasferiti, Riscontri, Stati della cache, Percentuale riscontri cache, Dati trasferiti IPv4/IPv6.'
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: ''
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
-ms.author: v-deasim
-ms.openlocfilehash: f18b6edb900640e48e5ca87639f71cec9287af38
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.author: magattus
+ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159742"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092067"
 ---
 # <a name="custom-reports-from-verizon"></a>Report personalizzati di Verizon
 

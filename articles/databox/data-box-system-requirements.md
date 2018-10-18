@@ -2,24 +2,18 @@
 title: Requisiti di sistema di Microsoft Azure Data Box | Microsoft Docs
 description: Informazioni sui requisiti relativi al software e alla rete per Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: f97c6174adf454a031e94942843075c457236575
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 957100e042da1d41fb7c8fa27a5663cf99a41c20
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982977"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093936"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisiti di sistema di Azure Data Box
 
@@ -88,7 +82,7 @@ Di seguito è riportato un elenco dei Web browser supportati per l'interfaccia u
 
 ## <a name="networking-requirements"></a>Requisiti di rete
 
-Il data center deve essere dotato di una rete ad alta velocità. È consigliabile disporre di una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE per copiare i dati, ma la velocità dell'operazione ne risentirà.
+Il data center disponga di una rete ad alta velocità. È consigliabile disporre di una connessione di almeno 10 GbE. In assenza di una connessione a questa velocità è possibile usare un collegamento dati a 1 GbE per copiare i dati, ma la velocità dell'operazione ne risentirà.
 
 ## <a name="next-step"></a>Passaggio successivo
 

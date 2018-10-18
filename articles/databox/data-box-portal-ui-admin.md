@@ -1,35 +1,28 @@
 ---
-title: Guida dell'amministratore del portale per Azure Data Box | Microsoft Docs
+title: Guida dell'amministratore del portale per Azure Data Box Disk | Microsoft Docs
 description: Descrive come usare il portale di Azure per amministrare Azure Data Box.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: c76d8bc6af808fd1257e44ad296e3e2d65b8695d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: b98653ea0896e617a666147d243f24cb55483a28
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238115"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091690"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-preview"></a>Usare il portale di Azure per amministrare Azure Data Box (anteprima)
+# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>Usare il portale di Azure per amministrare Data Box Disk (anteprima)
 
-Le esercitazioni in questo articolo si applicano a Microsoft Azure Data Box Disk in anteprima. Questo articolo illustra alcuni flussi di lavoro e attività di gestione complessi che è possibile eseguire sul Data Box Disk. 
+Le esercitazioni in questo articolo si applicano a Microsoft Azure Data Box Disk in anteprima. Questo articolo illustra alcuni flussi di lavoro e attività di gestione complessi che è possibile eseguire in Data Box Disk. 
 
-È possibile gestire Data Box Disk tramite il portale di Azure. Questo articolo è incentrato sulle attività che è possibile eseguire usando il portale di Azure. Usare il portale di Azure per gestire gli ordini, gestire i dischi e tenere traccia dello stato dell'ordine mano a mano che procede verso la fase terminale.
+È possibile gestire Data Box Disk tramite il portale di Azure. Questo articolo è incentrato sulle attività che è possibile eseguire usando il portale di Azure. Usare il portale di Azure per gestire gli ordini, gestire i dischi e tenere traccia dello stato dell'ordine mano a mano che procede verso il completamento.
 
 > [!IMPORTANT]
-> Data Box Disk è disponibile in anteprima. Prima di distribuire questa soluzione, esaminare le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Data Box Disk è disponibile in anteprima. Prima di distribuire questa soluzione, esaminare le [condizioni per le anteprime di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="cancel-an-order"></a>Annullare un ordine
@@ -54,7 +47,7 @@ Non si riceve una notifica di posta elettronica quando l'ordine viene annullato.
 
 ## <a name="clone-an-order"></a>Clonare un ordine
 
-La clonazione è utile in determinate situazioni. Ad esempio, un utente ha usato Data Box Disk per trasferire alcuni dati. Poiché vengono generati più dati, sono necessari più dischi per trasferire li dati in Azure. In questo caso è possibile semplicemente clonare lo stesso ordine.
+La clonazione è utile in determinate situazioni. Ad esempio, un utente ha usato Data Box Disk per trasferire alcuni dati. Man mano che vengono generati altri dati, sono necessari più dischi per trasferire i dati in Azure. In questo caso è possibile semplicemente clonare lo stesso ordine.
 
 Eseguire la procedura seguente per clonare un ordine.
 
@@ -62,7 +55,7 @@ Eseguire la procedura seguente per clonare un ordine.
 
     ![Clonazione ordine 1](media/data-box-portal-ui-admin/clone-order1.png)
 
-2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Fare clic su **Create**(Crea).    
+2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Fare clic su **Crea**.    
 
 Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare il nuovo ordine.
 
@@ -76,29 +69,29 @@ Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare
 
 1. Passare a **Tutte le risorse**. Cercare l'ordine.
 
-    ![Ricerca degli ordini sul Data Box Disk](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
+    ![Ricerca degli ordini in Data Box Disk](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
 
 2. Fare clic sull'ordine da eliminare e passare a **Panoramica**. Sulla barra dei comandi fare clic su **Elimina**.
 
-    ![Eliminazione ordine sul Data Box Disk 1](media/data-box-portal-ui-admin/delete-order1.png)
+    ![Eliminazione ordine 1 in Data Box Disk](media/data-box-portal-ui-admin/delete-order1.png)
 
 3. Immettere il nome dell'ordine quando viene richiesto di confermare l'eliminazione dell'ordine. Fare clic su **Elimina**.
 
-     ![Eliminazione ordine sul Data Box Disk 2](media/data-box-portal-ui-admin/delete-order2.png)
+     ![Eliminazione ordine 2 in Data Box Disk](media/data-box-portal-ui-admin/delete-order2.png)
 
 
 ## <a name="download-shipping-label"></a>Scaricare l'etichetta di spedizione
 
 Potrebbe essere necessario scaricare l'etichetta indirizzo se l'etichetta indirizzo di ritorno spedita con i dischi è stata smarrita o persa. 
 
-Eseguire la procedura seguente per scaricare un'etichetta indirizzo.
+Eseguire la procedura seguente per scaricare un'etichetta di spedizione.
 1.  Passare a **Panoramica > Scarica etichetta di spedizione**. Questa opzione è disponibile solo dopo la spedizione del disco. 
 
-    ![Scaricare l'etichetta indirizzo](media/data-box-portal-ui-admin/download-shipping-label.png)
+    ![Scaricare l'etichetta di spedizione](media/data-box-portal-ui-admin/download-shipping-label.png)
 
-2.  Questa azione scarica la seguente etichetta indirizzo di ritorno. Salvare l'etichetta, stamparla e apporla sulla spedizione di ritorno.
+2.  Questa azione scarica la seguente etichetta per la spedizione di ritorno. Salvare l'etichetta, stamparla e apporla sulla spedizione di ritorno.
 
-    ![Esempio di etichetta indirizzo](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![Esempio di etichetta di spedizione](media/data-box-portal-ui-admin/example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Modificare l'indirizzo di spedizione
 
@@ -133,7 +126,7 @@ Eseguire la procedura seguente per modificare i dettagli di notifica.
 |Stato dell'ordine |DESCRIZIONE |
 |---------|---------|
 |Ordinato     | L'ordine è stato effettuato. <br> Se i dischi non sono disponibili, viene inviata una notifica. <br>Se i dischi sono disponibili, Microsoft identifica un disco per la spedizione e prepara l'imballaggio del disco.        |
-|Elaborato     | L'elaborazione dell'ordine è stata completata. <br> Durante l'elaborazione dell'ordine si verificano le azioni seguenti:<li>I dischi vengono crittografati usando la crittografia BitLocker AES-128. </li> <li>Il Data Box Disk viene bloccato per impedire eventuali accessi non autorizzati.</li><li>Durante questo processo viene generata la passkey che sblocca i dischi.</li>        |
+|Elaborato     | L'elaborazione dell'ordine è stata completata. <br> Durante l'elaborazione dell'ordine si verificano le azioni seguenti:<li>I dischi vengono crittografati usando la crittografia BitLocker AES-128. </li> <li>Data Box Disk viene bloccato per impedire eventuali accessi non autorizzati.</li><li>Durante questo processo viene generata la passkey che sblocca i dischi.</li>        |
 |Spedito     | L'ordine è stato spedito. Si dovrebbe ricevere l'ordine in 1-2 giorni.        |
 |Recapitato     | L'ordine è stato recapitato all'indirizzo specificato.        |
 |Ritirato     |La spedizione di ritorno è stata ritirata. <br> Dopo che la spedizione è stata ricevuta al data center di Azure, i dati vengono caricati automaticamente in Azure.         |
@@ -147,4 +140,4 @@ Eseguire la procedura seguente per modificare i dettagli di notifica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [risolvere i problemi relativi al Data Box Disk](data-box-disk-troubleshoot.md).
+- Informazioni su come [risolvere i problemi relativi a Data Box Disk](data-box-disk-troubleshoot.md).
