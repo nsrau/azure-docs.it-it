@@ -1,5 +1,6 @@
 ---
-title: Introduzione all'API Riconoscimento vocale Microsoft tramite REST | Microsoft Docs
+title: Introduzione all'API Riconoscimento vocale Bing tramite REST | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Usare REST per accedere all'API Riconoscimento vocale in Servizi cognitivi Microsoft per convertire audio parlato in testo.
 services: cognitive-services
 author: zhouwangzw
@@ -7,18 +8,20 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 53785cdfd75c23910802f2be20e6305817b3b097
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a9f74f4032a78ee51ea2a8f020cd1418bb3330ca
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373921"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345357"
 ---
-# <a name="get-started-with-speech-recognition-by-using-the-rest-api"></a>Introduzione al riconoscimento vocale tramite l'API REST
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Guida introduttiva: Usare l'API REST Riconoscimento vocale Bing
 
-Con il Servizio di riconoscimento vocale basato sul cloud, è possibile sviluppare applicazioni usando l'API REST per convertire audio parlato in testo.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+Con il servizio Riconoscimento vocale Bing basato sul cloud, è possibile sviluppare applicazioni usando l'API REST per convertire audio parlato in testo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -60,14 +63,14 @@ https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitive
 
 Alcuni esempi di URI del servizio sono elencati nella tabella seguente.
 
-| Modalità di riconoscimento  | Lingua | Formato di output | URI del servizio |
+| Modalità di riconoscimento  | Linguaggio | Formato di output | URI del servizio |
 |---|---|---|---|
 | `interactive` | pt-BR | Predefinito | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Dettagliato |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `conversation` | it-IT | Dettagliato |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | Semplice | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
-> L'URI del servizio è necessario solo quando l'applicazione usa le API REST per chiamare il Servizio di riconoscimento vocale. Se si usa una delle [librerie client](GetStartedClientLibraries.md), in genere non occorre conoscere quale URI viene usato. Le librerie client possono usare diversi URI del servizio applicabili solo a una libreria client specifica. Per altre informazioni, vedere la libreria client di propria scelta.
+> L'URI del servizio è necessario solo quando l'applicazione usa le API REST per chiamare il Servizio di riconoscimento vocale. Se si usa una delle [librerie client](GetStartedClientLibraries.md), in genere non occorre conoscere quale URI viene usato. Le librerie client possono usare diversi URI del servizio applicabili solo a una libreria client specifica. Per altre informazioni, vedere la libreria client scelta.
 
 ### <a name="request-headers"></a>Intestazioni della richiesta
 
@@ -95,7 +98,7 @@ Expect: 100-continue
 L'esempio seguente illustra come inviare una richiesta di riconoscimento vocale agli endpoint REST di riconoscimento vocale. Viene usata la modalità di riconoscimento `interactive`.
 
 > [!NOTE]
-> Sostituire `YOUR_AUDIO_FILE` con il percorso del file audio preregistrato. Sostituire `YOUR_SUBSCRIPTION_KEY` con la chiave di sottoscrizione.
+> Sostituire `YOUR_AUDIO_FILE` con il percorso del file audio preregistrato. Sostituire `YOUR_SUBSCRIPTION_KEY` con la propria chiave di sottoscrizione.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
 

@@ -3,19 +3,19 @@ title: "Guida introduttiva: Rilevare i visi in un'immagine - API Viso, Java"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API Viso con Java per rilevare i visi in un'immagine.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: c43db84bc04dd8fb17f9b3f6e37deba9daced598
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: 42a8b13b87623b92ee0fe92db4e6a0caff5c3a1b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122791"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339116"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-java"></a>Guida introduttiva: Rilevare i visi in un'immagine con Java
 

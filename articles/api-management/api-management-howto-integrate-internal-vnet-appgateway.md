@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: ce4fd27c89f529b9c12999689152c3025648d2ce
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038131"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319864"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrare Gestione API in una rete virtuale interna con un gateway applicazione
 
-##<a name="overview"></a> Panoramica
+## <a name="overview"></a> Panoramica
 
 Il servizio Gestione API può essere configurato in una rete virtuale in modalità interna, per renderlo accessibile solo internamente alla rete virtuale. Il gateway applicazione di Azure è un servizio PAAS con bilanciamento del carico di livello 7. Funge da servizio proxy inverso e offre anche un Web application firewall (WAF).
 
@@ -43,7 +43,7 @@ Per eseguire i passaggi descritti in questo articolo, è necessario quanto segue
 
 * Certificati: PFX e CER per il nome host dell'API e PFX per il nome host del portale per sviluppatori.
 
-##<a name="scenario"> </a> Scenario
+## <a name="scenario"> </a> Scenario
 
 Questo articolo illustra come usare un singolo servizio Gestione API per gli utenti sia interni che esterni e fare in modo che funga da singolo front-end per le API sia locali che cloud. Verrà anche descritto come esporre solo un sottoinsieme delle API (evidenziato in verde nell'esempio) per l'utilizzo esterno con la funzionalità di routing disponibile nel gateway applicazione.
 
@@ -349,7 +349,7 @@ Il nome DNS del gateway applicazione dovrà essere usato per creare un record CN
 Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-##<a name="summary"></a> Riepilogo
+## <a name="summary"></a> Riepilogo
 Il servizio Gestione API di Azure configurato in una rete virtuale offre un'interfaccia a gateway singolo per tutte le API, che siano ospitate in locale o nel cloud. L'integrazione del gateway applicazione con Gestione API offre la possibilità di rendere accessibili su Internet determinate API in modo selettivo, nonché di fornire un Web application firewall come front-end all'istanza di Gestione API.
 
 ##<a name="next-steps"> </a> Passaggi successivi

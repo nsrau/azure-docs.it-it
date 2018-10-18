@@ -2,18 +2,18 @@
 title: Configurare la replica VMware in Azure in un ambiente multi-tenancy tramite Site Recovery e il programma Cloud Solution Provider (CSP) | Microsoft Docs
 description: Descrive come creare e gestire le sottoscrizioni di tenant tramite CSP e distribuire Azure Site Recovery in una configurazione multi-tenant
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: d384a77054cdcab0305b9e6d3fe5bb824e49bb16
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: bd356a7e4285f8663b91da1f200cc2ae3c266bf3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916803"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354122"
 ---
 # <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurare la replica VMware in un ambiente multi-tenancy con il programma Cloud Solution Provider (CSP)
 
@@ -23,7 +23,7 @@ Con [Azure Site Recovery](site-recovery-overview.md), i partner possono gestire 
 
 Questo articolo descrive come creare e gestire le sottoscrizioni di tenant tramite CSP, per uno scenario di replica VMware multi-tenant.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per configurare la replica VMware è necessario eseguire queste operazioni:
 

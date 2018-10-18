@@ -12,14 +12,15 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 26f303318320eb8b039503666841e518f75348e4
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42144967"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321853"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione all'archiviazione code di Azure e ai servizi connessi di Visual Studio (ASP.NET)
+
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Panoramica
@@ -28,7 +29,7 @@ L'archivio code di Azure fornisce la messaggistica cloud tra i componenti dell'a
 
 Questa esercitazione illustra come scrivere codice ASP.NET per alcuni scenari comuni usando le entità di archiviazione code di Azure. Tali scenari includono attività comuni, ad esempio la creazione di una coda di Azure e l'aggiunta, modifica, lettura e rimozione dei messaggi in coda.
 
-##<a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Account di archiviazione di Azure](../storage/common/storage-quickstart-create-account.md)
@@ -452,7 +453,7 @@ In questa sezione viene illustrato come ottenere la lunghezza della coda (numero
     queue.FetchAttributes();
     ```
 
-6. Accedere alla proprietà **CloudQueue.ApproximateMessageCount** per ottenere la lunghezza della coda.
+1. Accedere alla proprietà **CloudQueue.ApproximateMessageCount** per ottenere la lunghezza della coda.
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;

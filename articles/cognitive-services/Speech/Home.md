@@ -1,5 +1,6 @@
 ---
 title: API Riconoscimento vocale Bing di Microsoft | Microsoft Docs
+titlesuffix: Azure Cognitive Services
 description: Usare Microsoft Speech API per aggiungere alle app azioni basate su contenuto vocale, inclusa l'interazione in tempo reale con gli utenti.
 services: cognitive-services
 author: zhouwangzw
@@ -7,24 +8,23 @@ manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: ee328145419aaf8962c08bca2fb9cf1a42daae0c
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41929876"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340359"
 ---
-# <a name="microsoft-bing-speech-api-overview"></a>Panoramica API Riconoscimento vocale Bing di Microsoft
+# <a name="what-is-bing-speech"></a>Informazioni su Riconoscimento vocale Bing
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 API Riconoscimento vocale Bing di Microsoft è un'API basata sul cloud che offre agli sviluppatori un modo semplice per creare funzioni vocali avanzate nelle applicazioni, come comandi vocali, dialoghi con conversazioni naturali, trascrizione del parlato e dettatura. Microsoft Speech API supporta sia il *riconoscimento vocale* sia la *sintesi vocale*.
 
 - L'API **Riconoscimento vocale** converte il parlato in testo che può essere usato come input o come comandi per controllare l'applicazione.
 - L'API **Sintesi vocale** converte il testo in flussi audio che possono essere riprodotti agli utenti dell'applicazione.
-
-> [!NOTE] 
-> Nel mese di maggio 2018, è stato rilasciato il nuovo [servizio di riconoscimento vocale](/speech-service/overview.md) in anteprima pubblica. Si consiglia di [provarlo gratuitamente](/speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Riconoscimento vocale
 

@@ -1,30 +1,33 @@
 ---
-title: Documentazione sull'API Traduzione vocale | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Usare l'API Traduzione vocale di Microsoft per aggiungere la traduzione vocale e la traduzione con riconoscimento vocale alle applicazioni in uso.
+title: Informazioni sul servizio Traduzione vocale
+titleSuffix: Azure Cognitive Services
+description: Usare l'API Traduzione vocale per aggiungere la traduzione vocale e la traduzione con riconoscimento vocale alle applicazioni in uso.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 15f27e6b5b2fd7384958a660156855fc65f4e558
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374137"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341141"
 ---
-# <a name="microsoft-translator-speech-api"></a>API Traduzione vocale Microsoft
-L'API Traduzione vocale Microsoft può essere usata per aggiungere traduzioni vocali end-to-end e in tempo reale ad applicazioni, strumenti o a qualsiasi altra soluzione in cui sia necessaria la traduzione vocale in più lingue, indipendentemente dal sistema operativo di destinazione o dal linguaggio di sviluppo. L'API può essere usata sia per la traduzione vocale che per la traduzione con riconoscimento vocale.
+# <a name="what-is-translator-speech-api"></a>Informazioni sull'API Traduzione vocale
 
-L'API Traduzione testuale Microsoft è un servizio di Azure, parte della [raccolta delle API dei Servizi cognitivi Microsoft](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) di algoritmi di apprendimento automatico e algoritmi AI nel cloud, facilmente utilizzabile nei progetti di sviluppo.
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-Con l'API Traduzione vocale Microsoft le applicazioni client trasmettono audio vocale al servizio e ricevono un flusso di risultati basati su testo e audio, inclusi il testo riconosciuto nella lingua di origine e la sua traduzione nella lingua di destinazione. I risultati del testo vengono prodotti applicando il riconoscimento vocale automatico (ASR) alimentato da reti neurali profonde allo streaming audio in ingresso. L'output ASR non elaborato viene migliorato ulteriormente con una nuova tecnica chiamata TrueText, per riflettere più da vicino le finalità dell'utente. Ad esempio, TrueText rimuove le disfluenze (gli hmmm e i colpi di tosse), le parole ripetute e ripristina la punteggiatura e l'uso delle maiuscole corretti. Vi è inoltre la possibilità di nascondere o escludere i contenuti volgari. Per i motori di riconoscimento e di traduzione il training viene eseguito specificamente per gestire gli argomenti delle conversazioni. 
+L'API Traduzione vocale può essere usata per aggiungere traduzioni vocali end-to-end e in tempo reale ad applicazioni, strumenti o a qualsiasi altra soluzione in cui sia necessaria la traduzione vocale in più lingue, indipendentemente dal sistema operativo di destinazione o dal linguaggio di sviluppo. L'API può essere usata sia per la traduzione vocale che per la traduzione con riconoscimento vocale.
 
-Il servizio di traduzione vocale usa il rilevamento dei silenzi per determinare la fine di un'espressione. Dopo una pausa nell'attività vocale, il servizio riprodurrà un risultato finale per l'espressione completata. Il servizio può inoltre restituire risultati parziali, che forniscono traduzioni e riconoscimenti intermedi per un'espressione in corso. 
+L'API Traduzione testuale è un servizio di Azure, parte della [raccolta delle API dei Servizi cognitivi di Azure](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive) di algoritmi di apprendimento automatico e algoritmi AI nel cloud, facilmente utilizzabile nei progetti di sviluppo.
+
+Con l'API Traduzione vocale le applicazioni client trasmettono audio vocale al servizio e ricevono un flusso di risultati basati su testo e audio, inclusi il testo riconosciuto nella lingua di origine e la sua traduzione nella lingua di destinazione. I risultati del testo vengono prodotti applicando il riconoscimento vocale automatico (ASR) alimentato da reti neurali profonde al flusso audio in ingresso. L'output ASR non elaborato viene migliorato ulteriormente con una nuova tecnica chiamata TrueText, per riflettere più da vicino le finalità dell'utente. Ad esempio, TrueText rimuove le disfluenze (gli hmmm e i colpi di tosse), le parole ripetute e ripristina la punteggiatura e l'uso delle maiuscole corretti. Vi è inoltre la possibilità di nascondere o escludere i contenuti volgari. Per i motori di riconoscimento e di traduzione il training viene eseguito specificamente per gestire gli argomenti delle conversazioni. 
+
+Il servizio Traduzione vocale usa il rilevamento dei silenzi per determinare la fine di un'espressione. Dopo una pausa nell'attività vocale, il servizio riprodurrà un risultato finale per l'espressione completata. Il servizio può inoltre restituire risultati parziali, che forniscono traduzioni e riconoscimenti intermedi per un'espressione in corso. 
 
 Per la traduzione vocale, il servizio offre la possibilità di sintetizzare il vocale (sintesi vocale) dal testo parlato alle lingue di destinazione. L'audio della sintesi vocale viene creato nel formato specificato dal client. Sono disponibili i formati WAV e MP3.
 
@@ -36,7 +39,7 @@ Microsoft Translator è un servizio di traduzione automatica basato sul cloud. A
 Per altre informazioni, vedere il [servizio Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx)
 
 ## <a name="microsoft-translator-neural-machine-translation-nmt"></a>Traduzione automatica neurale (NMT) di Microsoft Translator
-Per fornire traduzioni, l'API Traduzione vocale di Microsoft usa sia la tecnologia di traduzione automatica statistica (SMT, Statistical Machine Translation) legacy sia la nuova tecnologia di traduzione automatica neurale (NMT, Neural Machine Translation).
+Per fornire traduzioni, l'API Traduzione vocale usa sia la tecnologia di traduzione automatica statistica (SMT, Statistical Machine Translation) legacy sia la nuova tecnologia di traduzione automatica neurale (NMT, Neural Machine Translation).
 
 La traduzione automatica basata su statistiche si è stabilizzata in termini di miglioramento delle prestazioni. La qualità della traduzione non migliora più in modo significativo per i sistemi generici con la traduzione automatica statistica. Una nuova tecnologia di traduzione basata sull'intelligenza artificiale sta prendendo piede grazie alle reti neurali.
 
@@ -63,6 +66,6 @@ Altre informazioni sul [funzionamento della traduzione automatica neurale](https
 > [Iniziare a scrivere codice](quickstarts/csharp.md)
 
 ## <a name="see-also"></a>Vedere anche 
-- [Pagina della documentazione sui Servizi cognitivi](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
+- [Documentazione dei servizi cognitivi](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
 - [Pagina del prodotto Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/)
 - [Informazioni sui prezzi e sulla soluzione](https://www.microsoft.com/en-us/translator/home.aspx) 

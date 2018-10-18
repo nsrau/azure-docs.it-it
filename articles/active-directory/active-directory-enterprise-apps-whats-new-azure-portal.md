@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 30b3fbd415fac1e11a77b3905cb01e5935a62839
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fefc508679a309262d07a582fc8f5bdf9f67cfe5
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34350866"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310116"
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Novità della gestione delle applicazioni aziendali in Azure Active Directory 
 
@@ -53,19 +53,19 @@ Oltre all'aggiunta di applicazioni preintegrate dalla raccolta, nel nuovo portal
 **Per iniziare ad aggiungere la propria applicazione**:
 
 1. Fare clic sul collegamento per **aggiungere l'applicazione personalizzata** nella parte superiore della raccolta di applicazioni. 
-2. Verranno visualizzate due opzioni: **Distribuzione di un'applicazione esistente** o **Sviluppo di una nuova applicazione**. Di seguito viene illustrata la differenza tra le due opzioni e come usarle.
+1. Verranno visualizzate due opzioni: **Distribuzione di un'applicazione esistente** o **Sviluppo di una nuova applicazione**. Di seguito viene illustrata la differenza tra le due opzioni e come usarle.
 
 ### <a name="deploying-existing-applications"></a>Distribuzione di applicazioni esistenti
 
 1. Se un'applicazione è già in esecuzione e si vuole semplicemente integrarla in Azure AD per l'accesso Single Sign-On o il provisioning, scegliere l'opzione **Distribuzione di un'applicazione esistente**. Scegliere un nome per l'applicazione, quindi fare clic su **Aggiungi**.
-2. L'operazione è terminata. Non è più necessario conoscere tutti i dettagli dell'applicazione sin dall'inizio; ora è possibile definirne il funzionamento usando il menu a sinistra e configurando l'applicazione in base alle esigenze in qualsiasi momento.
+1. L'operazione è terminata. Non è più necessario conoscere tutti i dettagli dell'applicazione sin dall'inizio; ora è possibile definirne il funzionamento usando il menu a sinistra e configurando l'applicazione in base alle esigenze in qualsiasi momento.
 
   ![Aggiunta di un'applicazione esistente con un clic](./media/active-directory-enterprise-apps-whats-new-azure-portal/04.png)
  
 ### <a name="developing-new-applications"></a>Sviluppo di nuove applicazioni
 
 1. Se si sviluppa una nuova applicazione, esiste un modo semplice per accedere al Registro applicazioni direttamente dalla raccolta:
-2. Fare clic sull'opzione per **aggiungere l'applicazione personalizzata** nella raccolta di applicazioni, quindi scegliere **Sviluppo di una nuova applicazione**. Verrà visualizzato un collegamento rapido a destra dell'esperienza di aggiunta di applicazioni.
+1. Fare clic sull'opzione per **aggiungere l'applicazione personalizzata** nella raccolta di applicazioni, quindi scegliere **Sviluppo di una nuova applicazione**. Verrà visualizzato un collegamento rapido a destra dell'esperienza di aggiunta di applicazioni.
 
   ![Aggiunta di una nuova applicazione sviluppata con pochi clic](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
@@ -86,20 +86,20 @@ Dopo aver aggiunto un'applicazione preintegrata o sviluppata dall'utente, è dis
 
 
 ## <a name="updated-application-proxy-configuration"></a>Aggiornamento della configurazione del proxy dell'applicazione
+
 Si supponga che una delle nuove applicazioni aggiunte venga eseguita nell'ambiente locale e si voglia integrarla con Azure AD.  Una delle caratteristiche interessanti della nuova esperienza di configurazione dell'applicazione nel nuovo portale di Azure AD è che separando la modalità di accesso dell'applicazione dalla configurazione proxy è ora possibile esporre direttamente nel cloud applicazioni federate o con accesso Single Sign-On basato su password in esecuzione nella rete aziendale, senza dover creare più istanze dell'applicazione.
 
 È anche possibile configurare le nuove applicazioni aggiunte per l'uso con il Azure Active Directory Application Proxy direttamente dal nuovo portale, incluse le applicazioni che supportano esperienze di autenticazione di Windows nativa.
 
   ![Configurazione di un'applicazione per l'uso dell'opzione di autenticazione integrata di Windows](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
-
 Per configurare un'applicazione con autenticazione di Windows nativa con il proxy dell'applicazione:
 1. Fare clic sull'elemento di navigazione Single Sign-On e scegliere **Autenticazione integrata di Windows** dalle impostazioni di accesso, quindi configurare le impostazioni in base alle esigenze.
-2. Oltre a supportare queste nuove modalità di autenticazione, ora è anche possibile caricare certificati da domini personalizzati per supportare le applicazioni in esecuzione in un endpoint sicuro all'interno dell'organizzazione.  
+1. Oltre a supportare queste nuove modalità di autenticazione, ora è anche possibile caricare certificati da domini personalizzati per supportare le applicazioni in esecuzione in un endpoint sicuro all'interno dell'organizzazione.  
  
    ![Caricamento di un certificato da usare con il proxy dell'applicazione](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
 
-3. Per caricare un nuovo certificato per l'applicazione locale preferita, fare clic sull'opzione **Proxy dell'applicazione** nel menu di navigazione a sinistra, fare clic sul selettore **Certificato** e quindi caricare un file di certificato che è possibile usare per crittografare le richieste dall'endpoint del cloud Microsoft all'applicazione.
+1. Per caricare un nuovo certificato per l'applicazione locale preferita, fare clic sull'opzione **Proxy dell'applicazione** nel menu di navigazione a sinistra, fare clic sul selettore **Certificato** e quindi caricare un file di certificato che è possibile usare per crittografare le richieste dall'endpoint del cloud Microsoft all'applicazione.
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>Configurazione dell'accesso Single Sign-On federato avanzato
 
@@ -107,10 +107,9 @@ Per coloro che usano applicazioni federate sono disponibili molte nuove funziona
  
   ![Personalizzazione degli attributi utente del token SAML passati a un'applicazione federata](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
-
 Per verificare la nuova configurazione di SSO federato:
 1. Aprire il riquadro **Single Sign-On** di un'applicazione federata dal menu di navigazione a sinistra e verificare che sia selezionata la modalità *Accesso basato su SAML*\*. 
-2. Abilitare quindi la casella di controllo sotto l'intestazione **Attributi utente** per modificare tutti gli attributi inclusi nel token SAML passato all'applicazione.
+1. Abilitare quindi la casella di controllo sotto l'intestazione **Attributi utente** per modificare tutti gli attributi inclusi nel token SAML passato all'applicazione.
 
 È anche possibile creare e gestire i certificati usati per l'accesso Single Sign-On federato ed eseguirne il rollover, nonché modificare il destinatario della notifica di scadenza del certificato. Queste nuove opzioni sono disponibili nell'intestazione **Certificati** dello stesso riquadro Single Sign-On.
  
@@ -124,7 +123,7 @@ Il set di parametri URL SAML supportati include ora il parametro **Stato dell'in
 **Per impostare il parametro Stato dell'inoltro**:
 
 1. Abilitare la casella di controllo **Mostra impostazioni URL avanzate** sotto l'intestazione **URL e dominio** nel riquadro di configurazione dell'accesso Single Sign-On. 
-2. Viene visualizzato un set di nuove caselle di input URL che consentono di definire questo parametro e altre impostazioni URL SAML.
+1. Viene visualizzato un set di nuove caselle di input URL che consentono di definire questo parametro e altre impostazioni URL SAML.
 
 ## <a name="bring-your-own-password-sso-applications"></a>Applicazioni con Single Sign-On basato su password con funzionalità "Bring Your Own Applications"
 
@@ -135,8 +134,8 @@ Non tutte le applicazioni supportano la federazione per impostazione predefinita
 **Per verificare la funzionalità 'Bring Your Own Applications'**:
 
 1. Dopo aver impostato la modalità Single Sign-On per la nuova applicazione personalizzata aggiunta ad **Accesso basato su password**, immettere l'URL in cui l'applicazione visualizza la schermata di accesso. 
-2. Fare clic su **Save**.  
-2. Dopo questa operazione, dall'URL verrà creata automaticamente una casella di input per nome utente e password e sarà possibile usare Azure AD per la trasmissione sicura delle password all'applicazione tramite l'estensione del browser del pannello di accesso.
+1. Fare clic su **Save**.  
+1. Dopo questa operazione, dall'URL verrà creata automaticamente una casella di input per nome utente e password e sarà possibile usare Azure AD per la trasmissione sicura delle password all'applicazione tramite l'estensione del browser del pannello di accesso.
 
 ## <a name="configure-self-service-application-access"></a>Configurare l'accesso alle applicazioni self-service
 
@@ -147,7 +146,7 @@ Dopo aver aggiunto un numero elevato di nuove applicazioni, può essere opportun
 **Per configurare e gestire l'accesso alle applicazioni self-service**:
 
 1. Per iniziare è possibile selezionare l'opzione **Self-service** dal menu di navigazione a sinistra dell'applicazione e impostare l'opzione **Consentire agli utenti di richiedere l'accesso a questa applicazione?** su '**Sì**'. 
-2. Sarà così possibile definire i responsabili dell'approvazione dell'accesso all'applicazione e il gruppo al quale verranno aggiunti gli utenti self-service. Se l'applicazione è configurata per l'accesso Single Sign-On con password, verrà visualizzata anche un'altra opzione che consente eventualmente di autorizzare tali responsabili dell'approvazione alla gestione delle password assegnate all'applicazione.
+1. Sarà così possibile definire i responsabili dell'approvazione dell'accesso all'applicazione e il gruppo al quale verranno aggiunti gli utenti self-service. Se l'applicazione è configurata per l'accesso Single Sign-On con password, verrà visualizzata anche un'altra opzione che consente eventualmente di autorizzare tali responsabili dell'approvazione alla gestione delle password assegnate all'applicazione.
 
 ## <a name="feedback"></a>Commenti e suggerimenti
 

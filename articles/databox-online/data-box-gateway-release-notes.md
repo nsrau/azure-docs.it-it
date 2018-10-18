@@ -1,25 +1,19 @@
 ---
 title: Note sulla versione di anteprima di Azure Data Box Gateway | Microsoft Docs
 description: Descrive i problemi critici non ancora risolti e le soluzioni trovate per la versione di anteprima in esecuzione di Azure Data Box Gateway.
-services: databox-edge-gateway
-documentationcenter: ''
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 2668279b33d2d8d1c0adf92c138cc6347c95bd4d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f5e19d59dfddc3be849700f3678519179b5b39ba
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035352"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49164570"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Note sulla versione di anteprima di Azure Data Box Gateway
 

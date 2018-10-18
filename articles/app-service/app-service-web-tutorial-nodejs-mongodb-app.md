@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 8fdad8d8e62365c33b47e67b483c929aaab0083e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2363f7f2e17bfc451ea9fd5486ba60fbc8ccb993
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38318015"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364286"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Esercitazione: Creare un'app Web Node.js e MongoDB in Azure
 
@@ -44,7 +44,7 @@ Contenuto dell'esercitazione:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -118,6 +118,9 @@ Selezionare **Admin > Manage Articles** (Amministrazione > Gestione articoli) pe
 
 Per arrestare Node.js in qualsiasi momento, premere `Ctrl+C` nel terminale. 
 
+> [!NOTE]
+> La [Guida introduttiva di Node.js](app-service-web-get-started-nodejs.md) indica la necessità di un file web.config nella directory radice dell'app. Tuttavia, in questa esercitazione il file web.config verrà generato automaticamente dal servizio app quando si distribuiscono i file usando la [distribuzione con Git locale](app-service-deploy-local-git.md) anziché la distribuzione con file ZIP. 
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-production-mongodb"></a>Creare MongoDB di produzione
@@ -132,7 +135,11 @@ Per MongoDB, questa esercitazione usa [Azure Cosmos DB](/azure/documentdb/). COS
 
 ### <a name="create-a-cosmos-db-account"></a>Creare un account Cosmos DB
 
-In Cloud Shell creare un account Cosmos DB con il comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_create).
+> [!NOTE]
+> La creazione dei database Azure Cosmos DB in questa esercitazione nell'ambito della sottoscrizione di Azure è a pagamento. Per usare un account Azure Cosmos DB gratuito per sette giorni, è possibile provare l'esperienza disponibile nella pagina [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/). Fare clic sul pulsante **Crea** nel riquadro MongoDB per creare un database MongoDB gratuito in Azure. Dopo aver creato il database, passare a **Stringa di connessione** nel portale e recuperare la stringa di connessione di Azure Cosmos DB da usare più avanti in questa esercitazione.
+>
+
+In Cloud Shell creare un account Cosmos DB con il comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
 Nel comando seguente sostituire il segnaposto *\<cosmosdb_name>* con un nome Cosmos DB univoco. Poiché questo nome è incluso nell'endpoint Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, è necessario che sia univoco in tutti gli account Cosmos DB in Azure. Il nome deve contenere solo lettere minuscole, numeri e il carattere (-) e deve avere una lunghezza compresa tra 3 e 50 caratteri.
 
@@ -166,7 +173,7 @@ In questo passaggio si usa una stringa di connessione MongoDB per connettere l'a
 
 ### <a name="retrieve-the-database-key"></a>Recuperare la chiave del database
 
-Per connettersi al database Cosmos DB, è necessario disporre della chiave database. In Cloud Shell usare il comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az_cosmosdb_list_keys) per recuperare la chiave primaria.
+Per connettersi al database Cosmos DB, è necessario disporre della chiave database. In Cloud Shell usare il comando [`az cosmosdb list-keys`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) per recuperare la chiave primaria.
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb_name> --resource-group myResourceGroup
@@ -263,7 +270,7 @@ In questo passaggio si distribuisce l'applicazione Node.js connessa a MongoDB ne
 
 Per impostazione predefinita, il progetto MEAN.js mantiene _config/env/local-production.js_ fuori dal repository Git. per l'app Web di Azure si usano le impostazioni dell'app per definire la stringa di connessione di MongoDB.
 
-Per configurare le impostazioni dell'app, usare il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in Cloud Shell. 
+Per configurare le impostazioni dell'app, usare il comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in Cloud Shell. 
 
 L'esempio seguente configura l'impostazione dell'app `MONGODB_URI` nell'app Web di Azure. Sostituire i segnaposto *\<app_name>*, *\<cosmosdb_name>* e *\<primary_master_key>*.
 
@@ -467,7 +474,7 @@ Eventuali articoli aggiunti in precedenza sono ancora visibili. I dati esistenti
 
 Mentre l'applicazione Node.js è in esecuzione nel servizio app di Azure, è possibile fare in modo che i log di console siano inviati tramite pipe al terminale. Ciò consente di ottenere gli stessi messaggi di diagnostica per il debug degli errori dell'applicazione.
 
-Per avviare lo streaming dei log, usare il comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) in Cloud Shell.
+Per avviare lo streaming dei log, usare il comando [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) in Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app_name> --resource-group myResourceGroup

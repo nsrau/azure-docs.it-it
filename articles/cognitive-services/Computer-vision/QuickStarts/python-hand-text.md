@@ -3,19 +3,19 @@ title: 'Guida introduttiva: Estrarre testo scritto a mano - REST, Python - Visio
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrarrà testo scritto a mano da un'immagine usando l'API Visione artificiale con Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 91cff6205af70968b6397af9756a5385ddb0c989
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 58860fa1f65f90cdd314eb2c8cb7e1f54faa2344
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631362"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341753"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>Guida introduttiva: Estrarre testo scritto a mano usando l'API REST e Python in Visione artificiale
 

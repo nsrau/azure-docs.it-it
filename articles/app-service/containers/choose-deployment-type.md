@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
-ms.openlocfilehash: 012f78fc07f237e8ed532246c81a3c86bb6ab4ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c619ae164f8f8b6e94d9061c4346de58bd6cb795
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764343"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319439"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Immagine personalizzata, multi-contenitore o immagine della piattaforma predefinita?
 
@@ -30,7 +30,7 @@ Il [servizio app in Linux](app-service-linux-intro.md) offre tre percorsi divers
 - **Distribuzione di multi-contenitore**: eseguire l'app in Docker tra più contenitori tramite Docker Compose o un file di configurazione Kubernetes. Per altre informazioni, vedere [Supporto di app multi-contenitore](#multi-container-apps-supportability).
 - **Distribuzione di app con un'immagine della piattaforma predefinita**: le immagini di piattaforma predefinite contengono runtime e dipendenze di app Web comuni, come Node e PHP. Usare uno qualsiasi dei [metodi di distribuzione di Servizio app di Azure](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per distribuire l'app nello spazio di archiviazione dell'app Web e quindi usare un'immagine della piattaforma predefinita per eseguirla.
 
-##<a name="which-method-is-right-for-your-app"></a>Qual è il metodo più appropriato per l'app? 
+## <a name="which-method-is-right-for-your-app"></a>Qual è il metodo più appropriato per l'app? 
 
 Ecco i principali fattori da prendere in considerazione:
 

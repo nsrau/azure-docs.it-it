@@ -1,24 +1,25 @@
 ---
-title: Usare un endpoint personalizzato per il riconoscimento vocale - Servizio di riconoscimento vocale personalizzato
-titlesuffix: Azure Cognitive Services
-description: Informazioni su come usare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale personalizzato.
+title: Usare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale personalizzato in Azure | Microsoft Docs
+description: Informazioni su come usare un endpoint personalizzato per il riconoscimento vocale con il Servizio di riconoscimento vocale personalizzato in Servizi cognitivi.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223373"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341804"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Usare un endpoint personalizzato per il riconoscimento vocale
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 È possibile inviare richieste a un endpoint di riconoscimento vocale del Servizio di riconoscimento vocale personalizzato di Azure, seguendo una procedura simile a quella relativa all'endpoint di riconoscimento vocale predefinito di Servizi cognitivi. Questi endpoint sono funzionalmente identici agli endpoint predefiniti dell'API Riconoscimento vocale. Pertanto, le stesse funzionalità disponibili tramite la libreria client o l'API REST per l'API Riconoscimento vocale sono disponibili anche per l'endpoint personalizzato.
 
 Gli endpoint creati usando questo servizio possono elaborare numeri diversi di richieste simultanee. Il volume dipende il piano tariffario associato alla sottoscrizione. Se vengono ricevute troppe richieste, si verifica un errore. Il livello gratuito prevede un limite mensile delle richieste.

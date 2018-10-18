@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0c5d045cb949f5393bb2d9da54715b2b84229c36
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 2c92db96820b9796ba2c952affcb3b3eef5b985e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036289"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319847"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Eliminare un gateway di rete virtuale usando PowerShell (classico)
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portale di Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Classica: PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
->
 
 Questo articolo illustra come eliminare un gateway VPN nel modello di distribuzione classica tramite PowerShell. Dopo aver eliminato il gateway di rete virtuale, modificare il file di configurazione di rete per rimuovere gli elementi che non sono più in uso.
 
-##<a name="connect"></a>Passaggio 1: Connettersi ad Azure
+## <a name="connect"></a>Passaggio 1: Connettersi ad Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Installare i cmdlet di PowerShell più recenti.
 
@@ -101,7 +101,7 @@ Esempio:
  </Gateway>
 ```
 
-###<a name="lns"></a>Siti di rete locale
+### <a name="lns"></a>Siti di rete locale
 
 Rimuovere tutti i siti locali che non sono più in uso. A seconda della configurazione creata, è possibile che **LocalNetworkSite** non sia elencato.
 

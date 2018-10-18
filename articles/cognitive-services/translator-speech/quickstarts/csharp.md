@@ -1,31 +1,34 @@
 ---
-title: Guida introduttiva a C# per Servizi cognitivi di Azure, API Traduzione vocale Microsoft | Microsoft Docs
-description: Ottenere informazioni ed esempi di codice per iniziare rapidamente a usare l'API Traduzione vocale Microsoft in Servizi cognitivi Microsoft in Azure.
+title: 'Guida introduttiva: API Traduzione vocale - C#'
+titlesuffix: Azure Cognitive Services
+description: Informazioni ed esempi di codice per iniziare a usare rapidamente l'API Traduzione vocale.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.topic: article
+ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4f12d74aedbcadc311cd9c5ccd12dc1ad3501dbf
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 224a0ab83720bb9605f2dad9c2612630e90fea2a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205103"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341736"
 ---
-# <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Guida introduttiva per l'API Traduzione vocale Microsoft con C# 
+# <a name="quickstart-translator-speech-api-with-c"></a>Guida introduttiva: API Traduzione vocale con C# 
 <a name="HOLTop"></a>
 
-Questo articolo illustra come usare l'API Traduzione vocale Microsoft per tradurre il testo parlato in un file con estensione wav.
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+Questo articolo illustra come usare l'API Traduzione vocale per tradurre il testo parlato in un file con estensione wav.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per eseguire questo codice in Windows è necessario [Visual Studio 2017](https://www.visualstudio.com/downloads/). È possibile usare la Community Edition gratuita.
 
-È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono. È possibile ottenere questo file .wav dall'[API sintesi vocale](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+È inoltre necessario un file con estensione wav denominato "speak.wav" nella stessa cartella del file eseguibile che si compila dal codice seguente. Il file con estensione wav deve essere in formato PCM standard, a 16 bit, 16 kHz, mono.
 
 È necessario disporre di un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Traduzione vocale Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -65,11 +68,12 @@ namespace TranslateSpeechQuickStart
 
             /* Make sure the audio file is followed by silence.
              * This lets the service know that the audio input is finished. */
-            var silence = new byte[3200000];
+            var silence = new byte[32000];
             var silence_buffer = new ArraySegment<byte>(silence);
             await client.SendAsync(silence_buffer, WebSocketMessageType.Binary, true, CancellationToken.None);
 
             Console.WriteLine("Done sending.");
+            System.Threading.Thread.Sleep(3000);
             await client.CloseAsync(WebSocketCloseStatus.NormalClosure, "", CancellationToken.None);
         }
 
@@ -156,4 +160,4 @@ Se il risultato è positivo, viene creato un file denominato "speak2.wav" conten
 ## <a name="see-also"></a>Vedere anche  
 
 [Panoramica di Traduzione vocale](../overview.md)
-[Informazioni di riferimento sull'API](http://docs.microsofttranslator.com/speech-translate.html)
+[Informazioni di riferimento sull'API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

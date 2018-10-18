@@ -5,15 +5,15 @@ services: storage
 author: lakasa
 ms.service: storage
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 6b73a802b186e5fcf2380f5f4c80c1bb67d253fa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ed05cab774360c4165e89399ba16f7443debb85
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981866"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165159"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Crittografia del servizio di archiviazione di Azure con chiavi gestite dal cliente in Azure Key Vault
 In Microsoft Azure la protezione e la salvaguardia dei dati sono essenziali per soddisfare i criteri di sicurezza e conformità dell'organizzazione. Uno dei metodi usati dalla piattaforma di archiviazione di Azure per proteggere i dati è la crittografia del servizio di archiviazione, che crittografa i dati durante la scrittura nella risorsa di archiviazione e li decrittografa durante il recupero. Le operazioni di crittografia e decrittografia sono automatiche e trasparenti e usano la [crittografia AES](https://wikipedia.org/wiki/Advanced_Encryption_Standard) a 256 bit, uno dei più efficaci algoritmi di crittografia a blocchi.
@@ -101,7 +101,7 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup"
 $keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
 Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -EnableEncryptionService "Blob" -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>Passaggio 5: Copiare i dati nell'account di archiviazione

@@ -1,24 +1,27 @@
 ---
-title: Supporto | Microsoft Docs
-description: Supporto per il Servizio di riconoscimento vocale Microsoft.
+title: Supporto di Riconoscimento vocale Bing | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Supporto di Riconoscimento vocale Bing.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 09/08/2018
 ms.author: zhouwang
-ms.openlocfilehash: 1cca2008b879e51434f3d3bde839e9ab68f796d1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 710ba6596303bbbd46d95301bf10b0e6e434a4c1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373780"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343623"
 ---
 # <a name="support"></a>Supporto
 
-In caso di domande, feedback o suggerimenti sul Servizio di riconoscimento vocale, è possibile contattare Microsoft tramite GitHub. 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+In caso di domande, feedback o suggerimenti su Riconoscimento vocale Bing, è possibile contattare Microsoft tramite GitHub. 
  - [Domande relative all'API REST](https://github.com/Azure-Samples/SpeechToText-REST/issues)
  - [Libreria JavaScript](https://github.com/Azure-Samples/Cognitive-Speech-STT-JavaScript/issues)
  - [Domande relative alla libreria desktop C#](https://github.com/Azure-Samples/Cognitive-Speech-STT-Windows/issues)

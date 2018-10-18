@@ -1,26 +1,27 @@
 ---
-title: Esercitazione su Traduzione vocale (C#)| Microsoft Docs
-titleSuffix: Cognitive Services
-description: Informazioni su come usare il servizio Traduzione vocale per tradurre il testo in tempo reale.
+title: 'Esercitazione: API Traduzione vocale - C#'
+titleSuffix: Azure Cognitive Services
+description: Usare l'API Traduzione vocale per tradurre il testo in tempo reale.
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e82c5c5ccfa6b7de8a9ec111140dad1a40ad44f6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6a53eaf2154162ab9ec85a5a75c2cd52962b53a9
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373945"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340427"
 ---
-# <a name="tutorial-microsoft-translator-wpf-application-in-c"></a>Esercitazione: Applicazione WPF Microsoft Translator in C#
+# <a name="tutorial-translator-speech-application-in-c"></a>Esercitazione: Applicazione Traduzione vocale in C#
 
-Questa esercitazione consente di esplorare uno strumento di traduzione vocale interattivo che usa il servizio Traduzione vocale Microsoft incluso in Servizi cognitivi Microsoft in Azure. Si apprenderà come:
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+Questa esercitazione consente di esplorare uno strumento di traduzione vocale interattivo che usa l'API Traduzione vocale inclusa in Servizi cognitivi di Azure. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Richiedere un elenco delle lingue supportate dal servizio
@@ -42,7 +43,7 @@ La soluzione di Visual Studio crea anche un programma di installazione per l'app
 
 ## <a name="trying-the-translation-app"></a>Prova dell'app di traduzione
 
-Dopo l'apertura della soluzione Traduzione vocale Microsoft (`SpeechTranslator.sln`) in Visual Studio, premere F5 per compilare e avviare l'applicazione.  Verrà visualizzata la finestra principale del programma.
+Dopo aver aperto la soluzione Traduzione vocale (`SpeechTranslator.sln`) in Visual Studio, premere F5 per compilare e avviare l'applicazione.  Verrà visualizzata la finestra principale del programma.
 
 ![[Finestra principale di Traduzione vocale]](media/speech-translator-main-window.png)
 
@@ -50,7 +51,7 @@ Alla prima esecuzione scegliere **Impostazioni account** dal menu **Impostazioni
 
 ![[Finestra principale di Traduzione vocale]](media/speech-translator-settings-window.png)
 
-Incollare la chiave di sottoscrizione di Traduzione vocale Microsoft in questa finestra e quindi fare clic su **Salva**. La chiave viene salvata da un'esecuzione all'altra.
+Incollare la chiave di sottoscrizione di Traduzione vocale in questa finestra e quindi fare clic su **Salva**. La chiave viene salvata da un'esecuzione all'altra.
 
 Nella finestra principale scegliere i dispositivi audio di input e output da usare e le lingue di origine e di destinazione. Se si vuole ascoltare l'audio della traduzione, assicurarsi che l'opzione **TTS** (text-to-speech, sintesi vocale) sia selezionata. Per visualizzare ipotetiche traduzioni parziali mentre si parla, abilitare l'opzione **Partial Results** (Risultati parziali).
 
@@ -58,7 +59,7 @@ Fare infine clic su **Start** (Avvia) per avviare la traduzione. Pronunciare una
 
 ## <a name="obtaining-supported-languages"></a>Acquisizione delle lingue supportate
 
-Al momento della stesura di questo articolo, il servizio Microsoft Translator supporta oltre 60 lingue per la traduzione testuale, mentre è supportato un numero minore di lingue per la traduzione vocale. Per queste lingue è necessario il supporto sia per la trascrizione (riconoscimento vocale) sia per l'output della sintesi vocale.
+Al momento della stesura di questo articolo, il servizio Traduzione vocale supporta oltre 60 lingue per la traduzione testuale, mentre è supportato un numero minore di lingue per la traduzione vocale. Per queste lingue è necessario il supporto sia per la trascrizione (riconoscimento vocale) sia per l'output della sintesi vocale.
 
 In altre parole, per la traduzione vocale la lingua di origine deve essere tra quelle supportate per la trascrizione. La lingua di output può essere una delle lingue supportate per la traduzione testuale, supponendo che si voglia ottenere un risultato in formato testo. Se si vuole un output vocale, è possibile tradurre soltanto in una delle lingue supportate per la sintesi vocale.
 
@@ -357,7 +358,7 @@ private void Connect()
 }
 ```
 
-Una parte considerevole di `Connect()` riguarda la creazione di un'istanza di `SpeechClientOptions` (vedere `SpeechClientOptions.cs`) che contiene le opzioni per la traduzione. Le opzioni includono le informazioni necessarie per connettersi al servizio, ad esempio la chiave di autenticazione e il nome host, e le funzionalità usate per la traduzione. I campi qui riportati corrispondono ai campi di intestazione e ai parametri HTTP esposti dall'[API Traduzione vocale](http://docs.microsofttranslator.com/speech-translate.html).
+Una parte considerevole di `Connect()` riguarda la creazione di un'istanza di `SpeechClientOptions` (vedere `SpeechClientOptions.cs`) che contiene le opzioni per la traduzione. Le opzioni includono le informazioni necessarie per connettersi al servizio, ad esempio la chiave di autenticazione e il nome host, e le funzionalità usate per la traduzione. I campi qui riportati corrispondono ai campi di intestazione e ai parametri HTTP esposti dall'[API Traduzione vocale](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference).
 
 Inoltre, `Connect()` crea e inizializza il dispositivo di input audio (variabile `sampleProvider`) che funge da origine del contenuto vocale da tradurre. L'origine può essere costituita da un dispositivo hardware di input, ad esempio un microfono, oppure da un file contenente dati audio WAVE.
 
@@ -431,4 +432,4 @@ I dati binari sono dati audio (output della sintesi locale) inviati dal servizio
 Questo esempio di codice rappresenta un'applicazione con numerose funzionalità che illustra l'uso dell'API Traduzione vocale. Vi sono pertanto diverse parti da comprendere. Sono state esaminate in dettaglio le più importanti. Per le parti restanti può essere utile impostare alcuni punti di interruzione in Visual Studio e seguire i passaggi del processo di traduzione. Dopo aver compreso l'applicazione di esempio, è possibile iniziare a usare il servizio Traduzione vocale nelle proprie applicazioni.
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API Traduzione vocale Microsoft](http://docs.microsofttranslator.com/speech-translate.html)
+> [Informazioni di riferimento sull'API Traduzione vocale Microsoft](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

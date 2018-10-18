@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391166"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319354"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
@@ -36,8 +36,10 @@ Se non è già disponibile un master Jenkins, iniziare con il [modello di soluzi
 * [Servizio app di Azure](https://plugins.jenkins.io/azure-app-service) versione 0.1
 
 Si può usare il plug-in Jenkins per distribuire un'app Web in qualsiasi linguaggio supportato da App Web, ad esempio C#, PHP, Java e Node.js. In questa esercitazione viene usata l'app di esempio [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Per creare il fork del repository nel proprio account GitHub, selezionare il pulsante **Fork** nell'angolo superiore destro dell'interfaccia GitHub.  
+
 > [!NOTE]
 > Per compilare il progetto Java sono necessari Java JDK e Maven. Installare i componenti nel master Jenkins o nell'agente di macchine virtuali, se in uso per l'integrazione continua. Se si distribuisce un'applicazione Java SE, è necessario anche ZIP sul server di compilazione.
+>
 
 Per installare i componenti, accedere all'istanza di Jenkins usando SSH ed eseguire i comandi seguenti:
 
@@ -48,7 +50,7 @@ sudo apt-get install -y maven
 
 Per eseguire la distribuzione in app Web per contenitori, installare Docker nel master Jenkins o nell'agente di macchine virtuali usato per la compilazione. Per istruzioni sull'installazione, vedere la guida all'[installazione di Docker su Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a> Aggiungere un'entità servizio di Azure alle credenziali di Jenkins
+## <a name="service-principal"></a> Aggiungere un'entità servizio di Azure alle credenziali di Jenkins
 
 Per la distribuzione in Azure è necessaria un'entità servizio di Azure. 
 

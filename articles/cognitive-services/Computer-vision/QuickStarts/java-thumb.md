@@ -3,41 +3,41 @@ title: "Guida introduttiva: generare un'anteprima - REST, Java - Visione artific
 titleSuffix: Azure Cognitive Services
 description: Grazie a questa guida introduttiva, si può generare l'anteprima di un'immagine usando API Visione artificiale con Java.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 8627a3b2e5f0a1e250401bdddc1870381979dca8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.author: pafarley
+ms.openlocfilehash: a29fd161e788a0c10e5fcb5cd5cd735e1f2cf1b4
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225915"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343578"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>Guida introduttiva: generare un'anteprima mediante API REST e Java in Visione artificiale
 
-Grazie a questa guida introduttiva, è possibile generare l'anteprima di un'immagine usando API REST Visione artificiale. Il metodo [Ottieni anteprima](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) consente di generare l'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale usa il ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
+Grazie a questa guida introduttiva, è possibile generare l'anteprima di un'immagine usando API REST Visione artificiale. Il metodo [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) consente di generare l'anteprima di un'immagine. Si specificano l'altezza e la larghezza, che possono essere diverse rispetto alle proporzioni dell'immagine di input. Visione artificiale usa il ritaglio intelligente per identificare l'area di interesse in modo intelligente e generare le coordinate di ritaglio in base a tale area.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario aver installato la piattaforma [Java&trade; Standard Edition Development Kit 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 o 8).
-- È necessario disporre di una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere le sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- È necessario avere una chiave di sottoscrizione per Visione artificiale. Per ottenere una chiave di sottoscrizione, vedere la sezione [Come ottenere chiavi di sottoscrizione](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="create-and-run-the-sample-application"></a>Creare ed eseguire l'applicazione di esempio
 
-Per creare ed eseguire l'esempio, seguire la seguente procedura:
+Per creare ed eseguire l'esempio, seguire questa procedura:
 
 1. Creare un nuovo progetto Java nell'IDE o nell'editor preferito. Se l'opzione è disponibile, creare il progetto Java da un modello di applicazione della riga di comando.
-1. Importare le seguenti librerie nel progetto Java. Se si usa Maven, verranno fornite le coordinate di Maven per ogni libreria.
+1. Importare le librerie seguenti nel progetto Java. Se si usa Maven, verranno fornite le coordinate di Maven per ogni libreria.
    - [Client HTTP Apache](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [HTTP Apache core](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
    - [Libreria JSON](https://github.com/stleary/JSON-java) (org.json:json:20180130)
-1. Aggiungere le seguenti istruzioni `import` per il file che contiene la classe pubblica `Main` del progetto.  
+1. Aggiungere le istruzioni `import` seguenti al file che contiene la classe pubblica `Main` del progetto.  
 
    ```java
    import java.awt.*;
@@ -57,12 +57,12 @@ Per creare ed eseguire l'esempio, seguire la seguente procedura:
    import org.json.JSONObject;
    ```
 
-1. Sostituire la classe pubblica `Main` con il seguente codice, quindi apportare le modifiche nel codice dove necessario:
+1. Sostituire la classe pubblica `Main` con il codice seguente e quindi apportare le modifiche seguenti nel codice, dove necessario:
    1. Sostituire il valore di `subscriptionKey` con la chiave di sottoscrizione.
    1. Se necessario, sostituire il valore di `uriBase` con l'URL endpoint per il metodo [Ottieni anteprima](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), dall'area di Azure in cui sono state ottenute le chiavi di sottoscrizione.
    1. Facoltativamente, sostituire il valore di `imageToAnalyze` con l'URL di un'immagine diversa per la quale si vuole generare un'anteprima.
 1. Salvare, quindi compilare il progetto Java.
-1. Se si usa un IDE (Integrated Development Environment, Ambiente di sviluppo integrato), eseguire `Main`. In caso contrario, aprire una finestra del prompt dei comandi e usare il comando `java` per eseguire la classe compilata. Ad esempio: `java Main`.
+1. Se si usa un ambiente di sviluppo integrato, eseguire `Main`. In caso contrario, aprire una finestra del prompt dei comandi e usare il comando `java` per eseguire la classe compilata. Ad esempio: `java Main`.
 
 ```java
 // This sample uses the following libraries:
@@ -162,9 +162,9 @@ public class Main {
 }
 ```
 
-## <a name="examine-the-response"></a>Analisi dei risultati
+## <a name="examine-the-response"></a>Esaminare i risultati
 
-Una risposta positiva viene inviata sotto forma di dati binari, come rappresentazione dei dati dell'immagine per l'anteprima. Se la richiesta ha esito positivo, l'anteprima viene generata dai dati binari della risposta e visualizzata in una finestra separata, creata dall'applicazione di esempio. Se la richiesta ha esito negativo, la risposte viene visualizzata nella finestra della console. La risposta a una richiesta con esito negativo contiene un codice di errore e un messaggio per determinarne la causa.
+Una risposta positiva viene inviata sotto forma di dati binari, come rappresentazione dei dati dell'immagine per l'anteprima. Se la richiesta ha esito positivo, l'anteprima viene generata dai dati binari della risposta e visualizzata in una finestra separata, creata dall'applicazione di esempio. Se la richiesta ha esito negativo, la risposte viene visualizzata nella finestra della console. La risposta a una richiesta con esito negativo contiene un codice di errore e un messaggio utile per determinarne la causa.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -172,7 +172,7 @@ Quando non sono più necessari, eliminare il progetto Java con la classe compila
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare un'applicazione Java Swing che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente API Visione artificiale, selezionare [Apri console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Esaminare un'applicazione Java Swing che usa Visione artificiale per eseguire il riconoscimento ottico dei caratteri (OCR), creare anteprime ritagliate in modo intelligente, nonché rilevare, classificare, contrassegnare con tag e descrivere le caratteristiche visive, inclusi i visi, di un'immagine. Per sperimentare rapidamente l'API Visione artificiale, provare la [console di test dell'API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Esercitazione in Java per l'API Visione artificiale](../Tutorials/java-tutorial.md)

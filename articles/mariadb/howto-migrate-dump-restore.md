@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9b22890bceba6205c995a01105cdf11a08a9c10b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998747"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309536"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Eseguire la migrazione del database MariaDB a Database di Azure per MariaDB tramite dump e ripristino
 Questo articolo illustra due modi comuni per eseguire il backup e il ripristino dei database nel database di Azure per MariaDB
@@ -30,7 +30,9 @@ Per proseguire con questa guida è necessario:
 Usare utilità e strumenti comuni, come ad esempio MySQL Workbench, mysqldump, Toad o Navicat per connettersi in modalità remota e ripristinare i dati nel database di Azure per MariaDB. Usare tali strumenti sul computer client con una connessione internet per connettersi al database di Azure per MariaDB. Usare una connessione SSL crittografata per le procedure di sicurezza consigliate. Vedere anche [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md) (Configurare la connettività SSL nel database di Azure per MariaDB). Durante la migrazione al database di Azure per MariaDB non è necessario spostare i file di dump in alcun percorso cloud speciale. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Usi comuni per il dump e ripristino
-È possibile usare le utilità di MySQL come mysqldump e mysqlpump per il dump e il caricamento di database in un database di Azure per MariaDB in diversi scenari comuni. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+È possibile usare le utilità di MySQL come mysqldump e mysqlpump per il dump e il caricamento di database in un database di Azure per MariaDB in diversi scenari comuni. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - Usare i dump del database quando si esegue la migrazione dell'intero database. Questa indicazione è utile quando si sposta una grande quantità di dati o quando si vuole ridurre al minimo l'interruzione del servizio per applicazioni o siti live. 
 -  Verificare che tutte le tabelle nel database usino il motore di archiviazione InnoDB quando si caricano dati nel database di Azure per MariaDB. Il database di Azure per MariaDB supporta solo il motore di archiviazione InnoDB e pertanto non sono supportati motori di archiviazione alternativi. Se le tabelle sono configurate con motori di archiviazione alternativi, convertirli nel formato di motore InnoDB prima della migrazione al database di Azure per MariaDB.
