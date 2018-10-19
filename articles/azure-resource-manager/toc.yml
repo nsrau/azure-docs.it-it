@@ -16,9 +16,9 @@ items:
   expanded: true
 - name: Esercitazioni
   items:
-  - name: Creare un account di archiviazione crittografato
+  - name: Utilizzare il riferimento del modello
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-  - name: Creare più istanze dell'account di archiviazione
+  - name: Creare più istanze di risorse
     href: resource-manager-tutorial-create-multiple-instances.md
   - name: Impostare l'ordine di distribuzione delle risorse
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
@@ -128,10 +128,6 @@ items:
       href: programmatically-create-subscription.md
     - name: Concedere l'accesso per la creazione di sottoscrizioni EA
       href: grant-access-to-create-subscription.md
-    - name: Creare gruppi di gestione
-      href: management-groups-create.md
-    - name: Gestire i gruppi di gestione
-      href: management-groups-manage.md
   - name: Controllare l'accesso
     items:
     - name: Creare un'entità servizio
@@ -236,9 +232,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: c47c85917445330ed2fa2ec50541b6db3f676a27
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 3e7fc5f0e26bcfd0c52b874196eff1ac332b62bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585935"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403357"

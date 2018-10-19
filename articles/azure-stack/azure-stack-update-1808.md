@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 3843898ba2d7cdd3697236a9f4cc19070c6f07c3
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395174"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429066"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -158,7 +158,7 @@ Questo aggiornamento contiene anche la mitigazione dei rischi per la vulnerabili
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
 Dopo l'installazione di questo aggiornamento, installare eventuali hotfix applicabili. Per altre informazioni, visualizzare i seguenti articoli della knowledge base, nonché nostri [criteri per la manutenzione](azure-stack-servicing-policy.md). 
-- [KB 4467062 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.4.108](https://support.microsoft.com/help/4467062/)
+- [KB 4468920 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 
 
 ## <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
@@ -259,7 +259,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
       1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
       2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
    2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
-      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4467062/).
+      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920/).
       2. Seguire i passaggi descritti in [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
       
 <!-- 3179561 - IS --> 
