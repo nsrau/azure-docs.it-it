@@ -200,7 +200,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Computer
 
 
-**Elemento di lavoro:****Richieste di modifica**
+**Elemento di lavoro:** **Richieste di modifica**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
