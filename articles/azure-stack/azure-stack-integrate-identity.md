@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 6548693b91283665704be8fc83a483a9d20dc41b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902444"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470547"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. Distribuzione tramite AD FS è detta anche la distribuzione di Azure Stack in modalità disconnessa.
@@ -70,6 +70,17 @@ Le informazioni seguenti sono necessari come input per i parametri di automazion
 |---------|---------|---------|
 |CustomADGlobalCatalog|Nome di dominio completo della destinazione di foresta di Active Directory<br>che si vuole integrare con|Contoso.com|
 |CustomADAdminCredentials|Un utente con autorizzazioni di lettura LDAP|YOURDOMAIN\graphservice|
+
+### <a name="configure-active-directory-sites"></a>Configurare siti di Active Directory
+
+Per le distribuzioni di Active Directory con più siti, configurare il sito Active Directory più vicino alla distribuzione di Azure Stack. La configurazione consente di evitare che il servizio Graph di Azure Stack di risolvere le query che utilizzano un Server di catalogo globale da un sito remoto.
+
+Aggiungere Azure Stack [rete VIP pubblici](azure-stack-network.md#public-vip-network) subnet per il sito di Active Directory di Azure più vicina per Azure Stack. Ad esempio, se il servizio Active Directory dispone di due siti Seattle e Redmond con Azure Stack distribuito nel sito di Seattle, aggiungere la subnet di rete di indirizzo VIP pubblico di Azure Stack per il sito di Azure AD per Seattle.
+
+Per altre informazioni sui siti di Active Directory, vedere [la progettazione della topologia dei siti](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> Se il servizio Active Directory è costituito da un singolo sito è possibile ignorare questo passaggio. Nel caso in cui presente una subnet di catch-all configurata convalidare che la subnet di rete di indirizzo VIP pubblico di Azure Stack non fa parte di esso.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Creare account utente in Active Directory esistente (facoltativo)
 
@@ -283,7 +294,7 @@ Esistono molti scenari che richiedono l'uso di un nome dell'entità servizio (SP
 - System Center Management Pack per Azure Stack quando distribuito con AD FS
 - Provider di risorse in Azure Stack quando distribuito con AD FS
 - Diverse applicazioni
-- È necessario un account di accesso interattivo
+- È necessario un accesso interattivo
 
 > [!Important]  
 > ADFS supporta solo le sessioni di accesso interattivo. Se è necessario un account di accesso interattivo per uno scenario automatizzato, è necessario usare un nome SPN.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 86e2f328968cb5e45b9aec71aac8e8ac9e6d656b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403901"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457015"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack
 
@@ -40,8 +40,9 @@ L'elenco seguente descrive i requisiti dei certificati necessari per distribuire
 - Ruotare i certificati, i certificati devono essere che entrambi emesso dall'autorità di certificazione interna stesso utilizzato per firmare i certificati specificati alla distribuzione o qualsiasi autorità di certificazione pubblica in precedenza
 - L'uso di certificati autofirmati non sono supportati
 - Per la distribuzione e la rotazione è possibile utilizzare un solo certificato che coprono tutti spazi dei nomi nei campi nome soggetto e nome alternativo soggetto (SAN) del certificato oppure è possibile usare singoli certificati per ogni spazio dei nomi seguente che Azure Stack si prevede di utilizzare i servizi richiedono. Entrambi gli approcci richiedono l'uso di caratteri jolly per gli endpoint in cui sono necessarie, ad esempio **KeyVault** e **KeyVaultInternal**. 
-- L'algoritmo di firma del certificato deve essere 3DES. L'algoritmo non può essere SHA1, che deve essere più avanzato. 
+- L'algoritmo di firma non può essere SHA1, che deve essere più avanzato. 
 - Il formato del certificato deve essere PFX, perché entrambe le chiavi pubbliche e private sono necessarie per l'installazione di Azure Stack. 
+- La crittografia del file PFX deve essere 3DES (questa è predefinita quando si esporta da un client Windows 10 o l'archivio certificati di Windows Server 2016).
 - Il file pfx del certificato devono avere un valore "Firma digitale" e "KeyEncipherment" nel campo relativo al "Key Usage".
 - Il file pfx del certificato devono avere i valori "Autenticazione Server (1.3.6.1.5.5.7.3.1)" e "Autenticazione Client (1.3.6.1.5.5.7.3.2)" nel campo "Enhanced Key Usage".
 - Il certificato "rilasciato a:" campo non deve essere lo stesso come relativo "rilasciato da:" campo.
@@ -63,7 +64,7 @@ I certificati con i nomi DNS appropriati per ogni endpoint infrastruttura pubbli
 Per la distribuzione, [region] e [externalfqdn] i valori devono corrispondere all'area e i nomi di dominio esterno che si è scelto per il sistema Azure Stack. Ad esempio, se il nome dell'area è stata *Redmond* e il nome di dominio esterno era *contoso.com*, i nomi DNS potrebbero avere il formato *&lt;prefisso >. redmond.contoso.com*. Il  *&lt;prefisso >* i valori sono prestabiliti da Microsoft per descrivere l'endpoint protetto mediante il certificato. Inoltre, il  *&lt;prefisso >* i valori degli endpoint esterni infrastruttura dipendono dal servizio Azure Stack che usa l'endpoint specifico. 
 
 > [!note]  
-> Certificati possono essere forniti come un certificato con caratteri jolly singolo che coprono tutti gli spazi dei nomi nei campi del soggetto e nome alternativo soggetto (SAN) copiati in tutte le directory o certificati individuali per ogni endpoint copiato nella directory corrispondente. Tenere presente che entrambe le opzioni è necessario usare certificati con caratteri jolly per gli endpoint, ad esempio **acs** e Key Vault in cui sono necessarie. 
+> Per gli ambienti di produzione, è consigliabile certificati individuali vengono generati per ogni endpoint e copiati nella directory corrispondente. Per gli ambienti di sviluppo, è possono specificare i certificati sotto un certificato con caratteri jolly singolo che coprono tutti gli spazi dei nomi nei campi del soggetto e nome alternativo soggetto (SAN) copiati in tutte le directory. Un singolo certificato che coprono tutti gli endpoint e i servizi è un comportamento non sicuro pertanto solo allo sviluppo. Tenere presente che entrambe le opzioni è necessario usare certificati con caratteri jolly per gli endpoint, ad esempio **acs** e Key Vault in cui sono necessarie. 
 
 | Cartella di distribuzione | Soggetto certificato necessarie e nomi alternativi del soggetto (SAN) | Ambito (per area) | Spazio dei nomi di sottodominio |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
