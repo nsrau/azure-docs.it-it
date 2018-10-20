@@ -32,7 +32,7 @@ items:
       - name: Java
         href: https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect
       - name: NodeJS
-        href: quickstart-v1-openid-connect-code.md
+        href: https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS
       - name: Python
         href: https://github.com/Azure-Samples/active-directory-python-webapp-graphapi
     - name: API Web
@@ -303,6 +303,8 @@ items:
           href: v2-oauth2-on-behalf-of-flow.md
         - name: Concessione di credenziali client OAuth 2.0
           href: v2-oauth2-client-creds-grant-flow.md
+      - name: Rollover della chiave di firma
+        href: active-directory-signing-key-rollover.md
       - name: Token ID
         href: id-tokens.md
       - name: Token di accesso
@@ -394,11 +396,11 @@ items:
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Risorse della Guida
     href: developer-support-help-options.md
-  - name: Identità del servizio gestita per le risorse di Azure
+  - name: Identità gestite per le risorse di Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: d74af98cc33e6b598223f9a8f22d1af5a59461b2
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 76a1124c196cf693f15e02513ca186567e3ef088
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090757"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466104"
