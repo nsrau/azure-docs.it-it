@@ -89,7 +89,7 @@ items:
       href: how-to-auto-train-remote.md
   - name: Modelli ONNX
     items:
-    - name: Creare e distribuire modelli ONNX
+    - name: Creazione e distribuzione
       href: how-to-build-deploy-onnx.md
   - name: Distribuire i modelli
     items:
@@ -115,8 +115,6 @@ items:
       href: how-to-enable-app-insights.md
   - name: Gestire le quote di risorse
     href: how-to-manage-quotas.md
-  - name: Esportare ed eliminare dati
-    href: how-to-export-delete-data.md
 - name: riferimento
   items:
   - name: Machine Learning SDK
@@ -133,18 +131,20 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Disponibilità internazionale
     href: https://azure.microsoft.com/regions/services/
-  - name: Esportare o eliminare i dati dell'account
-    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: Note sulla versione
     href: azure-machine-learning-release-notes.md
   - name: Problemi noti
     href: resource-known-issues.md
   - name: Supporto
     href: support-for-aml-services.md
+  - name: Esportare ed eliminare dati
+    href: how-to-export-delete-data.md
   - name: Documenti deprecati
     items:
     - name: Come eseguire la migrazione
       href: how-to-migrate.md
+    - name: Esportare o eliminare i dati dell'account (deprecato)
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: Guida introduttiva sul Workbench
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Esercitazione 1: Preparare i dati'
@@ -341,9 +341,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemi precedenti
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: e408b78c66ddbd809d36c4aa8451b53031ba4d5a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 2e5e1d3c925a6b946e340820fc7d259251c0e9b7
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428267"
+ms.locfileid: "49457059"

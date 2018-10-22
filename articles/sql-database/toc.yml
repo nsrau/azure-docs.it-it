@@ -65,14 +65,14 @@ items:
     href: sql-database-design-first-database.md
   - name: '2: Progettare database con .NET'
     href: sql-database-design-first-database-csharp.md
-  - name: '3: Eseguire la migrazione al database SQL Server con Data Migration Assistant'
-    href: sql-database-migrate-your-sql-server-database.md
+  - name: '3: Eseguire la migrazione a un database SQL di Azure singolo usando il servizio Migrazione del database'
+    href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
   - name: '4: Proteggere il database SQL'
     href: sql-database-security-tutorial.md
   - name: '5: Implementare un database con distribuzione geografica'
     href: sql-database-implement-geo-distributed-database.md
   - name: "6: Eseguire la migrazione a un'istanza gestita con il servizio Migrazione del database di Azure"
-    href: ../dms/tutorial-sql-server-to-managed-instance.md
+    href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
   - name: '7: Configurare la sincronizzazione dati SQL'
     href: sql-database-get-started-sql-data-sync.md
 - name: Esempi
@@ -596,7 +596,7 @@ items:
   - name: SQLCMD
     href: /sql/tools/sqlcmd-utility
   - name: SqlPackage
-    href: https://docs.microsoft.com/sql/tools/sqlpackage
+    href: https://docs.microsoft.com/sql/tools/sqlpackage?toc=/azure/sql-database/toc.json
   - name: Pacchetto della libreria di gestione del database SQL
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
   - name: Driver di SQL Server
@@ -634,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Casi di successo dei clienti
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: e39e94ccbf1da42b10cd8c618cd27c2a7eb214de
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 38a8ec13b8a5e50d60ed46d1bd4d71af933d61f0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353511"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470372"
