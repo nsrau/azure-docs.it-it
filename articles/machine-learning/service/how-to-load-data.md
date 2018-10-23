@@ -10,23 +10,21 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 436ff9d318dc311efe27352a8b2ac91cfb5be618
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221327"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237586"
 ---
-#<a name="load-and-read-data-with-azure-machine-learning"></a>Caricare e leggere dati con Azure Machine Learning
+# <a name="load-and-read-data-with-azure-machine-learning"></a>Caricare e leggere dati con Azure Machine Learning
 
 [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) consente di caricare vari tipi di dati di input. 
 
-Per caricare i dati, sono disponibili due approcci:
-+ Specificare il tipo di file di dati e i relativi parametri
-+ Usare la funzionalità di lettura smart SDK per rilevare automaticamente il tipo di file
+Al fine di caricare i propri dati, specificare il tipo di file di dati e i relativi parametri
 
 ## <a name="use-text-line-data"></a>Usare dati di righe di testo 
-Uno dei modi più semplici per caricare i dati è la lettura degli stessi come righe di testo.
+Uno dei modi più semplici per caricare i dati è la lettura degli stessi come linee di testo.
 
 Di seguito è riportato un codice di esempio:
 ```python
@@ -352,7 +350,3 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|Six Mile|||
 |4|1010691|10th Steet Community Farmers Market|http://agrimissouri.com/mo-grown/grodetail.php... |10th Street e Poplar|Lamar|Barton|
-
-## <a name="use-smart-reading"></a>Usare la "lettura smart"
-
-Usare la funzionalità di lettura smart SDK per rilevare automaticamente il tipo di file.

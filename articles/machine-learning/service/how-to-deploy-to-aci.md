@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a62d4b0b324d8b2536e408132210f07f08e8bb8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958697"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237178"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Distribuire servizi Web nelle Istanze di contenitore di Azure 
 
@@ -33,9 +33,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Un'area di lavoro di Azure Machine Learning e Azure Machine Learning SDK per Python installata. Informazioni su come ottenere questi prerequisiti usando la [Guida introduttiva di Azure Machine Learning](quickstart-get-started.md).
+- Un'area di lavoro del servizio di Azure Machine Learning e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando la [Guida introduttiva di Azure Machine Learning](quickstart-get-started.md).
 
-- Oggetto dell'area di lavoro di Azure Machine Learning
+- Oggetto dell'area di lavoro del servizio di Azure Machine Learning
 
     ```python
     from azureml.core import Workspace

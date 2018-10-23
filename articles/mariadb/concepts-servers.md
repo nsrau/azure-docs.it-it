@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf57acdcbcfa792a6c5ab62c6e8ec0589d625df7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4fd2f28f52c45a0ec3128302b02ad5ba498c982b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994588"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247772"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Concetti relativi ai server nel database di Azure per MariaDB
 Questo argomento fornisce considerazioni e linee guida per l'uso del database di Azure per server MariaDB.
@@ -44,12 +44,13 @@ I seguenti elementi contribuiscono a garantire un accesso sicuro al database.
 | **Protocollo** | Il servizio supporta un protocollo basato su messaggi usato da MySQL. |
 | **TCP/IP** | Il protocollo è supportato su TCP/IP e sui socket di dominio Unix. |
 | **Firewall** | Per proteggere i dati, le regole del firewall impediscono qualsiasi accesso al server del database finché non si specificano i computer autorizzati. Vedere [Regole firewall per il server Database di Azure per MariaDB](./concepts-firewall-rules.md). |
-| **SSL** | Il servizio supporta l'attivazione di connessioni SSL tra le applicazioni e il server del database.  <!--See [Configure SSL connectivity in your application to securely connect to Azure Database for MariaDB](./howto-configure-ssl.md).--> |
+| **SSL** | Il servizio supporta l'attivazione di connessioni SSL tra le applicazioni e il server del database. Consultare [Configurare la connettività SSL nell'applicazione per la connessione sicura a Database di Azure per MariaDB](./howto-configure-ssl.md). |
 
 ## <a name="how-do-i-manage-a-server"></a>Gestione di un server
 È possibile gestire il database di Azure per i server MariaDB mediante il portale o l'interfaccia della riga di comando di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per una panoramica del servizio, consultare le [informazioni generali su Database di Azure per MariaDB](./overview.md)
-- Per informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**, vedere la pagina relativa ai [livelli di servizio](./concepts-pricing-tiers.md)
+- Per informazioni sulle quote specifiche di risorse e sulle limitazioni in base al **livello di servizio**, vedere [Livelli di servizio](./concepts-pricing-tiers.md)
+
 <!-- - For information about connecting to the service, see [Connection libraries for Azure Database for MariaDB](./concepts-connection-libraries.md). -->
