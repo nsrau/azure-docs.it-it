@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a23e9dc8fad52bac85de834c53d2c710423211c7
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: d09fcde90cf182bc8197c579718ecef7c5ce1eed
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269242"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394528"
 ---
 # <a name="what-is-azure-analysis-services"></a>Informazioni su Azure Analysis Services
 
@@ -29,7 +29,7 @@ Azure Analysis Services è una piattaforma distribuita come servizio (PaaS) comp
 
 Nel portale di Azure è possibile [creare un server](analysis-services-create-server.md) in pochi minuti. Con i [modelli](../azure-resource-manager/resource-manager-create-first-template.md) di Azure Resource Manager e PowerShell è possibile creare server tramite un modello dichiarativo. Con un singolo modello si possono distribuire le risorse del server e altri componenti di Azure, ad esempio gli account di archiviazione e Funzioni di Azure. 
 
-**Video:** guardare [Automating deployment](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) (Automatizzazione della distribuzione) per altre informazioni su come usare Automazione di Azure per velocizzare la creazione del server.
+**Video:** guardare il video [Automating deployment](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) (Automatizzazione della distribuzione) per altre informazioni su come usare Automazione di Azure per velocizzare la creazione del server.
 
 Azure Analysis Services si integra con molti servizi di Azure e permette di creare soluzioni di analisi avanzate. L'integrazione con [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) offe l'accesso ai dati essenziali sicuro e in base al ruolo. È possibile ottenere l'integrazione con le pipeline di [Azure Data Factory](../data-factory/introduction.md) includendo un'attività che carica i dati nel modello. È possibile usare [Automazione di Azure](../automation/automation-intro.md) e [Funzioni di Azure](../azure-functions/functions-overview.md) per un'orchestrazione semplice di modelli tramite codice personalizzato. 
 

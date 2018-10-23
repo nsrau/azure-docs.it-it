@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038290"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309461"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Esercitazione: Personalizzare la visualizzazione dell'operatore in Azure IoT Central
 
@@ -56,7 +56,7 @@ I creatori possono definire le informazioni visualizzate sul dashboard di un dis
 
     ![Pagina dashboard del modello di dispositivo](media/tutorial-customize-operator/dashboard.png)
 
-4. Per aggiungere un riquadro indicatore KPI al dashboard, scegliere **KPI**:
+4. Per aggiungere un riquadro Indicatore di prestazioni chiave (KPI) al dashboard, scegliere **KPI**:
 
     ![Aggiungere indicatori KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -81,7 +81,7 @@ I creatori possono definire le informazioni visualizzate sul dashboard di un dis
 
 ## <a name="configure-your-settings-layout"></a>Configurare il layout delle impostazioni
 
-I creatori possono anche configurare la visualizzazione delle impostazioni del dispositivo da parte dell'operatore. Un operatore usa la pagina di impostazioni del dispositivo per configurarlo. Ad esempio, può usare la pagina di impostazioni per impostare la temperatura di destinazione del condizionatore.
+I creatori possono anche configurare la visualizzazione delle impostazioni del dispositivo da parte dell'operatore. Un operatore usa la pagina di impostazioni del dispositivo per configurarlo. Un operatore usa ad esempio la pagina delle impostazioni per impostare la temperatura desiderata per il condizionatore connesso.
 
 1. Per modificare il layout delle impostazioni per il condizionatore connesso, scegliere **Impostazioni** e selezionare **Modifica modello**:
 
@@ -117,7 +117,7 @@ Oltre ai dashboard e alle impostazioni, è possibile configurare anche la visual
 
 In modalità **Modifica modello** è possibile personalizzare il dashboard e le pagine di impostazioni e proprietà per un operatore. Se non si lavora in modalità **Modifica modello**, è possibile visualizzare l'applicazione come operatore.
 
-1. Per visualizzare il condizionatore connesso come operatore è necessario fare clic su **Fine** per arrestare la modifica del modello. Si torna alla visualizzazione operatore del dispositivo.
+1. Per visualizzare il condizionatore connesso come operatore è necessario fare clic su **Fine** per interrompere la modifica del modello e tornare alla visualizzazione dell'operatore per il dispositivo.
 
 2. Per aggiornare la posizione del dispositivo, modificare il valore nel riquadro Posizione e scegliere **Salva**:
 

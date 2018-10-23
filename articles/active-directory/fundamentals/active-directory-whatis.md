@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 755c301651e7c49faa8b05b2b443c5cce1a03c90
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364055"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393322"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory
 Azure Active Directory (Azure AD) è il servizio Microsoft di gestione di identità e directory multi-tenant basato sul cloud. Azure Active Directory combina servizi directory di base, gestione dell'accesso delle applicazioni e protezione delle identità in un'unica soluzione, che offre una piattaforma basata su standard che consente agli sviluppatori di implementare il controllo di accesso per le app in base a regole e criteri centralizzati.
@@ -56,7 +56,7 @@ Per altre informazioni sui contratti di servizio, vedere [Contratti di servizio]
 ## <a name="choose-an-edition"></a>Scegliere un'edizione
 Tutti i servizi aziendali di Microsoft Online si basano su Azure AD per le esigenze di gestione delle identità e degli accessi. Sottoscrivendo qualsiasi servizio aziendale di Microsoft Online, ad esempio Office 365 o Microsoft Azure, si ottiene automaticamente Azure AD con accesso a tutte le funzionalità gratuite. Con l'edizione Azure Active Directory Free, è possibile gestire utenti e gruppi, eseguire la sincronizzazione con le directory locali, disporre dell'accesso Single Sign-On per Azure, Office 365 e migliaia di app SaaS note, ad esempio Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox e molte altre. 
 
-Per migliorare l'implementazione di Azure AD, è anche possibile aggiungere funzionalità a pagamento con l'aggiornamento ad Azure Active Directory Basic Edition, Premium P1 Edition o Premium P2 Edition. Le edizioni a pagamento di Azure AD, realizzate a partire dalla directory gratuita esistente, forniscono funzionalità aziendali avanzate che estendono alla forza lavoro mobile servizi come la gestione self-service, il monitoraggio avanzato, la creazione di report di sicurezza, Multi-Factor Authentication (MFA) e l'accesso sicuro.
+Per migliorare l'implementazione di Azure AD, è anche possibile aggiungere funzionalità a pagamento effettuando l'aggiornamento ad Azure Active Directory Basic Edition, Premium P1 Edition o Premium P2 Edition. Le edizioni a pagamento di Azure AD, realizzate a partire dalla directory gratuita esistente, forniscono funzionalità aziendali avanzate che estendono alla forza lavoro mobile servizi come la gestione self-service, il monitoraggio avanzato, la creazione di report di sicurezza, Multi-Factor Authentication (MFA) e l'accesso sicuro.
 
 > [!NOTE]
 > Per le opzioni relative ai prezzi di queste edizioni, vedere [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). Le edizioni Azure Active Directory Premium P1 e Premium P2 e Azure Active Directory Basic non sono attualmente supportate in Cina. Per altre informazioni sui prezzi di Azure AD, è possibile contattare il forum di Azure Active Directory.

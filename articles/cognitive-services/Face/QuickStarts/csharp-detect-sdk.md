@@ -3,25 +3,23 @@ title: "Guida introduttiva: Rilevare i visi in un'immagine - SDK, C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si rileveranno i visi in un'immagine usando la libreria client C# Viso per Windows in Servizi cognitivi.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: a9a7efd89f8e7462812064615d07acf12acbc3a3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.author: pafarley
+ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364114"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344983"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Guida introduttiva: Rilevare i visi in un'immagine con C&#35; - Viso
 
 In questa guida introduttiva si rileveranno i visi in un'immagine usando la libreria client C# Viso per Windows.
-
-Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,6 +28,9 @@ Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.c
 * Pacchetto NuGet della libreria client [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview). Non è necessario scaricare il pacchetto. Le istruzioni di installazione sono disponibili più avanti.
 
 ## <a name="detectwithurlasync-method"></a>Metodo DetectWithUrlAsync
+
+> [!TIP]
+> Ottenere la versione più recente del codice come soluzione di Visual Studio da [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 I metodi `DetectWithUrlAsync` e `DetectWithStreamAsync` eseguono il wrapping dell'[API Viso - Rilevamento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) rispettivamente per le immagini locali e remote. È possibile usare questi metodi per rilevare i visi in un'immagine e restituirne gli attributi, tra cui:
 

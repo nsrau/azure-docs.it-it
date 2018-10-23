@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a98e29ef73275d097dc5c61b3b905193b80b79b3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858582"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113853"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Creare una funzione attivata dall'archiviazione BLOB di Azure
 
@@ -52,7 +52,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Nel campo di ricerca digitare `blob` e quindi scegliere il modello **Trigger BLOB**.
 
-1. Se richiesto, selezionare **Installa** per installare l'estensione Archiviazione di Azure ed eventuali dipendenze nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
+1. Se richiesto, selezionare **Installa** per installare l'estensione Archiviazione di Azure e le relative dipendenze nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
 
     ![Installare le estensioni di binding](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 

@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 328f5996a9b830ea6c2ff4b4a535d5311f39e08e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 35903b0da707e5167781c3a7595c3be938a4fc07
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365257"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321348"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-c35"></a>Guida introduttiva: Trovare traduzioni alternative ed esempi d'uso con C&#35;
 
 In questa guida introduttiva si trovano i dettagli relativi a possibili traduzioni alternative per un termine ed esempi d'uso di tali traduzioni usando l'API Traduzione testuale.
-
-Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,6 +28,9 @@ Per eseguire questo codice in Windows, è necessario [Visual Studio 2017](https:
 Per usare l'API Traduzione testuale, è necessario avere anche una chiave di sottoscrizione. Per informazioni, vedere [Come registrarsi all'API Traduzione testuale](translator-text-how-to-signup.md).
 
 ## <a name="dictionary-lookup-request"></a>Richiesta di ricerca nel dizionario
+
+> [!TIP]
+> Ottenere la versione più recente del codice da [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Il codice seguente ottiene le traduzioni alternative per un termine tramite il metodo [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md).
 

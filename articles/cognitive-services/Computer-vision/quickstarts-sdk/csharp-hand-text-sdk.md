@@ -3,25 +3,23 @@ title: 'Guida introduttiva: estrarre testo - SDK, C# - visione artificiale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si estrae testo da un'immagine usando la libreria client Windows C# di Visione artificiale.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.author: nolachar
-ms.openlocfilehash: 86808756721b2dc983df6eaf8a9e643a12d73969
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: pafarley
+ms.openlocfilehash: d819aee7c42759e2427e27e0f640d79536069ccb
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409017"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343606"
 ---
 # <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>Guida introduttiva: estrarre testo usando SDK e C# di Visione artificiale
 
 In questa guida introduttiva si estrae testo scritto a mano o stampato da un'immagine usando la libreria client Windows di Visione artificiale.
-
-Il codice sorgente di questo esempio è disponibile in [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,6 +28,9 @@ Il codice sorgente di questo esempio è disponibile in [Github](https://github.c
 * Il pacchetto NuGet della libreria client [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision). Non è necessario scaricare il pacchetto. Le istruzioni di installazione sono disponibili più avanti.
 
 ## <a name="recognizetextasync-method"></a>Metodo RecognizeTextAsync
+
+> [!TIP]
+> Ottenere la versione più recente del codice come soluzione di Visual Studio da [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 I metodi `RecognizeTextAsync` e `RecognizeTextInStreamAsync` eseguono il wrapping dell'[API Recognize Text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) rispettivamente per le immagini locali e remote. Il metodo `GetTextOperationResultAsync` esegue il wrapping dell'[API Get Recognize Text Operation Results](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).  È possibile usare questi metodi per rilevare il testo in un'immagine ed estrarre i caratteri riconosciuti in un flusso utilizzabile da computer.
 
@@ -42,7 +43,7 @@ Per eseguire l'esempio, seguire questa procedura:
     1. Selezionare la voce **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** quando viene visualizzata, quindi fare clic sulla casella di controllo accanto al nome del progetto e infine su **Installa**.
 1. Sostituire `Program.cs` con il codice seguente.
 1. Sostituire `<Subscription Key>` con la propria chiave di sottoscrizione valida.
-1. Modifica `computerVision.Endpoint` in modo che corrisponda all'area di Azure associata alle chiavi di sottoscrizione, se necessario.
+1. Modificare `computerVision.Endpoint` in modo che corrisponda all'area di Azure associata alle chiavi di sottoscrizione, se necessario.
 1. Facoltativamente, impostare `textRecognitionMode` su `TextRecognitionMode.Printed`.
 1. Sostituire `<LocalImage>` con il percorso e il nome del file di un'immagine locale.
 1. Facoltativamente, impostare un'immagine diversa per `remoteImageUrl`.

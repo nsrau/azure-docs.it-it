@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 841f82595257c97c15398347a3e1605219d1a534
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220888"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394426"
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
 L'infrastruttura per l'applicazione è in genere costituita da vari componenti, ad esempio una macchina virtuale, un account di archiviazione e una rete virtuale oppure un'app Web, un database, un server di database e servizi di terze parti. Questi componenti non appaiono come entità separate, ma come parti correlate e interdipendenti di una singola entità e devono essere distribuite, gestite e monitorate come gruppo. Gestione risorse di Azure consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un modello; questo modello può essere usato per diversi ambienti, ad esempio di testing, staging e produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione. 
@@ -159,7 +159,7 @@ Dopo aver definito il modello è possibile distribuire le risorse in Azure. Per 
 
 Quando si distribuisce un servizio complesso in Azure, è necessario distribuire il servizio in più aree e verificarne l'integrità prima di procedere al passaggio successivo. Usare [Azure Deployment Manager](deployment-manager-overview.md) per coordinare un'implementazione per fasi del servizio. Con l'implementazione temporanea del servizio, è possibile individuare potenziali problemi prima che il servizio sia distribuito in tutte le aree. Se non sono necessarie queste precauzioni, le operazioni di distribuzione nella sezione precedente sono la scelta migliore.
 
-Deployment Manager è attualmente disponibile nella versione di anteprima pubblica.
+Deployment Manager è attualmente disponibile nella versione di anteprima privata.
 
 ## <a name="tags"></a>Tag
 Gestione risorse di Azure offre una funzionalità di categorizzazione che consente di suddividere le risorse in categorie in base ai requisiti di gestione o fatturazione. Usare i tag quando si ha un insieme complesso di gruppi di risorse e risorse ed è necessario visualizzare tali risorse nel modo più razionale. Ad esempio, è possibile contrassegnare le risorse che svolgono un ruolo simile nell'organizzazione o che appartengono allo stesso reparto. Senza tag è possibile che gli utenti dell'organizzazione creino più risorse che possono risultare difficili da identificare e gestire in un secondo momento. Si supponga ad esempio di voler eliminare tutte le risorse per un progetto specifico. Se le risorse non hanno tag per il progetto, sarà necessario trovarle manualmente. L'assegnazione di tag può essere un modo importante per ridurre i costi non necessari nella sottoscrizione. 

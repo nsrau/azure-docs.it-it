@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 7121c83aea75f3b23820a7b0504fa704ec9f3016
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 246d7f837fdf72ddb2d24139d2d3d83fcd43b640
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984306"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310649"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Esercitazione: Definire un nuovo tipo di dispositivo nell'applicazione Azure IoT Central
 
@@ -26,8 +26,8 @@ In questa esercitazione, si crea un modello di dispositivo per un **condizionato
 
 * Invia dati di telemetria, ad esempio temperatura e umidità.
 * Segnala lo stato, ad esempio se è acceso o spento.
-* Ha proprietà come il numero di serie e la versione del firmware.
-* Ha impostazioni come la temperatura di destinazione e la velocità della ventola.
+* Ha proprietà del dispositivo come il numero di serie e la versione del firmware.
+* Ha impostazioni come la temperatura di destinazione.
 
 In questa esercitazione si apprenderà come:
 
@@ -39,9 +39,9 @@ In questa esercitazione si apprenderà come:
 > * Visualizzare eventi simulati
 > * Definire una misura di stato
 > * Visualizzare uno stato simulato
-> * Usare le proprietà del dispositivo
-> * Usare le impostazioni del dispositivo
+> * Usare impostazioni e proprietà
 > * Usare i comandi
+> * Visualizzare il dispositivo simulato nel dashboard
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -58,24 +58,20 @@ Per completare questa esercitazione, è necessaria un'applicazione Azure IoT Cen
     ![Pagina Application Manager di Azure IoT Central](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. Per creare una nuova applicazione Azure IoT Central:
-
-    * Scegliere un nome descrittivo per l'applicazione, ad esempio **Condizionatori Contoso**. Azure IoT Central genera un prefisso URL univoco. È possibile modificare questo prefisso URL in modo da renderlo più facile da ricordare.
     
-    * Scegliere un'istanza di Azure Active Directory e una sottoscrizione di Azure da usare. Per altre informazioni sulle sottoscrizioni e directory, vedere [Creare un'applicazione Azure IoT Central](howto-create-application.md).
+    * Scegliere **Gratuito**. La versione di valutazione gratuita valida per 7 giorni non requisiti di sottoscrizione.
     
-    * Usare un gruppo di risorse esistente o crearne uno nuovo con un nome a propria scelta. Ad esempio: **contoso-rg**.
+       Per altre informazioni sulle sottoscrizioni e le directory, vedere [Creare l'applicazione Azure IoT Central](howto-create-application.md).
     
-    * Scegliere l'area geografica più vicina.
+    * Scegliere **Applicazione personalizzata**.
     
-    * Scegliere il modello dell'applicazione **Applicazione personalizzata**.
-    
-    * Scegliere il piano di pagamento **Free 30 Day Trial Application** (Applicazione di prova gratuita per 30 giorni).
+    * È facoltativamente possibile scegliere un nome descrittivo per l'applicazione, ad esempio **Condizionatori Contoso**. Azure IoT Central genera un prefisso URL univoco. È possibile modificare questo prefisso URL in modo da renderlo più facile da ricordare.
     
     * Scegliere **Create**.
 
-    ![Pagina Crea applicazione di Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
+    ![Pagina Crea applicazione di Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreatenew.png)
 
-Per altre informazioni, vedere [Come creare un'applicazione Azure IoT Central](howto-create-application.md).
+    Per altre informazioni, vedere [Come creare l'applicazione Azure IoT Central](howto-create-application.md).
 
 ## <a name="create-a-new-custom-device-template"></a>Creare un nuovo modello di dispositivo personalizzato
 
@@ -107,11 +103,15 @@ La procedura seguente mostra come creare un nuovo modello di dispositivo **Condi
     
     * Definire le impostazioni usate per controllare il dispositivo.
     
-    * Definire le proprietà usate per registrare informazioni sul dispositivo.
+    * Definire le proprietà che sono i metadati del dispositivo.
+
+    * Definire i comandi da eseguire direttamente nel dispositivo.
     
     * Definire le regole associate al dispositivo.
     
     * Personalizzare il dashboard del dispositivo per gli operatori.
+
+    Quando si definisce il modello di dispositivo, scegliere prima **Modifica modello** per modificare il modello. Al termine, scegliere **Fine**. 
 
     ![Misure del condizionatore](./media/tutorial-define-device-type/airconmeasurements.png)
 
@@ -226,19 +226,23 @@ La procedura seguente mostra come creare un nuovo modello di dispositivo **Condi
 
     ![Visualizzare una simulazione di stato](./media/tutorial-define-device-type/stateview.png)
 
-4. Nel caso in cui siano presenti troppi punti dati inviati dal dispositivo in un periodo limitato, la misura stato viene visualizzata con un oggetto visivo diverso, come illustrato di seguito. Fare clic sul grafico per visualizzare tutti i punti dati all'interno di tale periodo di tempo in ordine cronologico. È anche possibile restringere l'intervallo di tempo per visualizzare la misura tracciata sul grafico.
+4. Nel caso in cui siano presenti troppi punti dati inviati dal dispositivo in un periodo limitato, la misura stato viene visualizzata con un oggetto visivo diverso, come illustrato di seguito. Fare clic sul grafico per visualizzare tutti i punti dati all'interno di tale periodo di tempo in ordine cronologico. È anche possibile restringere l'intervallo di tempo per visualizzare la misura più in dettaglio.
 
     ![Visualizzare i dettagli di stato](./media/tutorial-define-device-type/stateviewdetail.png)
 
 ## <a name="settings-properties-and-commands"></a>Impostazioni, proprietà e comandi
 
-Impostazioni, proprietà, proprietà del dispositivo e comandi sono valori diversi definiti in un modello di dispositivo e associati a ogni singolo dispositivo:
+Impostazioni, proprietà, e comandi sono valori diversi definiti in un modello di dispositivo e associati a ogni singolo dispositivo:
 
 * Le _impostazioni_ sono usate per inviare dati di configurazione dall'applicazione a un dispositivo. Ad esempio, un operatore può usare un'impostazione per modificare l'intervallo dei dati di telemetria di un dispositivo da due secondi a cinque secondi. Quando un operatore modifica un'impostazione, questa viene contrassegnata come in sospeso nell'interfaccia utente finché il dispositivo invia un acknowledgement di attivazione della modifica.
 
-* Le _proprietà_ sono usate per registrare informazioni sul dispositivo nell'applicazione. Ad esempio, è possibile usare le proprietà per registrare il numero di serie o il numero di telefono del produttore del dispositivo. Le proprietà vengono archiviate nell'applicazione e non sono sincronizzate con il dispositivo. Un operatore può assegnare valori alle proprietà.
+* Le _proprietà_ sono usate per definire i metadati associati al dispositivo. Sono disponibili due categorie di proprietà:
+    
+    * Le _proprietà dell'applicazione_ sono usate per registrare informazioni sul dispositivo nell'applicazione. È ad esempio possibile usare le proprietà dell'applicazione per registrare la posizione di un dispositivo e la data dell'ultimo utilizzo. Queste proprietà vengono archiviate nell'applicazione e non sono sincronizzate con il dispositivo. Un operatore può assegnare valori alle proprietà.
 
-* Le _proprietà dispositivo_ sono usate per permettere a un dispositivo di inviare valori di proprietà all'applicazione. Queste proprietà possono essere modificate solo dal dispositivo. Per un operatore, le proprietà dispositivo sono di sola lettura.
+    * Le _proprietà dispositivo_ sono usate per permettere a un dispositivo di inviare valori di proprietà all'applicazione. Queste proprietà possono essere modificate solo dal dispositivo. Per un operatore, le proprietà dispositivo sono di sola lettura. In questo scenario relativo a un condizionatore connesso, il numero di serie del dispositivo e la versione del firmware sono proprietà del dispositivo segnalate dal dispositivo. 
+    
+    Per altre informazioni, vedere [Proprietà][lnk-define-template] nella guida pratica alla configurazione di un modello di dispositivo.
 
 * I _comandi_ si usano per gestire il dispositivo in modalità remota dall'applicazione. È possibile eseguire i comandi direttamente sul dispositivo dal cloud per controllare i dispositivi. Un operatore, ad esempio, può eseguire un comando come un riavvio, per riavviare immediatamente il dispositivo.
 
@@ -260,7 +264,7 @@ Le *impostazioni* sono usate per permettere a un operatore di inviare dati di co
     | -------------------- | -----------     |
     | Nome visualizzato         | Imposta temperatura |
     | Nome campo           | setTemperature  |
-    | Unità di misura  | F               |
+    | Unità di misura      | F               |
     | Cifre decimali       | 1               |
     | Valore minimo        | 20              |
     | Valore massimo        | 200             |
@@ -278,9 +282,9 @@ Le *impostazioni* sono usate per permettere a un operatore di inviare dati di co
 
     ![Personalizzare il layout delle impostazioni](./media/tutorial-define-device-type/settingslayout.png)
 
-## <a name="use-properties--device-properties"></a>Usare le proprietà/proprietà del dispositivo
+## <a name="use-properties"></a>Usare le proprietà 
 
-Le *proprietà* sono usate per archiviare informazioni sul dispositivo nell'applicazione. In questa sezione si aggiungono le proprietà del cloud al modello di dispositivo **Connected Air Conditioner** (Condizionatore connesso) per archiviare la posizione del dispositivo e la data dell'ultimo utilizzo. Tenere presente che sono entrambe proprietà modificabili del dispositivo. Sono anche presenti proprietà di sola lettura segnalate dal dispositivo che non possono essere modificate, ad esempio il numero di serie del dispositivo e la versione del firmware.
+Le *proprietà dell'applicazione* sono usate per archiviare informazioni sul dispositivo nell'applicazione. In questa sezione si aggiungono le proprietà dell'applicazione al modello di dispositivo **Connected Air Conditioner** (Condizionatore connesso) per archiviare la posizione del dispositivo e la data dell'ultimo utilizzo. Tenere presente che sono entrambe proprietà modificabili del dispositivo. Sono anche presenti proprietà del dispositivo di sola lettura segnalate dal dispositivo che non possono essere modificate, ad esempio il numero di serie del dispositivo e la versione del firmware.
  
 1. Passare alla pagina **Proprietà** per il modello di dispositivo **Condizionatore connesso**:
 
@@ -288,7 +292,7 @@ Le *proprietà* sono usate per archiviare informazioni sul dispositivo nell'appl
 
     È possibile creare proprietà del dispositivo di tipi diversi, ad esempio numeri o testo. Per aggiungere una proprietà di posizione al modello di dispositivo, scegliere **Posizione**.
 
-2. Per configurare la proprietà della posizione, usare le informazioni nella tabella seguente:
+1. Per configurare la proprietà della posizione, usare le informazioni nella tabella seguente:
 
     | Campo                | Valore                |
     | -------------------- | -------------------- |
@@ -303,9 +307,9 @@ Le *proprietà* sono usate per archiviare informazioni sul dispositivo nell'appl
 
     Scegliere **Salva**.
 
-3. Per aggiungere una proprietà relativa alla data dell'ultimo utilizzo al modello di dispositivo, scegliere **Data**.
+1. Per aggiungere una proprietà relativa alla data dell'ultimo utilizzo al modello di dispositivo, scegliere **Data**.
 
-4. Per configurare la proprietà relativa alla data dell'ultimo utilizzo, usare le informazioni nella tabella seguente:
+1. Per configurare la proprietà relativa alla data dell'ultimo utilizzo, usare le informazioni nella tabella seguente:
 
     | Campo                | Valore                   |
     | -------------------- | ----------------------- |
@@ -322,18 +326,48 @@ Le *proprietà* sono usate per archiviare informazioni sul dispositivo nell'appl
 
     ![Personalizzare il layout delle proprietà](./media/tutorial-define-device-type/propertieslayout.png)
 
+1. Per aggiungere una proprietà del dispositivo, ad esempio la versione del firmware, al modello di dispositivo, scegliere **Device Property** (Proprietà dispositivo).
+
+1.  Per configurare la versione del firmware, usare le informazioni nella tabella seguente:
+
+    | Campo                | Valore                   |
+    | -------------------- | ----------------------- |
+    | Nome visualizzato         | Versione del firmware        |
+    | Nome campo           | firmwareVersion         |
+    | Tipo di dati            | text                    |
+    | DESCRIZIONE          | Versione del firmware del condizionatore |
+
+    ![Configurare la versione del firmware](./media/tutorial-define-device-type/configureproperties3.png)
+    
+    Scegliere **Salva**.
+
+1. Per aggiungere una proprietà del dispositivo, ad esempio un numero di serie, al modello di dispositivo, scegliere **Device Property** (Proprietà dispositivo).
+
+1. Per configurare il numero di serie, usare le informazioni nella tabella seguente:
+
+    | Campo                | Valore                   |
+    | -------------------- | ----------------------- |
+    | Nome visualizzato         | Numero di serie           |
+    | Nome campo           | serialNumber            |
+    | Tipo di dati            | text                    |
+    | DESCRIZIONE          | Numero di serie del condizionatore  |
+
+    ![Configurare il numero di serie](./media/tutorial-define-device-type/configureproperties4.png)
+    
+    Scegliere **Salva**.
+    
+    > [!NOTE]
+    > La proprietà del dispositivo viene inviata dal dispositivo all'applicazione. I valori della versione del firmware e del numero di serie verranno aggiornati quando il dispositivo reale si connetterà ad IoT Central.
 
 ## <a name="use-commands"></a>Usare i comandi
 
-I _comandi_ si usano per consentire a un operatore di eseguire i comandi direttamente sul dispositivo. In questa sezione si aggiunge un comando al modello di dispositivo **Connected Air Conditioner** (Condizionatore connesso) che consente a un operatore di ripetere un determinato messaggio sul display del condizionatore connesso, usando il codice di esempio MxChip.
+I _comandi_ si usano per consentire a un operatore di eseguire i comandi direttamente sul dispositivo. In questa sezione si aggiunge un comando al modello di dispositivo **Connected Air Conditioner** (Condizionatore connesso) che consente a un operatore di ripetere un determinato messaggio sul display del condizionatore connesso.
 
-1. Passare alla pagina **Comandi** per il modello di dispositivo **Connected Air Conditioner** (Condizionatore connesso):
+1. Passare alla pagina **Comandi** per il modello di dispositivo **Connected Air Conditioner** (Condizionatore connesso) per modificare il modello. 
 
-    ![Prepararsi per aggiungere un'impostazione](media/tutorial-define-device-type/commandsecho.png)
+1. Fare clic su **New Command** (Nuovo comando) per aggiungere un comando al dispositivo e iniziare a configurare il nuovo comando.
 
-    È possibile creare comandi di tipi diversi a seconda dei requisiti. 
-
-1. Fare clic su **New Command** (Nuovo comando) per aggiungere un comando al dispositivo.
+   È possibile creare comandi di tipi diversi a seconda dei requisiti. 
 
 1. Per configurare il nuovo comando, usare le informazioni nella tabella seguente:
 
@@ -345,13 +379,15 @@ I _comandi_ si usano per consentire a un operatore di eseguire i comandi diretta
     | Tipo schermo         | text            |
     | DESCRIZIONE          | Comando del dispositivo  |  
 
-È possibile aggiungere altri input al comando facendo clic su **+** per gli input.
+    È possibile aggiungere altri input al comando facendo clic su **+** per **Input Fields** (Campi di input).
 
-2. Scegliere **Salva**.
+    ![Prepararsi per aggiungere un'impostazione](media/tutorial-define-device-type/commandsecho1.png)
 
-3. È possibile personalizzare il layout della pagina **Comandi** spostando e ridimensionando i riquadri dei comandi:
+     Scegliere **Salva**.
 
-    ![Personalizzare il layout delle impostazioni](media/tutorial-define-device-type/commandstileresize.png)
+1. È possibile personalizzare il layout della pagina **Comandi** spostando e ridimensionando i riquadri dei comandi:
+
+    ![Personalizzare il layout delle impostazioni](media/tutorial-define-device-type/commandstileresize1.png)
 
 ## <a name="view-your-simulated-device"></a>Visualizzare il dispositivo simulato
 
@@ -361,35 +397,35 @@ Dopo aver definito il modello di dispositivo **Condizionatore connesso**, è pos
 
     ![Dashboard del condizionatore connesso](./media/tutorial-define-device-type/aircondashboards.png)
 
-2. Scegliere **Grafico a linee** per aggiungere il componente al **Dashboard**:
+1. Scegliere **Grafico a linee** per aggiungere il componente al **Dashboard**:
 
     ![Componenti del dashboard](./media/tutorial-define-device-type/dashboardcomponents1.png)
 
-3. Configurare il componente **Grafico a linee** usando le informazioni nella tabella seguente:
+1. Configurare il componente **Grafico a linee** usando le informazioni nella tabella seguente:
 
     | Impostazione      | Valore       |
     | ------------ | ----------- |
     | Title        | Temperatura |
     | Intervallo di tempo   | Ultimi 30 minuti |
-    | Misure | temperatura (scegliere **Visibilità** accanto a **temperatura**) |
+    | Misure     | temperatura (scegliere **Visibilità** accanto a **temperatura**) |
 
     ![Impostazioni Grafico a linee](./media/tutorial-define-device-type/linechartsettings.png)
 
     Quindi scegliere **Salva**.
 
-4. Configurare il componente **Grafico evento** usando le informazioni nella tabella seguente:
+1. Configurare il componente **Event History** (Cronologia degli eventi) usando le informazioni nella tabella seguente:
 
     | Impostazione      | Valore       |
     | ------------ | ----------- |
     | Title        | Eventi |
     | Intervallo di tempo   | Ultimi 30 minuti |
-    | Misure | Errore motore ventola (scegliere **Visibilità** accanto a **Errore motore ventola**) |
+    | Misure     | Errore motore ventola (scegliere **Visibilità** accanto a **Errore motore ventola**) |
 
     ![Impostazioni Grafico a linee](./media/tutorial-define-device-type/dashboardeventchartsetting.png)
 
     Quindi scegliere **Salva**.
 
-5. Configurare il componente **Grafico stato** usando le informazioni nella tabella seguente:
+1. Configurare il componente **Cronologia dello stato** usando le informazioni nella tabella seguente:
 
     | Impostazione      | Valore       |
     | ------------ | ----------- |
@@ -401,52 +437,54 @@ Dopo aver definito il modello di dispositivo **Condizionatore connesso**, è pos
 
     Quindi scegliere **Salva**.
 
-6. Per aggiungere l'impostazione Imposta temperatura al dashboard, scegliere **Impostazioni e proprietà**:
+1. Per aggiungere l'impostazione Imposta temperatura al dashboard, scegliere **Settings and properties** (Impostazioni e proprietà). Fare clic su **Aggiungi/Rimuovi** per aggiungere le impostazioni o le proprietà che si vuole visualizzare nel dashboard. 
 
     ![Componenti del dashboard](./media/tutorial-define-device-type/dashboardcomponents4.png)
 
-7. Configurare il componente **Impostazioni e proprietà** usando le informazioni nella tabella seguente:
+1. Configurare il componente **Impostazioni e proprietà** usando le informazioni nella tabella seguente:
 
     | Impostazione                 | Valore         |
     | ----------------------- | ------------- |
     | Title                   | Impostare la temperatura di destinazione |
     | Impostazioni e proprietà | Imposta temperatura |
 
-    ![Impostazioni di proprietà del numero di serie](./media/tutorial-define-device-type/propertysettings3.png)
+    Le impostazioni e le proprietà definite in precedenza nelle pagine Settings and Properties (Impostazioni e proprietà) vengono visualizzate nelle colonne disponibili. 
 
-    Quindi scegliere **Salva**.
+    ![Configurare le impostazioni delle proprietà relative alla temperatura](./media/tutorial-define-device-type/propertysettings4.png)
 
-8. Per aggiungere il numero di serie del dispositivo al dashboard, scegliere **Impostazioni e proprietà**:
+    Scegliere **OK**.
+
+1. Per aggiungere il numero di serie del dispositivo al dashboard, scegliere **Settings and Properties** (Impostazioni e proprietà):
 
     ![Componenti del dashboard](./media/tutorial-define-device-type/dashboardcomponents3.png)
 
-9. Configurare il componente **Impostazioni e proprietà** usando le informazioni nella tabella seguente:
+1. Configurare il componente **Impostazioni e proprietà** usando le informazioni nella tabella seguente:
 
     | Impostazione                 | Valore         |
     | ----------------------- | ------------- |
     | Title                   | Numero di serie |
     | Impostazioni e proprietà | Numero di serie |
 
-    ![Impostazioni di proprietà del numero di serie](./media/tutorial-define-device-type/propertysettings3.png)
+    ![Impostazioni di proprietà del numero di serie](./media/tutorial-define-device-type/propertysettings5.png)
 
-    Quindi scegliere **Salva**.
+    Scegliere **OK**.
 
-10. Per aggiungere la versione del firmware del dispositivo al dashboard, scegliere **Impostazioni e proprietà**:
+1. Per aggiungere la versione del firmware del dispositivo al dashboard, scegliere **Settings and Properties** (Impostazioni e proprietà):
 
     ![Componenti del dashboard](./media/tutorial-define-device-type/dashboardcomponents4.png)
 
-11. Configurare il componente **Impostazioni e proprietà** usando le informazioni nella tabella seguente:
+1. Configurare il componente **Impostazioni e proprietà** usando le informazioni nella tabella seguente:
 
     | Impostazione                 | Valore            |
     | ----------------------- | ---------------- |
     | Title                   | Versione del firmware |
     | Impostazioni e proprietà | Versione del firmware |
 
-    ![Impostazioni di proprietà del numero di serie](./media/tutorial-define-device-type/propertysettings3.png)
+    ![Impostazioni di proprietà del numero di serie](./media/tutorial-define-device-type/propertysettings6.png)
 
-    Quindi scegliere **Salva**.
+    Scegliere **OK**.
 
-12. Per visualizzare il dashboard come operatore, disattivare la **Modalità progettazione** in alto a destra nella pagina.
+1. Per visualizzare il dashboard come operatore, disattivare **Modifica modello** in alto a destra nella pagina.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -461,10 +499,13 @@ Questa esercitazione illustra come:
 > * Visualizzare eventi simulati
 > * Definire lo stato
 > * Visualizzare uno stato simulato
-> * Usare le proprietà del dispositivo
-> * Usare le impostazioni del dispositivo
+> * Usare impostazioni e proprietà
+> * Usare i comandi
+> * Visualizzare il dispositivo simulato nel dashboard
 
 Dopo aver definito un modello di dispositivo nell'applicazione Azure IoT Central, i passaggi successivi consigliati sono i seguenti:
 
 * [Configurare le regole e le azioni per i dispositivi](tutorial-configure-rules.md)
 * [Personalizzare la visualizzazione dell'operatore](tutorial-customize-operator.md)
+
+[lnk-define-template]: /azure/iot-central/howto-set-up-template#properties

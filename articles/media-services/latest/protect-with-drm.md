@@ -4,21 +4,21 @@ description: È possibile usare Servizi multimediali di Azure per distribuire i 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/15/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 2ceae5b530d1967ccca2b33c05c183302684be41
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116768"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395080"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM
 
@@ -65,6 +65,7 @@ L'esempio descritto in questo articolo genera il risultato seguente:
 Per completare l'esercitazione è necessario quanto segue.
 
 * Vedere l'articolo [Panoramica della protezione del contenuto](content-protection-overview.md).
+* Fare riferimento a [Progettazione di un sistema di protezione del contenuto con il controllo di accesso](design-multi-drm-system-with-access-control.md)
 * Installare Visual Studio Code o Visual Studio
 * Creare un nuovo account di Servizi multimediali in Azure, come descritto in [questa guida introduttiva](create-account-cli-quickstart.md).
 * Ottenere le credenziali necessarie per usare le API di Servizi multimediali seguendo [Accedere alle API](access-api-cli-how-to.md)
@@ -146,7 +147,7 @@ Al termine della codifica e dopo l'impostazione dei criteri di chiave simmetrica
 
 Il processo di creazione di uno **StreamingLocator** è detto pubblicazione. Per impostazione predefinita, l'oggetto **StreamingLocator** è valido immediatamente dopo l'esecuzione delle chiamate API e rimane tale finché non viene eliminato, a meno che non si configurino le ore di inizio e fine facoltative. 
 
-Quando si crea uno [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questa esercitazione si usa uno dei PredefinedStreamingPolicies che indica a Servizi multimediali di Azure come pubblicare il contenuto per lo streaming. In questo esempio, StreamingLocator.StreamingPolicyName viene impostato sul criterio SecureStreaming. Questo criterio indica che si vuole che vengano generate e impostate due chiavi simmetriche (busta e CENC) per il localizzatore. Viene quindi applicata la crittografia per la busta, PlayReady e Widevine (la chiave viene distribuita al client di riproduzione in base alle licenze DRM configurate). Se si vuole crittografare anche il flusso con CBCS (FairPlay), usare PredefinedStreamingPolicy.SecureStreamingWithFairPlay. 
+Quando si crea uno [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), è necessario specificare il parametro **StreamingPolicyName** desiderato. In questa esercitazione si userà uno degli StreamingPolicies predefiniti per indicare a Servizi multimediali di Azure come pubblicare il contenuto per lo streaming. In questo esempio, StreamingLocator.StreamingPolicyName verrà impostato sul criterio "Predefined_MultiDrmCencStreaming". Questo criterio indica che si vuole che vengano generate e impostate due chiavi simmetriche (busta e CENC) per il localizzatore. Viene quindi applicata la crittografia per la busta, PlayReady e Widevine (la chiave viene distribuita al client di riproduzione in base alle licenze DRM configurate). Se si vuole anche crittografare il flusso con CBCS (FairPlay), usare "Predefined_MultiDrmStreaming". 
 
 > [!IMPORTANT]
 > Quando si usa un oggetto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizzato, è necessario progettare un set limitato di tali criteri per l'account di Servizi multimediali e riusarli per gli oggetti StreamingLocator ogni volta che si devono usare gli stessi protocolli e opzioni di crittografia. L'account di Servizi multimediali prevede una quota per il numero di occorrenze di StreamingPolicy. Evitare quindi di creare un nuovo oggetto StreamingPolicy per ogni StreamingLocator.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e68050e4902183b899bf3fee31bef088b1a0faf2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576069"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165965"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
@@ -23,6 +23,14 @@ Mappe di Azure è una raccolta di servizi geospaziali supportati da dati di mapp
 Il video seguente spiega Mappe di Azure in modo approfondito:
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
+## <a name="map-controls"></a>Controlli mappa
+
+### <a name="web-control"></a>Controllo Web
+
+Il controllo Web di Mappe di Azure consente di personalizzare le mappe interattive con contenuto e immagini personali per la visualizzazione in applicazioni Web o per dispositivi mobili. Questo controllo usa WebGL, consentendo di eseguire il rendering di set di dati di grandi dimensioni con prestazioni elevate. Sviluppare con il controllo usando JavaScript o TypeScript.
+
+![Controllo Web di Mappe di Azure](media/about-azure-maps/Introduction_WebMapControl.png)
 
 ## <a name="services-in-azure-maps"></a>Servizi di Mappe di Azure
 

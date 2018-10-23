@@ -13,41 +13,51 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/14/2018
+ms.date: 10/12/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 78b20b977685989c10ba61a48afee7808c46f227
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227283"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320629"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Guida introduttiva: Creare una macchina virtuale Linux nel portale di Azure
 
-È possibile creare macchine virtuali di Azure tramite il portale di Azure. Questo metodo fornisce un'interfaccia utente basata su browser per creare le macchine virtuali e le risorse associate. Questa guida introduttiva illustra come usare il portale di Azure per distribuire una macchina virtuale Linux in Azure che esegue Ubuntu. Per vedere la macchina virtuale in azione, eseguire SSH nella macchina virtuale e installare il server Web NGINX.
+È possibile creare macchine virtuali di Azure tramite il portale di Azure. Il portale di Azure è un'interfaccia utente basata su browser per creare le macchine virtuali e le risorse associate. Questa guida introduttiva illustra come usare il portale di Azure per distribuire una macchina virtuale Linux che esegue Ubuntu 16.04 LTS. Per vedere la macchina virtuale in azione, si stabilisce anche una connessione SSH alla macchina virtuale e si installa il server Web NGINX.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="create-ssh-key-pair"></a>Creare una coppia di chiavi SSH
 
-Per completare questa guida introduttiva è necessaria una coppia di chiavi SSH. Se è già disponibile una coppia di chiavi SSH, questo passaggio può essere ignorato.
+Per completare questa guida introduttiva è necessaria una coppia di chiavi SSH. Se si ha già una coppia di chiavi SSH, ignorare questo passaggio.
 
-Per creare una coppia di chiavi SSH e accedere alle macchine virtuali Linux, eseguire il comando seguente da una shell Bash e seguire le istruzioni visualizzate. Ad esempio, è possibile usare [Azure Cloud Shell](../../cloud-shell/overview.md) o il [sottosistema di Windows per Linux](/windows/wsl/install-win10). L'output del comando include il nome del file di chiave pubblica. Copiare il contenuto del file di chiave pubblica (`cat ~/.ssh/id_rsa.pub`) negli Appunti:
+Aprire una shell Bash e usare [ssh-keygen](https://www.ssh.com/ssh/keygen/) per creare una coppia di chiavi SSH. Se non si dispone di una shell Bash nel computer locale, è possibile usare [Azure Cloud Shell](https://shell.azure.com/bash).  
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
+Il comando precedente genera chiavi pubbliche e private con il nome predefinito `id_rsa` in `~/.ssh directory`. Il comando restituisce il percorso completo della chiave pubblica. Usare il percorso della chiave pubblica per visualizzarne il contenuto con `cat`.
+
+```bash 
+cat ~/.ssh/id_rsa.pub
+```
+
+Salvare l'output di questo comando. Sarà necessario al momento di configurare l'account amministratore per accedere alla macchina virtuale.
+
 Per informazioni più dettagliate su come creare coppie di chiavi SSH, incluso l'uso di PuTTy, vedere [Come usare le chiavi SSH con Windows in Azure](ssh-from-windows.md).
 
-## <a name="log-in-to-azure"></a>Accedere ad Azure
+Se si crea la coppia di chiavi SSH usando Cloud Shell, verrà archiviata in una condivisione file di Azure che viene [montata automaticamente da Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Non eliminare questo account di archiviazione o questa condivisione file prima di aver recuperato le chiavi o si perderà l'accesso alla macchina virtuale. 
 
-Accedere al portale di Azure all'indirizzo http://portal.azure.com
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
+
+Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="create-virtual-machine"></a>Crea macchina virtuale
 
-1. Scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
+1. Scegliere **Crea una risorsa** nell'angolo in alto a sinistra del portale di Azure.
 
 1. Nella casella di ricerca sopra l'elenco delle risorse di Azure Marketplace, cercare e selezionare **Ubuntu Server 16.04 LTS** di Canonical e quindi scegliere **Crea**.
 
@@ -69,6 +79,10 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com
 
 1. Lasciare invariate le impostazioni predefinite rimanenti, quindi selezionare il pulsante **Rivedi + Crea** nella parte inferiore della pagina.
 
+1. Nella pagina **Crea macchina virtuale** è possibile visualizzare i dettagli sulla macchina virtuale che si sta creando. Quando si è pronti, selezionare **Crea**.
+
+La distribuzione della macchina virtuale richiederà alcuni minuti. Al termine della distribuzione, passare alla sezione successiva.
+
     
 ## <a name="connect-to-virtual-machine"></a>Connettersi alla macchina virtuale
 
@@ -78,32 +92,29 @@ Creare una connessione SSH con la macchina virtuale.
 
     ![Portale 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. Nella pagina **Connetti a macchina virtuale** mantenere le opzioni predefinite per la connessione con nome DNS sulla porta 22. In **Accedi con l'account locale della macchina virtuale** viene visualizzato un comando di connessione. Fare clic sul pulsante per copiare il comando. Di seguito è mostrato un esempio di comando di connessione SSH:
+2. Nella pagina **Connetti a macchina virtuale** mantenere le opzioni predefinite per la connessione tramite indirizzo IP sulla porta 22. In **Accedi con l'account locale della macchina virtuale** viene visualizzato un comando di connessione. Fare clic sul pulsante per copiare il comando. Di seguito è mostrato un esempio di comando di connessione SSH:
 
     ```bash
-    ssh azureuser@myvm-123abc.eastus.cloudapp.azure.com
+    ssh azureuser@10.111.12.123
     ```
 
-3. Incollare il comando di connessione SSH in una shell, ad esempio Azure Cloud Shell o Bash in Ubuntu in Windows per creare la connessione. 
+3. Con la stessa shell Bash usata per creare la coppia di chiavi SSH (ad esempio [Azure Cloud Shell](https://shell.azure.com/bash) o la shell Bash locale), incollare il comando di connessione SSH nella shell per creare una sessione SSH. 
 
 ## <a name="install-web-server"></a>Installare il server Web
 
-Per visualizzare la macchina virtuale in azione, installare il server Web NGINX. Per aggiornare le origini dei pacchetti e installare il pacchetto NGINX più recente, eseguire i comandi seguenti dalla sessione SSH:
+Per visualizzare la macchina virtuale in azione, installare il server Web NGINX. Dalla sessione SSH, aggiornare le origini dei pacchetti e quindi installare il pacchetto NGINX più recente.
 
 ```bash
-# update packages
 sudo apt-get -y update
-
-# install NGINX
 sudo apt-get -y install nginx
 ```
 
-Al termine, usare `exit` per chiudere la sessione SSH e tornare alle proprietà della macchina virtuale nel portale di Azure.
+Al termine, digitare `exit` per uscire dalla sessione SSH.
 
 
 ## <a name="view-the-web-server-in-action"></a>Visualizzare il server Web in azione
 
-Con NGINX installato e la porta 80 aperta per la macchina virtuale, è ora possibile accedere al server Web da Internet. Aprire un Web browser e immettere l'indirizzo IP pubblico della VM. L'indirizzo IP pubblico è reperibile nella pagina di panoramica per la macchina virtuale o all'inizio della pagina *Rete* in cui viene aggiunta la regola di porta in ingresso.
+Usare il Web browser che si preferisce per vedere la pagina iniziale di NGINX predefinita. Immettere l'indirizzo IP pubblico della macchina virtuale come indirizzo Web. L'indirizzo IP pubblico è reperibile nella pagina di panoramica della macchina virtuale o come parte della stringa di connessione SSH usata in precedenza.
 
 ![Sito NGINX predefinito](./media/quick-create-cli/nginx.png)
 

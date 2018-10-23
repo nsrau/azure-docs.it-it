@@ -12,27 +12,38 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/08/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4e3b7aff97cbcebe34e6af4755900e8888c5e57d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630620"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352801"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente dispositivi aggiunti all'identità ibrida di Azure Active Directory 
 
 Tramite la gestione dei dispositivi in Azure Active Directory (Azure AD) è possibile garantire che gli utenti accedano alle risorse da dispositivi che soddisfano gli standard di sicurezza e conformità. Per altre informazioni, vedere [Introduzione alla gestione dei dispositivi in Azure Active Directory](overview.md).
 
-Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositivi aggiunti a un dominio in un ambiente Active Directory locale, è possibile configurare dispositivi aggiunti all'identità ibrida di Azure AD. Questo articolo illustra i passaggi necessari. 
-
-
 
 > [!TIP]
 > Se Azure AD Connect è un'opzione per l'utente, vedere [Selezionare lo scenario](hybrid-azuread-join-plan.md#select-your-scenario). Con Azure AD Connect, è possibile semplificare la configurazione di aggiunta ad Azure AD ibrido in modo significativo.
+
+
+
+Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositivi aggiunti a un dominio in un ambiente Active Directory locale, è possibile configurare dispositivi aggiunti all'identità ibrida di Azure AD. Questa esercitazione illustra come configurare manualmente l'aggiunta di dispositivi ad Azure AD ibrido.
+
+> [!div class="checklist"]
+> * Prerequisiti
+> * Procedura di configurazione
+> * Configurare il punto di connessione del servizio
+> * Configurare il rilascio delle attestazioni
+> * Abilitare dispositivi Windows di livello inferiore
+> * Verificare i dispositivi aggiunti
+> * Risolvere i problemi di implementazione
+ 
 
 
 
@@ -81,6 +92,8 @@ Se l'organizzazione prevede di usare l'SSO facile, gli URL seguenti devono esser
 Se l'organizzazione usa l'installazione gestita (non federata) con Active Directory locale e non usa il file system distribuito di Azure per la federazione con Azure AD, l'aggiunta ad Azure AD ibrido in Windows 10 si basa su oggetti computer in Active Directory da sincronizzare con Azure AD. Assicurarsi che qualsiasi unità organizzativa (OU) che contiene gli oggetti computer che devono essere aggiunti ad Azure AD ibrido siano abilitati per la sincronizzazione nella configurazione di sincronizzazione di Azure AD Connect.
 
 Per i dispositivi Windows 10 basati sulla versione 1703 o precedente, se l'organizzazione richiede l'accesso a Internet tramite un proxy in uscita, è necessario implementare Web Proxy Auto-Discovery (WPAD) per consentire ai computer Windows 10 di registrarsi ad Azure AD. 
+
+A partire da Windows 10 1803, anche se il tentativo di aggiunta ad Azure AD ibrido di un dispositivo in un dominio federato con AD FS non riesce e Azure AD Connect è configurato per la sincronizzazione degli oggetti del computer o del dispositivo con Azure AD, il dispositivo tenta di completare l'aggiunta ad Azure AD ibrido usando il dispositivo o il computer sincronizzato.
 
 ## <a name="configuration-steps"></a>Procedura di configurazione
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: b438ac221483fec7ea90847ec27a105a3f21ab78
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 783bf93c8507e76717a4293b2b29a9c11e9a1eed
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42117364"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353817"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Esercitazione: Creare un'app ASP.NET in Azure con un database SQL
 
@@ -118,7 +118,7 @@ Nella finestra di dialogo **Configura piano di servizio app** configurare il nuo
 
 | Impostazione  | Valore consigliato | Per altre informazioni |
 | ----------------- | ------------ | ----|
-|**Piano di servizio app**| myAppServicePlan | [Piani di servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
+|**Piano di servizio app**| myAppServicePlan | [Piani del servizio app](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
 |**Posizione**| Europa occidentale | [Aree di Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Dimensione**| Gratuito | [Piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
@@ -423,4 +423,4 @@ Questa esercitazione illustra come:
 Passare all'esercitazione successiva per apprendere come migliorare facilmente la sicurezza della connessione al database SQL di Azure.
 
 > [!div class="nextstepaction"]
-> [Accedere al database SQL in modo sicuro con un'identità del servizio gestito](app-service-web-tutorial-connect-msi.md)
+> [Accedere al database SQL in modo sicuro con identità gestite per risorse di Azure](app-service-web-tutorial-connect-msi.md)

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 27167b011e23befda5d0c3703adeafc1581f4b98
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 4333a234efe96f32541254819c9c5f21bb031757
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268936"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115077"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando Kestrel
 
@@ -41,7 +41,7 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Creare un'applicazione di Service Fabric .NET](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Distribuire l'applicazione in un cluster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Aggiungere un endpoint HTTPS a un servizio front-end ASP.NET Core
-> * [Configurare CI/CD usando Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configurare l'integrazione continua e la distribuzione continua con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -118,7 +118,7 @@ using Microsoft.Extensions.Configuration;
 using System.Security.Cryptography.X509Certificates;
 ```
 
-Aggiornare `ServiceInstanceListener` per l'uso del nuovo endpoint *EndpointHttps* e l'ascolto sulla porta 443.
+Aggiornare `ServiceInstanceListener` per l'uso del nuovo endpoint *EndpointHttps* e l'ascolto sulla porta 443. Quando si configura l'host Web per usare un server Kestrel, è necessario configurare Kestrel per l'ascolto di indirizzi IPv6 su tutte le interfacce di rete: `opt.Listen(IPAddress.IPv6Any, port, listenOptions => {...}`.
 
 ```csharp
 new ServiceInstanceListener(
@@ -444,7 +444,7 @@ In questa parte dell'esercitazione si è appreso come:
 
 Passare all'esercitazione successiva:
 > [!div class="nextstepaction"]
-> [Configurare CI/CD usando Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Configurare l'integrazione continua e la distribuzione continua con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png

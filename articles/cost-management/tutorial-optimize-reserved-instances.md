@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e705a0f57b598eb60932ca1056131cedc1416ffc
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987768"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394457"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -125,7 +125,7 @@ Quando si acquista una prenotazione, si effettua solo un pagamento una tantum. E
 
 I report di analisi dei costi effettivi e di analisi nel tempo mostrano l'intero importo corrisposto per la prenotazione, a partire dal mese di acquisto. Consentono di visualizzare la spesa effettiva per un determinato periodo.
 
-Passare a **Cost** (Costo) > **Cost Analysis** (Analisi dei costi) nel portale di Cloudyn e quindi fare clic su **Actual Cost Analysis** (Analisi dei costi effettivi) o **Actual Cost Over Time** (Costo effettivo nel tempo). Successivamente, impostare i filtri. Ad esempio, filtrare solo per servizio di Azure/macchina virtuale e raggruppare per tipo di risorsa e modello di prezzo. Vedere l'immagine seguente:
+Passare a **Costs** (Costi) > **Cost Analysis** (Analisi dei costi) nel portale di Cloudyn e quindi fare clic su **Actual Cost Analysis** (Analisi dei costi effettivi) o **Actual Cost Over Time** (Costo effettivo nel tempo). Successivamente, impostare i filtri. Ad esempio, filtrare solo per servizio di Azure/macchina virtuale e raggruppare per tipo di risorsa e modello di prezzo. Vedere l'immagine seguente:
 
 ![Costo effettivo dell'istanza riservata](./media/tutorial-optimize-reserved-instances/azure05.png)
 
@@ -143,7 +143,7 @@ Il costo ammortizzato delle istanze riservate viene calcolato prendendo il costo
 
 Nel report del costo effettivo si può notare un picco per l'acquisto di un'istanza riservata effettuato il 16 novembre di $747. Nel report del costo ammortizzato (vedere la figura seguente) al 16 novembre viene riportato un costo giornaliero parziale. A partire dal 17 novembre verrà visualizzato il costo ammortizzato dell'istanza riservata di $747/365 = $2,05. Tra l'altro, si può notare anche che la prenotazione acquistata è inutilizzata, pertanto è possibile ottimizzarla passando a una macchina virtuale di dimensioni diverse.
 
-Per visualizzare questo report, passare a **Cost** (Costo) > **Cost Analysis** (Analisi dei costi) e quindi selezionare **Amortized Cost Analysis** (Analisi dei costi ammortizzati) o **Amortized Cost Over Time** (Costo ammortizzato nel tempo).
+Per visualizzare questo report, passare a **Costs** (Costi) > **Cost Analysis** (Analisi dei costi) e quindi selezionare **Amortized Cost Analysis** (Analisi dei costi ammortizzati) o **Amortized Cost Over Time** (Costo ammortizzato nel tempo).
 
 ![Costo ammortizzato delle istanze riservate](./media/tutorial-optimize-reserved-instances/azure07.png)
 

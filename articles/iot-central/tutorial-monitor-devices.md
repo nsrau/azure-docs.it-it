@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4fceaf5a3e573964919d365a67519b26278ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235482"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310625"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Esercitazione: Usare Azure IoT Central per monitorare i dispositivi
 
@@ -27,7 +27,7 @@ In questa esercitazione si apprenderà come:
 > * Ricercare la causa di un problema
 > * Correggere un problema
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, il generatore deve completare le esercitazioni per creare l'applicazione Azure IoT Central:
 
@@ -61,7 +61,7 @@ Il grafico del dashboard mostra il tracciato della temperatura del dispositivo. 
 
 Per modificare la temperatura target del dispositivo, usare la pagina **Impostazioni**:
 
-1. Scegliere **Impostazioni**. Modificare il valore **Set Temperature** (Temperatura impostata) impostandolo su 100. Scegliere **Aggiorna** per inviare la nuova temperatura target al dispositivo. Quando il dispositivo riconosce la modifica delle impostazioni, lo stato del valore dell'impostazione passa a **sincronizzato**:
+1. Scegliere **Impostazioni**. Modificare il valore di **Set Temperature** (Temperatura impostata) impostandolo su 75. Scegliere **Aggiorna** per inviare la nuova temperatura target al dispositivo. Quando il dispositivo riconosce la modifica delle impostazioni, lo stato del valore dell'impostazione passa a **sincronizzato**:
 
     ![Aggiornamento delle impostazioni](media/tutorial-monitor-devices/change_settings.png)
 

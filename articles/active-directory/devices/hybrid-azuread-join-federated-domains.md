@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855180"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352661"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare un'aggiunta ad Azure Active Directory ibrido per domini federati
 
@@ -124,7 +124,7 @@ Per configurare un'aggiunta ad Azure AD ibrido con Azure AD Connect, è necessar
 
     a. Selezionare la foresta.
 
-    b. Selezionare il servizio di autenticazione. È necessario selezionare un server AD FS, a meno che l'organizzazione non abbia solo client Windows 10.
+    b. Selezionare il servizio di autenticazione. È necessario selezionare il server AD FS, a meno che all'interno dell'organizzazione non siano presenti esclusivamente client Windows 10 e non sia stata configurata la sincronizzazione computer/dispositivo o non si usi SeamlessSSO.
 
     c. Fare clic su **Aggiungi** per immettere le credenziali di amministratore aziendale.
 
@@ -194,7 +194,7 @@ Quando si usa il cmdlet **Get-MSolDevice** per controllare i dettagli del serviz
 
 - Deve essere presente un oggetto con **ID dispositivo** corrispondente all'ID nel client Windows.
 - Il valore di **DeviceTrustType** deve essere **Aggiunto a un dominio**. Questo valore equivale allo stato **Aggiunto ad Azure AD ibrido** nella pagina dei dispositivi nel portale di Azure AD.
-- Il valore di **Abilitato** deve essere **True** per i dispositivi che vengono usati nell'accesso condizionale. 
+- Per i dispositivi usati nell'accesso condizionale, il valore **Abilitato** deve essere **True** e **DeviceTrustLevel** deve essere **Gestito**. 
 
 
 **Per controllare i dettagli del servizio:**

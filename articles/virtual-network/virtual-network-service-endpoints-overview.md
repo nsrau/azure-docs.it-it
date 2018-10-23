@@ -3,7 +3,7 @@ title: Endpoint del servizio Rete virtuale di Azure | Microsoft Docs
 description: Informazioni su come abilitare l'accesso diretto alle risorse di Azure da una rete virtuale tramite gli endpoint del servizio.
 services: virtual-network
 documentationcenter: na
-author: anithaa
+author: sumeetmittal
 manager: narayan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
-ms.author: anithaa
+ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 77fad7b0035a9ba21d71e6c493a4f1a5bd9a2111
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239184"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395208"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint del servizio Rete virtuale
 
@@ -42,6 +42,7 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti:
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima in tutte le aree del cloud pubblico di Azure.
 - **[Bus di servizio di Azure](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima.
 - **[Hub eventi di Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima.
+- **[Azure Data Lake Store Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponibile in anteprima.
 
 Per le notifiche più aggiornate, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -65,6 +66,10 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 
 - L'endpoint di servizio della rete virtuale fornisce l'identità della rete virtuale al servizio di Azure. Quando gli endpoint di servizio sono abilitati nella rete virtuale, è possibile associare le risorse del servizio di Azure alla rete virtuale aggiungendo una regola della rete virtuale alle risorse.
 - Il traffico del servizio di Azure da una rete virtuale usa attualmente indirizzi IP pubblici come indirizzi IP di origine. Con gli endpoint di servizio, il traffico del servizio passa all'uso di indirizzi privati della rete virtuale come indirizzi IP di origine per l'accesso al servizio di Azure dalla rete virtuale. Questa opzione consente di accedere ai servizi senza che siano necessari gli indirizzi IP pubblici riservati usati nei firewall IP.
+
+>[!NOTE]
+> Con gli endpoint di servizio, gli indirizzi IP di origine delle macchine virtuali nella subnet per il traffico del servizio passano da indirizzi IPv4 pubblici a indirizzi IPv4 privati. Dopo questo passaggio, le regole del firewall dei servizi di Azure esistenti che usano indirizzi IP pubblici di Azure smettono di funzionare. Prima di configurare endpoint di servizio, assicurarsi che le regole del firewall dei servizi di Azure consentano questo passaggio. Durante la configurazione degli endpoint di servizio, può anche verificarsi un'interruzione temporanea del traffico dei servizi da questa subnet. 
+ 
 - __Proteggere l'accesso ai servizi di Azure dall'ambiente locale__:
 
   per impostazione predefinita, le risorse del servizio associate alle reti virtuali non sono raggiungibili da reti locali. Se si vuole consentire il traffico dall'ambiente locale è necessario autorizzare anche indirizzi IP pubblici (generalmente NAT) dall'ambiente locale o da ExpressRoute. Questi indirizzi IP possono essere aggiunti tramite configurazione del firewall IP per le risorse del servizio di Azure.
@@ -87,6 +92,7 @@ Gli endpoint di servizio offrono i vantaggi seguenti:
 
   Il cambio di indirizzo IP interessa solo il traffico del servizio dalla propria rete virtuale. Non si verifica alcun impatto sull'altro traffico in transito da o verso indirizzi IPv4 pubblici assegnati alle macchine virtuali. Per i servizi di Azure, se sono presenti regole del firewall che usano indirizzi IP pubblici di Azure, queste regole smetteranno di funzionare con il passaggio agli indirizzi privati della rete virtuale.
 - Con gli endpoint di servizio, le voci DNS per i servizi di Azure rimangono invariate e continuano a risolversi in indirizzi IP pubblici assegnati al servizio di Azure.
+
 - Gruppi di sicurezza di rete (NGS) con gli endpoint di servizio:
   - Per impostazione predefinita, i gruppi di sicurezza di rete consentono il traffico Internet in uscita e quindi anche il traffico dalla rete virtuale ai servizi di Azure. Questo comportamento rimane invariato con gli endpoint di servizio. 
   - Per negare tutto il traffico Internet in uscita e consentire solo il traffico verso servizi specifici di Azure, è possibile usare i [tag di servizio](security-overview.md#service-tags) nei gruppi di sicurezza di rete. È possibile specificare i servizi di Azure supportati come destinazione nelle regole del gruppo di sicurezza di rete. La gestione degli indirizzi IP per ogni tag verrà eseguita da Azure. Per altre informazioni, vedere [Tag del servizio di Azure per i gruppi di sicurezza di rete](security-overview.md#service-tags). 

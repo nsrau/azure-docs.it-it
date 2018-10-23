@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 08295ceeb2ebe94a96eaade0a6443f0f59212d60
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394030"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342208"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 
@@ -95,9 +95,9 @@ L'[eliminazione automatica in caso di inattività](/dotnet/api/microsoft.service
 
 Se si verifica un errore a causa del quale il client è in dubbio sul risultato di un'operazione di invio, il [rilevamento dei duplicati](duplicate-detection.md) elimina il dubbio da queste situazioni, consentendo al mittente di inviare nuovamente lo stesso messaggio che, se duplicato, verrà rimosso automaticamente dalla coda o dall'argomento.
 
-### <a name="sas-rbac-and-msi"></a>Firma di accesso condiviso, controllo degli accessi in base al ruolo e identità del servizio gestita
+### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>Firma di accesso condiviso, controllo degli accessi in base al ruolo e identità gestite per risorse di Azure
 
-Il bus di servizio supporta i protocolli di sicurezza, ad esempio [firme di accesso condiviso](service-bus-sas.md), [controllo degli accessi in base al ruolo](service-bus-role-based-access-control.md) e [identità del servizio gestita](service-bus-managed-service-identity.md).
+Il bus di servizio supporta i protocolli di sicurezza, ad esempio [firme di accesso condiviso](service-bus-sas.md), [controllo degli accessi in base al ruolo](service-bus-role-based-access-control.md) e [identità gestite per risorse di Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Ripristino di emergenza geografico
 

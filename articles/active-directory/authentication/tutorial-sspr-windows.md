@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: f2f2208f325728275706eeed9ff16e8afc3b11cf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fc4b2f153c89d4253bc3fdd9c5a49973baa38752
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166878"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310216"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione della password self-service di Azure AD dalla schermata di accesso
 
@@ -111,7 +111,9 @@ Durante il test di questa funzionalità con Desktop remoto, il collegamento "Rei
 
 * La reimpostazione della password non è attualmente supportata da Desktop remoto.
 
-Se la schermata di blocco di Windows è disabilitata tramite una chiave del Registro di sistema o criteri di gruppo, l'opzione **Reimposta password** non sarà disponibile.
+Se la schermata di blocco di Windows è stata disabilitata tramite una chiave del Registro di sistema o Criteri di gruppo, l'opzione **Reimposta password** non è disponibile.
+
+Se i criteri richiedono la combinazione Ctrl + Alt + Canc o se le notifiche della schermata di blocco sono disattivate **Reimposta password** non funziona. Windows 10 19H1 soddisferà questo requisito.
 
 Il log di controllo di Azure AD includerà informazioni sull'indirizzo IP e sul tipo di client in cui si è verificata la reimpostazione della password.
 

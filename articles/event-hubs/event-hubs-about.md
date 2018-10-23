@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/22/2018
+ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: d339ad79eb632f1e6fa91b1fca56488c3ae67d86
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 336756e72c6c07f52101ddd0cd99a6ef9744d3c3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435348"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351762"
 ---
 # <a name="what-is-azure-event-hubs"></a>Che cos'è l'hub di eventi di Azure?
 
@@ -38,25 +38,13 @@ I dati sono utili solo quando esiste un modo semplice per elaborare e ottenere i
 
 Hub eventi rappresenta la "porta principale" per una pipeline di eventi, spesso denominata *inseritore eventi* nelle architetture della soluzione. Un ingestor evento è un componente o servizio che si trova tra gli autori e i consumer di eventi per separare la produzione di un flusso di eventi dal consumo di tali eventi. Hub eventi offre una piattaforma di streaming unificata con buffer basato sul tempo di conservazione, separando i producer di eventi dai consumer di eventi. 
 
-## <a name="key-features"></a>Funzionalità principali
-
-Hub eventi offre funzionalità di gestione del flusso di messaggi, ma presenta caratteristiche diverse da quelle dei servizi di messaggistica aziendale tradizionale. Le funzionalità di Hub eventi sono basate su scenari con velocità effettiva elevata ed elaborazione di eventi. Hub eventi contiene gli [elementi chiave](event-hubs-features.md) seguenti:
-
-- **Producer di eventi**: qualsiasi entità che invia dati a un hub eventi. Gli autori di eventi possono pubblicare eventi usando HTTPS o AMQP 1.0 o Apache Kafka (1.0 e versioni successive)
-- **Partizione**: ogni consumer legge solo un subset specifico, o partizione, del flusso di messaggi.
-- **Gruppi di consumer**: una visualizzazione (stato, posizione o offset) di un intero hub eventi. I gruppi di consumer consentono a più applicazioni costose di avere una visualizzazione separata del flusso di eventi e di leggere il flusso in modo indipendente in base alle proprie esigenze e con i propri gli offset.
-- **Unità di velocità effettiva**: unità di capacità pre-acquistate che controllano la capacità di velocità effettiva di Hub eventi.
-- **Ricevitori di eventi**: qualsiasi entità che legge i dati dell'evento da un hub eventi. Tutti i consumer di Hub eventi si connettono tramite la sessione AMQP 1.0 e gli eventi vengono recapitati tramite la sessione appena disponibili.
-
-La figura seguente illustra l'architettura di elaborazione del flusso di Hub eventi:
-
-![Hub eventi](./media/event-hubs-about/event_hubs_architecture.png)
+Le sezioni seguenti descrivono le funzionalità principali del servizio Hub eventi di Azure: 
 
 ## <a name="fully-managed-paas"></a>Soluzione PaaS completamente gestita 
 
 Hub eventi è un servizio gestito che richiede configurazione o sovraccarico di gestione limitati, consentendo ai clienti di concentrare l'attenzione sulle soluzioni aziendali. [Hub eventi per ecosistemi Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) offre l'esperienza di PaaS Kafka senza necessità di dover gestire, configurare o eseguire i cluster.
 
-## <a name="real-time-and-batching"></a>In tempo reale e invio di batch
+## <a name="support-for-real-time-and-batch-processing"></a>Supporto per elaborazione batch e in tempo reale
 
 Inserimento, memorizzazione nel buffer, archiviazione ed elaborazione del flusso in tempo reale per ottenere informazioni dettagliate di utilità pratica. Hub eventi usa un [modello di consumer partizionato](event-hubs-features.md#partitions), consentendo a più applicazioni di elaborare contemporaneamente il flusso e all'utente di controllare la velocità di elaborazione.
 
@@ -74,11 +62,27 @@ Con Hub eventi, è possibile iniziare con i flussi di dati in MB, per poi aument
  
 Con un ampio ecosistema disponibile in diversi [linguaggi (.NET, Java, Python, Go, Node. js)](https://github.com/Azure/azure-event-hubs), è possibile avviare facilmente l'elaborazione di flussi da Hub eventi. Tutte i linguaggi lato client supportati offrono un'integrazione di basso livello.
 
+## <a name="key-architecture-components"></a>Componenti principali dell'architettura
+
+Hub eventi offre funzionalità di gestione del flusso di messaggi, ma presenta caratteristiche diverse da quelle dei servizi di messaggistica aziendale tradizionale. Le funzionalità di Hub eventi sono basate su scenari con velocità effettiva elevata ed elaborazione di eventi. Hub eventi contiene gli [elementi chiave](event-hubs-features.md) seguenti:
+
+- **Producer di eventi**: qualsiasi entità che invia dati a un hub eventi. Gli autori di eventi possono pubblicare eventi usando HTTPS o AMQP 1.0 o Apache Kafka (1.0 e versioni successive)
+- **Partizione**: ogni consumer legge solo un subset specifico, o partizione, del flusso di messaggi.
+- **Gruppi di consumer**: una visualizzazione (stato, posizione o offset) di un intero hub eventi. I gruppi di consumer consentono a più applicazioni costose di avere una visualizzazione separata del flusso di eventi e di leggere il flusso in modo indipendente in base alle proprie esigenze e con i propri gli offset.
+- **Unità di velocità effettiva**: unità di capacità pre-acquistate che controllano la capacità di velocità effettiva di Hub eventi.
+- **Ricevitori di eventi**: qualsiasi entità che legge i dati dell'evento da un hub eventi. Tutti i consumer di Hub eventi si connettono tramite la sessione AMQP 1.0 e gli eventi vengono recapitati tramite la sessione appena disponibili. Tutti i consumer Kafka si connettono tramite il protocollo Kafka 1.0 e versioni successive.
+
+La figura seguente illustra l'architettura di elaborazione del flusso di Hub eventi:
+
+![Hub eventi](./media/event-hubs-about/event_hubs_architecture.png)
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per iniziare a usare Hub eventi, vedere i seguenti articoli:
 
-* [Inserimento in Hub eventi](event-hubs-quickstart-powershell.md)
+* [Inserimento in Hub eventi](event-hubs-quickstart-portal.md)
 * [Panoramica delle funzionalità di Hub eventi](event-hubs-features.md)
+* [Domande frequenti](event-hubs-faq.md)
 
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2c19a464a4437c3490b03baef6cc95a783a55c69
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: eb909384805c96ce656cacf86adceedc55613c0f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858587"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113659"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
@@ -60,7 +60,7 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Nel campo di ricerca digitare `cosmos` e quindi scegliere il modello del **trigger Azure Cosmos DB**.
 
-1. Se richiesto, selezionare **Installa** per installare l'estensione Archiviazione di Azure ed eventuali dipendenze nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
+1. Se richiesto, selezionare **Installa** per installare l'estensione Archiviazione di Azure e le relative dipendenze nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
 
     ![Installare le estensioni di binding](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 
@@ -102,7 +102,7 @@ Successivamente, connettersi al proprio account di Azure Cosmos DB e creare la r
 
     ![Definire taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
 
-    | Impostazione|Valore consigliato|Descrizione |
+    | Impostazione|Valore consigliato|DESCRIZIONE |
     | ---|---|--- |
     | **ID database** | Attività |Nome del nuovo database. Deve corrispondere al nome definito nell'associazione della funzione. |
     | **ID raccolta** | Items | Nome della nuova raccolta. Deve corrispondere al nome definito nell'associazione della funzione.  |

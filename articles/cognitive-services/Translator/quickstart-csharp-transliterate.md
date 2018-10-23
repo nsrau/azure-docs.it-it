@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 53ac3f4aa85e889c86d09927ece7df012427e4a9
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 7fa8c5dc76e59ec236d6b9662bd2ba41db0add0f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367594"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320408"
 ---
 # <a name="quickstart-transliterate-text-with-c35"></a>Guida introduttiva: Traslitterare testo con C&#35;
 
 In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale.
-
-Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -30,6 +28,9 @@ Per eseguire questo codice in Windows, è necessario [Visual Studio 2017](https:
 Per usare l'API Traduzione testuale, è necessario avere anche una chiave di sottoscrizione. Per informazioni, vedere [Come registrarsi all'API Traduzione testuale](translator-text-how-to-signup.md).
 
 ## <a name="transliterate-request"></a>Richiesta di traslitterazione
+
+> [!TIP]
+> Ottenere la versione più recente del codice da [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Il codice seguente converte il testo in una lingua da un sistema di scrittura a un altro tramite il metodo [Transliterate](./reference/v3-0-transliterate.md).
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b3a3baaf22fa9c382bb45a5b2a2065ef7678faf5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855955"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352611"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta ad Azure Active Directory ibrido per domini gestiti
 
@@ -172,7 +172,7 @@ Quando si usa il cmdlet **Get-MSolDevice** per controllare i dettagli del serviz
 
 - Deve essere presente un oggetto con **ID dispositivo** corrispondente all'ID nel client Windows.
 - Il valore di **DeviceTrustType** deve essere **Aggiunto a un dominio**. Questo valore equivale allo stato **Aggiunto ad Azure AD ibrido** nella pagina dei dispositivi nel portale di Azure AD.
-- Il valore di **Abilitato** deve essere **True** per i dispositivi che vengono usati nell'accesso condizionale. 
+- Per i dispositivi usati nell'accesso condizionale, il valore **Abilitato** deve essere **True** e **DeviceTrustLevel** deve essere **Gestito**. 
 
 
 **Per controllare i dettagli del servizio:**

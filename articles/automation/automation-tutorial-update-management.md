@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498522"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167257"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gestire gli aggiornamenti di Windows con Automazione di Azure
 
@@ -116,7 +116,8 @@ In **Logica avvisi**, per **Soglia**, immettere **1**. Al termine, fare clic su 
 
 #### <a name="runbook-alert"></a>Avviso del runbook
 
-Per le distribuzioni non riuscite è necessario segnalare l'errore dell'esecuzione master nel portale di Azure. Passare a **Monitoraggio** e quindi selezionare **Crea avviso**.
+Per distribuzioni non riuscite, è necessario segnalare l'errore del runbook master.
+Nel portale di Azure passare a **Monitoraggio** e quindi selezionare **Crea avviso**.
 
 In **1. Definire la condizione dell'avviso**, fare clic su **Selezionare la destinazione**. In **Filtra per tipo di risorsa** selezionare **Account di automazione**. Selezionare l'account di automazione e quindi selezionare **Fine**.
 

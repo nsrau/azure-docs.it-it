@@ -4,23 +4,21 @@ description: Esempi di modelli di Azure Resource Manager per la funzionalità Ap
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
-editor: ggailey777
 tags: azure-service-management
 ms.service: app-service
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 02/26/2018
+ms.date: 10/15/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 155b47fc4c664701ec0f21bdc5ae34f3d7f666ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 627480fab7a28794a215642fda8e57280f19f19b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29933069"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345068"
 ---
 # <a name="azure-resource-manager-templates-for-web-apps"></a>Modelli di Azure Resource Manager per app Web
 
@@ -29,15 +27,17 @@ La tabella seguente contiene collegamenti ai modelli di Azure Resource Manager p
 | | |
 |-|-|
 |**Distribuzione di un'app Web**||
+| [Piano di servizio app e app Web Linux di base](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Distribuisce un'app Web di Azure configurata per Linux. |
+| [Piano di servizio app e app Web Windows di base](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) | Distribuisce un'app Web di Azure configurata per Windows. |
 | [App Web collegata a un repository GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Distribuisce un'app Web di Azure che esegue il pull del codice da GitHub. |
 | [App Web con slot di distribuzione personalizzati](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Distribuisce un'app Web con slot/ambienti di distribuzione personalizzati. |
 |**Configurazione di un'app Web**||
 | [Certificato dell'app Web da Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-certificate-from-key-vault)| Distribuisce il certificato di un'app Web da un segreto di Azure Key Vault e lo usa per il binding SSL. |
 | [App Web con un dominio personalizzato](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain)| Distribuisce un'app Web di Azure con un nome host personalizzato. |
 | [App Web con un dominio personalizzato e SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Distribuisce un'app Web di Azure con un nome host personalizzato e ottiene un certificato dell'app Web da Key Vault per il binding SSL. |
-| [App Web con un'estensione GoLang](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Distribuisce un'app Web di Azure con l'estensione del sito GoLang. È quindi possibile eseguire applicazioni Web sviluppate in GoLang in Azure. |
+| [App Web con un'estensione GoLang](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Distribuisce un'app Web di Azure con l'estensione del sito Golang. È quindi possibile eseguire applicazioni Web sviluppate in Golang in Azure. |
 | [App Web con Java 8 e Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Distribuisce un'app Web di Azure con Java 8 e Tomcat 8 abilitati. È quindi possibile eseguire applicazioni Java in Azure. |
-|**App Web Linux**||
+|**App Web Linux con risorse connesse**||
 | [App Web in Linux con MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) | Distribuisce un'app Web di Azure in Linux con Database di Azure per MySQL. |
 | [App Web in Linux con PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-postgresql) | Distribuisce un'app Web di Azure in Linux con Database di Azure per PostgreSQL. |
 |**App Web con risorse connesse**||

@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bf0b38c8c2d465abe9f2e129110df41c349c3d07
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055374"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165982"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Esercitazione: Ridimensionare un'applicazione in esecuzione in Service Fabric Mesh
 
-Questa è la seconda di una serie di esercitazioni. Informazioni su come ridimensionare manualmente il numero di istanze dei servizi di un'applicazione [precedentemente distribuita in Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md).  Al termine si conoscerà la procedura.
+Questa è la seconda di una serie di esercitazioni. Informazioni su come ridimensionare manualmente il numero di istanze dei servizi di un'applicazione [precedentemente distribuita in Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). Al termine, saranno in esecuzione tre istanze di un servizio front-end e due istanze di un servizio dati.
 
 Nella seconda parte della serie si apprenderà come:
 
@@ -69,9 +69,9 @@ Nel modello di distribuzione per la risorsa dell'applicazione, ogni servizio ha 
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modificare i parametri del modello di distribuzione
 
-Quando sono presenti valori nel modello che si prevede di dover modificare dopo la distribuzione dell'applicazione oppure si vuole avere la possibilità di modificare valori per ogni distribuzione (se si prevede di riutilizzare questo modello per altre distribuzioni), la procedura consigliata consiste nel parametrizzare i valori.
+Quando sono presenti valori nel modello che si prevede di dover cambiare una volta che l'applicazione viene distribuita, oppure si vuole avere la possibilità di cambiare in base alla distribuzione (se si prevede di riusare questo modello per altre distribuzioni), la procedura consigliata consiste nel parametrizzare i valori.
 
-In precedenza, l'applicazione è stata distribuita usando il file del [modello di distribuzione mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e il file dei parametri [mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
+In precedenza, l'applicazione è stata distribuita con i file del [modello di distribuzione mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) e [ del file dei parametri mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 Aprire file dei parametri [mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) in locale e impostare il valore *frontEndReplicaCount* su 3 e il valore *serviceReplicaCount* su 2:
 

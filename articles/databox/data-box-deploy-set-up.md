@@ -2,24 +2,18 @@
 title: Configurare Azure Data Box| Microsoft Docs
 description: Informazioni su come cablare e connettersi ad Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785637"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393831"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Esercitazione: Cablare e connettersi ad Azure Data Box
 
@@ -92,7 +86,9 @@ Eseguire la procedura seguente per configurare il dispositivo usando l'interfacc
 
     ![Pagina dashboard](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
-Una volta completata la configurazione del dispositivo, è possibile connettersi alle condivisioni del dispositivo e copiare i dati dal computer al dispositivo. 
+Dopo la configurazione delle interfacce di rete per i dati, è anche possibile usare l'indirizzo IP di una qualsiasi delle interfacce, da DATA 1 a DATA 3, per accedere all'interfaccia utente Web locale all'indirizzo `https://<IP address of a data network interface>`. 
+
+Dopo il completamento della configurazione del dispositivo, è possibile connettersi alle condivisioni del dispositivo stesso e copiarvi i dati dal computer. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

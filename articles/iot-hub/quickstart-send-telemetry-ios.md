@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: aecb9a1819060e0da6338e8e16bf681fad42dd22
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 96989f8c53508dd1520a38c0df408057ad673d53
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161918"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365374"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>Guida introduttiva: inviare dati di telemetria da un dispositivo a un hub IoT (iOS)
 
@@ -40,24 +40,30 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure per registrare un dispositivo simulato.
+È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Aggiungere l'estensione della riga di comando dell'hub IoT CLI e creare l'identità del dispositivo. Sostituire `{YourIoTHubName}` con il nome dell'hub IoT:
+1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo. 
+
+   **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+
+   **myiOSdevice**: nome specificato per il dispositivo registrato. Usare myiOSdevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
-   az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
+   az iot hub device-identity create --hub-name YourIoTHubName --device-id myiOSdevice
    ```
-
-    Se si sceglie un nome diverso per il dispositivo, aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
 1. Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
+   az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id myiOSdevice --output table
    ```
 
-   Annotare la stringa di connessione del dispositivo, che avrà questo aspetto: `Hostname=...=`. Il valore verrà usato più avanti in questo articolo.
+   Annotare la stringa di connessione del dispositivo, che avrà questo aspetto:
+
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    Il valore verrà usato più avanti in questa guida introduttiva.
 
 ## <a name="send-simulated-telemetry"></a>Inviare dati di telemetria simulati
 
@@ -67,7 +73,7 @@ L'applicazione di esempio viene eseguita in un dispositivo iOS, che si connette 
 
 CocoaPods gestisce le dipendenze per i progetti iOS che usano librerie di terze parti.
 
-In una finestra del terminale passare alla cartella Azure-IoT-Samples-iOS scaricata nei prerequisiti. Passare quindi alla cartella del progetto di esempio:
+In una finestra del terminale locale passare alla cartella Azure-IoT-Samples-iOS scaricata come prerequisito. Passare quindi alla cartella del progetto di esempio:
 
 ```sh
 cd quickstart/sample-device
@@ -107,15 +113,15 @@ Nella schermata seguente sono mostrati alcuni esempi di output dei dati di telem
 
 L'app di esempio eseguita nell'emulatore XCode mostra i dati relativi ai messaggi inviati dal dispositivo. I dati possono inoltre essere visualizzati dall'hub IoT man mano che vengono ricevuti. L'estensione dell'interfaccia della riga di comando dell'hub IoT può connettersi all'endpoint **Eventi** sul lato servizio dell'hub IoT. L'estensione riceve i messaggi da dispositivo a cloud inviati dal dispositivo simulato. In genere, un'applicazione di back-end di hub IoT viene eseguita nel cloud per ricevere ed elaborare i messaggi da dispositivo a cloud.
 
-Eseguire i comandi dell'interfaccia della riga di comando di Azure seguenti, sostituendo `{YourIoTHubName}` con il nome dell'hub IoT:
+Eseguire i comandi seguenti in Azure Cloud Shell, sostituendo `YourIoTHubName` con il nome dell'hub IoT:
 
 ```azurecli-interactive
-az iot hub monitor-events --device-id myiOSdevice --hub-name {YourIoTHubName}
+az iot hub monitor-events --device-id myiOSdevice --hub-name YourIoTHubName
 ```
 
 Lo screenshot seguente mostra l'output mentre l'estensione riceve i dati di telemetria inviati dal dispositivo simulato all'hub:
 
-La schermata seguente mostra il tipo di dati di telemetria visualizzati nella finestra del terminale:
+La schermata seguente illustra il tipo di dati di telemetria visualizzati nella finestra del terminale locale:
 
 ![Visualizzare i dati di telemetria](media/quickstart-send-telemetry-ios/view-telemetry.png)
 

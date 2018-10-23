@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 34f933474337d3cddce752b79dc0d3fdb4c39c0c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ba99aff51cf4d73b728161802f81156058b9ea69
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213718"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364088"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati di telemetria dall'hub con un'applicazione di back-end (C#)
 
@@ -49,33 +49,43 @@ Scaricare il progetto C# di esempio da https://github.com/Azure-Samples/azure-io
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure per registrare un dispositivo simulato.
+È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Aggiungere l'estensione della riga di comando dell'hub IoT CLI e creare l'identità del dispositivo. Sostituire `{YourIoTHubName}` con il nome scelto per l'hub IoT:
+1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo. 
+
+   **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+
+   **MyDotnetDevice**: nome specificato per il dispositivo registrato. Usare MyDotnetDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDotnetDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```
 
-    Se si sceglie un nome diverso per il dispositivo, aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+2. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato.
 
-2. Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
+   **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDotnetDevice --output table
     ```
 
-    Annotare la stringa di connessione del dispositivo, che avrà questo aspetto: `Hostname=...=`. Il valore verrà usato più avanti in questa guida introduttiva.
+    Annotare la stringa di connessione del dispositivo, che avrà questo aspetto:
+
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    Il valore verrà usato più avanti in questa guida introduttiva.
 
 3. È necessario anche l'_endpoint compatibile con gli hub eventi_, il _percorso compatibile con gli hub eventi_, e la _chiave primaria iothubowner_ dall'hub IoT dell'utente per consentire all'applicazione back-end di connettersi all'hub di IoT e recuperare i messaggi. I comandi seguenti recuperano questi valori per l'hub IoT:
 
+   **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+
     ```azurecli-interactive
-    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
 
-    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
+    az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name {your IoT Hub name}
+    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
     ```
 
     Prendere nota di questi tre valori, che saranno utili successivamente durante la guida introduttiva.
@@ -84,13 +94,13 @@ Scaricare il progetto C# di esempio da https://github.com/Azure-Samples/azure-io
 
 L'applicazione del dispositivo simulato si connette a un endpoint specifico del dispositivo nell'hub IoT e invia dati di telemetria simulati di temperatura e umidità.
 
-1. In una finestra del terminale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device**.
+1. In una finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device**.
 
 2. Aprire il file **SimulatedDevice.cs** in un editor di testo di propria scelta.
 
     Sostituire il valore della variabile `s_connectionString` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.cs**.
 
-3. Nella finestra del terminale eseguire i comandi seguenti per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
+3. Nella finestra del terminale locale eseguire i comandi seguenti per installare i pacchetti necessari per l'applicazione del dispositivo simulato:
 
     ```cmd/sh
     dotnet restore
@@ -110,7 +120,7 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 L'applicazione back-end si connette all'endpoint **Eventi** sul lato servizio dell'hub IoT. L'applicazione riceve i messaggi da dispositivo a cloud inviati dal dispositivo simulato. In genere, un'applicazione di back-end di hub IoT viene eseguita nel cloud per ricevere ed elaborare i messaggi da dispositivo a cloud.
 
-1. In un'altra finestra del terminale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\read-d2c-messages**.
+1. In un'altra finestra del terminale locale passare alla cartella radice del progetto C# di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\read-d2c-messages**.
 
 2. Aprire il file **ReadDeviceToCloudMessages.cs** in un editor di testo di propria scelta. Aggiornare le variabili seguenti e salvare le modifiche nel file.
 
@@ -120,13 +130,13 @@ L'applicazione back-end si connette all'endpoint **Eventi** sul lato servizio de
     | `s_eventHubsCompatiblePath`     | Sostituire il valore della variabile con il percorso compatibile con Hub eventi annotato in precedenza. |
     | `s_iotHubSasKey`                | Sostituire il valore della variabile con la chiave primaria iothubowner annotata in precedenza. |
 
-3. Nella finestra del terminale eseguire i comandi seguenti per installare le librerie necessarie per l'applicazione back-end:
+3. Nella finestra del terminale locale eseguire i comandi seguenti per installare le librerie necessarie per l'applicazione back-end:
 
     ```cmd/sh
     dotnet restore
     ```
 
-4. Nella finestra del terminale eseguire i comandi seguenti per compilare ed eseguire l'applicazione back-end:
+4. Nella finestra del terminale locale eseguire i comandi seguenti per compilare ed eseguire l'applicazione back-end:
 
     ```cmd/sh
     dotnet run

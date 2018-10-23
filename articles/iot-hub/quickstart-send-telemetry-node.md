@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: 8a5a6ff2eab8a9ef5fb631ef81818a30db00078b
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 4ce693aa30159234ab0dbde29d5aa15e6da058fe
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784950"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361830"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-nodejs"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati di telemetria dall'hub con un'applicazione di back-end (Node.js)
 
@@ -55,12 +55,12 @@ Scaricare il progetto di esempio di Node.js da https://github.com/Azure-Samples/
 
    **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
 
+   **MyNodeDevice**: nome specificato per il dispositivo registrato. Usare MyNodeDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
-
-    Se si sceglie un nome diverso per il dispositivo, aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
 1. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato.
 
@@ -69,7 +69,7 @@ Scaricare il progetto di esempio di Node.js da https://github.com/Azure-Samples/
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
     ```
-    
+ 
     Annotare la stringa di connessione del dispositivo, che avrà questo aspetto:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`

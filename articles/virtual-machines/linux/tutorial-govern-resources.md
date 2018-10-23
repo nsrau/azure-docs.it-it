@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 2d19488d9b4d6ae6c71610788345b45c38e51cfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968816"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309860"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Esercitazione: Informazioni sulla governance di macchine virtuali Linux con l'interfaccia della riga di comando di Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "46968816"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
+Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.30 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Informazioni sull'ambito
 
@@ -55,19 +55,17 @@ Per la gestione di soluzioni di macchine virtuali, sono disponibili tre ruoli sp
 * [Collaboratore di rete](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Invece di assegnare ruoli ai singoli utenti, è spesso più facile [creare un gruppo di Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) per gli utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per semplificare questo articolo, creare un gruppo di Azure Active Directory senza membri. È comunque possibile assegnare questo gruppo a un ruolo per un ambito. 
+Invece di assegnare ruoli ai singoli utenti, è spesso più facile usare un gruppo di Azure Active Directory con utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per questo articolo, usare un gruppo esistente per la gestione della macchina virtuale oppure usare il portale per [creare un gruppo di Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-L'esempio seguente crea un gruppo di Azure Active Directory denominato *VMDemoContributors* con il nome alternativo di posta elettronica *vmDemoGroup*. Il nome alternativo di posta elettronica funge da alias del gruppo.
-
-```azurecli-interactive
-adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)
-```
-
-Dopo la restituzione del risultato del prompt dei comandi, la propagazione del gruppo in Azure Active Directory richiede pochi istanti. Dopo aver atteso 20 o 30 secondi, usare il comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) per assegnare il nuovo gruppo di Azure Active Directory al ruolo Collaboratore Macchina virtuale per il gruppo di risorse.  Se si esegue il comando seguente prima della propagazione, si riceve un messaggio di errore che informa che **l'entità <guid> non esiste nella directory**. Provare a eseguire di nuovo il comando.
+Dopo aver creato un nuovo gruppo o averne trovato uno esistente, usare il comando [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) per assegnare al nuovo gruppo di Azure Active Directory il ruolo Collaboratore Macchina virtuale per il gruppo di risorse.
 
 ```azurecli-interactive
+adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
+
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
+
+Se viene visualizzato l'errore **L'entità <guid> non esiste nella directory**, il nuovo gruppo non è stato ancora propagato in Azure Active Directory. Provare a eseguire di nuovo il comando.
 
 In genere si ripete il processo per *Collaboratore Rete* e *Collaboratore Account di archiviazione* per assicurarsi che vengano assegnati utenti per la gestione delle risorse distribuite. In questo articolo è possibile ignorare questi passaggi.
 
@@ -171,7 +169,7 @@ Per testare i blocchi, provare a eseguire il comando seguente:
 az group delete --name myResourceGroup
 ```
 
-Viene visualizzato un messaggio di errore che informa che l'operazione di eliminazione non può essere eseguita a causa di un blocco. Il gruppo di risorse può essere eliminato solo se si rimuovono in modo specifico i blocchi. Questo passaggio è illustrato in [Pulire le risorse](#clean-up-resources).
+Viene visualizzato un messaggio di errore che informa che l'operazione di eliminazione non può essere completata a causa di un blocco. Il gruppo di risorse può essere eliminato solo se si rimuovono in modo specifico i blocchi. Questo passaggio è illustrato in [Pulire le risorse](#clean-up-resources).
 
 ## <a name="tag-resources"></a>Aggiungere tag alle risorse
 
@@ -179,7 +177,7 @@ I [tag](../../azure-resource-manager/resource-group-using-tags.md) vengono appli
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-Per applicare tag a una macchina virtuale, usare il comando [az resource tag](/cli/azure/resource#az_resource_tag). Gli eventuali tag già applicati alla risorsa non vengono conservati.
+Per applicare tag a una macchina virtuale, usare il comando [az resource tag](/cli/azure/resource#az_resource_tag). Gli eventuali tag già applicati alla risorsa non vengono mantenuti.
 
 ```azurecli-interactive
 az resource tag -n myVM \

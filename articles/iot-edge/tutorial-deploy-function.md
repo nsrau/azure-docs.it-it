@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 66dcb3347741c4826fc62cc258c67b85f3939ff7
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: f2b1c394f561b87baf2be261728a1ac39b1f7835
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422763"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116053"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Esercitazione: Distribuire Funzioni di Azure come moduli IoT Edge (anteprima)
 
@@ -45,7 +45,7 @@ Un dispositivo Azure IoT Edge:
 
 Risorse cloud:
 
-* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) del livello gratuito in Azure. 
+* Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Gratuito o Standard in Azure. 
 
 Risorse per lo sviluppo:
 

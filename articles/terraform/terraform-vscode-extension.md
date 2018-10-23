@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: ad042525ead23959be57a5dd2d5735bcedfedb1b
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: be0140606302335884d62ba60c875a049949b495
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668326"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353051"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installare e usare l'estensione Azure Terraform di Visual Studio Code
 
@@ -68,7 +68,7 @@ Per usare la funzione visualize di Terraform è necessario [installare GraphViz]
 
 1. Avviare Visual Studio Code.
 
-1. Selezionare **Extensions** (Estensioni).
+1. Selezionare **Estensioni**.
 
     ![Pulsante delle estensioni](media/terraform-vscode-extension/tf-vscode-extensions-button.png)
 
@@ -76,14 +76,14 @@ Per usare la funzione visualize di Terraform è necessario [installare GraphViz]
 
     ![Cercare le estensioni di Visual Studio Code nel Marketplace](media/terraform-vscode-extension/tf-search-extensions.png)
 
-1. Selezionare **Install** (Installa).
+1. Selezionare **Installa**.
 
     >[!NOTE]
     >Quando si seleziona **Install** (Installa) per l'estensione Azure Terraform, Visual Studio Code installa automaticamente l'estensione Azure Account. Quest'ultima è costituita da un file di dipendenza per l'estensione Azure Terraform che viene usato per eseguire le autenticazioni delle sottoscrizioni di Azure e le estensioni di codice correlate ad Azure.
 
 #### <a name="verify-the-terraform-extension-is-installed-in-visual-studio-code"></a>Verificare che l'estensione Terraform sia installata in Visual Studio Code
 
-1. Selezionare **Extensions** (Estensioni).
+1. Selezionare **Estensioni**.
 
 1. Immettere `@installed` nella casella di testo di ricerca.
 
@@ -103,7 +103,9 @@ In questo esercizio si crea ed esegue un file di configurazione di Terraform di 
 
 1. In Visual Studio Code selezionare **File > New File** (Nuovo file) dalla barra dei menu.
 
-1. Passare a [azurerm_resource_group](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) e copiare il codice nel blocco di codice riportato in **Example Usage** (Esempio d'uso):
+1. Nel browser passare alla [pagina azurerm_resource_group di Terraform](https://www.terraform.io/docs/providers/azurerm/r/resource_group.html#) e copiare il codice nel blocco di codice riportato in **Example Usage** (Esempio di uso):
+
+    ![Example Usage (Esempio di uso)](media/terraform-vscode-extension/tf-azurerm-resource-group-example-usage.png)
 
 1. Incollare il codice copiato nel nuovo file creato in Visual Studio Code.
 
@@ -125,7 +127,7 @@ In questo esercizio si crea ed esegue un file di configurazione di Terraform di 
 
     ![Salvare con il nome main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
-1. Selezionare **Save** (Salva).
+1. Selezionare **Salva**.
 - Dalla barra dei menu selezionare **File > Open Folder** (Apri cartella). Individuare e selezionare la nuova cartella creata.
 
 ### <a name="run-terraform-init-command"></a>Eseguire il comando *init* di Terraform
@@ -146,7 +148,7 @@ In questo esercizio si crea ed esegue un file di configurazione di Terraform di 
 
     ![Primo avvio di Cloud Shell](media/terraform-vscode-extension/tf-first-launch-of-cloud-shell.png)
 
-1. Viene visualizzata la pagina di benvenuto in Azure Cloud Shell. Selezionare Bash o PowerShell.
+1. Viene visualizzata la pagina Benvenuto in Azure Cloud Shell. Selezionare Bash o PowerShell.
 
     ![Benvenuto in Azure Cloud Shell](media/terraform-vscode-extension/tf-welcome-to-azure-cloud-shell.png)
 
@@ -202,13 +204,13 @@ Quando si è soddisfatti dei risultati del *piano* di Terraform, è possibile es
 
 Per verificare se il nuovo gruppo di risorse di Azure è stato creato correttamente:
 
-1. Aprire il portale di Azure.
+1. Aprire il Portale di Azure.
 
 1. Nel riquadro di spostamento a sinistra selezionare **Gruppi di risorse**.
 
     ![Verificare la nuova risorsa](media/terraform-vscode-extension/tf-verify-resource-group-created.png)
 
-Il nuovo gruppo di risorse dovrebbe essere elencato nella colonna **NOME**.
+Il nuovo gruppo di risorse dovrebbe essere elencato nella colonna **NAME** (NOME).
 
 >[!NOTE]
 >Per il momento è possibile lasciare aperta la finestra del portale di Azure poiché verrà usata nel passaggio successivo.

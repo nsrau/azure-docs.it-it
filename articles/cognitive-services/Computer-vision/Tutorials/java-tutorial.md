@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
 ms.date: 09/21/2017
-ms.openlocfilehash: cca35d031e860e014c8fd84b0daf6b4d60d18046
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985848"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340257"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>Esercitazione: API Visione artificiale in Java
 
@@ -45,7 +45,9 @@ Questa esercitazione è stata sviluppata usando l'ambiente di sviluppo integrato
 
 Prima di creare l'esempio, è necessario effettuare la sottoscrizione dell'API Visione artificiale, che fa parte di Servizi cognitivi di Azure. Per informazioni dettagliate sulla sottoscrizione e sulla gestione delle chiavi, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). In questa esercitazione è possibile usare sia la chiave primaria sia quella secondaria. 
 
-## <a name="download-the-tutorial-project"></a>Scaricare il progetto dell'esercitazione
+## <a name="acquire-the-incomplete-tutorial-project"></a>Acquisire il progetto dell'esercitazione incompleto
+
+### <a name="download-the-tutorial-project"></a>Scaricare il progetto dell'esercitazione
 
 1. Passare al repository [Cognitive Services Java Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial) (Esercitazione in Java su Visione artificiale di Servizi cognitivi).
 1. Fare clic sul pulsante **Clone or download** (Clona o scarica).
@@ -53,7 +55,7 @@ Prima di creare l'esempio, è necessario effettuare la sottoscrizione dell'API V
 
 Non è necessario estrarre il contenuto del file ZIP, in quanto NetBeans importa il progetto da questo file.
 
-## <a name="import-the-tutorial-project"></a>Importare il progetto dell'esercitazione
+### <a name="import-the-tutorial-project"></a>Importare il progetto dell'esercitazione
 
 Importare il file **cognitive-services-java-computer-vision-tutorial-master.zip** in NetBeans.
 
@@ -65,29 +67,27 @@ Importare il file **cognitive-services-java-computer-vision-tutorial-master.zip*
 1. Fare doppio clic su **MainFrame.java** per caricare il file nell'editor di NetBeans. Viene visualizzata la scheda **Design** (Progettazione) del file **MainFrame.java**.
 1. Fare clic sulla scheda **Source** (Origine) per visualizzare il codice sorgente Java.
 
-## <a name="build-and-run-the-tutorial-project"></a>Compilare ed eseguire il progetto dell'esercitazione
+### <a name="build-and-run-the-tutorial-project"></a>Compilare ed eseguire il progetto dell'esercitazione
 
 1. Premere **F6** per compilare ed eseguire l'applicazione dell'esercitazione.
 
     Nell'applicazione stessa fare clic su una scheda per visualizzare il riquadro della funzionalità corrispondente. I pulsanti hanno metodi vuoti, quindi non eseguono alcuna azione.
 
-    Nella parte inferiore della finestra sono disponibili i campi **Subscription Key** (Chiave di sottoscrizione) e **Subscription Region** (Area sottoscrizione). Questi campi devono essere compilati con una chiave di sottoscrizione valida e con l'area corretta per tale chiave. Per ottenere una chiave di sottoscrizione, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). Se la chiave di sottoscrizione è stata ottenuta dalla versione di valutazione gratuita disponibile a quel collegamento, l'area predefinita **westcentralus** è l'area corretta.
+    Nella parte inferiore della finestra sono disponibili i campi **Subscription Key** (Chiave di sottoscrizione) e **Subscription Region** (Area sottoscrizione). Questi campi devono essere compilati con una chiave di sottoscrizione valida e con l'area corretta per tale chiave. Per ottenere una chiave di sottoscrizione, vedere [Sottoscrizioni](https://azure.microsoft.com/try/cognitive-services/). Se la chiave di sottoscrizione è stata ottenuta dalla versione di valutazione gratuita disponibile con quel collegamento, l'area predefinita **westcentralus** è l'area corretta per le chiavi di sottoscrizione.
 
 1. Chiudere l'applicazione dell'esercitazione.
 
-## <a name="add-the-tutorial-code"></a>Aggiungere il codice dell'esercitazione
+## <a name="add-the-tutorial-code-to-the-project"></a>Aggiungere il codice dell'esercitazione al progetto
 
-L'applicazione Swing Java è configurata con sei schede. Ogni scheda illustra una funzione diversa di Visione artificiale (analisi, OCR e così via). Le sei sezioni dell'esercitazione non sono interdipendenti, quindi è possibile aggiungere un'unica sezione, tutte e sei le sezioni oppure solo un paio. Le sezioni possono inoltre essere aggiunte in qualsiasi ordine.
+L'applicazione Swing Java è configurata con sei schede. Ogni scheda illustra una funzione diversa di Visione artificiale (analisi, OCR e così via). Le sei sezioni dell'esercitazione non sono interdipendenti, quindi è possibile aggiungere un'unica sezione, tutte e sei le sezioni oppure un qualsiasi subset di queste. È possibile aggiungere le sezioni in qualsiasi ordine.
 
-Di seguito sono riportati i requisiti iniziali.
+### <a name="analyze-an-image"></a>Analizzare un'immagine
 
-## <a name="analyze-an-image"></a>Analizzare un'immagine
-
-La funzionalità di analisi di Visione artificiale analizza un'immagine alla ricerca di più di 2.000 oggetti riconoscibili, esseri viventi, panorami e azioni. Una volta completata l'analisi, la funzionalità restituisce un oggetto JSON che descrive l'immagine con tag descrittivi, analisi del colore, didascalie e molto altro.
+La funzionalità di analisi di Visione artificiale analizza un'immagine cercando più di 2.000 oggetti, esseri viventi, panorami e azioni riconoscibili. Una volta completata l'analisi, la funzionalità restituisce un oggetto JSON che descrive l'immagine con tag descrittivi, analisi del colore, didascalie e molto altro.
 
 Per completare la funzionalità di analisi dell'applicazione dell'esercitazione, procedere come segue:
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Analisi, passaggio 1: aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
 
 Il metodo del gestore dell'evento **analyzeImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **AnalyzeImage** per analizzare l'immagine. Quando viene restituito il risultato di **AnalyzeImage**, il metodo visualizza la risposta in formato JSON nell'area di testo **Response** (Risposta), estrae la prima didascalia da **JSONObject** e visualizza la didascalia e il livello di attendibilità relativo alla correttezza della didascalia.
 
@@ -140,7 +140,7 @@ Copiare e incollare il codice seguente nel metodo **analyzeImageButtonActionPerf
     }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Analisi, passaggio 2: aggiungere il wrapper per la chiamata API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Aggiungere il wrapper per la chiamata API REST
 
 Il metodo **AnalyzeImage** esegue il wrapping della chiamata API REST per analizzare un'immagine. Il metodo restituisce un **JSONObject** che descrive l'immagine oppure **null** in caso di errore.
 
@@ -201,17 +201,17 @@ Copiare e incollare il metodo**AnalyzeImage** subito sotto il metodo **analyzeIm
     }
  ```
 
-### <a name="analyze-step-3-run-the-application"></a>Analisi, passaggio 3: eseguire l'applicazione
+#### <a name="run-the-application"></a>Eseguire l'applicazione
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Immettere un URL di un'immagine da analizzare, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare un'immagine e visualizzare il risultato.
 
-## <a name="recognize-a-landmark"></a>Riconoscere un punto di riferimento
+### <a name="recognize-a-landmark"></a>Riconoscere un punto di riferimento
 
 La funzionalità relativa ai punti di riferimento di Visione artificiale analizza un'immagine per individuare punti di riferimento naturali e artificiali, ad esempio montagne o edifici famosi. Una volta completata l'analisi, questa funzionalità restituisce un oggetto JSON che identifica i punti di riferimento trovati nell'immagine.
 
 Per completare la funzionalità relativa ai punti di riferimento dell'applicazione dell'esercitazione, procedere come segue:
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Punto di riferimento, passaggio 1: aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
 
 Il metodo del gestore dell'evento **landmarkImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **LandmarkImage** per analizzare l'immagine. Quando viene restituito il risultato di **LandmarkImage**, il metodo visualizza la risposta in formato JSON nell'area di testo **Response** (Risposta), quindi estrae il nome del primo luogo di interesse da **JSONObject** e lo visualizza nella finestra insieme al livello di attendibilità relativo alla corretta identificazione del luogo di interesse.
 
@@ -264,7 +264,7 @@ Copiare e incollare il codice seguente nel metodo **landmarkImageButtonActionPer
     }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Punto di riferimento, passaggio 2: aggiungere il wrapper per la chiamata API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Aggiungere il wrapper per la chiamata API REST
 
 Il metodo **LandmarkImage** esegue il wrapping della chiamata API REST per analizzare un'immagine. Il metodo restituisce un **JSONObject** che descrive i luoghi di interesse trovati nell'immagine oppure **null** in caso di errore.
 
@@ -325,17 +325,17 @@ Copiare e incollare il metodo**LandmarkImage** subito sotto il metodo **landmark
     }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>Punto di riferimento, passaggio 3: eseguire l'applicazione
+#### <a name="run-the-application"></a>Eseguire l'applicazione
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **Landmark** (Luogo di interesse), immettere l'URL di un'immagine di un luogo di interesse, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare l'immagine e visualizzare il risultato.
 
-## <a name="recognize-celebrities"></a>Riconoscere le celebrità
+### <a name="recognize-celebrities"></a>Riconoscere le celebrità
 
 La funzionalità relativa alle celebrità di Visione artificiale analizza un'immagine per individuare personaggi famosi. Una volta completata l'analisi, questa funzionalità restituisce un oggetto JSON che identifica le celebrità trovate nell'immagine.
 
 Per completare la funzionalità relativa alle celebrità dell'applicazione dell'esercitazione, procedere come segue:
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Celebrità, passaggio 1: aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
 
 Il metodo del gestore dell'evento **celebritiesImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **CelebritiesImage** per analizzare l'immagine. Quando viene restituito il risultato di **CelebritiesImage**, il metodo visualizza la risposta in formato JSON nell'area di testo **Response** (Risposta), quindi estrae il nome della prima celebrità da **JSONObject** e lo visualizza nella finestra insieme al livello di attendibilità relativo alla corretta identificazione della celebrità.
 
@@ -388,7 +388,7 @@ Copiare e incollare il codice seguente nel metodo **celebritiesImageButtonAction
     }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Celebrità, passaggio 2: aggiungere il wrapper per la chiamata API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Aggiungere il wrapper per la chiamata API REST
 
 Il metodo **CelebritiesImage** esegue il wrapping della chiamata API REST per analizzare un'immagine. Il metodo restituisce un **JSONObject** che descrive le celebrità trovate nell'immagine oppure **null** in caso di errore.
 
@@ -449,17 +449,17 @@ Copiare e incollare il metodo**CelebritiesImage** subito sotto il metodo **celeb
     }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>Celebrità, passaggio 3: eseguire l'applicazione
+#### <a name="run-the-application"></a>Eseguire l'applicazione
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **Celebrities** (Celebrità), immettere l'URL di un'immagine di una celebrità, quindi fare clic sul pulsante **Analyze Image** (Analizza immagine) per analizzare l'immagine e visualizzare il risultato.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Generare un'anteprima intelligente
+### <a name="intelligently-generate-a-thumbnail"></a>Generare un'anteprima intelligente
 
 La funzionalità di anteprima di Visione artificiale genera un'anteprima da un'immagine. Usando la funzionalità **Smart Crop** (Ritaglio intelligente), la funzionalità di anteprima identifica l'area di interesse in un'immagine e focalizza l'anteprima su quest'area, per generare immagini di anteprima esteticamente più gradevoli.
 
 Per completare la funzionalità di anteprima dell'applicazione dell'esercitazione, procedere come segue:
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Anteprima, passaggio 1: aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
 
 Il metodo del gestore dell'evento **thumbnailImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **getThumbnailImage** per creare l'anteprima. Quando viene restituito il risultato di **getThumbnailImage**, il metodo visualizza l'anteprima generata.
 
@@ -505,7 +505,7 @@ Copiare e incollare il codice seguente nel metodo **thumbnailImageButtonActionPe
     }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Anteprima, passaggio 2: aggiungere il wrapper per la chiamata API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Aggiungere il wrapper per la chiamata API REST
 
 Il metodo **getThumbnailImage** esegue il wrapping della chiamata API REST per analizzare un'immagine. Il metodo restituisce un oggetto **BufferedImage** che contiene l'anteprima oppure **null** in caso di errore. Il messaggio di errore viene restituito nel primo elemento della matrice di stringhe **jsonError**.
 
@@ -572,17 +572,17 @@ Copiare e incollare il metodo **getThumbnailImage** seguente subito sotto il met
     }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Anteprima, passaggio 3: eseguire l'applicazione
+#### <a name="run-the-application"></a>Eseguire l'applicazione
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **Thumbnail** (Anteprima), immettere un URL di un'immagine, quindi fare clic sul pulsante **Generate Thumbnails** (Genera anteprime) per analizzare l'immagine e visualizzare il risultato.
 
-## <a name="read-printed-text-ocr"></a>Leggere testo stampato (OCR)
+### <a name="read-printed-text-ocr"></a>Leggere testo stampato (OCR)
 
 La funzionalità di riconoscimento ottico dei caratteri (OCR) di Visione artificiale analizza un'immagine di testo stampato. Dopo il completamento dell'analisi, la funzionalità OCR restituisce un oggetto JSON che contiene il testo e la posizione del testo nell'immagine.
 
 Per completare la funzionalità OCR dell'applicazione dell'esercitazione, procedere come segue:
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>OCR, passaggio 1: aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
 
 Il metodo del gestore dell'evento **ocrImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **OcrImage** per analizzare l'immagine. Quando viene restituito il risultato di **OcrImage**, il metodo visualizza il testo rilevato in formato JSON nell'area di testo **Response** (Risposta).
 
@@ -622,7 +622,7 @@ Copiare e incollare il codice seguente nel metodo **ocrImageButtonActionPerforme
     }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>OCR, passaggio 2: aggiungere il wrapper per la chiamata API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Aggiungere il wrapper per la chiamata API REST
 
 Il metodo **OcrImage** esegue il wrapping della chiamata API REST per analizzare un'immagine. Il metodo restituisce un **JSONObject** dei dati JSON restituiti dalla chiamata oppure **null** in caso di errore.
 
@@ -683,17 +683,17 @@ Copiare e incollare il metodo**OcrImage** subito sotto il metodo **ocrImageButto
     }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>OCR, passaggio 3: eseguire l'applicazione
+#### <a name="run-the-application"></a>Eseguire l'applicazione
 
 Premere **F6** per eseguire l'applicazione. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **OCR**, immettere l'URL di un'immagine di testo stampato, quindi fare clic sul pulsante **Read Image** (Leggi immagine) per analizzare l'immagine e visualizzare il risultato.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Leggere testo scritto a mano (riconoscimento della grafia)
+### <a name="read-handwritten-text-handwriting-recognition"></a>Leggere testo scritto a mano (riconoscimento della grafia)
 
 La funzionalità di riconoscimento della grafia di Visione artificiale analizza un'immagine di testo scritto a mano. Dopo il completamento dell'analisi, la funzionalità di riconoscimento della grafia restituisce un oggetto JSON che contiene il testo e la posizione del testo nell'immagine.
 
 Per completare la funzionalità di riconoscimento della grafia dell'applicazione dell'esercitazione, procedere come segue:
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Riconoscimento della grafia, passaggio 1: aggiungere il codice del gestore dell'evento per il pulsante del modulo
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Aggiungere il codice del gestore dell'evento per il pulsante del modulo
 
 Il metodo del gestore dell'evento **handwritingImageButtonActionPerformed** cancella il modulo, visualizza l'immagine specificata nell'URL e quindi chiama il metodo **HandwritingImage** per analizzare l'immagine. Quando viene restituito il risultato di **HandwritingImage**, il metodo visualizza il testo rilevato in formato JSON nell'area di testo **Response** (Risposta).
 
@@ -733,7 +733,7 @@ Copiare e incollare il codice seguente nel metodo **handwritingImageButtonAction
     }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Riconoscimento della grafia, passaggio 2: aggiungere il wrapper per la chiamata API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Aggiungere il wrapper per la chiamata API REST
 
 Il metodo **HandwritingImage** esegue il wrapping delle due chiamate API REST necessarie per analizzare un'immagine. Poiché il riconoscimento della grafia richiede tempo, viene usato un processo in due fasi. La prima chiamata invia l'immagine per l'elaborazione, mentre la seconda recupera il testo rilevato al termine dell'elaborazione.
 
@@ -841,7 +841,7 @@ Copiare e incollare il metodo**HandwritingImage** subito sotto il metodo **handw
     }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>Riconoscimento della grafia, passaggio 3: eseguire l'applicazione
+#### <a name="run-the-application"></a>Eseguire l'applicazione
 
 Per eseguire l'applicazione, premere **F6**. Inserire la chiave di sottoscrizione nel campo **Chiave sottoscrizione** e verificare di usare l'area corretta in **Subscription Region** (Area sottoscrizione). Fare clic sulla scheda **Read Handwritten Text** (Leggi testo scritto a mano), immettere l'URL di un'immagine di testo scritto a mano, quindi fare clic sul pulsante **Read Image** (Leggi immagine) per analizzare l'immagine e visualizzare il risultato.
 

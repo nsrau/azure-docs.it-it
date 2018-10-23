@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 521b6423550bf3e2d0bc90212b7e3fe0cbeddfc4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948884"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167071"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Esercitazione: Configurare un'applicazione Web di Azure per la lettura di un segreto da un insieme di credenziali delle chiavi
 
@@ -126,10 +126,11 @@ Per l'applicazione Web devono essere installati due pacchetti NuGet. Per install
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul nome del sito Web.
 2. Scegliere **Gestisci pacchetti NuGet per la soluzione**.
 3. Selezionare la casella di controllo accanto alla casella di ricerca. **Includi versione preliminare**
-4. Cercare i due pacchetti NuGet elencati di seguito e confermarne l'aggiunta alla soluzione:
+4. Cercare i tre pacchetti NuGet elencati di seguito e confermarne l'aggiunta alla soluzione:
 
     * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) - Semplifica il recupero dei token di accesso per gli scenari di autenticazione da servizio a servizio di Azure. 
     * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) - Contiene i metodi per interagire con Key Vault.
+    * [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/): contiene estensioni `IConfiguration` per Azure Key Vault
 
 5. Usare Esplora soluzioni per aprire `Program.cs` e sostituire il contenuto del file Program.cs con il codice seguente. Sostituire ```<YourKeyVaultName>``` con il nome dell'insieme di credenziali delle chiavi:
 

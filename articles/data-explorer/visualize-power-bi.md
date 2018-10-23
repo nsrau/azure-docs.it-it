@@ -2,18 +2,18 @@
 title: 'Esercitazione: visualizzare i dati da Esplora dati di Azure in Power BI'
 description: Questa esercitazione fornisce informazioni su come connettersi a Esplora dati di Azure con Power BI e visualizzare i dati.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 938d8d6e291ca432ef3f642a0aaec74d5dcf5bf5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977146"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393713"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>Esercitazione: visualizzare i dati in Power BI da Esplora dati di Azure
 
@@ -108,7 +108,7 @@ Dopo aver creato una connessione a Esplora dati di Azure, si modificano i dati n
 
     ![Filtrare la colonna](media/visualize-power-bi/filter-column.png)
 
-1. Selezionare la freccia per la colonna **BeginLat**, deselezionare la casella di controllo **Null**, quindi selezionare **OK**.
+1. Fare clic con il pulsante destro del mouse sull'intestazione della colonna **StormSummary** (Riepilogo perturbazioni) e quindi selezionare **Rimuovi**.
 
     ![Rimuovere la colonna](media/visualize-power-bi/remove-column.png)
 

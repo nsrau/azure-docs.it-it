@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/07/2018
 ms.author: dobett
-ms.openlocfilehash: 2d851bc8d5af7f824512cc9f14e6b1120026dd07
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 35b9f07b0aa8ee50b4f0f6500f86ea7c6eed4823
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785156"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362042"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-python"></a>Guida introduttiva: Inviare dati di telemetria da un dispositivo a un hub IoT e leggere i dati di telemetria dall'hub con un'applicazione di back-end (Python)
 
@@ -53,42 +53,50 @@ Scaricare il progetto di esempio di Python da https://github.com/Azure-Samples/a
 
 ## <a name="register-a-device"></a>Registrare un dispositivo
 
-È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa l'interfaccia della riga di comando di Azure per registrare un dispositivo simulato.
+È necessario registrare un dispositivo con l'hub IoT perché questo possa connettersi. In questa guida introduttiva si usa Azure Cloud Shell per registrare un dispositivo simulato.
 
-1. Aggiungere l'estensione della riga di comando dell'hub IoT CLI e creare l'identità del dispositivo. Sostituire `{YourIoTHubName}` con il nome scelto per l'hub IoT:
+1. Eseguire i comandi seguenti in Azure Cloud Shell per aggiungere l'estensione dell'interfaccia della riga di comando dell'hub IoT e per creare l'identità del dispositivo. 
+
+    **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
+
+    **MyPythonDevice**: nome specificato per il dispositivo registrato. Usare MyPythonDevice come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyPythonDevice
+    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 
-    Se si sceglie un nome diverso per il dispositivo, aggiornare il nome del dispositivo nell'applicazione di esempio prima di eseguirla.
+1. Eseguire il comando seguente in Azure Cloud Shell per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato.
 
-1. Eseguire il comando seguente per ottenere la _stringa di connessione del dispositivo_ per il dispositivo appena registrato:
+    **YourIoTHubName**: sostituire questo segnaposto con il nome scelto per l'hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyPythonDevice --output table
+    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
     ```
 
-    Annotare la stringa di connessione del dispositivo, che avrà questo aspetto: `Hostname=...=`. Il valore verrà usato più avanti in questa guida introduttiva.
+    Annotare la stringa di connessione del dispositivo, che avrà questo aspetto:
+
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+
+    Il valore verrà usato più avanti in questa guida introduttiva.
 
 ## <a name="send-simulated-telemetry"></a>Inviare dati di telemetria simulati
 
 L'applicazione del dispositivo simulato si connette a un endpoint specifico del dispositivo nell'hub IoT e invia dati di telemetria simulati di temperatura e umidità.
 
-1. In una finestra del terminale passare alla cartella radice del progetto Python di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device**.
+1. In una finestra del terminale locale passare alla cartella radice del progetto Python di esempio. Passare quindi alla cartella **iot-hub\Quickstarts\simulated-device**.
 
 1. Aprire il file **SimulatedDevice.py** in un editor di testo di propria scelta.
 
     Sostituire il valore della variabile `CONNECTION_STRING` con la stringa di connessione del dispositivo annotata in precedenza. Salvare quindi le modifiche nel file **SimulatedDevice.py**.
 
-1. Nella finestra del terminale eseguire i comandi seguenti per installare le librerie necessarie per l'applicazione del dispositivo simulato:
+1. Nella finestra del terminale locale eseguire i comandi seguenti per installare le librerie necessarie per l'applicazione del dispositivo simulato:
 
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-1. Nella finestra del terminale eseguire i comandi seguenti per eseguire l'applicazione del dispositivo simulato:
+1. Nella finestra del terminale locale eseguire i comandi seguenti per eseguire l'applicazione del dispositivo simulato:
 
     ```cmd/sh
     python SimulatedDevice.py
@@ -102,13 +110,13 @@ L'applicazione del dispositivo simulato si connette a un endpoint specifico del 
 
 L'estensione dell'interfaccia della riga di comando dell'hub IoT può connettersi all'endpoint **Eventi** sul lato servizio dell'hub IoT. L'estensione riceve i messaggi da dispositivo a cloud inviati dal dispositivo simulato. In genere, un'applicazione di back-end di hub IoT viene eseguita nel cloud per ricevere ed elaborare i messaggi da dispositivo a cloud.
 
-Eseguire i comandi dell'interfaccia della riga di comando di Azure seguenti, sostituendo `{YourIoTHubName}` con il nome dell'hub IoT:
+Eseguire i comandi seguenti in Azure Cloud Shell, sostituendo `YourIoTHubName` con il nome dell'hub IoT:
 
 ```azurecli-interactive
-az iot hub monitor-events --device-id MyPythonDevice --hub-name {YourIoTHubName}
+az iot hub monitor-events --device-id MyPythonDevice --hub-name YourIoTHubName
 ```
 
-La schermata seguente mostra l'output mentre l'estensione riceve i dati di telemetria inviati dal dispositivo simulato all'hub:
+Lo screenshot seguente mostra l'output mentre l'estensione riceve i dati di telemetria inviati dal dispositivo simulato all'hub:
 
 ![Eseguire l'applicazione back-end](media/quickstart-send-telemetry-python/ReadDeviceToCloud.png)
 

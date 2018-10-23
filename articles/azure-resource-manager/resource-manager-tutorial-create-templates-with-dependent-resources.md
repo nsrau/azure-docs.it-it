@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/09/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fe6313c059a1dd1050240ead5f7ca8e3e1512aa6
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 50f1c81f08787181de2fe3a9f6fb97a96a2bd882
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584514"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114313"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti
 
@@ -29,8 +29,10 @@ In questa esercitazione si creano un account di archiviazione, una macchina virt
 Questa esercitazione illustra le attività seguenti:
 
 > [!div class="checklist"]
+> * Preparare Key Vault
 > * Aprire un modello di avvio rapido
 > * Esplorare il modello
+> * Modificare il file dei parametri
 > * Distribuire il modello
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
@@ -39,8 +41,78 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Estensione Strumenti di Azure Resource Manager.  Vedere [Installare l'estensione ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) con l'estensione Strumenti di Azure Resource Manager.  Vedere [Installare l'estensione ](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+
+## <a name="prepare-key-vault"></a>Preparare Key Vault
+
+Per impedire gli attacchi password spraying, è consigliabile usare una password generata automaticamente per l'account amministratore della macchina virtuale e usare Key Vault per archiviare la password. La procedura seguente crea un insieme di credenziali delle chiavi e un segreto per archiviare la password. Configura anche le autorizzazioni necessarie alla distribuzione del modello per accedere al segreto archiviato nell'insieme di credenziali delle chiavi. Se l'insieme di credenziali delle chiavi è in un'altra sottoscrizione di Azure, sono necessari criteri di accesso aggiuntivi. Per informazioni dettagliate, vedere [Usare Azure Key Vault per passare valori di parametro protetti durante la distribuzione](./resource-manager-keyvault-parameter.md).
+
+1. Accedere ad [Azure Cloud Shell](https://shell.azure.com).
+2. Passare all'ambiente preferito, **PowerShell** o **Bash**, nell'angolo superiore sinistro.
+3. Eseguire il comando seguente di Azure PowerShell o dell'interfaccia della riga di comando di Azure.  
+
+    ```azurecli-interactive
+    keyVaultName='<your-unique-vault-name>'
+    resourceGroupName='<your-resource-group-name>'
+    location='Central US'
+    userPrincipalName='<your-email-address-associated-with-your-subscription>'
+    
+    # Create a resource group
+    az group create --name $resourceGroupName --location $location
+    
+    # Create a Key Vault
+    keyVault=$(az keyvault create \
+      --name $keyVaultName \
+      --resource-group $resourceGroupName \
+      --location $location \
+      --enabled-for-template-deployment true)
+    keyVaultId=$(echo $keyVault | jq -r '.id')
+    az keyvault set-policy --upn $userPrincipalName --name $keyVaultName --secret-permissions set delete get list
+
+    # Create a secret
+    password=$(openssl rand -base64 32)
+    az keyvault secret set --vault-name $keyVaultName --name 'vmAdminPassword' --value $password
+    
+    # Print the useful property values
+    echo "You need the following values for the virtual machine deployment:"
+    echo "Resource group name is: $resourceGroupName."
+    echo "The admin password is: $password."
+    echo "The Key Vault resource ID is: $keyVaultId."
+    ```
+
+    ```azurepowershell-interactive
+    $keyVaultName = "<your-unique-vault-name>"
+    $resourceGroupName="<your-resource-group-name>"
+    $location='Central US'
+    $userPrincipalName="<your-email-address-associated-with-your-subscription>"
+    
+    # Create a resource group
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+        
+    # Create a Key Vault
+    $keyVault = New-AzureRmKeyVault `
+      -VaultName $keyVaultName `
+      -resourceGroupName $resourceGroupName `
+      -Location $location `
+      -EnabledForTemplateDeployment
+    Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userPrincipalName -PermissionsToSecrets set,delete,get,list
+      
+    # Create a secret
+    $password = openssl rand -base64 32
+    
+    $secretValue = ConvertTo-SecureString $password -AsPlainText -Force
+    Set-AzureKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword" -SecretValue $secretValue
+    
+    # Print the useful property values
+    echo "You need the following values for the virtual machine deployment:"
+    echo "Resource group name is: $resourceGroupName."
+    echo "The admin password is: $password."
+    echo "The Key Vault resource ID is: " $keyVault.ResourceID
+    ```
+4. Annotare i valori di output perché sarà necessario usarli più avanti nell'esercitazione
+
+> [!NOTE]
+> Ogni servizio di Azure presenta requisiti specifici in termini di password. Ad esempio, i requisiti della macchina virtuale di Azure sono reperibili in Quali requisiti devono avere le password durante la creazione di una macchina virtuale?
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
@@ -54,6 +126,7 @@ Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager
     ```
 3. Selezionare **Apri** per aprire il file.
 4. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
+5. Ripetere i passaggi da 1 a 4 per aprire **https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.parameters.json** e quindi salvare il file con il nome **azuredeploy.parameters.json**.
 
 ## <a name="explore-the-template"></a>Esplorare il modello
 
@@ -97,23 +170,47 @@ Il diagramma seguente illustra le risorse e le informazioni sulle dipendenze per
 
 Specificando le dipendenze, Resource Manager distribuisce in modo efficiente la soluzione. Distribuisce l'account di archiviazione, l'indirizzo IP pubblico e la rete virtuale in parallelo poiché non hanno dipendenze. Dopo aver distribuito l'indirizzo IP pubblico e la rete virtuale, viene creata l'interfaccia di rete. Quando sono state distribuite tutte le altre risorse, Resource Manager distribuisce la macchina virtuale.
 
+## <a name="edit-the-parameters-file"></a>Modificare il file dei parametri
+
+Non è necessario apportare modifiche al file del modello. È però necessario modificare il file dei parametri per recuperare la password dell'amministratore dall'insieme di credenziali delle chiavi.
+
+1. Aprire **azuredeploy.parameters.json** in Visual Studio Code, se non è aperto.
+2. Aggiornare il parametro **adminPassword** nel modo seguente:
+
+    ```json
+    "adminPassword": {
+        "reference": {
+            "keyVault": {
+            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+            },
+            "secretName": "vmAdminPassword"
+        }
+    },
+    ```
+    Sostituire **id** con l'ID risorsa dell'istanza di Key Vault creata nella procedura precedente. È uno degli output. 
+
+    ![Integrare Key Vault e i modelli di Resource Manager - File dei parametri per la distribuzione di macchine virtuali](./media/resource-manager-tutorial-use-key-vault/resource-manager-tutorial-create-vm-parameters-file.png)
+3. Specificare i valori dei parametri seguenti.
+
+    - **adminUsername**: assegnare un nome all'account amministratore della macchina virtuale.
+    - **dnsLabelPrefix**: assegnare un nome al prefisso dell'etichetta DNS.
+4. Salvare le modifiche.
+
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
 Per distribuire i modelli sono disponibili molti metodi.  In questa esercitazione si usa Cloud Shell dal portale di Azure.
 
-1. Accedere al [portale di Azure](https://portal.azure.com)
-2. Selezionare **Cloud Shell** nell'angolo superiore destro come illustrato nell'immagine seguente:
+1. Accedere a [Cloud Shell](https://shell.azure.com). È anche possibile accedere al [portale di Azure](https://portal.azure.com) e quindi selezionare **Cloud Shell** nell'angolo superiore destro come illustrato nell'immagine seguente:
 
     ![Cloud Shell nel portale di Azure](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell.png)
-3. Selezionare **PowerShell** nell'angolo superiore sinistro di Cloud Shell.  In questa esercitazione verrà usato PowerShell.
-4. Selezionare **Riavvia**
-5. Selezionare **Caricare file** da Cloud Shell:
+2. Selezionare **PowerShell** nell'angolo superiore sinistro di Cloud Shell e quindi selezionare **Conferma**.  In questa esercitazione verrà usato PowerShell.
+3. Selezionare **Caricare file** da Cloud Shell:
 
     ![Caricare file in Cloud Shell nel portale di Azure](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-6. Selezionare il file salvato in precedenza in questa esercitazione. Il nome predefinito è **azuredeploy.json**.  Se è presente un file con lo stesso nome, il file precedente verrà sovrascritto senza alcuna notifica.
-7. In Cloud Shell eseguire il comando seguente per verificare che il file sia stato caricato. 
+4. Selezionare i file salvati in precedenza in questa esercitazione. I nomi predefiniti sono **azuredeploy.json** e **azuredeploy.paraemters.json**.  Se sono presenti file con gli stessi nomi, i file precedenti verranno sovrascritti senza alcuna notifica.
+5. In Cloud Shell eseguire il comando seguente per verificare che il file sia stato caricato. 
 
-    ```shell
+    ```bash
     ls
     ```
 
@@ -121,49 +218,32 @@ Per distribuire i modelli sono disponibili molti metodi.  In questa esercitazion
 
     Il nome del file visualizzato nello screenshot è azuredeploy.json.
 
-8. In Cloud Shell eseguire il comando seguente per verificare che il contenuto del file JSON:
+6. In Cloud Shell eseguire il comando seguente per verificare che il contenuto del file JSON:
 
-    ```shell
+    ```bash
     cat azuredeploy.json
+    cat azuredeploy.parameters.json
     ```
-9. In Cloud Shell eseguire i comandi di PowerShell seguenti:
+7. In Cloud Shell eseguire i comandi di PowerShell seguenti. Lo script di esempio usa lo stesso gruppo di risorse creato per l'insieme di credenziali delle chiavi. L'uso dello stesso gruppo di risorse semplifica la pulizia delle risorse.
 
     ```powershell
     $resourceGroupName = "<Enter the resource group name>"
-    $location = "<Enter the Azure location>"
-    $vmAdmin = "<Enter the admin username>"
-    $vmPassword = "<Enter the password>"
-    $dnsLabelPrefix = "<Enter the prefix>"
+    $deploymentName = "<Enter a deployment name>"
 
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-    $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-    New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-        -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-        -dnsLabelPrefix $dnsLabelPrefix
+    New-AzureRmResourceGroupDeployment -Name $deploymentName `
+        -ResourceGroupName $resourceGroupName `
+        -TemplateFile azuredeploy.json `
+        -TemplateparameterFile azuredeploy.parameters.json
     ```
-    Di seguito è riportato lo screenshot di una distribuzione di esempio:
-
-    ![Distribuire il modello in Cloud Shell nel portale di Azure](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-deploy-template.png)
-
-    Nello screenshot vengono usati i valori riportati di seguito.
-
-    * **$resourceGroupName**: myresourcegroup0710. 
-    * **$location**: eastus2
-    * **&lt;DeployName>**: mydeployment0710
-    * **&lt;TemplateFile>**: azuredeploy.json
-    * **Parametri del modello**:
-
-        * **adminUsername**: JohnDole
-        * **adminPassword**: Pass@word123
-        * **dnsLabelPrefix**: myvm0710
-
-10. Eseguire questo comando di PowerShell per visualizzare la macchina virtuale appena creata:
+8. Eseguire questo comando di PowerShell per visualizzare la macchina virtuale appena creata:
 
     ```powershell
-    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName <ResourceGroupName>
+    Get-AzureRmVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
     ```
 
     Il nome della macchina virtuale è hardcoded come **SimpleWinVM** nel modello.
+
+9. Accedere alla macchina virtuale per testare le credenziali dell'amministratore. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

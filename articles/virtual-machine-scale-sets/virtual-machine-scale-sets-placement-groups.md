@@ -3,7 +3,7 @@ title: Uso di set di scalabilità di macchine virtuali di Azure di grandi dimens
 description: Informazioni utili per usare set di scalabilità di macchine virtuali di Azure di grandi dimensioni
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: rajsqr
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/9/2017
-ms.author: negat
-ms.openlocfilehash: 17c8fdd0bc85b9d1a4e1b50cf422b28f32862a7e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: rajraj
+ms.openlocfilehash: f45b78f1c30119f5e892287719c9c2edfae57ce6
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941129"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364215"
 ---
 # <a name="working-with-large-virtual-machine-scale-sets"></a>Uso di set di scalabilità di macchine virtuali di grandi dimensioni
 È ora possibile creare [set di scalabilità di macchine virtuali](/azure/virtual-machine-scale-sets/) di Azure con capacità fino a 1.000 VM. In questo documento è definito _set di scalabilità di macchine virtuali di grandi dimensioni_ un set di scalabilità ridimensionabile fino a oltre 100 VM. Tale funzionalità è impostata da una proprietà del set di scalabilità (_singlePlacementGroup=False_). 
@@ -35,18 +35,18 @@ La caratteristica distintiva di un set di scalabilità _di grandi dimensioni_ no
 ## <a name="checklist-for-using-large-scale-sets"></a>Elenco di controllo per l'uso di set di scalabilità di grandi dimensioni
 Per stabilire se l'applicazione può usare in modo efficace set di scalabilità di grandi dimensioni, considerare i requisiti seguenti:
 
+- Se si prevede di distribuire un numero elevato di macchine virtuali, potrebbe essere necessario aumentare i limiti di quota delle vCPU di calcolo. 
 - I set di scalabilità di grandi dimensioni richiedono Azure Managed Disks. Per i set di scalabilità non creati con Managed Disks sono necessari più account di archiviazione (uno ogni 20 VM). I set di scalabilità di grandi dimensioni sono progettati per usare esclusivamente Managed Disks, per ridurre il sovraccarico nella gestione dell'archiviazione ed evitare il rischio di raggiungere i limiti della sottoscrizione per gli account di archiviazione. Se non si usa Managed Disks, il set di scalabilità è limitato a 100 VM.
 - I set di scalabilità creati da immagini di Azure Marketplace sono ridimensionabili fino a 1.000 VM.
-- I set di scalabilità creati da immagini personalizzate (ossia immagini di VM create e caricate dall'utente) sono attualmente ridimensionabili fino a 300 VM.
+- I set di scalabilità creati da immagini personalizzate (ossia immagini di macchine virtuali create e caricate dall'utente) sono attualmente ridimensionabili fino a 600 macchine virtuali.
 - Il bilanciamento del carico di livello 4 con set di scalabilità costituiti da più gruppi di posizionamento richiede lo [SKU Standard di Azure Load Balancer](../load-balancer/load-balancer-standard-overview.md). Lo SKU Standard di Load Balancer offre altri vantaggi, ad esempio la possibilità di bilanciare il carico tra più set di scalabilità. Lo SKU Standard richiede anche che al set di scalabilità sia associato un gruppo di sicurezza di rete. In caso contrario, i pool NAT non funzioneranno correttamente. Se è necessario usare lo SKU Basic di Azure Load Balancer, verificare che il set di scalabilità sia configurato per l'uso di un singolo gruppo di posizionamento, come da impostazione predefinita.
 - Il bilanciamento del carico di livello 7 con il gateway applicazione di Azure è supportato per tutti i set di scalabilità.
 - Un set di scalabilità è definito con una singola subnet. Verificare che lo spazio indirizzi della subnet sia sufficiente per tutte le VM necessarie. Per impostazione predefinita, un set di scalabilità effettua un provisioning eccessivo (ossia crea VM aggiuntive, per cui non vengono applicati addebiti, in fase di distribuzione o quando si aumenta il numero di istanze) per migliorare l'affidabilità e le prestazioni della distribuzione. Prevedere uno spazio indirizzi superiore del 20% rispetto al numero di VM a cui si intende eseguire il ridimensionamento.
-- Se si pianifica di distribuire molte VM, potrebbe essere necessario aumentare i limiti di quota delle vCPU di calcolo.
 - I domini di errore e di aggiornamento sono coerenti solo all'interno di un gruppo di posizionamento. Questa architettura non modifica la disponibilità generale di un set di scalabilità, perché le VM sono distribuite in modo uniforme su hardware fisico distinto. Se è necessario garantire che due VM risiedano in hardware diverso, tuttavia, verificare che si trovino in domini di errore diversi nello stesso gruppo di posizionamento. Il dominio di errore e l'ID del gruppo di posizionamento sono riportati nella _visualizzazione dell'istanza_ di una VM del set di scalabilità. La visualizzazione dell'istanza di una VM del set di scalabilità è disponibile in [Esplora risorse di Azure](https://resources.azure.com/).
 
 
 ## <a name="creating-a-large-scale-set"></a>Creazione di un set di scalabilità di grandi dimensioni
-Quando si crea un set di scalabilità nel portale di Azure, è possibile consentire il ridimensionamento a più gruppi di posizionamento impostando l'opzione _Limit to a single placement group_ (Limita a singolo gruppo di posizionamento) su _False_ nel pannello _Informazioni di base_. Con questa opzione impostata su _False_, è possibile specificare un valore fino a 1.000 in _Numero di istanze_.
+Quando si crea un set di scalabilità nel portale di Azure, è sufficiente specificare un *Numero di istanze* fino a 1.000. Se si tratta di un numero di istanze superiore a 100, *Abilita il ridimensionamento oltre 100 istanze* verrà impostato su *Sì*. Sarà quindi possibile ridimensionare il set di scalabilità su più gruppi di selezione host. 
 
 ![](./media/virtual-machine-scale-sets-placement-groups/portal-large-scale.png)
 

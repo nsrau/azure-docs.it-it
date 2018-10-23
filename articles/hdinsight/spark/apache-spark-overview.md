@@ -3,22 +3,22 @@ title: Informazioni su Apache Spark in Azure HDInsight
 description: Questo articolo fornisce un'introduzione a Spark in HDInsight e presenta i diversi scenari in cui è possibile usare il cluster Spark in HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: 319940210f77055e2ee7cad7b72d08bfbc63d2fd
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7bc7c95c0d15e0c33f7f9a705fb47d27f9daacec
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617640"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378715"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Informazioni su Apache Spark in Azure HDInsight
 
-*Apache Spark* è un framework di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni di analisi dei dati di Big Data. Apache Spark in Azure HDInsight è l'implementazione di Microsoft di Apache Hadoop nel cloud. HDInsight rende più semplice creare e configurare un cluster Spark in Azure. I cluster Spark in HDInsight sono compatibili con Archiviazione di Azure e con Azure Data Lake Store. Pertanto, è possibile usare i cluster Spark HDInsight per elaborare i dati archiviati in Azure. Per i componenti e per le informazioni sulle versioni, vedere [Componenti e versioni Hadoop in Azure HDInsight](../hdinsight-component-versioning.md).
+*Apache Spark* è un framework di elaborazione parallela che supporta l'elaborazione in memoria per migliorare le prestazioni di applicazioni di analisi dei dati di Big Data. Apache Spark in Azure HDInsight è l'implementazione Microsoft di Apache Spark nel cloud. HDInsight rende più semplice creare e configurare un cluster Spark in Azure. I cluster Spark in HDInsight sono compatibili con Archiviazione di Azure e con Azure Data Lake Store. Pertanto, è possibile usare i cluster Spark HDInsight per elaborare i dati archiviati in Azure. Per i componenti e per le informazioni sulle versioni, vedere [Componenti e versioni Hadoop in Azure HDInsight](../hdinsight-component-versioning.md).
 
 ![Spark: un framework unificato](./media/apache-spark-overview/hdinsight-spark-overview.png)
 

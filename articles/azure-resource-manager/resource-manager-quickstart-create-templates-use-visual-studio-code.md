@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a2b4c4824960c21011876a7c0adf029fc56d93d2
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 69a24dba752e4aa374e03e57ce197ae882647373
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419118"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378688"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code
 
-Questa guida introduttiva illustra come creare modelli di Azure Resource Manager con Visual Studio Code e l'estensione Strumenti di Azure Resource Manager. È possibile creare modelli di Resource Manager in Visual Studio Code senza l'estensione, ma questa offre opzioni di completamento automatico che semplificano lo sviluppo di modelli. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
+Questa guida introduttiva illustra come usare Visual Studio Code e l'estensione Strumenti di Azure Resource Manager per creare e modificare i modelli di Azure Resource Manager. È possibile creare modelli di Resource Manager in Visual Studio Code senza l'estensione, ma questa offre opzioni di completamento automatico che semplificano lo sviluppo di modelli. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -55,9 +55,14 @@ Il modello usato in questa guida introduttiva è denominato [Create a standard s
 
 ## <a name="edit-the-template"></a>Modificare il modello
 
-Per imparare a modificare un modello con Visual Studio Code, aggiungere un altro elemento nella sezione outputs.
+Per imparare a modificare un modello con Visual Studio Code, aggiungere un altro elemento nella sezione `outputs`.
 
-1. In Visual Studio Code aggiungere un altro output al modello esportato:
+1. In Visual Studio Code controllare il valore di **kind**. Se il valore è **Storage**, aggiornarlo a **StorageV2**.
+
+    ```json
+    "kind": "StorageV2",
+    ```
+2. Aggiungere un altro output al modello esportato:
 
     ```json
     "storageUri": {
@@ -85,27 +90,19 @@ Per imparare a modificare un modello con Visual Studio Code, aggiungere un altro
 
     ![IntelliSense in Visual Studio Code: modello di Resource Manager](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-templates-visual-studio-code-intellisense.png)
 
-2. Selezionare **File**>**Salva** per salvare il file.
+3. Selezionare **File**>**Salva** per salvare il file.
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Per distribuire i modelli sono disponibili molti metodi.  In questa guida introduttiva si usa Azure Cloud Shell dal portale di Azure. Cloud Shell supporta sia l'interfaccia della riga di comando di Azure che Azure PowerShell. 
+Per distribuire i modelli sono disponibili molti metodi.  In questa guida introduttiva si usa Azure Cloud Shell. Cloud Shell supporta sia l'interfaccia della riga di comando di Azure che Azure PowerShell. 
 
-1. Accedere al [portale di Azure](https://portal.azure.com)
-2. Selezionare **Cloud Shell** nell'angolo superiore destro come illustrato nell'immagine seguente:
-
-    ![Cloud Shell nel portale di Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
-
-    Cloud Shell viene aperto nella parte inferiore della finestra.
-
-3. Nell'angolo superiore sinistro di Cloud Shell sarà visualizzato **PowerShell** o **Bash**. Per usare l'interfaccia della riga di comando è necessario aprire una sessione Bash. Per eseguire PowerShell è necessario aprire una sessione di PowerShell. Selezionare la freccia Giù per alternare Bash e PowerShell. L'immagine seguente illustra il passaggio da PowerShell a Bash.
+1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
 
     ![Interfaccia della riga di comando in Cloud Shell nel portale di Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
+2. Nell'angolo superiore sinistro di Cloud Shell sarà visualizzato **PowerShell** o **Bash**. Per usare l'interfaccia della riga di comando è necessario aprire una sessione Bash. Per eseguire PowerShell è necessario aprire una sessione di PowerShell. Selezionare la freccia Giù per alternare Bash e PowerShell. Vedere l'immagine sopra riportata. Quando si cambia interfaccia, è necessario riavviare la shell.
+3. Selezionare **Carica/Scarica file** e quindi **Carica**.
 
-    Quando si cambia interfaccia, è necessario riavviare la shell.
-4. Selezionare **Carica/Scarica file** e quindi **Carica**.
-
-    # <a name="clitabcli"></a>[Interfaccia della riga di comando](#tab/CLI)
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
     ![Caricare file in Cloud Shell nel portale di Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
    
@@ -116,10 +113,10 @@ Per distribuire i modelli sono disponibili molti metodi.  In questa guida introd
     ---
 
     È necessario caricare il file modello prima di poterlo distribuire dalla shell.
-5. Selezionare il file salvato in precedenza in questa guida introduttiva. Il nome predefinito è **azuredeploy.json**.
+5. Selezionare il file salvato nella sezione precedente. Il nome predefinito è **azuredeploy.json**.
 6. In Cloud Shell eseguire il comando **ls** per verificare che il file sia stato caricato. È anche possibile usare il comando **cat** per verificare il contenuto del modello. L'immagine seguente mostra l'esecuzione del comando da Bash.  Da una sessione PowerShell si usano gli stessi comandi.
 
-    # <a name="clitabcli"></a>[Interfaccia della riga di comando](#tab/CLI)
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
     ![Elencare file in Cloud Shell nel portale di Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
    
@@ -130,26 +127,36 @@ Per distribuire i modelli sono disponibili molti metodi.  In questa guida introd
     ---
 7. In Cloud Shell eseguire i comandi riportati sotto. Selezionare la scheda per visualizzare il codice di PowerShell o il codice dell'interfaccia della riga di comando.
 
-    # <a name="clitabcli"></a>[Interfaccia della riga di comando](#tab/CLI)
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the name for this deployment:" &&
+    read deploymentName &&
+    echo "Enter the location (i.e. centralus):" &&
+    read location &&
+    az group create --name $resourceGroupName --location $location &&
+    az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-file "azuredeploy.json"
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
-
-    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $deploymentName = Read-Host -Prompt "Enter the name for this deployment"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroupDeployment -Name $deploymentName -ResourceGroupName $resourceGroupName -TemplateFile "azuredeploy.json"
     ```
     
     ---
 
+    Aggiornare il nome file del modello se si salva il file con un nome diverso da **azuredeploy.json**.
+
     La schermata seguente mostra una distribuzione di esempio:
 
-    # <a name="clitabcli"></a>[Interfaccia della riga di comando](#tab/CLI)
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
 
     ![Distribuire il modello in Cloud Shell nel portale di Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
    
@@ -159,26 +166,25 @@ Per distribuire i modelli sono disponibili molti metodi.  In questa guida introd
     
     ---
 
-    Nello screenshot vengono usati i valori riportati di seguito.
-
-    - **&lt;ResourceGroupName>**: myresourcegroup0709. Sono presenti due occorrenze del parametro.  Assicurarsi di usare lo stesso valore.
-    - **&lt;AzureLocation>**: eastus2
-    - **&lt;DeploymentName>**: mydeploy0709
-    - **&lt;TemplateFile>**: azuredeploy.json
-
-    Nell'output dello screenshot, il nome dell'account di archiviazione è *3tqebj3slyfyestandardsa*. 
+    Il nome dell'account di archiviazione e l'URL di archiviazione nella sezione outputs sono evidenziati nello screenshot. Il nome dell'account di archiviazione sarà necessario nel passaggio successivo.
 
 7. Eseguire questo comando dall'interfaccia della riga di comando o da PowerShell per visualizzare l'account di archiviazione appena creato:
 
-    # <a name="clitabcli"></a>[Interfaccia della riga di comando](#tab/CLI)
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
+    echo "Enter the Resource Group name:" &&
+    read resourceGroupName &&
+    echo "Enter the Storage Account name:" &&
+    read storageAccountName &&
+    az storage account show --resource-group $resourceGroupName --name $storageAccountName
     ```
    
     # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
     
     ```powershell
-    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>
+    $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+    $storageAccountName = Read-Host -Prompt "Enter the Storage Account name"
+    Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
     ```
     
     ---

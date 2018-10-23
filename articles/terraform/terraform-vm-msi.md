@@ -1,6 +1,6 @@
 ---
-title: Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con Identità del servizio gestito
-description: Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con Identità del servizio gestito e la gestione dello stato remoto per distribuire facilmente le risorse in Azure.
+title: Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con un'identità gestita
+description: Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con un'identità gestita e la funzione di gestione dello stato remoto per distribuire facilmente le risorse in Azure.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, MSI, macchina virtuale, stato remoto, azure
@@ -9,16 +9,16 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 0136966576e3fbb22855d74cc1866e48b4ac24c9
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1ec6228993c516ce2974c64bfa5b6dcdf63e7f91
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669388"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343827"
 ---
-# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-service-identity"></a>Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con Identità del servizio gestito
+# <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con identità gestite per risorse di Azure
 
-Questo articolo illustra come usare un'[immagine di Terraform del Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) per creare una VM Ubuntu Linux (16.04 LTS) con l'ultima versione di [Terraform](https://www.terraform.io/intro/index.html) installata e configurata mediante [Identità del servizio gestito](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Questa immagine configura anche un back-end remoto per abilitare la gestione dello [stato remoto](https://www.terraform.io/docs/state/remote.html) con Terraform. 
+Questo articolo illustra come usare un'[immagine di Terraform del Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.terraform?tab=Overview) per creare una macchina virtuale Ubuntu Linux (16.04 LTS) con l'ultima versione di [Terraform](https://www.terraform.io/intro/index.html) installata e configurata tramite [identità gestite per risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview). Questa immagine configura anche un back-end remoto per abilitare la gestione dello [stato remoto](https://www.terraform.io/docs/state/remote.html) con Terraform. 
 
 Grazie all'immagine di Terraform del Marketplace è possibile imparare a usare Terraform in Azure, senza dover installare e configurare Terraform manualmente. 
 
@@ -79,13 +79,13 @@ L'immagine della macchina virtuale Terraform esegue questa procedura:
 
 Dopo avere creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nella sezione "Nozioni di base" del passaggio 3 per l'interfaccia della shell di testo. In Windows è possibile scaricare uno strumento client SSH come [Putty](http://www.putty.org/).
 
-Dopo avere usato SSH per stabilire la connessione alla macchina virtuale, è necessario assegnare le autorizzazioni di collaboratore per l'intera sottoscrizione all'identità del servizio gestito nella macchina virtuale. 
+Dopo avere usato SSH per stabilire la connessione alla macchina virtuale, è necessario assegnare le autorizzazioni di collaboratore per l'intera sottoscrizione a identità gestite per risorse di Azure nella macchina virtuale. 
 
 L'autorizzazione di collaboratore consente all'identità del servizio gestito nella macchina virtuale di usare Terraform per creare risorse al di fuori del gruppo di risorse della macchina virtuale. È possibile completare facilmente questa azione eseguendo uno script una sola volta. Usare il comando seguente:
 
 `. ~/tfEnv.sh`
 
-Questo script usa il meccanismo di [accesso interattivo all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) per eseguire l'autenticazione con Azure e assegnare all'identità del servizio gestito della macchina virtuale l'autorizzazione di collaboratore sull'intera sottoscrizione. 
+Questo script usa il meccanismo di [accesso interattivo all'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) per eseguire l'autenticazione con Azure e assegnare all'identità gestita della macchina virtuale l'autorizzazione di collaboratore per l'intera sottoscrizione. 
 
  La macchina virtuale ha un back-end di stato remoto Terraform. Per abilitarlo nella distribuzione di Terraform, copiare il file remoteState.tf dalla directory tfTemplate alla radice degli script di Terraform.  
 

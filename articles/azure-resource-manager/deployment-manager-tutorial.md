@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 10/04/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ae0d37dd8df9b076e72959e9036ba35d322e4e63
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5d18a1f86e1d870db64199c575450dd475590b55
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803716"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394470"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima pubblica)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Esercitazione: Usare Azure Deployment Manager con modelli di Resource Manager (anteprima privata)
 
 Questo articolo illustra come usare [Azure Deployment Manager](./deployment-manager-overview.md) per distribuire le applicazioni in più aree. Per usare Deployment Manager, è necessario creare due modelli.
 
@@ -48,7 +48,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
 * Esperienza nello sviluppo di [modelli di Azure Resource Manager](./resource-group-overview.md).
-* Azure Deployment Manager è nella versione di anteprima pubblica. Per iscriversi e poter usare Azure Deployment Manager, compilare il [modulo di iscrizione](https://aka.ms/admsignup). 
+* Azure Deployment Manager è nella versione di anteprima privata. Per iscriversi e poter usare Azure Deployment Manager, compilare il [modulo di iscrizione](https://aka.ms/admsignup). 
 * Azure PowerShell. Per altre informazioni, vedere [Get started with Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) (Introduzione ad Azure PowerShell).
 * Cmdlet di Deployment Manager. Per installare questi cmdlet in versione non definitiva, è necessaria l'ultima versione di PowerShellGet. Per ottenere l'ultima versione, vedere [Installazione di PowerShellGet](/powershell/gallery/installing-psget). Al termine dell'installazione di PowerShellGet, chiudere la finestra di PowerShell. Aprire una nuova finestra di PowerShell e usare il comando seguente:
 
@@ -62,7 +62,7 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 Il modello di topologia del servizio descrive le risorse di Azure che costituiscono il servizio e la posizione in cui devono essere distribuite. La definizione della topologia del servizio presenta la gerarchia seguente:
 
 * Topologia del servizio
-    * Servizi
+    * Services
         * Unità di servizio
 
 Il diagramma seguente illustra la topologia del servizio usata in questa esercitazione:

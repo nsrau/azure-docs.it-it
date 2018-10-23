@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: af291782585cf0211cf8beac54adc36fd9fe0d34
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9683a33efba427e83b2ff27ec57d2d437c61d5ce
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023911"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166277"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Linux x64
 
@@ -117,7 +117,7 @@ Completare i passaggi seguenti nel computer o nella macchina virtuale Linux prep
 
 I pacchetti necessari per eseguire il runtime IoT Edge vengono gestiti in un repository software. Configurare il dispositivo IoT Edge per accedere a questo repository. 
 
-I passaggi in questa sezione sono per i dispositivi che eseguono **Ubuntu 16.04**. Per accedere al repository software in altre versioni di Linux, vedere [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) (Installare il runtime Azure IoT Edge su Linux - x64) o [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) (Installare il runtime Azure IoT Edge su Linux - ARM32v7/armhf).
+I passaggi descritti in questa sezione sono destinati ai dispositivi x64 che eseguono **Ubuntu 16.04**. Per accedere al repository software con altre versioni di Linux o da dispositivi con altre architetture, vedere [Installare il runtime Azure IoT Edge in Linux (x64)](how-to-install-iot-edge-linux.md) o [Installare il runtime di Azure IoT Edge in Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md).
 
 1. Nel computer usato come dispositivo IoT Edge, installare la configurazione del repository.
 

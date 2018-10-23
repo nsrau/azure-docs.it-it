@@ -12,12 +12,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro
-ms.openlocfilehash: bce7a060908e8043390fdce729161cad48a644be
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731071"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394698"
 ---
 # <a name="how-to-sign-up-for-azure-active-directory-premium"></a>Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium
 È possibile acquistare e associare Azure Active Directory (Azure AD) Premium alla sottoscrizione di Azure. Se è necessario creare una nuova sottoscrizione di Azure, sarà anche necessario attivare il piano di licenze e l'accesso al servizio Azure AD.
@@ -27,11 +27,11 @@ ms.locfileid: "45731071"
 
 Prima di iscriversi ad Active Directory Premium 1 o Premium 2, è necessario determinare quale sottoscrizione o piano esistente usare:
 
-    - La sottoscrizione di Azure o Office 365 esistente
+- La sottoscrizione di Azure o Office 365 esistente
 
-    - Il piano di licenza di Enterprise Mobility + Security
+- Il piano di licenza di Enterprise Mobility + Security
 
-    - Un piano per Contratti multilicenza Microsoft
+- Un piano per Contratti multilicenza Microsoft
 
 Se si effettua l'iscrizione usando la sottoscrizione di Azure con licenze di Azure AD acquistate e attivate in precedenza, le licenze vengono attivate automaticamente nella stessa directory. Se non è questo il caso, è comunque necessario attivare il piano di licenze e l'accesso ad Azure AD. Per altre informazioni sull'attivazione del piano di licenze, vedere [Attivare un piano di licenze](#activate-your-new-license-plan). Per altre informazioni sull'attivazione dell'accesso ad Azure AD, vedere [Attivare l'accesso ad Azure Active Directory](#activate-your-azure-ad-access). 
 
@@ -43,20 +43,20 @@ Enterprise Mobility + Security è una suite di prodotti composta da Azure AD Pre
 
 Per altre informazioni su EMS, vedere il [ sito Web Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security).
 
-    - Provare EMS con una [versione di valutazione gratuita di Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
+- Provare EMS con una [versione di valutazione gratuita di Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
 
-    - Acquistare [licenze di Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
+- Acquistare [licenze di Enterprise Mobility + Security E5](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
 
-    - Acquistare [licenze di Enterprise Mobility + Security E3](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
+- Acquistare [licenze di Enterprise Mobility + Security E3](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
 
 ## <a name="sign-up-using-your-microsoft-volume-licensing-plan"></a>Iscriversi usando il piano per Contratti multilicenza Microsoft
 Tramite il piano per Contratti multilicenza Microsoft è possibile effettuare l'iscrizione ad Azure AD Premium usando uno di questi due programmi, in base al numero di licenze che si vuole ottenere:
 
-    - **Per 250 licenze o più.** [Contratto Enterprise Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
+- **Per 250 licenze o più.** [Contratto Enterprise Microsoft](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-    - **Da 5 a 250 licenze.** [Licenza Open** Volume](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- **Da 5 a 250 licenze.** [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
 
-    Per altre informazioni sulle opzioni di acquisto dei contratti multilicenza, vedere [Come acquistare tramite i contratti multilicenza](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
+Per altre informazioni sulle opzioni di acquisto dei contratti multilicenza, vedere [Come acquistare tramite i contratti multilicenza](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
 ## <a name="activate-your-new-license-plan"></a>Attivare il nuovo piano di licenza
 Se si effettua l'iscrizione con un nuovo piano di licenza di Azure AD, è necessario attivarlo per l'organizzazione, usando l'indirizzo di posta elettronica di conferma inviato dopo l'acquisto.

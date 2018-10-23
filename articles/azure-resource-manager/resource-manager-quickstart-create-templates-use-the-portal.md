@@ -10,23 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/16/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: bb056602300917e9a420cf6bcdc0ee1203cc427f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 8094105fd14ef13dd5f6b892425608806ca4dbd2
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158127"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378034"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Guida introduttiva: Creare e distribuire modelli di Azure Resource Manager con il portale di Azure
 
-Questa guida introduttiva illustra come creare il primo modello di Azure Resource Manager generandone uno con il portale di Azure e come modificare e distribuire il modello dal portale.
-
-I modelli di Resource Manager sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Per creare un modello, non sempre è necessario iniziare da zero. Questa esercitazione illustra come generare un modello dal portale di Azure. È quindi possibile personalizzare il modello e distribuirlo.
-
-Con le istruzioni di questa esercitazione viene creato un account di archiviazione di Azure. Lo stesso processo può essere usato per creare altre risorse di Azure.
+Questa guida introduttiva illustra come creare il primo modello di Azure Resource Manager generandone uno con il portale di Azure e il processo di modifica e distribuzione del modello dal portale di Azure. I modelli di Resource Manager sono file JSON che definiscono le risorse che è necessario distribuire per la soluzione. Con le istruzioni di questa esercitazione viene creato un account di archiviazione di Azure. Lo stesso processo può essere usato per creare altre risorse di Azure.
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -38,10 +34,10 @@ In questa sezione si crea un account di archiviazione usando il portale di Azure
 2. Selezionare **Crea una risorsa** > **Archiviazione** > **Account di archiviazione: BLOB, File, Tabelle, Code**.
 
     ![Creare un account di archiviazione di Azure con il portale di Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
-3. Immettere le seguenti informazioni. Assicurarsi di selezionare **Opzioni di Automazione** anziché **Crea** nel passaggio successivo per poter visualizzare il modello prima della distribuzione.
+3. Immettere le seguenti informazioni. 
 
-    - **Nome**: assegnare un nome univoco all'account di archiviazione. Nello screenshot, il nome è *mystorage0626*.
-    - **Gruppo di risorse**: creare un nuovo gruppo di risorse di Azure con un nome di propria scelta. Nello screenshot, il nome del gruppo di risorse è *mystorage0626rg*.
+    - **Gruppo di risorse**: creare un nuovo gruppo di risorse di Azure con un nome di propria scelta. Nello screenshot il nome del gruppo di risorse è *mystorage1016rg*.
+    - **Nome**: assegnare un nome univoco all'account di archiviazione. Nello screenshot il nome è *mystorage1016*.
 
     Per le restanti proprietà si possono usare i valori predefiniti.
 
@@ -50,59 +46,48 @@ In questa sezione si crea un account di archiviazione usando il portale di Azure
     > [!NOTE]
     > Alcuni modelli esportati richiedono alcune modifiche prima di poter essere distribuiti.
 
-4. Selezionare **Opzioni di Automazione** nella parte inferiore della schermata. Nella scheda **Modello** del portale viene visualizzato il modello:
+4. Selezionare **Rivedi e crea** nella parte inferiore della schermata. 
+5. Selezionare **Scaricare un modello per l'automazione** nella parte inferiore della schermata. Il portale mostra il modello generato:
 
     ![Generare un modello dal portale](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
-    Nel riquadro principale viene visualizzato il modello, che è un file JSON con quattro elementi di primo livello. Per altre informazioni, vedere [Informazioni sulla struttura e sulla sintassi dei modelli di Azure Resource Manager](./resource-group-authoring-templates.md).
+    Nel riquadro principale viene visualizzato il modello, che è un file JSON con quattro elementi di primo livello: `schema`, `contentVersion`, `parameters` e `resources`. Per altre informazioni, vedere [Informazioni sulla struttura e sulla sintassi dei modelli di Azure Resource Manager](./resource-group-authoring-templates.md).
 
-    Nell'elemento **parameters** sono definiti cinque parametri. Per visualizzare i valori specificati durante la distribuzione, selezionare la scheda **Parametri**.
+    Sono stati definiti sei parametri, uno dei quali è **storageAccountName**. La seconda parte evidenziata mostra come usare questo parametro nel modello. Nella sezione successiva si modifica il modello per usare un nome generato per l'account di archiviazione.
+
+    Nel modello viene definita una risorsa di Azure. Il tipo è [Microsoft.Storage/storageAccounts]. Vedere come viene definita la risorsa e la struttura della definizione.
+6. Selezionare **Download**. Salvare nel computer **template.json** incluso nel pacchetto scaricato. Nella sezione successiva si usa uno strumento di distribuzione dei modelli per modificare il modello.
+7. Selezionare la scheda **Parametro** per visualizzare i valori specificati per i parametri. Prendere nota di questi valori che saranno necessari nella sezione successiva, quando si distribuirà il modello.
 
     ![Generare un modello dal portale](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
-    Questi valori corrispondono alle impostazioni configurate nella sezione precedente. Usando il modello e i file dei parametri è possibile creare un account di archiviazione di Azure.
-
-5. Nella parte superiore delle schede sono disponibili tre voci di menu.
-
-    - **Scarica**: scaricare il modello e il file dei parametri sul computer locale.
-    - **Aggiungi elementi al Catalogo multimediale**: aggiungere il modello alla raccolta per usarlo di nuovo in futuro.
-    - **Distribuisci**: distribuire l'account di archiviazione di Azure in Azure.
-
-    In questa esercitazione si usa l'opzione **Aggiungi elementi al Catalogo multimediale**.
-
-6. Selezionare **Aggiungi elementi al Catalogo multimediale**.
-7. Immettere **Nome** e **Descrizione** e quindi selezionare **Salva**.
-
-> [!NOTE]
-> La funzionalità della raccolta modelli è in anteprima. La maggior parte degli utenti sceglie di salvare i propri modelli sul computer locale o in un archivio pubblico come Github.  
+    Usando il modello e i file dei parametri è possibile creare un account di archiviazione di Azure.
 
 ## <a name="edit-and-deploy-the-template"></a>Modificare e distribuire il modello
 
-In questa sezione si apre il modello salvato dalla raccolta modelli, si modifica tale modello nel portale e si distribuisce il modello modificato. Per modificare un modello più complesso, valutare la possibilità di usare [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), che offre funzionalità di modifica più avanzate.
+Il portale di Azure può essere usato per eseguire qualche modifica al modello di base. In questa guida introduttiva si usa uno strumento del portale denominato *Distribuzione modelli*. Per modificare un modello più complesso, valutare la possibilità di usare [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), che offre funzionalità di modifica più avanzate.
 
-Azure richiede che ogni servizio di Azure abbia un nome univoco. Se si immette un nome di account di archiviazione già esistente, la distribuzione ha esito negativo. Per evitare questo problema, è possibile usare una chiamata di funzione di modello uniquestring () per generare un nome di account di archiviazione univoco.
+Azure richiede che ogni servizio di Azure abbia un nome univoco. Se si immette un nome di account di archiviazione già esistente, la distribuzione ha esito negativo. Per evitare questo problema, è possibile usare una chiamata di funzione di modello `uniquestring()` per generare un nome di account di archiviazione univoco.
 
-1. Nel portale di Azure selezionare **Tutti i servizi** nel menu a sinistra, immettere **modelli** nella casella del filtro e quindi selezionare **Modelli (ANTEPRIMA)**.
+1. Nel portale di Azure fare clic su **Crea una risorsa**.
+2. In **Cerca nel Marketplace** digitare **distribuzione modelli** e quindi premere **INVIO**.
+3. Selezionare **Distribuzione modello**.
 
-    ![Modelli di Gestione risorse di Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
-2. Selezionare il modello salvato nella sezione precedente. Il nome nello screenshot è *mystorage0626*.
-3. Selezionare **Modifica** e quindi **Modello aggiunto**.
-
-    ![Modelli di Gestione risorse di Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template.png)
-
-4. Aggiungere un elemento **variables** e quindi una variabile come illustrato nello screenshot seguente:
+    ![Raccolta di modelli di Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-library.png)
+4. Selezionare **Create**.
+5. Selezionare **Creare un modello personalizzato nell'editor**.
+6. Selezionare **Carica file** e quindi seguire le istruzioni per caricare il file template.json scaricato nell'ultima sezione.
+7. Aggiungere una variabile, come illustrato nello screenshot seguente:
 
     ```json
-    "variables": {
-        "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-    },
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
     ```
     ![Modelli di Gestione risorse di Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    In questa variabile vengono usate due funzioni: *concat()* e *uniqueString()*. La funzione uniqueString() è utile per creare un nome univoco per una risorsa.
+    In questo caso sono usate due funzioni: `concat()` e `uniqueString()`.
 
-5. Rimuovere il parametro **name** evidenziato nello screenshot precedente.
-6. Aggiornare l'elemento name della risorsa **Microsoft.Storage/storageAccounts** in modo da usare la variabile appena definita invece del parametro:
+8. Rimuovere il parametro **storageAccountName** evidenziato nello screenshot precedente.
+9. Aggiornare l'elemento name della risorsa **Microsoft.Storage/storageAccounts** in modo da usare la variabile appena definita invece del parametro:
 
     ```json
     "name": "[variables('storageAccountName')]",
@@ -112,7 +97,7 @@ Azure richiede che ogni servizio di Azure abbia un nome univoco. Se si immette u
 
     ```json
     {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "location": {
@@ -124,7 +109,10 @@ Azure richiede che ogni servizio di Azure abbia un nome univoco. Se si immette u
             "kind": {
                 "type": "string"
             },
-            "httpsTrafficOnlyEnabled": {
+            "accessTier": {
+                "type": "string"
+            },
+            "supportsHttpsTrafficOnly": {
                 "type": "bool"
             }
         },
@@ -133,44 +121,34 @@ Azure richiede che ogni servizio di Azure abbia un nome univoco. Se si immette u
         },
         "resources": [
             {
-                "apiVersion": "2018-02-01",
                 "name": "[variables('storageAccountName')]",
-                "location": "[parameters('location')]",
                 "type": "Microsoft.Storage/storageAccounts",
+                "apiVersion": "2018-07-01",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "accessTier": "[parameters('accessTier')]",
+                    "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+                },
+                "dependsOn": [],
                 "sku": {
                     "name": "[parameters('accountType')]"
                 },
-                "kind": "[parameters('kind')]",
-                "properties": {
-                    "supportsHttpsTrafficOnly": "[parameters('httpsTrafficOnlyEnabled')]",
-                    "encryption": {
-                        "services": {
-                            "blob": {
-                                "enabled": true
-                            },
-                            "file": {
-                                "enabled": true
-                            }
-                        },
-                        "keySource": "Microsoft.Storage"
-                    }
-                },
-                "dependsOn": []
+                "kind": "[parameters('kind')]"
             }
-        ]
+        ],
+        "outputs": {}
     }
     ```
-7. Selezionare **OK** e quindi **Salva** per salvare le modifiche.
-8. Selezionare **Distribuisci**.
-9. Immettere i valori seguenti:
+7. Selezionare **Salva**.
+8. Immettere i valori seguenti:
 
-    - **Sottoscrizione**: selezionare la sottoscrizione di Azure.
     - **Gruppo di risorse**: assegnare un nome univoco al gruppo di risorse.
     - **Località**: selezionare una località per il gruppo di risorse.
     - **Località**: selezionare una località per l'account di archiviazione.  È possibile usare la stessa località del gruppo di risorse.
     - **Tipo di account**: per questa guida introduttiva immettere **Archiviazione con ridondanza locale Standard**.
-    - **Tipologia**: per questa guida introduttiva immettere **Archiviazione**.
-    - **Https Traffic Only Enabled** (Abilitato solo traffico HTTPS):  per questa guida introduttiva selezionare **false**.
+    - **Tipologia**: per questa guida introduttiva immettere **StorageV2**.
+    - **Livello di accesso**: per questa guida introduttiva immettere **Frequente**.
+    - **Https Traffic Only Enabled** (Abilitato solo traffico HTTPS):  per questa guida introduttiva selezionare **true**.
     - **Accetto le condizioni riportate sopra**: selezionare.
 
     Di seguito è riportato uno screenshot di una distribuzione di esempio:
@@ -178,7 +156,7 @@ Azure richiede che ogni servizio di Azure abbia un nome univoco. Se si immette u
     ![Distribuzione di modelli di Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-deploy.png)
 
 10. Selezionare **Acquisto**.
-11. Selezionare l'icona a forma di campana delle notifiche nella parte superiore della schermata per visualizzare lo stato della distribuzione.
+11. Selezionare l'icona a forma di campana delle notifiche nella parte superiore della schermata per visualizzare lo stato della distribuzione. Attendere il completamento della distribuzione.
 
     ![Notifica della distribuzione di modelli di Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
 
@@ -199,7 +177,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come generare un modello dal portale di Azure e come distribuire tale modello usando il portale. In questa guida introduttiva è stato usato un modello semplice con una sola risorsa di Azure. In caso di modello complesso, lo sviluppo risulta più facile usando Visual Studio Code o Visual Studio. La guida introduttiva successiva mostra come distribuire i modelli mediante Azure PowerShell e l'interfaccia della riga di comando di Azure.
+Questa esercitazione ha illustrato come generare un modello dal portale di Azure e come distribuire tale modello usando il portale. In questa guida introduttiva è stato usato un modello semplice con una sola risorsa di Azure. In caso di modello complesso, lo sviluppo risulta più facile usando Visual Studio Code o Visual Studio. La guida introduttiva successiva mostra come distribuire i modelli usando Azure PowerShell e l'interfaccia della riga di comando di Azure.
 
 > [!div class="nextstepaction"]
 > [Creare modelli con Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)

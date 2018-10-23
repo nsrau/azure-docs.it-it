@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41918151"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166285"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Guida introduttiva alla ricezione di messaggi con Event Processor Host in .NET Standard
 
@@ -43,13 +43,18 @@ Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azur
 ## <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure  
 
 1. Accedere al [portale di Azure](https://portal.azure.com).  
-2. Nel riquadro di spostamento sinistro del portale fare clic su **Crea una risorsa**, quindi su **Archiviazione** e infine su **Account di archiviazione**.  
-3. Completare i campi nella finestra dell'account di archiviazione e quindi fare clic su **Crea**.
+2. Nel riquadro di spostamento sinistro del portale selezionare **Crea una risorsa**, selezionare **Archiviazione** dalle categorie e quindi selezionare **Account di archiviazione: BLOB, File, Tabelle, Code**.  
+3. Completare i campi nella finestra **Crea account di archiviazione** e quindi selezionare **Rivedi e crea**. 
 
     ![Crea account di archiviazione][1]
 
-4. Dopo aver visualizzato il messaggio **Le distribuzioni sono riuscite**, fare clic sul nome del nuovo account di archiviazione. Nella finestra **Informazioni di base** fare clic su **BLOB**. Quando viene visualizzata la finestra di dialogo **Servizio BLOB**, fare clic su **+ Contenitore** in alto. Assegnare un nome al contenitore e quindi chiudere **Servizio BLOB**.  
-5. Fare clic su **Chiavi di accesso** nella finestra a sinistra e copiare il nome del contenitore di archiviazione, l'account di archiviazione e il valore **key1**. Salvare questi valori nel Blocco note o in un'altra posizione temporanea.  
+4. Nella pagina **Rivedi e crea** rivedere i valori dei campi e quindi selezionare **Crea**. 
+5. Dopo la visualizzazione del messaggio **Le distribuzioni sono riuscite**, selezionare il nome del nuovo account di archiviazione. 
+6. Nella finestra **Informazioni di base** selezionare **BLOB**. 
+7. Selezionare **+ Contenitore** nella parte superiore. Assegnare un nome al contenitore.  
+8. Selezionare **Chiavi di accesso** nella finestra a sinistra e copiare il nome del contenitore di archiviazione, l'account di archiviazione e il valore **key1**. 
+
+    Salvare questi valori nel Blocco note o in un'altra posizione temporanea.
 
 ## <a name="create-a-console-application"></a>Creare un'applicazione console
 

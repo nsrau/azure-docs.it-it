@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: a785a18ac4aec3006397b6d681c476f8acf982a7
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205674"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311389"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Esercitazione: Informazioni sulla governance di macchine virtuali Windows con Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "39205674"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Gli esempi di questo articolo richiedono la versione 6.0 o successiva di Azure PowerShell. Se si esegue PowerShell in locale e non si dispone della versione 6.0 o successiva, [aggiornare la versione in uso](/powershell/azure/install-azurerm-ps). È anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. Per le installazioni locali, occorre anche [scaricare il modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) per creare un nuovo gruppo di Azure Active Directory.
+Gli esempi di questo articolo richiedono la versione 6.0 o successiva di Azure PowerShell. Se si esegue PowerShell in locale e non si ha la versione 6.0 o una versione successiva, [aggiornare la versione in uso](/powershell/azure/install-azurerm-ps). È anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. Per le installazioni locali, occorre anche [scaricare il modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) per creare un nuovo gruppo di Azure Active Directory.
 
 ## <a name="understand-scope"></a>Informazioni sull'ambito
 
@@ -55,24 +55,19 @@ Per la gestione di soluzioni di macchine virtuali, sono disponibili tre ruoli sp
 * [Collaboratore di rete](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Collaboratore account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Invece di assegnare ruoli ai singoli utenti, è spesso più facile [creare un gruppo di Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) per gli utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per semplificare questo articolo, creare un gruppo di Azure Active Directory senza membri. È comunque possibile assegnare questo gruppo a un ruolo per un ambito. 
+Invece di assegnare ruoli ai singoli utenti, è spesso più facile usare un gruppo di Azure Active Directory con utenti che devono eseguire azioni simili. Assegnare quindi tale gruppo al ruolo appropriato. Per questo articolo, usare un gruppo esistente per la gestione della macchina virtuale oppure usare il portale per [creare un gruppo di Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-L'esempio seguente crea un gruppo di Azure Active Directory denominato *VMDemoContributors* con il nome alternativo di posta elettronica *vmDemoGroup*. Il nome alternativo di posta elettronica funge da alias del gruppo.
-
-```azurepowershell-interactive
-$adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
-  -MailNickName vmDemoGroup `
-  -MailEnabled $false `
-  -SecurityEnabled $true
-```
-
-Dopo la restituzione del risultato del prompt dei comandi, la propagazione del gruppo in Azure Active Directory richiede pochi istanti. Dopo aver atteso 20 o 30 secondi, usare il comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) per assegnare il nuovo gruppo di Azure Active Directory al ruolo Collaboratore Macchina virtuale per il gruppo di risorse.  Se si esegue il comando seguente prima della propagazione, si riceve un messaggio di errore che informa che **l'entità <guid> non esiste nella directory**. Provare a eseguire di nuovo il comando.
+Dopo aver creato un nuovo gruppo o averne trovato uno esistente, usare il comando [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) per assegnare al gruppo di Azure Active Directory il ruolo Collaboratore Macchina virtuale per il gruppo di risorse.  
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+$adgroup = Get-AzureRmADGroup -DisplayName <your-group-name>
+
+New-AzureRmRoleAssignment -ObjectId $adgroup.id `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
+
+Se viene visualizzato l'errore **L'entità <guid> non esiste nella directory**, il nuovo gruppo non è stato ancora propagato in Azure Active Directory. Provare a eseguire di nuovo il comando.
 
 In genere si ripete il processo per *Collaboratore Rete* e *Collaboratore Account di archiviazione* per assicurarsi che vengano assegnati utenti per la gestione delle risorse distribuite. In questo articolo è possibile ignorare questi passaggi.
 
@@ -168,7 +163,7 @@ Per testare i blocchi, provare a eseguire il comando seguente:
 Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
-Viene visualizzato un messaggio di errore che informa che l'operazione di eliminazione non può essere eseguita a causa di un blocco. Il gruppo di risorse può essere eliminato solo se si rimuovono in modo specifico i blocchi. Questo passaggio è illustrato in [Pulire le risorse](#clean-up-resources).
+Viene visualizzato un messaggio di errore che informa che l'operazione di eliminazione non può essere completata a causa di un blocco. Il gruppo di risorse può essere eliminato solo se si rimuovono in modo specifico i blocchi. Questo passaggio è illustrato in [Pulire le risorse](#clean-up-resources).
 
 ## <a name="tag-resources"></a>Aggiungere tag alle risorse
 
