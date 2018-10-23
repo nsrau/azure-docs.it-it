@@ -244,7 +244,6 @@
 
 #### Accesso condizionale
 ##### [Il cliente non rispetta i prerequisiti per la registrazione del dispositivo](active-directory-conditional-access.md)
-##### [Il tenant è bloccato a causa dell'impostazione non corretta dei criteri di accesso condizionale](active-directory-conditional-access-device-remediation.md)
 ##### [Come e quando vengono applicate le regole al di fuori della rete aziendale?](https://aka.ms/calocation)
 ##### [Come si aumenta il numero di dispositivi che un utente può registrare in Azure AD?](active-directory-azureadjoin-setup.md)
 ##### [Come si configura l'accesso condizionale per Exchange Online?](https://aka.ms/csforexchange)

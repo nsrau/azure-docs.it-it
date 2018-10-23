@@ -178,8 +178,6 @@ items:
       href: install-update-binding-extensions-manual.md
     - name: Disabilitare una funzione
       href: disable-function.md
-    - name: Risolvere i problemi relativi alle risorse di archiviazione
-      href: functions-recover-storage-account.md
   - name: Monitorare
     href: functions-monitoring.md
   - name: Integrare
@@ -290,9 +288,9 @@ items:
     href: https://github.com/Azure/Azure-Functions/
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
-ms.openlocfilehash: 556470698471429e62f040636e38da5bb6d6605d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ebca3260b7837959d11256601abc25d1e043f851
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363696"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645974"

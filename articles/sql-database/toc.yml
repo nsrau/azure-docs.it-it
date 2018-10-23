@@ -323,8 +323,10 @@ items:
         href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
   - name: Confronto delle funzionalità SQL
     href: sql-database-features.md
-  - name: Prestazioni e monitoraggio
+  - name: Monitoraggio e ottimizzazione delle prestazioni
     items:
+    - name: Panoramica di monitoraggio e ottimizzazione
+      href: sql-database-monitor-tune-overview.md
     - name: Prestazioni intelligenti
       items:
       - name: Query
@@ -335,8 +337,6 @@ items:
           href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
       - name: Monitoraggio e ottimizzazione
         items:
-        - name: Panoramica di monitoraggio e ottimizzazione
-          href: sql-database-monitor-tune-overview.md
         - name: Consigli sulle prestazioni di Database Advisor
           href: sql-database-advisor.md
         - name: Azioni e consigli per l'ottimizzazione
@@ -351,11 +351,11 @@ items:
           href: sql-database-metrics-diag-logging.md
         - name: Usare il log di diagnostica
           href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: Informazioni dettagliate prestazioni query
+          href: sql-database-query-performance.md
         - name: Risoluzione dei problemi delle prestazioni
           href: sql-database-intelligent-insights-troubleshoot-performance.md
-      - name: Informazioni dettagliate prestazioni query
-        href: sql-database-query-performance.md
-      - name: Ottimizzazione automatica delle prestazioni
+      - name: Ottimizzazione automatica
         items:
         - name: Panoramica dell'ottimizzazione automatica
           href: sql-database-automatic-tuning.md
@@ -634,9 +634,9 @@ items:
     href: /azure/architecture/
   - name: Casi di successo dei clienti
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 38a8ec13b8a5e50d60ed46d1bd4d71af933d61f0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 416f74c395f331de6af749f3de1d3a3e966b8b35
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470372"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650061"
