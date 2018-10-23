@@ -1,6 +1,6 @@
 ---
-title: Monitorare un test di convalida di Azure Stack come servizio | Microsoft Docs
-description: Monitorare un test di convalida di Azure Stack come servizio.
+title: Monitorare e gestire i test nel portale di Azure Stack VaaS | Microsoft Docs
+description: Monitorare e gestire i test nel portale di Azure Stack VaaS.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,124 +10,140 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 2dc4d3f2855864ff80648b5b9635ff28c0dacbb7
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b9500176cd3779c46886e6ed8bc8c989bea20a8c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163330"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647512"
 ---
-# <a name="monitor-a-test-with-azure-stack-validation-as-a-service"></a>Monitorare un test di convalida di Azure Stack come servizio
+# <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Monitorare e gestire i test nel portale di VaaS
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-L'esecuzione di un test può essere monitorato visualizzando la **operazioni** pagina per i gruppi di test che sono in corso o completata. Questa pagina illustra in dettaglio lo stato del test e le relative operazioni.
+Dopo la pianificazione di test con la soluzione di Azure Stack, convalida come servizio (VaaS) inizierà la segnalazione dello stato di esecuzione di test. Queste informazioni sono disponibili nel portale di VaaS e azioni, ad esempio la ripianificazione e l'annullamento dei test.
 
-## <a name="monitor-a-test"></a>Monitorare un test
+## <a name="navigate-to-the-workflow-tests-summary-page"></a>Passare alla pagina di riepilogo del test del flusso di lavoro
 
-1. Selezionare una soluzione.
+1. Nel dashboard soluzioni, selezionare una soluzione esistente che dispone di almeno un flusso di lavoro.
 
-2. Selezionare **Gestisci** su qualsiasi riquadro del flusso di lavoro.
+    ![Riquadri del flusso di lavoro](media/tile_all-workflows.png)
 
-3. Fare clic su un flusso di lavoro per aprire la pagina di riepilogo del test.
+1. Selezionare **Gestisci** sul riquadro del flusso di lavoro. Nella pagina successiva sono elencati i flussi di lavoro create per la soluzione selezionata.
 
-4. Espandere il menu di scelta rapida **[...]**  per qualsiasi istanza di suite di test.
+1. Selezionare il nome del flusso di lavoro per aprire il riepilogo del test.
 
-5. Selezionare **visualizzare operazioni**
+## <a name="change-workflow-parameters"></a>Modificare i parametri del flusso di lavoro
 
-![Alt text](media\image4.png)
+Ogni tipo di flusso di lavoro consente di modificare la [parametri di Test](azure-stack-vaas-parameters.md#test-parameters) specificato durante la creazione del flusso di lavoro.
 
-Per i test che hanno terminato l'esecuzione, i log possono essere scaricati dalla pagina di riepilogo test facendo clic su **scaricare i log** nel menu di scelta rapida di un test **[...]** . Partner di Azure Stack è possibile usare questi log per il debug dei problemi per i test non superati.
+1. Nella pagina di riepilogo del test, selezionare la **modifica** pulsante.
 
-## <a name="open-the-test-pass-summary"></a>Aprire il riepilogo del passaggio di test
+1. Fornire nuovi valori in base alla [parametri comuni del flusso di lavoro per la convalida dello Stack di Azure come servizio](azure-stack-vaas-parameters.md).
 
-1. Aprire il portale. 
-2. Selezionare il nome di una soluzione esistente che in precedenza contiene test eseguito o pianificato.
+1. Selezionare **Submit** per salvare i valori.
 
-    ![Gestire i test superati](media/managetestpasses.png)
+> [!NOTE]
+> Nel **superamento Test** flusso di lavoro, è necessario completare la selezione di test e passare alla pagina di revisione prima di poter salvare i nuovi valori di parametro.
 
-3. Selezionare **Manage** nel **Test superati** pannello.
-4. Selezionare il passaggio di test per aprire il riepilogo del passaggio di Test. È possibile esaminare il nome del test, data di creazione, esecuzione, il tempo impiegato il test e il risultato (esito positivo o negativo).
-5. Selezionare [ **.  .** ].
+### <a name="add-tests-test-pass-only"></a>Aggiungere i test (solo superamento Test)
 
-### <a name="test-pass-summary"></a>Riepilogo del test di pass
+In **superamento Test** flussi di lavoro, entrambe le **aggiungere test** e **modifica** pulsanti consentono di pianificare i test di nuovo nel flusso di lavoro.
+
+> [!TIP]
+> Selezionare **aggiungere i test** se solo possibile pianificare nuovi test e non è necessario modificare i parametri per un **superamento Test** flusso di lavoro.
+
+## <a name="managing-test-instances"></a>La gestione di istanze di test
+
+Per le esecuzioni non ufficiali (ad esempio, il **superamento Test** flusso di lavoro), la pagina di riepilogo del test sono elencati i test pianificati per la soluzione di Azure Stack.
+
+Per le esecuzioni ufficiali (ad esempio, il **convalida** i flussi di lavoro), la pagina di riepilogo del test sono elencati i test necessari per completare la convalida della soluzione Azure Stack. Test di convalida vengono pianificati da questa pagina.
+
+Ogni istanza di test pianificato Mostra le informazioni seguenti:
 
 | Colonna | DESCRIZIONE |
 | --- | --- |
-| Nome test | Il nome del test. Fa riferimento al numero di convalida. |
-| Data di creazione | Ora che è stato creato il superamento del test. |
-| Started | Ora che è stato eseguito il test precedente. |
-| Duration | Periodo di tempo il tempo impiegato per eseguire il passaggio di test. |
-| Status | Il risultato (Succeeded o Failed) per il passaggio di rest. |
-| Nome agente | Il nome di dominio completo dell'agente. |
-| Operazioni totali | Numero totale di operazioni ha tentato nella sessione di test. |
-| Operazioni passate | Il numero di operazioni che passato il superamento del test. |
-|  Operazioni non riuscite | Il numero di operazioni riuscite. |
+| Nome test | Il nome e versione del test. |
+| Categoria | Lo scopo del test. |
+| Data di creazione | Ora in cui è stato pianificato il test. |
+| Started | Ora in cui il test ha iniziato l'esecuzione. |
+| Duration | Il periodo di tempo che è stato eseguito il test. |
+| Status | Lo stato o risultato del test. Sono stati pre-esecuzione o in corso: `Pending`, `Running`. Sono stati terminali: `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
+| Nome dell'agente | Il nome dell'agente che ha eseguito il test. |
+| Operazioni totali | Numero totale delle operazioni tentate durante il test. |
+| Operazioni passate | Il numero di operazioni che è riuscita durante il test. |
+|  Operazioni non riuscite | Il numero di operazioni riuscite durante il test. |
 
-### <a name="group-columns-in-the-test-pass-summary"></a>Colonne di gruppo nel test di passare riepilogo
+### <a name="actions"></a>Azioni
 
-È possibile selezionare e trascinare una colonna nell'intestazione per creare un gruppo nel valore della colonna.
+Ogni istanza di test sono elencati disponibili azioni da eseguire quando si fa clic sul menu di scelta rapida **[...]**  nella tabella delle istanze di test.
 
-## <a name="reschedule-a-test"></a>Modificare la pianificazione di un test
+#### <a name="view-information-about-the-test-definition"></a>Visualizzare le informazioni sulla definizione di test
 
-1. [Aprire il riepilogo del test pass](#open-the-test-pass-summary).
-2. Selezionare **ripianificare** ripianificare il superamento del test.
-3. Immettere la password dell'amministratore di Cloud per l'istanza di Azure Stack.
-4. Immettere la stringa di connessione di archiviazione di diagnostica che è definito quando si configura l'account.
-5. Modificare la pianificazione di test.
+Selezionare **consente di visualizzare informazioni** dal menu di scelta rapida per visualizzare informazioni generali sulla definizione di test. Si è condiviso da ogni istanza di test con lo stesso nome e versione.
 
-## <a name="cancel-a-test"></a>Annulla un test
-
-1. [Aprire il riepilogo del test pass](#open-the-test-pass-summary).
-2. Selezionare **Annulla**.
-
-## <a name="get-test-information"></a>Ottenere le informazioni sul test
-
-1. [Aprire il riepilogo del test pass](#open-the-test-pass-summary).
-2. Selezionare **consente di visualizzare informazioni** ripianificare il superamento del test.
-
-**Informazioni sul test**
-
-| NOME | DESCRIZIONE |
+| Proprietà di test | DESCRIZIONE |
 | -- | -- |
-| Nome test | Il nome del test, ad esempio, OEM aggiornamento in Azure Stack 1806 RC convalida. |
-| Versione di prova | La versione del test, ad esempio, 5.1.4.0. |
-| Editore | Editore di test, ad esempio Microsoft. |
-| Categoria | La categoria del test, ad esempio **funzionale** oppure **affidabilità**. |
-| Servizi di destinazione | I servizi sottoposto a test, ad esempio VirtualMachines |
+| Nome test | Il nome del test. |
+| Versione di prova | La versione del test. |
+| Editore | Il server di pubblicazione del test. |
+| Categoria |  Lo scopo del test. |
+| Servizi di destinazione | Azure Stack i servizi sottoposto a test. |
 | DESCRIZIONE | La descrizione del test. |
-| Durata stimata (minuti) | Il periodo di tempo in minuti per l'esecuzione ha richiesto il test. |
-| Collegamenti | Collegamento a GitHub Issue Tracker. |
+| Durata stimata (minuti) | Il runtime previsto del test. |
+| Collegamenti | Informazioni importanti sul test o i punti di contatto. |
 
-## <a name="get-test-parameters"></a>Ottenere i parametri di test
+#### <a name="view-test-instance-parameters"></a>Parametri di istanza di visualizzazione test
 
-1. [Aprire il riepilogo del test pass](#open-the-test-pass-summary).
-2. Selezionare **visualizzare i parametri** ripianificare il superamento del test.
+Selezionare **visualizzare i parametri** dal menu di scelta rapida per visualizzare i parametri forniti all'istanza di test in fase di pianificazione. Le stringhe sensibili come le password non vengono visualizzate. Questa azione è disponibile solo per i test che sono stati pianificati.
 
-**Parameters**
+In questa finestra sono inclusi i metadati per tutte le istanze di test seguenti:
 
-| NOME | DESCRIZIONE |
+| Proprietà dell'istanza di test | DESCRIZIONE |
 | -- | -- |
-| Nome test | Il nome del test, ad esempio, oemupdate1806test. |
-| Versione di prova | La versione del resto, ad esempio, 5.1.4.0. |
-| ID dell'istanza di test | Un GUID che identifica l'istanza specifica del test, ad esempio, 20b20645-b400-4f0d-bf6f-1264d866ada9. |
-| cloudAdminUser | Il nome dell'account usato come amministratore del cloud, ad esempio, **cloudadmin**. |
-| DiagnosticsContainerName | L'ID del contenitore di diagnostica, ad esempio, 04dd3815-5f35-4158-92ea-698027693080. |
+| Nome test | Il nome del test. |
+| Versione di prova | La versione del test. |
+| ID dell'istanza di test | Un GUID che identifica l'istanza specifica del test. |
 
-## <a name="get-test-operations"></a>Ottiene le operazioni di test
+#### <a name="view-test-instance-operations"></a>Visualizzare le operazioni di istanza di test
 
-1. [Aprire il riepilogo del test pass](#open-the-test-pass-summary).
-2. Selezionare **per visualizzare le operazioni** ripianificare il superamento del test. Viene visualizzato il riquadro di riepilogo di operazioni.
+Selezionare **per visualizzare le operazioni** dal contesto del menu per visualizzare uno stato dettagliato delle operazioni eseguite durante il test. Questa azione è disponibile solo per i test che sono stati pianificati.
 
-## <a name="get-test-logs"></a>Ottenere i log dei test
+![Visualizzare le operazioni](media/manage-test_context-menu-operations.png)
 
-1. [Aprire il riepilogo del test pass](#open-the-test-pass-summary).
-2. Selezionare **scaricare i log** ripianificare il superamento del test.  
-    Un file zip denominato ReleaseYYYY-MM-DD.zip che contiene i download dei log.
+#### <a name="download-logs-for-a-completed-test-instance"></a>Scaricare i log per un'istanza di test completato
+
+Selezionare **scaricare i log** dal menu di scelta rapida per scaricare un `.zip` file di output dei log durante l'esecuzione di test. Questa azione è disponibile solo per i test che sono state completate, ad esempio, un test con un indicatore di stato del `Cancelled`, `Failed`, `Aborted`, o `Succeeded`.
+
+#### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Modificare la pianificazione di un'istanza di test o pianificare un test
+
+Pianificazione di test dalla pagina di gestione dipende dal tipo di flusso di lavoro che in cui viene eseguito il test.
+
+##### <a name="test-pass-workflow"></a>Flusso di lavoro di superamento test
+
+Nel flusso di lavoro, Test Pass **ripianificazione** un'istanza di test riusa lo stesso set di parametri dell'istanza di test originale e *sostituisce* risultati originale, inclusi i log. È necessario immettere nuovamente le stringhe sensibili come le password quando è modificare la pianificazione.
+
+1. Selezionare **ripianificare** dal menu di scelta rapida per aprire un prompt dei comandi per l'istanza di prova di ripianificazione.
+
+1. Immettere eventuali parametri applicabile.
+
+1. Selezionare **Submit** ripianificare l'istanza di prova e sostituire l'istanza esistente.
+
+##### <a name="validation-workflows"></a>Flussi di lavoro di convalida
+
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+
+#### <a name="cancel-a-test-instance"></a>Annulla un'istanza di test
+
+Un test pianificato può essere annullato se il suo stato sia `Pending` o `Running`.  
+
+1. Selezionare **annullare** dal menu di scelta rapida per aprire un prompt dei comandi per annullare l'istanza di prova.
+
+1. Selezionare **Submit** per annullare l'istanza di prova.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulle [convalida Azure Stack come servizio](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Risolvere i problemi di convalida come servizio](azure-stack-vaas-troubleshoot.md)

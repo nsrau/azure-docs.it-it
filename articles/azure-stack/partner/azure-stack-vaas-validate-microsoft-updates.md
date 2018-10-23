@@ -1,5 +1,5 @@
 ---
-title: Convalidare gli aggiornamenti software da Microsoft nella convalida di Azure Stack come servizio | Microsoft Docs
+title: Convalidare gli aggiornamenti software da Microsoft in Azure Stack di convalida come servizio | Microsoft Docs
 description: Informazioni su come convalidare gli aggiornamenti software da Microsoft con la convalida come servizio.
 services: azure-stack
 documentationcenter: ''
@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 6ef8c0486a694ac44c53375b24893812b10343e4
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7fcc7d5a1d87fe93d32772dbbb84f1d3c91d5631
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158484"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648786"
 ---
 # <a name="validate-software-updates-from-microsoft"></a>Convalidare gli aggiornamenti software da Microsoft
 
@@ -26,38 +26,22 @@ ms.locfileid: "44158484"
 
 Microsoft rilascerà periodicamente aggiornamenti per il software Azure Stack. Questi aggiornamenti vengono forniti per i partner di CO-ingegneria Azure Stack prima viene reso disponibile pubblicamente in modo da poter convalidare gli aggiornamenti con le proprie soluzioni e fornire commenti e suggerimenti a Microsoft.
 
-## <a name="test-an-existing-solution"></a>Testare una soluzione esistente
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
-1. Accedi per il [portale convalida](https://azurestackvalidation.com).
+## <a name="apply-monthly-update"></a>Applicare l'aggiornamento mensile
 
-2. Selezionare una soluzione esistente in cui l'aggiornamento da Microsoft è stato distribuito e selezionare **avviare** nel **convalida dei pacchetti** riquadro.
+[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
 
-    ![Convalida del pacchetto](media/image3.png)
+## <a name="create-a-workflow"></a>Creare un flusso di lavoro
 
-3. Immettere il nome di convalida.
+Le convalide di aggiornamento utilizzano lo stesso flusso di lavoro **convalida dei pacchetti**. Seguire le istruzioni in [creare un flusso di lavoro di convalida del pacchetto](azure-stack-vaas-validate-oem-package.md#create-a-package-validation-workflow).
 
-4. Immettere l'URL per il pacchetto OEM che è stato installato sulla soluzione in fase di distribuzione. Usare l'URL per il pacchetto archiviato nel servizio blob di Azure. Per altre informazioni, vedere [creare un blob di archiviazione di Azure per archiviare i log](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs).
+## <a name="run-tests"></a>Esegui i test
 
-5. Selezionare **caricare** per aggiungere il file di configurazione di distribuzione. Vedere le [la convalida di una nuova soluzione di Azure Stack](azure-stack-vaas-validate-solution-new.md) per informazioni sul caricamento di file di configurazione di distribuzione.
+Le convalide di aggiornamento utilizzano lo stesso flusso di lavoro **convalida dei pacchetti**. Seguire le istruzioni in [eseguire la convalida del pacchetto verifica](azure-stack-vaas-validate-oem-package.md#run-package-validation-tests).
 
-6. Il file di configurazione di distribuzione deve quindi essere personalizzato con il file di parametri di ambiente corretto, vedere [parametri di ambiente](azure-stack-vaas-parameters.md#environment-parameters) per altri dettagli.
-
-    > [!Note]   
-    > Il file di configurazione di distribuzione è possibile personalizzare ulteriormente tramite l'aggiunta di parametri comuni di test. Per altre informazioni, vedere [parametri comuni del flusso di lavoro per la convalida di Azure Stack come servizio](azure-stack-vaas-parameters.md)
-
-7. Il nome utente e la password per l'utente del tenant, amministratore del servizio e amministratore cloud devono essere immessi manualmente.
-
-8. Specificare l'URL del BLOB di archiviazione di Azure per archiviare i log di diagnostica. Per altre informazioni, vedere [creare un blob di archiviazione di Azure per archiviare i log](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs).
-
-    > [!Note]  
-    > Tag descrittivi possono essere immessi per etichettare il flusso di lavoro.
-
-10. Selezionare **Submit** per salvare il flusso di lavoro.
-
-Il flusso di lavoro di soluzione viene eseguita per circa 24 ore. Aggiungere un collegamento a o istruzioni sulla pianificazione di test. Cancella nello strumento.
-
-Trovare altre informazioni sul monitoraggio dello stato di una convalida eseguire, vedere [monitorare un test ](azure-stack-vaas-monitor-test.md).
+Non devi richiesta di firma per le convalide di aggiornamento del pacchetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulle [convalida Azure Stack come servizio](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Monitorare e gestire i test nel portale di VaaS](azure-stack-vaas-monitor-test.md)

@@ -4,6 +4,7 @@ items:
 - name: Panoramica
   items:
   - name: Informazioni sul servizio Azure Machine Learning
+    displayName: AML, services
     href: overview-what-is-azure-ml.md
   - name: Informazioni sullo stato di Workbench
     href: overview-what-happened-to-workbench.md
@@ -25,10 +26,12 @@ items:
 - name: Esempi
   items:
   - name: Jupyter Notebooks (GitHub)
+    displayName: example, examples
     href: http://aka.ms/aml-notebooks
 - name: Concetti
   items:
   - name: Funzionamento del servizio
+    displayName: architecture
     href: concept-azure-machine-learning-architecture.md
   - name: Gestione di modelli
     href: concept-model-management-and-deployment.md
@@ -43,6 +46,7 @@ items:
   - name: "Configurare l'ambiente di sviluppo "
     items:
     - name: Scegliere un'ambiente
+      displayName: local, remote
       href: how-to-choose-a-dev-environment.md
     - name: Configurare un ambiente
       href: how-to-configure-environment.md
@@ -53,6 +57,7 @@ items:
       - name: Eseguire il training e la distribuzione
         href: how-to-vscode-train-deploy.md
   - name: Preparazione dei dati
+    displayName: data prep, etl, elt
     href: how-to-data-prep.md
     items:
     - name: Caricare i dati
@@ -142,6 +147,7 @@ items:
   - name: Documenti deprecati
     items:
     - name: Come eseguire la migrazione
+      displayName: Workbench, upgrade, update, transfer
       href: how-to-migrate.md
     - name: Esportare o eliminare i dati dell'account (deprecato)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
@@ -238,7 +244,7 @@ items:
         href: ../desktop-workbench/how-to-use-model-data-collection.md
       - name: Guida alla risoluzione dei problemi di distribuzione
         href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-    - name: Procedure concrete
+    - name: Esempi precedenti
       items:
       - name: Analisi della raccolta di documenti
         href: ../desktop-workbench/scenario-document-collection-analysis.md
@@ -266,7 +272,7 @@ items:
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
       - name: Apprendimento avanzato per la manutenzione predittiva
         href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: riferimento
+    - name: Informazioni di riferimento precedenti
       items:
       - name: Estensioni di Python per la preparazione dei dati
         href: ../desktop-workbench/data-prep-python-extensibility-overview.md
@@ -304,7 +310,7 @@ items:
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: API di raccolta di dati del modello
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Concetti chiave
+    - name: Concetti precedenti
       href: ../desktop-workbench/overview-general-concepts.md
     - name: Pacchetti di domini
       href: ../desktop-workbench/reference-python-package-overview.md
@@ -341,9 +347,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Problemi precedenti
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 2e5e1d3c925a6b946e340820fc7d259251c0e9b7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 56a72b437397c65777c5fd0955c5257d60f3a6a4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457059"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649245"

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: ed070ac4fdf9ccca1b1b4b99b8031bc3fd035779
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 60cfc4a2b20d3c443562a1f66e9c205244d0beef
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160150"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645593"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Risolvere i problemi di convalida come servizio
 
@@ -26,27 +26,31 @@ ms.locfileid: "44160150"
 
 Di seguito sono comuni dei problemi non correlati a versioni di software e le relative soluzioni.
 
-## <a name="the-portal-shows-local-agent-in-debug-mode"></a>Il portale Mostra agente locale in modalità di debug
+## <a name="local-agent"></a>Agente locale
+
+### <a name="the-portal-shows-local-agent-in-debug-mode"></a>Il portale Mostra agente locale in modalità di debug
 
 È possibile che l'agente è in grado di inviare gli heartbeat al servizio a causa di una connessione di rete instabile. Un heartbeat viene inviato ogni cinque minuti. Se il servizio non riceve un heartbeat per 15 minuti, il servizio prende in considerazione l'agente inattivi e i test non verranno pianificati non è più su di esso. Controllare il messaggio di errore *Agenthost.log* file che si trova nella directory in cui l'agente è stato avviato.
 
-> [!Note] 
+> [!Note]
 > Qualsiasi test già in esecuzione nell'agente continuerà a essere eseguito, ma se l'heartbeat non ripristinato prima della scadenza del test, quindi l'agente avrà esito negativo aggiornare lo stato del test o caricare i log. Il test verrà sempre visualizzata come **in esecuzione** e dovranno essere annullata.
 
-## <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>Il processo dell'agente sul computer è stato arrestato durante l'esecuzione di test. Cosa aspettarsi?
+### <a name="agent-process-on-machine-was-shut-down-while-executing-test-what-to-expect"></a>Il processo dell'agente sul computer è stato arrestato durante l'esecuzione di test. Cosa aspettarsi?
 
-Se il processo dell'agente è arrestato in modo anomalo, ad esempio, macchina riavviato, abbattuto processo (CTRL + C nella finestra dell'agente è considerata l'arresto normale) sarà ancora il test che era in esecuzione su di esso mostrare come **in esecuzione**. Se l'agente viene riavviato, quindi l'agente verrà aggiornato lo stato del test da **annullata**. Se l'agente non viene riavviato, quindi il test viene visualizzato come **in esecuzione** ed è necessario annullare manualmente il test
+Se il processo dell'agente è arrestato in modo anomalo, ad esempio, macchina riavviato, abbattuto processo (CTRL + C nella finestra dell'agente è considerata l'arresto normale) sarà ancora il test che era in esecuzione su di esso mostrare come **in esecuzione**. Se l'agente viene riavviato, quindi l'agente verrà aggiornato lo stato del test da **annullata**. Se l'agente non viene riavviato, quindi il test viene visualizzato come **in esecuzione** ed è necessario annullare manualmente il test.
 
-> [!Note] 
+> [!Note]
 > I test all'interno di un flusso di lavoro sono pianificati per l'esecuzione sequenziale. **In sospeso** test sarà non venga eseguito fino al test nel **esecuzione** stato nello stesso flusso di lavoro completo.
 
-## <a name="handle-slow-network-connectivity"></a>Gestire la connettività di rete lenta
+## <a name="vm-images"></a>Immagini di macchina virtuale
 
-È possibile scaricare l'immagine del repository in una condivisione nel tuo Data Center locale. E quindi è possibile verificare l'immagine.
+### <a name="handle-slow-network-connectivity"></a>Gestire la connettività di rete lenta
+
+È possibile scaricare l'immagine del repository in una condivisione nel tuo Data Center locale. E quindi è possibile controllare l'immagine.
 
 <!-- This is from the appendix to the Deploy local agent topic. -->
 
-### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>Scaricare l'immagine di PIR per la condivisione locale in caso di traffico di rete lenta
+#### <a name="download-pir-image-to-local-share-in-case-of-slow-network-traffic"></a>Scaricare l'immagine di PIR per la condivisione locale in caso di traffico di rete lenta
 
 1. Download di AzCopy da: [vaasexternaldependencies(AzCopy)](https://vaasexternaldependencies.blob.core.windows.net/prereqcomponents/AzCopy.zip)
 
@@ -65,7 +69,7 @@ Se il processo dell'agente è arrestato in modo anomalo, ad esempio, macchina ri
 > [!Note]  
 > LocalFileShare è il percorso della condivisione o un percorso locale.
 
-### <a name="verifying-pir-image-file-hash-value"></a>Verifica per determinare se valore hash del file immagine di repository
+#### <a name="verifying-pir-image-file-hash-value"></a>Verifica per determinare se valore hash del file immagine di repository
 
 È possibile usare **Get-HashFile** per ottenere il valore hash per il repository scaricato immagine pubblica i file di immagine per verificare l'integrità delle immagini.
 
@@ -77,6 +81,44 @@ Se il processo dell'agente è arrestato in modo anomalo, ad esempio, macchina ri
 | Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
 | Ubuntu1604 20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
 
+### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Si verifica un errore durante il caricamento di immagini di macchina virtuale nel `VaaSPreReq` script
+
+Verificare innanzitutto che l'ambiente sia integro:
+
+1. Da di DVM / jumpbox, verificare che è possibile effettuare l'accesso al portale di amministrazione usando le credenziali di amministratore.
+1. Verificare che non sono presenti avvisi o avvisi.
+
+Se l'ambiente sia integro, è necessario caricare manualmente le immagini di macchina virtuale 5 necessaria per le esecuzioni dei test VaaS:
+
+1. Accedere come amministratore del servizio nel portale di amministrazione. È possibile trovare il portale di amministrazione di URL da ECE store o un file di informazioni del timbro. Per istruzioni, vedere [parametri di ambiente](azure-stack-vaas-parameters.md#environment-parameters).
+1. Selezionare **altri servizi** > **provider di risorse** > **calcolo** > **immagini di VM**.
+1. Selezionare il **+ Aggiungi** nella parte superiore del **immagini di VM** pannello.
+1. Modificare o controllare i valori dei campi seguenti per la prima immagine di macchina virtuale:
+    > [!IMPORTANT]
+    > Non tutte le impostazioni predefinite sono corrette per l'elemento del Marketplace esistenti.
+
+    | Campo  | Valore  |
+    |---------|---------|
+    | Editore | MicrosoftWindowsServer |
+    | Offerta | WindowsServer |
+    | OS Type (Tipo di sistema operativo) | Windows |
+    | SKU | 2012-R2-Datacenter |
+    | Version | 1.0.0 |
+    | URI del Blob del disco del sistema operativo | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+
+1. Selezionare il pulsante **Crea**.
+1. Ripetere per le immagini di macchine Virtuali rimanenti.
+
+Le proprietà di tutte le immagini di macchina virtuale 5 sono come segue:
+
+| Editore  | Offerta  | OS Type (Tipo di sistema operativo) | SKU | Version | URI del Blob del disco del sistema operativo |
+|---------|---------|---------|---------|---------|---------|
+| MicrosoftWindowsServer| WindowsServer | Windows | 2012-R2-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/WindowsServer2012R2DatacenterBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterFullBYOL.vhd |
+| MicrosoftWindowsServer | WindowsServer | Windows | 2016-Datacenter-Server-Core | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Server2016DatacenterCoreBYOL.vhd |
+| Canonical | UbuntuServer | Linux | 14.04.3-LTS | 1.0.0 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1404LTS.vhd |
+| Canonical | UbuntuServer | Linux | 16.04-LTS | 16.04.20170811 | https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container/Ubuntu1604-20170619.1.vhd |
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulle [convalida Azure Stack come servizio](https://docs.microsoft.com/azure/azure-stack/partner).
+- Revisione [note sulla versione per la convalida come servizio](azure-stack-vaas-release-notes.md) per le modifiche nelle versioni più recenti.

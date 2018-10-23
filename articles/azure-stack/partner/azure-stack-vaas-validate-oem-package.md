@@ -1,6 +1,6 @@
 ---
-title: Convalida pacchetti (OEM) original equipment manufacturer nella convalida di Azure Stack come servizio | Microsoft Docs
-description: Informazioni su come verificare i pacchetti di OEM (OEM) con la convalida come servizio.
+title: Convalidare i pacchetti dell'OEM (OEM) in Azure Stack di convalida come servizio | Microsoft Docs
+description: Informazioni su come convalidare i pacchetti dell'OEM (OEM) con la convalida come servizio.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: cefa32c35df4e87d4d2b983ee8c4a16dc065e774
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: bcfc4cb65c94e34e9f6056ada53726f88489fefb
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160456"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646652"
 ---
 # <a name="validate-oem-packages"></a>Convalidare i pacchetti dell'OEM
 
@@ -26,32 +26,104 @@ ms.locfileid: "44160456"
 
 È possibile testare un nuovo pacchetto di OEM quando è stata apportata una modifica al firmware o driver per la convalida di una soluzione completata. Quando il pacchetto è stato superato il test, è firmato da Microsoft. Il test deve contenere il pacchetto di estensione OEM aggiornato con i driver e firmware che hanno superato test di PC e il logo di Windows Server.
 
-Tutti i test completati entro 24 ore con risultato **ha avuto esito positivo**. Se uno qualsiasi dei test avranno come risultato **non è stato possibile**, un bug in [Microsoft Collaborate](https://aka.ms/collaborate) e contattare Microsoft inviando un messaggio di posta elettronica [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com).
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
-## <a name="get-your-oem-package-signed"></a>OEM di pacchetti firmati
+> [!IMPORTANT]
+> Prima di caricamento o l'invio dei pacchetti, esaminare [creare un pacchetto dell'OEM](azure-stack-vaas-create-oem-package.md) per il formato previsto del pacchetto e il contenuto.
 
-1. Assicurarsi che sia stato applicato l'aggiornamento mensile corrente. Per la versione più recente, vedere la versione più recente nella [documentazione dell'operatore di Azure Stack > Panoramica > note sulla versione](https://docs.microsoft.com/azure/azure-stack/) .
+## <a name="managing-packages-for-validation"></a>La gestione dei pacchetti per la convalida
 
-    Gli aggiornamenti software Microsoft per Azure Stack sono designati utilizzando una convenzione di denominazione, ad esempio, 1803 che indica che l'aggiornamento è per il mese di marzo 2018. Per informazioni sui criteri di aggiornamento di Azure Stack, sono disponibili note sulla versione e cadenza, vedere [criteri di manutenzione Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-servicing-policy).
+Quando si usa la **la convalida del pacchetto** flusso di lavoro per convalidare un pacchetto, si dovrà fornire un URL a un **archiviazione blob di Azure**. Questo blob è il pacchetto OEM che è stato installato sulla soluzione in fase di distribuzione. Crea il blob usando l'Account di archiviazione di Azure creato durante l'installazione (vedere [configurare la convalida come le risorse di un servizio](azure-stack-vaas-set-up-resources.md)).
 
-1. Controllare lo stato di integrità di sistema eseguendo **Test-AzureStack** come descritto in [eseguire un test di convalida per Azure Stack. Risolvere eventuali avvisi ed errori prima di avviare i test.
+### <a name="prerequisite-provision-a-storage-container"></a>Prerequisito: Effettuare il provisioning di un contenitore di archiviazione
 
-2. Nel [portale convalida](https://azurestackvalidation.com), selezionare una soluzione esistente. Se non è stato aggiunto la soluzione, vedere [aggiungere una nuova soluzione](azure-stack-vaas-validate-solution-new.md#add-a-new-solution).
+Creare un contenitore nell'account di archiviazione per i BLOB di pacchetto. Questo contenitore è utilizzabile per tutti i viene eseguita la convalida del pacchetto.
 
-3. Selezionare **avviare** nel **le convalide di pacchetti** riquadro per avviare un nuovo flusso di lavoro.
+1. Nel [portale di Azure](https://portal.azure.com), passare all'account di archiviazione creato nel [configurare la convalida come le risorse di un servizio](azure-stack-vaas-set-up-resources.md).
+2. Nel pannello sinistro sotto **servizio Blob**, selezionare **contenitori**.
+3. Selezionare **+ contenitore** nel menu della barra e specificare un nome per il contenitore, ad esempio, `vaaspackages`.
 
-    ![Convalide di pacchetti](media/image3.png)
+### <a name="upload-package-to-storage-account"></a>Carica pacchetto all'account di archiviazione
 
-4.  Offre una funzionalità di diagnostica di stringa di connessione. Per istruzioni, vedere [configurare un account di archiviazione](azure-stack-vaas-set-up-account.md).
+1. Preparare il pacchetto da convalidare. Se il pacchetto contiene più file, comprimerlo in un `.zip` file.
+2. Nel [portale di Azure](https://portal.azure.com), selezionare il contenitore del pacchetto e caricare il pacchetto facendo clic sulla **caricare** nella barra dei menu.
+3. Selezionare il pacchetto `.zip` file da caricare. Mantenere valori predefiniti per **tipo Blob** (ovvero **Blob in blocchi**) e **dimensioni blocco**.
 
-    Per ogni esecuzione di convalida del pacchetto, è necessario specificare un pacchetto di estensione OEM. Specificare il pacchetto OEM che è stato installato su una soluzione al momento della distribuzione di Azure Stack. Per istruzioni, vedere [creare un blob di archiviazione di Azure per archiviare i log](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs).
+> [!NOTE]
+> Verificare che il `.zip` contenuto viene inserito nella radice del `.zip` file. Non vi sarà alcun nelle sottocartelle nel pacchetto.
 
-    Un file JSON con le variabili di ambiente da utilizzare per completare l'input per i campi obbligatori per l'esecuzione evitare errori nell'immissione di dati. Per istruzioni, vedere [riceve un file di configurazione in una distribuzione di Azure Stack](azure-stack-vaas-parameters.md).
+### <a name="generate-package-blob-url-for-vaas"></a>Generare l'URL blob pacchetto per VaaS
 
-5. Eseguire i test.
+Quando si crea una **convalida dei pacchetti** flusso di lavoro nel portale di VaaS, si dovrà fornire un URL del blob di archiviazione di Azure contenente il pacchetto.
 
-6. Quando tutti i test è sono completata, invia il nome della convalida di soluzione e al pacchetto da [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) per richiedere la firma del pacchetto.
+#### <a name="option-1-generating-an-account-sas-url"></a>Opzione 1: Generare un URL di firma di accesso condiviso dell'account
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Selezionare **Blob** dalla **opzioni di servizi consentiti**. Deselezionare le altre opzioni.
+
+1. Selezionare **contenitore** e **oggetto** dalla **tipi di risorse consentiti**. Deselezionare le altre opzioni.
+
+1. Selezionare **Read** e **elenco** dalla **disponga delle autorizzazioni**. Deselezionare le altre opzioni.
+
+1. Impostare **ora di inizio** sull'ora corrente, e **ora di fine** a 1 ora dall'ora corrente.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+    Ecco come deve venire visualizzata nel formato: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+1. Modificare l'URL di firma di accesso condiviso generato per includere il contenitore del pacchetto, `{containername}`e il nome del blob di pacchetto, `{mypackage.zip}`, come indicato di seguito:  `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+    Utilizzare questo valore quando si avvia una nuova **convalida dei pacchetti** flusso di lavoro nel portale di VaaS.
+
+#### <a name="option-2-using-public-read-container"></a>Opzione 2: Uso di contenitore di lettura pubblico
+
+> [!CAUTION]
+> Questa opzione apre il contenitore per l'accesso anonimo di sola lettura.
+
+1. Concessione **accesso solo per i BLOB in lettura pubblico** al contenitore del pacchetto, seguendo le istruzioni nella sezione [concedere le autorizzazioni agli utenti anonimi per contenitori e blob](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+
+2. Nel contenitore del pacchetto, selezionare questa opzione sul blob nel contenitore del pacchetto per aprire il riquadro proprietà.
+
+3. Copia il **URL**. Utilizzare questo valore quando si avvia una nuova **convalida dei pacchetti** flusso di lavoro nel portale di VaaS.
+
+## <a name="apply-monthly-update"></a>Applicare l'aggiornamento mensile
+
+[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+
+## <a name="create-a-package-validation-workflow"></a>Creare un flusso di lavoro di convalida del pacchetto
+
+1. Accedi per il [VaaS portale](https://azurestackvalidation.com).
+
+2. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
+
+3. Selezionare **avviare** nel **convalida dei pacchetti** riquadro.
+
+    ![Riquadro del flusso di lavoro del pacchetto convalide](media/tile_validation-package.png)
+
+4. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+
+5. Immettere l'URL del blob di archiviazione di Azure per il pacchetto OEM che è stato installato sulla soluzione in fase di distribuzione. Per istruzioni, vedere [generare l'URL blob pacchetto per VaaS](#generate-package-blob-url-for-vaas).
+
+6. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
+
+7. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
+
+    > [!NOTE]
+    > Parametri di ambiente non possono essere modificati dopo la creazione di un flusso di lavoro.
+
+8. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+
+9. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+    Si verrà reindirizzati alla pagina di riepilogo di test.
+
+## <a name="run-package-validation-tests"></a>Eseguire i test di convalida del pacchetto
+
+Nel **riepilogo test di convalida del pacchetto** pagina, verrà visualizzato un elenco dei test necessari per completare la convalida. Test in questo flusso di lavoro eseguito circa 24 ore.
+
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+
+Quando tutti i test è sono completata, invia il nome della soluzione VaaS e convalida del pacchetto per [ vaashelp@microsoft.com ](mailto:vaashelp@microsoft.com) per richiedere la firma del pacchetto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulle [convalida Azure Stack come servizio](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Monitorare e gestire i test nel portale di VaaS](azure-stack-vaas-monitor-test.md)

@@ -1,6 +1,6 @@
 ---
-title: Parametri comuni del flusso di lavoro nella convalida di Azure Stack come servizio | Microsoft Docs
-description: Parametri comuni del flusso di lavoro per la convalida di Azure Stack come servizio
+title: Parametri comuni del flusso di lavoro in Azure Stack di convalida come servizio | Microsoft Docs
+description: Parametri comuni del flusso di lavoro per la convalida dello Stack di Azure come servizio
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,53 +10,82 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: c50e4b5c9eb81c9386e2cb0db96a88de70dcb9e9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 25c93560b24b2915ef9a9077b5bca0d15286b0e3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157804"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646780"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Parametri comuni del flusso di lavoro per la convalida di Azure Stack come servizio
+# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Parametri comuni del flusso di lavoro per la convalida dello Stack di Azure come servizio
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Parametri comuni includono valori, ad esempio le variabili di ambiente e l'utente le credenziali richieste da tutti i test nella convalida come servizio (VaaS). Si definiscono questi valori a livello di flusso di lavoro. Salvare i valori quando si crea o si modifica un flusso di lavoro. In fase di pianificazione, il flusso di lavoro carica i valori per il test. 
+I parametri comuni includono i valori come variabili di ambiente e l'utente le credenziali richieste da tutti i test nella convalida come servizio (VaaS). Questi valori sono definiti a livello di flusso di lavoro quando si crea o si modifica un flusso di lavoro. Durante la pianificazione dei test, questi valori vengono passati come parametri per ogni test con il flusso di lavoro.
+
+> [!NOTE]
+> Ogni test definisce il proprio set di parametri. In fase di pianificazione, un test potrebbe essere necessario immettere un valore indipendentemente dai parametri comuni, o può consentire è possibile sostituire il valore del parametro comune.
 
 ## <a name="environment-parameters"></a>Parametri di ambiente
 
-Parametri di ambiente descrivono l'ambiente dello Stack di Azure sottoposta a test. È necessario specificare questi valori mediante la generazione e il caricamento di file di configurazione dell'indicatore `&lt;link&gt;. [How to get the stamp info link].`
+Parametri di ambiente descrivono l'ambiente dello Stack di Azure sottoposta a test. Generazione e caricando un file di informazioni timbro Azure Stack per l'istanza specifica, che si esegue il test, è necessario specificare questi valori.
 
-| Nome parametro | Obbligatorio | type | DESCRIZIONE |
-|----------------------------------|----------|------|---------------------------------------------------------------------------------------------------------------------------------|
-| Compilazione di Azure Stack | Obbligatorio |  | Numero di build della distribuzione di Azure Stack (ad esempio, 1.0.170330.9) |
-| Versione OEM | Sì |  | Numero di versione del pacchetto OEM usata durante la distribuzione di Azure Stack. |
-| Firma OEM | Sì |  | Firma del pacchetto OEM usata durante la distribuzione di Azure Stack. |
-| ID del tenant AAD | Obbligatorio |  | Tenant di Azure Active Directory GUID specificato durante la distribuzione di Azure Stack.|
-| Region | Obbligatorio |  | Area di distribuzione di Azure Stack. |
-| Endpoint di Resource Manager tenant | Obbligatorio |  | Endpoint per le operazioni di Azure Resource Manager tenant (ad esempio, https://management.<ExternalFqdn>) |
-| Endpoint amministratore Resource Manager | Sì |  | Endpoint per le operazioni di Tenant di Azure Resource Manager (ad esempio, https://adminmanagement.<ExternalFqdn>) |
-| Nome di dominio completo esterna | Sì |  | Nome di dominio usato come suffisso per gli endpoint esterno completo. (ad esempio, local.azurestack.external o redmond.contoso.com). |
-| Numero di nodi | Sì |  | Numero di nodi nella distribuzione. |
+> [!NOTE]
+> Nei flussi di lavoro ufficiale convalida dei parametri di ambiente non possono essere modificati dopo la creazione del flusso di lavoro.
+
+### <a name="generate-the-stamp-information-file"></a>Generare il file di timestamp informazioni
+
+1. Accedere a qualsiasi computer dotato di accesso all'ambiente Azure Stack o di DVM.
+2. Eseguire i comandi seguenti in una finestra di PowerShell con privilegi elevata:
+    ```PowerShell
+    $CloudAdminUser = "<cloud admin username>"
+    $stampInfoPass = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
+    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $stampInfoPass)
+    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation'
+    ConvertTo-Json $params > stampinfoproperties.json
+    ```
+
+### <a name="locate-values-in-the-ece-configuration-file"></a>Individuare i valori nel file di configurazione ECE
+
+I valori di parametro di ambiente possono anche essere disponibili manualmente nel **file di configurazione ECE** che si trova in `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` di DVM.
 
 ## <a name="test-parameters"></a>Parametri di test
 
-Parametri di test comuni includono informazioni riservate che non sono memorizzate nei file di configurazione e devono essere forniti manualmente.
+Parametri di test comuni includono informazioni riservate che non possono essere archiviate nei file di configurazione. Questi devono essere forniti manualmente.
 
-| Nome parametro | Obbligatorio | type | DESCRIZIONE |
-|--------------------------------|------------------------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nome utente tenant | Obbligatorio |  | Azure amministratore del Tenant di Active Directory che sia stato effettuato il provisioning già oppure deve essere eseguito il provisioning per l'amministratore del servizio nella Directory di AAD. Per informazioni dettagliate sul provisioning degli account del tenant, vedere [iniziare a usare Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). Questo valore viene utilizzato dal test per eseguire operazioni a livello di tenant, ad esempio la distribuzione di modelli per eseguire il provisioning delle risorse (macchine virtuali, account di archiviazione e così via) ed eseguire i carichi di lavoro. Questo valore viene utilizzato dal test per eseguire operazioni a livello di tenant, ad esempio la distribuzione di modelli per eseguire il provisioning delle risorse (macchine virtuali, account di archiviazione e così via) ed eseguire i carichi di lavoro. |
-| Password del tenant | Obbligatorio |  | Password per l'utente del tenant. |
-| Nome utente amministratore del servizio | Richiesto: Convalida soluzione, la convalida del pacchetto<br>Non è necessario: superamento Test |  | Azure amministratore di Active Directory del Tenant di Directory AAD specificato durante la distribuzione di Azure Stack. |
-| Password amministratore del servizio | Richiesto: Convalida soluzione, la convalida del pacchetto<br>Non è necessario: superamento Test |  | Password per l'utente amministratore del servizio. |
-| Nome utente amministratore del cloud | Obbligatorio |  | Azure Stack account amministratore di dominio (ad esempio, contoso\cloudadmin). Ricerca per ruolo utente = "CloudAdmin" nel file di configurazione e selezionare il valore nel tag di nome utente nel file di configurazione. |
-| Password amministratore del cloud | Obbligatorio |  | Password per l'utente amministratore del Cloud. |
-| Stringa di connessione di diagnostica | Obbligatorio |  | Un URI SAS a un Account di archiviazione di Azure per la diagnostica quali log verranno copiati durante l'esecuzione di test. Le istruzioni per la generazione dell'URI SAS si trovano [configurare un account di archiviazione blob](azure-stack-vaas-set-up-account.md). |
+Parametro    | DESCRIZIONE
+-------------|-----------------
+Utente amministratore tenant                            | Azure Active Directory amministratore Tenant è stato effettuato il provisioning dall'amministratore del servizio nella directory di AAD. L'utente esegue azioni a livello di tenant, ad esempio la distribuzione di modelli per configurare le risorse (macchine virtuali, gli account di archiviazione e così via) e l'esecuzione di carichi di lavoro. Per informazioni dettagliate sul provisioning account tenant, vedere [aggiunge un nuovo tenant di Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad).
+Utente amministratore del servizio             | Azure amministratore Active Directory del Tenant di Directory AAD specificato durante la distribuzione di Azure Stack. Cercare `AADTenant` nella configurazione ECE file e selezionare il valore di `UniqueName` elemento.
+Utente amministratore del cloud               | Account amministratore di Azure Stack dominio (ad esempio, `contoso\cloudadmin`). Cercare `User Role="CloudAdmin"` nella configurazione ECE file e selezionare il valore di `UserName` elemento.
+Stringa di connessione di diagnostica          | Un URL di firma di accesso condiviso a un Account di archiviazione di Azure per la diagnostica quali log verranno copiati durante l'esecuzione di test. Per istruzioni su come generare l'URL di firma di accesso condiviso, vedere [generi la stringa di connessione di diagnostica](#generate-the-diagnostics-connection-string). |
 
+> [!IMPORTANT]
+> Il **stringa di connessione di diagnostica** deve essere valido prima di procedere.
+
+### <a name="generate-the-diagnostics-connection-string"></a>Generare la stringa di connessione di diagnostica
+
+La stringa di connessione di diagnostica è necessaria per l'archiviazione dei log di diagnostica durante l'esecuzione di test. Usare l'Account di archiviazione di Azure creato durante l'installazione (vedere [configurare la convalida come le risorse di un servizio](azure-stack-vaas-set-up-resources.md)) per creare un URL di firma di accesso condiviso per concedere l'accesso VaaS per caricare i log all'account di archiviazione.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Selezionare **Blob** dalla **opzioni di servizi consentiti**. Deselezionare le altre opzioni.
+
+1. Selezionare **assistenza**, **contenitore**, e **oggetto** da **tipi di risorse consentiti**.
+
+1. Selezionare **Read**, **scrivere**, **elenco**, **aggiungere**, **creare** da **consentiti le autorizzazioni**. Deselezionare le altre opzioni.
+
+1. Impostare **ora di inizio** sull'ora corrente, e **ora di fine** per tre mesi dall'ora corrente.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+
+> [!NOTE]  
+> L'URL di firma di accesso condiviso scade alla data di fine specificata quando è stato generato l'URL.  
+Durante la pianificazione dei test, assicurarsi che l'URL è valido per almeno 30 giorni più il tempo necessario per l'esecuzione di test (tre mesi viene suggerito).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulle [convalida Azure Stack come servizio](https://docs.microsoft.com/azure/azure-stack/partner).
+- Informazioni su [convalida come un concetti chiave di servizio](azure-stack-vaas-key-concepts.md)

@@ -1,6 +1,6 @@
 ---
 title: Automatizzare la convalida di Azure Stack con PowerShell | Microsoft Docs
-description: È possibile automatizzare la convalida di Azure Stack con PowerShell.
+description: È possibile automatizzare la convalida dello Stack di Azure con PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,74 +10,87 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1cb4b1a7cfd72ea302676244a53af58e77215aa9
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 82a1d86f31bfb49ff97ec9928dd7ee946144a359
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235347"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650044"
 ---
-# <a name="automate-azure-stack-validation-with-powershell"></a>Automatizzare la convalida di Azure Stack con PowerShell 
+# <a name="automate-azure-stack-validation-with-powershell"></a>Automatizzare la convalida di Azure Stack con PowerShell
 
 Convalida come servizio (VaaS) offre la possibilità di automatizzare l'avvio del test usando il **LaunchVaaSTests.ps1** script.
 
 È possibile usare PowerShell per il flusso di lavoro seguente:
 
-- Flusso di lavoro di superamento test
+- Superamento test
 
-Questo script include i quattro elementi di un flusso di lavoro:
+In questa esercitazione descrive come creare uno script che:
 
-- Installa i prerequisiti.
-- Installa e avvia l'agente locale.
-- Avvia una categoria di test, ad esempio l'integrazione, funzionale, affidabilità.
-- Generazione del file report ogni test passare risultato per il monitoraggio e report.
+Lo script esegue le azioni seguenti:
 
-## <a name="launch-the-test-pass-workflow"></a>Avviare il flusso di lavoro di passaggi di test
+> [!div class="checklist"]
+> * Installa i prerequisiti
+> * Installa e avvia l'agente locale
+> * Avvia una categoria di test, ad esempio di integrazione, funzionale, affidabilità
+> * I risultati dei test di report
+
+## <a name="launch-the-test-pass-workflow"></a>Avviare il flusso di lavoro di superamento Test
 
 1. Aprire un prompt di PowerShell con privilegi elevato.
 
 2. Eseguire lo script seguente per scaricare lo script di automazione:
 
-    ````PowerShell  
+    ```PowerShell
     New-Item -ItemType Directory -Path <VaaSLaunchDirectory>
     Set-Location <VaaSLaunchDirectory>
-    Invoke-WebRequest -Uri https://vaastestpacksprodeastus.blob.core.windows.net/packages/Microsoft.VaaS.Scripts.3.0.0.nupkg -OutFile "LaunchVaaS.zip"
+    Invoke-WebRequest -Uri https://storage.azurestackvalidation.com/packages/Microsoft.VaaS.Scripts.latest.nupkg -OutFile "LaunchVaaS.zip"
     Expand-Archive -Path ".\LaunchVaaS.zip" -DestinationPath .\ -Force
-    ````
+    ```
 
-3. Eseguire lo script seguente con i propri valori:
+3. Eseguire lo script seguente con i valori dei parametri appropriati:
 
-    ````PowerShell  
-    $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>"  -AsPlainText -Force)
-    $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<ServiceAdminUser>", (ConvertTo-SecureString "<ServiceAdminPassword>" -AsPlainText -Force)
-    $TenantAdminCreds = New-Object System.Management.Automation.PSCredential "<TenantAdminUser>", (ConvertTo-SecureString "<TenantAdminPassword>" -AsPlainText -Force)
+    ```PowerShell
+    $VaaSAccountCreds = New-Object System.Management.Automation.PSCredential "<VaaSUserId>", (ConvertTo-SecureString "<VaaSUserPassword>" -AsPlainText -Force)
     .\LaunchVaaSTests.ps1 -VaaSAccountCreds $VaaSAccountCreds `
-        -VaaSAccountTenantId <VaaSAccountTenantId> `
-        -VaaSSolutionName <VaaSSolutionName> `
-        -VaaSTestPassName <VaaSTestPassName> `
-        -VaaSTestCategories Integration,Functional `
-        -MaxScriptWaitTimeInHours 12 `
-        -ServiceAdminCreds $ServiceAdminCreds `
-    ````
+                          -VaaSAccountTenantId <VaaSAccountTenantId> `
+                          -VaaSSolutionName <VaaSSolutionName> `
+                          -VaaSTestPassName <VaaSTestPassName> `
+                          -VaaSTestCategories Integration,Functional `
+                          -MaxScriptWaitTimeInHours 12 `
+                          -ServiceAdminUserName <AzSServiceAdminUser> `
+                          -ServiceAdminUserPassword <AzSServiceAdminPassword> `
+                          -TenantAdminUserName <AzSTenantAdminUser> `
+                          -TenantAdminUserPassword <AzSTenantAdminPassword> `
+                          -CloudAdminUserName <AzSCloudAdminUser> `
+                          -CloudAdminUserPassword <AzSCloudAdminPassword>
+    ```
 
     **Parameters**
 
-    | Parametro | Description |
+    | Parametro | DESCRIZIONE |
     | --- | --- |
-    | VaaSUserld | L'ID utente di VaaS. | 
+    | VaaSUserld | L'ID utente di VaaS. |
     | VaaSUserPassword | La password VaaS. |
-    | ServiceAdminUser | L'account di amministratore del servizio di Azure Stack.  |
+    | VaaSAccountTenantId | Il GUID del tenant VaaS. |
+    | VaaSSolutionName | Verrà eseguito il nome della soluzione VaaS in cui il test viene superato. |
+    | VaaSTestPassName | Il nome del test VaaS passare flusso di lavoro da creare. |
+    | VaaSTestCategories | `Integration`, `Functional`, o. `Reliability`. Se si usano più valori, separare i valori da una virgola.  |
+    | ServiceAdminUserName | L'account di amministratore del servizio di Azure Stack.  |
     | ServiceAdminPassword | La password di servizio di Azure Stack.  |
-    | TenantAdminUser | L'amministratore per il tenant primario.  |
+    | TenantAdminUserName | L'amministratore per il tenant primario.  |
     | TenantAdminPassword | La password per il tenant primario.  |
-    | FunctionalCategory| Integrazione, funzionale, o. Affidabilità. Se si usano più valori, separare i valori da una virgola.  |
+    | CloudAdminUserName | Il nome utente amministratore cloud.  |
+    | CloudAdminPassword | La password per l'amministratore del cloud.  |
 
-4. Esaminare i risultati del test. Per informazioni sulla lettura dei risultati dei test, vedere [monitorare i test](azure-stack-vaas-monitor-test.md).
+4. Esaminare i risultati del test. Per altre opzioni, vedere [monitorare e gestire i test nel portale di VaaS](azure-stack-vaas-monitor-test.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - Per altre informazioni sulle [convalida Azure Stack come servizio](https://docs.microsoft.com/azure/azure-stack/partner).
- - Per altre informazioni su PowerShell in Azure Stack, vedere la [modulo di Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) riferimento.
+Per altre informazioni su PowerShell in Azure Stack, esaminare i moduli più recenti.
+
+> [!div class="nextstepaction"]
+> [Modulo di Azure Stack](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.5.0)

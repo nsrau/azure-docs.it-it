@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 749dc6c2d329ae7055ee0a6adc429c378de51871
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 26c0353bddb9455b1bda8961f3c05e0f6c7cc176
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40235357"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647715"
 documentType: LandingData
 title: Documentazione di partner di Azure Stack
 metadata:
@@ -22,19 +22,19 @@ metadata:
   ms.author: mabrigg
   ms.reviewer: John.Haskin
 abstract:
-  description: È possibile usare la convalida come servizio per verificare l'hardware per l'uso con Azure Stack. Il servizio è un servizio di Azure nativo concepito per i partner di soluzioni che stanno progettando condivise offerte di Azure Stack con Microsoft.
+  description: È possibile utilizzare la convalida come servizio per controllare l'hardware per l'uso con Azure Stack. Il servizio è un servizio di Azure nativo concepito per i partner di soluzioni che stanno progettando condivise offerte di Azure Stack con Microsoft.
 sections:
 - title: Guida introduttiva di 5 minuti
   items:
   - type: paragraph
-    text: Informazioni su come eseguire l'onboarding delle macchine virtuali e dei computer nel Centro sicurezza e come connettere le soluzioni di sicurezza.
+    text: Informazioni su come usare la convalida come portale del servizio per pianificare i test sull'hardware.
   - type: list
     style: icon48
     items:
     - image:
         src: media/i_account-management.svg
-      text: Usare la convalida come portale del servizio per pianificare il primo test
-      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-your-first-test
+      text: Usare la convalida di un portale del servizio per pianificare il primo test
+      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-test-pass
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
@@ -42,16 +42,6 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-test-vm">Distribuire le macchine virtuali locali di test e agenti</a>
-    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-automate-with-powershell">Automatizzare la convalida di Azure Stack con PowerShell</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-solution-new">Convalidare una nuova soluzione di Azure Stack</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-oem-package">Convalidare i pacchetti dell'OEM</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Convalidare gli aggiornamenti software da Microsoft</a>
-- title: Riferimenti
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Convalida di un servizio
-      html: <a href="/azure/azure-stack/partner/azure-stack-vaas-parameters">File di configurazione di convalida</a>
