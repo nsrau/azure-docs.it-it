@@ -38,8 +38,8 @@
 ### [Gestire un server](analysis-services-manage.md)
 ### [Monitorare le metriche del server](analysis-services-monitor.md)
 ### [Configurare la registrazione diagnostica](analysis-services-logging.md)
-### [Creare un'entità servizio - Portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Creare un'entità servizio - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Creare un'entità servizio - Portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md)
+### [Creare un'entità servizio - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [Aggiungere un'entità servizio al ruolo di amministratore del server](analysis-services-addservprinc-admins.md)
 
 ## Modello
