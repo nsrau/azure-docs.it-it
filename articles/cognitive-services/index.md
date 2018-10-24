@@ -7,16 +7,14 @@ author: nitinme
 manager: cgronlun
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.topic: hub-page
-ms.prod: cognitive-services
-ms.technology: cognitive-services
-ms.openlocfilehash: 1c07a02369af90580615fd9e7eaf6e239949ea36
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 0564cd1b2c7acf09ee59b858eafb49a4217afe35
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068469"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954838"
 ---
 <h1>Documentazione di Servizi cognitivi di Azure</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Informazioni su come creare algoritmi intelligenti nelle app, nei siti Web e nei bot per vedere, ascoltare, parlare e comprendere le esigenze degli utenti tramite i metodi di comunicazione naturali. Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.</p>
@@ -262,9 +260,9 @@ ms.locfileid: "49068469"
                         <p><a href="/azure/cognitive-services/computer-vision/">Visione artificiale</a></p>
                         <p><a href="/azure/cognitive-services/content-moderator/overview">Content Moderator</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/home"><span>Servizio visione artificiale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/emotion/home"><span>API Emozioni&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/face/">API Viso</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
+                        <p><a href="/azure/cognitive-services/emotion/home"><span>API Emozioni&nbsp;<sup style="font-size:70%">RITIRO</sup></span></a></p>
                     </div>
                 </div>
             </div>
@@ -277,10 +275,10 @@ ms.locfileid: "49068469"
                     <div class="cardText">
                         <h3>Speech API</h3>
                         <p><a href="/azure/cognitive-services/speech-service">API servizio Voce</a></p>
-                        <p><a href="/azure/cognitive-services/speech/home">API Riconoscimento vocale Bing</a></p>
-                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Servizio di riconoscimento vocale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Riconoscimento del parlante&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
-                        <p><a href="/azure/cognitive-services/translator-speech/">Traduzione vocale</a></p>
+                        <p><a href="/azure/cognitive-services/speech/home"><span>API Riconoscimento vocale Bing&nbsp;<sup style="font-size:70%">RITIRO</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home"><span>Servizio di riconoscimento vocale personalizzato&nbsp;<sup style="font-size:70%">RITIRO</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/translator-speech/"><span>Traduzione vocale&nbsp;<sup style="font-size:70%">RITIRO</sup></span></a></p>
                      </div>
                 </div>
             </div>
@@ -294,10 +292,8 @@ ms.locfileid: "49068469"
                         <h3>API lingua</h3>
                         <p><a href="/azure/cognitive-services/bing-spell-check/">Controllo ortografico Bing</a></p>
                         <p><a href="/azure/cognitive-services/luis/">Language Understanding (LUIS)</a></p>
-                        <p><a href="/azure/cognitive-services/linguisticanalysisapi/home"><span>Analisi linguistica&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/text-analytics/">Analisi del testo</a></p>
                         <p><a href="/azure/cognitive-services/translator/">Traduzione testuale</a></p>
-                        <p><a href="/azure/cognitive-services/web-language-model/home"><span>Web Language Model&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
                     </div>
                 </div>
             </div>
@@ -309,7 +305,6 @@ ms.locfileid: "49068469"
                 <div class="card">
                     <div class="cardText">
                         <h3>API per la conoscenza</h3>
-                            <p><a href="/azure/cognitive-services/custom-decision-service/"><span>Servizio decisionale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
                             <p><a href="/azure/cognitive-services/qnamaker/index">QnA Maker</a></p>
                     </div>
                 </div>
@@ -353,6 +348,7 @@ ms.locfileid: "49068469"
                         <p><a href="/azure/cognitive-services/labs/anomaly-finder/overview">Progetto Ricerca di anomalie</a></p>
                         <p><a href="/azure/cognitive-services/labs/conversation-learner/overview">Progetto Strumento di apprendimento di conversazioni</a></p>
                         <p><a href="/azure/cognitive-services/acoustics/what-is-acoustics">Project Acoustics</a></p>
+                        <p><a href="/azure/cognitive-services/custom-decision-service/"><span>Servizio decisionale personalizzato&nbsp;<sup style="font-size:70%">ANTEPRIMA</sup></span></a></p>
                     </div>
                 </div>
             </div>

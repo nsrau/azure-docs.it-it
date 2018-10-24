@@ -7,103 +7,101 @@ items:
     href: translator-info-overview.md
 - name: Guide introduttive
   items:
-  - name: C#
+  - name: Traduci testo
     items:
-    - name: Traduci testo
+    - name: C#, REST
       href: quickstart-csharp-translate.md
-    - name: Convertire script di testo
-      href: quickstart-csharp-transliterate.md
-    - name: Identificare la lingua dal testo
-      href: quickstart-csharp-detect.md
-    - name: Ottenere traduzioni alternative
-      href: quickstart-csharp-dictionary.md
-    - name: Ottenere le lingue supportate
-      href: quickstart-csharp-languages.md
-    - name: Ottenere la lunghezza delle frasi nel testo
-      href: quickstart-csharp-sentences.md
-  - name: Go
-    items:
-    - name: Traduci testo
+    - name: Go, REST
       href: quickstart-go-translate.md
-    - name: Convertire script di testo
-      href: quickstart-go-transliterate.md
-    - name: Identificare la lingua dal testo
-      href: quickstart-go-detect.md
-    - name: Ottenere traduzioni alternative
-      href: quickstart-go-dictionary.md
-    - name: Ottenere le lingue supportate
-      href: quickstart-go-languages.md
-    - name: Ottenere la lunghezza delle frasi nel testo
-      href: quickstart-go-sentences.md
-  - name: Java
-    items:
-    - name: Traduci testo
+    - name: Java, REST
       href: quickstart-java-translate.md
-    - name: Convertire script di testo
-      href: quickstart-java-transliterate.md
-    - name: Identificare la lingua dal testo
-      href: quickstart-java-detect.md
-    - name: Ottenere traduzioni alternative
-      href: quickstart-java-dictionary.md
-    - name: Ottenere le lingue supportate
-      href: quickstart-java-languages.md
-    - name: Ottenere la lunghezza delle frasi nel testo
-      href: quickstart-java-sentences.md
-  - name: Node.js
-    items:
-    - name: Traduci testo
+    - name: Node.js, REST
       href: quickstart-nodejs-translate.md
-    - name: Convertire script di testo
-      href: quickstart-nodejs-transliterate.md
-    - name: Identificare la lingua dal testo
-      href: quickstart-nodejs-detect.md
-    - name: Ottenere traduzioni alternative
-      href: quickstart-nodejs-dictionary.md
-    - name: Ottenere le lingue supportate
-      href: quickstart-nodejs-languages.md
-    - name: Ottenere la lunghezza delle frasi nel testo
-      href: quickstart-nodejs-sentences.md
-  - name: PHP
-    items:
-    - name: Traduci testo
+    - name: PHP, REST
       href: quickstart-php-translate.md
-    - name: Convertire script di testo
-      href: quickstart-php-transliterate.md
-    - name: Identificare la lingua dal testo
-      href: quickstart-php-detect.md
-    - name: Ottenere traduzioni alternative
-      href: quickstart-php-dictionary.md
-    - name: Ottenere le lingue supportate
-      href: quickstart-php-languages.md
-    - name: Ottenere la lunghezza delle frasi nel testo
-      href: quickstart-php-sentences.md
-  - name: Python
-    items:
-    - name: Traduci testo
+    - name: Python, REST
       href: quickstart-python-translate.md
-    - name: Convertire script di testo
-      href: quickstart-python-transliterate.md
-    - name: Identificare la lingua dal testo
-      href: quickstart-python-detect.md
-    - name: Ottenere traduzioni alternative
-      href: quickstart-python-dictionary.md
-    - name: Ottenere le lingue supportate
-      href: quickstart-python-languages.md
-    - name: Ottenere la lunghezza delle frasi nel testo
-      href: quickstart-python-sentences.md
-  - name: Ruby
-    items:
-    - name: Traduci testo
+    - name: Ruby, REST
       href: quickstart-ruby-translate.md
-    - name: Convertire script di testo
+  - name: Traslitterare testo
+    items:
+    - name: C#, REST
+      href: quickstart-csharp-transliterate.md
+    - name: Go, REST
+      href: quickstart-go-transliterate.md
+    - name: Java, REST
+      href: quickstart-java-transliterate.md
+    - name: Node.js, REST
+      href: quickstart-nodejs-transliterate.md
+    - name: PHP, REST
+      href: quickstart-php-transliterate.md
+    - name: Python, REST
+      href: quickstart-python-transliterate.md
+    - name: Ruby, REST
       href: quickstart-ruby-transliterate.md
-    - name: Identificare la lingua dal testo
+  - name: Identificare la lingua
+    items:
+    - name: C#, REST
+      href: quickstart-csharp-detect.md
+    - name: Go, REST
+      href: quickstart-go-detect.md
+    - name: Java, REST
+      href: quickstart-java-detect.md
+    - name: Node.js, REST
+      href: quickstart-nodejs-detect.md
+    - name: PHP, REST
+      href: quickstart-php-detect.md
+    - name: Python, REST
+      href: quickstart-python-detect.md
+    - name: Ruby, REST
       href: quickstart-ruby-detect.md
-    - name: Ottenere traduzioni alternative
+  - name: Ottenere traduzioni alternative
+    items:
+    - name: C#, REST
+      href: quickstart-csharp-dictionary.md
+    - name: Go, REST
+      href: quickstart-go-dictionary.md
+    - name: Java, REST
+      href: quickstart-java-dictionary.md
+    - name: Node.js, REST
+      href: quickstart-nodejs-dictionary.md
+    - name: PHP, REST
+      href: quickstart-php-dictionary.md
+    - name: Python, REST
+      href: quickstart-python-dictionary.md
+    - name: Ruby, REST
       href: quickstart-ruby-dictionary.md
-    - name: Ottenere le lingue supportate
+  - name: Ottenere le lingue supportate
+    items:
+    - name: C#, REST
+      href: quickstart-csharp-languages.md
+    - name: Go, REST
+      href: quickstart-go-languages.md
+    - name: Java, REST
+      href: quickstart-java-languages.md
+    - name: Node.js, REST
+      href: quickstart-nodejs-languages.md
+    - name: PHP, REST
+      href: quickstart-php-languages.md
+    - name: Python, REST
+      href: quickstart-python-languages.md
+    - name: Ruby, REST
       href: quickstart-ruby-languages.md
-    - name: Ottenere la lunghezza delle frasi nel testo
+  - name: Determinare la lunghezza della frase
+    items:
+    - name: C#, REST
+      href: quickstart-csharp-sentences.md
+    - name: Go, REST
+      href: quickstart-go-sentences.md
+    - name: Java, REST
+      href: quickstart-java-sentences.md
+    - name: Node.js, REST
+      href: quickstart-nodejs-sentences.md
+    - name: PHP, REST
+      href: quickstart-php-sentences.md
+    - name: Python, REST
+      href: quickstart-python-sentences.md
+    - name: Ruby, REST
       href: quickstart-ruby-sentences.md
   expanded: true
 - name: Esercitazioni
@@ -174,9 +172,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/microsoft-translator
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/558796-translator
-ms.openlocfilehash: cd559b41832e83b4251531bc6af6a7fe4f7d80ea
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: acc5019177bf75a0bb34eb739cc8e2400552832e
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406484"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945264"
