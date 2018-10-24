@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42139562"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944937"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Unità nodo azioni di ridimensionamento in Azure Stack
 
@@ -31,7 +31,7 @@ Questo articolo descrive come visualizzare lo stato di un'unità di scala e i re
 > Tutte le azioni del nodo descritte in questo articolo dovrebbero solo destinazione un nodo alla volta.
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Visualizzare lo stato di un'unità di scala e i relativi nodi
+## <a name="view-the-node-status"></a>Visualizzare lo stato del nodo
 
 Nel portale di amministrazione, è possibile visualizzare facilmente lo stato di un'unità di scala e i relativi nodi associati.
 
@@ -47,19 +47,19 @@ In questo caso, è possibile visualizzare le informazioni seguenti:
 - tipo di sistema
 - Totale core logici
 - memoria totale
-- l'elenco di singoli nodi e il relativo stato; entrambi **in esecuzione** oppure **arrestato**.
+- L'elenco di singoli nodi e il relativo stato; entrambi **in esecuzione** o **arrestato**
 
 ![Riquadro di unità di scalabilità che mostra lo stato di esecuzione per ogni nodo](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
-## <a name="view-information-about-a-scale-unit-node"></a>Visualizzare informazioni su un nodo di unità di scala
+## <a name="view-node-information"></a>Visualizza informazioni a nodo
 
 Se si seleziona un singolo nodo, è possibile visualizzare le informazioni seguenti:
 
-- nome dell'area
+- Nome area
 - modello di server
 - Indirizzo IP del baseboard management controller (BMC)
 - stato operativo
-- numero totale di core
+- Numero totale di core
 - quantità totale di memoria
  
 ![Riquadro di unità di scalabilità che mostra lo stato di esecuzione per ogni nodo](media/azure-stack-node-actions/NodeActions.PNG)

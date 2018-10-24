@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 08/22/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 891032e9f0a40b2a9df19ed25ffc19dd81507cab
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628954"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958315"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Concedere alle applicazioni di accedere alle risorse di Azure Stack tramite la creazione di entità servizio
 
@@ -57,13 +57,13 @@ I passaggi per l'assegnazione di un'entità servizio a un ruolo corrispondente p
 Se lo Stack di Azure Usa Azure AD come archivio di identità, è possibile creare un'entità servizio usando la stessa procedura come in Azure, usando il portale di Azure.
 
 >[!NOTE]
-Verificare di avere il [autorizzazioni di Azure AD necessarie](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) prima di iniziare la creazione di un'entità servizio.
+Verificare di avere il [autorizzazioni di Azure AD necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) prima di iniziare la creazione di un'entità servizio.
 
 ### <a name="create-service-principal"></a>Creare un'entità servizio
 
 Per creare un'entità servizio per l'applicazione:
 
-1. Accedi all'Account di Azure tramite il [portale di Azure](https://portal.azure.com).
+1. Accedere all'account di Azure tramite il [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** > **registrazioni per l'App** > **Aggiungi**.
 3. Specificare un nome e un URL per l'applicazione. Selezionare **App Web/API** o **Nativa** come tipo di applicazione da creare. Dopo aver impostato i valori selezionare **Crea**.
 

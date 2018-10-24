@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 82a1d86f31bfb49ff97ec9928dd7ee946144a359
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: aa33db56910871891003866ef62431cfd7095d2a
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650044"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954127"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>Automatizzare la convalida di Azure Stack con PowerShell
 
@@ -29,8 +29,6 @@ Convalida come servizio (VaaS) offre la possibilità di automatizzare l'avvio de
 - Superamento test
 
 In questa esercitazione descrive come creare uno script che:
-
-Lo script esegue le azioni seguenti:
 
 > [!div class="checklist"]
 > * Installa i prerequisiti

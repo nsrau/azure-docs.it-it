@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 10/22/2018
+ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804430"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946114"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuire un cluster di Service Fabric in Azure Stack
 
@@ -48,7 +48,7 @@ Per distribuire il cluster di Service Fabric è necessario quanto segue:
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Aggiungere un segreto all'istanza di Key Vault
-Per distribuire un cluster di Service Fabric, è necessario specificare l'insieme di credenziali corretto *identificatore di segreto* o l'URL per il cluster di Service Fabric. Il modello di Azure Resource Manager richiede un Key Vault come input e quindi recupera il certificato del Cluster durante l'installazione del cluster di Service Fabric. 
+Per distribuire un cluster di Service Fabric, è necessario specificare l'insieme di credenziali corretto *identificatore di segreto* o l'URL per il cluster di Service Fabric. Il modello di Azure Resource Manager riceve un Key Vault come input. Il modello recupera quindi il certificato del Cluster durante l'installazione del cluster di Service Fabric.
 
 > [!IMPORTANT]  
 > È necessario usare PowerShell per aggiungere un segreto nell'insieme di credenziali per l'uso con Service Fabric. Non usare il portale.  
@@ -182,9 +182,9 @@ Per altre informazioni, vedere [gestire Key Vault in Azure Stack con PowerShell]
 1. Per trovare l'URL per Service Fabric Explorer e l'endpoint della connessione Client, esaminare i risultati della distribuzione del modello.
 
 1. Nel browser, passare a https://*FQDN*: 19080. Sostituire *FQDN* con il nome FQDN del cluster di Service Fabric dal passaggio 2.   
-   Se si usa un certificato autofirmato, si otterrà un avviso che la connessione non è protetta. Per procedere al sito web, selezionare **per altre informazioni**e quindi **passare alla pagina Web**. 
+   Se si usa un certificato autofirmato, si riceverà un avviso che la connessione non è protetta. Per procedere al sito web, selezionare **per altre informazioni**e quindi **passare alla pagina Web**. 
 
-1. Per eseguire l'autenticazione per il sito è necessario selezionare un certificato da usare. Selezionare **altre scelte**, selezionare il certificato appropriato e quindi fare clic su **OK** per connettersi a Service Fabric Explorer. 
+1. Per eseguire l'autenticazione al sito, è necessario selezionare un certificato da usare. Selezionare **altre scelte**, selezionare il certificato appropriato e quindi fare clic su **OK** per connettersi a Service Fabric Explorer. 
 
    ![Autentica](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 

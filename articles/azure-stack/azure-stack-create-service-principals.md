@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2018
 ms.author: sethm
-ms.openlocfilehash: 65fa9593b35af45ee9b8568bac5e4886909314e1
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 96137b95f46f24bca6a4ee6a39d93a490a03c431
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092544"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958449"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornisci alle applicazioni l'accesso ad Azure Stack
 
@@ -40,12 +40,12 @@ A seconda del modo in cui è stato distribuito Azure Stack, è necessario creare
 
 ## <a name="create-service-principal-for-azure-ad"></a>Creare un'entità servizio per Azure AD
 
-Se è stato distribuito Azure Stack tramite Azure AD come archivio identità, è possibile creare le entità servizio, proprio come per Azure. Questa sezione illustra come eseguire la procedura tramite il portale. Verificare di disporre il [autorizzazioni di Azure AD necessarie](../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions) prima di iniziare.
+Se è stato distribuito Azure Stack tramite Azure AD come archivio identità, è possibile creare le entità servizio, proprio come per Azure. Questa sezione illustra come eseguire la procedura tramite il portale. Verificare di disporre il [autorizzazioni di Azure AD necessarie](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) prima di iniziare.
 
 ### <a name="create-service-principal"></a>Creare un'entità servizio
 In questa sezione si crea un'applicazione (entità servizio) in Azure AD che rappresenta l'applicazione.
 
-1. Accedi all'Account di Azure tramite il [portale di Azure](https://portal.azure.com).
+1. Accedere all'account di Azure tramite il [portale di Azure](https://portal.azure.com).
 2. Selezionare **Azure Active Directory** > **registrazioni per l'App** > **registrazione nuova applicazione**   
 3. Specificare un nome e un URL per l'applicazione. Selezionare **App Web/API** o **Nativa** come tipo di applicazione da creare. Dopo aver impostato i valori selezionare **Crea**.
 

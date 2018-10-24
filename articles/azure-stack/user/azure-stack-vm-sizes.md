@@ -5,21 +5,20 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 10/22/2018
 ms.author: mabrigg
-ms.openlocfilehash: 74d521f1890f8ff6567802c1a16f4169dbf4a53f
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.reviewer: kivenkat
+ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139322"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945893"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Dimensioni delle macchine virtuali supportate in Azure Stack
 
@@ -29,7 +28,7 @@ Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono disponib
 
 ## <a name="general-purpose"></a>Scopo generico
 
-Dimensioni delle macchine Virtuali di utilizzo generico offrono un rapporto CPU-memoria equilibrato. Vengono utilizzati per il test e sviluppo, database medio-piccoli e da server web con traffico medio a ridotto.
+Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-memoria equilibrato. Vengono utilizzati per il test e sviluppo, database medio-piccoli e da server web con traffico medio a ridotto.
 
 ### <a name="basic-a"></a>Basic A
 |Dimensioni - dimensioni\nome |vCPU     |Memoria | Dimensioni massime per il disco temporaneo | Velocità effettiva del disco max OS: (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Velocità effettiva dei dischi dati max (IOPS) | Schede di interfaccia di rete max |    

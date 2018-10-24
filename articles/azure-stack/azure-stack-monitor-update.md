@@ -5,27 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 10/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.reviewer: fiseraci
+ms.openlocfilehash: 76f3db3631e1d66413bdce8d3f2379c2735a2eaf
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139452"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945604"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorare gli aggiornamenti in Azure Stack tramite l'endpoint con privilegi
 
 *Si applica a: i sistemi integrati di Azure Stack*
 
-È possibile usare l'endpoint con privilegi per monitorare lo stato di avanzamento di un'operazione di aggiornamento di Azure Stack e riprendere un aggiornamento non riuscito eseguito dall'ultimo passaggio ha esito positivo devono Azure Stack portale non saranno più disponibili.  Tramite il portale di Azure Stack è il metodo consigliato per gestire gli aggiornamenti in Azure Stack.
+È possibile usare la [privileged endpoint](azure-stack-privileged-endpoint.md) per monitorare lo stato di Azure Stack eseguire l'aggiornamento e per riprendere un aggiornamento non riuscito eseguito dall'ultimo passaggio ha esito positivo il portale di Azure Stack diventerà disponibile.  Tramite il portale di Azure Stack è il metodo consigliato per gestire gli aggiornamenti in Azure Stack.
 
 I seguenti nuovi cmdlet di PowerShell per gestire gli aggiornamenti sono incluse nell'aggiornamento 1710 per i sistemi integrati di Azure Stack.
 
@@ -168,7 +167,7 @@ Invoke-Command -Session $pepSession -ScriptBlock { Resume-AzureStackUpdate }
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-L'endpoint con privilegi è disponibile in tutte le macchine virtuali ERCS nell'ambiente Azure Stack. Poiché non viene stabilita la connessione a un endpoint a disponibilità elevata, è possibile che si riscontrino occasionalmente interruzioni, avviso o messaggi di errore. Questi messaggi possono indicare che la sessione era disconnessa o che si è verificato un errore durante la comunicazione con il servizio ECE. Questo comportamento è previsto. È possibile ripetere l'operazione tra qualche minuto o crearne una nuova sessione di con privilegi endpoint su una delle altre macchine virtuali ERCS. 
+L'endpoint con privilegi è disponibile in tutte le macchine virtuali ERCS nell'ambiente Azure Stack. Poiché non viene stabilita la connessione a un endpoint a disponibilità elevata, è possibile che si riscontrino occasionalmente interruzioni, avviso o messaggi di errore. Questi messaggi possono indicare che la sessione era disconnessa o che si è verificato un errore durante la comunicazione con il servizio ECE. Si tratta di un comportamento previsto. È possibile ripetere l'operazione tra qualche minuto o crearne una nuova sessione di con privilegi endpoint su una delle altre macchine virtuali ERCS. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

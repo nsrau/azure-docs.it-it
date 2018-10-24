@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 156b84e4941363716721b5cee6c19333ffe7594c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a3285c5f6f2d50d3188f8e103c68ae702e8804e7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079447"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953003"
 ---
 # <a name="azure-stack-validation-report"></a>Report di convalida Azure Stack
 Usare lo strumento di controllo di conformità di Azure Stack per eseguire le convalide che supportano la distribuzione e manutenzione di un ambiente Azure Stack. Lo strumento scrive i risultati in un file di rapporto con estensione JSON. Il report visualizza i dati di riepilogati e dettagliati sullo stato dei prerequisiti per la distribuzione di Azure Stack. Il report visualizza anche informazioni sulla rotazione dei segreti per le distribuzioni esistenti dello Stack di Azure.  
@@ -40,19 +40,81 @@ Per impostazione predefinita, entrambi i file vengono scritti *C:\Users\<usernam
 Per visualizzare il report in PowerShell, specificare il percorso del report come un valore per **- ReportPath**. Questo comando Visualizza il contenuto del report e identifica le convalide che non hanno ancora i risultati.
 
 Ad esempio, per visualizzare il report da un prompt di PowerShell che è aperto nel percorso in cui si trova il report, eseguire: 
-   > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json` 
+   > `Read-AzsReadinessReport -ReportPath .\AzsReadinessReport.json` 
 
 L'output sarà simile al seguente:
 
-![Visualizza report](./media/azure-stack-validation-report/view-report.png)
+````PowerShell
+Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
+
+############### Certificate Validation Summary ###############
+
+Certificate Validation results not available.
+
+############### Registration Validation Summary ###############
+
+Azure Registration Validation results not available.
+
+############### Azure Identity Results ###############
+
+Test                          : ServiceAdministrator
+Result                        : OK
+AAD Service Admin             : admin@contoso.onmicrosoft.com
+Azure Environment             : AzureCloud
+Azure Active Directory Tenant : contoso.onmicrosoft.com
+Error Details                 : 
+
+############### Azure Identity Validation Summary ###############
+
+    Azure Identity Validation found no errors or warnings.
+
+############### Azure Stack Graph Validation Summary ###############
+
+Azure Stack Graph Validation results not available.
+
+############### Azure Stack ADFS Validation Summary ###############
+
+Azure Stack ADFS Validation results not available.
+
+############### AzsReadiness Job Summary ###############
+
+Index             : 0
+Operations        : 
+StartTime         : 2018/10/22 14:24:16
+EndTime           : 2018/10/22 14:24:19
+Duration          : 3
+PSBoundParameters : 
+````
 
 ## <a name="view-the-report-summary"></a>Visualizzare il report riepilogativo
 Per visualizzare un riepilogo del report, è possibile aggiungere il **-riepilogo** passare alla fine della riga di comando di PowerShell. Ad esempio:  
- > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -summary`  
+ > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -summary`  
 
 Il riepilogo Mostra le convalide che non hanno risultati e indica positivo o negativo per le convalide che vengono completate. L'output sarà simile al seguente:
 
-![Riepilogo report](./media/azure-stack-validation-report/report-summary.png)
+````PowerShell
+Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
+
+############### Certificate Validation Summary ###############
+
+    Certificate Validation found no errors or warnings.
+    
+############### Registration Validation Summary ###############
+
+    Registration Validation found no errors or warnings.
+
+############### Azure Identity Validation Summary ###############
+
+    Azure Identity Validation found no errors or warnings.
+
+############### Azure Stack Graph Validation Summary ###############
+
+Azure Stack Graph Validation results not available.
+
+############### Azure Stack ADFS Validation Summary ###############
+
+Azure Stack ADFS Validation results not available.
+````
 
 
 ## <a name="view-a-filtered-report"></a>Visualizzare un report filtrato
@@ -60,12 +122,13 @@ Per visualizzare un report che viene filtrato in un unico tipo di convalida, usa
 - Certificate
 - AzureRegistration
 - AzureIdentity
+- Grafico
+- AD FS
 - Processi   
 - Tutti  
 
 Ad esempio, per visualizzare il report riepilogo per i certificati solo, utilizzare la riga di comando PowerShell seguente: 
- > `Start-AzsReadinessChecker -ReportPath .\AzsReadinessReport.json -ReportSections Certificate – Summary`
+ > `Read-AzsReadinessReport -ReportPath .\Contoso-AzsReadinessReport.json -ReportSections Certificate – Summary`
 
 
 ## <a name="see-also"></a>Vedere anche 
-[Riferimento ai cmdlet Start-AzsReadinessChecker](azure-stack-azsreadiness-cmdlet.md)

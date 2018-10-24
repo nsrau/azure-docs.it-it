@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386384"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954913"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Esercitazione: Offrono disponibilità elevata SQL database
 
@@ -63,30 +63,28 @@ Usare i passaggi descritti in questa sezione per distribuire il gruppo di dispon
 - Una macchina virtuale (Windows Server 2016) è configurata come condivisione file di controllo per il cluster
 - Un set che contiene il controllo di condivisione file e SQL le macchine virtuali di disponibilità  
 
-1. Accedere al portale di amministrazione:
-    - Per una distribuzione del sistema integrato, l'indirizzo di portale varia in base della soluzione area e nome di dominio esterno. Sarà nel formato https://adminportal.&lt; *area geografica*&gt;.&lt; *FQDN*&gt;.
-    - Se si usa Azure Stack Development Kit (ASDK), l'indirizzo del portale utenti è [ https://adminportal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selezionare **\+** **crea una risorsa** > **Custom**, quindi **distribuzione modello**.
 
-   ![Distribuzione del modello personalizzato](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
+   ![Distribuzione del modello personalizzato](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. Nel **distribuzione personalizzata** blade, selezionare **modifica modello** > **modello di avvio rapido** e quindi usare l'elenco a discesa di modelli personalizzati disponibili per Selezionare il **alwayson di sql 2016** modello, fare clic su **OK**e quindi **Salva**.
 
-   ![Seleziona modello di avvio rapido](./media/azure-stack-tutorial-sqlrp/quickstart-template.png)
-
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Seleziona modello di avvio rapido")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. Nel **distribuzione personalizzata** blade, selezionare **Upravit parametry** ed esaminare i valori predefiniti. Modificare i valori in base alle esigenze per fornire tutte le informazioni sui parametri necessari e quindi fare clic su **OK**.<br><br> Come minimo:
 
     - Specificare le password complesse per i parametri ADMINPASSWORD SQLSERVERSERVICEACCOUNTPASSWORD e SQLAUTHPASSWORD.
     - Immettere il suffisso DNS per la ricerca inversa in lettere minuscole per il parametro del suffisso DNS (**azurestack.external** per le installazioni ASDK).
     
-    ![Parametri di distribuzione personalizzato](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Modificare i parametri di distribuzione personalizzato")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. Nel **distribuzione personalizzata** blade, scegliere la sottoscrizione da usare e creare un nuovo gruppo di risorse o selezionare un gruppo di risorse per la distribuzione personalizzata.<br><br> Successivamente, selezionare la località del gruppo di risorse (**locale** per le installazioni ASDK) e quindi fare clic su **crea**. Le impostazioni di distribuzione personalizzato verranno convalidate e quindi avviare la distribuzione.
 
-    ![Parametri di distribuzione personalizzato](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Creare una distribuzione personalizzata")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
 6. Nel portale di amministrazione, selezionare **gruppi di risorse** e quindi il nome del gruppo di risorse creato per la distribuzione personalizzata (**resource-group** per questo esempio). Visualizzare lo stato della distribuzione per verificare che tutte le distribuzioni sono state completate correttamente.<br><br>Successivamente, esaminare gli elementi del gruppo di risorse e selezionare il **SQLPIPsql\<nome del gruppo di risorse\>**  elemento dell'indirizzo IP pubblico. Registrare l'indirizzo IP pubblico e l'indirizzo IP pubblico del servizio di bilanciamento carico di dominio completo. È necessario fornirlo a un operatore di Azure Stack, che consente di creare un server di hosting SQL sfruttando questo gruppo di disponibilità SQL AlwaysOn.
@@ -94,16 +92,16 @@ Usare i passaggi descritti in questa sezione per distribuire il gruppo di dispon
    > [!NOTE]
    > La distribuzione del modello richiederà diverse ore.
 
-   ![Parametri di distribuzione personalizzato](./media/azure-stack-tutorial-sqlrp/deployment-complete.png)
+   ![Completare una distribuzione personalizzata](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>Abilitare il seeding automatico
 Dopo che il modello è distribuito e configurato il gruppo di disponibilità SQL AlwaysON, è necessario abilitare [SEED automatica](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) in ogni istanza di SQL Server nel gruppo di disponibilità. 
 
 Quando si crea un gruppo di disponibilità con seeding automatico, SQL Server crea automaticamente le repliche secondarie per ogni database nel gruppo senza alcun altro intervento manuale necessario per assicurare la disponibilità elevata dei database AlwaysOn.
 
-Usare questi comandi SQL per configurare il seeding automatico per il gruppo di disponibilità AlwaysOn.
+Usare questi comandi SQL per configurare il seeding automatico per il gruppo di disponibilità AlwaysOn. Sostituire \<InstanceName\> con la replica primaria nome dell'istanza SQL Server ed < availability_group_name > con il nome del gruppo di disponibilità AlwaysOn in base alle esigenze. 
 
-Nell'istanza SQL primaria (sostituire <InstanceName> con il nome di istanza primaria SQL Server):
+Nell'istanza SQL primaria:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -114,7 +112,7 @@ Nell'istanza SQL primaria (sostituire <InstanceName> con il nome di istanza prim
 
 >  ![Script di istanza SQL principale](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-Nelle istanze SQL secondarie (sostituire < availability_group_name > con il nome del gruppo di disponibilità AlwaysOn):
+Nelle istanze SQL secondarie:
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,9 +154,8 @@ Dopo aver SQL AlwaysOn gruppo di disponibilità è stato creato, configurato e a
 > [!NOTE]
 > Eseguire questi passaggi dal portale per gli utenti Azure Stack come un utente di tenant con una sottoscrizione che fornisce funzionalità di SQL Server (servizio Microsoft.SQLAdapter).
 
-1. Accedere al portale per gli utenti:
-    - Per una distribuzione del sistema integrato, l'indirizzo di portale varia in base della soluzione area e nome di dominio esterno. Sarà nel formato https://portal.&lt; *area geografica*&gt;.&lt; *FQDN*&gt;.
-    - Se si usa Azure Stack Development Kit (ASDK), l'indirizzo del portale utenti è [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selezionare **\+** **crea una risorsa** > **dati \+ archiviazione**e quindi **SQL Database**.<br><br>Fornire le informazioni sulle proprietà di database necessari inclusi nome, le regole di confronto, la dimensione massima e la sottoscrizione, gruppo di risorse e percorso da usare per la distribuzione. 
 

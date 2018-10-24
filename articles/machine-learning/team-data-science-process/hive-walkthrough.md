@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: ff4daf350783e02141a6afea815165ccecfe0116
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09ca6fdc40aec84bcc7523bae0dee348d00f6d9f
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42142453"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586122"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight
 In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
@@ -30,7 +30,7 @@ Per una procedura dettagliata che mostra come gestire set di dati di dimensioni 
 Per eseguire le attività presentate nella procedura dettagliata con un set di dati da 1 TB, è anche possibile usare IPython Notebook. Per altre informazioni, vedere [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (Procedura dettagliata per Criteo con una connessione Hive ODBC).
 
 ## <a name="dataset"></a>Descrizione del set di dati delle corse dei taxi di New York
-I dati relativi alle corse dei taxi di New York sono costituiti da circa 20 GB di file con valori delimitati da virgole (CSV) compressi (circa 48 GB non compressi). Contengono più di 173 milioni di singole corse e includono le tariffe pagate per ogni corsa. Il record di ogni corsa include il luogo di partenza e di arrivo e l'ora, il numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse effettuate nell'anno 2013 e vengono forniti nei due set di dati seguenti per ogni mese:
+I dati relativi alle corse dei taxi di New York sono costituiti da circa 20 GB di file con valori delimitati da virgole (CSV) compressi (circa 48 GB non compressi). Contengono più di 173 milioni di singole corse e includono le tariffe pagate per ogni corsa. Il record di ogni corsa include luogo e ora di partenza e arrivo, numero di patente anonimo (del tassista) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse effettuate nell'anno 2013 e vengono forniti nei due set di dati seguenti per ogni mese:
 
 - I file CSV trip_data contengono i dettagli sulle corse. Sono inclusi numero di passeggeri, punti di partenza e di arrivo, durata della corsa e lunghezza della corsa. Di seguito vengono forniti alcuni record di esempio:
    
@@ -587,7 +587,7 @@ La query applica direttamente funzioni standard di Hive per generare le informaz
 - Settimana dell'anno
 - Giorno della settimana (1 sta per lunedì e 7 sta per domenica)
 
-La query restituisce anche la distanza diretta tra i punti di partenza e di arrivo. Per un elenco completo di queste funzioni, vedere [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Funzioni definite dall'utente LanguageManual).
+La query genera anche la distanza diretta tra il luogo di partenza e quello di arrivo. Per un elenco completo di queste funzioni, vedere [LanguageManual UDF](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) (Funzioni definite dall'utente LanguageManual).
 
 La query esegue quindi il sottocampionamento dei dati in modo che i risultati possano essere aggiunti in Azure Machine Learning Studio. Solo l'1% del set di dati originale viene importato in Studio.
 

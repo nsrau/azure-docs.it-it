@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344686"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959027"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Funzionalità e concetti principali in Azure Stack
 Le descrizioni delle funzionalità e i termini riportati di seguito possono risultare utili a chi non si ha familiarità con Microsoft Azure Stack.
@@ -154,14 +154,6 @@ Azure RBAC dispone di tre ruoli di base che si applicano a tutti i tipi di risor
 
 ## <a name="usage-data"></a>Dati di utilizzo
 Microsoft Azure Stack raccoglie e aggrega i dati di utilizzo in tutti i provider di risorse e lo trasmette in Azure per l'elaborazione dal commerce di Azure. I dati di utilizzo raccolti in Azure Stack possono essere visualizzati tramite un'API REST. Sono disponibili un'API del tenant coerente con Azure e API del provider e del provider delegato che permettono di ottenere dati di utilizzo di tutte le sottoscrizioni del tenant. Questi dati possono essere integrati con un servizio o uno strumento esterno di fatturazione o chargeback. Una volta che utilizzo è stato elaborato dal commercio Azure, possono essere visualizzato nel portale di fatturazione di Azure.
-
-## <a name="in-development-build-of-azure-stack-development-kit"></a>Build di sviluppo di Azure Stack Development Kit
-Le build di sviluppo consentono primi adottanti valutare la versione più recente di Azure Stack Development Kit. Sono infatti le compilazioni incrementali in base alla versione principale più recente. Anche se le versioni principali continueranno a essere rilasciate ogni pochi mesi, le compilazioni di sviluppo verranno rilasciato in modo intermittente tra le versioni principali.
-
-Le build di sviluppo fornirà i vantaggi seguenti:
-- Correzioni di bug
-- Nuove funzionalità
-- Altri miglioramenti
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Nozioni fondamentali sull'amministrazione](azure-stack-manage-basics.md)
