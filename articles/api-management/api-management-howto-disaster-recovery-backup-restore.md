@@ -1,5 +1,5 @@
 ---
-title: Implementare il ripristino di emergenza usando il backup e il ripristino in Gestione API di Azure | Microsoft Docs
+title: Implementare il ripristino di emergenza usando il backup e il ripristino in Gestione API di Azure | Documentazione Microsoft
 description: Informazioni su come usare il backup e il ripristino per eseguire il ripristino di emergenza in Gestione API di Azure.
 services: api-management
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 683efc6f772337754fc21a1e486d35b7f92e8f81
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268530"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428250"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -122,7 +122,7 @@ Sostituire `{tentand id}`, `{application id}` e `{redirect uri}` usando le istru
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Chiamata delle operazioni di backup e ripristino
 
-Le API REST sono [Api Management Service - Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) (Servizio Gestione API - Backup) e [Api Management Service - Restore](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore) (Servizio Gestione API - Ripristino).
+Le API REST sono [Api Management Service - Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_backup) (Servizio Gestione API - Backup) e [Api Management Service - Restore](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_restore) (Servizio Gestione API - Ripristino).
 
 Prima di chiamare le operazioni di backup e ripristino descritte nelle sezioni seguenti, impostare l'intestazione della richiesta di autorizzazione per la chiamata REST.
 

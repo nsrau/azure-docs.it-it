@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: 56bec5ef4730e47b5c79263af5d1942df5a73f04
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341345"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637963"
 ---
 # <a name="prediction-score"></a>Punteggio di previsione
 Il punteggio di stima indica il grado di attendibilità rispetto ai risultati di stima di LUIS. 

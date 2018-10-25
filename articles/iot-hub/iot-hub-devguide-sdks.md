@@ -1,5 +1,5 @@
 ---
-title: Informazioni sugli SDK dell'hub IoT | Microsoft Docs
+title: Informazioni sugli SDK dell'hub IoT | Documentazione Microsoft
 description: 'Guida per gli sviluppatori: informazioni e collegamenti ai vari Azure IoT SDK per dispositivi e servizi che è possibile usare per compilare app per dispositivo e app back-end.'
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: 1eeb0afdd5ffcbe00357914d6a98c8d0b3d452ec
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d58c86c17cdab360f37a09b28bdf705cb781a620
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017960"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023826"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendere e usare gli SDK per l'hub IoT di Azure
 
@@ -44,7 +44,7 @@ L'SDK dell'hub IoT di per dispositivi per C, scritto in ANSI C (C99) per la port
 
 * Installare da [apt-get, MBED, IDE Arduino o Nuget](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-c)
-* [Informazioni di riferimento sulle API](https://azure.github.io/azure-iot-sdk-c/index.html)
+* [Informazioni di riferimento sulle API](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [Informazioni di riferimento sui moduli](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 Azure IoT Hub SDK per dispositivi per Java: 
@@ -65,13 +65,13 @@ Azure IoT Hub SDK per dispositivi per Python:
 
 * Installare da [pip](https://pypi.python.org/pypi/azure-iothub-device-client/)
 * [Codice sorgente](https://github.com/Azure/azure-iot-sdk-python)
-* Riferimento all'API: vedere [riferimento all'API C](https://azure.github.io/azure-iot-sdk-c/index.html)
+* Riferimento all'API: vedere [riferimento all'API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 Azure IoT Hub SDK per dispositivi per iOS: 
 
 * Installare da [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
 * [Esempi](https://github.com/Azure-Samples/azure-iot-samples-ios)
-* Riferimento all'API: vedere [riferimento all'API C](https://azure.github.io/azure-iot-sdk-c/index.html)
+* Riferimento all'API: vedere [riferimento all'API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 > [!NOTE]
 > Vedere i file Leggimi nei repository GitHub per informazioni sull'uso di gestori di pacchetti specifici per piattaforma e linguaggio e installare file binari e dipendenze nel computer di sviluppo.

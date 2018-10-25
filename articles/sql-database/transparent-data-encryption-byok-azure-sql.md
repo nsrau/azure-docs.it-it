@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: aff1d59000a95f2b8f029b9db30ff1facb2f8ba6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 32d1956741f739234a3fdea7034f2f1e33a4c082
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114669"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408226"
 ---
 # <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Transparent Data Encryption con SQL di Azure: supporto Bring Your Own Key
 
@@ -67,8 +67,6 @@ Quando TDE viene configurato per la prima volta per l'uso di una protezione TDE 
   > Se l'identità Azure AD **viene accidentalmente eliminata o vengono revocate le autorizzazioni del server** usando i criteri di accesso dell'insieme di credenziali della chiavi, il server perde l'accesso all'insieme di credenziali delle chiavi e i database di crittografia TDE vengono eliminati entro 24 ore.
 
 - Quando si usano i firewall e le reti virtuali con Azure Key Vault, è necessario configurare quanto segue: 
-  - Consentire l'accesso da "Reti selezionate" 
-  - Aggiungere le reti virtuali esistenti e selezionare la rete di database SQL, se necessario (è facoltativo per i database singleton e obbligatorio per le istanze gestite) 
   - Consentire ai servizi Microsoft attendibili di ignorare il firewall: scegliere SÌ 
          
     > [!NOTE] 

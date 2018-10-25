@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 83db2bcfe21edc9f8f2649ef8c2b3a23e412e39d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353986"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470660"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Server logici del database SQL di Azure e loro gestione
 
@@ -170,22 +170,22 @@ Per creare e gestire server, database e firewall SQL di Azure, usare queste rich
 
 | Comando | DESCRIZIONE |
 | --- | --- |
-|[Servers - Create Or Update](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate/rest/api)|Crea o aggiorna un nuovo server.|
-|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/servers_delete)|Elimina un server SQL.|
-|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/servers_get)|Ottiene un server.|
-|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/servers_list)|Restituisce un elenco di server.|
-|[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/servers_listbyresourcegroup)|Restituisce un elenco di server in un gruppo di risorse.|
-|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|Aggiorna un server esistente.|
-|[Database: crea o aggiorna](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
-|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|Questo comando elimina un database.|
-|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Ottiene un database.|
-|[Database: elenca da pool elastico](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
-|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Restituisce un elenco di database in un server.|
-|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Aggiorna un database esistente.|
-|[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)|Crea o aggiorna una regola del firewall.|
-|[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete)|Elimina una regola del firewall.|
-|[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get)|Ottiene una regola del firewall.|
-|[Firewall Rules - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver)|Restituisce un elenco di regole firewall.|
+|[Servers - Create Or Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crea o aggiorna un nuovo server.|
+|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Elimina un server SQL.|
+|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Ottiene un server.|
+|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Restituisce un elenco di server.|
+|[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Restituisce un elenco di server in un gruppo di risorse.|
+|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Aggiorna un server esistente.|
+|[Database: crea o aggiorna](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
+|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|Questo comando elimina un database.|
+|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Ottiene un database.|
+|[Database: elenca da pool elastico](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
+|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
+|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Aggiorna un database esistente.|
+|[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Crea o aggiorna una regola del firewall.|
+|[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Elimina una regola del firewall.|
+|[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Ottiene una regola del firewall.|
+|[Firewall Rules - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Restituisce un elenco di regole firewall.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

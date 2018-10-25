@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: bc505aa9dc2258a8752d1986489957c401e4e4c4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585476"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023508"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
@@ -39,7 +39,7 @@ Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazion
 
 2. Scegliere i tipi di dati di telemetria da esportare.
 
-3. Creare o selezionare un [account di archiviazione di Azure] (../storage/common/storage-introduction.md) in cui memorizzare i dati. Per altre informazioni sulle opzioni per i prezzi dell'archiviazione, vedere la [pagina dei prezzi ufficiale](https://azure.microsoft.com/pricing/details/storage/).
+3. Creare o selezionare un [account di archiviazione di Azure](../storage/common/storage-introduction.md) in cui memorizzare i dati. Per altre informazioni sulle opzioni per i prezzi dell'archiviazione, vedere la [pagina dei prezzi ufficiale](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > Per impostazione predefinita, il percorso di archiviazione verrà impostato sulla stessa area geografica della risorsa di Application Insights. Se si esegue l'archiviazione in un'area differente, è possibile che vengano applicati addebiti per il trasferimento.

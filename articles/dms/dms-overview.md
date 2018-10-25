@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 064d7ca2f544dbf1c968310842e322d8c0db2ca1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/19/2018
+ms.openlocfilehash: 71d79ac34c4797cceb8374d65afb6fd7662f1c21
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884443"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456172"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Definizione del Servizio Migrazione del database di Azure
 Il Servizio Migrazione del database di Azure è un servizio completamente gestito progettato per consentire migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi (migrazioni online).
@@ -29,7 +29,7 @@ Il Servizio Migrazione del database di Azure integra alcune delle funzionalità 
 ## <a name="regional-availability"></a>Disponibilità internazionale
 Il Servizio Migrazione del database di Azure è attualmente disponibile nelle aree seguenti:
 
-![Disponibilità a livello di area del Servizio Migrazione del database di Azure](media\overview\dms-regional-availability.png)
+![Disponibilità a livello di area del Servizio Migrazione del database di Azure](media\overview\dms-regional-availability1.png)
 
 Per informazioni aggiornate sulla disponibilità a livello di area del Servizio Migrazione del database di Azure, nel sito di infrastruttura globale di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/).
 

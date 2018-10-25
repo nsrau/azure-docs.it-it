@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 4fd7617bf45608cdae15919a40920ea0d214acb8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249435"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407472"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione da Servizio di controllo di accesso di Azure
 
@@ -225,7 +225,7 @@ Per utilizzare WS-Federation o WIF per l'integrazione con Azure AD, è consiglia
 
 Un approccio alternativo consiste nell'attenersi a [questo esempio di codice](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) che fornisce istruzioni leggermente diverse sulla configurazione di WS-Federation. L'esempio di codice non usa WIF, ma il middleware OWIN di ASP.NET 4.5. Le istruzioni per la registrazione dell'app, tuttavia, sono valide per le app che usano WIF e non richiedono una licenza di Azure AD Premium. 
 
-Se si sceglie questo approccio, è necessario comprendere il [rollover della chiave di firma in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Questo approccio usa la chiave di firma globale di Azure AD per rilasciare token. Per impostazione predefinita, WIF non aggiorna automaticamente le chiavi di firma. Quando Azure AD ruota le rispettive chiavi di firma globali, l'implementazione di WIF deve essere preparata per l'accettazione delle modifiche. Per altre informazioni, vedere [Important information about signing key rollover in Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx) (Informazioni importanti sul rollover della chiave di firma in Azure AD).
+Se si sceglie questo approccio, è necessario comprendere il [rollover della chiave di firma in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Questo approccio usa la chiave di firma globale di Azure AD per rilasciare token. Per impostazione predefinita, WIF non aggiorna automaticamente le chiavi di firma. Quando Azure AD ruota le rispettive chiavi di firma globali, l'implementazione di WIF deve essere preparata per l'accettazione delle modifiche. Per altre informazioni, vedere [Important information about signing key rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx) (Informazioni importanti sul rollover della chiave di firma in Azure AD).
 
 Se si riesce a eseguire l'integrazione con Azure AD tramite i protocolli OAuth o OpenID Connect, è consigliabile scegliere questo approccio. Documentazione e indicazioni complete sull'integrazione di Azure AD nell'applicazione Web sono disponibili nella [Guida per gli sviluppatori di Azure AD](https://aka.ms/aaddev).
 

@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803359"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429185"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Ricevere eventi da Hub eventi di Azure usando Node.js
 
@@ -57,7 +57,7 @@ L'SDK clonato contiene vari esempi che illustrano come ricevere eventi da un hub
 
 1. Aprire il progetto in Visual Studio Code. 
 2. Creare un file denominato **.env** nella cartella del **processore**. Copiare e incollare le variabili di ambiente di esempio da **sample.env** nella cartella radice.
-3. Configurare la stringa di connessione dell'hub eventi, il nome dell'hub eventi e l'endpoint di archiviazione. È possibile copiare la stringa di connessione per l'hub eventi dalla **Stringa di connessione - chiave primaria** in **RootManageSharedAccessKey** nella pagina dell'Hub eventi nel portale di Azure. Per informazioni dettagliate, vedere [Get connection string](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace) (Ottenere la stringa di connessione).
+3. Configurare la stringa di connessione dell'hub eventi, il nome dell'hub eventi e l'endpoint di archiviazione. È possibile copiare la stringa di connessione per l'hub eventi dalla **Stringa di connessione - chiave primaria** in **RootManageSharedAccessKey** nella pagina dell'Hub eventi nel portale di Azure. Per informazioni dettagliate, vedere [Get connection string](event-hubs-create.md#create-an-event-hubs-namespace) (Ottenere la stringa di connessione).
 4. Nell'interfaccia della riga di comando di Azure andare al percorso della cartella del **processore**. Installare i pacchetti di nodo e creare il progetto eseguendo questi comandi:
 
     ```nodejs

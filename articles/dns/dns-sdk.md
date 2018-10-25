@@ -1,5 +1,5 @@
 ---
-title: Creare zone e set di record DNS in DNS di Azure con .NET SDK | Microsoft Docs
+title: Creare zone e set di record DNS in DNS di Azure con .NET SDK | Documentazione Microsoft
 description: Come creare zone e set di record DNS in DNS di Azure con .NET SDK.
 services: dns
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a814c543b9f4bfe6717e639342d82ed13dac35b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829770"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954607"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Creare zone e set di record DNS con .NET SDK
 
@@ -28,7 +28,7 @@ ms.locfileid: "48829770"
 
 L'accesso a livello di programmazione alle risorse di Azure viene in genere concesso tramite un account dedicato, non tramite le proprie credenziali utente. Questi account dedicati sono denominati 'account dell'entità servizio'. Per usare il progetto di esempio Azure SDK per DNS, è prima necessario creare un account dell'entità servizio e assegnargli le autorizzazioni corrette.
 
-1. Seguire [queste istruzioni](../azure-resource-manager/resource-group-authenticate-service-principal.md) per creare un account dell'entità servizio. Il progetto di esempio Azure SDK per DNS presuppone che l'autenticazione sia basata su password.
+1. Seguire [queste istruzioni](../active-directory/develop/howto-authenticate-service-principal-powershell.md) per creare un account dell'entità servizio. Il progetto di esempio Azure SDK per DNS presuppone che l'autenticazione sia basata su password.
 2. Creare un gruppo di risorse seguendo [questa procedura](../azure-resource-manager/resource-group-template-deploy-portal.md).
 3. Usare il Controllo degli accessi in base al ruolo di Azure per concedere all'account dell'entità servizio le autorizzazioni 'DNS Zone Contributor' per il gruppo di risorse. A questo scopo, seguire [questa procedura](../role-based-access-control/role-assignments-portal.md).
 4. Se si usa il progetto di esempio Azure SDK per DNS, modificare il file 'program.cs' come segue:

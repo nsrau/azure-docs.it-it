@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 94a3a502d5756d57cfebdf6698a4435dc1e19948
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0d5b7e484024294eb5c95b632dbef85c377b717e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353031"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469028"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption per il database SQL e Data Warehouse
 
@@ -113,17 +113,17 @@ Per configurare TDE usando API REST, è necessario essere connessi come il propr
 
 | Comando | DESCRIZIONE |
 | --- | --- |
-|[Crea o aggiorna il server](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Aggiunge un'identità di Azure Active Directory a un'istanza di SQL Server (usata per concedere l'accesso a Key Vault)|
-|[Crea o aggiorna la chiave del server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Aggiunge una chiave di Key Vault a un'istanza di SQL Server|
-|[Elimina la chiave del server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Rimuove una chiave di Key Vault da un'istanza di SQL Server|
-|[Ottieni la chiave del server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Ottiene una chiave di Key Vault da un'istanza di SQL Server|
-|[Elenca le chiavi del server dal server](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|Ottiene una chiave di Key Vault per un'istanza di SQL Server |
-|[Crea o aggiorna la protezione della crittografia](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Imposta la protezione TDE per un istanza di SQL Server|
-|[Ottieni la protezione della crittografia](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Ottiene la protezione TDE per un istanza di SQL Server|
-|[Elenca le protezioni di crittografia dal server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Ottiene le protezioni TDE per un istanza di SQL Server |
-|[Crea o aggiorna la configurazione di Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Abilita o disabilita TDE per un database|
-|[Ottieni la configurazione di Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Ottiene la configurazione di TDE per un database|
-|[Elenca i risultati della configurazione di Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Ottiene il risultato della crittografia per un database|
+|[Crea o aggiorna il server](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Aggiunge un'identità di Azure Active Directory a un'istanza di SQL Server (usata per concedere l'accesso a Key Vault)|
+|[Crea o aggiorna la chiave del server](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Aggiunge una chiave di Key Vault a un'istanza di SQL Server|
+|[Elimina la chiave del server](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Rimuove una chiave di Key Vault da un'istanza di SQL Server|
+|[Ottieni la chiave del server](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Ottiene una chiave di Key Vault da un'istanza di SQL Server|
+|[Elenca le chiavi del server dal server](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|Ottiene una chiave di Key Vault per un'istanza di SQL Server |
+|[Crea o aggiorna la protezione della crittografia](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Imposta la protezione TDE per un istanza di SQL Server|
+|[Ottieni la protezione della crittografia](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Ottiene la protezione TDE per un istanza di SQL Server|
+|[Elenca le protezioni di crittografia dal server](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Ottiene le protezioni TDE per un istanza di SQL Server |
+|[Crea o aggiorna la configurazione di Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Abilita o disabilita TDE per un database|
+|[Ottieni la configurazione di Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Ottiene la configurazione di TDE per un database|
+|[Elenca i risultati della configurazione di Transparent Data Encryption](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Ottiene il risultato della crittografia per un database|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
