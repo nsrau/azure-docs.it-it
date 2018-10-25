@@ -17,14 +17,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: acdc3417643484fa98b16c4be1b83a44a8b73fc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963000"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985727"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Informazioni sul flusso di concessione implicita OAuth2 in Azure Active Directory (AD)
+
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 È noto che la concessione implicita OAuth2 è quella con il più lungo elenco di preoccupazioni relative alla sicurezza nella specifica OAuth2. Nonostante ciò, è l'approccio implementato da ADAL JS e quello consigliato da Microsoft quando si scrivono applicazioni a singola pagina. Quali sono i vantaggi? È una questione di compromessi: infatti risulta evidente che la concessione implicita è il miglior approccio che si possa adottare per le applicazioni che utilizzano un'API Web tramite JavaScript da un browser.
 

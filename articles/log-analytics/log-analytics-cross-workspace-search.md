@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3fb6557571042be7db1380010738bacd72e50f5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869501"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025804"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Eseguire ricerche nei log di più risorse con Log Analytics  
 
@@ -29,7 +29,7 @@ Azure Log Analytics consentiva in precedenza di analizzare i dati solo all'inter
 Ora è possibile eseguire query non solo tra più aree di lavoro di Log Analytics, ma anche su dati di un'app specifica di Application Insights nello stesso gruppo di risorse, in un altro gruppo di risorse o in un'altra sottoscrizione. Si ottiene così una vista dei dati dell'intero sistema.  È possibile eseguire questi tipi di query solo in [Log Analytics](log-analytics-log-search-portals.md#log-analytics-page). Il numero di risorse (aree di lavoro di Log Analytics e app Application Insights) che è possibile includere in una singola query è limitato a 100. 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Esecuzione di query tra aree di lavoro di Log Analytics e da Application Insights
-Per fare riferimento a un'altra area di lavoro nella query, usare l'identificatore [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()), mentre per un'app di Application Insights usare l'identificatore [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()).  
+Per fare riferimento a un'altra area di lavoro nella query, usare l'identificatore [*workspace*](https://docs.microsoft.com/azure/log-analytics/query-language/workspace-expression), mentre per un'app di Application Insights usare l'identificatore [*app*](https://docs.microsoft.com/azure/log-analytics/query-language/app-expression).  
 
 ### <a name="identifying-workspace-resources"></a>Identificazione delle risorse dell'area di lavoro
 Gli esempi seguenti dimostrano che le query eseguite su più aree di lavoro di Log Analytics restituiscono un riepilogo del numero di log dalla tabella di aggiornamento in un'area di lavoro denominata *contosoretail-it*. 
@@ -104,4 +104,4 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [riferimento alla ricerca nei log di Log Analytics](https://docs.loganalytics.io/docs/Language-Reference) per visualizzare tutte le opzioni della sintassi di query disponibili in Log Analytics.    
+Vedere il [riferimento alla ricerca nei log di Log Analytics](https://docs.microsoft.com/azure/log-analytics/query-language/kusto) per visualizzare tutte le opzioni della sintassi di query disponibili in Log Analytics.    

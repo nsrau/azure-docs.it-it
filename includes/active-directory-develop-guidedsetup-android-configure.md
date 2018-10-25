@@ -14,42 +14,38 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 6e20ce083c415bced22231835cc616ede8f0dd04
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 7ff04789a4ba5e5a689b3d3815852bc0fbcdc6a7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843336"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988349"
 ---
 ## <a name="register-your-application"></a>Registrare l'applicazione
+
 È possibile registrare l'applicazione in uno dei due modi descritti nelle due sezioni successive.
 
 ### <a name="option-1-express"></a>Opzione 1: Modalità rapida
+
 1. Passare al [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
-2.  In **Application Name** (Nome applicazione) immettere un nome per l'applicazione.
-
+2. In **Application Name** (Nome applicazione) immettere un nome per l'applicazione.
 3. Verificare che la casella di controllo **Guided Setup** (Configurazione guidata) sia selezionata e quindi selezionare **Create** (Crea).
-
 4. Seguire le istruzioni per ottenere l'ID applicazione e incollarlo nel codice.
 
-### <a name="option-2-advanced"></a>Opzione 2: Modalità avanzata 
+### <a name="option-2-advanced"></a>Opzione 2: Modalità avanzata
+
 1. Passare al [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app).
-2. Nella casella **Application Name** (Nome applicazione) immettere un nome per l'applicazione. 
-
+2. Nella casella **Application Name** (Nome applicazione) immettere un nome per l'applicazione.
 3. Verificare che la casella di controllo **Guided Setup** (Configurazione guidata) sia deselezionata e quindi selezionare **Create** (Crea).
-
 4. Selezionare **Aggiungi piattaforma**, **Applicazione nativa** e quindi **Salva**.
-
 5. In **app** > **java** > **{host}.{spazionomi}** aprire `MainActivity`. 
-
-6.  Sostituire *[Enter the application Id here]* con l'ID client/applicazione:
+6. Sostituire *[Enter the application Id here]* con l'ID client/applicazione:
 
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
     ```
 <!-- Workaround for Docs conversion bug -->
 7. In **app** > **manifests** aprire il file *AndroidManifest.xml*.
-
 8. In `manifest\application` aggiungere l'attività seguente. L'attività `BrowserTabActivity` consente a Microsoft di eseguire il callback all'applicazione dopo il completamento dell'autenticazione:
 
     ```xml

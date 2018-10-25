@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831457"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955134"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flusso di lavoro del backup offline in Backup di Azure
 In Backup di Azure sono incorporate diverse funzionalità che consentono di ridurre in modo efficiente i costi di archiviazione e di rete durante i backup completi iniziali dei dati in Azure. I backup completi iniziali comportano in genere il trasferimento di grandi quantità di dati e richiedono una larghezza di banda di rete superiore rispetto ai backup successivi con cui vengono trasferiti solo backup differenziali/incrementali. Con il processo di seeding offline, Backup di Azure può usare i dischi per caricare in Azure i dati di backup offline.
@@ -43,7 +43,7 @@ Le funzionalità o i carichi di lavoro seguenti di Backup di Azure supportano l'
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
   > [!NOTE]
   > I prerequisiti e il flusso di lavoro seguenti si applicano solo al backup offline di file e cartelle mediante l'[agente di Servizi di ripristino di Microsoft Azure più recente](https://aka.ms/azurebackup_agent). Per eseguire i backup offline dei carichi di lavoro con System Center DPM o il server di Backup di Azure, fare riferimento a [questo articolo](backup-azure-backup-server-import-export-.md). 
@@ -54,7 +54,7 @@ Prima di avviare il flusso di lavoro del backup offline completare i prerequisit
 * Sui computer che eseguono l'agente di Backup di Azure è necessario usare Azure PowerShell 3.7.0. È consigliabile scaricare e [installare la versione 3.7.0 di Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * Nel computer che esegue l'agente di Backup di Azure verificare che siano installati Microsoft Edge o Internet Explorer 11 e che JavaScript sia abilitato. 
 * Creare un account di Archiviazione di Azure nella stessa sottoscrizione dell'insieme di credenziali dei Servizi di ripristino. 
-* Assicurarsi di avere le [autorizzazioni necessarie](../azure-resource-manager/resource-group-create-service-principal-portal.md) per creare l'applicazione Azure Active Directory. Il flusso di lavoro del backup offline crea un'applicazione di Azure Active Directory nella sottoscrizione associata all'account di Archiviazione di Azure. L'obiettivo dell'applicazione consiste nel garantire a Backup di Azure un accesso protetto con ambito al servizio Importazione di Azure, necessario per il flusso di lavoro del backup offline. 
+* Assicurarsi di avere le [autorizzazioni necessarie](../active-directory/develop/howto-create-service-principal-portal.md) per creare l'applicazione Azure Active Directory. Il flusso di lavoro del backup offline crea un'applicazione di Azure Active Directory nella sottoscrizione associata all'account di Archiviazione di Azure. L'obiettivo dell'applicazione consiste nel garantire a Backup di Azure un accesso protetto con ambito al servizio Importazione di Azure, necessario per il flusso di lavoro del backup offline. 
 * Registrare il provider di risorse Microsoft.ImportExport nella sottoscrizione che contiene l'account di Archiviazione di Azure. Per registrare il provider di risorse:
     1. Nel menu principale fare clic su **Sottoscrizioni**.
     2. Se sono state sottoscritte più sottoscrizioni, selezionare la sottoscrizione in uso per il backup offline. Se si usa una sola sottoscrizione, questa verrà visualizzata.

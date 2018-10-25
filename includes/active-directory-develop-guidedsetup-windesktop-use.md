@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 538b0c969d8c039079c09232e06f55e24aabf393
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 87ac7364a2c409af410fcb5cd09aed4377b28d8e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843116"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988184"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Usare MSAL per ottenere un token per l'API Microsoft Graph
 
 In questa sezione si usa MSAL per ottenere un token per l'API Microsoft Graph.
 
-1.  Nel file *MainWindow.xaml.cs* aggiungere alla classe il riferimento relativo a MSAL:
+1. Nel file *MainWindow.xaml.cs* aggiungere alla classe il riferimento relativo a MSAL:
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -215,4 +215,3 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 Oltre al token di accesso che viene usato per chiamare l'API Microsoft Graph, dopo l'accesso dell'utente, MSAL ottiene anche un token ID. Questo token contiene un piccolo subset di informazioni relative agli utenti. Il metodo `DisplayBasicTokenInfo` visualizza le informazioni di base contenute nel token. Ad esempio, visualizza l'ID e il nome visualizzato dell'utente, la data di scadenza del token e la stringa che rappresenta il token di accesso. Premendo più volte il pulsante *Call Microsoft Graph API* (Chiama API Microsoft Graph), è possibile vedere che lo stesso token è stato usato per più richieste successive. Se MSAL decide che è il momento di rinnovare il token, è possibile anche vedere la data di scadenza estesa.
 <!--end-collapse-->
-

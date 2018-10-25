@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52429d44c41d990fb0de4c01c63d4af9fe5863d4
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5f9d694d47c0bd0765af7871d7e535a4174c30ff
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902893"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404727"
 ---
 # <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Creare un'app Web Python nel Servizio app di Azure in Linux (anteprima)
 
@@ -179,6 +179,9 @@ L'immagine incorporata di Python nel servizio app in Linux è attualmente in ant
 
 > [!div class="nextstepaction"]
 > [Configurare un comando di avvio personalizzato](how-to-configure-python.md#custom-startup-command)
+
+> [!div class="nextstepaction"]
+> [Risoluzione dei problemi](how-to-configure-python.md#troubleshooting)
 
 > [!div class="nextstepaction"]
 > [Use custom images](tutorial-custom-docker-image.md) (Usare immagini personalizzate)

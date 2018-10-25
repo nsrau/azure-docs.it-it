@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521031"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470321"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di Azure Storage Explorer
 
@@ -74,7 +74,7 @@ Il Keychain macOS può talvolta andare in uno stato che causa problemi alla libr
 7. Provare a effettuare l'accesso.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi di accesso generale
-* Se si sta usando macOS e la finestra di accesso non appare sulla finestra di dialogo "Waiting for authentication..." (In attesa di autenticazione...), provare [questa procedura](#Mac-Keychain-Errors)
+* Se si sta usando macOS e la finestra di accesso non appare sulla finestra di dialogo "Waiting for authentication..." (In attesa di autenticazione...), provare [questa procedura](#mac-keychain-errors)
 * Riavviare Storage Explorer
 * Se la finestra di autenticazione è vuota, attendere almeno un minuto prima di chiudere la finestra di dialogo di autenticazione.
 * Verificare che le impostazioni del proxy e dei certificati siano configurate correttamente per il computer e per Storage Explorer.

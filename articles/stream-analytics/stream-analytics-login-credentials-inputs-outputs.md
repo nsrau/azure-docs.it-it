@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2dd5721ad0f45080a73172e150891cfb5f48d329
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30907280"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025770"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Ruotare le credenziali di accesso per input e output in un processo di Analisi di flusso
 
@@ -34,7 +34,7 @@ Questa sezione illustra la procedura da seguire per rigenerare le credenziali pe
 6. Individuare il campo **Chiave dell'account di archiviazione**, incollarvi la chiave appena generata e quindi fare clic su **Salva**.    
 7. Al salvataggio delle modifiche, verrà automaticamente avviato un test di connessione. È possibile visualizzarlo dalla scheda delle notifiche. Sono presenti due notifiche che corrispondono rispettivamente al salvataggio dell'aggiornamento e al test della connessione:  
    ![Notifiche dopo la modifica della chiave](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. Passare alla sezione [Avviare il processo dall'ultimo arresto] (#start-your-job-from-the-last-stopped-time).
+8. Passare alla sezione [Avviare il processo dall'ultimo arresto](#start-your-job-from-the-last-stopped-time).
 
 ### <a name="event-hubs"></a>Hub eventi
 

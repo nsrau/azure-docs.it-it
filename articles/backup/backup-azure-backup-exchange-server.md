@@ -2,18 +2,18 @@
 title: Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 description: Informazioni su come eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 services: backup
-author: MaanasSaran
+author: adigan
 manager: NKolli1
 ms.service: backup
-ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: adigan
-ms.openlocfilehash: 4edec499d12261add398e5a9297f039ecfb252e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8fbe3e716971f4d82e6d24fb866334ffd626bf32
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605101"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945978"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Eseguire il backup di un server di Exchange in Backup di Azure con System Center 2012 R2 DPM
 Questo articolo descrive come configurare un server di System Center 2012 R2 Data Protection Manager (DPM) per eseguire il backup di un server di Microsoft Exchange per Backup di Azure.  
@@ -26,8 +26,8 @@ Per registrare correttamente il server DPM con Backup di Azure, è necessario in
 >
 >
 
-## <a name="prerequisites"></a>prerequisiti
-Prima di continuare, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-introduction.md#prerequisites) per l'uso di Backup di Microsoft Azure per proteggere i carichi di lavoro siano stati soddisfatti. I prerequisiti includono i seguenti:
+## <a name="prerequisites"></a>Prerequisiti
+Prima di continuare, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-introduction.md#prerequisites-and-limitations) per l'uso di Backup di Microsoft Azure per proteggere i carichi di lavoro siano stati soddisfatti. I prerequisiti includono i seguenti:
 
 * È stato creato un insieme di credenziali per il backup nel sito di Azure.
 * Le credenziali dell'agente e dell'insieme di credenziali sono state scaricate nel server DPM.

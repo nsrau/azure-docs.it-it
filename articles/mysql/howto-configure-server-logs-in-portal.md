@@ -9,25 +9,25 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: eb35563bc21fc48d304f216e7b34cc9a77f35e83
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 030c9bf32da7b635066a744270739251b9bf3d03
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265363"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984707"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurare e accedere ai log del server nel portale di Azure
 
 È possibile configurare, elencare e scaricare i [log del server di Database di Azure per PostgreSQL](concepts-server-logs.md) dal portale di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida, si richiedono:
 - [Server del Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="configure-logging"></a>Configurare la registrazione
 Configurare l'accesso al log di query lente MySQL. 
 
-1. Accedere al [portale di Azure](http://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Selezionare il server del Database di Azure per MySQL.
 

@@ -6,14 +6,14 @@ author: adigan
 manager: Nkolli
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/27/2016
+ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: cebbe532b5d1b13588604c61ac10bf3c56a85e07
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 232885398c996d0c744ac55b6c6967fd398eec0b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604965"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945655"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Backup di SQL Server in Azure come carico di lavoro DPM
 In questo articolo viene avviata la procedura di configurazione per il backup dei database SQL Server mediante il Backup di Azure.
@@ -27,7 +27,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 3. Ripristinare il database da Azure.
 
 ## <a name="before-you-start"></a>Prima di iniziare
-Prima di procedere, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-introduction.md#prerequisites) per l'uso di Backup di Microsoft Azure per proteggere i carichi di lavoro siano stati soddisfatti. I prerequisiti si applicano ad attività quali, ad esempio, la creazione di un archivio di backup, il download delle credenziali dell'insieme di credenziali, l'installazione dell'agente di Backup di Azure e la registrazione del server con l'insieme di credenziali.
+Prima di procedere, assicurarsi che tutti i [prerequisiti](backup-azure-dpm-introduction.md#prerequisites-and-limitations) per l'uso di Backup di Microsoft Azure per proteggere i carichi di lavoro siano stati soddisfatti. I prerequisiti si applicano ad attività quali, ad esempio, la creazione di un archivio di backup, il download delle credenziali dell'insieme di credenziali, l'installazione dell'agente di Backup di Azure e la registrazione del server con l'insieme di credenziali.
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Creare un criterio di backup per proteggere i database SQL Server in Azure.
 1. Sul server DPM, fare clic nell'area di lavoro **Protezione** .

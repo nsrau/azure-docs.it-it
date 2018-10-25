@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 3cbcae9c02abaf11ded31304f97abdd74f905c6e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c4908315bd7c0e4d83c7aba735cc4d102216a28
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842895"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988434"
 ---
 ## <a name="test-your-code"></a>Testare il codice
 
 ### <a name="test-with-node"></a>Eseguire il test con Node
+
 Se non si usa Visual Studio, assicurarsi che il server Web sia stato avviato.
+
 1. Configurare il server per rimanere in ascolto di una porta TCP basata sulla posizione del file **index.html**. Per Node, avviare il server Web per essere in ascolto della porta eseguendo i comandi seguenti in un prompt della riga di comando dalla cartella dell'applicazione:
 
     ```bash
@@ -36,15 +38,14 @@ Se non si usa Visual Studio, assicurarsi che il server Web sia stato avviato.
 <p/><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Eseguire test con Visual Studio
-Se si usa Visual Studio, assicurarsi di selezionare la soluzione di progetto e premere **F5** per eseguire il progetto. Il browser viene aperto sulla posizione http://<span></span>localhost:{porta} e viene visualizzato il pulsante **Accedi**.
 
+Se si usa Visual Studio, assicurarsi di selezionare la soluzione di progetto e premere **F5** per eseguire il progetto. Il browser viene aperto sulla posizione http://<span></span>localhost:{porta} e viene visualizzato il pulsante **Accedi**.
 
 ## <a name="test-your-application"></a>Testare l'applicazione
 
 Dopo che il browser ha caricato il file index.html, fare clic su **Accedi**. Verrà richiesto di accedere con l'endpoint Microsoft Azure Active Directory (Azure AD) v2.0:
 
 ![Accedere all'account JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
-
 
 ### <a name="provide-consent-for-application-access"></a>Specificare il consenso per l'accesso all'applicazione
 
@@ -53,6 +54,7 @@ Al primo accesso all'applicazione viene richiesto di specificare il consenso per
 ![Specificare il consenso per l'accesso all'applicazione](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
+
 Dopo l'accesso, le informazioni del profilo utente restituite nella risposta dell'API Microsoft Graph dovrebbero essere visualizzate nella pagina.
 
 ![Risultati previsti dalla chiamata API Microsoft Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)

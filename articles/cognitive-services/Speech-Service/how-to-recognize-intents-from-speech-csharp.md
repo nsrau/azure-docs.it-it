@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: riconoscere le finalità dai contenuti vocali con Speech SDK per C#'
-titleSuffix: Microsoft Cognitive Services
-description: >
-  Questa esercitazione fornirà informazioni su come riconoscere le finalità dai contenuti vocali con Speech SDK per C#.
+titleSuffix: Azure Cognitive Services
+description: Questa esercitazione fornirà informazioni su come riconoscere le finalità dai contenuti vocali con Speech SDK per C#.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 9210aaf2ddfa917ff480f4126c02137f46788dc3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 64fa194225c7e9fa4c272ca8a9e95b44282ec1df
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884343"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466478"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Esercitazione: riconoscere le finalità dai contenuti vocali con Speech SDK per C#
 
@@ -120,7 +120,7 @@ Le sezioni seguenti includono una discussione del codice.
 
 ## <a name="create-an-intent-recognizer"></a>Creare un sistema di riconoscimento delle finalità
 
-Il primo passaggio del riconoscimento finalità nel riconoscimento vocale consiste nel creare una configurazione di riconoscimento vocale dalla chiave endpoint e area LUIS. Configurazione riconoscimento vocale può essere usata per creare sistemi di riconoscimento per le diverse funzionalità di Speech SDK. La configurazione di riconoscimento vocale specifica in diversi modi la sottoscrizione da usare; In questo caso, usare `FromSubscription`, che accetta la chiave di sottoscrizione e l'area.
+Il primo passaggio del riconoscimento finalità nel riconoscimento vocale consiste nel creare una configurazione di riconoscimento vocale dalla chiave endpoint e area LUIS. Configurazione riconoscimento vocale può essere usata per creare sistemi di riconoscimento per le diverse funzionalità di Speech SDK. La configurazione di riconoscimento vocale specifica in diversi modi la sottoscrizione da usare; In questo caso, usare `FromSubscription`, che accetta la chiave di sottoscrizione e la regione.
 
 > [!NOTE]
 > Usare la chiave e l'area della sottoscrizione LUIS, non di una sottoscrizione del servizio Voce.
