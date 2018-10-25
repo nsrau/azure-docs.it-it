@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5e18a27579c577f914709e25cab1549387a965f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b96ee362f6169d386a58ee48878e40a42fc9ede
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966402"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987597"
 ---
 # <a name="about-microsoft-identity-platform"></a>Microsoft Identity Platform
 
@@ -37,7 +37,7 @@ Le applicazioni che usano le librerie ADAL e MSAL più recenti eseguiranno il Si
 
 Il diagramma seguente illustra l'esperienza con Microsoft Identity a un alto livello, inclusi l'esperienza di registrazione delle app, gli SDK, gli endpoint e le identità supportate.
 
-![Microsoft Identity Platform oggi](./media/about-microsoft-identity-platform/microsoft-identity-platform-today.png)
+![Microsoft Identity Platform oggi](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
 
 Microsoft Identity Platform dispone di due endpoint (v1.0 e v2.0) e di due set di librerie client per gestire questi endpoint. Quando si sviluppa una nuova applicazione, prendere in considerazione i vantaggi e lo stato corrente degli endpoint e delle librerie di autenticazione. Tenere presente anche questi aspetti:
 
@@ -61,5 +61,5 @@ Microsoft Identity Platform dispone di due endpoint (v1.0 e v2.0) e di due set d
 
 Altre informazioni su v1.0 e v2.0.
 
-* [Informazioni su v1.0](azure-ad-developers-guide.md)
-* [Informazioni su v2.0](azure-ad-developers-guide.md)
+* [Informazioni su v1.0](v1-overview.md)
+* [Informazioni su v2.0](v2-overview.md)

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a8d1c94ac4357c7833f6db7cb9b4eaffa00c0396
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 46b66a6e718f18b76db6332487c350c2c199c342
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963799"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957775"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Esempi di codice di Azure Active Directory (endpoint v1.0)
 
@@ -125,7 +125,7 @@ Per esempi ed esercitazioni che mostrano modelli di utilizzo diversi per l'API M
 
 ## <a name="see-also"></a>Vedere anche 
 
-[Guida per gli sviluppatori di Azure Active Directory](azure-ad-developers-guide.md)
+[Guida per gli sviluppatori di Azure Active Directory](v1-overview.md)
 
 [Librerie di autenticazione di Azure Active Directory](active-directory-authentication-libraries.md)
 

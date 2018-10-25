@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 04cdba261d67e20762fd4bb4835568f763124fef
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 312b1f7accee47c07c5fb0507061253fda5044f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578474"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958041"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Protocolli di autenticazione di Azure Active Directory
 Azure Active Directory (Azure AD) supporta diversi dei protocolli di autenticazione e autorizzazione più ampiamente usati. Gli argomenti in questa sezione descrivono i protocolli supportati e l'implementazione di ciascuno in Azure AD. Gli argomenti includono una presentazione dei tipi di attestazione supportati, un'introduzione all'uso dei metadati di federazione, la documentazione di riferimento dettagliata dei protocolli OAuth 2.0. e SAML 2.0 e una sezione sulla risoluzione dei problemi.
@@ -38,6 +38,6 @@ Azure Active Directory (Azure AD) supporta diversi dei protocolli di autenticazi
 * [Informazioni di riferimento sul protocollo SAML](active-directory-saml-protocol-reference.md) : informazioni sui profili SAML Single Sign-On e Single Sign-Out di Azure AD.
 
 ## <a name="see-also"></a>Vedere anche
-[Guida per gli sviluppatori di Azure Active Directory](azure-ad-developers-guide.md)
+[Guida per gli sviluppatori di Azure Active Directory](v1-overview.md)
 
 [Esempi di codice di Active Directory](sample-v1-code.md)

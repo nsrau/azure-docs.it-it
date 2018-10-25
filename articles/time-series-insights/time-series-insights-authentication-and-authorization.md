@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: d219e6f020b02a46084f1862cf468227bcd8d74c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: cbd851737d7122ff8b0c75eb2050ab481c8cecc0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49317977"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958466"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticazione e autorizzazione per l'API Azure Time Series Insights
 
@@ -108,4 +108,4 @@ Usare l'ID e la chiave dell'applicazione per eseguire l'autenticazione con Azure
 - Per informazioni di riferimento sull'API, vedere il [riferimento all'API di query](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
 
 > [!div class="nextstepaction"]
-> [Creare un'entità servizio](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+> [Creare un'entità servizio](../active-directory/develop/howto-create-service-principal-portal.md)

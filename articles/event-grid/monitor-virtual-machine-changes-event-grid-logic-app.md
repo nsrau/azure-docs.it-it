@@ -1,22 +1,20 @@
 ---
 title: Monitorare le modifiche a una macchina virtuale - Griglia di eventi di Azure e app per la logica | Microsoft Docs
 description: Controllare le modifiche di configurazione apportate a macchine virtuali usando Griglia di eventi di Azure e app per la logica
-keywords: app per la logica, griglie di eventi, macchina virtuale, VM
 services: logic-apps
-author: ecfan
-manager: anneta
-ms.assetid: ''
-ms.workload: logic-apps
 ms.service: logic-apps
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.author: LADocs; estfan
-ms.openlocfilehash: ea3063b5c445dab85a7ef1e5663c40efc34f961e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303114"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957928"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Monitorare le modifiche a una macchina virtuale con Griglia di eventi di Azure e app per la logica
 
@@ -40,7 +38,7 @@ In questa esercitazione si apprenderà come:
 > * Aggiungere una condizione che controlli in modo specifico le modifiche apportate a una macchina virtuale.
 > * Inviare un messaggio di posta elettronica quando viene apportata una modifica alla macchina virtuale.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un account di posta elettronica di [un provider di posta elettronica supportato da App per la logica di Azure](../connectors/apis-list.md), come Office 365 Outlook, Outlook.com o Gmail, per l'invio di notifiche. In questa esercitazione viene usato Office 365 Outlook.
 
@@ -92,7 +90,7 @@ Per prima cosa, creare un'app per la logica e aggiungere un trigger di Griglia d
    ![Accedere con le credenziali di Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Se è stato effettuato l'accesso con un account Microsoft personale, ad esempio @outlook.com o @hotmail.com, è possibile che il trigger di Griglia di eventi di Azure non venga visualizzato correttamente. In alternativa, scegliere [Connetti usando l'entità servizio](../azure-resource-manager/resource-group-create-service-principal-portal.md) o eseguire l'autenticazione come membro di Azure Active Directory associato alla sottoscrizione di Azure, ad esempio *nome-utente*@emailoutlook.onmicrosoft.com.
+   > Se è stato effettuato l'accesso con un account Microsoft personale, ad esempio @outlook.com o @hotmail.com, è possibile che il trigger di Griglia di eventi di Azure non venga visualizzato correttamente. In alternativa, scegliere [Connetti usando l'entità servizio](../active-directory/develop/howto-create-service-principal-portal.md) o eseguire l'autenticazione come membro di Azure Active Directory associato alla sottoscrizione di Azure, ad esempio *nome-utente*@emailoutlook.onmicrosoft.com.
 
 8. A questo punto eseguire la sottoscrizione dell'app per la logica agli eventi dell'editore. Specificare i dettagli per la sottoscrizione dell'evento, come indicato nella tabella seguente:
 

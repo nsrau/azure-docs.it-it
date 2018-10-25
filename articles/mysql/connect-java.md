@@ -11,19 +11,19 @@ ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: d22eb6c6b56e24c2699bed8ac0a71a8192f0804e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4532b920fe1d4b20eb34f09fac4cb3b30ad36e6a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265038"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985393"
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>Database di Azure per MySQL: usare Java per connettersi ed eseguire query sui dati
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione Java e il driver JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo articolo presuppone che si abbia familiarità con lo sviluppo con Java, ma non con Database di Azure per MySQL.
 
 Sono disponibili diversi altri esempi e il codice di esempio nella [pagina degli esempi del connettore MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-examples.html).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 1. Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
    - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
    - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
@@ -31,8 +31,8 @@ Sono disponibili diversi altri esempi e il codice di esempio nella [pagina degli
 2. Assicurarsi che la sicurezza della connessione al database di Azure per MySQL sia configurata con il firewall aperto e le impostazioni SSL siano regolate per la corretta connessione dell'applicazione.
 
 3. Per ottenere il connettore MySQL Connector/J, usare uno degli approcci seguenti:
-   - Usare il pacchetto Maven [mysql-connector-java](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) per includere la [dipendenza mysql](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) nel file POM del progetto.
-   - Scaricare il driver JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) e includere il file JAR JDBC (ad esempio, mysql-connector-java-5.1.42-bin.jar) nel percorso di classe dell'applicazione. In caso di problemi con i percorsi di classe, vedere la documentazione dell'ambiente relativa alle specifiche per il percorso delle classi, ad esempio [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) o [Java SE](http://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+   - Usare il pacchetto Maven [mysql-connector-java](https://search.maven.org/#search%7Cga%7C1%7Cg%3A%22mysql%22%20AND%20a%3A%22mysql-connector-java%22) per includere la [dipendenza mysql](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.6) nel file POM del progetto.
+   - Scaricare il driver JDBC [MySQL Connector/J](https://dev.mysql.com/downloads/connector/j/) e includere il file JAR JDBC (ad esempio, mysql-connector-java-5.1.42-bin.jar) nel percorso di classe dell'applicazione. In caso di problemi con i percorsi di classe, vedere la documentazione dell'ambiente relativa alle specifiche per il percorso delle classi, ad esempio [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) o [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per MySQL. Sono necessari il nome del server completo e le credenziali di accesso.
@@ -233,7 +233,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Aggiornare i dati
-Usare il codice seguente per modificare i dati con un'istruzione SQL **UPDATE**. Il metodo [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) viene usato per connettersi a MySQL. I metodi [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ed executeUpdate() vengono usati per preparare ed eseguire l'istruzione update. 
+Usare il codice seguente per modificare i dati con un'istruzione SQL **UPDATE**. Il metodo [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) viene usato per connettersi a MySQL. I metodi [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ed executeUpdate() vengono usati per preparare ed eseguire l'istruzione update. 
 
 Sostituire i parametri host, database, user e password con i valori specificati al momento della creazione del server e del database.
 
@@ -314,7 +314,7 @@ public class UpdateTable {
 ```
 
 ## <a name="delete-data"></a>Eliminare i dati
-Usare il codice seguente per rimuovere i dati con un'istruzione SQL **DELETE**. Il metodo [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) viene usato per connettersi a MySQL.  I metodi [prepareStatement()](http://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ed executeUpdate() vengono usati per preparare ed eseguire l'istruzione update. 
+Usare il codice seguente per rimuovere i dati con un'istruzione SQL **DELETE**. Il metodo [getConnection()](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-usagenotes-connect-drivermanager.html) viene usato per connettersi a MySQL.  I metodi [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) ed executeUpdate() vengono usati per preparare ed eseguire l'istruzione update. 
 
 Sostituire i parametri host, database, user e password con i valori specificati al momento della creazione del server e del database.
 

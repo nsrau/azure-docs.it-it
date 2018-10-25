@@ -12,14 +12,14 @@ ms.component: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/28/2018
+ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 43bfe3abcbe6a66f124565cde8ddb839ba76d045
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107251"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987261"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 
@@ -32,7 +32,7 @@ La funzionalità delle identità gestite per le risorse di Azure in Azure Active
 La funzionalità delle identità gestite per le risorse di Azure è gratuita con le sottoscrizioni di Azure AD per Azure. Non sono previsti costi aggiuntivi.
 
 > [!NOTE]
-> Identità gestite per le risorse di Azure è il nuovo nome assegnato al servizio precedentemente noto come Identità del servizio gestita.
+> Identità gestite per le risorse di Azure è il nuovo nome per il servizio precedentemente noto come identità del servizio gestita.
 
 ## Funzionamento della funzionalità<a name="how-does-it-work"></a>
 
@@ -116,9 +116,11 @@ Informazioni sull'uso di un'identità gestita con altri servizi di Azure:
 
 * [Servizio app di Azure](/azure/app-service/app-service-managed-service-identity)
 * [Funzioni di Azure](/azure/app-service/app-service-managed-service-identity)
+* [App per la logica di Azure](/azure/logic-apps/create-managed-service-identity)
 * [Bus di servizio di Azure](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Hub eventi di Azure](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Gestione API di Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Istanze di contenitore di Azure](../../container-instances/container-instances-managed-identity.md)
 
 ## Servizi di Azure che supportano questa funzionalità<a name="which-azure-services-support-managed-identity"></a>
 

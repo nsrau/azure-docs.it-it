@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: aefb9142e5954b2e4598c73eb36fa25de99e9584
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 720b8584c201826e55099ad31667478b6aa57b27
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452259"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024518"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Estensioni della macchina virtuale e funzionalità per Linux
 
@@ -54,7 +54,8 @@ Per garantire la migliore esperienza possibile, sono previsti requisiti minimi p
 
 #### <a name="supported-oses"></a>Sistemi operativi supportati
 
-L'agente Linux viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedere [questo articolo] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+L'agente Linux viene eseguito su più sistemi operativi, tuttavia il framework delle estensioni prevede un limite per i sistemi operativi. Per altre informazioni, vedere [questo articolo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+).
 
 Alcune estensioni non sono supportate in tutti i sistemi operativi e possono generare il *codice di errore 51, "Sistema operativo non supportato"*. Vedere la documentazione della singola estensione per informazioni sul supporto.
 
@@ -65,7 +66,7 @@ I pacchetti di estensioni vengono scaricati dal repository delle estensioni di A
 > [!IMPORTANT]
 > Se l'accesso a *168.63.129.1* è stato bloccato con il firewall guest, le estensioni non rispettano quanto specificato sopra.
 
-Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. È possibile consentire l'accesso ad Archiviazione di Azure per le estensioni usando i tag di servizio del gruppo di sicurezza di rete per [Archiviazione](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Gli agenti possono essere usati solo per caricare i pacchetti di estensioni e lo stato della creazione di report. Ad esempio, se l'installazione di un'estensione richiede il download di uno script da GitHub (script personalizzato) o ha bisogno di accedere ad Archiviazione di Azure (Backup di Azure), allora è necessario aprire altre porte del firewall/gruppo di sicurezza di rete. Estensioni diverse hanno requisiti diversi, perché sono applicazioni indipendenti. È possibile consentire l'accesso ad Archiviazione di Azure per le estensioni usando i tag di servizio del gruppo di sicurezza di rete per [Archiviazione](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Per reindirizzare le richieste di traffico dell'agente, l'agente Linux include il supporto del server proxy. Tuttavia, il supporto del server proxy non applica le estensioni. È necessario configurare ogni singola estensione per usare un proxy.
 
@@ -259,7 +260,7 @@ Nell'output di esempio precedente l'elemento padre o la "versione distribuita de
 
 "Goal state agent" è la versione dell'aggiornamento automatico.
 
-È consigliabile impostare sempre l'aggiornamento automatico per l'agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Se non viene abilitato, è necessario continuare ad aggiornare manualmente l'agente, senza ottenere correzioni di bug e della sicurezza.
+È consigliabile impostare sempre l'aggiornamento automatico per l'agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Se non viene abilitato, è necessario continuare ad aggiornare manualmente l'agente, senza ottenere correzioni di bug e della sicurezza.
 
 #### <a name="extension-updates"></a>Aggiornamenti delle estensioni
 
@@ -408,7 +409,7 @@ az vm extension delete \
 | Estensione script personalizzata per Linux |Eseguire gli script in una macchina virtuale di Azure |[Estensione script personalizzata per Linux](custom-script-linux.md) |
 | Estensione dell'accesso alle macchine virtuali |Ripristinare l'accesso a una macchina virtuale di Azure |[Estensione dell'accesso alle macchine virtuali](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Estensione di Diagnostica di Azure |Gestisce Diagnostica di Azure. |[Estensione di Diagnostica di Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[Estensione dell'accesso alla VM per Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Estensione dell'accesso alla VM di Azure |Gestire gli utenti e le credenziali |[Estensione dell'accesso alla VM per Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: adcb1b15ed52e6954846ea09be0a87a118222c10
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989585"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956430"
 ---
 # <a name="about-v20"></a>Informazioni su v2.0
 
@@ -62,6 +62,6 @@ Approfondimento su v2.0:
 * [API Microsoft Graph](https://graph.microsoft.io)
 
 > [!NOTE]
-> Se occorre effettuare l'accesso con un account aziendale o dell'istituto di istruzione da Azure Active Directory, iniziare con la [Guida di Azure AD per sviluppatori](azure-ad-developers-guide.md). L'uso dell'endpoint v2.0 è destinato agli sviluppatori che devono eseguire l'accesso agli account personali di Microsoft in modo esplicito.
+> Se occorre effettuare l'accesso con un account aziendale o dell'istituto di istruzione da Azure Active Directory, iniziare con la [Guida di Azure AD per sviluppatori](v1-overview.md). L'uso dell'endpoint v2.0 è destinato agli sviluppatori che devono eseguire l'accesso agli account personali di Microsoft in modo esplicito.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

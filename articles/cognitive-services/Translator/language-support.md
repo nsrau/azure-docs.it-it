@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 775e098eb2a067e3e0446bccc223c1c54e082347
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435307"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957393"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -108,7 +108,7 @@ Il metodo Transliterate supporta le lingue seguenti. Nella colonna "Verso/Da" il
 | Hindi | hi | Devanagari | <--> | Latino |
 | Giapponese | ja | Giapponese | <--> | Latino |
 | Kannada | kn | Kannada | --> | Latino |
-| Malese | ml | Malayalam | --> | Latino |
+| Malayalam | ml | Malayalam | --> | Latino |
 | Marathi | mr | Devanagari | --> | Latino |
 | Oriya | oppure | Oriya | <--> | Latino |
 | Punjabi | pa | Gurmukhi | <--> | Latino  |

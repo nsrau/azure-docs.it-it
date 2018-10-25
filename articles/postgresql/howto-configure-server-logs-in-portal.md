@@ -9,25 +9,25 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: be889d7b0bf6060b3b93244da6746fa6f13024da
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692165"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985506"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurare e accedere ai log del server nel portale di Azure
 
 È possibile configurare, elencare e scaricare i [log del server di Database di Azure per PostgreSQL](concepts-server-logs.md) dal portale di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per proseguire con questa guida, si richiedono:
 - [Un server di Database di Azure per PostgreSQL](quickstart-create-server-database-portal.md)
 
 ## <a name="configure-logging"></a>Configurare la registrazione
 Configurare l'accesso per i log di query e i log degli errori. 
 
-1. Accedere al [portale di Azure](http://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 2. Selezionare il server di Database di Azure per PostgreSQL.
 

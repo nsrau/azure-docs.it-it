@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: de2c57949cb2087e41b79a225963225d340f12af
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263083"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957378"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorare i servizi di Azure in Grafana
 Ora è possibile monitorare i servizi e le applicazioni di Azure da [Grafana](https://grafana.com/) usando il [plug-in dell'origine dati di Monitoraggio di Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). Il plug-in raccoglie i dati sulle prestazioni dell'applicazione raccolti da Application Insights SDK, nonché i dati di infrastruttura forniti da Monitoraggio di Azure. È quindi possibile visualizzare questi dati nel dashboard di Grafana.
@@ -62,7 +62,7 @@ Una volta eseguito l'accesso, si dovrebbe vedere che il plug-di origine dati di 
 
 Grafana usa un'entità servizio di Azure Active Directory per connettersi alle API di Monitoraggio di Azure e raccogliere i dati delle metriche. È necessario creare un'entità servizio per gestire l'accesso alle risorse di Azure.
 
-1. Per creare un'entità servizio, seguire [queste istruzioni](../azure-resource-manager/resource-group-create-service-principal-portal.md). Copiare e salvare l'ID tenant, l'ID client e un segreto client.
+1. Per creare un'entità servizio, seguire [queste istruzioni](../active-directory/develop/howto-create-service-principal-portal.md). Copiare e salvare l'ID tenant, l'ID client e un segreto client.
 
 2. Per informazioni su come assegnare il ruolo di lettore all'applicazione Azure Active Directory, vedere [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role).     
 

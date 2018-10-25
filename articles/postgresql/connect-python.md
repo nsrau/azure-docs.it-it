@@ -11,17 +11,17 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 557d4217819449cd0513d4a21e331e660e37037b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687320"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987682"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: usare Python per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come usare [Python](https://python.org) per connettersi a un database di Azure per PostgreSQL. Descrive anche come usare istruzioni SQL per eseguire query e inserire, aggiornare ed eliminare dati nel database dalle piattaforme macOS, Ubuntu Linux e Windows. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Python, ma non con Database di Azure per PostgreSQL.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questa guida introduttiva usa le risorse create in una delle guide seguenti come punto di partenza:
 - [Creare un database: portale](quickstart-create-server-database-portal.md)
 - [Creare un database: interfaccia della riga di comando](quickstart-create-server-database-azure-cli.md)
@@ -31,7 +31,7 @@ Altri elementi necessari:
 - Pacchetto [pip](https://pip.pypa.io/en/stable/installing/) installato. È già installato se si usano i file binari Python 2 (>=2.7.9) o Python 3 (>=3.4) scaricati da [python.org](https://python.org).
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>Installare le raccolte di connessioni Python per PostgreSQL
-Installare il pacchetto [psycopg2](http://initd.org/psycopg/docs/install.html), che consente di connettersi ed eseguire query sul database. psycopg2 è [disponibile in PyPI](https://pypi.python.org/pypi/psycopg2/) sotto forma di pacchetti [wheel](http://pythonwheels.com/) per le piattaforme più comuni (Linux, OSX e Windows). Usare pip install per ottenere la versione binaria del modulo con tutte le dipendenze.
+Installare il pacchetto [psycopg2](http://initd.org/psycopg/docs/install.html), che consente di connettersi ed eseguire query sul database. psycopg2 è [disponibile in PyPI](https://pypi.python.org/pypi/psycopg2/) sotto forma di pacchetti [wheel](https://pythonwheels.com/) per le piattaforme più comuni (Linux, OSX e Windows). Usare pip install per ottenere la versione binaria del modulo con tutte le dipendenze.
 
 1. Nel computer in uso avviare un'interfaccia della riga di comando:
     - In Linux avviare la shell Bash.
