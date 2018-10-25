@@ -10,24 +10,25 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 388957fc5dac5cdab5bee34a4431eaa524e76a48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999903"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945672"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Trasformare i dati con SDK Azure Machine Learning Data Prep
 
 L'[SDK di Azure Machine Learning Data Prep](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) offre metodi di trasformazione diversi per eseguire la pulizia dei dati. Questi metodi rendono semplice aggiungere colonne, filtrare le righe o le colonne non desiderate e attribuire i valori mancanti.
 
 Attualmente sono disponibili metodi per le attività seguenti:
-- [Aggiungere una colonna tramite un'espressione](#add-column-using-expression)
+- [Aggiungere una colonna tramite un'espressione](#column)
 - [Attribuire i valori mancanti](#impute-missing-values)
 - [Derivare le colonne in base a un esempio](#derive-column-by-example)
 - [Filtri](#filtering)
 - [Trasformazioni personalizzate di Python](#custom-python-transforms)
 
+<a name=column>
 ## <a name="add-column-using-an-expression"></a>Aggiungere una colonna tramite un'espressione
 
 L'SDK Azure Machine Learning Data Prep contiene le espressioni `substring` che è possibile usare per calcolare un valore dalle colonne esistenti e quindi inserire tale valore in una nuova colonna. In questo esempio, si caricheranno i dati e si cercherà di aggiungere colonne a tali dati di input.

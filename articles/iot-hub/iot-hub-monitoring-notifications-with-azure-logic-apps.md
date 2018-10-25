@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: e59577e99114f1b2061a2f9075976da3f0b1811f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: adda4e948c11f84517b1e8dd01e6cfe42155e1ca
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634455"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409442"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale
 
@@ -56,7 +56,7 @@ Informazioni su come creare un'app per la logica che connette l'hub IoT e la cas
    **Gruppo di risorse**: usare lo stesso gruppo di risorse usato da hub IoT.
 
    **Posizione**: usare la stessa posizione che usa l'hub IoT.
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 
    ![Creare uno spazio dei nomi del bus di servizio nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1_create-service-bus-namespace-azure-portal.png)
 
@@ -115,7 +115,7 @@ Informazioni su come creare un'app per la logica che connette l'hub IoT e la cas
    **Gruppo di risorse**: usare lo stesso gruppo di risorse usato da hub IoT.
 
    **Posizione**: usare la stessa posizione che usa l'hub IoT.
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 
 ### <a name="configure-the-logic-app"></a>Configurare l'app per la logica
 
@@ -151,7 +151,7 @@ Informazioni su come creare un'app per la logica che connette l'hub IoT e la cas
 
       ![Inserire le informazioni sulla connessione SMTP nell'app per la logica nel portale di Azure](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10_enter-smtp-connection-info-logic-app-azure-portal.png)
 
-      Ottenere le informazioni di SMTP per [Hotmail/Outlook.com](https://support.office.com/en-us/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) e [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
+      Ottenere le informazioni di SMTP per [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) e [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
    1. Immettere l'indirizzo di posta elettronica per **From** (Da) e **To** (A)e `High temperature detected` per **Oggetto** e **Corpo**.
    1. Fare clic su **Save**.
 

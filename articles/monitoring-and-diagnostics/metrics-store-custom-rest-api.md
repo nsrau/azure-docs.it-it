@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c01440437eae3cb076627ab9f2221e33b833f472
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d36697e6b5765ecf35ed9b3add45cff6c33823a5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977237"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958220"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-using-a-rest-api"></a>Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST
 
@@ -25,7 +25,7 @@ Questo articolo illustra come inviare metriche personalizzate per le risorse di 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Creare e autorizzare un'entità servizio a generare metriche 
 
-Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni disponibili in [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Creare un'entità servizio). 
+Creare un'entità servizio nel tenant di Azure Active Directory usando le istruzioni disponibili in [Create a service principal](../active-directory/develop/howto-create-service-principal-portal.md) (Creare un'entità servizio). 
 
 Tenere presente quanto segue durante questo processo: 
 

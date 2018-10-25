@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406533"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955442"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Confronto tra gli endpoint v2.0 e v1.0 di Azure AD
 
@@ -133,7 +133,7 @@ Di seguito sono riportati alcuni consigli per gli sviluppatori, opportunamente s
 
 * Se nell'applicazione devono essere supportati account Microsoft personali, usare la versione 2.0. È necessario tuttavia comprendere prima i limiti illustrati in questo articolo.
 
-* Se l'applicazione deve supportare solo account Microsoft aziendali e dell'istituto di istruzione, non usare la versione 2.0. Vedere invece la [guida alla versione 1.0](azure-ad-developers-guide.md).
+* Se l'applicazione deve supportare solo account Microsoft aziendali e dell'istituto di istruzione, non usare la versione 2.0. Vedere invece la [guida alla versione 1.0](v1-overview.md).
 
 L'endpoint 2.0 verrà migliorato per eliminare le restrizioni elencate di seguito, in modo da consentire l'uso esclusivo dell'endpoint 2.0. Nel frattempo, usare questo articolo per determinare se l'endpoint 2.0 è adatto alle proprie esigenze. L'articolo verrà aggiornato periodicamente per riflettere lo stato corrente dell'endpoint 2.0. È consigliabile tornare a consultarlo regolarmente per valutare i propri requisiti rispetto alle funzionalità della versione 2.0.
 

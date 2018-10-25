@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1f7d54129ef9f85bb4141d26b9be8d4a0652bff8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1e7fc5cd684610a5d96b5986f5c169741055c9b8
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448187"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426819"
 ---
 # <a name="create-key-performance-indicators"></a>Creare indicatori di prestazioni chiave
 
@@ -21,7 +21,7 @@ In questa lezione verranno creati alcuni indicatori di prestazioni chiave (KPI).
   
 Tempo previsto per il completamento della lezione: **15 minuti**  
   
-## <a name="prerequisites"></a>prerequisiti  
+## <a name="prerequisites"></a>Prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 6: Creare misure](../tutorials/aas-lesson-6-create-measures.md).   
   
 ## <a name="create-key-performance-indicators"></a>Creare indicatori di prestazioni chiave  

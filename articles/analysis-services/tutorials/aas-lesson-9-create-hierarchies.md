@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 928fe227a74c5c63ccdfb364b0e2423d7b544864
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2e6591dc25ab498b496f6abff1041e448240896d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443019"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426059"
 ---
 # <a name="create-hierarchies"></a>Creare gerarchie
 
@@ -23,7 +23,7 @@ Per creare gerarchie, usare la finestra di progettazione dei modelli in *Vista d
   
 Tempo previsto per il completamento della lezione: **20 minuti**  
   
-## <a name="prerequisites"></a>prerequisiti  
+## <a name="prerequisites"></a>Prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 8: Creare prospettive](../tutorials/aas-lesson-8-create-perspectives.md).  
   
 ## <a name="create-hierarchies"></a>Creare gerarchie  

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2e455845a145e07bc59378818b95e23e572cb577
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 07be154f05441c94e32b05fc8354f59b88713929
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227102"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456934"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guida introduttiva: eseguire il provisioning di un dispositivo simulato con chiavi simmetriche
 
@@ -46,12 +46,20 @@ In questa sezione si preparerà un ambiente di sviluppo usato per compilare [Azu
 
 L'SDK include il codice di esempio per un dispositivo simulato. Il dispositivo simulato tenterà di effettuare il provisioning durante la sequenza di avvio del dispositivo.
 
-1. Scaricare la versione più recente del [sistema di compilazione CMake](https://cmake.org/download/). Dallo stesso sito, cercare l'hash di crittografia per la versione della distribuzione binaria scelta. Verificare il file binario scaricato usando il valore hash di crittografia corrispondente. Nell'esempio seguente viene usato Windows PowerShell per verificare l'hash di crittografia per la versione 3.11.4 della distribuzione MSI x64:
+1. Scaricare la versione 3.11.4 del [sistema di compilazione CMake](https://cmake.org/download/). Verificare il file binario scaricato usando il valore hash di crittografia corrispondente. Nell'esempio seguente viene usato Windows PowerShell per verificare l'hash di crittografia per la versione 3.11.4 della distribuzione MSI x64:
 
     ```PowerShell
-    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
     True
+    ```
+    
+    I seguenti valori hash per la versione 3.11.4 venivano elencati nel sito di CMake al momento della stesura di questo articolo:
+
+    ```
+    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
+    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
+    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
     ```
 
     È importante che nel computer siano installati i prerequisiti di Visual Studio (Visual Studio e carico di lavoro 'Sviluppo di applicazioni desktop con C++') **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
@@ -75,7 +83,7 @@ L'SDK include il codice di esempio per un dispositivo simulato. Il dispositivo s
 4. Eseguire il comando seguente che compila una versione dell'SDK specifica per la piattaforma di sviluppo client. Verrà generata una soluzione di Visual Studio per il dispositivo simulato nella directory `cmake`. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     Se `cmake` non trova il compilatore C++, si potrebbero verificare errori di compilazione durante l'esecuzione del comando precedente. In tal caso, provare a eseguire questo comando nel [prompt dei comandi di Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -83,7 +91,7 @@ L'SDK include il codice di esempio per un dispositivo simulato. Il dispositivo s
     Al termine della compilazione, le ultime righe di output saranno simili all'output seguente:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -118,7 +126,7 @@ L'SDK include il codice di esempio per un dispositivo simulato. Il dispositivo s
 
 4. Dopo aver salvato la registrazione, la **chiave primaria** e la **chiave secondaria** verranno generate e aggiunte alla voce di registrazione. La registrazione del dispositivo di chiave simmetrica verrà visualizzato come **symm-key-device-007** nella colonna *ID registrazione* della scheda *Registrazioni singole*. 
 
-    Aprire la registrazione e copiare il valore della **Chiave primaria** generata.
+    Aprire la registrazione e copiare il valore della **chiave primaria** generata.
 
 
 
@@ -148,7 +156,7 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Trovare la definizione per la funzione `main()` nello stesso file. Assicurarsi che la variabile `hsm_type` sia impostata su `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` come illustrato di seguito:
+5. Trovare la definizione per la funzione `main()` nello stesso file. Assicurarsi che la variabile`hsm_type` sia impostata su `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` come illustrato di seguito:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -159,7 +167,7 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
 
 6. Fare clic con il pulsante destro del mouse sul progetto **prov\_dev\_client\_sample** e scegliere **Imposta come progetto di avvio**. 
 
-7. Nella finestra *Esplora soluzioni* di Visual Studio passare al progetto **hsm\_security\_client** ed espanderlo. Espandere i **file di origine**, quindi aprire **hsm\_client\_key.c**. 
+7. Nella finestra *Esplora soluzioni* di Visual Studio passare al progetto **hsm\_security\_client** ed espanderlo. Espandere i **File di origine**, quindi aprire **hsm\_client\_key.c**. 
 
     Individuare la dichiarazione delle costanti `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Apportare le seguenti modifiche al file e salvarlo.
 
@@ -174,7 +182,7 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
 
 7. Nel menu di Visual Studio selezionare **Debug** > **Avvia senza eseguire debug** per eseguire la soluzione. Nella richiesta di ricompilare il progetto fare clic su **Sì** per ricompilare il progetto prima dell'esecuzione.
 
-    Il seguente output è un esempio di dispositivo simulato che si sta avviando correttamente e connettendo all'istanza del servizio di provisioning che i criteri di allocazione personalizzati assegneranno all'hub IoT:
+    Il seguente output è un esempio di dispositivo simulato che si avvia correttamente e si connette all'istanza del servizio di provisioning da assegnare all'hub IoT:
 
     ```cmd
     Provisioning API Version: 1.2.8
@@ -190,7 +198,7 @@ In questa sezione verrà aggiornato il codice di esempio per inviare la sequenza
     Press enter key to exit:
     ```
 
-8. Nel portale, passare all'hub IoT assegnato al dispositivo simulato e fare clic sulla scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO* **abilitato**. Potrebbe essere necessario fare clic sul pulsante **Aggiorna** nella parte superiore. 
+8. Nel portale, passare all'hub IoT a cui è stato assegnato il dispositivo simulato e fare clic sulla scheda **Dispositivi IoT**. Al termine del provisioning del dispositivo simulato nell'hub, il relativo ID dispositivo verrà visualizzato nel pannello **Dispositivi IoT** con *STATO* **abilitato**. Potrebbe essere necessario fare clic sul pulsante **Aggiorna** nella parte superiore. 
 
     ![Il dispositivo viene registrato con l'hub IoT](./media/quick-create-simulated-device/hub-registration.png) 
 

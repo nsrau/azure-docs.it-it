@@ -7,18 +7,18 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 1b158fd3ac3f36b71a76c149e8b6815f576be1c5
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: d9685d5c5a673b0ec27e973bbbfd327547c63652
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007303"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955355"
 ---
 # <a name="event-hubs-management-libraries"></a>Librerie di gestione di Hub eventi
 
-È possibile usare le librerie di gestione di Hub eventi per effettuare il provisioning dinamico di entità e spazi dei nomi di Hub eventi. Questa modalità dinamica consente distribuzioni complesse e scenari di messaggistica e permette di determinare a livello di codice le entità di cui effettuare il provisioning. Queste librerie sono attualmente disponibili per .NET.
+È possibile usare le librerie di gestione di Hub eventi per effettuare il provisioning dinamico di entità e spazi dei nomi di Hub eventi. per consentire distribuzioni complesse e scenari di messaggistica e permettere di determinare a livello di codice le entità di cui effettuare il provisioning. Queste librerie sono attualmente disponibili per .NET.
 
 ## <a name="supported-functionality"></a>Funzionalità supportate
 
@@ -30,8 +30,8 @@ ms.locfileid: "40007303"
 
 Per iniziare a usare le librerie di gestione di Hub eventi, è necessario eseguire l'autenticazione con Azure Active Directory (AAD). AAD richiede l'autenticazione come entità servizio, che fornisce l'accesso alle risorse di Azure in uso. Per informazioni su come creare un'entità servizio, vedere uno di questi articoli:  
 
-* [Usare il portale di Azure per creare un'applicazione Active Directory e un'entità servizio che accedono alle risorse](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-* [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* [Usare il portale di Azure per creare un'applicazione Active Directory e un'entità servizio che accedono alle risorse](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
 Nel corso di queste esercitazioni vengono forniti un `AppId` (ID client), un `TenantId` e un `ClientSecret` (chiave di autenticazione) che sono usati per l'autenticazione da parte delle librerie di gestione. È necessario avere autorizzazioni di **Proprietario** per il gruppo di risorse in cui verranno eseguite le librerie.

@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e3e3a981daf1273b8b2387cb1c665317f860b1d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974868"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954573"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurare un'entità servizio di Azure AD per un cluster Kubernetes nel servizio contenitore
 
@@ -37,14 +37,14 @@ Questo articolo illustra le diverse opzioni disponibili per configurare un'entit
 * **Segreto client**: deve essere una password. Non è attualmente possibile usare un'entità servizio configurata per l'autenticazione del certificato.
 
 > [!IMPORTANT]
-> Per creare un'entità servizio sono necessarie autorizzazioni sufficienti per registrare un'applicazione con il tenant di Azure AD e assegnare l'applicazione a un ruolo nella sottoscrizione. È possibile verificare se si hanno a disposizione le autorizzazioni necessarie [nel portale](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
+> Per creare un'entità servizio sono necessarie autorizzazioni sufficienti per registrare un'applicazione con il tenant di Azure AD e assegnare l'applicazione a un ruolo nella sottoscrizione. È possibile verificare se si hanno a disposizione le autorizzazioni necessarie [nel portale](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Opzione 1: creare un'entità servizio in Azure AD
 
 Azure mette a disposizione diversi metodi per creare un'entità servizio di Azure AD prima di distribuire il cluster Kubernetes.
 
-I comandi di esempio seguenti illustrano come eseguire questa operazione con l'[interfaccia della riga di comando Azure](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). In alternativa è possibile creare un'entità servizio usando [Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), il [portale](../../azure-resource-manager/resource-group-create-service-principal-portal.md) o altri metodi.
+I comandi di esempio seguenti illustrano come eseguire questa operazione con l'[interfaccia della riga di comando Azure](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). In alternativa è possibile creare un'entità servizio usando [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md), il [portale](../../active-directory/develop/howto-create-service-principal-portal.md) o altri metodi.
 
 ```azurecli
 az login

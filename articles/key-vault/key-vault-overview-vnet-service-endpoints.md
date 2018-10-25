@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: c2696d5eb22443b565c48ef4f96d6e4a25827606
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295005"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404325"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint del servizio di rete virtuale per Azure Key Vault
 
@@ -50,7 +50,7 @@ Per istruzioni passo per passo dettagliate, vedere [Configurare reti virtuali e 
 > [!NOTE]
 > * È consentito un massimo di 127 regole di rete virtuale e 127 regole di IPv4. 
 > * Gli intervalli di indirizzi di piccole dimensioni con dimensioni di prefisso "/31" o "/32" non sono supportati. Questi intervalli vanno configurati con le regole usate per gli indirizzi IP singoli.
-> * Le regole di rete IP sono consentite solo per gli indirizzi IP pubblici. Gli intervalli di indirizzi IP riservati per le reti private (come da definizione in RFC 1918) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con *10.**, *172.16.**, e *192.168.**. 
+> * Le regole di rete IP sono consentite solo per gli indirizzi IP pubblici. Gli intervalli di indirizzi IP riservati per le reti private (come da definizione in RFC 1918) non sono consentiti nelle regole IP. Le reti private includono gli indirizzi che iniziano con *10.*\*, *172.16.*\* e *192.168.*\*. 
 > * Attualmente sono supportati solo gli indirizzi IPv4.
 
 ## <a name="trusted-services"></a>Servizi attendibili
@@ -62,7 +62,7 @@ Ecco un elenco di servizi attendibili che sono autorizzati ad accedere a un insi
 |Servizio di distribuzione dei modelli di Azure Resource Manager|[Passare valori protetti durante la distribuzione](../azure-resource-manager/resource-manager-keyvault-parameter.md)|
 |Servizio di crittografia dei volumi di Crittografia dischi di Azure|Consentire l'accesso a BitLocker Key (VM Windows) o DM Passphrase (VM Linux) e la chiave di crittografia della chiave durante la distribuzione della macchina virtuale per abilitare la [Crittografia dischi di Azure](../security/azure-security-disk-encryption.md)|
 |Backup di Azure|Consentire il backup e ripristino di segreti e chiavi pertinenti durante il backup della macchina virtuale di Azure usando [Backup di Azure](../backup/backup-introduction-to-azure-backup.md)|
-|Exchange Online e SharePoint Online|Consentire l'accesso alla chiave cliente per la crittografia del servizio con [Chiave cliente](https://support.office.com/en-us/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
+|Exchange Online e SharePoint Online|Consentire l'accesso alla chiave cliente per la crittografia del servizio con [Chiave cliente](https://support.office.com/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Consentire l'accesso alla chiave del tenant per [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection).|
 |Servizi app|[Distribuzione di un certificato dell'app Web di Azure tramite Key Vault](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
 |SQL di Azure|[Transparent Data Encryption con supporto BYOK (Bring Your Own Key) per il database SQL di Azure e Azure SQL Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|

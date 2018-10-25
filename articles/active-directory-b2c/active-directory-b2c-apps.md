@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480513"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406518"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipi di applicazioni che possono essere usate in Active Directory B2C
 
@@ -88,11 +88,6 @@ Accept: application/json
 
 L'API Web può quindi usare il token per verificare l'identità del chiamante dell'API ed estrarre informazioni su quest'ultimo dalle attestazioni codificate nel token. Per altre informazioni sui tipi di token e attestazioni disponibili per un'app, vedere [Azure AD B2C: informazioni di riferimento sui token](active-directory-b2c-reference-tokens.md).
 
-> [!NOTE]
-> Azure AD B2C supporta attualmente solo API Web accessibili da propri client noti. Ad esempio, l'app completa può includere un'applicazione per iOS, un'applicazione per Android e un'API Web back-end. Questa architettura è completamente supportata. L'accesso alla stessa API Web da parte di un client di partner, ad esempio un'altra applicazione iOS, attualmente non è supportato. Tutti i componenti dell'applicazione completa devono condividere un singolo ID applicazione.
->
->
-
 Un'API Web può ricevere token da molti tipi di client, tra cui applicazioni Web, applicazioni desktop e per dispositivi mobili, applicazioni a singola pagina, daemon sul lato server e altre API Web. Di seguito è riportato un esempio di flusso completo di un'applicazione Web che chiama un'API Web:
 
 1. L'applicazione Web esegue criteri e l'utente completa l'esperienza utente.
@@ -114,11 +109,6 @@ Per informazioni su come proteggere un'API Web con Azure AD B2C, vedere le eserc
 Le applicazioni installate nei dispositivi, ad esempio le applicazioni desktop e per dispositivi mobili, devono spesso accedere a servizi back-end o ad API Web per conto degli utenti. È possibile aggiungere esperienze personalizzate di gestione delle identità alle applicazioni native ed eseguire chiamate sicure ai servizi back-end usando Azure AD B2C e il [flusso del codice di autorizzazione OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
 
 In questo flusso l'applicazione esegue i [criteri](active-directory-b2c-reference-policies.md) e riceve un `authorization_code` da Azure AD dopo che l'utente ha completato i criteri. L'oggetto `authorization_code` rappresenta l'autorizzazione dell'applicazione a chiamare servizi back-end per conto dell'utente che ha eseguito l'accesso. L'applicazione può quindi scambiare l'oggetto `authorization_code` in background con un `id_token` e un `refresh_token`.  L'applicazione può usare l'oggetto `id_token` per eseguire l'autenticazione a un'API Web back-end nelle richieste HTTP. Può anche usare `refresh_token` per ottenere un nuovo `id_token` alla scadenza di quello precedente.
-
-> [!NOTE]
-> Azure AD B2C attualmente supporta solo i token usati per accedere al servizio Web back-end di un'applicazione. Ad esempio, l'applicazione completa può includere un'applicazione per iOS, un'applicazione per Android e un'API Web back-end. Questa architettura è completamente supportata. L'accesso a un'API Web di partner da parte di un'applicazione iOS con i token di accesso OAuth 2.0 attualmente non è supportato. Tutti i componenti dell'applicazione completa devono condividere un singolo ID applicazione.
->
->
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 

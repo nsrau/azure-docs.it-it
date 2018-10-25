@@ -5,27 +5,29 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 07/17/2018
+ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e8cb5dadb7eed5eb33c15d7a4d1d4640a10099c9
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40245786"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650697"
 ---
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**.
 
 2. Selezionare **App per le funzioni di Azure**, scegliere **Crea nuova** e quindi selezionare **Pubblica**.
 
-    ![Selezionare una destinazione di pubblicazione](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+    ![Selezionare una destinazione di pubblicazione](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
+
+    Quando si abilita **Esegui da ZIP**, l'app per le funzioni in Azure viene eseguita direttamente dal pacchetto di distribuzione. Per altre informazioni, vedere [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md) (Esecuzione di Funzioni di Azure da un file di pacchetto).
 
 3. Se non si è ancora connesso Visual Studio al proprio account di Azure, selezionare **Aggiungi un account...**.
 
 4. Nella finestra di dialogo **Crea servizio app** usare le impostazioni di **Hosting** specificate nella tabella sotto l'immagine:
 
-    ![Finestra di dialogo Crea servizio app](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![Finestra di dialogo Crea servizio app](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Impostazione      | Valore consigliato  | DESCRIZIONE                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -39,4 +41,4 @@ ms.locfileid: "40245786"
 
 6. Al termine della distribuzione prendere nota del valore di **URL sito**, ovvero l'indirizzo dell'app per le funzioni in Azure.
 
-    ![Messaggio di esito positivo della pubblicazione](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![Messaggio di esito positivo della pubblicazione](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

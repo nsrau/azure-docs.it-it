@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f61399a3a6cb5c67343e28e4364d8d796ffbc066
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859279"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457069"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Attività Get Metadata in Azure Data Factory
 Questa attività può essere usata per recuperare i **metadati** di tutti i dati in Azure Data Factory. Questa attività può essere usata negli scenari seguenti:
@@ -61,6 +61,7 @@ L'attività GetMetadata accetta un set di dati come input obbligatorio e restitu
 | Connettore/Metadati | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | database SQL di Azure | √ | √ | √ |
+| Istanza gestita di database SQL di Azure | √ | √ | √ |
 | Azure SQL Data Warehouse | √ | √ | √ |
 | SQL Server | √ | √ | √ |
 
@@ -130,8 +131,8 @@ Attualmente l'attività GetMetadata può recuperare i tipi di informazioni dei m
 
 Proprietà | DESCRIZIONE | Obbligatoria
 -------- | ----------- | --------
-fieldList | Elenca i tipi di informazioni dei metadati necessarie. Vedere i dettagli nella sezione [Opzioni dei metadati](#metadata-options) sui metadati supportati. | Sì 
-dataset | Set di dati di riferimento la cui attività dei metadati deve essere recuperata dall'attività GetMetadata. Vedere la sezione relativa alle [funzionalità supportate](#supported-capabilities) sui connettori supportati e fare riferimento all'argomento sui connettori nei dettagli sulla sintassi del set di dati. | Sì
+fieldList | Elenca i tipi di informazioni dei metadati necessarie. Vedere i dettagli nella sezione [Opzioni dei metadati](#metadata-options) sui metadati supportati. | Yes 
+dataset | Set di dati di riferimento la cui attività dei metadati deve essere recuperata dall'attività GetMetadata. Vedere la sezione relativa alle [funzionalità supportate](#supported-capabilities) sui connettori supportati e fare riferimento all'argomento sui connettori nei dettagli sulla sintassi del set di dati. | Yes
 
 ## <a name="sample-output"></a>Output di esempio
 

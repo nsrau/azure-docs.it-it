@@ -3,7 +3,7 @@ title: Esercitazione - Installare applicazioni in una macchina virtuale Windows 
 description: Questa esercitazione illustra come usare l'estensione di script personalizzati per eseguire gli script e distribuire applicazioni in macchine virtuali Windows in Azure
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 2a365321e35c84d5b09570a7eac41bec6cdeb143
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: b183e9f3149f9fa8b856215ea9cd5ee33c1e6d79
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928965"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465461"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>Esercitazione - Distribuire applicazioni in una macchina virtuale Windows in Azure usando l'estensione script personalizzati
 

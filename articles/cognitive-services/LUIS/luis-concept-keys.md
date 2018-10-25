@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f7c1753e71025d3ce39b1b6e3fb7362f2df212f5
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034927"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637832"
 ---
 # <a name="keys-in-luis"></a>Chiavi in LUIS
 LUIS usa due chiavi: [creazione](#programmatic-key) ed [endpoint](#endpoint-key). La chiave di creazione viene creata automaticamente quando si crea l'account LUIS. Quando si è pronti a pubblicare l'app LUIS, è necessario [creare la chiave endpoint](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [assegnarla](luis-how-to-manage-keys.md#assign-endpoint-key) all'app LUIS e [usarla con la query endpoint](#use-endpoint-key-in-query). 
@@ -60,7 +60,7 @@ L'endpoint LUIS accetta due stili di query, entrambi usano la chiave endpoint, m
 |[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>valore stringa di query per `subscription-key`<br><br>Modificare il valore della query endpoint per `subscription-key` dalla chiave di creazione (avvio) alla nuova chiave endpoint per usare il limite di quota della chiave endpoint LUIS. Se si crea e si assegna la chiave, ma non si modifica il valore della query endpoint per subscription-key`, non si usa la quota della chiave endpoint.|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> valore intestazione per `Ocp-Apim-Subscription-Key`<br><br>Modificare il valore della query endpoint per `Ocp-Apim-Subscription-Key` dalla chiave di creazione (avvio) alla nuova chiave endpoint per usare il limite di quota della chiave endpoint LUIS. Se si crea e si assegna la chiave, ma non si modifica il valore della query endpoint per `Ocp-Apim-Subscription-Key`, non si usa la quota della chiave endpoint.|
 
-L'ID app usato nell'URL precedente, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, è l'app IoT pubblica usata per la [dimostrazione interattiva](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/). 
+L'ID app usato nell'URL precedente, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, è l'app IoT pubblica usata per la [dimostrazione interattiva](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Uso API di Ocp-Apim-Subscription-Key
 Le API LUIS usano l'intestazione, `Ocp-Apim-Subscription-Key`. Il nome dell'intestazione non cambia in base alla chiave e al set di API in uso. Impostare l'intestazione sulla chiave di creazione per le API di creazione. Se si utilizza l'endpoint, impostare l'intestazione sulla chiave endpoint. 

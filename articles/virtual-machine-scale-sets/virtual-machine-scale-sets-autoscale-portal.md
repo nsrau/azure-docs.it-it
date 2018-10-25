@@ -3,7 +3,7 @@ title: Ridimensionare automaticamente i set di scalabilità di macchine virtuali
 description: Come creare regole di scalabilità automatica per i set di scalabilità di macchine virtuali nel portale di Azure
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 4ae9d8053f7463c069a7305bbd07a91a387e31d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 6ce737cb221b948a1cc25b8a441d3b623915662b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972301"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466520"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali nel portale di Azure
 Quando si crea un set di scalabilità, definire il numero di istanze di macchine virtuali da eseguire. È possibile aumentare o ridurre automaticamente il numero di istanze di macchine virtuali in base alle richieste dell'applicazione. La scalabilità automatica consente di adattarsi alle esigenze dei clienti o di rispondere alle prestazioni dell'applicazione durante il ciclo di vita dell'app.
@@ -55,7 +55,7 @@ Se aumenta la richiesta da parte dell'applicazione, aumenta il carico sulle ista
     | *Operatore*             | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                     | Maggiore di   |
     | *Soglia*            | La percentuale che determina l'attivazione di un'azione da parte della regola di scalabilità automatica.                                                 | 70             |
     | *Duration*             | Il tempo monitorato prima che vengano confrontati i valori delle metriche e delle soglie.                                   | 10 minuti     |
-    | *Operazione*            | Definisce se il set di scalabilità deve aumentare o diminuire quando si applica la regola e quale incremento usare                        | Aumenta percentuale di |
+    | *operazione*            | Definisce se il set di scalabilità deve aumentare o diminuire quando si applica la regola e quale incremento usare                        | Aumenta percentuale di |
     | *Numero di istanze*       | La percentuale di istanze di macchine virtuali deve essere modificata quando viene attivata la regola.                                            | 20             |
     | *Disattiva regole dopo (minuti)*  | Il tempo di attesa prima che la regola venga applicata nuovamente in modo che le azioni di scalabilità automatica diventino effettive. | 5 minuti      |
 
@@ -78,7 +78,7 @@ Nelle ore serali o nel fine settimana è possibile che la richiesta delle applic
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
     | *Operatore*             | Operatore usato per confrontare i dati della metrica rispetto alla soglia.                                                      | Minore di   |
     | *Soglia*            | La percentuale che determina l'attivazione di un'azione da parte della regola di scalabilità automatica.                                                 | 30             |
-    | *Operazione*            | Definisce se il set di scalabilità deve aumentare o diminuire quando si applica la regola e quale incremento usare                         | Riduci percentuale di |
+    | *operazione*            | Definisce se il set di scalabilità deve aumentare o diminuire quando si applica la regola e quale incremento usare                         | Riduci percentuale di |
     | *Numero di istanze*       | La percentuale di istanze di macchine virtuali deve essere modificata quando viene attivata la regola.                                             | 20             |
 
 3. Per creare la regola, selezionare **Aggiungi**

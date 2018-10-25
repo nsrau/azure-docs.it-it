@@ -5,17 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 7/19/2018
+ms.date: 10/20/2018
 ms.author: victorh
-ms.openlocfilehash: a5a774ab83fbb4c972a3c8d5d84fb470333d6989
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 442224416a9ea1b7a6a2907de4481f09aaf7ab27
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163626"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465175"
 ---
-# <a name="azure-firewall-faq-preview"></a>Domande frequenti su Firewall di Azure (anteprima)
-
-[!INCLUDE [Azure Firewall Preview](../../includes/firewall-preview-notice.md)]
+# <a name="azure-firewall-faq"></a>Domande frequenti su Firewall di Azure
 
 [!INCLUDE [Azure Firewall FAQ](../../includes/firewall-faq-include.md)]

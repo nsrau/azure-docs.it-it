@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424229"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956443"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guida introduttiva per gli sviluppatori in Azure
 
@@ -58,7 +58,7 @@ Se si vuole usare il percorso più rapido per la pubblicazione di progetti basat
 
 Poiché tutti e tre i tipi di app condividono il runtime del servizio app, è possibile ospitare un sito Web, supportare i client per dispositivi mobili ed esporre le API in Azure nello stesso progetto o nella stessa soluzione. Per altre informazioni sulle app Web del servizio app di Azure, vedere [Che cos'è App Web di Azure](../../app-service/app-service-web-overview.md).
 
-Il servizio app, progettato su misura per DevOps, supporta vari strumenti per la pubblicazione e la distribuzione di integrazione continua, tra cui webhook GitHub, Jenkins, Visual Studio Team Services e TeamCity.
+Il servizio app, progettato su misura per DevOps, supporta vari strumenti per la pubblicazione e la distribuzione di integrazione continua, tra cui webhook GitHub, Jenkins, Azure DevOps, TeamCity e altri.
 
 È possibile eseguire la migrazione delle applicazioni esistenti nel servizio app tramite lo [strumento di migrazione online](https://www.migratetoazure.net/).
 
@@ -162,7 +162,7 @@ In Azure sono disponibili diverse modalità d'uso dei contenitori nelle applicaz
 
     >**Uso consigliato**: quando si vuole offrire un'esperienza SSO, usare dati basati su Graph o autenticare utenti in base al dominio.
 
-    >**Come iniziare**: per altre informazioni, vedere la [guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
+    >**Come iniziare**: per altre informazioni, vedere la [guida per gli sviluppatori di Azure Active Directory](../../active-directory/develop/v1-overview.md).
 
 -   **Autenticazione del servizio app**: quando si sceglie di ospitare l'app nel servizio app, si ottiene anche il supporto dell'autenticazione predefinita per Azure AD, insieme ai provider di identità basati su social network, ad esempio Facebook, Google, Microsoft e Twitter.
 
@@ -186,7 +186,7 @@ Quando l'applicazione è in esecuzione e operativa in Azure, è necessario esser
 
 ### <a name="devops-integration"></a>Integrazione di strumenti DevOps
 
-Sia che si tratti di eseguire il provisioning di VM o di pubblicare app Web con integrazione continua, Azure si integra con la maggior parte degli strumenti DevOps più diffusi. Grazie al supporto di strumenti quali, tra gli altri, Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Visual Studio Team Services, è possibile usare gli strumenti già disponibili e ottimizzare l'esperienza esistente.
+Sia che si tratti di eseguire il provisioning di VM o di pubblicare app Web con integrazione continua, Azure si integra con la maggior parte degli strumenti DevOps più diffusi. Grazie al supporto di strumenti quali, tra gli altri, Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps e altri, è possibile usare gli strumenti già disponibili e ottimizzare l'esperienza esistente.
 
 >**Prova adesso:** [alcune integrazioni di DevOps](https://azure.microsoft.com/try/devops/).
 
@@ -261,7 +261,7 @@ Gli sviluppatori vogliono dedicarsi subito allo sviluppo di codice e iniziare il
 
 ### <a name="what-is-an-azure-account"></a>Che cos'è un account di Azure?
 
-Per poter creare o usare una sottoscrizione di Azure, è necessario un account di Azure. Un account di Azure è semplicemente un'identità in Azure AD o in una directory, ad esempio in un'organizzazione aziendale o in un istituto di istruzione, considerata attendibile da Azure AD. Se si non appartiene ad alcuna organizzazione di questo tipo, è comunque possibile creare una sottoscrizione tramite l'account Microsoft, che è considerato attendibile da Azure AD. Per altre informazioni sull'integrazione di Windows Server Active Directory locale con Azure AD, vedere [Integrazione delle identità locali con Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
+Per poter creare o usare una sottoscrizione di Azure, è necessario un account di Azure. Un account di Azure è semplicemente un'identità in Azure AD o in una directory, ad esempio in un'organizzazione aziendale o in un istituto di istruzione, considerata attendibile da Azure AD. Se si non appartiene ad alcuna organizzazione di questo tipo, è comunque possibile creare una sottoscrizione tramite l'account Microsoft, che è considerato attendibile da Azure AD. Per altre informazioni sull'integrazione di Windows Server Active Directory locale con Azure AD, vedere [Integrazione delle identità locali con Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 Ogni sottoscrizione di Azure ha una relazione di trust con un'istanza di Azure AD. Ciò significa che considera attendibile quella directory per l'autenticazione di utenti, servizi e dispositivi. Più sottoscrizioni possono considerare attendibile la stessa directory, ma una sottoscrizione considera attendibile una sola directory. Per altre informazioni, vedere [Associare le sottoscrizioni di Azure ad Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -269,19 +269,7 @@ Oltre ad account identità di Azure singoli, detti anche *utenti*, in Azure AD �
 
 ### <a name="manage-your-subscriptions"></a>Gestire le sottoscrizioni
 
-Una sottoscrizione è un'unità logica di servizi di Azure collegata a un account di Azure. In una sottoscrizione ogni account associato ha un ruolo. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Per un elenco per tipo delle offerte di sottoscrizione disponibili , vedere [Dettagli delle offerte per Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
-
-#### <a name="administrator-roles"></a>Ruoli di amministratore
-
-In una sottoscrizione di Azure sono disponibili più ruoli di amministratore account, che è possibile assegnare in qualsiasi momento.
-
--   **Amministratore account** : questo ruolo ha il controllo completo sulla sottoscrizione ed è responsabile della fatturazione.
-
--   **Amministratore del servizio**: questo ruolo ha il controllo su tutti i servizi nella sottoscrizione. Per impostazione predefinita, questo account corrisponde all'amministratore account.
-
--   **Coamministratore**: questo ruolo ha gli stessi diritti di accesso dell'amministratore del servizio, ma non può modificare l'associazione della sottoscrizione a una directory di Azure.
-
-Per altre informazioni sui ruoli di amministratore, vedere [Come aggiungere o modificare i ruoli di amministratore di Azure](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
+Una sottoscrizione è un raggruppamento logico di servizi di Azure collegato a un account di Azure. Un singolo account di Azure può contenere più sottoscrizioni. La fatturazione per i servizi di Azure si basa sulla sottoscrizione. Per un elenco per tipo delle offerte di sottoscrizione disponibili , vedere [Dettagli delle offerte per Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Le sottoscrizioni di Azure hanno un amministratore account, che ha il controllo completo sulla sottoscrizione, e un amministratore del servizio, che ha il controllo su tutti i servizi nella sottoscrizione. Per informazioni sugli amministratori delle sottoscrizione classiche, vedere [Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure](../../billing/billing-add-change-azure-subscription-administrator.md). Oltre agli amministratori, è possibile concedere a singoli account il controllo dettagliato delle risorse di Azure tramite [Controllo degli accessi in base al ruolo (RBAC)](../../role-based-access-control/overview.md).
 
 #### <a name="resource-groups"></a>Gruppi di risorse
 
@@ -293,15 +281,15 @@ Azure Resource Explorer è un ottimo strumento per la visualizzazione delle riso
 
 Quando si consente l'accesso alle risorse di Azure, la procedura sempre consigliata è di concedere agli utenti i privilegi minimi necessari per eseguire un'attività specifica.
 
--   **Controllo degli accessi in base al ruolo**: in Azure è possibile concedere l'accesso agli account utente (entità di sicurezza) per un ambito specifico: sottoscrizione, gruppo di risorse o risorse singole. Il controllo degli accessi in base al ruolo consente di distribuire un set di risorse in un gruppo di risorse e di concedere autorizzazioni a un utente o a un gruppo specifico. Questo controllo consente anche di limitare l'accesso alle risorse appartenenti al gruppo di risorse di destinazione. È anche possibile concedere l'accesso a un'unica risorsa, ad esempio a una macchina virtuale o a una rete virtuale. Per concedere l'accesso, si assegna un ruolo all'utente, al gruppo o all'entità servizio. Sono disponibili molti ruoli predefiniti ed è anche possibile definire ruoli personalizzati.
+-   **Controllo degli accessi in base al ruolo**: in Azure è possibile concedere l'accesso agli account utente (entità di sicurezza) per un ambito specifico: sottoscrizione, gruppo di risorse o risorse singole. Il controllo degli accessi in base al ruolo consente di distribuire un set di risorse in un gruppo di risorse e di concedere autorizzazioni a un utente o a un gruppo specifico. Questo controllo consente anche di limitare l'accesso alle risorse appartenenti al gruppo di risorse di destinazione. È anche possibile concedere l'accesso a un'unica risorsa, ad esempio a una macchina virtuale o a una rete virtuale. Per concedere l'accesso, si assegna un ruolo all'utente, al gruppo o all'entità servizio. Sono disponibili molti ruoli predefiniti ed è anche possibile definire ruoli personalizzati. Per altre informazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo?](../../role-based-access-control/overview.md)
 
-    >**Uso consigliato**: quando è necessaria una gestione degli accessi specifica per utenti e gruppi.
+    >**Uso consigliato**: quando è necessaria una gestione degli accessi con granularità fine per utenti e gruppi o quando è necessario impostare un utente come proprietario di una sottoscrizione.
 
-    >**Come iniziare**: per altre informazioni, vedere [Introduzione alla gestione degli accessi nel Portale di Azure](../../role-based-access-control/overview.md).
+    >**Introduzione**: per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 -   **Oggetti entità servizio**: oltre a concedere l'accesso a entità utente e a gruppi, è possibile concedere lo stesso tipo di accesso a un'entità servizio.
 
-    > **Uso consigliato**: quando si gestiscono le risorse di Azure o si concede l'accesso per le applicazioni a livello di codice. Per altre informazioni, vedere [Creare un'applicazione e un'entità servizio di Azure Active Directory](../../resource-group-create-service-principal-portal.md).
+    > **Uso consigliato**: quando si gestiscono le risorse di Azure o si concede l'accesso per le applicazioni a livello di codice. Per altre informazioni, vedere [Creare un'applicazione e un'entità servizio di Azure Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Tag
 
@@ -322,9 +310,3 @@ Azure offre un set di API REST di fatturazione che consentono l'accesso alle inf
 Anche se è difficile stimare i costi in anticipo, Azure offre un [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) che è possibile usare quando si esegue la stima del costo delle risorse distribuite. Per stimare i costi futuri in base al consumo corrente, è anche possibile usare il pannello Fatturazione nel portale e le API REST di fatturazione.
 
 >**Come iniziare**: vedere [Panoramica delle API di utilizzo della fatturazione e delle API RateCard di Azure](../../billing-usage-rate-card-overview.md).
-
-#### <a name="set-up-billing-alerts"></a>Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure
-
-Dopo aver distribuito l'applicazione o una soluzione in Azure, è possibile creare avvisi per l'invio di messaggi di posta elettronica all'approssimarsi dei limiti di spesa definiti per ogni avviso.
-
->**Come iniziare**: per altre informazioni, vedere [Impostare avvisi di fatturazione per le sottoscrizioni di Microsoft Azure](../../billing-set-up-alerts.md).

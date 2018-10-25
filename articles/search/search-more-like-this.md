@@ -1,7 +1,7 @@
 ---
 title: Anteprima di moreLikeThis in Ricerca di Azure | Microsoft Docs
 description: Documentazione preliminare per la funzionalità moreLikeThis in anteprima esposta nell'API REST di Ricerca di Azure.
-authors: mhko
+author: mhko
 manager: jlembicz
 services: search
 ms.service: search
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 10/27/2016
 ms.author: nateko
-ms.openlocfilehash: 29d9a478ca2e91e658d7d0f52e7a193ba694bc16
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d8b7dd754700a5b8cc781a0b13bd1b3ffecb2806
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790730"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468365"
 ---
 # <a name="morelikethis-in-azure-search-preview"></a>Anteprima di moreLikeThis in Ricerca di Azure
 

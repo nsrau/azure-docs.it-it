@@ -1,26 +1,22 @@
 ---
-title: Domande frequenti su Azure AD | Microsoft Docs
-description: Le domande frequenti su Azure Active Directory offrono una risposta alle domande comuni su Azure e Azure Active Directory, sulla gestione delle password e sull'accesso alle applicazioni.
+title: Domande frequenti su Azure Active Directory | Microsoft Docs
+description: Domande frequenti su Azure e Azure Active Directory, sulla gestione delle password e sull'accesso alle applicazioni.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5ff9d1cf76188ff38f59e8b74d4bfd380c8c88e1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144498"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408711"
 ---
 # <a name="azure-active-directory-faq"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -48,14 +44,13 @@ I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, so
 
 - - -
 
-**D: Qual è la differenza tra Amministratore della sottoscrizione e Amministratore directory?**
+**D: Quali sono le differenze tra proprietario e amministratore globale?**
 
-**R:** Per impostazione predefinita, al momento dell'iscrizione ad Azure all'utente viene assegnato il ruolo di Amministratore della sottoscrizione. L'amministratore della sottoscrizione può usare un account Microsoft oppure un account aziendale o dell'istituto di istruzione della directory a cui è associata la sottoscrizione di Azure.  Questo ruolo è autorizzato a gestire i servizi nel portale di Azure.
+**R:** Per impostazione predefinita, la persona che esegue l'iscrizione a una sottoscrizione di Azure riceve il ruolo di Proprietario per le risorse di Azure. Il proprietario può usare un account Microsoft oppure un account aziendale o dell'istituto di istruzione della directory a cui è associata la sottoscrizione di Azure.  Questo ruolo è autorizzato a gestire i servizi nel portale di Azure.
 
-Se altri utenti devono accedere ai servizi con la stessa sottoscrizione, è possibile aggiungerli come coamministratori. Questo ruolo ha gli stessi privilegi di accesso dell'amministratore del servizio, ma non può modificare l'associazione di sottoscrizioni alle directory di Azure.  Per altre informazioni sugli amministratori della sottoscrizione, vedere [How to add or change Azure administrator roles](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator) (Come aggiungere o modificare i ruoli Amministratore di Azure) e [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+Se altri utenti devono accedere ai servizi con la stessa sottoscrizione, è possibile assegnare loro il [ruolo predefinito](../../role-based-access-control/built-in-roles.md) appropriato. Per altre informazioni, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
-
-In Azure AD è invece disponibile un set di ruoli amministrativi diverso per gestire la directory e le funzionalità relative alle identità.  Questi amministratori avranno accesso a diverse funzionalità nel portale di Azure. Il ruolo dell'amministratore determina le operazioni consentite, ad esempio creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente o gestire i domini.  Per altre informazioni sugli amministratori della directory di AD e i loro ruoli, vedere [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo Amministratore globale per la directory. L'amministratore globale ha accesso a tutte le funzionalità della directory di Azure AD. In Azure AD è invece disponibile un set di ruoli di amministratore diverso per gestire la directory e le funzionalità relative alle identità. Questi amministratori avranno accesso a diverse funzionalità nel portale di Azure. Il ruolo dell'amministratore determina le operazioni consentite, ad esempio creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente o gestire i domini.  Per altre informazioni sugli amministratori della directory di AD e i loro ruoli, vedere [Assegnare un utente ai ruoli di amministratore in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) e [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, sono complementari ad altri servizi Web come Office 365 e Microsoft Azure, con soluzioni di gestione e di sicurezza complete di scala aziendale.
 
@@ -77,7 +72,7 @@ I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, so
 
 **R:** È possibile connettere la directory locale ad Azure AD usando Azure AD Connect.
 
-Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](../connect/active-directory-aadconnect.md).
+Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **D: Come si configura l'accesso Single Sign-On tra la directory locale e le applicazioni cloud?**
@@ -86,7 +81,7 @@ Per altre informazioni, vedere [Integrazione delle identità locali con Azure Ac
 
 L'implementazione dell'accesso Single Sign-On dall'ambiente locale può essere ottenuta facilmente con soluzioni di federazione come Active Directory Federation Services (AD FS) o con la configurazione della sincronizzazione dell'hash delle password. È possibile distribuire con facilità entrambe le opzioni usando la configurazione guidata di Azure AD Connect.
 
-Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](../connect/active-directory-aadconnect.md).
+Per altre informazioni, vedere [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **D: Azure AD offre un portale self-service per gli utenti dell'organizzazione?**
@@ -100,7 +95,7 @@ Per altre informazioni, vedere [Introduzione al Pannello di accesso](../user-hel
 
 **R:** Sì. Azure AD Premium Edition include Azure AD Connect Health. Azure AD Connect Health consente di monitorare e ottenere informazioni dettagliate sull'infrastruttura di gestione delle identità locale e sui servizi di sincronizzazione.  
 
-Per altre informazioni, vedere [Monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](../connect-health/active-directory-aadconnect-health.md).  
+Per altre informazioni, vedere [Monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](../hybrid/whatis-hybrid-identity-health.md).  
 
 - - -
 ## <a name="password-management"></a>Gestione delle password
@@ -126,7 +121,7 @@ Per altre risposte a domande relative alle password, vedere [Domande frequenti s
 
 **R:** In situazioni di questo tipo è possibile procedere in due modi.  Usare la reimpostazione password self-service (SSPR), se disponibile.  La disponibilità della funzione SSPR dipende dalla sua configurazione.  Per altre informazioni, vedere [Funzionamento del portale di reimpostazione delle password](../authentication/howto-sspr-deployment.md).
 
-Per gli utenti di Office 365, l'amministratore può reimpostare la password seguendo la procedura descritta in [Reimpostare le password degli utenti](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
+Per gli utenti di Office 365, l'amministratore può reimpostare la password seguendo la procedura descritta in [Reimpostare le password degli utenti](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
 Per gli account Azure AD, gli amministratori possono reimpostare le password in uno dei modi seguenti:
 
@@ -163,7 +158,7 @@ Per un elenco completo delle applicazioni preintegrate, vedere il [Marketplace d
 
 Per altre informazioni, vedere:
 
-* [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Uso di SCIM per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory alle applicazioni](../manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
@@ -208,7 +203,7 @@ Per altre informazioni, vedere [Protezione dell'accesso a Office 365 e ad altre 
 
 **R:** Azure AD consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente in molte app cloud SaaS comuni.
 
-Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
 
 - - -
 **D: È possibile configurare una connessione LDAP sicura con Azure AD?**

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 1955fc033e0351be9da89bbee11dc41d6281a63a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: c29131720de8d6016d134fe7c0118fc3db9e22be
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433991"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985642"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Creare un processo di Analisi di flusso per analizzare i dati delle telefonate e visualizzare i risultati in un dashboard di Power BI
  
@@ -37,7 +37,7 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/).  
 * Accedere al [Portale di Azure](https://portal.azure.com/).  
-* Scaricare l'app generatore eventi di telefonata [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) dall'Area download Microsoft oppure ottenere il codice sorgente da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
+* Scaricare l'app generatore eventi di telefonata [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) dall'Area download Microsoft oppure ottenere il codice sorgente da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
 
 ## <a name="create-an-azure-event-hub"></a>Creare un Hub di eventi di Azure 
 
@@ -89,7 +89,7 @@ Affinché un'applicazione possa inviare dati ad Hub eventi di Azure, è necessar
 
 Prima di avviare l'app TelcoGenerator, configurarla per inviare i dati all'istanza di Hub eventi di Azure creata in precedenza.
 
-1. Estrarre il contenuto del file [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).  
+1. Estrarre il contenuto del file [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).  
 2. Aprire il file `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` in un editor di testo a propria scelta. Ci sono più file con estensione config, quindi assicurarsi di aprire quello giusto.  
 
 3. Aggiornare l'elemento <appSettings> nel file di configurazione con i dettagli seguenti:
@@ -260,7 +260,7 @@ Per questo esempio vengono considerate fraudolente le chiamate provenienti dallo
 
 ## <a name="embedding-your-powerbi-dashboard-in-a-web-application"></a>Incorporamento del dashboard di Power BI in un'applicazione Web
 
-Per questa parte dell'esercitazione, si userà un'applicazione Web [ASP.NET](http://asp.net/) di esempio creata dal team di Power BI per incorporare il dashboard. Per altre informazioni sull'incorporamento di dashboard, vedere l'articolo [Incorporamento con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+Per questa parte dell'esercitazione, si userà un'applicazione Web [ASP.NET](https://asp.net/) di esempio creata dal team di Power BI per incorporare il dashboard. Per altre informazioni sull'incorporamento di dashboard, vedere l'articolo [Incorporamento con Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
 In questa esercitazione verranno seguiti i passaggi per l'utente proprietario dell'applicazione dati. Per configurare l'applicazione, passare al repository GitHub [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) e seguire le istruzioni nella sezione **User Owns Data** (Utente proprietario dei dati) (usare gli URL di reindirizzamento e della home page nella sottosezione **integrate-dashboard-web-app**). Poiché si sta usando l'esempio relativo al dashboard, usare il codice di esempio integrate-dashboard-web-app disponibile nel [repository GitHub](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
 Una volta che l'applicazione è in esecuzione nel browser, seguire questa procedura per incorporare il dashboard creato in precedenza nella pagina Web:

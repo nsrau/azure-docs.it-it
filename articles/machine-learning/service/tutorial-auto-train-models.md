@@ -9,12 +9,12 @@ author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: df1c19c0e16b9862b09dcc652ef2831e0c5bf3a5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 29d673f48671ec917e45b7ff76feeebf0b868c4b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802356"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426890"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>Esercitazione: Eseguire il training di un modello di classificazione con apprendimento automatico nel servizio Azure Machine Learning
 
@@ -52,7 +52,7 @@ Tutta la configurazione per le attività di sviluppo può essere eseguita nel no
 * Configurazione di un'area di lavoro per consentire la comunicazione tra il computer locale e le risorse remote
 * Creazione di una directory per archiviare gli script di training
 
-### <a name="import-packages"></a>Importare i pacchetti
+### <a name="import-packages"></a>Importare pacchetti
 Importare i pacchetti Python necessari in questa esercitazione.
 
 
@@ -143,7 +143,7 @@ Per eseguire automaticamente il training di un modello, definire innanzitutto le
 
 Definire le impostazioni dell'esperimento e le impostazioni del modello.
 
-|Proprietà| Valore in questa esercitazione |Descrizione|
+|Proprietà| Valore in questa esercitazione |DESCRIZIONE|
 |----|----|---|
 |**primary_metric**|AUC Weighted | Metrica che si vuole ottimizzare.|
 |**max_time_sec**|12000|Limite di tempo in secondi per ogni iterazione|
@@ -543,5 +543,5 @@ In questa esercitazione sul servizio Azure Machine Learning è stato usato Pytho
 > * Esaminare i risultati di training
 > * Registrare il modello migliore
 
-Altre informazioni su [come configurare le impostazioni per il training automatico]() o [come usare il training automatico in una risorsa remota](how-to-auto-train-remote.md).  
+Altre informazioni su [come configurare le impostazioni per il training automatico](how-to-configure-auto-train.md) o [come usare il training automatico in una risorsa remota](how-to-auto-train-remote.md).  
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855936"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402508"
 ---
 # <a name="azure-database-security-checklist"></a>Elenco di controllo per la sicurezza del database di Azure
 
@@ -43,10 +43,10 @@ Il cloud computing richiede nuovi paradigmi di sicurezza che sono diversi per mo
 Si consiglia di leggere l'articolo [Azure Database Security Best Practices](https://docs.microsoft.com/azure/security/azure-database-security-best-practices) (Best practice di sicurezza per il database di Azure) prima di esaminare questo elenco di controllo. Si sarà in grado di sfruttare al meglio questo elenco di controllo dopo aver compreso le procedure consigliate. È quindi possibile usare questo elenco di controllo per assicurarsi di aver trattato gli aspetti importanti nella sicurezza del database di Azure.
 
 
-|Categoria dell'elenco di controllo| Descrizione|
+|Categoria dell'elenco di controllo| DESCRIZIONE|
 | ------------ | -------- |
 |**Proteggere i dati**||
-| <br> Crittografia in movimento/transito| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), per la crittografia dei dati durante lo spostamento dei dati nelle reti.</li><li>Il database richiede una comunicazione sicura da client basati sul protocollo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) in TLS (Transport Layer Security).</li></ul> |
+| <br> Crittografia in movimento/transito| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), per la crittografia dei dati durante lo spostamento dei dati nelle reti.</li><li>Il database richiede una comunicazione sicura da client basati sul protocollo [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) in TLS (Transport Layer Security).</li></ul> |
 |<br>Crittografia di dati inattivi| <ul><li>[Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), quando i dati inattivi vengono archiviati fisicamente in qualsiasi forma digitale.</li></ul>|
 |**Controllare l'accesso**||  
 |<br> Accesso al database | <ul><li>[Autenticazione](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) l'autenticazione AD (Autenticazione di Azure Active Directory) usa identità gestite da Azure Active Directory.</li><li>[Autorizzazione](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) concede agli utenti i privilegi minimi necessari.</li></ul> |

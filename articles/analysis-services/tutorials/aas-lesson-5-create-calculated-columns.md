@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d97a365d1eae21a58e2b33b82dc2593343248e0e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2d92edd0bda15ecd57a5a29375adae3a51c661c2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445954"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428131"
 ---
 # <a name="create-calculated-columns"></a>Creare colonne calcolate
 
@@ -25,7 +25,7 @@ Questa è anche la prima lezione in cui si usano espressioni DAX (Data Analysis 
   
 Tempo previsto per il completamento della lezione: **15 minuti**  
   
-## <a name="prerequisites"></a>prerequisiti  
+## <a name="prerequisites"></a>Prerequisiti  
 Questo argomento fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione, è necessario avere completato la lezione precedente: [Lezione 4: Creare relazioni](../tutorials/aas-lesson-4-create-relationships.md). 
   
 ## <a name="create-calculated-columns"></a>Creare colonne calcolate  

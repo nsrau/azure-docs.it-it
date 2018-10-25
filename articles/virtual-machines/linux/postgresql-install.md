@@ -3,7 +3,7 @@ title: Impostare PostgreSQL su una macchina virtuale Linux | Microsoft Docs
 description: Informazioni su come installare e configurare PostgreSQL in una macchina virtuale Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
-ms.author: cynthn
-ms.openlocfilehash: 903e94cfa932ddd93a931caa8888d93f1bdfe365
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: zarhoads
+ms.openlocfilehash: dc7bb0eab9004b9c818a4a7cbbf6102f01b24f45
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932732"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465232"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installare e configurare PostgreSQL in Azure
 PostgreSQL è un database open source avanzato simile a Oracle e DB2. Questo database include funzionalità aziendali quali la conformità ACID completa, l'elaborazione transazionale affidabile e il controllo della concorrenza per più versioni. Supporta anche standard come ANSI SQL e SQL/MED (compresi wrapper di dati esterni per Oracle, MySQL, MongoDB e molti altri). È inoltre altamente estendibile, supportando oltre 12 linguaggi procedurali, gli indici GIN e GIST, i dati spaziali e più funzionalità di tipo NoSQL per le applicazioni basate su chiave-valore o JSON.
@@ -125,7 +125,7 @@ Connettersi tramite PuTTY alla macchina virtuale Linux creata. Se questa è la p
    
     Dovrebbero venire visualizzato l'output seguente:
 
-![immagine](./media/postgresql-install/no1.png)
+![image](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>Impostare PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -142,7 +142,7 @@ Modificare due variabili nel file /etc/init.d/postgresql. Il prefisso è imposta
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![immagine](./media/postgresql-install/no2.png)
+![image](./media/postgresql-install/no2.png)
 
 Modificare il file per renderlo eseguibile:
 
@@ -158,7 +158,7 @@ Controllare se l'endpoint di PostgreSQL è attivo:
 
 Dovrebbe venire visualizzato l'output seguente.
 
-![immagine](./media/postgresql-install/no3.png)
+![image](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Connessione al database Postgres
 Proseguire e passare di nuovo all'utente postgres:
@@ -189,11 +189,11 @@ Ad esempio, creare una nuova tabella Postgres di esempio con il comando seguente
 
 Se la tabella è stata creata correttamente, dovrebbe venire visualizzato quanto segue:
 
-![immagine](./media/postgresql-install/no4.png)
+![image](./media/postgresql-install/no4.png)
 
 È anche possibile verificare la struttura della tabella con il comando seguente:
 
-![immagine](./media/postgresql-install/no5.png)
+![image](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Aggiungere dati a una tabella
 Inserire innanzitutto le informazioni in una riga:
@@ -202,7 +202,7 @@ Inserire innanzitutto le informazioni in una riga:
 
 Dovrebbe venire visualizzato questo output:
 
-![immagine](./media/postgresql-install/no6.png)
+![image](./media/postgresql-install/no6.png)
 
 È anche possibile aggiungere altre persone alla tabella. Ecco alcuni esempi oppure è possibile inserire i dati desiderati:
 
@@ -219,7 +219,7 @@ Per mostrare una tabella, usare il comando seguente:
 
 L'output è:
 
-![immagine](./media/postgresql-install/no7.png)
+![image](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Eliminare dati in una tabella
 Per eliminare dati in una tabella, usare il comando seguente:
@@ -228,7 +228,7 @@ Per eliminare dati in una tabella, usare il comando seguente:
 
 Consente di eliminare tutte le informazioni nella riga "John". L'output è:
 
-![immagine](./media/postgresql-install/no8.png)
+![image](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Aggiornare dati in una tabella
 Per aggiornare dati in una tabella, usare il comando seguente: In questo caso, Sandy ha confermato la sua partecipazione, pertanto lo stato di conferma verrà modificato da "N" a "Y":

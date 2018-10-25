@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: jasonh
-ms.openlocfilehash: d036922d68116689d1c54c2c3e89be5accedb533
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: adf5bbaee6669ac232c7d28a8c46cd2dd89c3d48
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983487"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955203"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrazione a strumenti di sviluppo basati su Azure Resource Manager per i cluster HDInsight
 
@@ -68,7 +68,7 @@ Per informazioni su altri modi per eseguire MapReduce, Hive e Pig in modo intera
 * Comando precedente (ASM): `azure hdinsight cluster delete myhdicluster`
 * Nuovo comando: `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
-**Elencare i cluster**
+**Elencare cluster**
 
 * Comando precedente (ASM): `azure hdinsight cluster list`
 * Nuovo comando: `azure hdinsight cluster list`
@@ -90,7 +90,7 @@ I cmdlet di Azure Resource Manager per Azure PowerShell possono essere installat
 
 Prima di poter usare i cmdlet di HDInsight, è necessario connettersi con il proprio account Azure e creare un nuovo gruppo di risorse:
 
-* Connect-AzureRmAccount oppure [Select-AzureRmProfile](https://docs.microsoft.com/powershell/module/servicemanagement/azurerm.profile/select-azurermprofile?view=azuresmps-4.0.0). Vedere [Autenticazione di un'entità servizio con Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+* Connect-AzureRmAccount oppure [Select-AzureRmProfile](https://docs.microsoft.com/powershell/module/servicemanagement/azurerm.profile/select-azurermprofile?view=azuresmps-4.0.0). Vedere [Autenticazione di un'entità servizio con Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [New-AzureRmResourceGroup](https://msdn.microsoft.com/library/mt603739.aspx)
 
 ### <a name="renamed-cmdlets"></a>Cmdlet rinominati

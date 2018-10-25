@@ -5,25 +5,24 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b6e642c86c5e618cae2d46aad84a61b3f4866ae
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 146467ef50c605f730fe6f65c349fc8a3a1fd045
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446147"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426244"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services: esercitazione su Adventure Works
 
-Questa esercitazione comprende una serie di lezioni sulla creazione e la distribuzione di un modello tabulare al livello di compatibilità 1400 tramite Visual Studio con [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
+Questa esercitazione comprende una serie di lezioni sulla creazione e la distribuzione di un modello tabulare al livello di compatibilità 1400 tramite [progetti Analysis Services](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects) in Visual Studio o [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 Se non si ha familiarità con Analysis Services e la creazione di modelli tabulari, completare questa esercitazione per imparare rapidamente a creare e distribuire un modello tabulare di base usando Visual Studio. Dopo essersi assicurati che siano stati soddisfatti tutti i prerequisiti, per il completamento dell'esercitazione sono necessarie dalle due alle tre ore.  
   
 ## <a name="what-you-learn"></a>Contenuto dell'esercitazione   
   
--   Creazione di un nuovo progetto di modello tabulare al **livello di compatibilità 1400** in Visual Studio con SSDT.
+-   Creazione di un nuovo progetto di modello tabulare al **livello di compatibilità 1400** in Visual Studio.
   
 -   Importazione di dati da un database relazionale in un database dell'area di lavoro di un progetto di modello tabulare.  
   
@@ -37,9 +36,9 @@ Se non si ha familiarità con Analysis Services e la creazione di modelli tabula
   
 -   Protezione di oggetti e dati del modello tramite la creazione di ruoli con membri utente.  
   
--   Distribuzione di un modello tabulare in un server **Azure Analysis Services** o in un server **SQL Server 2017 Analysis Services** tramite SSDT.  
+-   Distribuzione di un modello tabulare in un server **Azure Analysis Services** o in un server **SQL Server 2017 Analysis Services** tramite Visual Studio.  
   
-## <a name="prerequisites"></a>prerequisiti  
+## <a name="prerequisites"></a>Prerequisiti  
 Per completare questa esercitazione, sono necessari:  
   
 -   Un server di Azure Analysis Services. Iscriversi per ottenere una [versione di valutazione di Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) gratuita e [creare un server](../analysis-services-create-server.md). 

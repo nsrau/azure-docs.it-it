@@ -4,15 +4,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 76cadc453a696b8d19788525bfb69cf9cacd353d
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b9a91b478ea9012a1d041fc102765890954c2fbb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448238"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956188"
 ---
 # <a name="automation-with-service-principals"></a>Automazione con le entità servizio
 
@@ -24,8 +24,8 @@ In Analysis Services le entità servizio vengono usate con Automazione di Azure,
  
 Le entità servizio possono essere create nel portale di Azure oppure con PowerShell. Per altre informazioni, vedere:
 
-[Creare un'entità servizio - Portale di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Creare un'entità servizio - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Creare un'entità servizio - Portale di Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Creare un'entità servizio - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Archiviare gli asset di tipo certificato e credenziale in Automazione di Azure
 

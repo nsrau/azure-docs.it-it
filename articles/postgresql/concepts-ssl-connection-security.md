@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: f3efb99ddb47f167a0d9cbef064890e817a18841
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cc8bd25b58cf898169a4d84154f7f3f81966bb92
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186818"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985795"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurare la connettività SSL nel Database di Azure per PostgreSQL
 Il Database di Azure per PostgreSQL preferisce connettere le applicazioni client al servizio di PostgreSQL usando la connettività SSL (Secure Sockets Layer). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
@@ -58,7 +58,7 @@ Il certificato richiesto per comunicare con il Database di Azure per il server P
 Per decodificare il file del certificato richiesto dall'applicazione per connettersi al server di database in modo sicuro, è necessario installare OpenSSL sul computer locale.
 
 #### <a name="for-linux-os-x-or-unix"></a>Per Linux, OS X o Unix
-Le librerie OpenSSL vengono distribuite nel codice sorgente direttamente da [OpenSSL Software Foundation](http://www.openssl.org). Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare OpenSSL nel computer Linux. In questo articolo vengono usati i comandi noti per lavorare su Ubuntu 12.04 (e versioni successive).
+Le librerie OpenSSL vengono distribuite nel codice sorgente direttamente da [OpenSSL Software Foundation](https://www.openssl.org). Le istruzioni seguenti consentono di eseguire i passaggi necessari per installare OpenSSL nel computer Linux. In questo articolo vengono usati i comandi noti per lavorare su Ubuntu 12.04 (e versioni successive).
 
 Aprire una sessione terminal e scaricare OpenSSL.
 ```bash

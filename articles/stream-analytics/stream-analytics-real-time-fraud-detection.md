@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: e0d430ced1dbddbfca79806591c83c33e732eefd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 43202e88482933aed7952f6cc97dcaf1e0dcb5e7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901715"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986033"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all’uso di Analisi di flusso di Azure: rilevamento di illeciti in tempo reale
 
@@ -32,14 +32,14 @@ In questa esercitazione si userà l'esempio di rilevamento delle frodi in tempo 
 
 Un'azienda di telecomunicazioni dispone di un volume di dati elevato relativamente alle chiamate in ingresso. L'azienda intende rilevare chiamate fraudolente in tempo reale, in modo da poter inviare una notifica ai clienti o arrestare il servizio per un numero specifico. Un tipo di frode SIM riguarda più chiamate dalla stessa identità, più o meno alla stessa ora, ma in luoghi geograficamente diversi. Per rilevare questo tipo di frode, l'azienda deve esaminare i record delle chiamate in ingresso e cercare specifici modelli, in questo caso, chiamate più o meno alla stessa ora in paesi diversi. Qualsiasi record telefonico che rientri in questa categoria viene scritto nell'archiviazione per analisi successive.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 In questa esercitazione si simuleranno i dati di una chiamata telefonica usando un'app client che genera metadati di esempio di chiamate. Alcuni record prodotti dall'app hanno l'aspetto di chiamate fraudolente. 
 
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 * Un account Azure.
-* App generatore degli eventi di chiamata, [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), che può essere scaricata dal Microsoft Download Center. Decomprimere il pacchetto in una cartella nel computer. Per visualizzare il codice sorgente ed eseguire l'app in un debugger, è possibile ottenere il codice sorgente dell'app da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
+* App generatore degli eventi di chiamata, [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), che può essere scaricata dal Microsoft Download Center. Decomprimere il pacchetto in una cartella nel computer. Per visualizzare il codice sorgente ed eseguire l'app in un debugger, è possibile ottenere il codice sorgente dell'app da [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
     >Windows potrebbe bloccare il file con estensione zip scaricato. Se non è possibile decomprimerlo, fare clic con il pulsante destro del mouse sul file e scegliere **Proprietà**. Se viene visualizzato il messaggio "Il file proviene da un altro computer. Per facilitare la protezione del computer, potrebbe essere bloccato", selezionare l'opzione **Sblocca** e quindi scegliere **Applica**.
@@ -75,7 +75,7 @@ In questa procedura si creerà uno spazio dei nomi dell'hub eventi e quindi si a
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="drawing" width="400px"/>
     
  
-7. Fare clic su **Crea**.
+7. Fare clic su **Create**(Crea).
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Concedere l'accesso all'hub eventi e ottenere una stringa di connessione
 
@@ -92,7 +92,7 @@ Prima che un processo possa inviare dati a un hub eventi, è necessario che per 
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="drawing" width="300px"/>
  
-4.  Fare clic su **Crea**.
+4.  Fare clic su **Create**(Crea).
 
 5.  Dopo aver distribuito i criteri, fare clic nell'elenco dei criteri di accesso condiviso.
 
@@ -169,7 +169,7 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="drawing" width="300px"/>
 
-3. Fare clic su **Crea**.
+3. Fare clic su **Create**(Crea).
 
     Verrà creato il processo e il portale visualizzerà i relativi dettagli. Il processo non è ancora in esecuzione: è necessario configurarlo prima di poterlo avviare.
 
@@ -193,7 +193,7 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="drawing" width="300px"/>
 
 
-4. Fare clic su **Crea**.
+4. Fare clic su **Create**(Crea).
 
 ## <a name="create-queries-to-transform-real-time-data"></a>Creare query per trasformare i dati in tempo reale
 

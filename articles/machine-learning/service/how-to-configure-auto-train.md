@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 33126c094a55bc57edd49a54fbc4f5acd7401998
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1aeb1315cfafbcdf3507a6e49d71e1f1e69b537c
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079005"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430188"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configurare l'esperimento automatizzato di apprendimento automatico
 
@@ -147,7 +147,7 @@ Le opzioni di calcolo supportate sono:
 2.  Un computer remoto nel cloud - [Data Science Virtual Machine di Azure](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) su cui è in esecuzione Linux: si dispone di un set di dati di grandi dimensioni e si desidera aumentare le prestazioni in un computer di grandi dimensioni che è disponibile nel cloud di Azure. 
 3.  Cluster Batch per intelligenza artificiale: un cluster gestito che è possibile configurare per la scalabilità orizzontale ed eseguire le iterazioni di Machine Learning automatizzato in parallelo. 
 
-
+<a name='configure-experiment'/>
 ## <a name="configure-your-experiment-settings"></a>Configurare le impostazioni di esperimento
 
 Vi sono diverse opzioni che è possibile usare per configurare esperimenti automatizzati di apprendimento automatico. Questi parametri vengono impostati creando un oggetto `AutoMLConfig`.

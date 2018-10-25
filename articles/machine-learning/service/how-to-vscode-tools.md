@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: f573dba2e7580d58c295d204fc75e2403c0d033c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241849"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945553"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>Visual Studio Code Tools for AI: introduzione a Azure Machine Learning da Visual Studio Code
 
@@ -34,7 +34,7 @@ Usare l'estensione Tools for AI in Visual Studio code per usufruire del servizio
 
 Quando si installa l'estensione **Tools for AI**, due ulteriori estensioni vengono installate automaticamente (se si ha accesso a Internet). Sono l'estensione [Account di Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) e l'estensione [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
-Per usare Azure Machine Learning, è necessario trasformare Visual Studio Code in un ambiente di sviluppo integrato Python. Lavorare con [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/python) richiede l'estensione Microsoft Python, che viene installata automaticamente con Tools for AI. L'estensione rende il Visual Studio Code un ambiente di sviluppo integrato eccellente e funziona su qualsiasi sistema operativo con una serie di interpreti Python. Sfrutta tutte potenzialità di Visual Studio Code per fornire completamento automatico e IntelliSense, linting, debug e testing unità, oltre alla possibilità di passare facilmente da un ambiente Python all'altro, compresi gli ambienti virtuali e conda. Consultare questa procedura dettagliata per la modifica, l'esecuzione e il debug del codice Python, vedere l'[esercitazione Hello World in Python](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial)
+Per usare Azure Machine Learning, è necessario trasformare Visual Studio Code in un ambiente di sviluppo integrato Python. Lavorare con [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/python) richiede l'estensione Microsoft Python, che viene installata automaticamente con Tools for AI. L'estensione rende il Visual Studio Code un ambiente di sviluppo integrato eccellente e funziona su qualsiasi sistema operativo con una serie di interpreti Python. Sfrutta tutte potenzialità di Visual Studio Code per fornire completamento automatico e IntelliSense, linting, debug e testing unità, oltre alla possibilità di passare facilmente da un ambiente Python all'altro, compresi gli ambienti virtuali e conda. Consultare questa procedura dettagliata per la modifica, l'esecuzione e il debug del codice Python, vedere l'[esercitazione Hello World in Python](https://code.visualstudio.com/docs/python/python-tutorial)
 
 **Per installare l'estensione Tools for AI:**
 

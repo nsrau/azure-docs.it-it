@@ -1,20 +1,21 @@
 ---
 title: Creare una parola di attivazione personalizzata
-description: Imparare a creare una parola di attivazione personalizzata per Speech Devices SDK.
 titleSuffix: Azure Cognitive Services
+description: Imparare a creare una parola di attivazione personalizzata per Speech Devices SDK.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 52f1d9cb242f140d485ccf7b39a55a46ee575a3d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: erhopf
+ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883619"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469079"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Creare una parola di attivazione personalizzata usando il servizio Voce
 
@@ -52,10 +53,6 @@ Per usare una parola di attivazione personalizzata con il dispositivo, è necess
 1. Creare un nuovo account con l'indirizzo di posta elettronica che ha ricevuto l'invito per Azure Active Directory. 
 
     ![Creare un nuovo account](media/speech-devices-sdk/wake-word-1.png)
- 
-1.  Dopo l'accesso, compilare il modulo e quindi selezionare **Start my journey** (Inizia percorso).
-
-    ![Accesso eseguito](media/speech-devices-sdk/wake-word-3.png)
  
 1. Poiché la pagina **Custom Wake Word** (Parola di attivazione personalizzata) non è disponibile per il pubblico, non sono presenti collegamenti diretti per accedervi. La funzionalità di riconoscimento vocale personalizzato richiede una sottoscrizione ad Azure, al contrario della funzionalità che permette di creare una parola di attivazione personalizzata. Se si visualizza il messaggio di errore **No Subscriptions found** (Non sono state trovate sottoscrizioni), sostituire semplicemente **"Subscriptions?errorMessage=No%20Subscriptions%20found"** con "**customkws**" nell'URL e premere INVIO. L'URL deve corrispondere a uno dei seguenti: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws o https://northeurope.cris.ai/customkws, a seconda della propria regione.
 

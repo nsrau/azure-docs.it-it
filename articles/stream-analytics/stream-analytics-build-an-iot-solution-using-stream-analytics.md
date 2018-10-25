@@ -9,12 +9,12 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 88c58175f4886d4796ed4e32b41d030c9ee441fc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698044"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986889"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
 
@@ -109,7 +109,7 @@ Ecco una breve descrizione delle colonne:
 | Scaduto |Stato di registrazione del veicolo: 0 se la registrazione del veicolo è attiva, 1 se la registrazione è scaduta |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Configurare l'ambiente per Analisi di flusso di Azure
-Per completare la soluzione, è necessaria una sottoscrizione di Microsoft Azure. Se non si ha un account Azure, è possibile [richiedere una versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/).
+Per completare la soluzione, è necessaria una sottoscrizione di Microsoft Azure. Se non si ha un account Azure, è possibile [richiedere una versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Per poter usare al meglio il credito Azure gratuito, seguire la procedura riportata nella sezione "Eseguire la pulizia dell'account Azure" alla fine di questo articolo.
 

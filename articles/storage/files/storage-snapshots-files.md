@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 7f03af0fc338299da9b989d46e7bbfb83f3babeb
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42141332"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945706"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Panoramica degli snapshot di condivisione per File di Azure 
 File di Azure consente di acquisire snapshot di condivisione delle condivisioni file. Gli snapshot di condivisione acquisiscono lo stato di condivisione in un momento specifico. In questo articolo vengono descritte le funzionalità offerte dagli snapshot di condivisione e come trarne vantaggio in un caso d'uso personalizzato.
@@ -32,7 +32,7 @@ Dopo la creazione di una condivisione file, è possibile creare periodicamente u
 ## <a name="capabilities"></a>Capabilities
 Uno snapshot di condivisione è una copia di sola lettura temporizzata dei dati. È possibile creare, eliminare e gestire gli snapshot usando l'API REST. Le stesse funzionalità sono anche disponibili nella libreria client, nell'interfaccia della riga di comando di Azure e nel portale di Azure. 
 
-È possibile visualizzare gli snapshot di una condivisione sia con l'API REST sia con SMB. È possibile recuperare l'elenco delle versioni della directory o del file e montare direttamente una versione specifica come unità. 
+È possibile visualizzare gli snapshot di una condivisione sia con l'API REST sia con SMB. È possibile recuperare l'elenco delle versioni della directory o del file e montare direttamente una versione specifica come unità (disponibile solo per Windows, vedere [Limiti](#limits)). 
 
 Dopo aver creato uno snapshot di condivisione è possibile leggerlo, copiarlo o eliminarlo, ma non modificarlo. Non è possibile copiare un intero snapshot di condivisione in un altro account di archiviazione. È necessario effettuare l'operazione un file alla volta tramite AzCopy o altri meccanismi per la copia.
 
@@ -63,6 +63,8 @@ Il numero massimo di snapshot di condivisione attualmente supportato da File di 
 
 Il numero di chiamate simultanee per la creazione di snapshot di condivisione è illimitato. La quantità di spazio che può essere usata dagli snapshot di condivisione di una condivisione file specifica è illimitata. 
 
+Non è attualmente possibile montare snapshot di condivisione in Linux. Questo avviene perché il client SMB di Linux non supporta gli snapshot di montaggio come Windows.
+
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Copiare nuovamente i dati in una condivisione da uno snapshot di condivisione
 Le operazioni di copia che interessano file e snapshot di condivisione osservano le regole seguenti:
 
@@ -83,8 +85,7 @@ Gli snapshot di condivisione offrono solo la protezione a livello di file. Gli s
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Usare gli snapshot di condivisione in:
-    - [di Microsoft Azure](storage-how-to-use-files-portal.md#create-and-modify-share-snapshots)
-    - [PowerShell](storage-how-to-use-files-powershell.md#create-and-modify-share-snapshots)
-    - [Interfaccia della riga di comando](storage-how-to-use-files-cli.md#create-and-modify-share-snapshots)
+    - [PowerShell](storage-how-to-use-files-powershell.md)
+    - [CLI](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
 - [Domande frequenti sugli snapshot di condivisione](storage-files-faq.md#share-snapshots)

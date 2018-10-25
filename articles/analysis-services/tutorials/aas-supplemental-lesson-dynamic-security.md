@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f7e5999b2d64c4a9b409fac81841d15f7c6aa5e7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3a62440b9fe44dfed14cfd9887d4d3cc2e4dbb92
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443665"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430239"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Lezione supplementare: Sicurezza dinamica
 
@@ -27,7 +27,7 @@ Le attività specifiche per questo scenario di modello tabulare Adventure Works,
   
 Tempo previsto per il completamento della lezione: **30 minuti**  
   
-## <a name="prerequisites"></a>prerequisiti  
+## <a name="prerequisites"></a>Prerequisiti  
 L'argomento di questa lezione supplementare fa parte di un'esercitazione sulla creazione di modelli tabulari, con lezioni che è consigliabile completare nell'ordine indicato. Prima di eseguire le attività in questa lezione supplementare, è necessario avere completato tutte le lezioni precedenti.  
   
 ## <a name="add-the-dimsalesterritory-table-to-the-aw-internet-sales-tabular-model-project"></a>Aggiungere la tabella DimSalesTerritory al progetto di modello tabulare AW Internet Sales  

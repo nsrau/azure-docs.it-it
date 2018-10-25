@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: 4eed11b312bce27dc0cd98daa3e2599a28fcabbd
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aed816dadcced36946d6e173ca259a6c0f373727
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524431"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957464"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Aggiornare i modelli di Azure Machine Learning tramite l'attività Aggiorna risorsa
 Questo articolo integra la versione principale di Azure Data Factory: articolo di integrazione di Azure Machine Learning: [Creare pipeline predittive tramite Azure Machine Learning e Azure Data Factory](transform-data-using-machine-learning.md). Se ancora non è stato fatto, consultare l'articolo principale prima di leggere questo articolo. 
@@ -98,7 +98,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 È possibile ottenere i valori per i segnaposti nell'URL quando si eseguono query nel servizio Web nel portale di [Azure Machine Learning Web Services](https://services.azureml.net/) (Servizi Web Microsoft Azure Machine Learning). 
 
-Il nuovo tipo di endpoint di aggiornamento delle risorse richiede l'autenticazione dell'entità servizio. Per usare l'autenticazione dell'entità servizio, registrare un'entità applicativa in Azure Active Directory (Azure AD) e concedere a questa il ruolo **Collaboratore** o **Proprietario** della sottoscrizione o del gruppo di risorse a cui appartiene il servizio Web. Vedere [come creare un'entità servizio e assegnare autorizzazioni per la gestione di risorse di Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
+Il nuovo tipo di endpoint di aggiornamento delle risorse richiede l'autenticazione dell'entità servizio. Per usare l'autenticazione dell'entità servizio, registrare un'entità applicativa in Azure Active Directory (Azure AD) e concedere a questa il ruolo **Collaboratore** o **Proprietario** della sottoscrizione o del gruppo di risorse a cui appartiene il servizio Web. Vedere [come creare un'entità servizio e assegnare autorizzazioni per la gestione di risorse di Azure](../active-directory/develop/howto-create-service-principal-portal.md). Prendere nota dei valori seguenti che si usano per definire il servizio collegato:
 
 - ID applicazione
 - Chiave applicazione 

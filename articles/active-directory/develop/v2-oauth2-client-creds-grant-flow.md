@@ -17,14 +17,17 @@ ms.date: 01/07/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 02d5bf9ef293731ce707596a90cd7e9aa0b96450
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2dc1be6b861515cf34f8dd799fa732da530e82a1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580611"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985401"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 e il flusso di credenziali client OAuth 2.0
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 La [concessione di credenziali client OAuth 2.0](http://tools.ietf.org/html/rfc6749#section-4.4) specificata in RFC 6749, anche detta *OAuth a due vie*, può essere usata per accedere alle risorse ospitate sul Web tramite l'identità di un'applicazione. Viene comunemente impiegata per le interazioni di tutti i server in esecuzione in background senza l'interazione immediata con un utente finale. Questo tipo di applicazioni vengono spesso definite *daemon* o *account di servizio*.
 
 > [!NOTE]
