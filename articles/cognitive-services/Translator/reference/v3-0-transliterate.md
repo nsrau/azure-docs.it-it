@@ -1,22 +1,23 @@
 ---
-title: Metodo di translitterazione dell'API Traduzione testuale Microsoft | Microsoft Docs
-description: Usare il metodo di translitterazione dell'API Traduzione testuale Microsoft.
+title: Metodo Transliterate dell'API Traduzione testuale
+titlesuffix: Azure Cognitive Services
+description: Usare il metodo Transliterate dell'API Traduzione testuale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: fdd6fa9236f0c02685198b6de3228c444993dad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377521"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018622"
 ---
-# <a name="text-api-30-transliterate"></a>API per testo 3.0: traslitterare
+# <a name="translator-text-api-30-transliterate"></a>API Traduzione testuale 3.0: Transliterate
 
 Converte il testo in una lingua da uno script in un altro script.
 
@@ -30,7 +31,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-I parametri di richiesta passati alla stringa di query sono:
+I parametri della richiesta inviati a una stringa di query sono:
 
 <table width="100%">
   <th width="20%">Query parameter (Parametro di query)</th>
@@ -59,20 +60,20 @@ Le intestazioni della richiesta includono:
   <th width="20%">Headers</th>
   <th>DESCRIZIONE</th>
   <tr>
-    <td>_Un'intestazione_<br/>_di autorizzazione_</td>
-    <td>*Intestazione di richiesta necessaria*.<br/>Vedere le [opzioni disponibili per l'autenticazione](./v3-0-reference.md#authentication).</td>
+    <td>_Intestazione_<br/>_di autorizzazione_</td>
+    <td>*Intestazione della richiesta obbligatoria*.<br/>Vedere le [opzioni disponibili per l'autenticazione](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*Intestazione di richiesta necessaria*.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`.</td>
+    <td>*Intestazione della richiesta obbligatoria*.<br/>Specifica il tipo di contenuto del payload. I valori possibili sono:`application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*Intestazione di richiesta necessaria*.<br/>Lunghezza del corpo della richiesta.</td>
+    <td>*Intestazione della richiesta obbligatoria*.<br/>Lunghezza del corpo della richiesta.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Facoltativo*.<br/>GUID generato dal client che identifica in modo univoco la richiesta. Si noti che è possibile omettere questa intestazione se nella stringa della query si include l'ID traccia usando un parametro di query denominato `ClientTraceId`.</td>
+    <td>*Facoltativo*.<br/>GUID generato dal client che identifica in modo univoco la richiesta. Si noti che è possibile omettere questa intestazione se nella stringa della query si include l'ID traccia con un parametro di query denominato `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -101,7 +102,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni elemento nel
   
   * `script`: una stringa che specifica lo script usato nell'output.
 
-Una risposta di esempio JSON è:
+Una risposta JSON di esempio è:
 
 ```json
 [
@@ -117,13 +118,13 @@ Una risposta di esempio JSON è:
   <th>DESCRIZIONE</th>
   <tr>
     <td>X-RequestId</td>
-    <td>Valore generato dal servizio per identificare la richiesta. Usato per la risoluzione dei problemi.</td>
+    <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
   </tr>
 </table> 
 
 ## <a name="response-status-codes"></a>Codici di stato della risposta
 
-I seguenti sono i possibili codici di stato HTTP che possono essere restituiti da una richiesta. 
+Di seguito sono riportati i possibili codici di stato HTTP restituiti da una richiesta. 
 
 <table width="100%">
   <th width="20%">Codice di stato</th>
@@ -134,7 +135,7 @@ I seguenti sono i possibili codici di stato HTTP che possono essere restituiti d
   </tr>
   <tr>
     <td>400</td>
-    <td>Uno dei parametri della query è mancante o non valido. Correggere i parametri di richiesta prima di riprovare.</td>
+    <td>Uno dei parametri di query manca o non è valido. Prima di riprovare, correggere i parametri della richiesta.</td>
   </tr>
   <tr>
     <td>401</td>
@@ -150,11 +151,11 @@ I seguenti sono i possibili codici di stato HTTP che possono essere restituiti d
   </tr>
   <tr>
     <td>500</td>
-    <td>Si è verificato un errore imprevisto. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
+    <td>Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Server temporaneamente non disponibile. ripetere la richiesta. Se l'errore permane, segnalarlo con: data e ora dell'errore, identificativo della richiesta dall'intestazione di risposta `X-RequestId` e l'identificativo del client dall'intestazione di risposta `X-ClientTraceId`.</td>
+    <td>Il server è temporaneamente non disponibile. ripetere la richiesta. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta dall'intestazione della riposta `X-RequestId` e identificatore del client dall'intestazione della richiesta `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -170,7 +171,7 @@ Il payload JSON per la richiesta in questo esempio:
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
-Se si sta usando cUrl in una finestra della riga di comando che non supporta i caratteri Unicode, salvare il payload JSON seguente in un file denominato `request.txt`. Assicurarsi di salvare il file con la codifica `UTF-8`.
+Se si usa cUrl in una finestra della riga di comando che non supporta i caratteri Unicode, salvare il payload JSON seguente in un file denominato `request.txt`. Assicurarsi di salvare il file con la codifica `UTF-8`.
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt

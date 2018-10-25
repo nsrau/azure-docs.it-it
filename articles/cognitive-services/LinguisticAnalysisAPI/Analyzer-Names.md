@@ -1,22 +1,27 @@
 ---
-title: Struttura di denominazione degli analizzatori nell'API Analisi linguistica | Microsoft Docs
-description: Informazioni sul modo in cui l'API Analisi linguistica usa la struttura di denominazione per gli analizzatori per consentire flessibilità e precisione.
+title: Struttura di denominazione degli analizzatori - API Analisi linguistica
+titlesuffix: Azure Cognitive Services
+description: Informazioni sul modo in cui l'analizzatore dell'API Analisi linguistica usa la struttura di denominazione per consentire flessibilità e precisione.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
-ms.openlocfilehash: 2729b7126e82862660fc8e1a995cc87ae996ea03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372988"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237232"
 ---
 # <a name="analyzer-names"></a>Nomi degli analizzatori
+
+> [!IMPORTANT]
+> L'anteprima di Analisi linguistica è stata ritirata il 9 agosto 2018. Per l'elaborazione e l'analisi del testo è consigliabile usare i [moduli di analisi del testo di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 Viene usata una struttura di denominazione piuttosto complicata per gli analizzatori per consentire sia la flessibilità per gli analizzatori che la precisione per comprendere il significato di un nome.
 I nomi di analizzatori sono costituiti da quattro parti: un ID, un tipo, una specifica e un'implementazione.
