@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
-ms.openlocfilehash: c24cccde507873424e3c51d584f5cd094df2b876
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8abcc90bf72544e6226d6c8487d2951b60ea6d29
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641170"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802153"
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
 I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal [piano tariffario scelto per Ricerca di Azure](search-create-service-portal.md): **Gratuito**, **Basic** o **Standard**.
@@ -55,15 +55,15 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, doc
 
 ## <a name="document-limits"></a>Limiti per i documenti 
 
-Nella maggior parte delle aree, i piani tariffari di Ricerca di Azure (Basic, S1, S2, S3, S3 HD) dispongono di un numero illimitato di documenti per tutti i servizi creati dopo novembre/dicembre 2017. Questa sezione identifica le aree in cui si applicano i limiti e descrive come determinare se il servizio è interessato. 
+A partire da ottobre 2018, non vi sono più limiti per i documenti per i nuovi servizi creati in qualsiasi livello fatturabile (Basic, S1, S2, S3, S3 HD) in qualsiasi area. Il limite al numero di documenti è stato abolito per la maggior parte delle aree da novembre/dicembre 2017, ma cinque aree hanno continuato ad imporre limiti sui documenti. A seconda di dove e quando è stato creato un servizio di ricerca, è possibile che si stia eseguendo un servizio ancora soggetto a limiti sui documenti.
 
 Per determinare se il servizio dispone di limiti per i documenti, controllare il riquadro Utilizzo nella pagina Panoramica del servizio. Il numero di documenti è illimitato o sottoposto a un limite in base al livello.
 
   ![Riquadro Utilizzo](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-### <a name="regions-and-services-having-document-limits"></a>Aree e servizi con limiti per i documenti
+### <a name="regions-previously-having-document-limits"></a>Aree che in precedenza avevano limiti sui documenti
 
-I servizi con limiti sono stati creati prima della fine del 2017 o sono in esecuzione in data center che usano cluster con capacità inferiori per ospitare i servizi di Ricerca di Azure. I data center interessati si trovano nelle aree seguenti:
+Se il portale indica un limite sui documenti, il servizio è stato creato prima della fine del 2017 o è stato creato in un data center con cluster con capacità ridotte per ospitare i servizi di Ricerca di Azure:
 
 + Australia orientale
 + Asia orientale
@@ -76,6 +76,8 @@ Per i servizi soggetti a limiti per i documenti, si applicano i limiti massimi s
 |  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10.000 |1 milione |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
+
+Se il servizio ha dei limiti che costituiscono un blocco, creare un nuovo servizio e pubblicarvi nuovamente tutti i contenuti. Non è previsto alcun meccanismo automatico per eseguire nuovamente il provisioning del servizio nel nuovo hardware in background.
 
 > [!Note] 
 > Per i servizi S3 ad alta densità creati dopo la fine del 2017, è stato rimosso il limite di 200 milioni di documenti per partizione, ma rimane il limite di 1 milione di documenti per indice.

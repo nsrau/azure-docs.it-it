@@ -1,21 +1,21 @@
 ---
-title: Ridimensionare e ritagliare le anteprime di Bing | Microsoft Docs
-description: Illustra come ridimensionare e ritagliare le anteprime restituite da una risposta di Bing.
+title: Ridimensionare e ritagliare le anteprime - Ricerca entità Bing
+titlesuffix: Azure Cognitive Services
+description: Illustra come ridimensionare e ritagliare le anteprime restituite da Ricerca entità Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: B61F24B6-58AA-45E6-8E7B-0E9C9CA0925A
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2017
 ms.author: scottwhi
-ms.openlocfilehash: a3c66481f1cbbcf019edfb3ce908b34cc1805a0e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4015b897985ebc4e962fcb876a17431bc7838a1f
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372681"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815478"
 ---
 # <a name="resizing-and-cropping-thumbnail-images"></a>Ridimensionamento e ritaglio delle immagini di anteprima
 

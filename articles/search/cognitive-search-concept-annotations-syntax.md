@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 0e074e93ecbe80c3acf3481c0d33917fbe5090c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640907"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801948"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Come fare riferimento alle annotazioni in un insieme di competenze di ricerca cognitiva
 
@@ -89,7 +89,7 @@ Per richiamare il corretto numero di iterazioni, impostare il contesto come `"/d
   }
 ```
 
-Quando le annotazioni sono matrici o raccolte di stringhe, è possibile fare riferimento a membri specifici anziché alla matrice nel suo complesso. L'esempio precedente genera un'annotazione denominata `"last"` in ogni nodo rappresentato dal contesto. Se si desidera fare riferimento a questa famiglia di annotazioni, è possibile utilizzare la sintassi `"/document/people/*/last"`. Se si desidera fare riferimento a un'annotazione particolare, è possibile utilizzare un indice esplicito: `"/document/people/1/last`"per fare riferimento al cognome del primo utente identificato nel documento. Si noti che queste matrici di sintassi sono "indicizzate a 1".
+Quando le annotazioni sono matrici o raccolte di stringhe, è possibile fare riferimento a membri specifici anziché alla matrice nel suo complesso. L'esempio precedente genera un'annotazione denominata `"last"` in ogni nodo rappresentato dal contesto. Se si desidera fare riferimento a questa famiglia di annotazioni, è possibile utilizzare la sintassi `"/document/people/*/last"`. Se si desidera fare riferimento a un'annotazione particolare, è possibile utilizzare un indice esplicito: `"/document/people/1/last`"per fare riferimento al cognome del primo utente identificato nel documento. Si noti che in questa sintassi le matrici sono "indicizzate a 0".
 
 <a name="example-3"></a>
 

@@ -128,8 +128,6 @@ items:
       href: azure-stack-region-management.md
     - name: Uso del portale dell'amministratore
       href: azure-stack-manage-portals.md
-    - name: Connettersi ad Azure Stack
-      href: azure-stack-connect-azure-stack.md
     - name: Connect to Azure
       items:
       - name: Connessione tramite VPN
@@ -348,7 +346,7 @@ items:
       href: azure-stack-backup-back-up-azure-stack.md
     - name: Eseguire il backup di file e applicazioni in Azure Stack
       href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
-    - name: La replica di macchine virtuali di Azure Stack in Azure
+    - name: Replicare le macchine virtuali di Azure Stack in Azure
       href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
     - name: Ripristino da una grave perdita dei dati
       href: azure-stack-backup-recover-data.md
@@ -388,9 +386,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Formazione e certificazione
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 07db25425bf9ef753c1561803dd1cdf838ef3457
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7034026f1a78c34cfd57750dcfdc4a65491ce75b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944959"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023985"

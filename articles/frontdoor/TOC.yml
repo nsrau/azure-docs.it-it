@@ -15,36 +15,40 @@ items:
     href: front-door-custom-domain.md
   - name: Abilitare HTTPS per un dominio personalizzato
     href: front-door-custom-domain-https.md
+  - name: Configurare un criterio di filtro geografico per Frontdoor
+    href: front-door-tutorial-geo-filtering.md
 - name: Esempi
   items:
   - name: Modelli di Resource Manager
     href: front-door-quickstart-template-samples.md
 - name: Concetti
   items:
-  - name: Back-end e pool back-end
-    href: front-door-backend-pool.md
   - name: Sicurezza del livello dell'applicazione
     href: front-door-application-security.md
-  - name: Bilanciamento del carico con la famiglia di prodotti per la distribuzione di applicazioni di Azure
-    href: front-door-lb-with-azure-app-delivery-suite.md
-  - name: Architettura di routing
-    href: front-door-routing-architecture.md
-  - name: Metodi di instradamento del traffico
-    href: front-door-routing-methods.md
-  - name: Individuazione della corrispondenza tra richiesta e routing in Frontdoor
-    href: front-door-route-matching.md
-  - name: Probe di integrità
-    href: front-door-health-probes.md
-  - name: Riscrittura URL
-    href: front-door-url-rewrite.md
+  - name: Back-end e pool back-end
+    href: front-door-backend-pool.md
   - name: Memorizzazione nella cache con Frontdoor
     href: front-door-caching.md
+  - name: Filtro geografico
+    href: front-door-geo-filtering.md
+  - name: Probe di integrità
+    href: front-door-health-probes.md
+  - name: Individuazione della corrispondenza tra richiesta e routing in Frontdoor
+    href: front-door-route-matching.md
   - name: Supporto HTTP/2
     href: front-door-http2.md
   - name: Supporto dei protocolli nelle intestazioni HTTP
     href: front-door-http-headers-protocol.md
+  - name: Bilanciamento del carico con la suite per il recapito di applicazioni di Azure
+    href: front-door-lb-with-azure-app-delivery-suite.md
   - name: Monitoraggio
     href: front-door-diagnostics.md
+  - name: Architettura di routing
+    href: front-door-routing-architecture.md
+  - name: Metodi di instradamento del traffico
+    href: front-door-routing-methods.md
+  - name: Riscrittura URL
+    href: front-door-url-rewrite.md
 - name: Guide alle procedure
   items:
   - name: Risolvere problemi
@@ -71,9 +75,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=frontdoor
-ms.openlocfilehash: 31944414b1bdcdb98d166463d54e21ecab6924e9
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 504ae8bbd1c28b1deba5b1a9fdd387a46a84859e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419341"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986373"

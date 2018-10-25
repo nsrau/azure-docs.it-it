@@ -4,20 +4,20 @@ description: Esempi
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
-ms.technology: Speech to Text
+ms.component: Speech
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: b6fb39ef5941157cfe0d18324deeb9d836d7ab09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 8f9a033ebf9cdfdb96ae8511b14202e49ec0a85e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377622"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884460"
 ---
 # <a name="batch-transcription"></a>Trascrizione Batch
 
-La trascrizione Batch è ideale se sono presenti grandi quantità di dati audio. È possibile fare riferimento a file audio e ottenere le trascrizioni in modalità asincrona.
+La trascrizione Batch è ideale se sono presenti grandi quantità di dati audio. È possibile fare riferimento ai file audio mediante l'URL e ottenere le trascrizioni in modalità asincrona.
 
 ## <a name="batch-transcription-api"></a>API di trascrizione Batch
 
@@ -59,36 +59,38 @@ Per i flussi audio stereo, la trascrizione Batch divide i canali sinistro e dest
 
 ## <a name="authorization-token"></a>Token di autorizzazione
 
-Come per tutte le funzionalità del Servizio di riconoscimento vocale unificato, è necessario creare una chiave di sottoscrizione nel [portale di Azure](https://portal.azure.com). Inoltre, viene acquisita una chiave API dal portale di riconoscimento vocale: 
+Come per tutte le funzionalità del Servizio di riconoscimento vocale, è necessario creare una chiave di sottoscrizione nel [portale di Azure](https://portal.azure.com) seguendo la [guida introduttiva](get-started.md). Se si prevede di ottenere trascrizioni dai modelli di base, questa è l'unica operazione da eseguire. 
+
+Se si prevede di creare e usare un modello personalizzato, è necessario aggiungere la chiave di sottoscrizione al portale del Servizio di riconoscimento vocale personalizzato, come indicato di seguito:
 
 1. Accedere a [Riconoscimento vocale personalizzato](https://customspeech.ai).
 
 2. Selezionare **Sottoscrizioni**.
 
-3. Selezionare **Genera chiave API**.
+3. Selezionare **Connect Existing Subscription** (Connetti sottoscrizione esistente).
+
+4. Aggiungere la chiave di sottoscrizione e un alias nella visualizzazione che compare
 
     ![Screenshot della pagina di sottoscrizione di Riconoscimento vocale personalizzato](media/stt/Subscriptions.jpg)
 
-4. Copiare e incollare la chiave nel codice client nell'esempio riportato di seguito.
+5. Copiare e incollare la chiave nel codice client nell'esempio riportato di seguito.
 
 > [!NOTE]
-> Se si prevede di usare un modello personalizzato sarà necessario anche l'ID del modello. Si noti che questo non è l'ID di distribuzione o dell'endpoint presente dei dettagli dell'Endpoint. Si tratta dell'ID modello che è possibile recuperare quando si selezionano i dettagli di tale modello.
+> Se si prevede di usare un modello personalizzato sarà necessario anche l'ID del modello. Si noti che questo non è l'ID dell'endpoint presente nella visualizzazione Dettagli endpoint. Si tratta dell'ID modello che è possibile recuperare quando si selezionano i dettagli di tale modello.
 
 ## <a name="sample-code"></a>Codice di esempio
 
 Personalizzare il codice di esempio seguente con una chiave di sottoscrizione e una chiave API. In questo modo è possibile ottenere un token di connessione.
 
 ```cs
-    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
         {
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-
-            var tokenProviderPath = "/oauth/ctoken";
-            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+         
             return new CrisClient(client);
         }
 ```
@@ -98,8 +100,8 @@ Dopo aver ottenuto il token, è necessario specificare l'URI SAS selezionando il
 ```cs
    static async Task TranscribeAsync()
         { 
-            private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
-            private const string HostName = "cris.ai";
+            private const string SubscriptionKey = "<your Speech subscription key>";
+            private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
             // Creating a Batch transcription API Client
@@ -167,7 +169,7 @@ Dopo aver ottenuto il token, è necessario specificare l'URI SAS selezionando il
 ```
 
 > [!NOTE]
-> Nell'esempio precedente, la chiave di sottoscrizione è la chiave della risorsa del Servizio di riconoscimento vocale (anteprima) creata nel portale di Azure. Le chiavi ottenute dalla risorsa del Servizio di riconoscimento vocale personalizzato non funzioneranno.
+> Nell'esempio precedente, la chiave di sottoscrizione è la chiave della risorsa del Servizio di riconoscimento vocale creata nel portale di Azure. Le chiavi ottenute dalla risorsa del Servizio di riconoscimento vocale personalizzato non funzioneranno.
 
 Si noti la configurazione asincrona per l'inserimento dell'audio e la ricezione dello stato della trascrizione. Il client creato è un client HTTP NET. Il metodo `PostTranscriptions` consente di inviare i dettagli del file audio e il metodo `GetTranscriptions` consente di ricevere i risultati. `PostTranscriptions` restituisce un handle e `GetTranscriptions` usa questo handle per crearne uno per ottenere lo stato della trascrizione.
 

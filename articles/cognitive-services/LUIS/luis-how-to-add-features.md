@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6831f67a33d114ca5c42ddacf8ef4de704e21711
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036957"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830991"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>Usare gli elenchi di frasi in segnali boost dell'elenco di parole
 
@@ -46,7 +46,7 @@ ms.locfileid: "47036957"
 <a name="deactivate-phrase-list"></a>
 
 > [!Note]
-> È possibile modificare, eliminare o disattivare un elenco di frasi dal pulsante dei puntini di sospensione (***...***) alla fine della riga di ogni elenco di frasi.
+> È possibile eliminare o disattivare un elenco di frasi nella barra degli strumenti contestuale nella pagina **Phrase lists** (Elenchi di frasi).
 
 ## <a name="pattern-regular-expression-feature"></a>Funzioni di criterio (espressione regolare) 
 **Questa funzionalità è deprecata**. Non è possibile aggiungere nuove funzionalità di criteri a LUIS. Tutte le funzionalità di criteri esistenti sono supportate fino a maggio 2018. Contribuire all'associazione di espressioni regolari di LUIS standard con un PR nel [repository GitHub Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). 

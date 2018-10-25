@@ -3,7 +3,7 @@ title: Distribuire un'applicazione in un set di scalabilità di macchine virtual
 description: Informazioni su come distribuire applicazioni nelle istanze di macchine virtuali Linux e Windows in un set di scalabilità
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: zarhoads
+ms.openlocfilehash: 22e035be27f16e7b73e545d75eb9cd108a919114
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718982"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471204"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuire l'applicazione nei set di scalabilità delle macchine virtuali
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. Questo articolo descrive come creare un'immagine personalizzata di macchina virtuale per le istanze in un set di scalabilità o eseguire automaticamente gli script di installazione nelle istanze di macchine virtuali esistenti. Si apprenderà anche come gestire gli aggiornamenti delle applicazioni o del sistema operativo in un set di scalabilità.
@@ -31,14 +31,14 @@ Quando si usa una delle immagini della piattaforma Azure per creare le istanze n
 
 Per ridurre la gestione della configurazione e il tempo per eseguire il provisioning di una macchina virtuale, è possibile creare un'immagine personalizzata della macchina virtuale pronta per eseguire l'applicazione non appena viene eseguito il provisioning di un'istanza nel set di scalabilità. Per altre informazioni su come creare e usare un'immagine di VM personalizzata con un set di scalabilità, vedere le esercitazioni seguenti:
 
-- [Interfaccia della riga di comando di Azure 2.0](tutorial-use-custom-image-cli.md)
+- [Interfaccia della riga di comando di Azure](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Installare un'app con l'estensione dello script personalizzata
 L'estensione script personalizzata scarica ed esegue gli script sulle macchine virtuali di Azure. Questa estensione è utile per la configurazione post-distribuzione, l'installazione di software o qualsiasi altra attività di configurazione o gestione. Gli script possono essere scaricati dall'archiviazione di Azure o da GitHub oppure possono essere forniti al portale di Azure durante il runtime dell'estensione. Per altre informazioni su come creare e usare un'immagine di VM personalizzata con un set di scalabilità, vedere le esercitazioni seguenti:
 
-- [Interfaccia della riga di comando di Azure 2.0](tutorial-install-apps-cli.md)
+- [Interfaccia della riga di comando di Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Modello di Azure Resource Manager](tutorial-install-apps-template.md)
 
@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Installare le applicazioni con gli aggiornamenti del sistema operativo
 Quando sono disponibili nuove versioni del sistema operativo, è possibile usare o creare una nuova immagine personalizzata e [distribuire gli aggiornamenti del sistema operativo](virtual-machine-scale-sets-upgrade-scale-set.md) a un set di scalabilità. Ogni istanza di macchina virtuale viene aggiornata all'immagine più recente specificata. È possibile usare un'immagine personalizzata con l'applicazione preinstallata, l'estensione dello script personalizzata o PowerShell DSC per rendere l'applicazione automaticamente disponibile quando si esegue l'aggiornamento. Potrebbe essere necessario pianificare la manutenzione dell'applicazione durante l'esecuzione di questo processo per verificare che non si siano verificati problemi di compatibilità delle versioni.
 
-Se si usa un'immagine di macchina virtuale personalizzata con l'applicazione preinstallata, è possibile integrare gli aggiornamenti dell'applicazione con una pipeline di distribuzione per creare nuove immagini e distribuire gli aggiornamenti del sistema operativo nel set di scalabilità. Questo approccio consente alla pipeline di prelevare le compilazioni più recenti dell'applicazione, creare e convalidare un'immagine di macchina virtuale, quindi aggiornare le istanze di macchine virtuali nel set di scalabilità. Per eseguire una pipeline di distribuzione che crea e distribuisce gli aggiornamenti dell'applicazione tra le immagini di macchine virtuali personalizzate, è possibile [creare un'immagine Packer e distribuirla con Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset) oppure usare un'altra piattaforma come [Spinnaker](https://www.spinnaker.io/) o [Jenkins](https://jenkins.io/).
+Se si usa un'immagine di macchina virtuale personalizzata con l'applicazione preinstallata, è possibile integrare gli aggiornamenti dell'applicazione con una pipeline di distribuzione per creare nuove immagini e distribuire gli aggiornamenti del sistema operativo nel set di scalabilità. Questo approccio consente alla pipeline di prelevare le compilazioni più recenti dell'applicazione, creare e convalidare un'immagine di macchina virtuale, quindi aggiornare le istanze di macchine virtuali nel set di scalabilità. Per eseguire una pipeline di distribuzione che crea e distribuisce gli aggiornamenti dell'applicazione tra le immagini di macchine virtuali personalizzate, è possibile [creare un'immagine Packer e distribuirla con Azure DevOps Services](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset) oppure usare un'altra piattaforma come [Spinnaker](https://www.spinnaker.io/) o [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

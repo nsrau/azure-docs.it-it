@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 526c50fa4d261a30738c3f24d537fe5e0d765f6d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951305"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248330"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività in Monitoraggio di Azure  
 
@@ -25,7 +25,7 @@ Si tratta di avvisi per le risorse di Azure e possono essere creati usando un mo
 > [!IMPORTANT]
 > Non è possibile creare avvisi di notifica sull'integrità dei servizi tramite l'interfaccia per la creazione degli avvisi del log attività. Per altre informazioni relative alla creazione e all'uso delle notifiche sull'integrità dei servizi, vedere [Creare gli avvisi del log attività per le notifiche del servizio](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-portal"></a>Gestire le regole di avviso per il log attività usando il portale di Azure
+## <a name="azure-portal"></a>Portale di Azure
 
 > [!NOTE]
 
@@ -36,7 +36,7 @@ Si tratta di avvisi per le risorse di Azure e possono essere creati usando un mo
 - Non sono presenti condizioni "anyOf" o condizioni nidificate nella configurazione degli avvisi JSON (in pratica, è consentito un solo allOf senza ulteriori allOf/anyOf).
 - Quando la categoria è "administrative" (amministrativa). È necessario specificare nell'avviso almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
 
-### <a name="create-an-alert-rule-for-an-activity-log-using-azure-portal"></a>Creare una regola di avviso per un log attività usando il portale di Azure
+### <a name="create-with-azure-portal"></a>Creare con il portale di Azure
 
 Utilizzare la procedura seguente:
 
@@ -102,7 +102,7 @@ In alternativa, una semplice analogia per comprendere le condizioni in cui è po
  ![ Aggiungere un avviso dal log attività](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
     
 
-### <a name="view-and-manage-activity-log-alert-rules-in-azure-portal"></a>Visualizzare e gestire le regole di avviso del log attività nel portale di Azure
+### <a name="view-and-manage-in-azure-portal"></a>Visualizzare e gestire gli avvisi nel portale di Azure
 
 1. Nel portale di Azure fare clic su **Monitoraggio** > **Avvisi**, quindi su **Gestisci le regole** nella parte superiore sinistra della finestra.
 
@@ -127,7 +127,7 @@ In alternativa, una semplice analogia per comprendere le condizioni in cui è po
 4.  È possibile disabilitare, abilitare o eliminare una regola. Selezionare l'opzione appropriata nella parte superiore della finestra, dopo aver selezionato la regola come descritto nel passaggio 2.
 
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-resource-template"></a>Gestire le regole di avviso per il log attività usando il modello di risorsa di Azure
+## <a name="azure-resource-template"></a>Modello di risorsa di Azure
 Per creare un avviso del log attività usando un modello di Resource Manager, creare una risorsa di tipo `microsoft.insights/activityLogAlerts`. Compilare quindi tutte le proprietà correlate. Il modello seguente crea un avviso del log attività.
 
 ```json
@@ -200,21 +200,23 @@ Per usare il JSON di esempio in questa procedura dettagliata, è possibile salva
 > [!NOTE]
 > Possono essere necessari fino a 5 minuti prima che una nuova regola di avviso del log attività diventi attiva
 
-## <a name="manage-alert-rules-for-activity-log-using-powershell-cli-or-api"></a>Gestire le regole di avviso per il log attività usando PowerShell, l'interfaccia della riga di comando o l'API
+## <a name="rest-api"></a>API REST 
 L'[API degli avvisi dei log attività di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) è un'API REST completamente compatibile con l'API REST di Azure Resource Manager. Può pertanto essere usata con il cmdlet di Resource Manager tramite Powershell e l'interfaccia della riga di comando di Azure.
 
+## <a name="powershell"></a>PowerShell
 Di seguito viene illustrato l'utilizzo tramite il cmdlet di Azure Resource Manager in PowerShell per il modello di risorsa di esempio riportato in precedenza (sampleActivityLogAlert.json) nella [sezione Modello di risorsa](#manage-alert-rules-for-activity-log-using-azure-resource-template):
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 Quando in sampleActivityLogAlert.parameters.json sono presenti i valori dei parametri necessari per la creazione della regola di avviso.
 
+## <a name="cli"></a>CLI
 Di seguito viene illustrato l'utilizzo tramite il comando di Azure Resource Manager nell'interfaccia della riga di comando di Azure per il modello di risorsa di esempio riportato in precedenza (sampleActivityLogAlert.json) nella [sezione Modello di risorsa](#manage-alert-rules-for-activity-log-using-azure-resource-template):
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
 ```
-Quando in sampleActivityLogAlert.parameters.json sono presenti i valori dei parametri necessari per la creazione della regola di avviso.
+Il file *sampleActivityLogAlert.parameters.json* include i valori dei parametri necessari per la creazione della regola di avviso.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,20 +8,14 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: 21b0029ff12915c8416ad2366fbf6c45ddfaa288
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f82b4dff20e2b26e62889c41b3ff3c27bc86066a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978421"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901414"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Esplora metriche di Monitoraggio di Azure
-
-Questa guida procedurale descrive la nuova generazione dell'esperienza di creazione di grafici delle metriche di Monitoraggio di Azure che è attualmente disponibile in anteprima pubblica. La nuova esperienza supporta il rendering dei grafici sia di metriche multidimensionali che di metriche di base senza quote. È possibile tracciare grafici che sovrappongono metriche derivanti da tipi di risorse differenti, più gruppi di risorse e sottoscrizioni. È possibile personalizzare i grafici di metriche multidimensionali applicando filtri di dimensione e raggruppamenti. Tutti i grafici, inclusi quelli personalizzati, possono essere aggiunti ai dashboard.
-
-Per informazioni sull'esperienza precedente che supporta solo le metriche di base senza quote, vedere la sezione intitolata "Accedere alle metriche tramite il portale" nella guida [Panoramica delle metriche in Microsoft Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
-
-## <a name="what-is-azure-monitor-metrics-explorer"></a>Cos'è Esplora metriche di Monitoraggio di Azure?
 
 Esplora metriche di Monitoraggio di Azure è un componente del portale di Microsoft Azure che consente di tracciare grafici, correlare visivamente le tendenze ed esaminare i picchi e i cali nei valori delle metriche. Esplora metriche è uno strumento fondamentale da cui iniziare a esaminare le varie problematiche relative a prestazioni e disponibilità che si possono presentare con le applicazioni e l'infrastruttura ospitate in Azure o monitorate dai servizi Monitoraggio di Azure. 
 
@@ -29,21 +23,16 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
 
 In Microsoft Azure le metriche sono la serie di valori e conteggi misurati che vengono raccolti e archiviati nel corso del tempo. Sono disponibili metriche standard (o di "piattaforma") e metriche personalizzate. Le metriche standard appartengono alla piattaforma stessa di Azure. Esse riflettono le statistiche sull'integrità e l'utilizzo delle risorse di Azure. Le metriche personalizzate vengono invece inviate ad Azure dalle applicazioni che usano l'[API di Application Insights per gli eventi personalizzati](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Le metriche personalizzate vengono archiviate nelle risorse di Application Insights insieme alle altre metriche specifiche delle applicazioni.
 
-
-
 ## <a name="how-do-i-create-a-new-chart"></a>Come si crea un nuovo grafico?
 
-   > [!NOTE]
-   > Alcune delle funzionalità dell'esperienza precedente non sono ancora disponibili nel nuovo Esplora metriche. Mentre la nuova esperienza è in anteprima, è possibile continuare a usare la visualizzazione Metrica (non-dimensionale) precedente di Monitoraggio di Azure. 
-
 1. Aprire il portale di Azure
-2. Passare alla nuova scheda **Monitor** (Monitoraggio) e quindi selezionare **Metrics (preview)** (Metriche (anteprima)).
+2. Passare alla nuova scheda **Monitoraggio** e selezionare **Metriche**.
 
-   ![Immagine anteprima di Metriche](./media/monitoring-metric-charts/0001.png)
+   ![Immagine metriche](./media/monitoring-metric-charts/0001.png)
 
 3. Il **selettore di metrica** verrà aperto automaticamente. Scegliere una risorsa dall'elenco per visualizzarne le risorse associate. Nell'elenco vengono visualizzate solo le risorse che dispongono di metriche.
 
-   ![Immagine anteprima di Metriche](./media/monitoring-metric-charts/0002.png)
+   ![Immagine metriche](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
    >Se si dispone di più sottoscrizioni di Azure, Esplora metriche estrae le risorse da tutte le sottoscrizioni che sono selezionate nell'elenco Impostazioni del portale -> Filtra per sottoscrizioni. Per modificare l'elenco, fare clic sull'icona a forma di ingranaggio Impostazioni del portale in cima alla schermata e selezionare le sottoscrizioni che si desidera usare.
@@ -52,11 +41,11 @@ In Microsoft Azure le metriche sono la serie di valori e conteggi misurati che v
 
    Ogni Archiviazione di Azure, ad esempio, dispone di metriche per i sottoservizi "BLOB", "File", "Code" e "Tabelle", che fanno tutti parte dell'account di archiviazione. La metrica "Queue Message Count" (Numero di messaggi in coda) è peraltro ovviamente applicabile al sottoservizio "Code" e a nessun altro sottoservizio dell'account di archiviazione.
 
-   ![Immagine anteprima di Metriche](./media/monitoring-metric-charts/0003.png)
+   ![Immagine metriche](./media/monitoring-metric-charts/0003.png)
 
 5. Selezionare una metrica dall'elenco. Se si conosce solo in parte il nome della metrica desiderata, è possibile iniziare a digitare il nome per visualizzare un elenco filtrato di metriche disponibili:
 
-   ![Immagine anteprima di Metriche](./media/monitoring-metric-charts/0004.png)
+   ![Immagine metriche](./media/monitoring-metric-charts/0004.png)
 
 6. Dopo avere selezionato una metrica, verrà eseguito il rendering del grafico con l'aggregazione predefinita per la metrica selezionata. È possibile a questo punto fare semplicemente clic sul **selettore di metrica** per chiuderlo. Se lo si desidera, è possibile spostare il grafico in un'aggregazione diversa. Per alcune metriche, il passaggio di aggregazione consente di scegliere quale valore si desidera visualizzare nel grafico. È ad esempio possibile passare tra i valori medi, minimi e massimi. 
 

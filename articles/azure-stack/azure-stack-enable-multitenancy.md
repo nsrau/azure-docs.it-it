@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/24/2018
 ms.author: patricka
-ms.openlocfilehash: 0c49a895a3cd214bb6f9c88b5365cf980c60bf0a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451772"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026161"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Multi-tenancy in Azure Stack
 
@@ -44,8 +44,6 @@ Esistono alcuni prerequisiti per tenere conto prima di configurare multi-tenancy
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ````
-
- - Mary richiederanno [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) accesso ad Azure Stack. 
 
 ### <a name="configure-azure-stack-directory"></a>Configura directory di Azure Stack
 
@@ -103,17 +101,6 @@ Register-AzSWithMyDirectoryTenant `
 > Eseguire questo script in qualsiasi momento per verificare lo stato delle applicazioni nella directory di Azure Stack.
 > 
 > Se si sono notato i problemi con la creazione di macchine virtuali in Managed Disks (introdotto nell'aggiornamento 1808), una nuova **Provider di risorse disco** è stato aggiunto, richiedere questo script per eseguirlo di nuovo.
-
-### <a name="activate-the-administrator-and-tenant-portals"></a>Attivare i portali tenant e di amministratore
-Dopo le distribuzioni che usano Azure AD, è necessario attivare entrambi i portali a amministratore e del tenant di Azure Stack. Questa attivazione dà il consenso a fornendo il portale di Azure Stack e Azure Resource Manager le autorizzazioni corrette (elencate nella pagina di consenso) per tutti gli utenti della directory.
-
-- Per il portale dell'amministratore, passare a https://adminportal.local.azurestack.external/guest/signup, leggere le informazioni e quindi fare clic su Accetta. Dopo aver accettato, è possibile aggiungere gli amministratori del servizio che non sono anche amministratori di tenant di directory.
-- Per il portale tenant, passare a https://portal.local.azurestack.external/guest/signup, leggere le informazioni e quindi fare clic su Accetta. Dopo aver accettato, gli utenti della directory possono accedere al portale tenant. 
- 
-> [!NOTE] 
-> Se non sono attivati i portali, solo l'amministratore di directory possa accedere e usare i portali. Se un altro utente esegue l'accesso, si verrà visualizzato un errore che informa che l'amministratore non dispone di autorizzazioni ad altri utenti. Quando l'amministratore in modo nativo non appartengono alla directory di in che Azure Stack è registrato, la directory di Azure Stack deve essere aggiunto all'URL di attivazione. Ad esempio, se Azure Stack è registrato con fabrikam.onmicrosoft.com e l'utente amministratore viene admin@contoso.com, passare a https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com per attivare il portale.
-
-
 
 ### <a name="direct-users-to-sign-in"></a>Indirizzare gli utenti per l'accesso
 

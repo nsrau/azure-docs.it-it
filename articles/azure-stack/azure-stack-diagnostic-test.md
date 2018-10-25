@@ -2,7 +2,7 @@
 title: Eseguire un test di convalida in Azure Stack | Microsoft Docs
 description: Come raccogliere i file di log per la diagnostica in Azure Stack.
 services: azure-stack
-author: mattbriggs
+author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: mabrigg
-ms.reviewer: hectorl
-ms.openlocfilehash: 3f4dc6e4136d8d2e3eb1ca5e822306aae2217e3b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 10/24/2018
+ms.author: jeffgilb
+ms.reviewer: adshar
+ms.openlocfilehash: 4f95fb5f2199e8c276b78a83391f3814303a9470
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340852"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024620"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Eseguire un test di convalida per Azure Stack
 
@@ -39,7 +39,7 @@ Quando si verifica un problema, contattare il supporto di Microsoft Customer Ser
     3. Aprire PowerShell come amministratore.
     4. Eseguire: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Eseguire: `Test-AzureStack`
-4. Se i test di report hanno esito negativo, eseguire: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` il cmdlet raccoglie i log dai Test AzureStack. Per altre informazioni sui log di diagnostica, vedere [strumenti di diagnostica di Azure Stack](azure-stack-diagnostics.md).
+4. Se i test di report hanno esito negativo, eseguire: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` il cmdlet raccoglie i log dai Test AzureStack. Per altre informazioni sui log di diagnostica, vedere [strumenti di diagnostica di Azure Stack](azure-stack-diagnostics.md). Non devi raccogliere i log o contattare servizi di supporto tecnico clienti Microsoft (CSS) se i test Avvisa in caso di report.
 5. Inviare il **SeedRing** i log al supporto tecnico di Microsoft Customer Services. Supporto di Microsoft Customer Services funziona con gli utenti per risolvere il problema.
 
 ## <a name="reference-for-test-azurestack"></a>Informazioni di riferimento per Test-AzureStack

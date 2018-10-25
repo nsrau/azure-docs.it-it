@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999512"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269531"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
 
@@ -84,7 +84,7 @@ Le singole proprietà di una ricerca salvata sono descritte nella tabella seguen
 | query | Query da eseguire. |
 
 > [!NOTE]
-> Potrebbe essere necessario usare caratteri di escape, se la query include caratteri che potrebbero essere interpretati come JSON.  La query **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, ad esempio, dovrà essere scritta nel file di soluzione nel modo seguente: **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
+> Potrebbe essere necessario usare caratteri di escape, se la query include caratteri che potrebbero essere interpretati come JSON.  La query **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, ad esempio, dovrà essere scritta nel file di soluzione nel modo seguente: **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Avvisi
 Gli [avvisi del log di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) vengono creati dalle regole di avviso di Azure che eseguono le query di log specificate a intervalli regolari.  Se i risultati della query corrispondono ai criteri specificati, viene creato un record di avviso e vengono eseguite una o più azioni usando i [gruppi di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md).  

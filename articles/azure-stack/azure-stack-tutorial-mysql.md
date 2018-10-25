@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ea3e6c2e616f2618200c1e3904786abd72bbd75d
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376806"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986454"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>Esercitazione: Offrono database MySQL a disponibilità elevata
 
@@ -65,16 +65,15 @@ Usare la procedura descritta in questa sezione per distribuire il MySQL Server c
 - Un indirizzo IP pubblico (per il cluster MySQL primario della macchina virtuale)
 - Tre macchine virtuali di Linux per ospitare il cluster MySQL
 
-1. Accedere al portale di amministrazione:
-    - Per una distribuzione del sistema integrato, l'indirizzo di portale varia in base della soluzione area e nome di dominio esterno. Sarà nel formato https://adminportal.&lt; *area geografica*&gt;.&lt; *FQDN*&gt;.
-    - Se si usa Azure Stack Development Kit (ASDK), l'indirizzo del portale viene [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selezionare **\+** **crea una risorsa** > **calcolo**, quindi **MySQL con replica**.
 
-   ![Distribuzione del modello personalizzato](media/azure-stack-tutorial-mysqlrp/createcluster1.png)
+   ![Distribuzione del modello personalizzato](media/azure-stack-tutorial-mysqlrp/1.png)
 
 3. Fornire informazioni sulla distribuzione di base sui **nozioni di base** pagina. Esaminare i valori predefiniti e modificare in base alle necessità e fare clic su **OK**.<br><br>Come minimo, fornire gli elementi seguenti:
-   - Nome della distribuzione (valore predefinito è mysql)
+   - Nome della distribuzione (valore predefinito è mymysql)
    - Password radice dell'applicazione. Fornire una password alfanumerica di 12 caratteri con **senza caratteri speciali**
    - Nome database dell'applicazione (valore predefinito è bitnami)
    - Numero di repliche di database MySQL macchine virtuali da creare (valore predefinito è 2)
@@ -82,22 +81,22 @@ Usare la procedura descritta in questa sezione per distribuire il MySQL Server c
    - Selezionare il gruppo di risorse da usare o crearne uno nuovo
    - Selezionare il percorso (valore predefinito è locale per ASDK)
 
-   ![Nozioni fondamentali sulla distribuzione](media/azure-stack-tutorial-mysqlrp/createcluster2.png)
+   [![](media/azure-stack-tutorial-mysqlrp/2-sm.PNG "Nozioni fondamentali sulla distribuzione")](media/azure-stack-tutorial-mysqlrp/2-lg.PNG#lightbox)
 
 4. Nel **configurazione dell'ambiente** pagina, fornire le informazioni seguenti e quindi fare clic su **OK**: 
    - Password o SSH chiave pubblica da usare per l'autenticazione SSH (secure shell). Se si usa una password, deve contenere lettere, numeri e **possibile** può contenere caratteri speciali
    - Dimensioni della macchina virtuale (valore predefinito è Standard D1 v2 VM)
    - Dimensioni in fare clic su GB del disco dati **OK**
 
-   ![Configurazione dell'ambiente](media/azure-stack-tutorial-mysqlrp/createcluster3.png)
+   [![](media/azure-stack-tutorial-mysqlrp/3-sm.PNG "Configurazione dell'ambiente")](media/azure-stack-tutorial-mysqlrp/3-lg.PNG#lightbox)
 
 5. Esaminare la distribuzione **riepilogo**. Facoltativamente, è possibile scaricare il modello personalizzato e i parametri e quindi fare clic su **OK**.
 
-   ![Summary](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   [![](media/azure-stack-tutorial-mysqlrp/4-sm.PNG "Riepilogo")](media/azure-stack-tutorial-mysqlrp/4-lg.PNG#lightbox)
 
 6. Fare clic su **Create** nel **acquistare** pagina per avviare la distribuzione.
 
-   ![Acquistare](media/azure-stack-tutorial-mysqlrp/createcluster4.png)
+   ![Acquistare](media/azure-stack-tutorial-mysqlrp/5.png)
 
     > [!NOTE]
     > La distribuzione richiederà circa un'ora. Assicurarsi che la distribuzione è stata completata e il cluster MySQL è stato configurato completamente prima di continuare. 
@@ -110,11 +109,11 @@ Per impostazione predefinita, nessun accesso pubblico è configurato per MySQL n
 
 1. Nel portale di amministrazione, passare al gruppo di risorse creato quando si distribuisce il cluster MySQL e selezionare il gruppo di sicurezza di rete (**predefinito-subnet-sg**):
 
-   ![apre](media/azure-stack-tutorial-mysqlrp/nsg1.png)
+   ![apre](media/azure-stack-tutorial-mysqlrp/6.png)
 
 2. Selezionare **regole di sicurezza in ingresso** e quindi fare clic su **Add**.<br><br>Immettere **3306** nel **intervallo di porte di destinazione** e, facoltativamente, fornire una descrizione nel **Name** e **descrizione** campi. Fare clic su Aggiungi per chiudere la finestra di dialogo regola di sicurezza in ingresso.
 
-   ![apre](media/azure-stack-tutorial-mysqlrp/nsg2.png)
+   ![apre](media/azure-stack-tutorial-mysqlrp/7.png)
 
 ### <a name="configure-external-access-to-the-mysql-cluster"></a>Configurare l'accesso esterno al cluster MySQL
 Prima che il cluster MySQL può essere aggiunto come un host del MySQL Server di Azure Stack, è necessario abilitare l'accesso esterno.
@@ -167,9 +166,8 @@ Dopo che il cluster MySQL è stato creato, configurato e aggiunto come un Server
 > [!NOTE]
 > Eseguire questi passaggi dal portale per gli utenti Azure Stack come un utente del tenant con una sottoscrizione che fornisce funzionalità di MySQL Server (Microsoft.MySQLAdapter servizio).
 
-1. Accedere al portale per gli utenti:
-    - Per una distribuzione del sistema integrato, l'indirizzo di portale varia in base della soluzione area e nome di dominio esterno. Sarà nel formato https://portal.&lt; *area geografica*&gt;.&lt; *FQDN*&gt;.
-    - Se si usa Azure Stack Development Kit (ASDK), l'indirizzo del portale utenti è [ https://portal.local.azurestack.external ](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Selezionare **\+** **crea una risorsa** > **dati \+ archiviazione**e quindi **MySQL Database** .<br><br>Fornire le informazioni sulle proprietà di database necessari inclusi nome, le regole di confronto, la sottoscrizione da usare e percorso da utilizzare per la distribuzione. 
 

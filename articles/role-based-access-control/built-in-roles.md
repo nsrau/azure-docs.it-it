@@ -15,12 +15,12 @@ ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 88667749d9cdf5239be33f3aca52d1a614556a41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410273"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816610"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Ruoli predefiniti per le risorse di Azure
 Il [controllo degli accessi in base al ruolo](overview.md) ha diverse definizioni di ruolo predefinite che è possibile assegnare a utenti, gruppi ed entità servizio. Le assegnazioni di ruolo sono il modo in cui si controlla l'accesso alle risorse in Azure. Se i ruoli predefiniti non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati](custom-roles.md).
@@ -786,14 +786,14 @@ La tabella seguente contiene descrizioni brevi dei ruoli predefiniti. Fare clic 
 > | **Descrizione** | Consente di gestire le data factory, ma non di accedervi. |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **Actions** |  |
-> | Microsoft.Authorization/*/read | Leggere i ruoli e le assegnazioni di ruoli |
+> | Microsoft.Authorization/*/read | Legge i ruoli e le assegnazioni di ruoli. |
 > | Microsoft.DataFactory/dataFactories/* | Creare e gestire data factory e le relative risorse figlio. |
 > | Microsoft.DataFactory/factories/* | Creare e gestire data factory e le relative risorse figlio. |
-> | Microsoft.Insights/alertRules/* | Creare e gestire regole di avviso |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato |
-> | Microsoft.Resources/deployments/* | Creare e gestire distribuzioni di gruppi di risorse |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppi di risorse. |
-> | Microsoft.Support/* | Creare e gestire ticket di supporto |
+> | Microsoft.Insights/alertRules/* | Crea e gestisce regole di avviso. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Ottiene gli stati di disponibilità per tutte le risorse nell'ambito specificato. |
+> | Microsoft.Resources/deployments/* | Crea e gestisce distribuzioni di gruppi di risorse. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Ottiene o elenca i gruppo di risorse. |
+> | Microsoft.Support/* | Crea e gestisce ticket di supporto. |
 
 ## <a name="data-lake-analytics-developer"></a>Sviluppatore di Data Lake Analytics
 > [!div class="mx-tableFixed"]

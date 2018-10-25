@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/08/2018
+ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: a9600d37f76ff56cff26ec7b740a6970e44e7018
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0a46344893c8ad62bd85f9abb84d434c0331d507
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954556"
+ms.locfileid: "49984197"
 ---
 # <a name="validate-azure-identity"></a>Convalidare l'identità di Azure 
 Usare lo strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) per verificare che Azure Active Directory (Azure AD) sia pronta per l'uso con Azure Stack. Convalidare la soluzione di identità di Azure prima di iniziare una distribuzione di Azure Stack.  
