@@ -9,20 +9,22 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214942"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831620"
 ---
-# <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
+# <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto di sicurezza e conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 
 ## <a name="overview"></a>Panoramica
 
-**Il progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale offre una distribuzione chiavi in mano di una soluzione PaaS di Azure per illustrare come inserire, archiviare, analizzare e usare in modo sicuro i dati del settore sanitario rispettando i requisiti di conformità del settore. Il progetto consente di accelerare l'adozione e l'utilizzo del cloud da parte dei clienti con dati regolamentati.**
+**Progetto di sicurezza e conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale offre una distribuzione chiavi in mano di una soluzione PaaS e IaaS di Azure per illustrare come inserire, archiviare, analizzare, usare, identificare e distribuire in modo sicuro soluzioni con dati del settore sanitario rispettando i requisiti di conformità del settore. Il progetto consente di accelerare l'adozione e l'utilizzo del cloud da parte dei clienti con dati regolamentati.**
 
-Il progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale fornisce strumenti e indicazioni per distribuire un ambiente PaaS (piattaforma distribuita come servizio) sicuro, conforme a HIPAA (Health Insurance Portability e Accountability Act) e HITRUST (Health Information Trust Alliance) per inserire, archiviare, analizzare e usare cartelle cliniche personali e non personali in un ambiente cloud multilivello sicuro, distribuito come soluzione end-to-end. Il piano, che presenta un'architettura di riferimento comune, è progettato per semplificare l'adozione di Microsoft Azure. Questa architettura illustra una soluzione in grado di soddisfare le esigenze delle organizzazioni alla ricerca di un approccio basato sul cloud per ridurre il carico di lavoro e il costo della distribuzione.
+Il progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale fornisce strumenti e indicazioni per distribuire un ambiente PaaS (piattaforma distribuita come servizio) sicuro, conforme a HIPAA (Health Insurance Portability e Accountability Act) e HITRUST (Health Information Trust Alliance) per inserire, archiviare, analizzare e usare cartelle cliniche personali e non personali in un ambiente cloud multilivello sicuro, distribuito come soluzione end-to-end. 
+
+La soluzione IaaS illustrerà come eseguire la migrazione in Azure di una soluzione locale basata su SQL e come implementare una workstation con accesso con privilegi per gestire in modo sicuro le soluzioni e i servizi basati sul cloud. Il database di SQL Server IaaS aggiunge l'importazione di dati di sperimentazione potenziali in una macchina virtuale IaaS basata su SQL e tale macchina usa l'accesso autenticato dell'identità del servizio gestita per interagire con un servizio PaaS di SQL Azure. Entrambi presentano un'architettura di riferimento comune e sono stati progettati per semplificare l'adozione di Microsoft Azure. Questa architettura illustra una soluzione in grado di soddisfare le esigenze delle organizzazioni alla ricerca di un approccio basato sul cloud per ridurre il carico di lavoro e il costo della distribuzione.
 
 ![](images/components.png)
 
@@ -38,23 +40,15 @@ Questo progetto è pensato come base modulare per i clienti, che possono apporta
 
 ## <a name="deploying-the-automation"></a>Distribuzione dell'automazione
 
-- Per distribuire la soluzione, seguire le istruzioni fornite nelle linee guida per la distribuzione. 
+- Per distribuire la soluzione, seguire le istruzioni riportate nelle [linee guida per la distribuzione](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-Per una rapida panoramica del funzionamento di questa soluzione, guardare questo [video](https://aka.ms/healthblueprintvideo), che ne spiega e descrive la distribuzione.
+- Per una rapida panoramica del funzionamento di questa soluzione, guardare questo [video](https://aka.ms/healthblueprintvideo), che ne spiega e descrive la distribuzione.
 
 - Le domande frequenti sono illustrate nell'articolo di [domande frequenti](https://aka.ms/healthblueprintfaq).
 
 -   **Diagramma dell'architettura.** Il diagramma illustra l'architettura di riferimento usata per il progetto e lo scenario del caso d'uso di esempio.
 
--   **Modelli di distribuzione**. In questa distribuzione vengono usati [modelli di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) per distribuire automaticamente i componenti dell'architettura in Microsoft Azure specificando i parametri di configurazione durante l'installazione.
-
--   **[Script di distribuzione automatizzata](https://aka.ms/healthblueprintdeploy)**. Questi script agevolano la distribuzione della soluzione. Gli script sono costituiti da:
-
-
--   Uno script di installazione dei moduli e degli [amministratori globali](/azure/active-directory/active-directory-assign-admin-roles-azure-portal), usato per installare i moduli PowerShell e verificare che questi ultimi e i ruoli di amministratore globale siano configurati correttamente. 
--   Uno script PowerShell di installazione, usato per distribuire la soluzione, fornito tramite un file ZIP contenente funzioni demo predefinite.
+-   [Estensione IaaS](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Questa soluzione illustrerà come eseguire la migrazione in Azure di una soluzione locale basata su SQL e come implementare una workstation con accesso con privilegi per gestire in modo sicuro le soluzioni e i servizi basati sul cloud. 
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
@@ -70,7 +64,7 @@ L'architettura di base è costituita dai componenti seguenti:
 # <a name="architectural-diagram"></a>Diagramma dell'architettura
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>Ruoli
 

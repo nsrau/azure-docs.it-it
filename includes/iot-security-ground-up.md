@@ -1,19 +1,19 @@
 ---
 title: File di inclusione
 description: File di inclusione
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
 ms.date: 04/24/2018
-ms.author: dobett
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 181432c3050bbc614898b1ddf779bc90239a35be
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39189386"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069951"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Sicurezza dell'Internet of Things sin dall'inizio
 
@@ -62,7 +62,9 @@ I criteri di controllo di accesso dell'hub IoT di Azure nel cloud consentono l'a
 Di seguito sono elencate funzionalità aggiuntive per la protezione dei dispositivi:
 
 * I dispositivi non accettano connessioni di rete non richieste. I dispositivi stabiliscono tutte le connessioni e le route in modalità solo in uscita. Per ricevere un comando dal back-end, il dispositivo deve avviare una connessione per cercare eventuali comandi in sospeso da elaborare. Una volta stabilita una connessione sicura tra il dispositivo e l'hub IoT, le comunicazioni dal cloud al dispositivo e dal dispositivo al cloud possono essere inviate in modo trasparente.
+
 * I dispositivi in genere stabiliscono una connessione o una route solo con i servizi noti con peering, ad esempio l'hub IoT di Azure.
+
 * L'autorizzazione e l'autenticazione a livello di sistema usano le identità di ogni dispositivo; le credenziali e le autorizzazioni di accesso devono essere revocabili quasi immediatamente.
 
 ### <a name="secure-connectivity"></a>Proteggere la connettività
@@ -76,7 +78,9 @@ La scalabilità richiede la capacità di interagire in modo sicuro con una vasta
 Di seguito sono elencate funzionalità aggiuntive per la protezione delle connessioni:
 
 * Il percorso di comunicazione tra i dispositivi e l'hub IoT di Azure o tra i gateway e l'hub IoT di Azure è protetto tramite il protocollo Transport Layer Security (TLS) standard del settore con l'hub IoT di Azure autenticato tramite il protocollo X.509.
+
 * Per proteggere i dispositivi da connessioni in ingresso non richieste, l'hub IoT di Azure non apre tutte le connessioni al dispositivo. Il dispositivo avvia tutte le connessioni.
+
 * L'hub IoT di Azure archivia i messaggi per i dispositivi sul lungo termine e attende che il dispositivo si connetta. Questi comandi vengono archiviati per due giorni, consentendo ai dispositivi di connettersi sporadicamente per ricevere i comandi, a causa di problemi di alimentazione o connettività. L'hub IoT di Azure mantiene una coda specifica per dispositivo.
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>Proteggere l'elaborazione e l'archiviazione nel cloud
@@ -100,8 +104,13 @@ Solution Accelerator include misure di sicurezza per impostazione predefinita e 
 Ciascun Solution Accelerator crea istanze dei servizi di Azure, ad esempio:
 
 * [**Hub IoT di Azure**](https://azure.microsoft.com/services/iot-hub/): il gateway che connette i dispositivi al cloud. È possibile arrivare a milioni di connessioni per hub ed elaborare grandi volumi di dati con supporto per l'autenticazione specifica per dispositivo che aiuta a proteggere la soluzione.
+
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/): un servizio di database scalabile e completamente indicizzato per i dati semistrutturati che gestiscono metadati per i dispositivi di cui si effettua il provisioning, ad esempio attributi, configurazione e proprietà di sicurezza. Azure Cosmos DB offre elaborazione ad alte prestazioni e velocità effettiva elevata, indicizzazione dei dati senza schema e un'interfaccia avanzata di query SQL.
+
 * [**Analisi di flusso di Azure**](https://azure.microsoft.com/services/stream-analytics/): elaborazione del flusso in tempo reale nel cloud per sviluppare e distribuire rapidamente una soluzione di analisi a basso costo che consenta di rilevare informazioni approfondite in tempo reale da dispositivi, sensori, infrastruttura e applicazioni. I dati di questo servizio completamente gestito possono raggiungere qualsiasi volume anche in condizioni di velocità effettiva elevata, bassa latenza e resilienza.
+
 * [**Servizi app di Azure**](https://azure.microsoft.com/services/app-service/): il servizio app è una piattaforma cloud per la creazione di potenti app Web e per dispositivi mobili che si connettono ai dati ovunque si trovino, nel cloud o in locale. Creare app per dispositivi mobili coinvolgenti per iOS, Android e Windows. Eseguire l'integrazione con applicazioni Software as a Service (SaaS) e aziendali, grazie a connettività integrata a dozzine di applicazioni aziendali e servizi basati sul cloud. Scrivere codice usando IDE e il linguaggio preferito, .NET, Node.js, PHP, Python o Java, per creare app Web e API più rapidamente che mai.
+
 * [**App per la logica**](https://azure.microsoft.com/services/app-service/logic/): la funzionalità App per la logica del servizio app di Azure consente di integrare la soluzione IoT con i sistemi line-of-business esistenti e automatizzare i processi del flusso di lavoro. App per la logica consente agli sviluppatori di progettare flussi di lavoro che vengono avviati da un trigger e quindi di eseguire una serie di passaggi, regole e azioni che usano potenti connettori per l'integrazione con i processi aziendali. App per la logica offre connettività integrata per un vasto ecosistema di applicazioni SaaS, basate sul cloud e locali.
-* [**Archiviazione BLOB di Azure**](https://azure.microsoft.com/services/storage/): risorsa di archiviazione cloud affidabile ed economica per i dati che i dispositivi inviano al cloud.
+
+* [**Archiviazione BLOB di Azure**](https://azure.microsoft.com/services/storage/): archiviazione cloud affidabile ed economica per i dati che i dispositivi inviano al cloud.

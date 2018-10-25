@@ -11,20 +11,22 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0a91139d92570a2ee2828f9295590d580902c501
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/04/2018
+ms.openlocfilehash: 1775e1810a164bfbdd1cddea9360674592cf446c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164991"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857534"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gestire la conservazione a lungo termine dei backup del database SQL di Azure
 
-È possibile configurare il database SQL di Azure con i criteri di [conservazione a lungo termine dei backup](sql-database-long-term-retention.md) per conservare automaticamente i backup nell'archivio BLOB di Azure fino a 10 anni. È quindi possibile ripristinare un database usando questi backup tramite il portale di Azure o PowerShell.
+Nel database SQL di Azure è possibile configurare un database singolo o in pool con criteri di [conservazione a lungo termine dei backup](sql-database-long-term-retention.md) per conservare automaticamente i backup in Archiviazione BLOB di Azure fino a 10 anni. È quindi possibile ripristinare un database usando questi backup tramite il portale di Azure o PowerShell.
+
+> [!IMPORTANT]
+> [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md) non supporta attualmente la conservazione a lungo termine dei backup.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Usare il portale di Azure per configurare i criteri di conservazione a lungo termine e ripristinare i backup
-
 Le sezioni seguenti mostrano come usare il portale di Azure per configurare il periodo di conservazione a lungo termine, visualizzare i backup con conservazione a lungo termine e ripristinare il backup dalla conservazione a lungo termine.
 
 ### <a name="configure-long-term-retention-policies"></a>Configurare i criteri di conservazione a lungo termine
@@ -78,6 +80,24 @@ Le sezioni seguenti illustrano come usare PowerShell per configurare la conserva
 - [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) o successiva
 - [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) o successiva
 > 
+
+### <a name="rbac-roles-to-manage-long-term-retention"></a>Ruoli Controllo degli accessi in base al ruolo per gestire la conservazione a lungo termine
+
+Per gestire i backup di conservazione a lungo termine, è necessario avere uno seguenti ruoli: 
+- Proprietario della sottoscrizione
+- Collaboratore SQL Server nell'ambito **Sottoscrizione**
+- Collaboratore database SQL nell'ambito **Sottoscrizione**
+
+Se è necessario un controllo più granulare, è possibile creare ruoli Controllo degli accessi in base al ruolo personalizzati e assegnarli nell'ambito **Sottoscrizione**. 
+
+Per **Get-AzureRmSqlDatabaseLongTermRetentionBackup** e **Restore-AzureRmSqlDatabase** il ruolo deve avere le autorizzazioni seguenti:
+
+Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+ 
+Per **Remove-AzureRmSqlDatabaseLongTermRetentionBackup** il ruolo deve avere le autorizzazioni seguenti:
+
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
 
 ### <a name="create-an-ltr-policy"></a>Creare i criteri di conservazione a lungo termine
 

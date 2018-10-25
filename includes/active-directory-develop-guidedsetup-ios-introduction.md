@@ -1,12 +1,34 @@
-
+---
+title: File di inclusione
+description: File di inclusione
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 063ca2bbb334c120e285d4b3eac8af00fafa7e5a
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48842963"
+---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Chiamare l'API Microsoft Graph da un'applicazione iOS
 
 Questa guida illustra in che modo un'applicazione iOS nativa (Swift) può chiamare API che richiedono token di accesso dall'endpoint Microsoft Azure Active Directory (Azure AD) v2.0. La guida spiega come ottenere i token di accesso e usarli nelle chiamate all'API Microsoft Graph e ad altre API.
 
 Dopo aver completato gli esercizi in questa guida, l'applicazione può chiamare un'API protetta da qualsiasi società o organizzazione che usa Azure AD. L'applicazione può eseguire chiamate alle API protette tramite account personali, come outlook.com, live.com e altri, oltre che tramite account aziendali o dell'istituto di istruzione.
 
-## <a name="prerequisites"></a>prerequisiti
-- Per l'esempio creato in questa guida, è necessario XCode versione 8.x. È possibile scaricare XCode dal [sito Web iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL di download di XCode").
+## <a name="prerequisites"></a>Prerequisiti
+- Per l'esempio creato in questa guida, è necessario XCode versione 10.x. È possibile scaricare XCode dal [sito Web iTunes](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "URL di download di XCode").
 - Per la gestione dei pacchetti, è necessario il gestore delle dipendenze [Carthage](https://github.com/Carthage/Carthage).
 
 ## <a name="how-this-guide-works"></a>Come interpretare questa guida
@@ -29,7 +51,7 @@ La memorizzazione nella cache e l'aggiornamento dei token di accesso vengono ges
 
 Questa guida usa la libreria seguente:
 
-|Libreria|DESCRIZIONE|
+|Libreria|Descrizione|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|Anteprima di Microsoft Authentication Library per iOS|
 

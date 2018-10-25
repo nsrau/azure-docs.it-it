@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: f57d582aacad568811314494c0ed614839ccabba
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221741"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870479"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Connettere un'applicazione a Istanza gestita di database SQL di Azure
 
@@ -93,12 +93,12 @@ Per la risoluzione dei problemi di connettività, verificare quanto segue:
 
    ![Numeri in ingresso/in uscita](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
 
-- Verificare che il computer client (che sta eseguendo il client VPN) disponga di voci di route per tutte le Vnet a cui è necessario accedere. Le route vengono archiviate in `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+- Verificare che il computer client (che sta eseguendo il client VPN) disponga di voci di route per tutte le reti virtuali a cui è necessario accedere. Le route vengono archiviate in `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
 
 
    ![route.txt](./media/sql-database-managed-instance-connect-app/route-txt.png)
 
-   Come mostrato in questa immagine, ci sono due voci per ogni VNet coinvolta e una terza voce per l'endpoint VPN configurato nel portale.
+   Come mostrato in questa immagine, ci sono due voci per ogni rete virtuale coinvolta e una terza voce per l'endpoint VPN configurato nel portale.
 
    Un altro modo per verificare le route è tramite il comando seguente. L'output mostra le route verso subnet diverse: 
 
@@ -125,17 +125,17 @@ Per la risoluzione dei problemi di connettività, verificare quanto segue:
    None
    ```
 
-- Se si usa il peering della Vnet, assicurarsi di aver seguito le istruzioni per l'impostazione di [Consenti transito Gateway e Usa gateway remoti](#connect-from-on-premises-with-vnet-peering). 
+- Se si usa il peering della rete virtuale, assicurarsi di aver seguito le istruzioni per l'impostazione di [Consenti transito Gateway e Usa gateway remoti](#connect-from-on-premises-with-vnet-peering). 
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Versioni richieste di strumenti e driver
 
-Se si desidera connettersi all'istanza gestita, è consigliabili usare le versioni minime di strumenti e driver seguenti:
+Per connettersi all'istanza gestita, è consigliabile usare le versioni minime di strumenti e driver seguenti:
 
-| Driver/strumento | Version |
+| Driver/strumento | Versione |
 | --- | --- |
 |.NET Framework | 4.6.1 (o .NET Core) | 
 |Driver ODBC    | v17 |
-|PHP driver | 5.2.0 |
+|Driver PHP | 5.2.0 |
 |Driver JDBC    | 6.4.0 |
 |Driver Node.js | 2.1.1 |
 |Driver OLEDB   | 18.0.2.0 |

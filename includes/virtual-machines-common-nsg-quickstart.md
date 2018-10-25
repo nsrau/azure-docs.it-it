@@ -5,26 +5,36 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 09/12/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d9c8a0e6a3bd6d79a11ee0d0dab0500a209e5571
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ec6cbcbc93fe87634c87caeb0041b75ec916a22f
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38941390"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888564"
 ---
-Aprire una porta o creare un endpoint in una macchina virtuale (VM) di Azure tramite la creazione di un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete e collegati alla risorsa che riceve il traffico.
+Per aprire una porta, o creare un endpoint, in una macchina virtuale (VM) di Azure si crea un filtro di rete su una subnet o un'interfaccia di rete di VM. Questi filtri, che consentono di controllare il traffico in ingresso e in uscita, vengono inseriti in un gruppo di sicurezza di rete collegato alla risorsa che riceve il traffico.
 
-Si userà un esempio comune di traffico Web sulla porta 80. Dopo aver ottenuto una VM configurata per rispondere alle richieste Web sulla porta TCP 80 standard, ricordando anche di avviare i servizi e aprire tutte le regole del firewall del sistema operativo nella VM, si procederà a:
+L'esempio in questo articolo illustra come creare un filtro di rete che usa la porta TCP 80 standard. Si presuppone di avere già avviato i servizi appropriati e di avere aperto le eventuali regole del firewall del sistema operativo nella macchina virtuale.
+
+Dopo aver creato una macchina virtuale configurata per elaborare le richieste Web sulla porta TCP 80 standard, è possibile:
 
 1. Creare un gruppo di sicurezza di rete.
-2. Creare una regola in ingresso che consenta il traffico con:
-   * intervallo di porte di destinazione impostato su "80"
-   * intervallo di porte di origine "*", che consente qualsiasi porta di origine
-   * valore di priorità minore di 65.500, per ottenere una priorità più alta rispetto al valore predefinito della regola in ingresso di accesso negato di tipo catch-all
-3. Associare il gruppo di sicurezza di rete con l'interfaccia di rete della VM o con la subnet
 
-È possibile creare configurazioni di rete complesse per proteggere l'ambiente usando i gruppi di sicurezza di rete e le regole. L'esempio usa solo una o due regole che consentono il traffico HTTP o la gestione remota. Per altre informazioni, vedere la sezione ["Altre informazioni"](#more-information-on-network-security-groups) seguente o [Informazioni sui gruppi di sicurezza di rete](../articles/virtual-network/security-overview.md).
+2. Creare una regola di sicurezza in ingresso che consente il traffico e assegnare valori alle impostazioni seguenti:
+
+   - **Intervalli di porte di destinazione**: 80
+
+   - **Intervalli di porte di origine**: * (consente qualsiasi porta di origine)
+
+   - **Priorità**: immettere un valore di priorità minore di 65.500 e più alto rispetto al valore predefinito della regola in ingresso di accesso negato di tipo catch-all.
+
+3. Associare il gruppo di sicurezza di rete alla subnet o all'interfaccia di rete della macchina virtuale.
+
+Anche se questo esempio usa una regola semplice per consentire il traffico HTTP, è possibile usare anche regole e gruppi di sicurezza di rete per creare configurazioni di rete più complesse. 
+
+
+
 

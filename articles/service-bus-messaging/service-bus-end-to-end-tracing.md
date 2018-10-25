@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 847056acd2d97391782dcac1874a2739b7f5825c
-ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27741218"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854882"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Correlazione e analisi distribuita tramite la messaggistica del bus di servizio
 
@@ -30,7 +30,7 @@ Quando un producer invia un messaggio tramite una coda, tale operazione avviene 
 La messaggistica del bus di servizio di Microsoft Azure include proprietà di payload definite che producer e consumer devono usare per passare tale contesto di analisi.
 Il protocollo si basa sul [protocollo di correlazione HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
-| Nome proprietà        | DESCRIZIONE                                                 |
+| Nome proprietà        | Descrizione                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Identificatore univoco di una chiamata esterna alla coda effettuata dal producer. Per la logica, le considerazioni e il formato, vedere [Request-Id in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) (Request-Id nel protocollo HTTP). |
 |  Correlation-Context | Contesto dell'operazione, che viene propagato in tutti i servizi coinvolti nell'elaborazione dell'operazione. Per altre informazioni, vedere [Correlation-Context in HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) (Correlation-Context nel protocollo HTTP). |
@@ -45,8 +45,8 @@ La strumentazione consente di verificare tutte le chiamate al servizio di messag
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) offre funzionalità avanzate di monitoraggio delle prestazioni, tra cui la verifica automatica delle richieste e delle dipendenze.
 
 A seconda del tipo di progetto, installare Application Insights SDK:
-- [ASP.NET](../application-insights/app-insights-asp-net.md) 2.5-beta2 o versione successiva
-- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md) 2.2.0-beta2 o versione successiva.
+- [ASP.NET](../application-insights/app-insights-asp-net.md): installare la versione 2.5-beta2 o una versione successiva
+- [ASP.NET Core](../application-insights/app-insights-asp-net-core.md): installare la versione 2.2.0-beta2 o una versione successiva.
 Questi collegamenti forniscono informazioni dettagliate su come installare l'SDK, creare risorse e, se necessario, configurare l'SDK. Per le applicazioni non ASP.NET, vedere l'articolo [Azure Application Insights for Console Applications](../application-insights/application-insights-console.md) (Azure Application Insights per applicazioni console).
 
 Se per elaborare i messaggi si usa il [criterio con gestore di messaggi](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler), non ci sono altre operazioni da eseguire: tutte le chiamate al bus di servizio eseguite dal servizio vengono automaticamente verificate e correlate con altri elementi di telemetria. In caso contrario vedere l'esempio seguente per la verifica manuale delle operazioni di elaborazione dei messaggi.
@@ -83,7 +83,7 @@ async Task ProcessAsync(Message message)
 In questo esempio, per ogni messaggio elaborato viene restituito `RequestTelemetry`, che include un timestamp, la durata e il risultato (esito positivo). La telemetria include anche un set di proprietà di correlazione.
 Alle eccezioni e alle analisi nidificate restituite durante l'elaborazione dei messaggi vengono inoltre assegnate proprietà di correlazione in modo che vengano rappresentate come elementi figlio di `RequestTelemetry`.
 
-Nel caso in cui durante l'elaborazione dei messaggi in cui si eseguano chiamate a componenti esterni supportati, anche questi verranno verificati e correlati automaticamente. Per informazioni sulla verifica e la correlazione manuale, vedere [Verifica delle operazioni personalizzate con Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md).
+Nel caso in cui durante l'elaborazione dei messaggi si eseguano chiamate a componenti esterni supportati, anche questi verranno verificati e correlati automaticamente. Per informazioni sulla verifica e la correlazione manuale, vedere [Verifica delle operazioni personalizzate con Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md).
 
 ### <a name="tracking-without-tracing-system"></a>Verifica senza sistema di analisi
 Nel caso in cui il sistema di analisi non supporti la verifica automatica delle chiamate al bus di servizio, è possibile provare ad aggiungere questo supporto in un sistema di analisi o nell'applicazione. Questa sezione illustra gli eventi di diagnostica inviati dal client .NET del bus di servizio.  
@@ -227,7 +227,6 @@ In presenza di più listener `DiagnosticSource` per la stessa origine, basta che
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Dati fondamentali del bus di servizio](service-bus-fundamentals-hybrid-solutions.md)
 * [Correlazione di dati di telemetria in Application Insights](../application-insights/application-insights-correlation.md)
 * [Impostare Application Insights: tenere traccia delle dipendenze](../application-insights/app-insights-asp-net-dependencies.md) per verificare se REST, SQL o altre risorse esterne causano rallentamenti.
 * [Verifica delle operazioni personalizzate con Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md)

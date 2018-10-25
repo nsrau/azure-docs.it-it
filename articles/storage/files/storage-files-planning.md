@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 19adbbfc456303b471251c28cd984d1676786b19
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 0701049eb1aa86398e90484dbf21ef3781270fba
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783152"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831382"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Pianificazione per la distribuzione dei file di Azure
 [File di Azure](storage-files-introduction.md) offre condivisioni file completamente gestite nel cloud, accessibili tramite il protocollo SMB standard di settore. Poiché File di Azure è completamente gestito, la sua distribuzione negli scenari di produzione è molto più semplice rispetto alla distribuzione e alla gestione di un file server o un dispositivo NAS. Questo articolo illustra gli argomenti da considerare quando si distribuisce una condivisione file di Azure per l'uso in produzione all'interno dell'organizzazione.
@@ -56,19 +56,36 @@ File di Azure offre diverse opzioni predefinite per garantire la sicurezza dei d
 
 * Supporto per la crittografia in entrambi i protocolli attraverso la rete: crittografia SMB 3.0 e REST di File su HTTPS. Per impostazione predefinita: 
     * I client che supportano la crittografia SMB 3.0 inviano e ricevono dati tramite un canale crittografato.
-    * I client che non supportano SMB 3.0 possono comunicare tra più datacenter su SMB 2.1 o SMB 3.0 senza crittografia. Si noti che ai client non è consentita la comunicazione tra più datacenter su SMB 2.1 o SMB 3.0 senza crittografia.
+    * I client che non supportano SMB 3.0 con crittografia possono comunicare tra più data center su SMB 2.1 o SMB 3.0 senza crittografia. Ai client SMB non è consentita la comunicazione tra più data center su SMB 2.1 o SMB 3.0 senza crittografia.
     * I client possono comunicare su REST di File con HTTP o HTTPS.
 * Crittografia dei dati inattivi ([crittografia del servizio di archiviazione di Azure](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): la crittografia del servizio di archiviazione è abilitata per tutti gli account di archiviazione. Crittografia dei dati inattivi con chiavi completamente gestite. La crittografia dei dati inattivi non aumenta i costi di archiviazione, né riduce le prestazioni. 
 * Requisito facoltativo di dati crittografati in transito: quando è selezionato, File di Azure non consente l'accesso ai dati tramite canali non crittografati. In particolare, vengono consentiti solo HTTPS e SMB 3.0 con connessioni di crittografia. 
 
     > [!Important]  
-    > La richiesta di trasferimento protetto dei dati non consentirà la comunicazione tra le vecchie versioni dei client SMB e SMB 3.0 con crittografia. Per altre informazioni vedere [Montare su Windows](storage-how-to-use-files-windows.md), [Montare su Linux](storage-how-to-use-files-linux.md), [Montare su macOS](storage-how-to-use-files-mac.md).
+    > La richiesta di trasferimento protetto dei dati non consentirà la comunicazione tra le vecchie versioni dei client SMB e SMB 3.0 con crittografia. Per altre informazioni, vedere [Montare su Windows](storage-how-to-use-files-windows.md), [Montare su Linux](storage-how-to-use-files-linux.md) e [Montare su macOS](storage-how-to-use-files-mac.md).
 
 Per garantire la massima sicurezza, ogni volta che si usano client moderni per accedere ai dati è consigliabile abilitare sempre sia la crittografia dei dati a riposo che la crittografia dei dati in transito. Ad esempio, se è necessario montare una condivisione su una macchina virtuale di Windows Server 2008 R2, che supporta solo SMB 2.1, è necessario consentire il traffico non crittografato all'account di archiviazione poiché SMB 2.1 non supporta la crittografia.
 
 Se si usa Sincronizzazione file di Azure per accedere alla condivisione file di Azure, si userà sempre HTTPS e SMB 3.0 con crittografia per sincronizzare i dati nei server Windows, indipendentemente dal fatto che sia necessaria la crittografia dei dati inattivi.
 
-## <a name="data-redundancy"></a>Ridondanza dei dati
+## <a name="file-share-performance-tiers"></a>Livelli di prestazioni delle condivisioni file
+File di Azure supporta due livelli di prestazioni: standard e premium.
+
+* Le **condivisioni file standard** sono supportate da unità disco rigido rotazionali (HDD) che forniscono prestazioni affidabili per i carichi di lavoro di I/O che sono meno sensibili alla variabilità delle prestazioni, ad esempio condivisioni file per utilizzo generico e ambienti di sviluppo/test. Le condivisioni file standard sono disponibili solo in un modello di fatturazione con pagamento in base al consumo.
+* Le **condivisioni file premium (anteprima)** sono supportate da unità a stato solido (SSD) che forniscono prestazioni elevate omogenee e a bassa latenza, in millisecondi a cifra singola per la maggior parte delle operazioni di I/O, per la maggior parte dei carichi di lavoro a elevato utilizzo di I/O. Queste condivisioni sono quindi idonee per una vasta gamma di carichi di lavoro, ad esempio database, hosting di siti Web, ambienti di sviluppo e così via. Le condivisioni file premium sono disponibili solo in un modello di fatturazione con provisioning.
+
+### <a name="provisioned-shares"></a>Condivisioni con provisioning
+Il provisioning delle condivisioni file premium viene effettuato in base a un rapporto fisso tra GiB, operazioni di I/O al secondo e velocità effettiva. Per ogni GiB di cui viene effettuato il provisioning, alla condivisione viene assegnata un'operazione di I/O al secondo con 0,1 MiB/s di velocità effettiva fino ai limiti massimi per singola condivisione. Il valore minimo di provisioning consentito è 100 GiB con il minimo di operazioni di I/O al secondo e velocità effettiva. La dimensione della condivisione può essere aumentata e ridotta in qualsiasi momento, ma la riduzione può essere eseguita una volta ogni 24 ore dopo l'ultimo incremento.
+
+In base ad approssimazioni ottimali, tutte le condivisioni possono essere potenziate fino a tre operazioni di I/O al secondo per ogni GiB di archiviazione di cui viene effettuato il provisioning per 60 minuti o più, a seconda della dimensione della condivisione. Le nuove condivisioni iniziano con il credito di burst totale in base alla capacità sottoposta a provisioning.
+
+| Capacità con provisioning | 100 GiB | 500 GiB | 1 TiB | 5 TiB | 
+|----------------------|---------|---------|-------|-------|
+| Operazioni di I/O al secondo di base | 100 | 500 | 1024 | 5120 | 
+| Limite di burst | 300 | 1500 | 3072 | 15.360 | 
+| Velocità effettiva | 110 MiB/sec | 150 MiB/sec | 202 MiB/sec | 612 MiB/sec |
+
+## <a name="file-share-redundancy"></a>Ridondanza delle condivisioni file
 File di Azure supporta tre opzioni di ridondanza dei dati: archiviazione con ridondanza locale, archiviazione con ridondanza della zona e archiviazione con ridondanza geografica. Le sezioni seguenti descrivono le differenze tra le diverse opzioni di ridondanza:
 
 ### <a name="locally-redundant-storage"></a>Archiviazione con ridondanza locale
@@ -81,9 +98,9 @@ File di Azure supporta tre opzioni di ridondanza dei dati: archiviazione con rid
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Modello di crescita dei dati
-Oggi, la dimensione massima di una condivisione di File di Azure è 5 TiB. A causa di questa limitazione attuale, durante la distribuzione di una condivisione file di Azure è necessario tenere conto della crescita dei dati stimata. Si noti che un account di Archiviazione di Azure può archiviare più condivisioni per un totale di 500 TiB archiviati in tutte le condivisioni.
+Oggi, la dimensione massima di una condivisione di File di Azure è 5 TiB. A causa di questa limitazione attuale, durante la distribuzione di una condivisione file di Azure è necessario tenere conto della crescita dei dati stimata. 
 
-È possibile sincronizzare più condivisioni file di Azure in un singolo file server Windows con Sincronizzazione file di Azure. In questo modo ci si accerta che le condivisioni di file meno recenti e di grandi dimensioni presenti in locale possano essere inserite in Sincronizzazione file di Azure. Per altre informazioni vedere [Planning for an Azure File Sync Deployment](storage-files-planning.md) (Pianificare una distribuzione di Sincronizzazione file di Azure).
+È possibile sincronizzare più condivisioni file di Azure in un singolo file server Windows con Sincronizzazione file di Azure. In questo modo, è possibile assicurarsi che le condivisioni file meno recenti e di grandi dimensioni presenti in locale possano essere inserite in Sincronizzazione file di Azure. Per altre informazioni, vedere [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md).
 
 ## <a name="data-transfer-method"></a>Metodo di trasferimento dati
 Esistono diverse semplici opzioni per trasferire i dati in blocco da una condivisione file esistente, ad esempio una condivisione file locale, in File di Azure. Quelle più diffuse includono (elenco non completo):

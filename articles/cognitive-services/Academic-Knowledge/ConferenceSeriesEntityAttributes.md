@@ -1,26 +1,27 @@
 ---
-title: Attributi dell'entità Conference Series nell'API Academic Knowledge | Microsoft Docs
-description: Informazioni sugli attributi che è possibile usare con l'entità Conference Series in Servizi cognitivi.
+title: Attributi dell'entità Conference Series - API Academic Knowledge
+titlesuffix: Azure Cognitive Services
+description: Informazioni sugli attributi che è possibile usare con l'entità Conference Series.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 332736c927bdaa00334546f626a6eabb8e11d3b5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f9f28afd7005d7a61aa0d2f4dba69ca598034b52
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372713"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900749"
 ---
 # <a name="conference-series-entity"></a>Entità Conference Series
 
 <sub> *Gli attributi seguenti sono specifici dell'entità Conference Series. (Ty = '3') </sub>
 
-NOME    |DESCRIZIONE                            |type       | Operazioni
+Nome    |Descrizione                            |Tipo       | Operazioni
 ------- | ------------------------------------- | --------- | ----------------------------
 ID      |ID entità                              |Int64      |Uguale a
 CN      |Nome normalizzato della serie di conferenze      |string     |Uguale a

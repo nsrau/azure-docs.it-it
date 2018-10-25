@@ -1,5 +1,5 @@
 * Connettersi alla macchina virtuale del server di elaborazione tramite Connessione Desktop remoto.
-* È possibile avviare cspsconfigtool.exe facendo clic sul collegamento disponibile sul desktop. (Lo strumento verrà automaticamente avviato se è la prima volta che si effettua l'accesso al server di elaborazione).
+* È possibile avviare cspsconfigtool.exe facendo clic sul collegamento disponibile sul desktop. Se è la prima volta che si accede al server di elaborazione, lo strumento viene avviato automaticamente.
   - Nome completo (FQDN) o indirizzo IP del server di configurazione.
   - Porta su cui il server di configurazione è in ascolto. Il valore dovrebbe essere 443.
   - Passphrase di connessione al server di configurazione.

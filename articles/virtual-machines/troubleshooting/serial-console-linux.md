@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: 642bf03ecef7f6db25c51671635d96ef7baed91a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412029"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885290"
 ---
 # <a name="virtual-machine-serial-console"></a>Console seriale per macchine virtuali
 
@@ -29,7 +29,7 @@ La console seriale per macchine virtuali di Azure fornisce l'accesso a una conso
 Per la documentazione della console seriale per macchine virtuali Windows [fare clic qui](../windows/serial-console.md).
 
 > [!Note] 
-> Console seriale per macchine virtuali è disponibile a livello generale in aree globali di Azure. La console seriale per il momento non è disponibile per il cloud di Azure per enti pubblici o Azure Cina.
+> Console seriale per macchine virtuali è disponibile a livello generale nelle aree globali di Azure. La console seriale per il momento non è disponibile per il cloud di Azure per enti pubblici o Azure Cina.
 
 
 ## <a name="prerequisites"></a>Prerequisiti 
@@ -44,12 +44,12 @@ Per la documentazione della console seriale per macchine virtuali Windows [fare 
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Per le impostazioni specifiche per le distribuzioni di Linux, vedere [Accedere alla console seriale per Linux](#Serial-Console-Linux-distro-availability)
+* Per le impostazioni specifiche delle distribuzioni Linux, vedere [Disponibilità delle distribuzioni della console seriale per Linux](#serial-console-linux-distro-availability)
 
 
 
 ## <a name="get-started-with-serial-console"></a>Introduzione alla console seriale
-La console seriale per le macchine virtuali è accessibile solo tramite il [portale di Azure](https://portal.azure.com). Di seguito sono riportati i passaggi per accedere alla console seriale per macchine virtuali tramite il portale 
+La console seriale per le macchine virtuali è accessibile solo tramite il [portale di Azure](https://portal.azure.com). Verificare che i [prerequisiti](#prerequisites) indicati in precedenza siano soddisfatti. Di seguito sono riportati i passaggi per accedere alla console seriale per macchine virtuali tramite il portale:
 
   1. Aprire il portale di Azure
   1. (Ignorare questo passaggio se la macchina virtuale dispone di un utente che usa l'autenticazione della password) Aggiungere un utente con l'autenticazione nome utente/password facendo clic sul pannello "Reimposta password"
@@ -92,7 +92,7 @@ Interazione con bootloader | Accedere a GRUB tramite la console seriale. Per ini
 Per impostazione predefinita, tutte le sottoscrizioni hanno accesso alla console seriale in tutte le macchine virtuali. È possibile disabilitare la console seriale a livello di sottoscrizione o a livello di macchina virtuale.
 
 > [!Note] 
-> Per abilitare o disabilitare la console seriale per una sottoscrizione, è necessario disporre delle autorizzazioni di scrittura per la sottoscrizione. Ciò include i ruoli di amministratore o proprietario, ma non è limitato a questi ultimi. Anche i ruoli personalizzati possono disporre delle autorizzazioni di scrittura.
+> Per abilitare o disabilitare la console seriale per una sottoscrizione, è necessario avere le autorizzazioni di scrittura per la sottoscrizione. Ciò include i ruoli di amministratore o proprietario, ma non è limitato a questi ultimi. Anche i ruoli personalizzati possono avere le autorizzazioni di scrittura.
 
 ### <a name="subscription-level-disable"></a>Disattivazione a livello di sottoscrizione
 La console seriale può essere disattivata per un'intera sottoscrizione tramite la [chiamata all'API REST di Disabilita console](https://aka.ms/disableserialconsoleapi). È possibile usare la funzionalità "Try It" disponibile nella pagina della documentazione API per disabilitare e abilitare la console seriale per una sottoscrizione. Inserire `subscriptionId`, "predefinito" nel `default` campo e fare clic su Esegui. I comandi dell'interfaccia della riga di comando di Azure non sono ancora disponibili e verranno visualizzati in un secondo momento. [Ripetere la chiamata all'API REST qui](https://aka.ms/disableserialconsoleapi).
@@ -171,13 +171,13 @@ Il Web socket è chiuso o non può essere aperto. | Potrebbe essere necessario u
 È stata rilevata una risposta "Accesso negato" durante l'accesso all'account di archiviazione di diagnostica di avvio della macchina virtuale. | Assicurarsi che la diagnostica di avvio non disponga di un firewall dell'account. Un account di archiviazione di diagnostica di avvio accessibile è necessario per il funzionamento della console seriale.
 
 ## <a name="known-issues"></a>Problemi noti 
-Sono emersi alcuni problemi con la console seriale. Di seguito un elenco dei problemi e dei passaggi per la mitigazione.
+La console seriale presenta alcuni problemi. Di seguito è riportato un elenco dei problemi riscontrati e delle procedure necessarie per ridurne l'impatto.
 
 Problema                           |   Mitigazione 
 :---------------------------------|:--------------------------------------------|
 Premendo INVIO dopo il banner della connessione, non viene visualizzato un prompt di accesso | Vedere questa pagina: [L'inserimento non esegue alcuna operazione](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo può verificarsi se è in esecuzione una macchina virtuale personalizzata, un'appliance con protezione avanzata o una configurazione GRUB che non consente a Linux di connettersi correttamente alla porta seriale.
 Il testo della console seriale occupa solo una parte delle dimensioni dello schermo (spesso dopo l'uso di un editor di testo) | Le console seriali non supportano la negoziazione sulle dimensioni della finestra ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)): questo significa che non sarà presente alcun segnale SIGWINCH inviato per aggiornare le dimensioni dello schermo e la macchina virtuale non avrà alcuna conoscenza delle dimensioni del terminale. Si consiglia di installare xterm o un'altra utilità simile che fornisca il comando 'resize'. L'esecuzione di 'resize' risolverà il problema.
-Incollare stringhe molto lunghe non funziona | La console seriale limita la lunghezza delle stringhe incollate nel terminale a 2048 caratteri. Questo per evitare di sovraccaricare la larghezza di banda della porta seriale.
+Incollare stringhe molto lunghe non funziona | La console seriale limita la lunghezza delle stringhe incollate nel terminale a 2048 caratteri. Questo evita di sovraccaricare la larghezza di banda della porta seriale.
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti 
@@ -185,9 +185,9 @@ Incollare stringhe molto lunghe non funziona | La console seriale limita la lung
 
 R. Per inviare commenti e suggerimenti, andare a https://aka.ms/serialconsolefeedback. In alternativa (meno consigliabile), inviare commenti e suggerimenti tramite azserialhelp@microsoft.com o nella categoria della macchina virtuale di http://feedback.azure.com
 
-**D. La console seriale supporta copia/incolla?**
+**D. La console seriale supporta le operazioni di copia e incolla?**
 
-R. Sì. Usare CTRL+ MAIUSC + C e CTRL+ MAIUSC + V per copiare e incollare nel terminale.
+R. Sì. Usare CTRL + MAIUSC + C e CTRL + MAIUSC + V per copiare e incollare nel terminale.
 
 **D. È possibile usare la console seriale anziché una connessione SSH?**
 
@@ -196,17 +196,17 @@ R. Anche se ciò potrebbe essere tecnicamente possibile, la console seriale è d
 1. La console seriale non dispone della larghezza di banda di SSH: è una connessione di solo testo e pertanto le interazioni con intensa attività GUI risultano difficili nella console seriale.
 1. L'accesso alla console seriale avviene attualmente solo tramite nome utente e password. Le chiavi SSH sono molto più sicure rispetto alle combinazioni di nome utente/password. Dal punto di vista della sicurezza di accesso è consigliabile usare SSH con la console seriale.
 
-**D. Chi può abilitare o disabilitare la console seriale per la sottoscrizione?**
+**D. Chi può abilitare o disabilitare la console seriale per una sottoscrizione?**
 
-R. Per abilitare o disabilitare la console seriale a livello di sottoscrizione, è necessario disporre delle autorizzazioni di scrittura per la sottoscrizione. I ruoli che dispongono dell'autorizzazione di scrittura includono i ruoli di amministratore o proprietario, ma non sono limitati a questi ultimi. Anche i ruoli personalizzati possono disporre delle autorizzazioni di scrittura.
+R. Per abilitare o disabilitare la console seriale a livello di sottoscrizione, è necessario avere le autorizzazioni di scrittura per la sottoscrizione. I ruoli con autorizzazione di scrittura sono quelli di amministratore o proprietario, ma anche altri. Anche i ruoli personalizzati possono avere le autorizzazioni di scrittura.
 
-**D. Chi può accedere alla console seriale per la macchina virtuale?**
+**D. Chi può accedere alla console seriale per la VM?**
 
-R. Per poter accedere alla console seriale della macchina virtuale è necessario disporre di un accesso di livello collaboratore o superiore a una macchina virtuale. 
+R. Per poter accedere alla console seriale della VM, è necessario disporre di un accesso di livello collaboratore o superiore a una VM. 
 
-**D. La console seriale non mostra nulla, come procedere?**
+**D. La console seriale non visualizza nulla, cosa bisogna fare?**
 
-R. L'immagine probabilmente non è configurata correttamente per l'accesso alla console seriale. Vedere [Accedere alla console seriale per Linux](#Access-Serial-Console-for-Linux) per informazioni dettagliate sulla configurazione dell'immagine per abilitare la console seriale.
+R. L'immagine probabilmente non è configurata correttamente per l'accesso alla console seriale. Vedere [Disponibilità delle distribuzioni della console seriale per Linux](#serial-console-linux-distro-availability) per informazioni dettagliate sulla configurazione dell'immagine per abilitare la console seriale.
 
 **D. La console seriale è disponibile per i set di scalabilità di macchine virtuali?**
 

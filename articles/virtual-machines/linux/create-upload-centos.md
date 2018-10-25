@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: szark
-ms.openlocfilehash: d7c35b79dcdf75dbb3f891dc4c66cbf893b61c03
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5328ee7e3e3035ebce1ff9fccbfc6e9ccfd86ee8
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777689"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888397"
 ---
 # <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Preparare una macchina virtuale basata su CentOS per Azure
 * [Preparare una macchina virtuale CentOS 6.x per Azure](#centos-6x)
@@ -28,7 +28,7 @@ ms.locfileid: "33777689"
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 In questo articolo si presuppone che l'utente abbia già installato un sistema operativo Linux CentOS (o un sistema derivato simile) in un disco rigido virtuale. Sono disponibili vari strumenti per creare file con estensione vhd, ad esempio una soluzione di virtualizzazione come Hyper-V. Per istruzioni, vedere [Installare il ruolo Hyper-V e configurare una macchina virtuale](http://technet.microsoft.com/library/hh846766.aspx).
 
 **Note sull'installazione di CentOS**
@@ -298,7 +298,7 @@ La preparazione di una macchina virtuale CentOS 7 per Azure è molto simile a Ce
    
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
-10. Se si compila l'immagine da **VMWare, VirtualBox o KVM**, verificare che i driver Hyper-V siano inclusi in initramfs:
+10. Se si compila l'immagine da **VMware, VirtualBox o KVM**, verificare che i driver Hyper-V siano inclusi in initramfs:
    
    Modificare `/etc/dracut.conf`e aggiungere il contenuto:
    

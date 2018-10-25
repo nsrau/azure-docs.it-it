@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 5c6ebfcb7eae52915af24fc67e9b3c774656149d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e01f48ebee9ade35b44242eba3b03e6e0a4faf46
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181142"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802033"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Informazioni sui backup automatici del database SQL
 
@@ -59,7 +59,8 @@ Il periodo di conservazione predefinito per un database creato tramite il modell
 * Il livello di servizio Standard è di 5 settimane.
 * Il livello di servizio premium è di 5 settimane.
 
-Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup è configurabile fino a 35 giorni. 
+Se si usa il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md), il periodo di conservazione dei backup predefinito è di 7 giorni (sia nei server logici che nelle istanze gestite).
+Nel server logico è possibile [modificare il periodo di conservazione dei backup fino a 35 giorni](#how-to-change-backup-retention-period). La modifica del periodo di conservazione dei backup non è disponibile in Istanza gestita. 
 
 Se si riduce il periodo di conservazione per ripristino temporizzato corrente, tutti i backup esistenti anteriori al nuovo periodo di conservazione non saranno disponibili. 
 
@@ -74,7 +75,7 @@ I backup di ripristino temporizzato sono a ridondanza geografica e protetti dall
 Per altre informazioni vedere l'articolo relativo al [Ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### <a name="backups-for-long-term-retention"></a>Backup per la conservazione a lungo termine
-Database SQL offre la possibilità di configurare la conservazione a lungo termine (LTR) dei backup completi fino a 10 anni in Archiviazione BLOB di Azure. Se il criterio LTR è abilitato, i backup completi settimanali vengono copiati automaticamente in un contenitore di Archiviazione con ridondanza geografica e accesso in lettura diverso. A secondo dei vari requisiti di conformità, è possibile selezionare periodi di conservazione diversi per i backup settimanali, mensili e/o annuali. L'utilizzo delle risorse di archiviazione dipende dalla frequenza selezionata con cui vengono eseguiti backup e dal periodo di conservazione. È possibile usare lo strumento di [calcolo dei prezzi per la conservazione a lungo termine](https://azure.microsoft.com/pricing/calculator/?service=sql-database) per stimare il costo di questo tipo di archiviazione. 
+Il database SQL ospitato nel server logico offre la possibilità di configurare la conservazione a lungo termine (LTR) dei backup completi fino a 10 anni in Archiviazione BLOB di Azure. Se il criterio LTR è abilitato, i backup completi settimanali vengono copiati automaticamente in un contenitore di Archiviazione con ridondanza geografica e accesso in lettura diverso. A secondo dei vari requisiti di conformità, è possibile selezionare periodi di conservazione diversi per i backup settimanali, mensili e/o annuali. L'utilizzo delle risorse di archiviazione dipende dalla frequenza selezionata con cui vengono eseguiti backup e dal periodo di conservazione. È possibile usare lo strumento di [calcolo dei prezzi per la conservazione a lungo termine](https://azure.microsoft.com/pricing/calculator/?service=sql-database) per stimare il costo di questo tipo di archiviazione. 
 
 Come i backup di ripristino temporizzato, i backup di conservazione a lungo termine sono a ridondanza geografica e protetti dalla [riproduzione su più aree di Azure Storage](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -95,6 +96,10 @@ Quando si migra il database da un livello di servizio basato su DTU con una cons
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="how-to-change-backup-retention-period"></a>Come modificare il periodo di conservazione dei backup
+
+> [!Note]
+> Il periodo di conservazione dei backup predefinito (7 giorni) non può essere modificato in Istanza gestita. 
+
 È possibile modificare il periodo di conservazione predefinito utilizzando l'API REST o PowerShell. I valori supportati sono: 7, 14, 21, 28 e 35 giorni. Gli esempi che seguono illustrano come modificare la conservazione di ripristino temporizzato a 28 giorni. 
 
 > [!NOTE]

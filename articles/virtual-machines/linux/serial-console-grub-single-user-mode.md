@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 411c743421af79ea066df3a5fc07f71b8b6cb993
+ms.openlocfilehash: 150147a0fe0fdfcf2e6c9f2b780587749af1ded0
 ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855868"
+ms.locfileid: "48857908"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Usare la console seriale per accedere a GRUB e alla modalità utente singolo
 GRUB è l'acronimo di GRand Unified Bootloader. Da GRUB è possibile, tra le altre cose, modificare la configurazione di avvio per eseguire l'avvio in modalità utente singolo.
@@ -28,7 +28,7 @@ La modalità utente singolo è un ambiente minimo con funzionalità minime. Può
 
 La modalità utente singolo è utile anche nelle situazioni in cui la macchina virtuale può essere configurata solo in modo da accettare chiavi SSH per l'accesso. In questo caso, è possibile usare la modalità utente singolo per creare un account con autenticazione della password.
 
-Per attivare la modalità utente singolo, è necessario accedere a GRUB durante la fase di avvio della macchina virtuale e modificare la configurazione di avvio in GRUB. Questa operazione può essere eseguita con la console seriale della macchina virtuale. 
+Per attivare la modalità utente singolo, è necessario accedere a GRUB durante la fase di avvio della macchina virtuale e modificare la configurazione di avvio in GRUB. Questa operazione può essere eseguita con la console seriale della macchina virtuale.
 
 ## <a name="general-grub-access"></a>Informazioni generali sull'accesso a GRUB
 Per accedere a GRUB, è necessario riavviare la macchina virtuale mantenendo aperto il pannello della console seriale. Per mostrare GRUB alcune distribuzioni richiedono l'input da tastiera, mentre altre distribuzioni mostrano GRUB automaticamente per alcuni secondi e consentono l'input da tastiera dell'utente per annullare il timeout. 
@@ -49,9 +49,8 @@ Con la modalità utente singolo attiva, eseguire il comando seguente per aggiung
 1. Eseguire `sudo usermod -a -G sudo <username>` per concedere al nuovo utente i privilegi di ROOT
 1. Usare `passwd <username>` per impostare la password per il nuovo utente in modo da poter accedere come nuovo utente
 
-
 ## <a name="access-for-red-hat-enterprise-linux-rhel"></a>Accesso per Red Hat Enterprise Linux (RHEL)
-RHEL passerà in modalità utente singolo automaticamente se è impossibile avviare normalmente. Tuttavia, se non è stato configurato l'accesso alla radice per la modalità utente singolo, non avrà una password radice e non sarà in grado di accedere. È disponibile una soluzione (vedere “Attivare manualmente la modalità utente singolo” qui sotto), ma il suggerimento consiste nell'impostare inizialmente l'accesso alla radice.
+RHEL passerà in modalità utente singolo automaticamente se è impossibile avviare normalmente. Tuttavia, se non è stato configurato l'accesso alla radice per la modalità utente singolo, non avrà una password radice e non sarà in grado di accedere. È disponibile una soluzione (vedere “attivare manualmente la modalità utente singolo” qui sotto), ma il suggerimento consiste nell'impostare inizialmente l'accesso alla radice.
 
 ### <a name="grub-access-in-rhel"></a>Accesso a GRUB in RHEL
 RHEL dotata di GRUB abilitata per impostazione predefinita. Per accedere a GRUB, riavviare la macchina virtuale con `sudo reboot` e premere un tasto qualsiasi. Verrà visualizzata la schermata di GRUB.
@@ -120,9 +119,9 @@ Seguire le istruzioni per RHEL sopra per abilitare la modalità utente singolo i
 Le immagini di Ubuntu non richiedono una password radice. Se il sistema viene ora avviato in modalità utente singolo, è possibile usarlo senza credenziali aggiuntive. 
 
 ### <a name="grub-access-in-ubuntu"></a>Accesso a GRUB in RHEL
-Per accedere a GRUB, premere e tenere premuto ESC durante l'avvio della macchina virtuale.
+Per accedere a GRUB, premere e tenere premuto ESC durante l'avvio della macchina virtuale. 
 
-Per impostazione predefinita, le immagini Ubuntu potrebbero non visualizzare automaticamente la schermata di GRUB. È possibile modificare questo comportamento con le istruzioni seguenti:
+Per impostazione predefinita, le immagini Ubuntu non visualizzano automaticamente la schermata di GRUB. È possibile modificare questo comportamento con le istruzioni seguenti:
 1. Aprire `/etc/default/grub.d/50-cloudimg-settings.cfg` in un editor di testo di propria scelta
 1. Modificare il valore di `GRUB_TIMEOUT` impostando un valore diverso da zero
 1. Aprire `/etc/default/grub` in un editor di testo di propria scelta
@@ -185,7 +184,7 @@ Oracle Linux dotata di GRUB abilitata per impostazione predefinita. Per accedere
 Seguire le istruzioni per RHEL sopra per abilitare la modalità utente singolo in Oracle Linux.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* La pagina principale della documentazione di Linux relativa alla console seriale è disponibile [qui](serial-console-linux.md).
+* La pagina principale della documentazione di Linux relativa alla console seriale è disponibile [qui](serial-console.md).
 * Utilizzare la console seriale per [NMI e SysRq chiamate](serial-console-nmi-sysrq.md)
-* La console seriale è disponibile anche per macchine virtuali [Windows](serial-console-windows.md)
+* La console seriale è disponibile anche per macchine virtuali [Windows](../windows/serial-console.md)
 * Altre informazioni sulla [diagnostica di avvio](boot-diagnostics.md)

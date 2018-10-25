@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 9eaaaaa4cc9be661cdc2ffde2b634e062c95a404
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523258"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068537"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere gli account di archiviazione per un set specifico di reti autorizzate.  Quando si configurano le regole di rete, solo le applicazioni delle reti consentite possono accedere a un account di archiviazione.  Quando le applicazioni eseguono chiamate da una rete autorizzata devono comunque avere l'autorizzazione necessaria (una chiave di accesso o un token di firma di accesso condiviso validi) per accedere all'account di archiviazione.
 
 > [!IMPORTANT]
-> L'attivazione di regole del firewall per l'account di archiviazione consente di bloccare l'accesso alle richieste di dati in ingresso, incluse quelle da altri servizi di Azure,  ad esempio il portale, la scrittura di log e così via.  Per i servizi partecipanti è possibile abilitare di nuovo la funzionalità tramite la sezione [Eccezioni](#Exceptions) più avanti.  Per accedere al portale, è necessario eseguire questa operazione da un computer all'interno del limite attendibile (IP o rete virtuale) configurato.
+> L'attivazione di regole del firewall per l'account di archiviazione consente di bloccare l'accesso alle richieste di dati in ingresso, incluse quelle da altri servizi di Azure,  ad esempio il portale, la scrittura di log e così via.  È possibile concedere l'accesso ai servizi di Azure eseguiti all'interno di una rete virtuale consentendo l'accesso alla subnet dell'istanza del servizio.  I servizi di Azure che non vengono eseguiti all'interno di una rete virtuale vengono bloccati dal firewall.  È possibile abilitare un numero limitato di scenari tramite il meccanismo di [eccezioni](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) descritto di seguito.  Per accedere al portale, è necessario eseguire questa operazione da un computer all'interno del limite attendibile (IP o rete virtuale) configurato.
 >
 
 ## <a name="scenarios"></a>Scenari
@@ -35,7 +35,7 @@ Le regole di rete **non** influiscono sul traffico del disco della macchina virt
 
 Gli account di archiviazione classici **non** supportano i firewall e le reti virtuali.
 
-Il backup e il ripristino di macchine virtuali con dischi non gestiti negli account di archiviazione con regole di rete applicate sono supportati tramite la creazione di un'eccezione, come documentato nella sezione [Eccezioni](/storage/common/storage-network-security#exceptions) di questo articolo.  Le eccezioni firewall non sono applicabili a dischi gestiti perché sono già gestiti da Azure.
+Il backup e il ripristino di macchine virtuali con dischi non gestiti negli account di archiviazione con regole di rete applicate sono supportati tramite la creazione di un'eccezione, come documentato nella sezione [Eccezioni](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) di questo articolo.  Le eccezioni firewall non sono applicabili a dischi gestiti perché sono già gestiti da Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Modificare la regola predefinita di accesso alla rete
 Per impostazione predefinita, gli account di archiviazione accettano connessioni da client di qualsiasi rete.  Per poter limitare l'accesso alle sole reti selezionate è necessario modificare l'azione predefinita.
@@ -70,7 +70,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 ```    
 
 #### <a name="cliv2"></a>Interfaccia della riga di comando v2
-1. [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) ed [effettuare l'accesso](/cli/azure/authenticate-azure-cli).
+1. [Installare](/cli/azure/install-azure-cli) e [accedere all'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 2. Visualizzare lo stato della regola predefinita per l'account di archiviazione.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.defaultAction
@@ -152,7 +152,7 @@ Remove-AzureRmStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Na
 >
 
 #### <a name="cliv2"></a>Interfaccia della riga di comando v2
-1. [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) ed [effettuare l'accesso](/cli/azure/authenticate-azure-cli).
+1. [Installare](/cli/azure/install-azure-cli) e [accedere all'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 2. Elenco delle regole della rete virtuale di Microsoft Azure
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query virtualNetworkRules
@@ -208,7 +208,7 @@ Le regole di rete IP per gli account di archiviazione possono essere gestite tra
 2. Fare clic sul menu di impostazioni **Firewall e reti virtuali**.
 3. Verificare di aver scelto di consentire l'accesso da "Reti selezionate".
 4. Per concedere l'accesso a un intervallo IP di Internet, immettere l'indirizzo IP o l'intervallo di indirizzi (in formato CIDR) in Firewall, Intervalli di indirizzi IP.
-5. Per rimuovere una regola di rete IP fare clic su "…" per aprire il menu di scelta rapida della regola, quindi fare clic su "Rimuovi".
+5. Per rimuovere una regola di rete IP, fare clic sull'icona del cestino accanto alla regola di rete.
 6. Fare clic su *Salva* per applicare le modifiche.
 
 #### <a name="powershell"></a>PowerShell
@@ -243,7 +243,7 @@ Remove-AzureRMStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Ac
 >
 
 #### <a name="cliv2"></a>Interfaccia della riga di comando v2
-1. [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) ed [effettuare l'accesso](/cli/azure/authenticate-azure-cli).
+1. [Installare](/cli/azure/install-azure-cli) e [accedere all'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 2. Elencare le regole di rete IP
 ```azurecli
 az storage account network-rule list --resource-group "myresourcegroup" --account-name "mystorageaccount" --query ipRules
@@ -283,14 +283,16 @@ Per far sì che questo tipo di servizi funzioni come previsto, è possibile cons
 
 Quando è abilitata l'eccezione "Servizi Microsoft attendibili" i servizi seguenti (se registrati nella sottoscrizione) dispongono dell'accesso all'account di archiviazione:
 
-|Service|Nome provider di risorse|Scopo|
+|Servizio|Nome provider di risorse|Scopo|
 |:------|:---------------------|:------|
-|Backup di Azure|Microsoft.Backup|Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
-|Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti.  [Altre informazioni](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
-|Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di Archiviazione BLOB.  [Altre informazioni](https://docs.microsoft.com/azure/event-grid/overview).|
+|Backup di Azure|Microsoft.Backup|Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)|
+|Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti.  [Altre informazioni](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview)|
+|Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di Archiviazione BLOB.  [Altre informazioni](https://docs.microsoft.com/azure/event-grid/overview)|
 |Hub eventi di Azure|Microsoft.EventHub|Archiviare dati con Acquisizione di Hub eventi.  [Altre informazioni](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
-|Rete di Azure|Microsoft.Networking|Archiviare e analizzare i log di traffico di rete.  [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-||||
+|Rete di Azure|Microsoft.Networking|Archiviare e analizzare i log di traffico di rete.  [Altre informazioni](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview)|
+|Monitoraggio di Azure|Microsoft.Insights| Eseguire la scrittura dei dati di monitoraggio in un account di archiviazione protetto [Altre informazioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|
+
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione
 In alcuni casi l'accesso per la lettura di log diagnostici e metrica viene richiesto dall'esterno dei limiti di rete.  È possibile autorizzare eccezioni alle regole di rete per consentire l'accesso in lettura ai file di log, alle tabelle di metrica dell'account di archiviazione o a entrambi gli elementi. [Altre informazioni sull'uso dell'analisi archiviazione.](/azure/storage/storage-analytics)
@@ -327,7 +329,7 @@ Update-AzureRmStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" 
 >
 
 #### <a name="cliv2"></a>Interfaccia della riga di comando v2
-1. [Installare l'interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli) ed [effettuare l'accesso](/cli/azure/authenticate-azure-cli).
+1. [Installare](/cli/azure/install-azure-cli) e [accedere all'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
 2. Visualizzare le eccezioni alle regole di rete dell'account di archiviazione.
 ```azurecli
 az storage account show --resource-group "myresourcegroup" --name "mystorageaccount" --query networkRuleSet.bypass

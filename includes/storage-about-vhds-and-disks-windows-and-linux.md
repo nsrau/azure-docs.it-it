@@ -2,18 +2,18 @@
 title: File di inclusione
 description: File di inclusione
 services: storage
-author: rogara
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26c3e8a096a3ee7bc5146759f8de62e5c1c7fed1
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 796614a9e60ccb7ab155bc986b39c04c781224e8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47389969"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874102"
 ---
 ## <a name="about-vhds"></a>Informazioni sui dischi rigidi virtuali
 
@@ -34,11 +34,11 @@ Prima di poter eliminare un file con estensione .vhd di origine, sarà necessari
 
 I dischi di Azure sono stati progettati per il 99,999% di disponibilità. I dischi di Azure hanno offerto in modo costante una durabilità di livello aziendale, con una percentuale di frequenza di errori annualizzata pari a ZERO, ovvero la migliore del settore.
 
-Durante la creazione di dischi è possibile scegliere tra tre livelli di prestazioni per l'archiviazione: dischi SSD Premium, SSD Standard (anteprima) e archiviazione HDD Standard. Ci sono inoltre due tipi di dischi, gestiti e non gestiti.
+Durante la creazione di dischi è possibile scegliere fra tre livelli di prestazioni per l'archiviazione: dischi SSD Premium, SSD Standard e HDD Standard. Ci sono inoltre due tipi di dischi, gestiti e non gestiti.
 
 ### <a name="standard-hdd-disks"></a>Dischi HDD Standard
 
-I dischi HDD Standard sono basati su unità disco rigido e offrono una conveniente soluzione di archiviazione. L'archiviazione HDD Standard consente la replica locale in un data center oppure la ridondanza geografica con un data center primario e uno secondario. Per altre informazioni sulla replica dell'archiviazione, vedere [Replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md). 
+I dischi HDD Standard sono basati su unità disco rigido e offrono una conveniente soluzione di archiviazione. L'archiviazione HDD Standard consente la replica locale in un data center oppure la ridondanza geografica con un data center primario e uno secondario. Per altre informazioni sulla replica dell'archiviazione, vedere [Replica di Archiviazione di Azure](../articles/storage/common/storage-redundancy.md).
 
 Per altre informazioni sull'uso di dischi HDD Standard, vedere [Archiviazione Standard e dischi](../articles/virtual-machines/windows/standard-storage.md).
 

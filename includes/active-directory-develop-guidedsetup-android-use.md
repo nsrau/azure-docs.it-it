@@ -1,5 +1,27 @@
-
-## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Usare MSAL per ottenere un token per l'API Microsoft Graph
+---
+title: File di inclusione
+description: File di inclusione
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 9d512af7fdd68ec3356b427429144ec9195fd95b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48843319"
+---
+## <a name="use-msal-to-get-a-token"></a>Usare MSAL per ottenere un token 
 
 1.  In **app** > **java** > **{dominio}.{nomeapp}** aprire `MainActivity`. 
 2.  Aggiungere le importazioni seguenti:
@@ -220,21 +242,19 @@
 <!--start-collapse-->
 ### <a name="more-information"></a>Altre informazioni
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
-Chiamando il metodo `AcquireTokenAsync` viene visualizzata una finestra in cui viene chiesto agli utenti di eseguire l'accesso. Le applicazioni in genere richiedono agli utenti di eseguire l'accesso in modo interattivo quando devono accedere per la prima volta a una risorsa protetta. Potrebbe essere necessario eseguire l'accesso anche quando un'operazione invisibile all'utente per l'acquisizione di un token ha esito negativo, ad esempio a causa della scadenza della password di un utente.
+La chiamata del metodo `AcquireTokenAsync` apre una finestra che richiede agli utenti di accedere o selezionare il proprio account. In genere le applicazioni devono chiedere all'utente di eseguire un'interazione iniziale, ma da tale momento possono funzionare in modo invisibile. 
 
 #### <a name="get-a-user-token-silently"></a>Ottenere un token utente in modo automatico
-Il metodo `AcquireTokenSilentAsync` gestisce le acquisizioni e i rinnovi dei token senza alcuna interazione da parte dell'utente. Dopo la prima esecuzione di `AcquireTokenAsync`, per le chiamate successive il metodo generalmente usato per ottenere i token per accedere alle risorse protette è `AcquireTokenSilentAsync`, perché le chiamate per richiedere o rinnovare i token vengono effettuate in modo invisibile all'utente.
+Il metodo `AcquireTokenSilentAsync` ottiene un token senza alcuna interazione con l'utente.  `AcquireTokenSilentAsync` può essere considerata la richiesta più efficiente possibile, con un fallback a `AcquireTokenAsync` quando l'utente deve accedere di nuovo o eseguire altre procedure di autorizzazione, ad esempio l'autenticazione a più fattori. 
 
-Il metodo `AcquireTokenSilentAsync` avrà infine esito negativo, ad esempio perché l'utente ha effettuato la disconnessione o ha modificato la propria password su un altro dispositivo. Se MSAL rileva che il problema può essere risolto richiedendo un'azione interattiva, viene attivata un'eccezione `MsalUiRequiredException`. L'applicazione può gestire questa eccezione in due modi:
+Quando `AcquireTokenSilentAsync` ha esito negativo, viene generata un'eccezione di tipo `MsalUiRequiredException`. L'applicazione può gestire questa eccezione in due modi:
 
-* Può eseguire immediatamente una chiamata a `AcquireTokenAsync` e richiedere così all'utente di eseguire l'accesso. Questo modello viene usato in genere nelle applicazioni online in cui non è disponibile contenuto offline per l'utente. L'esempio generato in questa configurazione guidata segue questo modello, il cui funzionamento può essere osservato la prima volta che si esegue l'esempio. 
-    * Dato che nessun utente ha usato l'applicazione, `PublicClientApp.Users.FirstOrDefault()` contiene un valore Null e viene generata un'eccezione `MsalUiRequiredException`. 
-    * Il codice dell'esempio gestisce quindi l'eccezione chiamando `AcquireTokenAsync` e richiedendo così all'utente di eseguire l'eccesso. 
-
-* Può presentare un'indicazione visiva per informare gli utenti che è necessario un accesso interattivo e consentire così di scegliere il momento opportuno per accedere. In alternativa, l'applicazione può riprovare a eseguire `AcquireTokenSilentAsync` in un secondo momento. Questo modello viene in genere adottato quando gli utenti possono usare altre funzionalità dell'applicazione senza interruzioni, ad esempio quando nell'applicazione è disponibile contenuto offline. In questo caso, gli utenti possono decidere se vogliono eseguire l'accesso per accedere alla risorsa protetta oppure aggiornare le informazioni obsolete. In alternativa, l'applicazione può decidere di riprovare a eseguire `AcquireTokenSilentAsync` quando la rete viene ripristinata dopo essere stata temporaneamente non disponibile. 
+* Chiamare `AcquireTokenAsync` immediatamente e richiedere così all'utente di eseguire l'accesso. Questo modello viene usato nelle applicazioni online in cui non è disponibile contenuto offline per l'utente. L'esempio generato in questa esercitazione segue questo modello, il cui funzionamento può essere osservato la prima volta che si esegue l'esempio.
+* Presentare un'indicazione visiva agli utenti per segnalare loro che è necessario un accesso interattivo. Chiamare `AcquireTokenAsync` quando l'utente è pronto.
+* Riprovare `AcquireTokenSilentAsync` in un secondo momento. Questo modello viene spesso adottato quando gli utenti possono usare altre funzionalità dell'applicazione senza interruzioni, ad esempio quando nell'applicazione è disponibile contenuto offline. L'applicazione può decidere di riprovare a eseguire `AcquireTokenSilentAsync` quando la rete viene ripristinata dopo essere stata temporaneamente non disponibile. 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Chiamare l'API Microsoft Graph usando il token appena ottenuto
+## <a name="call-the-microsoft-graph-api"></a>Chiamare l'API Microsoft Graph 
 Aggiungere i metodi seguenti alla classe `MainActivity`:
 
 ```java
@@ -294,7 +314,7 @@ private void updateGraphUI(JSONObject graphResponse) {
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Altre informazioni sull'esecuzione di una chiamata REST a un'API protetta
 
-In questa applicazione di esempio, `callGraphAPI` chiama `getAccessToken` e quindi effettua una richiesta HTTP `GET` a una risorsa che richiede un token e restituisce il contenuto. Questo metodo aggiunge il token acquisito nell'intestazione di autorizzazione HTTP. Per questo esempio, la risorsa è l'endpoint *me* dell'API Microsoft Graph, che visualizza le informazioni del profilo dell'utente.
+In questa applicazione di esempio `callGraphAPI()` usa `getAccessToken()` per ottenere il token di accesso aggiornato.  L'app usa il token in una richiesta HTTP `GET` per l'API Microsoft Graph. 
 <!--end-collapse-->
 
 ## <a name="set-up-sign-out"></a>Configurare la disconnessione
@@ -353,7 +373,8 @@ private void updateSignedOutUI() {
 <!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>Altre informazioni sulla disconnessione degli utenti
 
-Il metodo `onSignOutClicked` nel codice precedente rimuove gli utenti dalla cache utente di MSAL. In questo modo, MSAL dimentica l'utente corrente e una futura richiesta di acquisizione di un token avrà esito positivo solo se eseguita in modo interattivo.
+Il metodo `onSignOutClicked()` rimuove gli utenti dalla cache MSAL. MSAL non avrà più alcuna informazione sullo stato dell'utente connesso e quest'ultimo verrà disconnesso dall'applicazione. 
 
-Nonostante l'applicazione in questo esempio supporti singoli utenti, MSAL supporta anche scenari con accesso contemporaneo di più account, ad esempio un'applicazione di posta elettronica in cui un utente ha più account.
+### <a name="more-information-on-multi-account-scenarios"></a>Altre informazioni sugli scenari con più account
+MSAL supporta anche scenari in cui più account eseguono l'accesso contemporaneamente. Ad esempio, molte app di posta elettronica consentono l'accesso di più account contemporaneamente. 
 <!--end-collapse-->

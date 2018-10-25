@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166487"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870979"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nuovo DBA nel cloud - Gestione del database nel database SQL di Azure
 
@@ -89,7 +89,7 @@ L'autenticazione tradizionale di Windows non è supportata. Azure Active Directo
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Come limitare o controllare l'accesso di connettività al database?
 Esistono diverse tecniche a disposizione che è possibile usare per conseguire un'organizzazione di connettività ottimale per l'applicazione. 
 - Regole del firewall
-- Endpoint del servizio di rete virtuale
+- Endpoint di servizio di rete virtuale
 - IP riservati
 
 #### <a name="firewall"></a>Firewall
@@ -98,7 +98,7 @@ Un firewall impedisce l'accesso al server da un'entità esterna, consentendo sol
 È possibile creare regole firewall a livello di server o database. Le regole firewall a livello di server possono essere create dal portale o con SSMS. Per altre informazioni su come impostare una regola firewall a livello di server e database, vedere: [Create firewall rules in SQL Database](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal) (Creare regole firewall nel database SQL).
 
 #### <a name="service-endpoints"></a>Endpoint di servizio
-Per impostazione predefinita, il database SQL è configurato per consentire a tutti i servizi di Azure di connettersi al server, ovvero qualsiasi VM in Azure può tentare di connettersi al database. Questi tentativi devono comunque essere autenticati. Se tuttavia non si intende rendere il database accessibile a eventuali indirizzi IP di Azure, è possibile disabilitare l'opzione che consente a tutti i servizi di Azure di accedere al server. È anche possibile configurare gli [endpoint di servizio delle reti virtuali](sql-database-vnet-service-endpoint-rule-overview.md).
+Per impostazione predefinita, il database SQL è configurato per consentire a tutti i servizi di Azure di connettersi al server, ovvero qualsiasi VM in Azure può tentare di connettersi al database. Questi tentativi devono comunque essere autenticati. Se tuttavia non si intende rendere il database accessibile a eventuali indirizzi IP di Azure, è possibile disabilitare l'opzione che consente a tutti i servizi di Azure di accedere al server. È anche possibile configurare gli [endpoint di servizio di rete virtuale](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Gli endpoint di servizio consentono di esporre le risorse cruciali di Azure solo alla rete privata virtuale in Azure. In questo modo si elimina essenzialmente l'accesso pubblico alle risorse. Il traffico tra la rete virtuale e Azure rimane nella rete di backbone di Azure. Senza gli endpoint di servizio si ottiene il routing dei pacchetti con tunneling forzato. La rete virtuale forza il traffico Internet nell'organizzazione e il traffico del servizio Azure in modo che segua lo stesso route. Con gli endpoint di servizio è possibile ottimizzare questo processo, perché i pacchetti seguono il flusso direttamente dalla rete virtuale al servizio nella rete di backbone di Azure.
 

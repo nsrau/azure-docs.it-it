@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 95c27bcc99f08cb1e4998e43a6a2abd508bee0ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228169"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869313"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replica con Istanza gestita di database SQL
 
@@ -76,21 +76,22 @@ Supporta:
 
 ## <a name="configure-publishing-and-distribution-example"></a>Esempio di configurazione dei database di pubblicazione e distribuzione
 
-1. [Creare un'istanza gestita di database SQL di Azure](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal) nel portale.
+1. [Creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-create-tutorial-portal.md) nel portale.
+2. [Creare un account di archiviazione di Azure](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro.
 
-1. [Creare un account di archiviazione di Azure](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro. Assicurarsi di copiare le chiavi di archiviazione. Vedere [Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys).
-
-1. Creare un database di pubblicazione.
+   Assicurarsi di copiare le chiavi di archiviazione. Vedere [Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys
+).
+3. Creare un database di pubblicazione.
 
    Negli script di esempio seguenti sostituire `<Publishing_DB>` con il nome del database.
 
-1. Creare un utente del database con autenticazione SQL per il database di distribuzione. Vedere [Creazione degli utenti del database](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Usare una password di protezione.
+4. Creare un utente del database con autenticazione SQL per il database di distribuzione. Vedere [Creazione degli utenti del database](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Usare una password di protezione.
 
    Negli script di esempio seguenti usare `<SQL_USER>` e `<PASSWORD>` per l'utente del database e la password dell'account di SQL Server.
 
-1. [Connettersi all'Istanza gestita di database SQL di Azure](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Connettersi all'Istanza gestita di database SQL di Azure](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
-1. Eseguire la query seguente per aggiungere il server di distribuzione e il database di distribuzione.
+6. Eseguire la query seguente per aggiungere il server di distribuzione e il database di distribuzione.
 
    ```sql
    USE [master]
@@ -99,7 +100,7 @@ Supporta:
    EXEC sp_adddistributiondb @database = N'distribution';
    ```
 
-1. Per configurare un server di pubblicazione in modo da usare il database di distribuzione specificato, aggiornare ad eseguire la query seguente.
+7. Per configurare un server di pubblicazione in modo da usare il database di distribuzione specificato, aggiornare ad eseguire la query seguente.
 
    Sostituire `<SQL_USER>` e `<PASSWORD>` con l'account e la password di SQL Server.
 
@@ -107,7 +108,7 @@ Supporta:
 
    Sostituire `<STORAGE_CONNECTION_STRING>` con la stringa di connessione presente nella scheda **Chiavi di accesso** dell'account di archiviazione di Microsoft Azure.
 
-   Dopo aver aggiornato la query seguente, eseguirla. 
+   Dopo aver aggiornato la query seguente, eseguirla.
 
    ```sql
    USE [master]
@@ -121,7 +122,7 @@ Supporta:
    GO
    ```
 
-1. Configurare il database di pubblicazione per la replica. 
+8. Configurare il database di pubblicazione per la replica.
 
     Nella query seguente sostituire `<Publishing_DB>` con il nome del database di pubblicazione.
 
@@ -155,15 +156,13 @@ Supporta:
                 @job_password = N'<PASSWORD>'
    ```
 
-1. Aggiungere l'articolo, la sottoscrizione e l'agente della sottoscrizione push. 
+9. Aggiungere l'articolo, la sottoscrizione e l'agente della sottoscrizione push.
 
    Per aggiungere questi oggetti, aggiornare lo script seguente.
 
-   Sostituire `<Object_Name>` con il nome dell'oggetto di pubblicazione.
-
-   Sostituire `<Object_Schema>` con il nome dello schema di origine. 
-
-   Sostituire gli altri parametri tra parentesi angolari `<>` con valori corrispondenti ai valori inclusi negli script precedenti. 
+   - Sostituire `<Object_Name>` con il nome dell'oggetto di pubblicazione.
+   - Sostituire `<Object_Schema>` con il nome dello schema di origine.
+   - Sostituire gli altri parametri tra parentesi angolari `<>` con valori corrispondenti ai valori inclusi negli script precedenti.
 
    ```sql
    EXEC sp_addarticle @publication = N'<Publication_Name>',
@@ -183,7 +182,7 @@ Supporta:
                 @subscriber_security_mode = 0,
                 @subscriber_login = N'<SQL_USER>',
                 @subscriber_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>', 
+                @job_login = N'<SQL_USER>',
                 @job_password = N'<PASSWORD>'
    GO
    ```

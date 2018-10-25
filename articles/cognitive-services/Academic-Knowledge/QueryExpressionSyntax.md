@@ -1,20 +1,21 @@
 ---
-title: Sintassi delle espressioni di query nell'API Academic Knowledge | Microsoft Docs
-description: Informazioni su come usare la sintassi delle espressioni di query nell'API Academic Knowledge per Servizi cognitivi Microsoft.
+title: Sintassi delle espressioni di query - API Academic Knowledge
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come usare la sintassi delle espressioni di query nell'API Academic Knowledge.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6ec338fff09954e2f14066ce2b83bc1228794af8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372809"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901278"
 ---
 # <a name="query-expression-syntax"></a>Sintassi delle espressioni di query
 

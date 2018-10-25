@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/08/2018
-ms.openlocfilehash: a9a3d696f1c503969b89795f8c6d86a77bd353e8
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 499689e4d36f368746e5e0ea9e6bc3f3bf0ec0d9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160725"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868232"
 ---
-# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Eseguire configurazione e ripristino dalla conservazione dei backup a lungo termine del database SQL di Azure tramite un insieme di credenziali di Servizi di ripristino di Microsoft Azure
+# <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurare la conservazione dei backup a lungo termine tramite l'insieme di credenziali di Servizi di ripristino di Azure
 
 È possibile configurare l'insieme di credenziali di Servizi di ripristino di Azure per archiviare i backup del database SQL di Azure e quindi ripristinare un database tramite backup conservati nell'insieme di credenziali usando il portale di Azure o PowerShell.
 
 > [!NOTE]
-> Nell'ambito del rilascio iniziale dell'anteprima della conservazione dei backup a lungo termine a ottobre 2016, i backup sono stati archiviati nell'insieme di credenziali di Servizi di ripristino di Azure. Questo aggiornamento rimuove tale dipendenza, ma per la compatibilità con le versioni precedenti l'API originale è supportata fino al 31 maggio 2018. Se è necessario interagire con i backup dell'insieme di credenziali di ripristino dei servizi di Azure, vedere [Long-term backup retention using Azure Services Recovery Service vault](sql-database-long-term-backup-retention-configure-vault.md) (Conservazione a lungo termine dei backup con l'insieme di credenziali di Servizi di ripristino dei servizi di Azure). 
-
+> Nell'ambito del rilascio iniziale dell'anteprima della conservazione dei backup a lungo termine a ottobre 2016, i backup sono stati archiviati nell'insieme di credenziali di Servizi di ripristino di Azure. Questo aggiornamento rimuove tale dipendenza, ma per la compatibilità con le versioni precedenti l'API originale è supportata fino al 31 maggio 2018. Se è necessario interagire con i backup dell'insieme di credenziali di ripristino dei servizi di Azure, vedere [Long-term backup retention using Azure Services Recovery Service vault](sql-database-long-term-backup-retention-configure-vault.md) (Conservazione a lungo termine dei backup con l'insieme di credenziali di Servizi di ripristino dei servizi di Azure).
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -33,7 +32,7 @@ Nelle sezioni seguenti viene illustrato come usare il portale di Azure per confi
 
 ### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Configurare l'insieme di credenziali, registrare il server e selezionare i database
 
-Si configurerà un insieme di credenziali di Servizi di ripristino di Azure per [conservare i backup automatici](sql-database-long-term-retention.md) per un periodo più lungo rispetto al periodo di conservazione associato al livello di servizio. 
+Si configurerà un insieme di credenziali di Servizi di ripristino di Azure per [conservare i backup automatici](sql-database-long-term-retention.md) per un periodo più lungo rispetto al periodo di conservazione associato al livello di servizio.
 
 1. Aprire la pagina **SQL Server** per il server in uso.
 
@@ -62,7 +61,7 @@ Si configurerà un insieme di credenziali di Servizi di ripristino di Azure per 
 7. Nella pagina **Insiemi di credenziali dei servizi di ripristino** fare clic su **Aggiungi**.
 
    ![collegamento aggiungi insieme di credenziali](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
-   
+
 8. Nella pagina **Insieme di credenziali di Servizi di ripristino** specificare un nome valido per l'insieme di credenziali di Servizi di ripristino.
 
    ![nome nuovo insieme di credenziali](./media/sql-database-get-started-backup-recovery/new-vault-name.png)
@@ -73,7 +72,6 @@ Si configurerà un insieme di credenziali di Servizi di ripristino di Azure per 
 
    > [!IMPORTANT]
    > L'insieme di credenziali deve trovarsi nella stessa area del server logico di Azure SQL e deve usare lo stesso gruppo di risorse del server logico.
-   >
 
 10. Dopo aver creato il nuovo insieme di credenziali, eseguire i passaggi necessari per tornare alla pagina **Insieme di credenziali di Servizi di ripristino**.
 
@@ -84,9 +82,9 @@ Si configurerà un insieme di credenziali di Servizi di ripristino di Azure per 
 12. Nella pagina **Configura** specificare un nome valido per i nuovi criteri di conservazione, modificare i criteri di conservazione predefiniti in base alle esigenze e quindi fare clic su **OK**.
 
    ![definizione dei criteri di conservazione](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
-   
-   >[!NOTE]
-   >I nomi dei criteri di conservazione non consentono determinati caratteri, inclusi gli spazi.
+
+   > [!NOTE]
+   > I nomi dei criteri di conservazione non consentono determinati caratteri, inclusi gli spazi.
 
 13. Nella pagina **Conservazione backup a lungo termine** del database in uso fare clic su **Salva** e quindi su **OK** per applicare i criteri di conservazione dei backup a lungo termine a tutti i database selezionati.
 
@@ -98,11 +96,10 @@ Si configurerà un insieme di credenziali di Servizi di ripristino di Azure per 
 
 > [!IMPORTANT]
 > Dopo essere stati configurati, i backup verranno visualizzati nell'insieme di credenziali entro i successivi sette giorni. Non continuare questa esercitazione finché i backup non verranno visualizzati nell'insieme di credenziali.
->
 
 ### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>Visualizzare i backup nella conservazione a lungo termine con il portale di Azure
 
-Visualizzare informazioni sui backup del database nella [conservazione backup a lungo termine](sql-database-long-term-retention.md). 
+Visualizzare informazioni sui backup del database nella [conservazione backup a lungo termine](sql-database-long-term-retention.md).
 
 1. Nel portale di Azure aprire l'insieme di credenziali di Servizi di ripristino di Azure per i backup del database (andare a **Tutte le risorse** e selezionarlo dall'elenco delle risorse correlate alla sottoscrizione) per visualizzare la quantità di spazio di archiviazione usata dai backup del database nell'insieme di credenziali.
 
@@ -167,7 +164,7 @@ Usare [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryserv
 $serverLocation = (Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName).Location
 $recoveryServiceVaultName = "{new-vault-name}"
 
-$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation 
+$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 ```
 
@@ -176,18 +173,17 @@ Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedu
 Usare il cmdlet [Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) per associare un insieme di credenziali dei servizi di ripristino creato in precedenza a un server di Azure SQL specifico.
 
 ```PowerShell
-# Set your server to use the vault to for long-term backup retention 
+# Set your server to use the vault to for long-term backup retention
 
 Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
 ```
 
 ### <a name="create-a-retention-policy"></a>Creare un criterio di conservazione
 
-Un criterio di conservazione consente di impostare per quanto tempo mantenere il backup di un database. Usare il cmdlet [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) per ottenere il criterio di conservazione predefinito usato come modello per la creazione di criteri. In questo modello il periodo di conservazione è di 2 anni. Eseguire quindi [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) per creare i criteri. 
+Un criterio di conservazione consente di impostare per quanto tempo mantenere il backup di un database. Usare il cmdlet [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) per ottenere il criterio di conservazione predefinito usato come modello per la creazione di criteri. In questo modello il periodo di conservazione è di 2 anni. Eseguire quindi [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) per creare i criteri.
 
 > [!NOTE]
-> Per alcuni cmdlet è necessario impostare il contesto dell'insieme di credenziali prima dell'esecuzione ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)), pertanto questo cmdlet è presente in alcuni frammenti correlati. Il contesto viene impostato perché i criteri fanno parte dell'insieme di credenziali. È possibile creare più criteri di conservazione per ogni insieme di credenziali e quindi applicare il criterio desiderato a database specifici. 
-
+> Per alcuni cmdlet è necessario impostare il contesto dell'insieme di credenziali prima dell'esecuzione ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)), pertanto questo cmdlet è presente in alcuni frammenti correlati. Il contesto viene impostato perché i criteri fanno parte dell'insieme di credenziali. È possibile creare più criteri di conservazione per ogni insieme di credenziali e quindi applicare il criterio desiderato a database specifici.
 
 ```PowerShell
 # Retrieve the default retention policy for the AzureSQLDatabase workload type
@@ -218,7 +214,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resource
 
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>Visualizzare le informazioni sui backup e i backup nella conservazione a lungo termine
 
-Visualizzare informazioni sui backup del database nella [conservazione backup a lungo termine](sql-database-long-term-retention.md). 
+Visualizzare informazioni sui backup del database nella [conservazione backup a lungo termine](sql-database-long-term-retention.md).
 
 Usare i cmdlet seguenti per visualizzare le informazioni di backup:
 
@@ -264,18 +260,17 @@ $restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceI
 $restoredDb
 ```
 
-
 > [!NOTE]
 > A questo punto è possibile connettersi al database ripristinato usando SQL Server Management Studio per eseguire le attività necessarie, ad esempio per estrarre un bit di dati dal database ripristinato da copiare nel database esistente o per eliminare il database esistente e rinominare il database ripristinato con il nome del database esistente. Vedere [ripristino temporizzato](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Come pulire i backup nell'insieme di credenziali di Servizi di ripristino
 
-A partire dall'1 luglio 2018 l'API V1 di conservazione a lungo termine è stata deprecata ed è stata eseguita la migrazione di tutti i backup presenti negli insiemi di credenziali di Servizi di ripristino nei contenitori di archiviazione di conservazione a lungo termine gestiti dal database SQL. Per garantire che non venga più applicato alcun addebito per i backup originali, i backup sono stati rimossi dagli insiemi di credenziali dopo la migrazione. Tuttavia, se è stato inserito un blocco nell'insieme di credenziali, i backup vengono mantenuti. Per evitare i costi non necessari, è possibile rimuovere manualmente i backup precedenti dall'insieme di credenziali di Servizi di ripristino usando lo script seguente. 
+A partire dall'1 luglio 2018 l'API V1 di conservazione a lungo termine è stata deprecata ed è stata eseguita la migrazione di tutti i backup presenti negli insiemi di credenziali di Servizi di ripristino nei contenitori di archiviazione di conservazione a lungo termine gestiti dal database SQL. Per garantire che non venga più applicato alcun addebito per i backup originali, i backup sono stati rimossi dagli insiemi di credenziali dopo la migrazione. Tuttavia, se è stato inserito un blocco nell'insieme di credenziali, i backup vengono mantenuti. Per evitare i costi non necessari, è possibile rimuovere manualmente i backup precedenti dall'insieme di credenziali di Servizi di ripristino usando lo script seguente.
 
 ```PowerShell
 <#
 .EXAMPLE
-    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}”
 #>
 [CmdletBinding()]
 Param (
@@ -302,14 +297,14 @@ $containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
 
 ForEach ($container in $containers)
 {
-   $canDeleteContainer = $true  
+   $canDeleteContainer = $true
    $ItemCount = 0
    Write-Host "Working on container" $container.Name
    $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
    ForEach ($item in $items)
    {
-          write-host "Deleting item" $item.name
-          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+    write-host "Deleting item" $item.name
+    Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
    }
 
    Write-Host "Deleting container" $container.Name

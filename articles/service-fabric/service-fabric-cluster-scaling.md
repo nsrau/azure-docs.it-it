@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: f9e3f190decdc907cf57a0235b9d7142081bd2f1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f199e6615109278764b9fcc75346da9ee6171cfa
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208030"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815648"
 ---
 # <a name="scaling-service-fabric-clusters"></a>Ridimensionamento dei cluster di Service Fabric
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I cluster possono contenere migliaia di nodi. Dopo aver creato un cluster di Service Fabric, è possibile scalare il cluster in orizzontale (modificare il numero di nodi) o in verticale (modificare le risorse dei nodi).  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
@@ -75,6 +75,10 @@ Considerando queste limitazioni, è consigliabile [implementare più modelli di 
 I cluster autonomi consentono di distribuire un cluster Service Fabric locale o nel provider di servizi cloud che si preferisce.  I tipi di nodi sono costituiti da computer fisici o macchine virtuali, a seconda della distribuzione. Rispetto ai cluster in esecuzione in Azure, il processo di ridimensionamento di un cluster autonomo è leggermente più complesso.  È necessario modificare manualmente il numero di nodi nel cluster e quindi eseguire un aggiornamento della configurazione del cluster.
 
 È possibile che con la rimozione di nodi vengano avviati più aggiornamenti in sequenza. Alcuni nodi sono contrassegnati con il tag `IsSeedNode=”true”` e possono essere identificati mediante query nel manifesto del cluster usando [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). La rimozione di tali nodi può richiedere più tempo perché comporta lo spostamento dei nodi di inizializzazione. Il cluster deve mantenere almeno tre nodi di tipo primario.
+
+> [!WARNING]
+> È opportuno evitare di ridurre il numero di nodi al di sotto della [dimensione del cluster del livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster). Ciò interferisce con la possibilità che i servizi di sistema di Service Fabric vengano replicati all'interno del cluster e può destabilizzare o addirittura causare l'eliminazione definitiva del cluster.
+>
 
 Quando si ridimensiona un cluster autonomo, tenere presenti le linee guida seguenti:
 - La sostituzione dei nodi primari deve essere eseguita un nodo alla volta, anziché eseguire la rimozione e l'aggiunta in batch.

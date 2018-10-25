@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4a5ca4879f81533e3617ca9dfe9cdf8afcf2965b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12a2ff3f96fa86ac1b52a3138d9a9b2a30b867db
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700172"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803784"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Creare la prima applicazione contenitore di Service Fabric in Windows
 > [!div class="op_single_selector"]
@@ -232,6 +232,7 @@ Il frammento XML del manifesto del servizio seguente offre un esempio di come sp
 ```xml
 <ServiceManifestImport>
   <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <EnvironmentOverrides CodePackageRef="FrontendService.Code">
     <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
   </EnvironmentOverrides>
   ...
@@ -575,7 +576,7 @@ L'intervallo di tempo predefinito è impostato su 10 secondi. Poiché questa con
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configurare il runtime per rimuovere le immagini del contenitore non usate
 
-È possibile configurate il cluster di Service Fabric per rimuovere le immagini del contenitore non usate dal nodo. Questa configurazione consente di riacquisire spazio su disco se nel nodo sono presenti troppe immagini del contenitore. Per abilitare questa funzionalità, aggiornare la sezione `Hosting` nel manifesto del cluster, come illustrato nel frammento seguente: 
+È possibile configurate il cluster di Service Fabric per rimuovere le immagini del contenitore non usate dal nodo. Questa configurazione consente di riacquisire spazio su disco se nel nodo sono presenti troppe immagini del contenitore. Per abilitare questa funzionalità, aggiornare la sezione [Hosting](service-fabric-cluster-fabric-settings.md#hosting) nel manifesto del cluster, come illustrato nel frammento di codice seguente: 
 
 
 ```json
@@ -596,7 +597,7 @@ L'intervallo di tempo predefinito è impostato su 10 secondi. Poiché questa con
 } 
 ```
 
-Le immagini che non devono essere eliminate possono essere specificate nel parametro `ContainerImagesToSkip`. 
+Le immagini che non devono essere eliminate possono essere specificate nel parametro `ContainerImagesToSkip`.  
 
 
 ## <a name="configure-container-image-download-time"></a>Configurare il tempo di download delle immagini del contenitore

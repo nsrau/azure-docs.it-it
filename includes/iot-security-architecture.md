@@ -1,19 +1,19 @@
 ---
 title: File di inclusione
 description: File di inclusione
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
-ms.date: 04/24/2018
-ms.author: dobett
+ms.date: 08/07/2018
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029993"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49070186"
 ---
 # <a name="internet-of-things-security-architecture"></a>Architettura di sicurezza di Internet delle cose
 
@@ -185,7 +185,7 @@ In ognuna delle categorie descritte nell'architettura IoT di Azure, in questo es
 
 Ecco alcuni esempi di minacce in questa categoria:
 
-Spoofing, ovvero il furto di identità: un utente malintenzionato potrebbe estrarre materiale della chiave crittografica da un dispositivo, a livello di software o hardware, e successivamente accedere al sistema con un diverso dispositivo fisico o virtuale che assume l'identità del dispositivo da cui è stata estratta la chiave.
+**Spoofing**: un utente malintenzionato potrebbe estrarre materiale della chiave crittografica da un dispositivo, a livello di software o hardware, e successivamente accedere al sistema con un diverso dispositivo fisico o virtuale che assume l'identità del dispositivo da cui è stata estratta la chiave.
 
 **Denial of Service**: un dispositivo potrebbe essere messo fuori uso o reso incapace di comunicare tramite interferenza con le frequenze radio o taglio dei cavi. Ad esempio, una videocamera di sorveglianza a cui sia stata intenzionalmente interrotta l'alimentazione o la connessione di rete non segnala alcun dato.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/26/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 76da33a74ad95d7f074bc4efd3a8d9f97c19d612
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049611"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830313"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Spostamento dei dati da e verso Archiviazione di Azure
 Esistono modi diversi per spostare i dati locali in Archiviazione di Azure (o viceversa). Quale sia il metodo adatto dipende dallo scenario. Questo articolo offre informazioni generali su diversi scenari e la soluzione appropriata per ciascuno.
@@ -38,7 +38,7 @@ Se è richiesta un’utilità da riga di comando o si preferisce usare questa so
 ### <a name="azcopy"></a>AzCopy
 AzCopy è un'utilità da riga di comando progettata per offrire prestazioni elevate di copia dei dati da e verso Archiviazione di Azure. È inoltre possibile copiare i dati all'interno di un account di archiviazione o tra account di archiviazione diversi. AzCopy è disponibile in [Windows](storage-use-azcopy.md) e in [Linux](storage-use-azcopy-linux.md).
 
-Per altre informazioni, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) o [Transfer data with AzCopy on Linux](storage-use-azcopy-linux.md) (Trasferire dati con AzCopy in Linux).
+Per informazioni su come eseguire la migrazione dei dati locali in Archiviazione di Azure, vedere [Eseguire la migrazione di dati locali in una risorsa di archiviazione cloud tramite AzCopy](storage-use-azcopy-migrate-on-premises-data.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell è un modulo che offre cmdlet per la gestione dei servizi in Azure. Si tratta di una shell da riga di comando basata su attività e di un linguaggio di scripting progettato appositamente per gli amministratori di sistema.

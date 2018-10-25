@@ -1,20 +1,21 @@
 ---
-title: Metodo Evaluate nell'API Academic Knowledge | Microsoft Docs
-description: Usare il metodo Evaluate per restituire un set di entità accademiche basate su un'espressione di query in Servizi cognitivi Microsoft.
+title: Metodo Evaluate - API Academic Knowledge
+titlesuffix: Azure Cognitive Services
+description: Usare il metodo Evaluate per restituire un set di entità accademiche basate su un'espressione di query.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 3005ae1f6df042a49db086de4982d8206f6938a4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372740"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902332"
 ---
 # <a name="evaluate-method"></a>Metodo Evaluate
 
@@ -27,9 +28,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 ## <a name="request-parameters"></a>Parametri della richiesta  
-NOME     | Valore | Obbligatorio?  | DESCRIZIONE
+Nome     | Valore | Obbligatorio?  | Descrizione
 -----------|-----------|---------|--------
-**expr**       | Stringa di testo | Sì | Espressione di query che specifica le entità che devono essere restituite.
+**expr**       | Stringa di testo | Yes | Espressione di query che specifica le entità che devono essere restituite.
 **model**      | Stringa di testo | No   | Nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.        
 **attributes** | Stringa di testo | No <br>Valore predefinito: ID | Elenco delimitato da virgole che specifica i valori di attributo inclusi nella risposta. Per i nomi degli attributi viene fatta distinzione tra maiuscole e minuscole.
 **count**        | Number | No <br>Valore predefinito: 10 | Numero di risultati da restituire.
@@ -38,7 +39,7 @@ NOME     | Valore | Obbligatorio?  | DESCRIZIONE
   
  <br>
 ## <a name="response-json"></a>Risposta (JSON)
-NOME | DESCRIZIONE
+Nome | Descrizione
 -------|-----   
 **expr** |  Parametro *expr* della richiesta.
 **entities** |  Matrice di 0 o più entità che corrispondono all'espressione di query. Ogni entità contiene il valore della probabilità logaritmica naturale e i valori degli altri attributi richiesti.
