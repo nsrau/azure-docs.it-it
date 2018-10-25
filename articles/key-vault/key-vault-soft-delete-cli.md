@@ -7,14 +7,14 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/04/2017
+ms.date: 10/15/2018
 ms.author: bryanla
-ms.openlocfilehash: 73ece43c26c3957a1b7dba02a673099f7d35e8d6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: af2d480e84ca69c0ecd795e38371375e6a71542b
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951781"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363640"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -43,14 +43,14 @@ Per altre informazioni sulle autorizzazioni e il controllo degli accessi, vedere
 
 ## <a name="enabling-soft-delete"></a>Abilitazione della funzione di eliminazione temporanea
 
-Per poter recuperare un insieme di credenziali delle chiavi eliminato o oggetti archiviati in un insieme di credenziali delle chiavi eliminato, è necessario prima abilitare la funzione di eliminazione temporanea per l'insieme di credenziali.
+La funzione di eliminazione temporanea viene abilitata per consentire il recupero di un insieme di credenziali delle chiavi eliminato o degli oggetti archiviati in un insieme di credenziali delle chiavi.
+
+> [!IMPORTANT]
+> L'abilitazione dell'eliminazione temporanea per un insieme di credenziali delle chiavi è un'azione irreversibile. Dopo che la proprietà di eliminazione temporanea è stata impostata su "true", non può essere modificata o rimossa.  
 
 ### <a name="existing-key-vault"></a>Insieme di credenziali delle chiavi esistente
 
 Per un insieme di credenziali delle chiavi esistente denominato ContosoVault, è possibile abilitare l'eliminazione temporanea come indicato di seguito. 
-
->[!NOTE]
->Attualmente è necessario usare la funzione di modifica delle risorse di Azure Resource Manager per scrivere direttamente la proprietà *enableSoftDelete* nella risorsa di Key Vault.
 
 ```azurecli
 az resource update --id $(az keyvault show --name ContosoVault -o tsv | awk '{print $1}') --set properties.enableSoftDelete=true
@@ -66,7 +66,7 @@ az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-
 
 ### <a name="verify-soft-delete-enablement"></a>Verificare l'abilitazione della funzione di eliminazione temporanea
 
-Per verificare che in un insieme di credenziali delle chiavi sia abilitata la funzione di eliminazione temporanea, eseguire il comando *show* e controllare se l'attributo "Soft Delete Enabled?" ("Eliminazione temporanea abilitata?") è impostato su true o false.
+Per verificare che in un insieme di credenziali delle chiavi sia abilitata la funzione di eliminazione temporanea, eseguire il comando *show* e controllare se l'attributo "Soft Delete Enabled?" ("Eliminazione temporanea abilitata?") è presente:
 
 ```azurecli
 az keyvault show --name ContosoVault
@@ -74,40 +74,41 @@ az keyvault show --name ContosoVault
 
 ## <a name="deleting-a-key-vault-protected-by-soft-delete"></a>Eliminazione di un insieme di credenziali delle chiavi protetto dalla funzione di eliminazione temporanea
 
-Il comando per eliminare (o rimuovere) un insieme di credenziali delle chiavi rimane invariato, ma il comportamento cambia a seconda che la funzione di eliminazione temporanea sia abilitata o meno.
+Il comportamento del comando per eliminare un insieme di credenziali delle chiavi è diverso a seconda che l'eliminazione temporanea sia abilitata o meno.
+
+> [!IMPORTANT]
+>Se si esegue il comando seguente per un insieme di credenziali delle chiavi in cui la funzione di eliminazione temporanea non è abilitata, l'insieme di credenziali delle chiavi e tutti i relativi contenuti verranno eliminati in modo permanente, senza possibilità di recupero.
 
 ```azurecli
 az keyvault delete --name ContosoVault
 ```
 
-> [!IMPORTANT]
->Se si esegue il comando precedente per un insieme di credenziali delle chiavi in cui la funzione di eliminazione temporanea non è abilitata, l'insieme di credenziali delle chiavi e tutti i relativi contenuti verranno eliminati in modo permanente, senza possibilità di recupero.
-
 ### <a name="how-soft-delete-protects-your-key-vaults"></a>Come la funzione di eliminazione temporanea protegge gli insiemi di credenziali delle chiavi
 
 Con la funzione di eliminazione temporanea abilitata:
 
-- Quando un insieme di credenziali delle chiavi viene eliminato, l'insieme viene rimosso dal relativo gruppo di risorse e inserito in uno spazio dei nomi riservato associato solo al percorso in cui è stato creato. 
-- Gli oggetti inclusi in un insieme di credenziali delle chiavi, come chiavi, segreti e certificati, risultano non accessibili per tutto il tempo in cui l'insieme di credenziali delle chiavi in cui sono contenuti è in stato "eliminato". 
-- Il nome DNS relativo a un insieme di credenziali delle chiavi in stato "eliminato" rimane riservato e non è quindi possibile creare un insieme di credenziali delle chiavi con lo stesso nome.  
+- Un insieme di credenziali delle chiavi viene rimosso dal relativo gruppo di risorse e inserito in uno spazio dei nomi riservato associato al percorso in cui è stato creato. 
+- Gli oggetti eliminati, come chiavi, segreti e certificati, risultano non accessibili finché l'insieme di credenziali delle chiavi in cui sono contenuti è in stato "eliminato". 
+- Il nome DNS per un insieme di credenziali delle chiavi eliminato è riservato e non è quindi possibile creare un nuovo insieme di credenziali delle chiavi con lo stesso nome.  
 
 È possibile visualizzare gli insiemi di credenziali delle chiavi in stato "eliminato" associati alla propria sottoscrizione usando il comando seguente:
 
 ```azurecli
 az keyvault list-deleted
 ```
-
-Il valore *ID risorsa* nell'output fa riferimento all'ID risorsa originale di questo insieme di credenziali. Poiché l'insieme di credenziali delle chiavi è ora in stato "eliminato", non è presente alcuna risorsa con questo ID. Il campo *Id* può essere usato per identificare la risorsa durante il recupero o l'eliminazione definitiva. Il campo *Scheduled Purge Date* (Data eliminazione definitiva programmata) indica il momento in cui l'insieme di credenziali delle chiavi verrà eliminato in modo definitivo se sull'insieme di credenziali non viene eseguita alcuna operazione. Il periodo di memorizzazione predefinito usato per calcolare il campo *Scheduled Purge Date* (Data eliminazione definitiva programmata) è di 90 giorni.
+- L'*ID* può essere usato per identificare la risorsa durante il recupero o l'eliminazione definitiva. 
+- L'*ID risorsa* è l'ID risorsa originale di questo insieme di credenziali. Poiché l'insieme di credenziali delle chiavi è ora in stato "eliminato", non è presente alcuna risorsa con questo ID. 
+- La *data di eliminazione definitiva programmata* indica il momento in cui l'insieme di credenziali verrà eliminato in modo definitivo se non viene eseguita alcuna operazione. Il periodo di memorizzazione predefinito usato per calcolare il campo *Scheduled Purge Date* (Data eliminazione definitiva programmata) è di 90 giorni.
 
 ## <a name="recovering-a-key-vault"></a>Recupero di un insieme di credenziali delle chiavi
 
-Per recuperare un insieme di credenziali delle chiavi, è necessario specificarne il nome, il gruppo di risorse e il percorso. Annotare il percorso e il gruppo di risorse dell'insieme di credenziali delle chiavi eliminato, poiché saranno necessari nel processo di recupero dell'insieme di credenziali.
+Per recuperare un insieme di credenziali delle chiavi, si specifica il nome, il gruppo di risorse e il percorso. Annotare il percorso e il gruppo di risorse dell'insieme di credenziali delle chiavi eliminato, perché saranno necessari nel processo di recupero.
 
 ```azurecli
 az keyvault recover --location westus --resource-group ContosoRG --name ContosoVault
 ```
 
-Quando viene recuperato un insieme di credenziali delle chiavi, il risultato è una nuova risorsa con l'ID risorsa originale dell'insieme di credenziali delle chiavi. Se il gruppo di risorse in cui si trova l'insieme di credenziali delle chiavi è stato rimosso, prima di poter recuperare l'insieme di credenziali delle chiavi è necessario creare un nuovo gruppo di risorse con lo stesso nome.
+Quando viene recuperato un insieme di credenziali delle chiavi, viene creata una nuova risorsa con l'ID risorsa originale dell'insieme di credenziali delle chiavi. Se il gruppo di risorse originale viene rimosso, ne deve essere creato uno con lo stesso nome prima di tentare il recupero.
 
 ## <a name="key-vault-objects-and-soft-delete"></a>Oggetti di Key Vault ed eliminazione temporanea
 
@@ -127,36 +128,34 @@ az keyvault key list-deleted --vault-name ContosoVault
 
 ### <a name="transition-state"></a>Stato di transizione 
 
-Quando si elimina una chiave in un insieme di credenziali delle chiavi con eliminazione temporanea abilitata, per completare la transizione possono essere necessari alcuni secondi. Durante questo stato di transizione, è possibile che la chiave non risulti in stato attivo o in stato eliminato. Questo comando elencherà tutte le chiavi eliminate nell'insieme di credenziali delle chiavi denominato "ContosoVault".
-
-```azurecli
-az keyvault key list-deleted --vault-name ContosoVault
-```
+Quando si elimina una chiave in un insieme di credenziali delle chiavi con eliminazione temporanea abilitata, per completare la transizione possono essere necessari alcuni secondi. Durante questa transizione, è possibile che la chiave non risulti in stato attivo o in stato eliminato. 
 
 ### <a name="using-soft-delete-with-key-vault-objects"></a>Utilizzo della funzione di eliminazione temporanea con gli oggetti di un insieme di credenziali delle chiavi
 
-Analogamente agli insiemi di credenziali delle chiavi, anche una chiave, un segreto o un certificato eliminato rimarrà in stato "eliminato" per un massimo di 90 giorni a meno che non si scelga di recuperarlo o eliminarlo in modo definitivo. 
+Analogamente agli insiemi di credenziali delle chiavi, anche una chiave, un segreto o un certificato eliminato rimane in stato "eliminato" per un massimo di 90 giorni, a meno che non si scelga di recuperarlo o eliminarlo in modo definitivo.
 
 #### <a name="keys"></a>Chiavi
 
-Per recuperare una chiave eliminata:
+Per recuperare una chiave eliminata temporaneamente:
 
 ```azurecli
 az keyvault key recover --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-Per eliminare in modo definitivo una chiave:
+Per eliminare definitivamente (ripulire) una chiave eliminata temporaneamente:
+
+> [!IMPORTANT]
+> Dopo essere stata eliminata in modo definitivo, una chiave non è più recuperabile. 
 
 ```azurecli
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
->[!NOTE]
->Dopo essere stata eliminata in modo definitivo, una chiave non è più recuperabile.
-
-Alle azioni di **recupero** ed **eliminazione definitiva** sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. Per poter eseguire un'azione di **recupero** o **eliminazione definitiva**, quindi, un utente o un'entità servizio deve avere la relativa autorizzazione sull'oggetto (chiave o segreto) nell'ambito dei criteri di accesso dell'insieme di credenziali delle chiavi. Per impostazione predefinita, l'autorizzazione di **eliminazione definitiva** non viene aggiunta ai criteri di accesso dell'insieme di credenziali delle chiavi se viene usato il collegamento "all" per concedere tutte le autorizzazioni a un utente. L'autorizzazione di **eliminazione definitiva** deve essere concessa esplicitamente. Il comando seguente, ad esempio, concede l'autorizzazione user@contoso.com per eseguire varie operazioni sulle chiavi nell'insieme *ContosoVault*, tra cui l'**eliminazione definitiva**.
+Alle azioni di **recupero** ed **eliminazione definitiva** sono associate autorizzazioni specifiche nei criteri di accesso dell'insieme di credenziali delle chiavi. Per poter eseguire un'azione **recover** o **purge**, quindi, un utente o un'entità servizio deve avere la relativa autorizzazione per la chiave o il segreto. Per impostazione predefinita, **purge** non viene aggiunta ai criteri di accesso dell'insieme di credenziali delle chiavi se viene usato il collegamento "all" per concedere tutte le autorizzazioni. L'autorizzazione **purge** deve essere concessa esplicitamente. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Configurare i criteri di accesso dell'insieme di credenziali delle chiavi
+
+Il comando seguente, concede a user@contoso.com l'autorizzazione per usare diverse operazioni sulle chiavi in *ContosoVault*, tra cui **purge**:
 
 ```azurecli
 az keyvault set-policy --name ContosoVault --key-permissions get create delete list update import backup restore recover purge
@@ -167,7 +166,7 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 
 #### <a name="secrets"></a>Segreti
 
-Come per le chiavi, è possibile eseguire operazioni sui segreti presenti in un insieme di credenziali delle chiavi usando i relativi comandi. Di seguito sono elencati i comandi per eliminare, elencare, recuperare ed eliminare in modo definitivo i segreti.
+Come le chiavi, i segreti vengono gestiti con comandi specifici:
 
 - Eliminare un segreto denominato SQLPassword: 
 ```azurecli
@@ -185,12 +184,13 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 ```
 
 - Eliminare in modo definitivo un segreto in stato "eliminato": 
-```azurecli
-az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
-```
 
->[!NOTE]
->Dopo essere stato eliminato in modo definitivo, un segreto non è più recuperabile.
+  > [!IMPORTANT]
+  > Dopo essere stato eliminato in modo definitivo, un segreto non è più recuperabile. 
+
+  ```azurecli
+  az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
+  ```
 
 ## <a name="purging-and-key-vaults"></a>Eliminazione definitiva e insiemi di credenziali delle chiavi
 
@@ -199,25 +199,25 @@ az keyvault secret purge --name SQLPAssword --vault-name ContosoVault
 Dopo essere stato eliminato in modo definitivo, una chiave, un segreto o un certificato non è più recuperabile. L'insieme di credenziali delle chiavi che conteneva l'oggetto eliminato rimarrà tuttavia invariato, così come qualsiasi altro oggetto presente nell'insieme di credenziali delle chiavi. 
 
 ### <a name="key-vaults-as-containers"></a>Insiemi di credenziali delle chiavi come contenitori
-Quando viene eliminato un insieme di credenziali delle chiavi, vengono rimossi in modo permanente anche tutti i relativi contenuti, tra cui certificati, chiavi e segreti. Per eliminare in modo definitivo un insieme di credenziali delle chiavi, usare il comando `az keyvault purge`. È possibile trovare il percorso degli insiemi di credenziali delle chiavi eliminati nella sottoscrizione usando il comando `az keyvault list-deleted`.
+Quando un insieme di credenziali delle chiavi viene ripulito, ne viene eliminato in modo definitivo l'intero contenuto, inclusi certificati, chiavi e segreti. Per eliminare in modo definitivo un insieme di credenziali delle chiavi, usare il comando `az keyvault purge`. È possibile trovare il percorso degli insiemi di credenziali delle chiavi eliminati nella sottoscrizione usando il comando `az keyvault list-deleted`.
+
+>[!IMPORTANT]
+>Dopo essere stato eliminato in modo definitivo, un insieme di credenziali delle chiavi non è più recuperabile.
 
 ```azurecli
 az keyvault purge --location westus --name ContosoVault
 ```
 
->[!NOTE]
->Dopo essere stato eliminato in modo definitivo, un insieme di credenziali delle chiavi non è più recuperabile.
-
 ### <a name="purge-permissions-required"></a>Autorizzazioni di eliminazione definitiva necessarie
-- Per eliminare in modo definitivo un insieme di credenziali delle chiavi eliminato, così che l'insieme di credenziali e i relativi contenuti vengano rimossi in modo permanente, l'utente deve avere l'autorizzazione RBAC per eseguire un'operazione *Microsoft.KeyVault/locations/deletedVaults/purge/action*. 
-- Per elencare la chiave eliminata in un insieme di credenziali delle chiavi, un utente deve avere l'autorizzazione RBAC per eseguire l'autorizzazione *Microsoft.KeyVault/deletedVaults/read*. 
+- Per ripulire un insieme di credenziali delle chiavi eliminato, l'utente necessita dell'autorizzazione di Controllo degli accessi in base al ruolo per l'operazione *Microsoft.KeyVault/locations/deletedVaults/purge/action*. 
+- Per elencare un insieme di credenziali delle chiavi eliminato, l'utente necessita dell'autorizzazione di Controllo degli accessi in base al ruolo per l'operazione *Microsoft.KeyVault/deletedVaults/read*. 
 - Per impostazione predefinita, solo un amministratore della sottoscrizione ha queste autorizzazioni. 
 
 ### <a name="scheduled-purge"></a>Eliminazione temporanea programmata
 
-Quando si elencano gli oggetti di un insieme di credenziali eliminato, viene indicato anche quando ne è programmata l'eliminazione definitiva da Key Vault. Il campo *Scheduled Purge Date* (Data eliminazione definitiva programmata) indica il momento in cui un oggetto dell'insieme di credenziali delle chiavi verrà eliminato in modo definitivo se non viene eseguita alcuna operazione. Per impostazione predefinita, il periodo di memorizzazione di un oggetto di un insieme di credenziali delle chiavi eliminato è di 90 giorni.
+Quando si elencano gli oggetti di un insieme di credenziali eliminato, viene indicato anche quando ne è programmata l'eliminazione definitiva da Key Vault. La *data eliminazione definitiva programmata* indica il momento in cui un oggetto dell'insieme di credenziali delle chiavi verrà eliminato in modo definitivo se non viene eseguita alcuna operazione. Per impostazione predefinita, il periodo di memorizzazione di un oggetto di un insieme di credenziali delle chiavi eliminato è di 90 giorni.
 
->[!NOTE]
+>[!IMPORTANT]
 >Un oggetto di un insieme di credenziali delle chiavi eliminato in modo permanente, attivato dal campo *Scheduled Purge Date* (Data eliminazione definitiva programmata), viene eliminato in modo definitivo e non è più recuperabile.
 
 ## <a name="other-resources"></a>Altre risorse:

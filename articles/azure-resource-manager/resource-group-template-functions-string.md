@@ -1,5 +1,5 @@
 ---
-title: Funzioni del modello di Azure Resource Manager - Stringa | Documentazione Microsoft
+title: Funzioni del modello di Azure Resource Manager - Stringa | Microsoft Docs
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per operare con le stringhe.
 services: azure-resource-manager
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 10/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33a49a9fb66240382b0bb4e0bedbb07b8d78a763
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 578d078550daaae54c63bf91da1fa5590bb8fdf6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360360"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249146"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funzioni di stringa nei modelli di Azure Resource Manager
 
@@ -67,7 +67,7 @@ Restituisce la rappresentazione base64 della stringa di input.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| inputString |Sì |stringa |Il valore da restituire come rappresentazione base64. |
+| inputString |Yes |stringa |Il valore da restituire come rappresentazione base64. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -145,7 +145,7 @@ Converte una rappresentazione base64 in un oggetto JSON.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sì |stringa |Rappresentazione base64 da convertire in un oggetto JSON. |
+| base64Value |Yes |stringa |Rappresentazione base64 da convertire in un oggetto JSON. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -223,7 +223,7 @@ Converte una rappresentazione base64 in una stringa.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| base64Value |Sì |stringa |Rappresentazione base64 da convertire in stringa. |
+| base64Value |Yes |stringa |Rappresentazione base64 da convertire in stringa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -301,7 +301,7 @@ Combina più valori stringa e restituisce la stringa concatenata oppure combina 
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |Stringa o matrice |Il primo valore per la concatenazione. |
+| arg1 |Yes |Stringa o matrice |Il primo valore per la concatenazione. |
 | Argomenti aggiuntivi |No  |stringa |Altri valori in ordine sequenziale per la concatenazione. |
 
 ### <a name="return-value"></a>Valore restituito
@@ -407,14 +407,14 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## <a name="contains"></a>contains
 `contains (container, itemToFind)`
 
-Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o se una stringa contiene una sottostringa.
+Verifica se una matrice contiene un valore, se un oggetto contiene una chiave o se una stringa contiene una sottostringa. Il confronto fra stringhe fa distinzione tra maiuscole e minuscole. Tuttavia, quando si testa se un oggetto contiene una chiave, il confronto non fa distinzione tra maiuscole e minuscole.
 
 ### <a name="parameters"></a>Parametri
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| Contenitore |Sì |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
-| itemToFind |Sì |stringa o numero intero |Valore da trovare. |
+| Contenitore |Yes |matrice, oggetto o stringa |Valore che contiene il valore da trovare. |
+| itemToFind |Yes |stringa o numero intero |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -507,7 +507,7 @@ Converte un valore in un URI di dati.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| stringToConvert |Sì |stringa |Valore da convertire in un URI di dati. |
+| stringToConvert |Yes |stringa |Valore da convertire in un URI di dati. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -575,7 +575,7 @@ Converte un valore formattato come URI di dati in una stringa.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| dataUriToConvert |Sì |stringa |Valore dell'URI di dati da convertire. |
+| dataUriToConvert |Yes |stringa |Valore dell'URI di dati da convertire. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -643,7 +643,7 @@ Determina se una matrice, un oggetto o una stringa sono vuoti.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| itemToTest |Sì |matrice, oggetto o stringa |Valore da controllare per verificare se è vuoto. |
+| itemToTest |Yes |matrice, oggetto o stringa |Valore da controllare per verificare se è vuoto. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -721,8 +721,8 @@ Determina se una stringa termina con un valore. Il confronto non fa distinzione 
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |stringa |Valore da trovare. |
+| stringToSearch |Yes |stringa |Valore che contiene l'elemento da cercare. |
+| stringToFind |Yes |stringa |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -800,7 +800,7 @@ Restituisce il primo carattere della stringa o il primo elemento della matrice.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
+| arg1 |Yes |stringa o matrice |Valore per recuperare il primo elemento o carattere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -864,7 +864,7 @@ Crea un valore con il formato di un identificatore univoco globale in base ai va
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| baseString |Sì |stringa |Il valore usato nella funzione hash per creare il GUID. |
+| baseString |Yes |stringa |Il valore usato nella funzione hash per creare il GUID. |
 | parametri aggiuntivi in base alle esigenze |No  |stringa |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
 
 ### <a name="remarks"></a>Osservazioni
@@ -948,8 +948,8 @@ Restituisce la prima posizione di un valore all'interno di una stringa. Il confr
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |stringa |Valore da trovare. |
+| stringToSearch |Yes |stringa |Valore che contiene l'elemento da cercare. |
+| stringToFind |Yes |stringa |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1022,7 +1022,7 @@ Restituisce il primo carattere della stringa o l'ultimo elemento della matrice.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
+| arg1 |Yes |stringa o matrice |Valore per recuperare l'ultimo elemento o carattere. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1087,8 +1087,8 @@ Restituisce l'ultima posizione di un valore all'interno di una stringa. Il confr
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |stringa |Valore da trovare. |
+| stringToSearch |Yes |stringa |Valore che contiene l'elemento da cercare. |
+| stringToFind |Yes |stringa |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1161,7 +1161,7 @@ Restituisce il numero di caratteri in una stringa o di elementi in una matrice.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sì |stringa o matrice |Matrice da usare per ottenere il numero di elementi oppure stringa da usare per ottenere il numero di caratteri. |
+| arg1 |Yes |stringa o matrice |Matrice da usare per ottenere il numero di elementi oppure stringa da usare per ottenere il numero di caratteri. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1233,8 +1233,8 @@ Restituisce una stringa allineata a destra mediante l'aggiunta di caratteri a si
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| valueToPad |Sì |Stringa o numero intero |Il valore per eseguire l'allineamento a destra. |
-| totalLength |Sì |int |Numero totale di caratteri della stringa restituita. |
+| valueToPad |Yes |Stringa o numero intero |Il valore per eseguire l'allineamento a destra. |
+| totalLength |Yes |int |Numero totale di caratteri della stringa restituita. |
 | paddingCharacter |No  |Carattere singolo |Il carattere da utilizzare per la spaziatura interna a sinistra, fino a raggiungere la lunghezza totale. Il valore predefinito è uno spazio. |
 
 Se la stringa originale è più lunga rispetto al numero di caratteri di riempimento, non vengono aggiunti caratteri.
@@ -1296,9 +1296,9 @@ Restituisce una nuova stringa con tutte le istanze di una stringa sostituita con
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| originalString |Sì |stringa |Valore che contiene tutte le istanze di una stringa sostituita con un'altra stringa. |
-| oldString |Sì |stringa |Stringa da rimuovere dalla stringa originale. |
-| newString |Sì |stringa |Stringa da aggiungere al posto della stringa rimossa. |
+| originalString |Yes |stringa |Valore che contiene tutte le istanze di una stringa sostituita con un'altra stringa. |
+| oldString |Yes |stringa |Stringa da rimuovere dalla stringa originale. |
+| newString |Yes |stringa |Stringa da aggiungere al posto della stringa rimossa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1362,8 +1362,8 @@ Restituisce una stringa con tutti i caratteri dopo il numero specificato di cara
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
-| numberToSkip |Sì |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se il valore è maggiore della lunghezza della stringa o della matrice, viene restituita una stringa o una matrice vuota. |
+| originalValue |Yes |stringa o matrice |Stringa o matrice da usare per i valori da ignorare. |
+| numberToSkip |Yes |int |Numero di elementi o caratteri da ignorare. Se il valore è minore o uguale a 0, vengono restituiti tutti gli elementi o i caratteri nel valore. Se il valore è maggiore della lunghezza della stringa o della matrice, viene restituita una stringa o una matrice vuota. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1443,8 +1443,8 @@ Restituisce una matrice di stringhe che contiene le sottostringhe della stringa 
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| inputString |Sì |stringa |Stringa da dividere. |
-| delimiter |Sì |Stringa o matrice di stringhe |Il delimitatore da usare per dividere la stringa. |
+| inputString |Yes |stringa |Stringa da dividere. |
+| delimiter |Yes |Stringa o matrice di stringhe |Il delimitatore da usare per dividere la stringa. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1515,8 +1515,8 @@ Determina se una stringa inizia con un valore. Il confronto non fa distinzione t
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| stringToSearch |Sì |stringa |Valore che contiene l'elemento da cercare. |
-| stringToFind |Sì |stringa |Valore da trovare. |
+| stringToSearch |Yes |stringa |Valore che contiene l'elemento da cercare. |
+| stringToFind |Yes |stringa |Valore da trovare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1594,7 +1594,7 @@ Converte il valore specificato in una stringa.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| valueToConvert |Sì | Qualsiasi |Valore da convertire in stringa. È possibile convertire qualsiasi tipo di valore, inclusi gli oggetti e le matrici. |
+| valueToConvert |Yes | Qualsiasi |Valore da convertire in stringa. È possibile convertire qualsiasi tipo di valore, inclusi gli oggetti e le matrici. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1678,17 +1678,17 @@ Restituisce una sottostringa che inizia nella posizione del carattere specificat
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| stringToParse |Sì |stringa |La stringa originale da cui estrarre la sottostringa. |
+| stringToParse |Yes |stringa |La stringa originale da cui estrarre la sottostringa. |
 | startIndex |No  |int |La posizione del carattere iniziale in base zero della sottostringa. |
-| length |No  |int |Il numero di caratteri della sottostringa. Deve fare riferimento a una posizione nella stringa. |
+| length |No  |int |Il numero di caratteri della sottostringa. Deve fare riferimento a una posizione nella stringa. Deve essere uguale a o maggiore di zero. |
 
 ### <a name="return-value"></a>Valore restituito
 
-La sottostringa.
+La sottostringa. Oppure una stringa vuota se la lunghezza è pari a zero.
 
 ### <a name="remarks"></a>Osservazioni
 
-La funzione ha esito negativo se la sottostringa si estende oltre la fine della stringa. L'esempio seguente ha esito negativo e visualizza l'errore "I parametri index e length devono fare riferimento a una posizione all'interno della stringa. Parametro index: '0', parametro length: '11', lunghezza del parametro string: '10'.".
+La funzione ha esito negativo quando la sottostringa si estende oltre la fine della stringa o quando la lunghezza è minore di zero. L'esempio seguente ha esito negativo e visualizza l'errore "I parametri index e length devono fare riferimento a una posizione all'interno della stringa. Parametro index: '0', parametro length: '11', lunghezza del parametro string: '10'.".
 
 ```json
 "parameters": {
@@ -1752,8 +1752,8 @@ Restituisce una stringa con il numero specificato di caratteri dall'inizio della
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| originalValue |Sì |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
-| numberToTake |Sì |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se il valore è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o nella matrice. |
+| originalValue |Yes |stringa o matrice |Stringa o matrice da cui prendere gli elementi. |
+| numberToTake |Yes |int |Numero di elementi o caratteri da prendere. Se il valore è minore o uguale a 0, viene restituita una stringa o un matrice vuota. Se il valore è maggiore della lunghezza della stringa o matrice specificata, vengono restituiti tutti gli elementi nella stringa o nella matrice. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1833,7 +1833,7 @@ Converte la stringa specificata in caratteri minuscoli.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sì |stringa |Il valore da convertire in lettere minuscole. |
+| stringToChange |Yes |stringa |Il valore da convertire in lettere minuscole. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1897,7 +1897,7 @@ Converte la stringa specificata in lettere maiuscole.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| stringToChange |Sì |stringa |Il valore da convertire in lettere maiuscole. |
+| stringToChange |Yes |stringa |Il valore da convertire in lettere maiuscole. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -1961,7 +1961,7 @@ Rimuove tutti i caratteri di spazi vuoti iniziali e finali dalla stringa specifi
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| stringToTrim |Sì |stringa |Il valore da tagliare. |
+| stringToTrim |Yes |stringa |Il valore da tagliare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -2020,7 +2020,7 @@ Crea una stringa hash deterministica in base ai valori forniti come parametri.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| baseString |Sì |stringa |Il valore usato nella funzione hash per creare una stringa univoca. |
+| baseString |Yes |stringa |Il valore usato nella funzione hash per creare una stringa univoca. |
 | parametri aggiuntivi in base alle esigenze |No  |stringa |È possibile aggiungere tutte le stringhe necessarie per creare il valore che specifica il livello di univocità. |
 
 ### <a name="remarks"></a>Osservazioni
@@ -2109,8 +2109,8 @@ Crea un URI assoluto combinando la baseUri e la stringa relativeUri.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sì |stringa |La stringa URI di base. |
-| relativeUri |Sì |stringa |La stringa URI relativa da aggiungere alla stringa di URI di base. |
+| baseUri |Yes |stringa |La stringa URI di base. |
+| relativeUri |Yes |stringa |La stringa URI relativa da aggiungere alla stringa di URI di base. |
 
 Il valore per il parametro **baseUri** può includere un file specifico, ma solo il percorso di base viene usato per costruire l'URI. Ad esempio, se si trasmette `http://contoso.com/resources/azuredeploy.json` come parametro baseUri, viene restituito l'URI di base `http://contoso.com/resources/`.
 
@@ -2186,7 +2186,7 @@ Codifica un URI.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| stringToEncode |Sì |stringa |Valore da codificare. |
+| stringToEncode |Yes |stringa |Valore da codificare. |
 
 ### <a name="return-value"></a>Valore restituito
 
@@ -2254,7 +2254,7 @@ Restituisce una stringa di un valore URI codificato.
 
 | Parametro | Obbligatoria | type | DESCRIZIONE |
 |:--- |:--- |:--- |:--- |
-| uriEncodedString |Sì |stringa |Valore URI codificato da convertire in stringa. |
+| uriEncodedString |Yes |stringa |Valore URI codificato da convertire in stringa. |
 
 ### <a name="return-value"></a>Valore restituito
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: f44bb7bd95ef405c65bb259a6d104475c2e283bd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297843"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955168"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integrazione continua in Azure DevOps Services con i progetti di distribuzione di tipo Gruppo di risorse di Azure
 Per distribuire un modello di Azure, eseguire attività in varie fasi, ovvero compilazione, test, copia in Azure (detta anche "staging") e distribuzione del modello. Esistono due modi diversi per distribuire i modelli in Azure DevOps Services. Entrambi i metodi forniscono gli stessi risultati, quindi è opportuno scegliere quello che meglio si adatta al proprio flusso di lavoro.
@@ -92,7 +92,7 @@ Le procedure seguenti consentono di eseguire i passaggi necessari per configurar
       Per l'interfaccia della riga di comando di Azure usare:
       
       `azure account show`
-   8. Per ottenere un ID entità servizio, una chiave entità servizio e un ID tenant, seguire la procedura in [Usare il portale per creare un'applicazione Active Directory e un'entità servizio](resource-group-create-service-principal-portal.md) o [Authenticating a service principal with Azure Resource Manager](resource-group-authenticate-service-principal.md) (Autenticazione di un'entità servizio con Azure Resource Manager).
+   8. Per ottenere un ID entità servizio, una chiave entità servizio e un ID tenant, seguire la procedura in [Usare il portale per creare un'applicazione Active Directory e un'entità servizio](active-directory/develop/howto-create-service-principal-portal.md) o [Authenticating a service principal with Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md) (Autenticazione di un'entità servizio con Azure Resource Manager).
    9. Aggiungere i valori di ID entità servizio, chiave entità servizio e ID tenant alla finestra di dialogo **Aggiungi sottoscrizione di Azure**, quindi scegliere il pulsante **OK**.
       
       Ora è disponibile un'entità servizio valida da usare per eseguire lo script di Azure PowerShell.
@@ -181,7 +181,7 @@ Le procedure seguenti consentono di eseguire i passaggi necessari per configurar
 7. Dopo aver aggiunto tutti gli elementi richiesti, salvare la pipeline di compilazione e fare clic su **Accoda nuova compilazione** nella parte superiore della schermata.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sui gruppi di risorse di Azure e su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
+Per altre informazioni su Gestione risorse di Azure e sui gruppi di risorse di Azure, vedere [Panoramica di Gestione risorse di Microsoft Azure](azure-resource-manager/resource-group-overview.md) .
 
 [0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png
 [1]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough2.png

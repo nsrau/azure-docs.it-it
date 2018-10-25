@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c2d13a409d095bca64da781e5c5ca58553f9710c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046253"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785325"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
-Il controllo del codice sorgente consente di mantenere i runbook inclusi nell'account di automazione aggiornati con gli script del repository del controllo del codice sorgente Azure DevOps o GitHub. Il controllo del codice sorgente fornisce un ambiente in cui è possibile collaborare con il team, tenere traccia delle modifiche ed eseguire il rollback a versioni precedenti dei runbook. Ad esempio, il controllo del codice sorgente consente di sincronizzare diversi rami nel controllo del codice sorgente con gli account di automazione di sviluppo, test o produzione e alzare di livello il codice testato nell'ambiente di sviluppo per passarlo all'ambiente di produzione.
+Il controllo del codice sorgente consente di mantenere i runbook inclusi nell'account di automazione aggiornati con gli script del repository del controllo del codice sorgente Azure DevOps o GitHub. Il controllo del codice sorgente fornisce un ambiente in cui è possibile collaborare con il team, tenere traccia delle modifiche ed eseguire il rollback a versioni precedenti dei runbook. Il controllo del codice sorgente, ad esempio, consente di sincronizzare diversi rami nel controllo del codice sorgente per gli account di automazione di sviluppo, test o produzione. Questo rende facile alzare di livello il codice che è stato testato nell'ambiente di sviluppo a produzione di account di automazione.
 
 Automazione di Azure supporta 3 tipi di controllo del codice sorgente:
 
@@ -29,6 +29,7 @@ Automazione di Azure supporta 3 tipi di controllo del codice sorgente:
 ## <a name="pre-requisites"></a>Prerequisiti
 
 * Un repository del controllo del codice sorgente (GitHub o Visual Studio Team Services)
+* Le [autorizzazioni](#personal-access-token-permissions) corrette per il repository del controllo del codice sorgente
 * Un [account RunAs e una connessione](manage-runas-account.md)
 
 > [!NOTE]
@@ -46,22 +47,22 @@ Esaminare la pagina di richiesta autorizzazioni dell'app e fare clic su **Accett
 
 Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorgente** e fare clic su **Salva**. La tabella seguente fornisce una descrizione dei campi disponibili.
 
-|Proprietà  |Descrizione  |
+|Proprietà  |DESCRIZIONE  |
 |---------|---------|
 |Nome del controllo del codice sorgente     | Nome descrittivo per il controllo del codice sorgente        |
-|Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> Github</br>Visual Studio Team Services (Git)</br>Visual Studio Team Services (Controllo della versione di Team Foundation)        |
-|Repository     | Nome del repository o del progetto. Viene recuperato dal repository del controllo del codice sorgente. Esempio: $/ContosoFinanceTFVCExample         |
+|Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (Controllo della versione di Team Foundation)        |
+|Repository     | Nome del repository o del progetto. Questo valore viene sottoposto a pull dal repository del controllo del codice sorgente. Esempio: $/ContosoFinanceTFVCExample         |
 |Ramo     | Ramo da cui eseguire il pull dei file di origine. La selezione della destinazione del ramo non è disponibile per il controllo del codice sorgente di tipo Controllo della versione di Team Foundation.          |
 |Percorso della cartella     | Cartella che contiene i runbook da sincronizzare. Esempio: /Runbooks         |
 |Sincronizzazione automatica     | Attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente         |
 |Pubblica runbook     | Se questa opzione è **attivata**, i runbook vengono pubblicati automaticamente dopo la sincronizzazione dal controllo del codice sorgente.         |
-|Descrizione     | Campo di testo in cui fornire altri dettagli        |
+|DESCRIZIONE     | Campo di testo in cui fornire altri dettagli        |
 
 ![Riepilogo del Controllo del codice sorgente](./media/source-control-integration/source-control-summary.png)
 
 ## <a name="syncing"></a>Sincronizzazione
 
-Se è stata impostata la sincronizzazione automatica durante la configurazione dell'integrazione del controllo del codice sorgente, la sincronizzazione iniziale dovrebbe essere avviata automaticamente. Se la sincronizzazione automatica non è stata impostata, selezionare il controllo del codice sorgente nella tabella nella pagina **Controllo del codice sorgente (anteprima)**. Fare clic su **Avvia sincronizzazione** per avviare il processo di sincronizzazione.  
+Configurando la sincronizzazione automatica durante la configurazione dell'integrazione del controllo del codice sorgente, la sincronizzazione iniziale viene avviata automaticamente. Se la sincronizzazione automatica non è stata impostata, selezionare il controllo del codice sorgente nella tabella nella pagina **Controllo del codice sorgente (anteprima)**. Fare clic su **Avvia sincronizzazione** per avviare il processo di sincronizzazione.  
 
 È possibile visualizzare lo stato del processo di sincronizzazione corrente o di quelli precedenti facendo clic sulla scheda **Processi di sincronizzazione**. Nell'elenco a discesa **Controllo del codice sorgente** selezionare un controllo del codice sorgente.
 
@@ -101,6 +102,35 @@ Source Control Sync Summary:
 
 ========================================================================================================
 ```
+
+## <a name="personal-access-token-permissions"></a>Autorizzazioni dei token di accesso personale
+
+Controllo del codice sorgente richiede alcune autorizzazioni minime per i token di accesso personale. Le tabelle seguenti contengono le autorizzazioni minime necessarie per GitHub e Azure DevOps.
+
+### <a name="github"></a>GitHub
+
+|Scope  |DESCRIZIONE  |
+|---------|---------|
+|**repo**     |         |
+|repo:status     | Accedere allo stato del commit         |
+|repo_deployment      | Accedere allo stato della distribuzione         |
+|public_repo     | Accedere ai repository pubblici         |
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Scrivere gli hook del repository         |
+|read:repo_hook|Leggere gli hook del repository|
+
+### <a name="azure-devops"></a>Azure DevOps
+
+|Scope  |
+|---------|
+|Codice (lettura)     |
+|Progetto e team (lettura)|
+|Identità (lettura)      |
+|Profilo utente (lettura)     |
+|Elementi di lavoro (lettura)    |
+|Connessioni al servizio (lettura, query e gestione)<sup>1</sup>    |
+
+<sup>1</sup>l'autorizzazione delle connessioni al servizio è necessaria solo se è abilitata la sincronizzazione automatica.
 
 ## <a name="disconnecting-source-control"></a>Disconnessione del controllo del codice sorgente
 

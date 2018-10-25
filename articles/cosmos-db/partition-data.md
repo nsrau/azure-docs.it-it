@@ -10,20 +10,25 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cc2794105eff196c3e1db02d664a89c9b37e318
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 968651e2bd06d54c8b735bf2418e0d84b94f315d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286986"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078565"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partizionamento e ridimensionamento in Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è un servizio di database multimodello distribuito a livello globale, progettato per favorire prestazioni rapide e prevedibili. È ridimensionabile contestualmente all'applicazione. Questo articolo offre una panoramica del funzionamento del partizionamento per tutti i modelli di dati in Azure Cosmos DB. Descrive anche come configurare contenitori Azure Cosmos DB per ridimensionare in modo efficace le applicazioni.
 
+Azure Cosmos DB supporta i tipi di contenitori seguenti per tutte le API:
+
+- **Contenitore fisso**: questi contenitori possono archiviare un database a grafo con dimensioni massime di 10 GB a cui possono essere allocate un massimo di 10.000 unità richiesta al secondo. Per creare un contenitore fisso non è necessario specificare una proprietà chiave di partizione nei dati.
+
+- **Contenitore illimitato**: questi contenitori possono essere ridimensionati automaticamente per archiviare un grafo oltre il limite di 10 GB tramite il partizionamento orizzontale. In ogni partizione verranno archiviati 10 GB e i dati verranno automaticamente bilanciati in base alla **chiave di partizione specificata**, che sarà un parametro obbligatorio per l'uso di un contenitore illimitato. Questo tipo di contenitore può archiviare dati di dimensioni virtualmente illimitate e supportare fino a 100.000 unità richiesta al secondo o più [contattando il supporto](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partizionamento in Azure Cosmos DB
 Azure Cosmos DB offre contenitori per l'archiviazione di dati denominati raccolte (per i documenti), grafici o tabelle. I contenitori sono risorse logiche e possono comprendere una o più partizioni fisiche o server. Il numero di partizioni è determinato da Azure Cosmos DB in base allo spazio di archiviazione e alla velocità effettiva con provisioning di un contenitore o di un set di contenitori. 
-
 
 ### <a name="physical-partition"></a>Partizione fisica
 
@@ -72,7 +77,7 @@ Se una partizione fisica raggiunge il limite di archiviazione e i dati nella par
 Scegliere una chiave di partizione in modo che:
 
 * La distribuzione di archiviazione sia uniforme su tutte le chiavi.  
-* La distribuzione del volume di richieste in un determinato punto nel tempo sia uniforme su tutte le chiavi.  
+* Scegliere una chiave di partizione che distribuisce i dati in modo uniforme tra le partizioni.
 
   È consigliabile controllare il modo in cui i dati vengono distribuiti tra le partizioni. Per controllare la distribuzione dei dati nel portale, accedere al proprio account Azure Cosmos DB e fare clic su **Metriche** nella sezione **Monitoraggio** e quindi fare clic sulla scheda **Archiviazione** per verificare il modo in cui i dati sono partizionati tra partizioni fisiche diverse.
 
@@ -80,34 +85,27 @@ Scegliere una chiave di partizione in modo che:
 
   L'immagine a sinistra mostra il risultato di una chiave di partizione non valida, mentre l'immagine a destra mostra il risultato di una chiave di partizione valida. Nell'immagine a sinistra è possibile osservare che i dati non sono distribuiti uniformemente tra le partizioni. È consigliabile scegliere una chiave di partizione che distribuisca i dati in modo simile all'immagine a destra.
 
-* Le query che vengono richiamate con concorrenza elevata possano essere indirizzate in modo efficiente includendo la chiave di partizione nel predicato del filtro.  
+* Ottimizzare le query per ottenere i dati entro i limiti di una partizione quando possibile. Una strategia di partizionamento ottimale deve essere allineata ai modelli per l'esecuzione di query. Le query che ottengono dati da una singola partizione offrono le migliori prestazioni possibili. Le query che vengono richiamate con concorrenza elevata possano essere indirizzate in modo efficiente includendo la chiave di partizione nel predicato del filtro.  
+
 * La scelta di una chiave di partizione con cardinalità più elevata è in genere preferibile perché solitamente produce distribuzione e scalabilità migliori. Ad esempio, una chiave sintetica può essere formata dalla concatenazione dei valori di più proprietà per aumentare la cardinalità.  
 
 Quando si sceglie una chiave di partizione tenendo conto delle considerazioni precedenti, non è necessario preoccuparsi del numero di partizioni né della velocità effettiva allocata a ogni partizione fisica in quanto Azure Cosmos DB ridimensiona il numero di partizioni fisiche e può anche scalare le singole partizioni, se necessario.
 
-<a name="prerequisites"></a>
-## <a name="prerequisites-for-partitioning"></a>Prerequisiti per il partizionamento
+## <a name="prerequisites"></a>Prerequisiti per il partizionamento
 
-I contenitori di Azure Cosmos DB possono essere creati come fissi o senza limitazioni nel portale di Azure. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore illimitato, è necessario specificare una chiave di partizione e una velocità effettiva minima di 1.000 UR/s. I contenitori di Azure DB Cosmos possono anche essere configurati per condividere la velocità effettiva tra un set di contenitori, in cui ogni contenitore deve specificare una chiave partizione e si può espandere senza limiti. Di seguito sono riportati i prerequisiti da considerare per il partizionamento e la scalabilità:
+I contenitori di Azure Cosmos DB possono essere creati come fissi o illimitati. I contenitori a dimensione fissa hanno un limite massimo di 10 GB e velocità effettiva di 10.000 UR/s. Per creare un contenitore illimitato, è necessario specificare una chiave di partizione e una velocità effettiva minima di 1.000 UR/s. È anche possibile creare contenitori di Azure Cosmos DB in modo che condividano la velocità effettiva. In questi casi, ogni contenitore deve specificare una chiave di partizione e può raggiungere un numero illimitate. 
 
-* Durante la creazione di un contenitore, ad esempio una raccolta, un grafo o una tabella, nel portale di Azure, selezionare l'opzione di capacità di archiviazione **Senza limitazioni** per sfruttare i vantaggi della scalabilità illimitata. Per consentire la suddivisione automatica delle partizioni fisiche in **p1** e **p2**, come descritto nella sezione [Funzionamento del partizionamento](#how-does-partitioning-work), è necessario creare il contenitore con una velocità effettiva di almeno 1.000 UR/s (o condividere la velocità effettiva tra un set di contenitori) e specificare una chiave di partizione. 
+Di seguito sono riportati i prerequisiti da considerare per il partizionamento e la scalabilità:
 
-* Se è stato creato un contenitore nel portale di Azure o a livello di codice con velocità effettiva iniziale uguale o maggiore di 1.000 UR/s ed è stata specificata una chiave di partizione, è possibile sfruttare la scalabilità illimitata senza apportare alcuna modifica al contenitore. Questo riguarda anche i contenitori con opzione di capacità **Fissa**, purché il contenitore iniziale sia stato creato con velocità effettiva di almeno 1.000 UR/s e sia stata specificata una chiave di partizione.
+* Durante la creazione di un contenitore, ad esempio una raccolta, un grafo o una tabella, nel portale di Azure, selezionare l'opzione di capacità di archiviazione **Senza limitazioni** per sfruttare i vantaggi della scalabilità illimitata. Per consentire la suddivisione automatica delle partizioni fisiche in **p1** e **p2**, come descritto nell'articolo [Funzionamento del partizionamento](#how-does-partitioning-work), è necessario creare il contenitore con una velocità effettiva di almeno 1.000 UR/s (o condividere la velocità effettiva tra un set di contenitori) e specificare una chiave di partizione. 
+
+* Se si crea un contenitore con una velocità effettiva iniziale maggiore o uguale a 1.000 UR/s e si specifica una chiave di partizione, è possibile sfruttare la scalabilità illimitata senza apportare modifiche al contenitore. Ovvero, anche se si crea un contenitore **Fisso**, se il contenitore iniziale viene creato con una velocità effettiva di almeno 1.000 UR/s e se viene specificata una chiave di partizione, il contenitore agisce come un contenitore senza limiti.
 
 * Tutti i contenitori configurati per condividere la velocità effettiva come parte di un set di contenitori vengono considerati contenitori **senza limiti**.
 
 Se è stato creato un contenitore con opzione di capacità **Fissa** senza chiave di partizione o con velocità effettiva minore di 1.000 UR/s, il contenitore non si ridimensionerà automaticamente. Per eseguire la migrazione dei dati da un contenitore fisso a un contenitore senza limiti, è necessario usare l'[utilità di migrazione dati](import-data.md) o la [libreria di feed di modifiche](change-feed.md). 
 
-## <a name="partitioning-and-provisioned-throughput"></a>Partizionamento e velocità effettiva con provisioning
-Azure Cosmos DB è progettato per prestazioni prevedibili. Quando si crea un contenitore o un set di contenitori, la velocità effettiva viene riservata in termini di *[Unità richiesta](request-units.md) (UR) al secondo*. A ogni richiesta viene assegnato un addebito di UR proporzionale alla quantità di risorse di sistema, come CPU, memoria e I/O utilizzati dall'operazione. La lettura di un documento di 1 KB con coerenza di sessione usa 1 UR. Un'operazione di lettura corrisponde a 1 RU indipendentemente dal numero di elementi archiviati o dal numero di richieste simultanee in esecuzione contemporaneamente. Elementi di dimensioni maggiori richiedono più UR a seconda delle dimensioni. Se si conoscono le dimensioni delle entità e il numero di letture che è necessario supportare per l'applicazione, è possibile effettuare il provisioning della quantità esatta di velocità effettiva necessaria per le esigenze dell'applicazione. 
-
-> [!NOTE]
-> Per usare completamente la velocità effettiva con provisioning di un contenitore o di un set di contenitori, è necessario scegliere una chiave di partizione che permetta di distribuire in modo uniforme le richieste tra tutti i valori di chiave di partizione distinti.
-> 
-> 
-
-<a name="designing-for-partitioning"></a>
-## <a name="create-partition-key"></a>Creare la chiave di partizione 
+## <a name="designing-for-partitioning"></a> Creare una chiave di partizione 
 È possibile usare il portale di Azure o l'interfaccia della riga di comando di Azure per creare contenitori e ridimensionarli in qualsiasi momento. Questa sezione mostra come creare contenitori e specificare la velocità effettiva e la chiave di partizione assegnate tramite provisioning usando ogni API.
 
 
@@ -186,6 +184,9 @@ Per altre informazioni, vedere [Sviluppare con l'API Table](tutorial-develop-tab
 
 Con l'API Gremlin, è possibile usare il portale di Azure o l'interfaccia della riga di comando di Azure per creare un contenitore che rappresenta un grafo. In alternativa, poiché Azure Cosmos DB è multimodello, per creare e ridimensionare il contenitore grafo è possibile usare una delle altre API.
 
+> [!NOTE]
+> `/id` e `/label` non sono supportate come chiavi di partizione per un contenitore nell'API Gremlin.
+
 È possibile leggere qualsiasi vertice o arco usando la chiave di partizione e l'ID in Gremlin. Per un grafico con area ("USA") come chiave di partizione e "Seattle" come chiave di riga, ad esempio, è possibile trovare un vertice usando la sintassi seguente:
 
 ```
@@ -225,8 +226,7 @@ Un'opzione consiste nell'impostare partitionKey su /deviceId o /date. Se si vuol
 
 Negli scenari in tempo reale si possono avere migliaia di documenti, quindi è necessario definire la logica lato client per concatenare i valori in una chiave sintetica, inserire la chiave sintetica nei documenti e usarla per specificare la chiave di partizione.
 
-<a name="designing-for-scale"></a>
-## <a name="design-for-scale"></a>Progettare per la scalabilità
+## <a name="designing-for-scale"></a> Progettare per la scalabilità
 Per ridimensionare in modo efficace con Azure Cosmos DB è necessario selezionare una chiave di partizione valida quando si crea il contenitore. Nello scegliere una chiave di partizione è necessario considerare due aspetti principali:
 
 * **Limite delle query e transazioni**. La scelta della chiave di partizione deve bilanciare l'esigenza di poter usare transazioni con il requisito di distribuire le entità tra più chiavi di partizione per garantire una soluzione scalabile. Da una parte è possibile impostare la stessa chiave di partizione per tutti gli elementi. Questa opzione potrebbe comunque limitare la scalabilità della soluzione. Dall'altra è possibile assegnare una chiave di partizione univoca per ogni elemento. Questa scelta è altamente scalabile, ma impedisce di usare transazioni tra documenti tramite stored procedure e trigger. Una chiave di partizione ideale consente di usare query efficienti e dispone di una quantità di cardinalità idonea a garantire la scalabilità della soluzione. 

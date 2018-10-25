@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 08/31/2018
 ms.author: dobett
-ms.openlocfilehash: 5d7d6522dc663f13ce40cc638ba90ac4043d435c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5faa91f054e62e2b3d9d317efe57f2d3f659cee6
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611413"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829835"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Connettere il dispositivo all'acceleratore di soluzioni di monitoraggio remoto (Linux)
 
@@ -21,142 +21,33 @@ ms.locfileid: "38611413"
 
 Questa esercitazione mostra come connettere un dispositivo fisico all'acceleratore di soluzioni di monitoraggio remoto.
 
-## <a name="create-a-c-client-project-on-linux"></a>Creare un progetto client C in Linux
-
 Come per la maggior parte delle applicazioni incorporate in esecuzione su dispositivi vincolati, il codice client per l'applicazione del dispositivo è scritto in C. In questa esercitazione si compilerà l'applicazione in un computer che esegue Ubuntu (Linux).
 
-Per completare questi passaggi, è necessario un dispositivo che esegue Ubuntu 15.04 o versioni successive. Prima di continuare, installare i pacchetti dei prerequisiti nel dispositivo Ubuntu usando il comando seguente:
+## <a name="prerequisites"></a>Prerequisiti
 
-```sh
-sudo apt-get install cmake gcc g++
-```
+Per completare questi passaggi in questa guida pratica, è necessario un dispositivo che esegue Ubuntu 15.04 o versioni successive. Prima di continuare, [configurare l'ambiente di sviluppo di Linux](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux).
 
-### <a name="install-the-client-libraries-on-your-device"></a>Installare le librerie client sul dispositivo
+## <a name="view-the-code"></a>Visualizzare il codice
 
-Le librerie client dell'hub IoT di Azure sono disponibili in forma di pacchetto da installare sul dispositivo Ubuntu tramite il comando **apt-get** . Completare la procedura seguente per installare il pacchetto che contiene la libreria del client dell'hub IoT e i file d'intestazione nel computer Ubuntu:
+Il [codice di esempio](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring_client) usato in questa guida è disponibile nel repository GitHub degli SDK di Azure IoT per C.
 
-1. In una shell, aggiungere il repository AzureIoT al computer:
+### <a name="download-the-source-code-and-prepare-the-project"></a>Eseguire il download del codice sorgente e preparare il progetto
 
-    ```sh
-    sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
-    sudo apt-get update
-    ```
+Per preparare il progetto, clonare o scaricare il [repository degli SDK di Azure IoT per C](https://github.com/Azure/azure-iot-sdk-c) da GitHub.
 
-1. Installare il pacchetto azure-iot-sdk-c-dev
+L'esempio è disponibile nella cartella **samples/solutions/remote_monitoring_client**.
 
-    ```sh
-    sudo apt-get install -y azure-iot-sdk-c-dev
-    ```
+In un editor di testo aprire il file **remote_monitoring.c** nella cartella **samples/solutions/remote_monitoring_client**.
 
-### <a name="install-the-parson-json-parser"></a>Installare il parser JSON Parson
-
-Le librerie client di hub IoT usano il parser JSON per analizzare il payload dei messaggi. In una cartella appropriata nel computer, clonare il repository Parson GitHub usando il comando seguente:
-
-```sh
-git clone https://github.com/kgabis/parson.git
-```
-
-### <a name="prepare-your-project"></a>Preparare il progetto
-
-Nel computer Ubuntu creare una cartella denominata `remote_monitoring`. Nella cartella `remote_monitoring`:
-
-- Creare i quattro file `main.c`, `remote_monitoring.c`, `remote_monitoring.h` e `CMakeLists.txt`.
-- Creare una cartella denominata `parson`.
-
-Copiare i file `parson.c` e `parson.h` dalla copia locale del repository Parson alla cartella `remote_monitoring/parson`.
-
-Aprire il file `remote_monitoring.c` in un editor di testo. Aggiungere le istruzioni `#include` seguenti:
-
-```c
-#include "iothubtransportmqtt.h"
-#include "schemalib.h"
-#include "iothub_client.h"
-#include "serializer_devicetwin.h"
-#include "schemaserializer.h"
-#include "azure_c_shared_utility/threadapi.h"
-#include "azure_c_shared_utility/platform.h"
-#include <string.h>
-```
-
-[!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
-
-## <a name="add-code-to-run-the-app"></a>Aggiungere il codice per eseguire l'app
-
-Aprire il file `remote_monitoring.h` in un editor di testo. Aggiungere il codice seguente:
-
-```c
-void remote_monitoring_run(void);
-```
-
-Aprire il file `main.c` in un editor di testo. Aggiungere il codice seguente:
-
-```c
-#include "remote_monitoring.h"
-
-int main(void)
-{
-  remote_monitoring_run();
-
-  return 0;
-}
-```
+[!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
 ## <a name="build-and-run-the-application"></a>Compilare ed eseguire l'applicazione
 
-La procedura seguente descrive i metodi d'uso di *CMake* per compilare l'applicazione client.
+La procedura seguente descrive i metodi d'uso di *CMake* per creare l'applicazione client. L'applicazione client di monitoraggio remoto viene creata nell'ambito del processo di compilazione per l'SDK.
 
-1. Aprire il file **CMakeLists.txt** nella cartella `remote_monitoring` in un editor di testo.
+1. Modificare il file **remote_monitoring.c** per sostituire `<connectionstring>` con la stringa di connessione del dispositivo annotata all'inizio di questa guida pratica, al momento dell'aggiunta di un dispositivo all'acceleratore della soluzione.
 
-1. Aggiungere le istruzioni seguenti per definire la modalità di compilazione dell'applicazione client:
-
-    ```cmake
-    macro(compileAsC99)
-      if (CMAKE_VERSION VERSION_LESS "3.1")
-        if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
-          set (CMAKE_C_FLAGS "--std=c99 ${CMAKE_C_FLAGS}")
-          set (CMAKE_CXX_FLAGS "--std=c++11 ${CMAKE_CXX_FLAGS}")
-        endif()
-      else()
-        set (CMAKE_C_STANDARD 99)
-        set (CMAKE_CXX_STANDARD 11)
-      endif()
-    endmacro(compileAsC99)
-
-    cmake_minimum_required(VERSION 2.8.11)
-    compileAsC99()
-
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
-
-    include_directories(${AZUREIOT_INC_FOLDER})
-
-    set(sample_application_c_files
-        ./parson/parson.c
-        ./remote_monitoring.c
-        ./main.c
-    )
-
-    set(sample_application_h_files
-        ./parson/parson.h
-        ./remote_monitoring.h
-    )
-
-    add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
-
-    target_link_libraries(sample_app
-        serializer
-        iothub_client
-        iothub_client_mqtt_transport
-        aziotsharedutil
-        umqtt
-        pthread
-        curl
-        ssl
-        crypto
-        m
-    )
-    ```
-
-1. Nella cartella `remote_monitoring` creare una cartella per archiviare i file *make* generati da CMake. Eseguire quindi i comandi **cmake** e **make** in questo modo:
+1. Passare alla radice della copia clonata del [repository degli SDK di Azure IoT per C](https://github.com/Azure/azure-iot-sdk-c) ed eseguire i comandi seguenti per creare l'applicazione client:
 
     ```sh
     mkdir cmake
@@ -168,7 +59,12 @@ La procedura seguente descrive i metodi d'uso di *CMake* per compilare l'applica
 1. Eseguire l'applicazione client e inviare dati di telemetria all'hub IoT:
 
     ```sh
-    ./sample_app
+    ./samples/solutions/remote_monitoring_client/remote_monitoring_client
     ```
+
+    La console visualizza messaggi relativi alle operazioni seguenti:
+
+    - L'applicazione invia dati di telemetria di esempio all'acceleratore della soluzione.
+    - Risponde ai metodi richiamati dal dashboard della soluzione.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

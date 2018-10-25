@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060493"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312388"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Archiviazione Standard conveniente e dischi gestiti e non gestiti delle macchine virtuali di Azure
 
@@ -25,7 +25,7 @@ Questo articolo è incentrato sull'uso di dischi SSD e HDD standard. Per altre i
 
 È possibile creare dischi Standard per le VM di Azure in due modi.
 
-**Dischi non gestiti**: questo tipo di disco rappresenta il metodo originale con cui vengono gestiti gli account di archiviazione usati per archiviare i file VHD che corrispondono ai dischi delle macchine virtuali. I file VHD vengono archiviati come BLOB di pagine in account di archiviazione. I dischi non gestiti possono essere collegati a VM di Azure di qualsiasi dimensione, incluse le VM che usano principalmente Archiviazione Premium come le serie DSv2 e GS. Le VM di Azure supportano il collegamento di diversi dischi standard, fino a un massimo di 256 PiB di risorse di archiviazione per ogni VM. Usando le dimensioni di disco in anteprima, è possibile avere fino a 2 PiB di risorse di archiviazione per ogni VM. 
+**Dischi non gestiti**: questo tipo di disco rappresenta il metodo originale con cui vengono gestiti gli account di archiviazione usati per archiviare i file VHD che corrispondono ai dischi delle macchine virtuali. I file VHD vengono archiviati come BLOB di pagine in account di archiviazione. I dischi non gestiti possono essere collegati a VM di Azure di qualsiasi dimensione, incluse le VM che usano principalmente Archiviazione Premium come le serie DSv2 e GS. Le macchine virtuali di Azure supportano il collegamento di diversi dischi standard, fino a un massimo di 256 TiB di risorse di archiviazione per ogni macchina virtuale. Usando le dimensioni di disco in anteprima, è possibile avere fino a 2 PiB di risorse di archiviazione per ogni VM.
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): questa funzionalità gestisce gli account di archiviazione usati per i dischi delle macchine virtuali. Specificando il tipo (SSD Premium, SSD Standard o HDD Standard) e le dimensioni del disco necessarie, Azure crea e gestisce automaticamente il disco. Azure gestisce anche l'inserimento dei dischi in più account di archiviazione per rimanere entro i limiti di scalabilità degli account di archiviazione.
 

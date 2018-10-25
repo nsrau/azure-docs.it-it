@@ -8,18 +8,18 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: cc44d502bceb5aee747bd81b78fca65f99f2792b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e3770fe29d6f1073a0ca6507fdf57059cbd3727e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956830"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067537"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
 La definizione dei criteri delle risorse usata da Criteri di Azure consente di stabilire le convenzioni per le risorse all'interno dell'organizzazione grazie alla definizione di quando i criteri vengono applicati e delle azioni da eseguire. Definendo le convenzioni, è possibile controllare i costi e gestire più facilmente le risorse. È ad esempio possibile specificare che vengano consentiti solo determinati tipi di macchine virtuali. In alternativa, è possibile richiedere che tutte le risorse abbiano un tag specifico. I criteri vengono ereditati da tutte le risorse figlio. Se quindi un criterio viene applicato a un gruppo di risorse, è applicabile a tutte le risorse in tale gruppo.
 
-Lo schema usato dai Criteri di Azure è reperibile qui: [https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json](https://schema.management.azure.com/schemas/2016-12-01/policyDefinition.json)
+Lo schema usato dai Criteri di Azure è reperibile qui: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
 
 Per creare una definizione di criterio è possibile usare JSON. La definizione dei criteri contiene gli elementi per:
 
@@ -81,6 +81,10 @@ Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** s
 
 I parametri consentono di semplificare la gestione dei criteri, riducendone il numero di definizioni. I parametri possono essere paragonati ai campi di un modulo: `name`, `address`, `city`, `state`. Questi parametri rimangono sempre invariati, ma i loro valori cambiano a seconda dei dati immessi durante la compilazione del modulo da parte dei singoli utenti.
 I parametri funzionano nello stesso modo durante la creazione di criteri. L'inclusione dei parametri in una definizione dei criteri consente di riutilizzare i singoli criteri in vari scenari mediante l'uso di valori diversi.
+
+> [!NOTE]
+> La definizione dei parametri per una definizione dei criteri o di un'iniziativa può essere configurata solo durante la creazione iniziale dei criteri o dell'iniziativa. La definizione dei parametri non può essere modificata in un secondo momento.
+> In questo modo le assegnazioni esistenti dei criteri o dell'iniziativa non possono essere rese indirettamente non valide.
 
 Ad esempio, è possibile definire un criterio per la proprietà di una risorsa in modo da limitare le posizioni in cui le risorse possono essere distribuite. In questo caso, durante la creazione del criterio dichiarare i parametri seguenti:
 
@@ -228,7 +232,7 @@ Il criterio supporta i tipi di effetto seguenti:
 - **Audit**: genera un evento di avviso nel log di controllo, ma non nega la richiesta
 - **Append**: aggiunge il set di campi definiti alla richiesta
 - **AuditIfNotExists**: abilita il controllo se una risorsa non esiste
-- **DeployIfNotExists**: distribuisce una risorsa se non esiste già. Attualmente questo effetto è supportato solo tramite criteri predefiniti.
+- **DeployIfNotExists**: distribuisce una risorsa se non esiste già.
 
 In caso di **aggiunta**, è necessario specificare questi dettagli:
 
@@ -304,49 +308,11 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
   ```azurepowershell-interactive
   # Login first with Connect-AzureRmAccount if not using Cloud Shell
 
-  $azContext = Get-AzureRmContext
-  $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-  $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-  $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-  $authHeader = @{
-    'Authorization'='Bearer ' + $token.AccessToken
-  }
+  # Use Get-AzureRmPolicyAlias to list available providers
+  Get-AzureRmPolicyAlias -ListAvailable
 
-  # Create a splatting variable for Invoke-RestMethod
-  $invokeRest = @{
-    Uri = 'https://management.azure.com/providers/?api-version=2017-08-01&$expand=resourceTypes/aliases'
-    Method = 'Get'
-    ContentType = 'application/json'
-    Headers = $authHeader
-  }
-
-  # Invoke the REST API
-  $response = Invoke-RestMethod @invokeRest
-
-  # Create an List to hold discovered aliases
-  $aliases = [System.Collections.Generic.List[pscustomobject]]::new()
-
-  foreach ($ns in $response.value)
-  {
-      foreach ($rT in $ns.resourceTypes)
-      {
-          if ($rT.aliases)
-          {
-              foreach ($obj in $rT.aliases)
-              {
-                  $alias = [PSCustomObject]@{
-                      Namespace    = $ns.namespace
-                      resourceType = $rT.resourceType
-                      alias        = $obj.name
-                  }
-                  $aliases.Add($alias)
-              }
-          }
-      }
-  }
-
-  # Output the list and sort it by Namespace, resourceType and alias. You can customize with Where-Object to limit as desired.
-  $aliases | Sort-Object -Property Namespace, resourceType, alias
+  # Use Get-AzureRmPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
+  Get-AzureRmPolicyAlias -NamespaceMatch 'automation'
   ```
 
 - Interfaccia della riga di comando di Azure

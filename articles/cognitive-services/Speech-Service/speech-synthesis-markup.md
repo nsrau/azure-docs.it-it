@@ -1,20 +1,20 @@
 ---
 title: Speech Synthesis Markup Language
-description: Utilizzo di Speech Synthesis Markup Language per controllare la pronuncia e la prosodia nella sintesi vocale.
-titleSuffix: Microsoft Cognitive Services
+description: Uso di Speech Synthesis Markup Language per controllare la pronuncia e la prosodia nella sintesi vocale.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 09/08/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 48e2f965cdc482f9070497f9a4e7e016bfeb92ea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: erhopf
+ms.openlocfilehash: bdcb206e092467703f0bd4404da47b334ea8ccaf
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978149"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165488"
 ---
 # <a name="speech-synthesis-markup-language"></a>Speech Synthesis Markup Language
 
@@ -22,7 +22,7 @@ Speech Synthesis Markup Language (SSML) è un linguaggio di markup basato su XML
 
 Per altre informazioni, vedere [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) (Speech Synthesis Markup Language (SSML) versione 1.0) sul sito Web del W3C.
 
-Gli esempi seguenti illustrano come usare SSML per esigenze di sintesi vocale comuni.
+Gli esempi seguenti illustrano come usare SSML per esigenze di sintesi vocale comuni:
 
 ## <a name="add-a-break"></a>Aggiungere un'interruzione
 ```xml

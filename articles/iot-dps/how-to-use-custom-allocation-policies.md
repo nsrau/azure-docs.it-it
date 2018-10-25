@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 89cb44366d4752052d990a1506482c9108cde103
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f2c9194b07774443a70eef8e879d895efeb338e9
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161707"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458191"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
 
@@ -45,7 +45,7 @@ In questo articolo si eseguiranno i seguenti passaggi:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Completamento dell'avvio rapido della [configurazione del servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
+* Completamento della guida introduttiva per [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 * Visual Studio 2015 oppure [Visual Studio 2017](https://www.visualstudio.com/vs/) con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
@@ -314,7 +314,7 @@ Se si sta usando una workstation di Linux, è possibile usare openssl per genera
 
 #### <a name="windows-based-workstations"></a>Workstation basate su Windows
 
-Se si sta usando una workstation basata su Windows, è possibile usare PowerShell per generare le chiavi di dispositivo derivate come illustrato nell'esempio seguente.
+Se si usan una workstation basata su Windows, è possibile usare PowerShell per generare le chiavi di dispositivo derivate come illustrato nell'esempio seguente.
 
 1. Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
 
@@ -390,7 +390,7 @@ Questa sezione si riferisce a una workstation basata su Windows. Per un esempio 
 4. Eseguire il comando seguente che compila una versione dell'SDK specifica per la piattaforma di sviluppo client. Verrà generata una soluzione di Visual Studio per il dispositivo simulato nella directory `cmake`. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     Se `cmake` non trova il compilatore C++, si potrebbero verificare errori di compilazione durante l'esecuzione del comando precedente. In tal caso, provare a eseguire questo comando nel [prompt dei comandi di Visual Studio](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -398,7 +398,7 @@ Questa sezione si riferisce a una workstation basata su Windows. Per un esempio 
     Al termine della compilazione, le ultime righe di output saranno simili all'output seguente:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -438,7 +438,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
     static const char* id_scope = "0ne00002193";
     ```
 
-5. Trovare la definizione per la funzione `main()` nello stesso file. Assicurarsi che la variabile `hsm_type` sia impostata su `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` come illustrato di seguito:
+5. Trovare la definizione per la funzione `main()` nello stesso file. Assicurarsi che la variabile`hsm_type` sia impostata su `SECURE_DEVICE_TYPE_SYMMETRIC_KEY` come illustrato di seguito:
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
@@ -451,7 +451,7 @@ Questo codice di esempio simula una sequenza di avvio di dispositivo che invia l
 
 #### <a name="simulate-the-contoso-toaster-device"></a>Simulare il dispositivo toaster di Contoso
 
-1. Nella finestra *Esplora soluzioni* di Visual Studio passare al progetto **hsm\_security\_client** ed espanderlo. Espandere i **file di origine**, quindi aprire **hsm\_client\_key.c**. 
+1. Nella finestra *Esplora soluzioni* di Visual Studio passare al progetto **hsm\_security\_client** ed espanderlo. Espandere i **File di origine**, quindi aprire **hsm\_client\_key.c**. 
 
     Individuare la dichiarazione delle costanti `REGISTRATION_NAME` e `SYMMETRIC_KEY_VALUE`. Apportare le seguenti modifiche al file e salvarlo.
 
@@ -557,7 +557,7 @@ Per eliminare il gruppo di risorse per nome:
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per altre informazioni sulla ripetizione del provisioning, vedere [Concetti per la ripetizione del provisoning di dispositivo in hub IoT](concepts-device-reprovision.md) 
-- Per altre informazioni sul deprovisioning, vedere [Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico](how-to-unprovision-devices.md) 
+- Per altre informazioni sul deprovisioning, vedere [Come effettuare il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico](how-to-unprovision-devices.md) 
 
 
 

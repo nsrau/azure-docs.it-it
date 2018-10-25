@@ -8,22 +8,22 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 1915c4bc6cd611479c7575179d8fe64def8895eb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d3a7284555fb592956d4e1dc3f56137c88d108e1
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956378"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584394"
 ---
 # <a name="send-device-to-cloud-and-cloud-to-device-messages-with-iot-hub"></a>Inviare messaggi da dispositivo a cloud e da cloud a dispositivo con l'hub IoT
 
-L'hub IoT offre comunicazioni bidirezionali sicure con i propri dispositivi. Usare l'hub IoT di messaggistica per comunicare con i propri dispositivi mediante l'invio di messaggi dai propri dispositivi alle soluzioni di back-end e l'invio di comandi dalle soluzioni IoT back-end ai propri dispositivi. Altre informazioni su [formato dei messaggi dell'hub IoT](../iot-hub/iot-hub-devguide-messages-construct.md).
+L'hub IoT offre comunicazioni bidirezionali sicure con i propri dispositivi. Usare l'hub IoT di messaggistica per comunicare con i propri dispositivi mediante l'invio di messaggi dai propri dispositivi alle soluzioni di back-end e l'invio di comandi dalle soluzioni IoT back-end ai propri dispositivi. Altre informazioni su [formato dei messaggi dell'hub IoT](iot-hub-devguide-messages-construct.md).
 
 ## <a name="sending-device-to-cloud-messages-to-iot-hub"></a>Inviare messaggi da dispositivo a cloud all'hub IoT
 
-L'hub IoT dispone di un endpoint di servizio predefinito che può essere usato dai servizi back-end per leggere i messaggi di telemetria dai propri dispositivi. Questo endpoint è compatibile con [Hub eventi](https://docs.microsoft.com/azure/event-hubs/) ed è possibile usare gli SDK dell'hub IoT standard per [la lettura da questo endpoint predefinito]((https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-read-builtin)).
+L'hub IoT dispone di un endpoint di servizio predefinito che può essere usato dai servizi back-end per leggere i messaggi di telemetria dai propri dispositivi. Questo endpoint è compatibile con [Hub eventi](https://docs.microsoft.com/azure/event-hubs/) ed è possibile usare gli SDK dell'hub IoT standard per [la lettura da questo endpoint predefinito](iot-hub-devguide-messages-read-builtin.md).
 
-L'hub IoT supporta inoltre [endpoint personalizzati](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-endpoints#custom-endpoints) che possono essere definiti dagli utenti per l'invio di eventi e dati di telemetria a servizi di Azure usando [il routing dei messaggi](iot-hub-devguide-messages-d2c.md).
+L'hub IoT supporta inoltre [endpoint personalizzati](iot-hub-devguide-endpoints.md#custom-endpoints) che possono essere definiti dagli utenti per l'invio di eventi e dati di telemetria a servizi di Azure usando [il routing dei messaggi](iot-hub-devguide-messages-d2c.md).
 
 ## <a name="sending-cloud-to-device-messages-from-iot-hub"></a>Inviare messaggi da cloud a dispositivo dall’hub IoT
 
@@ -38,9 +38,11 @@ Le proprietà di base della funzionalità di messaggistica dell'hub IoT sono l'a
 Usare i messaggi da dispositivo a cloud per inviare la telemetria relativa alle serie temporali e gli avvisi dall'app del dispositivo e i messaggi da cloud a dispositivo per notifiche unidirezionali all'app del dispositivo.
 
 * Vedere [Indicazioni sulle comunicazioni da dispositivo a cloud](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-d2c-guidance) per scegliere tra messaggi da dispositivo a cloud, proprietà segnalate o caricamento di file.
+
 * Vedere [Indicazioni sulle comunicazioni da dispositivo a cloud](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-c2d-guidance) per scegliere tra messaggi da cloud a dispositivo, proprietà desiderate o metodi diretto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni sul [routing dei messaggi](iot-hub-devguide-messages-d2c.md) relativo all'hub IoT.
+
 * Informazioni sulla [messaggistica da cloud a dispositivo](iot-hub-devguide-messages-c2d.md) relativa all'hub IoT.

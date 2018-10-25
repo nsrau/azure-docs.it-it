@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: cwatson
-ms.openlocfilehash: 405e0d5184880a00c07de55bd968210fa28e45fc
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 76f4a52b702a609d7181b9c6c0f2ce600d8a6aac
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393078"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267988"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struttura dei dashboard di Azure
 Questo documento descrive dettagliatamente la struttura di un dashboard di Azure usando il dashboard seguente come esempio:
@@ -338,7 +338,7 @@ Ogni parte contiene una proprietà metadata, mentre un oggetto ha solo una propr
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart`: usato per visualizzare le metriche di monitoraggio
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart`: da visualizzare con testo o immagini con formattazione di base per elenchi, collegamenti e così via
-1. `Extension[azure]/HubsExtension/PartType/VideoPart`: usato per visualizzare video da YouTube, Channel9 e qualsiasi altro tipo di video che supporta un tag video html.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart`: usato per visualizzare video da YouTube, Channel9 e qualsiasi altro tipo di video che supporta un tag video HTML.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart`: usato per visualizzare il nome e lo stato di una macchina virtuale di Azure.
 
 Ogni tipo di parte ha una configurazione propria. Le proprietà di configurazione possibili si chiamano __inputs__, __settings__ e __asset__. 

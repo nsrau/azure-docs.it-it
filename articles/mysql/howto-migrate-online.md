@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 55d5cf97225508d6c7c490347cfe21ced832300e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.date: 10/11/2018
+ms.openlocfilehash: cb2e1a34748875de9c7f8dd59be27c408ec82818
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091719"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090332"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-mysql"></a>Migrazione con tempo di inattività minimo a Database di Azure per MySQL
 È possibile eseguire migrazioni di MySQL in Database di Azure per MySQL con tempo di inattività minimo usando la **funzionalità di sincronizzazione continua** appena introdotta per [Servizio Migrazione del database di Azure](https://aka.ms/get-dms). Questa funzionalità limita il tempo di inattività cui è soggetta l'applicazione.
@@ -28,4 +28,4 @@ Servizio Migrazione del database esegue un caricamento iniziale di Database di A
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Visualizzare il video [Easily migrate MySQL/PostgreSQL apps to Azure managed service](https://medius.studios.ms/Embed/Video/THR2201?sid=THR2201) (Eseguire la migrazione di app MySQL/PostgreSQL nel servizio gestito di Azure in tutta semplicità), che contiene una demo che mostra come migrare app MySQL in Database di Azure per MySQL.
-- Eseguire la migrazione di MySQL in Database di Azure per MySQL online mediante il Servizio Migrazione del database https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online).
+- Vedere l'esercitazione [Eseguire la migrazione di MySQL in Database di Azure per MySQL online mediante il Servizio Migrazione del database](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online).

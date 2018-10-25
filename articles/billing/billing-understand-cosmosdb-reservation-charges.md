@@ -9,26 +9,27 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: cwatson
 ms.reviewer: sngun
-ms.openlocfilehash: adcd91a8f1b3368d03f4b634e7aef40104d953e3
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b15b5f8188f2077b3e9cb17ab3794e881a4deb3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393639"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353434"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Informazioni su come viene applicato lo sconto per la prenotazione ad Azure Cosmos DB
 
-Dopo avere acquistato capacità riservata per Azure Cosmos DB, lo sconto per la prenotazione viene automaticamente applicato alle risorse di Azure Cosmos DB che corrispondono agli attributi e alla quantità della prenotazione. Una prenotazione copre la velocità effettiva con provisioning per le risorse di Azure Cosmos DB e non copre addebiti per contenitori predefiniti, software, rete o archiviazione.
+Dopo avere acquistato capacità riservata per Azure Cosmos DB, lo sconto per la prenotazione viene automaticamente applicato alle risorse di Azure Cosmos DB che corrispondono agli attributi e alla quantità della prenotazione. Una prenotazione copre la velocità effettiva con provisioning relativa alle risorse di Azure Cosmos DB, e non copre addebiti per contenitori predefiniti, software, rete o archiviazione.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Sconto per la prenotazione applicato agli account Azure Cosmos DB
 
 Uno sconto per la prenotazione viene applicato alla [velocità effettiva con provisioning](../cosmos-db/request-units.md) in termini di unità richiesta al secondo (UR/sec) su base oraria. Per le risorse di Azure Cosmos DB che non vengono eseguite per l'intera ora, lo sconto per la prenotazione viene automaticamente applicato ad altre risorse di Cosmos DB che corrispondono agli attributi della prenotazione. Lo sconto può essere applicato a risorse di Azure Cosmos DB in esecuzione simultaneamente. Se non ci sono risorse di Azure Cosmos DB in esecuzione per l'ora intera e che corrispondono agli attributi della prenotazione, non è possibile ottenere il vantaggio completo dello sconto sulla prenotazione per questa ora.
 
-* Gli sconti sono suddivisi in livelli, perciò le prenotazioni con più unità richiesta offrono sconti più elevati.  
-* Con l'acquisto della prenotazione saranno applicati gli sconti a tutte le aree con il tasso corrispondente al piano tariffario su richiesta a livello di area. Per i tassi di sconto per le prenotazioni, vedere la sezione [Sconto per la prenotazione per area](#reservation-discount-per-region) di questo articolo.
+Gli sconti sono suddivisi in livelli. Le prenotazioni con più unità richiesta offrono quindi sconti più elevati. 
+
+Con l'acquisto della prenotazione saranno applicati gli sconti a tutte le aree con il tasso corrispondente al piano tariffario su richiesta a livello di area. Per i tassi di sconto per le prenotazioni, vedere la sezione [Sconto per la prenotazione per area](#reservation-discount-per-region) di questo articolo.
 
 ## <a name="reservation-discount-per-region"></a>Sconto per la prenotazione per area
-Lo sconto per la prenotazione viene applicato ai costi di velocità effettiva di Azure Cosmos DB su base oraria a livello di sottoscrizione singola o di ambito di registrazione/account. Lo sconto per la prenotazione si applica all'utilizzo del contatore in aree diverse, con il tasso seguente:
+Lo sconto per la prenotazione viene applicato ai costi di velocità effettiva di Azure Cosmos DB su base oraria, a livello di sottoscrizione singola o di ambito di registrazione/account. Lo sconto per la prenotazione si applica all'utilizzo del contatore in aree diverse, con i tassi seguenti:
 
 |Descrizione del contatore  |Region |Rapporto  |
 |---------|---------|---------|
@@ -70,15 +71,15 @@ Lo sconto per la prenotazione viene applicato ai costi di velocità effettiva di
 Prendere in considerazione i seguenti requisiti per una prenotazione:
 
 * Velocità effettiva richiesta: 50.000 UR/sec  
-* Aree geografiche utilizzate: 2. 
+* Aree geografiche usate: 2 
 
 In questo caso gli addebiti su richiesta totali sono per una quantità pari a 500 del contatore 100 UR/sec in queste due aree, per un consumo totale di UR/sec di 100.000 ogni ora. 
 
 **Scenario 1**
 
-Ad esempio, se sono necessarie distribuzioni di Azure Cosmos DB nelle aree geografiche "Stati Uniti centro-settentrionali" e "Stati Uniti occidentali", e se ogni area ha un consumo di velocità effettiva pari a 50.000 UR/sec, un acquisto di prenotazioni di 100.000 UR/sec bilancerà completamente gli addebiti su richiesta.
+Si supponga, ad esempio, che siano necessarie distribuzioni di Azure Cosmos DB nelle aree geografiche "Stati Uniti centro-settentrionali" e "Stati Uniti occidentali" e che ogni area abbia un consumo di velocità effettiva pari a 50.000 UR/sec. Un acquisto di prenotazioni di 100.000 UR/sec bilancerà completamente gli addebiti su richiesta.
 
-Lo sconto coperto da una prenotazione viene calcolato come consumo_di_velocità_effettiva * tasso_di_sconto_per_la_prenotazione_per_quella_area. Per le aree di "Stati Uniti centro-settentrionali" e "Stati Uniti occidentali", il tasso di sconto per la prenotazione è "1". Pertanto, le UR/sec scontate totali sono 100.000 UR/sec (questo valore viene calcolato come: 50.000 * 1 + 50.000 * 1 = 100.000 UR/sec), e non ci sono addebiti aggiuntivi alle normali tariffe con pagamento in base al consumo. 
+Lo sconto coperto da una prenotazione viene calcolato come: consumo_di_velocità_effettiva * tasso_di_sconto_per_la_prenotazione_per_quella_area. Per le aree "Stati Uniti centro-settentrionali" e "Stati Uniti occidentali", il tasso di sconto per la prenotazione è 1. Pertanto, le UR/sec scontate totali sono pari a 100.000 UR/sec. Questo valore viene calcolato come: 50.000 * 1 + 50.000 * 1 = 100.000 UR/sec e non sono previsti addebiti aggiuntivi alle normali tariffe con pagamento in base al consumo. 
 
 |Descrizione del contatore | Region |Consumo di velocità effettiva (UR/sec) |Sconto per la prenotazione applicato al valore UR/sec |
 |---------|---------|---------|---------|
@@ -87,18 +88,18 @@ Lo sconto coperto da una prenotazione viene calcolato come consumo_di_velocità_
 
 **Scenario 2**
 
-Ad esempio, se sono necessarie distribuzioni di Azure Cosmos DB nelle aree geografiche "Australia centrale 2" e "Francia meridionale", e se ogni area ha un consumo di velocità effettiva pari a 50.000 UR/sec, un acquisto di prenotazioni di 100.000 UR/sec sarà applicabile nel modo seguente, presupponendo che l'utilizzo dell'area Australia centrale 2 sia già stato scontato:
+Si supponga, ad esempio, che siano necessarie distribuzioni di Azure Cosmos DB nelle aree geografiche "Australia centrale 2" e "Francia meridionale" e che ogni area abbia un consumo di velocità effettiva pari a 50.000 UR/sec. Un acquisto di prenotazioni di 100.000 UR/sec sarà applicabile nel modo seguente, presupponendo che l'utilizzo dell'area Australia centrale 2 sia già stato scontato:
 
 |Descrizione del contatore | Region |Consumo di velocità effettiva (UR/sec) |Sconto per la prenotazione applicato al valore UR/sec |
 |---------|---------|---------|---------|
 |Azure Cosmos DB - 100 UR/sec/ora - Australia centrale 2  |  Australia centrale 2   |  50.000  |  50.000   |
 |Azure Cosmos DB - 100 UR/sec/ora - Francia meridionale  |  Francia meridionale   |  50.000 |  15.384  |
 
-50.000 unità di utilizzo nell'area "Australia centrale 2" corrispondono a 75.000 UR/sec di utilizzo fatturabile o utilizzo normalizzato. Questo valore viene calcolato come consumo_di_velocità_effettiva * tasso_di_sconto_per_la_prenotazione_per_quella_area che è uguale a 75.000 UR/sec (questo valore viene calcolato come: 50.000 * 1.5 = 75.000 UR/sec) di utilizzo fatturabile o normalizzato. 
+Un utilizzo di 50.000 unità nell'area "Australia centrale 2" corrisponde a 75.000 UR/sec di utilizzo fatturabile o utilizzo normalizzato. Questo valore viene calcolato come consumo_di_velocità_effettiva * tasso_di_sconto_per_la_prenotazione_per_quella_area, che corrisponde a 75.000 UR/sec di utilizzo fatturabile o normalizzato. Questo valore viene calcolato come: 50.000 * 1,5 = 75.000 UR/sec.
 
-100.000 UR/sec di acquisto di prenotazioni farebbe variare il valore 75.000 UR/sec per l'area "Australia centrale 2" e lascerebbe il valore di 25.000 UR/sec per l'area "Francia meridionale". Dalle rimanenti 25.000 UR/sec, uno sconto per la prenotazione di 15.384 UR/sec (valore calcolato come: 25.000 / 1,625 = 15.384 UR/sec) viene applicato all'area "Francia meridionale". Le rimanenti 34.616 UR/sec dell'area "Francia meridionale" vengono addebitate alle normali tariffe con pagamento in base al consumo. 
+100.000 UR/sec di acquisto di prenotazioni farebbe variare il valore 75.000 UR/sec per l'area "Australia centrale 2" e lascerebbe il valore di 25.000 UR/sec per l'area "Francia meridionale". Dalle rimanenti 25.000 UR/sec, uno sconto per la prenotazione di 15.384 UR/sec viene applicato all'area "Francia meridionale". Il valore dello sconto viene calcolato come: 25.000 / 1,625 = 15.384 UR/sec. Le rimanenti 34.616 UR/sec dell'area "Francia meridionale" vengono addebitate alle normali tariffe con pagamento in base al consumo. 
 
-Il sistema di fatturazione di Azure assegnerà i vantaggi di fatturazione della prenotazione alla prima istanza elaborata che corrisponde alla configurazione di prenotazione (Australia centrale 2 in questo caso).
+Il sistema di fatturazione di Azure assegnerà i vantaggi di fatturazione della prenotazione alla prima istanza elaborata che corrisponde alla configurazione di prenotazione, che in questo caso è "Australia centrale 2".
 
 Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](../billing/billing-understand-reserved-instance-usage-ea.md).
 

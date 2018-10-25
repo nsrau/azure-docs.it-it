@@ -2,16 +2,17 @@
 title: Eseguire il refactoring di un'app Service Desk Linux di Contoso nel servizio app di Azure e in Azure MySQL | Microsoft Docs
 description: Informazioni su come Contoso effettua il refactoring dell'app di Linux locale eseguendo la migrazione nel Servizio app di Azure usando GitHub per il livello Web e il database SQL di Azure.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 7deb22a0fd552ee697f6b39988d5f3ac01a29702
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 588bd5b3edeadb841de54691cf30916dd18c0982
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782193"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093002"
 ---
 # <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migrazione di Contoso: eseguire il refactoring di un'app Service Desk Linux di Contoso in diverse regioni con il Servizio app di Azure, Gestione traffico e Azure MySQL
 
@@ -31,9 +32,10 @@ Questo documento fa parte di una serie di articoli che descrivono in che modo la
 [Articolo 8: Rehosting di un'app Linux in VM di Azure e Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure usando Azure Site Recovery e del database dell'app a un'istanza di Azure MySQL Server mediante MySQL Workbench. | Disponibile
 [Articolo 9: Refactoring di un'app in app Web di Azure e in un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel360 a un'app Web di Azure e del database dell'app a un'istanza di SQL Server di Azure con Data Migration Assistant | Disponibile
 Articolo 10: Refactoring di un'app Linux in app Web di Azure e Azure MySQL | Contoso esegue la migrazione dell'app osTicket di Linux a un'app Web di Azure in più aree di Azure usando Gestione traffico di Azure, integrato con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Questo articolo
-[Articolo 11: Eseguire il refactoring di TFS in Visual Studio Team Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server locale a Visual Studio Team Services in Azure. | Disponibile
+[Articolo 11: effettuare il refactoring di Team Foundation Server nei servizi di Azure DevOps](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server in locale in Azure DevOps Services in Azure. | Disponibile
 [Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione dell'app SmartHotel ad Azure. e quindi ridefinisce il livello di app Web come contenitore Windows in esecuzione in Azure Service Fabric e il database con il database SQL di Azure. | Disponibile
 [Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel360 usando una gamma di funzionalità e servizi di Azure, tra cui Servizio app di Azure, il servizio Kubernetes di Azure (AKS), Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
+[Articolo 14: Passare a una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile
 
 In questo articolo Contoso esegue la migrazione di un'app Service Desk PHP MySQL Apache Linux (LAMP), denominata osTicket, in Azure. Se si vuole usare questa app open source, è possibile scaricarla da [GitHub](https://github.com/osTicket/osTicket).
 
@@ -106,9 +108,9 @@ In Contoso il processo di migrazione verrà completato come indicato di seguito:
 
 **Servizio** | **Descrizione** | **Costii**
 --- | --- | ---
-[Servizio app di Azure](https://azure.microsoft.com/services/app-service/) | Il servizio viene eseguito e ridimensiona le applicazioni mediante il servizio PaaS di Azure per i siti Web.  | I prezzi sono basati sulle dimensioni delle istanze e sulle funzionalità necessarie. [Altre informazioni](https://azure.microsoft.com/pricing/details/app-service/windows/).
-[Gestione traffico](https://azure.microsoft.com/services/traffic-manager/) | Un bilanciamento del carico che usa il DNS per indirizzare gli utenti ad Azure, o siti Web e servizi esterni. | I prezzi si basano sul numero di query DNS ricevute e sul numero di endpoint monitorati. | [Altre informazioni](https://azure.microsoft.com/pricing/details/traffic-manager/).
-[Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/) | Il database si basa sul motore del server MySQL open source. Offre un database MySQL come servizio completamente gestito, di livello aziendale e supportato dalla community per lo sviluppo e la distribuzione di app. | I prezzi si basano sui requisiti di calcolo, archiviazione e backup. [Altre informazioni](https://azure.microsoft.com/pricing/details/mysql/).
+[Servizio app di Azure](https://azure.microsoft.com/services/app-service/) | Il servizio viene eseguito e ridimensiona le applicazioni mediante il servizio PaaS di Azure per i siti Web.  | I prezzi sono basati sulle dimensioni delle istanze e sulle funzionalità necessarie. [Altre informazioni](https://azure.microsoft.com/pricing/details/app-service/windows/)
+[Gestione traffico](https://azure.microsoft.com/services/traffic-manager/) | Un bilanciamento del carico che usa il DNS per indirizzare gli utenti ad Azure, o siti Web e servizi esterni. | I prezzi si basano sul numero di query DNS ricevute e sul numero di endpoint monitorati. | [Altre informazioni](https://azure.microsoft.com/pricing/details/traffic-manager/)
+[Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/) | Il database si basa sul motore del server MySQL open source. Offre un database MySQL come servizio completamente gestito, di livello aziendale e supportato dalla community per lo sviluppo e la distribuzione di app. | I prezzi si basano sui requisiti di calcolo, archiviazione e backup. [Altre informazioni](https://azure.microsoft.com/pricing/details/mysql/)
 
  
 ## <a name="prerequisites"></a>Prerequisiti
@@ -313,7 +315,7 @@ Come passaggio finale del processo di migrazione, gli amministratori Contoso con
     ![Configurare un'app](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app4.png)
 
 5. Vengono ripetuti quindi i passaggi precedenti per l'app Web secondaria (**osticket cus**).
-6. Dopo aver configurato il sito, questo è accessibile tramite il profilo Gestione traffico. Il nome DNS è il nuovo percorso dell'app osTicket. [Altre informazioni](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record).
+6. Dopo aver configurato il sito, questo è accessibile tramite il profilo Gestione traffico. Il nome DNS è il nuovo percorso dell'app osTicket. [Altre informazioni](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record)
 
     ![Configurare un'app](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app5.png)
     
@@ -355,12 +357,12 @@ Con l'app in esecuzione, occorre rendere pienamente operativa e sicura la nuova 
 
 ### <a name="security"></a>Sicurezza
 
-Il team di sicurezza di Contoso ha esaminato le app per determinare eventuali problemi di sicurezza. Ha individuato che la comunicazione tra l'app osTicket e l'istanza del database MySQL non è configurata per SSL. Sarà necessario eseguire questa operazione per proteggere il traffico del database. [Altre informazioni](https://docs.microsoft.com/azure/mysql/howto-configure-ssl).
+Il team di sicurezza di Contoso ha esaminato le app per determinare eventuali problemi di sicurezza. Ha individuato che la comunicazione tra l'app osTicket e l'istanza del database MySQL non è configurata per SSL. Sarà necessario eseguire questa operazione per proteggere il traffico del database. [Altre informazioni](https://docs.microsoft.com/azure/mysql/howto-configure-ssl)
 
 ### <a name="backups"></a>Backup
 
 - Le app Web osTicket non contengono dati relativi allo stato e quindi non è necessario eseguire il backup.
-- Non è necessario configurare il backup per il database. Database di Azure per MySQL crea automaticamente i backup del server e gli archivi. In Contoso è stato scelto di usare la ridondanza geografica per il database, in modo che sia resiliente e pronto per la produzione. I backup possono essere usati per ripristinare il server a un momento specifico. [Altre informazioni](https://docs.microsoft.com/azure/mysql/concepts-backup).
+- Non è necessario configurare il backup per il database. Database di Azure per MySQL crea automaticamente i backup del server e gli archivi. In Contoso è stato scelto di usare la ridondanza geografica per il database, in modo che sia resiliente e pronto per la produzione. I backup possono essere usati per ripristinare il server a un momento specifico. [Altre informazioni](https://docs.microsoft.com/azure/mysql/concepts-backup)
 
 
 ### <a name="licensing-and-cost-optimization"></a>Licenze e ottimizzazione dei costi

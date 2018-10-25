@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0d68c88bdad63bb022babcc4a6ee4ee7c59ce58a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 696c331111fef9d6fc238b733e15230ab3ee1e56
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158455"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378017"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Quale versione di Azure MFA è più adatta alla mia organizzazione?
 
@@ -61,7 +61,7 @@ La tabella seguente confronta le funzionalità disponibili con Multi-Factor Auth
 | Codice di verifica dell'app per dispositivi mobili come secondo fattore | ● | ● |
 | Chiamata telefonica come secondo fattore | ● | ● |
 | SMS unidirezionale come secondo fattore | ● | ● |
-| Token hardware come secondo fattore | | ● |
+| Token hardware come secondo fattore | ● (Anteprima pubblica) | ● |
 | Password di app per i client Office 365 che non supportano MFA | ● | |
 | Controllo amministrazione sui metodi di autenticazione | ● | ● |
 | Modalità PIN | | ● |

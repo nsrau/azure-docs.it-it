@@ -1,27 +1,28 @@
 ---
-title: Trasformazione del testo con l'API Traduzione testuale Microsoft | Microsoft Docs
-description: Trasformazione del testo con l'API Traduzione testuale Microsoft.
+title: Trasformare il testo - API Traduzione testuale
+titlesuffix: Azure Cognitive Services
+description: Trasformare il testo usando l'API Traduzione testuale.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 5aa88f471a33a668b8385e46c2105a3139c142cb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ccef55d56286cde47d23dbf2703c15fcf375e266
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374337"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646950"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Come usare il metodo TransformText
 
 > [!NOTE]
 > Metodo deprecato. Non è disponibile nella V3.0 dell'API Traduzione testuale.
 
-Il metodo TransformText è una funzione di normalizzazione del testo per social media, che restituisce una forma normalizzata dell'input. Il metodo può essere usato come un passaggio di pre-elaborazione della traduzione automatica o altre applicazioni che prevedono un testo di input normale che non si trova in genere nei social media o nel contenuto generato dall'utente. La funzione attualmente funziona solo con l'input in lingua inglese. 
+Il metodo TransformText è una funzione di normalizzazione del testo per social media, che restituisce una forma normalizzata dell'input. Il metodo può essere usato come un passaggio di pre-elaborazione della traduzione automatica o altre applicazioni che prevedono un testo di input normale che non si trova in genere nei social media o nel contenuto generato dall'utente. La funzione attualmente funziona solo con l'input in lingua inglese.
 
 Il metodo è un servizio RESTful che usa GET su HTTP. Supporta la serializzazione XML e JSON semplice.
 
@@ -31,7 +32,7 @@ Il metodo è un servizio RESTful che usa GET su HTTP. Supporta la serializzazion
 |:---|:---|
 | Authorization header (Intestazione dell'autorizzazione) | **Obbligatorio** intestazione HTTP usata per identificare l'applicazione. Usare la chiave: "Authorization" e il valore: token di accesso "Bearer" + " " +. Per informazioni dettagliate, vedere qui.|
 | Linguaggio | **Obbligatorio** Una stringa che rappresenta il codice della lingua. Questo parametro supporta solo la lingua inglese con **en** come nome della lingua.|
-| category | **Facoltativo** una stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita **general**.|
+| category | **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita **general**.|
 | frase | **Obbligatorio** una frase che si vuole correggere. |
 
 ## <a name="return-value"></a>Valore restituito
@@ -43,12 +44,12 @@ Il valore restituito fornisce la frase trasformata.
 GetTranslationsResponse Microsoft.Translator.GetTranslations(appId, text, from, to, maxTranslations, options); TransformTextResponse
 {
 int ec;            // A positive number representing an error condition
-string em;         // A descriptive error message 
+string em;         // A descriptive error message
 string sentence;   // transformed text
 }
 ```
 
-## <a name="example"></a>Esempio 
+## <a name="example"></a>Esempio
 
 ```csharp
 using System;
@@ -71,9 +72,9 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             AdmAccessToken admToken;
             string headerValue;
             //Get Client Id and Client Secret from https://datamarket.azure.com/developer/applications/
-            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx) 
+            //Refer obtaining AccessToken (http://msdn.microsoft.com/library/hh454950.aspx)
             AdmAuthentication admAuth = new AdmAuthentication("clientID", "client secret");
-            
+
             try
             {
                 admToken = admAuth.GetAccessToken();
@@ -215,7 +216,7 @@ namespace MicrosoftTranslatorSdk.HttpSamples
         }
         private AdmAccessToken HttpPost(string DatamarketAccessUri, string requestDetails)
         {
-            //Prepare OAuth request 
+            //Prepare OAuth request
             WebRequest webRequest = WebRequest.Create(DatamarketAccessUri);
             webRequest.ContentType = "application/x-www-form-urlencoded";
             webRequest.Method = "POST";
@@ -234,6 +235,6 @@ namespace MicrosoftTranslatorSdk.HttpSamples
             }
         }
     }
-} 
+}
 
 ```

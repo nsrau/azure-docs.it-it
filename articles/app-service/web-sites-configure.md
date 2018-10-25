@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293717"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115523"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurazione delle app Web in Servizio app di Azure
 
@@ -73,6 +73,7 @@ Per motivi tecnici, l'abilitazione di Java per le proprie app disabilita le opzi
 Questa sezione riporta le coppie nome/valore caricate all'avvio dell'app. 
 
 * Per le app.NET, queste impostazioni verranno inserite nella configurazione .NET `AppSettings` in fase di esecuzione, sostituendo le impostazioni esistenti. 
+* Per il servizio app in Linux o app Web per contenitori, se la struttura della chiave JSON è stata annidata nel nome, come ad esempio `ApplicationInsights:InstrumentationKey`, `ApplicationInsights__InstrumentationKey` dovrà essere il nome della chiave. Si noti quindi che `:` deve essere sostituito con `__` (doppio carattere di sottolineatura).
 * Le applicazioni PHP, Python, Java e Node possono accedere a queste impostazioni come variabili di ambiente durante il runtime. Per ciascuna impostazione dell'app vengono create due variabili di ambiente, una con il nome specificato dalla voce dell'impostazione dell'app e l'altra con il prefisso APPSETTING_. Entrambe contengono lo stesso valore.
 
 Le impostazioni dell'app vengono sempre crittografate quando sono archiviate (crittografia dei dati inattivi).

@@ -9,15 +9,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 2151733a5d91fb17c69fa1f4f6aac64a70928824
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493869"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364303"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Domande sul servizio Backup di Azure
-Questo articolo risponde alle domande comuni sui componenti di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. Per inserire commenti, è necessario un account Livefyre. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Questo articolo risponde alle domande comuni sui componenti di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. Per porre domande su Backup di Azure, fare clic su **Commenti** a destra. I commenti vengono visualizzati alla fine di questo articolo. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 Per analizzare rapidamente le sezioni di questo articolo, usare i collegamenti riportati a destra sotto **In questo articolo**.
 
@@ -31,7 +31,7 @@ Sì. Si possono creare fino a 500 insiemi di credenziali di Servizi di ripristin
 È possibile registrare fino a 1000 macchine virtuali di Azure per insieme di credenziali. Se si usano agenti MAB, è possibile registrare fino a 50 agenti MAB per insieme di credenziali. È possibile registrare 50 server MAB/server DPM in un insieme di credenziali.
 
 ### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>È possibile usare un'API REST per eseguire una query per le dimensioni di elementi protetti in un insieme di credenziali? <br/>
-Sì, l'articolo [Usages - List by Vaults](https://t.co/2lgIrIaF0J) (Utilizzi - Elencare per insiemi di credenziali) elenca le informazioni che è possibile ottenere dall'insieme di credenziali di Servizi di ripristino.
+Sì, l'articolo [Usages - List by Vaults](https://docs.microsoft.com/rest/api/recoveryservices/usages/usages_listbyvaults) (Utilizzi - Elencare per insiemi di credenziali) elenca le informazioni che è possibile ottenere dall'insieme di credenziali di Servizi di ripristino.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Se l'organizzazione ha un insieme di credenziali, come è possibile isolare i dati di un server da un altro server durante il ripristino dei dati?<br/>
 Tutti i server che vengono registrati nello stesso insieme di credenziali possono ripristinare i dati dei quali è stato eseguito il backup da altri server *che usano la stessa passphrase*. Se sono presenti server i cui dati di backup devono essere isolati dagli altri server dell'organizzazione, usare una passphrase designata per tali server. Ad esempio, per i server del reparto risorse umane può essere usata una passphrase, per quelli dell'ufficio contabilità un'altra e per quelli di archiviazione un'altra ancora.
@@ -42,8 +42,11 @@ No. L'insieme di credenziali viene creato a livello di sottoscrizione e non può
 ### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>È possibile eseguire la migrazione dei dati di backup di un altro insieme di credenziali? <br/>
 No. Non è possibile spostare i dati di backup archiviati in un insieme di credenziali in un insieme di credenziali diverso.
 
+### <a name="can-i-change-from-grs-to-lrs-after-a-backup-br"></a>È possibile passare dall'archiviazione con ridondanza geografica all'archiviazione con ridondanza locale dopo un backup? <br/>
+No. Un insieme di credenziali di Servizi di ripristino può solo modificare le opzioni di archiviazione prima che un backup venga archiviato.
+
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Gli insiemi di credenziali di Servizi di ripristino sono basati su Resource Manager. Gli insiemi di credenziali di backup sono ancora supportati? <br/>
-Gli insiemi di credenziali di backup sono stati convertiti in insiemi di credenziali di Servizi di ripristino. Se non è stata eseguita la conversione dell'insieme di credenziali di backup in un insieme di credenziali di Servizi di ripristino, tale conversione è stata eseguita automaticamente. 
+Gli insiemi di credenziali di backup sono stati convertiti in insiemi di credenziali di Servizi di ripristino. Se non è stata eseguita la conversione dell'insieme di credenziali di backup in un insieme di credenziali di Servizi di ripristino, tale conversione è stata eseguita automaticamente.
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>È possibile eseguire la migrazione di un insieme di credenziali per il backup in un insieme di credenziali di Servizi di ripristino? <br/>
 Tutti gli insiemi di credenziali di backup sono stati convertiti in insiemi di credenziali di Servizi di ripristino. Se non è stata eseguita la conversione dell'insieme di credenziali di backup in un insieme di credenziali di Servizi di ripristino, tale conversione è stata eseguita automaticamente.
@@ -57,7 +60,6 @@ Per un elenco dettagliato delle domande, vedere le [domande frequenti sul backup
 ## <a name="back-up-vmware-servers"></a>Eseguire il backup dei server VMware
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>È possibile eseguire il backup dei server VMware vCenter in Azure?
-
 Sì. È possibile usare il server di Backup di Azure per eseguire il backup di VMware vCenter ed ESXi in Azure. Per informazioni sulla versione di VMware supportata, vedere l'articolo [Matrice di protezione del server di Backup di Azure](backup-mabs-protection-matrix.md). Per istruzioni dettagliate, vedere [Usare il server di Backup di Azure per eseguire il backup di un server VMware](backup-azure-backup-server-vmware.md).
 
 ### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>Occorre una licenza separata per il ripristino di un cluster VMware/Hyper-V locale completo da DPM o dal server di Backup di Azure?<br/>
@@ -71,17 +73,14 @@ Sì.
 No. Un server di Backup di Microsoft Azure o un server Data Protection Manager può essere registrato in un solo insieme di credenziali.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Quale versione di System Center Data Protection Manager è supportata?
-
-È consigliabile installare l'agente di Backup di Azure [più recente](http://aka.ms/azurebackup_agent) nell'ultimo aggiornamento cumulativo di System Center Data Protection Manager (DPM). 
+È consigliabile installare l'agente di Backup di Azure [più recente](http://aka.ms/azurebackup_agent) nell'ultimo aggiornamento cumulativo di System Center Data Protection Manager (DPM).
 - Per System Center DPM 2012 R2 [Aggiornamento cumulativo 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) è l'ultimo aggiornamento.
 - Per System Center DPM 2016 [Aggiornamento cumulativo 2](https://support.microsoft.com/en-us/help/3209593) è l'ultimo aggiornamento.
 
 ### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>È stato installato l'agente di Backup di Azure per proteggere i file e le cartelle. È possibile installare System Center DPM per proteggere i carichi di lavoro di applicazioni/VM locali in Azure?
-
 Sì. Tuttavia, per usare Azure Backup con System Center Data Protection Manager (DPM), installare DPM prima di installare Azure Backup Agent. L'installazione dei componenti di Backup di Azure in questo ordine assicura che l'agente di Backup di Azure funziona correttamente con DPM. L'installazione di Azure Backup Agent prima di installare DPM non è consigliabile o supportata.
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>È possibile usare DPM per eseguire il backup delle App in Azure Stack?
-
 No. Sebbene sia possibile usare Backup di Azure per proteggere Azure Stack, Backup di Azure attualmente non supporta l'utilizzo di DPM per eseguire il backup delle app in Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>Funzionamento di Backup di Azure
@@ -112,7 +111,7 @@ Backup di Azure supporta i sistemi operativi elencati di seguito per il backup d
 | Windows Server 2016 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2012 R2 e più recenti SPs |64 bit |Standard, Datacenter, Foundation |
 | Windows Server 2012 e versioni più recenti di SP |64 bit |Datacenter, Foundation, Standard |
-| Windows Storage Server 2016 e versioni più recenti di SP |64 bit |Standard, Workgroup | 
+| Windows Storage Server 2016 e versioni più recenti di SP |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 R2 e versioni più recenti di SP |64 bit |Standard, Workgroup |
 | Windows Storage Server 2012 e versioni più recenti di SP |64 bit |Standard, Workgroup |
 | Windows Server 2012 R2 e più recenti SPs |64 bit |Essential |
@@ -145,7 +144,7 @@ La tabella seguente illustra come vengono determinate le dimensioni di ogni orig
 | Microsoft Exchange |Somma di tutti i database di Exchange in un server di Exchange di cui viene eseguito il backup |
 | Stato del sistema/ripristino bare metal |Ogni copia del ripristino bare metal o dello stato del sistema del computer di cui viene eseguito il backup |
 
-Per il backup di % IaaS di Azure, ogni VM può avere fino a 16 dischi dati e ogni disco dati può avere un massimo di 4095 GB.
+Per il backup di macchine virtuali IaaS di Azure, ogni macchina virtuale può avere fino a 32 dischi dati e ogni disco dati può avere un massimo di 4095 GB.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>È previsto un limite per la quantità di dati contenuti in un insieme di credenziali di Servizi di ripristino?
 Non c'è nessun limite alla quantità di dati di cui è possibile eseguire il backup in un insieme di credenziali di Servizi di ripristino.
@@ -189,7 +188,7 @@ Sì. I dati vengono crittografati nel computer server/client/SCDPM locale median
 Sì. I dati inviati ad Azure rimangono crittografati (inattivi). Microsoft non decrittografa mai i dati di backup. Quando si esegue il backup di una macchina virtuale di Azure, Backup di Azure si basa sulla crittografia della macchina virtuale. Ad esempio, se la macchina virtuale è crittografata con Crittografia dischi di Azure o un'altra tecnologia di crittografia , Backup di Azure usa tale crittografia per proteggere i dati.
 
 ### <a name="what-is-the-minimum-length-of-encryption-key-used-to-encrypt-backup-data-br"></a>Qual è la lunghezza minima della chiave di crittografia usata per crittografare i dati di backup? <br/>
-Quando si usa l'agente di Backup di Azure, la chiave di crittografia deve contenere almeno 16 caratteri. Per le macchine virtuali di Azure non c'è un limite di lunghezza delle chiavi usate da Azure Key Vault. 
+Quando si usa l'agente di Backup di Azure, la chiave di crittografia deve contenere almeno 16 caratteri. Per le macchine virtuali di Azure non c'è un limite di lunghezza delle chiavi usate da Azure Key Vault.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-or-can-microsoft-recover-the-data-br"></a>Cosa accade se si smarrisce la chiave di crittografia? È possibile ripristinare i dati? Microsoft può recuperarli? <br/>
 La chiave usata per crittografare i dati di backup è disponibile solo nelle risorse del cliente. Microsoft non ne conserva una copia in Azure e non dispone dell'accesso alla chiave. Se il cliente smarrisce la chiave, Microsoft non può recuperare i dati di backup.

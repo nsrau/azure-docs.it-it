@@ -6,22 +6,22 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 10/09/2018
 ms.author: babanisa
-ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965456"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068196"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
 Griglia di eventi di Azure ha tre tipi di autenticazione:
 
-* Sottoscrizioni di eventi
-* Pubblicazione di eventi
 * Recapito eventi webhook
+* Sottoscrizioni di eventi
+* Pubblicazione di argomenti personalizzata
 
 ## <a name="webhook-event-delivery"></a>Recapito eventi webhook
 
@@ -37,7 +37,7 @@ Se si usa un altro tipo di endpoint, ad esempio un trigger HTTP basato su una fu
 
 1. **Handshake ValidationCode**: durante la creazione della sottoscrizione di eventi, il servizio Griglia di eventi esegue il POST di un "evento di convalida della sottoscrizione" nell'endpoint. Lo schema di questo evento è simile a qualsiasi altro evento di Griglia eventi e la parte "data" di tale evento include una proprietà `validationCode`. Quando l'applicazione ha verificato che la richiesta di convalida è relativa a una sottoscrizione di eventi prevista, il codice dell'applicazione deve rispondere restituendo il codice di convalida a Griglia di eventi. Questo meccanismo di handshake è supportato in tutte le versioni di Griglia di eventi.
 
-2. **Handshake ValidationURL (handshake manuale)**: in determinati casi non è possibile controllare il codice sorgente dell'endpoint e quindi non è possibile implementare l'handshake basato su ValidationCode. Se ad esempio si usa un servizio di terze parti, ad esempio [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), è possibile che non si riesca a restituire il codice di convalida a livello di programmazione. A partire dalla versione 2018-05-01-preview, Griglia di eventi supporta quindi un handshake di convalida manuale. Se si sta creando una sottoscrizione di eventi tramite SDK/strumenti che usano questa nuova versione dell'API (2018-05-01-preview), Griglia di eventi invia una proprietà `validationUrl`, oltre alla proprietà `validationCode`, come parte della porzione "data" dell'evento di convalida della sottoscrizione. Per completare l'handshake, è sufficiente inviare una richiesta GET in tale URL, tramite un client REST oppure il Web browser. L'URL di convalida specificato è valido solo per circa 10 minuti. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se si non completata la convalida manuale entro 10 minuti, lo stato di provisioning è impostato su `Failed`. Sarà necessario tentare di nuovo la creazione della sottoscrizione di eventi prima di provare a eseguire nuovamente la convalida manuale.
+2. **Handshake ValidationURL (handshake manuale)**: in determinati casi non è possibile controllare il codice sorgente dell'endpoint e quindi non è possibile implementare l'handshake basato su ValidationCode. Se ad esempio si usa un servizio di terze parti, ad esempio [Zapier](https://zapier.com) o [IFTTT](https://ifttt.com/), è possibile che non si riesca a restituire il codice di convalida a livello di programmazione. A partire dalla versione 2018-05-01-preview, EventGrid supporta quindi un handshake di convalida manuale. Se si sta creando una sottoscrizione di eventi tramite SDK/strumenti che usano questa nuova versione dell'API (2018-05-01-preview), EventGrid invia una proprietà `validationUrl` come parte della porzione "data" dell'evento di convalida della sottoscrizione. Per completare l'handshake, è sufficiente inviare una richiesta GET in tale URL, tramite un client REST oppure il Web browser. L'URL di convalida specificato è valido solo per circa 10 minuti. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se si non completata la convalida manuale entro 10 minuti, lo stato di provisioning è impostato su `Failed`. È possibile creare la sottoscrizione all'evento nuovamente prima di tentare la convalida manuale.
 
 Questo meccanismo di convalida manuale è disponibile in anteprima. Per usarla, è necessario installare l'[estensione Griglia di eventi](/cli/azure/azure-cli-extensions-list) per l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). È possibile installarla con `az extension add --name eventgrid`. Se si usa l'API REST, assicurarsi di usare `api-version=2018-05-01-preview`.
 
@@ -46,8 +46,8 @@ Questo meccanismo di convalida manuale è disponibile in anteprima. Per usarla, 
 * In fase di creazione/aggiornamento della sottoscrizione di eventi, Griglia di eventi inserisce un evento di convalida della sottoscrizione nell'endpoint di destinazione. 
 * L'evento contiene un valore di intestazione "aeg-event-type: SubscriptionValidation".
 * Il corpo dell'evento ha lo stesso schema degli altri eventi di Griglia di eventi.
-* La proprietà eventType dell'evento è "Microsoft.EventGrid.SubscriptionValidationEvent".
-* La proprietà data dell'evento include una proprietà "validationCode" con una stringa generata in modo casuale. ad esempio "validationCode: acb13…".
+* La proprietà eventType dell'evento è `Microsoft.EventGrid.SubscriptionValidationEvent`.
+* La proprietà Data dell'evento include una proprietà `validationCode` con una stringa generata in modo casuale. ad esempio "validationCode: acb13…".
 * Se si usa la versione 2018-05-01-preview dell'API, i dati dell'evento includono anche una proprietà `validationUrl` con un URL per la convalida manuale della sottoscrizione.
 * La matrice contiene solo l'evento di convalida. Gli altri eventi vengono inviati in una richiesta separata dopo che è stato rimandato il codice di convalida.
 * Gli SDK DataPlane di Griglia di eventi includono classi corrispondenti ai dati degli eventi di convalida della sottoscrizione e alla risposta di convalida della sottoscrizione.
@@ -89,19 +89,21 @@ Durante la creazione di una sottoscrizione di eventi, se viene visualizzato un m
 * È possibile controllare il codice dell'applicazione nell'endpoint di destinazione? Se, ad esempio, si scrive una funzione di Azure basata su un trigger HTTP, si è autorizzati ad accedere al codice dell'applicazione per modificarlo?
 * Se si è autorizzati ad accedere al codice dell'applicazione, implementare il meccanismo di handshake basato su ValidationCode, come illustrato nell'esempio precedente.
 
-* Se non si è autorizzati ad accedere al codice dell'applicazione, ad esempio se si usa un servizio di terze parti che supporta webhook, è possibile usare il meccanismo di handshake manuale. A questo scopo, assicurarsi di usare la versione 2018-05-01-preview dell'API, ad esempio usando l'estensione dell'interfaccia della riga di comando di Griglia di eventi illustrata in precedenza, per ricevere la proprietà validationUrl nell'evento di convalida. Per completare l'handshake di convalida manuale, ottenere il valore della proprietà "validationUrl" e visitare l'URL nel Web browser. Se la convalida ha esito positivo, dovrebbe essere visualizzato un messaggio nel Web browser che indica che la convalida è riuscita e la proprietà provisioningState della sottoscrizione di eventi verrà impostata su "Succeeded". 
+* Se non si è autorizzati ad accedere al codice dell'applicazione, ad esempio se si usa un servizio di terze parti che supporta webhook, è possibile usare il meccanismo di handshake manuale. Assicurarsi di usare la versione dell'API 2018-05-01-preview o versione successiva (installare l'estensione dell'interfaccia della riga di comando di Azure della griglia di eventi) per ricevere validationUrl nell'evento di convalida. Per completare l'handshake di convalida manuale, ottenere il valore della proprietà `validationUrl` e visitare l'URL nel Web browser. Se la convalida ha esito positivo, verrà visualizzato un messaggio nel Web browser che indica che la convalida ha avuto esito positivo. Si noterà che provisioningState della sottoscrizione dell'evento è "Succeeded". 
 
 ### <a name="event-delivery-security"></a>Sicurezza del recapito degli eventi
 
 È possibile proteggere l'endpoint webhook aggiungendo i parametri di query all'URL del webhook durante la creazione di una sottoscrizione di eventi. Impostare uno di questi parametri di query in modo che sia un segreto, ad esempio un [token di accesso](https://en.wikipedia.org/wiki/Access_token) che il webhook può usare per riconoscere l'evento proviene da Griglia di eventi con autorizzazioni valide. Griglia di eventi includerà questi parametri di query in ogni recapito di eventi al webhook.
 
-Quando si modifica la sottoscrizione dell'evento, i parametri di query non verranno visualizzati o restituiti a meno che non venga usato il parametro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) nell'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) di Azure.
+Quando si modifica la sottoscrizione dell'evento, i parametri di query non sono visualizzati o restituiti a meno che non venga usato il parametro [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) nell'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) di Azure.
 
 È infine importante notare che Griglia di eventi di Azure supporta solo endpoint di webhook HTTPS.
 
 ## <a name="event-subscription"></a>Sottoscrizione dell'evento
 
-Per sottoscrivere un evento, è necessaria l'autorizzazione **Microsoft.EventGrid/EventSubscriptions/Write** per la risorsa richiesta. Questa autorizzazione è necessaria perché si sta scrivendo una nuova sottoscrizione nell'ambito della risorsa. La risorsa necessaria è diversa a seconda del fatto che si sottoscriva un argomento di sistema o un argomento personalizzato. Entrambi i tipi sono descritti in questa sezione.
+Per sottoscrivere un evento, è necessario dimostrare di avere accesso all'origine e al gestore dell'evento. Nella sezione precedente è stata trattata la dimostrazione di essere proprietari di un WebHook. Se si usa un gestore eventi che non è un WebHook, ad esempio, un hub eventi o un'archiviazione code, è necessario l'accesso in scrittura a tale risorsa. Questo controllo delle autorizzazioni impedisce che un utente non autorizzato invii eventi alla risorsa.
+
+È necessaria l'autorizzazione **Microsoft.EventGrid/EventSubscriptions/Write** per la risorsa che è l'origine dell'evento. Questa autorizzazione è necessaria perché si sta scrivendo una nuova sottoscrizione nell'ambito della risorsa. La risorsa necessaria è diversa a seconda del fatto che si sottoscriva un argomento di sistema o un argomento personalizzato. Entrambi i tipi sono descritti in questa sezione.
 
 ### <a name="system-topics-azure-service-publishers"></a>Argomenti di sistema (entità di pubblicazione dei servizi di Azure)
 
@@ -115,9 +117,9 @@ Per gli argomenti personalizzati, è necessaria l'autorizzazione per scrivere un
 
 Per sottoscrivere, ad esempio, un argomento personalizzato denominato **mytopic**, è necessaria l'autorizzazione Microsoft.EventGrid/EventSubscriptions/Write per: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
-## <a name="topic-publishing"></a>Pubblicazione di argomenti
+## <a name="custom-topic-publishing"></a>Pubblicazione di argomenti personalizzata
 
-Gli argomenti usano la firma di accesso condiviso o l'autenticazione della chiave. È consigliabile la firma di accesso condiviso, ma l'autenticazione della chiave fornisce una programmazione semplice ed è compatibile con molte entità di pubblicazione di webhook esistenti. 
+Gli argomenti personalizzati usano la firma di accesso condiviso (SAS) o l'autenticazione della chiave. È consigliabile la firma di accesso condiviso, ma l'autenticazione della chiave fornisce una programmazione semplice ed è compatibile con molte entità di pubblicazione di webhook esistenti. 
 
 Il valore dell'autenticazione viene incluso nell'intestazione HTTP. Per la firma di accesso condiviso, usare **aeg-sas-token** per il valore dell'intestazione. Per l'autenticazione della chiave, usare **aeg-sas-key** per il valore dell'intestazione.
 
@@ -193,7 +195,7 @@ Usare i passaggi seguenti per applicare il controllo degli accessi in base al ru
 
 #### <a name="create-a-custom-role-definition-file-json"></a>Creare un file di definizione del ruolo personalizzato (JSON)
 
-Le seguenti sono definizioni del ruolo di Griglia di eventi che consentono agli utenti di eseguire set diversi di azioni.
+Le seguenti sono definizioni di esempio del ruolo di Griglia di eventi che consentono agli utenti di eseguire diverse azioni.
 
 **EventGridReadOnlyRole.json**: consente solo operazioni di sola lettura.
 

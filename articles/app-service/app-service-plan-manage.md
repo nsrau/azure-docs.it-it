@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449360"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166067"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
@@ -57,6 +57,12 @@ Un [piano di servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-o
 
 È possibile spostare un'app in un altro piano di servizio app, purché il piano di origine e il piano di destinazione si trovino _nello stesso gruppo di risorse e nella stessa area geografica_.
 
+> [!NOTE]
+> Azure distribuisce ogni nuovo piano di servizio app in un'unità di distribuzione chiamata internamente "spazio Web". Ogni area geografica può avere molti spazi Web, ma l'app può essere spostata solo tra piani creati nello stesso spazio Web. Un ambiente del servizio app è uno spazio Web isolato; le app, quindi, possono essere spostate tra piani dello stesso ambiente del servizio app, ma non tra piani di ambienti del servizio app diversi.
+>
+> Non è possibile specificare lo spazio Web desiderato quando si crea un piano, ma è possibile fare in modo che un piano venga creato nello stesso spazio Web di un piano esistente. In breve, tutti i piani creati con la stessa combinazione di gruppo di risorse e area geografica vengono distribuiti nello stesso spazio Web. Se, ad esempio, è stato creato un piano nel gruppo di risorse A e nell'area geografica B, qualsiasi piano successivamente creato nel gruppo di risorse A e nell'area geografica B verrà distribuito nello stesso spazio Web. Un piano non può essere spostato in uno spazio Web dopo essere stato creato, pertanto non è possibile spostare un piano nello "stesso spazio Web" di un altro spostandolo in un altro gruppo di risorse.
+> 
+
 1. Nel [portale di Azure](https://portal.azure.com) selezionare l'app che si intende spostare.
 
 1. Nel menu cercare la sezione **Piano di servizio app**.
@@ -67,16 +73,7 @@ Un [piano di servizio app di Azure](azure-web-sites-web-hosting-plans-in-depth-o
 
 1. Nel selettore **Piano di servizio App** selezionare un piano esistente in cui spostare l'app.   
 
-> [!IMPORTANT]
-> La pagina **Select App Service plan** (Seleziona piano di servizio app) viene filtrata in base ai criteri seguenti: 
-> - È presente nello stesso gruppo di risorse 
-> - È presente nella stessa area geografica 
-> - È presente nello stesso spazio Web  
-> 
-> Uno _spazio Web_ è un costrutto logico all'interno del servizio app che definisce un raggruppamento di risorse del server. Un'area geografica (ad esempio gli Stati Uniti occidentali) contiene molti spazi Web per allocare i clienti che usano il servizio app. Attualmente non è possibile spostare le risorse del servizio app tra gli spazi Web. 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+La pagina **Selezionare un piano di servizio app** mostra solo i piani che si trovano nello stesso gruppo di risorse e nella stessa area geografica del piano di servizio app dell'app corrente.
 
 È previsto un piano tariffario diverso per ogni piano. Quando si sposta un sito dal livello **Gratuito** al livello **Standard**, ad esempio, tutte le app assegnate ad esso possono usare le funzionalità e le risorse del livello **Standard**. Tuttavia, spostando un'app da un piano a più livelli superiore a un piano a più livelli inferiore non si ha più accesso a determinate funzionalità. Se l'app usa una funzionalità non presente nel piano di destinazione, viene visualizzato un errore che mostra quale funzionalità in uso non è disponibile. 
 

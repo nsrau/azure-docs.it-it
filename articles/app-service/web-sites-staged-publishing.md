@@ -1,5 +1,5 @@
 ---
-title: Configurare ambienti di staging per le app Web nel Servizio app di Azure | Documentazione Microsoft
+title: Configurare ambienti di staging per le app Web nel Servizio app di Azure | Microsoft Docs
 description: Informazioni su come utilizzare la pubblicazione per fasi per le app Web in Azure App Service."
 services: app-service
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: 2fabf0d61ffd2f526fab49816eab36a86497a358
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 35027b4eadba72776fd27826a389763cc0832eee
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764707"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044315"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -170,10 +170,12 @@ Se vengono identificati errori nel sito di produzione dopo lo scambio di uno slo
 ## <a name="custom-warm-up-before-swap"></a>Riscaldamento personalizzato prima dello scambio
 Alcune app potrebbero richiedere azioni di riscaldamento personalizzate. L'elemento di configurazione `applicationInitialization` in web.config consente di specificare le azioni di inizializzazione personalizzate da eseguire prima che venga ricevuta una richiesta. L'operazione di scambio attende il completamento del riscaldamento personalizzato. Di seguito è riportato un frammento web.config di esempio.
 
-    <applicationInitialization>
-        <add initializationPage="/" hostName="[app hostname]" />
-        <add initializationPage="/Home/About" hostname="[app hostname]" />
-    </applicationInitialization>
+    <system.webServer>
+        <applicationInitialization>
+            <add initializationPage="/" hostName="[app hostname]" />
+            <add initializationPage="/Home/About" hostname="[app hostname]" />
+        </applicationInitialization>
+    </system.webServer>
 
 ## <a name="monitor-swap-progress"></a>Monitorare lo stato di avanzamento dello scambio
 

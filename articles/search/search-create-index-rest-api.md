@@ -1,21 +1,21 @@
 ---
 title: 'Creare un indice: API REST e Ricerca di Azure | Microsoft Docs'
 description: Creare un indice nel codice tramite l'API REST HTTP di Ricerca di Azure.
-author: chaosrealm
-manager: jlembicz
-ms.author: eugenesh
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 tags: azure-portal
 services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: quickstart
-ms.date: 04/20/2018
-ms.openlocfilehash: 86260e1929e8bd5c31682ef7f59cacae19a66020
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: conceptual
+ms.openlocfilehash: ff534bc287e3872ee87ed808be249a6e68c68ab3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182032"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403544"
 ---
 # <a name="create-an-azure-search-index-using-the-rest-api"></a>Creare un indice di Ricerca di Azure con l'API REST
 > [!div class="op_single_selector"]

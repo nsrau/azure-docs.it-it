@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2018
+ms.date: 10/5/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9043c6583a15d3be9d0d468e83a4bf79b3121794
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304119"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044077"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Raccolta dati nel Centro sicurezza di Azure
 Il Centro sicurezza raccoglie i dati delle macchine virtuali di Azure e dei computer che non hanno Azure per monitorare le minacce e le vulnerabilità della sicurezza. I dati vengono raccolti tramite Microsoft Monitoring Agent, che legge diverse configurazioni correlate alla sicurezza oltre ai registri eventi del computer e copia i dati nell'area di lavoro per eseguire l'analisi. I dati raccolti sono ad esempio il tipo di sistema operativo e la versione, i registri del sistema operativo (registri eventi Windows), i processi in esecuzione, il nome del computer, gli indirizzi IP e l'utente connesso. Microsoft Monitoring Agent copia anche i file di dump di arresto anomalo del sistema nelle aree di lavoro.
@@ -34,7 +34,8 @@ Questo articolo include le linee guida su come installare Microsoft Monitoring A
 > - La raccolta dei dati per il set di scalabilità di macchine virtuali non è attualmente supportata.
 
 
-## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Abilitare il provisioning automatico di Microsoft Monitoring Agent     
+## Abilitare il provisioning automatico di Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
+
 Per raccogliere i dati dai computer è consigliabile avere installato Microsoft Monitoring Agent.  L'installazione dell'agente può essere eseguita automaticamente (scelta consigliata) o manualmente.  
 
 >[!NOTE]
@@ -61,8 +62,8 @@ Per abilitare il provisioning automatico di Microsoft Monitoring Agent:
 > - Per istruzioni su come effettuare il provisioning di un'installazione pre-esistente, vedere [Provisioning automatico nel caso di installazione di un agente preesistente](#preexisting).
 > - Per istruzioni sul provisioning manuale, vedere [Install the Microsoft Monitoring Agent extension manually](#manualagent) (Installare l'estensione Microsoft Monitoring Agent manualmente).
 > - Per istruzioni su come disattivare il provisioning automatico, vedere [Disattivare il provisioning automatico](#offprovisioning).
+> - Per istruzioni su come caricare il Centro sicurezza usando PowerShell, vedere [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md) (Automatizzare l'onboarding del Centro sicurezza di Azure usando PowerShell).
 >
-
 
 ## <a name="workspace-configuration"></a>Configurazione dell'area di lavoro
 I dati raccolti dal Centro sicurezza vengono archiviati nell'area di lavoro di Log Analytics.  È possibile scegliere di archiviare i dati raccolti dalle VM di Azure in aree di lavoro create dal Centro sicurezza o in un'area di lavoro esistente creata personalmente. 
@@ -146,12 +147,17 @@ Quando si seleziona un'area di lavoro in cui archiviare i dati, sono disponibili
 
 
 ## <a name="data-collection-tier"></a>Livello della raccolta dati
-Il Centro sicurezza può ridurre il volume di eventi mantenendo un numero sufficiente di eventi per l'analisi, il controllo e il rilevamento delle minacce. È possibile scegliere i criteri di filtraggio corretti per le sottoscrizioni e le aree di lavoro da quattro insiemi di eventi raccolti dall'agente.
+La selezione di un livello di raccolta dati nel Centro sicurezza di Azure avrà effetto soltanto sull'archiviazione degli eventi di sicurezza nell'area di lavoro di Log Analytics. Microsoft Monitoring Agent continuerà a raccogliere e analizzare gli eventi di sicurezza necessari ai fini del rilevamento delle minacce del Centro sicurezza di Azure, indipendentemente dal livello scelto per l'archiviazione degli eventi di sicurezza nell'area di lavoro di Log Analytics (se presente). La scelta di archiviare gli eventi di sicurezza nell'area di lavoro consentirà l'esecuzione di operazioni di analisi, ricerca e controllo di tali eventi nell'area di lavoro. 
+> [!NOTE]
+> L'archiviazione di dati in Log Analytics può comportare costi aggiuntivi. Per altre informazioni, vedere la pagina relativa ai prezzi.
+>
+È possibile scegliere i criteri di filtro adatti alle sottoscrizioni e alle aree di lavoro da quattro set di eventi da archiviare nell'area di lavoro: 
 
-- **Tutti gli eventi**: per i clienti che desiderano assicurarsi che tutti gli eventi vengano raccolti. Questa è la modalità predefinita.
-- **Comuni**: si tratta di un insieme di eventi che soddisfa la maggior parte dei clienti e consente loro di avere un audit trail completo.
+- **Nessuno**: disabilita l'archiviazione degli eventi di sicurezza. Questa è l'impostazione predefinita.
 - **Minimi**: un insieme più piccolo di eventi per i clienti che desiderano ridurre al minimo il volume di eventi.
-- **Nessuno**: per disabilitare la raccolta di eventi di sicurezza dai registri di sicurezza e di App Locker. Per i clienti che scelgono questa opzione, i dashboard di sicurezza presentano solo i registri di Windows Firewall e le valutazioni proattive come antimalware, iniziali e di aggiornamento.
+- **Comuni**: si tratta di un insieme di eventi che soddisfa la maggior parte dei clienti e consente loro di avere un audit trail completo.
+- **Tutti gli eventi**: per i clienti che vogliono assicurarsi che tutti gli eventi vengano archiviati.
+
 
 > [!NOTE]
 > Questi set di eventi di sicurezza sono disponibili solo nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
@@ -288,17 +294,17 @@ Esistono molti modi per installare Microsoft Monitoring Agent manualmente. Quand
         
              Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
-
-
+> [!NOTE]
+> Per istruzioni su come caricare il Centro sicurezza usando PowerShell, vedere [Automate onboarding of Azure Security Center using PowerShell](security-center-powershell-onboarding.md) (Automatizzare l'onboarding del Centro sicurezza di Azure usando PowerShell).
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
 -   Per identificare i problemi relativi all'installazione del provisioning automatico, vedere [Problemi di integrità di Microsoft Monitoring Agent](security-center-troubleshooting-guide.md#mon-agent).
 
 -  Per identificare i requisiti di rete di Monitoring Agent, vedere [Risoluzione dei problemi di rete di Microsoft Monitoring Agent](security-center-troubleshooting-guide.md#mon-network-req).
--   Per identificare i problemi di onboarding manuale, vedere [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) (Come risolvere i problemi di onboarding di Operations Management Suite)
+-   Per identificare i problemi di onboarding manuale, vedere [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) (Come risolvere i problemi di onboarding di Operations Management Suite).
 
-- Per identificare i problemi di computer e macchine virtuali non monitorati, vedere [Unmonitored VMs and computers](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers) (Computer e macchine virtuali non monitorati)
+- Per identificare i problemi relativi a macchine virtuali e computer non monitorati, vedere [Macchine virtuali e computer non monitorati](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers).
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato illustrato il funzionamento della raccolta dati e del provisioning automatico nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:

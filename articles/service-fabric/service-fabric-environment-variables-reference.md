@@ -12,18 +12,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: f7c36fec7ff58c225e41899e8264ca1dde95ce7c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213249"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268005"
 ---
 # <a name="service-fabric-environment-variables"></a>Variabili di ambiente di Service Fabric
 
 Service Fabric dispone di variabili di ambiente predefinite, impostate per ciascuna istanza di servizio. La tabella seguente include l'elenco completo delle variabili di ambiente:
 
-| Variabile di ambiente                         | DESCRIZIONE                                                            | Esempio                                                              |
+| Variabile di ambiente                         | Descrizione                                                            | Esempio                                                              |
 |----------------------------------------------|------------------------------------------------------------------------|----------------------------------------------------------------------|
 | Fabric_ApplicationName                       | Nome URI dell'applicazione nell'infrastruttura                                 | fabric:/MyApplication                                                |
 | Fabric_CodePackageName                       | Nome del pacchetto di codice a cui appartiene il processo              | Codice                                                                 |
@@ -37,7 +37,7 @@ Service Fabric dispone di variabili di ambiente predefinite, impostate per ciasc
 | Fabric_NodeId                                | ID del nodo che esegue il processo                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | Indirizzo IP o nome di dominio completo del nodo, come specificato nel file manifesto del cluster | localhost o 10.0.0.1                                                |
 | Fabric_NodeName                              | Nome del nodo che esegue il processo                          | _Node_0                                                              |
-| Fabric_ServiceName                           | Nome del servizio, se ospitato in modalità ExclusiveProcess. Il valore di questa variabile è disponibile solo se si crea il servizio con ServicePackageActivationMode ExclusiveProcess.  | MyService                                               |
+| Fabric_ServiceName                           | Nome URI dell'infrastruttura del servizio, se quest'ultimo è ospitato in modalità ExclusiveProcess. Il valore di questa variabile è disponibile solo se si crea il servizio con ServicePackageActivationMode ExclusiveProcess.  | fabric:/MyApplication/MyService                                               |
 | Fabric_ServicePackageActivationId            | ID di attivazione del pacchetto del servizio                                         | GUID                                                               |
 | Fabric_ServicePackageName                    | Nome del pacchetto del servizio di cui fa parte il processo                     | Web1Pkg                                                              |
 

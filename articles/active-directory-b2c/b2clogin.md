@@ -1,33 +1,71 @@
 ---
-title: Uso di b2clogin.com | Microsoft Docs
-description: Informazioni sull'uso b2clogin.com anziché di login.microsoftonline.com.
+title: Impostare gli URL di reindirizzamento su b2clogin.com per Azure Active Directory B2C | Microsoft Docs
+description: Informazioni sull'uso di b2clogin.com negli URL di reindirizzamento per Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2018
+ms.date: 10/04/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1d42d9a97244eeff501b9d02b0f143d6ef0c91b2
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8e06cf1a443d4fd158e29ef4b53206a83800dfe9
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440631"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803053"
 ---
-# <a name="using-b2clogincom"></a>Uso di b2clogin.com
+# <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Impostare gli URL di reindirizzamento su b2clogin.com per Azure Active Directory B2C
 
->[!IMPORTANT]
->Questa funzionalità è in anteprima pubblica 
->
+Quando si configura un provider di identità per l'iscrizione e l'accesso nell'applicazione Azure Active Directory (Azure AD) B2C, è necessario specificare un URL di reindirizzamento. In passato veniva usato login.microsoftonline.com, ma ora è consigliabile usare b2clogin.com.
 
-È ora possibile usare il servizio di Azure Active Directory B2C con `<YourTenantName>.b2clogin.com` invece di usare `login.microsoftonline.com`.  Ciò offre numerosi vantaggi:
-* Non si condivide più lo stesso limite di dimensione di intestazione cookie con gli altri prodotti Microsoft.
-* È possibile rimuovere tutti i riferimenti a Microsoft nell'URL (è possibile sostituire `<YourTenantName>.onmicrosoft.com` con l'ID del tenant). Ad esempio: `https://<tenantname>.b2clogin.com/tfp/<tenantname>/<policyname>/v2.0/.well-known/openid-configuration`.
+L'uso di b2clogin.com offre vantaggi aggiuntivi, ad esempio:
 
- Per poter sfruttare b2clogin.com, è necessario impostare alcune delle opzioni seguenti:
+- I cookie non vengono più condivisi con altri servizi Microsoft.
+- Gli URL non includono più un riferimento a Microsoft. Ad esempio: `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-1. Per **Run now endpoint** (Endpoint Esegui adesso) assicurarsi di usare `<YourTenantName>.b2clogin.com` invece di `login.microsoftonline.com`.
-2. Se si usa MSAL, è necessario impostare `validateauthority=false`.  Poiché l'emittente del token diventa`<YourTenantName>.b2clogin.com`.
+Per usare b2clogin.com, impostare gli URL di reindirizzamento nelle applicazioni del provider di identità a tale scopo. Impostare anche l'applicazione Azure AD B2C per l'uso di b2clogin.com per i riferimenti a criteri e gli endpoint di token. Se si usa MSAL, è necessario impostare la proprietà **ValidateAuthority** su `false`.
+
+## <a name="change-redirect-urls"></a>Modificare gli URL di reindirizzamento
+
+Per usare b2clogin.com, nelle impostazioni per l'applicazione del provider di identità cercare e modificare l'elenco degli URL attendibili per eseguire il reindirizzamento ad Azure AD B2C.  Attualmente, è probabile che sia configurato per il reindirizzamento a un sito login.microsoftonline.com. 
+
+Sarà necessario modificare l'URL di reindirizzamento in modo che `your-tenant-name.b2clogin.com` sia autorizzato. Assicurarsi di sostituire `your-tenant-name` con il nome del tenant di Azure AD B2C e rimuovere `/te`, se presente nell'URL. Dato che esistono lievi variazioni in questo URL per ogni provider di identità, vedere la pagina corrispondente per ottenere l'URL esatto.
+
+Le informazioni relative alla configurazione per i provider di identità sono disponibili negli articoli seguenti:
+
+- [Account Microsoft](active-directory-b2c-setup-msa-app.md)
+- [Facebook](active-directory-b2c-setup-fb-app.md)
+- [Google](active-directory-b2c-setup-goog-app.md)
+- [Amazon](active-directory-b2c-setup-amzn-app.md)
+- [LinkedIn](active-directory-b2c-setup-li-app.md)
+- [Twitter](active-directory-b2c-setup-twitter-app.md)
+- [GitHub](active-directory-b2c-setup-github-app.md)
+- [Weibo](active-directory-b2c-setup-weibo-app.md)
+- [QQ](active-directory-b2c-setup-qq-app.md)
+- [WeChat](active-directory-b2c-setup-wechat-app.md)
+- [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md)
+- [OIDC personalizzato](active-directory-b2c-setup-oidc-idp.md)
+
+## <a name="update-your-application"></a>Aggiornare l'applicazione
+
+L'applicazione Azure AD B2C fa probabilmente riferimento a `login.microsoftonline.com` in diverse posizioni, ad esempio nei riferimenti a criteri e negli endpoint di token.  Verificare che l'endpoint di autorizzazione, l'endpoint di token e l'autorità di certificazione siano stati aggiornati in modo da usare `your-tenant-name.b2clogin.com`.  
+
+## <a name="set-the-validateauthority-property"></a>Impostare la proprietà ValidateAuthority
+
+Se si usa MSAL, impostare **ValidateAuthority** su `false`. L'esempio seguente illustra come si può impostare la proprietà:
+
+```
+this.clientApplication = new UserAgentApplication(
+  env.auth.clientId,
+  env.auth.loginAuthority,
+  this.authCallback.bind(this),
+  {
+    validateAuthority: false
+  }
+);
+```
+
+ Per altre informazioni, vedere [ClientApplicationBase Class ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase?view=azure-dotnet) (Classe ClientApplicationBase).

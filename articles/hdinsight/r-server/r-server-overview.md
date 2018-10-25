@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: af143ef1ec79868294af7d7511548dc54f8ceb8d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ca596b2d33a6248dac94ddd7eef9a9c44daac3c8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049271"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343742"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introduzione a ML Services e alle funzionalità R open source in HDInsight
 
@@ -148,6 +148,6 @@ I prezzi associati a un cluster HDInsight di ML Services sono strutturati in mod
 
 Per altre informazioni sull'uso di ML Services nei cluster HDInsight, vedere gli argomenti seguenti:
 
-* [Introduzione all'uso del cluster ML Services su HDInsight](r-server-get-started.md)
+* [Introduzione all'uso di cluster ML Services in HDInsight](r-server-get-started.md)
 * [Opzioni del contesto di calcolo per un cluster ML Services su HDInsight](r-server-compute-contexts.md)
 * [Opzioni di archiviazione per un cluster ML Services su HDInsight](r-server-storage.md)

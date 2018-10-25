@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365588"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856531"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Eseguire la migrazione delle soluzioni EDI BizTalk Server in Servizi BizTalk: guida tecnica
 
@@ -55,7 +55,7 @@ Le principali differenze e analogie tra un flusso della soluzione EDI in BizTalk
   
     Nei servizi BizTalk, dopo che il bridge di ricezione EDI elabora il messaggio EDI, il messaggio viene instradato a un processo esterno. Il processo esterno può essere eseguito in Microsoft Azure o in locale. Il processo esterno deve indirizzare il messaggio al bridge di invio EDI. Il bridge di invio non esegue implicitamente il pull del messaggio. Dopo l'elaborazione del messaggio, il bridge di invio EDI instrada il messaggio al partner commerciale.
 
-I servizi BizTalk forniscono un'esperienza di configurazione facile da utilizzare in modo da creare e distribuire rapidamente un contratto B2B tra partner commerciali senza configurare istanze di calcolo di Microsoft Azure (ruoli Web o di lavoro), database SQL di Microsoft Azure o account di archiviazione di Microsoft Azure. Scenari più complessi richiedono l'associazione di flussi di lavoro o altre elaborazioni del servizio "ai bordi" di un contratto tra partner commerciali, ovvero prima o dopo l'elaborazione del bridge EDI del contratto tra partner commerciali. In dettaglio, durante l'elaborazione nei servizi BizTalk di un messaggio EDI si verificano le sequenze di eventi seguenti.
+I servizi BizTalk offrono un'esperienza di configurazione facile da usare in modo da creare e distribuire rapidamente un contratto B2B tra partner commerciali senza configurare istanze di calcolo di Microsoft Azure (ruoli Web o di lavoro), database SQL di Microsoft Azure o account di archiviazione di Microsoft Azure. Scenari più complessi richiedono l'associazione di flussi di lavoro o altre elaborazioni del servizio "ai bordi" di un contratto tra partner commerciali, ovvero prima o dopo l'elaborazione del bridge EDI del contratto tra partner commerciali. In dettaglio, durante l'elaborazione nei servizi BizTalk di un messaggio EDI si verificano le sequenze di eventi seguenti.
 
 1. Un messaggio EDI viene ricevuto dal partner commerciale Fabrikam.  Per la ricezione di messaggi EDI dai partner commerciali, i servizi BizTalk supportano i protocolli di trasporto, quali FTP, SFTP, AS2 e HTTP/S.
 2. L'elaborazione di ricezione del contratto tra partner commerciali disassembla il messaggio EDI nel formato XML.  È possibile instradare il messaggio EDI disassemblato (nel formato XML) agli endpoint del bus di servizio, ad esempio un endpoint di inoltro del bus di servizio, un argomento del bus di servizio, una coda del bus di servizio o un bridge dei servizi BizTalk.

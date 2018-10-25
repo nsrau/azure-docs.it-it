@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdf332727c4d66af2d5394fb26e84f6ea9d963f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440766"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426332"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lezione supplementare: gerarchie incomplete
 
@@ -25,7 +25,7 @@ I modelli tabulari a livello di compatibilità 1400 offrono un'altra proprietà 
   
 Tempo previsto per il completamento dell'esercitazione:**20 minuti**  
   
-## <a name="prerequisites"></a>prerequisiti  
+## <a name="prerequisites"></a>Prerequisiti  
 L'argomento di questa lezione supplementare fa parte di un'esercitazione sulla creazione di modelli tabulari. Prima di eseguire le attività di questa lezione supplementare, è necessario avere completato tutte le lezioni precedenti o avere completato il progetto modello di esempio Adventure Works Internet Sales. 
 
 Se il progetto Adventure Works Internet Sales è stato creato nell'ambito dell'esercitazione, non contiene ancora dati o gerarchie incomplete. Per completare questa lezione supplementare, è quindi necessario creare prima il problema aggiungendo alcune tabelle, creare relazioni, colonne calcolate, una misura e una nuova gerarchia organizzativa. Questa operazione richiede circa 15 minuti. Basteranno poi pochi minuti per risolvere il problema.  
@@ -44,11 +44,11 @@ Se il progetto Adventure Works Internet Sales è stato creato nell'ambito dell'e
 
     | Tabella 1           | Colonna       | Direzione del filtro   | Tabella 2     | Colonna      | Attivo |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | Predefinito            | DimDate     | Data        | Sì    |
+    | FactResellerSales | OrderDateKey | Predefinito            | DimDate     | Data        | Yes    |
     | FactResellerSales | DueDate      | Predefinito            | DimDate     | Data        | No      |
     | FactResellerSales | ShipDateKey  | Predefinito            | DimDate     | Data        | No      |
-    | FactResellerSales | ProductKey   | Predefinito            | DimProduct  | ProductKey  | Sì    |
-    | FactResellerSales | EmployeeKey  | A entrambe le tabelle | DimEmployee | EmployeeKey | Sì    |
+    | FactResellerSales | ProductKey   | Predefinito            | DimProduct  | ProductKey  | Yes    |
+    | FactResellerSales | EmployeeKey  | A entrambe le tabelle | DimEmployee | EmployeeKey | Yes    |
 
 5. Nella tabella **DimEmployee** creare le [colonne calcolate](../tutorials/aas-lesson-5-create-calculated-columns.md) seguenti: 
 

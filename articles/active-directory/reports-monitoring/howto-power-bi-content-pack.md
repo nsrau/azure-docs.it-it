@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: c0326a6b611d5f3d5633db2d2b64b8cdc15e10a7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782165"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816685"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Come usare il pacchetto di contenuto Power BI di Azure Active Directory
 
@@ -28,50 +28,15 @@ ms.locfileid: "43782165"
 |Attualmente, il pacchetto di contenuto Power BI di Azure AD usa le API Graph di Azure AD per recuperare dati dal tenant di Azure AD. Di conseguenza, potrebbe notarsi una certa disparità tra i dati disponibili nel pacchetto di contenuto e i dati recuperati tramite le [API Microsoft Graph per la creazione di report](concept-reporting-api.md). |
 |  |
 
-Comprendere in che modo gli utenti adottano e usano le funzionalità di Azure Active Directory è fondamentale per l'amministratore IT. Consente di pianificare l'infrastruttura IT e la comunicazione per incrementare l'utilizzo e sfruttare al meglio le funzionalità di AAD. Il pacchetto di contenuto Power BI per Azure Active Directory consente di analizzare ulteriormente i dati per comprendere come usarli per ottenere informazioni più approfondite sulle attività svolte nell'istanza di Azure Active Directory per le varie funzionalità sulle quali si fa particolare affidamento.  Con l'integrazione delle API di Azure Active Directory in Power BI, è possibile scaricare facilmente i pacchetti di contenuto preesistenti e ottenere informazioni dettagliate per tutte le attività all'interno di Azure Active Directory usando l'esperienza di visualizzazione avanzata offerta da Power BI. È possibile creare dashboard personalizzati e condividerli con altri utenti nell'organizzazione. 
+L'amministratore IT deve comprendere in che modo gli utenti adottano e usano le funzionalità di Azure Active Directory. Ciò consente di pianificare l'infrastruttura IT e la comunicazione per incrementare l'utilizzo e sfruttare al meglio le funzionalità di Azure AD. Il pacchetto di contenuto Power BI per Azure Active Directory consente di analizzare ulteriormente i dati per ottenere informazioni dettagliate sulle attività della directory. Con l'integrazione delle API di Azure Active Directory in Power BI, è possibile scaricare facilmente il pacchetto di contenuto preesistente e ottenere informazioni dettagliate per tutte le attività all'interno di Azure Active Directory usando l'esperienza di visualizzazione avanzata offerta da Power BI. È possibile creare dashboard personalizzati e condividerli con altri utenti nell'organizzazione. 
 
-Questo argomento offre istruzioni dettagliate su come installare e usare il pacchetto di contenuto nel proprio ambiente.
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="installation"></a>Installazione  
+Per usare il pacchetto di contenuto, è necessario avere una licenza di Azure AD Premium (P1/P2). 
 
-**Per installare il pacchetto di contenuto di Power BI:**
+## <a name="install-the-content-pack"></a>Installare il pacchetto di contenuto
 
-1. Accedere a [Power BI](https://app.powerbi.com/groups/me/getdata/services) con l'account di Power BI, ovvero lo stesso account di Office 365 o Azure AD.
-
-2. Selezionare **Recupera dati** nella parte inferiore del riquadro di spostamento a sinistra.
-
-    ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/01.png)
- 
-3. Nella casella **Servizi** fare clic su **Ottieni**.
-   
-    ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/02.png)
-
-4.  Cercare **Azure Active Directory**.
-
-    ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/03.png)
- 
-5.  Quando richiesto, digitare l'ID tenant di Azure AD e quindi fare clic su **Avanti**.
-
-    > [!TIP] 
-    > Un modo rapido per ottenere l'ID del tenant di Office 365 / Azure AD consiste nell'accedere al portale di Azure AD, eseguire il drill-down fino alla directory e copiare l'**ID directory** dalla pagina [**Proprietà**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
-
-    ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/04.png) 
-
-6.  Fare clic su **Accedi**. 
- 
-    ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/05.png) 
-
-
-
-7.  Immettere il nome utente e la password, quindi fare clic su **Accedi**.
- 
-    ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/06.png) 
-
-8.  Nella finestra di dialogo di consenso dell'app, fare clic su **Accetta**.
- 
-9.  Fare clic sul dashboard dei log attività di Azure Active Directory, dopo che è stato creato.
- 
-    ![Pacchetto di contenuto Power BI di Azure Active Directory](./media/howto-power-bi-content-pack/08.png) 
+Leggere la [guida introduttiva](quickstart-install-power-bi-content-pack.md) per installare il pacchetto di contenuto Power BI per Azure AD.
 
 ## <a name="what-can-i-do-with-this-content-pack"></a>Operazioni eseguibili con il pacchetto di contenuto
 
@@ -155,4 +120,6 @@ Vedere la [Guida per la risoluzione dei problemi](troubleshoot-content-pack.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per una panoramica della creazione di report, vedere [Creazione di report in Azure Active Directory](overview-reports.md).
+* [Installare un pacchetto di contenuto di Power BI](quickstart-install-power-bi-content-pack.md).
+* [Risoluzione dei problemi relativi ai pacchetti di contenuto](troubleshoot-content-pack.md).
+* [Informazioni sui report di Azure AD](overview-reports.md).

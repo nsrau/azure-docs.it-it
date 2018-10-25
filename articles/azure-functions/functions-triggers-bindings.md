@@ -9,14 +9,14 @@ keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo din
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 05/24/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: e3f2cc24a3ff765a33d27bbe5a43ca9d5a229e1b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092956"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801306"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concetti di Trigger e associazioni di Funzioni di Azure
 
@@ -160,7 +160,7 @@ In alcuni ambienti di sviluppo è necessario *registrare* in modo esplicito un'a
 |Libreria di classi C# usando Visual Studio 2017|[Usare gli strumenti di NuGet](#c-class-library-with-visual-studio-2017)|[Usare gli strumenti di NuGet](#c-class-library-with-visual-studio-2017)|
 |Libreria di classi C# usando Visual Studio Code|N/D|[Usare l'interfaccia della riga di comando di .NET Core](#c-class-library-with-visual-studio-code)|
 
-I tipi di associazione seguenti sono eccezioni che non richiedono la registrazione esplicita perché sono registrati automaticamente in tutte le versioni e gli ambienti: HTTP, timer e Archiviazione di Azure (BLOB, code e tabelle). 
+I tipi di associazione HTTP e timer sono eccezioni che non richiedono la registrazione esplicita, perché vengono registrati automaticamente in tutte le versioni e in tutti gli ambienti.
 
 ### <a name="azure-portal-development"></a>Sviluppo con il portale di Azure
 
@@ -168,7 +168,7 @@ Questa sezione si applica solo a Funzioni 2.x. Le estensioni di associazione non
 
 Quando si crea una funzione o si aggiunge un'associazione, compare un avviso quando è necessario registrare l'estensione dell'associazione o del trigger. Rispondere all'avviso facendo clic **Installa** per registrare l'estensione. L'installazione può richiedere fino a 10 minuti in un piano a consumo.
 
-È necessario installare ogni estensione una sola volta per una determinata app per le funzioni. 
+È necessario installare ogni estensione una sola volta per una determinata app per le funzioni. Per le associazioni supportate non disponibili nel portale o per aggiornare un'estensione installata, è anche possibile [installare o aggiornare manualmente le estensioni delle associazioni di Funzioni di Azure dal portale](install-update-binding-extensions-manual.md).  
 
 ### <a name="local-development-azure-functions-core-tools"></a>Sviluppo a livello locale con gli strumenti di base di Funzioni di Azure
 

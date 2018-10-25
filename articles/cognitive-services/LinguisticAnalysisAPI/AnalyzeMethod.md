@@ -1,22 +1,27 @@
 ---
-title: Metodo analyze nell'API Analisi linguistica | Microsoft Docs
+title: Metodo Analyze - API Analisi linguistica
+titlesuffix: Azure Cognitive Services
 description: Come usare il metodo analyze nell'API Analisi linguistica per analizzare input specifici in linguaggio naturale.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
-ms.openlocfilehash: b17a00f31845bfa05572dff7ca94e9a1ffd69586
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373209"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239303"
 ---
 # <a name="analyze-method"></a>Metodo analyze
+
+> [!IMPORTANT]
+> L'anteprima di Analisi linguistica è stata ritirata il 9 agosto 2018. Per l'elaborazione e l'analisi del testo è consigliabile usare i [moduli di analisi del testo di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 L'API REST **analyze** API viene usata per analizzare un input specificato in linguaggio naturale.
 Potrebbe trattarsi semplicemente dell'individuazione di [frasi e token](Sentences-and-Tokens.md) all'interno dell'input, della ricerca di [tag delle parti del discorso](POS-tagging.md) o dell'individuazione dell'[albero sintattico](Constituency-Parsing.md).
@@ -33,14 +38,14 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-Nome | Tipo | Obbligatorio | Descrizione
+NOME | type | Obbligatoria | DESCRIZIONE
 -----|-------|----------|------------
-**language**    | stringa | Sì | Codice di lingua ISO di due lettere da usare per l'analisi. Ad esempio il codice per l'italiano è "it".
-**analyzerIds** | elenco di stringhe | Sì | Elenco di GUID degli analizzatori da applicare. Per altre informazioni, vedere la documentazione sugli analizzatori.
-**text**        | stringa | Sì | Input non elaborato da analizzare. Potrebbe trattarsi di una stringa breve, ad esempio una parola o frase, una frase completa o un paragrafo completo o discorso.
+**language**    | stringa | Yes | Codice di lingua ISO di due lettere da usare per l'analisi. Ad esempio il codice per l'italiano è "it".
+**analyzerIds** | elenco di stringhe | Yes | Elenco di GUID degli analizzatori da applicare. Per altre informazioni, vedere la documentazione sugli analizzatori.
+**text**        | stringa | Yes | Input non elaborato da analizzare. Potrebbe trattarsi di una stringa breve, ad esempio una parola o frase, una frase completa o un paragrafo completo o discorso.
 
-<br>
 ## <a name="response-json"></a>Risposta (JSON)
+
 Una matrice di output di analisi, uno per ogni attributo specificato nella richiesta.
 
 I risultati sono simili ai seguenti:
@@ -138,8 +143,6 @@ Per trovare il token corrispondente a ciascun tag delle parti del discorso, è o
 Il risultato è un elenco di stringhe, un albero di analisi per ogni frase trovata nell'input.
 Gli alberi di analisi sono rappresentati in un formato con parentesi.
 
-<br>
-
 ## <a name="example"></a>Esempio
 
 `POST /analyze`
@@ -151,7 +154,7 @@ Corpo della richiesta: payload JSON
   "analyzerIds": [
     "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "22A6B758-420F-4745-8A3C-46835A67C0D2" ],
-  "text": "Hi, Tom! How are you today?" 
+  "text": "Hi, Tom! How are you today?"
 }
 ```
 
@@ -159,13 +162,12 @@ Risposta: JSON
 ```json
 [
   {
-    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04", 
+    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "result": [ ["NNP",",","NNP","."], ["WRB","VBP","PRP","NN","."] ]
   },
   {
-    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2", 
+    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2",
     "result":["(TOP (S (NNP Hi) (, ,) (NNP Tom) (. !)))","(TOP (SBARQ (WHADVP (WRB How)) (SQ (VP (VBP are)) (NP (PRP you)) (NN today) (. ?))))"]
   }
 ]
 ```
-

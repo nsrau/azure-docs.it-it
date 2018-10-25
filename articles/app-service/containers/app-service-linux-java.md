@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 2b2256ef5802160dbaa66e2a098a798fcdc653d2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064505"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815172"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guida dello sviluppatore Java per il servizio app in Linux
 
@@ -216,20 +216,24 @@ Per le risorse a livello di server condiviso:
 
 4. Assicurarsi che i file driver JDBC siano disponibili per il caricatore di classe Tomcat inserendoli nella directory `/home/tomcat/lib`. Per caricare questi file nell'istanza del servizio app, seguire questa procedura:  
     1. Installare l'estensione app Web del Servizio app di Azure:
+
       ```azurecli-interactive
       az extension add –name webapp
       ```
+
     2. Eseguire il comando dell'interfaccia della riga di comando seguente per creare un tunnel SSH dal sistema locale al servizio app:
+
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
-    3. Connettersi alla porta di tunneling locale con il client SFTP e caricare i file in `/home/tomcat/lib`.
+
+    3. Connettersi alla porta di tunneling locale con il client SFTP e caricare i file nella cartella `/home/tomcat/lib`.
 
 5. Riavviare l'applicazione del servizio app in Linux. Tomcat reimposterà `CATALINA_HOME` su `/home/tomcat` e userà la configurazione e le classi aggiornate.
 
 ## <a name="docker-containers"></a>Contenitori Docker
 
-Per usare Zulu JDK supportato da Azure in esecuzione nel servizio app nei contenitori, verificare che il `Dockerfile` dell'applicazione usi le immagini del [repository di immagini Docker per il servizio app Java](https://github.com/Azure-App-Service/java).
+Per usare nei contenitori il pacchetto JDK Zulu supportato in Azure, assicurarsi di eseguire il pull delle immagini esistenti elencate nella [pagina di download di Azul](https://www.azul.com/downloads/azure-only/zulu/#docker) e di usare tale immagini oppure usare gli esempi `Dockerfile` nel [repository GitHub Java di Microsoft](https://github.com/Microsoft/java/tree/master/docker).
 
 ## <a name="runtime-availability-and-statement-of-support"></a>Disponibilità del runtime e istruzione di supporto
 
@@ -242,7 +246,7 @@ Il servizio app per Linux supporta due runtime per l'hosting gestito delle appli
 
 ### <a name="jdk-versions-and-maintenance"></a>Versioni di JDK e manutenzione
 
-Il pacchetto Java Development Kit (JDK) supportato di Azure è [Zulu](https://www.azul.com/products/zulu-and-zulu-enterprise/) fornito da [Azul Systems](https://www.azul.com/).
+Il pacchetto Java Development Kit (JDK) supportato di Azure è [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fornito da [Azul Systems](https://www.azul.com/).
 
 Gli aggiornamenti delle versioni principali verranno forniti tramite nuove opzioni di runtime nel Servizio app di Azure per Linux. I clienti eseguono l'aggiornamento a queste versioni più recenti di Java configurando la distribuzione del servizio app e sono responsabili dei test, oltre che di assicurare che l'aggiornamento principale risponda alle esigenze.
 
@@ -258,15 +262,15 @@ Se un runtime Java supportato sarà ritirato, gli sviluppatori di Azure che usan
 
 ### <a name="local-development"></a>Sviluppo locale
 
-Gli sviluppatori possono scaricare l'edizione Production di Azul Zulu Enterprise JDK per lo sviluppo locale dal [sito di download di Azul](https://www.azul.com/downloads/zulu/).
+Gli sviluppatori possono scaricare l'edizione Production di Azul Zulu Enterprise JDK per lo sviluppo locale dal [sito di download di Azul](https://www.azul.com/downloads/azure-only/zulu/).
 
 ### <a name="development-support"></a>Supporto per lo sviluppo
 
-Il supporto per il prodotto Azul Zulu Enterprise JDK è disponibile quando si sviluppa per Azure o [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) con un [piano di supporto per Azure qualificato](https://azure.microsoft.com/support/plans/).
+Il supporto per il prodotto [Azul Zulu Enterprise JDK](https://www.azul.com/downloads/azure-only/zulu/) è disponibile quando si sviluppa per Azure o [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) con un [piano di supporto per Azure qualificato](https://azure.microsoft.com/support/plans/).
 
 ### <a name="runtime-support"></a>Supporto di runtime
 
-Gli sviluppatori possono [aprire un problema](/azure/azure-supportability/how-to-create-azure-support-request) relativo al runtime Java del servizio app per Linux tramite il supporto di Azure se hanno un [piano di supporto qualificato](https://azure.microsoft.com/support/plans/).
+Gli sviluppatori possono [aprire un problema](/azure/azure-supportability/how-to-create-azure-support-request) relativo ai pacchetti JDK Azul Zulu tramite il supporto di Azure se hanno un [piano di supporto qualificato](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

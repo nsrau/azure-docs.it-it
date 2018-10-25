@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 43fd52dd04e679b9756c07e8c6e260323469026a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c1ef71ea2ec551335c3681760c181624334c3229
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126203"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043202"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Aggiornamenti dello schema per App per la logica di Azure: 1° giugno 2016
 
@@ -33,23 +33,23 @@ Per aggiornare le app per la logica dallo schema di anteprima del 1° agosto 201
 
 Questo schema include gli ambiti, che consentono di raggruppare le azioni o annidarle all'interno di altre. Una condizione, ad esempio, può contenere un'altra condizione. Vedere altre informazioni sulla [sintassi degli ambiti](../logic-apps/logic-apps-loops-and-scopes.md) oppure esaminare questo esempio di ambito di base:
 
-```
+```json
 {
-    "actions": {
-        "My_Scope": {
-            "type": "scope",
-            "actions": {                
-                "Http": {
-                    "inputs": {
-                        "method": "GET",
-                        "uri": "http://www.bing.com"
-                    },
-                    "runAfter": {},
-                    "type": "Http"
-                }
+   "actions": {
+      "Scope": {
+         "type": "Scope",
+         "actions": {                
+            "Http": {
+               "inputs": {
+                   "method": "GET",
+                   "uri": "http://www.bing.com"
+               },
+               "runAfter": {},
+               "type": "Http"
             }
-        }
-    }
+         }
+      }
+   }
 }
 ```
 
@@ -57,29 +57,29 @@ Questo schema include gli ambiti, che consentono di raggruppare le azioni o anni
 
 ## <a name="conditions-and-loops-changes"></a>Modifiche di condizioni e cicli
 
-Nelle versioni precedenti dello schema, le condizioni e i cicli sono parametri associati a una singola azione. In questo schema è stata rimossa questa limitazione e le condizioni e i cicli sono disponibili come tipi di azione. Vedere altre informazioni su [cicli e ambiti](../logic-apps/logic-apps-loops-and-scopes.md) oppure esaminare questo esempio di base di un'azione condizione:
+Nelle versioni precedenti dello schema, le condizioni e i cicli sono parametri associati a una singola azione. In questo schema è stata rimossa questa limitazione e le condizioni e i cicli sono ora disponibili come tipi di azione. Vedere altre informazioni su [cicli e ambiti](../logic-apps/logic-apps-loops-and-scopes.md), [condizioni](../logic-apps/logic-apps-control-flow-conditional-statement.md) oppure esaminare questo esempio di base di un'azione condizione:
 
-```
+```json
 {
-    "If_trigger_is_some-trigger": {
-        "type": "If",
-        "expression": "@equals(triggerBody(), 'some-trigger')",
-        "runAfter": { },
-        "actions": {
-            "Http_2": {
-                "inputs": {
-                    "method": "GET",
-                    "uri": "http://www.bing.com"
-                },
-                "runAfter": {},
-                "type": "Http"
-            }
-        },
-        "else": 
-        {
-            "if_trigger_is_another-trigger": "..."
-        }      
-    }
+   "Condition - If trigger is some trigger": {
+      "type": "If",
+      "expression": "@equals(triggerBody(), '<trigger-name>')",
+      "runAfter": {},
+      "actions": {
+         "Http_2": {
+            "inputs": {
+                "method": "GET",
+                "uri": "http://www.bing.com"
+            },
+            "runAfter": {},
+            "type": "Http"
+         }
+      },
+      "else": 
+      {
+         "Condition - If trigger is another trigger": {}
+      }  
+   }
 }
 ```
 
@@ -87,16 +87,14 @@ Nelle versioni precedenti dello schema, le condizioni e i cicli sono parametri a
 
 ## <a name="runafter-property"></a>Proprietà "runAfter"
 
-La proprietà `runAfter` sostituisce `dependsOn`, offrendo maggiore precisione quando si specifica l'ordine di esecuzione delle azioni in base allo stato di azioni precedenti.
+La proprietà `runAfter` sostituisce `dependsOn`, offrendo maggiore precisione quando si specifica l'ordine di esecuzione delle azioni in base allo stato di azioni precedenti. La proprietà `dependsOn` indica se "l'azione è stata eseguita e ha avuto esito positivo", in base a se l'azione precedente ha avuto esito positivo, non è riuscita, oppure è stata ignorata. Non indica il numero di volte che si desiderava eseguire l'azione. La proprietà `runAfter` offre flessibilità in quanto oggetto che specifica tutti nomi delle azioni dopo cui viene eseguito. Questa proprietà definisce anche una matrice degli stati accettabili come trigger. Per impostare ad esempio l'esecuzione dopo l'esito positivo dell'azione A e dopo l'esito positivo o negativo dell'azione B, ad esempio, impostare la proprietà `runAfter`:
 
-La proprietà `dependsOn` indica l'esecuzione riuscita dell'azione, indipendentemente dal numero di volte che si vuole eseguire un'azione a seconda che la precedente sia riuscita, abbia avuto esito negativo o sia stata ignorata. La proprietà `runAfter` offre tale flessibilità in quanto oggetto che specifica tutti nomi delle azioni dopo cui viene eseguito. Questa proprietà definisce anche una matrice degli stati accettabili come trigger. Per impostare l'esecuzione dopo l'esito positivo del passaggio A e dopo l'esito positivo o negativo del passaggio B, ad esempio, si costruisce questa proprietà `runAfter`:
-
-```
+```json
 {
-    "...",
-    "runAfter": {
-        "A": ["Succeeded"],
-        "B": ["Succeeded", "Failed"]
+   // Other parts in action definition
+   "runAfter": {
+      "A": ["Succeeded"],
+      "B": ["Succeeded", "Failed"]
     }
 }
 ```
@@ -109,10 +107,12 @@ Per eseguire l'aggiornamento allo [schema più recente](https://schema.managemen
 
 2. Passare a **Panoramica**. Sulla barra degli strumenti dell'app per la logica scegliere **Aggiorna schema**.
    
-    ![Scegliere Aggiorna schema][1]
+   ![Scegliere Aggiorna schema][1]
    
-    Verrà restituita la definizione aggiornata, che è possibile copiare e incollare in una definizione di risorsa, se necessario. 
-    È tuttavia **altamente consigliabile** scegliere **Salva con nome** per assicurarsi che tutti i riferimenti alla connessione siano validi nell'app per la logica aggiornata.
+   Verrà restituita la definizione aggiornata, che è possibile copiare e incollare in una definizione di risorsa, se necessario. 
+
+   > [!IMPORTANT]
+   > *Assicurarsi di* scegliere **Salva con nome** in modo che tutti i riferimenti alla connessione rimangono validi nell'app per la logica aggiornata.
 
 3. Sulla barra degli strumenti del pannello per l'aggiornamento scegliere **Salva con nome**.
 
@@ -125,17 +125,17 @@ Per eseguire l'aggiornamento allo [schema più recente](https://schema.managemen
 
 6. *Facoltativo* Per sovrascrivere l'app per la logica precedente con la nuova versione dello schema, sulla barra degli strumenti scegliere **Clona** accanto ad **Aggiorna schema**. Questo passaggio è necessario solo se si vuole mantenere lo stesso ID risorsa o lo stesso URL del trigger di richiesta dell'app per la logica.
 
-### <a name="upgrade-tool-notes"></a>Note sullo strumento di aggiornamento
+## <a name="upgrade-tool-notes"></a>Note sullo strumento di aggiornamento
 
-#### <a name="mapping-conditions"></a>Mapping delle condizioni
+### <a name="mapping-conditions"></a>Mapping delle condizioni
 
-Nella definizione aggiornata, lo strumento tenta di raggruppare le azioni dei rami true e false in un ambito. In particolare, il modello di progettazione `@equals(actions('a').status, 'Skipped')` verrà visualizzato come un'azione `else`. Se lo strumento rileva modelli non riconoscibili, tuttavia, potrebbe creare condizioni separate per i rami true e false. Se necessario, è possibile modificare il mapping delle azioni dopo l'aggiornamento.
+Nella definizione aggiornata lo strumento tenta di raggruppare le azioni dei rami true e false in un ambito. In particolare, il modello di progettazione `@equals(actions('a').status, 'Skipped')` verrà visualizzato come un'azione `else`. Se lo strumento rileva modelli non riconoscibili, tuttavia, potrebbe creare condizioni separate per i rami true e false. Se necessario, è possibile modificare il mapping delle azioni dopo l'aggiornamento.
 
 #### <a name="foreach-loop-with-condition"></a>Ciclo "foreach" con condizione
 
-Nel nuovo schema, è possibile usare l'azione di filtro per replicare il modello di un ciclo `foreach` con una condizione per elemento, ma questa modifica dovrebbe essere eseguita automaticamente durante l'aggiornamento. La condizione diventa un'azione di filtro prima del ciclo foreach per restituire solo una matrice di elementi che soddisfano la condizione e tale matrice viene passata nell'azione foreach. Per un esempio, vedere l'articolo relativo a [cicli e ambiti](../logic-apps/logic-apps-loops-and-scopes.md).
+Nel nuovo schema è possibile usare l'azione di filtro per replicare il modello che usa un ciclo **For each** con un'unica condizione per elemento. Tuttavia, la modifica avviene automaticamente quando esegue l'aggiornamento. La condizione diventa un'azione di filtro che appare prima del ciclo **For each** per restituire solo una matrice di elementi che soddisfano la condizione e passare tale matrice all'azione **For each**. Per un esempio, vedere l'articolo relativo a [cicli e ambiti](../logic-apps/logic-apps-loops-and-scopes.md).
 
-#### <a name="resource-tags"></a>Tag delle risorse
+### <a name="resource-tags"></a>Tag delle risorse
 
 Dopo l'aggiornamento, i tag delle risorse vengono rimossi. È quindi necessario reimpostarli per il flusso di lavoro aggiornato.
 
@@ -157,20 +157,20 @@ I cicli `foreach` e `until` sono limitati a una singola azione.
 
 Le azioni possono ora includere una proprietà aggiuntiva denominata `trackedProperties`, di pari livello rispetto alle proprietà `runAfter` e `type`. Questo oggetto specifica determinati input o output delle azioni da includere nei dati di telemetria di Diagnostica di Azure generati come parte di un flusso di lavoro, Ad esempio: 
 
-```
-{                
-    "Http": {
-        "inputs": {
-            "method": "GET",
-            "uri": "http://www.bing.com"
-        },
-        "runAfter": {},
-        "type": "Http",
-        "trackedProperties": {
-            "responseCode": "@action().outputs.statusCode",
-            "uri": "@action().inputs.uri"
-        }
-    }
+``` json
+{
+   "Http": {
+      "inputs": {
+         "method": "GET",
+         "uri": "http://www.bing.com"
+      },
+      "runAfter": {},
+      "type": "Http",
+      "trackedProperties": {
+         "responseCode": "@action().outputs.statusCode",
+         "uri": "@action().inputs.uri"
+      }
+   }
 }
 ```
 

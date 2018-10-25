@@ -1,24 +1,18 @@
 ---
-title: Limiti di dimensioni di richiesta di Web application firewall ed elenchi di esclusione nel gateway applicazione Azure - Portale di Azure | Microsoft Docs
+title: Limiti di dimensioni di richiesta di Web application firewall ed elenchi di esclusione nel gateway applicazione Azure - Portale di Azure
 description: Questo articolo fornisce informazioni su limiti di dimensioni di richiesta di Web application firewall e sulla configurazione di elenchi di esclusione nel gateway applicazione con il portale di Azure.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/11/2018
 ms.author: victorh
-ms.openlocfilehash: 995e003422d5a94fe57174dc9733c870e4e003aa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9306280d00ec901633585aba2f23ed06b25b4e1e
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965506"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115455"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione (Anteprima pubblica)
 
@@ -29,6 +23,7 @@ Il Web application firewall del gateway applicazione di Azure (WAF) fornisce la 
 
 ## <a name="waf-request-size-limits"></a>Limiti di dimensioni di richiesta WAF
 Web application firewall consente agli utenti di configurare i limiti di dimensioni di richiesta entro i limiti inferiori e superiori. Sono disponibili le seguenti due configurazioni di limiti di dimensioni:
+
 - Il campo della dimensione massima del corpo di richiesta è specificato in KB e controlla il limite di dimensioni di richiesta complessivo, escluso qualsiasi caricamento di file. Questo campo può variare da un minimo di 1 kB a un valore massimo di 128 kB. Il valore predefinito per le dimensioni del corpo della richiesta è 128 kB.
 - Il campo limite di caricamento file è specificato in MB e determina le dimensioni massime consentite per il caricamento file. Questo campo può avere un valore minimo di 1 MB e un massimo di 500 MB. Il valore predefinito per il limite di caricamento file è 100 MB.
 
@@ -37,8 +32,13 @@ Web application firewall offre anche una funzione configurabile per attivare o d
 ## <a name="waf-exclusion-lists"></a>Elenchi di esclusione di WAF
 
 Gli elenchi di esclusione di Web Application firewall consentono agli utenti di omettere determinati attributi di richiesta da una valutazione di WAF. Un esempio comune è rappresentato dai token inseriti in Active Directory che vengono usati per l'autenticazione o per i campi password. Tali attributi sono soggetti a contenere caratteri speciali che possono attivare un falso positivo dalle regole di WAF. Una volta che un attributo viene aggiunto all'elenco di esclusione WAF, non viene preso in considerazione da nessuna regola WAF configurata e attiva. Gli elenchi di esclusione hanno ambito globale.
-È possibile aggiungere intestazioni di richiesta, i cookie di richiesta o argomenti di stringa di query di richiesta per gli elenchi di esclusione di WAF. È possibile specificare un'esatta intestazione di richiesta, un cookie o una corrispondenza dell'attributo stringa della query o, facoltativamente, è possibile specificare corrispondenze parziali. Di seguito sono riportati gli operatori di criteri di corrispondenza supportati: 
-- **Uguale a**: questo operatore viene usato per una corrispondenza esatta. Ad esempio, per selezionare l'intestazione denominata **bearerToken**"* * usare operatore uguale a con impostato come selettore **bearerToken**. 
+È possibile aggiungere intestazioni di richiesta, il corpo della richiesta, i cookie di richiesta o gli argomenti di stringa di query di richiesta per gli elenchi di esclusione di WAF. Se il corpo ha dati del modulo o XML/JSON (coppie chiave-valore), è possibile usare il tipo di esclusione dell'attributo della richiesta.
+
+È possibile specificare un'esatta intestazione di richiesta, un corpo, un cookie o una corrispondenza dell'attributo stringa della query o, facoltativamente, è possibile specificare corrispondenze parziali.
+
+Di seguito sono riportati gli operatori di criteri di corrispondenza supportati:
+
+- **Uguale a**: questo operatore viene usato per una corrispondenza esatta. Ad esempio, per selezionare l'intestazione denominata **bearerToken** usare operatore uguale a con impostato come selettore **bearerToken**.
 - **Inizia con**: questo operatore corrisponde a tutti i campi che iniziano con un valore del selettore specificato. 
 - **Termina con**: questo operatore corrisponde a tutti i campi di richiesta che terminano con un valore del selettore specificato. 
 - **Contiene**: questo operatore corrisponde a tutti i campi di richiesta che contengono un valore del selettore specificato.

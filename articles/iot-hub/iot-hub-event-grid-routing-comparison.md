@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 13cf5861bf39cdd9c192586979b95192a31e9399
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3d52ca0c7022e08655ece8775b5855f3ae985aca
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978676"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247453"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Confrontare il routing dei messaggi e Griglia di eventi per l'hub IoT
 
@@ -22,6 +22,7 @@ L'hub IoT di Azure consente di trasmettere i dati dai dispositivi connessi e di 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 * **[Routing dei messaggi dell'hub IoT](iot-hub-devguide-messages-d2c.md)**: questa funzionalità dell'hub IoT consente agli utenti di instradare i messaggi da dispositivo a cloud agli endpoint di servizio, ad esempio i contenitori di archiviazione di Azure, Hub eventi, le code del bus di servizio e gli argomenti del bus di servizio. Il routing fornisce anche una funzionalità di query per filtrare i dati prima di indirizzarli agli endpoint. Oltre ai dati di telemetria dei dispositivi, è anche possibile inviare [gli eventi non di telemetria](iot-hub-devguide-messages-d2c.md#non-telemetry-events) che possono essere usati per attivare le azioni. 
+
 * **Integrazione dell'hub IoT con Griglia di eventi**: Griglia di eventi di Azure è un servizio di routing di eventi completamente gestito che usa un modello di pubblicazione-sottoscrizione. L'hub IoT e Griglia di eventi interagiscono per [integrare gli eventi dell'hub IoT nei servizi di Azure e non di Azure](iot-hub-event-grid.md), in tempo quasi reale. 
 
 ## <a name="similarities-and-differences"></a>Analogie e differenze

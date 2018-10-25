@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 59eb0ddad72f5e54a23a97a260477f84019eb62c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530439"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386342"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -32,16 +32,17 @@ Quando si prova a montare una condivisione file da locale o da un data center di
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: canale di comunicazione non crittografato
 
-Per motivi di sicurezza, le connessioni alle condivisioni file di Azure vengono bloccate se il canale di comunicazione non è crittografato e il tentativo di connessione non viene effettuato dallo stesso data center in cui si trovano tali condivisioni. La crittografia del canale di comunicazione è disponibile solo se il sistema operativo del client dell'utente supporta la crittografia SMB.
+Per motivi di sicurezza, le connessioni alle condivisioni file di Azure vengono bloccate se il canale di comunicazione non è crittografato e il tentativo di connessione non viene effettuato dallo stesso data center in cui si trovano tali condivisioni. Le connessioni non crittografate all'interno dello stesso data center possono essere bloccate se l'impostazione [Trasferimento sicuro obbligatorio](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) è abilitata nell'account di archiviazione. La crittografia del canale di comunicazione è disponibile solo se il sistema operativo del client dell'utente supporta la crittografia SMB.
 
 Windows 8, Windows Server 2012 e le versioni successive di ciascuno dei due sistemi operativi negoziano richieste comprendenti SMB 3.0, che supporta la crittografia.
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
-Connettersi da un client che soddisfa uno dei requisiti seguenti:
+1. Verificare che l'opzione [Trasferimento sicuro obbligatorio](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) sia disabilitata nell'account di archiviazione.
+2. Connettersi da un client che soddisfa uno dei requisiti seguenti:
 
-- Soddisfa i requisiti di Windows 8 e Windows Server 2012 o versioni successive
-- Effettua la connessione da una macchina virtuale nello stesso data center dell'account di archiviazione di Azure usato per la condivisione file di Azure
+    - Soddisfa i requisiti di Windows 8 e Windows Server 2012 o versioni successive
+    - Effettua la connessione da una macchina virtuale nello stesso data center dell'account di archiviazione di Azure usato per la condivisione file di Azure
 
 ### <a name="cause-2-port-445-is-blocked"></a>Causa 2: la porta 445 è bloccata
 

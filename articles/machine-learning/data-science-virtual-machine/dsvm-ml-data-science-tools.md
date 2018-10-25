@@ -15,93 +15,93 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9a9dc868c4f22f95ca5027e3c95513d176c69eac
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9308c51c0ff5fc7278eab632f9d23f23cf016a2a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392400"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901669"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>Strumenti per machine learning e data science
-La macchina virtuale per data science offre un ampio set di strumenti e librerie per machine learning disponibili nei linguaggi più diffusi, ad esempio Python, R, Julia. 
+Data Science Virtual Machine offre un ampio set di strumenti e librerie per machine learning (ML) disponibili nei linguaggi più diffusi, ad esempio Python, R, Julia. 
 
-Ecco alcuni strumenti di machine learning e librerie nella macchina virtuale per data science. 
+Ecco alcuni strumenti e librerie ML in Data Science Virtual Machine. 
 
-## <a name="azure-machine-learning-servicehttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>SDK del [servizio Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml)
+## <a name="azure-machine-learninghttpsdocsmicrosoftcomazuremachine-learningserviceoverview-what-is-azure-ml-sdk"></a>SDK di [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/overview-what-is-azure-ml)
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   |   Azure Machine Learning è un servizio cloud usato per sviluppare e distribuire modelli di Machine Learning.  È possibile tenere traccia dei modelli durante la compilazione, il training, il ridimensionamento e la gestione con Python SDK. Distribuire modelli come contenitori ed eseguirli nel cloud, in locale o in IoT Edge.   |
-| Edizioni supportate della macchina virtuale per data science     | Windows (ambiente Conda: AzureML), Linux (ambiente Conda: py36)    |
-| Usi tipici      | Piattaforma ML generale      |
-| Come viene configurata o installata sulla macchina virtuale per data science?      |  Installata con supporto GPU   |
-| Come usarla o eseguirla?      | Come Python SDK e strumento della riga di comando di Azure (interfaccia della riga di comando di Azure). Attivare per l'ambiente Conda `AzureML` nell'edizione per Windows o `py36` nell'edizione per Linux.      |
-| Collegamenti agli esempi      | I notebook di Jupyter di esempio sono inclusi nella directory `AzureML` in notebooks  |
-| Strumenti correlati nella macchina virtuale per data science      | Visual Studio Code, Jupyter   |
+| Che cos'è?   |   Azure Machine Learning è un servizio cloud usato per sviluppare e distribuire modelli di Machine Learning. È possibile tenere traccia dei modelli durante la compilazione, il training, il ridimensionamento e la gestione con Python SDK. Distribuire modelli come contenitori ed eseguirli nel cloud, in locale o in Azure IoT Edge.   |
+| Edizioni supportate     | Windows (ambiente Conda: AzureML), Linux (ambiente Conda: py36)    |
+| Usi tipici      | Piattaforma Machine Learning generale      |
+| Come viene configurata o installata?      |  Installata con supporto GPU   |
+| Come usarla o eseguirla      | Come Python SDK e interfaccia della riga di comando di Azure. Attivare per l'ambiente Conda `AzureML` nell'edizione per Windows *o* per `py36` nell'edizione per Linux.      |
+| Collegamenti agli esempi      | I notebook di Jupyter di esempio sono inclusi nella directory `AzureML` in notebook.  |
+| Strumenti correlati      | Visual Studio Code, Jupyter   |
 
 ## <a name="xgboost"></a>XGBoost 
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   |    Libreria di gradient boosting veloce, portatile e distribuita per Python, R, Java, Scala, C++ e altro ancora. Viene eseguita su un solo computer, Hadoop, Spark    |
-| Edizioni supportate della macchina virtuale per data science     | Windows, Linux     |
+| Che cos'è?   |    XGBoost è una libreria di gradient boosting veloce, portatile e distribuita (GBDT, GBRT o GBM) per Python, R, Java, Scala, C++ e altro ancora. Viene eseguita su un solo computer, Hadoop, Spark.    |
+| Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Libreria ML generale      |
-| Come viene configurata o installata sulla macchina virtuale per data science?      |  Installata con supporto GPU   |
-| Come usarla o eseguirla?      | Come pacchetto R della libreria di Python 2.7 e 3.5 e sullo strumento della riga di comando del percorso (`C:\dsvm\tools\xgboost\bin\xgboost.exe` per Windows, `/dsvm/tools/xgboost/xgboost` per Linux)    |
-| Collegamenti agli esempi      | Gli esempi sono inclusi nella macchina virtuale, in `/dsvm/tools/xgboost/demo` su Linux e `C:\dsvm\tools\xgboost\demo` su Windows   |
-| Strumenti correlati nella macchina virtuale per data science      | LightGBM, MXNet   |
+| Come viene configurata o installata?      |  Installata con supporto GPU   |
+| Come usarla o eseguirla      | Come pacchetto R della libreria di Python 2.7 e 3.5 e sullo strumento della riga di comando del percorso (`C:\dsvm\tools\xgboost\bin\xgboost.exe` per Windows, `/dsvm/tools/xgboost/xgboost` per Linux)    |
+| Collegamenti agli esempi      | Gli esempi sono inclusi nella macchina virtuale, in `/dsvm/tools/xgboost/demo` su Linux e `C:\dsvm\tools\xgboost\demo` su Windows.   |
+| Strumenti correlati      | LightGBM, MXNet   |
 
 
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   |   Vowpal Wabbit, noto anche come "VW", è una libreria del sistema di apprendimento esterno rapido e open source    |
-| Edizioni supportate della macchina virtuale per data science     | Windows, Linux     |
+| Che cos'è?   |   Vowpal Wabbit, noto anche come "VW", è una libreria del sistema di apprendimento esterno rapido e open source.    |
+| Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Libreria ML generale      |
-| Come viene configurata o installata sulla macchina virtuale per data science?      |  Windows: programma di installazione msi, Linux: apt-get |
-| Come usarla o eseguirla?      | Come strumento della riga di comando nel percorso (`C:\Program Files\VowpalWabbit\vw.exe` in Windows, `/usr/bin/vw` in Linux)    |
+| Come viene configurata o installata?      |  Windows: programma di installazione msi, Linux: apt-get |
+| Come usarla o eseguirla      | Come strumento della riga di comando nel percorso (`C:\Program Files\VowpalWabbit\vw.exe` in Windows, `/usr/bin/vw` in Linux)    |
 | Collegamenti agli esempi      | [Esempi di Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki/Examples) |
-| Strumenti correlati nella macchina virtuale per data science      |LightGBM, MXNet, XGBoost   |
+| Strumenti correlati      |LightGBM, MXNet, XGBoost   |
 
 
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   |  Weka è una raccolta di algoritmi per machine learning per attività di data mining. Gli algoritmi possono essere applicati direttamente a un set di dati o chiamati dal codice Java. Weka contiene strumenti per la pre-elaborazione, la classificazione, la regressione, il clustering, le regole di associazione e la visualizzazione dei dati. |
-| Edizioni supportate della macchina virtuale per data science     | Windows, Linux     |
-| Usi tipici      | Strumento ML generale     |
-| Come usarla o eseguirla?      | In Windows cercare Weka nel menu Start. In Linux accedere con X2Go, quindi passare ad Applications (Applicazioni) -> Development (Sviluppo) -> Weka. |
+| Che cos'è?   |  Weka è una raccolta di algoritmi per Machine Learning per attività di data mining. Gli algoritmi possono essere applicati direttamente a un set di dati o chiamati dal codice Java. Weka contiene strumenti per la pre-elaborazione, la classificazione, la regressione, il clustering, le regole di associazione e la visualizzazione dei dati. |
+| Edizioni supportate     | Windows, Linux     |
+| Usi tipici      | Strumento Machine Learning generale     |
+| Come usarla o eseguirla      | In Windows cercare Weka nel menu Start. In Linux accedere con X2Go e quindi andare a **Applications** > **Development** > **Weka**. |
 | Collegamenti agli esempi      | [Esempi di Weka](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
-| Strumenti correlati nella macchina virtuale per data science      |LightGBM, Rattle, XGBooost   |
+| Strumenti correlati      |LightGBM, Rattle, XGBoost   |
 
 ## <a name="rattle"></a>Rattle
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   |   Un'interfaccia utente grafica per data mining con R   |
-| Edizioni supportate della macchina virtuale per data science     | Windows, Linux     |
+| Che cos'è?   |   Rattle è un'interfaccia utente grafica per data mining con R.   |
+| Edizioni supportate     | Windows, Linux     |
 | Usi tipici      | Strumento di data mining dell'interfaccia utente generale per R    |
-| Come usarla o eseguirla?      | Strumento dell'interfaccia utente. In Windows avviare un prompt dei comandi, eseguire R, quindi all'interno di R eseguire `rattle()`. In Linux connettersi con X2Go, avviare un terminale, eseguire R, quindi all'interno di R eseguire `rattle()`. |
+| Come usarla o eseguirla      | Strumento dell'interfaccia utente. In Windows avviare un prompt dei comandi, eseguire R, quindi all'interno di R eseguire `rattle()`. In Linux connettersi con X2Go, avviare un terminale, eseguire R, quindi all'interno di R eseguire `rattle()`. |
 | Collegamenti agli esempi      | [Rattle](https://togaware.com/onepager/) |
-| Strumenti correlati nella macchina virtuale per data science      |LightGBM, Weka, XGBoost   |
+| Strumenti correlati      |LightGBM, Weka, XGBoost   |
 
 ## <a name="lightgbm"></a>LightGBM
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Un framework di gradient boosting veloce, distribuito e ad alte prestazioni che si basa sugli algoritmi dell'albero delle decisioni, usati per la collocazione, la classificazione e molte altre attività di machine learning.    |
-| Versioni supportate della macchina virtuale per data science      | Windows, Linux    |
+| Che cos'è?   | LightGBM è un framework rapido, distribuito e a prestazioni elevate di gradient boosting (GBDT, GBRT, GBM, or MART) basato su algoritmi dell'albero delle decisioni. Viene usato per la classificazione e molte altre attività di Machine Learning.    |
+| Versioni supportate      | Windows, Linux    |
 | Usi tipici      | Framework di gradient boosting generico      |
-| Come viene configurata o installata sulla macchina virtuale per data science?      | In Windows LightGBM viene installato come pacchetto di Python. In Linux il file eseguibile da riga di comando si trova in `/opt/LightGBM/lightgbm`, viene installato il pacchetto R e i pacchetti di Python.     |
+| Come viene configurata o installata?      | In Windows LightGBM viene installato come pacchetto di Python. In Linux il file eseguibile da riga di comando si trova in `/opt/LightGBM/lightgbm`, viene installato il pacchetto R e i pacchetti di Python.     |
 | Collegamenti agli esempi      | [Guida a LightGBM](https://github.com/Microsoft/LightGBM/tree/master/examples/python-guide)   |
-| Strumenti correlati nella macchina virtuale per data science      | MXNet, XgBoost  |
+| Strumenti correlati      | MXNet, XgBoost  |
 
 ## <a name="h2o"></a>H2O
 |    |           |
 | ------------- | ------------- |
-| Che cos'è?   | Una piattaforma IA open source che supporta machine learning in memoria, distribuito, veloce e scalabile  |
-| Versioni supportate della macchina virtuale per data science      | Linux   |
+| Che cos'è?   | H2O è una piattaforma IA open source che supporta Machine Learning in memoria, distribuito, veloce e scalabile.  |
+| Versioni supportate      | Linux   |
 | Usi tipici      | ML scalabile e distribuito generico   |
-| Come viene configurata o installata sulla macchina virtuale per data science?      | H2O è installato in `/dsvm/tools/h2o`.      |
-| Come usarla o eseguirla?      | Connettersi alla macchina virtuale con X2Go. Avviare un nuovo terminale ed eseguire `java -jar /dsvm/tools/h2o/current/h2o.jar`. Quindi avviare un Web browser e connettersi a `http://localhost:54321`.      |
+| Come viene configurata o installata?      | H2O è installato in `/dsvm/tools/h2o`.      |
+| Come usarla o eseguirla      | Connettersi alla macchina virtuale con X2Go. Avviare un nuovo terminale ed eseguire `java -jar /dsvm/tools/h2o/current/h2o.jar`. Quindi avviare un Web browser e connettersi a `http://localhost:54321`.      |
 | Collegamenti agli esempi      | Gli esempi sono disponibili nella macchina virtuale in Jupyter nella directory `h2o`.      |
-| Strumenti correlati nella macchina virtuale per data science      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
+| Strumenti correlati      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
 
-Esistono molte altre librerie ML sulla macchina virtuale per data science come il noto pacchetto `scikit-learn` incluso nella distribuzione Anaconda Python installata nella macchina virtuale per data science. Assicurarsi di controllare l'elenco dei pacchetti disponibili in Python, R e Julia eseguendo i rispettivi strumenti di gestione dei pacchetti. 
+Esistono molte altre librerie ML in Data Science Virtual Machine come il noto pacchetto `scikit-learn` incluso nella distribuzione Anaconda Python installata in Data Science Virtual Machine. Per estrarre l'elenco dei pacchetti disponibili in Python, R e Julia, eseguire i rispettivi strumenti di gestione dei pacchetti.

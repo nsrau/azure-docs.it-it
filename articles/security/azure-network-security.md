@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061542"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405974"
 ---
 # <a name="azure-network-security"></a>Sicurezza di rete di Azure
 
@@ -459,8 +459,6 @@ Quando un client tenta di connettersi a un servizio, è necessario prima risolve
 La convalida della rete di Azure permette di accertare il funzionamento della rete di Azure in base alla configurazione e può essere eseguita usando i servizi e le funzionalità disponibili per il monitoraggio della rete. Con Azure Network Watcher è possibile accedere a una vasta gamma di funzionalità di registrazione e diagnostica, con informazioni che permettono di conoscere le prestazioni e l'integrità della rete. Tali funzionalità sono accessibili tramite il portale, PowerShell, l'interfaccia della riga di comando, API Rest e SDK.
 
 La sicurezza operativa di Azure include i servizi, i controlli e le funzionalità offerti ai clienti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. La sicurezza operativa di Azure è basata su un framework che incorpora le conoscenze acquisite tramite varie funzionalità esclusive di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
-
--   [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
 
 -   [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 

@@ -7,13 +7,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/08/2018
+ms.openlocfilehash: 6455322a1a1cf392c16aba708ce8445f8c80c3df
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972182"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363844"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estendere Azure HDInsight usando Rete virtuale di Azure
 
@@ -173,7 +173,7 @@ Per altre informazioni, vedere il documento [Risoluzione dei nomi per le macchin
 
 ## <a name="directly-connect-to-hadoop-services"></a>Connettersi direttamente ai servizi Hadoop
 
-La maggior parte della documentazione in HDInsight presuppone che sia disponibile l'accesso al cluster tramite Internet. ad esempio che sia possibile connettersi al cluster all'indirizzo https://CLUSTERNAME.azurehdinsight.net. Questo indirizzo usa il gateway pubblico, che non è disponibile se sono stati usati gruppi di sicurezza di rete o route definite dall'utente per limitare l'accesso da Internet.
+È possibile connettersi al cluster all'indirizzo https://CLUSTERNAME.azurehdinsight.net. Questo indirizzo usa un IP pubblico, che potrebbe non essere accessibile se sono stati usati gruppi di sicurezza di rete o route definite dall'utente per limitare il traffico in ingresso da Internet. Quando si distribuisce il cluster in una rete virtuale è inoltre possibile accedervi tramite l'endpoint privato https://CLUSTERNAME-internal.azurehdinsight.net. Questo endpoint viene risolto in un indirizzo IP privato all'interno della rete virtuale per l'accesso al cluster.
 
 Per connettersi alle pagine Ambari e ad altre pagine Web tramite la rete virtuale, seguire questa procedura:
 
@@ -253,7 +253,7 @@ Il tunneling forzato è una configurazione di routing definita dall'utente in cu
 >
 > Se non si usano gruppi di sicurezza di rete o route definite dall'utente per controllare il traffico, è possibile ignorare questa sezione.
 
-Se si usano gruppi di sicurezza di rete o route definite dall'utente, è necessario consentire il traffico dai servizi di gestione e integrità di Azure per raggiungere HDInsight. Usare la procedura seguente per trovare gli indirizzi IP che devono essere consentiti:
+Se si usano gruppi di sicurezza di rete o route definite dall'utente, è necessario consentire il traffico dai servizi di gestione e integrità di Azure per raggiungere HDInsight. È anche necessario consentire il traffico tra macchine virtuali all'interno della subnet. Usare la procedura seguente per trovare gli indirizzi IP che devono essere consentiti:
 
 1. È sempre necessario consentire il traffico dagli indirizzi IP seguenti:
 
@@ -280,6 +280,7 @@ Se si usano gruppi di sicurezza di rete o route definite dall'utente, è necessa
     | &nbsp; | Canada centrale | 52.228.37.66</br>52.228.45.222 | 443 | In ingresso |
     | Cina | Cina settentrionale | 42.159.96.170</br>139.217.2.219 | 443 | In ingresso |
     | &nbsp; | Cina orientale | 42.159.198.178</br>42.159.234.157 | 443 | In ingresso |
+    | &nbsp; | Cina settentrionale 2 | 40.73.37.141</br>40.73.38.172 | 443 | In ingresso |
     | Europa | Europa settentrionale | 52.164.210.96</br>13.74.153.132 | 443 | In ingresso |
     | &nbsp; | Europa occidentale| 52.166.243.90</br>52.174.36.244 | 443 | In ingresso |
     | Germania | Germania centrale | 51.4.146.68</br>51.4.146.80 | 443 | In ingresso |
@@ -301,7 +302,7 @@ Se si usano gruppi di sicurezza di rete o route definite dall'utente, è necessa
 
     Per informazioni sugli indirizzi IP da usare per Azure per enti pubblici, vedere il documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Intelligence e Analisi di Azure per enti pubblici).
 
-3. Se si usa un server DNS personalizzato con la rete virtuale, è anche necessario consentire l'accesso da __168.63.129.16__. Questo è l'indirizzo del sistema di risoluzione ricorsiva di Azure. Per altre informazioni, vedere il documento [Risoluzione dei nomi per macchine virtuali e istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+3. È necessario consentire l'accesso da __168.63.129.16__. Questo è l'indirizzo del sistema di risoluzione ricorsiva di Azure. Per altre informazioni, vedere il documento [Risoluzione dei nomi per macchine virtuali e istanze del ruolo](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Per altre informazioni, vedere la sezione [Controllo del traffico di rete](#networktraffic).
 

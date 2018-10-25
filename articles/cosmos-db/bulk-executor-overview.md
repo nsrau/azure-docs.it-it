@@ -1,33 +1,32 @@
 ---
-title: Panoramica della libreria dell'executor bulk di Azure Cosmos DB | Microsoft Docs
-description: Informazioni sulla libreria dell'executor bulk di Azure Cosmos DB, vantaggi sull'uso della libreria e della relativa architettura.
-keywords: Executor in blocco Java
+title: Eseguire importazioni e aggiornamenti bulk di dati in Azure Cosmos DB usando la libreria dell'executor bulk | Microsoft Docs
+description: Eseguire operazioni bulk in Azure Cosmos DB tramite API di importazione e aggiornamento bulk rese disponibili dalla libreria dell'executor bulk.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a760de998c78ce2afdd24a15d9dd6e5d0cf44dc1
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096176"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363545"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Panoramica della libreria dell'executor bulk di Azure Cosmos DB
  
 Azure Cosmos DB è un servizio di database distribuito in modo globale veloce e flessibile che è progettato in modo elastico con scalabilità orizzontale per supportare: 
 
-* Grande velocità effettiva di lettura e di scrittura (milioni di operazioni al secondo).  
+* Grande velocità effettiva di lettura e scrittura (milioni di operazioni al secondo).  
 * Archiviazione di volumi elevati di (centinaia di terabyte o anche di più) dati transazionali e operativi con una latenza prevedibile al millisecondo.  
 
-La libreria dell'executor bulk aiuta a sfruttare il livello elevatissimo di velocità effettiva e archiviazione, consente di eseguire operazioni in blocco nel database di Azure Cosmos DB tramite le API di importazione e aggiornamento bulk. Altre informazioni sulle funzionalità della libreria dell'executor bulk sono disponibili nelle sezioni seguenti. 
+La libreria dell'executor bulk consente di sfruttare la velocità effettiva e la capacità di archiviazione eccezionali disponibili. La libreria dell'executor bulk consente anche di eseguire operazioni bulk in Azure Cosmos DB tramite API di importazione e aggiornamento bulk. Altre informazioni sulle funzionalità della libreria dell'executor bulk sono disponibili nelle sezioni seguenti. 
 
 > [!NOTE] 
-> Attualmente la libreria dell'executor bulk supporta le operazioni di importazione e aggiornamento ed è supportata solo dagli account delle API SQL di Azure Cosmos DB. Vedere le note sulla versione [.NET](sql-api-sdk-bulk-executor-dot-net.md) e [Java](sql-api-sdk-bulk-executor-java.md) per tutti gli aggiornamenti alla libreria.
+> Attualmente la libreria dell'executor bulk supporta le operazioni di importazione e aggiornamento ed è supportata solo dagli account delle API SQL e Gremlin di Azure Cosmos DB.
  
 ## <a name="key-features-of-the-bulk-executor-library"></a>Caratteristiche principali della libreria dell'executor bulk  
  
@@ -35,7 +34,7 @@ La libreria dell'executor bulk aiuta a sfruttare il livello elevatissimo di velo
 
 * Evita le tediose attività di scrittura della logica delle applicazioni per gestire la limitazione della frequenza delle richieste, i timeout delle richieste e altre eccezioni temporanee consentendo di controllare queste condizioni in modo efficiente all'interno della libreria.  
 
-* Fornisce un meccanismo semplificato per le applicazioni che eseguono operazioni bulk per la scalabilità orizzontale. Una singola istanza dell'executor bulk in esecuzione in una macchina virtuale di Azure può usare più di 500 K UR/sec ed è possibile ottenere una velocità effettiva superiore tramite l'aggiunta di istanze aggiuntive nel client di singole macchine virtuali.  
+* Fornisce un meccanismo semplificato per le applicazioni che eseguono operazioni bulk per la scalabilità orizzontale. Una singola istanza dell'executor bulk in esecuzione in una macchina virtuale di Azure può usare più di 500 K unità richiesta al secondo. È possibile ottenere una velocità effettiva superiore tramite l'aggiunta di istanze aggiuntive nel client di singole macchine virtuali.  
  
 * È possibile eseguire l'importazione del bulk di più di un terabyte di dati entro un'ora usando un'architettura di scalabilità orizzontale.  
 

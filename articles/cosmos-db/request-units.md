@@ -7,33 +7,33 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 10/02/2018
 ms.author: rimman
-ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 23a3e629e12e2a4d417757c9fef5db804bb72c9e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286766"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248755"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
+# <a name="throughput-and-request-units-in-azure-cosmos-db"></a>Velocità effettiva e unità richiesta in Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è il database multimodello distribuito a livello globale di Microsoft. Con Azure Cosmos DB non è necessario affittare macchine virtuali, distribuire software o monitorare database. Azure Cosmos DB è gestito e monitorato costantemente dai migliori tecnici Microsoft, in modo da offrire disponibilità, prestazioni e protezione dei dati di elevata qualità. È possibile accedere ai dati tramite le API di propria scelta, come le API [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md) e [tabella](table-introduction.md) e il grafo tramite l'[API Gremlin](graph-introduction.md). Tutte le API sono supportate in modo nativo. 
+Le risorse di Azure Cosmos DB vengono fatturate in base all'archiviazione e alla velocità effettiva con provisioning. In Azure Cosmos DB la velocità effettiva viene specificata in termini di **unità richiesta al secondo (UR/s)**. Azure Cosmos DB supporta varie API che dispongono di operazioni diverse, che vanno dalla semplice lettura e scrittura alle query per grafi più complesse. Ogni richiesta usa le unità richiesta in base alla quantità di calcolo necessaria per rispondere alla richiesta. Il numero di unità richiesta per un'operazione è deterministico. È possibile tenere traccia del numero di unità richiesta usate da qualsiasi operazione in Azure Cosmos DB tramite l'intestazione di risposta. Per prestazioni prevedibili, è necessario riservare una velocità effettiva in unità di 100 UR/secondo. È possibile stimare le esigenze di velocità effettiva usando il [calcolatore di unità richiesta di Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
 
-La valuta di Azure Cosmos DB è costituita dall'*unità richiesta (UR)*. Con le unità richiesta, non è necessario riservare capacità di lettura/scrittura né effettuare il provisioning di CPU, memoria e operazioni di I/O al secondo. Azure Cosmos DB supporta varie API che dispongono di operazioni diverse, che vanno dalla semplice lettura e scrittura alle query per grafi più complesse. Poiché non tutte le richieste sono uguali, viene loro assegnata una quantità normalizzata di unità richiesta in base alla quantità di calcolo necessaria per servire la richiesta. Il numero di unità richiesta per un'operazione è deterministico. È possibile tenere traccia del numero di unità richiesta usate da qualsiasi operazione nel database di Azure Cosmos tramite un'intestazione di risposta. 
+In Azure Cosmos DB è possibile eseguire il provisioning della velocità effettiva a due granularità: 
 
-Per prestazioni prevedibili, riservare una velocità effettiva in unità di 100 UR/secondo. È possibile [eseguire una stima delle esigenze di velocità effettiva](request-units.md#estimating-throughput-needs) usando il [calcolatore di unità richiesta](https://www.documentdb.com/capacityplanner) di Azure Cosmos DB.
+1. **Contenitore di Azure Cosmos DB:** la velocità effettiva con provisioning per un contenitore è riservata solo per quel contenitore specifico. Quando si assegna la velocità effettiva (UR/sec) a livello di contenitore, i contenitori possono essere creati come **Fissi** oppure **Senza limiti**. 
 
-![Calcolatore della velocità effettiva][5]
+  I contenitori a dimensione fissa hanno un limite di velocità effettiva massima di 10.000 UR/s e un limite di archiviazione di 10 GB. Per creare un contenitore senza limiti, è necessario specificare una velocità effettiva minima di 1.000 UR/s e una [chiave di partizione](partition-data.md). Poiché i dati possono essere suddivisi in più partizioni, è necessario scegliere una chiave di partizione che abbia un'elevata cardinalità (da 100 a milioni di valori distinti). Con la selezione di una chiave di partizione con molti valori distinti, Azure Cosmos DB garantisce la scalabilità uniforme di richieste di raccolte/tabelle/grafi. 
 
-Alla fine della lettura, si avranno le risposte alle domande seguenti:
+2. **Database di Azure Cosmos DB:** la velocità effettiva con cui avviene il provisioning di un database viene condivisa tra tutti i contenitori all'interno del database. Quando si esegue il provisioning della velocità effettiva a livello di database, è possibile scegliere di escludere esplicitamente determinati contenitori ed eseguire il provisioning della velocità effettiva di tali contenitori a livello di contenitore. La velocità effettiva a livello di database richiede che tutte le raccolte siano create con una chiave di partizione. Quando si assegna la velocità effettiva a livello di database, i contenitori che appartengono al database devono essere creati con una chiave di partizione perché ogni raccolta è un contenitore **Illimitato**.  
 
-* Cosa sono le unità richiesta e gli addebiti richiesta in Azure Cosmos DB?
-* Come è possibile specificare la capacità delle unità richiesta per un contenitore o un set di contenitori in Azure Cosmos DB?
-* Come si possono stimare le esigenze relative alle unità richiesta per l'applicazione?
-* Cosa succede se si supera la capacità delle unità richiesta per un contenitore o un set di contenitori in Azure Cosmos DB?
+In base alla velocità effettiva con provisioning, Azure Cosmos DB allocherà partizioni fisiche per ospitare il contenitore e suddividerà la crescita dei dati nelle partizioni. L'immagine seguente illustra il provisioning della velocità effettiva a diversi livelli:
 
-Poiché Azure Cosmos DB è un database multimodello, è importante tenere presente che questo articolo è applicabile a tutti i modelli di dati e alle API di Azure Cosmos DB. Questo articolo usa termini generici quali *contenitore* per fare riferimento in modo generico a una raccolta o un grafico e *elemento* per fare riferimento in modo generico a una tabella, documento, nodo o entità.
+  ![Provisioning di unità richiesta per singoli contenitori e set di contenitori](./media/request-units/provisioning_set_containers.png)
+
+> [!NOTE] 
+> Il provisioning della velocità effettiva a livello di contenitore e di database costituisce due offerte separate e il passaggio tra le due richiede la migrazione dei dati dall'origine alla destinazione. È quindi necessario creare un nuovo database o una nuova raccolta e quindi eseguire la migrazione dei dati tramite la [libreria dell'executor bulk](bulk-executor-overview.md) oppure [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ## <a name="request-units-and-request-charges"></a>Unità richiesta e addebiti richiesta
 
@@ -74,7 +74,6 @@ La tabella riportata di seguito mostra il numero di unità richiesta di cui effe
 | 4 KB | 500 | 500 | (500 * 1,3) + (500 * 7) = 4.150 UR/sec
 | 64 KB | 500 | 100 | (500 * 10) + (100 * 48) = 9.800 UR/sec
 | 64 KB | 500 | 500 | (500 * 10) + (500 * 48) = 29.000 UR/sec
-
 
 ### <a name="use-the-request-unit-calculator"></a>Usare il calcolatore di unità richiesta
 Per ottimizzare le stime della velocità effettiva, è possibile usare una [calcolatrice di unità richiesta](https://www.documentdb.com/capacityplanner) basata sul web. La calcolatrice può aiutare a stimare i requisiti dell'unità richiesta per operazioni tipiche, tra cui:
@@ -237,4 +236,5 @@ Se più client operano collettivamente al di sopra della frequenza delle richies
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+
 

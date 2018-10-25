@@ -8,18 +8,36 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.component: core
 ms.topic: article
-ms.date: 09/24/2018
-ms.openlocfilehash: d84040dc440c373ae9bae6dbac7a95109a387ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/01/2018
+ms.openlocfilehash: 02cee5a3e088c919ec94aee6f46ef6f428b9bb48
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162747"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249418"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemi noti e risoluzione per il servizio di Azure Machine Learning
  
 Questo articolo consente di trovare e correggere errori o guasti riscontrati durante l'uso del servizio di Azure Machine Learning. 
 
+## <a name="sdk-installation-issues"></a>Problemi di installazione dell'SDK
+
+**Messaggio di errore: Impossibile installare "PyYAML"** 
+
+PyYAML è un progetto installato da Distutils. Pertanto, non è possibile stabilire in modo accurato quali file appartengono ad esso in caso di disinstallazione parziale. Per continuare a installare l'SDK, ignorando l'errore, usare:
+```Python 
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
+
+## <a name="image-building-failure"></a>Errore di compilazione di immagini
+
+Errore di compilazione di immagini durante la distribuzione del servizio Web. Una soluzione alternativa consiste nell'aggiungere "pynacl==1.2.1" come dipendenza pip al file Conda per la configurazione dell'immagine.  
+
+## <a name="pipelines"></a>Pipeline
+Si verifica un errore durante la chiamata ripetuta di PythonScriptStep in una riga senza modificare lo script o i parametri. Una soluzione alternativa consiste nel ricompilare l'oggetto PipelineData.
+
+## <a name="fpgas"></a>FPGA
+Non sarà possibile distribuire i modelli in FPGA fino a quando non viene richiesta e approvata la quota FPGA. Per richiedere l'accesso, compilare il modulo di richiesta della quota: https://aka.ms/aml-real-time-ai
 
 ## <a name="databricks"></a>Databricks
 
@@ -36,7 +54,7 @@ Problemi di Databricks e Azure Machine Learning.
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
    ```
 
-## <a name="gather-diagnostics-information"></a>Raccogliere informazioni di diagnostica
+## <a name="diagnostic-logs"></a>Log di diagnostica
 In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto. Qui si trovano i file di log:
 
 ## <a name="resource-quotas"></a>Quote di risorse

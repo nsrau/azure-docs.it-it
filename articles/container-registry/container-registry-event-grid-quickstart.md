@@ -2,18 +2,17 @@
 title: 'Guida introduttiva: Inviare eventi di Registro contenitori di Azure a Griglia di eventi'
 description: In questa guida introduttiva si abilitano gli eventi di Griglia di eventi per il proprio registro contenitori e quindi si inviano gli eventi push e delete di un'immagine di contenitore a un'applicazione di esempio.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/17/2018
-ms.author: marsma
-ms.openlocfilehash: 85e59e93c084f5e981081952e3b073798baf34e7
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.date: 08/23/2018
+ms.author: danlep
+ms.openlocfilehash: 88265ee6f8a340909880ba70bd9f37a49ef85bf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234793"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857364"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>Guida introduttiva: Inviare eventi del registro contenitori a Griglia di eventi
 
@@ -84,7 +83,7 @@ SITE_NAME=<your-site-name>
 
 az group deployment create \
     --resource-group $RESOURCE_GROUP_NAME \
-    --template-uri "https://raw.githubusercontent.com/dbarkol/azure-event-grid-viewer/master/azuredeploy.json" \
+    --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
     --parameters siteName=$SITE_NAME hostingPlanName=$SITE_NAME-plan
 ```
 
@@ -141,20 +140,20 @@ Al termine della sottoscrizione, l'output dovrebbe essere simile al seguente:
 
 ## <a name="trigger-registry-events"></a>Attivare gli eventi del registro
 
-Ora che l'app di esempio è attiva e si è eseguita la sottoscrizione al registro con Griglia di eventi, si è pronti per generare alcuni eventi. In questa sezione si usa ACR Build per compilare un'immagine di contenitore ed eseguirne il push nel registro. ACR Build è una funzionalità di Registro contenitori di Azure che consente di compilare immagini dei contenitori nel cloud, senza che sia necessario installare il motore Docker nel computer locale.
+Ora che l'app di esempio è attiva e si è eseguita la sottoscrizione al registro con Griglia di eventi, si è pronti per generare alcuni eventi. In questa sezione si usa ACR Tasks per compilare un'immagine di contenitore ed eseguirne il push nel registro. ACR Tasks è una funzionalità di Registro contenitori di Azure che consente di compilare immagini dei contenitori nel cloud, senza che sia necessario installare il motore Docker nel computer locale.
 
 ### <a name="build-and-push-image"></a>Compilare l'immagine ed eseguirne il push
 
-Eseguire il seguente comando dell'interfaccia della riga di comando di Azure per compilare un'immagine di contenitore dal contenuto di un repository GitHub. Per impostazione predefinita, ACR Build esegue automaticamente il push di un'immagine compilata nel registro generando l'evento `ImagePushed`.
+Eseguire il seguente comando dell'interfaccia della riga di comando di Azure per compilare un'immagine di contenitore dal contenuto di un repository GitHub. Per impostazione predefinita, ACR Tasks esegue automaticamente il push di un'immagine compilata nel registro generando l'evento `ImagePushed`.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-Mentre ACR Build compila l'immagine e ne esegue il push dovrebbe essere visualizzato un output simile al seguente. L'output di esempio seguente è stato troncato per motivi di brevità.
+Mentre ACR Tasks compila l'immagine e ne esegue il push dovrebbe essere visualizzato un output simile al seguente. L'output di esempio seguente è stato troncato per motivi di brevità.
 
 ```console
-$ az acr build -r $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -207,7 +206,7 @@ Lo screenshot seguente mostra l'app di esempio con tre eventi. L'evento `ImageDe
 
 ![Visualizzazione nel Web browser dell'app di esempio con gli eventi ImagePushed e ImageDeleted][sample-app-03]
 
-Congratulazioni. Se vengono visualizzati gli eventi `ImagePushed` e `ImageDeleted`, significa che il registro invia eventi a Griglia di eventi e che quest'ultimo li inoltra a sua volta all'endpoint dell'app Web.
+Congratulazioni! Se vengono visualizzati gli eventi `ImagePushed` e `ImageDeleted`, significa che il registro invia eventi a Griglia di eventi e che quest'ultimo li inoltra a sua volta all'endpoint dell'app Web.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -227,10 +226,10 @@ az group delete --name $RESOURCE_GROUP_NAME
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva si è distribuito un registro contenitori, si è compilata un'immagine con ACR Build, si è eliminata l'immagine e si sono utilizzati gli eventi del registro da Griglia di eventi con un'applicazione di esempio. A questo punto, passare all'esercitazione di ACR Build per altre informazioni sulla compilazione di immagini dei contenitori nel cloud, tra cui la compilazione automatizzata in caso di aggiornamento dell'immagine di base:
+In questa guida introduttiva si è distribuito un registro contenitori, si è compilata un'immagine con ACR Tasks, si è eliminata l'immagine e si sono usati gli eventi del registro da Griglia di eventi con un'applicazione di esempio. A questo punto, passare all'esercitazione di ACR Tasks per altre informazioni sulla compilazione di immagini dei contenitori nel cloud, tra cui la compilazione automatizzata in caso di aggiornamento dell'immagine di base:
 
 > [!div class="nextstepaction"]
-> [Compilare immagini dei contenitori nel cloud con ACR Build](container-registry-tutorial-quick-build.md)
+> [Compilare immagini dei contenitori nel cloud con ACR Tasks](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

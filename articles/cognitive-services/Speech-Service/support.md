@@ -1,6 +1,6 @@
 ---
 title: Opzioni di supporto tecnico e assistenza
-description: Scoprire come ottenere assistenza e supporto per domande e problemi durante la creazione di applicazioni che si integrano con il riconoscimento vocale di Servizi cognitivi Microsoft
+description: Scoprire come ottenere assistenza e supporto per domande e problemi durante la creazione di applicazioni che si integrano con il servizio Voce di Servizi cognitivi di Azure
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
@@ -8,31 +8,31 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: e24008a2208d8dcfbb7f86c66bb7de39f3c75790
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c08cc34631afdec4a4b08b4c599b79e1a161558c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528188"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364158"
 ---
 # <a name="support-and-help-options"></a>Opzioni di supporto tecnico e assistenza
 
 Se si sta iniziando a esplorare le funzionalità del servizio Voce o si sta per implementare una nuova funzionalità nell'applicazione, di seguito sono elencati i suggerimenti per gli sviluppatori su dove ottenere assistenza.
 
 > [!div class="checklist"]
-> * È possibile rimanere informati sui nuovi sviluppi in *Servizi cognitivi Microsoft* o leggere le ultime novità relative al *servizio di riconoscimento vocale*.
-> * Eseguire una ricerca per verificare se la community non ha ancora risposto alla domanda che si vuole porre per un problema o se esiste già la documentazione della funzionalità che si sta provando a implementare.
-> * Se non si riesce a trovare la risposta che serve, è consigliabile porre una domanda in *Stack Overflow*.
-> * Se si riscontra un problema relativo a uno degli esempi disponibili in GitHub, segnalare il problema in *GitHub*.
-> * Cercare una soluzione nel *forum di UserVoice*.
+> * È possibile rimanere informati sui nuovi sviluppi in *Servizi cognitivi di Azure* o leggere le ultime novità relative al *servizio Voce*.
+> * Eseguire una ricerca per verificare se la community ha già discusso il problema o se esiste già la documentazione della funzionalità che si vuole implementare.
+> * Se non si riesce a trovare una risposta soddisfacente, si può porre una domanda in *Stack Overflow*.
+> * Se si riscontra un problema relativo a uno degli esempi in GitHub, segnalare il problema in *GitHub*.
+> * Cercare una soluzione nel *forum UserVoice*.
 
 ## <a name="stay-informed"></a>Rimani sempre aggiornato
 
-Le novità sui Servizi cognitivi Microsoft sono raccolte nel[blog sui Servizi cognitivi](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). Per le informazioni più recenti sul servizio di riconoscimento vocale, vedere il [blog sul servizio di riconoscimento vocale](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
+Le novità su Servizi cognitivi sono raccolte nel[blog sui Servizi cognitivi](https://azure.microsoft.com/blog/topics/cognitive-services/). Per le informazioni più recenti sul servizio di riconoscimento vocale, vedere il [blog sul servizio Voce](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="search"></a>Ricerca
 
-È possibile trovare la risposta necessaria nella documentazione, negli esempi o nelle risposta alle domande di [Stack Overflow](https://www.stackoverflow.com).
+È possibile trovare la risposta necessaria nella documentazione, negli esempi o nelle risposte alle domande poste in [Stack Overflow](https://www.stackoverflow.com).
 
 ### <a name="scoped-search"></a>Ricerca per ambito
 
@@ -44,9 +44,16 @@ Per risultati più veloci, delimitare l'ambito della ricerca in Stack Overflow, 
 
 Dove *{Your Search Terms}* corrisponde alle parole chiave di ricerca.
 
+## <a name="create-an-azure-support-request"></a>Creare una richiesta di supporto in Azure
+
+I clienti di Azure possono creare e gestire le richieste di supporto nel portale di Azure.
+
+* [Portale di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Portale di Azure per il governo degli Stati Uniti](https://portal.azure.us)
+
 ## <a name="post-a-question-to-stack-overflow"></a>Pubblicare una domanda in Stack Overflow
 
-Stack Overflow è il canale preferito per le domande correlate allo sviluppo. In questo canale, membri della community e membri dei team Microsoft sono direttamente coinvolti nell'assistenza agli utenti per la risoluzione dei problemi di questi ultimi.
+Stack Overflow è il canale da scegliere per le domande correlate allo sviluppo. In questo canale, membri della community e membri dei team Microsoft sono direttamente coinvolti nell'assistenza agli utenti per la risoluzione dei problemi.
 
 Se non si trova una risposta al problema tramite la ricerca, inviare una nuova domanda a Stack Overflow. Quando si formula la domanda, usare uno dei tag seguenti:
 
@@ -59,7 +66,7 @@ Se non si trova una risposta al problema tramite la ricerca, inviare una nuova d
 |Speech SDK generale |[[microsoft-cognitive+microsoft-speech-api]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
-> Il post di Stack Overflow seguente contiene suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:  
+> I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:  
 > * [Come creare una domanda utile](https://stackoverflow.com/help/how-to-ask)
 > * [Come creare un esempio minimo, completo e verificabile](https://stackoverflow.com/help/mcve)
 
@@ -70,7 +77,7 @@ Gli esempi vengono spesso pubblicati come open source. Per domande e problemi, s
 * [Speech SDK](https://aka.ms/csspeech/samples)
 * [Device SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
 
-## <a name="user-voice-forum"></a>Forum di UserVoice
+## <a name="uservoice-forum"></a>Forum UserVoice
 
 Condividere le idee per fare in modo che Servizi cognitivi e le API associate funzionino meglio per le applicazioni sviluppate. Usare la Knowledge Base in costante crescita per trovare le risposte alle domande più comuni:
 

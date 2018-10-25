@@ -1,6 +1,6 @@
 ---
 title: "Guida introduttiva: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud protette dall'accesso condizionale di Azure Active Directory | Microsoft Docs"
-description: Questa guida introduttiva illustra come richiedere l'accettazione delle condizioni per l'utilizzo prima di concedere l'accesso alle app cloud selezionate tramite l'accesso condizionale di Azure Active Directory.
+description: Questa guida introduttiva illustra come richiedere l'accettazione delle condizioni per l'utilizzo prima di concedere l'accesso alle app cloud selezionate dall'accesso condizionale di Azure Active Directory.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale, condizioni per l'utilizzo
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a7aeecc84a3629b43f2c1eb40030866a941d0d3b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627985"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901887"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Guida introduttiva: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud 
 
@@ -45,7 +45,7 @@ Per completare lo scenario in questa guida introduttiva, sono necessari gli elem
 
 - **Accesso a un'edizione Azure AD Premium**: l'accesso condizionale di Azure AD è una funzionalità di Azure AD Premium. 
 
-- **Account di test denominato Isabella Simonsen**: se non si conosce la procedura per creare un account di test, vedere [Aggiungere gli utenti basati su cloud](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **Account di test denominato Isabella Simonsen**: se non si conosce la procedura per creare un account di test, vedere [Aggiungere gli utenti basati su cloud](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## <a name="test-your-sign-in"></a>Verificare il proprio accesso
@@ -250,7 +250,7 @@ Per testare i criteri, provare ad accedere al [portale di Azure](https://portal.
 
 Quando non sono più necessari, eliminare l'utente di test e i criteri di accesso condizionale:
 
-- Se non si conosce la procedura per eliminare un utente di Azure AD, vedere [Eliminare gli utenti da Azure Active Directory](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Se non si conosce la procedura per eliminare un utente di Azure AD, vedere [Eliminare gli utenti da Azure Active Directory](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - Per eliminare i criteri, selezionarli e quindi fare clic su **Elimina** nella barra di accesso rapido.
 

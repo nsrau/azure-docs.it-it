@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 80749fedde17a9567aa13e1e72677dfdd027ca36
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f9876f3e21a7cfccae2fb7f70913269d4ca1fdf4
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043261"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115370"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Soluzione Monitoraggio contenitori in Log Analytics
 
@@ -36,7 +36,7 @@ La soluzione indica quali contenitori sono in esecuzione, quale immagine del con
 - Service Fabric
 - Red Hat OpenShift
 
-Se si è interessati al monitoraggio delle prestazioni dei carichi di lavoro distribuiti in ambienti Kubernetes ospitati in AKS (Servizio contenitore di Azure), vedere [Monitor Azure Container Service](../monitoring/monitoring-container-health.md) (Monitorare il servizio contenitore di Azure).  La soluzione di monitoraggio contenitori non include il supporto per il monitoraggio di tale piattaforma.  
+Se si è interessati al monitoraggio delle prestazioni dei carichi di lavoro distribuiti in ambienti Kubernetes ospitati in Azure Kubernetes Service (AKS), vedere [Monitoraggio di Azure Kubernetes Service (AKS)](../monitoring/monitoring-container-health.md). La soluzione di monitoraggio contenitori non include il supporto per il monitoraggio di tale piattaforma.  
 
 Il diagramma seguente mostra le relazioni tra vari host del contenitore e agenti con Log Analytics.
 

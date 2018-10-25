@@ -1,5 +1,5 @@
 ---
-title: Gestione dello stato di Reliable Actors | Documentazione Microsoft
+title: Gestione dello stato di Reliable Actors | Microsoft Docs
 description: Descrive come viene gestito lo stato di Reliable Actors, reso persistente e replicato per la disponibilità elevata.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 3cab4d87eacc7bce17da64cda213086c262179a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206199"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041160"
 ---
 # <a name="reliable-actors-state-management"></a>Gestione dello stato di Reliable Actors
 I Reliable Actors sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato. Poiché gli attori vengono eseguiti nei servizi Reliable Services, possono mantenere lo stato in modo affidabile con gli stessi meccanismi di persistenza e replica. In questo modo, gli attori non perdono il proprio stato dopo gli errori, dopo la riattivazione in seguito a un'operazione di garbage collection o quando vengono spostati tra i nodi di un cluster a causa del bilanciamento delle risorse o degli aggiornamenti.
@@ -121,7 +121,7 @@ Di seguito vengono proposti alcuni suggerimenti per la risoluzione dei problemi 
 Questo è un aspetto cruciale per le prestazioni e l'utilizzo delle risorse dell'applicazione. Per ogni scrittura/aggiornamento dello "stato denominato" di un attore, l'intero valore corrispondente a tale "stato denominato" viene serializzato e inviato alle repliche secondarie tramite la rete.  Le repliche secondarie lo scrivono nel disco locale e rispondono alla replica primaria. Quando la replica primaria riceve i riconoscimenti da un quorum di repliche secondarie, scrive lo stato nel disco locale. Si supponga, ad esempio, che il valore sia una classe con 20 membri e dimensioni pari a 1 MB. Anche se si modifica solo uno dei membri della classe con dimensioni di 1 KB, occorre sostenere i costi della serializzazione e delle scritture in rete e su disco per l'intero MB. Analogamente, se il valore è una raccolta (ad esempio un elenco, una matrice o un dizionario), si paga il costo per l'intera raccolta anche se si modifica uno solo dei membri. L'interfaccia di StateManager della classe dell'attore è simile a un dizionario. È sempre necessario modellare la struttura dei dati che rappresenta lo stato dell'attore sulla base di questo dizionario.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Gestire correttamente il ciclo di vita dell'attore
-È necessario definire criteri chiari per la gestione delle dimensioni dello stato in ogni partizione di un servizio Actor. Il servizio Actor deve avere un numero fisso di attori e riutilizzarli il più possibile. Se si creano continuamente nuovi attori, è necessario eliminarli quando hanno terminato le operazioni. Il framework del servizio Actor archivia alcuni metadati per ogni attore esistente. L'eliminazione di tutto lo stato di un attore non comporta la rimozione dei relativi metadati. È necessario eliminare l'attore (vedere [Eliminazione di attori e del relativo stato](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) per rimuovere tutte le informazioni su tale attore archiviate nel sistema. A titolo di controllo aggiuntivo, è necessario eseguire query sul servizio Actor (vedere [Enumerazione degli attori](service-fabric-reliable-actors-platform.md)) regolarmente per assicurarsi che il numero di attori sia compreso nell'intervallo previsto.
+È necessario definire criteri chiari per la gestione delle dimensioni dello stato in ogni partizione di un servizio Actor. Il servizio Actor deve avere un numero fisso di attori e riusarli il più possibile. Se si creano continuamente nuovi attori, è necessario eliminarli quando hanno terminato le operazioni. Il framework del servizio Actor archivia alcuni metadati per ogni attore esistente. L'eliminazione di tutto lo stato di un attore non comporta la rimozione dei relativi metadati. È necessario eliminare l'attore (vedere [Eliminazione di attori e del relativo stato](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) per rimuovere tutte le informazioni su tale attore archiviate nel sistema. A titolo di controllo aggiuntivo, è necessario eseguire query sul servizio Actor (vedere [Enumerare gli attori](service-fabric-reliable-actors-enumerate.md)) regolarmente per assicurarsi che il numero di attori sia compreso nell'intervallo previsto.
  
 Se si riscontra un aumento delle dimensioni del file di database di un servizio Actor oltre il limite previsto, assicurarsi di seguire le linee guida precedenti. Se si seguono queste linee guida ed esistono comunque problemi di dimensioni del file di database, è necessario [aprire un ticket di supporto](service-fabric-support.md) per richiedere assistenza al team del prodotto.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 230a4df2c43e8d5e6ae1a5a7e8188cf207461022
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47057792"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267471"
 ---
 # <a name="how-to-close-active-risk-events"></a>Procedura: Chiudere eventi di rischio attivi
 
@@ -37,7 +37,7 @@ Per chiudere gli eventi di rischio attivi, sono disponibili le opzioni seguenti:
 
 - Richiedere la reimpostazione della password con criteri di rischio utente
 
-- Reimpostare manualmente la password
+- Reimpostazione manuale della password
  
 - Ignorare tutti gli eventi di rischio 
 
@@ -49,7 +49,7 @@ Per chiudere gli eventi di rischio attivi, sono disponibili le opzioni seguenti:
 
 Configurando i [criteri di accesso condizionale per il rischio utente](howto-user-risk-policy.md), è possibile richiedere una modifica della password ogni volta che viene automaticamente rilevato un determinato livello di rischio utente. 
 
-![Reimpostare la password](./media/howto-close-active-risk-events/13.png)
+![Reimposta password](./media/howto-close-active-risk-events/13.png)
 
 La reimpostazione della password chiude tutti gli eventi di rischio attivi dell'utente correlato e ripristina l'identità a uno stato sicuro. L'adozione dei criteri di rischio utente è il metodo preferito per chiudere gli eventi di rischio attivi, poiché è un metodo automatizzato. Non è infatti necessaria alcuna interazione tra l'utente interessato e l'help desk o l'amministratore.
 

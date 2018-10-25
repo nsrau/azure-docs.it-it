@@ -7,13 +7,13 @@ ms.author: jasonh
 manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/03/2018
-ms.openlocfilehash: 136b21f026d208c09b50dfa8601de692e518774e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 10/15/2018
+ms.openlocfilehash: 661aa85a200d4eafa1c521b06f6e12378d61e93e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699111"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343586"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
  
@@ -68,5 +68,5 @@ Nel livello di compatibilità 1.1 sono state introdotte le modifiche sostanziali
   * **Versione corrente:** non viene più eseguito l'upcast automatico dei valori di stringa con le informazioni di data/ora/fuso orario su un tipo DateTime. Le informazioni sul fuso orario vengono quindi mantenute. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Guida per la risoluzione dei problemi di Analisi di flusso di Azure](stream-analytics-troubleshooting-guide.md)
+* [Risolvere i problemi degli input di Analisi di flusso di Azure](stream-analytics-troubleshoot-input.md)
 * [Pannello Integrità risorse della funzionalità di analisi di flusso](stream-analytics-resource-health.md)

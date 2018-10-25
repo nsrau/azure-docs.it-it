@@ -4,68 +4,50 @@ description: La Collaborazione B2B di Azure Active Directory non richiede le lic
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
-ms.date: 08/09/2017
+ms.topic: conceptual
+ms.date: 10/04/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: 2050952eb924e1eee5e6d7d6312d9cd02f475d10
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.reviewer: mal
+ms.openlocfilehash: d80794511f334cd6dc5af418e24fc774b7d8728f
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092803"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867511"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Linee guida sulla Collaborazione B2B di Azure Active Directory
 
-È possibile usare le funzionalità di Collaborazione B2B di Azure AD per invitare utenti guest nel tenant di Azure AD e consentire a tali utenti di accedere ai servizi di Azure AD e ad altre risorse dell'organizzazione. Se si vuole fornire l'accesso alle funzionalità a pagamento di Azure AD, gli utenti guest di Collaborazione B2B devono avere le licenze appropriate di Azure AD. 
+Con la collaborazione business-to-business (B2B) di Azure Active Directory (Azure AD), è possibile invitare utenti esterni (o "utenti guest") a usare i servizi di Azure AD a pagamento. Per ogni licenza di Azure AD a pagamento assegnata a un utente è possibile invitare fino a cinque utenti guest in basse al limite utenti esterni.
 
-In particolare:
-* Le funzionalità di Azure AD Free sono disponibili per gli utenti guest senza licenze aggiuntive.
-* Se si vuole offrire agli utenti B2B l'accesso alle funzionalità a pagamento di Azure AD, è necessario avere un numero di licenze sufficiente per supportare tali utenti guest B2B.
-* Un tenant che invia gli inviti con una licenza a pagamento di Azure AD ha diritti utente di Collaborazione B2B per altri cinque utenti guest B2B invitati ad accedere al tenant.
-* Il cliente che possiede il tenant che invia gli inviti deve essere quello che determina quanti utenti di Collaborazione B2B necessitano delle funzionalità a pagamento di Azure AD. A seconda delle funzionalità a pagamento di Azure AD da assegnare agli utenti guest, è necessario disporre di licenze a pagamento di Azure AD sufficienti per coprire gli utenti di Collaborazione B2B nello stesso rapporto 5:1.
+Un utente guest è una persona che non è un membro della propria organizzazione o di alcuna delle sue consociate. Gli utenti guest sono definiti in base alla loro relazione con l'organizzazione, e non in base alle credenziali usate per l'accesso. In effetti, un utente guest può accedere con un'identità esterna o con credenziali di proprietà dell'organizzazione.
 
-Un utente guest di Collaborazione B2B viene aggiunto come utente da una società partner, non come dipendente dell'organizzazione o dipendente di un'azienda affiliata diversa. Un utente guest B2B può accedere con credenziali aggiuntive o con credenziali di proprietà dell'organizzazione, come illustrato in questo articolo. 
+I seguenti *non* sono utenti guest:
+- I dipendenti, i terzisti in sede o gli agenti in sede
+- I dipendenti, i terzisti in sede o gli agenti in sede delle consociate
 
-In altre parole, le licenze B2B vengono configurate non in base alla modalità di autenticazione dell'utente ma in base alla relazione dell'utente con l'organizzazione. Se gli utenti non sono partner, vengono considerati in modo diverso a livello di licenza. Non vengono considerati utenti di Collaborazione B2B per finalità relative alla licenza, anche se il rispettivo valore UserType è "Guest". È necessario assegnare a questi utenti licenze in base alla procedura normale, ovvero una licenza per utente. Questi utenti includono:
-* Dipendenti
-* Personale che accede con identità esterne
-* Dipendenti di un'azienda affiliata diversa
+Le licenze degli utenti guest B2B vengono calcolate e segnalate automaticamente in base al rapporto 1:5. Attualmente, non è possibile assegnare licenze utente guest B2B direttamente agli utenti guest.
 
+Esistono alcune situazioni in cui non viene segnalato un utente guest usando il limite di utenti esterni 1:5. Se un utente guest ha già una licenza di Azure AD a pagamento nell'organizzazione dell'utente, questi non utilizza una delle licenze utente guest B2B. In più, gli utenti guest possono usare le funzionalità gratuite di Azure AD senza alcun requisito di licenza aggiuntiva. Gli utenti guest hanno accesso alle funzionalità gratuite di Azure AD anche se non si hanno licenze di Azure AD a pagamento. 
 
-## <a name="licensing-examples"></a>Esempi di licenza
-- Un cliente vuole invitare 100 utenti di Collaborazione B2B al proprio tenant di Azure AD. Il cliente assegna la gestione degli accessi e il provisioning per tutti gli utenti, ma 50 utenti richiedono anche l'autenticazione a più fattori e l'accesso condizionale. Il cliente deve acquistare 10 licenze Basic e 10 licenze Premium P1 di Azure AD per includere correttamente questi utenti B2B. Se il cliente prevede di usare le funzioni di Identity Protection con gli utenti B2B, dovrà disporre delle licenze Premium P2 di Azure AD per includere gli utenti invitati con lo stesso rapporto 5:1.
-- Un cliente dispone di 10 dipendenti, tutti coperti da una licenza Premium P1 di Azure AD, e vuole invitare 60 utenti B2B che hanno tutti bisogno dell'autenticazione a più fattori (MFA). Stando alla regola di rapporto 5:1 per le licenze, il cliente dovrà disporre di almeno 12 licenze Premium P1 di Azure AD per includere tutti e 60 gli utenti di Collaborazione B2B. Poiché dispone già di 10 licenze Premium P1 per i 10 dipendenti esistenti, ha diritto a invitare 50 utenti B2B con funzionalità Premium P1 come MFA. In questo esempio, il cliente dovrà acquistare 2 licenze Premium P1 aggiuntive per includere i rimanenti 10 utenti di Collaborazione B2B.
+## <a name="examples-calculating-guest-user-licenses"></a>Esempi: Calcolare le licenze utente guest
+Dopo aver determinato il numero di utenti guest necessario ad accedere ai servizi di Azure AD a pagamento, assicurarsi di avere licenze a pagamento di Azure AD sufficienti a coprire gli utenti guest nel rapporto 1: 5 obbligatorio. Di seguito sono riportati alcuni esempi:
 
-> [!NOTE]
-> Non vi è alcun modo di assegnare le licenze direttamente agli utenti B2B o per abilitare tali diritti utente di Collaborazione B2B.
+- Si vogliono invitare 100 utenti guest nelle app o nei servizi di Azure AD e si vuole assegnare a tutti gli utenti guest il provisioning e la gestione dell'accesso. Si vogliono anche richiedere l'autenticazione a più fattori e l'accesso condizionale per 50 di quegli utenti guest. Per includere questa combinazione, sono necessarie 10 licenze di Azure AD Basic e 10 licenze P1 di Azure AD Premium. Se si prevede di usare le funzionalità di Identity Protection con gli utenti guest, per includerli saranno necessarie le licenze P2 di Azure AD Premium con lo stesso rapporto 1:5.
+- Si vogliono invitare 60 utenti guest che richiedono tutti l'autenticazione a più fattori, quindi è necessario avere almeno 12 licenze P1 di Azure AD Premium. Si hanno 10 dipendenti con licenze P1 di Azure AD Premium, che consentono fino a 50 utenti guest con il rapporto licenze 1:5. È necessario acquistare due licenze Premium P1 aggiuntive per includere 10 utenti guest aggiuntivi.
 
-Il cliente che possiede il tenant che invia gli inviti deve essere quello che determina quanti utenti di Collaborazione B2B necessitano delle funzionalità a pagamento di Azure AD. A seconda delle funzionalità a pagamento di Azure AD che si vuole per gli utenti guest, è necessario disporre di licenze a pagamento di Azure AD sufficienti per coprire gli utenti di Collaborazione B2B nel rapporto 5:1. 
+## <a name="using-the-b2b-collaboration-api-to-invite-users-from-your-affiliates"></a>Uso dell'API di collaborazione B2B per invitare gli utenti dalle consociate
 
-## <a name="additional-licensing-details"></a>Altri dettagli sulle licenze
-- Non è necessario assegnare effettivamente le licenze agli account utente B2B. In base al rapporto 5:1, le licenze vengono calcolate e segnalate automaticamente.
-- Se nel tenant non sono presenti licenze a pagamento di Azure AD, ogni utente invitato ottiene i diritti offerti dall'edizione Free di Azure AD.
-- Se un utente di Collaborazione B2B dispone già di una licenza a pagamento di Azure AD dalla propria organizzazione, non userà le licenze di Collaborazione B2B del tenant che effettua l'invito.
+Per definizione, un utente guest B2B è un utente esterno che si invita a usare le app e i servizi di Azure AD a pagamento. Un dipendente, un terzista in sede o un agente in sede dell'azienda o di una delle consociate non si qualifica per la collaborazione B2B, neanche se si usano funzionalità B2B. Di seguito sono riportati alcuni esempi: 
+- Si vogliono usare credenziali esterne (ad esempio un'identità di social networking) per invitare un utente che è dipendente della propria organizzazione. Questo scenario non è conforme ai requisiti di licenza e non è consentito. Le credenziali esterne non fanno di un dipendente un utente esterno.  
+- Si vogliono usare le API B2B per invitare un utente da una delle consociate dell'organizzazione. Nonostante questo scenario usi le API B2B per invitare l'utente, non è considerato una collaborazione B2B. Non è conforme ai requisiti di licenza perché un utente dalla consociata non è un utente esterno. 
 
-## <a name="advanced-discussion-what-are-the-licensing-considerations-when-we-add-users-from-a-conglomerate-organization-as-members-using-your-apis"></a>Approfondimenti: quali considerazioni fare sulle licenze quando si aggiungono utenti da un'organizzazione conglomerata come "membri" usando le API?
-Un utente guest B2B è un utente invitato da un'organizzazione partner che collabora con l'organizzazione host. In genere, casi diversi da questo non vengono riconosciuti come B2B anche se usano funzionalità B2B. Prendiamo in esame due casi specifici:
-
-1. Se un host invita un dipendente usando un indirizzo cliente
-  * Questo scenario non è conforme ai criteri di licenza Microsoft e non è consigliato.
-
-2. Se un'organizzazione host aggiunge un utente da un'altra organizzazione conglomerata
-  1. In questo caso l'utente viene invitato usando le API di B2B, ma non si tratta in genere di B2B. In teoria, queste organizzazioni dovrebbero invitare gli utenti di altre organizzazioni come membri (l'API lo consente). In questo caso, è necessario assegnare le licenze a questi membri perché possano accedere alle risorse dell'organizzazione che li invita.
-
-  2. È possibile che alcune organizzazioni vogliano aggiungere gli utenti di altre organizzazioni come "Guest" come criterio. Di seguito sono spiegati due casi:
-      * L'organizzazione conglomerata usa già Azure AD e agli utenti invitati sono concesse le licenze nell'altra organizzazione. In questo caso, gli utenti invitati non devono seguire la formula 1:5 esposta in precedenza in questo documento. 
-
-      * L'organizzazione conglomerata non usa Azure AD o non ha le licenze adeguate. In questo caso, è necessario seguire la formula 1:5 esposta in precedenza in questo documento.
+In entrambi questi scenari, la soluzione migliore consiste nell'usare l'API di B2B per invitare gli utenti come membri (invitedUserType = Member) e assegnare una licenza Azure AD a ciascuno di essi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
+Vedere le risorse seguenti su Collaborazione B2B di Azure AD:
 
 * [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
 * [Domande frequenti su Collaborazione B2B di Azure Active Directory](faq.md)

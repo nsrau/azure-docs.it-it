@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/30/2017
+ms.date: 10/08/2018
 ms.author: jeedes
-ms.openlocfilehash: d67dbcef1b287ed9552d96338a2591b5f8319532
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 050a5a210ab10a557b149513a0416b188f4618ba
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434782"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885904"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Esercitazione: Integrazione di Azure Active Directory con Huddle
 
@@ -53,52 +53,43 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Huddle dalla raccolta
-1. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-huddle-from-the-gallery"></a>Aggiunta di Huddle dalla raccolta
+
 Per configurare l'integrazione di Huddle in Azure AD, è necessario aggiungere Huddle dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Huddle dalla raccolta, seguire questa procedura:**
 
-1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
+1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
     ![Active Directory][1]
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
     ![APPLICAZIONI][2]
-    
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
     ![APPLICAZIONI][3]
 
-1. Nella casella di ricerca digitare **Huddle**.
-
-    ![Creazione di un utente test di Azure AD](./media/huddle-tutorial/tutorial_huddle_search.png)
-
-1. Nel pannello dei risultati selezionare **Huddle** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Huddle**. Nel pannello dei risultati selezionare **Huddle** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Creazione di un utente test di Azure AD](./media/huddle-tutorial/tutorial_huddle_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Huddle usando un utente di test di nome "Britta Simon".
 
 Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'utente controparte di Huddle corrispondente a un utente di Azure AD. In altre parole, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Huddle.
 
-Per stabilire la relazione di collegamento, in Huddle assegnare il valore del **nome utente** in Azure AD come valore di **Username** (Nome utente).
-
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Huddle, è necessario completare le procedure di base seguenti:
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
-
-1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-
-1. **[Creazione di un utente di test di Huddle](#creating-a-huddle-test-user)**: per avere una controparte di Britta Simon in Huddle collegata alla rappresentazione dell'utente in Azure AD.
-
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
+2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente di test di Huddle](#creating-a-huddle-test-user)**: per avere una controparte di Britta Simon in Huddle collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
 
@@ -110,73 +101,95 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On][4]
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_samlbase.png)
+2. Fare clic su **Modifica modalità Single Sign-On** nella parte superiore della schermata per selezionare la modalità **SAML**.
 
-1. Nella sezione **URL e dominio Huddle** seguire questa procedura:
+    ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_general_300.png)
 
-    ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_url.png)
+3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare il Single Sign-On.
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `http://<company name>.huddle.com`
+    ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_general_301.png)
 
-    > [!NOTE] 
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Huddle](https://huddle.zendesk.com). 
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic su **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-1. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+    ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_general_302.png)
 
-    ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_certificate.png) 
+5. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-1. Fare clic sul pulsante **Salva** .
+    > [!NOTE]
+    > L'istanza di Huddle verrà automaticamente rilevata dal dominio specificate di seguito.
 
-    ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_general_400.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Huddle](./media/huddle-tutorial/tutorial_huddle_url.png)
 
-1. Nella sezione **Configurazione di Huddle** fare clic su **Configura Huddle** per aprire la finestra **Configura accesso**. Copiare l'**ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla **sezione di riferimento rapido**. 
+    a. Nella casella di testo **Identificatore** digitare un URL:
 
-    ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_configure.png) 
-    
-1. Per configurare l'accesso Single Sign-On sul lato Huddle, è necessario inviare il file **Certificato** scaricato, l'**URL del servizio Single Sign-On SAM** e l'**ID di entità SAML** al [team di supporto clienti di Huddle](https://huddle.zendesk.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.  
-   
+    | | |
+    |--|--|
+    | `https://login.huddle.net`|
+    | `https://login.huddle.com`|
+    | |
+
+    b. Nella casella di testo **URL di risposta** digitare un URL:
+
+    | | |
+    |--|--|
+    | `https://login.huddle.net/saml/browser-sso`|
+    | `https://login.huddle.com/saml/browser-sso`|
+    | `https://login.huddle.com/saml/idp-initiated-sso`|
+    | |
+
+    c. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Huddle](./media/huddle-tutorial/tutorial_huddle_url1.png)
+
+    Nella casella di testo **URL di accesso** digitare uno degli URL usando il modello seguente:
+
+    | | |
+    |--|--|
+    | `https://<customsubdomain>.huddle.com`|
+    | `https://us.huddle.com`|
+    | |
+
+    > [!NOTE]
+    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Huddle](https://huddle.zendesk.com).
+
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il certificato appropriato in base ai propri requisiti e salvarlo nel computer in uso.
+
+    ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_certificate.png)
+
+7. Nella sezione **Set up Huddle** (Configura Huddle) copiare gli URL appropriati in base alle proprie esigenze.
+
+    ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_configure.png)
+
+8. Per configurare l'accesso Single Sign-On sul lato **Huddle**, è necessario inviare il certificato scaricato e gli URL copiati dalla sezione **Set up** **Huddle** (Configura Huddle) del portale di Azure al [team di supporto clienti di Huddle](https://huddle.zendesk.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+
     >[!NOTE]
-    > L'accesso Single Sign-On deve essere abilitato dal team di supporto di Huddle. Al termine della configurazione verrà visualizzata una notifica. 
-    > 
+    > L'accesso Single Sign-On deve essere abilitato dal team di supporto di Huddle. Al termine della configurazione verrà visualizzata una notifica.
 
-> [!TIP]
-> Un riepilogo delle istruzioni è disponibile all'interno del [portale di Azure](https://portal.azure.com) durante la configurazione dell'app.  Dopo aver aggiunto l'app dalla sezione **Active Directory > Applicazioni aziendali** è sufficiente fare clic sulla scheda **Single Sign-On** e accedere alla documentazione incorporata tramite la sezione **Configurazione** nella parte inferiore. Altre informazioni sulla funzione di documentazione incorporata sono disponibili in [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985) (Documentazione incorporata di Azure AD).
-> 
-   
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-![Creare un utente di Azure AD][100]
+1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory**, selezionare **Utenti** e quindi selezionare **Tutti gli utenti**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![Creare un utente di Azure AD][100]
 
-1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
     ![Creazione di un utente test di Azure AD](./media/huddle-tutorial/create_aaduser_01.png) 
 
-1. Passare a **Utenti e gruppi** e fare clic su **Tutti gli utenti** per visualizzare l'elenco di utenti.
-    
-    ![Creazione di un utente test di Azure AD](./media/huddle-tutorial/create_aaduser_02.png) 
+3. In Proprietà utente seguire questa procedura.
 
-1. Nella parte superiore della finestra di dialogo fare clic su **Aggiungi** per aprire la finestra di dialogo **Utente**.
- 
-    ![Creazione di un utente test di Azure AD](./media/huddle-tutorial/create_aaduser_03.png) 
+    ![Creazione di un utente test di Azure AD](./media/huddle-tutorial/create_aaduser_02.png)
 
-1. Nella pagina della finestra di dialogo **Utente** seguire questa procedura:
- 
-    ![Creazione di un utente test di Azure AD](./media/huddle-tutorial/create_aaduser_04.png) 
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
 
-    a. Nella casella di testo **Nome** digitare **BrittaSimon**.
+    c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+    d. Selezionare **Create**.
 
-    c. Selezionare **Mostra password** e prendere nota del valore della **Password**.
-
-    d. Fare clic su **Create**(Crea).
- 
 ### <a name="creating-a-huddle-test-user"></a>Creazione di un utente di test di Huddle
 
 Per consentire agli utenti di Azure AD di accedere a Huddle, è necessario effettuarne il provisioning in Huddle. Nel caso di Huddle, il provisioning è un'attività manuale.
@@ -184,59 +197,53 @@ Per consentire agli utenti di Azure AD di accedere a Huddle, è necessario effet
 **Per configurare il provisioning utenti, seguire questa procedura:**
 
 1. Accedere al sito aziendale di **Huddle** come amministratore.
-1. Fare clic su **Area di lavoro**.
-1. Fare clic su **Persone \> Invite People (Invita persone)**.
-   
-   ![Persone](./media/huddle-tutorial/IC787838.png "Persone")
 
-1. Nella sezione **Create a new invitation** seguire questa procedura:
-   
-   ![Nuovo invito](./media/huddle-tutorial/IC787839.png "Nuovo invito")
-   
-   a. Nell'elenco **Scegli un team per invitare persone a partecipare** selezionare **team**.
+2. Fare clic su **Area di lavoro**.
 
-   b. Nella casella di testo **Enter email address for people you'd like to invite** (Immetti indirizzo di posta elettronica degli utenti da invitare) digitare l'**indirizzo di posta elettronica** di un account Azure AD valido di cui si vuole effettuare il provisioning.
+3. Fare clic su **Persone \> Invite People (Invita persone)**.
 
-   c. Fare clic su **Invita**.   
-   
+    ![Persone](./media/huddle-tutorial/IC787838.png "Persone")
+
+4. Nella sezione **Create a new invitation** seguire questa procedura:
+  
+    ![Nuovo invito](./media/huddle-tutorial/IC787839.png "Nuovo invito")
+  
+    a. Nell'elenco **Scegli un team per invitare persone a partecipare** selezionare **team**.
+
+    b. Nella casella di testo **Enter email address for people you'd like to invite** (Immetti indirizzo di posta elettronica degli utenti da invitare) digitare l'**indirizzo di posta elettronica** di un account Azure AD valido di cui si vuole effettuare il provisioning.
+
+    c. Fare clic su **Invita**.
+
     >[!NOTE]
-    > Il titolare dell'account Azure AD riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo. 
-    > 
+    > Il titolare dell'account Azure AD riceverà un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
 
 >[!NOTE]
->È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Huddle per effettuare il provisioning degli account utente di Azure AD. 
-> 
+>È possibile usare qualsiasi altro strumento o API di creazione di account utente offerti da Huddle per effettuare il provisioning degli account utente di Azure AD.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Huddle.
 
-![Assegna utente][200] 
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
-**Per assegnare Britta Simon a Huddle, seguire questa procedura:**
+    ![Assegna utente][201]
 
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
-
-    ![Assegna utente][201] 
-
-1. Nell'elenco di applicazioni selezionare **Huddle**.
+2. Nell'elenco di applicazioni selezionare **Huddle**.
 
     ![Configure Single Sign-On](./media/huddle-tutorial/tutorial_huddle_app.png) 
 
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Assegna utente][202] 
+    ![Assegna utente][202]
 
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
     ![Assegna utente][203]
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
+6. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
 
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
-    
 ### <a name="testing-single-sign-on"></a>Test dell'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.

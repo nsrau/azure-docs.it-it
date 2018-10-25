@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 46e12378812788d147c903046b50a93c13119f2f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ee3dafe55799c46231aa3ca7c19684d905a057de
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444589"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815427"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 In particolare, il connettore di Archiviazione BLOB supporta:
 
 - La copia di BLOB in e da account di archiviazione di Azure per utilizzo generico e servizi di Archiviazione BLOB ad accesso frequente o sporadico. 
-- La copia di BLOB tramite autenticazione con chiave dell'account, firma di accesso condiviso del servizio, entità servizio o identità del servizio gestito.
+- La copia di BLOB tramite autenticazione con chiave dell'account, firma di accesso condiviso del servizio, entità servizio o identità gestite per le risorse di Azure.
 - La copia di BLOB da BLOB in blocchi, di aggiunta o di pagine e la copia di dati solo in BLOB in blocchi. Archiviazione Premium di Azure non è supportata come sink poiché si basa sui BLOB di pagine.
 - La copia di BLOB così come sono o l'analisi o generazione di BLOB con i [formati di file e i codec di compressione supportati](supported-file-formats-and-compression-codecs.md).
 
@@ -47,7 +47,7 @@ Il connettore BLOB di Azure supporta i seguenti tipi di autenticazione. Vedere l
 - [Autenticazione basata sulla chiave dell'account](#account-key-authentication)
 - [Autenticazione con firma di accesso condiviso](#shared-access-signature-authentication)
 - [Autenticazione di un'entità servizio](#service-principal-authentication)
-- [Autenticazione basata su identità del servizio gestita](#managed-service-identity-authentication)
+- [Autenticazione di identità gestite per le risorse di Azure](#managed-identity)
 
 >[!NOTE]
 >HDInsights, Azure Machine Learning e Azure SQL Data Warehouse PolyBase supportano solo l'autenticazione basata sulla chiave dell'account di archiviazione BLOB di Azure.
@@ -191,13 +191,13 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Autenticazione basata su identità del servizio gestita
+### <a name="managed-identity"></a>Autenticazione di identità gestite per le risorse di Azure
 
-Una data factory può essere associata a un'[identità del servizio gestito](data-factory-service-identity.md), che rappresenta la data factory specificata. È possibile usare direttamente questa identità del servizio per l'autenticazione con archiviazione BLOB, analogamente all'uso dell'entità servizio. Consente alla factory designata di accedere e copiare i dati da/nella risorsa di archiviazione BLOB.
+Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare direttamente questa identità del servizio per l'autenticazione con archiviazione BLOB, analogamente all'uso dell'entità servizio. Consente alla factory designata di accedere e copiare i dati da/nella risorsa di archiviazione BLOB.
 
 Per l'autenticazione con identità del servizio gestita di archiviazione di Azure in generale, vedere [Autenticare l'accesso ad Archiviazione di Azure con Azure Active Directory](../storage/common/storage-auth-aad.md).
 
-Per usare l'autenticazione basata sull'identità del servizio gestito (MSI), eseguire la procedura seguente:
+Per usare l'autenticazione di identità gestite per le risorse di Azure, seguire questa procedura:
 
 1. [Recuperare l'identità del servizio Data Factory](data-factory-service-identity.md#retrieve-service-identity) copiando il valore di "SERVICE IDENTITY APPLICATION ID" generato con la factory.
 
@@ -214,8 +214,8 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 | serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. |Yes |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
->[!NOTE]
->Autenticazione identità del servizio gestita è supportata solo dal servizio collegato di tipo "AzureBlobStorage", ma non dal servizio collegato precedente di tipo "AzureStorage". 
+> [!NOTE]
+> L'autenticazione di identità gestite per le risorse di Azure è supportata solo dal servizio collegato di tipo "AzureBlobStorage", ma non dal servizio collegato precedente di tipo "AzureStorage". 
 
 **Esempio:**
 

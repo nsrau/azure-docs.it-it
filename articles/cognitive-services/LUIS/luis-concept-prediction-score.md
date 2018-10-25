@@ -1,26 +1,26 @@
 ---
-title: Comprendere il punteggio di stima restituito da LUIS
+title: Punteggio di stima - Finalità, entità - LUIS
 titleSuffix: Azure Cognitive Services
-description: Informazioni sul significato del punteggio di stima in LUIS
+description: Il punteggio di stima indica il grado di attendibilità rispetto ai risultati di stima di LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: dc19151e82f44159533050e60ba2f1c6d65466fe
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56bec5ef4730e47b5c79263af5d1942df5a73f04
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032238"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341345"
 ---
-# <a name="prediction-score"></a>Punteggio di stima
+# <a name="prediction-score"></a>Punteggio di previsione
 Il punteggio di stima indica il grado di attendibilità rispetto ai risultati di stima di LUIS. 
 
-Un punteggio di stima è in genere compreso tra zero (0) e uno (1). Un esempio di punteggio LUIS altamente attendibile è 0,99. Un esempio di punteggio poco attendibile è 0,01. 
+Un punteggio di stima è compreso tra zero (0) e uno (1). Un esempio di punteggio LUIS altamente attendibile è 0,99. Un esempio di punteggio poco attendibile è 0,01. 
 
 |Valore punteggio|Attendibilità|
 |--|--|

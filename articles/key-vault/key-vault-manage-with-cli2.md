@@ -1,6 +1,6 @@
 ---
 title: Gestire Azure Key Vault tramite l'interfaccia della riga di comando | Microsoft Docs
-description: Usare questo articolo per automatizzare le attività comuni nell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando 2.0
+description: Usare questo articolo per automatizzare le attività comuni nell'insieme di credenziali delle chiavi tramite l'interfaccia della riga di comando di Azure
 services: key-vault
 documentationcenter: ''
 author: barclayn
@@ -14,18 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: f88e98561a88380fbe40ecc9627ffabe39b0071c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295175"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954345"
 ---
-# <a name="manage-key-vault-using-cli-20"></a>Gestire Key Vault tramite l'interfaccia della riga di comando 2.0
+# <a name="manage-key-vault-using-the-azure-cli"></a>Gestire Key Vault tramite l'interfaccia della riga di comando di Azure 
 
-Questo articolo descrive come usare Azure Key Vault con Azure CLI 2.0. In particolare, fornisce informazioni sugli argomenti seguenti:
+Questo articolo descrive come usare Azure Key Vault con l'interfaccia della riga di comando di Azure.  In particolare, fornisce informazioni sugli argomenti seguenti:
 
-- Prerequisiti
 - Come creare un contenitore finalizzato, ossia un insieme di credenziali, in Azure
 - Aggiunta di una chiave, un segreto o un certificato all'insieme di credenziali delle chiavi
 - Registrazione di un'applicazione con Azure Active Directory
@@ -50,7 +49,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per usare i comandi dell'interfaccia della riga di comando di Azure in questo articolo, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial).
-* Interfaccia della riga di comando versione 2.0 o successiva. Per installare l'ultima versione, vedere [Installare e configurare l'interfaccia della riga di comando multipiattaforma di Azure 2.0](/cli/azure/install-azure-cli).
+* Interfaccia della riga di comando di Azure versione 2.0 o versioni successive. Per installare la versione più recente, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 * Un'applicazione che verrà configurata per usare la chiave o la password creata in questo articolo. Un'applicazione di esempio è disponibile nell'[Area download Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Per istruzioni, vedere il file Readme incluso.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Risorse della Guida per l'interfaccia della riga di comando multipiattaforma di Microsoft Azure
@@ -67,7 +66,7 @@ az account set -h
 È anche possibile vedere gli articoli seguenti per acquisire familiarità con Azure Resource Manager nell'interfaccia della riga di comando multipiattaforma di Azure:
 
 * [Installare l'interfaccia da riga di comando di Azure](/cli/azure/install-azure-cli)
-* [Introduzione all'interfaccia della riga di comando di Azure 2.0](/cli/azure/get-started-with-azure-cli)
+* [Introduzione all'interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli)
 
 ## <a name="how-to-create-a-hardened-container-a-vault-in-azure"></a>Come creare un contenitore finalizzato, ossia un insieme di credenziali, in Azure
 
@@ -200,7 +199,7 @@ Le applicazioni che usano un insieme di credenziali delle chiavi devono eseguire
 
 L'applicazione deve presentare entrambi questi valori ad Azure Active Directory, per ottenere un token. Il modo in cui un'applicazione viene configurata per ottenere un token dipenderà dall'applicazione. Per l'[applicazione di esempio per l'insieme di credenziali delle chiavi](https://www.microsoft.com/download/details.aspx?id=45343), il proprietario dell'applicazione imposta questi valori nel file app.config.
 
-Per la procedura dettagliata per registrare un'applicazione in Azure Active Directory, vedere gli articoli [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md), [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../azure-resource-manager/resource-group-create-service-principal-portal.md) e [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure 2.0](/cli/azure/create-an-azure-service-principal-azure-cli).
+Per la procedura dettagliata per registrare un'applicazione in Azure Active Directory, vedere gli articoli [Integrazione di applicazioni con Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che possano accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md) e [Creare un'entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Per registrare un'applicazione in Azure Active Directory:
 

@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: d348978924b4123944e019ef1a309633ee72b516
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046308"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804328"
 ---
-# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Accesso tramite telefono senza password con l'app Microsoft Authenticator (anteprima pubblica)
+# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Accesso tramite telefono senza password con l'app Microsoft Authenticator (anteprima pubblica)
 
 L'app Microsoft Authenticator consente di accedere a qualsiasi account di Azure AD senza usare la password. Analogamente alla tecnologia di [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator usa l'autenticazione basata su chiavi per abilitare credenziali utente associate a un dispositivo e basate su un sensore biometrico o un PIN.
 
@@ -37,7 +37,7 @@ Per l'anteprima pubblica, un amministratore deve prima aggiungere i criteri tram
 
 ### <a name="steps-to-enable"></a>Procedura di abilitazione
 
-1. Installare la [versione di anteprima pubblica del modulo di Azure Active Directory V2 per PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.114).  
+1. Installare la [versione di anteprima pubblica del modulo di Azure Active Directory V2 per PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/).  
 2. In PowerShell eseguire due comandi:
    1. `Connect-AzureAD`
       1. Nella finestra di dialogo di autenticazione, accedere con un account nel tenant. L'account deve appartenere a un amministratore della sicurezza o a un amministratore globale.
@@ -61,11 +61,11 @@ Dopo aver configurato nell'app Microsoft Authenticator un account MFA con le not
 
 ### <a name="ad-fs-integration"></a>Integrazione con AD FS
 
-Se un utente ha abilitato le credenziali senza password di Microsoft Authenticator, per impostazione predefinita l'autenticazione per l'utente invierà sempre una notifica di approvazione. Questa logica impedisce agli utenti di un tenant ibrido di essere reindirizzati ad AD FS per la verifica di accesso senza dover prima fare clic su "Usa la tua password". Questo processo, inoltre, ignorerà eventuali criteri di accesso condizionale e flussi di autenticazione pass-through. Si può verificare un'eccezione a questo processo se viene specificato un login_hint. In questo caso, l'utente verrà automaticamente inoltrato ad AD FS e verrà ignorata l'opzione che consente di usare le credenziali senza password.
+Se un utente ha abilitato le credenziali senza password di Microsoft Authenticator, l'autenticazione per tale utente invierà sempre per impostazione predefinita una notifica per l'approvazione. Questa logica impedisce agli utenti di un tenant ibrido di essere reindirizzati ad AD FS per la verifica di accesso senza dover prima fare clic su "Usa la tua password". Questo processo, inoltre, ignorerà eventuali criteri di accesso condizionale e flussi di autenticazione pass-through. Si può verificare un'eccezione a questo processo se viene specificato login_hint. In questo caso, l'utente verrà automaticamente inoltrato ad AD FS e verrà ignorata l'opzione che consente di usare credenziali senza password.
 
 ### <a name="azure-mfa-server"></a>Server di Azure MFA
 
-Gli utenti finali abilitati per MFA tramite un server di Azure MFA locale di un'organizzazione possono comunque creare e usare credenziali di accesso tramite telefono senza password. Se l'utente tenta di aggiornare più installazioni (più di 5) di Microsoft Authenticator con le credenziali create, questa modifica può determinare un errore.  
+Gli utenti finali abilitati per MFA tramite un server Azure MFA locale dell'organizzazione possono comunque creare e usare credenziali di accesso tramite telefono senza password. Se l'utente tenta di aggiornare più installazioni (più di 5) di Microsoft Authenticator con le credenziali create, questa modifica può determinare un errore.  
 
 ### <a name="device-registration"></a>Registrazione del dispositivo
 

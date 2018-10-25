@@ -1,35 +1,29 @@
 ---
-title: Introduzione a Web application firewall (WAF) per il gateway applicazione di Azure | Microsoft Docs
-description: Questa pagina offre una panoramica di Web application firewall (WAF) per il gateway applicazione
-documentationcenter: na
+title: Introduzione a Web application firewall (WAF) per il gateway applicazione di Azure
+description: Questo articolo offre una panoramica di Web application firewall (WAF) per il gateway applicazione
 services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 10/11/2018
 ms.author: amsriva
-ms.openlocfilehash: 9e04f69410251b5748facf44e9f2947b1415bc19
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160835"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068452"
 ---
 # <a name="web-application-firewall-waf"></a>Web application firewall (WAF)
 
 Web application firewall (WAF) è una funzionalità del gateway applicazione che offre una protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. 
 
-Il Web application firewall si basa sulle regole di [OWASP Core Rule Set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9. Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito. Impedire questo tipo di attacchi nel codice dell'applicazione può risultare un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. Un Web application firewall centralizzato semplifica notevolmente la gestione della sicurezza e offre agli amministratori delle applicazioni migliori garanzie contro le minacce o le intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web. È possibile convertire facilmente i gateway applicazione esistenti in un gateway applicazione con Web application firewall.
+Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni vulnerabilità note. Per citarne alcuni, tra i più comuni troviamo gli attacchi SQL injection e gli attacchi di scripting intersito. Impedire questo tipo di attacchi nel codice dell'applicazione può risultare un'operazione complessa e potrebbe richiedere una manutenzione rigorosa, l'applicazione di patch e il monitoraggio a più livelli della topologia dell'applicazione. Un Web application firewall centralizzato semplifica notevolmente la gestione della sicurezza e offre agli amministratori delle applicazioni migliori garanzie contro le minacce o le intrusioni. Una soluzione WAF è anche in grado di reagire più velocemente a una minaccia alla sicurezza tramite l'applicazione di patch su una vulnerabilità nota in una posizione centrale, anziché proteggere ogni singola applicazione Web. È possibile convertire facilmente i gateway applicazione esistenti in un gateway applicazione con Web application firewall.
+
+Il WAF si basa sulle regole di [OWASP Core Rule Set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9. Si aggiorna automaticamente per includere la protezione contro le nuove vulnerabilità, senza alcuna configurazione aggiuntiva.
 
 ![imageURLroute](./media/waf-overview/WAF1.png)
 
-Il gateway applicazione funziona come controller per la distribuzione di applicazioni che offre terminazione SSL, affinità di sessione basate su cookie, distribuzione del carico round robin, routing basato sui contenuti, possibilità di ospitare più siti Web e miglioramenti alla sicurezza. I miglioramenti della sicurezza offerti dal gateway applicazione includono la gestione dei criteri di SSL e il supporto di SSL end-to-end. La sicurezza delle applicazioni è ora potenziata dall'integrazione diretta di Web application firewall nell'offerta ADC. In questo modo è facile configurare una posizione centrale per gestire e proteggere le applicazioni Web dalle vulnerabilità Web più comuni.
+Il gateway applicazione funziona come controller per la distribuzione di applicazioni (ADC) che offre terminazione SSL, affinità di sessione basate su cookie, distribuzione del carico round robin, routing basato sui contenuti, possibilità di ospitare più siti Web e miglioramenti alla sicurezza. I miglioramenti della sicurezza offerti dal gateway applicazione includono la gestione dei criteri di SSL e il supporto di SSL end-to-end. La sicurezza delle applicazioni è ora potenziata dall'integrazione diretta di Web application firewall nell'offerta ADC. In questo modo è facile configurare una posizione centrale per gestire e proteggere le applicazioni Web dalle vulnerabilità Web più comuni.
 
 ## <a name="benefits"></a>Vantaggi
 
@@ -53,21 +47,43 @@ Di seguito sono indicati i vantaggi principali del gateway applicazione e del We
 
 ## <a name="features"></a>Funzionalità
 
-Web application firewall è preconfigurato con CRS 3.0 per impostazione predefinita, ma è possibile scegliere di usare la versione 2.2.9. CRS 3.0 offre meno falsi positivi rispetto alla versione 2.2.9. È possibile [personalizzare le regole in base alle esigenze](application-gateway-customize-waf-rules-portal.md). Le vulnerabilità Web per le quali Web application firewall offre protezione includono:
+- Protezione dagli attacchi SQL injection
+- Protezione dagli attacchi di scripting intersito
+- Protezione dai comuni attacchi Web, ad esempio attacchi di iniezione di comandi, richieste HTTP non valide, attacchi HTTP Response Splitting e Remote File Inclusion
+- Protezione dalle violazioni del protocollo HTTP
+- Protezione contro eventuali anomalie del protocollo HTTP, ad esempio user agent host mancante e accept header
+- Prevenzione contro robot, crawler e scanner
+- Rilevamento di errori di configurazione dell'applicazione comuni (ad esempio, Apache, IIS e così via)
 
-* Protezione dagli attacchi SQL injection
-* Protezione dagli attacchi di scripting intersito
-* Protezione dai comuni attacchi Web, ad esempio attacchi di iniezione di comandi, richieste HTTP non valide, attacchi HTTP Response Splitting e Remote File Inclusion
-* Protezione dalle violazioni del protocollo HTTP
-* Protezione contro eventuali anomalie del protocollo HTTP, ad esempio user agent host mancante e accept header
-* Prevenzione contro robot, crawler e scanner
-* Rilevamento di errori di configurazione comuni dell'applicazione (ad esempio, Apache, IIS e così via)
+### <a name="public-preview-features"></a>Funzionalità di anteprima pubblica
 
-Per un elenco dettagliato delle regole e delle relative funzionalità di protezione, vedere i [set di regole principali](#core-rule-sets) seguenti.
+Li SKU in anteprima pubblica di WAF corrente include le funzionalità seguenti:
+
+- **Limiti di dimensioni richiesta**: Web application firewall consente agli utenti di configurare i limiti di dimensioni di richiesta entro i limiti inferiori e superiori.
+- **Elenchi di esclusione**: gli elenchi di esclusione di Web Application firewall consentono agli utenti di omettere determinati attributi di richiesta da una valutazione di WAF. Un esempio comune è rappresentato dai token inseriti in Active Directory che vengono usati per l'autenticazione o per i campi password.
+
+Per altre informazioni sull'anteprima pubblica di WAF, vedere [Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione (Anteprima pubblica)](application-gateway-waf-configuration.md).
+
+
+
+
 
 ### <a name="core-rule-sets"></a>Set di regole principali
 
 Il gateway applicazione supporta due set di regole, ovvero CRS 3.0 e CRS 2.2.9. Questi set di regole principali sono raccolte di regole che proteggono le applicazioni Web da attività dannose.
+
+Web application firewall è preconfigurato con CRS 3.0 per impostazione predefinita, ma è possibile scegliere di usare la versione 2.2.9. CRS 3.0 offre meno falsi positivi rispetto alla versione 2.2.9. È possibile [personalizzare le regole in base alle esigenze](application-gateway-customize-waf-rules-portal.md). Le vulnerabilità Web per le quali Web application firewall offre protezione includono:
+
+- Protezione dagli attacchi SQL injection
+- Protezione dagli attacchi di scripting intersito
+- Protezione dai comuni attacchi Web, ad esempio attacchi di iniezione di comandi, richieste HTTP non valide, attacchi HTTP Response Splitting e Remote File Inclusion
+- Protezione dalle violazioni del protocollo HTTP
+- Protezione contro eventuali anomalie del protocollo HTTP, ad esempio user agent host mancante e accept header
+- Prevenzione contro robot, crawler e scanner
+- Rilevamento di errori di configurazione comuni dell'applicazione (ad esempio, Apache, IIS e così via)
+
+Per un elenco dettagliato delle regole e delle relative funzionalità di protezione, vedere i [set di regole principali](#core-rule-sets).
+
 
 #### <a name="owasp30"></a>OWASP_3.0
 
@@ -167,5 +183,5 @@ Web application firewall è disponibile in un nuovo SKU del WAF. Questo SKU è d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver appreso altre informazioni sulle funzionalità di WAF, vedere [Come configurare Web application firewall nel gateway applicazione](tutorial-restrict-web-traffic-powershell.md).
+Dopo aver appreso informazioni sul WAF, vedere [Come configurare Web application firewall nel gateway applicazione](tutorial-restrict-web-traffic-powershell.md).
 

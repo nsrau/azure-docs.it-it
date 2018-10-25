@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287445"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817106"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmazione lato server per Azure Cosmos DB: stored procedure, trigger del database e funzioni definite dall'utente
 
@@ -92,7 +92,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-L'oggetto contesto offre accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di Cosmos DB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, si usa l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere la [documentazione relativa all'SDK del server JavaScript di Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).  
+L'oggetto contesto offre accesso a tutte le operazioni che è possibile eseguire nelle risorse di archiviazione di Cosmos DB, oltre all'accesso agli oggetti richiesta e risposta. In questo caso, si usa l'oggetto risposta per impostare il corpo della risposta restituita al client. Per altre informazioni, vedere il [riferimento API lato server JavaScript di Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Elaborando ulteriormente questo esempio, è possibile aggiungere alla stored procedure altre funzionalità relative al database. Le stored procedure possono creare, aggiornare, leggere ed eliminare documenti e allegati all'interno della raccolta, oltre che eseguire query su di essi.    
 
@@ -503,7 +503,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 ```
 
 ## <a name="javascript-language-integrated-query-api"></a>API della Language-Integrated Query di JavaScript
-Oltre a eseguire query usando la grammatica SQL di Azure Cosmos DB, l'SDK lato server consente di eseguire query ottimizzate tramite un'intuitiva interfaccia JavaScript senza alcuna conoscenza di SQL. L'API di query JavaScript consente di creare query a livello di programmazione passando funzioni predicate in chiamate di funzione concatenabili, con una sintassi familiare alle librerie JavaScript predefinite e integrate della matrice ECMAScript5 come Lodash. Le query vengono analizzate dal runtime JavaScript per essere eseguite in modo efficiente usando gli indici di Azure Cosmos DB.
+Oltre a eseguire query usando la grammatica SQL di Azure Cosmos DB, l'[SDK lato server](https://azure.github.io/azure-cosmosdb-js-server/) consente di eseguire query ottimizzate tramite un'intuitiva interfaccia JavaScript senza alcuna conoscenza di SQL. L'API di query JavaScript consente di creare query a livello di programmazione passando funzioni predicate in chiamate di funzione concatenabili, con una sintassi familiare alle librerie JavaScript predefinite e integrate della matrice ECMAScript5 come Lodash. Le query vengono analizzate dal runtime JavaScript per essere eseguite in modo efficiente usando gli indici di Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (doppio carattere di sottolineatura) è un alias per `getContext().getCollection()`.
@@ -831,9 +831,8 @@ Quando sono presenti uno o più stored procedure, trigger e funzioni definite da
 
 È inoltre possibile trovare i seguenti riferimenti e risorse utili per il percorso per altre informazioni sulla programmazione lato server Azure Cosmos DB:
 
-* [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
+* [Riferimento API di lato server JavaScript di Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/)
 * [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Estensibilità di Database protette e portatile](http://dl.acm.org/citation.cfm?id=276339) 
 * [Database architettura orientata ai servizi](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 

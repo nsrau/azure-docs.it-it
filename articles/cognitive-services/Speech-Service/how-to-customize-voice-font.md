@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 5e99e7e376a020f845816fb38e31dd727d87a4cb
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423426"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113921"
 ---
 # <a name="creating-custom-voice-fonts"></a>Creazione di caratteri voce personalizzati
 
@@ -22,12 +22,9 @@ Per creare un carattere voce, effettuare una registrazione in studio e caricare 
 
 È possibile iniziare con una piccola quantità di dati per un modello di verifica. Tuttavia, più dati si forniscono, più naturale e professionale risulterà la voce.
 
-
 ## <a name="prerequisites"></a>Prerequisiti
 
-La funzionalità di personalizzazione della voce **Sintesi vocale** è attualmente in versione di anteprima privata. [Compilare il modulo di richiesta](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) per essere presi in considerazione per l'accesso.
-
-È necessario disporre anche di un account di Azure e di una sottoscrizione al servizio Voce. [Crearne una](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) se non è già stato fatto. Collegare la sottoscrizione al portale per la voce personalizzata come indicato di seguito:
+È necessario disporre di un account Azure e di una sottoscrizione al servizio Voce. [Crearne una](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) se non è già stato fatto. Collegare la sottoscrizione al portale per la voce personalizzata come indicato qui.
 
 1. Accedere a [Personalizza voce portale](https://customvoice.ai) tramite lo stesso account Microsoft usato per richiedere l'accesso.
 
@@ -37,7 +34,6 @@ La funzionalità di personalizzazione della voce **Sintesi vocale** è attualmen
 
 3. Nella pagina Sottoscrizioni scegliere **Connettersi a una sottoscrizione esistente**. Si noti che Servizi Voce è supportata in diverse aree. Controllare l'area in cui è stata creata la chiave di sottoscrizione e assicurarsi che la propria chiave sia collegata al sub portale corretto.  
 
-     
 4. Incollare la chiave di sottoscrizione nella tabella, come illustrato nell'esempio di seguito. Ogni sottoscrizione dispone di due chiavi ed è possibile usarne indistintamente una delle due.
 
      ![Aggiungere la sottoscrizione](media/custom-voice/add-subscription.png)
@@ -56,7 +52,7 @@ Per creare una voce per l'uso in produzione, è consigliabile avvalersi di uno s
 
 ### <a name="audio-files"></a>File audio
 
-Ciascun file audio deve contenere una singola espressione, ad esempio un'unica frase o una sola battuta di un dialogo. Tutti i file devono essere nella stessa lingua. (Le voci personalizzate multilingua non sono supportate). I file audio devono anche avere un nome file numerico univoco con l'estensione nome file`.wav`.
+Ciascun file audio deve contenere una singola espressione, ad esempio un'unica frase o una sola battuta di un dialogo. Tutti i file devono essere nella stessa lingua. Le voci personalizzate in più lingue non sono supportate. I file audio devono inoltre avere un nome numerico univoco con l'estensione `.wav`.
 
 I file audio devono essere preparati come segue. Gli altri formati non sono supportati e verranno rifiutati.
 
@@ -92,7 +88,7 @@ Il sistema per la voce personalizzata normalizza le trascrizioni convertendo il 
 
 ## <a name="upload-your-datasets"></a>Caricare i set di dati
 
-Dopo aver preparato l'archivio dei file audio e le trascrizioni, caricarli tramite il [Portale del servizio della voce personalizzata](https://customvoice.ai).
+Dopo aver preparato l'archivio dei file audio e le trascrizioni, caricarli tramite il [portale del servizio per la voce personalizzata](https://customvoice.ai).
 
 > [!NOTE]
 > I set di dati non possono essere modificati dopo essere stati caricati. Se ad esempio si dimentica di includere le trascrizioni di alcuni file audio o accidentalmente si sceglie il genere errato, è necessario caricare nuovamente l'intero set di dati. Controllare attentamente il set di dati e le impostazioni prima di iniziare il caricamento.

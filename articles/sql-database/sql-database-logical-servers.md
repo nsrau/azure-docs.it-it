@@ -11,23 +11,23 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: effaa9b0b3fec36974a2bc850eeb1f36181ca0c7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 83db2bcfe21edc9f8f2649ef8c2b3a23e412e39d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166436"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353986"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Server logici del database SQL di Azure e loro gestione
 
-## <a name="what-is-an-azure-sql-logical-server"></a>Che cos'è un server logico SQL di Azure?
+## <a name="what-is-an-azure-sql-logical-server"></a>Che cos'è un server logico SQL di Azure
 
 Un server logico funge da punto amministrativo centrale per più database singoli o [in pool](sql-database-elastic-pool.md), [account di accesso](sql-database-manage-logins.md), [regole del firewall](sql-database-firewall-configure.md), [regole di controllo](sql-database-auditing.md), [criteri di rilevamento delle minacce](sql-database-threat-detection.md) e [gruppi di failover](sql-database-geo-replication-overview.md). Un server logico può trovarsi in un'area diversa rispetto al relativo gruppo di risorse. Il server logico deve esistere prima di poter creare il database SQL di Azure. Tutti i database in un server vengono creati nella stessa area del server logico.
 
 Un server logico è un costrutto logico diverso da un'istanza di SQL Server a cui si può essere abituati nell'ambiente locale. In particolare, il servizio del database SQL non fornisce alcuna garanzia sulla posizione dei database in relazione ai server logici collegati e non espone funzionalità o accessi a livello di istanza. Al contrario, un server in un'istanza di Istanza gestita di database SQL è simile a un'istanza di SQL Server a cui si può essere abituati nell'ambiente locale.
 
-Quando si crea un server logico, è necessario specificare un account di accesso server e relativa password con diritti amministrativi per il database master in tale server e per tutti i database creati in tale server. Questo account iniziale è un account di accesso SQL. Il database SQL di Azure supporta l'autenticazione SQL e l'autenticazione di Azure Active Directory. Per informazioni su account di accesso e autenticazione, vedere [Gestione di database e account di accesso nel database SQL di Azure](sql-database-manage-logins.md). L'autenticazione Windows non è supportata. 
+Quando si crea un server logico, è necessario specificare un account di accesso server e relativa password con diritti amministrativi per il database master in tale server e per tutti i database creati in tale server. Questo account iniziale è un account di accesso SQL. Il database SQL di Azure supporta l'autenticazione SQL e l'autenticazione di Azure Active Directory. Per informazioni su account di accesso e autenticazione, vedere [Gestione di database e account di accesso nel database SQL di Azure](sql-database-manage-logins.md). L'autenticazione Windows non è supportata.
 
 Un server logico del database di Azure:
 
@@ -38,19 +38,19 @@ Un server logico del database di Azure:
 - Partecipa al [controllo degli accessi in base al ruolo (RBAC) di Azure](/azure/role-based-access-control/overview): i database, i pool elastici e i data warehouse all'interno di un server ereditano i diritti di accesso dal server
 - È un elemento di ordine superiore dell'identità di database, pool elastici e data warehouse ai finiti della gestione delle risorse di Azure (vedere lo schema dell'URL per database e pool)
 - Colloca risorse in un'area
-- Fornisce un endpoint di connessione per l'accesso ai database (<serverName>.database.windows.net)
-- Fornisce accesso ai metadati riguardanti le risorse contenute tramite DMV, connettendosi a un database master 
-- Fornisce l'ambito per i criteri di gestione che si applicano ai database: account di accesso, firewall, controllo, rilevamento minacce e così via 
+- Fornisce un endpoint di connessione per l'accesso ai database (`<serverName>`.database.windows.net)
+- Fornisce accesso ai metadati riguardanti le risorse contenute tramite DMV, connettendosi a un database master
+- Fornisce l'ambito per i criteri di gestione che si applicano ai database: account di accesso, firewall, controllo, rilevamento minacce e così via
 - È limitato da una quota nella sottoscrizione padre: sei server per sottoscrizione per impostazione predefinita - [vedere i limiti relativi alle sottoscrizioni qui](../azure-subscription-service-limits.md)
 - Fornisce l'ambito per la quota database e la quota DTU o vCore per le risorse in esso contenute, ad esempio 45.000 DTU
-- Rappresenta l'ambito di controllo delle versioni per le funzionalità abilitate sulle risorse contenute 
+- Rappresenta l'ambito di controllo delle versioni per le funzionalità abilitate sulle risorse contenute
 - Gli account di accesso all'entità a livello di server possono gestire tutti i database in un server
 - Può contenere account di accesso simili a quelli delle istanze di SQL Server in locale che dispongono dell'accesso a uno o più database nel server ed è possibile concedere diritti amministrativi limitati. Per altre informazioni, vedere [Autenticazione e autorizzazione per database SQL: concessione dell'accesso](sql-database-manage-logins.md).
 - Le regole di confronto predefinite per tutti i database utente creati in un server logico sono `SQL_LATIN1_GENERAL_CP1_CI_AS`, dove `LATIN1_GENERAL` indica Inglese (Stati Uniti), `CP1` è la tabella codici 1252, `CI` indica che non viene fatta distinzione tra maiuscole e minuscole e `AS` indica che viene fatta distinzione tra caratteri accentati e non accentati.
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-the-azure-portal"></a>Gestire server, database e firewall SQL di Azure con il portale di Azure
 
-È possibile creare il gruppo di risorse del database SQL di Azure in anticipo oppure durante la creazione del server stesso. Esistono diversi metodi per accedere al modulo per la creazione di un nuovo server SQL Server, creando un nuovo server SQL Server o nell'ambito della procedura per creare un nuovo database. 
+È possibile creare il gruppo di risorse del database SQL di Azure in anticipo oppure durante la creazione del server stesso. Esistono diversi metodi per accedere al modulo per la creazione di un nuovo server SQL Server, creando un nuovo server SQL Server o nell'ambito della procedura per creare un nuovo database.
 
 ### <a name="create-a-blank-sql-server-logical-server"></a>Creare un server SQL Server vuoto (server logico)
 
@@ -58,7 +58,7 @@ Per creare un server di database SQL di Azure (senza un database) tramite il [po
 
 ### <a name="create-a-blank-or-sample-sql-database"></a>Creare un database SQL vuoto o di esempio
 
-Per creare un database SQL di Azure tramite il [portale di Azure](https://portal.azure.com), passare a un modulo per database SQL vuoto e specificare le informazioni richieste. È possibile creare il gruppo di risorse e il server logico del database SQL di Azure anticipatamente o durante la creazione del database stesso. È possibile creare un database vuoto o creare un database di esempio basato su Adventure Works LT. 
+Per creare un database SQL di Azure tramite il [portale di Azure](https://portal.azure.com), passare a un modulo per database SQL vuoto e specificare le informazioni richieste. È possibile creare il gruppo di risorse e il server logico del database SQL di Azure anticipatamente o durante la creazione del database stesso. È possibile creare un database vuoto o creare un database di esempio basato su Adventure Works LT.
 
   ![Creare il database 1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -69,19 +69,16 @@ Per creare un'istanza di Istanza gestita, vedere [Create a Managed Instance](sql
 
 ### <a name="manage-an-existing-sql-server"></a>Gestire un server SQL Server esistente
 
-Per gestire un server esistente, passare al server usando uno dei vari metodi disponibili, ad esempio dalla pagina specifica del database SQL, dalla pagina **SQL Server** o dalla pagina **Tutte le risorse**. 
+Per gestire un server esistente, passare al server usando uno dei vari metodi disponibili, ad esempio dalla pagina specifica del database SQL, dalla pagina **SQL Server** o dalla pagina **Tutte le risorse**.
 
-Per gestire un database esistente, passare alla pagina **Database SQL** e fare clic sul database che si desidera gestire. Lo screenshot seguente mostra come iniziare a impostare un firewall di livello server per un database dalla pagina **Informazioni generali** per un database. 
+Per gestire un database esistente, passare alla pagina **Database SQL** e fare clic sul database che si desidera gestire. Lo screenshot seguente mostra come iniziare a impostare un firewall di livello server per un database dalla pagina **Informazioni generali** per un database.
 
-   ![Regola del firewall del server](./media/sql-database-get-started-portal/server-firewall-rule.png) 
+   ![Regola del firewall del server](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
 > Per configurare le proprietà delle prestazioni di un database, vedere [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
->
-
 > [!TIP]
 > Per una guida introduttiva per il portale di Azure, vedere [Creare un database SQL di Azure nel portale di Azure](sql-database-get-started-portal.md).
->
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-powershell"></a>Gestire server, database e firewall SQL di Azure con PowerShell
 
@@ -164,7 +161,6 @@ Per creare e gestire server, database e firewall SQL di Azure con Transact-SQL, 
 |[sys.database_firewall_rules (database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Restituisce informazioni sulle impostazioni del firewall a livello di database associate al database SQL di Microsoft Azure. |
 |[sp_delete_database_firewall_rule (database SQL di Azure)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Rimuove l'impostazione del firewall a livello di database dal database SQL di Azure o da SQL Data Warehouse. |
 
-
 > [!TIP]
 > Per una guida introduttiva per SQL Server Management Studio in Microsoft Windows, vedere [Database SQL di Azure: usare SQL Server Management Studio per connettersi ed eseguire query sui dati](sql-database-connect-query-ssms.md). Per una guida introduttiva per Visual Studio Code in macOS, Linux o Windows, vedere [Database SQL di Azure: Usare Visual Studio Code per connettersi ai dati ed eseguire query](sql-database-connect-query-vscode.md).
 
@@ -174,21 +170,22 @@ Per creare e gestire server, database e firewall SQL di Azure, usare queste rich
 
 | Comando | DESCRIZIONE |
 | --- | --- |
-|[Servers - Create Or Update](/rest/api/sql/servers/createorupdate)|Crea o aggiorna un nuovo server.|
-|[Servers - Delete](/rest/api/sql/servers/delete)|Elimina un server SQL.|
-|[Servers - Get](/rest/api/sql/servers/get)|Ottiene un server.|
-|[Servers - List](/rest/api/sql/servers/list)|Restituisce un elenco di server.|
-|[Servers - List By Resource Group](/rest/api/sql/servers/listbyresourcegroup)|Restituisce un elenco di server in un gruppo di risorse.|
-|[Servers - Update](/rest/api/sql/servers/update)|Aggiorna un server esistente.|
-|[Database: crea o aggiorna](/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
-|[Databases - Get](/rest/api/sql/databases/get)|Ottiene un database.|
-|[Database: elenca da pool elastico](/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
-|[Databases - List By Server](/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
-|[Databases - Update](/rest/api/sql/databases/update)|Aggiorna un database esistente.|
-|[Firewall Rules - Create Or Update](/rest/api/sql/firewallrules/createorupdate)|Crea o aggiorna una regola del firewall.|
-|[Firewall Rules - Delete](/rest/api/sql/firewallrules/delete)|Elimina una regola del firewall.|
-|[Firewall Rules - Get](/rest/api/sql/firewallrules/get)|Ottiene una regola del firewall.|
-|[Firewall Rules - List By Server](/rest/api/sql/firewallrules/listbyserver)|Restituisce un elenco di regole firewall.|
+|[Servers - Create Or Update](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate/rest/api)|Crea o aggiorna un nuovo server.|
+|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/servers_delete)|Elimina un server SQL.|
+|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/servers_get)|Ottiene un server.|
+|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/servers_list)|Restituisce un elenco di server.|
+|[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/servers_listbyresourcegroup)|Restituisce un elenco di server in un gruppo di risorse.|
+|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|Aggiorna un server esistente.|
+|[Database: crea o aggiorna](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
+|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|Questo comando elimina un database.|
+|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Ottiene un database.|
+|[Database: elenca da pool elastico](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
+|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Restituisce un elenco di database in un server.|
+|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Aggiorna un database esistente.|
+|[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)|Crea o aggiorna una regola del firewall.|
+|[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete)|Elimina una regola del firewall.|
+|[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get)|Ottiene una regola del firewall.|
+|[Firewall Rules - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver)|Restituisce un elenco di regole firewall.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

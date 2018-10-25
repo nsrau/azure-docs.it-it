@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287326"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269497"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Uso del supporto del feed delle modifiche in Azure Cosmos DB
 
@@ -351,19 +351,13 @@ Per implementare la libreria del processore dei feed di modifiche, è necessario
                     CollectionName = this.leaseCollectionName
                 };
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
-            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
-
-            /* ie customize StartFromBeginning so change feed reads from beginning
-                can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
-            */
-
-            feedOptions.StartFromBeginning = true;
-        
+       
             ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
 
             // ie. customizing lease renewal interval to 15 seconds
             // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
             feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+            feedProcessorOptions.StartFromBeginning = true;
 
             this.builder
                 .WithHostName(hostName)
@@ -401,7 +395,7 @@ Sono disponibili tre opzioni per leggere i feed di modifiche:
 
    Se si desidera nascondere buona parte della complessità del feed di modifiche, è possibile utilizzare la libreria del processore dei feed di modifiche. Questa libreria nasconde buona parte della complessità pur lasciando il controllo completo sui feed di modifiche. La libreria segue un [criterio osservatore](https://en.wikipedia.org/wiki/Observer_pattern) in cui la funzione di elaborazione viene chiamata dall'SDK. 
 
-   Se il feed di modifiche è caratterizzato da una velocità effettiva elevata, è possibile creare più istanze client per leggere il feed di modifiche. Poiché si sta usando la "libreria del processore dei feed di modifiche", il carico verrà diviso automaticamente tra diversi client. Non è necessario eseguire alcuna operazione. Tutte le complessità vengono gestite dall'SDK. Tuttavia, se si desidera avere un bilanciamento del carico proprio, è possibile implementare IParitionLoadBalancingStrategy per applicare una strategia di partizionamento personalizzata. Implementare IPartitionProcessor per elaborare in modalità personalizzata le modifiche in una partizione. Tuttavia, con l'SDK, è possibile elaborare un intervallo di partizioni, ma se si desidera elaborare una chiave di partizione specifica, è necessario utilizzare SDK per l'API SQL.
+   Se il feed di modifiche è caratterizzato da una velocità effettiva elevata, è possibile creare più istanze client per leggere il feed di modifiche. Poiché si usa la "libreria del processore dei feed di modifiche", il carico verrà diviso automaticamente tra client diversi. Non è necessario eseguire alcuna operazione. Tutte le complessità vengono gestite dall'SDK. Tuttavia, se si desidera avere un bilanciamento del carico proprio, è possibile implementare IParitionLoadBalancingStrategy per applicare una strategia di partizionamento personalizzata. Implementare IPartitionProcessor per elaborare in modalità personalizzata le modifiche in una partizione. Tuttavia, con l'SDK, è possibile elaborare un intervallo di partizioni, ma se si desidera elaborare una chiave di partizione specifica, è necessario utilizzare SDK per l'API SQL.
 
 * **[Uso di Funzioni di Azure](#azure-functions)** 
    
@@ -435,7 +429,7 @@ Funzioni di Azure usa il criterio di connessione predefinito. È possibile confi
 
 Verificare che nessun'altra funzione stia leggendo la medesima raccolta con la stessa raccolta di lease. È possibile che i documenti mancanti vengano elaborati da altre funzioni di Azure che usano lo stesso lease.
 
-Pertanto, se si creano più funzioni di Azure per leggere lo stesso feed di modifiche, le funzioni devono utilizzare una raccolta di lease diversa o usare la configurazione "leasePrefix" per condividere la stessa raccolta. Tuttavia, quando si usa la libreria del processore dei feed di modifiche, è possibile avviare più istanze della propria funzione e SDK provvederà a suddividere automaticamente i documenti tra le diverse istanze.
+Pertanto, se si creano più funzioni di Azure per leggere lo stesso feed di modifiche, le funzioni devono usare una raccolta di lease diversa o usare la configurazione "leasePrefix" per condividere la stessa raccolta. Tuttavia, quando si usa la libreria del processore dei feed di modifiche, è possibile avviare più istanze della propria funzione e SDK provvederà a suddividere automaticamente i documenti tra le diverse istanze.
 
 ### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Il documento viene aggiornato ogni secondo ma le funzioni di Azure in ascolto su quel feed di modifiche non ricevono tutte le modifiche.
 

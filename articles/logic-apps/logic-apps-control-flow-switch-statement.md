@@ -3,19 +3,18 @@ title: Aggiungere la istruzioni switch ai flussi di lavoro - App per la logica d
 description: Come creare istruzioni switch che controllano le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: e15f89d4b7e33ce7e28676c219344f7d7d9cd465
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: article
+ms.date: 10/08/2018
+ms.openlocfilehash: 27a73bddc2e7fb613950d78967d3100c7adcae41
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299617"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883840"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Creare istruzioni switch che eseguono le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 
@@ -24,54 +23,59 @@ Per eseguire azioni specifiche in base ai valori di oggetti, espressioni o token
 Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue passaggi diversi in base a un'opzione selezionata nel messaggio di posta elettronica. In questo esempio l'app per la logica verifica la presenza di nuovo contenuto nel feed RSS di un sito Web. Quando un nuovo elemento viene visualizzato nel feed RSS, l'app per la logica invia il messaggio di posta elettronica a un responsabile approvazione. A seconda che il responsabile approvazione selezioni "Approve" o "Reject", l'app per la logica segue passaggi diversi.
 
 > [!TIP]
-> Come tutti i linguaggi di programmazione, le istruzioni switch supportano solo gli operatori di uguaglianza. Se sono necessari altri operatori relazionali, ad esempio "maggiore di", usare un'[istruzione condizionale](#conditions).
+> Come tutti i linguaggi di programmazione, le istruzioni switch supportano solo gli operatori di uguaglianza. Se sono necessari altri operatori relazionali, ad esempio "maggiore di", usare un'[istruzione condizionale](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 > Per garantire il comportamento di esecuzione deterministico, i case devono contenere un valore univoco e statico invece di token o espressioni dinamiche.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * Per seguire l'esempio di questo articolo, [creare questa app per la logica di esempio](../logic-apps/quickstart-create-first-logic-app-workflow.md) con un account Outlook.com o Office 365 Outlook.
 
-  1. Quando si aggiunge l'azione per inviare posta elettronica, selezionare invece **Send an approval email** (Invia un messaggio di posta elettronica di approvazione).
+  1. Quando si aggiunge l'azione per inviare posta elettronica, individuare e selezionare invece l'azione **Invia messaggio di posta elettronica di approvazione**.
 
      ![Selezionare "Send an approval email" (Invia un messaggio di posta elettronica di approvazione)](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
-  2. Compilare i campi obbligatori, ad esempio l'indirizzo di posta elettronica della persona che riceve il messaggio di posta elettronica di approvazione. 
+  1. Compilare i campi obbligatori, ad esempio l'indirizzo di posta elettronica della persona che riceve il messaggio di posta elettronica di approvazione. 
   In **Opzioni utente**, inserire "Approve, Reject".
 
      ![Immettere i dettagli del messaggio di posta elettronica](./media/logic-apps-control-flow-switch-statement/send-approval-email-details.png)
 
-## <a name="add-a-switch-statement"></a>Aggiungere un'istruzione switch
+## <a name="add-switch-statement"></a>Aggiungere l'istruzione switch
 
-1. Alla fine del flusso di lavoro di esempio, scegliere **+ Nuovo passaggio** > **... Altro** > **Aggiungi istruzione switch case**. 
+1. Per questo esempio, aggiungere un'istruzione switch alla fine del flusso di lavoro di esempio. Dopo l'ultimo passaggio, scegliere **Nuovo passaggio**.
 
-   ![Aggiungere un'istruzione switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
+   Quando si vuole aggiungere un'istruzione switch tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere l'istruzione switch. Scegliere il **segno più** (**+**) visualizzato, quindi **Aggiungi un'azione**.
+
+1. Nella casella di ricerca digitare "switch" come filtro. Selezionare questa azione: **Switch - Controllo**
+
+   ![Aggiunta di switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
    Viene visualizzata un'istruzione switch con un case e un case predefinito. 
-   Le istruzioni switch richiedono almeno un case oltre al case predefinito. 
+   Per impostazione predefinita, un'istruzione switch richiede almeno un case oltre a quello predefinito. 
 
-   Quando si vuole aggiungere un'istruzione switch tra un passaggio e l'altro, spostare il puntatore sulla freccia in cui si vuole aggiungere l'istruzione switch. 
-   Scegliere il **segno più** (**+**) visualizzato, quindi **Aggiungi istruzione switch-case**.
+   ![Istruzione switch predefinita vuota](./media/logic-apps-control-flow-switch-statement/empty-switch.png)
 
-4. Nella casella **Sì** selezionare il campo **SelectedOption** il cui output determina l'azione da eseguire. 
-   
-   È possibile selezionare il campo nell'elenco **Aggiungi contenuto dinamico** visualizzato.
+1. Fare clic all'interno della casella **On** (Su) per visualizzare l'elenco di contenuti dinamici. Nell'elenco selezionare il campo **SelectedOption** il cui output determina l'azione da eseguire. 
 
-5. Per gestire i case in cui il responsabile approvazione seleziona `Approve` o `Reject`, aggiungere un altro case tra **Case** e **Predefinito**. 
-   
-6. Aggiungere queste azioni ai case corrispondenti:
+   ![Selezione di "SelectedOption"](./media/logic-apps-control-flow-switch-statement/select-selected-option.png)
+
+1. Per gestire i case in cui il responsabile approvazione seleziona `Approve` o `Reject`, aggiungere un altro case tra **Case** e **Predefinito**. 
+
+   ![Aggiunta di un altro case](./media/logic-apps-control-flow-switch-statement/switch-plus.png)
+
+1. Aggiungere queste azioni ai case corrispondenti:
 
    | N. case | **SelectedOption** | Azione |
-   |:------ |:-------------------|:------ |
+   |--------|--------------------|--------|
    | Case 1 | **Approve** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per inviare i dettagli dell'elemento RSS solo quando il responsabile approvazione ha selezionato **Approve**. |
    | Case 2 | **Reject** | Aggiungere l'azione **Invia un messaggio di posta elettronica** di Outlook per notificare agli altri responsabili approvazione che l'elemento RSS è stato rifiutato. |
-   | Predefinito | \<nessuna\> | Nessuna azione necessaria. In questo esempio il case **predefinito** è vuoto perché **SelectedOption** ha solo due opzioni. |
-   |         |          |
+   | Predefinito | Nessuna | Nessuna azione necessaria. In questo esempio il case **predefinito** è vuoto perché **SelectedOption** ha solo due opzioni. |
+   |||
 
-   ![Istruzioni switch](./media/logic-apps-control-flow-switch-statement/switch.png)
+   ![Istruzione switch completata](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
 
-7. Salvare l'app per la logica. 
+1. Salvare l'app per la logica. 
 
    Per testare manualmente questo esempio, scegliere **Esegui** finché l'app per la logica non trova un nuovo elemento RSS e invia un messaggio di posta elettronica di approvazione. 
    Selezionare **Approve** per osservare i risultati.
@@ -85,17 +89,17 @@ Dopo aver creato un'app per la logica usando un'istruzione switch, esaminare la 
    "type": "Switch",
    "expression": "@body('Send_approval_email')?['SelectedOption']",
    "cases": {
-      "Case" : {
-         "actions" : {
-           "Send_an_email": { }
+      "Case": {
+         "actions": {
+           "Send_an_email": {}
          },
          "case" : "Approve"
       },
-      "Case_2" : {
-         "actions" : {
-           "Send_an_email_2": { }
+      "Case_2": {
+         "actions": {
+           "Send_an_email_2": {}
          },
-         "case" : "Reject"
+         "case": "Reject"
       }
    },
    "default": {
@@ -109,14 +113,14 @@ Dopo aver creato un'app per la logica usando un'istruzione switch, esaminare la 
 }
 ```
 
-| Etichetta              | DESCRIZIONE |
-| :----------------- | :---------- |
+| Etichetta | DESCRIZIONE |
+|-------|-------------|
 | `"Switch"`         | Nome dell'istruzione switch che può essere rinominata per migliorarne la leggibilità |
 | `"type": "Switch"` | Specifica che l'azione è un'istruzione switch |
 | `"expression"`     | In questo esempio specifica l'opzione selezionata dal responsabile approvazione che viene valutata in ogni case dichiarato successivamente nella definizione |
 | `"cases"` | Definisce qualsiasi numero di case. Per ogni case, `"Case_*"` è il nome predefinito di tale case, che è possibile rinominare per migliorare la leggibilità |
-| `"case"` | Specifica il valore del case, che deve essere un valore costante e univoco usato dall'istruzione switch per effettuare un confronto. Se nessun case corrisponde al risultato dell'espressione switch, vengono eseguite le azioni nella sezione `"default"`.
-|           |         |
+| `"case"` | Specifica il valore del case, che deve essere un valore costante e univoco usato dall'istruzione switch per effettuare un confronto. Se nessun case corrisponde al risultato dell'espressione switch, vengono eseguite le azioni nella sezione `"default"`. | 
+| | | 
 
 ## <a name="get-support"></a>Supporto
 

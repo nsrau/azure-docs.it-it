@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 10/11/2018
+ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452454"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320438"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -111,9 +111,22 @@ Ecco i limiti per una singola esecuzione di app per la logica:
 
 Per superare questi limiti nell'elaborazione normale o per eseguire test di carico che possono superare questi limiti, [contattare il team di App per la logica](mailto://logicappsemail@microsoft.com) per ottenere assistenza sui requisiti specifici.
 
+<a name="sftp"></a>
+
+## <a name="ftp-sftp-and-sftp-ssh-limits"></a>Limiti FTP, SFTP e SFTP-SSH
+
+### <a name="file-size"></a>Dimensioni complete
+
+| NOME | Limite | Note |
+|------|-------|-------|
+| FTP | 50 MB | Per ignorare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
+| SFTP | 50 MB | Per ignorare questo limite, usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md) oppure vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
+| SFTP-SSH | 1 GB | Per ignorare questo limite, vedere [Gestire messaggi di grandi dimensioni con la divisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md). Tuttavia, alcuni connettori e API potrebbero non supportare la divisione in blocchi o addirittura il limite predefinito. | 
+|||| 
+
 <a name="request-limits"></a>
 
-## <a name="http-request-limits"></a>Limiti delle richieste HTTP
+## <a name="http-limits"></a>Limiti HTTP
 
 Ecco i limiti per una singola richiesta HTTP o a una chiamata sincrona di un connettore:
 
@@ -156,6 +169,15 @@ Limiti per i connettori personalizzati che è possibile creare da API Web.
 | Numero di connettori personalizzati | 1.000 per ogni sottoscrizione di Azure | 
 | Numero di richieste al minuto per ogni connessione creata da un connettore personalizzato | 500 richieste per connessione |
 |||| 
+
+<a name="managed-identity"></a>
+
+## <a name="managed-identities"></a>Identità gestite
+
+| NOME | Limite | 
+| ---- | ----- | 
+| Numero di app per la logica con identità gestite assegnate dal sistema per ogni sottoscrizione di Azure | 10 | 
+|||
 
 <a name="integration-account-limits"></a>
 

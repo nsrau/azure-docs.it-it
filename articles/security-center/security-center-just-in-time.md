@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2a079456813a67eb40d5cf42bcdd2c91fbc631d3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297040"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320340"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)
 
@@ -108,6 +108,36 @@ In **Configurazione dell'accesso JIT alla VM** è anche possibile aggiungere e c
 
 3. Selezionare **OK**.
 
+> [!NOTE]
+>Quando l'accesso JIT alla VM è abilitato per una macchina virtuale, il Centro sicurezza di Azure crea regole di rifiuto di tutto il traffico in ingresso per le porte selezionate nei gruppi di sicurezza di rete associati a essa. Le regole avranno la priorità maggiore per i gruppi di sicurezza di rete o una priorità inferiore rispetto alle regole esistenti già presenti. Ciò dipende dall'analisi eseguita dal Centro sicurezza di Azure che determina se una regola è sicura o meno.
+>
+
+
+## <a name="set-just-in-time-within-a-vm"></a>Impostare JIT in una macchina virtuale
+
+Per semplificare l'implementazione dell'accesso JIT nelle macchine virtuali, è possibile impostare una macchina virtuale per consentire solo l'accesso JIT direttamente dall'interno della macchina virtuale.
+
+1. Nel portale di Azure selezionare **Macchine virtuali**.
+2. Fare clic sulla macchina virtuale a cui si vuole limitare l'accesso solamente all'accesso JIT.
+3. Nel menu fare clic su **Configuration** (Configurazione).
+4. In **Just-in-time-access** fare clic su **Enable just-in-time policy** (Abilita criterio JIT). 
+
+In questo modo si abilita l'accesso JIT per la macchina virtuale con le impostazioni seguenti:
+
+- Server Windows:
+    - Porta RDP 3389
+    - 3 ore di accesso
+    - L'opzione Indirizzi IP di origine consentiti è impostata su Per richiesta
+- Server Linux:
+    - Porta SSH 22
+    - 3 ore di accesso
+    - L'opzione Indirizzi IP di origine consentiti è impostata su Per richiesta
+     
+Se in una macchina virtuale è già abilitato JIT, quando si passa alla pagina di configurazione, sarà possibile vedere che JIT è abilitato e si potrà usare il collegamento per aprire il criterio in Centro sicurezza di Azure per visualizzare e modificare le impostazioni.
+
+![configurazione JIT nella macchina virtuale](./media/security-center-just-in-time/jit-vm-config.png)
+
+
 ## <a name="requesting-access-to-a-vm"></a>Richiedere l'accesso a una macchina virtuale
 
 Per richiedere l'accesso a una macchina virtuale:
@@ -162,8 +192,6 @@ Per modificare i criteri Just-In-Time esistenti di una macchina virtuale, viene 
 
   **Log attività** fornisce una visualizzazione filtrata delle operazioni precedenti per la macchina virtuale, con data, ora e sottoscrizione.
 
-  ![Visualizzare il log attività][5]
-
 È possibile scaricare le informazioni del log selezionando **Fare clic qui per scaricare tutti gli elementi come file CSV**.
 
 Modificare i filtri e selezionare **Applica** per creare un log ed eseguire ricerche.
@@ -172,15 +200,62 @@ Modificare i filtri e selezionare **Applica** per creare un log ed eseguire rice
 
 È possibile usare la funzionalità di accesso Just-In-Time alle macchine virtuali tramite l'API Centro sicurezza di Azure. Tramite questa API è possibile ottenere informazioni sulle macchine virtuali configurate, aggiungerne di nuove, richiedere l'accesso a una macchina virtuale e altro ancora. Per informazioni sull'API REST Just-In-Time, vedere [Jit Network Access Policies](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies) (Criteri di accesso alla rete JIT).
 
-### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configurazione dei criteri Just-In-Time per una macchina virtuale
+## <a name="using-just-in-time-vm-access-via-powershell"></a>Uso dell'accesso Just-In-Time alle macchine virtuali tramite PowerShell 
 
-Per configurare i criteri Just-In-Time in una macchina virtuale specifica, è necessario eseguire il comando seguente nella sessione di PowerShell: Set-ASCJITAccessPolicy.
-Per altre informazioni, vedere la documentazione del cmdlet.
+Per usare la soluzione di accesso Just-In-Time alla VM tramite PowerShell, usare i cmdlet ufficiali di PowerShell di Centro sicurezza di Azure e in particolare `Set-AzureRmJitNetworkAccessPolicy`.
+
+L'esempio seguente imposta criteri di accesso Just-In-Time alla macchina virtuale per una VM specifica e imposta quanto segue:
+1.  Chiudere le porte 22 e 3389.
+2.  Impostare un intervallo di tempo massimo di 3 ore per ognuna in modo che possano essere aperte in seguito all'approvazione di una richiesta.
+3.  Consente all'utente che richiede l'accesso di controllare gli indirizzi IP di origine e consente all'utente di aprire una sessione riuscita in seguito all'approvazione di una richiesta di accesso JIT.
+
+Eseguire i comandi seguenti in PowerShell per svolgere queste operazioni:
+
+1.  Assegnare una variabile che contiene solo i criteri di accesso Just-In-Time alla macchina virtuale per una VM:
+
+        $JitPolicy = (@{
+         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+             number=22;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"},
+             @{
+             number=3389;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"})})
+
+2.  Inserire i criteri di accesso Just-In-Time alla macchina virtuale per una VM in una matrice:
+    
+        $JitPolicyArr=@($JitPolicy)
+
+3.  Configurare i criteri di accesso Just-In-Time alla macchina virtuale nella VM selezionata:
+    
+        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 ### <a name="requesting-access-to-a-vm"></a>Richiedere l'accesso a una macchina virtuale
 
-Per accedere a una macchina virtuale specifica che è protetta con la soluzione Just-In-Time, è necessario eseguire il comando seguente nella sessione di PowerShell: Invoke-ASCJITAccess.
-Per altre informazioni, vedere la documentazione del cmdlet.
+Nell'esempio seguente, è possibile visualizzare una richiesta di accesso Just-In-Time alla macchina virtuale per una VM specifica in cui si richiede l'apertura della porta 22 per un indirizzo IP specifico e per un determinato periodo di tempo:
+
+Eseguire questo comando in PowerShell:
+1.  Configurare le proprietà della richiesta di accesso alla macchina virtuale
+
+        $JitPolicyVm1 = (@{
+          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+           number=22;
+           endTimeUtc="2018-09-17T17:00:00.3658798Z";
+           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
+2.  Inserire i parametri della richiesta di accesso alla macchina virtuale in una matrice:
+
+        $JitPolicyArr=@($JitPolicyVm1)
+3.  Inviare la richiesta di accesso usando l'ID risorsa ottenuto al passaggio 1
+
+        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+
+Per altre informazioni, vedere la documentazione sui cmdlet di PowerShell.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato illustrato come usare l'accesso JIT (Just-in-Time) alle macchine virtuali in Centro sicurezza per controllare l'accesso alle macchine virtuali di Azure.

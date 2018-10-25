@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258434"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393458"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite il portale di Azure
 
@@ -39,11 +39,11 @@ Prima di poter creare una distribuzione, è necessario essere in grado di specif
 }
 ```
 
-Per altre informazioni sui dispositivi gemelli e i tag, vedere [Comprendere e usare dispositivi gemelli nell'hub IoT][lnk-device-twin].
+Per altre informazioni sui dispositivi gemelli e i tag, vedere [Comprendere e usare dispositivi gemelli nell'hub IoT](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Creare una distribuzione
 
-1. Nel [portale di Azure][lnk-portal] passare all'hub IoT. 
+1. Nel [portale di Azure](https://portal.azure.com) passare all'hub IoT. 
 1. Selezionare **IoT Edge**.
 1. Selezionare **Add IoT Edge device** (Aggiungi il dispositivo di IoT Edge).
 
@@ -77,7 +77,7 @@ Per aggiungere codice personalizzato come modulo o aggiungere manualmente un mod
 1. Selezionare **Modulo IoT Edge**.
 1. Assegnare un nome al modulo in **Name** (Nome).
 1. Nel campo **URI immagine** immettere l'immagine del contenitore per il modulo. 
-1. Specificare le eventuali **Container Create Options** (Opzioni di creazione container) da passare al contenitore. Per altre informazioni, vedere [docker create][lnk-docker-create].
+1. Specificare le eventuali **Container Create Options** (Opzioni di creazione container) da passare al contenitore. Per altre informazioni, vedere [docker create](https://docs.docker.com/engine/reference/commandline/create/).
 1. Usare il menu a discesa per selezionare **Restart policy** (Criteri di riavvio). È possibile scegliere tra le opzioni seguenti: 
    * **Always** (Sempre): il modulo viene sempre riavviato se viene arrestato per qualsiasi motivo.
    * **Never** (Mai): il modulo non viene mai riavviato se viene arrestato per qualsiasi motivo.
@@ -117,11 +117,11 @@ Controllare le informazioni sulla distribuzione e quindi selezionare **Submit** 
 
 Per visualizzare i dettagli di una distribuzione e monitorare i dispositivi che la eseguono, seguire questa procedura:
 
-1. Accedere al [portale di Azure][lnk-portal] e passare all'hub IoT. 
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT. 
 1. Selezionare **IoT Edge**.
 1. Selezionare **IoT Edge deployments** (Distribuzioni IoT Edge). 
 
-   ![Visualizzare le distribuzioni IoT Edge][1]
+   ![Visualizzare le distribuzioni IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Esaminare l'elenco delle distribuzioni. Per ogni distribuzione, è possibile visualizzare i dettagli seguenti:
    * **ID**: nome della distribuzione.
@@ -144,11 +144,11 @@ Se si aggiorna la condizione di destinazione, vengono eseguiti gli aggiornamenti
 
 Per modificare una distribuzione, seguire questa procedura: 
 
-1. Accedere al [portale di Azure][lnk-portal] e passare all'hub IoT. 
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT. 
 1. Selezionare **IoT Edge**.
 1. Selezionare **IoT Edge deployments** (Distribuzioni IoT Edge). 
 
-   ![Visualizzare le distribuzioni IoT Edge][1]
+   ![Visualizzare le distribuzioni IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Selezionare la distribuzione che si vuole modificare. 
 1. Apportare modifiche nei campi seguenti: 
@@ -156,17 +156,17 @@ Per modificare una distribuzione, seguire questa procedura:
    * Etichette 
    * Priorità 
 1. Selezionare **Salva**.
-1. Seguire i passaggi in [Monitorare una distribuzione][anchor-monitor] per controllare la distribuzione delle modifiche. 
+1. Seguire i passaggi in [Monitorare una distribuzione](#monitor-a-deployment) per controllare la distribuzione delle modifiche. 
 
 ## <a name="delete-a-deployment"></a>Eliminare una distribuzione
 
 Quando si elimina una distribuzione, tutti i dispositivi ricevono la distribuzione successiva nell'ordine di priorità. Se i dispositivi non soddisfano la condizione di destinazione di qualsiasi altra distribuzione, i moduli non vengono rimossi in seguito all'eliminazione della distribuzione. 
 
-1. Accedere al [portale di Azure][lnk-portal] e passare all'hub IoT. 
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT. 
 1. Selezionare **IoT Edge**.
 1. Selezionare **IoT Edge deployments** (Distribuzioni IoT Edge). 
 
-   ![Visualizzare le distribuzioni IoT Edge][1]
+   ![Visualizzare le distribuzioni IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Usare la casella di controllo per selezionare la distribuzione che si vuole eliminare. 
 1. Selezionare **Elimina**.
@@ -174,16 +174,4 @@ Quando si elimina una distribuzione, tutti i dispositivi ricevono la distribuzio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sulla [distribuzione di moduli nei dispositivi perimetrali][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Altre informazioni sulla [distribuzione di moduli nei dispositivi perimetrali](module-deployment-monitoring.md).

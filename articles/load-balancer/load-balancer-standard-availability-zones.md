@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1f34a9319b8bbfba3f4a6f7446f949fc576aa4fa
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322795"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869058"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
@@ -54,7 +54,7 @@ Quando si usano più front-end, fare riferimento a [Più front-end per Azure Loa
 
 #### <a name="zone-redundant-by-default"></a>Ridondanza della zona per impostazione predefinita
 
-In un'area con zone di disponibilità un front-end di Load Balancer Standard è per impostazione predefinita con ridondanza della zona.  Un indirizzo IP front-end singolo non risente degli errori a livello di zona e può essere usato per raggiungere tutti i membri del pool back-end indipendentemente dalla zona. Ciò non implica un percorso dati privo di passaggi, ma tutti i nuovi tentativi o i ripristini avranno esito positivo. Gli schemi di ridondanza DNS non sono necessari. L'indirizzo IP singolo del front-end è gestito contemporaneamente da distribuzioni di infrastrutture indipendenti in ogni zona di disponibilità.  Ridondanza della zona significa che tutti i flussi in ingresso o in uscita vengono gestiti da tutte le zone di disponibilità in un'area contemporaneamente usando un singolo indirizzo IP.
+In un'area con zone di disponibilità un front-end di Load Balancer Standard è per impostazione predefinita con ridondanza della zona.  Un indirizzo IP front-end singolo non risente degli errori a livello di zona e può essere usato per raggiungere tutti i membri del pool back-end indipendentemente dalla zona. Ciò non implica un percorso dati privo di passaggi, ma tutti i nuovi tentativi o i ripristini avranno esito positivo. Gli schemi di ridondanza DNS non sono necessari. L'indirizzo IP singolo del front-end è gestito contemporaneamente da più distribuzioni di infrastrutture indipendenti in più zone di disponibilità.  Ridondanza della zona significa che tutti i flussi in ingresso o in uscita vengono gestiti da più zone di disponibilità in un'area contemporaneamente usando un singolo indirizzo IP.
 
 Una o più zone di disponibilità possono avere esito negativo e il percorso dati non risente degli errori finché una zona dell'area rimane integra. La configurazione con ridondanza della zona è la configurazione predefinita e non richiede azioni aggiuntive.  Quando un'area acquisisce la possibilità di supportare le zone di disponibilità, un front-end esistente diventa automaticamente con ridondanza della zona.
 
@@ -77,7 +77,7 @@ Usare lo script seguente per creare un indirizzo IP front-end con ridondanza del
             "apiVersion": "2017-08-01",
             "type": "Microsoft.Network/loadBalancers",
             "name": "load_balancer_standard",
-            "location": "region",
+            "location": "[resourceGroup().location]",
             "sku":
             {
                 "name": "Standard"
@@ -99,7 +99,7 @@ Usare lo script seguente per creare un indirizzo IP front-end con ridondanza del
 
 #### <a name="optional-zone-guarantee"></a>Garanzia di zona facoltativa
 
-È possibile scegliere di avere un front-end garantito per una singola zona, noto come *front-end di zona*.  Ciò significa che qualsiasi flusso in ingresso o in uscita viene gestito da una singola zona in un'area.  La durata del front-end è legata all'integrità della zona.  Il percorso dati non è interessato dagli errori in zone diverse da quelle in cui è stato garantito. È possibile usare front-end di zona per esporre un indirizzo IP per zona di disponibilità.  Inoltre, è possibile utilizzare direttamente i front-end di zona o, quando il front-end è costituito da indirizzi IP pubblici, integrarli con un prodotto di bilanciamento del carico DNS come [Gestione traffico](../traffic-manager/traffic-manager-overview.md) e usare un singolo nome DNS, che verrà risolto da un client in più indirizzi IP di zona.  È anche possibile ricorrere a questo metodo per esporre endpoint con carico bilanciato per zona, in modo da monitorare singolarmente ogni zona.  Per un approfondimento di questi concetti (con ridondanza della zona e di zona per lo stesso back-end), consultare [Più front-end per Azure Load Balancer](/load-balancer-multivip-overview.md).
+È possibile scegliere di avere un front-end garantito per una singola zona, noto come *front-end di zona*.  Ciò significa che qualsiasi flusso in ingresso o in uscita viene gestito da una singola zona in un'area.  La durata del front-end è legata all'integrità della zona.  Il percorso dati non è interessato dagli errori in zone diverse da quelle in cui è stato garantito. È possibile usare front-end di zona per esporre un indirizzo IP per zona di disponibilità.  Inoltre, è possibile usare direttamente i front-end di zona o, quando il front-end è costituito da indirizzi IP pubblici, integrarli con un prodotto di bilanciamento del carico DNS come [Gestione traffico](../traffic-manager/traffic-manager-overview.md) e usare un singolo nome DNS, che verrà risolto da un client in più indirizzi IP di zona.  È anche possibile ricorrere a questo metodo per esporre endpoint con carico bilanciato per zona, in modo da monitorare singolarmente ogni zona.  Per un approfondimento di questi concetti (con ridondanza della zona e di zona per lo stesso back-end), consultare [Più front-end per Azure Load Balancer](load-balancer-multivip-overview.md).
 
 Per un front-end di Load Balancer pubblico, è necessario aggiungere un parametro *zones* all'indirizzo IP pubblico a cui fa riferimento la configurazione IP front-end.  
 
@@ -111,7 +111,7 @@ Usare lo script riportato di seguito per creare un indirizzo IP pubblico standar
             "apiVersion": "2017-08-01",
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "public_ip_standard",
-            "location": "region",
+            "location": "[resourceGroup().location]",
             "zones": [ "1" ],
             "sku":
             {
@@ -196,7 +196,7 @@ Evitare di introdurre dipendenze tra zone non intenzionali che rischiano di annu
 
 - Se l'applicazione include due componenti come un indirizzo IP e una macchina virtuale con disco gestito che sono garantiti rispettivamente per la ridondanza della zona e nella zona 1, il servizio end-to-end non risentirà degli errori a livello di zona nella zona 2, nella zona 3 o in entrambe, a meno che l'errore non si sia verificato nella zona 1.  Tuttavia, se ci si limita a prestare attenzione solo alla raggiungibilità del front-end si perde di vista l'integrità del servizio.  Prendere in considerazione l'idea di sviluppare un modello di integrità e di capacità più esteso.  È possibile usare in combinazione i concetti di ridondanza della zona e di zona per aumentare il dettaglio delle informazioni e la gestibilità.
 
-- Se l'applicazione include due componenti come un front-end di Load Balancer con ridondanza della zona e un set di scalabilità di macchine virtuali tra zone in tre zone, le risorse nelle zone non interessate dall'errore saranno disponibili, ma il servizio end-to-end potrebbe risultare degradato in termini di capacità durante l'errore della zona. Dal punto di vista dell'infrastruttura, la distribuzione può non risentire di uno o più errori a livello di zona e ciò genera le domande seguenti:
+- Se l'applicazione include due componenti come un front-end di Load Balancer con ridondanza della zona e un set di scalabilità di macchine virtuali tra zone in tre zone, le risorse nelle zone non interessate dall'errore saranno disponibili, ma la capacità del servizio end-to-end potrebbe risultare degradata durante l'errore della zona. Dal punto di vista dell'infrastruttura, la distribuzione può non risentire di uno o più errori a livello di zona e ciò genera le domande seguenti:
   - Si comprende in che modo l'applicazione valuta questi errori e la capacità degradata?
   - È necessario disporre di misure di sicurezza nel servizio per forzare il failover a una coppia di aree se necessario?
   - Come verrà monitorato, rilevato e mitigato un simile scenario? Potrebbe essere possibile usare la diagnostica di Load Balancer Standard per aumentare il monitoraggio delle prestazioni del servizio end-to-end. Tenere in considerazione quanto è disponibile e ciò che potrebbe essere necessario aumentare per un quadro completo.
@@ -211,7 +211,7 @@ La ridondanza della zona può fornire un'opzione indipendente dalla zona e al te
 
 Il concetto di zona può fornire una garanzia esplicita a una zona, la cui durata è legata all'integrità della zona. L'associazione di un indirizzo IP di zona o di un front-end di Load Balancer di zona può essere un attributo ragionevole o auspicabile soprattutto se la risorsa collegata è una macchina virtuale di zona nella stessa zona.  Può essere che l'applicazione richieda una conoscenza esplicita della zona in cui si trova una risorsa e si preferisca ragionare sulla disponibilità in zone distinte in modo esplicito.  È possibile scegliere di esporre più front-end di zona per un servizio end-to-end distribuito tra zone (vale a dire, front-end di zona in base alla zona per più set di scalabilità di macchine virtuali di zona).  Inoltre, se i front-end di zona sono indirizzi IP pubblici, è possibile usare questi front-end di zona molteplici per esporre il servizio con [Gestione traffico](../traffic-manager/traffic-manager-overview.md).  In alternativa, si possono usare più front-end di zona per ottenere informazioni dettagliate sulle prestazioni e sull'integrità in base alla zona tramite soluzioni di monitoraggio di terze parti ed esporre il servizio complessivo con un front-end con ridondanza della zona. Si devono gestire le risorse di zona solo con front-end di zona allineati alla stessa zona evitando scenari tra zone potenzialmente dannosi per le risorse di zona.  Le risorse di zona sono disponibili solo nelle aree in cui sono presenti le zone di disponibilità.
 
-Non è possibile fornire indicazioni generali riguardo alla scelta migliore da fare se non si conosce l'architettura del servizio.
+Non è possibile offrire indicazioni generali riguardo alla scelta migliore da fare se non si conosce l'architettura del servizio.
 
 ## <a name="limitations"></a>Limitazioni
 

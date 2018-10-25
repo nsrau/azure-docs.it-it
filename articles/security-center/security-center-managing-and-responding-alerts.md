@@ -1,5 +1,5 @@
 ---
-title: Gestire gli avvisi di sicurezza nel Centro sicurezza di Azure | Documentazione Microsoft
+title: Gestire gli avvisi di sicurezza nel Centro sicurezza di Azure | Microsoft Docs
 description: Questo documento illustra come usare le funzionalità del Centro sicurezza di Azure per gestire e rispondere agli avvisi di sicurezza.
 services: security-center
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
+ms.date: 10/3/2018
 ms.author: yurid
-ms.openlocfilehash: 7a7314b3aebd32c4a909bda4c88c5d43ab5df9f0
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f139f2f967edc03419f41f8c903c71b9ab9e6fcb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161442"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044434"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 Questo documento illustra come usare il Centro sicurezza di Azure per gestire e rispondere agli avvisi di sicurezza.
@@ -57,6 +57,7 @@ Nella parte inferiore della pagina sono riportati i dettagli relativi a ogni avv
 * **Data**: data in cui si è verificato l'evento.
 * **Stato**: stato corrente dell'avviso. Esistono due tipi di stato:
   * **Attivo**: l'avviso di sicurezza è stato rilevato.
+  * **Ignorato**: l'avviso di sicurezza è stato ignorato dall'utente. Questo stato viene in genere usato per gli avvisi che, dopo essere stati esaminati, non sono stati valutati come generati da un attacco effettivo oppure sono stati attenuati.
 * **Gravità**: livello di gravità, che può essere alto, medio o basso.
 
 > [!NOTE]

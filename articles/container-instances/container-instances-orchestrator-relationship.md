@@ -3,18 +3,17 @@ title: Istanze di contenitore di Azure e orchestrazione dei contenitori
 description: Informazioni sull'interazione tra Istanze di contenitore di Azure e agenti di orchestrazione dei contenitori.
 services: container-instances
 author: seanmck
-manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 10/05/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: e1455cba004facfa03dca21544eec754f5dc60be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165562"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803512"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Istanze di contenitore di Azure e agenti di orchestrazione dei contenitori
 
@@ -55,16 +54,13 @@ Per i carichi di lavoro stabili e a esecuzione prolungata, l'orchestrazione di c
 
 Invece di aumentare il numero di macchine virtuali nel cluster e quindi distribuire altri contenitori in tali macchine, l'agente di orchestrazione può semplicemente pianificare i contenitori aggiuntivi in Istanze di contenitore di Azure ed eliminarli quando non sono più necessari.
 
-## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Implementazione di esempio: connettore di Istanze di contenitore di Azure per Kubernetes
+## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Implementazione di esempio: Virtual Kubelet per Kubernetes
 
-Per dimostrare come si possano integrare piattaforme di orchestrazione dei contenitori con Istanze di contenitore di Azure, è stato creato un [connettore di esempio per Kubernetes][aci-connector-k8s].
+Il progetto [Virtual Kubelet][aci-connector-k8s] illustra come le piattaforme di orchestrazione dei contenitori si integrano con le istanze di contenitore di Azure.
 
-Il connettore per Kubernetes simula il [kubelet][kubelet-doc] registrandosi come nodo con capacità illimitata e approntando la creazione di [POD][pod-doc] come gruppi di contenitori in Istanze di contenitore di Azure.
+Virtual Kubelet simula il [kubelet][kubelet-doc] di Kubernetes registrandosi come nodo con capacità illimitata e realizzando la creazione di [POD][pod-doc] come gruppi di contenitori in Istanze di contenitore di Azure.
 
 È possibile creare connettori per altri agenti di orchestrazione che si integrano in modo simile con le primitive di piattaforma per combinare le funzionalità avanzate dell'API dell'agente di orchestrazione con la velocità e la semplicità di gestione dei contenitori in Istanze di contenitore di Azure.
-
-> [!WARNING]
-> Il connettore ACI per Kubernetes è *sperimentale* e non deve essere usato nell'ambiente di produzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

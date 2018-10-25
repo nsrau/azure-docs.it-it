@@ -1,6 +1,6 @@
 ---
-title: 'Autenticazione da servizio a servizio: .NET SDK con Data Lake Store tramite Azure Active Directory | Microsoft Docs'
-description: Informazioni su come ottenere l'autenticazione da servizio a servizio con Data Lake Store tramite Azure Active Directory usando .NET SDK
+title: 'Autenticazione da servizio a servizio: .NET SDK con Azure Data Lake Storage Gen1 tramite Azure Active Directory | Microsoft Docs'
+description: Informazioni su come ottenere l'autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 usando Azure Active Directory con .NET SDK
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 388b84024a031a181625404ec1429087982dffbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 61d9606ff14a48e6c224108596f0f01daa4813e1
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625492"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954291"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Autenticazione da servizio a servizio con Data Lake Store tramite .NET SDK
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autenticazione da servizio a servizio con Azure Data Lake Storage Gen1 tramite .NET SDK
 > [!div class="op_single_selector"]
 > * [Uso di Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Uso di .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,15 +27,15 @@ ms.locfileid: "34625492"
 > 
 >  
 
-Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione da servizio a servizio con Azure Data Lake Store. Per l'autenticazione dell'utente finale con Data Lake Store usando .NET SDK, vedere [Autenticazione dell'utente finale con Data Lake Store tramite .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione da servizio a servizio con Azure Data Lake Storage Gen1. Per l'autenticazione dell'utente finale con Data Lake Storage Gen1 tramite .NET SDK, vedere [Autenticazione dell'utente finale con Data Lake Storage Gen1 usando .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Visual Studio 2013, 2015 o 2017**. Le istruzioni seguenti fanno riferimento a Visual Studio 2017.
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Creare un'applicazione "Web" di Azure Active Directory**. È necessario avere completato i passaggi descritti in [Autenticazione da servizio a servizio con Data Lake Store tramite Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Creare un'applicazione "Web" di Azure Active Directory**. È necessario avere completato i passaggi descritti in [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Creare un'applicazione .NET
 1. Aprire Visual Studio e creare un'applicazione console.
@@ -78,7 +78,7 @@ Questo articolo illustra come usare .NET SDK per eseguire l'autenticazione da se
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>Autenticazione da servizio a servizio con il segreto client
-Aggiungere questo frammento di codice nell'applicazione client .NET. Sostituire i valori segnaposto con i valori recuperati da un'applicazione Web Azure AD indicata come prerequisito.  Questo frammento di codice consente di autenticare l'applicazione **in modo non interattivo** con Data Lake Store usando il segreto client/la chiave per l'applicazione Web Azure AD. 
+Aggiungere questo frammento di codice nell'applicazione client .NET. Sostituire i valori segnaposto con i valori recuperati da un'applicazione Web Azure AD indicata come prerequisito.  Questo frammento di codice consente di autenticare l'applicazione **in modo non interattivo** con Data Lake Storage Gen1 usando il segreto client/la chiave per l'applicazione Web Azure AD. 
 
     private static void Main(string[] args)
     {    
@@ -97,7 +97,7 @@ Il frammento di codice precedente usa una funzione di supporto `GetCreds_SPI_Sec
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Autenticazione da servizio a servizio con il certificato
 
-Aggiungere questo frammento di codice nell'applicazione client .NET. Sostituire i valori segnaposto con i valori recuperati da un'applicazione Web Azure AD indicata come prerequisito. Questo frammento di codice consente di autenticare l'applicazione **in modo non interattivo** con Data Lake Store usando il certificato per l'applicazione Web Azure AD. Per le istruzioni su come creare un'applicazione Azure AD, vedere [Create service principal with certificates](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate) (Creare un'entità servizio con i certificati).
+Aggiungere questo frammento di codice nell'applicazione client .NET. Sostituire i valori segnaposto con i valori recuperati da un'applicazione Web Azure AD indicata come prerequisito. Questo frammento di codice consente di autenticare l'applicazione **in modo non interattivo** con Data Lake Storage Gen1 usando il certificato per l'applicazione Web Azure AD. Per le istruzioni su come creare un'applicazione Azure AD, vedere [Create service principal with certificates](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate) (Creare un'entità servizio con i certificati).
 
     
     private static void Main(string[] args)
@@ -116,9 +116,9 @@ Aggiungere questo frammento di codice nell'applicazione client .NET. Sostituire 
 Il frammento di codice precedente usa una funzione di supporto `GetCreds_SPI_Cert`. Il codice per questa funzione di supporto è disponibile [qui su Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo si è appreso come usare l'autenticazione da servizio a servizio per eseguire l'autenticazione con Azure Data Lake Store usando .NET SDK. È ora possibile leggere gli articoli seguenti per informazioni su come usare .NET SDK in Azure Data Lake Store.
+In questo articolo si è appreso come usare l'autenticazione da servizio a servizio per eseguire l'autenticazione con Data Lake Storage Gen1 usando .NET SDK. È ora possibile leggere gli articoli seguenti per informazioni su come usare .NET SDK in Data Lake Storage Gen1.
 
-* [Operazioni di gestione di account in Data Lake Store con .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Operazioni dati in Data Lake Store con .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Operazioni di gestione di account in Data Lake Storage Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Operazioni dati in Data Lake Storage Gen1 con .NET SDK](data-lake-store-data-operations-net-sdk.md)
 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 013fd019771fb9994c87e363c78eae36431f91de
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953226"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870554"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usare l'API Graph di Azure AD
 
@@ -38,7 +38,7 @@ Prima di poter creare applicazioni o utenti, è necessario un tenant di Azure AD
 Dopo aver creato un tenant B2C, è necessario registrare l'applicazione usando il [portale di Azure](https://portal.azure.com).
 
 > [!IMPORTANT]
-> Per usare l'API Graph con il tenant B2C, è necessario registrare un'applicazione usando il servizio *Registrazioni per l'app* nel portale di Azure, **NON** il menu *Applicazioni* di Azure AD B2C. Le istruzioni seguenti permettono di accedere al menu appropriato. Non è possibile usare nuovamente le applicazioni B2C che sono state registrate nel menu *Applicazioni* di Azure AD B2C.
+> Per usare l'API Graph con il tenant B2C, è necessario registrare un'applicazione usando il servizio *Registrazioni per l'app* nel portale di Azure, **NON** il menu *Applicazioni* di Azure AD B2C. Le istruzioni seguenti illustrano come accedere al menu appropriato. Non è possibile usare nuovamente le applicazioni B2C che sono state registrate nel menu *Applicazioni* di Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Scegliere il tenant di Azure AD B2C selezionando l'account nell'angolo superiore destro della pagina.

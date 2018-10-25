@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/21/2018
+ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523761"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114193"
 ---
 # <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
 
@@ -39,9 +39,13 @@ La tabella seguente presenta una rapida panoramica dell'ambito di durabilità e 
 | Interruzione a livello di area                                                                                     | No                               | No                                | Yes                                  | Yes                                  |
 | Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | No                               | No                                | No                                    | Yes                                  |
 | Replica progettata per fornire una durabilità di ___ per gli oggetti nel corso di un determinato anno                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
-| Tipi di account di archiviazione supportati                                                                   | GPv1, GPv2, BLOB                | GPv2                             | GPv1, GPv2, BLOB                     | GPv1, GPv2, BLOB                     |
+| Tipi di account di archiviazione supportati                                                                   | GPv2, GPv1, BLOB                | GPv2, GPv1 (tramite PowerShell, l'interfaccia della riga di comando di Azure o l'API del provider di risorse)                             | GPv2, GPv1, BLOB                     | GPv2, GPv1, BLOB                     |
+| Contratto di servizio relativo alla disponibilità per le richieste di lettura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,99% (99,9% per livello di accesso sporadico) |
+| Contratto di servizio relativo alla disponibilità per le richieste di scrittura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) |
 
-Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Panoramica dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).
+Per informazioni sui prezzi delle varie opzioni di ridondanza, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/). 
+
+Per informazioni sulla garanzia di durabilità e disponibilità di Archiviazione di Azure, vedere il [contratto di servizio di Archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
 > Archiviazione Premium supporta solo l'archiviazione con ridondanza locale. Per informazioni su Archiviazione Premium, vedere [Archiviazione Premium: archiviazione ad alte prestazioni per carichi di lavoro delle macchine virtuali di Azure](../../virtual-machines/windows/premium-storage.md).

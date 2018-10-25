@@ -3,7 +3,7 @@ title: Esempio di script di Azure PowerShell - WordPress | Microsoft Docs
 description: Esempio di script di Azure PowerShell - WordPress
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 07dcc2f8355c73859500e91d3b6dbe74e27b83c2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: f338bb4c846ba6cdbf8aaecfe126cf512fc89109
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927707"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469521"
 ---
 # <a name="create-a-wordpress-vm-with-powershell"></a>Creare una VM WordPress con PowerShell
 

@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 672adba0b4b17a25c0c0a1da3596808f767e3fbd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632840"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584099"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informazioni sui prezzi dell'hub IoT di Azure
 
-[Prezzi di Azure IoT Hub][lnk-pricing] fornisce informazioni generali su diversi SKU e sui prezzi per l'hub IoT. Questo articolo contiene dettagli aggiuntivi sul modo in cui le diverse funzionalità dell'hub IoT vengono misurate come messaggi dall'hub IoT.
+[Prezzi di Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) offre informazioni generali su diversi SKU e sui prezzi per l'hub IoT. Questo articolo contiene dettagli aggiuntivi sul modo in cui le diverse funzionalità dell'hub IoT vengono misurate come messaggi dall'hub IoT.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -37,7 +37,7 @@ ms.locfileid: "34632840"
 | Operazioni dei processi per ogni dispositivo | Le operazioni dei processi, ad esempio gli aggiornamenti del dispositivo gemello e i metodi, vengono addebitati come messaggi normali. Un processo che esegue 1000 chiamate di metodo con richieste di 1 KB e risposte con corpo vuoto, ad esempio, viene addebitato come 1000 messaggi. |
 
 > [!NOTE]
-> Tutte le dimensioni vengono calcolate considerando le dimensioni del payload in byte. Il frame del protocollo viene ignorato. Per i messaggi, che hanno proprietà e corpo, le dimensioni vengono calcolate in modo indipendente dal protocollo. Per altre informazioni, vedere [Guida per gli sviluppatori di messaggistica di hub IoT][lnk-message-size].
+> Tutte le dimensioni vengono calcolate considerando le dimensioni del payload in byte. Il frame del protocollo viene ignorato. Per i messaggi, che hanno proprietà e corpo, le dimensioni vengono calcolate in modo indipendente dal protocollo. Per altre informazioni, vedere i [Formato messaggio dell'hub IoT](iot-hub-devguide-messages-construct.md).
 
 ## <a name="example-1"></a>Esempio 1
 
@@ -64,7 +64,3 @@ Il totale di questo calcolo corrisponde a 612 messaggi al giorno.
 Il back-end della soluzione usa 28 messaggi (14 KB/0,5 KB) per leggere il dispositivo gemello più un messaggio per aggiornarlo, per un totale di 29 messaggi.
 
 In totale il dispositivo e il back-end della soluzione usano 641 messaggi al giorno.
-
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-message-size]: iot-hub-devguide-messages-construct.md

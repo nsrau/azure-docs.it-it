@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 4b124b79eeacf0df5f1b9dff798ebeea20d82090
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093619"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044774"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Riferimento ai tipi di trigger e di azioni per il linguaggio di definizione del flusso di lavoro nelle App per la logica di Azure
 
@@ -62,7 +62,7 @@ I trigger hanno questi elementi di livello superiore, anche se alcuni sono facol
 
 | Valore | type | DESCRIZIONE | 
 |-------|------|-------------| 
-| <*array-with-conditions*> | Array | Una matrice contenente una o più [condizioni](#trigger-conditions) che determinano se eseguire il flusso di lavoro | 
+| <*array-with-conditions*> | Array | Una matrice contenente una o più [condizioni](#trigger-conditions) che determinano se eseguire il flusso di lavoro. Disponibile solo per i trigger. | 
 | <*runtime-config-options*> | Oggetto JSON | È possibile modificare il comportamento di runtime del trigger impostando le proprietà `runtimeConfiguration`. Per altre informazioni vedere [Impostazioni di configurazione di runtime](#runtime-config-options). | 
 | <*splitOn-expression*> | string | Per i trigger che restituiscono una matrice è possibile specificare un'espressione che [ suddivide o *esegue il debatch*](#split-on-debatch) degli elementi della matrice in più istanze del flusso di lavoro per l'elaborazione. | 
 | <*operation-option*> | string | È possibile modificare il comportamento predefinito impostando la proprietà `operationOptions`. Per altre informazioni, vedere [Opzioni relative alle operazioni](#operation-options). | 
@@ -657,7 +657,7 @@ Questo trigger specifica che una richiesta in ingresso deve usare il metodo HTTP
 
 ## <a name="trigger-conditions"></a>Condizioni di trigger
 
-Per tutti i trigger, è possibile includere una matrice con una o più espressioni per le condizioni che determinano se il flusso di lavoro deve essere eseguito o meno. Per aggiungere la proprietà `conditions` all'app per la logica, aprire l'app per la logica nell'editor della visualizzazione codice.
+Esclusivamente per i trigger, è possibile includere una matrice con una o più espressioni per le condizioni che determinano se il flusso di lavoro deve essere eseguito o meno. Per aggiungere la proprietà `conditions` a un trigger nell'app per la logica, aprire l'app per la logica nell'editor della visualizzazione codice.
 
 Ad esempio, è possibile specificare che un trigger venga attivato solo quando un sito Web restituisce un errore interno del server facendo riferimento al codice di stato del trigger nella proprietà `conditions`:
 
@@ -2318,7 +2318,7 @@ Per i trigger e azioni, è possibile limitare la durata del modello asincrono a 
 
 ### <a name="change-trigger-concurrency"></a>Modifica della concorrenza dei trigger
 
-Per impostazione predefinita, le istanze dell'app per la logica vengono eseguite contemporaneamente o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pertanto, ogni istanza del trigger viene attivata prima della fine dell'esecuzione dell'istanza dell'app per la logica precedentemente attiva. Questo limite consente di controllare il numero di richieste ricevute dai sistemi back-end. 
+Per impostazione predefinita, le istanze dell'app per la logica vengono eseguite contemporaneamente o in parallelo fino al [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pertanto, ogni istanza del trigger viene attivata prima della fine dell'esecuzione dell'istanza dell'app per la logica precedente. Questo limite consente di controllare il numero di richieste ricevute dai sistemi back-end. 
 
 Per modificare il limite predefinito, è possibile usare l'editor della visualizzazione codice o Progettazione app per la logica perché la modifica delle impostazioni di concorrenza tramite la finestra di progettazione aggiunge o aggiorna la proprietà `runtimeConfiguration.concurrency.runs` nella definizione del trigger sottostante e viceversa. Questa proprietà controlla il numero massimo di istanze dell'app per la logica che è possibile eseguire in parallelo. 
 
@@ -2385,7 +2385,7 @@ Di seguito è riportato un esempio che limita le esecuzioni simultanee a 10 iter
 
 #### <a name="edit-in-logic-apps-designer"></a>Modifica in Progettazione app per la logica
 
-1. Nell'angolo superiore destro dell'azione **For each**, scegliere il pulsante con puntini di sospensione (...), quindi scegliere **Impostazioni**.
+1. Nell'angolo superiore destro dell'azione **For each** scegliere il pulsante con puntini di sospensione (...) e quindi **Impostazioni**.
 
 2. In **Controllo concorrenza**, impostare **Esegui l'override delle impostazioni predefinite** su **On** (Attivo). 
 
@@ -2399,7 +2399,7 @@ Per impostazione predefinita, le istanze dell'app per la logica vengono eseguite
 
 Il numero di esecuzioni che possono rimanere in attesa ha anche un [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), che è possibile modificare. Tuttavia, dopo che l'app per la logica raggiunge il limite di esecuzioni di attesa, il motore di App per la logica non accetta più nuove esecuzioni. I trigger di richiesta e webhook restituiscono errori 429 e i trigger ricorrenti iniziano a ignorare i tentativi di polling.
 
-Per modificare il limite predefinito per le esecuzioni in attesa, nella definizione del trigger sottostante, aggiungere e impostare la proprietà `runtimeConfiguration.concurency.maximumWaitingRuns` su un valore compreso tra `0` e `100`. 
+Per modificare il limite predefinito per le esecuzioni in attesa, nella definizione del trigger sottostante aggiungere la proprietà `runtimeConfiguration.concurency.maximumWaitingRuns` con un valore compreso tra `0` e `100`. 
 
 ```json
 "<trigger-name>": {

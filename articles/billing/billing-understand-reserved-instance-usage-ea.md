@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: 4b418db3c4d9876a739ce94539a6f48402332a86
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a33a360d25930f1468f1c9240be2d0f306d682c7
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394897"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585748"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informazioni sull'utilizzo della prenotazione di Azure per l'iscrizione Enterprise
 
@@ -51,9 +51,11 @@ La parte hardware della VM è coperta perché la VM distribuita corrisponde agli
 3. **ID contatore** è il contatore della prenotazione con costo pari a $ 0. Il costo dell'esecuzione della macchina virtuale è coperto dall'istanza di macchina virtuale riservata.
 4. Standard_D1 è una macchina virtuale vCPU e la macchina virtuale viene distribuita senza il Vantaggio Azure Hybrid. Questo contatore copre quindi il costo aggiuntivo del software Windows. Per trovare il contatore corrispondente alla macchina virtuale serie D con 1 core, vedere [Costi del software Windows delle istanze di macchina virtuale riservate di Azure](billing-reserved-instance-windows-software-costs.md).  Se si ha il Vantaggio Azure Hybrid, questo costo aggiuntivo non viene applicato.
 
-## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Utilizzo delle prenotazioni di capacità riservata del database SQL
+## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilizzo delle prenotazioni di capacità riservata del database SQL e Cosmos DB
 
-Per le sezioni seguenti si presuppone di eseguire un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
+Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere il report di utilizzo. È possibile seguire questi stessi passaggi anche per l'utilizzo in Azure Cosmos DB. 
+
+Si presuppone che sia eseguito un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
 
 | Campo | Valore |
 |---| --- |
@@ -62,9 +64,9 @@ Per le sezioni seguenti si presuppone di eseguire un database SQL di quarta gene
 |Prodotto| Database SQL Gen4 (2 core)|
 |Region | eastus |
 
-### <a name="usage-in-csv-file-for-sql-database-reserved-capacity"></a>Utilizzo nel file CSV per la capacità riservata del database SQL
+### <a name="usage-in-csv-file"></a>Utilizzo in un file con estensione csv 
 
-Applicare un filtro in **Informazioni aggiuntive** e digitare l'**ID prenotazione**. Lo screenshot seguente illustra i campi correlati alla prenotazione.
+Applicare un filtro in **Informazioni aggiuntive**, digitare un valore in **ID prenotazione** e scegliere la **categoria del contatore** necessaria: database SQL di Azure o Azure Cosmos DB. Lo screenshot seguente illustra i campi correlati alla prenotazione.
 
 ![File CSV per il contratto Enterprise Agreement (EA) per la capacità riservata del database SQL](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
 
@@ -94,3 +96,4 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 
 Per altre domande, è possibile [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
+

@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128596"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267954"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Linux con Esegui comando
 
@@ -21,7 +21,7 @@ Esegui comando usa l'agente di macchine virtuali per eseguire gli script di Powe
 
 ## <a name="benefits"></a>Vantaggi
 
-Sono disponibili più opzioni che possono essere usate per accedere alle macchine virtuali. Esegui comando può eseguire gli script nelle macchine virtuali in remoto tramite l'agente VM. Esegui comando può essere usato con il portale di Azure, [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), [interfaccia della riga di comando di Azure](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke), o [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Sono disponibili più opzioni che possono essere usate per accedere alle macchine virtuali. Esegui comando può eseguire gli script nelle macchine virtuali in remoto tramite l'agente VM. Può essere usato tramite il portale di Azure, l'[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand) o [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) per le VM Windows.
 
 Questa funzionalità è utile in tutti gli scenari in cui si desidera eseguire uno script all'interno di una macchina virtuale e fa parte dell'unico modo per risolvere i problemi e correggere una macchina virtuale che non dispone della porta aperta RDP o SSH a causa della rete impropria o della configurazione amministrativa dell'utente.
 
@@ -33,6 +33,7 @@ Le seguenti limitazioni si applicano quando si usa Esegui comando
 * Il tempo minimo per eseguire uno script è di circa 20 secondi
 * Gli script eseguiti come sistema in Windows
 * Può essere eseguito uno script in un momento
+* Gli script che richiedono informazioni (modalità interattiva) non sono supportati.
 * Non è possibile annullare l'esecuzione di uno script
 * Il tempo massimo in cui può essere eseguito uno script è 90 minuti, dopo di che si verifica il timeout
 * La connettività in uscita dalla macchina virtuale è necessaria per restituire i risultati dello script.

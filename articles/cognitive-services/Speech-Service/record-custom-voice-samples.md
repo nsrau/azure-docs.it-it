@@ -3,18 +3,18 @@ title: Esempi di campioni vocali per la creazione di una voce personalizzata
 titleSuffix: Microsoft Cognitive Services
 description: Creare una voce personalizzata di qualità di produzione grazie alla preparazione di uno script solido, all'assunzione di speaker di alto livello e a una registrazione professionale.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b1bab65b68c5f37165fbc8414ac4300c924e53b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.author: erhopf
+ms.openlocfilehash: 0051cc480a26ffc3668f922d1af9fc9cd7af1f49
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165177"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167172"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Esempi di campioni vocali per la creazione di una voce personalizzata
 

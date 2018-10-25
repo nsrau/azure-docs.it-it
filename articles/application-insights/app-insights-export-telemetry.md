@@ -10,19 +10,18 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 02/23/2017
+ms.topic: conceptual
+ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 942cc355c186b73e0b8802bfbf79ef8b4b39191a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585476"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Esportare i dati di telemetria da Application Insights
 Si vogliono mantenere i dati di telemetria per un periodo più lungo del periodo di mantenimento standard o elaborarli in un modo particolare? A tale scopo, l'esportazione continua è ideale. Gli eventi visualizzati nel portale di Application Insights possono essere esportati nella risorsa di archiviazione di Microsoft Azure in formato JSON. Da qui è possibile scaricare i dati e scrivere qualsiasi tipo di codice necessario per elaborarli.  
-
-L'uso dell'esportazione continua può comportare un costo aggiuntivo. Controllare il [modello di prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 
 Prima di configurare l'esportazione continua, è necessario prendere in considerazione alcune alternative:
 
@@ -38,11 +37,9 @@ Con l'esportazione continua i dati vengono copiati nella risorsa di archiviazion
 ## <a name="setup"></a> Creare un'esportazione continua
 1. Nella risorsa di Application Insights per l'app aprire Esportazione continua e scegliere **Aggiungi**:
 
-    ![Scorrere verso il basso e fare clic su Esportazione continua](./media/app-insights-export-telemetry/01-export.png)
-
 2. Scegliere i tipi di dati di telemetria da esportare.
 
-3. Creare o selezionare un [account di archiviazione di Azure](../storage/common/storage-introduction.md) in cui memorizzare i dati.
+3. Creare o selezionare un [account di archiviazione di Azure] (../storage/common/storage-introduction.md) in cui memorizzare i dati. Per altre informazioni sulle opzioni per i prezzi dell'archiviazione, vedere la [pagina dei prezzi ufficiale](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > Per impostazione predefinita, il percorso di archiviazione verrà impostato sulla stessa area geografica della risorsa di Application Insights. Se si esegue l'archiviazione in un'area differente, è possibile che vengano applicati addebiti per il trasferimento.
@@ -177,7 +174,7 @@ Su scala più estesa considerare la possibilità di usare cluster [HDInsight](ht
     No. Il motore di esportazione attualmente funziona solo con Archiviazione di Azure.  
 * *Esiste un limite alla quantità di dati da inserire nell'archivio personale?*
 
-    di serie L'inserimento dei dati continuerà fino a quando non si elimina l'esportazione. Occorrerà fermarsi se i limiti esterni per l'archiviazione BLOB sono stati raggiunti, ma ciò è abbastanza difficile. Spetta all'utente controllare quante risorse di archiviazione usare.  
+    No. L'inserimento dei dati continuerà fino a quando non si elimina l'esportazione. Occorrerà fermarsi se i limiti esterni per l'archiviazione BLOB sono stati raggiunti, ma ciò è abbastanza difficile. Spetta all'utente controllare quante risorse di archiviazione usare.  
 * *Quanti BLOB dovrebbero essere visualizzati nella risorsa di archiviazione?*
 
   * Per ogni tipi di dati selezionato per l'esportazione, viene creato un nuovo BLOB ogni minuto, se sono disponibili dati.

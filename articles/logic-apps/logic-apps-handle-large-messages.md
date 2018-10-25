@@ -1,5 +1,5 @@
 ---
-title: Gestire messaggi di grandi dimensioni in App per la logica di Azure | Microsoft Docs
+title: Gestire messaggi di grandi dimensioni - App per la logica di Azure | Microsoft Docs
 description: Informazioni su come gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
 services: logic-apps
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 6064db5455d92d15dca0e2a4a78285f0aeade904
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299046"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041646"
 ---
-# <a name="handle-large-messages-with-chunking-in-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
+# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
 
 Per la gestione di messaggi, App per la logica di Azure impone delle dimensioni massime per il contenuto dei messaggi. Tale limite consente di ridurre il sovraccarico creato archiviando ed elaborando messaggi di grandi dimensioni. Per gestire messaggi superiori a questo limite, App per la logica di Azure può *suddividere in blocchi* un messaggio di grandi dimensioni in messaggi più piccoli. In questo modo è comunque possibile trasferire file di grandi dimensioni tramite App per la logica di Azure in condizioni specifiche. Quando si comunica con altri servizi tramite connettori o HTTP, App per la logica di Azure è in grado di usare messaggi di grandi dimensioni, ma *solo* in blocchi. Questa condizione indica che i connettori devono supportare anche la suddivisione in blocchi, oppure che lo scambio di messaggi HTTP sottostante tra App per la logica di Azure e questi servizi deve usare la suddivisione in blocchi.
 

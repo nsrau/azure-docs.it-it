@@ -1,27 +1,29 @@
 ---
-title: Gestire la personalizzazione dei token e SSO con criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
-description: Informazioni sulla gestione della personalizzazione dei token e SSO con i criteri personalizzati
+title: Gestire la personalizzazione di token e SSO con criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+description: Informazioni su come gestire la personalizzazione di token e SSO con criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/02/2017
+ms.date: 10/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 811fb8b2de59c9d324ab4acb8b0f51b4cec80aee
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c7ba1f87b877466ff4d9d11e4b3b5a6567e7ae06
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441798"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902635"
 ---
-# <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C: gestire la personalizzazione dei token e SSO con i criteri personalizzati
-L'uso dei criteri personalizzati offre lo stesso controllo sulle configurazioni di token, sessioni e Single Sign-On (SSO) dei criteri predefiniti.  Per informazioni sulle singole impostazioni, vedere la documentazione [qui](#active-directory-b2c-token-session-sso).
+# <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gestire la personalizzazione di token e SSO con criteri personalizzati in Azure Active Directory B2C
+
+Questo articolo contiene informazioni su come è possibile gestire le configurazioni dei token, delle sessioni e dell'accesso Single Sign-On (SSO) usando [criteri personalizzati](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Configurazione delle attestazioni e delle durate dei token
-Per modificare le impostazioni delle durate dei token, è necessario aggiungere un elemento `<ClaimsProviders>` nel file di relying party del criterio su cui si vuole intervenire.  `<ClaimsProviders>` è un elemento figlio di `<TrustFrameworkPolicy>`.  Sarà necessario inserirvi le informazioni che influiscono sulle durate dei token.  L'XML è simile all'esempio seguente:
+
+Per modificare le impostazioni per le durate dei token, si aggiunge un elemento [ClaimsProviders](claimsproviders.md) nel file di relying party dei criteri su cui si vuole intervenire.  **ClaimsProviders** è un elemento figlio dell'elemento [TrustFrameworkPolicy](trustframeworkpolicy.md). Sarà necessario inserirvi le informazioni che influiscono sulle durate dei token. L'XML è simile all'esempio seguente:
 
 ```XML
 <ClaimsProviders>
@@ -43,41 +45,36 @@ Per modificare le impostazioni delle durate dei token, è necessario aggiungere 
 </ClaimsProviders>
 ```
 
-**Durate dei token di accesso** La durata dei token di accesso può essere cambiata modificando il valore nell'elemento `<Item>` con Key="token_lifetime_secs" espresso in secondi.  Il valore predefinito è pari a 3600 secondi (60 minuti).
+Nell'esempio precedente vengono impostati i valori seguenti.
 
-**Durata dei token di ID** La durata dei token di ID può essere cambiata modificando il valore nell'elemento `<Item>` con Key="id_token_lifetime_secs" espresso in secondi.  Il valore predefinito è pari a 3600 secondi (60 minuti).
+- **Durate dei token di accesso**: il valore di durata dei token viene impostato con l'elemento dei metadati **token_lifetime_secs**. Il valore predefinito è 3600 secondi (60 minuti).
+- **Durata del token ID**: il valore di durata del token ID viene impostato con l'elemento dei metadati **id_token_lifetime_secs**. Il valore predefinito è 3600 secondi (60 minuti).
+- **Durata del token di aggiornamento**: il valore di durata del token di aggiornamento viene impostato con l'elemento dei metadati **refresh_token_lifetime_secs**. Il valore predefinito è 1209600 secondi (14 giorni).
+- **Durata della finestra temporale scorrevole del token di aggiornamento**: per impostare una durata della finestra temporale scorrevole per il token di aggiornamento, impostare il valore dell'elemento dei metadati **rolling_refresh_token_lifetime_secs**. Il valore predefinito è 7776000 giorni (90 giorni). Se non si vuole applicare una durata della finestra temporale scorrevole, sostituire l'elemento con `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
+- **Attestazione autorità di certificazione (iss)**: l'attestazione dell'autorità di certificazione (iss) viene impostata con l'elemento dei metadati **IssuanceClaimPattern**. I valori applicabili sono `AuthorityAndTenantGuid` e `AuthorityWithTfp`.
+- **Impostazione dell'attestazione che rappresenta l'ID criteri**: per impostare questo valore sono disponibili le opzioni `TFP` (criteri del framework attendibilità) e `ACR` (riferimento al contesto di autenticazione). Il valore consigliato è `TFP`. Impostare **AuthenticationContextReferenceClaimPattern** con il valore `None`. In **OutputClaims** aggiungere questo elemento:
+    
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    ```
 
-**Durata del token di aggiornamento** La durata del token di aggiornamento può essere cambiata modificando il valore nell'elemento `<Item>` con Key="refresh_token_lifetime_secs" espresso in secondi.  Il valore predefinito è pari a 1209600 secondi (14 giorni).
+    Per ACR, rimuovere l'elemento **AuthenticationContextReferenceClaimPattern**.
 
-**Durata della finestra temporale scorrevole del token di aggiornamento** Per impostare una durata della finestra temporale scorrevole per il token di aggiornamento, modificare il valore nell'elemento `<Item>` con Key="rolling_refresh_token_lifetime_secs" espresso in secondi.  Il valore predefinito è pari a 7776000 secondi (90 giorni).  Se non si vuole applicare una durata della finestra temporale scorrevole, sostituire questa riga con:
-```XML
-<Item Key="allow_infinite_rolling_refresh_token">True</Item>
-```
+- **Attestazione soggetto (sub)**: l'impostazione predefinita di questa opzione è ObjectID. Per modificare l'impostazione in `Not Supported`, sostituire questa riga: 
 
-**Attestazione autorità di certificazione (iss)** Per cambiare l'attestazione autorità di certificazione (iss), modificare il valore nell'elemento `<Item>` con Key="IssuanceClaimPattern".  I valori applicabili sono `AuthorityAndTenantGuid` e `AuthorityWithTfp`.
-
-**Impostazione dell'attestazione che rappresenta l'ID criteri** Le opzioni per impostare questo valore sono TFP (Trust Framework Policy) e ACR (Authentication Context Reference).  
-È consigliabile impostarlo su TFP. A questo scopo, assicurarsi che l'elemento `<Item>` con Key="AuthenticationContextReferenceClaimPattern" esista e il valore sia `None`.
-Nell'elemento `<OutputClaims>`, aggiungere questo elemento:
-```XML
-<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
-```
-Per ACR, rimuovere l'elemento `<Item>` con Key="AuthenticationContextReferenceClaimPattern".
-
-**Attestazione soggetto (sub)** L'impostazione predefinita di questa opzione è ObjectID. Per impostarla su `Not Supported`, seguire questa procedura:
-
-Sostituire questa riga 
-```XML
-<OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
-```
-con la riga seguente:
-```XML
-<OutputClaim ClaimTypeReferenceId="sub" />
-```
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+    ```
+    
+    con la riga seguente:
+    
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="sub" />
+    ```
 
 ## <a name="session-behavior-and-sso"></a>Comportamento della sessione e SSO
 
-Per modificare il comportamento della sessione e le configurazioni SSO, è necessario aggiungere un elemento `<UserJourneyBehaviors>` nell'elemento `<RelyingParty>`.  L'elemento `<UserJourneyBehaviors>` deve seguire immediatamente `<DefaultUserJourney>`.  Il contenuto dell'elemento `<UserJourneyBehavors>` sarà il seguente:
+Per modificare le configurazioni del comportamento della sessione e dell'accesso SSO, è necessario aggiungere un elemento **UserJourneyBehaviors** all'interno dell'elemento [RelyingParty](relyingparty.md).  L'elemento **UserJourneyBehaviors** deve essere immediatamente successivo a **DefaultUserJourney**. Il contenuto dell'elemento **UserJourneyBehaviors** avrà un aspetto simile a questo esempio:
 
 ```XML
 <UserJourneyBehaviors>
@@ -86,8 +83,9 @@ Per modificare il comportamento della sessione e le configurazioni SSO, è neces
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
-**Configurazione dell'accesso Single Sign-On** Per cambiare la configurazione dell'accesso Single Sign-On, è necessario modificare il valore di `<SingleSignOn>`.  I valori applicabili sono `Tenant`, `Application` `Policy` e `Disabled`. 
 
-**Durata della sessione dell'app Web (minuti)** Per cambiare la durata della sessione dell'app Web, è necessario modificare il valore dell'elemento `<SessionExpiryInSeconds>`.  Il valore predefinito nei criteri predefiniti è pari a 86400 secondi (1440 minuti).
+Nell'esempio precedente vengono configurati i valori seguenti.
 
-**Timeout della sessione dell'app Web** Per cambiare il timeout della sessione dell'app Web, è necessario modificare il valore di `<SessionExpiryType>`.  I valori applicabili sono `Absolute` e `Rolling`.
+- **Single Sign-On (SSO)**: l'accesso Single Sign-On viene configurato con **SingleSignOn**. I valori applicabili sono `Tenant`, `Application` `Policy` e `Suppressed`. 
+- **Durata della sessione dell'app Web (minuti)**: la durata della sessione dell'app Web viene impostata con l'elemento **SessionExpiryInSeconds**. Il valore predefinito è 86400 secondi (1440 minuti).
+- **Timeout della sessione dell'app Web**: la durata della sessione dell'app Web viene impostata con l'elemento **SessionExpiryType**. I valori applicabili sono `Absolute` e `Rolling`.

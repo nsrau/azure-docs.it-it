@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: b1ae3fb5de3e28f44ef39731f49a33e2086255a1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: ad6b296543cffedb215c87b1fc893a22b29a3052
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785342"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427349"
 ---
 # <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>Esercitazione n. 2: distribuire un modello di classificazione di immagini nell'istanza di contenitore di Azure (ACI)
 
@@ -383,4 +383,4 @@ In questa esercitazione sul servizio Azure Machine Learning è stato usato Pytho
 > * Distribuire il modello in ACI
 > * Testare il modello distribuito
  
-È anche possibile provare l'esercitazione [Selezione algoritmo automatica]() per informazioni su come il servizio Azure Machine Learning può selezionare automaticamente e ottimizzare l'algoritmo migliore per il modello e compilare tale modello per l'utente.
+È anche possibile provare l'esercitazione [Selezione algoritmo automatica](tutorial-auto-train-models.md) per informazioni su come il servizio Azure Machine Learning può selezionare automaticamente e ottimizzare l'algoritmo migliore per il modello e compilare tale modello per l'utente.

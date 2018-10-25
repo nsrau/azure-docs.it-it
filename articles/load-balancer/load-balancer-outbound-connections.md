@@ -4,7 +4,7 @@ description: In questo articolo viene spiegato come Azure consente alle macchine
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: jpconnock
 editor: ''
 ms.assetid: 5f666f2a-3a63-405a-abcd-b2e34d40e001
 ms.service: load-balancer
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: 24eec3b1f3c85384f80823b82962038c235b6dac
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 58ae89a6b9d7b9e3858358d290e3ecb197e0ac2b
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036991"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249129"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -75,7 +75,7 @@ Per monitorare l'integrità delle connessioni in uscita con Load Balancer Basic,
 
 ### <a name="defaultsnat"></a>Scenario 3: Macchina virtuale autonoma senza indirizzo IP pubblico a livello di istanza
 
-In questo scenario la macchina virtuale non fa parte di un pool di Load Balancer pubblico, né di un pool di Load Balancer Standard interno, e non ha assegnato un indirizzo ILPIP. Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine privata del flusso in uscita in un indirizzo IP di origine pubblica. L'indirizzo IP pubblico usato per questo flusso in uscita non è configurabile e non interferisce con il limite della risorsa IP pubblico della sottoscrizione.
+In questo scenario la macchina virtuale non fa parte di un pool di Load Balancer pubblico, né di un pool di Load Balancer Standard interno, e non ha assegnato un indirizzo ILPIP. Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine privata del flusso in uscita in un indirizzo IP di origine pubblica. L'indirizzo IP pubblico usato per questo flusso in uscita non è configurabile e non interferisce con il limite della risorsa IP pubblico della sottoscrizione. Questo indirizzo IP pubblico non appartiene all'utente e non può essere riservato. Se si ridistribuisce la macchina virtuale, il set di disponibilità o il set di scalabilità di macchine virtuali, questo indirizzo IP pubblico verrà rilasciato e verrà richiesto un nuovo indirizzo IP pubblico. Non usare questo scenario per creare un elenco di indirizzi IP consentiti. Adottare uno degli altri due scenari in cui si dichiara in modo esplicito lo scenario in uscita e l'indirizzo IP pubblico da usare per la connettività in uscita.
 
 >[!IMPORTANT] 
 >Questo scenario si applica anche quando è collegata __solo__ un'istanza di Load Balancer Basic interna. Lo scenario 3 __non è disponibile__ quando un'istanza di Load Balancer Standard interna è collegata a una macchina virtuale.  È necessario creare in modo esplicito lo [scenario 1](#ilpip) o lo [scenario 2](#lb) oltre a usare un'istanza di Load Balancer Standard interna.

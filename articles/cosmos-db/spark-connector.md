@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: e7ed0049e64a7740063f2fab7bdfddff38d45ed9
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287711"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269412"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Accelerare l'analisi di Big Data con il connettore Apache Spark per Azure Cosmos DB
  
@@ -179,7 +179,7 @@ La comunicazione tra Spark e Azure Cosmos DB è notevolmente più veloce perché
 
 4. Estrarre i contenuti del feed di Twitter di esempio e aprire il file config.py. Aggiornare i valori masterKey, pdatabaseId, collectionId e preferredLocations.  
 
-5. Passare a `http://apps.twitter.com/` e registrare lo script del feed Twitter come nuova applicazione. Dopo aver selezionato un nome e un'applicazione per l'app, vengono forniti: **chiave utente, segreto del cliente, token di accesso e segreto del token di accesso**. Copiare questi valori e aggiornarli nel file config.py per fornire all'applicazione l'accesso a livello di codice a Twitter.   
+5. Passare a `http://apps.twitter.com/` e l'applicazione del feed Twitter. Dopo aver selezionato un nome per l'applicazione, vengono indicati: **chiave utente, segreto del cliente, token di accesso e segreto del token di accesso**. Copiare questi valori e aggiornarli nel file config.py per fornire all'applicazione del feed Twitter l'accesso a livello di codice a Twitter.   
 
 6. Salvare il file config.py. Aprire un prompt dei comandi ed eseguire l'applicazione Python usando il comando seguente:
 

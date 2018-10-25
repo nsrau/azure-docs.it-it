@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: a066d2a55f6949eea316eaf0a2956500667a996f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 497249baa10956c37762172bd0c48fad7be14e0b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340272"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319320"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kafka ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
@@ -38,10 +38,10 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 * [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Scaricare](http://maven.apache.org/download.cgi) e [installare](http://maven.apache.org/install.html) un archivio binario Maven.
 * [Git](https://www.git-scm.com/)
-* Un **account di archiviazione di Azure**. Se non è disponibile, [crearne uno](../storage/common/storage-create-storage-account.md#create-a-storage-account) prima di procedere. Il processo di Analisi di flusso in questa procedura archivia i dati di output in un archivio BLOB di Azure. 
+* Un **account di archiviazione di Azure**. Se non è disponibile, [crearne uno](../storage/common/storage-quickstart-create-account.md) prima di procedere. Il processo di Analisi di flusso in questa procedura archivia i dati di output in un archivio BLOB di Azure. 
 
 
-## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi abilitati per Kafka
+## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi con supporto per Kafka
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Crea una risorsa** nella parte superiore sinistra della schermata.
 2. Eseguire la ricerca degli **Hub eventi** e selezionare le opzioni illustrate di seguito:
@@ -73,8 +73,8 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
 
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>Inviare e ricevere messaggi con Kafka in Hub eventi
 
-1. Clonare il [repository di Hub eventi di Azure](https://github.com/Azure/azure-event-hubs) nel proprio computer.
-2. Passare alla cartella `azure-event-hubs/samples/kafka/quickstart/producer`. 
+1. Clonare il [repository di Hub eventi di Azure per Kafka](https://github.com/Azure/azure-event-hubs-for-kafka) nel proprio computer.
+2. Passare alla cartella `azure-event-hubs-for-kafka/quickstart/java/producer`. 
 4. Aggiornare i dettagli di configurazione per il producer in `src/main/resources/producer.config`. Specificare il **nome** e la **stringa di connessione** per lo **spazio dei nomi dell'hub eventi**. 
 
     ```xml
@@ -84,7 +84,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Passare a `azure-event-hubs/samples/kafka/quickstart/producer/src/main/java/com/example/app` e aprire il file **TestDataReporter.java** in un editor di propria scelta. 
+5. Passare a `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/com/example/app` e aprire il file **TestDataReporter.java** in un editor di propria scelta. 
 6. Impostare un commento per la riga di codice seguente:
 
     ```java
@@ -97,7 +97,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
     ```
 
     Questo codice invia i dati dell'evento in formato **JSON**. Quando si configura l'input per un processo di Analisi di flusso, si specifica il formato JSON per i dati di input. 
-7. **Eseguire il producer** ed eseguire lo streaming in Hub eventi abilitati per Kafka. In un computer Windows, quando si usa un **prompt dei comandi di Node.js**, passare alla cartella `azure-event-hubs/samples/kafka/quickstart/producer` prima di eseguire questi comandi. 
+7. **Eseguire il producer** ed eseguire lo streaming in Hub eventi abilitati per Kafka. In un computer Windows, quando si usa un **prompt dei comandi di Node.js**, passare alla cartella `azure-event-hubs-for-kafka/quickstart/java/producer` prima di eseguire questi comandi. 
    
     ```shell
     mvn clean package
@@ -114,7 +114,7 @@ Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti s
     ![Hub eventi - messaggi](./media/event-hubs-kafka-stream-analytics/confirm-event-hub-messages.png)
 
 ## <a name="process-event-data-using-a-stream-analytics-job"></a>Elaborare i dati dell'evento tramite un processo di Analisi di flusso di Azure
-In questa sezione si crea un processo di Analisi di flusso di Azure. Il client Kafka invia eventi all'hub eventi. Si crea un processo di Analisi di flusso di Azure che accetta i dati degli eventi come input e li invia a un archivio BLOB di Azure. Se non si dispone di un **account di archiviazione di Azure**, [crearne uno](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+In questa sezione si crea un processo di Analisi di flusso di Azure. Il client Kafka invia eventi all'hub eventi. Si crea un processo di Analisi di flusso di Azure che accetta i dati degli eventi come input e li invia a un archivio BLOB di Azure. Se non si dispone di un **account di archiviazione di Azure**, [crearne uno](../storage/common/storage-quickstart-create-account.md).
 
 La query nel processo di Analisi di flusso di Azure attraversa i dati senza eseguire alcuna analisi. È possibile creare una query che trasforma i dati di input per produrre dati di output in un formato diverso o con informazioni approfondite ottenute.  
 
@@ -205,7 +205,10 @@ Dopo aver configurato un processo di Analisi di flusso per leggere un flusso di 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è stato illustrato come eseguire lo streaming in un'istanza di Hub eventi abilitata per Kafka senza modificare i client di protocollo o eseguire cluster personalizzati. Per altre informazioni, passare all'esercitazione successiva:
+In questo articolo è stato illustrato come eseguire lo streaming in un'istanza di Hub eventi abilitata per Kafka senza modificare i client di protocollo o eseguire cluster personalizzati. Per altre informazioni su Hub eventi e Hub eventi per Kafka, vedere l'argomento seguente:  
 
-> [!div class="nextstepaction"]
-> [Usare Kafka MirrorMaker con Hub eventi](event-hubs-kafka-mirror-maker-tutorial.md)
+* [Leggere le informazioni su Hub eventi](event-hubs-what-is-event-hubs.md)
+* [Leggere le informazioni su Hub eventi per Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+* [Esplorare altri esempi di Hub eventi per Kafka in GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+* Usare [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) per lo [streaming di eventi dall'istanza di Kafka locale all'istanza di Hub eventi abilitata per Kafka nel cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Leggere le informazioni su come eseguire lo streaming nel servizio Hub eventi abilitato per Kafka usando le [applicazioni native Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md), [Apache Flink](event-hubs-kafka-flink-tutorial.md) o [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)

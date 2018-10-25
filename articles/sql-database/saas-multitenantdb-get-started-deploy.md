@@ -12,14 +12,14 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 04/02/2018
-ms.openlocfilehash: b91960920f0181939e634a221080d493fb8cea63
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056659"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352212"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione di database multi-tenant partizionato che usa il database SQL di Azure
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuire ed esplorare un'applicazione multi-tenant partizionata
 
 Questa esercitazione illustra come distribuire ed esplorare Wingtip Tickets, un'applicazione SaaS multi-tenant di esempio. L'app Wingtip Tickets è stata progettata per illustrare le funzionalità del database SQL di Azure che semplificano l'implementazione di scenari SaaS.
 
@@ -27,7 +27,7 @@ Questa implementazione dell'app Wingtip Tickets usa un modello di database multi
 
 Questo modello consente di archiviare uno o più tenant in ogni partizione o database. È possibile ottimizzare il modello per la riduzione dei costi, consentendo la condivisione di ogni database tra più tenant, oppure per l'isolamento, configurando un solo tenant per ogni archivio di database. La scelta di ottimizzazione può essere effettuata in modo indipendente per ogni tenant, sia quando questo viene archiviato per la prima volta sia in un secondo momento. L'applicazione è stata progettata in modo da funzionare correttamente in entrambi i casi.
 
-#### <a name="app-deploys-quickly"></a>Distribuzione rapida dell'app
+## <a name="app-deploys-quickly"></a>Distribuzione rapida dell'app
 
 L'app viene eseguita nel cloud di Azure e usa il database SQL di Azure. Nella sezione seguente relativa alla distribuzione prevede viene usato il pulsante azzurro **Distribuisci in Azure**. Quando si preme il pulsante, l'app viene distribuita completamente nella sottoscrizione di Azure entro cinque minuti. Si ha così l'accesso completo per l'uso dei singoli componenti dell'applicazione.
 
@@ -35,7 +35,7 @@ L'applicazione viene distribuita con i dati relativi a tre tenant di esempio, ar
 
 Tutti gli utenti possono scaricare il codice sorgente C# e PowerShell per Wingtip Tickets dal [repository di GitHub][link-github-wingtip-multitenantdb-55g].
 
-#### <a name="learn-in-this-tutorial"></a>Informazioni in questa esercitazione
+## <a name="learn-in-this-tutorial"></a>Informazioni in questa esercitazione
 
 > [!div class="checklist"]
 > - Come distribuire l'applicazione SaaS Wingtip Tickets
@@ -55,7 +55,7 @@ Per completare questa esercitazione, verificare che i prerequisiti seguenti sian
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>Distribuire l'app Wingtip Tickets
 
-#### <a name="plan-the-names"></a>Pianificare i nomi
+### <a name="plan-the-names"></a>Pianificare i nomi
 
 Nei passaggi di questa sezione si forniscono un valore *utente* usato per assicurare che i nomi delle risorse siano univoci a livello globale e un nome per il *gruppo di risorse* contenente tutte le risorse create da una distribuzione dell'app. Per un utente di nome *Ann Finley* si consiglia:
 - *Utente:* **af1**, *ossia le iniziali e un numero. Usare un valore diverso, ad esempio af2, se si distribuisce l'app una seconda volta.*
@@ -63,7 +63,7 @@ Nei passaggi di questa sezione si forniscono un valore *utente* usato per assicu
 
 Scegliere ora i nomi e annotarli. 
 
-#### <a name="steps"></a>Passaggi
+### <a name="steps"></a>Passaggi
 
 1. Fare clic sul pulsante azzurro **Distribuisci in Azure** illustrato di seguito.
     - Verrà aperto il portale di Azure con il modello di distribuzione SaaS Wingtip Tickets.
@@ -133,7 +133,7 @@ In una pagina Web centrale **Events Hub** (Hub eventi) sono elencati i collegame
 
    ![Eventi](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-#### <a name="azure-traffic-manager"></a>Gestione traffico di Azure
+### <a name="azure-traffic-manager"></a>Gestione traffico di Azure
 
 Per controllare la distribuzione delle richieste in ingresso, l'app usa [Gestione traffico di Azure](../traffic-manager/traffic-manager-overview.md). La pagina degli eventi per ogni tenant include il nome del tenant nell'URL. Ogni URL include anche il valore di utente specifico. Ogni URL rispetta il formato indicato usando la procedura seguente:
 
@@ -144,7 +144,7 @@ Per controllare la distribuzione delle richieste in ingresso, l'app usa [Gestion
 3. L'app trova la chiave nel catalogo e ottiene la posizione corrispondente del database del tenant.
 4. L'app usa le informazioni sulla posizione per individuare e accedere a un database contenente tutti i dati per il tenant.
 
-#### <a name="events-hub"></a>Hub eventi
+### <a name="events-hub"></a>Hub eventi
 
 1. L'**hub eventi** elenca tutti i tenant registrati nel catalogo e le relative sedi.
 2. **e** usa i metadati estesi nel catalogo per recuperare il nome del tenant associato a ogni mapping in modo da generare gli URL.
@@ -185,6 +185,7 @@ Aggiornare la pagina dell'**hub eventi** per includere il nuovo tenant nell'elen
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Effettuare il provisioning di un nuovo tenant in un database autonomo
 
 Il modello multi-tenant partizionato consente di scegliere se effettuare il provisioning di un nuovo tenant in un database che ne contiene altri oppure in un database autonomo. Un tenant isolato in un database autonomo offre i vantaggi seguenti:
+
 - Le prestazioni del database del tenant possono essere gestite senza tener conto dalle esigenze di altri tenant.
 - Se necessario, è possibile eseguire un ripristino temporizzato del database perché questa operazione non influisce sugli altri tenant.
 
@@ -221,7 +222,6 @@ Ora si esamineranno alcune delle risorse distribuite:
 
    ![server di tenant](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
-
 ## <a name="monitor-the-performance-of-the-database"></a>Monitorare le prestazioni del database
 
 Se il generatore di carico è rimasto in esecuzione per diversi minuti, sarà disponibile una quantità sufficiente di dati di telemetria per esaminare alcune funzionalità di monitoraggio dei database integrate nel portale di Azure.
@@ -238,7 +238,7 @@ Se il generatore di carico è rimasto in esecuzione per diversi minuti, sarà di
 
 Il generatore di carico applica un carico simile a ogni tenant, indipendentemente dal database in cui si trova. Con un solo tenant nel database **salixsalsa**, è possibile osservare che il database è riuscito a sostenere un carico decisamente superiore rispetto al database con più tenant. 
 
-#### <a name="resource-allocations-vary-by-workload"></a>Le allocazioni delle risorse variano a seconda del carico di lavoro
+### <a name="resource-allocations-vary-by-workload"></a>Le allocazioni delle risorse variano a seconda del carico di lavoro
 
 Talvolta, ma non sempre, un database multi-tenant richiede più risorse di un database tenant singolo per assicurare prestazioni ottimali. L'allocazione ottimale delle risorse dipende dalle caratteristiche del carico di lavoro specifico per i tenant nel sistema.
 
@@ -249,8 +249,9 @@ I carichi di lavoro generati dallo script del generatore di carico hanno puramen
 - Per informazioni sulle applicazioni SaaS multi-tenant, vedere [Modelli di progettazione per le applicazioni SaaS multi-tenant](saas-tenancy-app-design-patterns.md).
 
 - Per informazioni sui pool elastici, vedere:
-    - [I pool di database elastici consentono di gestire e ridimensionare più database SQL](sql-database-elastic-pool.md)
-    - [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
+
+  - [I pool di database elastici consentono di gestire e ridimensionare più database SQL](sql-database-elastic-pool.md)
+  - [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

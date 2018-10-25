@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6ad95eb45cc208fe2289cb2095214f98a0b250b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7d8bde6beeb4bd0c6234d7c5aa63be9e150953f5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442390"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427247"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origini dati supportate in Azure Analysis Services
 
@@ -23,14 +23,14 @@ Le origini dati e i connettori visualizzati in Get Data (Recupera dati) o Import
 
 |Origine dati  |In memoria  |DirectQuery  |
 |---------|---------|---------|
-|database SQL di Azure     |   Sì      |    Sì      |
-|Azure SQL Data Warehouse     |   Sì      |   Sì       |
-|Archiviazione BLOB di Azure*     |   Sì       |    No       |
-|Archiviazione tabelle di Azure*    |   Sì       |    No       |
-|Azure Cosmos DB*     |  Sì        |  No         |
-|Azure Data Lake Store*     |   Sì       |    No       |
-|Azure HDInsight (HDFS)*     |     Sì     |   No        |
-|Azure HDInsight Spark*     |   Sì       |   No        |
+|database SQL di Azure     |   Yes      |    Yes      |
+|Azure SQL Data Warehouse     |   Yes      |   Yes       |
+|Archiviazione BLOB di Azure*     |   Yes       |    No       |
+|Archiviazione tabelle di Azure*    |   Yes       |    No       |
+|Azure Cosmos DB*     |  Yes        |  No         |
+|Azure Data Lake Store*     |   Yes       |    No       |
+|Azure HDInsight (HDFS)*     |     Yes     |   No        |
+|Azure HDInsight Spark*     |   Yes       |   No        |
 ||||
 
 \* Solo modelli tabulari 1400.

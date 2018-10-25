@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bc03bbf63427061c8d9f9e96ebcd9dce84f9fccf
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 941a7242e1f6fddd1ff91721141be4e1f9816b31
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42139905"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344864"
 ---
 # <a name="runbook-input-parameters"></a>Parametri di input dei runbook
 
@@ -73,6 +73,10 @@ Se il runbook include un parametro di input di tipo object, per passare un valor
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+> [!NOTE]
+> Se non si passano valori a un parametro facoltativo di tipo `[String]` che ha un _valore predefinito_ di `$null`, il valore del parametro sarà una _stringa vuota_, **anziché** `$null`.
+> 
+> 
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>Configurare i parametri di input in runbook grafici
 

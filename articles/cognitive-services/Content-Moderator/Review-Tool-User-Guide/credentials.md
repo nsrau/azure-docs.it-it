@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6477879953dc2bb2c7503eb0b2d4b5effa7b6a11
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024656"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309656"
 ---
 # <a name="manage-credentials"></a>Gestire le credenziali
 
@@ -66,11 +66,11 @@ Si noti inoltre l'identificatore di area per l'endpoint API. Ad esempio **westus
 
 ### <a name="resource-id"></a>ID risorsa
 
-Abbiamo affrontato questo argomento nella sezione sull'[uso dell'account Azure con lo strumento di revisione e l'API](credentials.md#how-to-use-your-azure-account-with-the-review-tool). Questo campo è in genere vuoto a meno che non si aggiunga l'Id di risorsa di Azure a questo campo come spiegato nella sezione precedente.
+Questo set di campi è descritto nella sezione precedente, [Usare l'account di Azure con lo strumento e l'API di revisione](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api). Questo campo è in genere vuoto a meno che non si aggiunga l'Id di risorsa di Azure a questo campo come spiegato nella sezione precedente.
 
 ### <a name="workflows"></a>Flussi di lavoro
 
-Questo set di campi è stato trattato nella sezione precedente sull'[uso della chiave di Azure per eseguire i flussi di lavoro](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Per impostazione predefinita, lo strumento di revisione utilizza la propria chiave di prova generata automaticamente per l'esecuzione di flussi di lavoro e questo è ciò che viene visualizzato per iniziare. Gli altri due campi consentono di usare elenchi di termini e immagini rispettivamente nelle operazioni di filtro del testo e valutazione di immagini.
+Questo set di campi è descritto nella sezione precedente, [Usare l'account di Azure con i flussi di lavoro nello strumento di revisione](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Per impostazione predefinita, lo strumento di revisione utilizza la propria chiave di prova generata automaticamente per l'esecuzione di flussi di lavoro e questo è ciò che viene visualizzato per iniziare. Gli altri due campi consentono di usare elenchi di termini e immagini rispettivamente nelle operazioni di filtro del testo e valutazione di immagini.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297556"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321989"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure Security and Compliance Blueprint: Hosting di applicazioni Web PaaS per carichi di lavoro UK OFFICIAL
 
@@ -52,7 +52,6 @@ Come parte dell'architettura della distribuzione vengono distribuite anche funzi
 Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
 
 - Azure Active Directory
-- Identità dei servizi gestiti
 - Servizio app
 - App Web
 - App per le API
@@ -107,13 +106,13 @@ App Web di Azure rende disponibile un ambiente di hosting Web completamente gest
 
 Il servizio app è [conforme a ISO, SOC e PCI](https://www.microsoft.com/TrustCenter/) e consente l'autenticazione degli utenti con [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) o con account di accesso di social networking ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) e [autenticazione Microsoft](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)).
 
-I piani Basic, Standard e Premium sono destinati a carichi di lavoro di produzione e vengono eseguiti in istanze dedicate delle macchine virtuali. Ogni istanza può supportare più applicazioni e domini. I servizi app supportano anche [restrizioni degli indirizzi IP](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) per proteggere il traffico verso indirizzi IP attendibili, se necessario, nonché [identità del servizio gestita](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) per la connessione sicura ad altri servizi PaaS, ad esempio [Key Vault](https://azure.microsoft.com/services/key-vault/) e [database SQL di Azure](https://azure.microsoft.com/services/sql-database/). Nei casi in cui è richiesta maggiore sicurezza, il piano Isolato ospita le app in un ambiente di Azure privato e dedicato ed è ottimale per le app che richiedono connessioni sicure alla rete locale o prestazioni e scalabilità aggiuntive.
+I piani Basic, Standard e Premium sono destinati a carichi di lavoro di produzione e vengono eseguiti in istanze dedicate delle macchine virtuali. Ogni istanza può supportare più applicazioni e domini. I servizi app supportano anche [restrizioni degli indirizzi IP](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) per proteggere il traffico verso indirizzi IP attendibili, se necessario, nonché [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) per la connessione sicura ad altri servizi PaaS, ad esempio [Key Vault](https://azure.microsoft.com/services/key-vault/) e [database SQL di Azure](https://azure.microsoft.com/services/sql-database/). Nei casi in cui è richiesta maggiore sicurezza, il piano Isolato ospita le app in un ambiente di Azure privato e dedicato ed è ottimale per le app che richiedono connessioni sicure alla rete locale o prestazioni e scalabilità aggiuntive.
 
 Questo modello distribuisce le funzionalità seguenti del servizio app:
 
 - Livello del piano di servizio app [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)
 - Più [slot di distribuzione](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing) per app Web: Dev, Preview, QA, UAT e naturalmente Production (slot predefinito).
-- [Identità del servizio gestita](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) per connettersi ad [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (questa funzionalità potrebbe essere usata anche per fornire l'accesso al [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) 
+- [Identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) per connettersi ad [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (questa funzionalità potrebbe essere usata anche per fornire l'accesso al [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) 
 - Integrazione con [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) per monitorare le prestazioni
 - [Log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - [Avvisi](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) delle metriche 
@@ -164,7 +163,7 @@ Informazioni dettagliate sulla protezione di Archiviazione di Azure sono disponi
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>Azure Key Vault in questo progetto
 
-- Contiene la chiave di accesso per l'archiviazione, con accesso in lettura concesso all'[identità del servizio gestita](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) dell'app Web rivolta ai clienti
+- Contiene la chiave di accesso per l'archiviazione, con accesso in lettura concesso all'[identità gestita](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) dell'app Web rivolta ai clienti
 - Contiene la password dell'amministratore di database di SQL Server (in un insieme di credenziali separato)
 - Registrazione diagnostica
 

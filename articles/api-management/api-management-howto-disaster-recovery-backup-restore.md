@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046380"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268530"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure
 
@@ -74,7 +74,7 @@ Tutte le attività che è possibile eseguire sulle risorse tramite Azure Resourc
 
 7. Fare clic su **Autorizzazioni delegate** accanto all'applicazione appena aggiunta, selezionare la casella per **Accesso a Gestione dei servizi di Azure (anteprima)**.
 8. Fare clic su **Seleziona**.
-9. Fare clic su **Concedi autorizzazioni**.
+9. Fare clic su **Concedere le autorizzazioni**.
 
 ### <a name="configuring-your-app"></a>Configurazione dell'app
 
@@ -141,8 +141,8 @@ dove:
 
 * `subscriptionId`: ID della sottoscrizione contenente il servizio Gestione API di cui si sta tentando di eseguire il backup.
 * `resourceGroupName`: nome del gruppo di risorse del servizio Gestione API di Azure
-* `serviceName`: nome del servizio di Gestione API di cui sta eseguendo il backup specificato quando è stato creato.
-* `api-version`: sostituire con `2018-06-01-preview`
+* `serviceName` : il nome del servizio di Gestione API di cui sta eseguendo il backup specificato quando è stato creato.
+* `api-version` - sostituire con `2018-06-01-preview`
 
 Nel corpo della richiesta, specificare il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di destinazione di Azure:
 
@@ -178,10 +178,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 dove:
 
-* `subscriptionId`: ID della sottoscrizione contenente il servizio di Gestione API in cui si sta ripristinando un backup.
+* `subscriptionId` : ID della sottoscrizione contenente il servizio di Gestione API in cui si sta ripristinando un backup.
 * `resourceGroupName`: nome del gruppo di risorse contenente il servizio di Gestione API in cui si sta ripristinando un backup.
-* `serviceName`: nome del servizio di Gestione API in cui si sta effettuando il ripristino specificato quando è stato creato.
-* `api-version`: sostituire con `2018-06-01-preview`
+* `serviceName` : il nome del servizio di Gestione API in cui si sta effettuando il ripristino specificato quando è stato creato.
+* `api-version` - sostituire con `2018-06-01-preview`
 
 Nel corpo della richiesta specificare la posizione del file di backup, ad esempio il nome dell'account di archiviazione, la chiave di accesso, il nome del contenitore BLOB e il nome del backup di Azure:
 
@@ -204,7 +204,7 @@ Il ripristino è un'operazione a lunga esecuzione che potrebbe richiedere 30 min
 > Le **modifiche** apportate alla configurazione del servizio (ad esempio alle API, ai criteri, all'aspetto del portale per sviluppatori) durante l'operazione di ripristino **potrebbero essere sovrascritte**.
 
 > [!NOTE]
-> Le operazioni di backup e ripristino possono essere eseguite rispettivamente anche con i comandi di Powershell, *Backup-AzureRmApiManagement* e *Restore-AzureRmApiManagement*.
+> Le operazioni di backup e ripristino possono essere eseguite rispettivamente anche con i comandi di PowerShell, *Backup-AzureRmApiManagement* e *Restore-AzureRmApiManagement*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,30 +2,31 @@
 title: Informazioni sul linguaggio di query dell'hub IoT di Azure | Documentazione Microsoft
 description: "Guida per sviluppatori: descrizione del linguaggio di query dell'hub IoT simile a SQL usato per recuperare informazioni su dispositivi/moduli gemelli e processi dall'hub IoT."
 author: fsautomata
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42144304"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318249"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
-L'hub IoT offre un linguaggio simile a SQL avanzato per recuperare informazioni su [dispositivi gemelli][lnk-twins], [processi][lnk-jobs] e [routing di messaggi][lnk-devguide-messaging-routes]. Questo articolo contiene:
+L'hub IoT offre un linguaggio simile a SQL avanzato per recuperare informazioni su [dispositivi gemelli](iot-hub-devguide-device-twins.md), [processi](iot-hub-devguide-jobs.md) e [routing di messaggi](iot-hub-devguide-messages-d2c.md). Questo articolo contiene:
 
 * Un'introduzione alle principali funzionalità del linguaggio di query dell'hub IoT
-* La descrizione dettagliata del linguaggio
+* La descrizione dettagliata del linguaggio Per informazioni sul linguaggio di query per il routing dei messaggi, vedere [Query nel routing dei messaggi](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>Query su dispositivi e moduli gemelli
-I [dispositivi gemelli][lnk-twins] possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query sui dispositivi e i moduli gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi e i moduli gemelli.
+
+I [dispositivi gemelli](iot-hub-devguide-device-twins.md) possono contenere oggetti JSON arbitrari come tag e proprietà. L'hub IoT consente di effettuare una query sui dispositivi e i moduli gemelli come singolo documento JSON contenente tutte le informazioni sui dispositivi e i moduli gemelli.
+
 Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la struttura seguente (i moduli gemelli sarebbero simili, avrebbero solo un moduleId aggiuntivo):
 
 ```json
@@ -80,15 +81,14 @@ Si supponga, ad esempio, che i dispositivi gemelli dell'hub IoT abbiano la strut
 
 ### <a name="device-twin-queries"></a>Query del dispositivo gemello
 
-L'hub IoT espone i dispositivi gemelli come raccolta di documenti denominata **devices**.
-Quindi la query seguente recupera l'intero set di dispositivi:
+L'hub IoT espone i dispositivi gemelli come raccolta di documenti denominata **devices**. Ad esempio, la query seguente recupera l'intero set di dispositivi gemelli:
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> Gli [SDK dell'hub IoT][lnk-hub-sdks] supportano il paging di risultati di grandi dimensioni.
+> Gli [SDK dell'hub IoT](iot-hub-devguide-sdks.md) supportano il paging di risultati di grandi dimensioni.
 
 L'hub IoT consente di recuperare i dispositivi gemelli applicando filtri con condizioni arbitrarie. Ad esempio, per ricevere dispositivi gemelli in cui il tag **location.region** è impostato su**US** usare la query seguente:
 
@@ -101,7 +101,7 @@ Sono supportati anche operatori booleani e confronti aritmetici. Ad esempio, per
 
 ```sql
 SELECT * FROM devices
-WHERE tags.location.region = 'US'
+  WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
@@ -109,25 +109,25 @@ Per praticità, è anche possibile usare costanti di matrice con gli operatori *
 
 ```sql
 SELECT * FROM devices
-WHERE properties.reported.connectivity IN ['wired', 'wifi']
+  WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
 È spesso necessario identificare tutti i dispositivi gemelli che contengono una proprietà specifica. L'hub IoT supporta la funzione `is_defined()` per questo scopo. Ad esempio, per recuperare dispositivi gemelli che definiscono la proprietà `connectivity`, usare la query seguente:
 
 ```SQL
 SELECT * FROM devices
-WHERE is_defined(properties.reported.connectivity)
+  WHERE is_defined(properties.reported.connectivity)
 ```
 
-Per informazioni di riferimento complete sulle funzionalità di filtro, vedere la sezione [Clausola WHERE][lnk-query-where].
+Per informazioni di riferimento complete sulle funzionalità di filtro, vedere la sezione [Clausola WHERE](iot-hub-devguide-query-language.md#where-clause).
 
 Sono supportati anche il raggruppamento e le aggregazioni. Ad esempio, per trovare il numero di dispositivi in ogni stato di configurazione di telemetria, usare la query seguente:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
     COUNT() AS numberOfDevices
-FROM devices
-GROUP BY properties.reported.telemetryConfig.status
+  FROM devices
+  GROUP BY properties.reported.telemetryConfig.status
 ```
 
 Questa query di raggruppamento restituisce un risultato simile all'esempio seguente:
@@ -159,26 +159,30 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Query sui moduli gemelli
 
-Le query sui moduli gemelli sono simili alle query sui dispositivi gemelli, ma usano raccolte/spazi dei nomi differenti, ad esempio invece di "from devices" è possibile eseguire questa query
+Le query sui moduli gemelli sono simili alle query sui dispositivi gemelli, ma usano raccolte/spazi dei nomi differenti, ad esempio invece di "from devices" è possibile eseguire la query su device.modules:
 
 ```sql
 SELECT * FROM devices.modules
 ```
 
-Il join tra i dispositivi e le raccolte devices.modules non è consentito. Se si vogliono eseguire query sui moduli gemelli nei dispositivi, usare i tag. Questa query restituirà tutti i moduli gemelli presenti in tutti i dispositivi con lo stato di analisi:
+Il join tra i dispositivi e le raccolte devices.modules non è consentito. Per eseguire query sui moduli gemelli nei dispositivi, usare i tag. Questa query restituirà tutti i moduli gemelli presenti in tutti i dispositivi con lo stato di analisi:
 
 ```sql
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-Questa query restituirà tutti i moduli gemelli con lo stato di analisi, ma solo nel subset di dispositivi specificato.
+Questa query restituirà tutti i moduli gemelli con lo stato di analisi, ma solo nel subset di dispositivi specificato:
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules 
+  where properties.reported.status = 'scanning' 
+  and deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>Esempio in C#
-La funzionalità di query viene esposta dall'[SDK del servizio C#][lnk-hub-sdks] nella classe **RegistryManager**.
+
+La funzionalità di query viene esposta dall'[SDK del servizio C#](iot-hub-devguide-sdks.md) nella classe **RegistryManager**.
+
 Ecco un esempio di una query semplice:
 
 ```csharp
@@ -198,7 +202,9 @@ L'istanza dell'oggetto **query** viene creata con dimensioni della pagina (fino 
 L'oggetto query espone più valori **Next**, a seconda dell'opzione di deserializzazione richiesta dalla query, ad esempio, oggetti dispositivo gemello o processo oppure JSON semplice, in caso di uso di proiezioni.
 
 ### <a name="nodejs-example"></a>Esempio di Node. js
-La funzionalità di query viene esposta da [SDK per i servizi IoT di Azure per Node.js][lnk-hub-sdks] nell'oggetto **Registro**.
+
+La funzionalità di query viene esposta da [SDK per i servizi IoT di Azure per Node.js](iot-hub-devguide-sdks.md) nell'oggetto **Registry**.
+
 Ecco un esempio di una query semplice:
 
 ```nodejs
@@ -233,8 +239,7 @@ I confronti sono attualmente supportati solo tra tipi primitivi (non oggetti), a
 
 ## <a name="get-started-with-jobs-queries"></a>Introduzione alle query dei processi
 
-I [processi][lnk-jobs] consentono di eseguire operazioni su set di dispositivi. Ogni dispositivo gemello contiene le informazioni dei processi di cui fa parte in una raccolta denominata **jobs**.
-La struttura logica è la seguente.
+I [processi](iot-hub-devguide-jobs.md) consentono di eseguire operazioni su set di dispositivi. Ogni dispositivo gemello contiene le informazioni dei processi di cui fa parte in una raccolta denominata **jobs**.
 
 ```json
 {
@@ -276,16 +281,18 @@ Ad esempio, per ottenere tutti i processi (passati e pianificati) che influiscon
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
 Si noti come questa query indichi lo stato specifico del dispositivo (e verosimilmente la risposta del metodo diretto) di ogni processo restituito.
+
 È anche possibile applicare un filtro con condizioni booleane arbitrarie a tutte le proprietà degli oggetti della raccolta **devices.jobs**.
+
 Ad esempio, per recuperare tutti i processi di aggiornamento per dispositivi gemelli completi che sono stati creati dopo il mese di settembre 2016 per un dispositivo specifico, usare la query seguente:
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
     AND devices.jobs.jobType = 'scheduleTwinUpdate'
     AND devices.jobs.status = 'completed'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
@@ -295,155 +302,40 @@ WHERE devices.jobs.deviceId = 'myDeviceId'
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.jobId = 'myJobId'
+  WHERE devices.jobs.jobId = 'myJobId'
 ```
 
 ### <a name="limitations"></a>Limitazioni
+
 Attualmente le query su **devices.jobs** non supportano:
 
 * Proiezioni, quindi è possibile solo `SELECT *`.
 * Condizioni che fanno riferimento al dispositivo gemello oltre alle proprietà del processo (vedere sezione precedente).
 * Esecuzione di aggregazioni, ad esempio count, avg, group by.
 
-## <a name="device-to-cloud-message-routes-query-expressions"></a>Espressioni di query per route di messaggi da dispositivo a cloud
-
-Usando [route da dispositivo a cloud][lnk-devguide-messaging-routes], è possibile configurare l'hub IoT per l'invio di messaggi da dispositivo a cloud a endpoint diversi in base a espressioni valutate a fronte di messaggi singoli.
-
-La route [condition][lnk-query-expressions] usa la sintassi del linguaggio di query di hub IoT come condizioni nella query dei dispositivi gemelli e dei processi, ma solo un subset delle funzioni sono disponibili. Le condizioni di routing vengono valutate nel corpo e nelle intestazioni del messaggio. L'espressione di query del routing potrebbe riguardare solo le intestazioni dei messaggi, solo il corpo del messaggio oppure entrambi. L'hub IoT presuppone uno schema specifico per le intestazioni e il corpo del messaggio per instradare i messaggi, mentre le sezioni seguenti descrivono gli elementi necessari affinché l'hub IoT esegua il routing correttamente.
-
-### <a name="routing-on-message-headers"></a>Routing delle intestazioni dei messaggi
-
-L'hub IoT presuppone la seguente rappresentazione JSON delle intestazioni dei messaggi per il routing dei messaggi:
-
-```json
-{
-  "message": {
-    "systemProperties": {
-      "contentType": "application/json",
-      "contentEncoding": "utf-8",
-      "iothub-message-source": "deviceMessages",
-      "iothub-enqueuedtime": "2017-05-08T18:55:31.8514657Z"
-    },
-    "appProperties": {
-      "processingPath": "<optional>",
-      "verbose": "<optional>",
-      "severity": "<optional>",
-      "testDevice": "<optional>"
-    },
-    "body": "{\"Weather\":{\"Temperature\":50}}"
-  }
-}
-```
-
-Le proprietà di sistema del messaggio hanno come prefisso il simbolo `'$'`.
-Alle proprietà utente si accede sempre con il relativo nome. Se il nome di una proprietà utente coincide con una proprietà di sistema, ad esempio `$contentType`, la proprietà utente viene recuperata con l'espressione `$contentType`.
-È sempre possibile accedere alle proprietà di sistema con le parentesi `{}`: ad esempio, l'espressione `{$contentType}` consente di accedere alla proprietà di sistema `contentType`. I nomi di proprietà tra parentesi recuperano sempre le corrispondenti proprietà di sistema.
-
-Si ricordi che nei nomi delle proprietà viene fatta distinzione tra maiuscole e minuscole.
-
-> [!NOTE]
-> Tutte le proprietà dei messaggi sono stringhe. Le proprietà di sistema, come descritto nella [guida per gli sviluppatori][lnk-devguide-messaging-format], non sono attualmente disponibili per l'uso nelle query.
->
-
-Ad esempio, se si utilizza una proprietà `messageType`, è possibile indirizzare tutti i dati di telemetria a un endpoint e tutti gli avvisi a un altro endpoint. È possibile scrivere l'espressione seguente per indirizzare i dati di telemetria:
-
-```sql
-messageType = 'telemetry'
-```
-
-L'espressione seguente per indirizzare i messaggi di avviso:
-
-```sql
-messageType = 'alert'
-```
-
-Sono supportate anche le espressioni e le funzione booleane. Questa funzionalità consente di distinguere i vari livelli di gravità, ad esempio:
-
-```sql
-messageType = 'alerts' AND as_number(severity) <= 2
-```
-
-Fare riferimento alla sezione [Espressioni e condizioni][lnk-query-expressions] per l'elenco completo delle funzioni e degli operatori supportati.
-
-### <a name="routing-on-message-bodies"></a>Routing del corpo dei messaggi
-
-L'hub IoT può eseguire il routing solo in base al contenuto del corpo del messaggio se il corpo del messaggio è formato correttamente con codifica JSON in UTF-8, UTF-16 o UTF-32. Impostare il tipo di contenuto del messaggio su `application/json`. Impostare la codifica del contenuto su una delle codifiche UTF supportate nelle intestazioni dei messaggi. Se una delle intestazioni viene omessa, l'hub IoT non tenta di valutare alcuna espressione di query che interessi il corpo a fronte del messaggio. Se il messaggio non è un messaggio JSON oppure se il messaggio non specifica il tipo e la codifica del contenuto, è comunque possibile usare il routing dei messaggi per indirizzare il messaggio in base alle intestazioni.
-
-L'esempio seguente mostra come creare un messaggio con un corpo JSON correttamente formattato e codificato:
-
-```csharp
-string messageBody = @"{ 
-                            ""Weather"":{ 
-                                ""Temperature"":50, 
-                                ""Time"":""2017-03-09T00:00:00.000Z"", 
-                                ""PrevTemperatures"":[ 
-                                    20, 
-                                    30, 
-                                    40 
-                                ], 
-                                ""IsEnabled"":true, 
-                                ""Location"":{ 
-                                    ""Street"":""One Microsoft Way"", 
-                                    ""City"":""Redmond"", 
-                                    ""State"":""WA"" 
-                                }, 
-                                ""HistoricalData"":[ 
-                                    { 
-                                    ""Month"":""Feb"", 
-                                    ""Temperature"":40 
-                                    }, 
-                                    { 
-                                    ""Month"":""Jan"", 
-                                    ""Temperature"":30 
-                                    } 
-                                ] 
-                            } 
-                        }"; 
- 
-// Encode message body using UTF-8 
-byte[] messageBytes = Encoding.UTF8.GetBytes(messageBody); 
- 
-using (var message = new Message(messageBytes)) 
-{ 
-    // Set message body type and content encoding. 
-    message.ContentEncoding = "utf-8"; 
-    message.ContentType = "application/json"; 
- 
-    // Add other custom application properties.  
-    message.Properties["Status"] = "Active";    
- 
-    await deviceClient.SendEventAsync(message); 
-}
-```
-
-È possibile usare `$body` nell'espressione di query per indirizzare il messaggio. Nell'espressione di query è possibile usare un riferimento semplice al corpo, un riferimento a una matrice del corpo o riferimenti multipli al corpo. L'espressione di query può anche combinare un riferimento al corpo con un riferimento all'intestazione del messaggio. Ad esempio, di seguito sono riportate tutte le espressioni di query valide:
-
-```sql
-$body.Weather.HistoricalData[0].Month = 'Feb'
-$body.Weather.Temperature = 50 AND $body.Weather.IsEnabled
-length($body.Weather.Location.State) = 2
-$body.Weather.Temperature = 50 AND Status = 'Active'
-```
-
 ## <a name="basics-of-an-iot-hub-query"></a>Nozioni di base di una query dell'hub IoT
+
 Ogni query dell'hub IoT è costituita da una clausola SELECT e da una clausola FROM e dalle clausole facoltative WHERE e GROUP BY. Ogni query viene eseguita su una raccolta di documenti JSON, ad esempio dispositivi gemelli. La clausola FROM indica la raccolta di documenti in cui eseguire l'iterazione (**devices** o **devices.jobs**). Viene quindi applicato il filtro nella clausola WHERE. Con le aggregazioni, i risultati di questo passaggio vengono raggruppati come specificato nella clausola GROUP BY. Per ogni gruppo, viene generata una riga come specificato nella clausola SELECT.
 
 ```sql
 SELECT <select_list>
-FROM <from_specification>
-[WHERE <filter_condition>]
-[GROUP BY <group_specification>]
+  FROM <from_specification>
+  [WHERE <filter_condition>]
+  [GROUP BY <group_specification>]
 ```
 
 ## <a name="from-clause"></a>Clausola FROM
+
 La clausola **FROM <from_specification>** può avere solo due valori: **FROM devices**, per effettuare una query dei dispositivi gemelli, o **FROM devices.jobs**, per effettuare una query dei dettagli di ogni dispositivo.
+
 
 ## <a name="where-clause"></a>Clausola WHERE
 La clausola **WHERE <filter_condition>** è facoltativa e specifica una o più condizioni che i documenti JSON della raccolta FROM devono soddisfare per essere inclusi come parte del risultato. Per essere incluso nel risultato, qualsiasi documento JSON deve restituire "true" per le condizioni specificate.
 
-Le condizioni consentite vengono descritte nella sezione [Espressioni e condizioni][lnk-query-expressions].
+Le condizioni consentite vengono descritte nella sezione [Espressioni e condizioni](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="select-clause"></a>Clausola SELECT
+
 La clausola **SELECT <select_list>** è obbligatoria e specifica quali valori vengono recuperati dalla query. Specifica i valori JSON da usare per generare nuovi oggetti JSON.
 Per ogni elemento del subset filtrato (e facoltativamente raggruppato) della raccolta FROM, la fase di proiezione genera un nuovo oggetto JSON, costruito con i valori specificati nella clausola SELECT.
 
@@ -469,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** si riferisce alle proprietà del documento JSON nella raccolta FROM. Alcuni esempi di clausola SELECT sono disponibili nella sezione [Introduzione alle query dei dispositivi gemelli][lnk-query-getstarted].
+**Attribute_name** si riferisce alle proprietà del documento JSON nella raccolta FROM. Alcuni esempi di clausola SELECT sono disponibili nella sezione [Introduzione alle query dei dispositivi gemelli](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries).
 
 Attualmente le clausole di selezione diverse da **SELECT*** sono supportate solo nelle query aggregate in dispositivi gemelli.
 
@@ -603,19 +495,5 @@ Nelle condizioni di route, sono supportate le funzioni di stringa seguenti:
 | CONTAINS(x,y) | Restituisce un valore booleano che indica se la prima espressione stringa contiene il secondo. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-Informazioni su come eseguire query nelle app usando gli [SDK dell'hub IoT][lnk-hub-sdks].
 
-[lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
-[lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-jobs]: iot-hub-devguide-jobs.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-read-custom.md
-[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-[lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
-
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+Informazioni su come eseguire query nelle app usando gli [SDK dell'hub IoT](iot-hub-devguide-sdks.md).

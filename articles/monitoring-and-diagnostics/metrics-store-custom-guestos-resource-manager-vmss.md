@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 7b600bd699ce7f9e4a6c7cba1a41b6bdece16bf0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434926"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343726"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per un set di scalabilità di macchine virtuali Windows
 
@@ -81,7 +81,7 @@ Trovare la definizione del Set di scalabilità di macchine virtuali nella sezion
 Nella risorsa del set di scalabilità di macchine virtuali trovare la sezione **virtualMachineProfile**. Aggiungere un nuovo profilo chiamato **extensionsProfile** per gestire le estensioni.  
 
 
-In **extensionProfile** aggiungere una nuova estensione al modello, come illustrato nella sezione **VMSS-WAD-extension**.  Questa sezione è l'estensione identità del servizio gestita (Managed Service Identity, MSI) che garantisce che le metriche generate vengano accettate da Monitoraggio di Azure. Il campo **nome** può contenere un nome qualsiasi. 
+In **extensionProfile** aggiungere una nuova estensione al modello, come illustrato nella sezione **VMSS-WAD-extension**.  Questa sezione è l'estensione relativa alle identità gestite per le risorse di Azure che garantisce che le metriche generate vengano accettate da Monitoraggio di Azure. Il campo **nome** può contenere un nome qualsiasi. 
 
 Il codice seguente dell'estensione MSI aggiunge anche l'estensione e la configurazione di diagnostica come una risorsa di estensione alla risorsa del set di scalabilità di macchine virtuali. È possibile aggiungere o rimuovere i contatori delle prestazioni in base alle esigenze. 
 
@@ -89,7 +89,7 @@ Il codice seguente dell'estensione MSI aggiunge anche l'estensione e la configur
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed service identity   
+            // Managed identites for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 

@@ -12,19 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
-ms.author: daseidma;bwren
-ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.date: 10/03/2018
+ms.author: magoedte
+ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751429"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269259"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
-Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
+Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
 
 Questo articolo fornisce i dettagli sull'onboarding e su come usare Mapping dei servizi. Per informazioni sulla configurazione di Mapping dei servizi e sugli agenti di caricamento, vedere [Configurare la soluzione di elenco dei servizi in Azure]( monitoring-service-map-configure.md).
+
+>[!NOTE]
+>Se il Mapping dei servizi è già stato distribuito, è possibile visualizzare il mapping anche in Monitoraggio di Azure per le macchine virtuali, che include le funzionalità aggiuntive per monitorare le prestazioni e l'integrità delle VM. Per altre informazioni, vedere [Descrizione di Monitoraggio di Azure per le macchine virtuali](monitoring-vminsights-overview.md).
+
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
@@ -67,6 +71,11 @@ Dall'elenco del riquadro a sinistra è possibile selezionare i computer o i grup
 È possibile espandere i computer nella mappa per visualizzare i gruppi di processi e i processi in esecuzione con connessioni di rete attive nell'intervallo di tempo selezionato. Quando si espande un computer remoto con un agente di Mapping dei servizi per visualizzare i dettagli dei processi, vengono visualizzati solo i processi che comunicano con il computer. Il numero di computer front-end senza agenti che si connettono al computer critico è indicato a sinistra dei processi a cui si connettono. Se il computer principale è in fase di connessione a computer back-end senza un agente, il server back-end è incluso in un gruppo di porte server con altre connessioni allo stesso numero di porta.
 
 Per impostazione predefinita, Mapping dei servizi mostra le informazioni sulle dipendenze per gli ultimi 30 minuti. Usando i controlli temporali in alto a sinistra, è possibile cercare nelle mappe intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica. I dati di Mapping dei servizi vengono archiviati per 30 giorni nelle aree di lavoro a pagamento e per 7 giorni nelle aree di lavoro gratuite.
+
+
+
+
+
 
 ## <a name="status-badges-and-border-coloring"></a>Notifiche di stato e colorazione del bordo
 Nella parte inferiore di ogni server nella mappa potrebbe essere presente un elenco di notifiche di stato con informazioni relative allo stato del server. Le notifiche indicano che sono presenti alcune informazioni rilevanti per il server da una delle integrazioni della soluzione. Facendo clic su una notifica, vengono visualizzati direttamente i dettagli dello stato nel riquadro di destra. Le notifiche di stato attualmente disponibili includono Avvisi, Service Desk, Modifiche, Sicurezza e Aggiornamenti.
@@ -224,7 +233,7 @@ Il riquadro del **Service Desk del computer** elenca tutti gli eventi di gestion
 Per aprire l'elemento nella soluzione ITSM connessa fare clic su **Visualizza elemento di lavoro**.
 
 Fare clic su **Mostra in Ricerca log** per visualizzare i dettagli dell'elemento nella ricerca log.
-
+Le metriche relative alla connessione vengono scritte in due nuove tabelle in Log Analytics 
 
 ## <a name="change-tracking-integration"></a>Integrazione con Rilevamento modifiche
 L'integrazione del rilevamento delle modifiche in Mapping dei servizi è automatica quando entrambe le soluzioni sono abilitate e configurate nell'area di lavoro di Log Analytics.
@@ -236,7 +245,6 @@ Il riquadro di **rilevamento modifiche del computer** elenca tutte le modifiche 
 L'immagine seguente è una vista dettagliata di un evento ConfigurationChange che potrebbe essere visualizzata dopo aver selezionato **Mostra in Ricerca log**.
 
 ![Evento ConfigurationChange](media/monitoring-service-map/configuration-change-event-01.png)
-
 
 ## <a name="performance-integration"></a>Integrazione delle prestazioni
 Il riquadro relativo alle **prestazioni del computer** mostra le metriche di prestazioni standard relative al server selezionato. Le metriche includono l'uso della CPU, l'uso della memoria, i byte di rete inviati e ricevuti e un elenco dei processi principali per byte di rete inviati e ricevuti.
@@ -283,10 +291,89 @@ Ogni ora viene generato un record per ogni computer e processo univoco che si ag
 
 Sono disponibili proprietà generate internamente che è possibile usare per identificare processi e computer univoci:
 
-- Computer: usare ResourceId o ResourceName_s per identificare in modo univoco un computer all'interno di un'area di lavoro di Log Analytics.
-- Processo: usare ResourceId per identificare in modo univoco un computer all'interno di un'area di lavoro di Log Analytics. ResourceName_s è univoco all'interno del contesto del computer in cui viene eseguito il processo (MachineResourceName_s) 
+- Computer: usare *ResourceId* o *ResourceName_s* per identificare in modo univoco un computer in un'area di lavoro di Log Analytics.
+- Processo: usare *ResourceId* per identificare in modo univoco un processo in un'area di lavoro di Log Analytics. Il valore di *ResourceName_s* è univoco nel contesto del computer in cui viene eseguito il processo (MachineResourceName_s) 
 
 Poiché possono essere presenti vari record per un determinato processo o computer in un intervallo di tempo specificato, le query possono restituire più di un record per lo stesso computer o processo. Per includere solo il record più recente, aggiungere "| dedup ResourceId" alla query.
+
+### <a name="connections"></a>connessioni
+Le metriche relative alla connessione vengono scritte in una nuova tabella in Log Analytics, ovvero VMConnection. Questa tabella fornisce informazioni sulle connessioni di un computer (in ingresso e in uscita). Le metriche relative alla connessione vengono inoltre esposte con le API che forniscono i mezzi per ottenere una metrica specifica durante un intervallo di tempo.  Le connessioni TCP stabilite *accettando* l'operazione su un socket in ascolto sono connessioni in ingresso, mentre quelle create tramite *connessione* a un IP e una porta specifici sono in uscita. La direzione di una connessione è rappresentata dalla proprietà Direction, che può essere impostata su **inbound** o **outbound**. 
+
+I record in queste tabelle vengono generati dai dati segnalati da Dependency Agent. Ogni record rappresenta un'osservazione in un intervallo di tempo di un minuto. La proprietà TimeGenerated indica l'inizio dell'intervallo di tempo. Ogni record contiene informazioni per identificare l'entità corrispondente, ovvero la connessione o la porta, oltre che le metriche associate a tale entità. Attualmente, viene segnalata solo l'attività di rete che si verifica tramite TCP su IPv4.
+
+Per gestire i costi e la complessità, i record di connessione non rappresentano singole connessioni di rete fisiche. Più connessioni di rete fisiche vengono raggruppate in una connessione logica, che viene quindi riflessa nella rispettiva tabella.  Ciò significa che i record nella tabella *VMConnection* rappresentano un raggruppamento logico e non le singole connessioni fisiche osservate. Le connessioni di rete fisiche che condividono lo stesso valore per gli attributi seguenti durante uno specifico intervallo di un minuto vengono aggregate in un singolo record logico in *VMConnection*. 
+
+| Proprietà | DESCRIZIONE |
+|:--|:--|
+|Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
+|Machine |FQDN del computer |
+|Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
+|SourceIp |Indirizzo IP dell'origine |
+|DestinationIp |Indirizzo IP della destinazione |
+|DestinationPort |Numero di porta della destinazione |
+|Protocollo |Protocollo usato per la connessione.  Il valore è *tcp*. |
+
+Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record seguenti vengono fornite informazioni sul numero di connessioni fisiche raggruppate:
+
+| Proprietà | DESCRIZIONE |
+|:--|:--|
+|LinksEstablished |Numero di connessioni di rete fisiche che sono state stabilite durante l'intervallo di tempo di creazione del report |
+|LinksTerminated |Numero di connessioni di rete fisiche che sono state terminate durante l'intervallo di tempo di creazione del report |
+|LinksFailed |Numero di connessioni di rete fisiche che hanno avuto esito negativo durante l'intervallo di tempo di creazione del report. Queste informazioni sono attualmente disponibili solo per le connessioni in uscita. |
+|LinksLive |Numero di connessioni di rete fisiche aperte alla fine dell'intervallo di tempo di creazione del report|
+
+#### <a name="metrics"></a>Metriche
+
+Oltre alle metriche relative al numero di connessioni, nelle proprietà del record seguenti vengono fornite anche informazioni sul volume dei dati inviati e ricevuti in una determinata connessione logica o porta di rete:
+
+| Proprietà | DESCRIZIONE |
+|:--|:--|
+|BytesSent |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
+|BytesReceived |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
+|Risposte |Numero totale di risposte osservate durante l'intervallo di tempo di creazione del report. 
+|ResponseTimeMax |Tempo di risposta più lungo (millisecondi) osservato durante l'intervallo di tempo di creazione del report.  In assenza di valore, la proprietà è vuota.|
+|ResponseTimeMin |Tempo di risposta più breve (millisecondi) osservato durante l'intervallo di tempo di creazione del report.  In assenza di valore, la proprietà è vuota.|
+|ResponseTimeSum |Somma di tutti i tempi di risposta (millisecondi) osservati durante l'intervallo di tempo di creazione del report.  In assenza di valore, la proprietà è vuota|
+
+Il terzo tipo di dati segnalati è il tempo di risposta, ovvero il tempo di attesa, da parre di un chiamante, affinché una richiesta inviata tramite una connessione venga elaborata dall'endpoint remoto e venga fornita una risposta. Il tempo di risposta segnalato è una stima del tempo di risposta effettivo del protocollo dell'applicazione sottostante. Viene calcolato usando l'euristica in base all'osservazione del flusso di dati tra l'origine e la destinazione di una connessione di rete fisica. Concettualmente, corrisponde alla differenza tra l'ora in cui l'ultimo byte di una richiesta lascia il mittente e l'ora in cui l'ultimo byte della risposta torna al mittente. Questi due timestamp vengono usati per delineare gli eventi di richiesta e di risposta in una determinata connessione fisica. La differenza tra di essi rappresenta il tempo di risposta di una singola richiesta. 
+
+In questa prima versione di questa funzionalità, l'algoritmo è un'approssimazione che potrebbe funzionare con un diverso livello di precisione a seconda del protocollo dell'applicazione effettivo usato per una connessione di rete specifica. L'attuale approccio, ad esempio, funziona bene per protocolli basati su richiesta-risposta, come HTTP(S), ma non con protocolli unidirezionali o protocolli basati sulla coda di messaggi.
+
+Ecco alcuni punti importanti da considerare:
+
+1. Se un processo accetta le connessioni sullo stesso indirizzo IP ma su più interfacce di rete, verrà segnalato un record distinto per ogni interfaccia. 
+2. I record con IP con caratteri jolly non contengono attività. Sono inclusi per rappresentare il fatto che una porta nel computer è aperta per il traffico in ingresso.
+3. Per ridurre il livello di dettaglio e il volume di dati, i record con IP con caratteri jolly vengono omessi quando è presente un record corrispondente (per processo, porta e protocollo uguali) con un indirizzo IP specifico. Quando un record di IP con caratteri jolly viene omesso, la proprietà IsWildcardBind del record con l'indirizzo IP specifico viene impostata su "True" per indicare che la porta è esposta in ogni interfaccia del computer che esegue la segnalazione.
+4. Per le porte associate solo a un'interfaccia specifica, la proprietà IsWildcardBind è impostata su "False".
+
+#### <a name="naming-and-classification"></a>Denominazione e classificazione
+Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incluso nella proprietà RemoteIp. Per le connessioni in ingresso, RemoteIp corrisponde a SourceIp, mentre per le connessioni in uscita corrisponde a DestinationIp. La proprietà RemoteDnsCanonicalNames rappresenta i nomi canonici DNS segnalati dal computer per RemoteIp. Le proprietà RemoteDnsQuestions e RemoteClassification sono riservate per l'uso futuro. 
+
+#### <a name="geolocation"></a>Georilevazione
+*VMConnection* include anche informazioni di georilevazione per l'estremità remota di ogni record di connessione nelle proprietà del record seguenti: 
+
+| Proprietà | DESCRIZIONE |
+|:--|:--|
+|RemoteCountry |Nome del paese che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
+|RemoteLatitude |Latitudine della georilevazione.  Ad esempio, *47.68* |
+|RemoteLongitude |Longitudine della georilevazione.  Ad esempio, *-122.12* |
+
+#### <a name="malicious-ip"></a>Indirizzi IP dannosi
+Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un set di indirizzi IP con attività dannosa nota. Se la proprietà RemoteIp viene identificata come dannosa, le proprietà del record seguenti (vuote quando l'indirizzo IP non è considerato dannoso) vengono popolate:
+
+| Proprietà | DESCRIZIONE |
+|:--|:--|
+|MaliciousIp |Indirizzo RemoteIp |
+|IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+|DESCRIZIONE |Descrizione della minaccia osservata. |
+|TLPLevel |Il livello del protocollo di segnalazione del traffico è uno dei valori definiti: *Bianco*, *Verde*, *Ambra*, *Rosso*. |
+|Attendibilità |I valori sono *0 - 100*. |
+|Gravità |I valori sono *0-5*, dove *5* è il più grave e *0* non è grave. Il valore predefinito è *3*.  |
+|FirstReportedDateTime |La prima volta che il provider ha segnalato l'indicatore. |
+|LastReportedDateTime |L'ultima volta in cui l'indicatore è stato visualizzato da Interflow. |
+|IsActive |Indica che gli indicatori vengono disattivati con il valore *True* o *False*. |
+|ReportReferenceLink |Offre collegamenti ai report relativi a un oggetto osservabile specificato. |
+|AdditionalInformation |Offre informazioni aggiuntive, se disponibili, sulla minaccia osservata. |
 
 ### <a name="servicemapcomputercl-records"></a>Record ServiceMapComputer_CL
 I record che contengono il tipo *ServiceMapComputer_CL* includono dati di inventario relativi ai server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
@@ -313,8 +400,6 @@ I record che contengono il tipo *ServiceMapComputer_CL* includono dati di invent
 | VirtualMachineName_s | Nome della macchina virtuale |
 | BootTime_t | Tempo di avvio |
 
-
-
 ### <a name="servicemapprocesscl-type-records"></a>Record con tipo ServiceMapProcess_CL
 I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi ai processi con connessione TCP eseguiti sui server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
@@ -339,7 +424,6 @@ I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi a
 | WorkingDirectory_s | La directory di lavoro |
 | UserName | Account con cui è in esecuzione il processo |
 | UserDomain | Dominio in cui è in esecuzione il processo |
-
 
 ## <a name="sample-log-searches"></a>Ricerche di log di esempio
 
@@ -373,10 +457,50 @@ ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersio
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Creare un gruppo di tutti i computer che eseguono CentOS
 ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
 
+### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Riepilogare le connessioni in uscita da un gruppo di computer
+```
+// the machines of interest
+let machines = datatable(m: string) ["m-82412a7a-6a32-45a9-a8d6-538354224a25"];
+// map of ip to monitored machine in the environment
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+// all connections to/from the machines of interest
+let out=materialize(VMConnection
+| where Machine in (machines)
+| summarize arg_max(TimeGenerated, *) by ConnectionId);
+// connections to localhost augmented with RemoteMachine
+let local=out
+| where RemoteIp startswith "127."
+| project ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol, RemoteIp, RemoteMachine=Machine;
+// connections not to localhost augmented with RemoteMachine
+let remote=materialize(out
+| where RemoteIp !startswith "127."
+| join kind=leftouter (ips) on $left.RemoteIp == $right.ips
+| summarize by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol, RemoteIp, RemoteMachine=MonitoredMachine);
+// the remote machines to/from which we have connections
+let remoteMachines = remote | summarize by RemoteMachine;
+// all augmented connections
+(local)
+| union (remote)
+//Take all outbound records but only inbound records that come from either //unmonitored machines or monitored machines not in the set for which we are computing dependencies.
+| where Direction == 'outbound' or (Direction == 'inbound' and RemoteMachine !in (machines))
+| summarize by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol, RemoteIp, RemoteMachine
+// identify the remote port
+| extend RemotePort=iff(Direction == 'outbound', DestinationPort, 0)
+// construct the join key we'll use to find a matching port
+| extend JoinKey=strcat_delim(':', RemoteMachine, RemoteIp, RemotePort, Protocol)
+// find a matching port
+| join kind=leftouter (VMBoundPort 
+| where Machine in (remoteMachines) 
+| summarize arg_max(TimeGenerated, *) by PortId 
+| extend JoinKey=strcat_delim(':', Machine, Ip, Port, Protocol)) on JoinKey
+// aggregate the remote information
+| summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
+```
 
 ## <a name="rest-api"></a>API REST
 Tutti i dati relativi a server, processi e dipendenze in Mapping dei servizi sono disponibili tramite l'[API REST di Mapping dei servizi](https://docs.microsoft.com/rest/api/servicemap/).
-
 
 ## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
 Microsoft raccoglie automaticamente i dati di utilizzo e prestazioni tramite l'uso del servizio Mapping dei servizi da parte dell'utente. Microsoft usa questi dati per offrire e migliorare la qualità, la sicurezza e l'integrità del servizio Mapping dei servizi. Per offrire capacità di risoluzione dei problemi accurate ed efficienti, i dati includono informazioni sulla configurazione del software, come il sistema operativo e la versione, l'indirizzo IP, il nome DNS e il nome della workstation. Microsoft non raccoglie nomi, indirizzi o altre informazioni di contatto.

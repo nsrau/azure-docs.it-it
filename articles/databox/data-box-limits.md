@@ -2,25 +2,18 @@
 title: Limiti di Azure Data Box | Microsoft Docs
 description: Vengono descritti i limiti di sistema e le dimensioni consigliate per componenti e connessioni di Microsoft Azure Data Box.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: alkohli
-ms.custom: ''
-ms.openlocfilehash: fe42380288c0f139a2bae80a12f0ebc428a4c286
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: de47cae219aa457343df292bb91b6af06c4b1186
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993083"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091930"
 ---
 # <a name="azure-data-box-limits"></a>Limiti di Azure Data Box
 
@@ -35,7 +28,7 @@ Quando si distribuisce e si usa Microsoft Azure Data Box, tenere presenti i limi
 
 ## <a name="data-box-limits"></a>Limiti di Data Box
 
-- Data Box consente di archiviare massimo di 5 milioni di file.
+- Data Box può archiviare un massimo di 500 milioni di file.
 
 ## <a name="azure-storage-limits"></a>Limiti di Archiviazione di Azure
 

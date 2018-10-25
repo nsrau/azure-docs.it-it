@@ -1,5 +1,5 @@
 ---
-title: Guida introduttiva a PowerShell in Azure Cloud Shell (anteprima) | Documentazione Microsoft
+title: Avvio rapido di PowerShell in Azure Cloud Shell | Microsoft Docs
 description: Guida introduttiva a PowerShell in Cloud Shell
 services: Azure
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: adae7ea79ada9247382c88e58f1ba5331007985b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 0bce9f50bdc3ac8fb4675a7ac2a3fb300036973f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324494"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404360"
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Guida introduttiva a PowerShell in Azure Cloud Shell (anteprima)
+# <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Guida introduttiva a PowerShell in Azure Cloud Shell
 
-Questo documento illustra dettagliatamente come usare PowerShell in Cloud Shell nel [portale di Azure](https://aka.ms/PSCloudPreview).
+Questo documento illustra dettagliatamente come usare PowerShell in Cloud Shell nel [portale di Azure](https://portal.azure.com/).
 
 > [!NOTE]
 > È disponibile anche una guida introduttiva a [Bash in Azure Cloud Shell](quickstart.md).
@@ -119,7 +119,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 ```
 
 > [!NOTE]
-> È possibile notare che quando si digita `dir` per la seconda volta, Cloud Shell è in grado di mostrare gli elementi in modo molto più veloce.
+> È possibile notare che quando si digita per la seconda volta`dir`, Cloud Shell è in grado di mostrare gli elementi in modo molto più veloce.
 > Questo avviene perché gli elementi figlio vengono spostati nella cache della memoria per migliorare l'esperienza dell’utente.
 Tuttavia, è sempre possibile usare `dir -Force` per ottenere dati aggiornati.
 
@@ -181,17 +181,17 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
  > [!WARNING]
  > Consultare [Risoluzione dei problemi di gestione remota delle macchine virtuali di Azure](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
-  Se si dispone di una macchina virtuale, MyVM1, usare `Invoke-AzureRmVMCommand` per richiamare un blocco di script di PowerShell nel computer remoto.
+  Se si dispone di una macchina virtuale, MyVM1, usare `Invoke-AzVMCommand` per richiamare un blocco di script di PowerShell nel computer remoto.
 
   ```azurepowershell-interactive
-  Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
+  Invoke-AzVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
 
-  È anche possibile passare prima alla directory VirtualMachines e poi eseguire `Invoke-AzureRmVMCommand` come indicato di seguito.
+  È anche possibile passare prima alla directory VirtualMachines e poi eseguire `Invoke-AzVMCommand` come indicato di seguito.
 
   ```azurepowershell-interactive
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock {Get-ComputerInfo}
+  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzVMCommand -Scriptblock {Get-ComputerInfo}
 
   # You will see output similar to the following:
 
@@ -210,16 +210,16 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
 #### <a name="interactively-log-on-to-a-remote-vm"></a>Accedere in modo interattivo a una macchina virtuale remota
 
-È possibile utilizzare `Enter-AzureRmVM` per accedere in modo interattivo a una macchina virtuale in esecuzione in Azure.
+È possibile utilizzare `Enter-AzVM` per accedere in modo interattivo a una macchina virtuale in esecuzione in Azure.
 
   ```azurepowershell-interactive
-  PS Azure:\> Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  PS Azure:\> Enter-AzVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-È anche possibile prima passare alla directory `VirtualMachines` e poi eseguire `Enter-AzureRmVM` come indicato di seguito.
+È anche possibile prima passare alla directory `VirtualMachines` e poi eseguire `Enter-AzVM` come indicato di seguito.
 
   ```azurepowershell-interactive
- PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
+ PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzVM
  ```
 
 ### <a name="discover-webapps"></a>Scoprire WebApp
@@ -258,7 +258,6 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) è disponibile in Cloud Shell di PowerShell.
 Per eseguire l'autenticazione a server o macchine virtuali tramite SSH, generare la coppia di chiavi pubblica-privata in Cloud Shell e pubblicare la chiave pubblica in `authorized_keys` nel computer remoto, ad esempio `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]

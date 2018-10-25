@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 10/10/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a9a4b7728eff3057b9677d12df51cc8c477744ca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cc206e1134fe6df0280512e89447336a32a2d810
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953940"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068366"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 Aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale di Azure negli scenari seguenti: 
@@ -57,6 +57,8 @@ Per altre informazioni, vedere le sezioni seguenti.
 ## <a name="requirements-for-virtual-network-configuration"></a>Requisiti per la configurazione della rete virtuale
 -   Assicurarsi che `Microsoft.Batch` sia un provider registrato nella sottoscrizione della subnet della rete virtuale che ospita il runtime di integrazione Azure-SSIS. Se si usa una rete virtuale classica, aggiungere anche `MicrosoftAzureBatch` al ruolo Collaboratore Macchina virtuale classica per tale rete virtuale. 
 
+-   Assicurarsi di avere le autorizzazioni necessarie. Vedere [Autorizzazioni necessarie](#perms).
+
 -   Selezionare la subnet appropriata per ospitare il runtime di integrazione Azure-SSIS. Vedere [Selezionare la subnet](#subnet). 
 
 -   Se si usa il proprio server Domain Name Service (DNS) nella rete virtuale, vedere [Server Domain Name Service](#dns_server). 
@@ -66,6 +68,18 @@ Per altre informazioni, vedere le sezioni seguenti.
 -   Se si usa Azure ExpressRoute o si configura una route definita dall'utente, vedere [Usare Azure ExpressRoute o una route definita dall'utente](#route). 
 
 -   Assicurarsi che il gruppo di risorse della rete virtuale sia in grado di creare ed eliminare determinate risorse di rete di Azure. Vedere [Requisiti per il gruppo di risorse](#resource-group). 
+
+### <a name="perms"></a> Autorizzazioni necessarie
+
+L'utente che crea il runtime di integrazione Azure-SSIS deve avere le autorizzazioni seguenti:
+
+- Se si sta aggiungendo il runtime di integrazione SSIS a una rete virtuale di Azure della versione corrente, sono disponibili due opzioni:
+
+  - Usare il ruolo predefinito *Collaboratore di rete*. Questo ruolo richiede tuttavia l'autorizzazione *Microsoft.Network/\**  che ha un ambito molto maggiore.
+
+  - Creare un ruolo personalizzato che include l'autorizzazione *Microsoft.Network/virtualNetworks/\*/join/action*. 
+
+- Se si sta aggiungendo il runtime di integrazione SSIS a una rete virtuale di Azure classica, è consigliabile usare il ruolo predefinito *Collaboratore Macchina virtuale classica*. In caso contrario, è necessario definire un ruolo personalizzato che include l'autorizzazione per accedere alla rete virtuale.
 
 ### <a name="subnet"></a> Selezionare la subnet
 -   Non selezionare GatewaySubnet per distribuire un runtime di integrazione Azure-SSIS perché è una subnet dedicata per i gateway di rete virtuale. 

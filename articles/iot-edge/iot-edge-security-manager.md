@@ -2,19 +2,19 @@
 title: Gestore sicurezza di Azure IoT Edge | Microsoft Docs
 description: Gestisce la strategia di sicurezza dei dispositivi IoT Edge e l'integrità dei servizi di sicurezza.
 services: iot-edge
-keywords: sicurezza, elemento, enclave, IoT Edge
+keywords: sicurezza, elemento protetto, enclave, TEE, IoT Edge
 author: eustacea
 manager: timlt
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b4801048c391aae6e95f4181464255ecf6151fc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359542"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321184"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestore sicurezza di Azure IoT Edge
 
@@ -113,7 +113,7 @@ Il Platform Abstraction Layer del modulo di protezione hardware astrae tutto l'h
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Hardware della radice di attendibilità per il processore sicuro
 
-Un processore sicuro è necessario per ancorare l'attendibilità nell'hardware del dispositivo IoT Edge.  I processori sicuri possono essere di versi tipi, come Trusted Platform Module (TPM), embedded Secure Element (eSM), ARM Trustzone, Intel SGX e tecnologie per processori sicuri personalizzate.  L'uso di una radice di attendibilità con processori sicuri è fortemente consigliato, considerati i rischi associati alla possibilità di accesso fisico ai dispositivi IoT.
+Un processore sicuro è necessario per ancorare l'attendibilità nell'hardware del dispositivo IoT Edge.  I processori sicuri possono essere di versi tipi, come Trusted Platform Module (TPM), embedded Secure Element (eSE), ARM TrustZone, Intel SGX e tecnologie per processori sicuri personalizzate.  L'uso di una radice di attendibilità con processori sicuri è fortemente consigliato, considerati i rischi associati alla possibilità di accesso fisico ai dispositivi IoT.
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>Integrazione e manutenzione del gestore sicurezza di IoT Edge
 

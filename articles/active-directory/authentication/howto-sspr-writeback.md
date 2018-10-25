@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e613ff742096077fe1765d4b855b6c7d409cc228
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158948"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801931"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procedura: Configurare il writeback delle password
 
-È consigliabile usare la funzionalità di aggiornamento automatico di [Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md) quando si usa il writeback delle password.
+È consigliabile usare la funzionalità di aggiornamento automatico di [Azure AD Connect](../hybrid/how-to-connect-install-express.md) quando si usa il writeback delle password.
 
-La procedura seguente presuppone che Azure AD Connect sia già stato configurato nell'ambiente tramite le impostazioni [Rapida](./../connect/active-directory-aadconnect-get-started-express.md) o [Personalizzata](./../connect/active-directory-aadconnect-get-started-custom.md).
+La procedura seguente presuppone che Azure AD Connect sia già stato configurato nell'ambiente tramite le impostazioni [Rapida](../hybrid/how-to-connect-install-express.md) o [Personalizzata](../hybrid/how-to-connect-install-custom.md).
 
 1. Per configurare e abilitare il writeback delle password accedere al server Azure AD Connect e avviare la configurazione guidata di **Azure AD Connect**.
 2. Nella pagina di **benvenuto** selezionare **Configura**.
@@ -34,6 +34,12 @@ La procedura seguente presuppone che Azure AD Connect sia già stato configurato
 8. Quando la configurazione termina, selezionare **Esci**.
 
 Per le attività di risoluzione dei problemi comuni correlate al writeback delle password, vedere la sezione [Risolvere i problemi relativi al writeback delle password](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) nell'articolo sulla risoluzione dei problemi.
+
+> [!WARNING]
+> Per i clienti che usano Azure AD Connect 1.0.8641.0 e versioni precedenti, il writeback delle password non funzionerà più dopo il [ritiro del Servizio di controllo di accesso di Azure in data 7 novembre 2018](../develop/active-directory-acs-migration.md). A partire da tale data, Azure AD Connect 1.0.8641.0 e versioni precedenti non consentiranno più il writeback delle password perché per questa funzionalità dipendono dal Servizio di controllo di accesso di Azure.
+>
+> Per evitare un'interruzione del servizio, eseguire l'aggiornamento da una versione precedente di Azure AD Connect a una più recente. Vedere l'articolo [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente](../hybrid/how-to-upgrade-previous-version.md).
+>
 
 ## <a name="active-directory-permissions"></a>Autorizzazioni di Active Directory
 
@@ -67,7 +73,7 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
 4. Nella scheda **Autorizzazioni** selezionare **Aggiungi**.
 5. Selezionare l'account a cui applicare le autorizzazioni, dalla configurazione di Azure AD Connect.
 6. Nell'elenco a discesa **Applica a** selezionare gli oggetti **Descendent User** (Utente discendente).
-7. Sotto **Autorizzazioni** selezionare le caselle per le opzioni seguenti:
+7. In **Autorizzazioni** selezionare le caselle per le opzioni seguenti:
     * **Reimpostazione della password**
     * **Cambia password**
     * **Scrittura di lockoutTime**

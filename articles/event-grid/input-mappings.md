@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38578918"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043398"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Eseguire il mapping di campi personalizzati allo schema di Griglia di eventi
 
@@ -43,9 +43,9 @@ Quando si crea un argomento personalizzato, specificare come eseguire il mapping
 
 * Il parametro `--input-schema` specifica il tipo di schema. Le opzioni disponibili sono *cloudeventv01schema*, *customeventschema* ed *eventgridschema*. Il valore predefinito è eventgridschema. Quando si crea un mapping personalizzato tra lo schema personalizzato e lo schema di Griglia di eventi, usare customeventschema. Quando gli eventi si trovano nello schema CloudEvents, usare cloudeventv01schema.
 
-* Il parametro `--input-mapping-default-values` specifica i valori predefiniti per i campi nello schema di Griglia di eventi. È possibile impostare i valori predefiniti per *subject*, *eventtype* e *dataversion*. In genere, questo parametro si usa quando lo schema personalizzato non include un campo corrispondente a uno di questi tre campi. Ad esempio, è possibile specificare che dataversion sia sempre impostato su **1.0**.
+* Il parametro `--input-mapping-default-values` specifica i valori predefiniti per i campi nello schema di Griglia di eventi. È possibile impostare i valori predefiniti per `subject`, `eventtype` e `dataversion`. In genere, questo parametro si usa quando lo schema personalizzato non include un campo corrispondente a uno di questi tre campi. È ad esempio possibile specificare che la versione di dati sia sempre impostata su **1.0**.
 
-* Il parametro `--input-mapping-fields` esegue il mapping dei campi dello schema personalizzato allo schema di griglia di eventi. I valori vengono specificati in coppie chiave/valore separate da spazi. Per il nome della chiave usare il nome del campo della griglia di eventi. Per il valore usare il nome del campo personalizzato. È possibile usare i nomi di chiavi per *id*, *topic*, *eventtime*, *subject*, *eventtype* e *dataversion*.
+* Il parametro `--input-mapping-fields` esegue il mapping dei campi dello schema personalizzato allo schema di griglia di eventi. I valori vengono specificati in coppie chiave/valore separate da spazi. Per il nome della chiave usare il nome del campo della griglia di eventi. Per il valore usare il nome del campo personalizzato. È possibile usare i nomi delle chiavi `id`, `topic`, `eventtime`, `subject`, `eventtype` e `dataversion`.
 
 Nell'esempio seguente si crea un argomento personalizzato con alcuni campi predefiniti e alcuni di cui è stato eseguito il mapping:
 
@@ -58,7 +58,7 @@ az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
   -g myResourceGroup \
-  --input-schema customeventschema
+  --input-schema customeventschema \
   --input-mapping-fields eventType=myEventTypeField \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
@@ -69,13 +69,14 @@ Quando si esegue la sottoscrizione all'argomento personalizzato, specificare lo 
 
 Gli esempi in questa sezione usano un'archiviazione code per il gestore dell'evento. Per altre informazioni, vedere [Instradare eventi personalizzati ad Archiviazione code di Azure](custom-event-to-queue-storage.md).
 
-Nell'esempio seguente si esegue la sottoscrizione a un argomento di griglia di eventi e si usa lo schema predefinito della griglia di eventi:
+Questo esempio indica come eseguire la sottoscrizione a un argomento di griglia di eventi e usa lo schema di Griglia di eventi:
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --topic-name demotopic \
   -g myResourceGroup \
   --name eventsub1 \
+  --event-delivery-schema eventgridschema \
   --endpoint-type storagequeue \
   --endpoint <storage-queue-url>
 ```
@@ -94,15 +95,15 @@ az eventgrid event-subscription create \
 
 ## <a name="publish-event-to-topic"></a>Pubblicare l'evento nell'argomento
 
-A questo punto si è pronti a inviare un evento all'argomento personalizzato e visualizzare il risultato del mapping. Lo script seguente invia un evento nello [schema di esempio](#original-event-schema):
+A questo punto, si è pronti a inviare un evento all'argomento personalizzato e visualizzare il risultato del mapping. Lo script seguente invia un evento nello [schema di esempio](#original-event-schema):
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name demotopic -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/mapeventfields.json)'")
+event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000", "resourceData":{"someDataField1":"SomeDataFieldValue"} } ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 A questo punto esaminare Archiviazione code. Le due sottoscrizioni hanno recapitato gli eventi in schemi diversi.

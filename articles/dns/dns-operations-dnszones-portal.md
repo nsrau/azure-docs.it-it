@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954382"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829683"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Come gestire le zone DNS nel portale di Azure
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](dns-operations-dnszones-portal.md)
+> * [Portale](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Interfaccia della riga di comando classica di Azure](dns-operations-dnszones-cli-nodejs.md)
 > * [Interfaccia della riga di comando di Azure](dns-operations-dnszones-cli.md)
@@ -32,7 +32,7 @@ Questo articolo spiega come gestire le zone DNS usando il portale di Azure. È a
 ## <a name="create-a-dns-zone"></a>Creare una zona DNS
 
 1. Accedere al portale di Azure
-2. Dal menu Hub scegliere **Crea una risorsa > Rete >** e quindi fare clic su **Zona DNS** per aprire il pannello Crea zona DNS.
+2. Nel menu Hub passare a **Crea una risorsa > Rete > Zona DNS** per aprire il pannello **Crea zona DNS**.
 
     ![Zona DNS](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -51,7 +51,7 @@ Questo articolo spiega come gestire le zone DNS usando il portale di Azure. È a
 
 ## <a name="list-dns-zones"></a>Elencare le zone DNS
 
-Nel portale di Azure passare a **Altri servizi** > **Rete** > **Zone DNS**. Ogni zona DNS è una risorsa a sé e in questa vista sono disponibili informazioni quali il numero di set di record e i server dei nomi. La colonna **SERVER DEI NOMI** non è presente nella visualizzazione predefinita. Per aggiungerla, fare clic su **Colonne**, selezionare **Server dei nomi** e quindi fare clic su **Fine**.
+Nel portale di Azure passare a **Altri servizi** > **Rete** > **Zone DNS**. Ogni zona DNS è una risorsa a sé e in questa vista sono disponibili informazioni quali il numero di set di record e i server dei nomi. La colonna **SERVER DEI NOMI** non è inclusa nella vista predefinita. Per aggiungerla, fare clic su **Colonne**, selezionare **Server dei nomi** e fare clic su **Fine**.
 
 ![elenco delle zone DNS](./media/dns-operations-dnszones-portal/listzones.png)
 

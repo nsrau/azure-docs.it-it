@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 5c0a4e981a290b9a758c8401a75e546c61618b45
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983902"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166373"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Domande frequenti sull'API Visione artificiale
 
@@ -44,7 +44,7 @@ ms.locfileid: "45983902"
 | Danese (da-DK)  | Olandese (nl-NL)     | Inglese           | Finlandese (fi-FI)            |Francese (fr-FR)
 | Tedesco (de-DE)  | Greco (el-GR)     | Ungherese (hu-HU) | Italiano (it-IT)            | Giapponese (ja-JP)
 | Coreano (ko-KR)  | Norvegese (nb-NO) | Polacco (pl-PL)    | Portoghese (pt-BR) (pt-PT) | Russo (ru-RU)
-| Spagnolo (es-ES)   | Svedese (sv-SV)     | Turco (tr-TU)   |                            |
+| Spagnolo (es-ES)   | Svedese (sv-SV)     | Turco (tr-TR)   |                            |
 
 -----
 

@@ -5,21 +5,24 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 09035146fe3211f9fc46d3ad51326a6e76921b7d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 48f1afcbef873e1af4346199c00ee2fadb1ad858
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977299"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830245"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Connettere un account di Google Cloud Platform
 
 È possibile connettere un account Google Cloud Platform esistente a Cloudyn. Dopo aver connesso l'account a Cloudyn, i costi e i dati di utilizzo sono disponibili nei report di Cloudyn. Questo articolo contiene informazioni utili per configurare l'account di Google e connetterlo a Cloudyn.
+
+> [!NOTE]
+> Google ha modificato la sicurezza degli account, impedendo la creazione di nuove connessioni tra Cloudyn e Google. Cloudyn continua a raccogliere i dati di Google per gli utenti con Cloudyn già connesso a Google. Attualmente non è tuttavia possibile aggiungere nuovi account di Google a Cloudyn. Il team di Cloudyn non è in grado di indicare quando riprenderà il supporto per l'aggiunta di nuovi account di Google a Cloudyn. Questa nota verrà rimossa al ripristino del supporto.
 
 ## <a name="collect-project-information"></a>Raccogliere le informazioni sul progetto
 

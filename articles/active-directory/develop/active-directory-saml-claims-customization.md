@@ -1,6 +1,6 @@
 ---
-title: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory | Microsoft Docs
-description: Informazioni su come personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure Active Directory
+title: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure AD | Microsoft Docs
+description: Informazioni su come personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure AD.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,20 +17,20 @@ ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 80842f7e99ee0c58f1615892f3c3c4adf03119b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956970"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902026"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-ad"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali in Azure AD
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
-Oggi Azure Active Directory supporta l'accesso single sign on con la maggior parte delle applicazioni aziendali comprese le applicazioni pre-integrate nella raccolta di app di Azure AD e le applicazioni personalizzate. Quando un utente esegue l'autenticazione in un'applicazione con Azure AD usando il protocollo SAML 2.0, Azure AD invia un token all'applicazione (via HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente denominate "attestazioni".
+Oggi Azure Active Directory (Azure AD) supporta l'accesso single sign on con la maggior parte delle applicazioni aziendali comprese le applicazioni pre-integrate nella raccolta di app di Azure AD e le applicazioni personalizzate. Quando un utente esegue l'autenticazione in un'applicazione con Azure AD usando il protocollo SAML 2.0, Azure AD invia un token all'applicazione (via HTTP POST). che l'applicazione convalida e usa per l'accesso dell'utente anziché richiedere l'immissione di nome utente e password. Questi token SAML contengono informazioni sull'utente denominate "attestazioni".
 
-Per quanto riguarda le identità, un'"attestazione" è un insieme di informazioni relative ad un utente dichiarate da un provider di identità all'interno del token rilasciato per tale utente. Nel [token SAML](http://en.wikipedia.org/wiki/SAML_2.0) questi dati sono in genere contenuti nell'istruzione degli attributi SAML. L'ID univoco dell'utente viene in genere rappresentato nel soggetto SAML definito anche identificatore del nome.
+Un'*attestazione* è un insieme di informazioni relative ad un utente dichiarate da un provider di identità all'interno del token rilasciato per tale utente. Nel [token SAML](http://en.wikipedia.org/wiki/SAML_2.0) questi dati sono in genere contenuti nell'istruzione degli attributi SAML. L'ID univoco dell'utente viene in genere rappresentato nel soggetto SAML definito anche identificatore del nome.
 
-Per impostazione predefinita, Azure Active Directory genera per l'applicazione un token SAML che contiene un'attestazione NameIdentifier, il cui valore nome utente, o nome dell'entità utente, è quello dell'utente in Azure AD. Tale valore identifica in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
+Per impostazione predefinita, Azure AD genera per l'applicazione un token SAML che contiene un'attestazione NameIdentifier, il cui valore nome utente, o nome dell'entità utente, è quello dell'utente in Azure AD. Tale valore identifica in modo univoco l'utente. Il token SAML contiene inoltre ulteriori attestazioni contenenti indirizzo di posta elettronica, nome e cognome dell'utente.
 
 Per visualizzare o modificare le attestazioni generate nel token SAML per l'applicazione, aprire l'applicazione nel portale di Azure. Selezionare la casella di controllo **Visualizza e modifica tutti gli altri attributi utente** nella sezione **Attributi utente** dell'applicazione.
 
@@ -38,7 +38,7 @@ Per visualizzare o modificare le attestazioni generate nel token SAML per l'appl
 
 I due possibili motivi per cui potrebbe essere necessario modificare le attestazioni rilasciate nel token SAML sono i seguenti:
 * L'applicazione è stata scritta per richiedere un set di URI attestazione o di valori attestazione diverso.
-* L'applicazione è stata distribuita in modo da richiedere un'attestazione NameIdentifier diversa dal nome utente, o nome dell'entità utente, archiviato in Azure Active Directory.
+* L'applicazione è stata distribuita in modo da richiedere un'attestazione NameIdentifier diversa dal nome utente, o nome dell'entità utente, archiviato in Azure AD.
 
 Per modificare i valori di attestazione predefiniti, selezionare la riga dell'attestazione nella tabella degli attributi del token SAML. Viene visualizzata la sezione **Modifica attributo** dove è possibile modificare il nome e il valore di attestazione nonché lo spazio dei nomi associato all'attestazione.
 
@@ -130,8 +130,9 @@ Esistono alcune attestazioni con restrizioni in SAML. Se si aggiungono queste at
     | http://schemas.microsoft.com/identity/claims/scope |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure Active Directory](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+
+* [Gestione di applicazioni in Azure AD](../manage-apps/what-is-application-management.md)
+* [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->

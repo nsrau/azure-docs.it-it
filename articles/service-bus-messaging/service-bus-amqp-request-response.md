@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: f5d5b8064821dfb1aa6d4e99d0152e364f9a83fe
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b05e23019e7b0a03965e51052bf334d0cbff041d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700519"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269344"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 nel bus di servizio di Microsoft Azure: operazioni basate su richiesta/risposta
 
@@ -142,6 +142,10 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|matrice di UUID|Yes|Token di blocco del messaggio da rinnovare.|  
+
+> [!NOTE]
+> I token di blocco vengono visualizzati nella proprietà `DeliveryTag` per i messaggi ricevuti. Vedere questo esempio in [.NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) in cui vengono recuperati tali token. Il token può essere visualizzato anche in DeliveryAnnotations come x-opt-lock-token. Tale visualizzazione, tuttavia, ma non è garantita ed è preferibile quella in `DeliveryTag`. 
+> 
   
 #### <a name="response"></a>Risposta  
 
@@ -365,7 +369,7 @@ Il messaggio di richiesta deve includere le proprietà di applicazione seguenti:
   
 |Chiave|Tipo di valore|Obbligatoria|Contenuti del valore|  
 |---------|----------------|--------------|--------------------|  
-|operation|stringa|Yes|`com.microsoft:peek-message`|  
+|operation|stringa|Yes|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|No |Timeout del server per l'operazione, in millisecondi.|  
   
 Il corpo del messaggio di richiesta deve essere costituito da una sezione **amqp-value** contenente un **mapping** con le voci seguenti:  

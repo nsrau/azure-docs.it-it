@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307114"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269565"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Informazioni di riferimento sulle funzioni per il linguaggio di definizione del flusso di lavoro in App per la logica di Azure
 
@@ -82,7 +82,7 @@ Per eseguire operazioni con le stringhe, è possibile usare queste funzioni di s
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Restituisce la posizione iniziale di una sottostringa. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Restituisce la posizione iniziale o il valore di indice per l'ultima occorrenza di una sottostringa. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Sostituisce una sottostringa con la stringa specificata e restituisce la stringa aggiornata. | 
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Restituisce una matrice che ha tutti i caratteri di una stringa e separa ogni carattere con il delimitatore specificato. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Restituisce una matrice che contiene le sottostringhe, separate da virgole, da una stringa più grande in base al carattere delimitatore specificato nella stringa originale. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Verifica se una stringa inizia con una sottostringa specifica. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Restituisce i caratteri di una stringa, partendo dalla posizione specificata. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Restituisce una stringa in formato minuscolo. | 
@@ -493,7 +493,7 @@ addDays('<timestamp>', <days>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
 | <*days*> | Yes | Integer | Numero positivo o negativo di giorni da aggiungere | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -3016,32 +3016,32 @@ E restituisce la matrice con gli elementi rimanenti: `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Restituisce una matrice con tutti i caratteri di una stringa, con ogni carattere separato da un *delimitatore*.
+Restituisce una matrice che contiene le sottostringhe, separate da virgole, in base al carattere delimitatore specificato nella stringa originale. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | Parametro | Obbligatoria | type | DESCRIZIONE | 
 | --------- | -------- | ---- | ----------- | 
-| <*text*> | Yes | string | Stringa che contiene i caratteri da dividere |  
-| <*separator*> | Yes | string | Separatore visualizzato tra ogni carattere nella matrice risultante | 
+| <*text*> | Yes | string | Stringa da suddividere in sottostringhe in base al delimitatore specificato nella stringa originale |  
+| <*delimiter*> | Yes | string | Carattere nella stringa originale da usare come delimitatore | 
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separator*><*char2*><*separator*>...] | Array | Matrice risultante creata da tutti gli elementi nella stringa specificata |
+| [<*substring1*>,<*substring2*>,...] | Array | Matrice che contiene le sottostringhe della stringa originale, separate da virgole |
 |||| 
 
 *Esempio* 
 
-Questo esempio crea una matrice dalla stringa specificata, separando ogni carattere con una virgola come delimitatore:
+Questo esempio crea una matrice con le sottostringhe della stringa specificata in base al carattere specificato come delimitatore: 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-E viene restituito questo risultato: `[a, b, c]`
+E restituisce questa matrice come risultato: `["a","b","c"]`
 
 <a name="startOfDay"></a>
 

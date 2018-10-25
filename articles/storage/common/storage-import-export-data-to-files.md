@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6cbaaeed75f160a2281fdce0949397b9a14bf981
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347920"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584167"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usare il servizio Importazione/Esportazione di Azure per importare i dati in File di Azure
 
@@ -26,7 +26,7 @@ Il servizio Importazione/Esportazione supporta solo l'importazione di dati di Fi
 Prima di creare un processo di importazione per trasferire dati in File di Azure, esaminare attentamente e soddisfare l'elenco seguente di prerequisiti. È necessario:
 
 - Avere una sottoscrizione di Azure attiva da usare con il servizio Importazione/Esportazione.
-- Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-create-storage-account.md#create-a-storage-account).
+- Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-quickstart-create-account.md).
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks). 
 - Predisporre un sistema Windows con una [versione del sistema operativo supportata](storage-import-export-requirements.md#supported-operating-systems).
 - [Scaricare WAImportExport versione 2](https://www.microsoft.com/download/details.aspx?id=55280) nel sistema Windows. Decomprimere la cartella predefinita `waimportexport`. Ad esempio: `C:\WaImportExport`.
@@ -139,7 +139,7 @@ Per creare un processo di importazione nel portale di Azure, eseguire le operazi
     
     - Caricare i file journal creati in [Passaggio 1: Preparare le unità](#step-1-prepare-the-drives). 
     - Selezionare l'account di archiviazione in cui verranno importati i dati. 
-    - La località di consegna viene immessa automaticamente in base all'area dell'account di archiviazione selezionato.
+    - La località di consegna viene popolata automaticamente in base all'area dell'account di archiviazione selezionato.
    
        ![Creare il processo di importazione - Passaggio 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 

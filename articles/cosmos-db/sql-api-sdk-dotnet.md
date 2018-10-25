@@ -12,19 +12,19 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7de476c6b96856e9b783ed8182985846bb39cfa
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452395"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389769"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK per API SQL: download e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -50,6 +50,14 @@ ms.locfileid: "47452395"
 </table></br>
 
 ## <a name="release-notes"></a>Note sulla versione
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* È stato effettuato l'aggiornamento di System.Net.Security alla versione 4.3.2.
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* Sono stati apportati miglioramenti all'analisi diagnostica
+
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 
 * Aumentata la resilienza agli errori temporanei delle richieste su più aree.
@@ -327,6 +335,8 @@ Qualsiasi richiesta inviata ad Azure Cosmos DB con un SDK ritirato viene rifiuta
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |15 ottobre 2018 |--- |
+| [2.1.2](#2.1.2) |4 ottobre 2018 |--- |
 | [2.1.1](#2.1.1) |27 settembre 2018 |--- |
 | [2.1.0](#2.1.0) |21 settembre 2018 |--- |
 | [2.0.0](#2.0.0) |7 settembre 2018 |--- |

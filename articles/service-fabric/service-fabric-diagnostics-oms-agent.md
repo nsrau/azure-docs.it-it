@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: b97a32e2e859a5bb370873bfbdc5c6b4dffa1ac1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 21c9441e2b3d3ad54d491834e6de097a8880b5b7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237843"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311117"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Monitoraggio delle prestazioni con Log Analytics
 
@@ -30,7 +30,7 @@ Questo articolo illustra i passaggi necessari per aggiungere l'agente di Log Ana
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Aggiungere l'estensione dell'agente tramite l'interfaccia della riga di comando di Azure
 
-Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite le API del set di scalabilità di macchine virtuali disponibili con l'interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è ancora configurata, passare al portale di Azure e aprire un'istanza [Cloud Shell](../cloud-shell/overview.md) oppure [installare l'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite le API del set di scalabilità di macchine virtuali disponibili con l'interfaccia della riga di comando di Azure. Se l'interfaccia della riga di comando di Azure non è ancora configurata, passare al portale di Azure e aprire un'istanza [Cloud Shell](../cloud-shell/overview.md) oppure [installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Dopo aver eseguito la richiesta per Cloud Shell, assicurarsi di usare la stessa sottoscrizione della risorsa. A tale scopo, usare `az account show` e assicurarsi che il valore "name" corrisponda a quello della sottoscrizione del cluster.
 
@@ -66,7 +66,7 @@ Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite 
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>Aggiungere l'agente tramite il modello di Resource Manager
 
-È disponibile un modello di Resource Manager per [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) o [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) che distribuisce un'area di lavoro di Log Analytics di Azure e aggiunge un agente a ogni nodo.
+È disponibile un modello di Resource Manager per [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) o [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux) che distribuisce un'area di lavoro di Log Analytics di Azure e aggiunge un agente a ogni nodo.
 
 È possibile scaricare e modificare questo modello per distribuire un cluster più adatto alle proprie esigenze.
 
@@ -86,7 +86,7 @@ Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analyti
 
 6. Chiudere il pannello Impostazioni avanzate.
 
-7. Sotto l'intestazione Generale fare clic su **Panoramica**.
+7. Sotto l'intestazione Generale fare clic su **Riepilogo dell'area di lavoro**.
 
 8. Saranno visualizzati riquadri sotto forma di grafo per ogni soluzione abilitata, tra cui uno per Service Fabric. Fare clic sul grafo **Service Fabric** per passare alla soluzione Analisi Service Fabric.
 

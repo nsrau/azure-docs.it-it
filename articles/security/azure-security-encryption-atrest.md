@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/20/2018
+ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 21438b107632166f3717c07b0fd01a56a2944f34
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 40c69d996721b664fbea5cd539f60ecc6a521d24
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294057"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457647"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 
@@ -259,28 +259,29 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **Lato server con chiave gestita dal servizio**     | **Lato server con chiave gestita dal cliente in Key Vault**             |  **Lato server con chiave gestita dal cliente in locale**                  | **Lato client con chiave gestita dal client**      |
 | **Archiviazione e database**        |                    |                    |                    |                    |                    |
-| Disco (IaaS)                      | -                  | Sì, RSA a 2048 bit  | Sì               | -                  |
-| SQL Server (IaaS)                | Sì                | Sì, RSA a 2048 bit  | Sì                | Sì                |
-| Database SQL di Azure (PaaS)        | Sì                | Sì, RSA a 2048 bit  | -                  | Sì                |
-| Archiviazione di Azure (BLOB di blocchi/pagine) | Sì                | Sì, RSA a 2048 bit  | -                  | Sì                |
-| Archiviazione di Azure (file)            | Sì                | Sì, RSA a 2048 bit  | -                  | -                  |
-| Archiviazione di Azure (tabelle, code)   | Sì                | -                  | -                  | Sì                |
-| Cosmos DB (Document DB)          | Sì                | -                  | -                  | -                  |
-| StorSimple                       | Sì                | -                  | -                  | Sì                |
-| Backup                           | -                  | -                  | -                  | Sì                |
+| Disco (IaaS)                      | -                  | Sì, RSA a 2048 bit  | Yes               | -                  |
+| SQL Server (IaaS)                | Yes                | Sì, RSA a 2048 bit  | Yes                | Yes                |
+| Azure SQL (database/Data Warehouse) | Yes                | Sì, RSA a 2048 bit  | -                  | Yes                |
+| Archiviazione di Azure (BLOB di blocchi/pagine) | Yes                | Sì, RSA a 2048 bit  | -                  | Yes                |
+| Archiviazione di Azure (file)            | Yes                | Sì, RSA a 2048 bit  | -                  | -                  |
+| Archiviazione di Azure (tabelle, code)   | Yes                | -                  | -                  | Yes                |
+| Cosmos DB (Document DB)          | Yes                | -                  | -                  | -                  |
+| StorSimple                       | Yes                | -                  | -                  | Yes                |
+| Backup                           | -                  | -                  | -                  | Yes                |
 | **Intelligence e analisi**   |                    |                    |                    |                    |
-| Data factory di Azure               | Sì                | -                  | -                  | -                  |
+| Data factory di Azure               | Yes                | -                  | -                  | -                  |
 | Azure Machine Learning           | -                  | Anteprima, RSA a 2048 bit | -                  | -                  |
-| Analisi di flusso di Azure           | Sì                | -                  | -                  | -                  |
-| HDInsight (Archiviazione BLOB di Azure)   | Sì                | -                  | -                  | -                  |
-| HDInsights (Archiviazione di Data Lake)    | Sì                | -                  | -                  | -                  |
-| Archivio Azure Data Lake            | Sì                | Sì, RSA a 2048 bit  | -                  | -                  |
-| Azure Data Catalog               | Sì                | -                  | -                  | -                  |
-| Power BI                         | Sì                | -                  | -                  | -                  |
+| Analisi di flusso di Azure           | Yes                | -                  | -                  | -                  |
+| HDInsight (Archiviazione BLOB di Azure)   | Yes                | -                  | -                  | -                  |
+| HDInsights (Archiviazione di Data Lake)    | Yes                | -                  | -                  | -                  |
+| Archivio Azure Data Lake            | Yes                | Sì, RSA a 2048 bit  | -                  | -                  |
+| Azure Data Catalog               | Yes                | -                  | -                  | -                  |
+| Power BI                         | Yes                | -                  | -                  | -                  |
 | **Servizi IoT**                 |                    |                    |                    |                    |
-| Hub IoT                          | -                  | -                  | -                  | Sì                |
-| Bus di servizio                      | Sì                | -                  | -                  | Sì                |
-| Hub eventi                       | Sì                | -                  | -                  | -                  |
+| Hub IoT                          | -                  | -                  | -                  | Yes                |
+| Bus di servizio                      | Yes                | -                  | -                  | Yes                |
+| Hub eventi                       | Yes                | -                  | -                  | -                  |
+| Griglia di eventi                       | Yes                | -                  | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusioni

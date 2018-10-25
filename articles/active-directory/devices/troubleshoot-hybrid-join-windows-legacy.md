@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: aad2b4c3edcdc488257940062e8861613ece25e8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142433"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800860"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory 
 
@@ -39,23 +39,22 @@ Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all
 
 - Accesso condizionale basato su dispositivo
 
-- [Roaming aziendale delle impostazioni](../active-directory-windows-enterprise-state-roaming-overview.md)
-
-- [Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) (Configurare Windows Hello for Business) 
-
-
-
-
 
 Questo articolo fornisce indicazioni sulla risoluzione di potenziali problemi.  
 
 **Informazioni utili:** 
 
-- Il numero massimo di dispositivi per utente è incentrato sui dispositivi. Ad esempio: se *jdoe* e *jharnett* accedono a questo dispositivo, viene creata una registrazione separata (DeviceID) per ciascuno di questi utenti nella scheda di informazioni **UTENTE**.  
+- L'aggiunta ad Azure AD ibrido per i dispositivi Windows di livello inferiore funziona in modo leggermente diverso rispetto a Windows 10. Molti clienti non si rendono conto di dover configurare AD FS (per i domini federati) o Seamless SSO (per i domini gestiti).
+
+- Per i clienti con domini federati, se il punto di connessione del servizio (SCP) è stato configurato in modo da puntare al nome del dominio gestito (ad esempio, contoso.onmicrosoft.com invece di contoso.com), l'aggiunta ad Azure AD ibrido per i dispositivi Windows di livello inferiore non funzionerà.
+
+- Il numero massimo di dispositivi per utente attualmente si applica anche ai dispositivi di livello inferiore aggiunti ad Azure AD ibrido. 
+
+- Lo stesso dispositivo fisico viene visualizzato più volte in Azure AD quando più utenti di dominio accedono ai dispositivi di livello inferiore aggiunti ad Azure AD ibrido.  Ad esempio: se *jdoe* e *jharnett* accedono a questo dispositivo, viene creata una registrazione separata (DeviceID) per ciascuno di questi utenti nella scheda di informazioni **UTENTE**. 
+
+- È anche possibile ottenere più voci per un dispositivo nella scheda delle informazioni sull'utente in seguito a una reinstallazione del sistema operativo o a una nuova registrazione manuale.
 
 - La registrazione/aggiunta iniziale dei dispositivi è configurata in modo da eseguire un tentativo di accesso o blocco/sblocco. Potrebbero esserci 5 minuti di ritardo causati da un'attività dell'utilità di pianificazione. 
-
-- È possibile ottenere più voci per un dispositivo nella scheda delle informazioni sull'utente in seguito a una reinstallazione del sistema operativo o a una nuova registrazione manuale. 
 
 - Nel caso di Windows 7 SP1 o Windows Server 2008 R2 SP1 verificare che l'aggiornamento [KB4284842](https://support.microsoft.com/help/4284842) sia installato. Questo aggiornamento impedisce che si verifichino errori di autenticazione futuri a causa della perdita di accesso del cliente alle chiavi protette dopo la modifica della password.
 
@@ -65,24 +64,39 @@ Questo articolo fornisce indicazioni sulla risoluzione di potenziali problemi.
 
 1. Accedere con l'account utente che ha eseguito l'aggiunta all'identità ibrida di Azure AD.
 
-2. Aprire il prompt dei comandi come amministratore 
+2. Aprire il prompt dei comandi 
 
 3. Digitare `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe" /i`.
 
-Questo comando consente di visualizzare una finestra di dialogo che fornisce altri dettagli relativi allo stato delle aggiunte.
+Questo comando consente di visualizzare una finestra di dialogo che fornisce dettagli relativi allo stato delle aggiunte.
 
 ![Aggiunta all'area di lavoro per Windows](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
 
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Passaggio 2: Valutare lo stato delle aggiunte all'identità ibrida di Azure AD 
 
-Se l'aggiunta all'identità ibrida di Azure AD non è stata completata correttamente, la finestra di dialogo fornisce dettagli sul problema che si è verificato.
+Se il dispositivo non è stato aggiunto a Azure AD in modalità ibrida, è possibile provare a eseguire l'aggiunta ad Azure AD ibrido facendo clic sul pulsante "Join". Se il tentativo di eseguire operazioni di aggiunta ad Azure AD ibrido non riesce, verranno visualizzati i dettagli sull'errore.
+
 
 **I problemi più comuni sono:**
 
-- Una configurazione errata di AD FS o Azure AD
+- Una configurazione errata di AD FS o Azure AD o problemi di rete
 
     ![Aggiunta all'area di lavoro per Windows](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    
+    - Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure AD o AD FS. Ciò potrebbe essere causato dai servizi AD FS mancanti o non configurati correttamente (per i domini federati) o dall'accesso Single Sign-On facile di Azure AD mancante o non configurato correttamente (per i domini gestiti) o da problemi di rete. 
+    
+     - L'autenticazione a più fattori (MFA) potrebbe essere abilitata/configurata per l'utente e WIAORMUTLIAUTHN potrebbe non essere configurato sul server AD FS. 
+     
+     - È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad **autoworkplace.exe** di richiedere automaticamente un token.
+     
+     - Gli URL di AD FS e di Azure AD potrebbero non essere presenti nell'area intranet di Internet Explorer sul client.
+     
+     - Problemi di connettività di rete potrebbero impedire ad **autoworkplace.exe** di raggiungere gli URL di AD FS o di Azure AD. 
+     
+     - **Autoworkplace.exe** richiede che il client comunichi direttamente con il controller di dominio AD locale dell'organizzazione, il che significa che l'aggiunta ad Azure AD ibrido riesce solo quando il client è connesso alla rete intranet dell'organizzazione.
+     
+     - L'organizzazione usa il Single Sign-On di Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` non sono presenti nelle impostazioni Intranet di IE del dispositivo e l'opzione **Consenti aggiornamenti alla barra di stato tramite script** non è abilitata per l'area Intranet.
 
 - Non si è connessi come utente di dominio
 
@@ -92,9 +106,7 @@ Se l'aggiunta all'identità ibrida di Azure AD non è stata completata correttam
     
     - L'utente che ha eseguito l'accesso non è un utente di dominio, ad esempio è un utente locale. L'aggiunta all'identità ibrida di Azure AD su dispositivi di livello inferiore è supportata solo per utenti di dominio.
     
-    - Autoworkplace.exe non è in grado di eseguire automaticamente l'autenticazione con Azure AD o AD FS. Ciò potrebbe essere dovuto a problemi di connettività di rete in uscita agli URL di Azure AD. È possibile inoltre che l'autenticazione a più fattori (MFA) sia abilitata/configurata per l'utente e WIAORMUTLIAUTHN non sia configurato sul server federativo. È anche possibile che la pagina di individuazione dell'area di autenticazione principale sia in attesa dell'interazione dell'utente, impedendo ad **autoworkplace.exe** di richiedere automaticamente un token.
-    
-    - L'organizzazione usa il Single Sign-On di Azure AD, `https://autologon.microsoftazuread-sso.com` o `https://aadg.windows.net.nsatc.net` non sono presenti nelle impostazioni Intranet di IE del dispositivo e l'opzione **Consenti aggiornamenti alla barra di stato tramite script** non è abilitata per l'area Intranet.
+    - Il client non riesce a connettersi a un controller di dominio.    
 
 - È stata raggiunta una quota
 
@@ -114,9 +126,11 @@ Se l'aggiunta all'identità ibrida di Azure AD non è stata completata correttam
 
 - Problemi di configurazione del servizio: 
 
-  - Il server federativo è stato configurato per supportare **WIAORMULTIAUTHN**. 
+  - Il server AD FS non è stato configurato per supportare **WIAORMULTIAUTHN**. 
 
   - Nella foresta del computer non è presente alcun oggetto Punto di connessione del servizio che punti al nome di dominio verificato in Azure AD 
+  
+  - Se invece il dominio è gestito, Seamless SSO non è stato configurato o non funziona.
 
   - Un utente ha raggiunto il limite di dispositivi. 
 

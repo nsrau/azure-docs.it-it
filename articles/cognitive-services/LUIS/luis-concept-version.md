@@ -1,20 +1,21 @@
 ---
-title: Informazioni sul controllo versioni in LUIS - Azure | Microsoft Docs
+title: Informazioni sull'uso delle versioni in LUIS
+titleSuffix: Azure Cognitive Services
 description: Informazioni sull'uso delle versioni per gestire le modifiche in LUIS (Language Understanding)
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 03/13/2018
+ms.topic: conceptual
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 17abe383d3074d636605c3b1b91927f89f7dd896
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 61be39fc870eb73a5836f8e60a3495aff877d7ed
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225728"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637849"
 ---
 # <a name="versions"></a>Versioni
 Creare modelli diversi della stessa app con le [versioni](luis-how-to-manage-versions.md). 

@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6102a6bc28486c24134bbc172b9e8a7e1a61244
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: a63a31c5ceb4298829f85627196fea5d7a38ca4b
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308038"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068503"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemi comuni e soluzioni per Azure IoT Edge
 
@@ -310,6 +310,32 @@ Windows Registry Editor Version 5.00
 "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
 "TypesSupported"=dword:00000007
 ```
+
+## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>Il modulo IoT Edge non riesce a inviare un messaggio a edgeHub con errore 404
+
+Il modulo IoT Edge non riesce a inviare un messaggio a edgeHub con errore `Module not found` 404. Il daemon di IoT Edge stampa il messaggio seguente nei log: 
+
+```output
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+```
+
+### <a name="root-cause"></a>Causa radice
+Per motivi di sicurezza, il daemon di IoT Edge impone l'identificazione del processo a tutti i moduli che si connettono a edgeHub. Verifica che tutti i messaggi inviati da un modulo provengano dall'ID del processo principale del modulo. Se viene inviato un messaggio da un modulo di un ID di processo diverso rispetto a quello inizialmente stabilito, rifiuterà il messaggio con un messaggio di errore 404.
+
+### <a name="resolution"></a>Risoluzione
+Verificare che il modulo IoT Edge personalizzato usi sempre lo stesso ID di processo per inviare messaggi a edgeHub. Ad esempio, verificare che nel file di Docker ci sia il comando `ENTRYPOINT` invece del comando `CMD`, perché `CMD` porterà a un ID di processo per il modulo e a un altro ID di processo per il comando bash che esegue il programma principale mentre `ENTRYPOINT` condurrà a un singolo ID di processo.
+
+
+## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>Regole di configurazione di firewall e porte per la distribuzione di IoT Edge
+Azure IoT Edge abilita la comunicazione da un server Edge in locale nel cloud di Azure usando protocolli supportati dell'hub IoT, vedere [scegliere un protocollo di comunicazione](../iot-hub/iot-hub-devguide-protocols.md). Per garantire una maggiore sicurezza, i canali di comunicazione tra Azure IoT Edge e l'hub IoT di Azure vengono sempre configurati per essere in uscita; questo processo si basa sul [modello di comunicazione assistita dei servizi](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/), che riduce al minimo la superficie di attacco esplorabile da un'entità malintenzionata. La comunicazione in ingresso è necessaria solo per scenari specifici in cui l'hub IoT di Azure deve eseguire il push dei messaggi verso il server Azure IoT Edge (ad esempio la messaggistica da cloud a dispositivo), questi vengono nuovamente protetti tramite i canali TLS sicuri e possono essere ulteriormente protetti con i certificati X.509 e i moduli del dispositivo TPM. Il gestore sicurezza di Azure IoT Edge stabilisce come attivare la comunicazione, vedere [Gestore sicurezza di Azure IoT Edge](../iot-edge/iot-edge-security-manager.md).
+
+Sebbene IoT Edge offra una configurazione avanzata per la protezione del runtime e dei moduli distribuiti di Azure IoT Edge, dipende comunque dal computer e dalla configurazione di rete sottostanti. Di conseguenza, è fondamentale garantire che vengano applicate regole appropriate per la rete e il firewall, in modo da garantire una comunicazione sicura da edge al cloud. I dati riportati di seguito possono essere usati come linee guida quando il firewall di configurazione regola i server sottostanti in cui viene ospitato il runtime di Azure IoT Edge:
+
+|Protocollo|Porta|In ingresso|In uscita|Indicazioni|
+|--|--|--|--|--|
+|MQTT|8883|BLOCCATO (impostazione predefinita)|BLOCCATO (impostazione predefinita)|<ul> <li>Configurare i dati in uscita in modo che siano Aperti quando si usa MQTT come protocollo di comunicazione.<li>1883 per MQTT non è supportato da IoT Edge. <li>Le connessioni in ingresso devono essere bloccate.</ul>|
+|AMQP|5671|BLOCCATO (impostazione predefinita)|APERTO (impostazione predefinita)|<ul> <li>Protocollo di comunicazione predefinito per IoT Edge. <li> Deve essere configurato per essere Aperto se Azure IoT Edge non è configurato per altri protocolli supportati o AMQP è il protocollo di comunicazione desiderato.<li>5672 per AMQP non è supportato da IoT Edge.<li>Bloccare questa porta quando Azure IoT Edge usa un protocollo supportato da hub IoT diverso.<li>Le connessioni in ingresso devono essere bloccate.</ul></ul>|
+|HTTPS|443|BLOCCATO (impostazione predefinita)|APERTO (impostazione predefinita)|<ul> <li>Configurare l'opzione In uscita in modo che sia Aperta sulla porta 443 per il provisioning di IoT Edge, impostazione necessaria quando si usano script manuali o DPS (Device Provisioning Service) di Azure IoT. <li>La connessione In ingresso deve essere Aperta solo per scenari specifici: <ul> <li>  Se si dispone di un gateway trasparente con dispositivi foglia che possono inviare richieste di metodo. In questo caso, non occorre che la porta 443 sia aperta a reti esterne per connettersi a IotHub o fornire servizi IoTHub tramite Azure IoT Edge. Pertanto, la regola in ingresso potrebbe essere limitata all'apertura solo in ingresso dalla rete interna. <li> Per scenari da client a dispositivo (C2D).</ul><li>80 per HTTP non è supportato da IoT Edge.<li>Se i protocolli non HTTP (ad es. AMQP, MQTT) non possono essere configurati nell'azienda; i messaggi possono essere inviati tramite WebSocket. In questo caso, la porta 443 verrà usata per la comunicazione WebSocket.</ul>|
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: e1884048d0f02de1b3a354bc4dac2b3e98dcccc9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 29b045266836ace35aab12c51746b7e339cbb88f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412857"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354343"
 ---
 # <a name="virtual-machine-serial-console"></a>Console seriale per macchine virtuali
 
@@ -28,8 +28,8 @@ La console seriale per macchine virtuali di Azure fornisce l'accesso a una conso
 
 Per la documentazione della console seriale per macchine virtuali Linux [fare clic qui](serial-console-linux.md).
 
-> [!Note] 
-> Console seriale per macchine virtuali è disponibile a livello generale nelle aree globali di Azure. La console seriale per il momento non è disponibile per il cloud di Azure per enti pubblici o Azure Cina.
+> [!NOTE] 
+> Console seriale per macchine virtuali è disponibile a livello generale nelle aree globali di Azure. La console seriale per il momento non è disponibile nei cloud di Azure per enti pubblici o di Azure Cina.
 
  
 
@@ -74,7 +74,7 @@ Se necessario, la console SAC può anche essere abilitata offline:
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>Come capire se la console SAC è abilitata?
 
-Se la console [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) non è abilitata, la console seriale non visualizzerà il prompt SAC. In alcuni casi, verranno visualizzate le informazioni di integrità della macchina virtuale e in altri casi sarà vuota. Se si usa un'immagine di Windows Server creata prima del febbraio 2018, la console SAC probabilmente non verrà abilitata.
+Se la console [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) non è abilitata, la console seriale non visualizzerà il prompt SAC. In alcuni casi, verranno visualizzate le informazioni di integrità della macchina virtuale e in altri casi sarà vuota. Se si usa un'immagine di Windows Server creata prima di febbraio 2018, la console SAC probabilmente non verrà abilitata.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Abilitare il menu di avvio di Windows nella console seriale 
 
@@ -83,9 +83,12 @@ Se è necessario abilitare i prompt del caricatore di avvio di Windows da visual
 1. Connettersi alla macchina virtuale Windows tramite Desktop remoto
 2. Da un prompt dei comandi amministrativo eseguire i comandi seguenti 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Riavviare il sistema per abilitare il menu di avvio
+
+> [!NOTE] 
+> Il timeout impostato per la visualizzazione del menu di gestione dell'avvio influirà sul tempo di avvio del sistema operativo in futuro. Anche se per alcuni utenti può essere accettabile aggiungere un timeout di 10 secondi per garantire la visualizzazione dello strumento di gestione dell'avvio tramite la console seriale, per altri utenti può essere necessario un timeout più lungo o più breve. Impostare per il timeout un valore che si ritiene adeguato.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Usare la console seriale per le chiamate NMI nelle macchine virtuali Windows
 Un interrupt non mascherabile (NMI) è progettato per creare un segnale che il software in una macchina virtuale non ignorerà. In passato, gli NMI sono stati usati per verificare la presenza di problemi hardware in sistemi che necessitavano di tempi di risposta specifici.  Oggi, gli amministratori di sistema e i programmatori usano spesso gli NMI come un meccanismo per eseguire il debug o risolvere i problemi di sistemi che sono bloccati.
@@ -99,8 +102,8 @@ Per informazioni sulla configurazione di Windows per creare un dump di arresto a
 ## <a name="disable-serial-console"></a>Disabilitare la console seriale
 Per impostazione predefinita, tutte le sottoscrizioni hanno accesso alla console seriale in tutte le macchine virtuali. È possibile disabilitare la console seriale a livello di sottoscrizione o a livello di macchina virtuale.
 
-> [!Note]       
-> Per abilitare o disabilitare la console seriale per una sottoscrizione, è necessario disporre delle autorizzazioni di scrittura per la sottoscrizione. Ciò include i ruoli di amministratore o proprietario, ma non è limitato a questi ultimi. Anche i ruoli personalizzati possono disporre delle autorizzazioni di scrittura.
+> [!NOTE]       
+> Per abilitare o disabilitare la console seriale per una sottoscrizione, è necessario avere le autorizzazioni di scrittura per la sottoscrizione. Ciò include i ruoli di amministratore o proprietario, ma non è limitato a questi ultimi. Anche i ruoli personalizzati possono avere le autorizzazioni di scrittura.
 
 ### <a name="subscription-level-disable"></a>Disattivazione a livello di sottoscrizione
 La console seriale può essere disattivata per un'intera sottoscrizione tramite la [chiamata all'API REST di Disabilita console](https://aka.ms/disableserialconsoleapi). È possibile usare la funzionalità "Try It" disponibile nella pagina della documentazione API per disabilitare e abilitare la console seriale per una sottoscrizione. Inserire `subscriptionId`, "predefinito" nel `default` campo e fare clic su Esegui. I comandi dell'interfaccia della riga di comando di Azure non sono ancora disponibili e verranno visualizzati in un secondo momento. [Ripetere la chiamata all'API REST qui](https://aka.ms/disableserialconsoleapi).
@@ -189,37 +192,37 @@ Il Web socket è chiuso o non può essere aperto. | Potrebbe essere necessario u
 Durante la connessione a una macchina virtuale Windows, vengono visualizzate solo informazioni sull'integrità| Questi errori vengono visualizzati se la Special Administration Console non è stata abilitata per l'immagine di Windows. Visualizzare [Console di accesso seriale per Windows](#access-serial-console-for-windows) per istruzioni su come attivare manualmente la Special Administration Console (SAC) nella macchina virtuale di Windows. Per altri informazioni, vedere [Segnali di integrità Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 
 ## <a name="known-issues"></a>Problemi noti 
-Sono emersi alcuni problemi con la console seriale. Di seguito un elenco dei problemi e dei passaggi per la mitigazione.
+La console seriale presenta alcuni problemi. Di seguito è riportato un elenco dei problemi riscontrati e delle procedure necessarie per ridurne l'impatto.
 
 Problema                             |   Mitigazione 
 :---------------------------------|:--------------------------------------------|
-Premendo INVIO dopo il banner della connessione, non viene visualizzato un prompt di accesso | Vedere questa pagina: [L'inserimento non esegue alcuna operazione](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo può verificarsi se è in esecuzione una macchina virtuale personalizzata, un'appliance con protezione avanzata o una configurazione GRUB che non consente a Windows di connettersi correttamente alla porta seriale.
+Premendo INVIO dopo il banner della connessione, non viene visualizzato un prompt di accesso | Vedere questa pagina: [L'inserimento non esegue alcuna operazione](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo può verificarsi se è in esecuzione una macchina virtuale personalizzata, un'appliance con protezione avanzata o una configurazione di avvio che non consente a Windows di connettersi correttamente alla porta seriale. Questo si verifica anche se si esegue una macchina virtuale client Windows 10, perché solo le macchine virtuali Windows Server sono configurate per l'abilitazione di EMS.
 Non è possibile digitare nel prompt SAC se è abilitato il debug del kernel | Effettuare una connessione RDP ed eseguire `bcdedit /debug {current} off` da un prompt dei comandi con privilegi elevati. Se non è possibile effettuare una connessione RDP, è invece possibile collegare il disco del sistema operativo a un'altra macchina virtuale di Azure e modificarlo mentre è collegato come disco dati usando `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, quindi effettuare lo swapping del disco.
 Incollare nei risultati SAC di PowerShell usando un terzo carattere se il contenuto originale aveva un carattere ripetuto | Una soluzione alternativa consiste nello scaricare il modulo PSReadLine dalla sessione corrente. Eseguire `Remove-Module PSReadLine` per scaricare il modulo PSReadLine dalla sessione corrente. Questo non eliminerà o disinstallerà il modulo.
 Alcuni input della tastiera producono output di configurazione SAC particolari (es `[A`, `[3~`) | Le sequenze di escape [VT100](https://aka.ms/vtsequences) non sono supportate per il prompt SAC.
-Incollare stringhe molto lunghe non funziona | La console seriale limita la lunghezza delle stringhe incollate nel terminale a 2048 caratteri. Questo per evitare di sovraccaricare la larghezza di banda della porta seriale.
+Incollare stringhe molto lunghe non funziona | La console seriale limita la lunghezza delle stringhe incollate nel terminale a 2048 caratteri. Questo evita di sovraccaricare la larghezza di banda della porta seriale.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti 
 
 **D. Come è possibile inviare commenti e suggerimenti?**
 
-R. Per inviare commenti e suggerimenti, andare a https://aka.ms/serialconsolefeedback. In alternativa (meno consigliabile), inviare un feedback tramite azserialhelp@microsoft.com o nella categoria della macchina virtuale di http://feedback.azure.com
+R. Per inviare commenti e suggerimenti, andare a https://aka.ms/serialconsolefeedback. In alternativa (meno consigliabile), è possibile inviare commenti e suggerimenti tramite azserialhelp@microsoft.com o nella categoria della macchina virtuale di http://feedback.azure.com
 
-**D. La console seriale supporta il copia/incolla?**
+**D. La console seriale supporta le operazioni di copia e incolla?**
 
 R. Sì. Usare CTRL + MAIUSC + C e CTRL + MAIUSC + V per copiare e incollare nel terminale.
 
 **D. Chi può abilitare o disabilitare la console seriale per una sottoscrizione?**
 
-R. Per abilitare o disabilitare la console seriale a livello di sottoscrizione, è necessario disporre delle autorizzazioni di scrittura per la sottoscrizione. I ruoli che dispongono dell'autorizzazione di scrittura includono i ruoli di amministratore o proprietario, ma non sono limitati a questi ultimi. Anche i ruoli personalizzati possono disporre delle autorizzazioni di scrittura.
+R. Per abilitare o disabilitare la console seriale a livello di sottoscrizione, è necessario avere le autorizzazioni di scrittura per la sottoscrizione. I ruoli con autorizzazione di scrittura sono quelli di amministratore o proprietario, ma anche altri. Anche i ruoli personalizzati possono avere le autorizzazioni di scrittura.
 
-**D. Chi può accedere alla console seriale per la macchina virtuale?**
+**D. Chi può accedere alla console seriale per la VM?**
 
-R. Per poter accedere alla console seriale della macchina virtuale, è necessario disporre di un accesso di livello collaboratore o superiore a una macchina virtuale. 
+R. Per poter accedere alla console seriale della VM, è necessario disporre di un accesso di livello collaboratore o superiore a una VM. 
 
 **D. La console seriale non visualizza nulla, cosa bisogna fare?**
 
-R. Probabilmente, l’immagine dell’utente non è configurata per l’accesso alla console seriale. Vedere [Abilitare la console seriale per immagini personalizzate o meno recenti](#Enable-Serial-Console-in-custom-or-older-images) per informazioni dettagliate sulla configurazione dell'immagine per abilitare la console seriale.
+R. L'immagine probabilmente non è configurata correttamente per l'accesso alla console seriale. Vedere [Abilitare la console seriale per immagini personalizzate o meno recenti](#enable-serial-console-in-custom-or-older-images) per informazioni dettagliate sulla configurazione dell'immagine per abilitare la console seriale.
 
 **D. La console seriale è disponibile per i set di scalabilità di macchine virtuali?**
 

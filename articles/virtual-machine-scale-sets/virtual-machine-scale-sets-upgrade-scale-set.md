@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996656"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322074"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 Per tutto il ciclo di vita delle applicazioni, potrebbe essere necessario modificare o aggiornare il set di scalabilità di macchine virtuali. Questi aggiornamenti possono includere come aggiornare la configurazione del set di scalabilità o modificare la configurazione dell'applicazione. Questo articolo descrive come modificare un set di scalabilità esistente con le API REST, Azure PowerShell o l'interfaccia della riga di comando di Azure.
@@ -126,7 +126,7 @@ Queste proprietà forniscono un riepilogo dello stato di runtime corrente delle 
 
 
 ### <a name="the-scale-set-vm-model-view"></a>Visualizzazione modello di macchina virtuale del set di scalabilità
-Così come un set di scalabilità ha una visualizzazione modello, anche ogni macchina virtuale nel set di scalabilità ha la propria visualizzazione modello. Per eseguire query sulla visualizzazione modello per un set di scalabilità è possibile usare:
+Come un set di scalabilità ha una visualizzazione modello, così anche ogni istanza di macchina virtuale nel set di scalabilità ha una propria visualizzazione modello. Per eseguire query sulla visualizzazione modello per un'istanza di macchina virtuale specifica in un set di scalabilità è possibile usare:
 
 - API REST con [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) come segue:
 
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Queste proprietà descrivono la configurazione della macchina virtuale stessa, non quella del set di scalabilità nel suo insieme. Ad esempio, il modello del set di scalabilità ha la proprietà `overprovision`, a differenza del modello di una macchina virtuale nel set di scalabilità. La proprietà overprovision è infatti valida per il set di scalabilità nel suo insieme, non per le singole macchine virtuali nel set di scalabilità. Per altre informazioni su questa proprietà, vedere [Considerazioni sulla progettazione per i set di scalabilità](virtual-machine-scale-sets-design-overview.md#overprovisioning).
+Queste proprietà descrivono la configurazione dell'istanza della macchina virtuale, non quella del set di scalabilità nel suo insieme. Ad esempio, il modello del set di scalabilità ha la proprietà `overprovision`, a differenza del modello di un'istanza di macchina virtuale nel set di scalabilità. La proprietà overprovision è infatti valida per il set di scalabilità nel suo insieme, non per le singole istanze di macchine virtuali nel set di scalabilità. Per altre informazioni su questa proprietà, vedere [Considerazioni sulla progettazione per i set di scalabilità](virtual-machine-scale-sets-design-overview.md#overprovisioning).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>Visualizzazione dell'istanza di macchina virtuale del set di scalabilità
-Così come un set di scalabilità ha una visualizzazione dell'istanza, anche ogni macchina virtuale nel set di scalabilità ha la propria visualizzazione dell'istanza. Per eseguire query sulla visualizzazione dell'istanza per un set di scalabilità è possibile usare:
+Come un set di scalabilità ha una visualizzazione istanza, così anche ogni istanza di macchina virtuale nel set di scalabilità ha una propria visualizzazione istanza. Per eseguire query sulla visualizzazione istanza per un'istanza di macchina virtuale specifica in un set di scalabilità è possibile usare:
 
 - API REST con [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) come segue:
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Queste proprietà descrivono lo stato di runtime corrente della macchina virtuale stessa, che include le eventuali estensioni applicate al set di scalabilità.
+Queste proprietà descrivono lo stato di runtime corrente dell'istanza della macchina virtuale, che include le eventuali estensioni applicate al set di scalabilità.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Come aggiornare le proprietà globali del set di scalabilità

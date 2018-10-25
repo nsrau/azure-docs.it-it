@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 39745991f7ab3b181f892bbaa59283d92737ecf3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3ba8919a499da0db8e2deb626d8cf4d5067c1c25
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093874"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069178"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Sviluppare Funzioni di Azure con Visual Studio  
 
@@ -96,7 +96,7 @@ Per impostare la stringa di connessione dell'account di archiviazione:
 
 3. Ripetere il passaggio precedente per aggiungere chiavi univoche alla matrice di **Valori** per tutte le altre connessioni richieste dalle funzioni.
 
-## <a name="create-a-function"></a>Creare una funzione
+## <a name="add-a-function-to-your-project"></a>Aggiungere una funzione al progetto
 
 Nelle funzioni precompilate le associazioni usate dalla funzione sono definite tramite l'applicazione di attributi nel codice. Quando si usa Azure Functions Tools per creare le funzioni dai modelli forniti, questi attributi vengono applicati automaticamente. 
 
@@ -171,7 +171,9 @@ Per testare la funzione premere F5. Se viene visualizzata, accettare la richiest
 
 Con il progetto in esecuzione, è possibile testare il codice come si fa con una funzione distribuita. Per altre informazioni, vedere [Strategie per il test del codice in Funzioni di Azure](functions-test-a-function.md). Durante l'esecuzione in modalità di debug, i punti di interruzione vengono raggiunti in Visual Studio come previsto. 
 
-Per un esempio di come testare una funzione attivata da una coda, vedere l'[esercitazione di avvio rapido alle funzioni attivate da code](functions-create-storage-queue-triggered-function.md#test-the-function).  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 Per altre informazioni sull'utilizzo degli strumenti di base di Funzioni di Azure, vedere [Come scrivere codice per le funzioni di Azure e testarle in locale](functions-run-local.md).
 
@@ -196,6 +198,20 @@ Questa operazione visualizza la finestra di dialogo **Impostazioni applicazione*
 * [Uso del portale di Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Uso dell'opzione di pubblicazione `--publish-local-settings` negli strumenti principali di Funzioni di Azure](functions-run-local.md#publish).
 * [Uso dell'interfaccia della riga di comando di Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+
+## <a name="monitoring-functions"></a>Monitoraggio delle funzioni
+
+È consigliabile monitorare l'esecuzione della funzione in Azure tramite l'integrazione con Azure Application Insights. Quando si crea un'app per le funzioni nel portale di Azure, questa integrazione avviene automaticamente per impostazione predefinita. Tuttavia, quando si crea l'app per le funzioni durante la pubblicazione di Visual Studio, l'integrazione nell'app per le funzioni in Azure non viene eseguita. Al contrario, si otterrà la funzionalità di registrazione predefinita, che non è consigliata.
+
+Per abilitare Application Insights per l'app per le funzioni in Azure:
+
+1. Creare un'istanza di Application Insights nel [portale di Azure](https://portal.azure.com) e copiare la chiave di strumentazione. Per informazioni, vedere [Connettere manualmente una risorsa di App Insights](functions-monitoring.md#manually-connect-an-app-insights-resource).  
+
+1. Aggiungere un'impostazione dell'app denominata `APPINSIGHTS_INSTRUMENTATIONKEY` alle impostazioni dell'app per le funzioni in Azure, come descritto in [Impostazioni dell'app per le funzioni](#function-app-settings). Questa impostazione dell'app contiene la chiave di strumentazione che è stata creata nel passaggio precedente.
+
+1. Rimuovere l'impostazione dell'app `AzureWebJobsDashboard` dall'app per le funzioni in Azure, che disabilita la registrazione predefinita.  
+
+Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

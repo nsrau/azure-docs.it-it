@@ -12,25 +12,35 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159942"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377941"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gestire lo spazio file nel database SQL di Azure
 Questo articolo descrive i diversi tipi di spazio di archiviazione nel database SQL di Azure e le operazioni che è possibile eseguire quando lo spazio file allocato per i database e i pool elastici deve essere gestito esplicitamente.
 
 ## <a name="overview"></a>Panoramica
 
-Nel database SQL di Azure, la maggior parte delle metriche per lo spazio di archiviazione visualizzate nel portale di Azure e le API seguenti misura il numero di pagine di dati usate per i database e i pool elastici:
+Nel database SQL di Azure sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate. Questa condizione si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati. Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.
+
+Può essere necessario monitorare l'utilizzo dello spazio file e compattare i file di dati per:
+- Consentire l'aumento delle dimensioni dei dati in un pool elastico quando lo spazio file allocato per i relativi database raggiunge le dimensioni massime del pool.
+- Consentire la riduzione delle dimensioni massime di un database singolo o di un pool elastico.
+- Consentire il passaggio di un database singolo o di un pool elastico a un livello di servizio o a un livello di prestazioni diverso con dimensioni massime inferiori.
+
+### <a name="monitoring-file-space-usage"></a>Monitoraggio dell'utilizzo dello spazio file
+La maggior parte delle metriche per lo spazio di archiviazione visualizzate nel portale di Azure e delle API seguenti misura solo le dimensioni delle pagine di dati usate:
 - API per le metriche basate su Azure Resource Manager tra cui [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) di PowerShell
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+Le API seguenti misurano invece anche le dimensioni dello spazio allocato per i database e i pool elastici:
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Sono disponibili modelli di carico di lavoro in cui l'allocazione dei file di dati sottostanti per i database può superare la quantità di pagine di dati usate.  Questo problema si può verificare quando lo spazio usato aumenta e i dati vengono successivamente eliminati.  Ciò è dovuto al fatto che lo spazio file allocato non viene recuperato automaticamente quando i dati vengono eliminati.  In questi scenari lo spazio allocato per un database o un pool potrebbe superare i limiti supportati e potrebbe impedire la crescita dei dati o le modifiche al livello di servizio e alla dimensione di calcolo e richiedere quindi la compattazione dei file di dati per l'attenuazione.
+### <a name="shrinking-data-files"></a>Compattazione dei file di dati
 
 Il servizio database SQL non compatta automaticamente i file di dati per recuperare spazio allocato non usato a causa del potenziale impatto sulle prestazioni dei database.  I clienti possono tuttavia compattare i file di dati in modalità self-service quando preferiscono, seguendo la procedura illustrata in [Recuperare lo spazio allocato non usato](#reclaim-unused-allocated-space). 
 
@@ -100,7 +110,7 @@ La comprensione delle quantità di spazio di archiviazione seguenti è important
 |**Spazio dati usato**|Somma dello spazio dati usato da tutti i database nel pool elastico.||
 |**Spazio dati allocato**|Somma dello spazio dati allocato da tutti i database nel pool elastico.||
 |**Spazio dati allocato ma non usato**|Differenza tra la quantità di spazio dati allocato e lo spazio dati usato da tutti i database nel pool elastico.|Questa quantità rappresenta la quantità massima di spazio allocato per il pool elastico che può essere recuperata compattando i file di dati del database.|
-|**Dimensioni massime dei dati**|Quantità massima di spazio dati che può essere usata dal pool elastico per tutti i rispettivi database.|Lo spazio allocato per il pool elastico non deve superare le dimensioni massime del pool elastico.  Se si verifica tale situazione, lo spazio allocato e non usato può essere recuperato compattando i file di dati del database.|
+|**Dimensioni massime dei dati**|Quantità massima di spazio dati che può essere usata dal pool elastico per tutti i rispettivi database.|Lo spazio allocato per il pool elastico non deve superare le dimensioni massime del pool elastico.  Se si verifica questa condizione, lo spazio allocato e non usato può essere recuperato compattando i file di dati del database.|
 ||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Eseguire una query su un pool elastico per ottenere informazioni sullo spazio di archiviazione
@@ -191,17 +201,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Recuperare lo spazio allocato non usato
 
-Dopo l'identificazione dei database per il recupero di spazio allocato non usato, modificare il comando seguente per compattare i file di dati per ogni database.
+### <a name="dbcc-shrink"></a>Compattazione tramite DBCC
+
+Dopo l'identificazione dei database per il recupero di spazio allocato non usato, modificare il nome del database nel comando seguente per compattare i file di dati di ogni database.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+Questo comando può influire sulle prestazioni del database mentre è in esecuzione e quindi, se possibile, dovrebbe essere eseguito in periodi di utilizzo ridotto.  
+
 Per altre informazioni su questo comando, vedere [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
-> [!IMPORTANT] 
-> Prendere in considerazione la ricompilazione degli indici di database dopo la compattazione dei file di dati del database, in quanto gli indici possono diventare frammentati e perdere l'efficacia di ottimizzazione delle prestazioni. Se ciò si verifica, è necessario ricompilare gli indici. Per altre informazioni sulla frammentazione e sulla ricompilazione degli indici, vedere [Riorganizzare e ricompilare gli indici](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+### <a name="auto-shrink"></a>Compattazione automatica
+
+In alternativa, è possibile abilitare la compattazione automatica per un database.  La compattazione automatica riduce la complessità della gestione dei file e il suo impatto sulle prestazioni del database è inferiore rispetto a SHRINKDATABASE o SHRINKFILE.  Può essere particolarmente utile per la gestione dei pool elastici con molti database.  È però meno efficace nel recupero dello spazio file rispetto a SHRINKDATABASE e SHRINKFILE.
+Per abilitare la compattazione automatica, modificare il nome del database nel comando seguente.
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+Per altre informazioni su questo comando, vedere [Opzioni ALTER DATABASE SET](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017). 
+
+### <a name="rebuild-indexes"></a>Ricompilazione degli indici
+
+Dopo la compattazione dei file di dati del database, gli indici possono diventare frammentati e perdere l'efficacia di ottimizzazione delle prestazioni. In caso di riduzione del livello delle prestazioni, provare a ricompilare gli indici del database. Per altre informazioni sulla frammentazione e sulla ricompilazione degli indici, vedere [Riorganizzare e ricompilare gli indici](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

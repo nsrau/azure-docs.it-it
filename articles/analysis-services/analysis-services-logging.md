@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d19e45710aca3e1e18be6c4529da6474a97bc59f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a8d6080b573cbad1004166f28a3e6596560241be
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449099"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426516"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
@@ -193,7 +193,7 @@ Per altre informazioni sull'uso del nuovo linguaggio di query di Ricerca log, ve
 ## <a name="tutorial---turn-on-logging-by-using-powershell"></a>Esercitazione: Attivare la registrazione mediante PowerShell
 In questa esercitazione rapida vengono creati un account di archiviazione nella stessa sottoscrizione e un gruppo di risorse come server di Analysis Services. Viene poi usato il cmdlet Set-AzureRmDiagnosticSetting per attivare la registrazione diagnostica e inviare i risultati al nuovo account di archiviazione.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione, sono necessarie le risorse seguenti:
 
 * Un server di Azure Analysis Services esistente. Per istruzioni sulla creazione di una risorsa del server, vedere [Creare un server nel portale di Azure](analysis-services-create-server.md) o [Creare un server Azure Analysis Services tramite PowerShell](analysis-services-create-powershell.md).

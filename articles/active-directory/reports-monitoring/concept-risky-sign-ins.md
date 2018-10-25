@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4546734cd1b5bf2f4aaddc6477310128c9e62d51
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 38ae18dca08b50a90102149d7e44169c956a1c0e
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42142342"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869636"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Report degli accessi a rischio nel portale di Azure Active Directory
 
@@ -29,14 +29,23 @@ Azure AD rileva le azioni sospette correlate agli account utente. Per ogni azion
 
 Gli eventi di rischio rilevati vengono usati per calcolare:
 
-- **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. Per informazioni dettagliate, vedere [Accessi a rischio](../identity-protection/overview.md#risky-sign-ins). 
+- **Accessi a rischio**. Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. Per altre informazioni, vedere [Come configurare i criteri di rischio di accesso](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per informazioni dettagliate, vedere [Utenti contrassegnati per il rischio](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Utenti contrassegnati per il rischio**. Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. Per altre informazioni, vedere [Come configurare i criteri di rischio utente](../identity-protection/howto-user-risk-policy.md).  
 
 I report di sicurezza sono disponibili nel [portale di Azure](https://portal.azure.com) nel pannello **Azure Active Directory**, sezione **Sicurezza**. 
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/10.png)
 
+## <a name="who-can-access-the-risky-sign-ins-report"></a>Chi può accedere al report sugli accessi a rischio?
+
+I report sugli accessi a rischio sono disponibili agli utenti nei seguenti ruoli:
+
+- Amministratore della sicurezza
+- Amministratore globale
+- Ruolo con autorizzazioni di lettura per la sicurezza
+
+Per informazioni su come assegnare ruoli amministrativi a un utente in Azure Active Directory, vedere [Visualizzare e assegnare i ruoli di amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
 ## <a name="what-azure-ad-license-do-you-need-to-access-a-security-report"></a>Licenza di Azure AD necessaria per accedere a un report sulla sicurezza  
 
@@ -48,8 +57,6 @@ Tuttavia, il livello di granularità dei report varia a seconda delle edizioni:
 - Nell'edizione **Azure Active Directory Premium 1** questo modello consente anche di esaminare alcuni degli eventi di rischio sottostanti che sono stati rilevati per ogni report. 
 
 - L'edizione **Azure Active Directory Premium 2** offre informazioni più dettagliate su tutti gli eventi di rischio sottostanti e permette anche di configurare criteri di sicurezza che rispondono automaticamente a livelli di rischio configurati.
-
-
 
 ## <a name="azure-active-directory-free-and-basic-edition"></a>Versione gratuita e di base di Azure Active Directory
 
@@ -73,7 +80,7 @@ In base all'analisi dell'accesso a rischio è possibile inviare feedback ad Azur
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/21.png)
 
-Per informazioni dettagliate, vedere [Chiusura manuale degli eventi di rischio](../identity-protection/overview.md#closing-risk-events-manually).
+
 
 Questo report offre la possibilità di:
 
@@ -98,13 +105,13 @@ Il report degli accessi a rischio della versione Premium di Azure Active Directo
 
 Quando si seleziona un evento di rischio, si ottiene la visualizzazione di un report dettagliato per questo evento di rischio che consente di:
 
-- avere un'opzione per configurare i [criteri per la correzione del rischio per gli utenti](../identity-protection/overview.md#user-risk-security-policy)  
+- avere un'opzione per configurare i [criteri per la correzione del rischio per gli utenti](../identity-protection/howto-user-risk-policy.md)  
 
 - esaminare la cronologia di rilevamento per l'evento di rischio  
 
 - esaminare l'elenco di utenti per cui è stato rilevato l'evento di rischio
 
-- [chiudere manualmente gli eventi di rischio](../identity-protection/overview.md#closing-risk-events-manually) o riattivare un evento di rischio chiuso manualmente. 
+- chiudere manualmente gli eventi di rischio. 
 
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/457.png)
@@ -124,7 +131,7 @@ Quando si seleziona un utente, si ottiene la visualizzazione di un report dettag
 
 
 Per ricercare la causa di un evento di rischio, selezionarlo dall'elenco.  
-Verrà visualizzato il pannello **Dettagli** per questo evento di rischio. Nel pannello **Dettagli**, è possibile [chiudere manualmente un evento di rischio](../identity-protection/overview.md#closing-risk-events-manually) o riattivare un evento di rischio chiuso manualmente. 
+Verrà visualizzato il pannello **Dettagli** per questo evento di rischio. Nel pannello **Dettagli**, è possibile chiudere manualmente un evento di rischio o riattivare un evento di rischio chiuso manualmente. 
 
 
 ![Accessi a rischio](./media/concept-risky-sign-ins/325.png)

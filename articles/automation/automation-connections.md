@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d9dbf816d4fd0d9f6044ebeea9a23a60adcc5bc8
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038174"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044604"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Asset di connessione in Automazione di Azure
 
@@ -45,7 +45,7 @@ Le attività incluse nella tabella seguente vengono usate per accedere alle conn
 |[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Ottiene una connessione da usare. Restituisce una tabella hash con le proprietà della connessione.|
 
 >[!NOTE] 
->È consigliabile evitare di usare le variabili con il parametro –Name di **Get- AutomationConnection** , poiché ciò può complicare l'individuazione delle dipendenze tra i Runbook o configurazioni DSC e gli asset di connessione durante la fase di progettazione.
+>È consigliabile evitare di usare le variabili con il parametro –Name di **Get- AutomationConnection**, poiché ciò può complicare l'individuazione delle dipendenze tra i Runbook o configurazioni DSC e gli asset di connessione durante la fase di progettazione.
 
  
 ## <a name="python2-functions"></a>Funzioni Python2 
@@ -84,7 +84,7 @@ New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAcc
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Uso di una connessione in un Runbook o in una configurazione DSC
 
-Il cmdlet **Get-AutomationConnection** permette di recuperare una connessione in un Runbook o in una configurazione DSC.  Non è possibile usare l'attività [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn).  Questa attività recupera i valori dei diversi campi nella connessione e li restituisce come [tabella hash](http://go.microsoft.com/fwlink/?LinkID=324844) , che può essere quindi usata con i comandi appropriati nel Runbook o nella configurazione DSC.
+Il cmdlet **Get-AutomationConnection** permette di recuperare una connessione in un Runbook o in una configurazione DSC.  Non è possibile usare l'attività [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection).  Questa attività recupera i valori dei diversi campi nella connessione e li restituisce come [tabella hash](http://go.microsoft.com/fwlink/?LinkID=324844) , che può essere quindi usata con i comandi appropriati nel Runbook o nella configurazione DSC.
 
 ### <a name="textual-runbook-sample"></a>Esempio di Runbook testuale
 

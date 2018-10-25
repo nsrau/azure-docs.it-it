@@ -1,0 +1,37 @@
+---
+title: Come modificare le impostazioni predefinite per la durata del token per un'applicazione personalizzata | Microsoft Docs
+description: Informazioni su come aggiornare i criteri di durata del token per l'applicazione che si sta sviluppando in Azure AD
+services: active-directory
+documentationcenter: ''
+author: CelesteDG
+manager: mtillman
+ms.assetid: ''
+ms.service: active-directory
+ms.component: app-mgmt
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 09/11/2018
+ms.author: celested
+ms.openlocfilehash: 4a730c340ea4d1e1137a7449c6d1005ea59917bf
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814009"
+---
+# <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>Come modificare le impostazioni predefinite per la durata del token per un'applicazione personalizzata
+
+Azure AD Premium consente agli sviluppatori di app e agli amministratori di tenant di configurare la durata dei token emessi per i client non riservati. I criteri di durata dei token vengono impostati a livello di tenant o per le risorse a cui si accede.
+
+1. Per impostare i criteri di durata del token, è necessario scaricare il [modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Eseguire il comando **Connect-AzureAD -Confirm**.
+
+    Un esempio di criteri che impostano il token di aggiornamento di un singolo fattore di età massima è riportato di seguito. Creare i criteri: ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Vedere [Durate dei token configurabile in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) per informazioni su come configurare la durata dei token emessi da Azure AD, tra cui come impostare la durata dei token per tutte le app di un'organizzazione, per un'applicazione multi-tenant o per un'entità servizio specifica in un'organizzazione. 
+* [Riferimento al token Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+

@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0ac19ec18c443f677260ba22b6bce1c06237fb2e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405921"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816431"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -93,7 +93,43 @@ Per gli avvisi delle metriche si riceve in genere una notifica in meno di 5 minu
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>Tipi di risorse supportati per gli avvisi delle metriche
 
-L'elenco completo dei tipi di risorse supportati è disponibile in questo [articolo](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)
+L'elenco completo dei tipi di risorse supportati è disponibile in questo [articolo](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+Se si usano avvisi delle metriche classici e si vuole verificare se gli avvisi delle metriche supportano tutti i tipi di risorsa usati, nella tabella seguente sono elencati i tipi di risorsa supportati dagli avvisi delle metriche classici e viene indicato se tali tipi di risorsa sono attualmente supportati dagli avvisi delle metriche oppure no.
+
+|Tipo di risorsa supportato da avvisi delle metriche classici | Supportato dagli avvisi delle metriche |
+|-------------------------------------------------|----------------------------|
+| Microsoft.ApiManagement/service | Yes |
+| Microsoft.Batch/batchAccounts| Yes|
+|Microsoft.Cache/redis| Yes
+|Microsoft.ClassicCompute/virtualMachines | No  |
+|Microsoft.ClassicCompute/domainNames/slots/roles | No |
+|Microsoft.CognitiveServices/accounts | No  |
+|Microsoft.Compute/virtualMachines | Yes|
+|Microsoft.Compute/virtualMachineScaleSets| Yes|
+|Microsoft.ClassicStorage/storageAccounts| No  |
+|Microsoft.DataFactory/datafactories | Yes|
+|Microsoft.DBforMySQL/servers| Yes|
+|Microsoft.DBforPostgreSQL/servers| Yes|
+|Microsoft.Devices/IotHubs | No |
+|Microsoft.DocumentDB/databaseAccounts| No |
+|Microsoft.EventHub/namespaces | Yes|
+|Microsoft.Logic/workflows | Yes|
+|Microsoft.Network/loadBalancers |Yes|
+|Microsoft.Network/publicIPAddresses| Yes|
+|Microsoft.Network/applicationGateways| Yes|
+|Microsoft.Network/expressRouteCircuits| Yes|
+|Microsoft.Network/trafficManagerProfiles | Yes|
+|Microsoft.Search/searchServices | No |
+|Microsoft.ServiceBus/namespaces| No |
+|Microsoft.Storage/storageAccounts | Yes|
+|Microsoft.StreamAnalytics/streamingjobs| Yes|
+|Microsoft.TimeSeriesInsights/environments | Yes|
+|Microsoft. Web/serverfarms | Yes |
+|Microsoft. Web/sites (escluse le funzioni) | Yes|
+|Microsoft. Web/hostingEnvironments/multiRolePools | No |
+|Microsoft. Web/hostingEnvironments/workerPools| No 
+|Microsoft.SQL/Servers | No |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

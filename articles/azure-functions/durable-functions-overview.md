@@ -3,23 +3,19 @@ title: Panoramica di Funzioni permanenti - Azure
 description: Introduzione all'estensione Funzioni permanenti per Funzioni di Azure.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 79ffa541d16212b21d20a238465a846fad5e4902
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627407"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237926"
 ---
 # <a name="durable-functions-overview"></a>Panoramica di Funzioni permanenti
 
@@ -70,7 +66,7 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const x = yield ctx.df.callActivityAsync("F1");
     const y = yield ctx.df.callActivityAsync("F2", x);
     const z = yield ctx.df.callActivityAsync("F3", y);
@@ -118,7 +114,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 ```js
 const df = require("durable-functions");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const parallelTasks = [];
 
     // get a list of N work items to process in parallel
@@ -239,7 +235,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require("moment");
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     const jobId = ctx.df.getInput();
     const pollingInternal = getPollingInterval();
     const expiryTime = getExpiryTime();
@@ -304,7 +300,7 @@ public static async Task Run(DurableOrchestrationContext ctx)
 const df = require("durable-functions");
 const df = require('moment');
 
-module.exports = df(function*(ctx) {
+module.exports = df.orchestrator(function*(ctx) {
     yield ctx.df.callActivityAsync("RequestApproval");
 
     const dueTime = moment.utc(ctx.df.currentUtcDateTime).add(72, 'h');
@@ -338,7 +334,7 @@ L'estensione Funzioni durevoli è basata su [Durable Task Framework](https://git
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>Origine eventi, impostazione di checkpoint e riesecuzione
 
-Le funzioni di orchestrazione mantengono in modo affidabile il proprio stato di esecuzione usando un modello di progettazione cloud noto come [Origine eventi](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Anziché archiviare direttamente lo stato *corrente* di un'orchestrazione, l'estensione Funzioni permanenti usa un archivio di solo accodamento per registrare la *serie completa di azioni* eseguita dall'orchestrazione di funzioni. Questo offre numerosi vantaggi, tra cui il miglioramento delle prestazioni, della scalabilità e della velocità di risposta rispetto al dump completo dello stato di runtime. Inoltre, consente di garantire coerenza finale ai dati transazionali e mantenere dati di cronologia e audit trail completi, che consentono di eseguire azioni di compensazione affidabili.
+Le funzioni di orchestrazione mantengono in modo affidabile il proprio stato di esecuzione usando uno schema progettuale noto come [Origine eventi](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). Anziché archiviare direttamente lo stato *corrente* di un'orchestrazione, l'estensione Funzioni permanenti usa un archivio di solo accodamento per registrare la *serie completa di azioni* eseguita dall'orchestrazione di funzioni. Questo offre numerosi vantaggi, tra cui il miglioramento delle prestazioni, della scalabilità e della velocità di risposta rispetto al dump completo dello stato di runtime. Inoltre, consente di garantire coerenza finale ai dati transazionali e mantenere dati di cronologia e audit trail completi, che consentono di eseguire azioni di compensazione affidabili.
 
 L'uso dell'origine eventi da parte di questa estensione è trasparente. Dietro le quinte, l'operatore `await` in una funzione di orchestrazione restituisce il controllo del thread di orchestrazione al dispatcher di Durable Task Framework. Il dispatcher quindi esegue il commit di eventuali nuove azioni pianificate dalla funzione di orchestrazione (ad esempio, la chiamata di una o più funzioni figlio o la pianificazione di un timer permanente) in un archivio. Questa azione di commit trasparente viene accodata alla *cronologia di esecuzione* dell'istanza di orchestrazione. La cronologia viene archiviata in una tabella di archiviazione. L'azione di commit aggiunge quindi messaggi a una coda per pianificare le operazioni effettive. A questo punto, la funzione di orchestrazione può essere scaricata dalla memoria. Se si usa il piano a consumo di Funzioni di Azure, la fatturazione per la funzione si interrompe.  Quando ci sono altre operazioni da eseguire, la funzione viene riavviata e il relativo stato viene ricostruito.
 
@@ -373,6 +369,8 @@ L'estensione Funzioni permanenti usa code, tabelle e BLOB di Archiviazione di Az
 Le funzioni di orchestrazione pianificano le funzioni attività e ricevono le relative risposte tramite messaggi di coda interni. Quando si esegue un'app per le funzioni nel piano a consumo di Funzioni di Azure, le code vengono monitorate dal [controller di scalabilità di Funzioni di Azure](functions-scale.md#how-the-consumption-plan-works) e nuove istanze di calcolo vengono aggiunte in base alle esigenze. Quando viene scalata orizzontalmente a più macchine virtuali, una funzione di orchestrazione può essere eseguita in una sola macchina virtuale mentre le funzioni attività da essa chiamate vengono eseguite su più macchine virtuali diverse. Per altre informazioni sul comportamento di scalabilità di Funzioni permanenti, vedere [Scalabilità e prestazioni](durable-functions-perf-and-scale.md).
 
 Per archiviare la cronologia di esecuzione per gli account dell'agente di orchestrazione viene usata l'archiviazione tabelle. Ogni volta che un'istanza viene riattivata in una determinata macchina virtuale, recupera la cronologia di esecuzione dall'archiviazione tabelle in modo da poter ricompilare il suo stato locale. Uno degli aspetti utili della disponibilità della cronologia nell'archiviazione tabelle è che consente di esaminare la cronologia delle orchestrazioni tramite strumenti come [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+
+I BLOB di archiviazione vengono usati principalmente come meccanismo di leasing per coordinare lo scale-out delle istanze di orchestrazione tra più macchine virtuali, nonché per contenere dati di messaggi di grandi dimensioni che non possono essere archiviati direttamente in tabelle o code.
 
 ![Screenshot di Azure Storage Explorer](media/durable-functions-overview/storage-explorer.png)
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 10/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 9b467fa966c2a785677f47faaa4bb8bd3ed238e2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 37d20eabfc8fb883cda346dc8b55a17b8b959218
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427602"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268175"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>Esercitazione: Integrazione di Azure Active Directory con Zendesk
 
@@ -50,31 +50,34 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 - Se non è disponibile un ambiente di valutazione di Azure AD, è possibile [ottenere una versione di valutazione di un mese](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
+
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di Zendesk dalla raccolta
-1. Configurazione e test dell'accesso Single Sign-On di Azure AD
+2. Configurazione e test dell'accesso Single Sign-On di Azure AD
 
 ## <a name="adding-zendesk-from-the-gallery"></a>Aggiunta di Zendesk dalla raccolta
+
 Per configurare l'integrazione di Zendesk in Azure AD, è necessario aggiungerla dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Zendesk dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
-    ![Pulsante Azure Active Directory][1]
+    ![image](./media/zendesk-tutorial/selectazuread.png)
 
-1. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Pannello Applicazioni aziendali][2]
+    ![image](./media/zendesk-tutorial/a_select_app.png)
     
-1. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
+3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Pulsante Nuova applicazione][3]
+    ![image](./media/zendesk-tutorial/a_new_app.png)
 
-1. Nella casella di ricerca digitare **Zendesk**, selezionare **Zendesk** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Zendesk**, selezionare **Zendesk** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Zendesk nell'elenco risultati](./media/zendesk-tutorial/tutorial_zendesk_addfromgallery.png)
+     ![image](./media/zendesk-tutorial/a_add_app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -87,10 +90,10 @@ Per stabilire la relazione di collegamento, in Zendesk assegnare il valore di **
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Zendesk, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creare un utente di test di Zendesk](#create-a-zendesk-test-user)**: per avere una controparte di Britta Simon in Zendesk collegata alla relativa rappresentazione in Azure AD dell'utente.
-1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creare un utente di test di Zendesk](#create-a-zendesk-test-user)**: per avere una controparte di Britta Simon in Zendesk collegata alla relativa rappresentazione in Azure AD dell'utente.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -98,115 +101,144 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 **Per configurare Single Sign-On di Azure AD con Zendesk, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **Zendesk** del portale di Azure fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Zendesk** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-    ![Collegamento Configura accesso Single Sign-On][4]
+    ![image](./media/zendesk-tutorial/b1_b2_select_sso.png)
 
-1. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Finestra di dialogo Single Sign-On](./media/zendesk-tutorial/tutorial_zendesk_samlbase.png)
+2. Fare clic su **Modifica modalità Single Sign-On** nella parte superiore della schermata per selezionare la modalità **SAML**.
 
-1. Nella sezione **Zendesk Domain and URLs** (URL e dominio Zendesk) seguire questa procedura:
+      ![image](./media/zendesk-tutorial/b1_b2_saml_ssso.png)
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Zendesk](./media/zendesk-tutorial/tutorial_zendesk_url.png)
+3. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** fare clic su **Seleziona** per la modalità **SAML** per abilitare il Single Sign-On.
 
-    a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<subdomain>.zendesk.com`
+    ![image](./media/zendesk-tutorial/b1_b2_saml_sso.png)
 
-    b. Nella casella di testo **Identificatore** digitare il valore adottando il modello seguente: `<subdomain>.zendesk.com`
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+
+    ![image](./media/zendesk-tutorial/b1-domains_and_urlsedit.png)
+
+5. Nella sezione **Configurazione SAML di base** seguire questa procedura:
+
+    a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<subdomain>.zendesk.com`.
+
+    b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `<subdomain>.zendesk.com`.
+
+    ![image](./media/zendesk-tutorial/b1-domains_and_urls.png)
 
     > [!NOTE] 
     > Poiché questi non sono i valori reali, Aggiornare questi valori con l'identificatore e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto del client Zendesk](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise).
 
-1. Nella sezione **Certificato di firma SAML** copiare il valore **IDENTIFICAZIONE PERSONALE** del certificato.
+6. Zendesk prevede che le asserzioni SAML abbiano un formato specifico. Non vi sono attributi SAML obbligatori ma, facoltativamente, è possibile aggiungere un attributo dalla sezione **Attributi utente** della pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
-    ![Collegamento di download del certificato](./media/zendesk-tutorial/tutorial_zendesk_certificate.png)
+    ![image](./media/zendesk-tutorial/i4-attribute.png)
 
-1. Zendesk prevede che le asserzioni SAML abbiano un formato specifico. Non sono presenti attributi SAML obbligatori ma facoltativamente è possibile aggiungere un attributo dalla sezione **Attributi utente** sezione seguendo questa procedura: 
+7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-     ![Configure Single Sign-On](./media/zendesk-tutorial/tutorial_zendesk_attributes1.png)
+    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
+    ![image](./media/zendesk-tutorial/i2-attribute.png)
 
-    ![Configurare l'aggiunta dell'accesso Single Sign-On](./media/zendesk-tutorial/tutorial_attribute_04.png)
-
-    ![Configurare l'aggiunta dell'attributo Single Sign-On](./media/zendesk-tutorial/tutorial_attribute_05.png)
-
+    ![image](./media/zendesk-tutorial/i3-attribute.png)
+    
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
-    c. Nell'elenco **Valore** digitare il valore dell'attributo indicato per la riga.
+    c. Lasciare vuota la casella **Spazio dei nomi**.
+
+    d. Per Origine selezionare **Attributo**.
     
-    d. Fare clic su **OK**.
+    e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
+    
+    f. Fare clic su **Ok**
+
+    g. Fare clic su **Save**.
 
     > [!NOTE]
     > Usare gli attributi dell'estensione per aggiungere attributi che non sono in Azure AD per impostazione predefinita. Fare clic su [User attributes that can be set in SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-) (Attributi utente che possono essere impostati in SAML) per ottenere l'elenco completo degli attributi accettati da **Zendesk**.
 
-1. Fare clic sul pulsante **Salva** .
+8. Nella sezione **Certificato di firma SAML** copiare l'**Identificazione digitale** e salvarla nel computer.
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/zendesk-tutorial/tutorial_general_400.png)
+    ![image](./media/zendesk-tutorial/C3_certificate.png)
 
-1. Nella sezione **Zendesk Configuration** (Configurazione di Zendesk) fare clic su **Configure Zendesk** (Configura Zendesk) per aprire la finestra **Configura accesso**. Copiare l'**URL servizio Single Sign-On SAML e l'URL di disconnessione** dalla sezione **Riferimento rapido**.
+    a. Selezionare l'opzione appropriata per **Opzione di firma**, se necessario.
 
-    ![Configurazione di Zendesk](./media/zendesk-tutorial/tutorial_zendesk_configure.png) 
+    b. Selezionare l'opzione appropriata per **Algoritmo di firma**, se necessario.
 
-1. In un'altra finestra del Web browser accedere al sito aziendale di Zendesk come amministratore.
+    c. Fare clic su **Save**
 
-1. Fare clic su **Admin**.
+9. Nella sezione **Set up Zendesk** (Configura Zendesk) fare clic su **Visualizzare le istruzioni dettagliate** per aprire la finestra **Configura accesso**. Copiare gli URL sottostanti dalla sezione **Riferimento rapido**.
 
-1. Nel riquadro di spostamento sinistro fare clic su **Impostazioni** e quindi su **Sicurezza**.
+    La descrizione dell'URL potrebbe essere:
 
-1. Nella pagina **Sicurezza** eseguire la procedura seguente: 
+    a. SAML Single Sign-On Service URL (URL servizio Single Sign-On SAML)
 
-     ![Sicurezza](./media/zendesk-tutorial/ic773089.png "Sicurezza")
+    b. ID entità
 
-    ![Single Sign-On](./media/zendesk-tutorial/ic773090.png "Single Sign-On")
+    c. Sign-Out URL (URL di disconnessione)
 
-     a. Fare clic sulla scheda **Amministratore e agenti**.
+    ![image](./media/zendesk-tutorial/d1_saml.png) 
 
-     b. Selezionare **Single sign-on (SSO) e SAML** e quindi **SAML**.
+10. Esistono due modi per configurare Zendesk: automaticamente e manualmente.
+  
+11. Per automatizzare la configurazione all'interno di Zendesk, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installare l'estensione**.
 
-     c. Nella casella di testo **SAML SSO URL** (URL SSO SAML) incollare il valore dell'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure. 
+    ![image](./media/zendesk-tutorial/install_extension.png)
 
-     d. Nella casella di testo **Remote Log Out URL** (URL di disconnessione remota) incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
+12. Dopo aver aggiunto l'estensione al browser, fare clic su **Setup Zendesk** (Configura Zendesk) per passare direttamente all'applicazione Zendesk. Da qui, fornire le credenziali di amministratore per accedere a Zendesk. L'estensione del browser configurerà automaticamente l'applicazione per l'utente e automatizzerà il passaggio 13.
 
-     e. Nella casella di testo **Certificate Fingerprint** (Impronta digitale certificato) incollare il valore **Identificazione personale** del certificato copiato dal portale di Azure.
+     ![image](./media/zendesk-tutorial/d2_saml.png) 
 
-     f. Fare clic su **Save**.
+13. Se si vuole configurare manualmente Zendesk, aprire una nuova finestra del Web browser, accedere al sito aziendale di Zendesk come amministratore e seguire questa procedura:
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+    * Fare clic su **Admin**.
+
+    * Nel riquadro di spostamento sinistro fare clic su **Impostazioni** e quindi su **Sicurezza**.
+
+    * Nella pagina **Sicurezza** eseguire la procedura seguente:
+
+      ![Sicurezza](././media/zendesk-tutorial/ic773089.png "Sicurezza")
+
+      ![Single Sign-On](././media/zendesk-tutorial/ic773090.png "Single Sign-On")
+
+      a. Fare clic sulla scheda **Amministratore e agenti**.
+
+      b. Selezionare **Single sign-on (SSO) e SAML** e quindi **SAML**.
+
+      c. Nella casella di testo **SAML SSO URL** (URL SSO SAML) incollare il valore dell'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure.
+
+      d. Nella casella di testo **Remote Log Out URL** (URL di disconnessione remota) incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
+
+      e. Nella casella di testo **Certificate Fingerprint** (Impronta digitale certificato) incollare il valore **Identificazione personale** del certificato copiato dal portale di Azure.
+
+      f. Fare clic su **Save**.
+
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-   ![Creare un utente test di Azure AD][100]
+1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory**, selezionare **Utenti** e quindi selezionare **Tutti gli utenti**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![image](./media/zendesk-tutorial/d_users_and_groups.png)
 
-1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Pulsante Azure Active Directory](./media/zendesk-tutorial/create_aaduser_01.png)
+    ![image](./media/zendesk-tutorial/d_adduser.png)
 
-1. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+3. In Proprietà utente seguire questa procedura.
 
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/zendesk-tutorial/create_aaduser_02.png)
+    ![image](./media/zendesk-tutorial/d_userproperties.png)
 
-1. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
 
-    ![Pulsante Aggiungi](./media/zendesk-tutorial/create_aaduser_03.png)
+    c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-1. Nella finestra di dialogo **Utente** seguire questa procedura:
-
-    ![Finestra di dialogo Utente](./media/zendesk-tutorial/create_aaduser_04.png)
-
-    a. Nella casella **Nome** digitare **BrittaSimon**.
-
-    b. Nella casella **Nome utente** digitare l'indirizzo di posta elettronica dell'utente Britta Simon.
-
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-
-    d. Fare clic su **Create**(Crea).
+    d. Selezionare **Create**.
 
 ### <a name="create-a-zendesk-test-user"></a>Creare un utente test Zendesk
 
-Questa sezione descrive come creare un utente chiamato Britta Simon in Zendesk. Zendesk supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. È possibile scoprire più dettagli [qui](zendesk-provisioning-tutorial.md) su come configurare il provisioning utenti automatico.
+Questa sezione descrive come creare un utente chiamato Britta Simon in Zendesk. Zendesk supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. È possibile scoprire più dettagli [qui](Zendesk-provisioning-tutorial.md) su come configurare il provisioning utenti automatico.
 
 **Per creare un utente manualmente, seguire questa procedura:**
 
@@ -215,14 +247,14 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Zendesk. 
 
 1. Accedere al tenant di **Zendesk** .
 
-1. Selezionare la scheda **Customer List** .
+2. Selezionare la scheda **Customer List** .
 
-1. Selezionare la scheda **User** e fare clic su **Add**.
+3. Selezionare la scheda **User** e fare clic su **Add**.
 
-    ![Aggiungere un utente](./media/zendesk-tutorial/ic773632.png "Aggiungere un utente")
-1. Digitare il **Nome** e l'**Indirizzo di posta elettronica** di un account Azure AD esistente da sottoporre a provisioning, quindi fare clic su **Salva**.
+    ![Aggiungere un utente](././media/zendesk-tutorial/ic773632.png "Aggiungere un utente")
+4. Digitare il **Nome** e l'**Indirizzo di posta elettronica** di un account Azure AD esistente da sottoporre a provisioning, quindi fare clic su **Salva**.
 
-    ![Nuovo utente](./media/zendesk-tutorial/ic773633.png "Nuovo utente")
+    ![Nuovo utente](././media/zendesk-tutorial/ic773633.png "Nuovo utente")
 
 > [!NOTE]
 > È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zendesk per eseguire il provisioning degli account utente Azure AD.
@@ -231,31 +263,25 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Zendesk. 
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zendesk.
 
-![Assegnare il ruolo utente][200]
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
-**Per assegnare Britta Simon a Zendesk, seguire questa procedura:**
+    ![image](./media/zendesk-tutorial/d_all_applications.png)
 
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
+2. Nell'elenco di applicazioni selezionare **Zendesk**.
 
-    ![Assegna utente][201]
+    ![image](./media/zendesk-tutorial/d_all_zendeskapplications.png)
 
-1. Nell'elenco di applicazioni selezionare **Zendesk**.
+3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Collegamento di Zendesk nell'elenco delle applicazioni](./media/zendesk-tutorial/tutorial_zendesk_app.png)
+    ![image](./media/zendesk-tutorial/d_leftpaneusers.png)
 
-1. Scegliere **Utenti e gruppi** dal menu a sinistra.
+4. Fare clic sul pulsante **Aggiungi** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-    ![Collegamento "Utenti e gruppi"][202]
+    ![image](./media/zendesk-tutorial/d_assign_user.png)
 
-1. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-    ![Riquadro Aggiungi assegnazione][203]
-
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
-
-1. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
-
-1. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+5. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
@@ -269,17 +295,3 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 * [Configura provisioning utenti](zendesk-provisioning-tutorial.md)
-
-<!--Image references-->
-
-[1]: ./media/zendesk-tutorial/tutorial_general_01.png
-[2]: ./media/zendesk-tutorial/tutorial_general_02.png
-[3]: ./media/zendesk-tutorial/tutorial_general_03.png
-[4]: ./media/zendesk-tutorial/tutorial_general_04.png
-
-[100]: ./media/zendesk-tutorial/tutorial_general_100.png
-
-[200]: ./media/zendesk-tutorial/tutorial_general_200.png
-[201]: ./media/zendesk-tutorial/tutorial_general_201.png
-[202]: ./media/zendesk-tutorial/tutorial_general_202.png
-[203]: ./media/zendesk-tutorial/tutorial_general_203.png

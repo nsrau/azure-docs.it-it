@@ -3,19 +3,19 @@ title: Filtri per connessioni IP di Hub eventi di Azure | Microsoft Docs
 description: Usare i filtri IP per bloccare le connessioni da indirizzi IP specifici ad Hub eventi di Azure.
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
-ms.author: shvija
-ms.openlocfilehash: 0ecce667584f522b5bd6aac28291bda427f37608
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.date: 10/08/2018
+ms.author: spelluru
+ms.openlocfilehash: c229a6f84096ecca892b74f7ce65cb831fa50be3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005353"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886178"
 ---
 # <a name="use-ip-filters"></a>Usare i filtri IP
 
@@ -48,6 +48,9 @@ Se ad esempio si vogliono accettare gli indirizzi nell'intervallo 70.37.104.0/24
 > Il rifiuto di indirizzi IP può impedire l'interazione di altri servizi di Azure (ad esempio Analisi di flusso di Azure, Macchine virtuali di Azure o Device Explorer nel portale) con Hub eventi.
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Creazione di una regola di rete virtuale con i modelli di Azure Resource Manager
+
+> [!IMPORTANT]
+> Le reti virtuali sono supportate nei livelli **standard** e **dedicato** di Hub eventi. Non sono supportate nel livello Basic. 
 
 Il modello di Resource Manager seguente consente di aggiungere una regola di rete virtuale a uno spazio dei nomi esistente di Hub eventi.
 

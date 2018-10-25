@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management per le risorse di Azure - Abilitare la gestione delle sottoscrizioni | Microsoft Docs
-description: Informazioni su come gli amministratori globali possono gestire le sottoscrizioni nel tenant.
+title: Abilitare la gestione delle sottoscrizioni nel tenant - Azure | Microsoft Docs
+description: Informazioni su come abilitare la gestione delle sottoscrizioni nel tenant quando si usa Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d7a9c0090d3bfaaf1161b6255c4c0b659c77d692
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: bcaea64484010672a53050cb806c4256a17b19a8
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620281"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901176"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Abilitare la gestione delle sottoscrizioni nel tenant
 
@@ -79,14 +79,5 @@ Ora che sono disponibili le assegnazioni idonee per le sottoscrizioni importanti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Individuare le risorse](pim-resource-roles-discover-resources.md)
-
-[Configurare le impostazioni dei ruoli](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [Individuare le risorse di Azure per la gestione in PIM](pim-resource-roles-discover-resources.md)
+- [Configurare le impostazioni dei ruoli delle risorse di Azure in PIM](pim-resource-roles-configure-role-settings.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: 7bd0737e7fb26af95eed63696d1ac07c88a9dec4
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 2216b915c47ea05d3303ca02e51e976490ea36c6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42141121"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068356"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Consigli di Advisor sulla disponibilità elevata
 
@@ -67,6 +67,10 @@ Se tutti gli endpoint in un profilo di Gestione traffico configurato per il rout
 
 Se un profilo di Gestione traffico è configurato per il routing geografico, il traffico viene instradato verso gli endpoint in base ad aree definite. Se un'area presenta anomalie, non vi sono failover predefiniti. Avere un endpoint in cui il raggruppamento di area è configurato su "Tutto (mondo)" eviterà l’interruzione del traffico e migliorerà la disponibilità del servizio. Advisor identifica i profili di Gestione traffico configurati per il routing geografico dove non vi sono endpoint configurati per avere il raggruppamento di area come "Tutto (mondo)" e raccomanda di apportare le modifiche necessarie alla configurazione.
 
+## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-in-the-event-of-accidental-overwrite-or-deletion"></a>Usare l'eliminazione temporanea nell'account di Archiviazione di Azure per salvare e ripristinare i dati in caso di sovrascrittura o eliminazione accidentale.
+
+Abilitare l'[eliminazione temporanea](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) nell'account di archiviazione per fare in modo che i BLOB eliminati passino in uno stato di eliminazione temporanea anziché essere definitivamente eliminati. Quando i dati vengono sovrascritti, viene generato uno snapshot eliminato temporaneamente in modo da salvare lo stato dei dati sovrascritti. Ciò rende possibile il recupero in caso di sovrascrittura o eliminazione accidentale. Advisor identifica gli account di Archiviazione di Azure per i quali non è abilitata l'eliminazione temporanea e suggerisce di abilitarla.
+
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Come accedere ai consigli sulla disponibilità elevata in Advisor
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e quindi aprire [Advisor](https://aka.ms/azureadvisordashboard).
@@ -78,7 +82,7 @@ Se un profilo di Gestione traffico è configurato per il routing geografico, il 
 Per altre informazioni sui consigli di Advisor, vedere:
 * [Introduction to Azure Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
 * [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
-* [Advisor Cost recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sui costi)
+* [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
 * [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
 

@@ -3,19 +3,19 @@ title: Informazioni sull'API Traduzione testuale
 titlesuffix: Azure Cognitive Services
 description: Integrare l'API Traduzione testuale in applicazioni, siti Web, strumenti e altre soluzioni per assicurare esperienze utente multilingue.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.author: erhopf
+ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385026"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645045"
 ---
 # <a name="what-is-translator-text-api"></a>Informazioni sull'API Traduzione testuale
 
@@ -35,7 +35,7 @@ Per altre informazioni, vedere il [servizio Microsoft Translator](https://www.mi
 
 Custom Translator, un'estensione del servizio core Microsoft Translator, può essere usato insieme all'API Traduzione testuale per consentire di personalizzare il sistema di traduzione neurale e di migliorare la traduzione per la terminologia e lo stile specifici.
 
-Con Custom Translator è possibile creare sistemi di traduzione che gestiscono la terminologia usata per la propria attività o azienda. Il sistema di traduzione personalizzata verrà quindi integrato facilmente in applicazioni, flussi di lavoro e siti Web esistenti, in più tipi di dispositivi, attraverso la normale API Traduzione testuale Microsoft usando il parametro di categoria. 
+Con Custom Translator è possibile creare sistemi di traduzione che gestiscono la terminologia usata per la propria attività o azienda. Il sistema di traduzione personalizzata verrà quindi integrato facilmente in applicazioni, flussi di lavoro e siti Web esistenti, in più tipi di dispositivi, attraverso la normale API Traduzione testuale Microsoft usando il parametro di categoria.
 
 Altre informazioni sulla [personalizzazione della lingua](customization.md)
 
@@ -45,7 +45,7 @@ La traduzione automatica neurale è il nuovo standard per traduzioni automatiche
 
 La traduzione automatica neurale fornisce traduzioni migliori rispetto alla traduzione automatica statistica non solo dal punto di vista della qualità della traduzione non elaborata, ma anche perché suonano più fluide e umane. La ragione principale di questa fluidità consiste nel fatto che la traduzione automatica neurale usa il contesto completo di una frase per tradurre le parole. La traduzione automatica statistica accetta solo il contesto immediato di alcune parole prima e dopo ogni parola.
 
-I modelli della traduzione automatica neurale sono alla base dell'API e non sono visibili agli utenti finali. L'unica differenza più evidente è la migliore qualità della traduzione, specialmente per lingue quali il cinese, il giapponese e l'arabo. 
+I modelli della traduzione automatica neurale sono alla base dell'API e non sono visibili agli utenti finali. L'unica differenza più evidente è la migliore qualità della traduzione, specialmente per lingue quali il cinese, il giapponese e l'arabo.
 
 Altre informazioni sul [funzionamento della traduzione automatica neurale](https://www.microsoft.com/en-us/translator/mt.aspx#nnt)
 

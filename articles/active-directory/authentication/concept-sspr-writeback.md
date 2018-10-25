@@ -5,27 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78c0864a8edd8380d30cbf0fa2284e47f3217b01
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163567"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319372"
 ---
 # <a name="what-is-password-writeback"></a>Che cos'è il writeback delle password?
 
-L'uso di un'utilità di reimpostazione delle password basata sul cloud è molto utile, ma la maggior parte delle aziende usa ancora una directory locale in cui sono presenti gli utenti. In che modo Microsoft supporta il mantenimento della tradizionale istanza locale di Active Directory (AD) in sincronia con le modifiche di password nel cloud? Il writeback delle password è una funzione abilitata con [Azure AD Connect](./../connect/active-directory-aadconnect.md) che consente di riscrivere le modifiche alle password nel cloud in una directory locale esistente in tempo reale.
+L'uso di un'utilità di reimpostazione delle password basata sul cloud è molto utile, ma la maggior parte delle aziende usa ancora una directory locale in cui sono presenti gli utenti. In che modo Microsoft supporta il mantenimento della tradizionale istanza locale di Active Directory (AD) in sincronia con le modifiche di password nel cloud? Il writeback delle password è una funzione abilitata con [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) che consente di riscrivere le modifiche alle password nel cloud in una directory locale esistente in tempo reale.
 
 Il writeback delle password è supportato in ambienti che usano:
 
-* [Active Directory Federation Services](../connect/active-directory-aadconnect-federation-management.md)
-* [Sincronizzazione dell'hash delle password](../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)
-* [Autenticazione pass-through](/../connect/active-directory-aadconnect-pass-through-authentication.md)
+* [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
+* [Sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md)
+* [Autenticazione pass-through](../hybrid/how-to-connect-pta.md)
+
+> [!WARNING]
+> Il writeback delle password non funzionerà più per i clienti che usano Azure AD Connect 1.0.8641.0 e versioni precedenti dopo il [ritiro del Servizio di controllo di accesso di Azure il 7 novembre 2018](../develop/active-directory-acs-migration.md). Azure AD Connect 1.0.8641.0 e versioni precedenti non consentiranno più il writeback delle password da quel momento perché dipendono dal Servizio di controllo di accesso di Azure per questa funzionalità.
+>
+> Per evitare interruzioni del servizio, eseguire l'aggiornamento da una versione precedente di Azure AD Connect a una versione più recente. Vedere l'articolo [Azure AD Connect: Eseguire l'aggiornamento da una versione precedente alla versione più recente](../hybrid/how-to-upgrade-previous-version.md).
+>
 
 Il writeback delle password offre:
 
@@ -37,6 +43,7 @@ Il writeback delle password offre:
 
 > [!Note]
 > Gli account utente presenti all'interno di gruppi protetti in Active Directory locale non possono essere usati con il writeback delle password. Per altre informazioni sui gruppi protetti, vedere l'articolo relativo ad [account e gruppi protetti in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+>
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisiti di licenza per il writeback delle password
 
@@ -63,28 +70,30 @@ Quando un utente federato o sincronizzato con l'hash delle password tenta di rei
 1. Viene verificato il tipo di password usato dall'utente. Se la password è gestita in locale:
    * Si verifica che il servizio di writeback sia attivo e in esecuzione. In questo caso viene consentito all'utente di continuare.
    * Se il servizio di writeback non è attivo, l'utente viene informato che la password non può essere reimpostata al momento.
-2. L'utente supera quindi i controlli di autenticazione appropriati e raggiunge la pagina **Reimposta password**.
-3. L'utente seleziona una nuova password e la conferma.
-4. Quando l'utente seleziona **Invia**, la password non crittografata viene crittografata con una chiave simmetrica creata durante il processo di installazione della funzionalità di writeback.
-5. La password crittografata viene inclusa in un payload inviato tramite un canale HTTPS al servizio Inoltro del bus di servizio specifico del tenant, che viene configurato automaticamente durante il processo di installazione della funzionalità di writeback. L'inoltro è protetto da una password generata casualmente, nota solo all'installazione locale.
-6. Dopo che il messaggio ha raggiunto il bus di servizio, l'endpoint di reimpostazione della password si attiva automaticamente e rileva la richiesta di reimpostazione in sospeso.
-7. Il servizio cerca quindi l'utente usando l'attributo di ancoraggio cloud. Affinché questa ricerca abbia esito positivo:
+1. L'utente supera quindi i controlli di autenticazione appropriati e raggiunge la pagina **Reimposta password**.
+1. L'utente seleziona una nuova password e la conferma.
+1. Quando l'utente seleziona **Invia**, la password non crittografata viene crittografata con una chiave simmetrica creata durante il processo di installazione della funzionalità di writeback.
+1. La password crittografata viene inclusa in un payload inviato tramite un canale HTTPS al servizio Inoltro del bus di servizio specifico del tenant, che viene configurato automaticamente durante il processo di installazione della funzionalità di writeback. L'inoltro è protetto da una password generata casualmente, nota solo all'installazione locale.
+1. Dopo che il messaggio ha raggiunto il bus di servizio, l'endpoint di reimpostazione della password si attiva automaticamente e rileva la richiesta di reimpostazione in sospeso.
+1. Il servizio cerca quindi l'utente usando l'attributo di ancoraggio cloud. Affinché questa ricerca abbia esito positivo:
 
    * L'oggetto utente deve esistere nello spazio connettore Active Directory.
    * L'oggetto utente deve essere collegato all'oggetto metaverse (MV) corrispondente.
    * L'oggetto utente deve essere collegato all'oggetto Azure Active Directory Connector corrispondente.
-   * Il collegamento dall'oggetto connettore di Active Directory all'oggetto MV deve avere la regola di sincronizzazione `Microsoft.InfromADUserAccountEnabled.xxx` sul collegamento. <br> <br>
+   * Il collegamento dall'oggetto connettore di Active Directory all'oggetto MV deve avere la regola di sincronizzazione `Microsoft.InfromADUserAccountEnabled.xxx` sul collegamento.
+   
    Quando la chiamata proviene dal cloud, il motore di sincronizzazione usa l'attributo **cloudAnchor** per cercare l'oggetto spazio connettore di Azure Active Directory. Quindi segue il collegamento all'oggetto MV e poi segue il collegamento che riporta all'oggetto Active Directory. Poiché possono essere presenti più oggetti Active Directory (più foreste) per lo stesso utente, il motore di sincronizzazione si basa sul collegamento `Microsoft.InfromADUserAccountEnabled.xxx` per scegliere quello corretto.
 
    > [!Note]
    > Come risultato di questa logica, affinché il writeback delle password funzioni, Azure AD Connect deve essere in grado di comunicare con l'emulatore PDC . Se è necessario abilitare manualmente questa opzione, è possibile connettere Azure AD Connect all'emulatore PDC. Fare doppio clic sulle **proprietà** del connettore di sincronizzazione di Active Directory, quindi selezionare **configure directory partitions** (configura partizioni di directory). Cercare la sezione **domain controller connection settings** (impostazioni di connessione controller di dominio) e selezionare la casella **only use preferred domain controllers** (usa solo controller di dominio preferiti). Anche se il controller di dominio preferito non è un emulatore PDC, Azure AD Connect continua a tentare una connessione al PD per il writeback delle password.
 
-8. Dopo che l'account utente è stato trovato, viene tentata la reimpostazione della password direttamente nella foresta Active Directory appropriata.
-9. Se l'operazione di impostazione della password riesce, l'utente viene informato che la password è stata modificata.
+1. Dopo che l'account utente è stato trovato, viene tentata la reimpostazione della password direttamente nella foresta Active Directory appropriata.
+1. Se l'operazione di impostazione della password riesce, l'utente viene informato che la password è stata modificata.
    > [!NOTE]
    > Se l'hash delle password dell'utente viene sincronizzato con Azure AD usando la sincronizzazione dell'hash delle password, è probabile che i criteri della password locali siano più deboli rispetto ai criteri della password cloud. In questo caso vengono applicati i criteri locali. Questi criteri garantiscono che i criteri locali siano applicati nel cloud, indipendentemente dal fatto che si usi la sincronizzazione dell'hash delle password o la federazione per il Single Sign-On.
+   >
 
-10. Se l'operazione di impostazione della password non riesce, viene restituito un messaggio di errore con la richiesta all'utente di riprovare. L'operazione potrebbe non riuscire perché:
+1. Se l'operazione di impostazione della password non riesce, viene restituito un messaggio di errore con la richiesta all'utente di riprovare. L'operazione potrebbe non riuscire perché:
    * Il servizio era inattivo.
    * La password selezionata non rispettava i criteri dell'organizzazione.
    * Non è stato trovato l'utente in Azure Active Directory locale.
@@ -101,10 +110,10 @@ Il writeback delle password è un servizio altamente sicuro. Per garantire che l
    * Dopo la creazione dell'inoltro del bus di servizio, viene creata una chiave asimmetrica complessa, usata per la crittografia della password durante la trasmissione. Questa chiave si trova solo nell'archivio segreto dell'azienda nel cloud, bloccato in modo sicuro e controllato, come qualsiasi altra password nella directory.
 * **Transport Layer Security (TLS) standard di settore**
    1. Quando si verifica nel cloud un'operazione di reimpostazione o modifica della password, la password non crittografata viene crittografata con la chiave pubblica dell'utente.
-   2. La chiave crittografata viene inclusa in un messaggio HTTPS inviato tramite un canale crittografato mediante certificati SSL Microsoft al proprio inoltro del bus di servizio.
-   3. Quando il messaggio arriva nel bus di servizio, l'agente locale viene attivato e autenticato al bus di servizio tramite la password complessa generata in precedenza.
-   4. L'agente locale preleva il messaggio crittografato e lo decrittografa con la chiave privata.
-   5. L'agente locale tenta di impostare la password tramite l'API SetPassword di AD DS. Questo passaggio consente di applicare i criteri password locali di Active Directory, come complessità, validità, cronologia, filtri e così via, nel cloud.
+   1. La chiave crittografata viene inclusa in un messaggio HTTPS inviato tramite un canale crittografato mediante certificati SSL Microsoft al proprio inoltro del bus di servizio.
+   1. Quando il messaggio arriva nel bus di servizio, l'agente locale viene attivato e autenticato al bus di servizio tramite la password complessa generata in precedenza.
+   1. L'agente locale preleva il messaggio crittografato e lo decrittografa con la chiave privata.
+   1. L'agente locale tenta di impostare la password tramite l'API SetPassword di AD DS. Questo passaggio consente di applicare i criteri password locali di Active Directory, come complessità, validità, cronologia, filtri e così via, nel cloud.
 * **Criteri di scadenza del messaggio**
    * Se il messaggio si trova nel bus di servizio perché il servizio locale è inattivo, raggiungerà il timeout e verrà rimosso dopo alcuni minuti. Il timeout e la rimozione del messaggio migliorano ulteriormente la sicurezza.
 

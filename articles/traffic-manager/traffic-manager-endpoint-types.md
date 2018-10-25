@@ -1,5 +1,5 @@
 ---
-title: Tipi di endpoint di Gestione traffico | Documentazione Microsoft
+title: Tipi di endpoint di Gestione traffico | Microsoft Docs
 description: Questo articolo illustra tipi diversi di endpoint che è possibile usare con Gestione traffico di Azure
 services: traffic-manager
 documentationcenter: ''
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 115511d15bc2366e49f6b3d1b89b513ea0ee5e90
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 06965c43408e943922048804099f8f28d69c8540
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398029"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248286"
 ---
 # <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
 Gestione traffico di Microsoft Azure consente di controllare la distribuzione del traffico di rete a distribuzioni di applicazioni in esecuzione in diversi data center. In Gestione traffico ogni distribuzione di applicazioni viene configurata come "endpoint". Quando Gestione traffico riceve una richiesta DNS, sceglie un endpoint disponibile da restituire nella risposta DNS. Gestione traffico basa la scelta sullo stato dell'endpoint corrente e sul metodo di routing del traffico. Per altre informazioni, vedere [Modalità di funzionamento di Gestione traffico](traffic-manager-how-it-works.md).
 
 Gli endpoint supportati da Gestione traffico sono di tre tipi:
 * **Endpoint di Azure** , usati per i servizi ospitati in Azure.
-* **Endpoint esterni** , usati per i servizi ospitati all'esterno di Azure, in locale o da un provider di hosting diverso.
+* **Endpoint esterni**, usati per gli indirizzi IPv4/IPv6 o per i servizi ospitati all'esterno di Azure, in locale o da un provider di hosting diverso.
 * **Endpoint annidati** , usati per combinare i profili di Gestione traffico e creare schemi di routing del traffico più flessibili, per supportare le esigenze di distribuzioni più grandi e complesse.
 
 Non ci sono limitazioni al modo in cui è possibile combinare tipi di endpoint diversi in un unico profilo di Gestione traffico. Ogni profilo può contenere qualsiasi combinazione di tipi di endpoint.
@@ -37,8 +37,9 @@ Le sezioni seguenti descrivono i singoli tipi di endpoint in modo più approfond
 
 In Gestione traffico gli endpoint di Azure vengono usati per i servizi basati su Azure. Sono supportati i tipi di risorse di Azure seguenti:
 
-* Macchine virtuali IaaS "classiche" e servizi cloud PaaS.
+* Servizi cloud PaaS
 * App Web
+* Slot per App Web
 * Risorse PublicIPAddress, che possono essere collegate alle macchine virtuali direttamente o tramite Azure Load Balancer. È necessario che al valore publicIpAddress sia assegnato un nome DNS, da usare in un profilo di Gestione traffico.
 
 Le risorse PublicIPAddress sono risorse di Azure Resource Manager. Tali risorse non sono presenti nel modello di distribuzione classica. Sono quindi supportate unicamente nelle esperienze di Gestione traffico di tipo Azure Resource Manager. Gli altri tipi di endpoint sono supportati mediante Resource Manager e il modello di distribuzione classica.
@@ -47,11 +48,12 @@ Quando si usano gli endpoint di Azure, Gestione trafficorileva l'arresto o l'avv
 
 ## <a name="external-endpoints"></a>Endpoint esterni
 
-Gli endpoint esterni vengono usati per i servizi esterni a Azure. Può trattarsi, ad esempio, di un servizio ospitato in locale o da un provider diverso. Gli endpoint esterni possono essere usati singolarmente o in combinazione con endpoint di Azure nello stesso profilo di Gestione traffico. La combinazione di endpoint di Azure con endpoint esterni consente un'ampia gamma di scenari:
+Gli endpoint esterni vengono usati sia per gli indirizzi IPv4/IPv6 sia per i servizi esterni ad Azure. L'uso di endpoint per gli indirizzi IPv4/IPv6 consente a Gestione traffico di controllare l'integrità degli endpoint senza che sia necessario specificare un nome DNS. Di conseguenza, Gestione traffico può rispondere alle query con i record A/AAAA quando viene restituito l'endpoint in una risposta. I servizi esterni ad Azure possono includere un servizio ospitato in locale o da un provider diverso. Gli endpoint esterni possono essere usati singolarmente o combinati con Endpoint di Azure nello stesso profilo di Gestione traffico, ad eccezione degli endpoint specificati come indirizzi IPv4 o IPv6 che possono essere solo endpoint esterni. La combinazione di endpoint di Azure con endpoint esterni consente un'ampia gamma di scenari:
 
-* In un modello di failover attivo-attivo o attivo-passivo, uso di Azure per offrire maggiore ridondanza per un'applicazione locale esistente.
-* Per ridurre la latenza dell'applicazione per utenti attivi in diversi paesi, possibilità di estendere un'applicazione locale esistente ad aree geografiche aggiuntive in Azure. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#performance).
-* Uso di Azure per offrire capacità aggiuntiva a un'applicazione locale esistente, in modo continuo o come soluzione "burst nel cloud" per gestire un picco di domanda.
+* Offre maggiore ridondanza per un'applicazione locale esistente in un modello di failover attivo-passivo o attivo-attivo con l'utilizzo di Azure. 
+* Consente di instradare il traffico verso endpoint a cui non è associato un nome DNS. Consente inoltre di ridurre la latenza di ricerca DNS globale eliminando la necessità di eseguire una seconda query DNS per ottenere un indirizzo IP di un nome DNS restituito. 
+* Consente di ridurre la latenza dell'applicazione per gli utenti in ogni parte del mondo ed estendere un'applicazione locale esistente ad altre aree geografiche in Azure. Per altre informazioni, vedere [Metodo di routing del traffico Prestazioni](traffic-manager-routing-methods.md#performance).
+* Offre capacità aggiuntiva a un'applicazione locale esistente, sia in modo continuativo sia come soluzione "burst nel cloud" per gestire un picco di domanda tramite Azure.
 
 In alcuni casi può essere utile usare endpoint esterni per fare riferimento a servizi di Azure. Per alcuni esempi, vedere la sezione [Domande frequenti](traffic-manager-faqs.md#traffic-manager-endpoints). In questo caso, i controlli di integrità vengono fatturati in base alla tariffa degli endpoint di Azure anziché in base alla tariffa degli endpoint esterni. Tuttavia, a differenza di quanto si verifica per gli endpoint di Azure, se si arresta o si elimina il servizio sottostante, la fatturazione per i controlli di integrità prosegue fino a quando non si disabilita o elimina l'endpoint in Gestione traffico.
 
@@ -71,7 +73,7 @@ Per la configurazione di app Web come endpoint in Gestione traffico si rendono n
 
 La disabilitazione di un endpoint in Gestione traffico risulta utile per rimuovere temporaneamente il traffico da un endpoint in modalità di manutenzione o in corso di ridistribuzione. Quando l'endpoint è di nuovo operativo, è possibile abilitarlo nuovamente.
 
-Per abilitare e disabilitare gli endpoint è possibile usare il portale di Gestione traffico, PowerShell, l'interfaccia della riga di comando o l'API REST, tutti supportati sia in Resource Manager che nel modello di distribuzione classica.
+Gli endpoint possono essere abilitati e disabilitati tramite il portale di Gestione traffico, PowerShell, l'interfaccia della riga di comando o l'API REST.
 
 > [!NOTE]
 > La disabilitazione di un endpoint di Azure non ha nulla a che vedere con il relativo stato di distribuzione in Azure. Un servizio di Azure, ad esempio una macchina virtuale o un'app Web, rimane operativo e in grado di ricevere il traffico anche se è disabilitato in Gestione traffico. È possibile indirizzare il traffico direttamente all'istanza del servizio, senza usare il nome DNS del profilo di Gestione traffico. Per altre informazioni, vedere [Modalità di funzionamento di Gestione traffico](traffic-manager-how-it-works.md).

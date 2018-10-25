@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: e7274e4507d901a209ed5832e98ca630feefda4f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3cd9b5a2bfed49ee712b89040477389ba9ea7715
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31420096"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389633"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento delle anomalie in Analisi di flusso di Azure
 
 > [!IMPORTANT]
-> Questa funzionalità è in anteprima. Usarla per i carichi di lavoro di produzione non è consigliabile.
+> Questa funzionalità verrà presto deprecata, ma verrà sostituita con nuove funzioni. Per altre informazioni, vedere il post di blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) (Otto nuove funzionalità in Analisi di flusso di Azure).
 
 L'operatore **AnomalyDetection** può essere usato per rilevare diversi tipi di anomalie nei flussi di eventi. Ad esempio, una lenta diminuzione della memoria libera a lungo termine può indicare una perdita di memoria oppure il numero di richieste al servizio Web stabili all'interno di un intervallo può aumentare o diminuire drasticamente.  
 
@@ -133,7 +133,7 @@ Esaminiamo il calcolo della stranezza in dettaglio, presupponendo l'esistenza di
 
 Dopo il calcolo del valore di stranezza per l'evento in ingresso, viene calcolato un valore martingala in base al valore di stranezza. Vedere il [blog su Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) per informazioni dettagliate sul modo in cui viene calcolato il valore martingala. Questo valore martingala viene restituito come punteggio dell'anomalia. Il valore martingala aumenta lentamente in risposta ai valori anomali, il che consente alla funzionalità di rilevamento di restare insensibile alle modifiche sporadiche e riduce i falsi allarmi. Ha anche una proprietà utile: 
 
-Probabilità [esiste t tale che M<sub>t</sub> > λ ] < 1/λ, dove M<sub>t</sub> è il valore martingala nell'istante t e λ è un valore reale. Ad esempio, se viene generato un avviso quando M<sub>t</sub>> 100, la probabilità di falsi positivi è minore di 1/100.  
+Probabilità [t esiste in modo che M<sub>t</sub> > λ ] < 1/λ, in cui M<sub>t</sub> è il valore martingala nell'istante t e λ è il valore reale. Ad esempio, se viene generato un avviso quando M<sub>t</sub>> 100, la probabilità di falsi positivi è minore di 1/100.  
 
 ## <a name="guidance-for-using-the-bi-directional-level-change-detector"></a>Linee guida per l'uso del rilevamento delle modifiche di livello bidirezionali 
 
@@ -243,7 +243,7 @@ Quando il flusso di input non è uniforme, il passaggio di aggregazione può aiu
 ## <a name="references"></a>Riferimenti
 
 * [Anomaly detection – Using machine learning to detect abnormalities in time series data](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) (Rilevamento delle anomalie - Uso di Machine Learning per rilevare le anomalie nei dati delle serie temporali)
-* [API di rilevamento delle anomalie di Machine Learning](https://docs.microsoft.com/en-gb/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
+* [API di rilevamento delle anomalie di Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api)
 * [Rilevamento delle anomalie delle serie temporali](https://msdn.microsoft.com/library/azure/mt775197.aspx)
 
 ## <a name="next-steps"></a>Passaggi successivi

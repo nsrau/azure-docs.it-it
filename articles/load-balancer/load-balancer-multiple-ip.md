@@ -4,7 +4,7 @@ description: Bilanciamento del carico tra configurazioni IP primarie e secondari
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
+manager: jpconnock
 editor: na
 ms.assetid: 244907cd-b275-4494-aaf7-dcfc4d93edfe
 ms.service: load-balancer
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3b7971fec0aa0c354476073b01699f516f9439cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 73f19293fc9dd0f68752e7b38a12a826b8f52b0c
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637379"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248569"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Bilanciamento del carico in più configurazioni IP tramite il portale di Azure
 
 > [!div class="op_single_selector"]
-> * [di Microsoft Azure](load-balancer-multiple-ip.md)
+> * [Portale](load-balancer-multiple-ip.md)
 > * [PowerShell](load-balancer-multiple-ip-powershell.md)
-> * [Interfaccia della riga di comando](load-balancer-multiple-ip-cli.md)
+> * [CLI](load-balancer-multiple-ip-cli.md)
 
 
 Questo articolo illustra come usare Azure Load Balancer con più indirizzi IP in una scheda di interfaccia di rete (NIC, Network Interface Controller) secondaria. Il diagramma seguente illustra lo scenario:
@@ -43,7 +43,7 @@ In questo scenario viene usata la configurazione seguente:
 - Azure Load Balancer viene usato per esporre due indirizzi IP front-end, uno per ogni sito Web. Gli indirizzi front-end vengono usati per distribuire il traffico verso la rispettiva configurazione IP per ciascun sito Web.
 - Lo stesso numero di porta viene usato per gli indirizzi IP front-end e gli indirizzi IP del pool back-end.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo scenario di esempio presuppone che sia disponibile un gruppo di risorse, denominato **contosofabrikam**, con la configurazione seguente:
 
@@ -181,7 +181,7 @@ Per ognuno dei siti Web (contoso.com e fabrikam.com) configurare le regole di bi
 
 4. Per la **porta** e la **porta back-end** mantenere il valore predefinito **80**.
 
-5. In **IP mobile (Direct Server Return)** selezionare **Abilitato**.
+5. In **IP mobile (Direct Server Return)** selezionare **Disabilitato**.
 
 6. <a name="step6-6"></a>Selezionare **OK**.
 

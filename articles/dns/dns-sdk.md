@@ -1,5 +1,5 @@
 ---
-title: Creare zone e set di record DNS in DNS di Azure con .NET SDK | Documentazione Microsoft
+title: Creare zone e set di record DNS in DNS di Azure con .NET SDK | Microsoft Docs
 description: Come creare zone e set di record DNS in DNS di Azure con .NET SDK.
 services: dns
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 14860ae48e520f86ce9d5bea739605d1a4baf0c7
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173194"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829770"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Creare zone e set di record DNS con .NET SDK
 
@@ -33,7 +33,7 @@ L'accesso a livello di programmazione alle risorse di Azure viene in genere conc
 3. Usare il Controllo degli accessi in base al ruolo di Azure per concedere all'account dell'entità servizio le autorizzazioni 'DNS Zone Contributor' per il gruppo di risorse. A questo scopo, seguire [questa procedura](../role-based-access-control/role-assignments-portal.md).
 4. Se si usa il progetto di esempio Azure SDK per DNS, modificare il file 'program.cs' come segue:
 
-   * Inserire i valori corretti per tenantId, clientId (noto anche come ID account), secret (password dell'account dell'entità servizio) e subscriptionId, come indicato nel passaggio 1.
+   * Inserire i valori corretti per `tenantId`, `clientId` (noto anche come ID account), `secret` (password dell'account dell'entità servizio) e `subscriptionId` come indicato nel passaggio 1.
    * Immettere il nome del gruppo di risorse scelto nel passaggio 2.
    * Immettere un nome a scelta per la zona DNS.
 
@@ -59,7 +59,7 @@ using Microsoft.Azure.Management.Dns.Models;
 
 ## <a name="initialize-the-dns-management-client"></a>Inizializzare il client di gestione DNS
 
-*DnsManagementClient* contiene i metodi e le proprietà necessari per gestire le zone e i set di record DNS.  Il codice seguente accede all'account dell'entità servizio e crea un oggetto DnsManagementClient.
+`DnsManagementClient` contiene i metodi e le proprietà necessari per gestire le zone e i set di record DNS.  Il codice seguente accede all'account dell'entità servizio e crea un oggetto `DnsManagementClient`.
 
 ```cs
 // Build the service credentials and DNS management client
@@ -72,7 +72,7 @@ dnsClient.SubscriptionId = subscriptionId;
 
 Per creare una zona DNS, viene prima creato un oggetto "Zone" per contenere i parametri della zona. Poiché le zone DNS non sono collegate a un'area specifica, la posizione viene impostata su 'global'. In questo esempio, alla zona viene anche aggiunto un ['tag' di Azure Resource Manager](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) .
 
-Per creare o aggiornare effettivamente la zona in DNS di Azure, l'oggetto "Zone" contenente i parametri della zona viene passato al metodo *DnsManagementClient.Zones.CreateOrUpdateAsyc* .
+Per creare o aggiornare effettivamente la zona in DNS di Azure, l'oggetto "Zone" contenente i parametri della zona viene passato al metodo `DnsManagementClient.Zones.CreateOrUpdateAsyc`.
 
 > [!NOTE]
 > DnsManagementClient supporta tre modalità di funzionamento: sincrona ('CreateOrUpdate'), asincrona ('CreateOrUpdateAsync') o asincrona con accesso alla risposta HTTP ('CreateOrUpdateWithHttpMessagesAsync').  È possibile scegliere una modalità qualsiasi a seconda delle esigenze dell'applicazione.
@@ -98,7 +98,7 @@ var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneN
 
 I record DNS vengono gestiti come set di record. Un set di record è dato da un insieme di record con lo stesso nome e tipo di record all'interno di una zona.  Il nome del set di record è relativo al nome della zona, non al nome DNS completo.
 
-Per creare o aggiornare un set di record, un oggetto di parametri "RecordSet" viene creato e passato a *DnsManagementClient.RecordSets.CreateOrUpdateAsync*. Come nel caso delle zone DNS, sono disponibili tre modalità di funzionamento: sincrona ('CreateOrUpdate'), asincrona ('CreateOrUpdateAsync') o asincrona con accesso alla risposta HTTP ('CreateOrUpdateWithHttpMessagesAsync').
+Per creare o aggiornare un set di record, un oggetto di parametri "RecordSet" viene creato e passato a `DnsManagementClient.RecordSets.CreateOrUpdateAsync`. Come nel caso delle zone DNS, sono disponibili tre modalità di funzionamento: sincrona ('CreateOrUpdate'), asincrona ('CreateOrUpdateAsync') o asincrona con accesso alla risposta HTTP ('CreateOrUpdateWithHttpMessagesAsync').
 
 Come nel caso delle zone DNS, le operazioni sui set di record includono il supporto per la concorrenza ottimistica.  In questo esempio, poiché né 'If-Match', né 'If-None-Match' sono specificati, viene sempre creato il set di record.  Questa chiamata sovrascrive qualsiasi set di record con lo stesso nome e tipo di record in questa zona DNS.
 
@@ -122,7 +122,7 @@ var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName
 
 ## <a name="get-zones-and-record-sets"></a>Ottenere zone e set di record
 
-I metodi *DnsManagementClient.Zones.Get* e *DnsManagementClient.RecordSets.Get* recuperano rispettivamente singole zone e set di record. I set di record vengono identificati dal tipo, dal nome, dalla zona e dal gruppo di risorse in cui si trovano. Le zone vengono identificate dal nome e dal gruppo di risorse in cui si trovano.
+I metodi `DnsManagementClient.Zones.Get` e `DnsManagementClient.RecordSets.Get` recuperano rispettivamente le singole zone e set di record. I set di record vengono identificati dal tipo, dal nome, dalla zona e dal gruppo di risorse in cui si trovano. Le zone vengono identificate dal nome e dal gruppo di risorse in cui si trovano.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);

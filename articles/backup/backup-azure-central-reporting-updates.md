@@ -1,5 +1,5 @@
 ---
-title: Aggiornamento del pacchetto di contenuto per reporting centrale di Backup di Azure
+title: Aggiornare il pacchetto di contenuto per reporting centrale di Backup di Azure
 description: Informazioni sugli aggiornamenti del pacchetto di contenuto Backup di Azure in Power BI
 services: backup
 documentationcenter: ''
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: adigan;
-ms.openlocfilehash: 07774234849d96b9a44678b68ca7b13b6b4830f9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 73a5e8126ebe6223d790a5b58db7bd5d04b5350f
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267181"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267308"
 ---
-# <a name="updating-azure-backup-central-reporting-content-pack"></a>Aggiornamento del pacchetto di contenuto per reporting centrale di Backup di Azure 
+# <a name="update-the-azure-backup-central-reporting-content-pack"></a>Aggiornare il pacchetto di contenuto per reporting centrale di Backup di Azure 
 
-[Il pacchetto di contenuto Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) può essere usato per visualizzare i report sui backup in una posizione centrale. Il pacchetto di contenuto viene aggiornato regolarmente per aggiungere altre funzionalità e correzioni di bug. Questo articolo illustra i passaggi per aggiornare il pacchetto di contenuto, ritardare l'aggiornamento e gli aggiornamenti installati nel corso del tempo.
+Il [pacchetto di contenuto Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) può essere usato per visualizzare i report sui backup centrali. Il pacchetto di contenuto viene aggiornato regolarmente per aggiungere altre funzionalità e per la correzione di bug. Questo articolo descrive come aggiornare il pacchetto di contenuto. Indica inoltre come rimandare l'aggiornamento e visualizzare gli aggiornamenti eseguiti nel corso tempo.
 
-## <a name="how-to-get-updates-to-the-content-pack"></a>Come ottenere gli aggiornamenti per il pacchetto di contenuto
+## <a name="get-updates-to-the-content-pack"></a>Ottenere gli aggiornamenti per il pacchetto di contenuto
 
-### <a name="to-get-the-updated-content-pack"></a>Per ottenere il pacchetto di contenuto aggiornato
-La copia del pacchetto di contenuto verrà aggiornata automaticamente se non sono state apportate modifiche. Nel caso in cui il pacchetto di contenuto sia stato modificato, si riceverà una notifica in Power BI e una notifica di posta elettronica simili. È possibile scegliere di ricevere il pacchetto di contenuto aggiornato in base alle proprie esigenze. 
+### <a name="get-the-updated-content-pack"></a>Ottenere il pacchetto di contenuto aggiornato
+Se non sono state apportate modifiche alla copia del pacchetto di contenuto, questa verrà aggiornata automaticamente. Quando viene modificato il pacchetto di contenuto, si riceve una notifica in Power BI e una notifica di posta elettronica. È possibile scegliere di ricevere il pacchetto di contenuto aggiornato in base alle proprie esigenze. 
 
-### <a name="to-delay-the-update"></a>Per ritardare l'aggiornamento
-La procedura consigliata consiste nell'importare il pacchetto di contenuto in un'[area di lavoro personalizzata](https://youtu.be/26zyOtyHPJM?t=1m57s). A questo punto è possibile modificare il report.
+### <a name="postpone-the-update"></a>Rimandare l'aggiornamento
+La procedura consigliata consiste nell'importare il pacchetto di contenuto in un'[area di lavoro personalizzata](https://youtu.be/26zyOtyHPJM?t=1m57s). È ora possibile modificare i report.
 Come indicato in precedenza, se il pacchetto di contenuto è stato modificato, viene visualizzata una notifica in Power BI. È possibile scegliere di scaricare il pacchetto di contenuto in un secondo momento. 
 
-## <a name="coming-soon"></a>Imminente
+## <a name="coming-soon"></a>Presto disponibile
    
-Il pacchetto di contenuto Backup di Azure è stato aggiornato per supportare più carichi di lavoro, come SQL nel backup di macchine virtuali IaaS e DPM di System Center, oltre al supporto corrente per MAB e backup di macchine virtuali di Azure. Ciò significa che a breve sarà possibile visualizzare e analizzare tutti i dati di backup in un'unica posizione centrale. I [report possono anche essere personalizzati](https://youtu.be/26zyOtyHPJM) per soddisfare le esigenze dell'organizzazione.
+Il pacchetto di contenuto Backup di Azure viene aggiornato per supportare più carichi di lavoro. I carichi di lavoro includono Database SQL di Azure per il backup di macchine virtuali IaaS e System Center Data Protection Manager. Tale supporto viene aggiunto al supporto corrente per il backup di Azure e per il backup di macchine virtuali di Azure. Con questo supporto è possibile visualizzare e analizzare tutti i dati di backup in un'unica posizione centrale. I [report possono anche essere personalizzati](https://youtu.be/26zyOtyHPJM) per soddisfare le esigenze dell'organizzazione.
 
-Per rendere i report più significativi per tutti i carichi di lavoro, viene modificato il set di report preconfigurati con il pacchetto di contenuto Backup di Azure. Un'anteprima del futuro set di report è disponibile qui:
+I report preconfigurati offerti con il pacchetto di contenuto Backup di Azure sono soggetti a variazioni. Le modifiche apportate rendono i report più significati nei carichi di lavoro. Un'anteprima del futuro set di report è disponibile qui.
 
 ### <a name="summary"></a>Summary
    
@@ -68,7 +68,7 @@ Per rendere i report più significativi per tutti i carichi di lavoro, viene mod
 ![Processi](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
     
 
-## <a name="next-steps"></a>Passaggi successivi:
+## <a name="next-steps"></a>Passaggi successivi
 
 * [Condividere i report nell'intera organizzazione](https://youtu.be/26zyOtyHPJM)
 * [Backup di Azure - Domande frequenti](backup-azure-backup-faq.md)

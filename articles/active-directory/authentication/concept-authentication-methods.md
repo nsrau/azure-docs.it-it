@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 67f99e68bc4091d076e27aee06c2851bc77e6fc7
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142658"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378925"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
 
@@ -31,6 +31,7 @@ Si consiglia agli amministratori di consentire agli utenti la selezione di un nu
 | Domande di sicurezza | Solo SSPR |
 | Indirizzo di posta elettronica | Solo SSPR |
 | App Microsoft Authenticator | Autenticazione a più fattori e anteprima pubblica per SSPR |
+| Token hardware OATH | Anteprima pubblica per autenticazione a più fattori e SSPR |
 | sms | Autenticazione a più fattori e SSPR |
 | Chiamata vocale | Autenticazione a più fattori e SSPR |
 | Password dell'app | Autenticazione a più fattori solo in alcuni casi |
@@ -39,7 +40,7 @@ Si consiglia agli amministratori di consentire agli utenti la selezione di un nu
 
 |     |
 | --- |
-| Notifica dell'app per dispositivi mobili e codice dell'app per dispositivi mobili come metodi per la reimpostazione della password di Azure AD in modalità self-service sono le funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| I token hardware OATH per MFA e SSPR e la notifica dell'app per dispositivi mobili o il codice dell'app per dispositivi mobili come metodi per la reimpostazione della password di Azure AD in modalità self-service sono le funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 ## <a name="password"></a>Password
@@ -146,6 +147,30 @@ L'app Microsoft Authenticator (o altre app di terze parti) può essere usata com
 > [!WARNING]
 > Allo scopo di reimpostare la password in modalità self-service quando viene richiesto un solo metodo di ripristino, il codice di verifica rappresenta l'unica opzione disponibile per gli utenti **per garantire il livello più elevato di sicurezza**.
 >
+
+## <a name="oath-hardware-tokens-public-preview"></a>Token hardware OATH (anteprima pubblica)
+
+OATH è uno standard aperto che specifica come vengono generati i codici per password monouso (OTP, One-Time Password). Azure AD supporterà l'uso di token OATH TOTP SHA-1 del tipo da 30 secondi o 60 secondi. I clienti possono procurarsi questi token dal fornitore preferito. Si noti che le chiavi private sono limitate a 128 caratteri e ciò potrebbe non essere compatibile con tutti i token.
+
+![Caricamento dei token OATH nel pannello dei token OATH del server MFA nel portale di Azure](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+I token hardware OATH sono supportati come parte di un'anteprima pubblica. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Dopo aver acquisito i token, è necessario caricarli in un formato di file con valori delimitati da virgole (CSV) includendo nome dell'entità utente, numero di serie, chiave privata, intervallo di tempo, produttore e modello come illustrato nell'esempio seguente.
+
+```
+upn,serial number,secret key,timeinterval,manufacturer,model
+Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+```
+
+> [!NOTE]
+> Assicurarsi di includere la riga di intestazione nel file CSV come indicato in precedenza.
+
+Dopo aver formattato correttamente il file CSV, un amministratore può quindi accedere al portale di Azure e passare ad **Azure Active Directory**, **Server MFA**, **Token OATH** e caricare il file CSV risultante.
+
+A seconda delle dimensioni del file CSV, potrebbero essere richiesti alcuni minuti per l'elaborazione. Per ottenere lo stato corrente, fare clic sul pulsante **Aggiorna**. Se sono presenti errori nel file, si avrà la possibilità di scaricare un file CSV con gli eventuali errori per la risoluzione.
+
+Dopo aver risolto eventuali errori, l'amministratore può quindi attivare ogni chiave facendo clic su **Attiva** per il token da attivare e immettendo la password monouso visualizzata nel token.
 
 ## <a name="mobile-phone"></a>Cellulare
 

@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b577f697f4467656166b83ea78efdfe6d742941f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2b1a6e2921fdaf9ede1184cfc02c3f61f63c60ac
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032530"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393764"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Esecuzione di runbook in Automazione di Azure
 
-Quando si avvia un runbook in Automazione di Azure, viene creato un processo. Un processo è una singola istanza di esecuzione di un runbook. Per eseguire ogni processo, viene assegnato un computer di lavoro di Automazione di Azure. I computer di lavoro sono condivisi da più account Azure, mentre i processi di account di automazione diversi sono isolati l'uno dall'altro. Non si dispone di alcun controllo sul computer di lavoro che gestisce la richiesta per il processo. In un singolo runbook possono venire eseguiti più processi contemporaneamente. È possibile riusare l'ambiente di esecuzione per i processi dallo stesso account di automazione. Quando si visualizza l'elenco dei runbook nel portale di Azure, è visibile lo stato di tutti i processi avviati per ogni runbook. È possibile visualizzare l'elenco dei processi per il singolo runbook per tenere traccia dello stato di ognuno. Per una descrizione dei diversi stati dei processi, vedere [Stati dei processi](#job-statuses).
+Quando si avvia un runbook in Automazione di Azure, viene creato un processo. Un processo è una singola istanza di esecuzione di un runbook. Per eseguire ogni processo, viene assegnato un computer di lavoro di Automazione di Azure. I computer di lavoro sono condivisi da molti account Azure, mentre i processi di account di automazione diversi sono isolati l'uno dall'altro. Non si ha alcun controllo sul computer di lavoro che gestisce la richiesta per il processo. In un singolo runbook possono venire eseguiti molti processi contemporaneamente. È possibile riusare l'ambiente di esecuzione per i processi dallo stesso account di automazione. Quando si visualizza l'elenco dei runbook nel portale di Azure, è visibile lo stato di tutti i processi avviati per ogni runbook. È possibile visualizzare l'elenco dei processi per il singolo runbook per tenere traccia dello stato di ognuno. Per una descrizione dei diversi stati dei processi, vedere [Stati dei processi](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
@@ -34,46 +34,46 @@ I processi accedono alle risorse di Azure eseguendo una connessione alla sottosc
 
 ## <a name="job-statuses"></a>Stati dei processi
 
-La tabella seguente descrive i diversi stati possibili per un processo.
+La tabella seguente descrive i diversi stati possibili per un processo. PowerShell ha due tipi di errori, fatali e non fatali. Gli errori fatali impostano lo stato del runbook su **Non riuscito**, se si verificano. Gli errori non fatali consentono allo script di continuare anche dopo che si verificano. Un esempio di errore non fatale è l'uso del cmdlet `Get-ChildItem` con un percorso che non esiste. PowerShell rileva che il percorso non esiste, genera un errore e passa alla cartella successiva. Questo errore non imposta su **Failed** lo stato del runbook, che può essere contrassegnato come **Completato**. Per forzare l'arresto di un runbook in caso di errore non fatale, è possibile usare `-ErrorAction Stop` nel cmdlet.
 
 | Status | DESCRIZIONE |
 |:--- |:--- |
 | Completed |Il processo è stato completato. |
-| Failed |Per [Runbook grafico e runbook flusso di lavoro PowerShell](automation-runbook-types.md), la compilazione di runbook non è riuscita. Per [Runbook di Script di PowerShell](automation-runbook-types.md), non è stato possibile avviare il runbook o il processo ha rilevato un'eccezione. |
+| Failed |Per [Runbook grafico e runbook flusso di lavoro PowerShell](automation-runbook-types.md), la compilazione di runbook non è riuscita. Per [Runbook di Script di PowerShell](automation-runbook-types.md), non è stato possibile avviare il runbook o il processo conteneva un'eccezione. |
 | Failed, waiting for resources |Il processo non è riuscito perché ha raggiunto il limite di [condivisione equa](#fair-share) tre volte iniziando ogni volta dallo stesso checkpoint o dall'inizio del runbook. |
 | Queued |Il processo è in attesa che diventino disponibili risorse in un computer di lavoro di Automazione per poter essere avviato. |
 | Avvio in corso |Il processo è stato assegnato a un computer di lavoro e il sistema lo sta avviando. |
-| Resuming |Il sistema sta per riprendere il processo dopo che è stato sospeso. |
-| Running |Il processo è in esecuzione. |
+| Resuming |Il sistema sta riprendendo il processo dopo che è stato sospeso. |
+| In esecuzione |Il processo è in esecuzione. |
 | Running, waiting for resources |Il processo è stato scaricato perché ha raggiunto il limite di [condivisione equa](#fair-share) . Riprende a breve dall'ultimo checkpoint. |
 | Arrestato |Il processo è stato arrestato dall'utente prima del completamento. |
 | Stopping |Il sistema sta arrestando il processo. |
-| Suspended |Il processo è stato sospeso dall'utente, dal sistema o da un comando del runbook. Un processo sospeso può essere riavviato e viene ripreso dall'ultimo checkpoint o dall'inizio del runbook se non è in possesso di checkpoint. Il runbook viene sospeso dal sistema quando ha luogo un'eccezione. Per impostazione predefinita, il valore di ErrorActionPreference è impostato su **Continua**, a indicare che il processo continua a essere eseguito in caso di errore. Se questa variabile di preferenza è impostata su **Stop**, il processo viene sospeso in caso di errore. Si applica solo a [Runbook grafico e al flusso di lavoro PowerShell](automation-runbook-types.md) . |
-| Suspending |Il sistema sta tentando di sospendere il processo su richiesta dell'utente. Il runbook deve raggiungere il checkpoint successivo prima di poter essere sospeso. Se ha già superato l'ultimo checkpoint, il processo viene completato prima di poter essere sospeso. Si applica solo a [Runbook grafico e al flusso di lavoro PowerShell](automation-runbook-types.md) . |
+| Suspended |Il processo è stato sospeso dall'utente, dal sistema o da un comando del runbook. Se un runbook non ha un checkpoint, viene avviato dall'inizio del runbook. Se ha un checkpoint, può essere nuovamente avviato e riprendere dall'ultimo checkpoint. Il runbook viene sospeso dal sistema quando ha luogo un'eccezione. Per impostazione predefinita, il valore di ErrorActionPreference è impostato su **Continua**, a indicare che il processo continua a essere eseguito in caso di errore. Se questa variabile di preferenza è impostata su **Stop**, il processo viene sospeso in caso di errore. Si applica solo a [Runbook grafico e al flusso di lavoro PowerShell](automation-runbook-types.md) . |
+| Suspending |Il sistema sta provando a sospendere il processo su richiesta dell'utente. Il runbook deve raggiungere il checkpoint successivo prima di poter essere sospeso. Se ha già superato l'ultimo checkpoint, il processo viene completato prima di poter essere sospeso. Si applica solo a [Runbook grafico e al flusso di lavoro PowerShell](automation-runbook-types.md) . |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visualizzazione dello stato del processo dal portale di Azure
 
-È possibile visualizzare lo stato riassuntivo di tutti i processi del runbook oppure esaminare i dettagli di uno specifico processo del runbook nel portale di Azure o configurando l'integrazione con l'area di lavoro di Log Analytics per inoltrare i flussi e lo stato del processo del runbook. Per altre informazioni sull'integrazione con Log Analytics, vedere [Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+È possibile visualizzare uno stato riassuntivo di tutti i processi del runbook o esaminare i dettagli di uno specifico processo del runbook nel portale di Azure. È anche possibile configurare l'integrazione con l'area di lavoro di Log Analytics per inoltrare lo stato del processo del runbook e i flussi di processo. Per altre informazioni sull'integrazione con Log Analytics, vedere [Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics](automation-manage-send-joblogs-log-analytics.md).
 
 ### <a name="automation-runbook-jobs-summary"></a>Riepilogo dei processi del Runbook di Automazione
 
-A destra dell'account di Automazione selezionato, è possibile visualizzare tutti i processi del Runbook relativi a un account di Automazione selezionato sotto al riquadro **Statistiche processi**.
+A destra dell'account di Automazione selezionato, è possibile visualizzare tutti i processi del runbook sotto il riquadro **Statistiche processi**.
 
 ![Riquadro Statistiche del processo](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 Questo riquadro visualizza un conteggio e una rappresentazione grafica dello stato dei processi per tutti i processi eseguiti.
 
-Facendo clic sul riquadro appare il pannello **Processi**, che include un elenco riepilogativo di tutti i processi eseguiti, indicando lo stato e l'ora di avvio e di completamento del processo.
+Facendo clic sul riquadro, viene visualizzata la pagina **Processi**, che include un elenco riepilogativo di tutti i processi eseguiti. Questa pagina mostra lo stato, gli orari di inizio e gli orari di completamento.
 
-![Pannello Processi dell'account di Automazione](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
+![Pagina Processi dell'account di Automazione](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
 
-È possibile filtrare l'elenco dei processi selezionando **Filtra processi** e filtrare in uno specifico runbook, lo stato del processo, o dall'elenco a discesa, l'intervallo di data/ora entro cui eseguire la ricerca.
+È possibile filtrare l'elenco dei processi selezionando **Filtra processi** e filtrare in base a uno specifico runbook, allo stato del processo o, nell'elenco a discesa, all'intervallo di tempo entro cui eseguire la ricerca.
 
 ![Filtrare i processi in base allo stato](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-In alternativa, è possibile visualizzare i dettagli di riepilogo dei processi per un runbook specifico selezionando tale runbook dal pannello **Runbook** nel proprio account di Automazione e, successivamente, selezionare il riquadro **Processi**. A questo punto viene visualizzato il pannello **Processi**, dove è possibile fare clic sul record del processo per visualizzarne i dettagli e l'output.
+In alternativa, è possibile visualizzare i dettagli di riepilogo dei processi per un runbook specifico selezionando tale runbook dal pannello **Runbook** nel proprio account di Automazione e, successivamente, selezionare il riquadro **Processi**. Questa azione visualizza la pagina **Processi**, dove è possibile fare clic sul record del processo per visualizzarne i dettagli e l'output.
 
-![Pannello Processi dell'account di Automazione](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
+![Pagina Processi dell'account di Automazione](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
 
 ### <a name="job-summary"></a>Riepilogo dei processi
 
@@ -82,9 +82,9 @@ In alternativa, è possibile visualizzare i dettagli di riepilogo dei processi p
 Per visualizzare i processi per un runbook, seguire questa procedura.
 
 1. Nel portale di Azure, selezionare **Automazione** e selezionare il nome di un account di automazione.
-2. Dall'hub, selezionare **Runbook** e quindi sul pannello **Runbook** selezionare un runbook dall'elenco.
-3. Nel pannello per il runbook selezionato, fare clic sul riquadro **Processi**.
-4. Fare clic su uno dei processi nell'elenco e nel pannello dei dettagli del processo di runbook è possibile visualizzarne i dettagli e l'output.
+2. Dall'hub selezionare **Runbook** e quindi nella pagina **Runbook** selezionare un runbook dall'elenco.
+3. Nella pagina del runbook selezionato fare clic sul riquadro **Processi**.
+4. Fare clic su uno dei processi nell'elenco e nella pagina dei dettagli del processo del runbook è possibile visualizzarne i dettagli e l'output.
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Recupero dello stato di un processo tramite Windows PowerShell
 
@@ -101,7 +101,7 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
 ```
 
-L'esempio seguente recupera l'output di un processo specifico e restituisce ogni record. Se si è verificata un'eccezione per uno dei record, invece del valore viene scritta l'eccezione. Ciò è utile poiché le eccezioni possono fornire informazioni aggiuntive che potrebbero non essere registrate normalmente durante l'output.
+L'esempio seguente recupera l'output di un processo specifico e restituisce ogni record. Se si è verificata un'eccezione per uno dei record, invece del valore viene scritta l'eccezione. Questo comportamento è utile perché le eccezioni possono fornire informazioni aggiuntive che potrebbero non essere registrate normalmente durante l'output.
 
 ```azurepowershell-interactive
 $output = Get-AzureRmAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
@@ -135,20 +135,11 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 ## <a name="fair-share"></a>condivisione equa
 
-Per condividere le risorse tra tutti i runbook nel cloud, Automazione di Azure scaricherà temporaneamente qualsiasi processo in esecuzione da tre ore. Durante questo periodo, i processi per [runbook basati su PowerShell](automation-runbook-types.md#powershell-runbooks) vengono arrestati e non devono essere riavviati. Lo stato processo visualizza **Arrestato**. Questo tipo di runbook viene sempre riavviato dall'inizio perché non supporta i checkpoint.
+Per condividere le risorse tra tutti i runbook nel cloud, Automazione di Azure scaricherà o arresterà temporaneamente qualsiasi processo in esecuzione da più di tre ore. I processi dei [runbook basati su PowerShell](automation-runbook-types.md#powershell-runbooks) e dei [runbook di Python](automation-runbook-types.md#python-runbooks) vengono arrestati e non vengono riavviati e lo stato del processo risulta arrestato.
 
-I [runbook basati su Flusso di lavoro PowerShell](automation-runbook-types.md#powershell-workflow-runbooks) vengono ripresi a partire dall'ultimo [checkpoint](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints). Dopo essere in esecuzione per tre ore, il processo del runbook verrà sospeso dal servizio e il relativo stato visualizza **In esecuzione, in attesa delle risorse**. Quando un sandbox diventa disponibile, il runbook viene riavviato automaticamente dal servizio di Automazione di Azure e l'esecuzione viene ripresa a partire dall'ultimo checkpoint. Questo è il comportamento normale di Workflow-PowerShell per sospendere/riavviare. Se il runbook supera nuovamente tre ore di runtime, il processo viene ripetuto fino a tre volte. Dopo il terzo riavvio, se il runbook ancora non è stato completato in tre ore, allora il processo di runbook non ha esito positivo, e lo stato del processo visualizza **Non riuscito, in attesa di risorse**. In tal caso, l'operazione avrà esito negativo e si riceve un'eccezione che indica quanto segue.
+Per le attività che richiedono una lunga esecuzione, è consigliabile un [ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md#job-behavior). I ruoli di lavoro ibridi per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook. Gli altri [limiti](../azure-subscription-service-limits.md#automation-limits) dei processi si applicano sia ai sandbox di Azure che ai ruoli di lavoro ibridi per runbook. Anche se i ruoli di lavoro ibridi per runbook non sono soggetti al limite di 3 ore della condivisione equa, i runbook eseguiti in tali ruoli di lavoro dovranno tuttavia essere sviluppati per poter supportare i comportamenti di riavvio causati da problemi imprevisti dell'infrastruttura locale.
 
-*L'esecuzione del processo non può continuare perché il processo è stato rimosso ripetutamente dallo stesso checkpoint. Verificare che il runbook non esegua operazioni di lunga durata senza rendere persistente il proprio stato.*
-
-Questo avviene per impedire che nel servizio i runbook vengano eseguiti all'infinito senza essere completati, in quanto non riusciranno a giungere al checkpoint successivo senza essere scaricati di nuovo.
-
-Se il runbook non dispone di alcun checkpoint o non ha raggiunto il primo checkpoint prima di essere scaricato, viene riavviato dall'inizio.
-
-Per le attività che richiedono una lunga esecuzione, è consigliabile un [ruolo di lavoro ibrido per runbook](automation-hrw-run-runbooks.md#job-behavior). I ruoli di lavoro ibrido per runbook non sono limitati da condivisione equa e non hanno una limitazione rispetto alla possibile durata dell'esecuzione di un runbook. Gli altri [limiti](../azure-subscription-service-limits.md#automation-limits) dei processi si applicano sia ai sandbox di Azure che ai ruoli di lavoro ibridi per runbook.
-
-
-Se si utilizza un runbook del flusso di lavoro di PowerShell in Azure, al momento della sua creazione è consigliabile assicurarsi che il tempo necessario per eseguire qualsiasi attività tra due checkpoint non superi le tre ore. Può essere necessario aggiungere checkpoint al runbook per assicurarsi che non raggiunga tale limite o suddividere le operazioni che richiedono una lunga esecuzione. Ad esempio, il runbook potrebbe eseguire una reindicizzazione su un database SQL di grandi dimensioni. Se questa singola operazione non viene completata entro il limite di condivisione equa, il processo viene scaricato e riavviato dall'inizio. In tal caso, è opportuno suddividere l'operazione di reindicizzazione in più passaggi, ad esempio specificando la reindicizzazione di una tabella alla volta, e quindi inserire un checkpoint dopo ogni operazione in modo che il processo possa riprendere dopo l'ultima operazione da completare.
+Un'altra opzione consiste nell'ottimizzare il runbook usando runbook figlio. Se il runbook è ciclico per la stessa funzione in più risorse, ad esempio un'operazione di database su più database, è possibile spostare tale funzione in un [runbook figlio](automation-child-runbooks.md) e chiamarla con il cmdlet [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook). Ognuno di questi runbook figli verrà eseguito in parallelo in processi separati, riducendo la quantità totale di tempo del runbook padre richiesta per il completamento. È possibile usare il cmdlet [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) nel runbook per controllare lo stato del processo per ogni elemento figlio, se sono presenti operazioni che devono essere eseguite al termine del runbook figlio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 01/14/2018
 ms.author: curtand
 ms.custom: seohack1
-ms.openlocfilehash: 10851990f26124ae89945d4b56058115cacb81ee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5beee2fae518fec23b65ff05a79281e0fc3f1417
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861414"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48800741"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Come aggiungere gli utenti con licenza a un gruppo per la gestione delle licenze in Azure Active Directory
 
@@ -47,7 +47,7 @@ Le licenze esistenti potrebbero essere state distribuite agli utenti nelle organ
 
 6. Valutare la possibilità di rimuovere le assegnazioni dirette originali. È possibile eseguire questa operazione in più fasi, per monitorare prima il risultato in un subset di utenti.
 
-  È possibile lasciare le assegnazioni dirette originali. Così facendo, tuttavia, quando gli utenti lasciano i relativi gruppi con licenza, mantengono la licenza originale e questo potrebbe non essere auspicabile.
+  È possibile mantenere le assegnazioni dirette originali. In tal caso, tuttavia, quando gli utenti lasciano i gruppi con licenza mantengono la licenza originale e questo potrebbe non essere auspicabile.
 
 ## <a name="an-example"></a>Esempio
 

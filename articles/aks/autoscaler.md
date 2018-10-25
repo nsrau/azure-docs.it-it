@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 3bac6534f43d62e6eb9381b8513025ba9117ed04
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: e16c82f7c49bf90fc074732d0a989b9de94a52c5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857007"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49375852"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Ridimensionamento automatico del cluster su Azure Kubernetes Service (AKS) - Anteprima
 
@@ -26,11 +26,22 @@ Questo articolo descrive come distribuire il ridimensionamento automatico del cl
 > L'integrazione di ridimensionamento automatico del cluster di Azure AD per il servizio Kubernetes di Azure (AKS) è attualmente in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 >
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites-and-considerations"></a>Prerequisiti e considerazioni
 
 Questo documento presuppone che si abbia già un cluster AKS di RBAC abilitato. Se è necessario un cluster AKS, vedere la [guida introduttiva su Azure Kubernetes Service (AKS)][aks-quick-start].
 
  Per sfruttare il ridimensionamento automatico del cluster, il cluster deve usare Kubernetes v1.10.X o versione successiva e deve essere abilitato per RBAC. Per aggiornare il cluster, vedere l'articolo sull'[aggiornamento di un cluster AKS][aks-upgrade].
+
+Definire le richieste di risorse per i pod. La funzione di ridimensionamento automatico del cluster esamina le richieste di risorse create dai pod, non le risorse effettivamente in uso, come invece fa la funzione di ridimensionamento automatico orizzontale dei pod. All'interno della sezione `spec: containers` della definizione di distribuzione, definire i requisiti di CPU e memoria. Il frammento di codice di esempio seguente richiede 0,5 vCPU e 64 Mb di memoria nel nodo:
+
+  ```yaml
+  resources:
+    requests:
+      cpu: 500m
+      memory: 64Mb
+  ```
+
+Se si usa la funzione di ridimensionamento automatico del cluster, evitare di ridimensionare manualmente il numero di nodi. La funzione di ridimensionamento automatico del cluster potrebbe non essere in grado di determinare la quantità corretta di risorse di calcolo necessaria ed entrare in conflitto con il numero di nodi definito manualmente dall'utente.
 
 ## <a name="gather-information"></a>Raccogliere informazioni
 
@@ -127,7 +138,7 @@ metadata:
   name: cluster-autoscaler
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: cluster-autoscaler
@@ -168,7 +179,7 @@ rules:
   verbs: ["get", "list", "watch"]
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: cluster-autoscaler
@@ -186,7 +197,7 @@ rules:
   verbs: ["delete","get","update"]
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: cluster-autoscaler
@@ -203,7 +214,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: cluster-autoscaler
@@ -221,7 +232,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: extensions/v1beta1
+apiVersion: extensions/v1
 kind: Deployment
 metadata:
   labels:

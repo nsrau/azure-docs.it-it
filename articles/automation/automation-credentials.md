@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fa2bc2dd59a5c62becc7f5cd4c4c9633dac1a29
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: e5414a7607c036f1d60f58e1eb047da1e54f4db9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42146786"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585341"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Asset credenziali in Automazione di Azure
 
@@ -77,6 +77,9 @@ La funzione nella tabella seguente viene usata per accedere alle credenziali in 
 2. Fare clic sulla parte **Credenziali** per aprire il pannello **Credenziali**.
 3. Fare clic su **Aggiungi credenziali** nella parte superiore del pannello.
 4. Completare il modulo e fare clic su **Crea** per salvare le nuove credenziali.
+
+> [!NOTE]
+> Gli account utente che usano l'autenticazione a più fattori non sono supportati per l'uso in Automazione di Azure.
 
 ### <a name="to-create-a-new-credential-asset-with-windows-powershell"></a>Per creare un nuovo asset credenziali con Windows PowerShell
 

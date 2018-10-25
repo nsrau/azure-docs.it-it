@@ -2,18 +2,17 @@
 title: Informazioni di riferimento sullo schema dei webhook per il Registro contenitori di Azure
 description: Informazioni di riferimento sul payload JSON della richiesta di webhook per il Registro contenitori di Azure.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
-ms.author: marsma
-ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166008"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857755"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Informazioni di riferimento sui webhook per il Registro contenitori di Azure
 
@@ -151,7 +150,7 @@ Webhook attivato quando viene eliminato un repository o un manifesto. Non attiva
   }
 ```
 
-Comandi dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/acr) di esempio che attivano il webhook di un evento **delete**:
+Comandi dell'[interfaccia della riga di comando di Azure](/cli/azure/acr) di esempio che attivano il webhook di un evento **delete**:
 
 ```azurecli
 # Delete repository

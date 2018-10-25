@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e3e3ff05836cb49d46a25ef3fa55d40a0bd134f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184558"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247755"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Esercitazione: Integrazione di Azure Active Directory con My Award Points Top Sub/Top Team
 
@@ -50,7 +50,8 @@ A questo scopo, è consigliabile seguire le indicazioni seguenti:
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
-In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test. Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
+In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
+Lo scenario descritto in questa esercitazione prevede le due fasi fondamentali seguenti:
 
 1. Aggiunta di My Award Points Top Sub/Top Team dalla raccolta
 2. Configurazione e test dell'accesso Single Sign-On di Azure AD
@@ -112,7 +113,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
     > [!NOTE]
-    > Poiché questo non è un valore reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com).
+    > Si otterrà il valore `<SAMLENTITYID>` più avanti nell'esercitazione.
 
 4. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -122,7 +123,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
-6. Per configurare l'accesso Single Sign-On sul lato **My Award Points Top Sub/Top Team**, è necessario inviare il file **XML dei metadati** scaricato al [team di supporto di My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+6. Nella sezione **My Award Points Top Sub/Top Team Configuration** selezionare **Configure My Award Points Top Sub/Top Team** per aprire la finestra Configure sign-on. Copiare l'ID di entità SAML dalla sezione **Riferimento rapido** e aggiungere questo valore con l'URL di accesso al posto di `<SAMLENTITYID>` nella sezione **My Award Points Top Sub/Top Team Domain and URLs** del portale di Azure.
+
+7. Per configurare l'accesso Single Sign-On sul lato **My Award Points Top Sub/Top Team**, è necessario inviare il file **XML dei metadati** scaricato al [team di supporto di My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 

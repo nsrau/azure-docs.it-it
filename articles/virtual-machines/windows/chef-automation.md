@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 3a6fbc8410dbc5aec4522f0972a29c67527edb23
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038132"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585375"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automazione della distribuzione delle macchine virtuali di Azure con Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef rappresenta uno strumento molto utile che fornisce soluzioni automatizzate e configurazioni di stato personalizzate.
 
-Con il rilascio della più recente API cloud, Chef offre una perfetta integrazione con Azure, consentendo di eseguire il provisioning e distribuire gli stati delle configurazioni attraverso un unico comando.
+Con la versione più recente dell'API cloud, Chef offre una perfetta integrazione con Azure, consentendo di effettuare il provisioning e distribuire gli stati delle configurazioni attraverso un unico comando.
 
 Questo articolo illustra come configurare l'ambiente Chef per il provisioning delle macchine virtuali di Azure e descrive la procedura dettagliata per creare un criterio o una "guida di riferimento dettagliata" e distribuirla successivamente in una macchina virtuale di Azure.
 
@@ -42,7 +42,7 @@ Il seguente diagramma illustra l'architettura di alto livello di Chef.
 
 Chef ha tre componenti principali dell'architettura: Chef Workstation, Chef Server e Chef Client (nodo).
 
-Il server Chef rappresenta il punto di gestione per cui sono disponibili due opzioni: una soluzione in hosting e una soluzione locale. Si utilizzerà una soluzione in hosting.
+Il server Chef rappresenta il punto di gestione per cui sono disponibili due opzioni: una soluzione in hosting e una soluzione locale. Per questa esercitazione si userà una soluzione in hosting.
 
 Il client Chef (nodo) rappresenta l'agente che risiede nei server gestiti.
 
@@ -75,7 +75,7 @@ Una volta creata l'organizzazione, scaricare lo Starter Kit.
 ![][4]
 
 > [!NOTE]
-> Se viene visualizzato un messaggio di avviso che indica che le chiavi verranno reimpostate, è comunque possibile proseguire, in quanto non è stata ancora configurata alcuna infrastruttura.
+> Se viene visualizzato un messaggio di avviso che indica che le chiavi verranno reimpostate, è consigliabile proseguire poiché non è ancora configurata alcuna infrastruttura.
 > 
 > 
 
@@ -94,7 +94,7 @@ Dovrebbero essere presenti quattro file, incluso il file di pubblicazione di Azu
 
 I file PEM contengono le chiavi private dell'organizzazione e amministrative per la comunicazione, mentre il file knife.rb contiene la configurazione Knife. È necessario modificare il file knife.rb.
 
-Aprire il file in un editor di testo e modificare la voce "cookbook_path" rimuovendo i caratteri /../ dal percorso. L'aspetto della riga dovrebbe essere simile al seguente:
+Aprire il file in un qualsiasi editor di testo e modificare "cookbook_path" rimuovendo i caratteri /../ dal percorso. La riga avrà il seguente aspetto:
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -109,7 +109,7 @@ Il file knife.rb dovrebbe avere un aspetto simile al seguente esempio:
 Queste righe sono necessarie per garantire la presenza di riferimenti Knife nella directory di cookbook c:\chef\cookbooks e per usare il file delle impostazioni di pubblicazione di Azure durante le operazioni con Azure.
 
 ## <a name="installing-the-chef-development-kit"></a>Installazione di Chef Development Kit
-A questo punto, [scaricare e installare](http://downloads.getchef.com/chef-dk/windows) il ChefDK (Chef Development Kit) per configurare la workstation Chef.
+A questo punto, [scaricare e installare](http://downloads.getchef.com/chef-dk/windows) ChefDK (Chef Development Kit) per configurare Chef Workstation.
 
 ![][7]
 
@@ -119,7 +119,9 @@ Verificare che la variabile PATH contenga voci relative ai percorsi C:\opscode\c
 
 Se questi percorsi non sono presenti, assicurarsi di aggiungerli.
 
-*CONSIDERARE CHE L'ORDINE DEL PERCORSO È IMPORTANTE.* Se i percorsi opscode non sono presenti nell'ordine corretto, si verificheranno dei problemi.
+> [!NOTE]
+> L'ordine del percorso è importante. Se i percorsi opscode non sono presenti nell'ordine corretto, si verificheranno dei problemi. 
+> 
 
 Prima di continuare, riavviare la workstation.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 766f617f3534ffaccdc326e7de8155adb84a69ce
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162144"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114989"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -111,17 +111,33 @@ Prima di iniziare, tenere presente le seguenti restrizioni:
 * La dimensione massima dei file è 5 MB.
 * I messaggi di autenticazione devono avere una durata inferiore a 20 secondi. Se i messaggi durano più di 20 secondi, è possibile che la verifica abbia esito negativo. L'utente potrebbe non rispondere prima della fine del messaggio e la verifica potrebbe scadere.
 
+### <a name="custom-message-language-behavior"></a>Comportamento per la lingua del messaggio personalizzato
+
+Per la riproduzione di un messaggio vocale personalizzato per l'utente, la lingua del messaggio dipende da questi fattori:
+
+* Lingua dell'utente corrente.
+   * Lingua rilevata dal browser dell'utente.
+   * Altri scenari di autenticazione possono presentare comportamenti diversi.
+* Lingua degli eventuali messaggi personalizzati disponibili.
+   * Questa lingua viene scelta dall'amministratore, quando viene aggiunto un messaggio personalizzato.
+
+Ad esempio, se è presente un solo messaggio personalizzato, con la lingua tedesca:
+
+* Un utente che esegue l'autenticazione in lingua tedesca ascolterà il messaggio personalizzato in tedesco.
+* Il messaggio inglese standard verrà riprodotto per un utente che esegue l'autenticazione in lingua inglese.
+
 ### <a name="set-up-a-custom-message"></a>Configurare un messaggio personalizzato
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
-2. Passare ad **Azure Active Directory** > **Server MFA** > **Impostazioni telefonata**.
+1. Passare ad **Azure Active Directory** > **Server MFA** > **Impostazioni telefonata**.
 
    ![Registrare i messaggi telefonici personalizzati](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. Selezionare **Aggiungi messaggio di saluto**.
-4. Scegliere il tipo di messaggio introduttivo. Scegliere la lingua.
-5. Selezionare un file audio MP3 o WAV da caricare.
-6. Selezionare **Aggiungi**.
+1. Selezionare **Aggiungi messaggio di saluto**.
+1. Scegliere il tipo di messaggio introduttivo. 
+1. Scegliere la lingua.
+1. Selezionare un file audio MP3 o WAV da caricare.
+1. Selezionare **Aggiungi**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Memorizzazione nella cache in Azure Multi-Factor Authentication
 
@@ -173,7 +189,7 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 4. Immettere un nome per la località.
 5. Selezionare **Contrassegna come posizione attendibile**.
 6. Immettere l'intervallo di indirizzi IP nella notazione CIDR, ad esempio **192.168.1.1/24**.
-7. Selezionare **Crea**.
+7. Selezionare **Create**.
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Abilitare la funzionalità Indirizzi IP attendibili tramite l'accesso condizionale
 
@@ -200,10 +216,10 @@ Indipendentemente dal fatto che la funzionalità Indirizzi IP attendibili sia di
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Abilitare la funzionalità Indirizzi IP attendibili tramite le impostazioni del servizio
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Sulla sinistra selezionare **Azure Active Directory** > **Utenti e gruppi** > **Tutti gli utenti**.
+2. A sinistra selezionare **Azure Active Directory** > **Utenti**.
 3. Selezionare **Multi-Factor Authentication**.
 4. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
-5. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una delle due opzioni seguenti:
+5. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una o entrambe le opzioni seguenti:
    
    * **For requests from federated users on my intranet** (Per le richieste provenienti da utenti federati nella Intranet): per scegliere questa opzione selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:<br/>
 
@@ -306,11 +322,11 @@ La funzionalità di _memorizzazione di Multi-Factor Authentication_ per disposit
 
 ### <a name="how-the-feature-works"></a>Funzionamento della funzionalità
 
-La funzionalità di memorizzazione di Multi-Factor Authentication imposta un cookie permanente nel browser quando l'utente seleziona l'opzione **Don't ask again for X days** (Non visualizzare più il messaggio per X giorni) al momento dell'accesso. L'utente non visualizza più la richiesta di Multi-Factor Authentication da questo browser fino alla scadenza del cookie. Se l'utente apre un altro browser sullo stesso dispositivo o cancella i cookie, la verifica verrà richiesta di nuovo. 
+La funzionalità di memorizzazione di Multi-Factor Authentication imposta un cookie permanente nel browser quando l'utente seleziona l'opzione **Don't ask again for X days** (Non visualizzare più il messaggio per X giorni) al momento dell'accesso. L'utente non visualizza più la richiesta di Multi-Factor Authentication da questo browser fino alla scadenza del cookie. Se l'utente apre un altro browser sullo stesso dispositivo o cancella i cookie, la verifica verrà richiesta di nuovo.
 
-L'opzione **Don't ask again for X days** (Non visualizzare più il messaggio per X giorni) non viene visualizzata nelle applicazioni non basate su browser, indipendentemente dal fatto che l'app supporti l'autenticazione moderna. Queste app usano _token di aggiornamento_ che creano nuovi token di accesso ogni ora. Quando un token di aggiornamento viene convalidato, Azure AD controlla che l'ultima verifica in due passaggi sia stata eseguita entro il numero di giorni specificato. 
+L'opzione **Don't ask again for X days** (Non visualizzare più il messaggio per X giorni) non viene visualizzata nelle applicazioni non basate su browser, indipendentemente dal fatto che l'app supporti l'autenticazione moderna. Queste app usano _token di aggiornamento_ che creano nuovi token di accesso ogni ora. Quando un token di aggiornamento viene convalidato, Azure AD controlla che l'ultima verifica in due passaggi sia stata eseguita entro il numero di giorni specificato.
 
-La funzionalità riduce il numero di autenticazioni per le app Web, che in genere viene richiesta ogni volta. Questa comporta però un aumento del numero di autenticazioni per i client di autenticazione moderna che in genere la richiedono ogni 90 giorni.
+La funzionalità riduce il numero di autenticazioni per le app Web, che in genere viene richiesta ogni volta. Questa comporta però un aumento del numero di autenticazioni per i client di autenticazione moderna che in genere la richiedono ogni 90 giorni. Può anche aumentare il numero di autenticazioni in combinazione con i criteri di accesso condizionale.
 
 >[!IMPORTANT]
 >La funzionalità di **memorizzazione di Multi-Factor Authentication** non è compatibile con la funzionalità **mantieni l'accesso** di AD FS, quando gli utenti eseguono la verifica in due passaggi per AD FS tramite il server Azure Multi-Factor Authentication o una soluzione di autenticazione a più fattori di terze parti.

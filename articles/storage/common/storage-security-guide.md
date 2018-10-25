@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 912ae17fb7bb5d5cecad0af5b53d817b2faeef02
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 584db1400ddd2b4f447b7ca397f2c98b701c7848
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522202"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341872"
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
@@ -22,7 +22,7 @@ Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, c
 - Tutti i dati scritti in Archiviazione di Azure vengono crittografati automaticamente con la [crittografia del servizio di archiviazione](storage-service-encryption.md). Per altre informazioni, vedere [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Annuncio della crittografia predefinita per BLOB, file, tabelle e archiviazione code di Azure).
 - Azure Active Directory (Azure AD) e il controllo degli accessi in base al ruolo sono supportati per Archiviazione di Azure sia per le operazioni di gestione delle risorse che per le operazioni sui dati, come illustrato di seguito:   
     - È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato sull'account di archiviazione alle entità di sicurezza e usare Azure AD per autorizzare le operazioni di gestione delle risorse, ad esempio la gestione delle chiavi.
-    - L'integrazione di Azure AD è supportata nella versione di anteprima per le operazioni sui dati nei servizi BLOB e di accodamento. È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato su una sottoscrizione, un gruppo di risorse, un account di archiviazione o un singolo contenitore o coda a un'entità di sicurezza o un'identità del servizio gestita. Per altre informazioni, vedere [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Autenticare l'accesso ad Archiviazione di Azure usando Azure Active Directory - anteprima).   
+    - L'integrazione di Azure AD è supportata nella versione di anteprima per le operazioni sui dati nei servizi BLOB e di accodamento. È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato su una sottoscrizione, un gruppo di risorse, un account di archiviazione o un singolo contenitore o coda a un'entità di sicurezza o un'identità gestita per le risorse di Azure. Per altre informazioni, vedere [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Autenticare l'accesso ad Archiviazione di Azure usando Azure Active Directory - anteprima).   
 - È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](../storage-client-side-encryption.md), HTTPS o SMB 3.0.  
 - I dischi dati e del sistema operativo usati dalle macchine virtuali di Azure possono essere crittografati con [Crittografia dischi di Azure](../../security/azure-security-disk-encryption.md). 
 - È possibile concedere l'accesso delegato agli oggetti dati nell'archiviazione di Azure usando [firme di accesso condiviso](../storage-dotnet-shared-access-signature-part-1.md).
@@ -142,20 +142,13 @@ L'uso dell'insieme di credenziali delle chiavi di Azure aggiunge anche un altro 
 
 Un altro vantaggio dell'uso dell'insieme di credenziali delle chiavi di Azure consiste nella possibilità di controllare anche l'accesso alle chiavi tramite Azure Active Directory. Ciò significa che è possibile concedere l'accesso al numero limitato di applicazioni che devono recuperare le chiavi dall'insieme di credenziali delle chiavi di Azure, sapendo che altre applicazioni non potranno accedere alle chiavi se a queste non vengono concesse autorizzazioni in modo specifico.
 
-Nota: è consigliabile usare solo una delle chiavi in tutte le applicazioni contemporaneamente. Se si usa la Chiave 1 in alcune posizioni e la Chiave 2 in altre, non si potranno ruotare le chiavi senza quale applicazione perda l'accesso.
+> [!NOTE]
+> Microsoft consiglia di usare solo una delle chiavi in tutte le applicazioni contemporaneamente. Se si usa la Chiave 1 in alcune posizioni e la Chiave 2 in altre, non si potranno ruotare le chiavi senza quale applicazione perda l'accesso.
 
 #### <a name="resources"></a>Risorse
-* [Informazioni sugli account di archiviazione di Azure](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  Questo articolo fornisce una panoramica degli account di archiviazione e illustra le operazioni di visualizzazione, copia e rigenerazione delle chiavi di accesso alle risorse di archiviazione.
+* [Gestire le impostazioni dell'account di archiviazione nel portale di Azure](storage-account-manage.md)
 * [Informazioni di riferimento sulle API REST del provider di risorse di archiviazione di Azure](https://msdn.microsoft.com/library/mt163683.aspx)
-
-  Questo articolo contiene collegamenti ad articoli specifici sul recupero delle chiavi dell'account di archiviazione e sulla rigenerazione delle chiavi dell'account di archiviazione per un account di Azure usando l'API REST. Nota: quanto detto vale per gli account di archiviazione di Resource Manager.
-* [Operazioni sugli account di archiviazione](https://msdn.microsoft.com/library/ee460790.aspx)
-
-  Questo articolo nelle informazioni di riferimento sulle API REST di gestione dei servizi di archiviazione contiene collegamenti ad articoli specifici relativi alle operazioni di recupero e rigenerazione delle chiavi dell'account di archiviazione tramite l'API REST. Nota: riguarda gli account di archiviazione della versione classica.
-
-  Questo articolo illustra come usare Active Directory per controllare l'accesso alle chiavi di archiviazione di Azure nell'insieme di credenziali delle chiavi di Azure. Illustra anche come usare un processo di Automazione di Azure per rigenerare le chiavi su base oraria.
 
 ## <a name="data-plane-security"></a>Sicurezza del piano dati
 La sicurezza del piano dati riguarda i metodi usati per proteggere gli oggetti dati archiviati in Archiviazione di Azure: BLOB, code, tabelle e file. Sono stati esaminati i metodi per crittografare i dati e per la sicurezza durante la trasmissione di dati, ora si vedrà come fare per controllare l'accesso agli oggetti stessi.

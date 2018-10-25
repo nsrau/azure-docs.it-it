@@ -2,26 +2,26 @@
 title: API REST del Servizio di riconoscimento vocale
 description: Informazioni di riferimento sulle API REST per il Servizio di riconoscimento vocale.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: erhopf
+ms.openlocfilehash: f8b27277cbf3ea6d53a8f02e550beae67fc50741
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032428"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167631"
 ---
 # <a name="speech-service-rest-apis"></a>API REST del Servizio di riconoscimento vocale
 
-Le API REST del Servizio di riconoscimento vocale unificato dei servizi cognitivi Azure sono simili alle API offerte dall'[API Riconoscimento vocale Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Gli endpoint sono diversi da quelli usati dal servizio di API Riconoscimento vocale Bing. Sono disponibili endpoint a livello di area ed è necessario usare una chiave di sottoscrizione che corrisponda all'endpoint in uso.
+Le API REST del servizio Voce di Servizi cognitivi Azure sono simili alle API offerte dall'[API Riconoscimento vocale Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Gli endpoint sono diversi da quelli usati dal servizio di API Riconoscimento vocale Bing. Sono disponibili endpoint a livello di area ed è necessario usare una chiave di sottoscrizione che corrisponda all'endpoint in uso.
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
-Gli endpoint per il riconoscimento vocale all'API REST di testo vengono visualizzati nella tabella seguente. Usare l'endpoint corrispondente all'area della propria sottoscrizione.
+Gli endpoint per il riconoscimento vocale all'API REST di testo vengono visualizzati nella tabella seguente. Usare l'endpoint corrispondente all'area della propria sottoscrizione. 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -30,13 +30,14 @@ Gli endpoint per il riconoscimento vocale all'API REST di testo vengono visualiz
 
 Questa API supporta brevi enunciati. Le richieste possono contenere fino a 10 secondi di audio e durare un massimo di 14 secondi complessivamente. L'API REST restituisce risultati solo finali, non risultati intermedi o parziali. Il servizio riconoscimento vocale ha anche un'API di [trascrizione batch](batch-transcription.md) che può trascrivere audio più lunghi.
 
+
 ### <a name="query-parameters"></a>Parametri di query
 
-I parametri seguenti potrebbero essere inclusi nella stringa di query della richiesta REST.
+I parametri seguenti possono essere inclusi nella stringa di query della richiesta REST.
 
 |Nome parametro|Obbligatorio/Facoltativo|Significato|
 |-|-|-|
-|`language`|Obbligatoria|L'identificatore della lingua da riconoscere. Vedere [Lingue supportate](supported-languages.md#speech-to-text).|
+|`language`|Obbligatoria|L'identificatore della lingua da riconoscere. Vedere [Lingue supportate](language-support.md#speech-to-text).|
 |`format`|Facoltativo<br>default: `simple`|Formato dei risultati, `simple` o `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e la durata. I risultati dettagliati includono più candidati con valori di attendibilità e quattro diverse rappresentazioni.|
 |`profanity`|Facoltativo<br>default: `masked`|Come gestire il linguaggio volgare nei risultati del riconoscimento. È possibile `masked` (sostituisce volgarità con asterisco), `removed` (rimuove tutte le volgarità) oppure `raw` (include le volgarità).
 
@@ -55,13 +56,19 @@ I seguenti campi sono inviati nell'intestazione della richiesta HTTP.
 
 ### <a name="audio-format"></a>Formato audio
 
-L'audio viene inviato nel corpo della richiesta HTTP `PUT`. Deve essere in formato WAV 16 bit con singolo canale PCM (mono) a 16 kHz.
+L'audio viene inviato nel corpo della richiesta HTTP `PUT`. Deve essere in formato WAV 16 bit con singolo canale PCM (mono) a 16 kHz nel formato/codifica seguente.
+
+* Formato WAV con codec PCM
+* Formato Ogg con codec OPUS
+
+>[!NOTE]
+>I formati indicati sono supportati tramite l'API REST e WebSocket nel servizio Voce. [Speech SDK](/index.yml) attualmente supporta solo il formato WAV con codec PCM. 
 
 ### <a name="chunked-transfer"></a>Trasferimento in blocchi
 
 Il trasferimento in blocchi (`Transfer-Encoding: chunked`) aiuta a ridurre la latenza di riconoscimento perché consente al Servizio di riconoscimento vocale di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali. Questa opzione è intesa unicamente a migliorare la velocità di risposta.
 
-Nel codice seguente viene illustrato come inviare l'audio in blocchi. `request` è un oggetto HTTPWebRequest connesso all'endpoint REST appropriato. `audioFile` è il percorso di un file audio su disco.
+Nel codice seguente viene illustrato come inviare l'audio in blocchi. Solo il primo blocco deve contenere l'intestazione del file audio. `request` è un oggetto HTTPWebRequest connesso all'endpoint REST appropriato. `audioFile` è il percorso di un file audio su disco.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
@@ -195,9 +202,6 @@ Gli endpoint REST per l'API Sintesi vocale del Servizio di riconoscimento vocale
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> Se è stato creato un carattere voce personalizzato, usare invece l'endpoint personalizzato associato.
-
 Il Servizio di riconoscimento vocale supporta output audio a 24 KHz, oltre all'output a 16 Khz, supportato dal Riconoscimento vocale Bing. Nell'intestazione HTTP `X-Microsoft-OutputFormat` sono disponibili per l'uso quattro formati di output a 24 KHz, così come due voci a 24 KHz, `Jessa24kRUS` e `Guy24kRUS`.
 
 Impostazioni locali | Linguaggio   | Sesso | Mapping nome del servizio
@@ -205,7 +209,7 @@ Impostazioni locali | Linguaggio   | Sesso | Mapping nome del servizio
 it-IT  | Inglese (Stati Uniti) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
 it-IT  | Inglese (Stati Uniti) | Maschio   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
-È disponibile un elenco completo delle voci disponibili in [Lingue supportate](supported-languages.md#text-to-speech).
+È disponibile un elenco completo delle voci disponibili in [Lingue supportate](language-support.md#text-to-speech).
 
 ### <a name="request-headers"></a>Intestazioni della richiesta
 
@@ -265,7 +269,8 @@ Codice HTTP|Significato|Possibile motivo
 400 |Bad Request |Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione.
 401|Non autorizzata |La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta.
 413|Entità della richiesta troppo grande|La lunghezza dell'input SSML è maggiore di 1024 caratteri.
-|502|Gateway non valido    | Problema di rete o lato server. Può anche indicare intestazioni non valide.
+429|Troppe richieste|È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione.
+502|Gateway non valido | Problema di rete o lato server. Può anche indicare intestazioni non valide.
 
 Se lo stato HTTP è `200 OK`, il corpo della risposta contiene un file audio nel formato richiesto. Questo file può essere riprodotto, poiché è trasferito o salvato in un buffer o file per essere riprodotto successivamente o per altri usi.
 

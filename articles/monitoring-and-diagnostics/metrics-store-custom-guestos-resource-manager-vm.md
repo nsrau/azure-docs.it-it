@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 4ed911766a14dd35ea662326a5d50df11cf81698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f3076054eb6e18eb5143a34ba558c1f9e43ea4a5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984074"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345187"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per una macchina virtuale Windows
 
@@ -64,7 +64,7 @@ Aggiungere un ID account di archiviazione alla sezione **variables** del modello
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-Aggiungere questa estensione di identità del servizio gestita al modello nella parte superiore della sezione "resources".  L'estensione garantisce che Monitoraggio di Azure accetti le metriche generate.  
+Aggiungere l'estensione relativa alle identità gestite per le risorse di Azure al modello nella parte superiore della sezione "resources".  L'estensione garantisce che Monitoraggio di Azure accetti le metriche generate.  
 
 ```json
 //Find this code 

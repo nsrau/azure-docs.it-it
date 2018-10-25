@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966558"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353742"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Domande frequenti sull'acceleratore di soluzioni di connected factory
 
@@ -140,33 +140,21 @@ Se non vengono visualizzati dati inviati all'hub IoT, si è verificato un proble
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Come è possibile abilitare una mappa interattiva nella soluzione Connected Factory?
 
-Per abilitare una mappa interattiva nella soluzione Connected Factory, è necessario avere un piano API di Bing Maps per aziende esistente.
+Per abilitare una mappa interattiva nella soluzione Connected Factory, è necessario avere un account Mappe di Azure.
 
-Durante la distribuzione da [www.azureiotsolutions.com](http://www.azureiotsolutions.com), il processo verifica che la sottoscrizione disponga di un piano API di Bing Maps per aziende abilitato e distribuisce automaticamente una mappa interattiva nella soluzione Connected Factory. In caso contrario, è possibile comunque abilitare una mappa interattiva nella distribuzione seguendo questa procedura:
+Quando si esegue la distribuzione da [www.azureiotsolutions.com](http://www.azureiotsolutions.com), il processo di distribuzione aggiunge un account Mappe di Azure al gruppo di risorse che contiene i servizi dell'acceleratore di soluzione.
 
-Quando si esegue la distribuzione usando lo script `build.ps1` disponibile nel repository GitHub della soluzione Connected Factory e si dispone di un piano API di Bing Maps per aziende, impostare la variabile di ambiente `$env:MapApiQueryKey` nella finestra di compilazione sulla chiave di query del piano. La mappa interattiva viene quindi abilitata automaticamente.
+Quando si esegue la distribuzione usando lo script `build.ps1` disponibile nel repository GitHub della soluzione Connected Factory, impostare la variabile di ambiente `$env:MapApiQueryKey` nella finestra di compilazione sulla [chiave dell'account Mappe di Azure](../azure-maps/how-to-manage-account-keys.md). La mappa interattiva viene quindi abilitata automaticamente.
 
-Se non si dispone di un piano API di Bing Maps per aziende, distribuire la soluzione Connected Factory da [www.azureiotsolutions.com](http://www.azureiotsolutions.com) o usando lo script `build.ps1`. Aggiungere quindi un piano API di Bing Maps per aziende alla sottoscrizione, come illustrato nella sezione [Come è possibile creare un account API di Bing Maps per aziende?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Cercare la chiave di query di questo account come illustrato nella sezione [Come è possibile ottenere la chiave di query dell'API di Bing Maps per aziende?](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) e salvarla. Passare al portale di Azure e accedere alla risorsa Servizio app nella distribuzione della soluzione Connected Factory. Passare a **Impostazioni dell'applicazione**, in cui si trova una sezione **Impostazioni app**. Impostare **MapApiQueryKey** sulla chiave di query ottenuta. Salvare le impostazioni e quindi passare a **Panoramica** e riavviare il servizio app.
+È anche possibile aggiungere una chiave dell'account Mappe di Azure all'acceleratore di soluzione dopo la distribuzione. Passare al portale di Azure e accedere alla risorsa Servizio app nella distribuzione della soluzione Connected Factory. Passare a **Impostazioni dell'applicazione**, in cui si trova una sezione **Impostazioni applicazione**. Impostare **MapApiQueryKey** sulla [chiave dell'account Mappe di Azure](../azure-maps/how-to-manage-account-keys.md). Salvare le impostazioni e quindi passare a **Panoramica** e riavviare il servizio app.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Come è possibile creare un account API di Bing Maps per aziende?
+### <a name="how-do-i-create-a-azure-maps-account"></a>Come si crea un account Mappe di Azure?
 
-È possibile ottenere una piano *API di Bing Maps per aziende - Transazioni interne Livello 1* gratuito. È tuttavia possibile aggiungere solo due piani di questo tipo in una sottoscrizione di Azure. Se non si dispone di un account API di Bing Maps per aziende, crearne uno nel portale di Azure facendo clic su **+ Crea una risorsa**. Cercare quindi **API di Bing Maps per aziende** e seguire le istruzioni per creare l'account.
+Vedere [Come gestire l'account e le chiavi di Mappe di Azure](../azure-maps/how-to-manage-account-keys.md).
 
-![Chiave di Bing](./media/iot-accelerators-faq-cf/bing.png)
+### <a name="how-to-obtain-your-azure-maps-account-key"></a>Come ottenere la chiave dell'account Mappe di Azure
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Come è possibile ottenere la chiave di query di API di Bing Maps per aziende?
-
-Dopo aver creato il piano API di Bing Maps per aziende, aggiungere una risorsa API di Bing Maps per aziende al gruppo di risorse della soluzione Connected Factory nel portale di Azure.
-
-1. Nel portale di Azure passare al gruppo di risorse contenente il piano API di Bing Maps per aziende.
-
-1. Fare clic su **All Settings** (Tutte le impostazioni) e quindi su **Key Management** (Gestione chiavi).
-
-1. Sono disponibili due chiavi: **MasterKey** e **QueryKey**. Copiare il valore **QueryKey**.
-
-1. Per consentire allo script `build.ps1` di prelevare la chiave, impostare la variabile di ambiente `$env:MapApiQueryKey` dell'ambiente PowerShell sul valore **QueryKey** del piano. Lo script di compilazione aggiunge quindi automaticamente il valore alle impostazioni del servizio app.
-
-1. Eseguire una distribuzione locale o cloud usando lo script `build.ps1`.
+Vedere [Come gestire l'account e le chiavi di Mappe di Azure](../azure-maps/how-to-manage-account-keys.md).
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Come è possibile abilitare la mappa interattiva durante il debug in locale?
 

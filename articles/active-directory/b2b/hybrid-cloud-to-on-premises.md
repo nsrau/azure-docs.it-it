@@ -4,18 +4,18 @@ description: Illustra come fornire agli utenti B2B cloud l'accesso alle app loca
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
-ms.date: 04/20/2018
+ms.topic: conceptual
+ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 57c807b7729b58d2537ee09ddd5d05d4f2afb55e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346339"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068844"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
 
@@ -63,11 +63,11 @@ Il diagramma seguente offre una panoramica generale del funzionamento combinato 
 È possibile gestire gli oggetti utente B2B locali tramite i criteri di gestione del ciclo di vita. Ad esempio: 
 
 - È possibile impostare criteri di autenticazione a più fattori (MFA) per l'utente guest in modo che l'autenticazione a più fattori venga usata durante l'autenticazione di Application Proxy. Per altre informazioni, vedere [Accesso condizionale per gli utenti di Collaborazione B2B](conditional-access.md).
-- Qualsiasi sponsorizzazione, verifica di accesso, verifica dell'account e così via eseguita per l'utente B2B cloud si applica agli utenti locali. Se, ad esempio, l'utente cloud viene eliminato tramite i criteri di gestione del ciclo di vita, anche l'utente locale viene eliminato mediante la sincronizzazione MIM oppure la sincronizzazione di Azure AD Connect. Per altre informazioni, vedere [Gestire l'accesso guest con le verifiche di accesso di Azure AD](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md).
+- Qualsiasi sponsorizzazione, verifica di accesso, verifica dell'account e così via eseguita per l'utente B2B cloud si applica agli utenti locali. Se, ad esempio, l'utente cloud viene eliminato tramite i criteri di gestione del ciclo di vita, anche l'utente locale viene eliminato mediante la sincronizzazione MIM oppure la sincronizzazione di Azure AD Connect. Per altre informazioni, vedere [Gestire l'accesso guest con le verifiche di accesso di Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
-### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>Creare oggetti utente guest B2B tramite MIM (anteprima)
+### <a name="create-b2b-guest-user-objects-through-mim"></a>Creare oggetti utente guest B2B con MIM
 
-Per informazioni su come usare MIM 2016 Service Pack 1 e l'agente di gestione MIM per Microsoft Graph per creare oggetti utente guest nella directory locale, vedere [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy (Public Preview)](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) (Collaborazione B2B (Business to Business) di Azure AD con Microsoft Identity Manager (MIM) 2016 SP1 con Azure Application Proxy - Anteprima pubblica).
+Per informazioni su come usare MIM 2016 Service Pack 1 e l'agente di gestione MIM per Microsoft Graph per creare oggetti utente guest nella directory locale, vedere [Azure AD business-to-business (B2B) collaboration with Microsoft Identity Manager (MIM) 2016 SP1 with Azure Application Proxy (Public Preview)](https://docs.microsoft.com/microsoft-identity-manager/microsoft-identity-manager-2016-graph-b2b-scenario) (Collaborazione B2B (Business to Business) di Azure AD con Microsoft Identity Manager (MIM) 2016 SP1 con Azure Application Proxy).
 
 ### <a name="create-b2b-guest-user-objects-through-a-script-preview"></a>Creare oggetti utente guest B2B tramite uno script (anteprima)
 
@@ -85,5 +85,5 @@ Assicurarsi di avere le licenze CAL (Client Access License) corrette per gli ute
 
 - [Collaborazione B2B di Azure Active Directory per organizzazioni ibride](hybrid-organizations.md)
 
-- Per informazioni su Azure AD Connect, vedere [Integrare le directory locali con Azure Active Directory](../connect/active-directory-aadconnect.md).
+- Per informazioni su Azure AD Connect, vedere [Integrare le directory locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

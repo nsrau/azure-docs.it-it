@@ -11,32 +11,30 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 5f0e5de7503d06d1aff319434d763d3b034053b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 12074ad28e27a249a6dc378986f014ede1cd2ab3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166363"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353581"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo
 
 Questo articolo illustra in modo dettagliato i limiti delle risorse per i database singoli del database SQL di Azure usando il modello di acquisto basato su vCore.
 
-Per informazioni sui limiti del modello di acquisto in base alle DTU, vedere [SQL Database DTU-based resource limits](sql-database-dtu-resource-limits.md) (Limiti di risorse in base alle DTU per il database SQL).
+Per i limiti del modello di acquisto basati su DTU per i singoli database in un server logico, vedere [Panoramica dei limiti delle risorse in un server logico](sql-database-resource-limits-logical-server.md).
 
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 
+È possibile impostare il livello di servizio, la dimensione del calcolo e la quantità di archiviazione per un singolo database usando il [portale di Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), l'[interfaccia della riga di comando di Azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) o l'[API REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>Database singolo: dimensioni di archiviazione e di calcolo
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Livello di servizio Utilizzo generico: dimensioni di archiviazione e di calcolo
 
-Per i database singoli, le tabelle seguenti illustrano le risorse disponibili per un singolo database a ogni livello di servizio e dimensione di calcolo. È possibile impostare il livello di servizio, la dimensione del calcolo e la quantità di archiviazione per un singolo database usando il [portale di Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), l'[interfaccia della riga di comando di Azure](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) o l'[API REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+### <a name="generation-4-compute-platform"></a>Piattaforma di calcolo Generazione 4
 
-### <a name="general-purpose-service-tier"></a>Livello di servizio Utilizzo generico
-
-#### <a name="generation-4-compute-platform"></a>Piattaforma di calcolo Generazione 4
-|Dimensioni di calcolo|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
+|Dimensione di calcolo|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|4|8|16|24|
@@ -57,8 +55,9 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
-|Dimensioni di calcolo|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
+### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
+
+|Dimensione di calcolo|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|
 |vCore|2|4|8|16|24|32|40|80|
@@ -79,10 +78,11 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 
-### <a name="business-critical-service-tier"></a>Livello di servizio business critical
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Livello di servizio business critical: dimensioni di archiviazione e di calcolo
 
-#### <a name="generation-4-compute-platform"></a>Piattaforma di calcolo Generazione 4
-|Dimensioni di calcolo|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+### <a name="generation-4-compute-platform"></a>Piattaforma di calcolo Generazione 4
+
+|Dimensione di calcolo|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Generazione hardware|4|4|4|4|4|4|
 |vCore|1|2|4|8|16|24|
@@ -103,8 +103,9 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
-|Dimensioni di calcolo|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
+
+|Dimensione di calcolo|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|5|
 |vCore|2|4|8|16|24|32|40|80|
@@ -125,9 +126,10 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 |||
 
-### <a name="hyperscale-service-tier-preview"></a>Livello di servizio con iperscalabilità (anteprima)
+## <a name="hyperscale-service-tier-preview"></a>Livello di servizio con iperscalabilità (anteprima)
 
-#### <a name="generation-4-compute-platform"></a>Piattaforma di calcolo Generazione 4
+### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Piattaforma di calcolo Generazione 4: dimensioni di archiviazione e di calcolo
+
 |Livello di prestazioni|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |--: |
 |Generazione hardware|4|4|4|4|4|4|
@@ -148,7 +150,9 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |Scalabilità orizzontale in lettura|Yes|Yes|Yes|Yes|Yes|Yes|
 |Archivio di backup incluso|7|7|7|7|7|7|
 |||
+
 ### <a name="generation-5-compute-platform"></a>Piattaforma di calcolo Generazione 5
+
 |Livello di prestazioni|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Generazione hardware|5|5|5|5|5|5|5|5|

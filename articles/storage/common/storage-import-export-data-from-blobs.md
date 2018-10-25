@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: a85fb6ce211e6089f67cb2e2f265fbda06a25b10
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 9ae0892d7de8a431227218ffc6db03eca20fcbdd
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735090"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585714"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 Questo articolo offre istruzioni dettagliate su come usare il servizio Importazione/Esportazione di Azure per esportare in tutta sicurezza grandi quantità di dati da Archiviazione BLOB di Azure. Il servizio richiede la spedizione di unità vuote al data center di Azure. Il servizio esporta i dati dall'account di archiviazione alle unità e quindi rispedisce le unità.
@@ -60,7 +60,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 3. In **Dettagli processo**:
 
     - Selezionare l'account di archiviazione in cui si trovano i dati da esportare. Usare un account di archiviazione vicino rispetto a dove ci si trova.
-    - La località di consegna viene immessa automaticamente in base all'area dell'account di archiviazione selezionato. 
+    - La località di consegna viene popolata automaticamente in base all'area dell'account di archiviazione selezionato. 
     - Specificare i dati BLOB da esportare dall'account di archiviazione in una o più unità vuote. 
     - Scegliere **Esporta tutti** per i dati BLOB nell'account di archiviazione.
     
@@ -139,7 +139,7 @@ Questo passaggio *facoltativo* aiuta a determinare il numero di unità necessari
 
     I parametri vengono descritti nella tabella seguente:
     
-    |Parametro della riga di comando|DESCRIZIONE|  
+    |Parametro della riga di comando|Descrizione|  
     |--------------------------|-----------------|  
     |**/logdir:**|facoltativo. Directory dei log. in cui vengono scritti file di log dettagliati. Se non è specificato, come directory dei log viene usata la directory corrente.|  
     |**/sn:**|Richiesto. Il nome dell'account di archiviazione per il processo di esportazione.|  
@@ -193,7 +193,7 @@ Number of drives needed:        3
 
 La tabella seguente mostra alcuni esempi di percorsi BLOB validi:
    
-   | Selettore | Percorso BLOB | DESCRIZIONE |
+   | Selettore | Percorso BLOB | Descrizione |
    | --- | --- | --- |
    | Starts With |/ |Esporta tutti i BLOB nell'account di archiviazione |
    | Starts With |/$root/ |Esporta tutti i BLOB nel contenitore radice |

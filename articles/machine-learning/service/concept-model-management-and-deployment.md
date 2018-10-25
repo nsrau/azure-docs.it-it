@@ -1,6 +1,6 @@
 ---
-title: Gestione e distribuzione dei modelli con Azure Machine Learning
-description: Informazioni sull'uso di Azure Machine Learning per distribuire, gestire e monitorare i modelli al fine di un miglioramento costante. È possibile distribuire i modelli di cui si è effettuato il training con Azure Machine Learning sul computer locale o da altre origini.
+title: Gestire e distribuire modelli nel servizio Azure Machine Learning
+description: Informazioni sull'uso del servizio Azure Machine Learning per distribuire, gestire e monitorare i modelli per garantirne un miglioramento costante. È possibile distribuire i modelli di cui si è effettuato il training con il servizio Azure Machine Learning sul computer locale o da altre origini.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,21 +9,21 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: d3e0b63d42ad8c6d4765f5120c26c5dfdf5ad6fb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166538"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885068"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning"></a>Gestione, distribuzione e monitoraggio dei modelli con Azure Machine Learning
+# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gestire e distribuire modelli con il servizio Azure Machine Learning
 
-In questo articolo è possibile ottenere informazioni su come usare Azure Machine Learning per distribuire, gestire e monitorare i modelli per un miglioramento costante. È possibile distribuire i modelli di cui si è effettuato il training con Azure Machine Learning sul computer locale o da altre origini. 
+Questo articolo offre informazioni su come usare il servizio Azure Machine Learning per distribuire, gestire e monitorare i modelli per garantirne un miglioramento costante. È possibile distribuire i modelli di cui si è effettuato il training con Azure Machine Learning sul computer locale o da altre origini. 
 
 Il diagramma seguente illustra il flusso di lavoro completo di distribuzione: [ ![Flusso di lavoro di distribuzione per Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 Il flusso di lavoro di distribuzione comprende i passaggi seguenti:
-1. **Registrazione del modello** in un registro ospitato nell'area di lavoro di Azure Machine Learning
+1. **Registrazione del modello** in un registro ospitato nell'area di lavoro del servizio Azure Machine Learning
 1. **Registrazione di un'immagine** che associa un modello a uno script di punteggio e alle dipendenze in un contenitore portabile 
 1. **Distribuzione** dell'immagine come un servizio Web nel cloud o nei dispositivi perimetrali
 1. **Monitoraggio e raccolta dati**
@@ -35,7 +35,7 @@ Ogni passaggio può essere eseguito in modo indipendente o come parte di un coma
 
 ## <a name="step-1-register-model"></a>Passaggio 1: Registrazione del modello
 
-Il registro di modello tiene traccia di tutti i modelli nell'area di lavoro di Azure Machine Learning.
+Il registro di modello tiene traccia di tutti i modelli nell'area di lavoro del servizio di Azure Machine Learning.
 I modelli vengono identificati dal nome e dalla versione. Ogni volta che si registra un modello con lo stesso nome di uno esistente, il registro incrementa la versione. È possibile fornire tag di metadati aggiuntivi durante la registrazione che può essere usata quando si cercano i modelli.
 
 Non è possibile eliminare i modelli attualmente in uso da un'immagine.
@@ -71,7 +71,7 @@ Tutti gli oggetti usati per creare l'immagine vengono archiviati nell'account di
 * Computer Azure FPGA
 * Dispositivi Azure IoT Edge
 
-Una volta distribuito il servizio, il carico della richiesta di inferenza è automaticamente bilanciato e il cluster viene ridimensionato per soddisfare qualsiasi richiesta. I [Dati di telemetria relativi al servizio](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) possono essere acquisiti dal servizio di Application Insights di Azure associato all'area di lavoro.
+Una volta distribuito il servizio, il carico della richiesta di inferenza è automaticamente bilanciato e il cluster viene ridimensionato per soddisfare qualsiasi richiesta. I [dati di telemetria relativi al servizio](how-to-enable-app-insights.md) possono essere acquisiti dal servizio Azure Application Insights.
 
 ## <a name="step-4-monitor-models-and-collect-data"></a>Passaggio 4: Monitoraggio dei modelli e raccolta dati
 

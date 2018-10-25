@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/05/2018
+ms.date: 09/12/2018
 ms.author: jingwang
-ms.openlocfilehash: afb4cbafeb29800b1f5b1c837da301e2944d678b
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: e50d1696fdc22916f5ac4699bd17ddc21a82a148
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842533"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815869"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiare dati da o nel database SQL di Azure tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -33,8 +33,8 @@ Questo articolo illustra come usare l'attività di copia in Azure Data Factory p
 
 In particolare, il connettore del database SQL di Azure supporta queste funzioni:
 
-- La copia di dati tramite autenticazione SQL e autenticazione token dell'applicazione di Azure Active Directory (Azure AD) con entità servizio o identità del servizio gestita.
-- Come origine, recuperare i dati tramite query SQL o stored procedure.
+- La copia di dati tramite l'autenticazione SQL e l'autenticazione token dell'applicazione Azure Active Directory (Azure AD) con entità servizio o identità gestite per le risorse di Azure.
+- Come origine, il recupero di dati tramite query SQL o stored procedure.
 - Come sink, aggiungere dati alla tabella di destinazione o richiamare una stored procedure con logica personalizzata durante la copia.
 
 > [!IMPORTANT]
@@ -64,7 +64,7 @@ Per altri tipi di autenticazione, fare riferimento alle sezioni seguenti relativ
 
 - [Autenticazione SQL](#sql-authentication)
 - [Autenticazione token dell'applicazione Azure AD: entità servizio](#service-principal-authentication)
-- [Autenticazione token dell'applicazione Azure AD: identità del servizio gestita](#managed-service-identity-authentication)
+- [Autenticazione token dell'applicazione Azure AD: identità gestite per le risorse di Azure](#managed-identity)
 
 >[!TIP]
 >Se viene restituito l'errore con codice "UserErrorFailedToConnectToSqlServer" e un messaggio quale "Il limite di sessioni per il database è XXX ed è stato raggiunto.", aggiungere `Pooling=false` alla stringa di connessione e riprovare.
@@ -119,7 +119,7 @@ Per usare l'autenticazione token dell'applicazione di Azure AD basata sull'entit
 1. **Configurare un servizio collegato al database SQL di Azure** in Azure Data Factory.
 
 
-#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Esempio di servizio collegato che usa l'autenticazione basata su entità servizio
+#### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Esempio di servizio collegato tramite l'autenticazione basata su entità servizio
 
 ```json
 {
@@ -146,9 +146,9 @@ Per usare l'autenticazione token dell'applicazione di Azure AD basata sull'entit
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Autenticazione basata su identità del servizio gestita
+### <a name="managed-identity"></a>Autenticazione di identità gestite per le risorse di Azure
 
-Una data factory può essere associata a un'[identità del servizio gestita](data-factory-service-identity.md), che rappresenta la data factory specificata. È possibile usare questa identità del servizio per l'autenticazione del database SQL di Azure. La factory designata può accedere ai dati e copiarli da o verso il database tramite questa identità.
+Una data factory può essere associata a un'[identità gestita per le risorse di Azure](data-factory-service-identity.md), che rappresenta la data factory specifica. È possibile usare questa identità del servizio per l'autenticazione del database SQL di Azure. La factory designata può accedere ai dati e copiarli da o verso il database tramite questa identità.
 
 Per usare l'autenticazione token dell'applicazione di Azure AD basata sull'identità del servizio gestita, seguire questa procedura:
 
@@ -201,7 +201,7 @@ Per usare l'autenticazione token dell'applicazione di Azure AD basata sull'ident
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](https://docs.microsoft.com/en-us/azure/data-factory/concepts-datasets-linked-services). Questa sezione presenta un elenco delle proprietà supportate dal set di dati del database SQL di Azure.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di dati, vedere l'articolo [Set di dati](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services). Questa sezione presenta un elenco delle proprietà supportate dal set di dati del database SQL di Azure.
 
 Per copiare dati da o verso il database SQL di Azure, impostare la proprietà **type** del set di dati su **AzureSqlTable**. Sono supportate le proprietà seguenti:
 
@@ -568,6 +568,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 La funzionalità di stored procedure sfrutta i [parametri valutati a livello di tabella](https://msdn.microsoft.com/library/bb675163.aspx).
+
+>[!NOTE]
+>Se si scrive nel tipo di dati Money/Smallmoney richiamando una stored procedure, i valori possono essere arrotondati. Specificare il tipo di dati corrispondente in TVP come Decimal anziché Money/Smallmoney per attenuare. 
 
 ## <a name="data-type-mapping-for-azure-sql-database"></a>Mapping dei tipi di dati per il database SQL di Azure
 

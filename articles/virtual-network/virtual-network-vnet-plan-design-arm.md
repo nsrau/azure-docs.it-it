@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141144"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378755"
 ---
 # <a name="plan-virtual-networks"></a>Pianificare le reti virtuali
 
@@ -93,7 +93,7 @@ Se è necessario implementare il routing personalizzato, è consigliabile avere 
 
 ### <a name="peering"></a>Peering
 
-Quando si usa [peering della rete virtuale](virtual-network-peering-overview.md), le reti virtuali possono trovarsi nella stessa, o in diverse, aree di Azure supportate. Le reti virtuali possono essere nella stessa sottoscrizione di Azure o in una sottoscrizione diversa, fintanto che entrambe le sottoscrizioni sono associate allo stesso tenant di Azure Active Directory. Prima di creare un peering, è consigliabile acquisire familiarità con [i requisiti e i vincoli](virtual-network-manage-peering.md#requirements-and-constraints) del peering. La larghezza di banda tra le risorse nelle reti virtuali con peering nella stessa area rimane uguale a quella tra le risorse nella stessa rete virtuale.
+Quando si usa [peering della rete virtuale](virtual-network-peering-overview.md), le reti virtuali possono trovarsi nella stessa, o in diverse, aree di Azure supportate. Le reti virtuali possono essere nella stessa sottoscrizione di Azure o in una sottoscrizione diversa (persino in sottoscrizioni associate a diversi tenant di Azure Active Directory). Prima di creare un peering, è consigliabile acquisire familiarità con [i requisiti e i vincoli](virtual-network-manage-peering.md#requirements-and-constraints) del peering. La larghezza di banda tra le risorse nelle reti virtuali con peering nella stessa area rimane uguale a quella tra le risorse nella stessa rete virtuale.
 
 ### <a name="vpn-gateway"></a>gateway VPN
 

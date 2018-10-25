@@ -1,5 +1,5 @@
 ---
-title: Usare l'identità del servizio gestito in Azure Cloud Shell | Microsoft Docs
+title: Usare identità gestite per le risorse di Azure in Azure Cloud Shell | Microsoft Docs
 description: Autenticare il codice con l'identità del servizio gestito in Azure Cloud Shell
 services: azure
 documentationcenter: ''
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: juluk
-ms.openlocfilehash: 99577faf7328dc773a9da5f7c1227aa63600aa0a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fe77deeedc34bf769065e34ac2f81d631b0004d6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31516285"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352949"
 ---
-# <a name="use-msi-in-azure-cloud-shell"></a>Usare l'identità del servizio gestito in Azure Cloud Shell
+# <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Usare identità gestite per le risorse di Azure in Azure Cloud Shell
 
-Azure Cloud Shell supporta l'autorizzazione con l'identità del servizio gestito. Consente di recuperare i token di accesso per comunicare in modo sicuro con i servizi di Azure.
+Per le risorse di Azure, Azure Cloud Shell supporta l'autorizzazione con identità gestite. Consente di recuperare i token di accesso per comunicare in modo sicuro con i servizi di Azure.
 
-## <a name="about-managed-service-identity-msi"></a>Informazioni sull'identità del servizio gestito
+## <a name="about-managed-identities-for-azure-resources"></a>Informazioni sulle identità gestite per le risorse di Azure
 Una difficoltà comune durante la creazione di applicazioni cloud è rappresentata dalla gestione sicura delle credenziali che devono essere presenti nel codice per l'autenticazione ai servizi cloud. In Cloud Shell potrebbe essere necessario autenticare il recupero da Key Vault per le credenziali necessarie per uno script.
 
-Identità del servizio gestito consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory, ovvero Azure AD. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
+Le identità gestite per le risorse di Azure consentono di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice.
 
 ## <a name="acquire-access-token-in-cloud-shell"></a>Acquisire un token di accesso in Cloud Shell
 

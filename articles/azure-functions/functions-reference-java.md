@@ -6,19 +6,17 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: funzioni di Azure, funzioni, elaborazione eventi, webhook, calcolo dinamico, architettura senza server, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 08/10/2018
+ms.topic: conceptual
+ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: bbc1c3426b52e71db84a988b39a1d76ac24b6168
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697012"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802118"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -28,7 +26,35 @@ ms.locfileid: "43697012"
 
 Una funzione di Azure deve essere un metodo della classe senza stato che elabora un input e restituisce un output. Anche se è possibile scrivere metodi di istanza, la funzione non deve dipendere da campi di istanza della classe. Tutti i metodi di funzione devono avere un modificatore di accesso `public`.
 
-È possibile inserire più funzioni in un progetto. Evitare di inserire le funzioni in file con estensione jar separati.
+## <a name="folder-structure"></a>Struttura di cartelle
+
+La struttura di cartelle per un progetto Java ha un aspetto simile al seguente:
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+È presente un file [host.json] (functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione java) e il proprio file di configurazione delle associazioni (function.json).
+
+È possibile inserire più funzioni in un progetto. Evitare di inserire le funzioni in file con estensione jar separati. L'elemento FunctionApp nella directory di destinazione viene distribuito all'app per le funzioni in Azure.
 
 ## <a name="triggers-and-annotations"></a>Trigger e annotazioni
 
@@ -89,9 +115,15 @@ con i corrispondenti `function.json`:
 
 ```
 
+## <a name="jdk-runtime-availability-and-support"></a>Disponibilità del runtime JDK e supporto 
+
+Eseguire il download e usare i pacchetti JDK [Azul Zulu per Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) di [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) per lo sviluppo locale di app per le funzioni Java. I pacchetti JDK sono disponibili per Windows, Linux e macOS e il [supporto di Azure](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) è disponibile per risolvere i problemi riscontrati durante lo sviluppo con un [piano di supporto completo](https://azure.microsoft.com/support/plans/).
+
 ## <a name="third-party-libraries"></a>Librerie di terze parti 
 
 Funzioni di Azure supporta l'uso di librerie di terze parti. Per impostazione predefinita, tutte le dipendenze specificate nel file `pom.xml` del progetto verranno raggruppate automaticamente durante l'obiettivo `mvn package`. Inserire le librerie non specificate come dipendenze del file `pom.xml` in una directory `lib` nella directory radice della funzione. Le dipendenze inserite nella directory `lib` verranno aggiunte al caricatore di classe di sistema in fase di esecuzione.
+
+La dipendenza `com.microsoft.azure.functions:azure-functions-java-library` è specificata in classpath per impostazione predefinita e non deve essere inclusa nella directory `lib`.
 
 ## <a name="data-type-support"></a>Supporto dei tipi di dati
 

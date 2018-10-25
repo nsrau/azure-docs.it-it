@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 190b7fff24c9d6b3dee86471b56ad68c962e51ce
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434076"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116879"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e Azure Machine Learning | Creare e distribuire modelli interoperativi di AI
 
@@ -28,7 +28,7 @@ Microsoft supporta ONNX in tutti i relativi prodotti tra cui Azure e Windows per
 ## <a name="why-choose-onnx"></a>Perché scegliere ONNX?
 L'interoperabilità che si ottiene con ONNX consente di ottenere più velocemente idee eccezionali nell’ambiente di produzione. Con ONNX, i data scientist possono scegliere il framework preferito per il processo. Analogamente, gli sviluppatori possono dedicare meno tempo alla preparazione per la produzione di modelli e distribuirli attraverso il cloud e i dispositivi periferici.  
 
-È possibile esportare i modelli ONNX da molti framework, tra cui PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet e ML.Net. I convertitori sono disponibili per altri framework, ad esempio TensorFlow, Keras, SciKit-Learn e altri ancora.
+È possibile creare modelli ONNX da molti framework, tra cui PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras, SciKit-Learn e altri ancora.
 
 È inoltre disponibile un ecosistema di strumenti per visualizzare e accelerare i modelli ONNX. Per gli scenari comuni sono inoltre disponibili vari modelli con training preliminare ONNX.
 
@@ -36,18 +36,17 @@ L'interoperabilità che si ottiene con ONNX consente di ottenere più velocement
 
 [ ![diagramma di flusso ONNX che mostra la formazione, i convertitori e la distribuzione](media/concept-onnx/onnx.png) ] (./media/concept-onnx/onnx.png#lightbox)
 
-## <a name="create-onnx-models-in-azure"></a>Creare i modelli ONNX in Azure
+## <a name="get-onnx-models"></a>Ottenere modelli ONNX
 
-È possibile creare modelli ONNX in diversi modi:
-+ Eseguire il training di un modello nel servizio Azure Machine Learning e convertirlo o esportarlo in ONNX (vedere l'esempio nella parte inferiore di questo articolo)
+È possibile ottenere modelli ONNX in diversi modi:
++ Ottenere un modello ONNX con training preliminare da [ONNX Model Zoo](https://github.com/onnx/models) (vedere l'esempio nella parte finale di questo articolo)
++ Generare un modello personalizzato di ONNX dal [Servizio visione artificiale personalizzato di Azure](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
++ Convertire un modello esistente dal formato originario a ONNX (vedere l'esempio nella parte finale di questo articolo) 
++ Eseguire il training di un nuovo modello ONNX nel servizio Azure Machine Learning (vedere l'esempio nella parte finale di questo articolo)
 
-+ Ottenere un modello ONNX di cui è stato precedentemente eseguito il training dallo [zoo dei modelli di ONNX](https://github.com/onnx/models)
+## <a name="saveconvert-your-models-to-onnx"></a>Salvare o convertire i propri modelli in ONNX
 
-+ Generare un modello personalizzato di ONNX dal [Servizio visione artificiale personalizzato di Azure](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
-
-## <a name="exportconvert-your-models-to-onnx"></a>Esportazione/conversione dei modelli in ONNX
-
-È inoltre possibile convertire i modelli esistenti in ONNX.
+È possibile convertire i modelli esistenti o salvare nuovi modelli in ONNX alla fine del training.
 
 |Framework per il modello|Strumento o esempio di conversione|
 |-----|-------|
@@ -101,7 +100,7 @@ Per informazioni di riferimento complete sull'API, vedere i [documenti di riferi
 
 Ecco un esempio per la distribuzione di un modello ONNX:
 
-1. Inizializzare la propria area di lavoro di Azure Machine Learning. Per informazioni su come creare uno spazio di lavoro vedere [questa guida introduttiva](quickstart-get-started.md).
+1. Inizializzare l'area di lavoro del servizio Azure Machine Learning. Per informazioni su come creare uno spazio di lavoro vedere [questa guida introduttiva](quickstart-get-started.md).
 
    ```python
    from azureml.core import Workspace
@@ -172,10 +171,11 @@ Ecco un esempio per la distribuzione di un modello ONNX:
 
    Il file `myenv.yml` descrive le dipendenze richieste per l'immagine. Vedere questa [esercitazione](tutorial-deploy-models-with-aml.md#create-environment-file) per le istruzioni su come creare un file di ambiente, come questo file di esempio:
 
-   ```
+   ```python
    from azureml.core.conda_dependencies import CondaDependencies 
 
    myenv = CondaDependencies()
+   myenv.add_pip_package("numpy")
    myenv.add_pip_package("azureml-core")
    myenv.add_pip_package("onnxruntime")
 
@@ -191,12 +191,16 @@ Ecco un esempio per la distribuzione di un modello ONNX:
 
 ## <a name="examples"></a>Esempi
  
-I blocco appunti seguenti illustrano come distribuire i modelli ONNX con Azure Machine Learning: 
-+ `/onnx/onnx-inference-mnist.ipynb`
+I notebook seguenti illustrano come creare e distribuire modelli ONNX con Azure Machine Learning: 
++ `/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb` 
++ `/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb`
++ `/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb`
+
+I notebook seguenti illustrano come distribuire modelli ONNX esistenti con Azure Machine Learning: 
++ [onnx/onnx-inference-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist.ipynb) 
++ [onnx/onnx-inference-emotion-recognition.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-emotion-recognition.ipynb)
  
-+ `/onnx/onnx-inference-emotion-recognition.ipynb`
- 
-Per ottenere questo blocco appunti:
+Ottenere questi notebook:
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: a74d91ad986b606a36a8040ac849e7fcbec03f16
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c94d4d4beea22e68a581cd208a25f915e4217614
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093193"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870877"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -106,18 +106,21 @@ Di seguito è riportato un elenco di problemi di configurazione comuni che posso
 
 Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, vengono usate le porte indicate nella tabella seguente.
 
-| Porte di origine/destinazione | Direzione | Protocollo di trasporto | Origine/Destinazione | Scopo (*) | Tipo di rete virtuale |
-| --- | --- | --- | --- | --- | --- |
-| * / 80, 443 |In ingresso |TCP |INTERNET / VIRTUAL_NETWORK|Comunicazione tra client e Gestione API|Esterno |
-| */3443 |In ingresso |TCP |INTERNET / VIRTUAL_NETWORK|Endpoint di gestione per il portale di Azure e PowerShell |Esterno e interno |
-| * / 80, 443 |In uscita |TCP |VIRTUAL_NETWORK / INTERNET|**Dipendenza su Archiviazione di Azure**, Bus di servizio di Microsoft Azure e Azure Active Directory (ove applicabile).|Esterno e interno |
-| * / 1433 |In uscita |TCP |VIRTUAL_NETWORK/SQL|**Accesso agli endpoint SQL di Azure** |Esterno e interno |
-| * / 5672 |In uscita |TCP |VIRTUAL_NETWORK / INTERNET|Dipendenza per il criterio Registra a Hub eventi |Esterno e interno |
-| * / 445 |In uscita |TCP |VIRTUAL_NETWORK / INTERNET|Dipendenza dalla condivisione file di Azure per GIT |Esterno e interno |
-| * / 1886 |In uscita |TCP |VIRTUAL_NETWORK / INTERNET|Necessaria per la pubblicazione dello stato di integrità in Integrità risorse |Esterno e interno |
-| * / 25028 |In uscita |TCP |VIRTUAL_NETWORK / INTERNET|Connettersi al server di inoltro SMTP per l'invio di messaggi di posta elettronica |Esterno e interno |
-| * / 6381 - 6383 |In ingresso e in uscita |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Istanze di accesso Cache Redis tra RoleInstances |Esterno e interno |
-| * / * | In ingresso |TCP |VIRTUAL_NETWORK/AZURE_LOADBALANCER| Bilanciamento del carico di infrastruttura di Azure |Esterno e interno |
+| Porte di origine/destinazione | Direzione          | Protocollo di trasporto | Origine/Destinazione                  | Scopo (*)                                                 | Tipo di rete virtuale |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / 80, 443                  | In ingresso            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicazione tra client e Gestione API                      | Esterno             |
+| */3443                     | In ingresso            | TCP                | APIMANAGEMENT / VIRTUAL_NETWORK       | Endpoint di gestione per il portale di Azure e PowerShell         | Esterno e interno  |
+| * / 80, 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | **Dipendenza da Archiviazione di Azure**                             | Esterno e interno  |
+| * / 80, 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Azure Active Directory (dove applicabile)                   | Esterno e interno  |
+| * / 1433                     | In uscita           | TCP                | VIRTUAL_NETWORK/SQL                 | **Accesso agli endpoint SQL di Azure**                           | Esterno e interno  |
+| * / 5672                     | In uscita           | TCP                | VIRTUAL_NETWORK / EventHub            | Dipendenza per il criterio Registra a Hub eventi | Esterno e interno  |
+| * / 445                      | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | Dipendenza dalla condivisione file di Azure per GIT                      | Esterno e interno  |
+| * / 1886                     | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Necessaria per la pubblicazione dello stato di integrità in Integrità risorse          | Esterno e interno  |
+| * / 25                       | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
+| * / 587                      | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
+| * / 25028                    | In uscita           | TCP                | VIRTUAL_NETWORK / INTERNET            | Connessione al server di inoltro SMTP per l'invio di messaggi di posta elettronica                    | Esterno e interno  |
+| * / 6381 - 6383              | In ingresso e in uscita | TCP                | VIRTUAL_NETWORK / VIRTUAL_NETWORK     | Istanze di accesso Cache Redis tra RoleInstances          | Esterno e interno  |
+| * / *                        | In ingresso            | TCP                | VIRTUAL_NETWORK/AZURE_LOADBALANCER | Bilanciamento del carico di infrastruttura di Azure                          | Esterno e interno  |
 
 >[!IMPORTANT]
 > Le porte per cui *Scopo* è **grassetto** sono necessarie per la corretta distribuzione del servizio Gestione API. Se si bloccano le altre porte, si verifica una riduzione delle prestazioni nella capacità di usare e monitorare il servizio in esecuzione.
@@ -128,11 +131,15 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 
 * **Metriche e monitoraggio dell'integrità**: la connettività di rete in uscita agli endpoint di Monitoraggio di Azure, che si risolve nei domini seguenti: 
 
-    | Ambiente Azure | Endpoint |
-    | --- | --- |
-    | Azure Public | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li></ul> |
-    | Azure Government | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
-    | Azure Cina | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul> |
+    | Ambiente Azure | Endpoint                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com dove `East US 2` è eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Cina       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+
+* **Inoltro SMTP**: connettività di rete in uscita per il server di inoltro SMTP, che si risolve nell'host `ies.global.microsoft.com`.
+
+* **Diagnostica del portale di Azure**: per abilitare il flusso dei log di diagnostica dal portale di Azure quando si usa l'estensione di Gestione API dall'interno di una rete virtuale, è richiesto l'accesso in uscita a `dc.services.visualstudio.com` sulla porta 443. Ciò consente di risolvere eventuali problemi che potrebbero verificarsi quando si usa l'estensione.
 
 * **Installazione di Express Route**: secondo una diffusa configurazione, i clienti definiscono la propria route predefinita (0.0.0.0/0) verso la quale viene forzato il traffico Internet in uscita invece di far passare il flusso localmente. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. La soluzione consiste nel definire una o più route definite dall'utente ([UDR][UDRs], User Defined Routes) o nella subnet contenente il servizio Gestione API di Azure. Una route UDR definisce le route specifiche della subnet che verranno accettate invece della route predefinita.
   Se possibile, è consigliabile utilizzare la seguente configurazione:
@@ -159,8 +166,6 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 
 * **Collegamenti di navigazione delle risorse**: quando si esegue la distribuzione in una subnet di macchina virtuale in stile Resource Manager, Gestione API riserva la subnet, creando un collegamento di navigazione delle risorse. Se la subnet contiene già una risorsa da un provider diverso, la distribuzione ha **esito negativo**. Quando, analogamente, si sposta un servizio Gestione API in una subnet diversa o lo si elimina, viene rimosso il collegamento di navigazione delle risorse.
 
-* **Test delle API dal portale di Azure**: in fase di test di un'API dal portale di Azure, se l'istanza di Gestione API è integrata con una rete virtuale interna, i server DNS configurati nella rete virtuale verranno usati per la risoluzione dei nomi. Se si riceve un errore 404 durante il test dal portale di Azure, assicurarsi che i server DNS per la rete virtuale possono risolvere correttamente il nome host dell'istanza di Gestione API. 
-
 ## <a name="subnet-size"> </a> Requisito per le dimensioni della subnet
 Azure riserva alcuni indirizzi IP all'interno di ogni subnet e questi indirizzi non possono essere usati. Il primo e l'ultimo indirizzo IP delle subnet sono riservati per motivi di conformità al protocollo, insieme ad altri tre indirizzi usati per i servizi di Azure. Per altre informazioni, vedere [Esistono restrizioni sull'uso di indirizzi IP all'interno di tali subnet?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
@@ -186,6 +191,7 @@ Nel caso del calcolo precedente, le dimensioni minime della subnet in cui è pos
 * [Connessione di una rete virtuale da modelli di distribuzione differenti](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure](api-management-howto-api-inspector.md)
 * [Domande frequenti sulla rete virtuale](../virtual-network/virtual-networks-faq.md)
+* [Tag di servizio](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png

@@ -1,6 +1,6 @@
 ---
-title: Configurazione della connettività dalla rete virtuale al SAP HANA di Azure (Istanze large) | Microsoft Docs
-description: Configurazione della connettività dalla rete virtuale per usare SAP HANA di Azure (Istanze large).
+title: Configurazione della connettività dalla rete virtuale al SAP HANA di Azure (istanze Large) | Microsoft Docs
+description: Configurazione della connettività dalla rete virtuale per usare SAP HANA di Azure (istanze Large).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -14,25 +14,25 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efdda485e4e1f5013948c6636b267f0d388f4d5
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a64a60603cd9898386a975313afc676e3b253326
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44167601"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353598"
 ---
-# <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>Connessione di una rete virtuale a ExpressRoute per istanze Large di HANA
+# <a name="connect-a-virtual-network-to-hana-large-instances"></a>Collegare una rete virtuale alle istanze Large di HANA
 
-Dopo aver definito tutti gli intervalli di indirizzi IP e aver ottenuto i dati da Microsoft, è possibile avviare la connessione della rete virtuale creata in precedenza alle istanze Large di HANA. Una volta creata la rete virtuale di Azure, è necessario creare un gateway ExpressRoute sulla rete per collegarla al circuito ExpressRoute che collega il tenant del cliente allo stamp di istanze di grandi dimensioni.
+Dopo aver creato una rete virtuale di Azure, è possibile connettere la rete a SAP HANA in istanze Large di Azure. Creare un gateway ExpressRoute di Azure nella rete virtuale. Il gateway consente di collegare la rete virtuale al circuito ExpressRoute che si connette al tenant del cliente sul modulo per istanze Large.
 
 > [!NOTE] 
-> Questo passaggio può richiedere fino a 30 minuti; il nuovo gateway viene creato nella sottoscrizione Azure specificata e viene quindi connesso alla rete virtuale di Azure indicata.
+> Questo passaggio può richiedere fino a 30 minuti. Il nuovo gateway viene creato nella sottoscrizione di Azure specificata e viene quindi connesso alla rete virtuale di Azure indicata.
 
-Se esiste già un gateway, controllare se sia o meno un gateway ExpressRoute. Se non si tratta di un gateway ExpressRoute, deve essere eliminato e ricreato come tale. Se è già presente un gateway ExpressRoute, poiché la rete virtuale di Azure è già connessa al circuito ExpressRoute per la connettività locale, passare alla sezione Collegamento di reti virtuali di seguito.
+Se esiste già un gateway, controllare che sia un gateway ExpressRoute. In caso contrario, eliminare il gateway e crearlo nuovamente come un gateway ExpressRoute. Se è già stato definito un gateway ExpressRoute, vedere la sezione seguente di questo articolo: "Collegare reti virtuali". 
 
-- Usare il (nuovo) [portale di Azure](https://portal.azure.com/) o PowerShell per creare un gateway VPN ExpressRoute connesso alla rete virtuale.
+- Usare il [portale di Azure](https://portal.azure.com/) o PowerShell per creare un gateway VPN ExpressRoute connesso alla rete virtuale.
   - Se si usa il portale di Azure, aggiungere un nuovo **Gateway di rete virtuale** e selezionare **ExpressRoute** come tipo di gateway.
-  - Se, invece, si usa PowerShell, scaricare e usare innanzitutto la versione più recente di [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) per garantire un'esperienza ottimale. I seguenti comandi creano un gateway ExpressRoute. Il testo preceduto dal simbolo _$_ è costituito da variabili definite dall'utente, da aggiornare in base alle informazioni personali specifiche.
+  - Se si usa PowerShell, è necessario prima scaricare e usare la versione più recente di [Azure PowerShell SDK](https://azure.microsoft.com/downloads/). I seguenti comandi creano un gateway ExpressRoute. Il testo preceduto dal simbolo _$_ è costituito da variabili definite dall'utente, da aggiornare in base alle informazioni personali specifiche.
 
 ```PowerShell
 # These Values should already exist, update to match your environment
@@ -44,7 +44,7 @@ $myVNetName = "VNet01"
 $myGWName = "VNet01GW"
 $myGWConfig = "VNet01GWConfig"
 $myGWPIPName = "VNet01GWPIP"
-$myGWSku = "HighPerformance" # Supported values for HANA Large Instances are: HighPerformance or UltraPerformance
+$myGWSku = "HighPerformance" # Supported values for HANA large instances are: HighPerformance or UltraPerformance
 
 # These Commands create the Public IP and ExpressRoute Gateway
 $vnet = Get-AzureRmVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
@@ -60,23 +60,23 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 -GatewaySku $myGWSku -VpnType PolicyBased -EnableBgp $true
 ```
 
-In questo esempio è stato usato lo SKU del gateway HighPerformance. Le opzioni disponibili sono HighPerformance o UltraPerformance e sono gli unici SKU del gateway supportati per SAP HANA in Azure (istanze Large).
+In questo esempio è stato usato lo SKU del gateway HighPerformance. Le opzioni disponibili sono HighPerformance o UltraPerformance e sono le uniche SKU del gateway supportate per SAP HANA in Azure (istanze Large).
 
 > [!IMPORTANT]
-> Per le SKU di classi di tipo II di istanze di HANA Large, è obbligatorio l'utilizzo di SKU gateway UltraPerformance.
+> Per le SKU Classe di tipo II delle istanze Large di HANA, è necessario usare UltraPerformance Gateway SKU.
 
-**Collegamento delle reti virtuali**
+## <a name="link-virtual-networks"></a>Collegare reti virtuali
 
-Ora che la rete virtuale di Azure dispone di un gateway ExpressRoute, usare le informazioni di autorizzazione ottenute da Microsoft per connettere il gateway ExpressRoute al circuito ExpressRoute di SAP HANA in Azure (istanze grandi) creato per questa connettività. Questa operazione può essere eseguita usando il portale di Azure o PowerShell. Sebbene il portale sia la scelta consigliata, di seguito sono riportate le istruzioni per usare PowerShell. 
+La rete virtuale di Azure dispone ora di un gateway ExpressRoute. Usare le informazioni di autorizzazione fornite da Microsoft per connettere il gateway ExpressRoute al circuito ExpressRoute di SAP HANA in Azure (istanze Large). Questa operazione può essere eseguita nel portale di Azure o con PowerShell. Sebbene il portale sia la scelta consigliata, di seguito sono riportate le istruzioni per usare PowerShell. 
 
-- Eseguire questi comandi per ogni gateway di rete virtuale usando un AuthGUID diverso per ogni connessione. Le prime due voci illustrate nello script seguente provengono dalle informazioni ottenute da Microsoft. Inoltre, AuthGUID è specifico per ogni rete virtuale e il relativo gateway. Per aggiungere un'altra rete virtuale di Azure, quindi, è necessario ottenere un altro AuthID per il circuito ExpressRoute che connette istanze Large di HANA ad Azure. 
+Eseguire questi comandi per ogni gateway di rete virtuale usando un AuthGUID diverso per ogni connessione. Le prime due voci illustrate nello script seguente provengono dalle informazioni ottenute da Microsoft. Il codice AuthGUID, inoltre, è specifico per ogni rete virtuale e il relativo gateway. Per aggiungere un'altra rete virtuale di Azure, quindi, è necessario ottenere un altro AuthID per il circuito ExpressRoute che connette istanze Large di HANA ad Azure. 
 
 ```PowerShell
 # Populate with information provided by Microsoft Onboarding team
 $PeerID = "/subscriptions/9cb43037-9195-4420-a798-f87681a0e380/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
 $AuthGUID = "76d40466-c458-4d14-adcf-3d1b56d1cd61"
 
-# Your ExpressRoute Gateway Information
+# Your ExpressRoute Gateway information
 $myGroupName = "SAP-East-Coast"
 $myGWName = "VNet01GW"
 $myGWLocation = "East US"
@@ -94,6 +94,6 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 
 Se si vuole collegare il gateway a più circuiti ExpressRoute associati alla sottoscrizione, è possibile che sia necessario eseguire più volte questo passaggio. Ad esempio, sarà probabilmente necessario connettere lo stesso gateway di rete virtuale al circuito ExpressRoute che si connette alla rete virtuale locale.
 
-**Passaggi successivi**
+## <a name="next-steps"></a>Passaggi successivi
 
-- Consultare [Requisiti aggiuntivi della rete per HLI](hana-additional-network-requirements.md).
+- [Requisiti aggiuntivi della rete per HLI](hana-additional-network-requirements.md)

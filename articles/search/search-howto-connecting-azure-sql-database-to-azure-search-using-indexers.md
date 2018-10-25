@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: eugenesh
-ms.openlocfilehash: 5897740a1b5a183738c08b4dfde571be652aff3e
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f92b49ebdff71fc0561cc490cb70ffb479f7fc9e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092250"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310947"
 ---
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Connessione del database SQL di Azure a Ricerca di Azure tramite gli indicizzatori
 
@@ -277,7 +277,7 @@ Quando si utilizza la tecnica dell’eliminazione temporanea, è possibile speci
         }
     }
 
-**softDeleteMarkerValue** deve essere una stringa. Usare la rappresentazione stringa del valore effettivo. Ad esempio, se si dispone di una colonna di valori integer in cui le righe eliminate sono contrassegnate con il valore 1, usare `"1"`. Se si dispone di una colonna BIT in cui le righe eliminate sono contrassegnate con il valore booleano true, usare `"True"`.
+**softDeleteMarkerValue** deve essere una stringa. Usare la rappresentazione stringa del valore effettivo. Ad esempio, se si dispone di una colonna di valori integer in cui le righe eliminate sono contrassegnate con il valore 1, usare `"1"`. Se si ha una colonna BIT in cui le righe eliminate sono contrassegnate con il valore booleano true, usare il valore letterale stringa `True` o `true`. La distinzione tra maiuscole e minuscole non è rilevante.
 
 <a name="TypeMapping"></a>
 

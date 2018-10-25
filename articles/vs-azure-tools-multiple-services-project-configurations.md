@@ -7,16 +7,17 @@ manager: douge
 assetId: a4fb79ed-384f-4183-9f74-5cac257206b9
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2017
 ms.author: ghogen
-ms.openlocfilehash: 9047d7a8a6efdd41a48b6fa83b43a8c87d05d1de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 1ec587f4a4519f86efceb7cefa0acb372035a9a9
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798541"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318215"
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configurazione del progetto Azure di Visual Studio per l'uso di più configurazioni del servizio
 
@@ -74,8 +75,9 @@ Per creare una stringa di connessione, selezionare **Aggiungi impostazione** e i
 Per le stringhe di connessione nuove o esistenti, selezionare **...** * a destra del campo **Valore** per aprire la finestra di dialogo **Crea stringa di connessione a risorsa di archiviazione**:
 
 1. In **Connetti con** scegliere l'opzione **Sottoscrizione** per selezionare un account di archiviazione da una sottoscrizione. Visual Studio otterrà quindi le credenziali dell'account di archiviazione automaticamente dal file `.publishsettings`.
-1. Se si seleziona **Credenziali immesse manualmente**, è possibile specificare il nome e la chiave dell'account direttamente, usando le informazioni presenti nel portale di Azure. Per copiare la chiave dell'account: a. Selezionare l'account di archiviazione nel portale di Azure e fare clic su **Gestisci chiavi**.
-    2. Per copiare la chiave dell'account, passare all'account di archiviazione nel portale di Azure, selezionare **Impostazioni > Chiavi di accesso** e quindi usare il pulsante Copia per copiare la chiave di accesso primaria negli Appunti.
+1. Se si seleziona **Credenziali immesse manualmente**, è possibile specificare il nome e la chiave dell'account direttamente, usando le informazioni presenti nel portale di Azure. Per copiare la chiave dell'account:
+    1. Selezionare l'account di archiviazione nel portale di Azure e fare clic su **Gestisci chiavi**.
+    1. Per copiare la chiave dell'account, passare all'account di archiviazione nel portale di Azure, selezionare **Impostazioni > Chiavi di accesso** e quindi usare il pulsante Copia per copiare la chiave di accesso primaria negli Appunti.
 1. Selezionare una delle opzioni di connessione. In **Specifica endpoint personalizzati** viene chiesto di specificare gli URL di BLOB, tabelle e code. Gli endpoint personalizzati consentono di usare i [domini personalizzati](storage/blobs/storage-custom-domain-name.md) e controllare l'accesso in maniera più precisa. Vedere [Configurare le stringhe di connessione di archiviazione di Azure](./storage/common/storage-configure-connection-string.md).
 1. Fare clic su **OK**, quindi selezionare **File > Salva** per aggiornare la configurazione con la nuova stringa di connessione.
 

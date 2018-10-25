@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/8/2018
 ms.author: kumud
-ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163019"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883959"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regole in uscita di Load Balancer
 
@@ -180,10 +180,10 @@ Definire un Load Balancer Standard pubblico, posizionare le macchine virtuali ne
 
 #### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>NAT in uscita per scenari con Load Balancer Standard interno
 
-Quando si usa un Load Balancer Standard interno, NAT in uscita non è disponibile se è stato configurato anche un Load Balancer Standard pubblico. È possibile modificare questa condizione usando una regola in uscita per creare la connettività in uscita per le macchine virtuali dietro a un Load Balancer Standard interno.
+Quando si usa un Load Balancer Standard interno, NAT in uscita non è disponibile se non è stata dichiarata in modo esplicito una connettività in uscita. È possibile definire la connettività in uscita usando una regola in uscita per creare la connettività in uscita per le macchine virtuali dietro a un Load Balancer Standard interno nel modo indicato di seguito:
 
 1. Creare un Load Balancer Standard pubblico.
-2. Creare un pool back-end e posizionare le macchine virtuali in un pool back-end del Load Balancer pubblico.
+2. Creare un pool back-end e posizionare le macchine virtuali in un pool back-end del Load Balancer pubblico oltre al Load Balancer interno.
 3. Configurare una regola in uscita per il Load Balancer pubblico per programmare la conversione NAT in uscita per queste macchine virtuali.
 
 #### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Abilitare entrambi i protocolli TCP e UDP per NAT in uscita con un Load Balancer Standard pubblico

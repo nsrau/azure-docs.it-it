@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423743"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887565"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quote e limiti del servizio Batch
 
@@ -53,7 +53,9 @@ Se è stato creato un account Batch con modalità di allocazione pool impostata 
 | [Applicazioni](batch-application-packages.md) per account Batch |20 |
 | Pacchetti dell'applicazione per applicazione |40 |
 | Durata massima dell'attività | 7 giorni<sup>1</sup> |
-| Nodi di calcolo nel pool in cui è abilitata la comunicazione tra i nodi | 100 |
+| Nodi di calcolo nel [pool in cui è abilitata la comunicazione tra i nodi](batch-mpi.md) | 100 |
+| Nodi di calcolo dedicati nel [pool creato con immagine di macchina virtuale personalizzata](batch-custom-images.md) | 2500 |
+| Nodi di calcolo a bassa priorità nel [pool creato con immagine di macchina virtuale personalizzata](batch-custom-images.md) | 1000 |
 
 <sup>1</sup> La durata massima di un'attività, da quando viene aggiunta al processo a quando viene completata, è di 7 giorni. Le attività completate persistono per un tempo illimitato. I dati per le attività non completate entro la durata massima non sono accessibili.
 

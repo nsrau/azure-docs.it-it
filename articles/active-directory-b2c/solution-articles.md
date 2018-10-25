@@ -1,0 +1,29 @@
+---
+title: Soluzioni e training per Azure Active Directory B2C | Microsoft Docs
+description: In questo articolo sono indicati collegamenti a soluzioni e informazioni di training utili per comprendere e usare Azure Active Directory B2C per soluzioni aziendali end-to-end.
+services: active-directory-b2c
+author: davidmu1
+ms.author: davidmu
+ms.date: 10/11/2018
+ms.topic: conceptual
+ms.service: active-directory
+ms.component: b2c
+ms.openlocfilehash: 74598aa83a9ed47ee85ef71593745faccfb81ee3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165948"
+---
+# <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Soluzioni e training per Azure Active Directory B2C
+
+Azure Active Directory (Azure AD) B2C consente alle organizzazioni di implementare soluzioni aziendali che consentono di comunicare con i loro clienti. Le guide alla soluzione e la documentazione di training seguenti sono documenti scaricabili che illustrano queste soluzioni.
+
+| Title | DESCRIZIONE |
+| ----- | ----------- |
+| [Customer Identity Management with Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) (Gestione delle identità dei clienti con Azure AD B2C) | In questa panoramica del servizio, Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)) del team di Azure AD B2C offre una descrizione generale del funzionamento del servizio e spiega come sia possibile connettere rapidamente B2C a un'applicazione ASP.NET Core. |
+| [An overview of Azure Active Directory B2C](https://aka.ms/b2coverview) (Panoramica di Azure Active Directory B2C) | Comprendere i vantaggi e scenari comuni di Azure AD B2C e il modo in cui le applicazioni possono usare questo servizio di gestione delle identità e degli accessi per consumatori. |
+| [Gaining Expertise in Azure AD B2C: A Course for Developers](https://aka.ms/learnAADB2C) (Acquisire competenze in Azure AD B2C: Corso per gli sviluppatori) | Questo corso end-to-end guida gli sviluppatori in un processo completo per lo sviluppo di applicazioni con Azure AD B2C come meccanismo di autenticazione. In dieci moduli approfonditi, completi di laboratori, vengono trattati tutti gli aspetti, a partire dalla configurazione di una sottoscrizione di Azure per la creazione di criteri personalizzati che definiscono i percorsi che coinvolgono i clienti. |
+| [Enabling partners, Suppliers, and Customers to Access Applications with Azure active Directory](https://aka.ms/aadexternalidentities) (Come consentire a partner, fornitori e clienti di accedere alle applicazioni con Azure Active Directory) | Il successo di ogni organizzazione, a prescindere da dimensioni, settore o approccio ai temi di conformità e sicurezza, si basa sulla sua capacità di collaborare con altre organizzazioni e comunicare con i clienti.<br><br>Riunendo Azure AD, Azure AD B2C e la collaborazione B2B di Azure AD, questa guida descrive in dettaglio il valore aziendale e i meccanismi di compilazione di un'applicazione o esperienza Web che offre un'esperienza di autenticazione consolidata adatta ai contesti di dipendenti, partner e fornitori aziendali e clienti. |
+| [Migrating Application Authentication to Azure AD B2C in a Hybrid Environment](https://aka.ms/MigratetoAADB2C) (Migrazione dell'autenticazione delle applicazioni ad Azure AD B2C in un ambiente ibrido) | Nelle organizzazioni moderne di oggi, la trasformazione digitale e il passaggio al cloud avvengono in fasi, rendendo necessario per la maggior parte delle organizzazioni operare temporaneamente in un ambiente di gestione delle identità ibrido.<br><br>Questa guida è incentrata sulla creazione del piano di migrazione per spostare la prima applicazione in Azure AD B2C e illustra le considerazioni da tenere presenti per eseguire questa operazione in un ambiente di gestione delle identità ibrido. |
+| [General Data protection Regulation (GDPR) Considerations for Customer Facing Applications](https://aka.ms/AADB2CandGDPR) (Considerazioni sul Regolamento generale sulla protezione dei dati (GDPR) per le applicazioni rivolte ai clienti) | Per le applicazioni rivolte ai clienti, tutte le organizzazioni che intraprendono progetti che vedono coinvolti dati personali e si rivolgono ai clienti dell'UE devono tenere presente il Regolamento generale sulla protezione dei dati.<br><br>Questa guida alla soluzione è incentrata sul modo in cui Azure AD B2C può essere usato come un componente flessibile dell'approccio generale di conformità al GDPR, spiegando anche come i componenti di Azure AD B2C supportano ognuno dei diritti di base del GDPR per i singoli individui. |

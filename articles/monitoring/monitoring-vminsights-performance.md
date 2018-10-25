@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 06073197254245727cfa41020f060d904a4e50f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63549768f616e60e92c853047525c18cefdaddb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957563"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386278"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Creare un grafico delle prestazioni con Monitoraggio di Azure per le macchine virtuali
 Monitoraggio di Azure per le macchine virtuali include un set di grafici delle prestazioni che rappresentano diversi indicatori di prestazioni chiave (KPI) per stabilire l'efficacia delle prestazioni di una macchina virtuale. I grafici mostrano l'utilizzo delle risorse in un periodo di tempo per consentire di identificare colli di bottiglia e anomalie o passare a una prospettiva che elenchi ogni macchina per visualizzare l'utilizzo delle risorse in base alla metrica selezionata. Sebbene esistano numerosi elementi da considerare riguardo alle prestazioni, Monitoraggio di Azure per le macchine virtuali è incentrato sul sistema operativo attraverso processore, memoria, schede di rete e dischi. Prestazioni si integra alla funzionalità di monitoraggio dell'integrità e consente di esporre i problemi che indicano un possibile errore dei componenti di sistema, agevolare l'ottimizzazione per aumentare l'efficienza o supportare la pianificazione della capacità.  
@@ -33,7 +33,9 @@ Da Monitoraggio di Azure, la funzionalità Prestazioni offre una vista di più m
 
 ![Visualizzazione elenco Primi N in Prestazioni di Informazioni dettagliate macchina virtuale](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-Nella scheda **Primi N grafici**, se si dispone di più aree di lavoro di Log Analytics, scegliere quella integrata alla soluzione dal selettore **Area di lavoro** nella parte superiore della pagina.  Selezionare quindi dal selettore **Gruppo**, una sottoscrizione, un gruppo di risorse o una macchina specifica, in un periodo di tempo specificato.  Per impostazione predefinita, i grafici mostrano le ultime 24 ore.  Usando il selettore **Intervallo di tempo**, è possibile eseguire una query per gli intervalli di tempo cronologici di un massimo di 30 giorni per esaminare le prestazioni di un periodo precedente.   
+Nella scheda **Primi N grafici**, se si dispone di più aree di lavoro di Log Analytics, scegliere quella abilitata con la soluzione dal selettore **Area di lavoro** nella parte superiore della pagina. Il selettore **Gruppo** restituirà le sottoscrizioni, i gruppi di risorse, i [gruppi di computer](../log-analytics/log-analytics-computer-groups.md) e i set di scalabilità delle macchine virtuali dei computer correlati all'area di lavoro selezionata, che potranno essere usati per filtrare ulteriormente i risultati presentati nei grafici di questa e di altre pagine. La selezione è valida solo per la funzionalità Prestazioni e non si applica alla funzionalità Integrità o Mappa.  
+
+Per impostazione predefinita, i grafici mostrano le ultime 24 ore. Usando il selettore **Intervallo di tempo**, è possibile eseguire una query per gli intervalli di tempo cronologici di un massimo di 30 giorni per esaminare le prestazioni di un periodo precedente.   
 
 I cinque grafici dell'utilizzo della capacità visualizzati nella pagina sono:
 
@@ -83,7 +85,7 @@ Selezionando una macchina virtuale dall'elenco si apre il riquadro **Proprietà*
 Per accedere direttamente da una macchina virtuale, eseguire queste operazioni.
 
 1. Nel portale di Azure selezionare **Macchine virtuali**. 
-2. Dall'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate (anteprima)**.  
+2. Nell'elenco scegliere una macchina virtuale e nella sezione **Monitoraggio** scegliere **Informazioni dettagliate (anteprima)**.  
 3. Selezionare la scheda **Prestazioni**. 
 
 Questa pagina non solo include i grafici di utilizzo delle prestazioni, ma anche una tabella che mostra capacità, utilizzo e media totale di ogni disco logico individuato per ogni misura.  
@@ -100,6 +102,9 @@ Vengono forniti i grafici di utilizzo della capacità seguenti:
 * Frequenza byte ricevuti: per impostazione predefinita mostra il numero medio di byte ricevuti
 
 ![Vista di Prestazioni di Informazioni dettagliate macchina virtuale direttamente dalla macchina virtuale](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
+
+## <a name="alerting-and-alert-management"></a>Avvisi e gestione degli avvisi 
+Le metriche delle prestazioni abilitate nell'ambito di Monitoraggio di Azure per macchine virtuali non includono regole di avviso preconfigurate. Se vengono generati avvisi di integrità corrispondenti a problemi di prestazioni rilevati nella macchina virtuale di Azure (ad esempio, elevato utilizzo della CPU, memoria disponibile insufficiente, spazio su disco insufficiente e così via), questi avvisi vengono applicati solo alle macchine virtuali connesse alla stessa area di lavoro di Log Analytics integrata con Monitoraggio di Azure per macchine virtuali. Se è necessaria maggiore flessibilità per poter specificare logica o criteri personalizzati, è possibile creare regole di avviso personalizzate seguendo le istruzioni disponibili in [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come usare la funzionalità di integrità, vedere [Visualizzare l'integrità di Monitoraggio di Azure per le macchine virtuali](monitoring-vminsights-health.md) oppure per visualizzare le dipendenze delle applicazioni individuate, vedere [Visualizzare la mappa di Monitoraggio di Azure per le macchine virtuali](monitoring-vminsights-maps.md). 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 590f9e2a9cf531a1124f9cb132791f2956227d9c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046049"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393253"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introduzione all'app Microsoft Authenticator
 
@@ -25,7 +25,7 @@ L'app Microsoft Authenticator impedisce l'accesso non autorizzato agli account e
 
 Quando si usa l'app per la verifica in due passaggi, questa può operare in due modi diversi:
 
-- **Notifica.** L'app invia una notifica al dispositivo. Assicurarsi che la notifica sia corretta e quindi selezionare **Verifica**. Se non si riconosce la notifica, selezionare **Nega**.
+- **Notifica.** L'app invia una notifica al dispositivo. Assicurarsi che la notifica sia corretta e quindi selezionare **Verifica**. Se non si riconosce la notifica, selezionare **Nega**. Dopo aver fatto clic su **Nega** è anche possibile contrassegnare la richiesta come fraudolenta.
 
 - **Codice di verifica.** Dopo aver digitato il nome utente e la password, è possibile aprire l'app e copiare il codice di verifica fornito nella schermata **Account** nella schermata di accesso. Il codice di verifica funge da seconda forma di autenticazione.
 

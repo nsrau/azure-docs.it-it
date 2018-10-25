@@ -4,7 +4,7 @@ description: API di rilevamento delle anomalie è un esempio compilato con Micro
 services: machine-learning
 documentationcenter: ''
 author: alokkirpal
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: 9f1f3c2c808558124548008927219191469a412b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0b99aeb2ffdb78e472cdc0e11d0efaf91feb3e4a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836467"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394494"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API di rilevamento delle anomalie di Machine Learning
 ## <a name="overview"></a>Panoramica
@@ -122,7 +122,7 @@ Informazioni più dettagliate su questi parametri di input sono elencate nella t
 
 | Parametri di input | DESCRIZIONE | Impostazione predefinita | type | Intervallo valido | Intervallo consigliato |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |numero intero |10-2000 |In base alle serie temporali. |
+| detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |numero intero |10-2000 |In base alle serie temporali. |
 | detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambi |enumerato |Entrambi, picchi e flessioni |Entrambi |
 | bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |Double |Nessuna |3.25-5 (Meno valori, maggiore sensibilità) |
 | trenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |Double |Nessuna |3.25-5 (Meno valori, maggiore sensibilità) |
@@ -161,7 +161,7 @@ Informazioni più dettagliate su questi parametri di input sono elencate nella t
 | preprocess.aggregationInterval |Intervallo in secondi per l'aggregazione di serie temporali di input. |0, non viene eseguita alcuna aggregazione. |numero intero |0: ignora l'aggregazione. In caso contrario > 0. |Da 5 minuti a 1 giorno, in base alle serie temporali. |
 | preprocess.aggregationFunc |Funzione usata per aggregare i dati nel parametro AggregationInterval specificato. |mean |enumerato |mean, sum, length |N/D |
 | preprocess.replaceMissing |Valori usati per l'attribuzione dei dati mancanti. |lkv (ultimo valore noto) |enumerato |zero, lkv, mean |N/D |
-| detectors.historyWindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |numero intero |10-2000 |In base alle serie temporali. |
+| detectors.historywindow |Cronologia, in numero di punti dati, usata per il calcolo del punteggio delle anomalie |500 |numero intero |10-2000 |In base alle serie temporali. |
 | detectors.spikesdips | Se rilevare solo i picchi, le flessioni o entrambi |Entrambi |enumerato |Entrambi, picchi e flessioni |Entrambi |
 | bileveldetector.sensitivity |Sensibilità per il rilevamento delle modifiche di livello bidirezionali. |3.25 |Double |Nessuna |3.25-5 (Meno valori, maggiore sensibilità) |
 | postrenddetector.sensitivity |Sensibilità per il rilevamento di tendenza positiva. |3.25 |Double |Nessuna |3.25-5 (Meno valori, maggiore sensibilità) |

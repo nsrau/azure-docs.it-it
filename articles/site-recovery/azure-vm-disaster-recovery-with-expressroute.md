@@ -1,130 +1,220 @@
 ---
-title: Uso di ExpressRoute con il ripristino di emergenza di macchine virtuali di Azure | Microsoft Docs
-description: Procedura di uso di Azure ExpressRoute con Azure Site Recovery per il ripristino di emergenza di macchine virtuali di Azure
+title: Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure con Azure Site Recovery | Microsoft Docs
+description: Viene descritto come configurare il ripristino di emergenza per le macchine virtuali di Azure tramite Azure Site Recovery e Azure ExpressRoute
 services: site-recovery
-documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 73514b524f554affb9730ba63ccd608491497af2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 03fac23ea17a6baa1b43e748a4390cf142661a19
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920471"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353542"
 ---
-# <a name="using-expressroute-with-azure-virtual-machine-disaster-recovery"></a>Uso di ExpressRoute con il ripristino di emergenza di macchine virtuali di Azure
+# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure
 
-Microsoft Azure ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Questo articolo descrive come usare ExpressRoute con Site Recovery per il ripristino di emergenza di macchine virtuali di Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+Questo articolo descrive come integrare Azure ExpressRoute con [Azure Site Recovery](site-recovery-overview.md), quando si configura il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria.
 
-Prima di iniziare, assicurarsi di avere compreso:
--   I [circuiti](../expressroute/expressroute-circuit-peerings.md) di ExpressRoute
--   I [domini di routing](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains) di ExpressRoute
--   L'[architettura di replica](azure-to-azure-architecture.md) delle macchine virtuali di Azure
--   L'[impostazione della replica](azure-to-azure-tutorial-enable-replication.md) per le macchine virtuali di Azure
--   La [procedura di failover](azure-to-azure-tutorial-failover-failback.md) delle macchine virtuali di Azure
+Site Recovery consente il ripristino di emergenza delle macchine virtuali di Azure tramite la replica in Azure dei dati delle macchine virtuali di Azure.
 
-## <a name="expressroute-and-azure-virtual-machine-replication"></a>ExpressRoute e la replica delle macchine virtuali di Azure
+- Se le macchine virtuali di Azure usano [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md), i dati delle macchine virtuali vengono replicati in un disco gestito replicato nell'area secondaria.
+- Se le macchine virtuali di Azure non usano dischi gestiti, i dati delle macchine virtuali vengono replicati in un account di archiviazione di Azure.
+- Gli endpoint di replica sono pubblici, ma il traffico di replica per le macchine virtuali di Azure non attraversa Internet.
 
-Quando si proteggono macchine virtuali di Azure con Site Recovery, i dati di replica vengono inviati a un account di archiviazione di Azure o a un disco gestito di replica nell'area di destinazione di Azure, a seconda del fatto che le macchine virtuali di Azure usano [dischi gestiti di Azure](../virtual-machines/windows/managed-disks-overview.md) oppure no. Anche se gli endpoint di replica sono pubblici, per impostazione predefinita il traffico di replica per la replica delle macchine virtuali di Azure non attraversa Internet, indipendentemente dall'area di Azure in cui è presente la rete virtuale di origine.
+ExpressRoute consente di estendere le reti locali nel cloud Microsoft Azure tramite una connessione privata fornita da un provider di connettività. Se è stato configurato ExpressRoute, questo si integra con Site Recovery nel modo seguente:
 
-Per il ripristino di emergenza delle macchine virtuali di Azure, non è necessario ExpressRoute per la replica poiché i dati di replica non lasciano il limite di Azure. Dopo il failover nell'area di Azure di destinazione, è possibile accedere alle macchine virtuali tramite [peering privato](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+- **Durante la replica tra aree di Azure**: il traffico di replica per il ripristino di emergenza delle macchine virtuali di Azure è solo all'interno di Azure ed ExpressRoute non è necessario o usato per la replica. Tuttavia, se ci si connette da un sito locale alle macchine virtuali di Azure nel sito di Azure primario, è necessario tenere presenti alcuni aspetti durante la configurazione del ripristino di emergenza per le macchine virtuali di Azure.
+- **Failover tra aree di Azure**: quando si verificano interruzioni, eseguire il failover delle macchine virtuali di Azure dal server primario all'area di Azure secondaria. Dopo il failover in un'area secondaria, esistono una serie di passaggi da effettuare per poter accedere alle macchine virtuali di Azure nell'area secondaria tramite ExpressRoute.
 
-## <a name="replicating-azure-deployments"></a>Replica delle distribuzioni di Azure
 
-In un [articolo](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity) precedente viene descritta una configurazione semplice con una sola rete virtuale di Azure connessa al data center locale del cliente tramite ExpressRoute. Le distribuzioni aziendali tipo presentano carichi di lavoro suddivisi tra più reti virtuali di Azure, mentre un hub di connettività centrale stabilisce la connettività esterna sia a Internet che alle distribuzioni locali.
+## <a name="before-you-begin"></a>Prima di iniziare
 
-Questo esempio illustra una topologia hub-spoke, comune nelle distribuzioni aziendali:
--   La distribuzione si colloca nell'area dell'**Asia orientale di Azure** e il data center locale dispone di una connessione al circuito ExpressRoute tramite un arco partner a Hong Kong.
--   Le applicazioni vengono distribuite tra due reti virtuali spoke: **Source VNet1**, con spazio degli indirizzi 10.1.0.0/24, e **Source VNet2**, con spazio degli indirizzi 10.2.0.0/24.
--   La rete virtuale hub, **Source Hub VNet**, con spazio degli indirizzi 10.10.10.0/24, funge da gatekeeper. Tutte le comunicazioni tra le subnet passano attraverso l'hub.
--   La rete virtuale hub ha due subnet: **NVA Subnet**, con spazio degli indirizzi 10.10.10.0/25, e **Gateway Subnet**, con spazio degli indirizzi 10.10.10.128/25.
--   **NVA Subnet** dispone di un'appliance virtuale di rete con indirizzo IP 10.10.10.10.
--   **Gateway Subnet** dispone di un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al data center locale del cliente tramite un dominio di routing di peering privato.
--   Ogni rete virtuale spoke è connessa alla rete virtuale hub e tutte le operazioni di routing all'interno di questa topologia di rete sono controllate tramite tabelle di route di Azure (UDR). Tutto il traffico in uscita da una rete virtuale all'altra o al data center locale viene instradato tramite NVA Subnet.
+Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
+
+- I [circuiti](../expressroute/expressroute-circuit-peerings.md) di ExpressRoute
+- I [domini di routing](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains) di ExpressRoute
+- [Località](../expressroute/expressroute-locations.md) per ExpressRoute.
+- [Architettura della replica](azure-to-azure-architecture.md) per le macchine virtuali di Azure
+- Come [configurare la replica](azure-to-azure-tutorial-enable-replication.md) per le macchine virtuali di Azure.
+- Come eseguire il [failover](azure-to-azure-tutorial-failover-failback.md) delle macchine virtuali di Azure.
+
+
+## <a name="general-recommendations"></a>Raccomandazioni generali
+
+Come procedura consigliata e per garantire obiettivi del punto di ripristino (RPO) efficienti per il ripristino di emergenza, è consigliabile effettuare le operazioni seguenti al momento della configurazione di Site Recovery per l'integrazione con ExpressRoute:
+
+- Effettuare il provisioning di componenti di rete prima del failover in un'area secondaria:
+    - Quando si abilita la replica per le macchine virtuali di Azure, Site Recovery può distribuire automaticamente le risorse di rete, ad esempio reti, subnet e gateway, nell'area di destinazione Azure in base alle impostazioni della rete di origine.
+    - Site Recovery non è in grado di configurare automaticamente risorse di rete come i gateway di rete virtuale.
+    - È consigliabile effettuare il provisioning di queste risorse di rete aggiuntive prima di eseguire il failover. A questa distribuzione è associato un breve tempo di inattività, che può influire sul tempo di ripristino complessivo, se non ne viene tenuto conto durante la pianificazione della distribuzione.
+- Eseguire esercitazioni periodiche sul ripristino di emergenza:
+    - Un'analisi consente di convalidare la strategia di replica senza tempi di inattività o perdite di dati e non ha alcun impatto sull'ambiente di produzione. Permette inoltre di evitare problemi di configurazione dell'ultimo minuto che possono compromettere l'obiettivo del tempo di ripristino.
+    - Quando si esegue un failover di test per l'esercitazione, è consigliabile usare la rete di una macchina virtuale di Azure separata e non la rete predefinita che è stata configurata al momento dell'abilitazione della replica.
+- Usare spazi di indirizzi IP diversi se si dispone di un singolo circuito ExpressRoute.
+    - È consigliabile usare un altro spazio di indirizzi IP per la rete virtuale di destinazione. Questo consente di evitare problemi quando si stabiliscono connessioni durante le interruzioni a livello di area.
+    - Se non è possibile usare uno spazio di indirizzi distinto, assicurarsi di eseguire il failover di test per l'esercitazione sul ripristino di emergenza in una rete di test separata con indirizzi IP diversi. Non è possibile connettere due reti virtuali con uno spazio di indirizzi IP sovrapposto allo stesso circuito ExpressRoute.
+
+## <a name="replicate-azure-vms-when-using-expressroute"></a>Replicare le macchine virtuali di Azure durante l'uso di ExpressRoute
+
+
+Se si vuole configurare la replica delle macchine virtuali di Azure in un sito primario e ci si connette a queste macchine virtuali dal sito locale tramite ExpressRoute, ecco come procedere:
+
+1. [Abilitare la replica](azure-to-azure-tutorial-enable-replication.md) per ogni macchina virtuale di Azure.
+2. Facoltativamente, consentire a Site Recovery di configurare la rete:
+    - Quando si configura e si abilita la replica, Site Recovery configura le reti, le subnet e le subnet del gateway nell'area di Azure di destinazione in modo che corrispondano a quelle nell'area di origine. Site Recovery esegue anche il mapping tra le reti virtuali di origine e di destinazione.
+    - Se non si vuole che questa operazione venga eseguita automaticamente da Site Recovery, creare le risorse di rete sul lato di destinazione prima di abilitare la replica.
+3. Creare gli altri elementi di rete:
+    - Site Recovery non crea le tabelle di route, i gateway di rete virtuale, le connessioni dei gateway di rete virtuale, il peering reti virtuali o altre risorse e connessioni di rete nell'area secondaria.
+    - È necessario creare questi elementi di rete aggiuntivi nell'area secondaria, in qualsiasi momento prima di eseguire un failover dall'area primaria.
+    - È possibile usare i [piani di ripristino](site-recovery-create-recovery-plans.md) e gli script di automazione per configurare e connettere le risorse di rete.
+1. Se si dispone di un'appliance virtuale di rete distribuita per controllare il flusso del traffico di rete, tenere presente che:
+    - La route di sistema predefinita di Azure per la replica delle macchine virtuali di Azure è 0.0.0.0/0.
+    - In genere le distribuzioni di appliance virtuali di rete (NVA) stabiliscono anche una route predefinita (0.0.0.0/0) che forza il flusso del traffico Internet in uscita attraverso tali appliance. La route predefinita viene usata quando non è possibile trovare un'altra configurazione di route specifica.
+    - In questo caso, l'appliance virtuale di rete potrebbe risultare sovraccarica se tutto il traffico di replica la attraversa.
+    - La stessa limitazione vale anche quando si usano route predefinite per il routing di tutto il traffico delle macchine virtuali di Azure verso distribuzioni locali.
+    - In questo scenario, è consigliabile [creare un endpoint servizio di rete](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) nella rete virtuale per il servizio Microsoft.Storage, in modo che il traffico di replica non lasci il limite di Azure.
+
+## <a name="replication-example"></a>Esempio di replica
+
+In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra più reti virtuali di Azure, con un hub di connettività centrale per la connettività esterna sia a Internet che ai siti locali. Solitamente, viene usata una topologia hub-spoke insieme a ExpressRoute.
 
 ![Dall'ambiente locale ad Azure con ExpressRoute prima del failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
-### <a name="hub-and-spoke-peering"></a>Peering hub-spoke
+- **Area**. Le app sono distribuite nell'area Asia orientale di Azure.
+- **Reti virtuali spoke**. Le app sono distribuite in due reti virtuali spoke:
+    - **Rete virtuale 1 di origine**: 10.1.0.0/24.
+    - **Rete virtuale 2 di origine**: 10.2.0.0/24.
+    - Ogni rete virtuale spoke è connessa alla **rete virtuale dell'hub**.
+- **Rete virtuale dell'hub**. È presente la rete virtuale hub **Source Hub vNet**: 10.10.10.0/24.
+    - Questa rete virtuale hub opera come gatekeeper.
+    - Tutte le comunicazioni tra le subnet passano attraverso questo hub.
+ - ****Subnet della rete virtuale hub**. La rete virtuale hub comprende due subnet:
+     - **NVA subnet**: 10.10.10.0/25. Questa subnet contiene un'appliance virtuale di rete (10.10.10.10).
+     - **Gateway subnet**: 10.10.10.128/25. Questa subnet contiene un gateway ExpressRoute collegato a una connessione ExpressRoute che indirizza al sito locale tramite un dominio di routing di peering privato.
+- Il data center locale dispone di una connessione al circuito ExpressRoute tramite un'appliance perimetrale partner a Hong Kong.
+- Tutto il routing è controllato tramite le tabelle di route di Azure (routing definito dall'utente).
+- Tutto il traffico in uscita tra le reti virtuali o al data center locale viene instradato tramite NVA Subnet.
 
-Il peering da spoke a hub ha la configurazione seguente:
--   Allow virtual network address (Consenti indirizzo rete virtuale): Abilitato
--   Consenti traffico inoltrato: Abilitato
--   Consenti transito gateway: Disabilitato
--   Use remove gateways (Usa rimozione gateway): Abilitato
+### <a name="hub-and-spoke-peering-settings"></a>Impostazioni di peering hub-spoke
+
+#### <a name="spoke-to-hub"></a>Da spoke a hub
+
+**Direzione** | **Impostazione** | **State**
+--- | --- | ---
+Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
+Da spoke a hub | Consenti traffico inoltrato | Attivato
+Da spoke a hub | Consenti transito gateway | Disabled
+Da spoke a hub | Usa gateway remoti | Attivato
 
  ![Configurazione peering da spoke a hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
-Il peering da hub a spoke ha la configurazione seguente:
--   Allow virtual network address (Consenti indirizzo rete virtuale): Abilitato
--   Consenti traffico inoltrato: Abilitato
--   Consenti transito gateway: Abilitato
--   Use remove gateways (Usa rimozione gateway): Disabilitato
+#### <a name="hub-to-spoke"></a>Da hub a spoke
+
+**Direzione** | **Impostazione** | **State**
+--- | --- | ---
+Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
+Da hub a spoke | Consenti traffico inoltrato | Attivato
+Da hub a spoke | Consenti transito gateway | Attivato
+Da hub a spoke | Usa gateway remoti | Disabled
 
  ![Configurazione peering da hub a spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
-### <a name="enabling-replication-for-the-deployment"></a>Abilitazione della replica per la distribuzione
+### <a name="example-steps"></a>Procedure di esempio
 
-Per la configurazione precedente, innanzitutto [configurare il ripristino di emergenza](azure-to-azure-tutorial-enable-replication.md) per ogni macchina virtuale mediante Site Recovery. Site Recovery è in grado di creare le reti virtuali di replica (incluse subnet e subnet gateway) nell'area di destinazione e creare i mapping necessari tra le reti virtuali di origine e di destinazione. È anche possibile creare precedentemente le reti e le subnet lato destinazione e usarle durante l'abilitazione della replica.
+In questo esempio, dovrebbe verificarsi quanto segue quando si abilita la replica delle macchine virtuali di Azure nella rete di origine:
 
-Site Recovery non replica tabelle di route, gateway di rete virtuale, connessioni di gateway di rete virtuale, peering di rete virtuale o alcuna altra connessione o risorsa di rete. Queste e altre risorse che non fanno parte del [processo di replica](azure-to-azure-architecture.md#replication-process) devono essere create prima o durante il failover e connesse alle risorse pertinenti. È possibile usare i potenti [piani di ripristino](site-recovery-create-recovery-plans.md) di Azure Site Recovery per automatizzare la creazione e la connessione di risorse aggiuntive tramite script di automazione.
+1. [Abilitare la replica](azure-to-azure-tutorial-enable-replication.md) per una macchina virtuale.
+2. Site Recovery crea reti virtuali, subnet e subnet del gateway di replica nell'area di destinazione.
+3. Site Recovery crea i mapping tra le reti di origine e le reti di destinazione di replica create.
+4. Creare manualmente gateway di rete virtuale, connessioni di gateway di rete virtuale, peering di rete virtuale o qualsiasi altra connessione o risorsa di rete.
 
-Per impostazione predefinita, il traffico di replica non lascia il limite di Azure. In genere le distribuzioni NVA stabiliscono anche una route predefinita (0.0.0.0/0) che forza il flusso del traffico Internet in uscita attraverso NVA. In questo caso, se tutto il traffico di replica passa attraverso NVA, l'appliance può essere soggetta a limitazioni. Lo stesso vale anche quando si usano route predefinite per il routing di tutto il traffico delle macchine virtuali di Azure verso distribuzioni locali. È consigliabile [creare un endpoint di servizio di rete virtuale](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) nella rete virtuale per "Archiviazione" in modo che il traffico di replica non lasci il limite di Azure.
 
-## <a name="failover-models-with-expressroute"></a>Modelli di failover con ExpressRoute
+## <a name="fail-over-azure-vms-when-using-expressroute"></a>Eseguire il failover delle macchine virtuali di Azure durante l'uso di ExpressRoute
 
-Quando in una macchina virtuale di Azure viene eseguito il failover a un'area diversa, la connessione ExpressRoute esistente alla rete virtuale di origine non viene trasferita automaticamente alla rete virtuale di destinazione nell'area di ripristino. Per connettere ExpressRoute alla rete virtuale di destinazione è necessaria una nuova connessione.
+Dopo aver eseguito il failover delle macchine virtuali di Azure nell'area di Azure di destinazione tramite Site Recovery, è possibile accedervi mediante il [peering privato](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) di ExpressRoute.
 
-È possibile replicare macchine virtuali di Azure in qualsiasi area di Azure all'interno dello stesso cluster geografico, come descritto in dettaglio [qui](azure-to-azure-support-matrix.md#region-support). Se l'area di Azure scelta come destinazione non si trova nella stessa area geopolitica dell'origine, è necessario abilitare ExpressRoute Premium se si usa un circuito ExpressRoute unico per la connettività dell'area di origine e di destinazione. Per altre informazioni, vedere le [località](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e i [prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- È necessario connettere ExpressRoute alla rete virtuale di destinazione con una nuova connessione. La connessione ExpressRoute esistente non viene trasferita automaticamente.
+- Il modo in cui deve essere configurata la connessione ExpressRoute alla rete virtuale di destinazione dipende dalla topologia di ExpressRoute.
 
-### <a name="two-expressroute-circuits-in-two-different-expressroute-peering-locations"></a>Due circuiti ExpressRoute in due diverse località di peering di ExpressRoute
--   Questa configurazione è utile come assicurazione contro errori del circuito ExpressRoute primario ed emergenze su larga scala a livello di area, che potrebbero anche compromettere le località di peering di ExpressRoute e interrompere il circuito ExpressRoute primario.
--   Il circuito connesso all'ambiente di produzione viene in genere usato come circuito primario, mentre il circuito secondario è un operatore alternativo, in genere con larghezza di banda inferiore. È possibile aumentare la larghezza di banda del circuito secondario in un evento di emergenza, quando il circuito secondario deve assumere il ruolo di primario.
--   Con questa configurazione è possibile stabilire connessioni dal circuito ExpressRoute secondario alla rete virtuale di destinazione dopo l'esecuzione del failover o disporre di connessioni stabilite e pronte per una dichiarazione di emergenza, riducendo il tempo di ripristino complessivo. Con connessioni simultanee alle reti virtuali dell'area di origine e di destinazione, verificare che il routing locale usi il circuito e la connessione secondari solo dopo il failover.
--   Le reti virtuali di origine e di destinazione per le macchine virtuali protette con Site Recovery possono avere indirizzi IP uguali o diversi in caso di failover, a seconda delle preferenze dell'utente. In entrambi i casi, è possibile stabilire le connessioni secondarie prima di eseguire il failover.
 
-### <a name="two-expressroute-circuits-in-the-same-expressroute-peering-location"></a>Due circuiti ExpressRoute nella stessa località di peering di ExpressRoute
--   Questa configurazione assicura contro errori del circuito ExpressRoute primario, ma non contro emergenze su larga scala a livello di area, che potrebbero compromettere le località di peering di ExpressRoute. Con quest'ultima configurazione, possono risultare compromessi sia il circuito primario che quello secondario.
--   Le altre condizioni per indirizzi IP e connessioni rimangono uguali a quelle del caso precedente. È possibile disporre di connessioni simultanee da un data center locale alla rete virtuale di origine con il circuito primario e alla rete virtuale di destinazione con il circuito secondario. Con connessioni simultanee alle reti virtuali dell'area di origine e di destinazione, verificare che il routing locale usi il circuito e la connessione secondari solo dopo il failover.
+### <a name="access-with-two-circuits"></a>Accesso con due circuiti
+
+#### <a name="two-circuits-with-two-peering-locations"></a>Due circuiti con due località di peering
+
+Questa configurazione consente di proteggere i circuiti ExpressRoute da situazioni di emergenza a livello di area. Se la località di peering primaria diventa inattiva, le connessioni possono continuare dall'altra località.
+
+- Il circuito connesso all'ambiente di produzione in genere è quello primario. Il circuito secondario solitamente ha una larghezza di banda inferiore, che può essere incrementata in caso di emergenza.
+- Dopo il failover, è possibile stabilire connessioni dal circuito ExpressRoute secondario alla rete virtuale di destinazione. In alternativa, è possibile avere le connessioni già configurate e pronte all'uso in caso di emergenza, per ridurre il tempo di ripristino complessivo.
+- Con connessioni simultanee alle reti virtuali di origine e di destinazione, verificare che il routing locale usi il circuito e la connessione secondari solo dopo il failover.
+- Dopo il failover, le reti virtuali di origine e destinazione possono ricevere nuovi indirizzi IP oppure mantenere quelli precedenti. In entrambi i casi, è possibile stabilire le connessioni secondarie prima di eseguire il failover.
+
+
+#### <a name="two-circuits-with-single-peering-location"></a>Due circuiti con una singola località di peering
+
+Questa configurazione garantisce la protezione dagli errori del circuito ExpressRoute primario, ma non se l'unica località di peering ExpressRoute diventa inattiva, compromettendo entrambi i circuiti.
+
+- È possibile disporre di connessioni simultanee dal data center locale alla rete virtuale di origine con il circuito primario e alla rete virtuale di destinazione con il circuito secondario.
+- Con connessioni simultanee alle reti virtuali di origine e di destinazione, verificare che il routing locale usi il circuito e la connessione secondari solo dopo il failover.
 -   Se invece i circuiti vengono creati nella stessa località di peering, non è possibile collegarli alla stessa rete virtuale.
 
-### <a name="single-expressroute-circuit"></a>Circuito ExpressRoute singolo
--   Questa configurazione non assicura contro emergenze su larga scala a livello di area, che possono compromettere la località di peering ExpressRoute.
--   Con un singolo circuito ExpressRoute non è possibile connettere simultaneamente le reti virtuali di origine e di destinazione al circuito se nell'area di destinazione viene usato lo stesso spazio indirizzi IP.
--   Quando viene usato lo stesso spazio indirizzi IP nell'area di destinazione, la connessione lato origine deve essere disconnessa, per poi stabilire la connessione lato destinazione. Questa modifica della connessione può essere inserita in uno script come parte di un piano di ripristino.
--   In caso di errore a livello di area, se l'area primaria non è accessibile, l'operazione di disconnessione può avere esito negativo. Tale interruzione del servizio può compromettere la creazione di una connessione all'area di destinazione quando lo stesso spazio indirizzi IP viene usato nella rete virtuale di destinazione.
--   Se la creazione della connessione ha esito positivo nella destinazione e l'area primaria viene ripristinata in un secondo momento, è possibile che alcuni pacchetti vengano ignorati se due connessioni simultanee provano a connettersi allo stesso spazio indirizzi. Per impedire che un pacchetto venga ignorato, la connessione primaria deve essere interrotta immediatamente. Dopo il failback delle macchine virtuali nell'area primaria, la connessione primaria può essere nuovamente stabilita dopo avere disconnesso la connessione secondaria.
--   Se viene usato uno spazio indirizzi diverso nella rete virtuale di destinazione, è possibile connettersi contemporaneamente alle reti virtuali di origine e di destinazione dallo stesso circuito ExpressRoute.
+### <a name="access-with-a-single-circuit"></a>Accesso con un singolo circuito
 
-## <a name="recovering-azure-deployments"></a>Ripristino di distribuzioni di Azure
-Prendere in considerazione il modello di failover con due circuiti ExpressRoute diversi in due località di peering diverse e la conservazione di indirizzi IP privati per le macchine virtuali di Azure protette. L'area di ripristino di destinazione è Asia sud-orientale di Azure e viene stabilita una connessione al circuito ExpressRoute secondario tramite un arco partner a Singapore.
+In questa configurazione è presente un solo circuito ExpressRoute. Anche se il circuito dispone di una connessione ridondante nel caso in cui una connessione diventi inattiva, un circuito con una singola route non fornisce resilienza se l'area di peering diventa inattiva. Si noti che:
 
-Per automatizzare il ripristino dell'intera distribuzione, oltre alla replica di macchine virtuali e reti virtuali devono essere create anche altre connessioni e risorse di rete rilevanti. Per le versioni precedenti della topologia di rete di hub-spoke, è necessario attenersi alla procedura seguente durante o dopo l'operazione di [failover](azure-to-azure-tutorial-failover-failback.md):
-1.  Creare il gateway ExpressRoute di Azure nella rete virtuale dell'hub dell'area di destinazione. Il gateway ExpressRoute è necessario per connettere la rete virtuale dell'hub di destinazione al circuito ExpressRoute.
-2.  Creare la connessione di rete virtuale dalla rete virtuale dell'hub di destinazione al circuito ExpressRoute di destinazione.
-3.  Configurare i peering delle reti virtuali tra l'hub dell'area di destinazione e le reti virtuali spoke. Le proprietà di peering nell'area di destinazione saranno identiche a quelle dell'area di origine.
-4.  Configurare gli UDR nella rete virtuale hub e nelle due reti virtuali spoke. Quando si usano gli stessi indirizzi IP, le proprietà degli UDR lato destinazione sono identiche a quelle dal lato origine. Con indirizzi IP di destinazione diversi, gli UDR devono essere modificati di conseguenza.
+- È possibile eseguire la replica delle macchine virtuali di Azure in qualsiasi area di Azure nella [stessa posizione geografica](azure-to-azure-support-matrix.md#region-support). Se l'area di Azure di destinazione non è nella stessa posizione di quella di origine, è necessario abilitare ExpressRoute Premium se si usa un singolo circuito ExpressRoute. Per informazioni, vedere le [località](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) e i [prezzi di ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- Non è possibile connettere simultaneamente le reti virtuali di origine e di destinazione al circuito se nell'area di destinazione viene usato lo stesso spazio di indirizzi IP. In questo scenario:    
+    -  Interrompere la connessione sul lato di origine e quindi stabilire la connessione sul lato di destinazione. Questa modifica della connessione può essere inserita in uno script come parte di un piano di ripristino di Site Recovery. Si noti che:
+        - In caso di errore a livello di area, se l'area primaria non è accessibile, l'operazione di disconnessione può avere esito negativo. Ciò potrebbe influire sulla creazione della connessione all'area di destinazione.
+        - Se è stata creata la connessione nell'area di destinazione e l'area primaria viene ripristinata in un secondo momento, è possibile che alcuni pacchetti vengano ignorati se due connessioni simultanee provano a connettersi allo stesso spazio di indirizzi.
+        - Per evitare il problema, terminare immediatamente la connessione primaria.
+        - Dopo il failback delle macchine virtuali nell'area primaria, la connessione primaria può essere nuovamente stabilita dopo avere disconnesso la connessione secondaria.
+-   Se vengono usati spazi di indirizzi diversi nella rete virtuale di destinazione, è possibile connettersi contemporaneamente alle reti virtuali di origine e di destinazione dallo stesso circuito ExpressRoute.
+
+
+## <a name="failover-example"></a>Esempio di failover
+
+In questo esempio viene usata la topologia seguente:
+
+- Due diversi circuiti ExpressRoute in due località di peering differenti.
+- Mantenimento degli indirizzi IP privati per le macchine virtuali di Azure dopo il failover.
+- L'area di ripristino di destinazione è l'area di Azure Asia sud-orientale.
+- Viene stabilita una connessione al circuito ExpressRoute secondario tramite un'appliance perimetrale partner a Singapore.
+
+Per una semplice topologia che usa un singolo circuito ExpressRoute con lo stesso indirizzo IP dopo il failover, [leggere questo articolo](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
+
+### <a name="example-steps"></a>Procedure di esempio
+Per automatizzare il ripristino in questo esempio, ecco come procedere:
+
+1. Seguire i passaggi per [configurare la replica](#azure-vm-replication-steps).
+2. [Eseguire il failover delle macchine virtuali di Azure](azure-to-azure-tutorial-failover-failback.md), con questi passaggi aggiuntivi durante o dopo il failover.
+
+    a. Creare il gateway ExpressRoute di Azure nella rete virtuale dell'hub dell'area di destinazione. Questa operazione è necessaria per connettere la rete virtuale dell'hub di destinazione al circuito ExpressRoute.
+
+    b. Creare la connessione dalla rete virtuale dell'hub di destinazione al circuito ExpressRoute di destinazione.
+
+    c. Configurare i peering delle reti virtuali tra l'hub dell'area di destinazione e le reti virtuali spoke. Le proprietà di peering nell'area di destinazione saranno identiche a quelle dell'area di origine.
+
+    d. Configurare gli UDR nella rete virtuale hub e nelle due reti virtuali spoke.
+
+    - Quando si usano gli stessi indirizzi IP, le proprietà degli UDR lato destinazione sono identiche a quelle dal lato origine.
+    - Con indirizzi IP di destinazione diversi, gli UDR devono essere modificati di conseguenza.
+
 
 La procedura precedente può essere inserita in uno script come parte di un [piano di ripristino](site-recovery-create-recovery-plans.md). A seconda dei requisiti di connettività dell'applicazione e tempo di ripristino, la procedura precedente può anche essere completata prima di avviare il failover.
 
-Dopo il ripristino delle macchine virtuali e il completamento degli altri passaggi di connettività, l'ambiente di ripristino è simile al seguente: ![Da locale ad Azure con ExpressRoute dopo il failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-after-failover.png)
+#### <a name="after-recovery"></a>Dopo il ripristino
 
-Un semplice esempio di topologia per il ripristino di emergenza delle macchine virtuali di Azure con un singolo circuito ExpressRoute, con lo stesso IP in macchine virtuali di destinazione, è descritto in dettaglio [qui](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
+Dopo aver ripristinato le macchine virtuali e aver completato la connettività, l'ambiente di ripristino è il seguente.
 
-## <a name="recovery-time-objective-rto-considerations"></a>Considerazioni relative all'obiettivo del tempo di ripristino (RTO)
-Per ridurre il tempo di ripristino complessivo per la distribuzione, si consiglia di eseguire il provisioning e la distribuzione dei [componenti di rete](azure-vm-disaster-recovery-with-expressroute.md#enabling-replication-for-the-deployment) aggiuntivi dell'area di destinazione, come i gateway di rete virtuale descritti in precedenza. La distribuzione di risorse aggiuntive comporta un breve tempo di inattività che, se non preso in considerazione durante la pianificazione, può compromettere il tempo di ripristino complessivo.
+![Dall'ambiente locale ad Azure con ExpressRoute dopo il failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-after-failover.png)
 
-È consigliabile eseguire periodicamente [analisi di ripristino di emergenza](azure-to-azure-tutorial-dr-drill.md) per le distribuzioni protette. Un'analisi consente di convalidare la strategia di replica senza tempi di inattività o perdite di dati e non compromette in alcun modo l'ambiente di produzione. L'esecuzione di un'analisi consente anche di evitare problemi di configurazione dell'ultimo minuto che possono compromettere l'obiettivo del tempo di ripristino. È consigliabile usare la rete di una macchina virtuale di Azure separata per il failover di test e non la rete predefinita che è stata configurata al momento dell'abilitazione della replica.
 
-Se si usa un singolo circuito ExpressRoute, è consigliabile usare uno spazio indirizzi IP diverso per la rete virtuale di destinazione per evitare problemi di attivazione della connessione in caso di emergenze a livello di area. Se non è possibile usare indirizzi IP diversi per l'ambiente di produzione recuperato, è necessario eseguire il failover di test di analisi del ripristino di emergenza in una rete di test distinta con indirizzi IP diversi, dato che non è possibile connettere due reti virtuali con spazi indirizzi IP sovrapposti allo stesso circuito ExpressRoute.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sui [circuiti di ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
-- Altre informazioni sui [domini di routing di ExpressRoute](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains).
-- Altre informazioni sulle [località di ExpressRoute](../expressroute/expressroute-locations.md).
-- Leggere altre informazioni sui [piani di ripristino](site-recovery-create-recovery-plans.md) per automatizzare il failover delle applicazioni.
+
+Leggere altre informazioni sull'uso dei [piani di ripristino](site-recovery-create-recovery-plans.md) per automatizzare il failover delle app.

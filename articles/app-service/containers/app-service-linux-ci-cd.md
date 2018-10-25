@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: msangapu
-ms.openlocfilehash: 0f2d4626308eed376b71f1b3df2f9e43f1b2a4f7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130966"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867026"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Distribuzione continua con l'app Web per contenitori
 
@@ -42,7 +42,7 @@ Nel [portale di Azure](https://portal.azure.com/), selezionare l'opzione **Servi
 
 Selezionare il nome dell'app per cui si desidera configurare la distribuzione continua dell'hub Docker.
 
-Nella pagina **Contenitore Docker**, selezionare **On** (Attiva), quindi premere **Salva** per abilitare la distribuzione continua.
+Nella pagina **Container Settings** (Impostazioni contenitore) selezionare **On** (Attiva), quindi premere **Salva** per abilitare la distribuzione continua.
 
 ![Schermata dell'impostazione app](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 

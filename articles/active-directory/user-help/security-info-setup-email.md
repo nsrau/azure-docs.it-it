@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3f98b4e34c4c76efc33395530ef016b26e1ad523
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f6a574f169310f2779fb20353fda748e6893a4bd
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163040"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016741"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Configurare le informazioni di sicurezza per l'uso della posta elettronica (anteprima)
 
@@ -46,7 +46,7 @@ A seconda delle impostazioni dell'organizzazione, al momento dell'accesso può e
 
 3. Nella pagina **Proteggi l'account**, selezionare **Operazione completata**.
 
-    Le informazioni di sicurezza vengono aggiornate per usare l'indirizzo di posta elettronica al fine di controllare l'identità quando si usa la verifica in due passaggi.
+    Le informazioni di sicurezza vengono aggiornate per usare l'indirizzo di posta elettronica al fine di controllare l'identità quando si usa la reimpostazione della password.
 
 ## <a name="additional-security-info-options"></a>Opzioni aggiuntive per le informazioni di sicurezza
 

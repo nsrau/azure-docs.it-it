@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 1cf8195cbf65f27c71a4db18c0c61c8a25673acd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c370808d06f31f9d79c99ca0f20f613d9e335d60
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30247710"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339052"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Risolvere i problemi di connessione VPN da punto a sito dai client Mac OS X
 
@@ -63,10 +63,12 @@ Questo articolo consente di risolvere i problemi di connettività da punto a sit
 
 Se si segue la procedura precedente e tutto viene configurato correttamente, scaricare [Wireshark](https://www.wireshark.org/#download) ed eseguire un'acquisizione pacchetti.
 
-1. Filtrare in base a *iskmp* ed esaminare i pacchetti **IKE_SA**. È possibile esaminare i dettagli della proposta SA in **Payload: Security Association** (Payload: associazione di sicurezza). 
+1. Filtrare in base a *isakmp* ed esaminare i pacchetti **IKE_SA**. È possibile esaminare i dettagli della proposta SA in **Payload: Security Association** (Payload: associazione di sicurezza). 
 2. Verificare che il client e il server dispongano di un set comune.
 
-  ![pacchetto](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg)
+  ![pacchetto](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
+  
+3. Se non c'è risposta del server nelle tracce di rete, verificare di aver abilitato il protocollo IKEv2 nella pagina di configurazione del gateway di Azure nel sito Web del portale di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, contattare [il supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

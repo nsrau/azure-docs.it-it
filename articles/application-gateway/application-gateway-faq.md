@@ -3,18 +3,17 @@ title: Domande frequenti sul gateway applicazione di Azure
 description: Questa pagina offre risposte alle domande frequenti sul gateway applicazione di Azure
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 7b2a550c902e85caf02f05fcbbe5dd7b02acd0cc
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399144"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868854"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -26,7 +25,7 @@ Il gateway applicazione di Azure è un servizio di controller per la distribuzio
 
 **D. Quali funzionalità supporta il gateway applicazione?**
 
-Application Gateway supporta l'offload SSL e SSL end-to-end, web application firewall, affinità della sessione basata su cookie, routing basato su percorso url, hosting multisito e altro. Per un elenco completo delle funzionalità supportate, vedere l'[introduzione al gateway applicazione](application-gateway-introduction.md)
+Il gateway applicazione supporta la scalabilità automatica, l'offload SSL e SSL end-to-end, Web application firewall, affinità della sessione basata su cookie, routing basato su percorso URL, hosting multisito e altro. Per un elenco completo delle funzionalità supportate, vedere [Cos'è il gateway applicazione di Azure?](application-gateway-introduction.md)
 
 **D. Qual è la differenza tra gateway applicazione e Azure Load Balancer?**
 
@@ -38,7 +37,7 @@ Il gateway applicazione supporta HTTP, HTTPS, HTTP/2 e WebSocket.
 
 **D. In che modo il gateway applicazione supporta HTTP/2?**
 
-Il supporto del protocollo HTTP/2 è disponibile per i client che si connettono solo a listener di del gateway applicazione. La comunicazione con i pool di server back-end avviene tramite HTTP/1.1. 
+Il supporto del protocollo HTTP/2 è disponibile per i client che si connettono solo a listener del gateway applicazione. La comunicazione con i pool di server back-end avviene tramite HTTP/1.1. 
 
 Per impostazione predefinita, il supporto di HTTP/2 è disabilitato. Il frammento di codice di esempio seguente, di Azure PowerShell, illustra come abilitarlo:
 
@@ -62,7 +61,7 @@ Il gateway applicazione è una distribuzione dedicata nella rete virtuale.
 
 **D. È supportato il reindirizzamento HTTP->HTTPS?**
 
-Il reindirizzamento è supportato. Per altre informazioni, vedere la [panoramica del reindirizzamento del gateway applicazione](application-gateway-redirect-overview.md).
+Il reindirizzamento è supportato. Per altre informazioni, vedere la [Panoramica del reindirizzamento nel gateway applicazione](application-gateway-redirect-overview.md).
 
 **D. In quale ordine vengono elaborati i listener?**
 
@@ -72,19 +71,19 @@ I listener vengono elaborati nell'ordine in cui sono visualizzati. Per tale moti
 
 Quando si usa un indirizzo IP pubblico come endpoint, queste informazioni sono reperibili nella risorsa dell'indirizzo IP pubblico o nella pagina Panoramica del gateway applicazione nel portale. Per gli indirizzi IP interni, queste informazioni si trovano nella pagina Panoramica.
 
-**D. L'IP o il DNS cambia durante il ciclo di vita del gateway applicazione?**
+**D. L'IP o il nome DNS cambia durante il ciclo di vita del gateway applicazione?**
 
-L'indirizzo VIP può cambiare se il gateway viene arrestato e avviato dal cliente. Il DNS associato al gateway applicazione non cambia durante il ciclo di vita del gateway. Per questo motivo è consigliabile usare un alias CNAME che punti all'indirizzo DNS del gateway applicazione.
+L'indirizzo VIP può cambiare se il gateway applicazione viene arrestato e avviato. Il nome DNS associato al gateway applicazione non cambia durante il ciclo di vita del gateway. Per questo motivo è consigliabile usare un alias CNAME che punti all'indirizzo DNS del gateway applicazione.
 
 **D. Il gateway applicazione supporta l'IP statico?**
 
-No, il gateway applicazione non supporta indirizzi IP pubblici statici, ma supporta indirizzi IP interni statici.
+Sì, lo SKU versione 2 del gateway applicazione supporta gli indirizzi IP pubblici statici. Lo SKU versione 1 supporta indirizzi IP interni statici.
 
 **D. Il gateway applicazione supporta più indirizzi IP pubblici nel gateway?**
 
-Il gateway applicazione supporta un solo indirizzo IP pubblico.
+Un gateway applicazione supporta un solo indirizzo IP pubblico.
 
-**D. Quali dimensioni dovrebbe avere la subnet per il gateway applicazione?**
+**D. Quali dimensioni deve avere la subnet per il gateway applicazione?**
 
 Il gateway applicazione utilizza un indirizzo IP privato per ogni istanza, oltre a un altro indirizzo IP privato in presenza di una configurazione degli indirizzi IP front-end privati. Inoltre, Azure riserva i primi quattro e l'ultimo indirizzo IP in ogni subnet per uso interno.
 Se ad esempio il gateway applicazione è impostato su tre istanze e nessun IP front-end privato, le dimensioni necessarie per la subnet sono pari a /29 o superiori. In questo caso, il gateway applicazione usa tre indirizzi IP. Se si hanno tre istanze e un indirizzo IP per la configurazione degli indirizzi IP front-end privati, le dimensioni della subnet devono essere pari a /28 o superiori, perché sono necessari quattro indirizzi IP.
@@ -97,7 +96,9 @@ Il gateway applicazione inserisce anche un'intestazione X-Original-Host contenen
 
 **D. Quanto tempo occorre per distribuire un gateway applicazione? Il gateway applicazione funziona durante l'aggiornamento?**
 
-Nuove distribuzioni di gateway applicazione possono richiedere fino a 20 minuti per effettuare il provisioning. Le modifiche all'istanza di conteggio/dimensioni non causano problemi e il gateway rimane attivo durante questo periodo di tempo.
+Nuove distribuzioni di SKU versione 1 del gateway applicazione possono richiedere fino a 20 minuti per effettuare il provisioning. Le modifiche all'istanza di conteggio/dimensioni non causano problemi e il gateway rimane attivo durante questo periodo di tempo.
+
+Le distribuzioni di SKU versione 2 possono richiedere circa cinque e sei minuti per effettuare il provisioning.
 
 ## <a name="configuration"></a>Configurazione
 
@@ -117,11 +118,17 @@ No, ma è possibile distribuire altri gateway applicazione nella subnet.
 
 I gruppi di sicurezza di rete sono supportati nella subnet del gateway applicazione con le restrizioni seguenti:
 
-* Le eccezioni devono essere inserite per il traffico in entrata sulle porte 65503-65534. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non saranno in grado di avviare alcuna modifica su tali endpoint.
+* Devono essere inserite eccezioni per il traffico in ingresso sulle porte 65503-65534 per lo SKU versione 1 del gateway applicazione e sulle porte 65200-65535 per lo SKU versione 2. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non saranno in grado di avviare alcuna modifica su tali endpoint.
 
 * La connettività Internet in uscita non può essere bloccata.
 
 * È necessario consentire il traffico dal tag AzureLoadBalancer.
+
+**D. Le route definite dall'utente sono supportate nella subnet del gateway applicazione?**
+
+Le route definite dall'utente (Udr) sono supportate nella subnet del gateway applicazione, purché non modificano la comunicazione end-to-end di richiesta/risposta.
+
+Ad esempio, è possibile configurare una route UDR nella subnet del gateway applicazione in modo che punti a un'appliance firewall per l'ispezione dei pacchetti, ma è necessario assicurarsi che il pacchetto possa raggiungere l'ispezione dei post relativa alla destinazione prevista. In caso contrario, potrebbe tradursi in probe di integrità o comportamento di instradamento del traffico non corretti. Sono incluse route o route 0.0.0.0/0 predefinite propagate dal gateway VPN o ExpressRoute nella rete virtuale.
 
 **D. Quali sono i limiti del gateway applicazione? È possibile aumentare questi limiti?**
 
@@ -177,7 +184,9 @@ No, questa operazione non è supportata.
 
 **D. In che modo il gateway applicazione supporta la disponibilità elevata e la scalabilità?**
 
-Il gateway applicazione supporta scenari di disponibilità elevata se sono presenti due o più istanze distribuite. Azure distribuisce queste istanze nei domini di errore e di aggiornamento per impedire l'arresto simultaneo di tutte le istanze. Il gateway applicazione supporta la scalabilità tramite l'aggiunta di più istanze dello stesso gateway per ripartire il carico.
+Lo SKU versione 1 del gateway applicazione supporta scenari di disponibilità elevata se sono presenti due o più istanze distribuite. Azure distribuisce queste istanze nei domini di errore e di aggiornamento per impedire l'arresto simultaneo di tutte le istanze. Lo SKU versione 1 supporta la scalabilità tramite l'aggiunta di più istanze dello stesso gateway per ripartire il carico.
+
+Lo SKU V2 garantisce automaticamente che le nuove istanze vengono distribuite tra domini di errore e domini di aggiornamento. Se si sceglie la ridondanza della zona, le istanze più recenti vengono anche distribuite tra le zone di disponibilità per offrire resilienza dagli errori delle zone.
 
 **D. Come si ottiene uno scenario di ripristino di emergenza tra data center con un gateway applicazione?**
 
@@ -185,7 +194,7 @@ I clienti possono usare Gestione traffico per distribuire il traffico tra più g
 
 **D. La scalabilità automatica è supportata?**
 
-No, ma il gateway applicazione offre una metrica della velocità effettiva che può essere usata per ricevere un avviso quando viene raggiunta una soglia. L'operazione manuale di aggiunta di istanze o ridimensionamento non provoca il riavvio del gateway e non ha alcun impatto sul traffico esistente.
+Sì, lo SKU versione 2 del gateway applicazione supporta la scalabilità automatica. Per altre informazioni, vedere [Gateway applicazione con scalabilità automatica ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md).
 
 **D. Il ridimensionamento manuale causa tempi di inattività?**
 
@@ -223,7 +232,7 @@ Sono supportati certificati autofirmati, certificati della CA e certificati con 
 
 **D. Quali sono i pacchetti di crittografia attualmente supportati dal gateway applicazione?**
 
-Di seguito sono elencati i pacchetti di crittografia attualmente supportati dal gateway applicazione. Per informazioni su come configurare le opzioni SSL, vedere l'articolo [Configure SSL policy versions and cipher suites on Application Gateway](application-gateway-configure-ssl-policy-powershell.md) (Configurare versioni di criteri SSL e pacchetti di crittografia nel gateway applicazione).
+Di seguito sono elencati i pacchetti di crittografia attualmente supportati dal gateway applicazione. Per informazioni su come configurare le opzioni SSL, vedere l'articolo [Configurare i pacchetti di crittografia e le versioni dei criteri SSL nel gateway applicazione](application-gateway-configure-ssl-policy-powershell.md).
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -305,7 +314,7 @@ No, la modalità di rilevamento registra solo il traffico che ha attivato una re
 
 **D. Come si personalizzano le regole del Web application firewall?**
 
-Sì, le regole WAF sono personalizzabili. Per altre informazioni sulla relativa personalizzazione, vedere [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md) (Personalizzare le regole e i gruppi di regole di WAF)
+Sì, le regole WAF sono personalizzabili. Per altre informazioni sulla relativa personalizzazione, vedere [Personalizzare le regole del web application firewall con il portale di Azure](application-gateway-customize-waf-rules-portal.md)
 
 **D. Quali regole sono attualmente disponibili?**
 
@@ -327,7 +336,7 @@ Il Web application firewall supporta attualmente CRS [2.2.9](application-gateway
 
 **D. Il WAF supporta anche la prevenzione DDoS?**
 
-No, non fornisce la prevenzione DDoS.
+Sì. È possibile abilitare Protezione DDos nella rete virtuale in cui viene distribuito il gateway applicazione. Ciò assicura che anche l'indirizzo IP virtuale del gateway applicazione sia protetto dal servizio Protezione DDos di Azure.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostica e registrazione
 
@@ -335,7 +344,7 @@ No, non fornisce la prevenzione DDoS.
 
 Sono disponibili tre log con il gateway applicazione. Per altre informazioni su questi log e altre funzionalità di diagnostica, vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md).
 
-- **ApplicationGatewayAccessLog**: il log di accesso contiene ogni richiesta inviata al front-end del gateway applicazione. I dati includono indirizzo IP del chiamante, URL richiesto, latenza della risposta, codice restituito, byte in ingresso e in uscita. Il log di accesso viene raccolto ogni 300 secondi. Il log contiene un record per ogni istanza del gateway applicazione.
+- **ApplicationGatewayAccessLog**: il log di accesso contiene ogni richiesta inviata al front-end del gateway applicazione. I dati includono indirizzo IP del chiamante, URL richiesto, latenza della risposta, codice restituito, byte in ingresso e in uscita. Il log di accesso viene raccolto ogni 300 secondi. Il log contiene un record per ogni istanza di gateway applicazione.
 - **ApplicationGatewayPerformanceLog**: il log delle prestazioni acquisisce le informazioni sulle prestazioni di ogni singola istanza, come il totale delle richieste servite, la velocità effettiva in byte, il numero delle richieste non riuscite e il numero delle istanze back-end integre e non integre.
 - **ApplicationGatewayFirewallLog**: il log del firewall contiene le richieste registrate tramite la modalità di rilevamento o prevenzione di un gateway applicazione configurato con il Web application firewall.
 
@@ -353,11 +362,17 @@ Sono disponibili log di controllo per il gateway applicazione. Nel portale fare 
 
 **D. È possibile impostare avvisi con il gateway applicazione?**
 
-Sì, il gateway applicazione supporta gli avvisi, che vengono configurati in base alle metriche. Il gateway applicazione ha attualmente una metrica di "velocità effettiva" che può essere configurata per l'invio di avvisi. Per altre informazioni sugli avvisi, vedere [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Sì, il gateway applicazione supporta gli avvisi. Gli avvisi vengono configurati nelle metriche. Per altre informazioni sulle metriche del gateway applicazione, vedere le [metriche del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics). Per altre informazioni sugli avvisi, vedere [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+
+**D. Come si analizzano le statistiche sul traffico per il gateway applicazione?**
+
+È possibile visualizzare e analizzare i log di accesso tramite una serie di meccanismi, ad esempio Azure Log Analytics, Excel, Power BI e così via.
+
+È stato anche pubblicato un modello di Resource Manager che installa ed esegue l'analizzatore di log [GoAccess](https://goaccess.io/), di ampia diffusione, per i log di accesso del gateway applicazione. GoAccess offre statistiche utili sul traffico HTTP, ad esempio il numero di visitatori unici, file richiesti, host, sistemi operativi, browser, codici di stato HTTP e altro ancora. Per altre informazioni, vedere il [file Readme nella cartella del modello di Resource Manager in GitHub](https://aka.ms/appgwgoaccessreadme).
 
 **D. L'integrità back-end restituisce uno stato sconosciuto. Quale potrebbe essere la causa?**
 
-Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di sicurezza di rete o un DNS personalizzato. Vedere [Integrità back-end, registrazione diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md) per altre informazioni.
+Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di sicurezza di rete o un DNS personalizzato. Vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md) per altre informazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

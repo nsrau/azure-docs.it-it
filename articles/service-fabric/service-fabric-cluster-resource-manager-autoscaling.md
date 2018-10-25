@@ -1,5 +1,5 @@
 ---
-title: Servizi e contenitori di scalabilità automatica in Azure Service Fabric | Microsoft Docs
+title: Servizi e contenitori di scalabilità automatica in Azure Service Fabric | Documentazione Microsoft
 description: Azure Service Fabric consente di impostare i criteri di scalabilità automatica per i servizi e i contenitori.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782390"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362603"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduzione alla scalabilità automatica
 La scalabilità automatica è una funzionalità aggiuntiva di Service Fabric che consente di applicare in modo dinamico la scalabilità ai servizi in base al carico che i servizi segnalano o in base all'utilizzo delle risorse. La scalabilità automatica offre grande elasticità e consente di eseguire il provisioning di istanze o partizioni aggiuntive del servizio su richiesta. L'intero processo di scalabilità è automatico e trasparente e, dopo aver configurato i criteri in un servizio, non è necessario eseguire manualmente le operazioni di scalabilità a livello di servizio. La funzione di scalabilità automatica può essere attivata al momento della creazione del servizio o in qualsiasi momento tramite l'aggiornamento del servizio.
@@ -117,10 +117,10 @@ Update-ServiceFabricService -Stateless -ServiceName "fabric:/AppName/ServiceName
 Il secondo tipo di trigger è basato sul carico di tutte le partizioni di un servizio. I carichi della metrica vengono innanzitutto livellati per ottenere il carico per ogni replica o istanza di una partizione. Per i servizi con stato, il carico della partizione è considerato il carico della replica primaria, mentre per i servizi senza stato il carico della partizione è il carico medio di tutte le istanze della partizione. Questi valori sono calcolati in media tra tutte le partizioni del servizio e questo valore viene utilizzato per attivare la scalabilità automatica. Come per il meccanismo precedente, esistono tre fattori che determinano quando il servizio verrà ridimensionato:
 
 * La _soglia di carico inferiore_ è un valore che determina quando il servizio sarà **ridotto**. Se il carico medio di tutte le partizioni del servizio è inferiore a questo valore, il servizio verrà ridotto.
-* La _soglia di carico superiore_ è un valore che determina quando il servizio sarà **aumentato**. Se il carico medio di tutte le partizioni del servizio è inferiore a questo valore, il servizio verrà ridotto.
+* La _soglia di carico superiore_ è un valore che determina quando il servizio sarà **aumentato**. Se il carico medio di tutte le partizioni del servizio è superiore a questo valore, il servizio verrà aumentato.
 * L’_intervallo di scalabilità_ determina ogni quanto verrà eseguito un controllo del trigger. Una volta controllato il trigger, se è necessario eseguire un ridimensionamento verrà applicato il meccanismo. Se il ridimensionamento non è necessario, non verrà eseguita alcuna azione. In entrambi i casi, il trigger non verrà controllato nuovamente prima dello scadere dell'intervallo di scalabilità.
 
-Questo trigger può essere utilizzato sia con i servizi con stato sia con i servizi senza stato. L'unico meccanismo che può essere utilizzato con questo trigger è AddRemoveIncrementalNamedParitionScalingMechanism. Quando il servizio viene aumentato, viene aggiunta una nuova partizione; quando il servizio viene ridotto, viene rimossa una delle partizioni esistenti. Vi sono restrizioni che verranno controllate quando il servizio viene creato o aggiornato; la creazione o l’aggiornamento del servizio avrà esito negativo se non vengono soddisfatte le condizioni seguenti:
+Questo trigger può essere utilizzato sia con i servizi con stato sia con i servizi senza stato. L'unico meccanismo che può essere usato con questo trigger è AddRemoveIncrementalNamedPartitionScalingMechanism. Quando il servizio viene aumentato, viene aggiunta una nuova partizione; quando il servizio viene ridotto, viene rimossa una delle partizioni esistenti. Vi sono restrizioni che verranno controllate quando il servizio viene creato o aggiornato; la creazione o l’aggiornamento del servizio avrà esito negativo se non vengono soddisfatte le condizioni seguenti:
 * Lo schema di partizione denominata deve essere utilizzato per il servizio.
 * I nomi delle partizioni devono essere numeri interi consecutivi, ad esempio "0", "1", ecc.
 * Il nome della prima partizione deve essere "0".
@@ -137,7 +137,7 @@ Come per il meccanismo che usa la scalabilità per aggiungere o rimuovere istanz
 * Il _numero minimo di istanze_ definisce il limite inferiore per la scalabilità. Se il numero di partizioni del servizio raggiunge questo limite, non sarà possibile ridurre il servizio, indipendentemente dal carico.
 
 > [!WARNING] 
-> Quando AddRemoveIncrementalNamedParitionScalingMechanism viene usata con i servizi con stato, Service Fabric aggiunge o rimuove partizioni **senza produrre notifiche o avvisi**. Quando viene attivato il meccanismo di ridimensionamento, il ripartizionamento dei dati non viene eseguito. Nel caso di un'operazione di aumento le nuove partizioni sono vuote, mentre nel caso di una riduzione **la partizione viene eliminata insieme a tutti i dati che contiene**.
+> Quando AddRemoveIncrementalNamedPartitionScalingMechanism viene usata con i servizi con stato, Service Fabric aggiunge o rimuove partizioni **senza produrre notifiche o avvisi**. Quando viene attivato il meccanismo di ridimensionamento, il ripartizionamento dei dati non viene eseguito. Nel caso di un'operazione di aumento le nuove partizioni sono vuote, mentre nel caso di una riduzione **la partizione viene eliminata insieme a tutti i dati che contiene**.
 
 ## <a name="setting-auto-scaling-policy"></a>Impostazione dei criteri di scalabilità automatica
 
@@ -146,7 +146,7 @@ Come per il meccanismo che usa la scalabilità per aggiungere o rimuovere istanz
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+        <AddRemoveIncrementalNamedPartitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
@@ -155,7 +155,7 @@ Come per il meccanismo che usa la scalabilità per aggiungere o rimuovere istanz
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 AveragePartitionLoadScalingTrigger trigger = new AverageServiceLoadScalingTrigger();
-PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedParitionScalingMechanism();
+PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedPartitionScalingMechanism();
 mechanism.MaxPartitionCount = 4;
 mechanism.MinPartitionCount = 1;
 mechanism.ScaleIncrement = 1;
@@ -171,7 +171,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 ### <a name="using-powershell"></a>Tramite PowerShell
 ```posh
-$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedParitionScalingMechanism
+$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
 $mechanism.MaxPartitionCount = 3
 $mechanism.ScaleIncrement = 2

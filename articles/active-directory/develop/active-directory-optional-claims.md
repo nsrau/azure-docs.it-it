@@ -12,40 +12,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2018
+ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c42e8978a94730669f3c3f879d1d26c4426bd9da
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597974"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079138"
 ---
-# <a name="optional-claims-in-azure-ad-preview"></a>Attestazioni facoltative in Azure AD (anteprima)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Procedura: Fornire attestazioni facoltative per l'applicazione Azure AD (anteprima pubblica)
 
 Questa funzionalità viene usata dagli sviluppatori di applicazioni per specificare le attestazioni da includere nei token inviati all'applicazione. Le attestazioni facoltative possono essere usate per:
--   Selezionare attestazioni aggiuntive da includere nei token per l'applicazione.
--   Modificare il comportamento di determinate attestazioni che Azure AD restituisce nei token.
--   Aggiungere e accedere ad attestazioni personalizzate per l'applicazione. 
+- Selezionare attestazioni aggiuntive da includere nei token per l'applicazione.
+- Modificare il comportamento di determinate attestazioni che Azure AD restituisce nei token.
+- Aggiungere e accedere ad attestazioni personalizzate per l'applicazione. 
 
 > [!Note]
 > Questa funzionalità è attualmente disponibile in anteprima pubblica. Potrebbe essere necessario ripristinare o rimuovere eventuali modifiche. La funzionalità è disponibile in tutte le sottoscrizioni di Azure AD durante l'anteprima pubblica. Quando la funzionalità sarà disponibile a livello generale, alcuni aspetti potrebbero tuttavia richiedere una sottoscrizione Azure AD Premium.
 
 Per l'elenco di attestazioni standard e le relative modalità di utilizzo nei token, vedere le [nozioni di base sui token rilasciati da Azure AD](v1-id-and-access-tokens.md). 
 
-Uno degli obiettivi dell'[endpoint Azure AD v2.0](active-directory-appmodel-v2-overview.md) è quello di ottenere token di dimensioni minori in modo da garantire prestazioni ottimali da parte dei client.  Di conseguenza, diverse attestazioni incluse in precedenza nei token ID e di accesso non sono più presenti nei token v2.0 e devono essere richieste espressamente per ogni applicazione.  
+Uno degli obiettivi dell'[endpoint Azure AD v2.0](active-directory-appmodel-v2-overview.md) è quello di ottenere token di dimensioni minori in modo da garantire prestazioni ottimali da parte dei client.  Di conseguenza, diverse attestazioni incluse in precedenza nei token ID e di accesso non sono più presenti nei token v2.0 e devono essere richieste espressamente per ogni applicazione.
+
+  
 
 **Tabella 1: applicabilità**
 
-| Tipo di account | Endpoint v1.0                      | Endpoint v2.0  |
-|--------------|------------------------------------|----------------|
+| Tipo di account | Endpoint v1.0 | Endpoint v2.0  |
+|--------------|---------------|----------------|
 | Account Microsoft personale  | N/D - Vengono usati in alternativa i ticket RPS | Supporto presto disponibile |
-| Account Azure AD          | Supportato                          | Supportato      |
+| Account Azure AD          | Supportato                          | Supportato con avvertenze      |
+
+> [!Important]
+> A questo punto, le app che supportano sia account personali che account Azure AD (registrati dal [portale di registrazione delle app](https://apps.dev.microsoft.com)) non possono usare le attestazioni facoltative.  Tuttavia, le app registrate solo per Azure AD usando l'endpoint v2.0 possono ottenere le attestazioni facoltative richieste nel manifesto.
 
 ## <a name="standard-optional-claims-set"></a>Set di attestazioni facoltative standard
-Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito.  Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) più avanti in questo articolo. 
+Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito.  Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) più avanti in questo articolo.  Si noti che quando si aggiungono attestazioni al **token di accesso**, ciò si applica ai token di accesso richiesti *per* l'applicazione (un'API web), non quelli richiesti *dall*'applicazione.  Ciò garantisce che, indipendentemente dal client che accede all'API, il token di accesso usato per l'autenticazione nell'API contenga i dati corretti.
 
 > [!Note]
 >La maggior parte di queste attestazioni può essere inclusa in token JWT per v1.0 e v2.0, ma non in token SAML, salvo dove diversamente indicato nella colonna Tipo di token.  Inoltre, mentre le attestazioni facoltative sono attualmente supportate solo per gli utenti AAD, è in corso l'aggiunta del supporto per l'account del servizio gestito.  Quando l'account del servizio gestito dispone del supporto per le attestazioni facoltative nell'endpoint v2.0, la colonna Tipo di utente indicherà se è disponibile un'attestazione per un utente AAD o dell'account del servizio gestito.  
@@ -76,6 +81,7 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `upn`                      | Attestazione UserPrincipalName.  | JWT, SAML  |           | Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest.  <br> Proprietà aggiuntive: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 
 ### <a name="v20-optional-claims"></a>Attestazioni facoltative v2.0
+
 Queste attestazioni sono sempre incluse nei token v1.0, ma non sono incluse nei token v2.0 a meno che non sia richiesto.  Queste attestazioni sono applicabili solo per i token JWT (token ID e token di accesso).  
 
 **Tabella 3: attestazioni facoltative specifiche di V2.0**
@@ -106,8 +112,7 @@ Alcuni attestazioni facoltative possono essere configurate per modificare il mod
 > [!Note]
 >Specificando l'attestazione facoltativa upn senza una proprietà aggiuntiva non viene modificato alcun comportamento: per visualizzare una nuova attestazione rilasciata nel token, deve essere aggiunta almeno una delle proprietà aggiuntive. 
 
-
-#### <a name="additional-properties-example"></a>Esempio di proprietà aggiuntive:
+#### <a name="additional-properties-example"></a>Esempio di proprietà aggiuntive
 
 ```json
  "optionalClaims": 
@@ -171,7 +176,6 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
 | `saml2Token`  | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token SAML.       |
 
-
 ### <a name="optionalclaim-type"></a>Tipo OptionalClaim
 
 Contiene un'attestazione facoltativa associata a un'applicazione o a un'entità servizio. Le proprietà idToken, accessToken e saml2Token del tipo [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) sono una raccolta di OptionalClaim.
@@ -185,7 +189,6 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |
 | `essential`            | Edm.Boolean             | Se il valore è True, l'attestazione specificata dal client è necessaria per garantire un'esperienza di autorizzazione uniforme per l'attività specifica richiesta dall'utente finale. Il valore predefinito è False.                                                                                                                 |
 | `additionalProperties` | Raccolta (Edm.String) | Proprietà aggiuntive dell'attestazione. Se esiste una proprietà in questa raccolta, modificherà il comportamento dell'attestazione facoltativa specificata nella proprietà name.                                                                                                                                                   |
-
 ## <a name="configuring-custom-claims-via-directory-extensions"></a>Configurazione di attestazioni personalizzate tramite le estensioni della directory
 
 Oltre al set di attestazioni facoltative standard, i token possono essere configurati anche per includere le estensioni dello schema della directory (vedere l'articolo [Estensioni dello schema della directory](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) per altre informazioni).  Questa funzionalità è utile per il collegamento di altre informazioni sull'utente utilizzabili dall'app, ad esempio un identificatore aggiuntivo o un'opzione di configurazione importante impostata dall'utente. 
@@ -193,7 +196,7 @@ Oltre al set di attestazioni facoltative standard, i token possono essere config
 > [!Note]
 > Le estensioni dello schema della directory sono una funzionalità esclusiva di AAD, pertanto se il manifesto dell'applicazione richiede un'estensione personalizzata e un utente dell'account del servizio gestito accede all'app, queste estensioni non verranno restituite. 
 
-### <a name="values-for-configuring-additional-optional-claims"></a>Valori per la configurazione di attestazioni facoltative aggiuntive 
+### <a name="values-for-configuring-additional-optional-claims"></a>Valori per la configurazione di attestazioni facoltative aggiuntive
 
 Per gli attributi dell'estensione, usare il nome completo dell'estensione (nel formato `extension_<appid>_<attributename>`) nel manifesto dell'applicazione. `<appid>` deve corrispondere all'ID dell'applicazione che richiede l'attestazione. 
 
@@ -209,12 +212,13 @@ Sono disponibili più opzioni per l'aggiornamento delle proprietà di configuraz
 -   È anche possibile scrivere un'applicazione che usa l'[API Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) per aggiornare l'applicazione. Il [riferimento per entità e tipi complessi](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) nella guida di riferimento sull'API Graph consente di configurare le attestazioni facoltative.
 
 **Esempio:** nell'esempio seguente si modificherà il manifesto di un'applicazione per aggiungere attestazioni ai token di accesso, ID e SAML specifici per l'applicazione.
-1.  Accedere al [portale di Azure](https://portal.azure.com).
-2.  Dopo essersi autenticati, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
-3.  Selezionare l'**estensione Azure AD** dal pannello di navigazione a sinistra e fare clic su **Registrazioni per l'app**.
-4.  Trovare l'applicazione per cui si vogliono configurare le attestazioni facoltative e fare clic sul nome.
-5.  Nella pagina dell'applicazione fare clic su **Manifesto** per aprire l'editor manifesto incorporato. 
-6.  È possibile modificare direttamente il manifesto usando l'editor. Il manifesto segue lo schema per l'[entità applicazione](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity) e viene automaticamente formattato dopo essere stato salvato. Alla proprietà `OptionalClaims` verranno aggiunti nuovi elementi.
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Dopo essersi autenticati, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
+1. Selezionare l'**estensione Azure AD** dal pannello di navigazione a sinistra e fare clic su **Registrazioni per l'app**.
+1. Trovare l'applicazione per cui si vogliono configurare le attestazioni facoltative e fare clic sul nome.
+1. Nella pagina dell'applicazione fare clic su **Manifesto** per aprire l'editor manifesto incorporato. 
+1. È possibile modificare direttamente il manifesto usando l'editor. Il manifesto segue lo schema per l'[entità applicazione](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity) e viene automaticamente formattato dopo essere stato salvato. Alla proprietà `OptionalClaims` verranno aggiunti nuovi elementi.
 
       ```json
       "optionalClaims": 
@@ -241,10 +245,13 @@ Sono disponibili più opzioni per l'aggiornamento delle proprietà di configuraz
             ]
       }
       ```
-      In questo caso, sono state aggiunte attestazioni facoltative differenti a ogni tipo di token che l'applicazione può ricevere. I token ID conterranno ora l'UPN per gli utenti federati nel formato esteso (`<upn>_<homedomain>#EXT#@<resourcedomain>`). I token di accesso riceveranno ora l'attestazione auth_time. I token SAML conterranno ora l'estensione dello schema della directory skypeId (in questo esempio l'ID per l'app è ab603c56068041afb2f6832e2a17e237).  I token SAML esporranno l'ID Skype come `extension_skypeId`.
+      In questo caso, sono state aggiunte attestazioni facoltative differenti a ogni tipo di token che l'applicazione può ricevere. I token ID conterranno ora l'UPN per gli utenti federati nel formato esteso (`<upn>_<homedomain>#EXT#@<resourcedomain>`). I token di accesso che altri client richiedono per questa applicazione includono ora l'attestazione auth_time. I token SAML conterranno ora l'estensione dello schema della directory skypeId (in questo esempio l'ID per l'app è ab603c56068041afb2f6832e2a17e237).  I token SAML esporranno l'ID Skype come `extension_skypeId`.
 
-7.  Dopo avere terminato l'aggiornamento del manifesto, fare clic su **Salva** per salvare il manifesto.
+1. Dopo avere terminato l'aggiornamento del manifesto, fare clic su **Salva** per salvare il manifesto.
 
+## <a name="next-steps"></a>Passaggi successivi
 
-## <a name="related-content"></a>Contenuti correlati
-* Altre informazioni sulle [attestazioni standard](v1-id-and-access-tokens.md) fornite da Azure AD. 
+Altre informazioni sulle attestazioni standard fornite da Azure AD.
+
+- [Token ID](id-tokens.md)
+- [Token di accesso](access-tokens.md)

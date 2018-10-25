@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: jingwang
-ms.openlocfilehash: a160c47e12db3c4ef9cefc5cd70293468ddf8234
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 953585ffcc5a40d9ae48055f68a1c1fa84db25cc
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011359"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249333"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-preview-with-azure-data-factory"></a>Copiare dati da Azure Data Lake Storage Gen1 in Gen2 (anteprima) con Azure Data Factory
 
@@ -51,7 +51,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
     * **Versione**: selezionare **V2**.
     * **Località**: selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. 
 
-3. Selezionare **Crea**.
+3. Selezionare **Create**.
 4. Al termine della creazione, accedere alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente: 
    
    ![Home page di Data factory](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
@@ -80,7 +80,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
    3. Selezionare **Avanti**.
    
    > [!IMPORTANT]
-   > In questa procedura dettagliata si usa un'_identità del servizio gestita_ per autenticare il Data Lake Storage Gen1. Assicurarsi di concedere le autorizzazioni appropriate all'entità del servizio gestita in Azure Data Lake Storage Gen1 seguendo [queste istruzioni](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > In questa procedura dettagliata si usa un'identità gestita delle risorse di Azure per autenticare l'account Data Lake Storage Gen1e. Assicurarsi di concedere le autorizzazioni appropriate all'entità del servizio gestita in Azure Data Lake Storage Gen1 seguendo [queste istruzioni](connector-azure-data-lake-store.md#managed-identity).
    
    ![Specificare un account di Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
    

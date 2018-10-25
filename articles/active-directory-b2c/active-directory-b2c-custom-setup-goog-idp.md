@@ -1,259 +1,181 @@
 ---
-title: Aggiungere Google+ come provider di identità OAuth2 tramite criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
-description: Esempio dell'uso di Google+ come provider di identità tramite il protocollo OAuth2.
+title: Configurare l'accesso con un account Google in Azure Active Directory B2C usando criteri personalizzati | Microsoft Docs
+description: Configurare l'accesso con un account Google in Azure Active Directory B2C usando criteri personalizzati.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/04/2017
+ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f076a906ba38e6c8e8c9530baba1607553b41ea6
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5f4aaef65620a2c6f268f123544c7ecf71dccb82
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338329"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887275"
 ---
-# <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Aggiungere Google+ come provider di identità OAuth2 tramite criteri personalizzati
+# <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurare l'accesso con un account Google usando criteri personalizzati in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Questa guida illustra come consentire agli utenti di accedere da un account Google+ tramite l'utilizzo di [criteri personalizzati](active-directory-b2c-overview-custom.md).
+Questo articolo illustra come consentire agli utenti l'accesso da un account Google usando [criteri personalizzati](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare la procedura descritta nell'articolo [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md).
+- Completare le procedure illustrate in [Introduzione ai criteri personalizzati in Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+- Se non si ha già un account Google, crearne uno nella pagina [Crea il tuo Account Google](https://accounts.google.com/SignUp).
 
-La procedura include i passaggi seguenti:
+## <a name="register-the-application"></a>Registrare l'applicazione
 
-1.  Creazione di un'applicazione di account Google+.
-2.  Aggiunta della chiave dell'applicazione di account Google+ in Azure AD B2C
-3.  Aggiunta di un provider di attestazioni nei criteri
-4.  Registrazione del provider di attestazioni dell'account Google+ in un percorso utente
-5.  Caricamento dei criteri in un tenant di Azure AD B2C e test dei criteri
+Per consentire l'accesso agli utenti da un account Google, è necessario creare un progetto di applicazione Google. 
 
-## <a name="create-a-google-account-application"></a>Creare un'applicazione di account Google+
-Per usare Google+ come provider di identità in Azure Active Directory (Azure AD) B2C, è necessario creare un'applicazione Google+ e inserire i parametri corretti. È possibile registrare un'applicazione Google+ qui: [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp)
+1. Accedere alla [console per sviluppatori di Google](https://console.developers.google.com/) con le credenziali del proprio account.
+2. Immettere un **Nome progetto**, fare clic su **Crea**e quindi assicurarsi di usare il nuovo progetto.
+3. Selezionare **Credenziali** nel menu a sinistra e quindi **Crea credenziali > ID client Oauth**.
+4. Selezionare **Configure consent screen** (Configura schermata di consenso).
+5. Selezionare o specificare un **indirizzo di posta elettronica**, inserire il **nome del prodotto** visualizzato agli utenti, immettere `b2clogin.com` in **Domini autorizzati** e quindi fare clic su **Salva**.
+6. In **Tipo di applicazione** selezionare **Applicazione Web**.
+7. Immettere un **nome** per l'applicazione.
+8. Immettere `https://your-tenant-name.b2clogin.com` in **Origini JavaScript autorizzate** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **URI di reindirizzamento autorizzati**. Sostituire your-tenant-name con il nome del tenant. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
+8. Fare clic su **Create**(Crea).
+9. Copiare i valori **ID client** e **Segreto client**. Sono necessari entrambi per configurare Google come provider di identità nel tenant. Il segreto client è una credenziale di sicurezza importante.
 
-1.  Visitare [Google Developers Console](https://console.developers.google.com/) e accedere con le credenziali dell'account Google+.
-2.  Fare clic su **Crea progetto**, immettere un nome in **Nome progetto**e fare clic su **Crea**.
+## <a name="create-a-policy-key"></a>Creare una chiave dei criteri
 
-3.  Fare clic sul **menu Progetti**.
+È necessario archiviare il segreto client registrato in precedenza nel tenant di Azure AD B2C.
 
-    ![Account Google+ - Selezionare il progetto](media/active-directory-b2c-custom-setup-goog-idp/goog-add-new-app1.png)
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità - ANTEPRIMA**.
+5. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
+6. Per **Opzioni** scegliere `Manual`.
+7. Immettere un **nome** per la chiave dei criteri. Ad esempio: `GoogleSecret`. Verrà aggiunto automaticamente il prefisso `B2C_1A_` al nome della chiave.
+8. In **Segreto** immettere il segreto client registrato in precedenza.
+9. In **Uso chiave** selezionare `Signature`.
+10. Fare clic su **Create**(Crea).
 
-4.  Fare clic sul pulsante **+**.
+## <a name="add-a-claims-provider"></a>Aggiungere un provider di attestazioni
 
-    ![Account Google+ - Creare un nuovo progetto](media/active-directory-b2c-custom-setup-goog-idp//goog-add-new-app2.png)
+Per consentire agli utenti di accedere con un account Google, è necessario definire l'account come provider di attestazioni con cui Azure AD B2C possa comunicare tramite un endpoint. L'endpoint offre un set di attestazioni che vengono usate da Azure AD B2C per verificare se un utente specifico è stato autenticato. 
 
-5.  Fare clic su un **Nome progetto** e quindi su **Crea**.
+È possibile definire un account Google come provider di attestazioni aggiungendolo all'elemento **ClaimsProviders** nel file di estensione dei criteri.
 
-    ![Account Google+ - Nuovo progetto](media/active-directory-b2c-custom-setup-goog-idp//goog-app-name.png)
+1. Aprire *TrustFrameworkExtensions.xml*.
+2. Trovare l'elemento **ClaimsProviders**. Se non esiste, aggiungerlo nell'elemento radice.
+3. Aggiungere un nuovo **ClaimsProvider** come illustrato di seguito:
 
-6.  Attendere che il progetto sia pronto e fare clic sul **menu Progetti**.
+    ```xml
+    <ClaimsProvider>
+      <Domain>google.com</Domain>
+      <DisplayName>Google</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Google-OAUTH">
+          <DisplayName>Google</DisplayName>
+          <Protocol Name="OAuth2" />
+          <Metadata>
+            <Item Key="ProviderName">google</Item>
+            <Item Key="authorization_endpoint">https://accounts.google.com/o/oauth2/auth</Item>
+            <Item Key="AccessTokenEndpoint">https://accounts.google.com/o/oauth2/token</Item>
+            <Item Key="ClaimsEndpoint">https://www.googleapis.com/oauth2/v1/userinfo</Item>
+            <Item Key="scope">email</Item>
+            <Item Key="HttpBinding">POST</Item>
+            <Item Key="UsePolicyInRedirectUri">0</Item>
+            <Item Key="client_id">Your Google application ID</Item>
+          </Metadata>
+          <CryptographicKeys>
+            <Key Id="client_secret" StorageReferenceId="B2C_1A_GoogleSecret" />
+          </CryptographicKeys>
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
+            <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="google.com" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+          </OutputClaims>
+          <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
+            <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
+            <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
+            <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
+          </OutputClaimsTransformations>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
 
-    ![Account Google+ - Attendere che il nuovo progetto sia pronto per l'utilizzo](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app1.png)
+4. Impostare **client_id** sull'ID applicazione ottenuto con la registrazione dell'applicazione.
+5. Salvare il file.
 
-7.  Fare clic sul nome del progetto.
+### <a name="upload-the-extension-file-for-verification"></a>Caricare il file di estensione per la verifica
 
-    ![Account Google+ - Selezionare il nuovo progetto](media/active-directory-b2c-custom-setup-goog-idp//goog-select-app2.png)
+I criteri sono stati a questo punto configurati in modo che Azure AD B2C possa comunicare con la directory di Azure AD. Provare a caricare il file di estensione dei criteri per verificare che non siano presenti problemi.
 
-8.  Fare clic su **Gestione API** e su **Credenziali** nel riquadro di spostamento sinistro.
-9.  Fare clic sulla scheda **Schermata consenso OAuth** nella parte superiore.
+1. Nella pagina **Criteri personalizzati** del tenant di Azure AD B2C selezionare **Carica il criterio**.
+2. Abilitare **Sovrascrivi il criterio se esistente** e quindi cercare e selezionare il file *TrustFrameworkExtensions.xml*.
+3. Fare clic su **Carica**.
 
-    ![Account Google+ - Impostare la schermata del consenso OAuth](media/active-directory-b2c-custom-setup-goog-idp/goog-add-cred.png)
+## <a name="register-the-claims-provider"></a>Registrare il provider di attestazioni
 
-10.  Selezionare o specificare un **Indirizzo e-mail** valido, fornire un **Nome prodotto** e fare clic su **Salva**.
+Il provider di identità è a questo punto configurato, ma non è disponibile in alcuna delle schermate di iscrizione/accesso. Per renderlo disponibile, si crea un duplicato di un percorso utente modello esistente e quindi si modifica tale duplicato in modo che includa anche il provider di identità Azure AD.
 
-    ![Google+ - Credenziali dell'applicazione](media/active-directory-b2c-custom-setup-goog-idp/goog-consent-screen.png)
-
-11.  Fare clic su **Nuove credenziali** e scegliere **ID client OAuth**.
-
-    ![Google + - Creare nuove credenziali dell'applicazione](media/active-directory-b2c-custom-setup-goog-idp/goog-add-oauth2-client-id.png)
-
-12.  In **Tipo di applicazione** selezionare **Applicazione Web**.
-
-    ![Google+ - Selezionare il tipo di applicazione](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
-
-13.  Fornire un **Nome** per l'applicazione, immettere `https://{tenant}.b2clogin.com` nel campo **Origini JavaScript Autorizzate** e `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c. Il valore **{tenant}** distingue tra maiuscole e minuscole. Fare clic su **Create**(Crea).
-
-    ![Google+ - Specificare le origini JavaScript autorizzate e gli URI di reindirizzamento](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
-
-14.  Copiare i valori **ID client** e **Segreto client**. Sono entrambi necessari per configurare Google+ come provider di identità nel tenant. **Segreto client** è una credenziale di sicurezza importante.
-
-    ![Google+ - Copiare i valori di ID client e Segreto client](media/active-directory-b2c-custom-setup-goog-idp/goog-client-secret.png)
-
-## <a name="add-the-google-account-application-key-to-azure-ad-b2c"></a>Aggiungere la chiave dell'applicazione di account Google+ in Azure AD B2C
-La federazione con account Google+ richiede un segreto client per consentire all'account Google+ di considerare attendibile Azure AD B2C per conto dell'applicazione. È necessario archiviare il segreto dell'applicazione Google+ nel tenant di Azure AD B2C:  
-
-1.  Passare al tenant di Azure AD B2C e selezionare **B2C Settings** (Impostazioni B2C) > **Framework dell'esperienza di gestione delle identità**
-2.  Selezionare **Chiavi dei criteri** per visualizzare le chiavi disponibili nel tenant.
-3.  Fare clic su **+Aggiungi**.
-4.  Per **Opzioni** usare **Manuale**.
-5.  Per **Nome** usare `GoogleSecret`.  
-    È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
-6.  Nella casella **Segreto** immettere il segreto dell'applicazione Google da [Google Developers Console](https://console.developers.google.com/) copiato sopra.
-7.  Per **Uso chiave** usare **Firma**.
-8.  Fare clic su **Crea**
-9.  Confermare di avere creato la chiave `B2C_1A_GoogleSecret`.
-
-## <a name="add-a-claims-provider-in-your-extension-policy"></a>Aggiungere un provider di attestazioni nei criteri di estensione
-
-Per consentire agli utenti di accedere con un account Google+, è necessario definire l'account Google+ come provider di attestazioni. In altre parole, è necessario specificare un endpoint con cui comunichi Azure AD B2C. L'endpoint offre un set di attestazioni che vengono usate da Azure AD B2C per verificare se un utente specifico è stato autenticato.
-
-Definire l'account Google+ come provider di attestazioni aggiungendo il nodo `<ClaimsProvider>` nel file dei criteri di estensione:
-
-1.  Aprire il file dei criteri di estensione (TrustFrameworkExtensions.xml) dalla directory di lavoro. Se occorre un editor XML, provare [Visual Studio Code](https://code.visualstudio.com/download), un editor multipiattaforma leggero.
-2.  Trovare la sezione `<ClaimsProviders>`
-3.  Aggiungere il seguente frammento XML nell'elemento `ClaimsProviders` e sostituire il valore `client_id` con l'ID client dell'applicazione di account Google+ prima di salvare il file.  
-
-```xml
-<ClaimsProvider>
-    <Domain>google.com</Domain>
-    <DisplayName>Google</DisplayName>
-    <TechnicalProfiles>
-    <TechnicalProfile Id="Google-OAUTH">
-        <DisplayName>Google</DisplayName>
-        <Protocol Name="OAuth2" />
-        <Metadata>
-        <Item Key="ProviderName">google</Item>
-        <Item Key="authorization_endpoint">https://accounts.google.com/o/oauth2/auth</Item>
-        <Item Key="AccessTokenEndpoint">https://accounts.google.com/o/oauth2/token</Item>
-        <Item Key="ClaimsEndpoint">https://www.googleapis.com/oauth2/v1/userinfo</Item>
-        <Item Key="scope">email</Item>
-        <Item Key="HttpBinding">POST</Item>
-        <Item Key="UsePolicyInRedirectUri">0</Item>
-        <Item Key="client_id">Your Google+ application ID</Item>
-        </Metadata>
-        <CryptographicKeys>
-        <Key Id="client_secret" StorageReferenceId="B2C_1A_GoogleSecret" />
-        </CryptographicKeys>
-        <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
-        <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email" />
-        <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
-        <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name" />
-        <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
-        <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="google.com" />
-        <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-        </OutputClaims>
-        <OutputClaimsTransformations>
-        <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
-        <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
-        <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
-        <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId" />
-        </OutputClaimsTransformations>
-        <UseTechnicalProfileForSessionManagement ReferenceId="SM-SocialLogin" />
-        <ErrorHandlers>
-        <ErrorHandler>
-            <ErrorResponseFormat>json</ErrorResponseFormat>
-            <ResponseMatch>$[?(@@.error == 'invalid_grant')]</ResponseMatch>
-            <Action>Reauthenticate</Action>
-            <!--In case of authorization code used error, we don't want the user to select his account again.-->
-            <!--AdditionalRequestParameters Key="prompt">select_account</AdditionalRequestParameters-->
-        </ErrorHandler>
-        </ErrorHandlers>
-    </TechnicalProfile>
-    </TechnicalProfiles>
-</ClaimsProvider>
-```
-
-## <a name="register-the-google-account-claims-provider-to-sign-up-or-sign-in-user-journey"></a>Registrare il provider di attestazioni dell'account Google+ in un percorso utente di registrazione o di accesso
-
-Il provider di identità è stato configurato,  ma non è disponibile in nessuna delle schermate di registrazione o di accesso. Aggiungere il provider di identità dell'account Google+ al percorso utente `SignUpOrSignIn` dell'utente. Per renderlo disponibile, si crea un duplicato di un modello di processo utente esistente  e si aggiunge il provider di identità dell'account Google+:
-
->[!NOTE]
->
->Se l'elemento `<UserJourneys>` è stato copiato dal file di base dei criteri al file di estensione (TrustFrameworkExtensions.xml), è possibile ignorare questa sezione.
-
-1.  Aprire il file di base dei criteri, ad esempio TrustFrameworkBase.xml.
-2.  Trovare l'elemento `<UserJourneys>` e copiare l'intero contenuto del nodo `<UserJourneys>`.
-3.  Aprire il file di estensione, ad esempio TrustFrameworkExtensions.xml, e trovare l'elemento `<UserJourneys>`. Se l'elemento non esiste, aggiungerne uno.
-4.  Incollare l'intero contenuto del nodo `<UserJourney>` copiato come figlio dell'elemento `<UserJourneys>`.
+1. Aprire il file *TrustFrameworkBase.xml* dallo starter pack.
+2. Trovare e copiare l'intero contenuto dell'elemento **UserJourney** che include `Id="SignUpOrSignIn"`.
+3. Aprire *TrustFrameworkExtensions.xml* e trovare l'elemento **UserJourneys**. Se l'elemento non esiste, aggiungerne uno.
+4. Incollare l'intero contenuto dell'elemento **UserJourney** copiato come figlio dell'elemento **UserJourneys**.
+5. Rinominare l'ID del percorso utente. Ad esempio: `SignUpSignInGoogle`.
 
 ### <a name="display-the-button"></a>Visualizzare il pulsante
-L'elemento `<ClaimsProviderSelections>` definisce l'elenco delle opzioni di selezione del provider di attestazioni e il relativo ordine.  L'elemento `<ClaimsProviderSelection>` è analogo a un pulsante del provider di identità in una pagina di registrazione/accesso. Se si aggiunge un elemento `<ClaimsProviderSelection>` per l'account Google+, viene visualizzato un nuovo pulsante quando un utente apre la pagina. Per aggiungere questo elemento:
 
-1.  Trovare il nodo `<UserJourney>` che include `Id="SignUpOrSignIn"` nel percorso utente appena copiato.
-2.  Passare al nodo `<OrchestrationStep>` che include `Order="1"`
-3.  Aggiungere il frammento XML seguente nel nodo `<ClaimsProviderSelections>`:
+L'elemento **ClaimsProviderSelection** è analogo a un pulsante per il provider di identità in una schermata di iscrizione/accesso. Se si aggiunge un elemento **ClaimsProviderSelection** per un account Google, quando un utente apre la pagina viene visualizzato un nuovo pulsante.
 
-```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
-```
+1. Trovare l'elemento **OrchestrationStep** che include `Order="1"` nel percorso utente creato.
+2. In **ClaimsProviderSelects** aggiungere l'elemento riportato di seguito. Impostare **TargetClaimsExchangeId** su un valore appropriato, ad esempio `GoogleExchange`:
 
-### <a name="link-the-button-to-an-action"></a>Collegare il pulsante a un'azione
-Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. L'azione, in questo caso, consiste nel far comunicare Azure AD B2C con l'account Google+ per ricevere un token.
-
-1.  Trovare l'oggetto `<OrchestrationStep>` che include `Order="2"` nel nodo `<UserJourney>`.
-2.  Aggiungere il frammento XML seguente nel nodo `<ClaimsExchanges>`:
-
-```xml
-<ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
-```
-
->[!NOTE]
->
-> * Verificare che `Id` sia impostato sullo stesso valore di `TargetClaimsExchangeId` riportato nella sezione precedente
-> * Verificare che l'ID `TechnicalProfileReferenceId` sia impostato sul profilo tecnico creato in precedenza (Google-OAUTH).
-
-## <a name="upload-the-policy-to-your-tenant"></a>Caricare i criteri nel tenant
-1.  Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e aprire il pannello **Azure AD B2C**.
-2.  Fare clic su **Framework dell'esperienza di gestione delle identità**.
-3.  Aprire il pannello **Tutti i criteri**.
-4.  Selezionare **Carica criteri**.
-5.  Selezionare la casella **Sovrascrivi il criterio se esistente**.
-6.  **Caricare** TrustFrameworkExtensions.xml e assicurarsi che non presenti errori di convalida
-
-## <a name="test-the-custom-policy-by-using-run-now"></a>Testare i criteri personalizzati tramite Esegui adesso
-1.  Aprire **Impostazioni di Azure AD B2C** e passare a **Framework dell'esperienza di gestione delle identità**.
-
-    >[!NOTE]
-    >
-    >    Il comando **Esegui adesso** richiede che nel tenant sia preregistrata almeno un'applicazione. 
-    >    Per informazioni su come registrare le applicazioni, vedere l'articolo di [introduzione](active-directory-b2c-get-started.md) ad Azure AD B2C o l'articolo relativo alla [registrazione delle applicazioni](active-directory-b2c-app-registration.md).
-
-
-2.  Aprire **B2C_1A_signup_signin**, i criteri personalizzati dalla relying party caricati in precedenza. Selezionare **Esegui adesso**.
-3.  Dovrebbe essere possibile accedere usando un account Google+.
-
-## <a name="optional-register-the-google-account-claims-provider-to-profile-edit-user-journey"></a>[Facoltativo] Registrare il provider di attestazioni dell'account Google+ nel percorso utente Profile-Edit
-È possibile aggiungere il provider di identità dell'account Google+ anche al percorso utente `ProfileEdit` dell'utente. Per renderlo disponibile, ripetere gli ultimi due passaggi:
-
-### <a name="display-the-button"></a>Visualizzare il pulsante
-1.  Aprire il file di estensione dei criteri, ad esempio TrustFrameworkExtensions.xml.
-2.  Trovare il nodo `<UserJourney>` che include `Id="ProfileEdit"` nel percorso utente appena copiato.
-3.  Passare al nodo `<OrchestrationStep>` che include `Order="1"`
-4.  Aggiungere il frammento XML seguente nel nodo `<ClaimsProviderSelections>`:
-
-```xml
-<ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
-```
+    ```XML
+    <ClaimsProviderSelection TargetClaimsExchangeId="GoogleExchange" />
+    ```
 
 ### <a name="link-the-button-to-an-action"></a>Collegare il pulsante a un'azione
-1.  Trovare l'oggetto `<OrchestrationStep>` che include `Order="2"` nel nodo `<UserJourney>`.
-2.  Aggiungere il frammento XML seguente nel nodo `<ClaimsExchanges>`:
 
-```xml
-<ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
-```
+Ora che il pulsante è stato posizionato, è necessario collegarlo a un'azione. In questo caso, l'azione consiste nel far comunicare Azure AD B2C con un account Google per ricevere un token.
 
-### <a name="upload-the-policy-to-your-tenant"></a>Caricare i criteri nel tenant
-1.  Nel [portale di Azure](https://portal.azure.com) passare al [contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e aprire il pannello **Azure AD B2C**.
-2.  Fare clic su **Framework dell'esperienza di gestione delle identità**.
-3.  Aprire il pannello **Tutti i criteri**.
-4.  Selezionare **Carica criteri**.
-5.  Selezionare la casella **Sovrascrivi il criterio se esistente**.
-6.  **Caricare** TrustFrameworkExtensions.xml e assicurarsi che non presenti errori di convalida.
+1. Trovare l'elemento **OrchestrationStep** che include `Order="2"` nel percorso utente.
+2. Aggiungere l'elemento **ClaimsExchange** seguente assicurandosi di usare per **Id** lo stesso valore che è stato usato per **TargetClaimsExchangeId**:
 
-### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Testare i criteri Profile-Edit personalizzati tramite Esegui adesso
+    ```XML
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
+    ```
+    
+    Aggiornare il valore di **TechnicalProfileReferenceId** con l'**ID** del profilo tecnico creato in precedenza. Ad esempio: `Google-OAuth`.
 
-1.  Aprire **Impostazioni di Azure AD B2C** e passare a **Framework dell'esperienza di gestione delle identità**.
-2.  Aprire **B2C_1A_ProfileEdit**, i criteri personalizzati dalla relying party caricati in precedenza. Selezionare **Esegui adesso**.
-3.  Dovrebbe essere possibile accedere usando un account Google+.
+3. Salvare il file *TrustFrameworkExtensions.xml* e caricarlo di nuovo per la verifica.
 
-## <a name="download-the-complete-policy-files"></a>Scaricare i file dei criteri completi
-Facoltativo: anziché usare i file di esempio, per creare lo scenario è consigliabile usare file di criteri personalizzati dopo aver completato la procedura Introduzione ai criteri personalizzati.  [File dei criteri di esempio di riferimento](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-setup-goog-app)
+## <a name="create-an-azure-ad-b2c-application"></a>Creare un'applicazione Azure AD B2C
+
+La comunicazione con Azure AD B2c avviene tramite un'applicazione creata nel tenant. Questa sezione elenca i passaggi facoltativi che è possibile completare per creare un'applicazione di test, se non è già stato fatto.
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+4. Selezionare **Applicazioni** e quindi **Aggiungi**.
+5. Immettere un nome per l'applicazione, ad esempio *apptest1*.
+6. Per **App Web/API Web** selezionare `Yes` e quindi immettere `https://jwt.ms` in **URL di risposta**.
+7. Fare clic su **Create**(Crea).
+
+## <a name="update-and-test-the-relying-party-file"></a>Aggiornare e testare il file di relying party
+
+Aggiornare il file della relying party (RP) che avvierà il percorso utente appena creato.
+
+1. Creare una copia di *SignUpOrSignIn.xml* nella directory di lavoro e rinominare la copia. Ad esempio, assegnare il nome *SignUpSignInGoogle.xml*.
+2. Aprire il nuovo file e aggiornare il valore dell'attributo **PolicyId** per **TrustFrameworkPolicy** con un valore univoco. Ad esempio: `SignUpSignInGoogle`.
+3. Aggiornare il valore di **PublicPolicyUri** con l'URI dei criteri. Ad esempio, `http://contoso.com/B2C_1A_signup_signin_google`
+4. Aggiornare il valore dell'attributo **ReferenceId** in **DefaultUserJourney** in modo che corrisponda all'ID del nuovo percorso utente che è stato creato (SignUpSignGoogle).
+5. Salvare le modifiche, caricare il file e quindi selezionare i nuovi criteri nell'elenco.
+6. Verificare che in **Selezionare l'applicazione** sia selezionata l'applicazione Azure AD B2C creata e quindi testarla facendo clic su **Esegui adesso**.

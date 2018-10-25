@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409474"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389276"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -131,10 +131,25 @@ Questo problema può verificarsi se il processo di monitoraggio della sincronizz
 
 Per risolvere il problema, eseguire la procedura seguente:
 
-1. Aprire Gestione attività sul server e verificare che il processo di monitoraggio della sincronizzazione dell'archiviazione (AzureStorageSyncMonitor.exe) sia in esecuzione. Se il processo non è in esecuzione, provare a riavviare il server. Se il riavvio del server non consente di risolvere il problema, disinstallare e reinstallare l'agente di Sincronizzazione file di Azure (nota: le impostazioni del server vengono mantenute quando si disinstalla e si reinstalla l'agente).
+1. Aprire Gestione attività sul server e verificare che il processo di monitoraggio della sincronizzazione dell'archiviazione (AzureStorageSyncMonitor.exe) sia in esecuzione. Se il processo non è in esecuzione, provare a riavviare il server. Se il riavvio del server non risolve il problema, aggiornare l'agente Sincronizzazione file di Azure alla versione [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018), se non ancora installato.
 2. Verificare che le impostazioni del proxy e del firewall siano configurate correttamente:
-    - Se il server si trova dietro un firewall, verificare che la porta 443 in uscita sia consentita. Se il firewall limita il traffico a domini specifici, verificare che i domini elencati nella [documentazione](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) del firewall siano accessibili.
-    - Se il server si trova dietro un proxy, configurare le impostazioni del proxy a livello di computer o specifiche dell'app seguendo la procedura descritta nella [documentazione](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) del proxy.
+    - Se il server si trova dietro un firewall, verificare che la porta 443 in uscita sia consentita. Se il firewall limita il traffico a domini specifici, verificare che i domini elencati nella [documentazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) del firewall siano accessibili.
+    - Se il server si trova dietro un proxy, configurare le impostazioni del proxy a livello di computer o specifiche dell'app seguendo la procedura descritta nella [documentazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) del proxy.
+
+<a id="endpoint-noactivity-sync"></a>**Lo stato di integrità dell'endpoint server è "Nessuna attività" e lo stato del server nel pannello dei server registrati è "Risulta offline"**  
+
+Se lo stato di integrità dell'endpoint server è impostato su "Nessuna attività" significa che, nelle ultime due ore, nell'endpoint server non sono state registrate attività di sincronizzazione.
+
+È possibile che in un endpoint server non vengano registrate attività di sincronizzazione per i motivi seguenti:
+
+- Il server ha raggiunto il numero massimo di sessioni di sincronizzazione simultanee. Sincronizzazione file di Azure supporta attualmente due sessioni di sincronizzazione attive per ogni processore o fino a otto sessioni di sincronizzazione attive per ogni server.
+
+- Il server ha una sessione di sincronizzazione VSS (SnapshotSync) attiva. Se in un endpoint server è attiva una sessione di sincronizzazione VSS, gli altri endpoint presenti nel server non possono avviare una sessione di sincronizzazione fino al completamento della sessione di sincronizzazione VSS.
+
+Per verificare le attività di sincronizzazione attualmente in esecuzione su un server, vedere [Come monitorare lo stato di avanzamento di una sessione di sincronizzazione corrente?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+> [!Note]  
+> Se lo stato del server nel pannello dei server registrati è "Risulta offline", eseguire i passaggi documentati nella sezione [L'endpoint server ha uno stato di integrità "Nessuna attività" o "In sospeso" e lo stato del server nel pannello dei server registrati è "Risulta offline"](#server-endpoint-noactivity).
 
 ## <a name="sync"></a>Sincronizzazione
 <a id="afs-change-detection"></a>**Se è stato creato un file direttamente nella condivisione file di Azure su SMB o nel portale, quanto tempo richiede la sincronizzazione del file nei server nel gruppo di sincronizzazione?**  
@@ -144,7 +159,7 @@ Per risolvere il problema, eseguire la procedura seguente:
 Questo errore è previsto se si crea un endpoint cloud e si usa una condivisione file di Azure contenente dati. Il processo di enumerazione di modifiche che esegue l'analisi per rilevare modifiche nella condivisione file di Azure deve essere completato prima che i file possano eseguire la sincronizzazione tra gli endpoint server e cloud. Il tempo necessario per il complemento del processo dipende dalle dimensioni dello spazio dei nomi nella condivisione file di Azure. L'integrità dell'endpoint server deve aggiornarsi dopo aver completato il processo di enumerazione di modifiche.
 
 ### <a id="broken-sync"></a>Come si monitorano le risorse di integrità?
-# <a name="portaltabportal1"></a>[di Microsoft Azure](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portale](#tab/portal1)
 All'interno di ogni gruppo di sincronizzazione è possibile risalire ai relativi endpoint server singoli per visualizzare lo stato delle ultime sessioni di sincronizzazione completate. Una colonna di integrità verde e un valore per i file che non eseguono la sincronizzazione pari a 0 indicano che la sincronizzazione funziona come previsto. Se ciò non avviene, vedere di seguito un elenco di errori di sincronizzazione comuni e come gestire i file che non eseguono la sincronizzazione. 
 
 ![Schermata del portale di Azure](media/storage-sync-files-troubleshoot/portal-sync-health.png)
@@ -181,7 +196,7 @@ In alcuni casi le sessioni di sincronizzazione hanno un esito completamente nega
 ---
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>Come monitorare lo stato di avanzamento di una sessione di sincronizzazione corrente?
-# <a name="portaltabportal1"></a>[di Microsoft Azure](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portale](#tab/portal1)
 All'interno del gruppo di sincronizzazione, accedere all'endpoint server in questione ed esaminare la sezione delle attività di sincronizzazione per visualizzare il numero di file caricati o scaricati nella sessione di sincronizzazione corrente. Si noti che questo stato ritarderà di circa 5 minuti e, se la sessione di sincronizzazione è sufficientemente ridotta da essere completata entro questo periodo, potrebbe non essere segnalata nel portale. 
 
 # <a name="servertabserver"></a>[Server](#tab/server)
@@ -199,7 +214,7 @@ PerItemErrorCount: 1006.
 ---
 
 ### <a name="how-do-i-know-if-my-servers-are-in-sync-with-each-other"></a>Come si capisce se i server sono sincronizzati tra loro?
-# <a name="portaltabportal1"></a>[di Microsoft Azure](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portale](#tab/portal1)
 Per ogni server in un gruppo di sincronizzazione specificato, assicurarsi che:
 - I timestamp dell'ultimo tentativo di sincronizzazione per il caricamento e il download siano recenti.
 - Lo stato sia verde per il caricamento e per il download.
@@ -236,7 +251,7 @@ Per visualizzare questi errori, eseguire lo script **FileSyncErrorsReport.ps1** 
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Un file è stato modificato durante la sincronizzazione ed è quindi necessario sincronizzarlo di nuovo. | Non è necessaria alcuna azione. |
 
 #### <a name="handling-unsupported-characters"></a>Gestione dei caratteri non supportati
-Se lo script **FileSyncErrorsReport.ps1**di PowerShell mostra errori causati da caratteri non supportati (codici di errore 0x7b e 0x8007007b), è necessario rimuovere o rinominare i caratteri difettosi dai rispettivi file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-tool) per identificare i caratteri non supportati.
+Se lo script **FileSyncErrorsReport.ps1**di PowerShell mostra errori causati da caratteri non supportati (codici di errore 0x7b e 0x8007007b), è necessario rimuovere o rinominare i caratteri difettosi dai rispettivi nomi di file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-tool) per identificare i caratteri non supportati.
 
 La tabella seguente contiene tutti i caratteri unicode che Sincronizzazione file di Azure non supporta ancora.
 
@@ -319,6 +334,16 @@ Questo errore si verifica perché l'agente Sincronizzazione file di Azure non ac
 | **Rimedio necessario** | Yes |
 
 Questo errore si verifica quando è presente un problema con il database interno usato da Sincronizzazione file di Azure. Quando si verifica questo problema, creare una richiesta di supporto per ricevere assistenza durante la risoluzione del problema.
+
+<a id="-2134364053"></a>**La versione dell'agente di Sincronizzazione file di Azure installata nel server non è supportata.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (decimale)** | -2134364053 |
+| **Stringa di errore** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Rimedio necessario** | Yes |
+
+Questo errore si verifica se la versione dell'agente di Sincronizzazione file di Azure installata nel server non è supportata. Per risolvere questo problema, eseguire l'[aggiornamento]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) a una [versione dell'agente supportata]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**È stato raggiunto il limite di archiviazione per le condivisioni file di Azure.**  
 | | |
@@ -539,7 +564,7 @@ Questo errore si verifica a causa di un problema interno con il database di sinc
 
 ### <a name="common-troubleshooting-steps"></a>Normale procedura di risoluzione dei problemi
 <a id="troubleshoot-storage-account"></a>**Verificare l'esistenza dell'account di archiviazione.**  
-# <a name="portaltabportal"></a>[di Microsoft Azure](#tab/portal)
+# <a name="portaltabportal"></a>[Portale](#tab/portal)
 1. Passare al gruppo di sincronizzazione all'interno del servizio di sincronizzazione archiviazione.
 2. Selezionare l'endpoint cloud all'interno del gruppo di sincronizzazione.
 3. Si noti il nome della condivisione file di Azure nel riquadro aperto.
@@ -644,7 +669,7 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Verificare questa opzione per assicurarsi che l'account di archiviazione non contenga eventuali regole di rete.**  
-# <a name="portaltabportal"></a>[di Microsoft Azure](#tab/portal)
+# <a name="portaltabportal"></a>[Portale](#tab/portal)
 1. Una volta nell'account di archiviazione, selezionare **Firewall e reti virtuali** sul lato sinistro dell'account di archiviazione.
 2. All'interno dell'account di archiviazione, il pulsante di opzione **Consenti l'accesso da tutte le reti** deve essere selezionato.
     ![Schermata che illustra le regole account di archiviazione firewall e della rete disabilitate.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
@@ -660,7 +685,7 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Garantire l'esistenza della condivisione file di Azure.**  
-# <a name="portaltabportal"></a>[di Microsoft Azure](#tab/portal)
+# <a name="portaltabportal"></a>[Portale](#tab/portal)
 1. Fare clic su **Panoramica** nel sommario a sinistra per tornare alla pagina dell'account di archiviazione principale.
 2. Selezionare **File** per visualizzare l'elenco delle condivisioni file.
 3. Verificare che la condivisione file a cui fa riferimento l'endpoint cloud venga visualizzata nell'elenco delle condivisioni di file (come si può vedere dal passaggio 1 in alto).
@@ -679,7 +704,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Garantire che Sincronizzazione file di Azure possa accedere all'account di archiviazione.**  
-# <a name="portaltabportal"></a>[di Microsoft Azure](#tab/portal)
+# <a name="portaltabportal"></a>[Portale](#tab/portal)
 1. Fare clic su **controllo di accesso (IAM)** nel sommario a sinistra per passare all'elenco di utenti e applicazioni (*entità servizio*) che hanno accesso all'account di archiviazione.
 2. Verificare che **servizio di Sincronizzazione file di ibrido** venga visualizzato nell'elenco con il ruolo di **Lettore e accesso ai dati**. 
 

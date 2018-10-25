@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: db0bc0cb64c0b6d7df9319c8d2c5850a27e767a1
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050866"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249214"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identità del servizio di Azure Data Factory
 
@@ -27,10 +27,10 @@ Questo articolo consente di capire cos'è l'identità del servizio di data facto
 
 Durante la creazione di una data factory è possibile creare contemporaneamente un'identità del servizio. L'identità del servizio è un'applicazione gestita registrata in Azure Activity Directory e rappresenta la data factory specifica.
 
-L'identità del servizio di data factory offre le due funzioni seguenti:
+L'identità del servizio di data factory offre le funzioni seguenti:
 
 - [Archiviazione delle credenziali in Azure Key Vault](store-credentials-in-key-vault.md), in cui l'identità del servizio di data factory viene usata per l'autenticazione a Azure Key Vault.
-- [Copia dei dati da/in Azure Data Lake Store](connector-azure-data-lake-store.md), in cui l'identità del servizio di data factory può essere usata come uno dei tipi di autenticazione a Data Lake Store.
+- I connettori tra cui [archiviazione Blob di Azure](connector-azure-blob-storage.md), [Gen1 di archiviazione di Azure Data Lake](connector-azure-data-lake-store.md), [Database SQL di Azure](connector-azure-sql-database.md) e [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md).
 
 ## <a name="generate-service-identity"></a>Generare l'identità del servizio
 
@@ -169,6 +169,6 @@ Type                  : ServicePrincipal
 Vedere gli argomenti seguenti che presentano quando e come usare l'identità del servizio di data factory:
 
 - [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md)
-- [Copiare i dati da e in Azure Data Lake Store usando l'autenticazione gestita all'identità del servizio](connector-azure-data-lake-store.md)
+- [Copiare dati da e verso Azure Data Lake Store usando identità gestite per l'autenticazione di risorse di Azure](connector-azure-data-lake-store.md)
 
-Vedere [Panoramica dell'identità del servizio gestito](~/articles/active-directory/msi-overview.md) per altre informazioni di background sull'identità del servizio gestito, su cui si basa l'identità del servizio data factory. 
+Per altre informazioni sulle identità gestite per le risorse di Azure, su cui si basa l'identità del servizio di data factory, vedere [Panoramica delle identità gestite per le risorse di Azure](~/articles/active-directory/msi-overview.md). 

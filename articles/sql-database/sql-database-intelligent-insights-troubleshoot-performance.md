@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222455"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353867"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Risolvere i problemi di prestazioni del database SQL di Azure con Intelligent Insights
 
@@ -61,7 +61,7 @@ La sezione seguente descrive in modo più dettagliato i modelli di prestazioni r
 
 Questo modello di prestazioni rilevabili combina i problemi di prestazioni correlati al raggiungimento dei limiti delle risorse disponibili, dei thread di lavoro e delle sessioni. Dopo che il problema è stato rilevato, un campo di descrizione del log di diagnostica indica se il problema di prestazioni è correlato ai limiti delle risorse, dei thread di lavoro o delle sessioni.
 
-Le risorse nel database SQL vengono in genere definite risorse [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) o [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore). Il modello del raggiungimento dei limiti delle risorse viene riconosciuto quando la riduzione delle prestazioni delle query rilevata è provocata dal raggiungimento di uno qualsiasi dei limiti delle risorse misurate.
+Le risorse nel database SQL vengono in genere definite risorse [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) o [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore). Il modello del raggiungimento dei limiti delle risorse viene riconosciuto quando la riduzione delle prestazioni delle query rilevata è provocata dal raggiungimento di uno qualsiasi dei limiti delle risorse misurate.
 
 La risorsa con limiti di sessione indica il numero di accessi simultanei disponibili al database SQL. Questo modello di prestazioni viene riconosciuto nel caso in cui le applicazioni che si connettono ai database SQL abbiano raggiunto il numero di accessi simultanei disponibili al database. Se le applicazioni tentano di usare più sessioni rispetto a quelle disponibili in un database, le prestazioni delle query ne sono influenzate.
 
@@ -73,7 +73,7 @@ Il log di diagnostica genera hash di query per le query con effetti sulle presta
 
 Se sono stati raggiunti i limiti delle sessioni disponibili, è possibile ottimizzare le applicazioni riducendo il numero di accessi al database. Se non si riesce a ridurre il numero di accessi dalle applicazioni al database, valutare il passaggio a un piano tariffario di livello superiore per il database. In alternativa, è possibile suddividere e spostare il database in più database per una distribuzione più equilibrata del carico di lavoro.
 
-Per altri suggerimenti sulla risoluzione dei problemi per i limiti delle sessioni, vedere [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/).(Come gestire i limiti al numero massimo di accessi al database SQL di Azure). Per conoscere i limiti delle risorse disponibili per il proprio livello di sottoscrizione, vedere [Limiti delle risorse del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
+Per altri suggerimenti sulla risoluzione dei problemi per i limiti delle sessioni, vedere [How to deal with the limits of Azure SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/).(Come gestire i limiti al numero massimo di accessi al database SQL di Azure). Per informazioni sui limiti a livello di server e sottoscrizione, vedere [Panoramica dei limiti delle risorse in un server logico](sql-database-resource-limits-logical-server.md).
 
 ## <a name="workload-increase"></a>Aumento del carico di lavoro
 
@@ -237,7 +237,7 @@ Per altre informazioni, vedere [Introduzione alle tabelle ottimizzate per la mem
 
 Questo modello di prestazioni rilevabili indica la riduzione delle prestazioni correnti correlate al carico di lavoro del database rispetto alla baseline dei sette giorni precedenti. La causa è la carenza di DTU disponibili nel pool elastico della sottoscrizione. 
 
-Le risorse nel database SQL vengono spesso denominate [risorse DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) e sono costituite da una misura combinata di risorse di CPU e I/O (I/O del log delle transazioni e dei dati). Le [risorse del pool elastico di Azure](sql-database-elastic-pool.md) vengono usate come un pool di risorse eDTU disponibili condivise tra più database a scopo di ridimensionamento. Quando le risorse eDTU disponibili nel pool elastico non sono in numero sufficiente per supportare tutti i database nel pool, il sistema rileva un problema di prestazioni per carenza di eDTU nel pool elastico.
+Le risorse nel database SQL vengono spesso denominate [risorse DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) e sono costituite da una misura combinata di risorse di CPU e I/O (I/O del log delle transazioni e dei dati). Le [risorse del pool elastico di Azure](sql-database-elastic-pool.md) vengono usate come un pool di risorse eDTU disponibili condivise tra più database a scopo di ridimensionamento. Quando le risorse eDTU disponibili nel pool elastico non sono in numero sufficiente per supportare tutti i database nel pool, il sistema rileva un problema di prestazioni per carenza di eDTU nel pool elastico.
 
 ### <a name="troubleshooting"></a>risoluzione dei problemi
 
