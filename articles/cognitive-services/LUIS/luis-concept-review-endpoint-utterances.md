@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/07/2018
 ms.author: diberry
-ms.openlocfilehash: 78cc2a8a2b9295654d0c6264cbf4a4d634b16544
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e65e44ec4deb07e85b9514a1685e4dbb692fd512
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038171"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857409"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Abilitare l'apprendimento attivo grazie alla revisione delle espressioni di endpoint
 L'apprendimento attivo è una delle tre strategie per migliorare la precisione delle previsioni e fra esse la più facile da attuare. Con l'apprendimento attivo, è possibile verificare la correttezza della finalità e dell'entità delle espressioni di endpoint. LUIS sceglie espressioni di endpoint di cui è certo.
@@ -36,7 +36,7 @@ Le espressioni di endpoint provengono dalle query degli utenti finali sull'endpo
 La revisione delle espressioni consigliate non deve essere eseguita ogni giorno, ma deve far parte della manutenzione di routine di LUIS. 
 
 ## <a name="delete-review-items-programmatically"></a>Eliminare gli elementi di revisione a livello di codice
-Se l'app è grande, è possibile scegliere di esaminare alcune espressioni e di eliminare le restanti dall'elenco a livello di codice. Questa operazione viene eseguita in primo luogo [consultando](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) l'elenco e quindi [eliminando](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) le espressioni per ID.
+Usare l'API di **[eliminazione espressioni non etichettate](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)**. Eseguire il backup di queste espressioni prima dell'eliminazione **[esportando i file di log](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 10/08/2018
 ms.author: juliako
-ms.openlocfilehash: 76f83e7ad70e3e1906bc1aa90c74d600053aeb6f
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 27f24d588cf1cac5f580a41cc0901a8907b66652
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985645"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884292"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Esaminare l'output di Video Indexer generato dall'API v2
 
@@ -332,7 +332,7 @@ Esempio:
 |NOME|DESCRIZIONE|
 |---|---|
 |id|ID del volto.|
-|name|Nome del volto. Può essere 'Unknown #0', un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
+|name|Nome del viso. Può essere 'Unknown #0, un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
 |confidence|Grado di attendibilità dell'identificazione del volto.|
 |description|Descrizione del personaggio noto. |
 |thumbnalId|ID dell'anteprima del volto.|
@@ -771,7 +771,7 @@ Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibi
 |name|Nome dell'argomento, ad esempio "Prodotti farmaceutici".|
 |referenceId|Percorsi di navigazione che riflettono la gerarchia di argomenti. Ad esempio: "Salute e benessere / Medicina e sanità / Prodotti farmaceutici".|
 |confidence|Punteggio di attendibilità nell'intervallo [0,1]. A un punteggio maggiore corrisponde una maggiore attendibilità.|
-|language|Lingua usata nell'argomento.|
+|Linguaggio|Lingua usata nell'argomento.|
 |iptcName|Nome del codice per i media IPTC, se rilevato.|
 |instances |Video Indexer attualmente non esegue l'indicizzazione di un argomento in base a intervalli di tempo, quindi l'intero video viene usato come intervallo.|
 
@@ -810,5 +810,5 @@ Video Indexer deduce gli argomenti principali dalle trascrizioni. Quando possibi
 
 [Portale per sviluppatori di Video Indexer](https://api-portal.videoindexer.ai)
 
-Per informazioni su come incorporare i widget nell'applicazione, vedere [Incorporare i widget di Video Indexer nelle applicazioni](video-indexer-embed-widgets.md). 
+Per informazioni su come incorporare i widget nell'applicazione, vedere [Embed Video Indexer widgets into your applications](video-indexer-embed-widgets.md) (Incorporare i widget di Video Indexer nelle applicazioni). 
 

@@ -1,21 +1,21 @@
 ---
-title: Uso della classificazione per visualizzare le risposte | Microsoft Docs
+title: Uso della classificazione per visualizzare le risposte - Ricerca entità Bing
+titlesuffix: Azure Cognitive Services
 description: Illustra come usare la classificazione per visualizzare le risposte restituite dall'API Ricerca entità Bing.
 services: cognitive-services
 author: v-jerkin
-manager: ehansen
-ms.assetid: BBF87972-B6C3-4910-BB52-DE90893F6C71
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 53354c0f78419a37e8896bb4d00e0d7aebf32203
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 4a336ccaea18ab84464f28aef170ccdc423b216d
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059992"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814594"
 ---
 # <a name="using-ranking-to-display-results"></a>Uso della classificazione per visualizzare i risultati  
 
@@ -25,11 +25,11 @@ All'interno di ogni gruppo, la matrice [Items](https://docs.microsoft.com/rest/a
   
 -   `answerType` e `resultIndex`: il campo `answerType` identifica la risposta (Entity o Place) e `resultIndex` identifica un risultato all'interno della risposta (ad esempio, un'entità). L'indice è in base zero.  
   
--   `value`: il campo `value` contiene un ID che corrisponde all'ID di una risposta o un risultato all'interno della risposta. L'ID è incluso nella risposta o nei risultati, ma non in entrambi.  
+-   `value`: il campo `value` contiene un ID che corrisponde all'ID di un riscontro o un risultato all'interno del riscontro. L'ID è incluso nella risposta o nei risultati, ma non in entrambi.  
   
 Per usare l'ID è necessario che l'ID di classificazione corrisponda all'ID di una risposta o a uno dei risultati. Se un oggetto risposta include un campo `id`, tutti i risultati della risposta vengono visualizzati insieme. Ad esempio, se l'oggetto `Entities` include il campo `id`, gli articoli di tutte le entità vengono visualizzati insieme. Se l'oggetto `Entities` non include il campo `id`, ogni entità conterrà un campo `id` e la risposta di classificazione combinerà le entità con i risultati di Places.  
   
-L'uso di `answerType` e `resultIndex` è un processo in due passaggi. Usare prima `answerType` per identificare la risposta contenente i risultati da visualizzare. Usare quindi `resultIndex` per indicizzare i risultati della risposta e ottenere il risultato da visualizzare. Il valore `answerType` è il nome del campo nell'oggetto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse). Se occorre visualizzare i risultati della risposta tutti insieme, l'elemento della risposta di classificazione non include il campo `resultIndex`.
+L'uso di `answerType` e `resultIndex` è un processo in due passaggi. Usare prima `answerType` per identificare la risposta contenente i risultati da visualizzare. Usare quindi `resultIndex` per indicizzare i risultati della risposta e ottenere il risultato da visualizzare. Il valore `answerType` è il nome del campo nell'oggetto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse). Se occorre visualizzare i risultati del riscontro tutti insieme, l'elemento della risposta di classificazione non include il campo `resultIndex`.
 
 ## <a name="ranking-response-example"></a>Esempio di risposta di classificazione
 

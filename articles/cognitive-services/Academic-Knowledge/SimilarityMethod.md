@@ -1,20 +1,21 @@
 ---
-title: Metodo Similarity nell'API Academic Knowledge | Microsoft Docs
-description: Usare il metodo Similarity per calcolare la similarità accademica di due stringhe in Servizi cognitivi Microsoft.
+title: Metodo Similarity - API Academic Knowledge
+titlesuffix: Azure Cognitive Services
+description: Usare il metodo Similarity per calcolare la somiglianza teorica di due stringhe.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 472498d6bfe06ae4477a30f892d44e79c901acf5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 76e86eb78a06d98e3d5c6c54b244add3c0c245d2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372753"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900462"
 ---
 # <a name="similarity-method"></a>Metodo Similarity
 
@@ -29,8 +30,8 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ## <a name="request-parameters"></a>Parametri della richiesta
 Parametro        |Tipo di dati      |Obbligatoria | DESCRIZIONE
 ----------|----------|----------|------------
-**s1**        |string   |Sì  |Stringa* da confrontare
-**s2**        |string   |Sì  |Stringa* da confrontare
+**s1**        |string   |Yes  |Stringa* da confrontare
+**s2**        |string   |Yes  |Stringa* da confrontare
 <sub> *Le stringhe da confrontare possono avere una lunghezza massima pari a 1 MB. </sub>
 <br>
 ## <a name="response"></a>Risposta

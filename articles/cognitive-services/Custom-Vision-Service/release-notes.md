@@ -1,20 +1,29 @@
 ---
-title: Note sulla versione di Servizio visione artificiale personalizzato
+title: Note sulla versione - Servizio visione artificiale personalizzato
+titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
+ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8423051fa5169eb8acddc7297e36188e297cb9e4
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288653"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901329"
 ---
 # <a name="custom-vision-service-release-notes"></a>Note sulla versione di Servizio visione artificiale personalizzato
+
+## <a name="october-9-2018"></a>9 ottobre 2018
+- Rilevamento di oggetti entra in anteprima a pagamento. È ora possibile creare progetti Rilevamento di oggetti con una risorsa di Azure.
+- Aggiunta la funzionalità "Sposta in Azure" al sito Web per facilitare l'aggiornamento di un progetto in versione di valutazione limitata per il collegamento ad Azure. progetto con risorse collegate (F0 o S0). È possibile trovarlo nella pagina Impostazioni per il prodotto.  
+- Aggiunta l'esportazione in ONNX 1.2 per supportare la versione di aggiornamento di Windows di ottobre 2018 per Windows ML.
+Correzione di bug, tra cui per l'esportazione ONNX con caratteri speciali. 
+
 
 ## <a name="august-14-2018"></a>14 agosto 2018
 - Aggiunto il widget "Get Started" al sito customvision.ai per guidare gli utenti nel training del progetto. 
@@ -22,12 +31,12 @@ ms.locfileid: "43288653"
 
 ## <a name="june-28-2018"></a>28 giugno 2018
 - Miglioramenti alla correzione di bug e back-end.
-- Abilitata la classificazione multiclasse, per i progetti in cui le immagini hanno esattamente un'etichetta. Nelle stime per la modalità multiclasse, le probabilità avranno la somma di uno (tutte le immagini vengono classificate tra i tag specificati).
+- Abilitata la classificazione multiclasse per i progetti in cui le immagini hanno esattamente un'etichetta. Nelle stime per la modalità multiclasse, le probabilità avranno la somma di uno (tutte le immagini vengono classificate tra i tag specificati).
 
 ## <a name="june-13-2018"></a>13 giugno 2018
 - Aggiornamento UX, incentrato sulla facilità d'uso e accessibilità. 
 - Miglioramenti alla pipeline di apprendimento automatico per usufruire dei progetti multietichetta con un elevato numero di tag.
-- Correzione del bug nell'esportazione TensorFlow. Abilitata la gestione della versione dei modelli esportati, in modo che le iterazioni possano essere esportate più volte. 
+- Correzione del bug nell'esportazione TensorFlow. Abilitata la gestione della versione dei modelli esportati, in modo che le iterazioni possano essere esportate più di una volta. 
 
 ## <a name="may-7-2018"></a>7 maggio 2018
 - È stata introdotta la funzionalità Rilevamento di oggetti di anteprima per i progetti della versione di valutazione gratuita limitata.

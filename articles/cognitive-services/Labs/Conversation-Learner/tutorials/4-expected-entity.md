@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888205"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268022"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Come usare la proprietà "entità prevista" delle azioni
 
@@ -63,9 +63,10 @@ In concreto, se il campo delle entità previste di un'azione è impostato su $en
 2. In Response (Risposta) digitare "What's your name?".
 3. In Expected Entities (Entità previste) immettere "$name". Fare clic su Save.
     - Questo valore indica che se viene posta questa domanda e la risposta dell'utente non contiene entità rilevate, il bot supporrà che l'intera risposta dell'utente costituisca l'entità.
+    - L'entità viene automaticamente aggiunta come entità non qualificante. 
 2. Fare clic su Actions (Azioni) e quindi su New Action (Nuova azione) per creare una seconda azione.
 3. In Response (Risposta) digitare "Hello $name".
-    - L'entità viene automaticamente aggiunta come entità obbligatoria. 
+    - L'entità viene automaticamente aggiunta come entità obbligatoria.
 4. Fare clic su Save.
 
 Sono ora disponibili due azioni.
@@ -111,7 +112,7 @@ Negli esempi seguenti l'euristica "entità previsto" si attiva, ma non è corret
 2. Immettere "hello".
 3. In risposta a "What's your name" immettere "I am called frank".
     - L'intera frase viene evidenziata. Il modello statistico infatti non ha trovato un nome, di conseguenza l'euristica è stata attivata e ha selezionato l'intera risposta come entità name.
-2. Per correggere, fare clic sulla frase evidenziata e quindi sulla X rossa. 
+2. Per correggere, fare clic sulla frase evidenziata e quindi sull'icona del cestino rossa. 
 3. Fare clic per selezionare "frank" e quindi fare clic su "name".
 2. Fare clic su Score Actions (Punteggio azioni).
 3. Selezionare "Hello $name".

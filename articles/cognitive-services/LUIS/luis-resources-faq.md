@@ -1,5 +1,5 @@
 ---
-title: Risposte alle domande frequenti - Language Understanding (LUIS)
+title: FAQ - Risposte alle domande frequenti - Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
 description: Questo articolo contiene risposte alle domande frequenti su LUIS.
 author: diberry
@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5910417696651cad06d6f21513e81728be4181cd
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432462"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067768"
 ---
 # <a name="language-understanding-faq"></a>Domande frequenti su LUIS
 
@@ -113,6 +113,10 @@ Vedere l'esercitazione sul [test in batch](luis-tutorial-batch-testing.md).
 
 Vedere [Differenze di stima tra copie della stessa app](luis-concept-prediction-score.md#differences-with-predictions).
 
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Alcune espressioni ottengono la finalità errata dopo aver apportato modifiche all'applicazione. Il problema sembra scomparire in modo casuale. Risoluzione 
+
+Vedere [Eseguire il training con tutti i dati](luis-how-to-train.md#train-with-all-data).
+
 ## <a name="app-publishing"></a>Pubblicazione dell'app
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Che cos'è l'ID tenant nella finestra "Aggiungi una chiave all'app"?
@@ -135,7 +139,7 @@ Se l'app esisteva prima che LUIS fosse disponibile a livello generale (GA), le c
 Per trasferire un'app LUIS in un'altra sottoscrizione di Azure, esportare l'app LUIS e importarla usando un nuovo account. Aggiornare l'ID dell'app LUIS nell'applicazione client che la chiama. La nuova app può restituire punteggi LUIS leggermente diversi rispetto all'app originale.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Come si scarica un log delle espressioni degli utenti?
-Per impostazione predefinita, l'app LUIS registra le espressioni degli utenti. Per scaricare un log delle espressioni che gli utenti inviano all'app LUIS, visitare **Le mie app**e fare clic sui puntini di sospensione (***...*** ) nell'elenco dell'app. Quindi fare clic su **Esporta i registri endpoint**. Il log viene formattato come un file con valori delimitati da virgole (CSV).
+Per impostazione predefinita, l'app LUIS registra le espressioni degli utenti. Per scaricare un log delle espressioni che gli utenti inviano all'app LUIS, visitare **Le mie app** e selezionare l'app. Sulla barra degli strumenti contestuale selezionare **Export Endpoint Logs** (Esporta log degli endpoint). Il log viene formattato come un file con valori delimitati da virgole (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Come si disabilita la registrazione delle espressioni?
 È possibile disattivare la registrazione delle espressioni degli utenti impostando `log=false` nell'URL dell'endpoint che l'applicazione client usa per inviare query a LUIS. Tuttavia, la disattivazione della registrazione impedisce all'app LUIS di suggerire espressioni o migliorare le prestazioni basate sull'[apprendimento attivo](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Se si imposta `log=false` a causa di problemi di privacy dei dati, non sarà possibile scaricare un record delle espressioni degli utenti da LUIS o usarle per migliorare l'app.

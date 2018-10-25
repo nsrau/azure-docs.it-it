@@ -1,21 +1,21 @@
 ---
-title: 'Ricerca personalizzata Bing: sfogliare le pagine Web disponibili | Microsoft Docs'
-description: Illustra come sfogliare tutte le pagine Web che possono essere restituite da Bing.
+title: Sfogliare le pagine Web disponibili - Ricerca personalizzata Bing
+titlesuffix: Azure Cognitive Services
+description: Illustra come sfogliare tutte le pagine Web che possono essere restituite da Ricerca personalizzata Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
-ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 5692776736090c55547c2fe934e2c0aaf840d3c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f7d0a2f9c5a0e272d9f46ab76360ea7bf91449cc
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982359"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815958"
 ---
 # <a name="paging-webpages"></a>Sfogliare le pagine Web 
 

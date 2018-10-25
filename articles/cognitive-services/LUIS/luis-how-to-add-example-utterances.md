@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036491"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888289"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Aggiungere espressioni di esempio ed etichette con entità
 
@@ -92,12 +92,12 @@ Aggiungere un sinonimo all'entità elenco selezionando la parola o la frase nell
 
 Nell'espressione, selezionare il sinonimo, ad esempio `aqua` per "water", quindi selezionare il nome dell'entità elenco nell'elenco a discesa, ad esempio **Bevanda**, e selezionare **Imposta come sinonimo**. A questo punto, selezionare l'elemento sinonimo nell'elenco, ad esempio **water**.
 
-![Screenshot della pagina dei dettagli delle finalità, con il pulsante per la creazione di un nuovo sinonimo evidenziato](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![Screenshot della pagina dei dettagli delle finalità, con evidenziato il comando Create a new normalized view (Crea una nuova vista normalizzata)](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## <a name="create-new-item-for-list-entity"></a>Creare un nuovo elemento per l'entità elenco
-Creare un nuovo elemento per un'entità elenco esistente selezionando la parola o la frase nell'espressione. Se si dispone di un elenco Bevanda e si desidera aggiungere `tea` come nuovo elemento, seguire questi passaggi:
+Creare un nuovo elemento per un'entità elenco esistente selezionando la parola o la frase nell'espressione. Se si dispone di un elenco di dipendenti e si desidera aggiungere `Bob Smith` come nuovo elemento, seguire questi passaggi:
 
-Nell'espressione, selezionare la parola per il nuovo elemento dell'elenco, ad esempio `tea`, quindi selezionare il nome dell'entità elenco nell'elenco a discesa, ad esempio **Bevanda**. A questo punto, selezionare **Crea un nuovo sinonimo**. 
+Selezionare nell'espressione la parola o frase per il nuovo elemento dell'elenco, ad esempio `Bob Smith`, quindi selezionare il nome dell'entità elenco nell'elenco a discesa, ad esempio **Dipendente**, e poi selezionare **Create a new normalized view** (Crea una nuova vista normalizzata). 
 
 ![Schermata di aggiunta di un nuovo elemento dell'elenco](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 

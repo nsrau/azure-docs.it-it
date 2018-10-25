@@ -1,21 +1,21 @@
 ---
-title: Ottenere immagini dalla visualizzazione personalizzata | Microsoft Docs
-titleSuffix: Cognitive Services
+title: Ottenere immagini dalla vista personalizzata - Ricerca personalizzata Bing
+titleSuffix: Azure Cognitive Services
 description: Panoramica generale sull'uso di Ricerca personalizzata Bing per ottenere immagini dalla visualizzazione personalizzata del Web.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: ba836bbafaf67238664862ee2afce7840a573e44
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 04a2306853b658ecd719106680affc81a95034eb
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953893"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813655"
 ---
 # <a name="get-images-from-your-custom-view"></a>Ottenere immagini dalla visualizzazione personalizzata
 

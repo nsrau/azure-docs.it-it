@@ -1,20 +1,21 @@
 ---
-title: Endpoint di Ricerca entità | Microsoft Docs
-description: Riepilogo degli endpoint dell'API Ricerca entità.
+title: Endpoint di Ricerca entità Bing
+titlesuffix: Azure Cognitive Services
+description: Riepilogo degli endpoint dell'API Ricerca entità Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: a2557c6000445544b3b47a05d7d356ccaa9928b4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d781a4b3cd0119f5624b4dd20b514894ea339414
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372764"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816583"
 ---
 # <a name="entity-search-endpoint"></a>Endpoint di Ricerca entità
 L'**API Ricerca entità** include un endpoint che restituisce le entità dal Web in base a una query.
@@ -33,7 +34,7 @@ Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti di 
 La risposta a una richiesta di ricerca entità include i risultati come oggetti JSON. Per gli esempi dei risultati, vedere [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al tipo. Tutti gli endpoint di ricerca restituiscono risultati come oggetti di risposta JSON.  Tutti gli endpoint supportano query che restituiscono una posizione e/o una lingua specifica in base a longitudine, latitudine e raggio di ricerca.
+Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al tipo. Tutti gli endpoint di ricerca restituiscono risultati come oggetti della risposta JSON.  Tutti gli endpoint supportano query che restituiscono una posizione e/o una lingua specifica in base a longitudine, latitudine e raggio di ricerca.
 
 Per informazioni complete sui parametri supportati da ogni endpoint, vedere le pagine di riferimento per ogni tipo.
 Per gli esempi che usano l'API Ricerca entità, vedere [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/quick-start) e [Ridimensionamento e ritaglio delle immagini di anteprima](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/resize-and-crop-thumbnails).

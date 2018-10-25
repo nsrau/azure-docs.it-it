@@ -1,19 +1,21 @@
 ---
-title: Chiamare l'API da un browser - Servizi cognitivi di Azure | Microsoft Docs
-description: Attività iniziali con il Servizio decisionale personalizzato di Azure per ottimizzare una pagina Web effettuando chiamate API direttamente da un browser.
+title: Chiamare l'API da un browser - Servizio decisionale personalizzato
+titlesuffix: Azure Cognitive Services
+description: Come ottimizzare una pagina Web effettuando chiamate API direttamente da un browser al Servizio decisionale personalizzato.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: slivkins,marcozo,alekh
-ms.openlocfilehash: 10236c9d8f70d9b90a896464b4f86a847ee904c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: 01f75d333e3eea5af35ca57bd44bc76148a481f2
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377225"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867616"
 ---
 # <a name="call-api-from-a-browser"></a>Chiamare l'API da un browser
 

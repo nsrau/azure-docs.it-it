@@ -1,27 +1,31 @@
 ---
-title: Tag delle parti del discorso nell'API Analisi linguistica | Microsoft Docs
-description: Informazioni su come i tag delle parti del discorso in Servizi cognitivi Microsoft identificano la categoria o la parte del discorso di ogni parola del testo.
+title: Tag delle parti del discorso - API Analisi linguistica
+description: Informazioni su come i tag delle parti del discorso nell'API Analisi linguistica identificano la categoria o la parte del discorso di ogni parola del testo.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 90fd5b05c2dabdac88c6c8da288ab629177be38d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082639"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238522"
 ---
 # <a name="part-of-speech-tagging"></a>Tag delle parti del discorso
+
+> [!IMPORTANT]
+> L'anteprima di Analisi linguistica è stata ritirata il 9 agosto 2018. Per l'elaborazione e l'analisi del testo è consigliabile usare i [moduli di analisi del testo di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 ## <a name="background-and-motivation"></a>Informazioni generali e motivazione
 
 Dopo che un testo è stato suddiviso in frasi e token, il passaggio successivo dell'analisi consiste nell'identificare la categoria o la parte del discorso di ogni parola,
-ad esempio categorie come *nome* (che in genere rappresenta persone, luoghi, cose, idee e così via) e *verbo* (che in genere rappresenta azioni, cambiamenti di stato e così via). Per alcune parole, la parte del discorso è chiara (ad esempio, *quagmire* può essere solo un nome), per altre invece è difficile da stabilire.
+ad esempio categorie come *nome* (che in genere rappresenta persone, luoghi, cose, idee e così via) e *verbo* (che in genere rappresenta azioni, cambiamenti di stato e così via). Per alcune parole, la parte del discorso è chiara: *quagmire*, ad esempio, è solo un nome; per altre invece è difficile da stabilire.
 *Table* in inglese può significare tavolo o tabella, ma anche "intavolare una discussione".
 
 ## <a name="list-of-part-of-speech-tags"></a>Elenco dei tag delle parti del discorso
@@ -45,7 +49,7 @@ ad esempio categorie come *nome* (che in genere rappresenta persone, luoghi, cos
 | IN | preposizione o congiunzione subordinante| in nel se dopo affinché |
 | JJ | aggettivo o numerale ordinale | nono grazioso esecrabile multimodale |
 | JJR | aggettivo comparativo | migliore più veloce più economico |
-| JJS | aggettivo superlativo | il migliore velocissimo il più economico | 
+| JJS | aggettivo superlativo | il migliore velocissimo il più economico |
 | LS | indicatore di elemento elenco | (a) (b) 1 2 A B A. B. |
 | MD | ausiliario modale | dovere volere potere sapere |
 | NN | nome comune singolare o collettivo | patata denaro scarpa |

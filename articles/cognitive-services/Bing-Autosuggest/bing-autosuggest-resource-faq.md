@@ -1,22 +1,23 @@
 ---
-title: Domande frequenti sull'API Suggerimenti automatici di Azure | Microsoft Docs
-description: Risposte a domande comuni sull'API Suggerimenti automatici di Servizi cognitivi di Azure in Azure.
+title: Domande frequenti (FAQ) - API Suggerimenti automatici Bing
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come ottenere risposte alle domande comuni sull'API Suggerimenti automatici Bing.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 00b91728bcfec52ff30697f080d5c2619bab79a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84f1b0555922119e9de4addc3d51ac233e7bae65
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376860"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831365"
 ---
-# <a name="frequently-asked-questions-faq-about-autosuggest-api-cognitive-services"></a>Domande frequenti sull'API Suggerimenti automatici (Servizi cognitivi)
+# <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>Domande frequenti (FAQ) sull'API Suggerimenti automatici Bing
  
  Questo articolo offre risposte alle domande frequenti sui concetti, il codice e gli scenari correlati all'API Suggerimenti automatici per Servizi cognitivi di Azure.
 
@@ -44,7 +45,7 @@ Avviare infine il proxy CORS con il comando seguente:
 
     cors-proxy-server
 
-Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione espandibile delle intestazioni HTTP sotto i risultati della ricerca viene ora visualizzata, tra le altre, l'intestazione `X-MSEdge-ClientID`. Verificare che sia la stessa per ogni richiesta.
+Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. La chiusura della finestra determina l'arresto del proxy. Nella sezione Intestazioni HTTP espandibile sotto i risultati della ricerca è ora possibile vedere l'intestazione `X-MSEdge-ClientID`, tra le altre, e verificare che sia la stessa per ogni richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,20 +1,21 @@
 ---
-title: Metodo Interpret nell'API Academic Knowledge | Microsoft Docs
+title: Metodo dell'interpretazione - API Academic Knowledge
+titlesuffix: Azure Cognitive Services
 description: Usare il metodo Interpret per restituire interpretazioni formattate delle stringhe di query degli utenti in base ai dati di Academic Graph e alla grammatica Academic in Servizi cognitivi Microsoft.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a46c792f14fabf6562666d1067ef880bd505741f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372828"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902570"
 ---
 # <a name="interpret-method"></a>Metodo Interpret
 
@@ -30,7 +31,7 @@ Per fornire un'esperienza interattiva, è possibile chiamare ripetutamente quest
 
 NOME     | Valore | Obbligatorio?  | DESCRIZIONE
 ---------|---------|---------|---------
-**query**    | Stringa di testo | Sì | Query immessa dall'utente.  Se complete è impostato su 1, la query verrà interpretata come un prefisso per la generazione dei suggerimenti di completamento automatico della query.        
+**query**    | Stringa di testo | Yes | Query immessa dall'utente.  Se complete è impostato su 1, la query verrà interpretata come un prefisso per la generazione dei suggerimenti di completamento automatico della query.        
 **model**    | Stringa di testo | No   | Nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.        
 **complete** | 0 o 1 | No <br>valore predefinito: 0  | 1 indica che i suggerimenti di completamento automatico vengono generati in base alla grammatica e ai dati di Graph.         
 **count**    | Number | No <br>valore predefinito: 10 | Numero massimo di interpretazioni da restituire.         

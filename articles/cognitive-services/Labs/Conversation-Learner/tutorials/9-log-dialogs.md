@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171436"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248382"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Informazioni su come registrare i dialoghi in un modello di Conversation Learner
 
@@ -51,7 +51,7 @@ Per questa esercitazione è necessario che il bot di esercitazione generale sia 
 1. Fare clic su Actions (Azioni) e quindi su New Action (Nuova azione).
 2. In Response (Risposta) digitare "Which city?".
 3. In Disqualifying Entities (Entità non qualificanti) immettere "$city".
-3. Click Create
+3. Fare clic su Crea
 
 Creare quindi la seconda azione:
 
@@ -76,7 +76,7 @@ Sono ora disponibili due azioni.
 
 Aggiungere un altro dialogo di esempio:
 
-1. Fare clic su New Action (Nuova azione) e quindi su New Train Dialog (Nuovo dialogo di training).
+1. Fare clic su Train Dialogs (Dialoghi di training) e quindi su New Train Dialog (Nuovo dialogo di training).
 2. Digitare "what's the weather in Seattle?". Si noti che la parola "Seattle" viene contrassegnata come entità.
 5. Fare clic su Score Actions (Punteggio azioni). 
 6. Selezionare "The weather in $city is probably sunny".
@@ -86,7 +86,7 @@ Aggiungere un altro dialogo di esempio:
 Si immagini che questo bot sia stato distribuito agli utenti.
 
 1. Fare clic su Log Dialogs (Dialoghi di log).
-2. Fare clic su New Chat Session (Nuova sessione di chat).
+2. Fare clic su New Log Dialog (Nuovo dialogo di log).
     - Il bot viene così presentato come disponibile nell'esperienza utente, nel controllo chat nella parte sinistra dell'interfaccia utente. Si può ignorare l'area con lo spazio vuoto a destra.
 3. Digitare "hello".
 4. La risposta del bot è "which city?".
@@ -97,10 +97,10 @@ Si immagini che questo bot sia stato distribuito agli utenti.
 
 Avviare una nuova sessione:
 
-2. Fare clic su New Chat Session (Nuova sessione di chat).
+2. Fare clic su New Log Dialog (Nuovo dialogo di log).
 3. Digitare "forecast for Boston".
 4. La risposta del bot è "which city?".
-2. Fare clic su Done Teaching (Training completato).
+2. Fare clic su Done Testing (Test completato).
 
 Apportare ora correzioni al secondo dialogo:
 

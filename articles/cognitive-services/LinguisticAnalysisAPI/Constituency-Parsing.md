@@ -1,22 +1,27 @@
 ---
-title: Analisi a costituenti nell'API Analisi linguistica | Microsoft Docs
+title: Analisi degli elementi costitutivi - API Analisi linguistica
+titlesuffix: Azure Cognitive Services
 description: Informazioni sul modo in cui l'analisi a costituenti, nota anche come "analisi della struttura delle frasi", identifica i sintagmi nel testo.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: bff5e587621e1278c260d555aec280a0f4c7c8a1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082173"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238625"
 ---
 # <a name="constituency-parsing"></a>Analisi a costituenti
+
+> [!IMPORTANT]
+> L'anteprima di Analisi linguistica è stata ritirata il 9 agosto 2018. Per l'elaborazione e l'analisi del testo è consigliabile usare i [moduli di analisi del testo di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 Lo scopo dell'analisi a costituenti, nota anche come "analisi della struttura delle frasi", è identificare i sintagmi nel testo.
 Può essere utile durante l'estrazione di informazioni dal testo.
