@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 12baa21c8661012cd7ef96217724150a3d8c56f3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303429"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116143"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migrazione Contoso: esecuzione del rehosting di un'app locale in una macchina virtuale di Azure e in Istanza gestita di database SQL
 
@@ -37,9 +37,10 @@ Articolo 4: Eseguire il rehosting di un'app in una macchina virtuale di Azure e 
 [Articolo 8: Eseguire il rehosting di un'app Linux in macchine virtuali di Azure e in Database di Azure per MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso esegue la migrazione dell'app osTicket di Linux alle macchine virtuali di Azure mediante Site Recovery. Esegue la migrazione del database dell'app in Database di Azure per MySQL tramite MySQL Workbench. | Disponibile
 [Articolo 9: Eseguire il refactoring di un'app in un'app Web di Azure e un database SQL di Azure](contoso-migration-refactor-web-app-sql.md) | Contoso esegue la migrazione dell'app SmartHotel in un'app Web di Azure e del database dell'app in un'istanza di SQL Server di Azure. | Disponibile
 [Articolo 10: Eseguire il refactoring di un'app Linux in un'app Web di Azure e Database di Azure per MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso esegue la migrazione dell'app osTicket Linux in un'app Web di Azure su più siti. L'app Web è integrata con GitHub per il recapito continuo. Contoso esegue la migrazione del database dell'app in un'istanza di Database di Azure per MySQL. | Disponibile
-[Articolo 11: eseguire il refactoring di Team Foundation Server nei servizi di Azure DevOps](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server locale nei servizi di Azure DevOps in Azure. | Disponibile
+[Articolo 11: eseguire il refactoring di Team Foundation Server in Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso esegue la migrazione della propria distribuzione di Team Foundation Server locale nei servizi di Azure DevOps in Azure. | Disponibile
 [Articolo 12: Riprogettare un'app in contenitori di Azure e nel database SQL di Azure](contoso-migration-rearchitect-container-sql.md) | Contoso esegue la migrazione l'app SmartHotel in Azure e quindi la riprogetta. Il livello dell'app Web viene riprogettato come contenitore di Windows e il database dell'app viene riprogettato tramite il database SQL di Azure. | Disponibile
 [Articolo 13: Ricompilare un'app in Azure](contoso-migration-rebuild.md) | Contoso ricompila l'app SmartHotel usando una gamma di funzionalità e servizi di Azure, tra cui Servizio app di Azure, servizio Kubernetes di Azure, Funzioni di Azure, Servizi cognitivi di Azure e Azure Cosmos DB. | Disponibile
+[Articolo 14: Passare a una migrazione completa in Azure](contoso-migration-scale.md) | Dopo aver provato alcune combinazioni di migrazioni, Contoso si prepara a passare a una migrazione completa in Azure. | Disponibile
 
 
 
@@ -116,7 +117,7 @@ Contoso valuta la progettazione proposta elaborando un elenco di vantaggi e svan
 **Considerazioni** | **Dettagli**
 --- | ---
 **Vantaggi** |  WEBVM verrà spostata in Azure senza modifiche, semplificando così la migrazione.<br/><br/> L'istanza gestita di SQL supporta i requisiti tecnici e gli obiettivi di Contoso.<br/><br/> Fornirà il 100% di compatibilità con la distribuzione corrente, portando l'azienda ad abbandonare SQL Server 2008 R2.<br/><br/>  Contoso è in grado di sfruttare gli investimenti in Software Assurance usando l'offerta Vantaggio Azure Hybrid per SQL Server e Windows Server.<br/><br/> Può riusare il Servizio Migrazione del database per altre migrazioni future.<br/><br/> L'istanza gestita di SQL include tolleranza di errore integrata, che Contoso non dovrà configurare. Ciò garantisce che il livello dati non sia più un singolo punto di failover.
-**Svantaggi** | WEBVM esegue Windows Server 2008 R2.  Anche se questo sistema operativo è supportato da Azure, non è più una piattaforma supportata. [Altre informazioni](https://support.microsoft.com/en-us/help/956893).<br/><br/> Il livello Web rimane un singolo punto di failover con servizi forniti solo da WEBVM.<br/><br/> Contoso dovrà continuare a supportare il livello Web dell'app come VM anziché passare a un servizio gestito come Servizio app di Azure.<br/><br/> Per il livello dati, l'istanza gestita potrebbe non essere la soluzione ideale se Contoso intende personalizzare il sistema operativo o il server di database oppure se desidera eseguire app di terze parti con SQL Server. L'esecuzione di SQL Server in una VM IaaS potrebbe garantire questa flessibilità. 
+**Svantaggi** | WEBVM esegue Windows Server 2008 R2.  Anche se questo sistema operativo è supportato da Azure, non è più una piattaforma supportata. [Altre informazioni](https://support.microsoft.com/en-us/help/956893)<br/><br/> Il livello Web rimane un singolo punto di failover con servizi forniti solo da WEBVM.<br/><br/> Contoso dovrà continuare a supportare il livello Web dell'app come VM anziché passare a un servizio gestito come Servizio app di Azure.<br/><br/> Per il livello dati, l'istanza gestita potrebbe non essere la soluzione ideale se Contoso intende personalizzare il sistema operativo o il server di database oppure se desidera eseguire app di terze parti con SQL Server. L'esecuzione di SQL Server in una VM IaaS potrebbe garantire questa flessibilità. 
 
 ### <a name="migration-process"></a>Processo di migrazione
 
@@ -615,7 +616,7 @@ Per altre informazioni sulle procedure di sicurezza per le macchine virtuali, ve
 Per la continuità aziendale e il ripristino di emergenza (BCDR), Contoso esegue le azioni seguenti:
 
 - Mantiene i dati al sicuro: Contoso esegue il backup dei dati nelle VM usando il servizio Backup di Azure. [Altre informazioni]https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- Mantenere le app in esecuzione: Contoso esegue la replica delle macchine virtuali dell'app in Azure in un'area secondaria usando Site Recovery. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
+- Mantenere le app in esecuzione: Contoso esegue la replica delle macchine virtuali dell'app in Azure in un'area secondaria usando Site Recovery. [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 - Apprende maggiori informazioni sulla gestione dell'istanza gestita di SQL, inclusi i [backup di database](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
 
 
