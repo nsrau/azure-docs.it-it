@@ -1,6 +1,6 @@
 ---
-title: Utilizzare i database MySQL come PaaS nello Stack di Azure | Documenti Microsoft
-description: Informazioni su come distribuire il Provider di risorse MySQL e fornire i database MySQL come servizio nello Stack di Azure.
+title: Usare i database MySQL come PaaS in Azure Stack | Microsoft Docs
+description: Informazioni su come distribuire il Provider di risorse MySQL e fornire i database MySQL come servizio in Azure Stack.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,40 +11,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: 24ba595413cde07c420a94de234d7926e0eb0e7f
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.reviewer: quying
+ms.openlocfilehash: 635948c28ffe5d5eaece372976e58d26e17214e3
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36310050"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084231"
 ---
-# <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Utilizzare i database MySQL in Microsoft Azure Stack
+# <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usare i database MySQL in Microsoft Azure Stack
 
-È possibile distribuire il provider di risorse MySQL API da utilizzare i database MySQL distribuiti nello Stack di Azure. Per ulteriori informazioni sul provider di risorse API, vedere [Windows Azure Pack MySQL Resource Provider REST API Reference](https://msdn.microsoft.com/library/dn528442.aspx).
-
-Database MySQL sono comuni nei siti Web e supportano molte piattaforme di sito Web. Ad esempio, è possibile creare siti Web di WordPress usando la piattaforma di App Web come un componente aggiuntivo del servizio (PaaS).
+Database MySQL sono comuni in siti Web e supportano molte piattaforme di sito Web. Ad esempio, è possibile creare siti Web WordPress mediante la piattaforma di App Web come un componente aggiuntivo del servizio (PaaS).
 
 Dopo aver distribuito il provider di risorse, è possibile:
 
-* Creazione di MySQL Server e database che utilizzano modelli di distribuzione Azure Resource Manager.
+* Creare MySQL Server e database con modelli di distribuzione Azure Resource Manager.
 * Specificare i database MySQL come servizio.  
 
-## <a name="mysql-resource-provider-adapter-architecture"></a>Architettura dell'adapter provider risorse MySQL
+## <a name="mysql-resource-provider-adapter-architecture"></a>Architettura adapter del provider di risorse MySQL
 
 Il provider di risorse include i componenti seguenti:
 
-* **La macchina virtuale MySQL resource provider adapter (VM)**, ovvero una VM di Windows Server che esegue i servizi di provider.
-* **Il provider di risorse**, che elabora le richieste e accede alle risorse del database.
-* **I server che ospitano il MySQL Server**, che forniscono capacità per i database che vengono chiamati i server di hosting. È possibile creare manualmente le istanze di MySQL o fornire l'accesso alle istanze di MySQL esterne. Il [raccolta Guida introduttiva di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) dispone di un modello di esempio che è possibile usare per:
+* **La macchina virtuale MySQL resource provider adapter (VM)**, ovvero una VM Windows Server che esegue il provider di servizi.
+* **Il provider di risorse**, che elabora le richieste e le risorse di database gli accessi.
+* **Server che ospitano il MySQL Server**, che forniscono la capacità per i database che vengono chiamati i server di hosting. È possibile creare manualmente le istanze di MySQL o fornire l'accesso alle istanze di MySQL esterne. Il [raccolta di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/mysql-standalone-server-windows) dispone di un modello di esempio che è possibile usare per:
 
   * Creare un server MySQL.
   * Scaricare e distribuire un MySQL Server da Azure Marketplace.
 
 > [!NOTE]
-> I server che vengono installati nello Stack di Azure di hosting sistemi integrati devono essere creati da una sottoscrizione tenant. Non possono essere creati dalla sottoscrizione provider predefinito. Essi devono essere creati dal portale tenant o da una sessione di PowerShell con un accesso appropriato. Tutti i server di hosting sono fatturabili macchine virtuali e devono disporre delle licenze. L'amministratore del servizio può essere il proprietario della sottoscrizione tenant.
+> Hosting di server che vengono installati in Azure Stack i sistemi integrati devono essere creati da una sottoscrizione tenant. E non possono essere creati dalla sottoscrizione provider predefinito. Essi devono essere creati dal portale tenant o da una sessione di PowerShell con un accesso appropriato. Tutti i server di hosting sono fatturabili macchine virtuali e devono avere le licenze. L'amministratore del servizio può essere il proprietario della sottoscrizione tenant.
 
 ### <a name="required-privileges"></a>Privilegi necessari
 

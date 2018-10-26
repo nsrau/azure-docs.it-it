@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945893"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087492"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Dimensioni delle macchine virtuali supportate in Azure Stack
 
@@ -31,6 +31,10 @@ Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono disponib
 Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-memoria equilibrato. Vengono utilizzati per il test e sviluppo, database medio-piccoli e da server web con traffico medio a ridotto.
 
 ### <a name="basic-a"></a>Basic A
+
+> [!NOTE]
+> *Una base* dimensioni delle macchine virtuali sono in pensione per [creazione di set di scalabilità di macchine virtuali](../azure-stack-compute-add-scalesets.md) (VMSS) tramite il portale. Per creare un set di scalabilità con queste dimensioni, usare PowerShell o un modello.
+
 |Dimensioni - dimensioni\nome |vCPU     |Memoria | Dimensioni massime per il disco temporaneo | Velocità effettiva del disco max OS: (IOPS) | Velocità effettiva massima di archiviazione temporanea (IOPS) | Velocità effettiva dei dischi dati max (IOPS) | Schede di interfaccia di rete max |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |1   |

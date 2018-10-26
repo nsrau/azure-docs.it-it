@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457015"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093970"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack
 
@@ -40,7 +40,8 @@ L'elenco seguente descrive i requisiti dei certificati necessari per distribuire
 - Ruotare i certificati, i certificati devono essere che entrambi emesso dall'autorità di certificazione interna stesso utilizzato per firmare i certificati specificati alla distribuzione o qualsiasi autorità di certificazione pubblica in precedenza
 - L'uso di certificati autofirmati non sono supportati
 - Per la distribuzione e la rotazione è possibile utilizzare un solo certificato che coprono tutti spazi dei nomi nei campi nome soggetto e nome alternativo soggetto (SAN) del certificato oppure è possibile usare singoli certificati per ogni spazio dei nomi seguente che Azure Stack si prevede di utilizzare i servizi richiedono. Entrambi gli approcci richiedono l'uso di caratteri jolly per gli endpoint in cui sono necessarie, ad esempio **KeyVault** e **KeyVaultInternal**. 
-- L'algoritmo di firma non può essere SHA1, che deve essere più avanzato. 
+- Crittografia PFX del certificato deve essere 3DES. 
+- L'algoritmo di firma del certificato non deve essere SHA1. 
 - Il formato del certificato deve essere PFX, perché entrambe le chiavi pubbliche e private sono necessarie per l'installazione di Azure Stack. 
 - La crittografia del file PFX deve essere 3DES (questa è predefinita quando si esporta da un client Windows 10 o l'archivio certificati di Windows Server 2016).
 - Il file pfx del certificato devono avere un valore "Firma digitale" e "KeyEncipherment" nel campo relativo al "Key Usage".

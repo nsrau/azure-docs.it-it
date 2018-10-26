@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: fabc72e6dc31bb7f244cda9634af3b2556ba23a9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 98a7ae31aeeae29b81a1053b38992d3bc4e0e03f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023794"
+ms.locfileid: "50085310"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Aggiungere elementi del marketplace tramite lo strumento di distribuzione
 
@@ -28,7 +28,7 @@ Aggiunta di contenuto per il [Marketplace Azure Stack](azure-stack-marketplace.m
 
 ## <a name="prerequisites"></a>Prerequisiti
 
- - È necessario eseguire il toolkit nell'host Azure Stack o avere [VPN](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn) connettività all'host ASDK dal computer in cui si esegue lo strumento.
+ - È necessario eseguire il toolkit nell'host Azure Stack o avere [VPN](.\asdk\asdk-connect.md#connect-with-vpn) connettività all'host ASDK dal computer in cui si esegue lo strumento.
 
  - Scaricare il [modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) ed estrarre.
 
