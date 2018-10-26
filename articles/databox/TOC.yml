@@ -1,6 +1,6 @@
 items:
-- name: Documentazione - Azure Data Box per il trasferimento offline
-  href: /azure/databox/
+- name: Documentazione di Azure Data Box - Trasferimento offline
+  href: /azure/databox
   items:
   - name: Data Box
     items:
@@ -41,6 +41,8 @@ items:
         href: data-box-portal-admin.md
       - name: Gestire tramite l'interfaccia utente Web locale
         href: data-box-local-web-ui-admin.md
+      - name: Cablare il dispositivo
+        href: data-box-cable-options.md
       - name: Contattare il supporto tecnico
         href: data-box-disk-contact-microsoft-support.md
   - name: Data Box Disk
@@ -90,17 +92,13 @@ items:
         href: data-box-heavy-overview.md
   - name: Risorse
     items:
-    - name: Roadmap per Azure
-      href: https://azure.microsoft.com/roadmap/?category=storage
-    - name: Marketing di Azure Data Box
-      href: https://azure.microsoft.com/services/storage/databox/
+    - name: Prodotto Data Box
+      href: https://azure.microsoft.com/services/storage/databox/data/
     - name: Prezzi
       href: https://azure.microsoft.com/pricing/details/storage/databox/
-    - name: Aggiornamenti del servizio
-      href: https://azure.microsoft.com/updates/?product=databox
-ms.openlocfilehash: 2c436e372df4cb42a52db9df35adfa5e0b48594f
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: cc4b50ec5bd851d4015a594d5d355856be957b48
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068435"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086999"
