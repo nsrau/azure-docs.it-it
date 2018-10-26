@@ -174,8 +174,6 @@ items:
       href: automation-create-alert-triggered-runbook.md
     - name: Creare una VM Amazon Web Services
       href: automation-scenario-aws-deployment.md
-    - name: Rimuovere un gruppo di risorse
-      href: automation-scenario-remove-resourcegroup.md
     - name: Integrazione del controllo del codice sorgente con GitHub Enterprise
       href: automation-scenario-source-control-integration-with-github-ent.md
     - name: Integrazione del controllo del codice sorgente con Azure DevOps
@@ -202,6 +200,8 @@ items:
     href: troubleshoot/desired-state-configuration.md
   - name: ruolo di lavoro ibrido per runbook
     href: troubleshoot/hybrid-runbook-worker.md
+  - name: Rilevamento modifiche e inventario
+    href: troubleshoot/change-tracking.md
   - name: Gestione degli aggiornamenti
     href: troubleshoot/update-management.md
   - name: Risolvere i problemi dell'agente di Update
@@ -238,9 +238,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: 37f9efb0c82a9ccefab1b492d45b9060a1a9312e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: c0dd1231814d41761c35831b6bfabae1c5480c5c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645423"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095287"
