@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/26/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 7061438e5d5aa60ab09af2b516fc918bc84f06ec
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 161b54620bd8a3c9994228a30bd7495717064168
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095270"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158467"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
