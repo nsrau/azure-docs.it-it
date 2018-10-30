@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Ottenere le lingue supportate - Traduzione testuale, Python'
+title: 'Guida introduttiva: Ottenere le lingue supportate, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Python.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: a68a1b31cb844a4873bf34c6a292beeb2a4b61c0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: b920b08d3bc5d4e340aa8ade6b26e5fe61208098
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121737"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644726"
 ---
-# <a name="quickstart-get-supported-languages-with-python"></a>Guida introduttiva: Ottenere le lingue supportate con Python
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-python"></a>Guida introduttiva: Ottenere le lingue supportate con l'API REST Traduzione testuale (Python)
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale.
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b1893d9713f70ee7553392a320fec52fe5c88f3c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066990"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458055"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Eseguire un'analisi del ripristino di emergenza per l macchine virtuali di Azure in un'area di Azure secondaria
 
@@ -26,12 +26,13 @@ Questa esercitazione illustra come eseguire un'analisi del ripristino di emergen
 > * Verificare i prerequisiti
 > * Eseguire un failover di test per una singola macchina virtuale
 
-
+> [!NOTE]
+> In questa esercitazione l'utente viene guidato nella procedura di esercitazione sul ripristino di emergenza, con passaggi minimi. Se si desidera approfondire i vari aspetti associati all'esercitazione sul ripristino di emergenza, incluse considerazioni sulla rete, automazione o risoluzione dei problemi, vedere i documenti relativi alle procedure per le macchine virtuali di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Prima di eseguire un failover di test, è consigliabile verificare le proprietà della macchina virtuale per verificare che corrispondano a quelle previste.  È possibile accedere alle proprietà delle macchine virtuali in **Elementi replicati**. Il pannello **Informazioni di base** visualizza informazioni sulle impostazioni e sullo stato dei computer.
-- È consigliabile usare una rete di una macchina virtuale di Azure separata per il failover di test e non la rete predefinita che è stata configurata al momento di abilitare la replica.
+- **È consigliabile usare una rete di una macchina virtuale di Azure separata per il failover di test** e non la rete predefinita che è stata configurata al momento di abilitare la replica.
 
 
 ## <a name="run-a-test-failover"></a>Eseguire un failover di test

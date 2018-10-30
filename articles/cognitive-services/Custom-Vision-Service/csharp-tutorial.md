@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Creare un'app Windows per il Servizio visione artificiale personalizzato con C#"
+title: 'Esercitazione: Creare un progetto di classificazione immagini con Custom Vision SDK per C#'
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e046fe452a13384ae7929be805c6252d6ad2fbf9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366642"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953044"
 ---
-# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Esercitazione: Usare il Servizio visione artificiale personalizzato da un'applicazione C#
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-c"></a>Esercitazione: Creare un progetto di classificazione immagini con Custom Vision SDK per C#
 
-Informazioni su come usare il Servizio visione artificiale personalizzato da un'applicazione C#. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app per Windows usando l'API Servizio visione artificiale personalizzato.
+Informazioni su come usare Custom Vision SDK in un'applicazione C#. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app per Windows usando l'API Servizio visione artificiale personalizzato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +35,7 @@ Per compilare questo esempio sono necessari i pacchetti NuGet dell'SDK del Servi
 
 ## <a name="get-the-training-and-prediction-keys"></a>Ottenere le chiavi di training e di stima
 
-Per ottenere le chiavi usate in questo esempio, visitare la [pagina Web di Servizio visione artificiale personalizzato](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Account__ copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
+Per ottenere le chiavi usate in questo esempio, visitare la [pagina Web di Servizio visione artificiale personalizzato](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Accounts__ (Account) copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
 
 ![Immagine dell'interfaccia utente delle chiavi](./media/csharp-tutorial/training-prediction-keys.png)
 

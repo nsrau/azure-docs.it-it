@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare un progetto di rilevamento degli oggetti - API Visione personalizzata, Python'
+title: 'Esercitazione: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Python - Servizio Visione personalizzata'
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 36b283965766130e86e079c807139998cd01c8a6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363701"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958534"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-python"></a>Esercitazione: Compilare un progetto di rilevamento degli oggetti con Python
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-python"></a>Esercitazione: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Python
 
 In questo articolo si esplora uno script Python di base che usa l'API Visione artificiale per creare un progetto di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app usando l'API Visione personalizzata.
 
@@ -43,7 +43,7 @@ pip install azure-cognitiveservices-vision-customvision
 
 ## <a name="step-1-get-the-training-and-prediction-keys"></a>Passaggio 1: Ottenere le chiavi di training e di stima
 
-Per ottenere le chiavi usate in questo esempio, visitare il [sito di Visione personalizzata](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Account__ (Account) copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
+Per ottenere le chiavi usate in questo esempio, visitare il [sito di Visione personalizzata](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Accounts__ (Account) copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
 
 ![Immagine dell'interfaccia utente delle chiavi](./media/python-tutorial/training-prediction-keys.png)
 

@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Ottenere le lingue supportate - Traduzione testuale, Go'
+title: 'Guida introduttiva: Ottenere le lingue supportate, Go - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 6f8725c834e4417321722f7d49e09765e19a3b6d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 2a93ee7b4d2c8426ad7a7f30a986d07e14192cc4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127772"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648293"
 ---
-# <a name="quickstart-get-supported-languages-with-go"></a>Guida introduttiva: Ottenere le lingue supportate con Go
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-go"></a>Guida introduttiva: Ottenere le lingue supportate con l'API REST Traduzione testuale (Go)
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale.
 

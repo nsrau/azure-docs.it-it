@@ -1,22 +1,23 @@
 ---
-title: Informazioni sul Servizio di riconoscimento vocale
-description: 'Il servizio Voce, parte dei Servizi Cognitivi Microsoft, unisce diversi servizi vocali di Azure precedentemente disponibili in modo separato: Riconoscimento vocale Bing (che comprende il riconoscimento vocale e la sintesi vocale), Riconoscimento vocale personalizzato e Traduzione vocale.'
+title: Informazioni sul servizio Voce
 titleSuffix: Azure Cognitive Services
+description: 'Il servizio Voce, parte dei Servizi Cognitivi di Azure, unisce diversi servizi vocali precedentemente disponibili in modo separato: Riconoscimento vocale Bing (che comprende il riconoscimento vocale e la sintesi vocale), Riconoscimento vocale personalizzato e Traduzione vocale.'
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4204c23f3467ff07940fd6a72464e67604dde1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365459"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470447"
 ---
-# <a name="what-is-the-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale
+# <a name="what-is-the-speech-service"></a>Informazioni sul servizio Voce
 
 
 Come gli altri servizi vocali di Azure, il servizio Voce è basato su tecnologie vocali usate in prodotti quali Cortana e Microsoft Office.
@@ -53,7 +54,7 @@ Per semplificare lo sviluppo di applicazioni con funzioni vocali, Microsoft offr
 
 Il servizio Voce dispone inoltre di un'[API REST](rest-apis.md) che funziona con qualsiasi linguaggio di programmazione in grado di effettuare richieste HTTP. L'interfaccia REST non offre le funzionalità di streaming in tempo reale offerte invece dall'SDK.
 
-|<br>Metodo|Sintesi vocale<br>Riconoscimento vocale|Sintesi vocale<br>Sintesi vocale|Sintesi vocale<br>Traduzione|<br>DESCRIZIONE|
+|<br>Metodo|Sintesi vocale<br>Riconoscimento vocale|Sintesi vocale<br>Sintesi vocale|Sintesi vocale<br>Traduzione|<br>Descrizione|
 |-|-|-|-|-|
 |[Speech SDK](speech-sdk.md)|Yes|No |Yes|API native per C#, C++ e Java per semplificare lo sviluppo.|
 |[REST](rest-apis.md)|Yes|Yes|No |Una semplice API basata su HTTP che agevola l'aggiunta di funzionalità vocali alle applicazioni.|
@@ -80,7 +81,7 @@ Casi d'uso per il servizio Voce:
 
 ### <a name="voice-user-interface"></a>Interfaccia utente vocale
 
-L’input vocale è un ottimo modo per rendere l'app flessibile, da utilizzare a mani libere e in modo rapido. In un'app con il riconoscimento vocale, gli utenti possono semplicemente chiedere le informazioni desiderate.
+L'input vocale è un ottimo modo per rendere l'app flessibile, da utilizzare a mani libere e in modo rapido. In un'app con il riconoscimento vocale, gli utenti possono semplicemente chiedere le informazioni desiderate.
 
 Se l'app è destinata al pubblico generale, è possibile usare i modelli di riconoscimento vocale predefiniti. Questi consentono di riconoscere un'ampia gamma di parlanti negli ambienti più comuni.
 
@@ -90,11 +91,11 @@ Se l'app è destinata a un ambiente rumoroso, come una fabbrica, è possibile cr
 
 ### <a name="call-center-transcription"></a>Trascrizioni di call center
 
-Spesso, le registrazioni del call center vengono consultate solo se si verifica un problema con una chiamata. Con il servizio di riconoscimento vocale, è facile trascrivere ogni registrazione in testo. È possibile indicizzare facilmente il testo per la [ricerca full-text](https://docs.microsoft.com/azure/search/search-what-is-azure-search) oppure applicare l'[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/) per rilevare sentiment, lingua e frasi chiave.
+Spesso, le registrazioni del call center vengono consultate solo se si verifica un problema con una chiamata. Con il servizio Voce, è facile trascrivere ogni registrazione in testo. È possibile indicizzare facilmente il testo per la [ricerca full-text](https://docs.microsoft.com/azure/search/search-what-is-azure-search) oppure applicare l'[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/) per rilevare sentiment, lingua e frasi chiave.
 
-Se le registrazioni del call center contengono terminologia specializzata, ad esempio nomi di prodotti o gergo IT, è possibile creare un [modello linguistico](how-to-customize-language-model.md) per insegnare al servizio Voce quel vocabolario specifico. Un [modello acustico](how-to-customize-acoustic-models.md) personalizzato aiuta il servizio di riconoscimento vocale a comprendere le connessioni del telefono non ottimali.
+Se le registrazioni del call center contengono terminologia specializzata, ad esempio nomi di prodotti o gergo IT, è possibile creare un [modello linguistico](how-to-customize-language-model.md) per insegnare al servizio Voce quel vocabolario specifico. Un [modello acustico](how-to-customize-acoustic-models.md) personalizzato aiuta il servizio Voce a comprendere le connessioni del telefono non ottimali.
 
-Per altre informazioni su questo scenario, vedere [trascrizione batch](batch-transcription.md) con il servizio riconoscimento vocale.
+Per altre informazioni su questo scenario, vedere [trascrizione batch](batch-transcription.md) con il servizio Voce.
 
 ### <a name="voice-bots"></a>Bot vocali
 
@@ -104,7 +105,7 @@ Per aggiungere una personalità univoca a un bot con servizio voce abilitato, è
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ottieni una chiave di sottoscrizione per il servizio di riconoscimento vocale.
+Ottieni una chiave di sottoscrizione per il servizio Voce.
 
 > [!div class="nextstepaction"]
-> [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md)
+> [Provare gratuitamente il servizio Voce](get-started.md)

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 7af0d4819d4044f4cccc43cde1cffe7dff7982a7
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056438"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647273"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definire e assegnare un progetto Azure Blueprint nel portale
 
@@ -111,7 +111,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    ![Elemento - Modello di Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
 
-1. Il progetto completo sarà simile al seguente. Notare che ogni elemento ha _x_ parametri popolati su _y_ nella colonna _Parametri_. I **parametri dinamici** verranno impostati durante ogni assegnazione del progetto, mentre il singolo **parametro statico** nell'assegnazione di ruolo è già stato configurato.
+1. Il progetto completo sarà simile al seguente. Notare che ogni elemento ha _x_ parametri popolati su _y_ nella colonna _Parametri_. I **parametri dinamici** verranno impostati durante ogni assegnazione del progetto.
 
    ![Progetto completato](./media/create-blueprint-portal/completed-blueprint.png)
 
@@ -227,6 +227,6 @@ I progetti possono essere rimossi da una sottoscrizione se non sono più necessa
 - Informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md)
 - Informazioni su come usare [parametri statici e dinamici](./concepts/parameters.md)
 - Imparare a personalizzare l'[ordine in sequenza del progetto](./concepts/sequencing-order.md)
-- Identificare come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md)
-- Acquisire informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md)
+- Scoprire come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md)
+- Informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md)
 - Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](./troubleshoot/general.md)

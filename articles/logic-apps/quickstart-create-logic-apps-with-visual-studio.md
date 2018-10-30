@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: b8961edebd80d5f36d844734e3c93a4bd3b1f0cf
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42162134"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645832"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Guida introduttiva: Creare app per la logica per automatizzare flussi di lavoro con App per la logica di Azure - Visual Studio
 
@@ -93,7 +93,7 @@ Dopo aver creato il progetto Gruppo di risorse di Azure, creare e compilare l'ap
 
    Visual Studio necessita della sottoscrizione di Azure dell'utente e di un gruppo di risorse per la creazione e distribuzione delle risorse associate all'app per la logica e alle connessioni dell'utente. 
 
-   | Impostazione | Valore di esempio | DESCRIZIONE | 
+   | Impostazione | Valore di esempio | Descrizione | 
    | ------- | ------------- | ----------- | 
    | User profile list (Elenco profili utente) | Contoso <br> jamalhartnett@contoso.com | Per impostazione predefinita, l'account usato per eseguire l'accesso | 
    | **Sottoscrizione** | Pagamento in base al consumo <br> (jamalhartnett@contoso.com) | Il nome della sottoscrizione di Azure e l'account associato |
@@ -148,6 +148,10 @@ Prima di poter eseguire l'app per la logica, distribuire l'app da Visual Studio 
 
    ![Output dello stato di distribuzione](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   Se i connettori selezionati richiedono input utente, è possibile che in background venga aperta una finestra di PowerShell per richiedere le password o le chiavi private necessarie. Dopo avere immesso queste informazioni, la distribuzione continuerà.
+   
+   ![Finestra di PowerShell per la distribuzione](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   
    Al termine della distribuzione, l'app per la logica sarà attiva nel portale di Azure e controllerà il feed RSS in base alla pianificazione specificata (ogni minuto). 
    Se il feed RSS include nuovi elementi, l'app per la logica invia un messaggio di posta elettronica per ogni nuovo elemento. 
    In caso contrario, l'app per la logica attende l'intervallo successivo prima di controllare di nuovo. 

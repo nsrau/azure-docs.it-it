@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Ottenere la lunghezza delle frasi - Traduzione testuale, Python'
+title: 'Guida introduttiva: Ottenere la lunghezza delle frasi, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si identifica la lunghezza delle frasi nel testo usando l'API Traduzione testuale con Python.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 2b014f5b52249cf316889e5637e76ee7b7d23e91
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 73906c9b6f5164aff905c4f647d1b1b74a92587c
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125698"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648089"
 ---
-# <a name="quickstart-get-sentence-lengths-with-python"></a>Guida introduttiva: Ottenere la lunghezza delle frasi con Python
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-python"></a>Guida introduttiva: Ottenere la lunghezza delle frasi con l'API REST Traduzione testuale (Python)
 
 In questa guida introduttiva si identifica la lunghezza delle frasi nel testo usando l'API Traduzione testuale.
 

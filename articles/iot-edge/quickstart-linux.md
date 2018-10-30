@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 9683a33efba427e83b2ff27ec57d2d437c61d5ce
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: a774873872d4b41c4ef5c005946db6b2a1b4e39e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166277"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955275"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Linux x64
 
@@ -27,12 +27,11 @@ In questa guida introduttiva si apprende come:
 3. Installare e avviare il runtime IoT Edge nel dispositivo.
 4. Distribuire in remoto un modulo in un dispositivo IoT Edge.
 
-![Guida introduttiva sull'architettura][2]
+![Guida introduttiva sull'architettura](./media/quickstart-linux/install-edge-full.png)
 
-Questa guida introduttiva trasforma il computer o la macchina virtuale Linux in un dispositivo IoT Edge. È quindi possibile distribuire un modulo dal portale di Azure nel dispositivo. Il modulo distribuito in questa guida introduttiva è un sensore simulato che genera dati di temperatura, umidità e pressione. Le altre esercitazioni su Azure IoT Edge si basano sulle operazioni eseguite qui tramite la distribuzione di moduli che analizzano dati simulati per ottenere informazioni aziendali accurate. 
+Questa guida introduttiva trasforma il computer o la macchina virtuale Linux in un dispositivo IoT Edge. È quindi possibile distribuire un modulo dal portale di Azure nel dispositivo. Il modulo distribuito in questa guida introduttiva è un sensore simulato che genera dati di temperatura, umidità e pressione. Le altre esercitazioni su Azure IoT Edge si basano sulle operazioni eseguite qui tramite la distribuzione di moduli che analizzano dati simulati per ottenere informazioni aziendali accurate.
 
-Se non si ha una sottoscrizione di Azure attiva, creare un [account gratuito][lnk-account] prima di iniziare.
-
+Se non si ha una sottoscrizione di Azure attiva, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -43,7 +42,7 @@ Aggiungere l'estensione Azure IoT all'istanza di Cloud Shell.
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
-   
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Risorse cloud: 
@@ -51,7 +50,7 @@ Risorse cloud:
 * Un gruppo di risorse per la gestione di tutte le risorse usate in questa guida introduttiva. 
 
    ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
+   az group create --name IoTEdgeResources --location westus2
    ```
 
 Dispositivo IoT Edge:
@@ -64,9 +63,9 @@ Dispositivo IoT Edge:
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
-Iniziare la guida introduttiva creando l'hub IoT con l'interfaccia della riga di comando di Azure. 
+Iniziare la guida introduttiva creando l'hub IoT con l'interfaccia della riga di comando di Azure.
 
-![Creare un hub IoT][3]
+![Creare un hub IoT](./media/quickstart-linux/create-iot-hub.png)
 
 Per questa guida introduttiva è possibile usare il livello gratuito dell'hub IoT. Se l'hub IoT è già stato usato in passato ed già stato creato un hub gratuito, è possibile usarlo qui. Ogni sottoscrizione può avere un solo hub IoT gratuito. 
 
@@ -76,12 +75,12 @@ Il codice seguente crea un hub **F1** gratuito nel gruppo di risorse **IoTEdgeRe
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
-   Se si verifica un errore perché è già presente un hub gratuito nella sottoscrizione, modificare lo SKU in **S1**. 
+   Se si verifica un errore perché è già presente un hub gratuito nella sottoscrizione, modificare lo SKU in **S1**.
 
 ## <a name="register-an-iot-edge-device"></a>Registrare un dispositivo IoT Edge
 
-Registrare un dispositivo IoT Edge con l'hub IoT appena creato. 
-![Registrare un dispositivo][4]
+Registrare un dispositivo IoT Edge con l'hub IoT appena creato.
+![Registrare un dispositivo](./media/quickstart-linux/register-device.png)
 
 Creare un'identità del dispositivo per il dispositivo simulato in modo che possa comunicare con l'hub IoT. L'identità del dispositivo si trova nel cloud e si usa una stringa di connessione del dispositivo univoca per associare un dispositivo fisico a un'identità del dispositivo. 
 
@@ -101,11 +100,10 @@ Poiché i dispositivi IoT Edge si comportano e possono essere gestiti in modo di
 
 1. Copiare la stringa di connessione e salvarla. Usare questo valore per configurare il runtime IoT Edge nella sezione successiva. 
 
-
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Installare e avviare il runtime di IoT Edge
 
 Installare e avviare il runtime Azure IoT Edge nel dispositivo IoT Edge. 
-![Registrare un dispositivo][5]
+![Registrare un dispositivo](./media/quickstart-linux/start-runtime.png)
 
 Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. È costituito da tre componenti. Il **daemon di sicurezza IoT Edge** si avvia a ogni avvio di un dispositivo Edge ed esegue l' avvio del dispositivo avviando l'agente IoT Edge. L'**agente IoT Edge** semplifica la distribuzione e il monitoraggio di moduli nel dispositivo IoT Edge, tra cui l'hub di IoT Edge. L'**hub IoT Edge** gestisce le comunicazioni tra moduli nel dispositivo IoT Edge e tra il dispositivo e l'hub IoT. 
 
@@ -218,13 +216,13 @@ Il dispositivo IoT Edge è ora configurato. È pronto per eseguire i moduli dist
 ## <a name="deploy-a-module"></a>Distribuire un modulo
 
 Gestire il dispositivo Azure IoT Edge dal cloud per distribuire un modulo che invierà dati di telemetria all'hub IoT.
-![Registrare un dispositivo][6]
+![Registrare un dispositivo](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
-In questa guida introduttiva è stato creato un nuovo dispositivo IoT Edge, nel quale è stato installato il runtime di IoT Edge. È stato quindi usato il portale di Azure per eseguire il push di un modulo di IoT Edge da eseguire nel dispositivo senza dovere apportare modifiche al dispositivo stesso. In questo caso il modulo di cui è stato eseguito il push crea dati ambientali che è possibile usare per le esercitazioni. 
+In questa guida introduttiva è stato creato un nuovo dispositivo IoT Edge, nel quale è stato installato il runtime di IoT Edge. È stato quindi usato il portale di Azure per eseguire il push di un modulo di IoT Edge da eseguire nel dispositivo senza dovere apportare modifiche al dispositivo stesso. In questo caso il modulo di cui è stato eseguito il push crea dati ambientali che è possibile usare per le esercitazioni.
 
 Aprire di nuovo il prompt dei comandi nel dispositivo IoT Edge. Verificare che il modulo distribuito dal cloud sia in esecuzione nel dispositivo IoT Edge:
 
@@ -237,9 +235,8 @@ Aprire di nuovo il prompt dei comandi nel dispositivo IoT Edge. Verificare che i
 Visualizzare i messaggi inviati dal modulo tempSensor:
 
    ```bash
-   sudo iotedge logs tempSensor -f 
+   sudo iotedge logs tempSensor -f
    ```
-Dopo una disconnessione e un accesso, non è necessario usare *sudo* per il comando sopra citato.
 
 ![Visualizzare i dati dal modulo](./media/quickstart-linux/iotedge-logs.png)
 
@@ -247,16 +244,15 @@ Il modulo del sensore temperatura può attendere di connettersi all'hub di IoT E
 
 È anche possibile visualizzare la telemetria non appena arriva all'hub IoT usando l'[estensione Azure IoT Toolkit per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se si vuole continuare con le esercitazioni su IoT Edge, è possibile usare il dispositivo registrato e configurato in questa guida introduttiva. In caso contrario, è possibile eliminare le risorse di Azure create e rimuovere il runtime IoT Edge dal dispositivo. 
+Se si vuole continuare con le esercitazioni su IoT Edge, è possibile usare il dispositivo registrato e configurato in questa guida introduttiva. In caso contrario, è possibile eliminare le risorse di Azure create e rimuovere il runtime IoT Edge dal dispositivo.
 
 ### <a name="delete-azure-resources"></a>Eliminare le risorse di Azure
 
 Se la macchina virtuale e l'hub IoT sono stati creati in un nuovo gruppo di risorse, è possibile eliminare il gruppo e tutte le risorse associate. Se nel gruppo sono presenti risorse che si vuole conservare, eliminare solo le singole risorse che si vuole pulire. 
 
-Rimuovere il gruppo **IoTEdgeResources**. 
+Rimuovere il gruppo **IoTEdgeResources**.
 
    ```azurecli-interactive
    az group delete --name IoTEdgeResources 
@@ -299,27 +295,3 @@ Questa esercitazione costituisce un prerequisito per tutte le esercitazioni su I
 
 > [!div class="nextstepaction"]
 > [Filtrare dati dei sensori tramite una funzione di Azure](tutorial-deploy-function.md)
-
-
-
-<!-- Images -->
-[0]: ./media/quickstart-linux/cloud-shell.png
-[1]: ./media/quickstart-linux/view-module.png
-[2]: ./media/quickstart-linux/install-edge-full.png
-[3]: ./media/quickstart-linux/create-iot-hub.png
-[4]: ./media/quickstart-linux/register-device.png
-[5]: ./media/quickstart-linux/start-runtime.png
-[6]: ./media/quickstart-linux/deploy-module.png
-[7]: ./media/quickstart-linux/iotedged-running.png
-[8]: ./media/tutorial-simulate-device-linux/running-modules.png
-[9]: ./media/tutorial-simulate-device-linux/sensor-data.png
-
-
-<!-- Links -->
-[lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-account]: https://azure.microsoft.com/free
-[lnk-portal]: https://portal.azure.com
-[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-delete
-
-<!-- Anchor links -->
-[anchor-register]: #register-an-iot-edge-device

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 43aa74e7250f4825702e249032db1566346ab558
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 6ed3488218a5b813478fa18f7bb05dcfb07a319c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831212"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955152"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Rete per i set di scalabilità di macchine virtuali di Azure
 
@@ -50,10 +50,26 @@ La rete accelerata di Azure migliora le prestazioni di rete abilitando Single-Ro
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Creare un set di scalabilità che faccia riferimento a un'istanza di Azure Load Balancer esistente
 Quando viene creato un set di scalabilità usando il portale di Azure, viene creato un nuovo servizio di bilanciamento del carico per la maggior parte delle opzioni di configurazione. Se si crea un set di scalabilità, che deve fare riferimento a un servizio di bilanciamento del carico esistente, è possibile eseguire questa operazione tramite l'interfaccia della riga di comando. Lo script di esempio seguente crea un servizio di bilanciamento del carico e quindi crea un set di scalabilità che vi fa riferimento:
 ```bash
-az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
+az network lb create \
+    -g lbtest \
+    -n mylb \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --public-ip-address-allocation Static \
+    --backend-pool-name mybackendpool
 
-az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool
-
+az vmss create \
+    -g lbtest \
+    -n myvmss \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
+    --admin-username negat \
+    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --upgrade-policy-mode Automatic \
+    --instance-count 3 \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --lb mylb \
+    --backend-pool-name mybackendpool
 ```
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Creare un set di scalabilità che fa riferimento a un gateway applicazione
@@ -91,7 +107,7 @@ Per configurare server DNS personalizzati in un modello di Azure, aggiungere una
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Creazione di un set di scalabilità con nomi di dominio di macchine virtuali configurabili
-Per creare un set di scalabilità con un nome DNS personalizzato per le macchine virtuali usando l'interfaccia della riga di comando di Azure, aggiungere l'argomento **--vm-domain-name** al comando **vmss create**, facendo seguire l'argomento da una stringa che rappresenta il nome di dominio.
+Per creare un set di scalabilità con un nome DNS personalizzato per le macchine virtuali usando l'interfaccia della riga di comando di Azure, aggiungere l'argomento **--vm-domain-name** al comando di **creazione di set di scalabilità di macchine virtuali** , facendo seguire l'argomento da una stringa che rappresenta il nome di dominio.
 
 Per impostare il nome di dominio in un modello di Azure, aggiungere una proprietà **dnsSettings** alla sezione **networkInterfaceConfigurations** del set di scalabilità, Ad esempio: 
 
@@ -155,23 +171,35 @@ Per elencare gli indirizzi IP pubblici assegnati alle macchine virtuali del set 
 
 Per elencare gli indirizzi IP pubblici del set di scalabilità usando PowerShell, eseguire il comando _Get-AzureRmPublicIpAddress_, Ad esempio: 
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 È anche possibile eseguire una query sugli indirizzi IP pubblici facendo direttamente riferimento all'ID risorsa della configurazione degli indirizzi IP pubblici, Ad esempio: 
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-Per eseguire una query degli indirizzi IP pubblici assegnati alle macchine virtuali del set di scalabilità, usare [Azure Resource Explorer](https://resources.azure.com) o l'API REST di Azure con versione **2017-03-30** o successiva.
+È anche possibile visualizzare gli indirizzi IP pubblici assegnati alle macchine virtuali del set di scalabilità eseguendo una query di [Azure Resource Explorer](https://resources.azure.com) o dell'API REST di Azure con versione **2017-03-30** o successiva.
 
-Per visualizzare gli indirizzi IP pubblici per un set di scalabilità usando Resource Explorer, esaminare la sezione **publicipaddresses** sotto il set di scalabilità. Ad esempio: https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+Per eseguire una query di [Azure Resource Explorer](https://resources.azure.com):
 
-```
+1. Aprire [Azure Resource Explorer](https://resources.azure.com) in un Web browser.
+1. Per espandere *Sottoscrizioni* sul lato sinistro, fare clic su *+*. Se in *Sottoscrizioni* è elencato un solo elemento, potrebbe essere già espanso.
+1. Espandere la sottoscrizione.
+1. Espandere il gruppo di risorse.
+1. Espandere i *provider*.
+1. Espandere *Microsoft.Compute*.
+1. Espandere *virtualMachineScaleSets*.
+1. Espandere il set di scalabilità.
+1. Fare clic su *publicipaddresses*.
+
+Per eseguire una query nell'API REST di Azure:
+
+```bash
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
 ```
 
-Output di esempio:
+Esempio di output da [Azure Resource Explorer](https://resources.azure.com) e dall'API REST di Azure:
 ```json
 {
   "value": [
@@ -289,12 +317,14 @@ L'esempio seguente è un profilo di rete del set di scalabilità che mostra più
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>Gruppi di sicurezza di rete e gruppi di sicurezza delle applicazioni per set di scalabilità
+I [gruppi di sicurezza di rete](../virtual-network/security-overview.md) permettono di filtrare il traffico da e verso risorse di Azure in una rete virtuale di Azure usando le regole di sicurezza. I [gruppi di sicurezza delle applicazioni](../virtual-network/security-overview.md#application-security-groups) consentono di gestire la sicurezza di rete delle risorse di Azure e raggrupparle come estensione della struttura dell'applicazione.
+
 I gruppi di sicurezza di rete possono essere applicati direttamente a un set di scalabilità, aggiungendo un riferimento alla sezione della configurazione dell'interfaccia di rete delle proprietà delle macchine virtuali del set di scalabilità.
 
 I gruppi di sicurezza delle applicazioni possono essere specificati anche direttamente in un set di scalabilità, aggiungendo un riferimento alla sezione delle configurazioni IP dell'interfaccia di rete delle proprietà delle macchine virtuali del set di scalabilità.
 
 Ad esempio:  
-```
+```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
         {
@@ -334,6 +364,42 @@ Ad esempio:
     ]
 }
 ```
+
+Per verificare che il gruppo di sicurezza di rete sia associato al set di scalabilità, usare il comando `az vmss show`. L'esempio seguente usa `--query` per filtrare i risultati e mostra solo la relativa sezione dell'output.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].networkSecurityGroup
+
+[
+  {
+    "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/nsgName",
+    "resourceGroup": "myResourceGroup"
+  }
+]
+```
+
+Per verificare che il gruppo di sicurezza dell'applicazione sia associato al set di scalabilità, usare il comando `az vmss show`. L'esempio seguente usa `--query` per filtrare i risultati e mostra solo la relativa sezione dell'output.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].ipConfigurations[].applicationSecurityGroups
+
+[
+  [
+    {
+      "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/asgName",
+      "resourceGroup": "myResourceGroup"
+    }
+  ]
+]
+```
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle reti virtuali di Azure, vedere la [panoramica delle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md).

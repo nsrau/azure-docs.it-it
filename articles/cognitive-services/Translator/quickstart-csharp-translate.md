@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Tradurre testo - Traduzione testuale, C#'
+title: 'Guida introduttiva: Tradurre un testo, C# - Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale con C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 2b524591f3af32e566b0ca364626daf7aaf4ace2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: ffd46969bd7333d2422654c8683f66ff313706c2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318453"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648463"
 ---
-# <a name="quickstart-translate-text-with-c35"></a>Guida introduttiva: Tradurre testo con C&#35;
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Guida introduttiva: Tradurre un testo con l'API REST Traduzione testuale (C#)
 
 In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale.
 

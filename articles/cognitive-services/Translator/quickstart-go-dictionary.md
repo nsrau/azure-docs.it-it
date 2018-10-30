@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Trovare traduzioni alternative - Traduzione testuale, Go'
+title: 'Guida introduttiva: Trovare traduzioni alternative, Go - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 4ea21673c993c6dd9478f42bfee790b62317946f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 0c4872aaf222110a0044095040db08d0180e37c4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128877"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649636"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-go"></a>Guida introduttiva: Trovare traduzioni alternative ed esempi d'uso con Go
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-go"></a>Guida introduttiva: Trovare traduzioni alternative con l'API REST Traduzione testuale (Go)
 
 In questa guida introduttiva si trovano i dettagli relativi a possibili traduzioni alternative per un termine ed esempi d'uso di tali traduzioni usando l'API Traduzione testuale.
 

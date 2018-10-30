@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Compilare un progetto di rilevamento degli oggetti in C# - Servizio visione artificiale personalizzato'
+title: 'Esercitazione: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per C# - Servizio Visione personalizzata'
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 222a17f1d39bc52d1e5ff34e421d0203d80dd1bd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366914"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958502"
 ---
-# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Esercitazione: Usare l'API Servizio visione artificiale personalizzato per compilare un progetto di rilevamento degli oggetti con C#
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-c"></a>Esercitazione: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per C#
 
 Informazioni su come usare un'applicazione Windows di base che usa l'API Visione artificiale per creare un progetto di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app per Windows usando l'API Visione personalizzata.
 
@@ -33,7 +33,7 @@ Per compilare questo esempio sono necessari i pacchetti NuGet dell'SDK del Servi
 
 ## <a name="get-the-training-and-prediction-keys"></a>Ottenere le chiavi di training e di stima
 
-Per ottenere le chiavi usate in questo esempio, visitare la [pagina Web di Servizio visione artificiale personalizzato](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Account__ copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
+Per ottenere le chiavi usate in questo esempio, visitare la [pagina Web di Servizio visione artificiale personalizzato](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Accounts__ (Account) copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
 
 ![Immagine dell'interfaccia utente delle chiavi](./media/csharp-tutorial/training-prediction-keys.png)
 

@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: rilevare e incorniciare il viso in un'immagine - API Viso, C#"
+title: "Esercitazione: Rilevare e incorniciare i visi in un'immagine usando .NET SDK con C#"
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione viene creata un'app Windows che usa la funzione API Viso per rilevare e incorniciare il volto in un'immagine.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: pafarley
-ms.openlocfilehash: ba850c1d4f9d8018f333662eead56f8e91b3fbd7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df5e46270275ca08a8499607fbad4c1161382fab
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340954"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956495"
 ---
-# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>Esercitazione: Creare un'app WPF per rilevare e incorniciare i visi in un'immagine
+# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image-using-the-net-sdk"></a>Esercitazione: Creare un'app WPF per rilevare e incorniciare i visi in un'immagine con .NET SDK
 
 In questa esercitazione viene creata un'applicazione Windows Presentation Framework (WPF) che usa il servizio Viso tramite la rispettiva libreria client .NET. L'app rileva i visi in un'immagine, traccia una cornice intorno a ogni viso e visualizza una descrizione del viso sulla barra di stato. Il codice di esempio completo è disponibile su GitHub in [Detect and frame faces in an image on Windows](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample) (Rilevare e incorniciare i visi in un'immagine in Windows).
 

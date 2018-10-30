@@ -1,22 +1,23 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale in JavaScript in un browser con Speech SDK di Servizi cognitivi'
-titleSuffix: Microsoft Cognitive Services
-description: Informazioni sul riconoscimento vocale in JavaScript in un browser con Speech SDK di Servizi cognitivi
+title: "Guida introduttiva: Riconoscimento vocale in JavaScript in un browser con l'SDK del servizio Voce"
+titleSuffix: Azure Cognitive Services
+description: Informazioni sul riconoscimento vocale in JavaScript in un browser con l'SDK del servizio Voce
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 2667d398141b53c87328eec7b608c4f613c15ea4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: b01746c20dbef7726f129badac045c1fb440f602
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340274"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467464"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Guida introduttiva: Riconoscimento vocale in JavaScript in un browser con Speech SDK di Servizi cognitivi
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Guida introduttiva: Riconoscimento vocale in JavaScript in un browser con l'SDK del servizio Voce
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -25,7 +26,7 @@ L'applicazione si basa su Speech SDK di Servizi cognitivi Microsoft ([Download d
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una chiave di sottoscrizione per il servizio di riconoscimento vocale. Vedere [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md).
+* Una chiave di sottoscrizione per il servizio Voce. Vedere [Provare gratuitamente il servizio Voce](get-started.md).
 * Un PC o Mac con un microfono funzionante.
 * Un editor di testo.
 * Una versione corrente di Microsoft Edge o Chrome.

@@ -1,6 +1,6 @@
 ---
-title: Creare App Web di Azure con Ansible (anteprima)
-description: Informazioni su come usare Ansible per creare un'App Web con il runtime del contenitore Java 8 e Tomcat nel servizio App in Linux
+title: Creare app Web di Azure con Ansible (anteprima)
+description: Informazioni su come usare Ansible per creare un'app Web con il runtime di Java 8 e del contenitore Tomcat nel servizio app in Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Servizio app di Azure, App Web, Java
 author: tomarcher
@@ -8,29 +8,29 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 1899b1fc1e0a38d859fb3a7ce2153585579650f3
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 48b4c201b2b96bd4662e8c90be7298a4f418af53
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586667"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426556"
 ---
-# <a name="create-azure-app-service-web-apps-using-ansible-preview"></a>Creare app Web del servizio app di Azure con Ansible (anteprima)
-Le [app Web del servizio app di Azure ](https://docs.microsoft.com/azure/app-service/app-service-web-overview), o semplicemente app Web, sono un servizio per l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito tra .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
+# <a name="create-azure-app-service-web-apps-by-using-ansible-preview"></a>Creare app Web del servizio app di Azure con Ansible (anteprima)
+Le [app Web del servizio app di Azure ](https://docs.microsoft.com/azure/app-service/app-service-web-overview), o semplicemente app Web, consentono l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito &mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
 
-Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. Questo articolo illustra come usare Ansible per creare e un'App Web con runtime Java. 
+Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. Questo articolo illustra come usare Ansible per creare un'app Web usando il runtime di Java. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 - **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> In questa esercitazione, per eseguire i playbook di esempio seguenti è necessario Ansible 2.7. È possibile installare la versione RC 2.7 di Ansible eseguendo `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 verrà rilasciata a ottobre 2018. Successivamente, non sarà necessario specificare la versione qui perché la versione predefinita sarà 2.7. 
+> In questa esercitazione, per eseguire i playbook di esempio seguenti è necessario Ansible 2.7. È possibile installare la versione RC 2.7 di Ansible eseguendo `sudo pip install ansible[azure]==2.7.0rc2`. Dopo il rilascio di Ansible 2.7, non sarà necessario specificare la versione qui perché la versione predefinita sarà 2.7. 
 
 ## <a name="create-a-simple-app-service"></a>Creare un servizio app semplice
 In questa sezione viene presentato un playbook Ansible di esempio che definisce le seguenti risorse:
 - Gruppo di risorse, in cui verranno distribuiti l'app Web e il piano di servizio app
-- Un'App Web con il runtime del contenitore Java 8 e Tomcat nel servizio App in Linux
+- App Web con il runtime di Java 8 e del contenitore Tomcat nel servizio app in Linux
 
 ```
 - hosts: localhost
@@ -62,7 +62,7 @@ In questa sezione viene presentato un playbook Ansible di esempio che definisce 
               java_container: tomcat
               java_container_version: 8.5
 ```
-Salvare il sopracitato playbook come firstwebapp.yml.
+Salvare il playbook precedente come **firstwebapp.yml**.
 
 Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
 ```bash
@@ -84,17 +84,17 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0   
 ```
 
-## <a name="create-app-service-with-traffic-manager"></a>Creare un servizio app con Gestione traffico
-È possibile usare [Gestione traffico di Azure](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) per controllare il modo in cui le richieste dai client Web vengono distribuite alle app nel servizio app di Azure. Quando si aggiungono endpoint del servizio app a un profilo di Gestione traffico di Azure, quest'ultimo tiene traccia dello stato delle app del servizio app (in esecuzione, arrestate o eliminate) in modo da poter decidere quali di questi endpoint devono ricevere il traffico.
+## <a name="create-an-app-service-by-using-traffic-manager"></a>Creare un servizio app tramite Gestione traffico
+È possibile usare [Gestione traffico di Azure](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) per controllare il modo in cui le richieste dai client Web vengono distribuite alle app nel servizio app di Azure. Quando si aggiungono endpoint di servizio app a un profilo di Gestione traffico di Azure, Gestione traffico rileva lo stato delle app del servizio app. Lo stato può essere in esecuzione, arrestata ed eliminata. Gestione traffico può quindi decidere quali di questi endpoint devono ricevere il traffico.
 
 Nel servizio app un'app viene eseguita in un [piano di servizio app](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-). Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web. È possibile gestire il piano di servizio App e l'App Web in gruppi diversi.
+). Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web. È possibile gestire il piano di servizio app e l'app Web in gruppi diversi.
 
 In questa sezione viene presentato un playbook Ansible di esempio che definisce le seguenti risorse:
 - Gruppo di risorse, in cui verrà distribuito il piano di servizio app
 - Piano di servizio app
 - Gruppo di risorse secondario, in cui verrà distribuita l'app Web
-- Un'App Web con il runtime del contenitore Java 8 e Tomcat nel servizio App in Linux
+- App Web con il runtime di Java 8 e del contenitore Tomcat nel servizio app in Linux
 - Profilo di Gestione traffico
 - Endpoint di Gestione traffico, con sito Web creato
 
@@ -179,14 +179,14 @@ In questa sezione viene presentato un playbook Ansible di esempio che definisce 
       target_resource_id: "{{ webapp.webapps[0].id }}"
 
 ```
-Salvare il playbook precedente come webapp.yml o [scaricare il playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
+Salvare il playbook precedente come **webapp.yml** o [scaricare il playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
 
 Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
 ```bash
 ansible-playbook webapp.yml
 ```
 
-L'output generato dall'esecuzione del playbook Ansible indica che il piano di servizio app, l'app Web e il profilo di Gestione traffico sono stati creati correttamente:
+L'output generato dall'esecuzione del playbook Ansible indica che il piano di servizio app, l'app Web, il profilo di Gestione traffico e l'endpoint sono stati creati correttamente:
 ```
 TASK [Create resource group] ****************************************************************************
 changed: [localhost]

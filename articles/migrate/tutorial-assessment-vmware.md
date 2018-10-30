@@ -4,15 +4,15 @@ description: Questo articolo descrive come individuare e valutare le macchine vi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 10/24/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b2bb6636aef9e26a81988d344f04f23c23ea1622
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f468bac6f4d8c209fae51f0b84980dc8c611a29b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161880"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025888"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -44,7 +44,7 @@ Azure Migrate deve avere accesso ai server VMware per l'individuazione automatic
 - Tipo di utente: almeno un utente di sola lettura
 - Autorizzazioni: Data Center object (Oggetto data center) > Propagate to Child Object (Propaga a oggetto figlio), role=Read-only (ruolo=Sola lettura)
 - Dettagli: l'utente viene assegnato a livello di data center e ha accesso a tutti gli oggetti nel data center.
-- Per limitare l'accesso, assegnare il ruolo No access (Nessun accesso) con Propagate to Child Objects (Propaga a oggetti figlio) agli oggetti figlio (host vSphere, archivi dati, macchine virtuali e reti).
+- Per limitare l'accesso, assegnare il ruolo No access (Nessun accesso) con Propagate to Child Object (Propaga a oggetto figlio) agli oggetti figlio (host vSphere, archivi dati, macchine virtuali e reti).
 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
@@ -67,14 +67,20 @@ Accedere al [portale di Azure](https://portal.azure.com).
 Azure Migrate crea una macchina virtuale locale definita appliance dell'agente di raccolta. Questa macchina virtuale individua le macchine virtuali VMware locali e invia i relativi metadati al servizio Azure Migrate. Per configurare l'appliance dell'agente di raccolta, si scarica un file con estensione ova e si importa il file nel server vCenter locale per creare la macchina virtuale.
 
 1. Nel progetto di Azure Migrate fare clic su **Attività iniziali** > **Individua e valuta** > **Individua macchine virtuali**.
-2. in **Individua macchine virtuali** sono disponibili due opzioni per l'appliance: fare clic su **Scarica** per scaricare l'appliance appropriato in base alle proprie preferenze.
+2. In **Individua macchine virtuali** sono disponibili due opzioni per l'appliance: fare clic su **Scarica** per scaricare l'appliance appropriata in base alle proprie preferenze.
 
-    a. **Individuazione monouso:** l'appliance per questo modello comunica con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Per la raccolta dei dati sulle prestazioni delle macchine virtuali, si basa sui dati cronologici relativi alle prestazioni archiviati nel server vCenter e raccoglie la cronologia delle prestazioni dell'ultimo mese. In questo modello Azure Migrate raccoglie il contatore di media (anziché il contatore di picco) per ogni metrica, [altre informazioni] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Poiché si tratta di un'individuazione una tantum, le modifiche nell'ambiente locale non sono riflesse dopo che l'individuazione è stata completata. Per ottenere che le modifiche siano riflesse è necessario eseguire una nuova individuazione dello stesso ambiente nello stesso progetto.
+    a. **Individuazione una tantum:** l'appliance per questo modello comunica con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Per la raccolta dati sulle prestazioni delle macchine virtuali, si basa sui dati cronologici relativi alle prestazioni archiviati nel server vCenter e raccoglie la cronologia delle prestazioni dell'ultimo mese. In questo modello, Azure Migrate raccoglie un contatore relativo al valore medio (anziché un contatore del valore di picco) per ogni metrica ([ulteriori informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected)). Poiché si tratta di un'individuazione una tantum, le modifiche nell'ambiente locale non sono riflesse dopo che l'individuazione è stata completata. Per ottenere che le modifiche siano riflesse è necessario eseguire una nuova individuazione dello stesso ambiente nello stesso progetto.
 
     b. **Individuazione continua:** l'appliance per questo modello profila in modo continuo l'ambiente locale per raccogliere i dati di utilizzo in tempo reale per ogni macchina virtuale. In questo modello vengono raccolti i contatori di picco per ogni metrica (utilizzo della CPU, utilizzo della memoria e così via). Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per la raccolta dei dati sulle prestazioni. È possibile interrompere la profilatura continua in qualsiasi momento dall'appliance.
 
+    Si noti che l'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se vi è una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
+
+    1. Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare l'individuazione dall'appliance e quindi riavviarla. Ciò garantisce che le modifiche vengono aggiornate nel progetto Azure Migrate.
+
+    2. Eliminazione di macchine virtuali: a causa della modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
+
     > [!NOTE]
-    > La funzionalità di individuazione continua è disponibile in anteprima.
+    > La funzionalità di individuazione continua è disponibile in anteprima. È consigliabile utilizzare questo metodo, in quanto raccoglie dati granulari sulle prestazioni e consente un dimensionamento preciso.
 
 3. In **Copiare le credenziali del progetto** copiare l'ID e la chiave del progetto. Queste informazioni sono necessarie per configurare l'agente di raccolta.
 
@@ -91,6 +97,14 @@ Verificare che il file con estensione ova sia sicuro prima di distribuirlo.
 3. Il valore hash generato deve corrispondere a queste impostazioni.
 
 #### <a name="one-time-discovery"></a>Individuazione una tantum
+
+  Per OVA versione 1.0.9.15
+
+  **Algoritmo** | **Valore hash**
+  --- | ---
+  MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+  SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+  SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
   Per OVA versione 1.0.9.14
 
@@ -174,7 +188,7 @@ Importare il file scaricato nel server vCenter.
     - In **Collection scope** (Ambito raccolta) selezionare un ambito per l'individuazione delle macchine virtuali. L'agente di raccolta può individuare solo le macchine virtuali all'interno dell'ambito specificato. L'ambito può essere impostato su una cartella, un data center o un cluster, ma non deve contenere più di 1500 macchine virtuali. [Altre informazioni](how-to-scale-assessment.md) sul modo in cui è possibile individuare un ambiente più grande.
 
 7. In **Specify migration project** (Specificare il progetto di migrazione) specificare l'ID e la chiave del progetto di Azure Migrate copiati dal portale. Se questi valori non sono stati copiati, aprire il portale di Azure dalla macchina virtuale dell'agente di raccolta. Nella pagina **Panoramica** del progetto fare clic su **Individua macchine virtuali** e copiare i valori.  
-8. In **Visualizza lo stato della raccolta** monitorare lo stato di individuazione. Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sul tipo di dati raccolti dall'agente di raccolta di Azure Migrate.
+8. In **Visualizza lo stato della raccolta** monitorare lo stato di individuazione. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sul tipo di dati raccolti dall'agente di raccolta di Azure Migrate.
 
 > [!NOTE]
 > Come lingua del sistema operativo e lingua dell'interfaccia dell'agente di raccolta è supportato solo l'inglese (Stati Uniti).
@@ -186,7 +200,7 @@ Importare il file scaricato nel server vCenter.
 
 Per l'individuazione una tantum, il tempo di individuazione dipende dal numero di macchine virtuali da individuare. In genere, per 100 macchine virtuali, dopo che l'agente di raccolta termina l'esecuzione, è necessaria circa un'ora per completare la raccolta dei dati di configurazione e sulle prestazioni. È possibile creare le valutazioni (sia basate sulle prestazioni che come valutazioni locali) immediatamente dopo che l'individuazione è stata eseguita.
 
-Per l'individuazione continua, che è in fase di anteprima, l'agente di raccolta eseguirà la profilatura continua dell'ambiente locale e continuerà a inviare i dati sulle prestazioni ogni ora. È possibile esaminare i computer nel portale dopo un'ora dall'avvio del processo di individuazione. Si consiglia vivamente di attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni per le macchine virtuali.
+Per l'individuazione continua, che è in fase di anteprima, l'agente di raccolta eseguirà la profilatura continua dell'ambiente locale e continuerà a inviare i dati sulle prestazioni ogni ora. È possibile esaminare le macchine virtuali nel portale dopo un'ora dall'avvio del processo di individuazione. Si consiglia vivamente di attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni per le macchine virtuali.
 
 1. Nel progetto di migrazione fare clic su **Gestisci** > **Macchine virtuali**.
 2. Verificare che le macchine virtuali da individuare siano visualizzate nel portale.
@@ -273,7 +287,7 @@ Una valutazione può non avere a disposizione tutti i punti dati a causa di uno 
 - All'interno del periodo per cui viene calcolata la valutazione sono state create alcune VM. Questa situazione si verifica, ad esempio, se si crea una valutazione per la cronologia delle prestazioni dell'ultimo mese, ma solo una settimana prima sono state create alcune VM nell'ambiente. In questi casi, la cronologia delle prestazioni delle nuove VM non sarà disponibile per l'intero periodo.
 
 > [!NOTE]
-> Se la classificazione di attendibilità di una valutazione è inferiore a 4 stelle per il modello di impostazione una tantum è consigliabile modificare le impostazioni delle statistiche del server vCenter al livello 3, attendere per il periodo che deve essere considerato nella valutazione (1 giorno/1 settimana/1 mese) e quindi eseguire l'individuazione e la valutazione. Per il modello di individuazione continua attendere almeno un giorno perché l'appliance profili l'ambiente e quindi *ricalcolare* la valutazione. Se non è possibile applicare la soluzione indicata sopra, la determinazione della dimensione in base alle prestazioni potrebbe non essere affidabile ed è consigliabile passare a quella *come in locale* modificando le proprietà della valutazione.
+> Se la classificazione di attendibilità di una valutazione è inferiore a 4 stelle, per il modello di individuazione una tantum, è consigliabile modificare le impostazioni delle statistiche del server vCenter al livello 3, attendere per il periodo che deve essere considerato nella valutazione (1 giorno/1 settimana/1 mese) e quindi eseguire l'individuazione e la valutazione. Per il modello di individuazione continuo, attendere almeno un giorno perché l'appliance profili l'ambiente e quindi *ricalcolare* la valutazione. Se non è possibile applicare la soluzione indicata sopra, la determinazione della dimensione in base alle prestazioni potrebbe non essere affidabile ed è consigliabile passare a quella *come in locale* modificando le proprietà della valutazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

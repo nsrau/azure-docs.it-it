@@ -1,9 +1,9 @@
 ---
-title: Esempio di script di Azure PowerShell - OMS | Microsoft Docs
-description: Esempio di script di Azure PowerShell - OMS
+title: Esempio di script di Azure PowerShell - Log Analytics | Microsoft Docs
+description: Esempio di script di Azure PowerShell - Log Analytics
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 5befcb526f6337c05c33bb9b13aa1354ee046248
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 9798e07c9b19fbaf2c7bca161ea5d9d2b243a20a
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930369"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467328"
 ---
-# <a name="create-an-operations-management-suite-monitored-vm-with-powershell"></a>Creare una VM monitorata da Operations Management Suite con PowerShell
+# <a name="create-a-log-analytics-monitored-vm-with-powershell"></a>Creare una macchina virtuale monitorata da Log Analytics con PowerShell 
 
-Questo script consente di creare una macchina virtuale di Azure, installare l'agente Operations Management Suite (OMS) e registrare il sistema in un'area di lavoro OMS. Dopo l'esecuzione dello script, la macchina virtuale sarà visibile nella console di OMS. È anche necessario aggiornare la chiave dell'area di lavoro e l'ID area di lavoro OMS.
+Questo script consente di creare una macchina virtuale di Azure, installare l'agente Log Analytics e registrare il sistema in un'area di lavoro di Log Analytics. Dopo l'esecuzione dello script, la macchina virtuale sarà visibile nel Monitoraggio di Azure. È anche necessario aggiornare la chiave dell'area di lavoro e l'ID area di lavoro di Log Analytics.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -33,7 +33,7 @@ Questo script consente di creare una macchina virtuale di Azure, installare l'ag
 
 ## <a name="sample-script"></a>Script di esempio
 
-[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-detailed-oms.ps1 "Create VM OMS")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-detailed-oms.ps1 "Create VM Log Analytics")]
 
 ## <a name="clean-up-deployment"></a>Pulire la distribuzione
 
@@ -51,7 +51,7 @@ Questo script usa i comandi seguenti per creare la distribuzione. Ogni elemento 
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando apre anche la porta 80 e imposta le credenziali amministrative. |
-| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Aggiungere un'estensione di VM alla macchina virtuale. In questo caso, l'estensione dell'agente Operations Management Suite viene usata per installare l'agente OMS e registrare la VM in un'area di lavoro OMS. |
+| [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) | Aggiungere un'estensione di VM alla macchina virtuale. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Rimuove un gruppo di risorse e tutte le risorse contenute al suo interno. |
 
 ## <a name="next-steps"></a>Passaggi successivi

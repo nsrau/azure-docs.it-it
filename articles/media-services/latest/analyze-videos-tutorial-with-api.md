@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 96ed5c17501aeb195ee584ce6d41a84fc2118bac
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5bb840be119f5eac380c44e2cf45b3f73a9d981e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376653"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985710"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>Esercitazione: Analizzare i video con Servizi multimediali di Azure 
 
@@ -33,9 +33,6 @@ Questa esercitazione illustra come:
 > * Esecuzione dell'app
 > * Esaminare l'output
 > * Pulire le risorse
-
-> [!Note]
-> Usare il portale di Azure, come descritto in [Ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md), impostare l'account dei servizi multimediali a 10 Media Reserved Unit S3.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,6 +68,9 @@ L'esempio esegue le azioni seguenti:
 4. Invia il processo.
 5. Controlla lo stato del processo.
 6. Scarica i file risultanti dall'esecuzione del processo. 
+
+> [!NOTE]
+> Quando si usa un set di impostazioni di analisi video o audio, usare il portale di Azure per impostare l'account in modo che abbia 10 Media Reserved Units S3. Per altre informazioni, vedere [Panoramica del ridimensionamento dell'elaborazione multimediale](../previous/media-services-scale-media-processing-overview.md).
 
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>Iniziare a usare le API di Servizi multimediali con .NET SDK
 

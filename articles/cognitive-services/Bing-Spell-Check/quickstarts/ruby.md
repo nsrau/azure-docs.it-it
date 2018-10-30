@@ -10,16 +10,16 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 3fe8729a9e2524cc2ccda168a857d58664a98b10
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e75b8e8b23bbb8e49cb8d8ec55e42f6ffb204197
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801081"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023498"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-ruby"></a>Guida introduttiva all'API Controllo ortografico Bing con Ruby 
 
-Questo articolo spiega come usare l'[API Controllo ortografico Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) con Ruby. L'API Controllo ortografico restituisce un elenco di parole che non riconosce insieme a suggerimenti di parole sostitutive. In genere si invia il testo a questa API e quindi si effettuano le sostituzioni suggerite nel testo oppure si mostrano i suggerimenti all'utente dell'applicazione in modo che possa decidere se effettuare le sostituzioni. Questo articolo illustra come inviare una richiesta che contiene il testo "Hollo, wrld!" Le parole sostitutive suggerite sono "Hello" e "world".
+Questo articolo spiega come usare l'[API Controllo ortografico Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/) con Ruby. L'API Controllo ortografico restituisce un elenco di parole che non riconosce insieme a suggerimenti di parole sostitutive. In genere si invia il testo a questa API e quindi si effettuano le sostituzioni suggerite nel testo oppure si mostrano i suggerimenti all'utente dell'applicazione in modo che possa decidere se effettuare le sostituzioni. Questo articolo illustra come inviare una richiesta che contiene il testo "Hollo, wrld!" Le parole sostitutive suggerite sono "Hello" e "world".
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,7 +31,7 @@ Per eseguire il codice è necessario [Ruby 2.4](https://www.ruby-lang.org/en/dow
 
 1. Creare un nuovo progetto Ruby nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
+3. Sostituire il valore di `key` con una chiave di accesso valida per la sottoscrizione.
 4. Eseguire il programma.
 
 ```ruby
@@ -121,7 +121,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Esercitazione sul Controllo ortografico Bing](../tutorials/spellcheck.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Panoramica del Controllo ortografico Bing](../proof-text.md)
 - [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)

@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine - API Viso, Python"
+title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Python"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API Viso con Python per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: pafarley
-ms.openlocfilehash: 581c2a7d4508833647d4dbb9861000fddd75cde8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 76a9260d534057e3a03f8c8f1d7420329713ea80
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339582"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957276"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-python"></a>Guida introduttiva: Rilevare i visi in un'immagine con Python
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-python"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e Python
 
 In questa guida introduttiva si rileveranno i visi in un'immagine remota usando il servizio Viso. I visi rilevati vengono delimitati con rettangoli e in sovraimpressione vengono visualizzati il sesso e l'età di ogni persona. Per usare un'immagine locale, vedere la sintassi in [Visione artificiale: Analizzare un'immagine locale con Python](../../Computer-vision/QuickStarts/python-disk.md).
 

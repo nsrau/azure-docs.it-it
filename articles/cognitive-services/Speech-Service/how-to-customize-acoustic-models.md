@@ -1,19 +1,21 @@
 ---
-title: Creare un modello acustico con il servizio Voce - Servizi cognitivi di Azure
+title: 'Esercitazione: Creare un modello acustico con il servizio Voce'
+titlesuffix: Azure Cognitive Services
 description: Informazioni su come creare un modello acustico con il servizio Voce in Servizi cognitivi di Azure.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 39e591f6154573bb25fccc423ff63a82f282beaf
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017355"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466087"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Esercitazione: Creare un modello acustico personalizzato
 
@@ -33,7 +35,7 @@ Assicurarsi che l'account Servizi cognitivi sia collegato a una sottoscrizione a
 
 Per connettersi a una sottoscrizione del servizio Voce creata nel portale di Azure, selezionare **Connect existing subscription** (Connetti alla sottoscrizione esistente).
 
-Per informazioni sulla creazione di una sottoscrizione al servizio Voce nel portale di Azure, vedere [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md).
+Per informazioni sulla creazione di una sottoscrizione al servizio Voce nel portale di Azure, vedere [Provare gratuitamente il servizio Voce](get-started.md).
 
 ## <a name="prepare-the-data"></a>Preparare i dati
 
@@ -83,7 +85,7 @@ Per l'elenco completo delle lingue supportate per i modelli linguistici personal
 
 Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di testo normale. Ogni riga del file delle trascrizioni deve contenere il nome di uno dei file audio ed essere seguita dalla trascrizione corrispondente. Il nome del file deve essere separato dalla trascrizione mediante un carattere di tabulazione (\t).
 
-  Ad esempio:
+  Ad esempio: 
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -92,7 +94,7 @@ Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di 
 > [!NOTE]
 > La trascrizione deve presentare la codifica UTF-8 BOM (byte order mark).
 
-Alle trascrizioni viene applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune importanti normalizzazioni da effettuare _prima_ di caricare i dati nel servizio di riconoscimento vocale personalizzato. Per la lingua appropriata da usare durante la preparazione delle trascrizioni, vedere [Linee guida per la trascrizione per l'utilizzo del servizio Voce](prepare-transcription.md).
+Alle trascrizioni viene applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune importanti normalizzazioni da effettuare _prima_ di caricare i dati nel servizio Voce personalizzato. Per la lingua appropriata da usare durante la preparazione delle trascrizioni, vedere [Linee guida per la trascrizione per l'utilizzo del servizio Voce](prepare-transcription.md).
 
 Per eseguire i passaggi delle sezioni successive, usare il [portale del servizio Voce](https://cris.ai).
 
@@ -112,7 +114,7 @@ Nelle caselle **Transcriptions file (.txt)** (File di trascrizioni (.txt)) e **A
 
 Al termine del caricamento, tornare alla tabella **Acoustic Datasets** (Set di dati acustici). Viene visualizzata una voce corrispondente al set di dati acustico caricato. Tenere presente che alla voce è stato assegnato un ID univoco (GUID). Nei dati è indicato lo stato corrente, ovvero *NotStarted* (Non avviato) se è ancora in coda per l'elaborazione, *Running* (In esecuzione) se è in corso la convalida e *Complete* (Completato) quando i dati sono pronti per l'uso.
 
-La convalida dei dati consiste in una serie di controlli sui file audio per verificare il formato file, la durata e la frequenza di campionamento e sul file delle trascrizioni per verificare il formato del file ed eseguire alcune normalizzazioni del testo.
+La convalida dei dati consiste in una serie di controlli sui file audio per verificare il formato file, la lunghezza e la frequenza di campionamento e sul file delle trascrizioni per verificare il formato file ed eseguire alcune normalizzazione del testo.
 
 Quando lo stato è *Succeeded* (Riuscito), è possibile selezionare **Details** (Dettagli) per visualizzare il report della verifica dei dati acustici. Viene visualizzato il numero di espressioni che hanno superato o meno la verifica insieme ai dettagli per le espressioni non accettate. Nell'esempio nell'immagine seguente la verifica di due file WAV non è riuscita perché il formato audio non è corretto. In questo set di dati la frequenza di campionamento di un file è errata e il formato dell'altro file non è corretto.
 

@@ -1,25 +1,31 @@
 ---
-title: 'Guida introduttiva: Aggiornare una knowledge base in Java - QnA Maker'
+title: 'Guida introduttiva: Aggiornare una knowledge base in REST, Java - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Come aggiornare una knowledge base in Java per QnA Maker.
+description: Questa guida introduttiva basata su REST illustra come aggiornare a livello di codice la knowledge base QnA Maker di esempio. La definizione JSON usata per aggiornare una knowledge base consente di aggiungere, modificare o eliminare coppie di domande e risposte.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: fc2792086d93e584535389c8c0f162fc1e592cbd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b7aaf57def84feec95cc6a157ac6dd33a17b2fc0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388246"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645856"
 ---
-# <a name="update-a-knowledge-base-in-java"></a>Aggiornare una knowledge base in Java
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-java"></a>Guida introduttiva: Aggiornare una knowledge base in QnA Maker con Java
 
-Il codice seguente aggiorna una knowledge base esistente usando il metodo [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Questa guida introduttiva illustra come aggiornare a livello di codice una knowledge base QnA Maker esistente.  Con questo codice JSON è possibile aggiornare una knowledge base aggiungendo nuove origini dati oppure modificando o eliminando origini dati.
+
+Questa API è equivalente alla modifica e al successivo utilizzo del pulsante **Save and train** (Salva ed esegui training) nel portale di QnA Maker.
+
+In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) (Aggiornare): il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API. 
+* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Ottenere i dettagli dell'operazione)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 

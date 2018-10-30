@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36b9a2e710a2a7f34ee9374e89f3fb19cc591ac3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380132"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429593"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Esercitazione: Distribuire un'applicazione .NET in un contenitore Windows in Azure Service Fabric
 
@@ -61,7 +61,9 @@ Il contenitore è ora pronto per la compilazione e l'inserimento come pacchetto 
 ## <a name="create-an-azure-sql-db"></a>Creare un database SQL di Azure
 Quando si esegue l'applicazione Fabrikam Fiber CallCenter nell'ambiente di produzione, i dati devono essere salvati in modo permanente in un database. Al momento non c'è modo di garantire la persistenza dei dati in un contenitore, pertanto non è possibile archiviare i dati di produzione in SQL Server in un contenitore.
 
-È consigliabile usare [database SQL di Azure](/azure/sql-database/sql-database-get-started-powershell). Per configurare ed eseguire un database di SQL Server gestito in Azure, eseguire lo script seguente.  Modificare le variabili dello script in base alle necessità. *clientIP* è l'indirizzo IP del computer di sviluppo.  Se si è protetti da un firewall aziendale, l'indirizzo IP del computer di sviluppo potrebbe non essere l'indirizzo IP esposto a Internet.  È anche possibile impostare la regola del firewall del server per il database SQL tramite il [portale di Azure](https://portal.azure.com), che elenca l'indirizzo IP del computer in uso.
+È consigliabile usare [database SQL di Azure](/azure/sql-database/sql-database-get-started-powershell). Per configurare ed eseguire un database di SQL Server gestito in Azure, eseguire lo script seguente.  Modificare le variabili dello script in base alle necessità. *clientIP* è l'indirizzo IP del computer di sviluppo.
+
+Se si è protetti da un firewall aziendale, l'indirizzo IP del computer di sviluppo potrebbe non essere l'indirizzo IP esposto a Internet. Per verificare che il database abbia l'indirizzo IP corretto per la regola del firewall, passare al [portale di Azure](https://portal.azure.com) e trovare il database nella sezione Database SQL. Fare clic sul relativo nome e, nella sezione Panoramica, fare clic su "Imposta firewall server". "Indirizzo IP del client" è l'indirizzo IP del computer di sviluppo. Verificare che corrisponda all'indirizzo IP nella regola "AllowClient".
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -246,7 +248,7 @@ Remove-AzureRmResourceGroup -Name $clusterresourcegroupname
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Aggiungere un'applicazione esistente in un contenitore con Visual Studio

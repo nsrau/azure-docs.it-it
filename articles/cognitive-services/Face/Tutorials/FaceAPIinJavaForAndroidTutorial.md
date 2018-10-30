@@ -1,5 +1,5 @@
 ---
-title: "Esercitazione: Rilevare e incorniciare i visi in un'immagine - API Viso, Java per Android"
+title: "Esercitazione: Rilevare e incorniciare i visi in un'immagine con Android SDK"
 titleSuffix: Azure Cognitive Services
 description: In questa esercitazione viene creata una semplice app Android che usa l'API Viso per rilevare e incorniciare i visi in un'immagine.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 08344e21d4f425a021bdefe840390ede8b3fb01e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 99b2734745df722f45443b5347ae6dd054c8aa31
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342382"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957038"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Esercitazione: Creare un'app Android per rilevare e incorniciare i visi in un'immagine
 
@@ -173,7 +173,7 @@ Sostituire `<API endpoint>` con l'endpoint API assegnato alla chiave. Le chiavi 
 apiEndpoint = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
 ```
 
-Sostituire `<Subscription Key>` con la chiave di sottoscrizione. Ad esempio: 
+Sostituire `<Subscription Key>` con la chiave di sottoscrizione. Ad esempio:
 
 ```java
 subscriptionKey = "0123456789abcdef0123456789ABCDEF"

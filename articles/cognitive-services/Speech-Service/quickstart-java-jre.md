@@ -1,33 +1,34 @@
 ---
 title: 'Guida introduttiva: Riconoscimento vocale in Java (Windows o Linux)'
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in Java (Windows o Linux)
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 1f0c19524ebd59dcf0377cc173cd780d656ba447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339197"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467260"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Java su Windows o Linux con Speech SDK
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Guida introduttiva: Riconoscimento vocale in Java su Windows o Linux con l'SDK del servizio Voce
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In questo articolo, si crea un'applicazione console Java usando [Speech SDK](speech-sdk.md). Trascrizione riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione è compilata con il pacchetto Speech SDK Maven ed Eclipse Java IDE (v4.8) su Windows a 64 bit o Ubuntu Linux 16.04. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
+In questo articolo viene creata un'applicazione console Java con l'[SDK del servizio Voce](speech-sdk.md). Avviene la trascrizione del riconoscimento vocale in tempo reale dal microfono del PC. L'applicazione è compilata con il pacchetto Speech SDK Maven ed Eclipse Java IDE (v4.8) su Windows a 64 bit o Ubuntu Linux 16.04. Viene eseguito su un ambiente Java 8 runtime a 64 bit (JRE).
 
 > [!NOTE]
 > Per Speech Device SDK e il dispositivo Roobo, vedere [Speech Devices SDK](speech-devices-sdk.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Vedere [Prova il servizio di riconoscimento vocale gratuitamente](get-started.md) per i dettagli.
+È necessaria una chiave di sottoscrizione del servizio Voce per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Per informazioni dettagliate, vedere [Provare gratuitamente il servizio Voce](get-started.md).
 
 
 ## <a name="create-and-configure-project"></a>Creare e configurare un progetto
@@ -41,7 +42,7 @@ Se si utilizza Ubuntu 16.04, prima di avviare Eclipse eseguire i seguenti comand
 
 1. Avviare Eclipse.
 
-1. Nell’utilità di avvio di Eclipse, nel campo **Area di lavoro**, inserire il nome di una nuova directory dell’area di lavoro. Selezionare quindi **Avvio**.
+1. Nell'utilità di avvio di Eclipse, nel campo **Area di lavoro**, inserire il nome di una nuova directory dell'area di lavoro. Selezionare quindi **Avvio**.
 
    ![Screenshot dell'utilità di avvio di Eclipse](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
 
@@ -79,7 +80,7 @@ Se si utilizza Ubuntu 16.04, prima di avviare Eclipse eseguire i seguenti comand
 
    * Salvare le modifiche.
 
-## <a name="add-sample-code"></a>Aggiungere il codice di esempio
+## <a name="add-sample-code"></a>Aggiungere codice di esempio
 
 1. Per aggiungere una nuova classe vuota al progetto Java, selezionare **File** > **Nuovo** > **Classe**.
 

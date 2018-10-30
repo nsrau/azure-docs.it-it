@@ -1,23 +1,23 @@
 ---
 title: 'Guida introduttiva: Aggiornare una knowledge base in REST, C# - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Questa guida introduttiva illustra come aggiornare a livello di codice la knowledge base QnA Maker di esempio. La definizione JSON usata per aggiornare una knowledge base consente di aggiungere, modificare o eliminare coppie di domande e risposte.
+description: Questa guida introduttiva basata su REST illustra come aggiornare a livello di codice la knowledge base QnA Maker di esempio. La definizione JSON usata per aggiornare una knowledge base consente di aggiungere, modificare o eliminare coppie di domande e risposte.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 9fa57a02f11461a3ea9a08b7b1b101b143924037
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 463fb4bc1cfd6ba7a7fc4df2fcde53bda7767488
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801694"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648233"
 ---
-# <a name="quickstart-update-a-qna-maker-knowledge-base-in-c"></a>Guida introduttiva: Aggiornare una knowledge base QnA Maker in C#
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-c"></a>Guida introduttiva: Aggiornare una knowledge base in QnA Maker con C#
 
 Questa guida introduttiva illustra come aggiornare a livello di codice una knowledge base QnA Maker esistente.  Con questo codice JSON è possibile aggiornare una knowledge base aggiungendo nuove origini dati oppure modificando o eliminando origini dati.
 

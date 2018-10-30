@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ab79201442fe9c7334525972c34eba86daf27e99
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069098"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457426"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria
 
@@ -27,6 +27,9 @@ Questa esercitazione illustra come configurare il ripristino di emergenza in un'
 > * Verificare le impostazioni delle risorse di destinazione
 > * Configurare l'accesso in uscita per le macchine virtuali
 > * Abilitare la replica per una macchina virtuale
+
+> [!NOTE]
+> In questa esercitazione l'utente viene guidato nella procedura di abilitazione della replica, con una personalizzazione minima. Se si desidera approfondire i vari aspetti associati al ripristino di emergenza, incluse considerazioni sulla rete, automazione o risoluzione dei problemi, vedere i documenti relativi alle procedure per le macchine virtuali di Azure.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -193,7 +196,7 @@ Fare clic su 'Personalizza' accanto alle impostazioni di crittografia per esegui
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato configurato il ripristino di emergenza per una macchina virtuale di Azure. Il passaggio successivo consiste nel testare la configurazione.
+In questa esercitazione è stato configurato il ripristino di emergenza per una macchina virtuale di Azure. Il passaggio successivo consiste nel testare la configurazione avviando un'esercitazione sul ripristino di emergenza.
 
 > [!div class="nextstepaction"]
-> [Eseguire un'analisi del ripristino di emergenza](azure-to-azure-tutorial-dr-drill.md)
+> [Eseguire un'esercitazione sul ripristino di emergenza](azure-to-azure-tutorial-dr-drill.md)

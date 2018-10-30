@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 10/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff52c0fa647dd0e86b22bcfdf7af04062a135f94
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9f9464874230538bf2976b47896dae8e67c9744f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392806"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024393"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Esercitazione: Eseguire il rendering di una scena con Azure Batch 
 
@@ -31,7 +31,7 @@ In questa esercitazione si eseguirà il rendering di una scena 3ds Max usando il
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare le applicazioni di rendering in Batch con pagamento in base al consumo è necessaria una sottoscrizione con pagamento in base al consumo o un'altra opzione di acquisto di Azure. Le licenze con pagamento in base al consumo non sono supportate se si usa un'offerta gratuita di Azure che garantisce un credito monetario.
+Per usare le applicazioni di rendering in Batch con pagamento in base al consumo è necessaria una sottoscrizione con pagamento in base al consumo o un'altra opzione di acquisto di Azure. **Le licenze con pagamento in base al consumo non sono supportate se si usa un'offerta gratuita di Azure che offre un credito monetario.**
 
 La scena 3ds Max di esempio per questa esercitazione è disponibile in [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), insieme a uno script Bash di esempio e ai file di configurazione JSON. La scena 3ds Max proviene dai [file di esempio di Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). I file di esempio di Autodesk 3ds Max sono disponibili con una licenza con dicitura "Attribuzione - Non commerciale - Condividi allo stesso modo" di Creative Commons. Copyright © Autodesk, Inc.
 
@@ -175,7 +175,7 @@ az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2018-11-15
+    --expiry 2019-11-15
 ```
 
 Annotare il token restituito dal comando, che sarà simile al seguente. Questo token verrà usato in uno dei passaggi seguenti.
@@ -340,7 +340,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso a:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Caricare scene nell'archiviazione di Azure

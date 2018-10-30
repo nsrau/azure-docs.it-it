@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine - SDK, C#"
+title: "Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK con C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si rileveranno i visi in un'immagine usando la libreria client C# Viso per Windows in Servizi cognitivi.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344983"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954964"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Guida introduttiva: Rilevare i visi in un'immagine con C&#35; - Viso
+# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK con C#
 
 In questa guida introduttiva si rileveranno i visi in un'immagine usando la libreria client C# Viso per Windows.
 

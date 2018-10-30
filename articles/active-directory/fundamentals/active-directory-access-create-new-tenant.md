@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 custom: it-pro
-ms.openlocfilehash: 8ef68c8afcf61a1a11c341a679443071aece9812
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363004"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023550"
 ---
 # <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Guida introduttiva: Accedere ad Azure Active Directory per creare un nuovo tenant
 Nel portale di Azure Active Directory (Azure AD) è possibile eseguire tutte le attività amministrative, inclusa la creazione di un nuovo tenant per l'organizzazione. 
@@ -24,13 +24,6 @@ Nel portale di Azure Active Directory (Azure AD) è possibile eseguire tutte le 
 In questa guida introduttiva si apprenderà come accedere al portale di Azure e ad Azure Active Directory e come creare un tenant di base per l'organizzazione.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-
-## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare, è necessario:
-
-- Assicurarsi che l'organizzazione abbia una licenza di Azure AD valida.
-
-- Verificare di avere i privilegi di amministratore globale.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 Accedere al [portale di Azure](https://portal.azure.com/) dell'organizzazione con un account Amministratore globale.
@@ -76,3 +69,5 @@ Se non si intende continuare a usare questa applicazione, è possibile eliminare
 - Aggiungere gruppi e membri: vedere [Creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md)
 
 - Acquisire altre informazioni sull'[accesso in base al ruolo con Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) e sull'[accesso condizionale](../../role-based-access-control/conditional-access-azure-management.md) per gestire l'accesso alle risorse e alle applicazioni dell'organizzazione.
+
+- Acquisire altre informazioni su Azure AD, tra cui [informazioni di base sulle licenze, sulla terminologia e sulle funzionalità associate](active-directory-whatis.md).

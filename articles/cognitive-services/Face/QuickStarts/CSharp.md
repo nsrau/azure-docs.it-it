@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Rilevare i visi in un'immagine - API Viso, C#"
+title: "Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si userà l'API Viso con C# per rilevare i visi in un'immagine.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 080e616067bb0b8a640ded6faec184030314d79a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5a3b3e70a12f70874bf54e8f01a0f8baf3eec845
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341022"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954522"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-c"></a>Guida introduttiva: rilevare i visi in un'immagine con C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-c"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e C#
 
 In questa guida introduttiva si rileveranno i visi in un'immagine usando l'API Viso.
 

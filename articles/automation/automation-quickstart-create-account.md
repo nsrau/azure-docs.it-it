@@ -4,17 +4,17 @@ description: Informazioni su come creare un account di Automazione di Azure ed e
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 08/22/2018
+ms.date: 10/18/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 701d2c348e91efed17c8c7828ace920914093b5a
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616597"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426193"
 ---
 # <a name="create-an-azure-automation-account"></a>Creare un account di Automazione di Azure
 
@@ -32,7 +32,7 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
 
 1. Selezionare **Strumenti di gestione** e quindi selezionare **Automazione**.
 
-1. Immettere le informazioni account. Per **Crea un account RunAs di Azure** scegliere **Sì** per abilitare automaticamente gli elementi che consentono di semplificare l'autenticazione in Azure. Quando si crea un account di automazione, è importante notare che non è possibile modificarne il nome dopo che viene scelto. Al termine fare clic su **Crea**, per avviare la distribuzione dell'account di Automazione.
+1. Immettere le informazioni account. Per **Crea un account RunAs di Azure** scegliere **Sì** per abilitare automaticamente gli elementi che consentono di semplificare l'autenticazione in Azure. Quando si crea un account di automazione, è importante notare che non è possibile modificarne il nome dopo che viene scelto. Un account di Automazione può gestire le risorse in tutte le aree e le sottoscrizioni di uno specifico tenant. Al termine fare clic su **Crea**, per avviare la distribuzione dell'account di Automazione.
 
     ![Immettere le informazioni sull'account di Automazione nella pagina](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 

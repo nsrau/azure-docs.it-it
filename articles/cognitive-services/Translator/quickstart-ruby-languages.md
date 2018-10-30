@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Ottenere le lingue supportate - Traduzione testuale, Ruby'
+title: 'Guida introduttiva: Ottenere le lingue supportate, Ruby - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Ruby.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: f000d2c4c1519f26b4d82a36803b86f016716c5e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 02ebeae83464aa9770854fd06468b3731d6b8549
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46121839"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645270"
 ---
-# <a name="quickstart-get-supported-languages-with-ruby"></a>Guida introduttiva: Ottenere le lingue supportate con Ruby
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-ruby"></a>Guida introduttiva: Ottenere le lingue supportate con l'API REST Traduzione testuale (Ruby)
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale.
 

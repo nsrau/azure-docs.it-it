@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 56bd3ab61045ff99601ed50cd27332b370204795
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4d46a438708e2e72d625f5104293b4605f7b096d
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068027"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946080"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-online-using-dms"></a>Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure online con Servizio Migrazione del database
 È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza locale di SQL Server a [Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance.md) con tempi di inattività minimi. Per altri metodi che potrebbero richiedere un qualche intervento manuale, vedere [Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-migrate.md).
@@ -32,6 +32,10 @@ In questa esercitazione si apprenderà come:
 > * Creare un progetto di migrazione e avviare la migrazione online usando Servizio Migrazione del database di Azure.
 > * Monitorare la migrazione.
 > * Eseguire il cutover della migrazione quando si è pronti.
+
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+Questo articolo descrive una migrazione online da SQL Server a Istanza gestita di database SQL di Azure. Per una migrazione offline, vedere [Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure offline con Servizio Migrazione del database di Azure](tutorial-sql-server-to-managed-instance.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione, è necessario:

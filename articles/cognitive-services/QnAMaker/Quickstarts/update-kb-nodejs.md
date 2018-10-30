@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3bbc55b3bb064b2cf4b140a395e99209b71a5ce1
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1b92589fe01f171b732c04057dc290f0f32cb31a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816230"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647817"
 ---
-# <a name="quickstart-update-a-qna-maker-knowledge-base-in-nodejs"></a>Guida introduttiva: Aggiornare una knowledge base QnA Maker in Node.js
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-nodejs"></a>Guida introduttiva: Aggiornare una knowledge base in QnA Maker con Node.js
 
 Questa guida introduttiva illustra come aggiornare a livello di codice una knowledge base QnA Maker esistente.  Con questo codice JSON è possibile aggiornare una knowledge base aggiungendo nuove origini dati oppure modificando o eliminando origini dati.
 
@@ -43,7 +43,7 @@ Se non si ha ancora una knowledge base, è possibile crearne una di esempio da u
 
 Creare un file denominato `update-knowledge-base.js`.
 
-## <a name="add-the-required-dependencies"></a>Aggiungere le dipendenze obbligatorie
+## <a name="add-the-required-dependencies"></a>Aggiungere le dipendenze richieste
 
 All'inizio di `update-knowledge-base.js` inserire le righe seguenti per aggiungere le dipendenze necessarie al progetto:
 

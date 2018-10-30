@@ -17,14 +17,14 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4e0e28ff9ea14e42e1df7ce35bb90e8720a0d0b6
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 02b6823a46c94edb0ba28c7a2a8b9ae0efc44ae8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407298"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406093"
 ---
-# <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Creare una pipeline di CI/CD per il codice esistente con il progetto DevOps di Azure
+# <a name="tutorial--create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Esercitazione: Creare una pipeline di CI/CD per il codice esistente con il progetto DevOps di Azure
 
 Il progetto DevOps di Azure presenta un'esperienza semplificata in cui è possibile usare il codice e il repository Git esistente oppure scegliere una delle applicazioni di esempio per creare una pipeline di integrazione continua (CI) e distribuzione continua (CD) in Azure.
 
@@ -95,13 +95,13 @@ Il progetto DevOps di Azure configura automaticamente una pipeline CI/CD di Azur
 
 1. In questa visualizzazione **esaminare le diverse attività** per la pipeline di compilazione.  La compilazione esegue diverse attività, ad esempio il recupero delle origini dal repository Git, il ripristino delle dipendenze e la pubblicazione degli output usati per le distribuzioni.
 
-1. Nella parte superiore della pipeline di compilazione, selezionare il **nome della pipeline di compilazione**.
+1. Nella parte superiore della pipeline di compilazione selezionare il **nome della pipeline di compilazione**.
 
 1. Modificare il **nome** della pipeline di compilazione scegliendo un testo più descrittivo.  Selezionare **Salva e accoda** e quindi **Salva**.
 
 1. Sotto il nome della pipeline di compilazione selezionare **Cronologia**.  Verrà visualizzato un log di controllo delle modifiche recenti per la compilazione.  Azure DevOps Services tiene traccia di tutte le modifiche apportate alla pipeline di compilazione e consente di confrontare le versioni.
 
-1. Selezionare **Trigger**.  Progetto Azure DevOps ha creato automaticamente un trigger di CI e ogni commit nel repository avvia una nuova compilazione.  Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
+1. Selezionare **Trigger**.  Il progetto Azure DevOps ha creato automaticamente un trigger di integrazione continua e ogni commit nel repository avvia una nuova compilazione.  Facoltativamente, è possibile scegliere di includere o escludere rami dal processo di integrazione continua.
 
 1. Selezionare **Conservazione**.  In base allo scenario specifico, è possibile indicare i criteri per conservare o rimuovere un determinato numero di compilazioni.
 
@@ -125,7 +125,7 @@ Il progetto DevOps di Azure configura automaticamente una pipeline CI/CD di Azur
 
 ## <a name="configure-azure-application-insights-monitoring"></a>Configurare il monitoraggio di Azure Application Insights
 
-Con Azure Application Insights, è possibile monitorare facilmente le prestazioni e l'utilizzo dell'applicazione.  Il progetto DevOps di Azure ha configurato automaticamente una risorsa di Application Insights per l'applicazione.  È possibile configurare ulteriormente varie funzionalità di avviso e di monitoraggio in base alle esigenze.
+Con Azure Application Insights, è possibile monitorare facilmente le prestazioni e l'utilizzo dell'applicazione.  Il progetto Azure DevOps ha configurato automaticamente una risorsa di Application Insights per l'applicazione.  È possibile configurare ulteriormente varie funzionalità di avviso e di monitoraggio in base alle esigenze.
 
 1. Passare al dashboard del **progetto DevOps di Azure** nel portale di Azure.  In basso a destra del dashboard, scegliere il collegamento **Application Insights** per l'app.
 

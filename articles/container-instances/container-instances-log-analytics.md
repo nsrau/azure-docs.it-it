@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: 62457fe5b0336cb6ae6ac4fc63f4884ed14cf9d3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856038"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405600"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registrazione di istanze di contenitore con Azure Log Analytics
 
@@ -100,7 +100,7 @@ Si riceverà una risposta da Azure contenente i dettagli di distribuzione poco d
 
 Dopo aver distribuito il gruppo di contenitori, possono essere necessari diversi minuti (fino a 10) per la visualizzazione delle prime voci di log nel portale di Azure. Per visualizzare i log del gruppo di contenitori, aprire l'area di lavoro di Log Analytics e quindi:
 
-1. Nella panoramica dell'**area di lavoro OMS** selezionare **Ricerca log**
+1. Nella panoramica dell'**area di lavoro OMS** selezionare **Ricerca log**. Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.  
 1. In **Query di esempio per provare** selezionare il collegamento **Tutti i dati raccolti**
 
 Dovrebbero essere visibili vari risultati visualizzati dalla query`search *`. Se inizialmente non viene visualizzato alcun risultato, attendere qualche minuto e quindi selezionare il pulsante **Esegui** per eseguire nuovamente la query. Per impostazione predefinita, le voci di log vengono visualizzate nella visualizzazione "Elenco". Selezionare **Tabella** per visualizzare le voci di log in un formato più compresso. È quindi possibile espandere una riga per visualizzare il contenuto di una singola voce del log.

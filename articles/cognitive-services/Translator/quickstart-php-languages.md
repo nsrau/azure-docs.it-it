@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Ottenere le lingue supportate - Traduzione testuale, PHP'
+title: 'Guida introduttiva: Ottenere le lingue supportate, PHP - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con PHP.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 2924a61a31037fcf52986d250007b906ffb40b98
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: e208e66c906531bb084438539c76e0a07c3caa9a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128708"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647251"
 ---
-# <a name="quickstart-get-supported-languages-with-php"></a>Guida introduttiva: Ottenere le lingue supportate con PHP
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-php"></a>Guida introduttiva: Ottenere le lingue supportate con l'API REST Traduzione testuale (PHP)
 
 In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale.
 

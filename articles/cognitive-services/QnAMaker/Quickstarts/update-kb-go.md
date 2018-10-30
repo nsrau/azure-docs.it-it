@@ -1,25 +1,31 @@
 ---
-title: "Guida introduttiva: passare all'aggiornamento di Python nella knowledge base - QnA Maker"
+title: 'Guida introduttiva: Aggiornare una knowledge base in REST, Go - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Come aggiornare una knowledge base in Go per QnA Maker.
+description: Questa guida introduttiva basata su REST illustra come aggiornare a livello di codice la knowledge base QnA Maker di esempio. La definizione JSON usata per aggiornare una knowledge base consente di aggiungere, modificare o eliminare coppie di domande e risposte.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b447b77eb1fdd9135f7d15a791414d166194b2dd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5275184994dce446a7ca572a049f3860c4782139
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389310"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646882"
 ---
-# <a name="update-a-knowledge-base"></a>Aggiornare una knowledge base
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-go"></a>Guida introduttiva: Aggiornare una knowledge base in QnA Maker con Go
 
-Il codice seguente aggiorna una knowledge base esistente usando il metodo [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Questa guida introduttiva illustra come aggiornare a livello di codice una knowledge base QnA Maker esistente.  Con questo codice JSON è possibile aggiornare una knowledge base aggiungendo nuove origini dati oppure modificando o eliminando origini dati.
+
+Questa API è equivalente alla modifica e al successivo utilizzo del pulsante **Save and train** (Salva ed esegui training) nel portale di QnA Maker.
+
+In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) (Aggiornare): il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API. 
+* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Ottenere i dettagli dell'operazione)
 
 1. Creare un nuovo progetto Go nell'ambiente di sviluppo integrato preferito.
 2. Aggiungere il codice riportato di seguito.
@@ -191,7 +197,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Ottenere lo stato della richiesta
 
-È possibile chiamare il metodo [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) per controllare lo stato di una richiesta di creazione o aggiornamento di una knowledge base. Per informazioni sull'uso di questo metodo, vedere il codice di esempio per il metodo [Create](#Create) o [Update](#Update).
+È possibile chiamare il metodo [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) per controllare lo stato di una richiesta di creazione o aggiornamento di una knowledge base. Per informazioni sull'uso di questo metodo, vedere il codice di esempio per la guida introduttiva relativa alla [creazione](create-new-kb-go.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

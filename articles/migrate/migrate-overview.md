@@ -4,15 +4,15 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d2a8885ffb9148d408eff0e8a7d2ef09121e5359
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162039"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025637"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -29,16 +29,16 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- Attualmente è possibile valutare solo macchine virtuali (VM) VMware locali per la migrazione a VM di Azure. Le VM VMware devono essere gestite dal server vCenter (versione 5.5, 6.0 o 6.5).
+- È possibile valutare solo macchine virtuali (VM) VMware locali per la migrazione a Macchine virtuali di Azure. Le VM VMware devono essere gestite dal server vCenter (versione 5.5, 6.0 o 6.5).
 - Se si vogliono valutare VM Hyper-V e server fisici, usare [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) per Hyper-V e gli [strumenti dei partner](https://azure.microsoft.com/migration/partners/) per i computer fisici.
 - È possibile individuare fino a 1500 VM in una singola individuazione e fino a 1500 VM in un singolo progetto. È inoltre possibile valutare fino a 1500 VM in una singola valutazione.
-- Se si vuole eseguire l'individuazione di un ambiente di maggiori dimensioni, è possibile suddividere l'individuazione e creare più progetti. [Altre informazioni](how-to-scale-assessment.md). Azure Migrate supporta fino a 20 progetti per ogni sottoscrizione.
+- Se si vuole eseguire l'individuazione di un ambiente di maggiori dimensioni, è possibile suddividere l'individuazione e creare più progetti. [Altre informazioni](how-to-scale-assessment.md) Azure Migrate supporta fino a 20 progetti per ogni sottoscrizione.
 - Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
-- È possibile creare un progetto Azure Migrate solo nell'area geografica Stati Uniti. Ciò non impedisce di pianificare la migrazione a qualsiasi località di Azure di destinazione. L'area geografica del progetto di migrazione viene usata solo per l'archiviazione dei metadati individuati nell'ambiente locale. [Altre informazioni](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) sui metadati raccolti da Azure Migrate. I metadati raccolti vengono archiviati in una delle regioni dell'[area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) selezionata:
+-  È possibile creare un progetto Azure Migrate solo nell'area geografica Stati Uniti. È tuttavia possibile pianificare una migrazione in qualsiasi località di Azure di destinazione.
+    - Nell'area del progetto di migrazione vengono archiviati solo i metadati individuati dall'ambiente locale.
+    - I metadati vengono archiviati in una delle aree dell'area geografica di Azure, ovvero Stati Uniti centro-occidentali o Stati Uniti orientali.
+    - Se si usa la visualizzazione delle dipendenze con un'area di Azure di Log Analytics, questa verrà creata nella stessa area del progetto. 
 
-**Area geografica** | **Aree**
---- | ---
-Stati Uniti | Stati Uniti centro-occidentali, Stati Uniti orientali
 
 ## <a name="what-do-i-need-to-pay-for"></a>Costo del servizio
 
@@ -93,7 +93,7 @@ VM locale | Area di lavoro di Log Analytics | [TCP 443] | [Microsoft Monitoring 
 
 Dopo aver valutato i computer locali, è possibile usare alcuni strumenti per eseguire la migrazione.
 
-- **Azure Site Recovery**: è possibile usare Azure Site Recovery per eseguire la migrazione ad Azure. A tale scopo, [preparare i componenti di Azure](../site-recovery/tutorial-prepare-azure.md) necessari, che includono un account di archiviazione e una rete virtuale. In locale, [preparare l'ambiente VMware](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Dopo aver preparato tutto, configurare e abilitare la replica in Azure ed eseguire la migrazione delle VM. [Altre informazioni](../site-recovery/vmware-azure-tutorial.md).
+- **Azure Site Recovery**: è possibile usare Azure Site Recovery per eseguire la migrazione ad Azure. A tale scopo, [preparare i componenti di Azure](../site-recovery/tutorial-prepare-azure.md) necessari, che includono un account di archiviazione e una rete virtuale. In locale, [preparare l'ambiente VMware](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Dopo aver preparato tutto, configurare e abilitare la replica in Azure ed eseguire la migrazione delle VM. [Altre informazioni](../site-recovery/vmware-azure-tutorial.md)
 - **Migrazione del database di Azure**: se i computer locali eseguono un database come SQL Server, MySQL oppure Oracle, è possibile eseguirne la migrazione ad Azure usando [Servizio Migrazione del database di Azure](../dms/dms-overview.md).
 
 

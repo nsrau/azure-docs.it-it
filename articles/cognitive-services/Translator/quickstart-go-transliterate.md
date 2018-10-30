@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Convertire script di testo - Traduzione testuale, Go'
+title: 'Guida introduttiva: Convertire uno script di testo, Go - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale con Go.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: c4930e03f5d366eb3f21b44c5be90c20230065c3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: fd41eff65c312c125594bb3251f9c4fe74108eaf
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126752"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648361"
 ---
-# <a name="quickstart-transliterate-text-with-go"></a>Guida introduttiva: Traslitterare testo con Go
+# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-go"></a>Guida introduttiva: Traslitterare un testo con l'API REST Traduzione testuale (Go)
 
 In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale.
 

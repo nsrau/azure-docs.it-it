@@ -1,20 +1,21 @@
 ---
-title: 'Guida introduttiva: riconoscimento vocale in C# per .NET Framework in Windows con Speech SDK di Servizi cognitivi'
-titleSuffix: Microsoft Cognitive Services
-description: Informazioni sul riconoscimento vocale in C# per .NET Framework su Windows con Speech SDK di Servizi cognitivi
+title: "Guida introduttiva: Riconoscimento vocale in C# per .NET Framework su Windows con l'SDK del servizio Voce"
+titleSuffix: Azure Cognitive Services
+description: Informazioni sul riconoscimento vocale in C# per .NET Framework su Windows con l'SDK del servizio Voce
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 32b484451c4ee2264c25cca92b1d03d91b955a29
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 06d4a41a4a67d077f8d79eee68938dff65adf0e8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47053997"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468518"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-by-using-the-speech-sdk"></a>Guida introduttiva: riconoscimento vocale in C# per .NET Framework su Windows con Speech SDK | Microsoft Docs
 
@@ -24,7 +25,7 @@ In questo articolo, si crea un'applicazione console C# per .NET Framework su Win
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Consultare [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md) per informazioni dettagliate.
+È necessaria una chiave di sottoscrizione del servizio Voce per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Consultare [Provare gratuitamente il servizio Voce](get-started.md) per informazioni dettagliate.
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
@@ -36,7 +37,7 @@ In questo articolo, si crea un'applicazione console C# per .NET Framework su Win
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Nello stesso file, sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione del Servizio di riconoscimento vocale.
+1. Nello stesso file, sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione del servizio Voce.
 
 1. Inoltre, sostituire la stringa `YourServiceRegion` con l'[area](regions.md) associata alla sottoscrizione (ad esempio, `westus` per la sottoscrizione di valutazione gratuita).
 
@@ -46,13 +47,13 @@ In questo articolo, si crea un'applicazione console C# per .NET Framework su Win
 
 1. Compilare l'applicazione. Nella barra dei menu selezionare **Compila** > **Compila soluzione**. Il codice dovrebbe ora risultare compilato senza errori.
 
-    ![Screenshot dell'applicazione Visual Studio, con l'opzione Compila soluzione selezionata](media/sdk/qs-csharp-dotnet-windows-08-build.png "Compilazione riuscita")
+    ![Screenshot dell'applicazione Visual Studio, con l'opzione Compila soluzione evidenziata](media/sdk/qs-csharp-dotnet-windows-08-build.png "Compilazione completata")
 
-1. Avviare l’applicazione. Nella barra dei menu, selezionare **Debug** > **Avvia debug** o premere **F5**.
+1. Avviare l'applicazione. Nella barra dei menu, selezionare **Debug** > **Avvia debug** o premere **F5**.
 
-    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug selezionata](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Avviare l’applicazione per eseguire il debug")
+    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug evidenziata](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Avviare l'applicazione per eseguire il debug")
 
-1. Si apre una finestra della console che chiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale e trascritto in formato testo, che appare nella stessa finestra.
+1. Si apre una finestra della console che chiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. I contenuti vocali vengono trasmessi al servizio Voce e trascritti in un testo che viene visualizzato nella stessa finestra.
 
     ![Risultato sulla console dopo un riconoscimento riuscito](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Risultato sulla console dopo un riconoscimento riuscito")
 

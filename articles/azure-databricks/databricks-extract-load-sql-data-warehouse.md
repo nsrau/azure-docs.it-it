@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: c416937f98f6bcb49f86fce18213ca4ed349c513
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: cf71eb5e227003f7b9ee0c395d0bc04538e64cfa
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902060"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024887"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati tramite Azure Databricks
 
@@ -97,7 +97,7 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
     * Immettere un nome per il cluster.
     * Per questo articolo creare un cluster con il runtime **4.0**. 
-    * Assicurarsi di selezionare la casella di controllo **Terminate after ____ minutes of inactivity** (Termina dopo ___ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
+    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo ___ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
     
     Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
 
@@ -112,7 +112,7 @@ In questa sezione è possibile creare un account Azure Data Lake Store e associa
 
     Specificare i valori seguenti: 
      
-    |Proprietà  |DESCRIZIONE  |
+    |Proprietà  |Descrizione  |
     |---------|---------|
     |**Nome**     | Immettere un nome univoco per l'account Data Lake Store.        |
     |**Sottoscrizione**     | Selezionare la sottoscrizione di Azure nell'elenco a discesa.        |
@@ -192,7 +192,7 @@ Quando si esegue l'accesso a livello di codice è necessario specificare l'ID te
 
    ![ID tenant](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
 
-## <a name="upload-data-to-data-lake-store"></a>Caricare dati nell’Archivio Data Lake
+## <a name="upload-data-to-data-lake-store"></a>Caricare dati nell'Archivio Data Lake
 
 In questa sezione viene caricato un file di dati di esempio in Data Lake Store. Questo file viene usato in seguito in Azure Databricks per eseguire alcune trasformazioni. I dati di esempio (**small_radio_json.json**) usati in questa esercitazione sono disponibili in questo [repository di Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
@@ -438,7 +438,7 @@ Dopo aver concluso l'esecuzione per l'esercitazione è possibile terminare il cl
 Se non viene terminato manualmente, il cluster si arresterà automaticamente se è stata selezionata la casella di controllo **Terminate after __ minutes of inactivity** (Termina dopo ___ minuti di attività) durante la creazione del cluster. In tal caso, il cluster viene automaticamente arrestato se è rimasto inattivo per il tempo specificato.
 
 ## <a name="next-steps"></a>Passaggi successivi 
-Questa esercitazione ha illustrato come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un'area di lavoro di Azure Databricks

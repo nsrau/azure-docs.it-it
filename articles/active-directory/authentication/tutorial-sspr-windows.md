@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: fc4b2f153c89d4253bc3fdd9c5a49973baa38752
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310216"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430222"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione della password self-service di Azure AD dalla schermata di accesso
 
@@ -118,6 +118,8 @@ Se i criteri richiedono la combinazione Ctrl + Alt + Canc o se le notifiche dell
 Il log di controllo di Azure AD includerà informazioni sull'indirizzo IP e sul tipo di client in cui si è verificata la reimpostazione della password.
 
 ![Reimpostazione della password nella schermata di accesso di esempio nel log di controllo di Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+Se i computer Windows 10 sono protetti da un server proxy o da un firewall, deve essere consentito il traffico HTTPS (443) verso passwordreset.microsoftonline.com e ajax.aspnetcdn.com.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

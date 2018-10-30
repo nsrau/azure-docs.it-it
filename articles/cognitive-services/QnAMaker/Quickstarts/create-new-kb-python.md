@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: API Python - Creare knowledge base - QnA Maker'
+title: 'Guida introduttiva: Creare una knowledge base in REST, Python - QnA Maker'
 titlesuffix: Azure Cognitive Services
-description: Questa guida introduttiva illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
+description: Questa guida introduttiva basata su REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 2646cc39197145e797f61d0c2d9e6d944ed19351
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d8802f1d5188966d08ac6a5fc74d38a704925faf
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388460"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646331"
 ---
-# <a name="create-a-new-knowledge-base-in-python"></a>Creare una nuova knowledge base in Python
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con Python
 
 Questa guida introduttiva illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 

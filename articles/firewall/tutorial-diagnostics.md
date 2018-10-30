@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991046"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987433"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Esercitazione: Monitorare i log e le metriche di Firewall di Azure
 
@@ -51,11 +51,11 @@ Dopo aver completato questa procedura per abilitare la registrazione diagnostica
 5. In questo esempio Log Analytics archivia i log, quindi digitare **Firewall log analytics** come nome.
 6. Fare clic su **Invia a Log Analytics** per configurare l'area di lavoro. Per salvare i log di diagnostica è possibile anche usare l'hub eventi e un account di archiviazione.
 7. In **Log Analytics** fare clic su **Configura**.
-8. Nella pagina aree di lavoro OMS fare clic su **Crea nuova area di lavoro**.
-9. Nella pagina **Area di lavoro di Log Analytics** immettere **firewall-oms** come nome della nuova **Area di lavoro OMS**.
+8. Nella pagina delle aree di lavoro di Log Analytics fare clic su **Crea nuova area di lavoro**.
+9. Nella pagina **Area di lavoro di Log Analytics** immettere **firewall-oms** come nome della nuova **Area di lavoro di Log Analytics**.
 10. Selezionare la sottoscrizione, usare il gruppo di risorse del firewall esistente (**Test-FW-RG**), selezionare **Stati Uniti orientali** per la località e selezionare il piano tariffario **Gratuito**.
 11. Fare clic su **OK**.
-   ![Avvio del processo di configurazione][1]
+   ![Avvio del processo di configurazione][1] Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.  
 12. In **Log** fare clic su **AzureFirewallApplicationRule** e **AzureFirewallNetworkRule** per raccogliere i log per le regole di applicazione e di rete.
    ![Salvare le impostazioni di diagnostica][2]
 13. Fare clic su **Save**.
@@ -90,11 +90,13 @@ Per abilitare la registrazione diagnostica, eseguire la procedura seguente:
 È possibile visualizzare e analizzare i dati del log attività usando uno dei metodi seguenti:
 
 * **Strumenti di Azure**: recuperare le informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando (CLI) di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: se non si ha ancora un account [Power BI](https://powerbi.microsoft.com/pricing) , è possibile crearne uno di prova gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
+* **Power BI**: se non si ha ancora un account [Power BI](https://powerbi.microsoft.com/pricing), è possibile crearne uno di prova gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Visualizzare e analizzare i log delle regole di rete e di applicazione
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) raccoglie i file di log di contatori ed eventi. Include visualizzazioni e funzionalità di ricerca avanzate per analizzare i log.
+
+Per query di esempio di Log Analytics di Firewall di Azure, vedere [Azure Firewall Log Analytics samples](log-analytics-samples.md) (Esempi di Log Analytics di Firewall di Azure).
 
 È anche possibile connettersi all'account di archiviazione e recuperare le voci del log JSON per i log di accesso e delle prestazioni. Dopo avere scaricato i file JSON, è possibile convertirli in CSV e visualizzarli in Excel, PowerBI o un altro strumento di visualizzazione dei dati.
 

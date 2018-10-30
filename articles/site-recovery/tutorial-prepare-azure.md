@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4a92bfc9d682346c874ce91fc9835558402bae84
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1d9f84a176d4c2483c83e8961bf426e70933aaa2
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078988"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457154"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparare le risorse di Azure per la replica dei computer locali
 
@@ -21,13 +21,14 @@ ms.locfileid: "49078988"
 
 Questo articolo è la prima esercitazione di una serie che illustra come configurare il ripristino di emergenza per macchine virtuali locali. È utile se si vogliono proteggere VM VMware locali, VM Hyper-V o server fisici.
 
-Le esercitazioni sono progettate per illustrare il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. 
+> [!NOTE]
+> Le esercitazioni sono progettate per illustrare il percorso di distribuzione più semplice per uno scenario. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per istruzioni dettagliate, consultare la sezione **Procedure** per lo scenario corrispondente.
 
 Questo articolo spiega come preparare i componenti di Azure quando si vuole eseguire la replica di macchine virtuali locali (Hyper-V o VMware) o server fisici Windows/Linux in Azure. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Verificare che l'account Azure abbia le autorizzazioni di replica.
-> * Creare un account di archiviazione di Azure Le immagini delle macchine replicate sono archiviate al suo interno.
+> * Creare un account di archiviazione di Azure. Le immagini delle macchine replicate sono archiviate al suo interno.
 > * Creare un insieme di credenziali dei servizi di ripristino. Un insieme di credenziali contiene i metadati e le informazioni di configurazione per le macchine virtuali e altri componenti di replica.
 > * Configurare una rete di Azure. Le macchine virtuali di Azure create dopo il failover vengono aggiunte a questa rete di Azure.
 

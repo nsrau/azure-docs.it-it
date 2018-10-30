@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e10b5271caef5530c94cca73b3e2e1d435080676
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066922"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456183"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicare una macchina virtuale di Azure in un'altra area di Azure
 
@@ -24,7 +24,8 @@ Questa guida introduttiva illustra come replicare una macchina virtuale di Azure
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-
+> [!NOTE]
+> Scopo di questo articolo è illustrare a un nuovo utente l'esperienza Azure Site Recovery con le opzioni predefinite e una minima personalizzazione. Per maggiori informazioni sulle diverse impostazioni personalizzabili, vedere [l'esercitazione relativa all'abilitazione della replica per le macchine virtuali di Azure](azure-to-azure-tutorial-enable-replication.md).
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -33,22 +34,19 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 ## <a name="enable-replication-for-the-azure-vm"></a>Abilitare la replica per la macchina virtuale di Azure
 
 1. Nel portale di Azure fare clic su **Macchine virtuali** e selezionare la macchina virtuale che si vuole replicare.
-
 2. In **Operazioni** fare clic su **Ripristino di emergenza**.
-3. In **Configure disaster recovery** (Configura ripristino di emergenza)  >  **Area di destinazione** selezionare l'area di destinazione in cui si vuole eseguire la replica.
+3. In **Configura ripristino di emergenza** > **Area di destinazione** selezionare l'area di destinazione in cui si vuole eseguire la replica.
 4. Per questa guida introduttiva, accettare le altre impostazioni predefinite.
 5. Fare clic su **Abilitazione della replica**. Verrà avviato un processo per abilitare la replica per la macchina virtuale.
 
     ![abilitare la replica](media/azure-to-azure-quickstart/enable-replication1.png)
-
-
 
 ## <a name="verify-settings"></a>Verificare le impostazioni
 
 Al termine del processo di replica, è possibile controllare lo stato di replica, modificare le impostazioni di replica e testare la distribuzione.
 
 1. Nel menu della macchina virtuale fare clic su **Ripristino di emergenza**.
-2. È possibile verificare l'integrità della replica, i punti di ripristino creati e le aree di origine e di destinazione sulla mappa.
+2. È possibile verificare l'integrità della replica, i punti di ripristino creati, nonché le aree di origine e di destinazione sulla mappa.
 
    ![Stato della replica](media/azure-to-azure-quickstart/replication-status.png)
 
@@ -68,7 +66,7 @@ Per arrestare la replica, seguire questa procedura:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata replicata una singola macchina virtuale in un'area secondaria.
+In questa guida introduttiva è stata replicata una singola macchina virtuale in un'area secondaria. È ora possibile esplorare altre opzioni e provare a replicare un set di macchine virtuali di Azure usando un piano di ripristino.
 
 > [!div class="nextstepaction"]
 > [Configurare il ripristino di emergenza per macchine virtuali di Azure](azure-to-azure-tutorial-enable-replication.md)

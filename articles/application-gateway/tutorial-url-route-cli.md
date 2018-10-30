@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2402dd2adb27abb784c34a2a3569e8f6e4a60f77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f683d63683e903d947d0789a16a8efa48196d36a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954790"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026195"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Esercitazione: Instradare il traffico Web in base all'URL tramite l'interfaccia della riga di comando di Azure
 
@@ -30,10 +30,9 @@ In questa esercitazione si apprenderà come:
 > * Creare i listener, il mapping dei percorsi URL e le regole
 > * Creare i pool back-end scalabili
 
-
 ![Esempio di routing basato su URL](./media/tutorial-url-route-cli/scenario.png)
 
-Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](tutorial-url-route-powershell.md).
+Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](tutorial-url-route-powershell.md) oppure il [portale di Azure](create-url-route-portal.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -264,7 +263,7 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Configurare la rete

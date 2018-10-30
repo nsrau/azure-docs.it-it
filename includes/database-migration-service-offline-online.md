@@ -1,0 +1,2 @@
+> [!TIP]
+> Quando si esegue la migrazione di database in Azure con il Servizio Migrazione del database, è possibile eseguire una migrazione *offline* oppure *online*. Con una migrazione offline, i tempi di inattività dell'applicazione partono dall'inizio della migrazione. Con una migrazione online, il tempo di inattività è limitato al tempo di trasferimento al termine della migrazione. È consigliabile testare una migrazione offline per determinare se il tempo di inattività è accettabile. In caso contrario, eseguire una migrazione online.

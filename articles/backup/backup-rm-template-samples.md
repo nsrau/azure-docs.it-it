@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 04/18/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 0aac49be397f5e1c86fa834d341399775fd71cfa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 941357d0a8b7fb46a5c2dcebb70681452118f23f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607073"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406382"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modelli di Azure Resource Manager per Backup di Azure
 
@@ -31,6 +31,6 @@ La tabella seguente contiene collegamenti ai modelli di Azure Resource Manager d
 | [Creare criteri di backup giornaliero per le macchine virtuali IaaS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-daily-backup-policy-create) | Il modello consente di creare un insieme di credenziali dei servizi di ripristino e un criterio di backup giornaliero per il backup di macchine virtuali classiche e di Resource Manager.|
 | [Distribuire la macchina virtuale di Windows Server con backup abilitato](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | Il modello consente di creare una macchina virtuale di Windows Server e un insieme di credenziali dei servizi di ripristino con il criterio di backup predefinito abilitato.|
 |**Monitorare i processi di backup** |  |
-| [Usare Log Analytics OMS per monitorare Backup di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Il modello consente di distribuire il monitoraggio di OMS per Backup di Azure, che permette di monitorare i processi di backup e ripristino, gli avvisi di backup e l'archiviazione cloud usata negli insiemi di credenziali dei servizi di ripristino.|  
+| [Usare Log Analytics per monitorare Backup di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Il modello consente di distribuire il monitoraggio di Log Analytics per Backup di Azure, che permette di monitorare i processi di backup e ripristino, gli avvisi di backup e l'archiviazione cloud usata negli insiemi di credenziali dei servizi di ripristino.|  
 |   |   |
 

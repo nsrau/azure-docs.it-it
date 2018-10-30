@@ -1,20 +1,20 @@
 ---
 title: Eseguire ricerche con Mappe di Azure | Microsoft Docs
 description: Eseguire ricerche vicino a un punto di interesse con Mappe di Azure
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 761674c5839f0513532355116db07604f9e9d9dc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10fb30b77cc3cd18cbb6b3def9682349474fba71
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816821"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645815"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -116,11 +116,10 @@ L'API del controllo mappa è una pratica libreria client che consente di integra
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     Questo segmento inizializza l'API Controllo mappa per la chiave dell'account Mappe di Azure. Lo spazio dei nomi che contiene l'API e i componenti visivi correlati è denominato **Atlas**. **Atlas.Map** fornisce il controllo per una mappa Web visiva e interattiva.
 
 4. Salvare le modifiche al file e aprire la pagina HTML in un browser. Si tratta della mappa più semplice che è possibile creare chiamando **atlas.map** e usando la chiave dell'account.
@@ -148,14 +147,14 @@ Questa sezione illustra come usare l'API di ricerca di Mappe per trovare un punt
     var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. Tutte le funzioni nella mappa devono essere caricate dopo il caricamento della mappa. È possibile assicurare che questo avvenga inserendo tutte le funzioni della mappa nel blocco eventListener della mappa. Aggiungere le righe di codice seguenti per aggiungere un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) alla mappa e assicurare che la mappa venga caricata completamente prima di aggiungere funzionalità.
+3. Tutte le funzioni nella mappa devono essere caricate dopo il caricamento della mappa. È possibile assicurare che questo avvenga inserendo tutte le funzioni della mappa nel blocco eventListener della mappa. Aggiungere le righe di codice seguenti per aggiungere un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) alla mappa e assicurare che la mappa venga caricata completamente prima di aggiungere funzionalità.
     
     ```JavaScript
-         map.addEventListener("load", function() {
+         map.events.add("load", function() {
          });
     ```
 
-4. Aggiungere il blocco di script  **seguente nel listener di eventi del caricamento mappa** per creare la query. Viene usato il servizio di ricerca fuzzy, che è un'API di base del servizio di ricerca. Il servizio di ricerca fuzzy gestisce la maggior parte degli input fuzzy come qualsiasi combinazione di token di indirizzo e punto di interesse. Cerca nelle vicinanze le stazioni di benzina all'interno del raggio specificato. La risposta viene quindi analizzata in formato GeoJSON e convertita in punti di riferimento, che vengono aggiunti alla mappa come segnaposto. L'ultima parte dello script aggiunge i limiti della fotocamera per la mappa usando la proprietà [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) della mappa.
+4. Aggiungere il blocco di script seguente negli **eventi di caricamento mappa** per creare la query. Viene usato il servizio di ricerca fuzzy, che è un'API di base del servizio di ricerca. Il servizio di ricerca fuzzy gestisce la maggior parte degli input fuzzy come qualsiasi combinazione di token di indirizzo e punto di interesse. Cerca nelle vicinanze le stazioni di benzina all'interno del raggio specificato. La risposta viene quindi analizzata in formato GeoJSON e convertita in punti di riferimento, che vengono aggiunti alla mappa come segnaposto. L'ultima parte dello script aggiunge i limiti della fotocamera per la mappa usando la proprietà [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) della mappa.
 
     ```JavaScript
 
@@ -190,8 +189,8 @@ Questa sezione illustra come usare l'API di ricerca di Mappe per trovare un punt
             map.setCameraBounds({
                bounds: geojsonResponse.getGeoJsonResults().bbox,
                padding: 50
-            );
-        });
+            });
+    });
     ```
 5. Salvare il file **MapSearch.html** e aggiornare il browser. Ora la mappa è centrata su Seattle e punti di colore blu contrassegnano le posizioni delle stazioni di benzina nell'area.
 
@@ -246,7 +245,7 @@ La mappa creata finora analizza solo i dati di latitudine e longitudine per i ri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Creare un account con Mppe di Azure

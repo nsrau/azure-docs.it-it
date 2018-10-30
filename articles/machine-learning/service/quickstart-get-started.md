@@ -9,18 +9,20 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: 14bd85a23e2630a1cf2a8b5621d669c4c6748168
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376619"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456814"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Iniziare a usare Azure Machine Learning con il portale di Azure
 
 In questa guida introduttiva si usa il portale di Azure per creare un'area di lavoro di Azure Machine Learning. Questa area di lavoro rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning con il servizio Machine Learning. 
 
-In questa esercitazione:
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+
+Questa guida introduttiva spiega come:
 
 * Creare un'area di lavoro nella sottoscrizione di Azure.
 * Provarla con Python in un notebook di Azure e registrare i valori per più iterazioni.

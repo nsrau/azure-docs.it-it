@@ -1,6 +1,6 @@
 ---
-title: Creare e configurare un Database di Azure per MySQL con Ansible (anteprima)
-description: Informazioni su come usare Ansible per la creazione e la configurazione di un Database di Azure per MySQL
+title: Creare e configurare un server Database di Azure per MySQL con Ansible (anteprima)
+description: Informazioni su come usare Ansible per la creazione e la configurazione di un server Database di Azure per MySQL
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, mysql, database
 author: tomarcher
@@ -8,29 +8,29 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: 508274d11a9693d28a9b3a01bd6ebbd7198e8711
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: b549aeaf24bd774245ee1f2ff6924ac1f6dbeee3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586666"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427897"
 ---
-# <a name="create-and-configure-an-azure-database-for-mysql-server-using-ansible-preview"></a>Creare e configurare un database di Azure per MySQL con Ansible (anteprima)
-[Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/) è un servizio gestito che consente di eseguire, gestire e ridimensionare database MySQL a disponibilità elevata nel cloud. Questa guida introduttiva illustra come creare un server Database di Azure per MySQL in circa cinque minuti usando il portale di Azure. 
+# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible-preview"></a>Creare e configurare un server Database di Azure per MySQL con Ansible (anteprima)
+[Database di Azure per MySQL](https://docs.microsoft.com/azure/mysql/) è un servizio gestito che consente di eseguire, gestire e ridimensionare database MySQL a disponibilità elevata nel cloud. Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. 
 
-Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. Questo articolo illustra come usare Ansible per creare un Database di Azure per MySQL e configurarne la regola del firewall in cinque minuti. 
+Questa guida introduttiva illustra come usare Ansible per creare un server Database di Azure per MySQL e configurarne la regola del firewall. È possibile completare queste attività in circa cinque minuti usando il portale di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 - **Sottoscrizione di Azure** - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> In questa esercitazione, per eseguire i playbook di esempio seguenti è necessario Ansible 2.7. È possibile installare la versione RC 2.7 di Ansible eseguendo `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 verrà rilasciata a ottobre 2018. Successivamente, non sarà necessario specificare la versione qui perché la versione predefinita sarà 2.7.
+> In questa esercitazione, per eseguire i playbook di esempio seguenti è necessario Ansible 2.7. È possibile installare la versione RC 2.7 di Ansible eseguendo `sudo pip install ansible[azure]==2.7.0rc2`. Dopo il rilascio di Ansible 2.7, non sarà necessario specificare la versione qui perché la versione predefinita sarà 2.7.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.  
 
-L'esempio seguente crea un gruppo di risorse denominato **myResourceGroup** nella località **stati uniti orientali**.
+L'esempio seguente crea un gruppo di risorse denominato **myResourceGroup** nella posizione **eastus**:
 
 ```yml
 - hosts: localhost
@@ -44,15 +44,15 @@ L'esempio seguente crea un gruppo di risorse denominato **myResourceGroup** nell
         location: "{{ location }}"
 ```
 
-Salvare il sopracitato playbook come *rg.yml*. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
+Salvare il playbook precedente come **rg.yml**. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
 ```bash
 ansible-playbook rg.yml
 ```
 
-## <a name="create-mysql-server-and-database"></a>Creare un server MySQL e un database
-L'esempio seguente crea un server MySQL denominato **mysqlserveransible** e un Database di Azure per MySQL denominato **mysqldbansible**. Questo è un server per utilizzo base di generazione 5 con 1 vCore. Il valore di **mysqlserver_name** deve essere univoco. Vedere la [documentazione dei piani tariffari](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers) per comprendere i valori validi per area e livello. 
+## <a name="create-a-mysql-server-and-database"></a>Creare un server MySQL e un database
+L'esempio seguente crea un server MySQL denominato **mysqlserveransible** e un'istanza di Database di Azure per MySQL denominata **mysqldbansible**. Questo è un server per utilizzo base di generazione 5 con un vCore. 
 
-Immettere la propria `<server_admin_password>`:
+Il valore di **mysqlserver_name** deve essere univoco. Per comprendere i valori validi per area e livello, vedere la [documentazione dei piani tariffari](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers). Sostituire `<server_admin_password>` con una password.
 
 ```yml
 - hosts: localhost
@@ -84,15 +84,16 @@ Immettere la propria `<server_admin_password>`:
         name: "{{ mysqldb_name }}"
 ```
 
-Salvare il sopracitato playbook come *mysql_create.yml*. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
+Salvare il playbook precedente come **mysql_create.yml**. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
 ```bash
 ansible-playbook mysql_create.yml
 ```
 
-## <a name="configure-firewall-rule"></a>Configurare una regola del firewall
-Una regola del firewall a livello di server consente a un'applicazione esterna, ad esempio lo strumento della riga di comando **mysql** o MySQL Workbench, di connettersi al server tramite il firewall del servizio MySQL di Azure. L'esempio seguente crea una regola del firewall denominata **externalaccess** che consente connessioni da qualsiasi indirizzo IP esterno. 
+## <a name="configure-a-firewall-rule"></a>Configurare una regola del firewall
+Una regola del firewall a livello di server consente a un'applicazione esterna di connettersi al server tramite il firewall del servizio MySQL di Azure. Un esempio di applicazione esterna è lo strumento da riga di comando **mysql** o MySQL Workbench.
+L'esempio seguente crea una regola del firewall denominata **externalaccess** che consente connessioni da qualsiasi indirizzo IP esterno. 
 
-Immettere il proprio **startIpAddress** e **endIpAddress** con un intervallo di indirizzi IP corrispondenti alla posizione da cui si effettuerà la connessione: 
+Immettere i propri valori per **startIpAddress** e **endIpAddress**. Usare l'intervallo di indirizzi IP corrispondenti alla posizione da cui si effettuerà la connessione. 
 
 ```yml
 - hosts: localhost
@@ -117,22 +118,22 @@ Immettere il proprio **startIpAddress** e **endIpAddress** con un intervallo di 
 ```
 
 > [!NOTE]
-> Le connessioni al database di Azure per MySQL comunicano sulla porta 3306. Se si tenta di connettersi da una rete aziendale, il traffico in uscita sulla porta 3306 potrebbe non essere consentito. In questo caso, non è possibile connettersi al server a meno che il reparto IT non apra la porta 3306.
+> Le connessioni al database di Azure per MySQL comunicano sulla porta 3306. Se si tenta di connettersi da una rete aziendale, il traffico in uscita sulla porta 3306 potrebbe non essere consentito. In tal caso, non sarà possibile connettersi al server a meno che il reparto IT non apra la porta 3306.
 > 
 
-Per eseguire quest'attività, qui viene usato il modulo **azure_rm_resource** che consente l'uso diretto dell'API REST.
+Per eseguire questa attività viene qui usato il modulo **azure_rm_resource**, che consente di usare direttamente l'API REST.
 
-Salvare il sopracitato playbook come *mysql_firewall.yml*. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
+Salvare il playbook precedente come **mysql_firewall.yml**. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
 ```bash
 ansible-playbook mysql_firewall.yml
 ```
 
-## <a name="connect-to-the-server-using-command-line-tool"></a>Connettersi al server con lo strumento da riga di comando
-È possibile scaricare MySQL da [qui](https://dev.mysql.com/downloads/) e installarlo nel computer in uso. È anche possibile fare clic sul pulsante **Prova** negli esempi di codice o sul pulsante `>_` nella barra degli strumenti in alto a destra nel portale di Azure e avviare **Azure Cloud Shell**.
+## <a name="connect-to-the-server-by-using-the-command-line-tool"></a>Connettersi al server usando lo strumento da riga di comando
+È possibile [scaricare MySQL](https://dev.mysql.com/downloads/) e installarlo nel computer in uso. È anche possibile fare clic sul pulsante **Prova** negli esempi di codice o sul pulsante **>_** nella barra degli strumenti in alto a destra nel portale di Azure e aprire **Azure Cloud Shell**.
 
-Digitare i comandi seguenti: 
+Immettere i comandi seguenti: 
 
-1. Connettersi al server tramite lo strumento da riga di comando **mysql**:
+1. Connettersi al server usando lo strumento da riga di comando **mysql**:
 ```azurecli-interactive
  mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
 ```
@@ -185,7 +186,7 @@ Threads: 5  Questions: 559  Slow queries: 0  Opens: 96  Flush tables: 3  Open ta
 ```
 
 ## <a name="using-facts-to-query-mysql-servers"></a>Uso di fact per eseguire query su server MySQL
-L'esempio seguente esegue una query su uno o più server MySQL in **myResourceGroup** e successivamente su tutti i database sul server:
+L'esempio seguente esegue una query sui server MySQL in **myResourceGroup** e successivamente su tutti i database nei server:
 
 ```yml
 - hosts: localhost
@@ -213,13 +214,13 @@ L'esempio seguente esegue una query su uno o più server MySQL in **myResourceGr
         var: mysqldatabasefacts
 ```
 
-Salvare il sopracitato playbook come *mysql_query.yml*. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
+Salvare il playbook precedente come **mysql_query.yml**. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
 
 ```bash
 ansible-playbook mysql_query.yml
 ```
 
-Viene quindi visualizzato l'output seguente per il server MySQL: 
+Verrà quindi visualizzato l'output seguente per il server MySQL: 
 ```json
 "servers": [
     {
@@ -243,7 +244,7 @@ Viene quindi visualizzato l'output seguente per il server MySQL:
 ]
 ```
 
-Viene anche visualizzato l'output seguente per il database MySQL:
+Verrà inoltre visualizzato l'output seguente per il database MySQL:
 ```json
 "databases": [
     {
@@ -279,7 +280,7 @@ Viene anche visualizzato l'output seguente per il database MySQL:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se non sono necessarie queste risorse, è possibile eliminarle eseguendo l'esempio seguente. Viene cancellato un gruppo di risorse denominato **myResourceGroup**. 
+Se queste risorse non sono necessarie, è possibile eliminarle eseguendo l'esempio seguente. Viene cancellato un gruppo di risorse denominato **myResourceGroup**. 
 
 ```yml
 - hosts: localhost
@@ -292,12 +293,12 @@ Se non sono necessarie queste risorse, è possibile eliminarle eseguendo l'esemp
         state: absent
 ```
 
-Salvare il sopracitato playbook come *rg_delete*.yml. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
+Salvare il playbook precedente come **rg_delete.yml**. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
 ```bash
 ansible-playbook rg_delete.yml
 ```
 
-Se si vuole eliminare solo il server MySQL appena creato, è possibile farlo eseguendo lo script nell'esempio seguente:
+Se si vuole eliminare solo il server MySQL appena creato, eseguire l'esempio seguente:
 
 ```yml
 - hosts: localhost
@@ -312,7 +313,7 @@ Se si vuole eliminare solo il server MySQL appena creato, è possibile farlo ese
         state: absent
 ```
 
-Salvare il sopracitato playbook come *mysql_delete.yml*. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
+Salvare il playbook precedente come **mysql_delete.yml**. Per eseguire il playbook, usare il comando **ansible-playbook** come segue:
 ```bash
 ansible-playbook mysql_delete.yml
 ```

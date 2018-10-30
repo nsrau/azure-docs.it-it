@@ -3,7 +3,7 @@ title: Importare e pubblicare la prima API in Gestione API di Azure | Microsoft 
 description: Informazioni su come importare e pubblicare la prima API con Gestione API.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093403"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467396"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importare e pubblicare la prima API 
 
@@ -55,7 +55,7 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 
     Usare i valori della tabella seguente per creare la prima API.
 
-    |Impostazione|Valore|DESCRIZIONE|
+    |Impostazione|Valore|Descrizione|
     |---|---|---|
     |**Specifica OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Fa riferimento al servizio che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste.|
     |**Nome visualizzato**|*Demo Conference API*|Se si preme TAB dopo avere immesso l'URL del servizio, Gestione API compilerà questo campo in base al contenuto del file JSON. <br/>Questo nome viene visualizzato nel portale per sviluppatori.|
@@ -73,9 +73,11 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testare la nuova API di Gestione API nel portale di Azure
 
+![Mappa di test API](./media/api-management-get-started/01-import-first-api-01.png)
+
 È possibile chiamare le operazioni direttamente dal portale di Azure, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.  
 1. Selezionare l'API creata nel passaggio precedente nella scheda **API**.
-2. Fare clic sulla scheda **Test**.  ![Testare l'API](./media/api-management-get-started/test-api.png)
+2. Fare clic sulla scheda **Test**.
 3. Fare clic su **GetSpeakers**.
     La pagina visualizza i campi per i parametri di query, che in questo caso non esistono, e le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. La chiave viene compilata automaticamente.
 4. Fare clic su **Invia**.
@@ -87,7 +89,8 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 È anche possibile chiamare le operazioni dal **portale per sviluppatori** per testare le API.
 
 1. Passare al **portale per sviluppatori**.
-![Portale per sviluppatori](./media/api-management-get-started/developer-portal.png)
+
+ ![Portale per sviluppatori](./media/api-management-get-started/developer-portal.png)
 
 2. Selezionare **API**, fare clic su **Demo Conference API** (API Demo Conference) e quindi su **GetSpeakers**.
     
@@ -99,7 +102,7 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Importare la prima API

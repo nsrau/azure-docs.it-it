@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Trovare traduzioni alternative - Traduzione testuale, Python'
+title: 'Guida introduttiva: Trovare traduzioni alternative, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Python.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 9035f718dda4cd1a8b34aa72272cfa376be99cac
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: cb8f6addd9fa68cd5a4683f52621b05dcd25e7b4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122723"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646414"
 ---
-# <a name="quickstart-find-alternate-translations-and-usage-with-python"></a>Guida introduttiva: Trovare traduzioni alternative ed esempi d'uso con Python
+# <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-python"></a>Guida introduttiva: Trovare traduzioni alternative con l'API REST Traduzione testuale (Python)
 
 In questa guida introduttiva si trovano i dettagli relativi a possibili traduzioni alternative per un termine ed esempi d'uso di tali traduzioni usando l'API Traduzione testuale.
 

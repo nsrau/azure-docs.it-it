@@ -1,36 +1,29 @@
 ---
-title: Gestire condivisioni file di Azure con Azure Storage Explorer
-description: Informazioni su come usare Azure Storage Explorer per gestire File di Azure.
+title: Guida introduttiva per la gestione di condivisioni file di Azure con Azure Storage Explorer
+description: Questa guida introduttiva illustra come usare Azure Storage Explorer per gestire File di Azure.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: get-started-article
-ms.date: 02/27/2018
+ms.topic: quickstart
+ms.date: 10/18/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e8989cadd331021a3e35fc559421bbdd08f0b4fb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f86a86fd9858fcc6f0b78256da1e96effbcbe68c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521195"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944219"
 ---
-# <a name="manage-azure-file-shares-with-azure-storage-explorer"></a>Gestire condivisioni file di Azure con Azure Storage Explorer 
-[File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Questo articolo contiene tutte le informazioni essenziali sull'uso delle condivisioni file di Azure con [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Storage Explorer è un popolare strumento client per Windows, macOS e Linux. È possibile usare Storage Explorer per gestire condivisioni file di Azure e altre risorse di archiviazione.
+# <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Guida introduttiva: Creare e gestire condivisioni file di Azure con Azure Storage Explorer
+Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con Azure Storage Explorer. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
 
+Azure Storage Explorer è un popolare strumento client disponibile per Windows, macOS e Linux. È possibile usare Storage Explorer per gestire condivisioni file di Azure e altre risorse di archiviazione.
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+## <a name="prerequisites"></a>Prerequisiti
 Questa guida introduttiva richiede l'installazione di Storage Explorer. Per il download e l'installazione, visitare la pagina [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-
-In questo articolo viene spiegato come:
-
-> [!div class="checklist"]
-> * Creare un gruppo di risorse e un account di archiviazione
-> * Creare una condivisione file di Azure 
-> * Creare una directory
-> * Caricare un file
-> * Scaricare un file
-> * Creare e usare uno snapshot di condivisione
-
-Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 Non è possibile usare Storage Explorer per creare nuove risorse. Ai fini di questa dimostrazione, creare l'account di archiviazione nel [portale di Azure](https://portal.azure.com/). 
@@ -49,7 +42,7 @@ Ai fini di questa guida introduttiva, accedere con l'account Azure. Selezionare 
 ![Screenshot della finestra Microsoft Azure Storage Explorer - Connetti](./media/storage-how-to-use-files-storage-explorer/connect-to-azure-storage-1.png)
 
 ### <a name="create-a-file-share"></a>Creare una condivisione file
-Per creare la prima condivisione file di Azure nell'account di archiviazione *storageacct<random number>*:
+Per creare la prima condivisione file di Azure nell'account di archiviazione `storageacct<random number>`:
 
 1. Espandere l'account di archiviazione creato.
 2. Fare clic con il pulsante destro del mouse su **Condivisioni file** e quindi scegliere **Crea condivisione file**.  
@@ -57,13 +50,12 @@ Per creare la prima condivisione file di Azure nell'account di archiviazione *st
 
 3. Per la condivisione file immettere *myshare* e quindi premere INVIO.
 
-> [!IMPORTANT]  
-> I nomi delle condivisioni possono contenere solo lettere minuscole, numeri e trattini singoli (non possono però iniziare con un trattino). Per informazioni dettagliate su come denominare le condivisioni e i file, vedere [Naming and referencing shares, directories, files, and metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Denominazione e riferimento a condivisioni, directory, file e metadati).
+I nomi delle condivisioni possono contenere solo lettere minuscole, numeri e trattini singoli (non possono però iniziare con un trattino). Per informazioni dettagliate su come denominare le condivisioni e i file, vedere [Naming and referencing shares, directories, files, and metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata) (Denominazione e riferimento a condivisioni, directory, file e metadati).
 
 Al termine della creazione, nel riquadro destro viene visualizzata una scheda per la condivisione file. 
 
-## <a name="work-with-the-contents-of-an-azure-file-share"></a>Usare il contenuto di una condivisione file di Azure
-Dopo avere creato una condivisione file di Azure, è possibile montare la condivisione file con SMB in [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) o [macOS](storage-how-to-use-files-mac.md). In alternativa, è possibile usare la condivisione file di Azure con l'interfaccia della riga di comando di Azure. Rispetto al montaggio della condivisione file con SMB, l'uso dell'interfaccia della riga di comando di Azure è vantaggioso perché tutte le richieste effettuate con l'interfaccia della riga di comando di Azure vengono eseguite con l'API REST di File, che può essere usata per creare, modificare ed eliminare file e directory nei client senza accesso SMB.
+## <a name="use-your-azure-file-share"></a>Usare la condivisione file di Azure
+Dopo avere creato una condivisione file di Azure, è possibile montare la condivisione file con SMB in [Windows](storage-how-to-use-files-windows.md), [Linux](storage-how-to-use-files-linux.md) o [macOS](storage-how-to-use-files-mac.md). In alternativa, è possibile usare la condivisione file di Azure con Azure Storage Explorer. Rispetto al montaggio della condivisione file con SMB, l'uso di Azure Storage Explorer è vantaggioso perché tutte le richieste effettuate con Azure Storage Explorer vengono eseguite con l'API REST di File, che può essere usata per creare, modificare ed eliminare file e directory nei client senza accesso SMB.
 
 ### <a name="create-a-directory"></a>Creare una directory
 Una directory consente di strutturare in modo gerarchico una condivisione file di Azure. Nella directory è possibile creare più livelli. Prima di creare sottodirectory, tuttavia, è necessario assicurarsi che esistano le directory padre. Per il percorso myDirectory/mySubDirectory, ad esempio, è prima di tutto necessario creare la directory *myDirectory*. Si può quindi creare *mySubDirectory*. 
@@ -89,41 +81,12 @@ Per scaricare una copia di un file dalla condivisione file, fare clic con il pul
 
 Lo stato di avanzamento del download verrà visualizzato nel riquadro **Attività** nella parte inferiore della finestra.
 
-## <a name="create-and-modify-share-snapshots"></a>Creare e modificare gli snapshot di condivisione
-Uno snapshot mantiene una copia di una condivisione file di Azure eseguita in un momento specifico. Gli snapshot di una condivisione file sono simili ad altre tecnologie con cui probabilmente si ha già familiarità:
-- [Servizio Copia Shadow del volume](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) per i file system Windows, come NTFS e ReFS
-- Snapshot [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) per i sistemi Linux
-- Snapshot [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) per macOS
-
-Per creare uno snapshot di condivisione:
-
-1. Selezionare la scheda della condivisione file *myshare*.
-2. Nel menu in alto selezionare **Crea snapshot**. A seconda delle dimensioni della finestra di Storage Explorer, per visualizzare questa opzione potrebbe essere prima di tutto necessario selezionare **Altro**.  
-    ![Screenshot del pulsante Crea snapshot nel contesto](media/storage-how-to-use-files-storage-explorer/create-share-snapshot-1.png)
-
-### <a name="list-and-browse-share-snapshots"></a>Elencare ed esplorare gli snapshot di condivisione
-Dopo la creazione dello snapshot, per visualizzare l'elenco degli snapshot per la condivisione selezionare **View Snapshots for File Share** (Visualizza snapshot per la condivisione file). A seconda delle dimensioni della finestra di Storage Explorer, per visualizzare questa opzione potrebbe essere prima di tutto necessario selezionare **Altro**. Per esplorare uno snapshot di condivisione, fare doppio clic su di esso.
-
-![Screenshot della finestra per l'esplorazione degli snapshot](media/storage-how-to-use-files-storage-explorer/list-browse-snapshots-1.png)
-
-### <a name="restore-from-a-share-snapshot"></a>Eseguire il ripristino da snapshot di condivisione
-Per una dimostrazione del ripristino di un file da uno snapshot di condivisione, è prima di tutto necessario eliminare un file dalla condivisione file di Azure attiva. Passare alla cartella *myDirectory*, fare clic con il pulsante destro del mouse sul file caricato e quindi scegliere **Elimina**. Per ripristinare il file dallo snapshot di condivisione:
-
-1. Selezionare **View Snapshots for File Share** (Visualizza snapshot per la condivisione file). A seconda delle dimensioni della finestra di Storage Explorer, per visualizzare questa opzione potrebbe essere prima di tutto necessario selezionare **Altro**.
-2. Nell'elenco degli snapshot di condivisione fare clic sullo snapshot.
-3. Esplorare lo snapshot fino a trovare il file che è stato eliminato. Selezionare la condivisione file e quindi **Ripristina snapshot**. A seconda delle dimensioni della finestra di Storage Explorer, per visualizzare questa opzione potrebbe essere prima di tutto necessario selezionare **Altro**. Verrà visualizzata una finestra contenente un avviso che informa che il ripristino del file sovrascriverà il contenuto della condivisione file e non potrà essere annullato. Selezionare **OK**.
-4. Il file si troverà ora nella posizione originale nella condivisione file di Azure attiva.
-
-### <a name="delete-a-share-snapshot"></a>Eliminare uno snapshot di condivisione
-Per eliminare uno snapshot, passare all'[elenco degli snapshot di condivisione](#list-and-browse-share-snapshots). Fare clic con il pulsante destro del mouse sullo snapshot di condivisione che si vuole eliminare e quindi scegliere **Elimina**.
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Non è possibile usare Storage Explorer per rimuovere le risorse. Per eseguire la pulizia delle risorse di questa guida introduttiva, è possibile usare il [portale di Azure](https://portal.azure.com/). 
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Gestire condivisioni file con il portale di Azure](storage-how-to-use-files-portal.md)
-- [Gestire condivisioni file con Azure PowerShell](storage-how-to-use-files-powershell.md)
-- [Gestire condivisioni file con l'interfaccia della riga di comando di Azure](storage-how-to-use-files-cli.md)
-- [Pianificare la distribuzione di File di Azure](storage-files-planning.md)
+
+> [!div class="nextstepaction"]
+> [Che cos'è File di Azure?](storage-files-introduction.md)

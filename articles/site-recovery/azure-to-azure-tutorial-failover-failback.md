@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1c9af5c94aa05f60220080b779921a2c79c322f3
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067432"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456508"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Eseguire il failover e il failback delle macchine virtuali di Azure tra aree di Azure
 
@@ -26,13 +26,14 @@ Questa esercitazione descrive come eseguire il failover di una singola macchina 
 > * Eseguire il failover della macchina virtuale di Azure
 > * Riproteggere la macchina virtuale secondaria di Azure in modo che possa essere replicata nell'area primaria
 > * Eseguire il failback della macchina virtuale secondaria
-> * Riproteggere la macchina virtuale primaria anche nell'area secondaria
+> * Riprotteggere la macchina virtuale primaria anche nell'area secondaria
 
-
+> [!NOTE]
+> In questa esercitazione l'utente viene guidato nella procedura di failover in un'area di destinazione, seguita dal failback, con una personalizzazione minima. Se si desidera approfondire i vari aspetti associati al failover, incluse considerazioni sulla rete, automazione o risoluzione dei problemi, vedere i documenti relativi alle procedure per le macchine virtuali di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Assicurarsi di aver completato un'[analisi di ripristino di emergenza](azure-to-azure-tutorial-dr-drill.md) per verificare che tutto funzioni come previsto.
+- Assicurarsi di avere completato un'[analisi di ripristino di emergenza](azure-to-azure-tutorial-dr-drill.md) per verificare che tutto funzioni come previsto.
 - Verificare le proprietà della macchina virtuale prima di eseguire il failover di test. La macchina virtuale deve essere conforme ai [requisiti di Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>Eseguire un failover nell'area secondaria

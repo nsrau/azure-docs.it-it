@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Azure Resource Manager | Documentazione Microsoft
-description: Viene descritto come utilizzare Gestione risorse di Azure per la distribuzione, la gestione e il controllo dell’accesso delle risorse in Azure.
+description: Viene descritto come utilizzare Gestione risorse di Azure per la distribuzione, la gestione e il controllo dell'accesso delle risorse in Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 841f82595257c97c15398347a3e1605219d1a534
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394426"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954216"
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
 L'infrastruttura per l'applicazione è in genere costituita da vari componenti, ad esempio una macchina virtuale, un account di archiviazione e una rete virtuale oppure un'app Web, un database, un server di database e servizi di terze parti. Questi componenti non appaiono come entità separate, ma come parti correlate e interdipendenti di una singola entità e devono essere distribuite, gestite e monitorate come gruppo. Gestione risorse di Azure consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un modello; questo modello può essere usato per diversi ambienti, ad esempio di testing, staging e produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione. 
@@ -65,6 +65,30 @@ Per indicazioni su come le aziende possono usare Resource Manager per gestire ef
 
 Per consigli su come creare modelli di Resource Manager da usare in Azure a livello globale, nei cloud sovrani di Azure e in Azure Stack, vedere [Sviluppare modelli di Azure Resource Manager per la coerenza del cloud](templates-cloud-consistency.md).
 
+## <a name="quickstarts-and-tutorials"></a>Guide introduttive ed esercitazioni
+
+Usare le seguenti guide introduttive ed esercitazioni per imparare a sviluppare modelli di gestione risorse:
+
+- Guide introduttive
+
+    |Title|Descrizione|
+    |------|-----|
+    |[Usare il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)|Generare un modello usando il portale e il processo di modifica e distribuzione del modello.|
+    |[Usare Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Usare Visual Studio Code per creare e modificare modelli e come usare Azure Cloud Shell per distribuire i modelli.|
+    |[Usare Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Usare Visual Studio per creare, modificare e distribuire modelli.|
+
+- Esercitazioni
+
+    |Title|Descrizione|
+    |------|-----|
+    |[Utilizzare il riferimento del modello](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilizzare la documentazione di riferimento dei modelli per lo sviluppo di modelli. Nell'esercitazione, trovare lo schema dell'account di archiviazione e usare le informazioni per creare un account di archiviazione crittografato.|
+    |[Creare più istanze](./resource-manager-tutorial-create-multiple-instances.md)|Creare più istanze di risorse di Azure. Nell'esercitazione si creeranno più istanze dell'account di archiviazione.|
+    |[Impostare l'ordine di distribuzione delle risorse](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Definire le dipendenze delle risorse. Nell'esercitazione, verranno create una rete virtuale, una macchina virtuale e le risorse di Azure dipendenti. Si apprenderà come vengono definite le dipendenze.|
+    |[Usare le condizioni](./resource-manager-tutorial-use-conditions.md)|Distribuire le risorse basate su alcuni valori di parametro. Nell'esercitazione, si definisce un modello per creare un nuovo account di archiviazione oppure usarne uno esistente in base al valore di un parametro.|
+    |[Integrare Key Vault](./resource-manager-tutorial-use-key-vault.md)|Recuperare i segreti/le password di Azure Key Vault. Nell'esercitazione, verrà creata una macchina virtuale.  La password amministratore della macchina virtuale viene recuperata da un Key Vault.|
+    |[Creare modelli collegati](./resource-manager-tutorial-create-linked-templates.md)|Modularizzare i modelli e chiamare altri modelli da un modello. Nell'esercitazione, verranno create una rete virtuale, una macchina virtuale e le risorse dipendenti.  L'account di archiviazione dipendente è definito in un modello collegato. |
+    |[Usare procedure di distribuzione sicure](./deployment-manager-tutorial.md)|Usare Azure Deployment Manager. |
+
 ## <a name="resource-groups"></a>Gruppi di risorse
 Esistono alcuni fattori importanti da considerare quando si definisce il gruppo di risorse:
 
@@ -79,7 +103,7 @@ Esistono alcuni fattori importanti da considerare quando si definisce il gruppo 
 Quando si crea un gruppo di risorse è necessario specificarne il percorso. Perché un gruppo di risorse necessita di un percorso? E se le risorse possono avere percorsi diversi rispetto al gruppo di risorse, perché il percorso del gruppo di risorse è importante? Il gruppo di risorse archivia i metadati delle risorse. Quando si specifica un percorso per il gruppo di risorse, si specifica il percorso di archiviazione dei metadati. Per motivi di conformità potrebbe essere necessario assicurarsi che i dati siano archiviati in una determinata area.
 
 ## <a name="resource-providers"></a>Provider di risorse
-Ogni provider di risorse offre una serie di risorse e operazioni per l'uso di un servizio di Azure. Per archiviare chiavi e segreti sarà ad esempio necessario usare il provider di risorse **Microsoft.KeyVault** . Questo provider di risorse offre un tipo di risorsa denominato **vaults** per creare l'insieme di credenziali delle chiavi. 
+Ogni provider di risorse offre una serie di risorse e operazioni per l'uso di un servizio di Azure. Per archiviare chiavi e segreti sarà ad esempio necessario usare il provider di risorse **Microsoft.KeyVault**. Questo provider di risorse offre un tipo di risorsa denominato **vaults** per creare l'insieme di credenziali delle chiavi. 
 
 Il nome di un tipo di risorsa è nel formato: **{resource-provider}/{resource-type}**. Ad esempio, il tipo di insieme di credenziali delle chiavi è **Microsoft.KeyVault/vaults**.
 
@@ -214,9 +238,9 @@ Per l'elenco completo dei ruoli e delle azioni consentite, vedere [Controllo deg
 
 In alcuni casi è necessario eseguire codice o uno script che acceda alle risorse, ma non con le credenziali di un utente. Si vuole invece creare un'identità chiamata "entità servizio" per l'applicazione e assegnare il ruolo appropriato per l'entità servizio. Resource Manager consente di creare le credenziali per l'applicazione e di autenticarla a livello di codice. Per altre informazioni sulla creazione di entità servizio, vedere uno degli argomenti seguenti:
 
-* [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](resource-group-authenticate-service-principal.md)
+* [Usare Azure PowerShell per creare un'entità servizio per accedere alle risorse](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Usare l'interfaccia della riga di comando di Azure per creare un'entità servizio per accedere alle risorse](resource-group-authenticate-service-principal-cli.md)
-* [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che accedono alle risorse](resource-group-create-service-principal-portal.md)
+* [Usare il portale per creare un'applicazione Azure Active Directory e un'entità servizio che accedono alle risorse](../active-directory/develop/howto-create-service-principal-portal.md)
 
 È anche possibile bloccare in modo esplicito le risorse critiche per impedire agli utenti di eliminarle o modificarle. Per altre informazioni, vedere [Bloccare le risorse con Gestione risorse di Azure](resource-group-lock-resources.md).
 
@@ -245,7 +269,7 @@ Per informazioni sull'uso di questi linguaggi con le proprie risorse, vedere:
 * [Azure for Python developers](/python/azure/) (Azure per sviluppatori Python)
 
 > [!NOTE]
-> Se l'SDK non offre le funzionalità necessarie, è anche possibile chiamare direttamente l' [API REST di Azure](https://docs.microsoft.com/rest/api/resources/) .
+> Se l'SDK non offre le funzionalità necessarie, è anche possibile chiamare direttamente l' [API REST di Azure](https://docs.microsoft.com/rest/api/resources/).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638025"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470864"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Accedere a un lab in Azure DevTest Labs
 Questa esercitazione descrive come usare il lab creato in [Esercitazione: Creare un lab in Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -57,6 +57,10 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
     ![Connettersi alla macchina virtuale](./media/tutorial-use-custom-lab/connect-button.png)
 2. Salvare il file **RDP** scaricato nel disco rigido e usarlo per connettersi alla macchina virtuale. Specificare il nome utente e la password indicati quando è stata creata la VM nella sezione precedente. 
+
+    > [!NOTE] 
+    > Per connettersi a una VM Linux, è necessario abilitare l'accesso SSH e/o RDP alla macchina virtuale. Per la procedura di connessione a una VM Linux tramite RDP, vedere [Installare e configurare Desktop remoto per connettersi a una VM Linux di Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
 
 ## <a name="unclaim-the-vm"></a>Annullare la richiesta della VM
 Dopo aver terminato di usare la VM, annullarne la richiesta seguendo questa procedura: 

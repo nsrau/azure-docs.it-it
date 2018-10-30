@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: 71cbf0bb31a72e3b257f25c159d9d9eea31dbfbb
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901619"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406467"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurare un'app Python per il Servizio app di Azure in Linux
 
@@ -74,10 +74,16 @@ Se il modulo principale dell'app è contenuto in un file diverso, usare un nome 
 
 ### <a name="custom-startup-command"></a>Comando di avvio personalizzato
 
-È possibile controllare il comportamento di avvio del contenitore specificando un comando di avvio Gunicorn personalizzato. Ad esempio, se si ha un'app Flask il cui modulo principale è *hello.py* e l'oggetto app Flask è denominato `myapp`, il comando sarà come segue:
+È possibile controllare il comportamento di avvio del contenitore specificando un comando di avvio Gunicorn personalizzato. Ad esempio, se si ha un'app Flask il cui modulo principale è *hello.py* e l'oggetto app Flask in tale file è denominato `myapp`, il comando sarà come segue:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
+```
+
+Se il modulo principale è contenuto in una sottocartella, ad esempio `website`, specificare tale cartella con l'argomento `--chdir`:
+
+```bash
+gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
 È anche possibile aggiungere altri argomenti per Gunicorn al comando, ad esempio `--workers=4`. Per altre informazioni, vedere l'articolo relativo all'[esecuzione di Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
@@ -105,9 +111,10 @@ Se il servizio app non trova un comando personalizzato, un'app Django o un'app F
 
 - **Dopo avere distribuito il codice app personalizzato viene visualizzata l'app predefinita.**  L'app predefinita viene visualizzata perché il codice app personalizzato non è stato distribuito effettivamente nel servizio app o perché il servizio app non è riuscito a trovare il codice app personalizzato e ha quindi eseguito l'app predefinita.
   - Riavviare il servizio app, attendere 15-20 secondi e verifica di nuovo l'app.
-  - Usare SSH o la console Kudu per connettersi direttamente al servizio app e verificare che i file siano presenti in *site/wwwroot*. Se i file non sono presenti, controllare il processo di distribuzione e ridistribuire l'app.
+  - Assicurarsi di usare il servizio app per Linux anziché un'istanza basata su Windows. Dall'interfaccia della riga di comando di Azure, eseguire il comando `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`, sostituendo `<resource_group_name>` e `<app_service_name>` di conseguenza. L'output dovrebbe essere `app,linux`; in caso contrario, creare di nuovo il servizio app e scegliere Linux.
+    - Usare SSH o la console Kudu per connettersi direttamente al servizio app e verificare che i file siano presenti in *site/wwwroot*. Se i file non sono presenti, controllare il processo di distribuzione e ridistribuire l'app.
   - Se i file sono presenti, il servizio app non è riuscito a identificare il file di avvio specifico. Verificare che l'app sia strutturata come prevista dal servizio app per [Django](#django-app) o [Flask](#flask-app) oppure usare un [comando di avvio personalizzato](#custom-startup-command).
-
+  
 - **Nel browser viene visualizzato il messaggio "Servizio non disponibile".** Si è verificato un timeout del browser durante l'attesa di una risposta dal servizio app, che indica che il servizio app ha avviato il server Gunicorn, ma gli argomenti che specificano il codice app non sono corretti.
   - Aggiornare il browser, in particolare se si usano i piani tariffari inferiori nel piano di servizio app. Ad esempio, l'avvio dell'app potrebbe richiedere più tempo quando si usano i livelli gratuiti e l'app potrebbe rispondere dopo l'aggiornamento del browser.
   - Verificare che l'app sia strutturata come prevista dal servizio app per [Django](#django-app) o [Flask](#flask-app) oppure usare un [comando di avvio personalizzato](#custom-startup-command).

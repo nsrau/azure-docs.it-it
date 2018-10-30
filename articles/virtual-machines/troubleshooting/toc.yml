@@ -9,8 +9,6 @@ items:
     href: allocation-failure-classic.md
 - name: RDP
   items:
-  - name: La connessione si interrompe spesso
-    href: troubleshoot-rdp-intermittent-connectivity.md
   - name: Reimpostare RDP
     href: reset-rdp.md
   - name: Risoluzione dei problemi relativi a RDP
@@ -19,8 +17,16 @@ items:
     href: detailed-troubleshoot-rdp.md
   - name: Risolvere errori specifici
     href: troubleshoot-specific-rdp-errors.md
-  - name: Risolvere i problemi di disconnessione frequente di RDP
+  - name: Risolvere l'errore di server licenze non trovato
+    href: troubleshoot-rdp-no-license-server.md
+  - name: Risolvere i problemi di Servizi Desktop remoto
+    href: troubleshoot-remote-desktop-services-issues.md
+  - name: Risolvere un errore interno
+    href: Troubleshoot-rdp-internal-error.md
+  - name: Risolvere i problemi dovuti all'interruzione frequente della connessione
     href: troubleshoot-rdp-intermittent-connectivity.md
+  - name: Risolvere un errore generale
+    href: troubleshoot-rdp-general-error.md
 - name: SSH
   items:
   - name: Risoluzione dei problemi relativi a SSH
@@ -129,9 +135,9 @@ items:
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Informazioni sul riavvio del sistema
   href: understand-vm-reboot.md
-ms.openlocfilehash: 49e216bfd9f1b7ad9c8e9f74ae67d38359f7f474
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 749bfa9916431b4131dd7d0e814835baa96c6d64
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138276"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209242"

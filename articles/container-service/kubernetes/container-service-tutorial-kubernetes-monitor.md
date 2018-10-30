@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6d178fe3caa121c51ef081708ca440113871938e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 249e286b16b78643c33b567f705a4c92991f5553
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996911"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404869"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Monitorare un cluster Kubernetes con Log Analytics
 
@@ -149,7 +149,7 @@ Per installare la Soluzione Contenitore tramite il [portale di Log Analytics](ht
 
 Nel portale di Log Analytics cercare un riquadro di riepilogo **Contenitori** nel dashboard. Fare clic sul riquadro per i dettagli, tra cui: eventi del contenitore, errori, stato, inventario dell'immagine e uso di CPU e memoria. Per informazioni più granulari, fare clic su una riga in qualsiasi riquadro o eseguire una [ricerca log](../../log-analytics/log-analytics-log-searches.md).
 
-![Dashboard dei contenitori nel portale OMS](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![Dashboard dei contenitori nel portale di Azure](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
 Analogamente, nel portale di Azure passare a **Log Analytics** e selezionare il nome della propria area di lavoro. Per visualizzare il riquadro di riepilogo dei **Contenitori**, fare clic su **Soluzioni** > **Contenitori**. Per visualizzare i dettagli, fare clic sul riquadro.
 

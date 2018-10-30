@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636988"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467430"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Esercitazione: Configurare un lab usando Azure DevTest Labs
 Questa esercitazione descrive come creare un lab usando il portale di Azure. Un amministratore del lab configura un lab in un'organizzazione, crea le V M nel lab e configura i criteri. Gli utenti del lab (ad esempio, gli sviluppatori e i tester) richiedono le VM nel lab, si connettono a tali VM e le usano. 
@@ -55,7 +55,7 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
 1. Nella pagina **DevTest Labs** selezionare **+ Aggiungi** sulla barra degli strumenti. 
 
     ![Pulsante Aggiungi](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. Nella pagina **Scegli una base** cercare con la parola chiave **Ubuntu**, quindi scegliere una delle immagini di base nell'elenco. 
+1. Nella pagina **Scegli una base** cercare con una parola chiave (ad esempio: Windows, Ubuntu) quindi scegliere una delle immagini di base nell'elenco. 
 1. Nella pagina **Macchina virtuale** eseguire queste operazioni: 
     1. In **Nome macchina virtuale** immettere un nome per la macchina virtuale. 
     2. In **Nome utente** immettere un nome per l'utente che dispone dell'accesso alla macchina virtuale. 
@@ -71,6 +71,9 @@ La procedura seguente illustra come usare il portale di Azure per creare un lab 
 
         ![Stato della creazione della VM](./media/tutorial-create-custom-lab/vm-creation-status.png)
 1. Dopo la creazione, la VM viene visualizzata nell'elenco delle **Macchine virtuali richiedibili**. 
+
+    > [!NOTE] 
+    > Quando si aggiunge una VM Linux a un lab, è possibile abilitare l'accesso RDP ed SSH alla macchina virtuale. Se non si abilita l'accesso durante la creazione della macchina virtuale, è possibile aggiungere manualmente le regole nel gruppo di sicurezza di rete associato alla macchina virtuale per aprire le porte per RDP ed SSH.
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Aggiungere un utente al ruolo di utente di lab
 

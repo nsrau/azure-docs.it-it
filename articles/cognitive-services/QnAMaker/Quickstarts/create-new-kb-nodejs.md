@@ -1,22 +1,22 @@
 ---
 title: 'Guida introduttiva: Creare una knowledge base in REST, Node.js - QnA Maker'
-description: Questa guida introduttiva illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
+description: Questa guida introduttiva basata su REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: f0375affa547f657ae36de71901298047359cae2
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: fdba785e33c16c397e2ffaeb4462ea2066a99126
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884917"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647545"
 ---
-# <a name="quickstart-create-a-qna-maker-knowledge-base-in-nodejs"></a>Guida introduttiva: Creare una knowledge base QnA Maker in Node.js
+# <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-nodejs"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con Node.js
 
 Questa guida introduttiva illustra come creare a livello di codice una knowledge base QnA Maker di esempio. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/data-sources-supported.md). Il modello per la knowledge base è definito nel codice JSON inviato nel corpo della richiesta API. 
 
@@ -35,7 +35,7 @@ In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 
 Creare un file denominato `create-new-knowledge-base.js`.
 
-## <a name="add-the-required-dependencies"></a>Aggiungere le dipendenze obbligatorie
+## <a name="add-the-required-dependencies"></a>Aggiungere le dipendenze richieste
 
 All'inizio di `create-new-knowledge-base.js` inserire le righe seguenti per aggiungere le dipendenze necessarie al progetto:
 

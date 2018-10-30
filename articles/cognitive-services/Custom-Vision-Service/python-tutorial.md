@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Creare un progetto di classificazione immagini - Servizio visione artificiale personalizzato, Python'
+title: 'Esercitazione: Creare un progetto di classificazione immagini con Custom Vision SDK per Python'
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto ed effettuare una stima usando l'endpoint predefinito.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 96125ba1c54f742bb9ddf32a1588173217be0766
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363378"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953113"
 ---
-# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Esercitazione: Creare un progetto di classificazione immagini usando il Servizio visione artificiale personalizzato con Python
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-python"></a>Esercitazione: Creare un progetto di classificazione immagini con Custom Vision SDK per Python
 
 Informazioni su come creare un progetto di classificazione immagini con il Servizio visione artificiale personalizzato e uno script Python di base. Dopo la creazione, è possibile aggiungere tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio open source come modello per la compilazione di un'app usando l'API Visione personalizzata.
 
@@ -30,7 +30,7 @@ Informazioni su come creare un progetto di classificazione immagini con il Servi
 
 ## <a name="get-the-training-and-prediction-keys"></a>Ottenere le chiavi di training e di stima
 
-Per ottenere le chiavi usate in questo esempio, visitare la [pagina Web di Servizio visione artificiale personalizzato](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Account__ copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
+Per ottenere le chiavi usate in questo esempio, visitare la [pagina Web di Servizio visione artificiale personalizzato](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Accounts__ (Account) copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
 
 ![Immagine dell'interfaccia utente delle chiavi](./media/python-tutorial/training-prediction-keys.png)
 

@@ -1,25 +1,28 @@
 ---
-title: 'Guida introduttiva: Pubblicare una knowledge base in Python - QnA Maker'
+title: 'Guida introduttiva: Pubblicare una knowledge base in REST, Python - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Come pubblicare una knowledge base in Python per QnA Maker.
+description: Questa guida introduttiva basata su REST illustra la procedura di pubblicazione della knowledge base per eseguire il push della versione più recente della knowledge base testata in un indice di Ricerca di Azure dedicato che rappresenta la knowledge base pubblicata. Viene inoltre creato un endpoint che può essere chiamato nell'applicazione o nel chat bot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 92a0f54c8fca6a53cf869ce21c8007ad2a1eba5b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: e58b344102eb900ffe41bb90e541258eb3b59286
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887718"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646815"
 ---
-# <a name="quickstart-publish-a-knowledge-base-in-python"></a>Guida introduttiva: Pubblicare una knowledge base in Python
+# <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-python"></a>Guida introduttiva: Pubblicare una knowledge base in QnA Maker con Python
 
-Il codice seguente pubblica una knowledge base esistente usando il metodo [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+Questa guida introduttiva illustra la procedura di pubblicazione della knowledge base (KB) a livello di codice. Con la pubblicazione viene eseguito il push dell'ultima versione della knowledge base in un indice dedicato di Ricerca di Azure e viene creato un endpoint che può essere chiamato nell'applicazione o nel chatbot.
+
+In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
+* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) (Pubblicazione): con questa API non sono richieste informazioni nel corpo della richiesta.
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 

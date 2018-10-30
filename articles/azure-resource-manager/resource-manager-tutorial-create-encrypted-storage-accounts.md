@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419526"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945791"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Esercitazione: Creare un modello di Azure Resource Manager per la distribuzione di un account di archiviazione crittografato
 
@@ -40,8 +40,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Estensione Strumenti di Azure Resource Manager. Per eseguire l'installazione, vedere [Installare l'estensione Strumenti di Azure Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/) con l'[estensione Strumenti di Azure Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
@@ -56,7 +55,7 @@ Il modello usato in questa guida introduttiva è denominato [Create a standard s
 3. Selezionare **Apri** per aprire il file.
 4. Selezionare **File**>**Salva con nome** per salvare il file con il nome **azuredeploy.json** nel computer locale.
 
-## <a name="understand-the-format"></a>Comprendere il formato
+## <a name="understand-the-schema"></a>Informazioni sullo schema
 
 Da Visual Studio Code comprimere il modello a livello di radice. Verrà visualizzata la struttura più semplice, con gli elementi seguenti:
 
@@ -69,7 +68,7 @@ Da Visual Studio Code comprimere il modello a livello di radice. Verrà visualiz
 * **resources**: specificare i tipi di risorse che vengono distribuite o aggiornate in un gruppo di risorse.
 * **outputs**: specificare i valori restituiti dopo la distribuzione.
 
-## <a name="use-parameters-in-template"></a>Usare i parametri nel modello
+## <a name="use-parameters"></a>Usare i parametri
 
 I parametri consentono di personalizzare la distribuzione fornendo valori specifici per un determinato ambiente. I parametri definiti nel modello vengono usati quando si impostano i valori per l'account di archiviazione.
 
@@ -90,7 +89,7 @@ Per usare i parametri definiti nel modello:
 "name": "[parameters('storageAccountType')]"
 ```
 
-## <a name="use-variables-in-template"></a>Usare le variabili nel modello
+## <a name="use-variables"></a>Usare le variabili
 
 Le variabili consentono di costruire valori da usare in tutto il modello. Grazie alle variabili è possibile ridurre la complessità dei modelli.
 
@@ -117,9 +116,7 @@ L'obiettivo di questa esercitazione consiste nel definire un modello per creare 
 
     ![Account di archiviazione di riferimento al modello di Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    resource-manager-template-resources-reference-storage-accounts
-1. Esplorare le informazioni relative alla crittografia.  
-1. All'interno dell'elemento properties della definizione di risorsa dell'account di archiviazione, aggiungere il codice JSON seguente:
+4. Trovare le informazioni della definizione correlate alla crittografia.  
 
     ```json
     "encryption": {
@@ -131,11 +128,9 @@ L'obiettivo di questa esercitazione consiste nel definire un modello per creare 
         }
     }
     ```
-    Questa parte abilita la funzione di crittografia del servizio di archiviazione BLOB.
-
-In Visual Studio Code modificare il modello in modo che l'elemento finale delle risorse sia simile al seguente:
-
-![Account di archiviazione crittografato del modello di Resource Manager - risorse](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+5. In Visual Studio Code modificare il modello in modo che l'elemento finale delle risorse sia simile al seguente:
+    
+    ![Account di archiviazione crittografato del modello di Resource Manager - risorse](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 

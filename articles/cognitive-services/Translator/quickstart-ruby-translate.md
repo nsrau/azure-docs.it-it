@@ -1,23 +1,23 @@
 ---
-title: 'Guida introduttiva: Tradurre testo - Traduzione testuale, Ruby'
+title: 'Guida introduttiva: Tradurre un testo, Ruby - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale con Ruby.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 38b4ee3a2122e0151490ef1a29ee02d498a06b7d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: a36f873c08fee57ddb73f94b4a77dc4514422cb1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126548"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645610"
 ---
-# <a name="quickstart-translate-text-with-ruby"></a>Guida introduttiva: Tradurre testo con Ruby
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-ruby"></a>Guida introduttiva: Tradurre un testo con l'API REST Traduzione testuale (Ruby)
 
 In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale.
 
