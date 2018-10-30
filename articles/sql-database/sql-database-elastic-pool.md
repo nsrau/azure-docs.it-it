@@ -114,10 +114,10 @@ Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzion
 1. Stimare le eDTU o i vCore necessari per il pool come segue:
 
    Per il modello di acquisto basato su DTU: MAX(<*numero totale di database* X *utilizzo medio di DTU per database*>,<br>
-   < *numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per DB*)
+   < *numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per DB* )
 
    Per il modello di acquisto basato su vCore: MAX(<*numero totale di database* X *utilizzo medio di vCore per database*>,<br>
-   < *numero di database in picco contemporaneamente* X *picco di utilizzo di vCore per database*)
+   < *numero di database in picco contemporaneamente* X *picco di utilizzo di vCore per database* )
 
 2. Stimare lo spazio di archiviazione necessario per il pool aggiungendo il numero di byte necessari per tutti i database nel pool. Determinare quindi la dimensione del pool in eDTU che fornisce la quantità di spazio di archiviazione.
 3. Per il modello di acquisto basato su DTU, considerare la stima di eDTU maggiore tra il Passaggio 1 e il Passaggio 2. Per il modello di acquisto basato su vCore, considerare la stima di vCore del Passaggio 1.

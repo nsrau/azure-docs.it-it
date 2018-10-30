@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: fbb51d8dc3b1ea4c6b34120e8fe35474ae949cf2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116913"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231237"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Risolvere i problemi di distribuzione in Kubernetes in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49116913"
 > [!Note]  
 > Kubernetes in Azure Stack è disponibile in anteprima.
 
-L'articolo seguente esamina la risoluzione dei problemi del cluster Kubernetes. È possibile esaminare l'avviso di distribuzione e rivedere lo stato della distribuzione per gli elementi necessari per la distribuzione. Potrebbe essere necessario raccogliere i log di distribuzione da Azure Stack o le macchine virtuali Linux che ospitano Kubernetes. Inoltre, si potrebbe essere necessario contattare l'amministratore di Azure Stack per recuperare i log da un endpoint di amministrazione.
+L'articolo seguente esamina la risoluzione dei problemi del cluster Kubernetes. È possibile esaminare l'avviso di distribuzione e lo stato della distribuzione esaminando gli elementi necessari per la distribuzione. Potrebbe essere necessario raccogliere i log di distribuzione da Azure Stack o le macchine virtuali Linux che ospitano Kubernetes. Inoltre, si potrebbe essere necessario contattare l'amministratore di Azure Stack per recuperare i log da un endpoint di amministrazione.
 
 ## <a name="overview-of-deployment"></a>Panoramica della distribuzione
 
@@ -47,7 +47,7 @@ Il diagramma seguente illustra il processo generale per distribuire il cluster.
     Immettere i valori che necessari per configurare il cluster Kubernetes tra cui:
     -  **Nome utente** nome utente per le macchine virtuali di Linux che fanno parte del cluster Kubernetes e DVM.
     -  **Chiave pubblica SSH** la chiave usata per l'autorizzazione a tutti i computer Linux creato come parte del cluster Kubernetes e DVM
-    -  **Entità servizio** ID utilizzato dal provider di cloud di Azure in Kubernetes. L'ID Client è stato identificato come l'ID dell'applicazione quando si crea l'entità servizio. 
+    -  **Entità servizio** ID utilizzato dal provider di cloud di Azure in Kubernetes. L'ID Client è stato identificato come l'ID dell'applicazione quando si crea il servizio dell'entità. 
     -  **Segreto client** la chiave creata durante la creazione dell'entità servizio.
 
 2. Crea macchina virtuale della distribuzione e l'estensione script personalizzato.

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 10/27/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 161b54620bd8a3c9994228a30bd7495717064168
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d80e7bc1d391d9b5bfd718ca2dc0e9dc7ecb2268
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158467"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210874"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -38,6 +38,8 @@ Questo articolo descrive il contenuto del pacchetto di aggiornamento 1809. Il pa
 ### <a name="new-features"></a>Nuove funzionalità
 
 Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
+
+- Con questa versione, Azure Stack integrati configurazioni supporta i sistemi di 4-16 nodi.
 
 - <!--  2712869   | IS  ASDK -->  **Syslog client di Azure Stack (disponibilità generale)** questa consente l'inoltro di controlli, avvisi e i log di sicurezza relativi all'infrastruttura di Azure Stack a un syslog server o della sicurezza le informazioni ed eventi (SIEM) software di gestione esterni ad Azure Stack. Il client di syslog supporta ora specificando la porta su cui è in ascolto il server syslog.
 
@@ -147,6 +149,8 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 - <!-- 2468613 - IS --> Durante l'installazione di questo aggiornamento, si potrebbero visualizzare avvisi con il titolo *Error: modello per FaultType UserAccounts.New è manca.*  È possibile ignorare questi avvisi. Questi avvisi chiuderà automaticamente al termine dell'installazione dell'aggiornamento.
 
 - <!-- 2489559 - IS --> Non tentare di creare macchine virtuali durante l'installazione dell'aggiornamento. Per altre informazioni sulla gestione degli aggiornamenti, vedere [gestire gli aggiornamenti nella panoramica di Azure Stack](azure-stack-updates.md#plan-for-updates).
+
+- <!-- 3139614 | IS --> Se è stato applicato un aggiornamento ad Azure Stack da OEM, il **aggiornamento disponibile** notifica potrebbe non essere visualizzati nel portale di amministrazione di Azure Stack. Per installare l'aggiornamento di Microsoft, scaricare e importarlo manualmente seguendo le istruzioni contenute in questo caso [applicare gli aggiornamenti in Azure Stack](azure-stack-apply-updates.md).
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
 
