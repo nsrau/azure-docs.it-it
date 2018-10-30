@@ -1,20 +1,21 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale in Java su Android con Speech SDK di Servizi cognitivi'
-titleSuffix: Microsoft Cognitive Services
-description: Informazioni sul riconoscimento vocale in Java su Android con Speech SDK di Servizi cognitivi
+title: "Guida introduttiva: Riconoscimento vocale in Java su Android con l'SDK del servizio Voce"
+titleSuffix: Azure Cognitive Services
+description: Informazioni sul riconoscimento vocale in Java su Android con l'SDK del servizio Voce
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: f2d5ca467777b8b351b2cf51abe71a003374bcf7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 8c974b3d2a53210b49c3f29a8984038da93dd64c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344219"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466529"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in Java su Android con Speech SDK
 
@@ -29,7 +30,7 @@ Speech SDK è attualmente compatibile con i dispositivi Android con processori A
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Vedere [Prova il servizio di riconoscimento vocale gratuitamente](get-started.md) per i dettagli.
+È necessaria una chiave di sottoscrizione del servizio Voce per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Vedere [Prova il servizio Voce gratuitamente](get-started.md) per i dettagli.
 
 ## <a name="create-and-configure-a-project"></a>Creare e configurare un progetto
 
@@ -110,7 +111,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 </tr>
 </table>
 
-## <a name="add-sample-code"></a>Aggiungere il codice di esempio
+## <a name="add-sample-code"></a>Aggiungere codice di esempio
 
 1. Aprire il file di origine `MainActivity.java`. Sostituire tutto il codice in questo file con quanto segue.
 
@@ -136,7 +137,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 
    ![Screenshot della finestra di schermata Seleziona destinazione di distribuzione](media/sdk/qs-java-android-12-deploy.png)
 
-Fare clic sul pulsante dell'applicazione per iniziare una sezione dedicata al riconoscimento vocale. I 15 secondi successivi di riconoscimento vocale in lingua inglese verranno inviati al servizio di riconoscimento vocale e trascritti. Il risultato viene visualizzato nell'applicazione Android e nella finestra di logcat in Android Studio.
+Fare clic sul pulsante dell'applicazione per iniziare una sezione dedicata al riconoscimento vocale. I 15 secondi successivi di riconoscimento vocale in lingua inglese verranno inviati al servizio Voce e trascritti. Il risultato viene visualizzato nell'applicazione Android e nella finestra di logcat in Android Studio.
 
 ![Screenshot dell'applicazione Android](media/sdk/qs-java-android-13-gui-on-device.png)
 

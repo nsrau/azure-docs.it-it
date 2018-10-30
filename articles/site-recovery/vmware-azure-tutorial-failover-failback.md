@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391369"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457067"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover e failback di macchine virtuali VMware e server fisici replicati in Azure
 
@@ -74,7 +74,7 @@ Verificare le proprietà della macchina virtuale e assicurarsi che sia conforme 
 
 3. Selezionare **Arrestare la macchina virtuale prima di iniziare il failover** per provare ad arrestare le macchine virtuali di origine prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
 
-In alcuni scenari il failover richiede un'altra elaborazione il cui completamento richiede da 8 a 10 minuti. Si potrebbero notare **tempi più lunghi per il failover di test** per le macchine virtuali VMware che usano il servizio Mobility di una versione precedente alla 9.8, i server fisici, le macchine virtuali VMware Linux, le macchine virtuali Hyper-V protette come server fisici, le macchine virtuali VMware che non hanno il servizio DHCP abilitato e le macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
+In alcuni scenari il failover richiede un'ulteriore elaborazione il cui completamento richiede da 8 a 10 minuti. Si potrebbero notare **tempi più lunghi per il failover di test** per le macchine virtuali VMware che usano il servizio Mobility di una versione precedente alla 9.8, i server fisici, le macchine virtuali VMware Linux, le macchine virtuali Hyper-V protette come server fisici, le macchine virtuali VMware che non hanno il servizio DHCP abilitato e le macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
 > **Non annullare un failover in corso**: prima dell'avvio del failover, la replica della macchina virtuale viene arrestata.
@@ -93,13 +93,12 @@ Seguire i passaggi descritti [qui](site-recovery-failover-to-azure-troubleshoot.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Preparazione per la riprotezione della macchina virtuale di Azure
 
-### <a name="create-a-process-server-in-azure"></a>Creare un server di elaborazione in Azure
+- È possibile usare il server di elaborazione locale (server di elaborazione predefinito) installato automaticamente nel server di configurazione durante la configurazione **se si ha una connessione Azure ExpressRoute**.
 
-Il server di elaborazione riceve i dati dalla macchina virtuale di Azure e li invia al sito locale. È necessaria una rete a bassa latenza tra il server di elaborazione e la macchina virtuale protetta.
+> [!IMPORTANT]
+> Se si dispone di una connessione VPN tra l'ambiente locale e Azure, è necessario configurare una VM di Azure come server di elaborazione per la riprotezione e il failback. Per configurare un server di elaborazione in Azure, seguire le istruzioni fornite in [questo articolo](vmware-azure-set-up-process-server-azure.md).
 
-- A scopo di test, se si ha una connessione Azure ExpressRoute è possibile usare il server di elaborazione locale (server di elaborazione predefinito) installato automaticamente nel server di configurazione.
-- Se si ha una connessione VPN o si esegue il failback in un ambiente di produzione, è necessario configurare una macchina virtuale di Azure come server di elaborazione basato su Azure per il failback.
-- Per configurare un server di elaborazione in Azure, seguire le istruzioni fornite in [questo articolo](vmware-azure-set-up-process-server-azure.md).
+Per ulteriori informazioni sui prerequisiti per la riprotezione e il failback fare riferimento a questa [sezione](vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Configurare il server di destinazione master
 
@@ -129,7 +128,7 @@ La riprotezione della macchina virtuale di Azure comporta la replica dei dati ne
 3. Specificare il server di destinazione master locale e il server di elaborazione.
 4. In **Archivio dati** selezionare l'archivio dati del server di destinazione master in cui ripristinare i dischi in locale. Se la macchina virtuale è stata eliminata, vengono creati nuovi dischi in questo archivio dati. Questa impostazione viene ignorata se i dischi esistono già, ma è necessario specificare un valore.
 5. Selezionare l'unità di conservazione del server di destinazione master. I criteri di failback vengono selezionati automaticamente.
-6. Fare clic su **OK** per avviare la riprotezione. Avrà inizio un processo di replica della macchina virtuale da Azure al sito locale. È possibile monitorare l'avanzamento nella scheda **Processi** .
+6. Fare clic su **OK** per avviare la riprotezione. Avrà inizio un processo di replica della macchina virtuale da Azure al sito locale. È possibile monitorare l'avanzamento nella scheda **Processi**.
 7. Quando lo stato della macchina virtuale in **Elementi replicati** cambia in **Protetto**, la macchina è pronta per il failover in locale.
 
 > [!NOTE]
