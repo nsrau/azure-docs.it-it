@@ -233,7 +233,7 @@
 ## [Azure PowerShell (Resource Manager)](/powershell/module/azurerm.media)
 ## [Azure PowerShell (gestione dei servizi)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
-## [REST](/rest/api/media/mediaservice)
+## [REST](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 ## Specifiche
 ### [Inserimento live - Specifica per l'inserimento live di un flusso MP4 frammentato](media-services-fmp4-live-ingest-overview.md)
 ### [Inserimento live - Segnalazione dei metadati temporizzati nello streaming live](media-services-specifications-live-timed-metadata.md)

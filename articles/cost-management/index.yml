@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cad92cb36f3e5e038186e9b97f30bed9525e2fea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d65a593286ecd1ee394536033e85febb1dbc6f37
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978744"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229265"
 documentType: LandingData
 title: Documentazione di Gestione dei costi di Azure
 metadata:
@@ -17,7 +17,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/14/2019
+  ms.date: 10/29/2018
   ms.author: banders
 abstract:
   description: Gestione costi di Azure è una soluzione di gestione dei costi che consente di monitorare e controllare le spese per Azure e di ottimizzare l'uso delle risorse. Informazioni su come analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare le raccomandazioni con guide introduttive ed esercitazioni.
@@ -41,8 +41,8 @@ sections:
     style: ordered
     items:
     - html: <a href="tutorial-acm-create-budgets">Creare e gestire i budget</a>
-    - html: <a href="tutorial-export-acm-data">Esportare i dati</a>
-    - html: <a href="tutorial-acm-opt-recommendations">Esaminare e implementare le raccomandazioni per l'ottimizzazione</a>
+    - html: <a href="tutorial-export-acm-data">Esportazione dei dati</a>
+    - html: <a href="tutorial-acm-opt-recommendations">Esaminare e implementare i consigli per l'ottimizzazione</a>
 - title: Sviluppare le proprie competenze con Microsoft Learn
   items:
   - type: list
