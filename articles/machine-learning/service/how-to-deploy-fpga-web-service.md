@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 09/24/2018
-ms.openlocfilehash: ee67585a523ab96b1442d9eee3e9dfd55a758d32
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/01/2018
+ms.openlocfilehash: 925173f85301d6481ae3b9cf891041239b06bc8f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971485"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113717"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>Distribuire un modello come servizio Web in un FPGA con Azure Machine Learning
 
@@ -24,7 +24,9 @@ ms.locfileid: "46971485"
 
 - Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-- Un'area di lavoro di Azure Machine Learning e Azure Machine Learning SDK per Python installata. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
+- È necessario che la quota FPGA venga richiesta e approvata. Per richiedere l'accesso, compilare il modulo di richiesta della quota: https://aka.ms/aml-real-time-ai
+
+- Un'area di lavoro del servizio di Azure Machine Learning e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando il documento [Come configurare un ambiente di sviluppo](how-to-configure-environment.md).
  
   - L'area di lavoro deve trovarsi nell'area degli *Stati Uniti orientali 2*.
 
@@ -47,11 +49,7 @@ Seguire le istruzioni per:
 > [!IMPORTANT]
 > Per ottimizzare la latenza e la velocità effettiva, il client deve trovarsi nella stessa area di Azure in cui si trova l'endpoint.  Le API vengono attualmente create nell'area Stati Uniti orientali.
 
-### <a name="get-the-notebook"></a>Ottenere il notebook
 
-Per comodità, questa esercitazione è disponibile anche come notebook di Jupyter. Usare uno di questi metodi per eseguire il notebook `project-brainwave/project-brainwave-quickstart.ipynb`:
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 ### <a name="preprocess-image"></a>Pre-elaborare l'immagine
 La prima fase della pipeline consiste nella pre-elaborazione delle immagini.
@@ -66,6 +64,7 @@ in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
 ```
+
 ### <a name="add-featurizer"></a>Aggiungere utilità di funzioni
 Inizializzare il modello e scaricare un checkpoint TensorFlow della versione quantizzata ResNet50 da usare come utilità di funzioni.
 
@@ -166,154 +165,13 @@ registered_model.delete()
 
 ## <a name="secure-fpga-web-services"></a>Proteggere i servizi web FPGA
 
-Azure Machine Learning eseguito su FPGA fornisce il supporto SSL e l'autenticazione basata su chiavi. In questo modo è possibile limitare l'accesso al servizio e proteggere i dati inviati dai client.
+Azure Machine Learning eseguito su FPGA fornisce il supporto SSL e l'autenticazione basata su chiavi. In questo modo è possibile limitare l'accesso al servizio e proteggere i dati inviati dai client. [Informazioni su come proteggere il servizio Web](how-to-secure-web-service.md).
 
-> [!IMPORTANT]
-> L'autenticazione è abilitata solo per i servizi che forniscono un certificato SSL e una chiave. 
->
-> Se non si abilita SSL, qualsiasi utente in Internet sarà in grado di effettuare chiamate al servizio.
->
-> Se si abilita SSL è necessaria una chiave di autenticazione quando si accede al servizio.
 
-SSL crittografa i dati scambiati tra il client e il servizio. Viene inoltre usato dal client per verificare l'identità del server.
+## <a name="sample-notebook"></a>Notebook di esempio
 
-È possibile distribuire un servizio con SSL abilitato oppure aggiornare un servizio già distribuito per abilitare SSL. La procedura è la stessa:
+I concetti espressi in questo articolo vengono dimostrati nel notebook [project-brainwave/project-brainwave-quickstart.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/project-brainwave/project-brainwave-quickstart.ipynb).
 
-1. Acquisire un nome di dominio.
+Per ottenere questo blocco appunti:
 
-2. Acquisire un certificato SSL.
-
-3. Distribuire o aggiornare il servizio con SSL abilitato.
-
-4. Aggiornare il DNS in modo che punti al servizio.
-
-### <a name="acquire-a-domain-name"></a>Acquisire un nome di dominio
-
-Se non è già disponibile un nome di dominio, è possibile acquistarne uno da un __registrar__. La procedura e i costi variano a seconda del registrar. Il registrar fornisce anche gli strumenti per gestire il nome di dominio. Questi strumenti vengono usati per eseguire il mapping di un nome di dominio completo (ad esempio www.contoso.com) all'indirizzo IP che ospita il servizio.
-
-### <a name="acquire-an-ssl-certificate"></a>Acquisire un certificato SSL
-
-Esistono diversi modi per ottenere un certificato SSL. Il più comune consiste nell'acquistarne uno da un'__autorità di certificazione__ (CA). Indipendentemente da dove si ottiene il certificato, sono necessari i file seguenti:
-
-* Un __certificato__. Il certificato deve contenere la catena di certificati completa e avere la codifica PEM.
-* Una __chiave__. La chiave deve avere la codifica PEM.
-
-> [!TIP]
-> Se l'autorità di certificazione non può fornire il certificato e la chiave come file con codifica PEM, è possibile usare un'utilità come [OpenSSL](https://www.openssl.org/) per modificare il formato.
-
-> [!IMPORTANT]
-> Usare i certificati autofirmati solo per lo sviluppo. Non usarli nell'ambiente di produzione.
->
-> Se si usa un certificato autofirmato, vedere la sezione [Utilizzo di servizi con certificati autofirmati](#self-signed) per istruzioni specifiche.
-
-> [!WARNING]
-> Quando si richiede un certificato, è necessario fornire il nome di dominio completo (FQDN) dell'indirizzo che si intende usare per il servizio, ad esempio www.contoso.com. L'indirizzo indicato nel certificato e l'indirizzo usato dai client vengono confrontati quando viene convalidata l'identità del servizio.
->
-> Se gli indirizzi non corrispondono, i client ricevono un errore. 
-
-### <a name="deploy-or-update-the-service-with-ssl-enabled"></a>Distribuire o aggiornare il servizio con SSL abilitato
-
-Per distribuire il servizio con SSL abilitato, impostare il parametro `ssl_enabled` su `True`. Impostare il parametro `ssl_certificate` sul valore del file di __certificato__ e `ssl_key` sul valore del file di __chiave__. L'esempio seguente illustra la distribuzione di un servizio con SSL abilitato:
-
-```python
-from amlrealtimeai import DeploymentClient
-
-subscription_id = "<Your Azure Subscription ID>"
-resource_group = "<Your Azure Resource Group Name>"
-model_management_account = "<Your AzureML Model Management Account Name>"
-location = "eastus2"
-
-model_name = "resnet50-model"
-service_name = "quickstart-service"
-
-deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-
-with open('cert.pem','r') as cert_file:
-    with open('key.pem','r') as key_file:
-        cert = cert_file.read()
-        key = key_file.read()
-        service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
-```
-
-La risposta dell'operazione `create_service` contiene l'indirizzo IP del servizio. L'indirizzo IP viene usato durante il mapping del nome DNS all'indirizzo IP del servizio.
-
-La risposta contiene anche una __chiave primaria__ e una __chiave secondaria__ che consentono di utilizzare il servizio.
-
-### <a name="update-your-dns-to-point-to-the-service"></a>Aggiornare il DNS in modo che punti al servizio
-
-Usare gli strumenti forniti dal registrar per aggiornare il record DNS per il nome di dominio. Il record deve puntare all'indirizzo IP del servizio.
-
-> [!NOTE]
-> A seconda del registrar e della durata (TTL) configurata per il nome di dominio, possono essere necessari da alcuni minuti a diverse ore prima che i client possano risolvere il nome di dominio.
-
-### <a name="consume-authenticated-services"></a>Utilizzo di servizi autenticati
-
-Gli esempi seguenti illustrano come utilizzare un servizio autenticato con Python e C#:
-
-> [!NOTE]
-> Sostituire `authkey` con la chiave primaria o secondaria restituita durante la creazione del servizio.
-
-```python
-from amlrealtimeai import PredictionClient
-client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-image_file = R'C:\path_to_file\image.jpg'
-results = client.score_image(image_file)
-```
-
-```csharp
-var client = new ScoringClient(host, 50051, useSSL, "authKey");
-float[,] result;
-using (var content = File.OpenRead(image))
-    {
-        IScoringRequest request = new ImageRequest(content);
-        result = client.Score<float[,]>(request);
-    }
-```
-
-Gli altri client gRPC possono autenticare le richieste impostando un'intestazione dell'autorizzazione. L'approccio generale consiste nel creare un oggetto `ChannelCredentials` che combina `SslCredentials` con `CallCredentials`. L'oggetto viene aggiunto all'intestazione dell'autorizzazione della richiesta. Per altre informazioni sull'implementazione del supporto per intestazioni specifiche, vedere [https://grpc.io/docs/guides/auth.html](https://grpc.io/docs/guides/auth.html).
-
-Gli esempi seguenti illustrano come impostare l'intestazione in C# e Go:
-
-```csharp
-creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                      async (context, metadata) =>
-                      {
-                          metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                          await Task.CompletedTask;
-                      }));
-
-```
-
-```go
-conn, err := grpc.Dial(serverAddr, 
-    grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-    grpc.WithPerRPCCredentials(&authCreds{
-    Key: "authKey"}))
-
-type authCreds struct {
-    Key string
-}
-
-func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-    return map[string]string{
-        "authorization": c.Key,
-    }, nil
-}
-
-func (c *authCreds) RequireTransportSecurity() bool {
-    return true
-}
-```
-
-### <a id="self-signed"></a>Utilizzo di servizi con certificati autofirmati
-
-Esistono due modi per consentire ai client di autenticarsi presso un server protetto con un certificato autofirmato:
-
-* Nel sistema client impostare la variabile di ambiente `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` in modo che punti al file del certificato.
-
-* Quando si costruisce un oggetto `SslCredentials`, passare il contenuto del file del certificato al costruttore.
-
-Con entrambi i metodi, gRPC userà il certificato come certificato radice.
-
-> [!IMPORTANT]
-> gRPC non accetta certificati non attendibili. Se si usa un certificato non attendibile, si verificherà un errore con un codice di stato `Unavailable`. I dettagli dell'errore contengono `Connection Failed`.
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

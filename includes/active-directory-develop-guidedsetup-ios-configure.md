@@ -14,30 +14,34 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: brandwe
 ms.custom: include file
-ms.openlocfilehash: 331d16df55e26df5d49555c636b307499dd052af
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1604b7c9ee9888375e65aa679803c6e996e13b14
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843249"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988264"
 ---
 ## <a name="register-your-application"></a>Registrare l'applicazione
+
 È possibile registrare l'applicazione in uno dei due modi descritti nelle due sezioni successive.
 
 ### <a name="option-1-express-mode"></a>Opzione 1: Modalità rapida
+
 È ora necessario registrare l'applicazione nel *portale di registrazione delle applicazioni Microsoft*:
-1. Registrare l'applicazione tramite il [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure)
-2.  Immettere un nome per l'applicazione e l'indirizzo di posta elettronica
-3.  Assicurarsi che l'opzione per l'installazione guidata sia selezionata
-4.  Seguire le istruzioni per ottenere l'ID dell'applicazione e incollarlo nel codice
+
+1. Registrare l'applicazione tramite il [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure).
+2. Immettere un nome per l'applicazione e l'indirizzo di posta elettronica.
+3. Assicurarsi che l'opzione per l'installazione guidata sia selezionata.
+4. Seguire le istruzioni per ottenere l'ID dell'applicazione e incollarlo nel codice.
 
 ### <a name="option-2-advanced-mode"></a>Opzione 2: Modalità avanzata
 
-1.  Passare al [Portale di registrazione delle applicazioni di Microsoft](https://apps.dev.microsoft.com/portal/register-app)
-2.  Immettere un nome per l'applicazione
-3.  Assicurarsi che l'opzione per l'installazione guidata sia deselezionata
-4.  Fare clic su `Add Platform`, selezionare `Native Application` e quindi fare clic su `Save`
-5.  Tornare a Xcode. In `ViewController.swift` sostituire la riga che inizia con "`let kClientID`" con l'ID dell'applicazione appena registrata:
+1. Passare al [Portale di registrazione delle applicazioni di Microsoft](https://apps.dev.microsoft.com/portal/register-app).
+2. Immettere un nome per l'applicazione.
+3. Assicurarsi che l'opzione per l'installazione guidata sia deselezionata.
+4. Selezionare `Add Platform` e quindi `Native Application`.
+5. Selezionare `Save`.
+6. Tornare a Xcode. In `ViewController.swift` sostituire la riga che inizia con "`let kClientID`" con l'ID dell'applicazione appena registrata:
 
 ```swift
 let kClientID = "Your_Application_Id_Here"

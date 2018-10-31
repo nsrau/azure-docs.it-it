@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042449"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650112"
 ---
 # <a name="entities-in-luis"></a>Entità in LUIS
 
@@ -61,10 +61,14 @@ Nell'espressione "Book me a ticket to Paris", "Paris" è un'entità di tipo loca
 ## <a name="assign-entities-in-none-intent"></a>Assegnare le entità nella finalità None
 Tutte le finalità, inclusa la finalità **None**, devono avere entità etichettate. Ciò consente a LUIS di apprendere maggiori informazioni sulla posizione in cui si trovano le entità nell'espressione e su quali parole circondano le entità. 
 
+## <a name="entity-status-for-predictions"></a>Stato delle entità per le previsioni
+
+Per altre informazioni, vedere la sezione sulle [previsioni relative allo stato dell'entità](luis-how-to-add-example-utterances.md#entity-status-predictions). 
+
 ## <a name="types-of-entities"></a>Tipi di entità
 LUIS offre molti tipi di entità: entità predefinite, entità basate su Machine Learning personalizzate ed entità elenco.
 
-| NOME | Possibilità di etichetta | DESCRIZIONE |
+| Nome | Possibilità di etichetta | Descrizione |
 | -- |--|--|
 | **Predefinita** <br/>[Impostazione personalizzata](#prebuilt)| |  **Definizione**<br>Tipi predefiniti che rappresentano concetti comuni. <br><br>**Elenco**<br/>key phrase number, ordinal, temperature, dimension, money, age, percentage, email, URL, phone number e key phrase. <br><br>I nomi delle entità predefinite sono riservati. <br><br>Tutte le entità predefinite che vengono aggiunte all'applicazione vengono restituite nella query [endpoint](luis-glossary.md#endpoint). Per altre informazioni, vedere [Entità predefinite](./luis-prebuilt-entities.md). <br/><br/>[Risposta di esempio per l'entità](luis-concept-data-extraction.md#prebuilt-entity-data)|
 |<!-- added week of 3/21/08 -->**Espressione regolare**<br/>[RegEx](#regex)||**Definizione**<br>Espressione regolare personalizzata per il testo dell'espressione non elaborata formattato. Maiuscole e minuscole vengono ignorate così come la variante relativa alla lingua.  <br><br>Questa entità è valida per le parole o le frasi che sono formattate in modo coerente con qualsiasi variazione altrettanto coerente.<br><br>La corrispondenza tramite le espressioni regolari viene applicata dopo le modifiche del controllo ortografico. <br><br>Se l'espressione regolare è troppo complessa, ad esempio con molte parentesi, non è possibile aggiungere l'espressione al modello. <br><br>**Esempio**<br>`kb[0-9]{6,}` corrisponde a kb123456.<br/><br/>[Guida introduttiva](luis-quickstart-intents-regex-entity.md)<br>[Risposta di esempio per l'entità](luis-concept-data-extraction.md)|
@@ -93,7 +97,7 @@ Le entità <a name="mixed"></a>
 Esaminare i [limiti](luis-boundaries.md#model-boundaries) per comprendere il numero di entità di ciascun tipo che è possibile aggiungere a un modello.
 
 ## <a name="entity-roles"></a>Ruoli entità
-I [ruoli](luis-concept-roles.md) entità vengono usati solo nei criteri. 
+I [ruoli](luis-concept-roles.md) entità si applicano alle entità personalizzate e predefinite e vengono usati solo nei criteri. 
 
 ## <a name="composite-vs-hierarchical-entities"></a>Entità composite e gerarchiche
 Sia le entità composite che le entità gerarchiche hanno relazioni padre-figlio e sono basate su Machine Learning. L'apprendimento basato su Machine Learning consente a LUIS di comprendere le entità in base ai diversi contesti (disposizione delle parole). Le entità composite sono più flessibili perché consentono tipi di entità diversi come figli. I figli delle entità gerarchiche sono solo entità semplici. 

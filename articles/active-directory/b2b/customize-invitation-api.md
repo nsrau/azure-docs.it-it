@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 20c824da82d6e3e66bfa2d7447c8a9573cbdce69
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985814"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091772"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalizzazione per Collaborazione B2B di Azure Active Directory
 
@@ -79,7 +79,7 @@ Per altre informazioni, fare riferimento a: https://graph.microsoft.io/docs/auth
 
 
 ## <a name="powershell"></a>PowerShell
-Ora è possibile usare PowerShell per aggiungere e invitare facilmente utenti esterni a un'organizzazione. Creare un invito tramite il cmdlet:
+È possibile usare PowerShell per aggiungere e invitare facilmente utenti esterni a un'organizzazione. Creare un invito tramite il cmdlet:
 
 ```
 New-AzureADMSInvitation
@@ -92,7 +92,25 @@ New-AzureADMSInvitation
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-È anche possibile eseguire il check-out del riferimento all'API di invito in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+### <a name="invitation-status"></a>Stato invito
+
+Dopo aver inviato un invito a un utente esterno, è possibile usare il cmdlet **Get-AzureADUser** per vedere se ha accettato. Le proprietà seguenti di Get-AzureADUser vengono popolate quando viene inviato un invito a un utente esterno:
+
+* **UserState** indica se l'invito è in stato **PendingAcceptance** o **accettato**.
+* **UserStateChangedOn** mostra il timestamp delle modifiche più recenti alla proprietà **UserState**.
+
+È possibile usare l'opzione **Filter** per filtrare i risultati in base a **UserState**. L'esempio seguente mostra come filtrare i risultati per mostrare solo gli utenti in attesa di invito. L'esempio mostra anche l'opzione **Format-List** che consente di specificare le proprietà da visualizzare. 
+ 
+```
+Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
+```
+
+> [!NOTE]
+> Verificare di avere la versione più recente del modulo di AzureAD PowerShell o del modulo PowerShell AzureADPreview. 
+
+## <a name="see-also"></a>Vedere anche 
+
+Eseguire il check-out del riferimento all'API di invito in [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

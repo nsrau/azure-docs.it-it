@@ -1,27 +1,35 @@
 ---
 title: API di trascrizione Azure Batch
-description: Esempi
+titlesuffix: Azure Cognitive Services
+description: Esempi per la trascrizione di volumi elevati di contenuto audio.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 8f9a033ebf9cdfdb96ae8511b14202e49ec0a85e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: e7523bf97d6252422ebb853b818453c935640f50
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884460"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648803"
 ---
 # <a name="batch-transcription"></a>Trascrizione Batch
 
-La trascrizione Batch è ideale se sono presenti grandi quantità di dati audio. È possibile fare riferimento ai file audio mediante l'URL e ottenere le trascrizioni in modalità asincrona.
+La trascrizione Batch è ideale se nello spazio di archiviazione sono presenti grandi quantità di dati audio. Usando l'API REST è possibile fare riferimento ai file audio tramite l'URI SAS e ricevere trascrizioni in modo asincrono.
 
 ## <a name="batch-transcription-api"></a>API di trascrizione Batch
 
-L'API di trascrizione batch offre la trascrizione asincrona della voce in testo scritto insieme ad altre funzionalità.
+L'API di trascrizione Batch offre la trascrizione asincrona della voce in testo scritto insieme ad altre funzionalità. Si tratta di un'API REST che espone i metodi per eseguire le operazioni seguenti:
+
+1. Creare richieste di elaborazione batch
+
+2. Eseguire query sullo stato 
+
+3. Scaricare le trascrizioni
 
 > [!NOTE]
 > L'API di trascrizione Batch è ideale per i call center che in genere accumulano migliaia di ore di audio. L'API di basa su un approccio di tipo "attiva e dimentica" che facilita la trascrizione di volumi elevati di registrazioni audio.
@@ -59,9 +67,9 @@ Per i flussi audio stereo, la trascrizione Batch divide i canali sinistro e dest
 
 ## <a name="authorization-token"></a>Token di autorizzazione
 
-Come per tutte le funzionalità del Servizio di riconoscimento vocale, è necessario creare una chiave di sottoscrizione nel [portale di Azure](https://portal.azure.com) seguendo la [guida introduttiva](get-started.md). Se si prevede di ottenere trascrizioni dai modelli di base, questa è l'unica operazione da eseguire. 
+Come per tutte le funzionalità del servizio Voce, è necessario creare una chiave di sottoscrizione nel [portale di Azure](https://portal.azure.com) seguendo la [guida introduttiva](get-started.md). Se si prevede di ottenere trascrizioni dai modelli di base, questa è l'unica operazione da eseguire. 
 
-Se si prevede di creare e usare un modello personalizzato, è necessario aggiungere la chiave di sottoscrizione al portale del Servizio di riconoscimento vocale personalizzato, come indicato di seguito:
+Se si prevede di creare e usare un modello personalizzato, è necessario aggiungere la chiave di sottoscrizione al portale del servizio di riconoscimento vocale personalizzato, come indicato di seguito:
 
 1. Accedere a [Riconoscimento vocale personalizzato](https://customspeech.ai).
 
@@ -95,81 +103,80 @@ Personalizzare il codice di esempio seguente con una chiave di sottoscrizione e 
         }
 ```
 
-Dopo aver ottenuto il token, è necessario specificare l'URI SAS selezionando il file audio che richiede la trascrizione. Il resto del codice esegue l'iterazione con lo stato e visualizza i risultati.
+Dopo aver ottenuto il token, è necessario specificare l'URI SAS selezionando il file audio che richiede la trascrizione. Il resto del codice esegue l'iterazione con lo stato e visualizza i risultati. Inizialmente è necessario configurare la chiave, l'area, i modelli da usare e l'associazione di sicurezza, come illustrato nel frammento di codice seguente. In seguito viene creata l'istanza del client e la richiesta POST. 
 
 ```cs
-   static async Task TranscribeAsync()
-        { 
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
+            // SAS URI 
+            private const string RecordingsBlobUri = "some SAS URI";
+
+            // adapted model Ids
+            private static Guid AdaptedAcousticId = new Guid("some guid");
+            private static Guid AdaptedLanguageId = new Guid("some guid");
+
             // Creating a Batch transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
             
-            var transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
+```
 
-            // get the transcription Id from the location URI
-            var createdTranscriptions = new List<Guid>();
-            createdTranscriptions.Add(new Guid(transcriptionLocation.ToString().Split('/').LastOrDefault()))
+Dopo aver creato la richiesta l'utente può eseguire query e scaricare il risultato della trascrizione come illustrato nel frammento di codice.
 
-            while (true)
+```cs
+  
+            // get all transcriptions for the user
+            transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
+
+            // for each transcription in the list we check the status
+            foreach (var transcription in transcriptions)
             {
-                // get all transcriptions for the user
-                transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
-                completed = 0; running = 0; notStarted = 0;
-
-                // for each transcription in the list we check the status
-                foreach (var transcription in transcriptions)
+                switch(transcription.Status)
                 {
-                    switch(transcription.Status)
-                    {
-                        case "Failed":
-                        case "Succeeded":
+                    case "Failed":
+                    case "Succeeded":
 
                             // we check to see if it was one of the transcriptions we created from this client.
-                            if (!createdTranscriptions.Contains(transcription.Id))
-                            {
-                                // not creted form here, continue
-                                continue;
-                            }
+                        if (!createdTranscriptions.Contains(transcription.Id))
+                        {
+                            // not creted form here, continue
+                            continue;
+                        }
                             
-                            completed++;
+                        completed++;
                             
-                            // if the transcription was successfull, check the results
-                            if (transcription.Status == "Succeeded")
-                            {
-                                var resultsUri = transcription.ResultsUrls["channel_0"];
-                                WebClient webClient = new WebClient();
-                                var filename = Path.GetTempFileName();
-                                webClient.DownloadFile(resultsUri, filename);
-                                var results = File.ReadAllText(filename);
-                                Console.WriteLine("Transcription succedded. Results: ");
-                                Console.WriteLine(results);
-                            }
-                            break;
-                        case "Running":
-                            running++;
-                            break;
-                        case "NotStarted":
-                            notStarted++;
-                            break;
+                        // if the transcription was successfull, check the results
+                        if (transcription.Status == "Succeeded")
+                        {
+                            var resultsUri = transcription.ResultsUrls["channel_0"];
+                            WebClient webClient = new WebClient();
+                            var filename = Path.GetTempFileName();
+                            webClient.DownloadFile(resultsUri, filename);
+                            var results = File.ReadAllText(filename);
+                            Console.WriteLine("Transcription succedded. Results: ");
+                            Console.WriteLine(results);
+                        }
+                    
+                    break;
+                    case "Running":
+                    running++;
+                     break;
+                    case "NotStarted":
+                    notStarted++;
+                    break;
+                    
                     }
                 }
-
-                Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
-
-                await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
             }
-
-            Console.WriteLine("Press any key...");
         }
 ```
 
+Nel [documento su Swagger](https://westus.cris.ai/swagger/ui/index) vengono forniti tutti i dettagli sulle chiamate precedenti. L'esempio completo illustrato qui è disponibile in [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+
 > [!NOTE]
-> Nell'esempio precedente, la chiave di sottoscrizione è la chiave della risorsa del Servizio di riconoscimento vocale creata nel portale di Azure. Le chiavi ottenute dalla risorsa del Servizio di riconoscimento vocale personalizzato non funzioneranno.
+> Nell'esempio precedente, la chiave di sottoscrizione è la chiave della risorsa del servizio Voce creata nel portale di Azure. Le chiavi ottenute dalla risorsa del servizio di riconoscimento vocale personalizzato non funzioneranno.
 
 Si noti la configurazione asincrona per l'inserimento dell'audio e la ricezione dello stato della trascrizione. Il client creato è un client HTTP NET. Il metodo `PostTranscriptions` consente di inviare i dettagli del file audio e il metodo `GetTranscriptions` consente di ricevere i risultati. `PostTranscriptions` restituisce un handle e `GetTranscriptions` usa questo handle per crearne uno per ottenere lo stato della trascrizione.
 
@@ -193,4 +200,4 @@ L'esempio visualizzato qui è disponibile in [GitHub](https://github.com/PanosPe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+* [Ottenere una sottoscrizione di valutazione gratuita del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)

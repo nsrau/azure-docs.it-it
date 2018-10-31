@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 3f70a8cf2df25f487de7cd1a8c8cbdf9431839f0
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: a29f1c4a625552dd958884c6a172bee470e61ca6
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283068"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49312530"
 ---
 | Risorsa | Destinazione | Limite rigido |
 |----------|--------------|------------|
@@ -30,3 +30,4 @@ ms.locfileid: "43283068"
 | Dimensioni massime del descrittore di protezione (directory e file) dell'oggetto | 4 KiB | Yes |
 | Dimensioni complete | 100 GiB | No  |
 | Dimensioni minime per un file da rendere a livelli | 64 KiB | Yes |
+| Sessioni di sincronizzazione simultanee | 2 sessioni di sincronizzazione attive per ogni processore o fino a 8 sessioni di sincronizzazione attive per ogni server | Yes |

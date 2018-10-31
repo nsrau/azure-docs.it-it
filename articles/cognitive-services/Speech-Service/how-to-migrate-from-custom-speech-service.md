@@ -4,20 +4,20 @@ titlesuffix: Azure Cognitive Services
 description: Informazioni su come la eseguire migrazione dal servizio Riconoscimento vocale personalizzato al servizio Voce.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
-ms.openlocfilehash: db09a85daff553dc911d039d37c826343e93d240
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 656a5df21d1f7dd2e7662dc3a0415581eae02b00
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338523"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471238"
 ---
-# <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrazione dal servizio Riconoscimento vocale personalizzato al servizio Voce
+# <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Eseguire la migrazione dal servizio Riconoscimento vocale personalizzato al servizio Voce
 
 Usare le informazioni in questo articolo per eseguire la migrazione dal servizio Riconoscimento vocale personalizzato al servizio Voce.
 
@@ -67,4 +67,4 @@ I clienti esistenti devono eseguire la migrazione delle chiavi di risorsa esiste
 ## <a name="see-also"></a>Vedere anche 
 
 * [Informazioni sul servizio Voce](overview.md)
-* [Documentazione su servizio Voce e Speech SDK](speech-sdk.md#get-the-sdk)
+* [Documentazione sul servizio Voce e Speech SDK](speech-sdk.md#get-the-sdk)

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406922"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430171"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Distribuzione DBMS per SQL Server di macchine virtuali di Azure per un SAP NetWeaver
 
@@ -418,7 +418,7 @@ La seconda modalità è descritta più in dettaglio nell'articolo [Backup di SQL
 
 
 ### <a name="automated-backup-for-sql-server"></a>Backup automatizzato per SQL Server
-Backup automatizzato offre un servizio di backup automatico per le edizioni di SQL Server Standard ed Enterprise in esecuzione in una macchina virtuale di Azure. Il servizio viene reso disponibile dall'[Estensione SQL Server IaaS Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), installata automaticamente nelle immagini di macchine virtuali Windows di SQL Server nel portale di Azure. Se si distribuiscono le proprie immagini del sistema operativo con SQL Server installato, è necessario installare le estensioni di macchina virtuale separatamente. I passaggi necessari sono documentati in questo [articolo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+Il servizio Backup automatizzato consente il backup automatico per le edizioni di SQL Server Standard ed Enterprise in esecuzione in una macchina virtuale Windows in Azure. Il servizio viene reso disponibile dall'[Estensione SQL Server IaaS Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), installata automaticamente nelle immagini di macchine virtuali Windows di SQL Server nel portale di Azure. Se si distribuiscono le proprie immagini del sistema operativo con SQL Server installato, è necessario installare le estensioni di macchina virtuale separatamente. I passaggi necessari sono documentati in questo [articolo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 Altre informazioni sulle funzionalità di questa modalità sono disponibili negli articoli seguenti:
 

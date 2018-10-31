@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6c730455e2d8b590a4e4b9ca0392985918678bf4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125645"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167699"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Metriche e diagnostica dell'integrità per Load Balancer Standard
 
-Azure Load Balancer Standard fornisce le funzionalità di diagnostica seguenti per le proprie risorse:
-* **Metriche multidimensionali**: offre nuove funzionalità di diagnostica multidimensionale per le configurazioni di Load Balancer sia pubbliche che interne. Così è possibile monitorare, gestire e risolvere i problemi delle risorse di Load Balancer.
+Azure Load Balancer Standard fornisce le funzionalità di diagnostica seguenti per le risorse:
+* **Metriche multidimensionali**: sono disponibili nuove funzionalità di diagnostica multidimensionale tramite [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per le configurazioni di Load Balancer sia pubbliche che interne. Così è possibile monitorare, gestire e risolvere i problemi delle risorse di Load Balancer.
 
 * **Integrità risorse**: la pagina di Load Balancer nel portale di Azure e la pagina Integrità risorse (in Monitoraggio) espongono la sezione di integrità delle risorse per la configurazione pubblica di bilanciamento del carico di Load Balancer Standard.
 
@@ -37,7 +37,7 @@ Azure Load Balancer fornisce le nuove metriche multidimensionali tramite la nuov
 
 Le varie configurazioni Load Balancer Standard forniscono le seguenti metriche:
 
-| Metrica | Tipo di risorsa | Descrizione | Aggregazione consigliata |
+| Metrica | Tipo di risorsa | DESCRIZIONE | Aggregazione consigliata |
 | --- | --- | --- | --- |
 | Disponibilità VIP (disponibilità del percorso dati) | Bilanciamento del carico pubblico | Load Balancer Standard esercita continuamente il percorso dati dall'interno di un'area al front-end di Load Balancer e infine allo stack SDN che supporta la macchina virtuale. Finché sono presenti istanze integre, la misurazione segue lo stesso percorso del traffico con bilanciamento del carico dell'applicazione. Viene anche convalidato il percorso dati usato dai clienti. La misurazione è invisibile all'applicazione e non interferisce con altre operazioni.| Media |
 | Disponibilità DIP (stato del probe di integrità) |  Servizio di bilanciamento del carico interno e pubblico | Load Balancer Standard usa un servizio di probe dell'integrità distribuito che monitora l'integrità dell'endpoint dell'applicazione in base alle impostazioni di configurazione. Questa metrica offre una visualizzazione filtrata, aggregata o per endpoint di ogni endpoint dell'istanza nel pool di Load Balancer. In questo modo è possibile visualizzare l'integrità dell'applicazione rilevata da Load Balancer, in base alla configurazione del probe di integrità. |  Media |
@@ -209,7 +209,7 @@ Per visualizzare l'integrità delle risorse della configurazione pubblica di Loa
  
 La tabella seguente elenca i diversi stati di integrità delle risorse e le relative descrizioni: 
 
-| Stato di integrità delle risorse | Descrizione |
+| Stato di integrità delle risorse | DESCRIZIONE |
 | --- | --- |
 | Disponibile | La risorsa della configurazione pubblica di Load Balancer Standard è integra e disponibile. |
 | Non disponibile | La risorsa della configurazione pubblica di Load Balancer Standard non è integra. Diagnosticare l'integrità selezionando **Monitoraggio di Azure** > **Metriche**.<br>(Stato *Non disponibile* potrebbe anche significare che la risorsa non è collegata al Load Balancer Standard pubblico). |
@@ -219,6 +219,7 @@ La tabella seguente elenca i diversi stati di integrità delle risorse e le rela
 
 - Altre informazioni su [Load Balancer Standard](load-balancer-standard-overview.md).
 - Altre informazioni sulla [connettività in uscita di Load Balancer](https://aka.ms/lboutbound).
-- Informazioni sull'[API REST delle metriche di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/metrics/).
+- Informazioni su [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview).
+- Informazioni sull'[API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/) e su [come recuperare le metriche tramite l'API REST](https://docs.microsoft.com/rest/api/monitor/metrics/metrics_list).
 
 

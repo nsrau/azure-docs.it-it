@@ -12,19 +12,19 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7000fc13a792f4f6def592e78dc759c8cf165881
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 8243d1e297fa778d4fa27f8365d9bb0a935d21e5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451919"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387997"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>.NET Core SDK di Azure Cosmos DB per API SQL: risorse e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -52,6 +52,14 @@ ms.locfileid: "47451919"
 ## <a name="release-notes"></a>Note sulla versione
 
 Azure Cosmos DB .NET Core SDK ha le stesse funzionalità della versione più recente di [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
+
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* È stato effettuato l'aggiornamento di System.Net.Security alla versione 4.3.2.
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* Sono stati apportati miglioramenti all'analisi diagnostica.
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 
@@ -204,6 +212,8 @@ Per domande su questo SDK, pubblicare un post su [StackOverflow](http://stackove
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |15 ottobre 2018 |--- |
+| [2.1.2](#2.1.2) |4 ottobre 2018 |--- |
 | [2.1.1](#2.1.1) |27 settembre 2018 |--- |
 | [2.1.0](#2.1.0) |21 settembre 2018 |--- |
 | [2.0.0](#2.0.0) |7 settembre 2018 |--- |

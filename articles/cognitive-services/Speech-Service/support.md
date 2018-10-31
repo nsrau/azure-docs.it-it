@@ -1,19 +1,21 @@
 ---
 title: Opzioni di supporto tecnico e assistenza
-description: Scoprire come ottenere assistenza e supporto per domande e problemi durante la creazione di applicazioni che si integrano con il servizio Voce di Servizi cognitivi di Azure
+titlesuffix: Azure Cognitive Services
+description: Informazioni su come ottenere assistenza e supporto tecnico per domande e problemi quando si creano applicazioni che si integrano con il servizio Voce
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: c08cc34631afdec4a4b08b4c599b79e1a161558c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 58fb5d4be2137eed7d62e702f08bdd66c80be347
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364158"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468059"
 ---
 # <a name="support-and-help-options"></a>Opzioni di supporto tecnico e assistenza
 
@@ -28,7 +30,7 @@ Se si sta iniziando a esplorare le funzionalità del servizio Voce o si sta per 
 
 ## <a name="stay-informed"></a>Rimani sempre aggiornato
 
-Le novità su Servizi cognitivi sono raccolte nel[blog sui Servizi cognitivi](https://azure.microsoft.com/blog/topics/cognitive-services/). Per le informazioni più recenti sul servizio di riconoscimento vocale, vedere il [blog sul servizio Voce](https://azure.microsoft.com/blog/tag/speech-service/).
+Le novità su Servizi cognitivi sono raccolte nel[blog sui Servizi cognitivi](https://azure.microsoft.com/blog/topics/cognitive-services/). Per le informazioni più recenti sul servizio Voce, vedere il [blog sul servizio Voce](https://azure.microsoft.com/blog/tag/speech-service/).
 
 ## <a name="search"></a>Ricerca
 
@@ -74,8 +76,41 @@ Se non si trova una risposta al problema tramite la ricerca, inviare una nuova d
 
 Gli esempi vengono spesso pubblicati come open source. Per domande e problemi, segnalare un *problema* nel corrispondente repository GitHub. Si può anche inviare anche una richiesta pull. L'elenco seguente contiene i collegamenti ai repository di esempio:
 
-* [Speech SDK](https://aka.ms/csspeech/samples)
-* [Device SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
+* [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+
+È possibile creare un report sui bug, una richiesta di funzionalità oppure porre una domanda di carattere generale e condividere le procedure consigliate. Per i report sui bug seguire il modello fornito:
+
+**Descrizione del bug**
+
+Descrizione chiara e concisa del bug.
+
+**Riproduzione**
+
+Passaggi per riprodurre il comportamento:
+1. ...
+2. ...
+
+**Comportamento previsto**
+
+Descrizione chiara e concisa del comportamento previsto.
+
+**Versione di Speech SDK di Servizi cognitivi**
+
+Versione dell'SDK usata.
+
+**Piattaforma, sistema operativo e linguaggio di programmazione**
+
+ - Sistema operativo, ad esempio Windows, Linux, Android, iOS, ... - specificare
+ - Hardware: x64, x86, ARM, ...
+ - Browser, ad esempio Chrome, Safari (se applicabile) - specificare
+
+**Altre informazioni di contesto**
+
+ - Messaggi di errore, informazioni del log, analisi dello stack, ...
+ - Se si segnala un errore relativo a un'interazione con un servizio specifico, indicare SessionId e ora (incluso il fuso orario) degli incidenti segnalati. Il valore di SessionId è indicato in tutti i callback e gli eventi ricevuti.
+ - Eventuali altre informazioni aggiuntive
+
 
 ## <a name="uservoice-forum"></a>Forum UserVoice
 

@@ -10,13 +10,13 @@ ms.reviewer: klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 08/24/2018
-ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 10/11/2018
+ms.openlocfilehash: 77a76aa4fbb051e5999053279798c1b0147ae8e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042039"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166781"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando App per la logica di Azure
 
@@ -27,8 +27,10 @@ Con App per la logica di Azure e il connettore SFTP, è possibile creare attivit
 * Leggere contenuti e metadati dei file.
 * Estrarre archivi nella cartella.
 
-È possibile usare i trigger per ottenere risposte dal server SFTP e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire attività sul server SFTP. È anche possibile che altre azioni usino l'output delle azioni di SFTP. Ad esempio, se si recuperano regolarmente i file dal server SFTP, è possibile inviare messaggi di posta elettronica riguardanti tali file e il relativo contenuto usando il connettore Outlook di Office 365 o Outlook.com.
-Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+È possibile usare i trigger per ottenere risposte dal server SFTP e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire attività sul server SFTP. È anche possibile che altre azioni usino l'output delle azioni di SFTP. Ad esempio, se si recuperano regolarmente i file dal server SFTP, è possibile inviare messaggi di posta elettronica riguardanti tali file e il relativo contenuto usando il connettore Outlook di Office 365 o Outlook.com. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+
+> [!NOTE]
+> Per i file di dimensioni comprese tra 50 MB e 1 GB, usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md). Il connettore SFTP supporta solo file con dimensioni massime di 50 MB, a meno che non si usi la [divisione in blocchi per gestire i messaggi di grandi dimensioni](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 

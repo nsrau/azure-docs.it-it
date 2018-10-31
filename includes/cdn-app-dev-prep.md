@@ -1,4 +1,4 @@
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di scrivere codice per la gestione di una rete CDN, è necessario eseguire alcune operazioni preliminari per consentire al codice di interagire con Azure Resource Manager. A tale scopo è necessario:
 
 * Creare un gruppo di risorse in cui includere il profilo di rete CDN creato in questa esercitazione
@@ -21,14 +21,14 @@ Prima di scrivere codice per la gestione di una rete CDN, è necessario eseguire
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Creazione dell'applicazione Azure AD e applicazione delle autorizzazioni
 Per l'autenticazione delle app con Azure Active Directory sono possibili due approcci: singoli utenti o un'entità servizio. Un'entità servizio è simile a un account di servizio di Windows.  Anziché concedere a un determinato utente le autorizzazioni per interagire con i profili di rete CDN, si concedono le autorizzazioni all'entità servizio.  Le entità servizio vengono in genere usate per processi automatizzati non interattivi.  Sebbene in questa esercitazione si scriva un'applicazione console interattiva, ci si concentrerà sull'approccio dell'entità servizio.
 
-La creazione di un'entità servizio è costituita da diversi passaggi, compresa la creazione di un'applicazione Azure Active Directory.  Per crearla, si eseguirà [questa esercitazione](../articles/resource-group-create-service-principal-portal.md).
+La creazione di un'entità servizio è costituita da diversi passaggi, compresa la creazione di un'applicazione Azure Active Directory.  Per crearla, si eseguirà [questa esercitazione](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 
 > [!IMPORTANT]
-> Assicurarsi di completare tutti i passaggi dell' [esercitazione collegata](../articles/resource-group-create-service-principal-portal.md).  È *importante* completarla esattamente come descritto.  Assicurarsi di annotare l'**ID tenant**, il **nome di dominio del tenant** (in genere un dominio *.onmicrosoft.com*, se non è stato specificato un dominio personalizzato), l'**ID client** e la **chiave di autenticazione client**, perché queste informazioni saranno necessarie più avanti.  Proteggere con attenzione l'**ID client** e la **chiave di autenticazione client**, perché queste credenziali possono essere usate da chiunque per eseguire operazioni come entità servizio.
+> Assicurarsi di completare tutti i passaggi dell' [esercitazione collegata](../articles/active-directory/develop/howto-create-service-principal-portal.md).  È *importante* completarla esattamente come descritto.  Assicurarsi di annotare l'**ID tenant**, il **nome di dominio del tenant** (in genere un dominio *.onmicrosoft.com*, se non è stato specificato un dominio personalizzato), l'**ID client** e la **chiave di autenticazione client**, perché queste informazioni saranno necessarie più avanti.  Proteggere con attenzione l'**ID client** e la **chiave di autenticazione client**, perché queste credenziali possono essere usate da chiunque per eseguire operazioni come entità servizio.
 >
 > Quando si arriva al passaggio denominato Configurare l'applicazione multi-tenant, selezionare **No**.
 >
-> Quando si arriva al passaggio [Assegnare l'applicazione al ruolo](../articles/azure-resource-manager/resource-group-create-service-principal-portal.md#assign-application-to-role), usare il gruppo di risorse creato in precedenza, *CdnConsoleTutorial*, assegnando però il ruolo **Collaboratore profilo rete CDN** anziché il ruolo **Lettore**.  Dopo aver assegnato all'applicazione il ruolo di **collaboratore profilo di rete CDN** nel gruppo di risorse, tornare a questa esercitazione. 
+> Quando si arriva al passaggio [Assegnare l'applicazione a un ruolo](../articles/active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role), usare il gruppo di risorse creato in precedenza, *CdnConsoleTutorial*, assegnando però il ruolo **Collaboratore profilo rete CDN** anziché il ruolo **Lettore**.  Dopo aver assegnato all'applicazione il ruolo di **collaboratore profilo di rete CDN** nel gruppo di risorse, tornare a questa esercitazione. 
 >
 >
 

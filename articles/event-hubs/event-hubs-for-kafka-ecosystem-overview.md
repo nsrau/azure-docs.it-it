@@ -9,16 +9,16 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: bahariri
-ms.openlocfilehash: 16c101068be48ba1435ef230b29c679fcef17d08
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b1a046fdb62926d32c05bab5a1616b250911865b
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146621"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352574"
 ---
 # <a name="azure-event-hubs-for-apache-kafka-preview"></a>Hub eventi di Azure per Apache Kafka (anteprima)
 
-Hub eventi fornisce un endpoint Kafka che può essere usato dalle applicazioni Kafka esistenti come alternativa all'esecuzione del proprio cluster Kafka. Hub eventi supporta [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) e le versioni client più recenti e può essere usato con le applicazioni Kafka esistenti, tra cui MirrorMaker. 
+Hub eventi fornisce un endpoint Kafka che può essere usato dalle applicazioni Kafka esistenti come alternativa all'esecuzione del proprio cluster Kafka. Hub eventi supporta il [protocollo Apache Kafka 1.0 e versioni successive](https://kafka.apache.org/documentation/) e funziona con le applicazioni Kafka esistenti, tra cui MirrorMaker. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Vantaggi di Hub eventi per Kafka
 
@@ -70,6 +70,7 @@ In questo articolo è stata fornita un'introduzione a Hub eventi per Kafka. Per 
 
 * [Come creare Hub eventi con supporto per Kafka](event-hubs-create-kafka-enabled.md)
 * [Trasmettere in Hub eventi dalle applicazioni Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+* [Esplorare altri esempi in GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 * Iniziare con un'[esercitazione di Hub eventi](event-hubs-dotnet-standard-getstarted-send.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 

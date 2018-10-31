@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053711"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091050"
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Informazioni su come leggere o scrivere dati partizionati in Azure Data Factory
-Nella versione 1, Azure Data Factory supportava la lettura o la scrittura di dati partizionati usando le variabili di sistema SliceStart/SliceEnd/WindowStart/WindowEnd. Nella versione corrente di Data Factory è possibile ottenere questo comportamento usando un parametro della pipeline e l'ora di inizio/ora prevista per il trigger come valore per il parametro. 
+
+In Azure Data Factory versione 1 era possibile leggere o scrivere dati partizionati usando le variabili di sistema **SliceStart**, **SliceEnd**, **WindowStart** e **WindowEnd**. Nella versione corrente di Data Factory è possibile ottenere questo comportamento usando un parametro della pipeline e l'ora di inizio o l'ora prevista per un trigger come valore del parametro. 
 
 ## <a name="use-a-pipeline-parameter"></a>Usare un parametro della pipeline 
-Nella versione 1, era possibile usare la proprietà partitionedBy e la variabile di sistema SliceStart come mostrato nell'esempio seguente: 
+
+In Data Factory versione 1 era possibile usare la proprietà **partitionedBy** e la variabile di sistema **SliceStart** come mostrato nell'esempio seguente: 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -35,13 +37,13 @@ Nella versione 1, era possibile usare la proprietà partitionedBy e la variabile
 ],
 ```
 
-Per maggiori informazioni sulla proprietà partitonedBy, consultare l'articolo [version 1 Azure Blob connector](v1/data-factory-azure-blob-connector.md#dataset-properties). 
+Per altre informazioni sulla proprietà **partitonedBy**, vedere [Copiare dati da e in Archiviazione BLOB di Azure usando Azure Data Factory](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-Nella versione corrente di Data Factory un modo per ottenere questo comportamento è eseguire le azioni seguenti: 
+Per ottenere questo comportamento nella versione corrente di Data Factory: 
 
-1. Definire un **parametro della pipeline** di tipo stringa. Nell'esempio seguente, il nome del parametro della pipeline è **windowStartTime**. 
+1. Definire un *parametro della pipeline* di tipo **string**. Nell'esempio seguente, il nome del parametro della pipeline è **windowStartTime**. 
 2. Impostare **folderPath** nella definizione del set di dati in modo da fare riferimento al valore del parametro della pipeline. 
-3. Passare il valore effettivo per il parametro quando si richiama la pipeline su richiesta o passare un'ora di inizio o ora prevista per il trigger in modo dinamico in fase di esecuzione. 
+3. Passare il valore effettivo del parametro quando si richiama la pipeline su richiesta. In alternativa, passare un'ora di inizio o un'ora prevista per il trigger in modo dinamico in fase di esecuzione. 
 
 ```json
 "folderPath": {
@@ -50,7 +52,8 @@ Nella versione corrente di Data Factory un modo per ottenere questo comportament
 },
 ```
 
-## <a name="pass-in-value-from-a-trigger"></a>Passare il valore da un trigger
+## <a name="pass-in-a-value-from-a-trigger"></a>Passare un valore da un trigger
+
 Nella seguente definizione di trigger di finestra a cascata, l'ora di inizio della finestra per il trigger è passata come valore del parametro della pipeline **windowStartTime**: 
 
 ```json
@@ -176,4 +179,6 @@ Definizione della pipeline:
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per la procedura dettagliata sulla creazione di una data factory con una pipeline, vedere [Avvio rapido: Creare una data factory](quickstart-create-data-factory-powershell.md). 
+
+Per la procedura dettagliata sulla creazione di una data factory con una pipeline, vedere [Guida introduttiva: Creare una data factory](quickstart-create-data-factory-powershell.md). 
+

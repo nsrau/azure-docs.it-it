@@ -1,21 +1,21 @@
 ---
 title: Informazioni sull'utilizzo dei ruoli in entità basate sui criteri
 titleSuffix: Azure Cognitive Services
-description: I ruoli sono sottotipi contestuali denominati di un'entità utilizzati solo nei criteri. Ad esempio, nell'espressione "comprare un biglietto da New York a Londra", New York e Londra corrispondono entrambe a città, ma hanno un significato diverso nell'economia della frase. New York è la città di origine e Londra è la città di destinazione.
+description: I ruoli sono sottotipi contestuali denominati di un'entità utilizzati solo nei criteri. Ad esempio, nell'espressione "buy a ticket from New York to London", New York e Londra corrispondono entrambe a città, ma hanno un significato diverso nell'economia della frase. New York è la città di origine e Londra è la città di destinazione.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035199"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638084"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Nei criteri, i ruoli di entità sono sottotipi contestuali
 I ruoli sono sottotipi contestuali denominati di un'entità utilizzati solo nei [criteri](luis-concept-patterns.md).
@@ -28,9 +28,11 @@ I ruoli assegnano un nome a tali differenze:
 |--|--|--|
 |Località|origin|luogo in cui parte l'aereo|
 |Località|destination|luogo in cui atterra l'aereo|
+|DatetimeV2 predefinito|to|data di fine|
+|DatetimeV2 predefinito|from|data di inizio|
 
-## <a name="how-are-roles-used-in-patterns"></a>In che modo vengono utilizzati i ruoli nei criteri?
-Nell'espressione del modello del criterio, i ruoli vengono utilizzati all'interno dell'espressione: 
+## <a name="how-are-roles-used-in-patterns"></a>In che modo vengono usati i ruoli nei criteri?
+Nell'espressione del modello del criterio i ruoli vengono usati all'interno dell'espressione: 
 
 |Criteri con ruoli di entità|
 |--|
@@ -47,6 +49,14 @@ Le entità gerarchiche forniscono le stesse informazioni contestuali dei ruoli, 
 |--|--|
 |Entità gerarchiche|Finalità|
 |roles|Criteri|
+
+## <a name="roles-with-prebuilt-entities"></a>Ruoli con entità predefinite
+
+Usare i ruoli con entità predefinite per assegnare un significato a istanze diverse dell'entità predefinita all'interno di un'espressione. 
+
+### <a name="roles-with-datetimev2"></a>Ruoli con datetimeV2
+
+L'entità predefinita datetimeV2 è utilissima per comprendere i diversi modi di indicare data e ora nelle espressioni. È possibile specificare date e intervalli di date in modo diverso rispetto a quanto previsto dall'impostazione predefinita di riconoscimento dell'entità predefinita. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

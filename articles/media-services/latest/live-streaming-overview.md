@@ -4,28 +4,28 @@ description: Questo argomento offre una panoramica dello streaming live con Serv
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972180"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378137"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
 Quando si distribuiscono eventi Live Streaming con Servizi multimediali di Azure, sono generalmente necessari i componenti seguenti:
 
 * Una fotocamera da usare per trasmettere un evento.
-* Un codificatore video live in grado di convertire i segnali provenienti dalla fotocamera (o da un altro dispositivo, come un portatile) in flussi inviati al servizio di streaming live di Servizi multimediali. I segnali possono includere anche segnali SCTE-35 e segnali pubblicitari. 
+* Un codificatore video live in grado di convertire i segnali provenienti dalla fotocamera (o da un altro dispositivo, come un portatile) in flussi inviati al servizio di streaming live. I segnali possono includere anche segnali SCTE-35 e segnali pubblicitari. 
 * Il servizio di streaming live di Servizi multimediali consente di inserire, visualizzare in anteprima, includere in un pacchetto, registrare, crittografare e trasmettere il contenuto ai clienti o a una rete CDN per un'ulteriore distribuzione.
 
 Questo articolo offre una panoramica dettagliata e include i diagrammi dei principali componenti coinvolti nello streaming live con Servizi multimediali.
@@ -40,6 +40,17 @@ Servizi multimediali consente di distribuire contenuti crittografati dinamicamen
 
 Se si vuole, è anche possibile applicare **filtri dinamici**, che possono essere usati per controllare il numero di tracce, i formati e i bitrate che vengono inviati ai lettori. Servizi multimediali supporta anche l'inserimento di annunci.
 
+### <a name="new-live-encoding-improvements"></a>Nuovi miglioramenti della codifica live
+
+Nella versione più recente sono stati apportati i nuovi miglioramenti seguenti.
+
+- Nuova modalità a bassa latenza per i live (10 secondi end-to-end).
+- Supporto RTMP migliorato (maggiore stabilità e più supporto per i codificatori di origine).
+- Inserimento RTMPS sicuro.
+
+    Quando si crea un LiveEvent, si ottengono ora quattro URL di inserimento. pressoché identici: hanno lo stesso token di streaming (AppId) e solo la parte del numero di porta è diversa. Due URL sono primari e due sono di backup per RTMPS.   
+- Supporto per la transcodifica 24 ore su 24. 
+- Supporto per annunci pubblicitari migliorato in RTMP tramite SCTE35.
 
 ## <a name="liveevent-types"></a>Tipi di LIveEvent
 
@@ -73,18 +84,18 @@ La tabella seguente mette a confronto le funzionalità dei due tipi di LiveEvent
 
 | Funzionalità | LiveEvent pass-through | LiveEvent Basic |
 | --- | --- | --- |
-| Input a bitrate singolo codificato in bitrate multipli nel cloud |No  |Sì |
+| Input a bitrate singolo codificato in bitrate multipli nel cloud |No  |Yes |
 | Risoluzione massima, numero di livelli |4Kp30  |720p, 6 livelli, 30 fps |
 | Protocolli di input |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Prezzo |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) e fare clic sulla scheda "Video live" |Vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/media-services/) |
 | Tempo di esecuzione massimo |24 x 7 |24 x 7 |
-| Supporto per l'inserimento di slate |No  |Sì |
-| Supporto per annunci pubblicitari tramite API|No  |Sì |
-| Supporto per annunci pubblicitari tramite SCTE35 in banda|Sì |Sì |
-| Pass-through di sottotitoli CEA 608/708 |Sì |Sì |
-| Possibilità di recuperare brevi fasi di stallo in feed di contributo |Sì |No (senza dati di input, il LiveEvent avvierà lo slate dopo 6 secondi)|
-| Supporto per GOP di input non uniformi |Sì |No: l'input deve essere fisso (GOP di 2 secondi) |
-| Supporto per input con frequenza dei fotogrammi variabile |Sì |No: l'input deve essere una frequenza di fotogrammi fissa.<br/>Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Il codificatore, tuttavia, non può scendere a 10 fotogrammi al secondo. |
+| Supporto per l'inserimento di slate |No  |Yes |
+| Supporto per annunci pubblicitari tramite API|No  |Yes |
+| Supporto per annunci pubblicitari tramite SCTE35 in banda|Yes |Yes |
+| Pass-through di sottotitoli CEA 608/708 |Yes |Yes |
+| Possibilità di recuperare brevi fasi di stallo in feed di contributo |Yes |No (senza dati di input, il LiveEvent avvierà lo slate dopo 6 secondi)|
+| Supporto per GOP di input non uniformi |Yes |No: l'input deve essere fisso (GOP di 2 secondi) |
+| Supporto per input con frequenza dei fotogrammi variabile |Yes |No: l'input deve essere una frequenza di fotogrammi fissa.<br/>Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Il codificatore, tuttavia, non può scendere a 10 fotogrammi al secondo. |
 | Arresto automatico del LiveEvent in caso di perdita del feed di input |No  |Dopo 12 ore, se nessun LiveOutput è in esecuzione |
 
 ## <a name="liveevent-states"></a>Stati del LiveEvent 

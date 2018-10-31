@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114193"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954488"
 ---
 # <a name="azure-storage-replication"></a>Replica di Archiviazione di Azure
 
@@ -38,7 +38,7 @@ La tabella seguente presenta una rapida panoramica dell'ambito di durabilità e 
 | Mancata disponibilità di un intero data center (di zona o non di zona)                                           | No                               | Yes                              | Yes                                  | Yes                                  |
 | Interruzione a livello di area                                                                                     | No                               | No                                | Yes                                  | Yes                                  |
 | Accesso in lettura ai dati (in un'area remota con replica geografica) in caso di mancata disponibilità a livello di area | No                               | No                                | No                                    | Yes                                  |
-| Replica progettata per fornire una durabilità di ___ per gli oggetti nel corso di un determinato anno                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
+| Replica progettata per fornire una durabilità di \_\_ per gli oggetti nel corso di un determinato anno                                          | Almeno 99,999999999% (11 9) | Almeno 99,9999999999% (12 9) | Almeno 99,99999999999999% (16 9) | Almeno 99,99999999999999% (16 9) |
 | Tipi di account di archiviazione supportati                                                                   | GPv2, GPv1, BLOB                | GPv2, GPv1 (tramite PowerShell, l'interfaccia della riga di comando di Azure o l'API del provider di risorse)                             | GPv2, GPv1, BLOB                     | GPv2, GPv1, BLOB                     |
 | Contratto di servizio relativo alla disponibilità per le richieste di lettura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,99% (99,9% per livello di accesso sporadico) |
 | Contratto di servizio relativo alla disponibilità per le richieste di scrittura | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) | Almeno 99,9% (99% per livello di accesso sporadico) |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47430982"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024628"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Panoramica sugli indirizzi IP pubblici (classici) a livello di istanza
 Un indirizzo IP pubblico a livello di istanza (ILPIP) è un indirizzo IP pubblico che è possibile assegnare direttamente all'istanza del ruolo della macchina virtuale o dei servizi cloud in cui risiede l'istanza del ruolo o la macchina virtuale. Un ILPIP non sostituisce l'indirizzo IP virtuale (VIP) assegnato al servizio cloud. Piuttosto, si tratta di un indirizzo IP aggiuntivo che è possibile usare per connettersi direttamente all'istanza della macchina virtuale o del ruolo.
@@ -47,7 +47,7 @@ Quando si crea un servizio cloud in Azure, i record A DNS corrispondenti vengono
 ## <a name="why-would-i-request-an-ilpip"></a>Perché è necessario richiedere un ILPIP?
 Se si desidera connettersi all'istanza della VM o del ruolo tramite un indirizzo IP assegnato direttamente all'istanza, anziché usare il servizio cloud VIP:&lt;numero porta&gt;, richiedere un ILPIP per l'istanza della VM o del ruolo.
 
-* **FTP attivo**: assegnando un ILPIP a una macchina virtuale è possibile che questa riceva il traffico su qualsiasi porta. Gli endpoint non sono necessari per la macchina virtuale affinché questa riceva il traffico.  Vedere una [panoramica del protocollo FTP] (https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) per informazioni dettagliate sul protocollo FTP.
+* **FTP attivo**: assegnando un ILPIP a una macchina virtuale è possibile che questa riceva il traffico su qualsiasi porta. Gli endpoint non sono necessari per la macchina virtuale affinché questa riceva il traffico.  Vedere [Panoramica del protocollo FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) per informazioni dettagliate sul protocollo FTP.
 * **IP in uscita**: viene eseguito il mapping del traffico in uscita proveniente dalla macchina virtuale all'ILPIP come origine e l'ILPIP identifica in modo univoco la macchina virtuale sulle entità esterne.
 
 > [!NOTE]

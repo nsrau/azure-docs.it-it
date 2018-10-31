@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 9ec049ebbfaa8e6ee5dbf585488d5c2e8ff25802
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8ce8d0cda6f81aca0e5ea89dd813b371f61e8404
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949707"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407368"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -387,7 +387,7 @@ Dal punto di vista della conformità, i set di scalabilità di macchine virtuali
 
 Per altre informazioni, vedere il [Centro protezione Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>L'[identità del servizio gestito di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funziona con i set di scalabilità di macchine virtuali?
+### <a name="does-managed-identities-for-azure-resourceshttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Le [identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funzionano con i set di scalabilità di macchine virtuali?
 
 Sì. È possibile visualizzare alcuni modelli MSI di esempio nei modelli di avvio rapido di Azure. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
@@ -705,7 +705,7 @@ Sì, è possibile installando l'estensione Log Analytics nelle VM dei set di sca
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
-È possibile trovare l'ID e la chiave dell'area di lavoro necessari nel portale OMS. Nella pagina Panoramica fare clic sul riquadro Impostazioni. Fare clic sula scheda Origini connesse nella parte superiore.
+È possibile trovare l'ID e la chiave dell'area di lavoro necessari nell'area di lavoro di Log Analytics nel portale di Azure. Nella pagina Panoramica fare clic sul riquadro Impostazioni. Fare clic sula scheda Origini connesse nella parte superiore.
 
 Nota: se il set di scalabilità _upgradePolicy_ è impostato su Manuale, è necessario applicare l'estensione a tutte le VM del set tramite una chiamata di aggiornamento. Nell'interfaccia della riga di comando è necessario chiamare _az vmss update-instances_.
 

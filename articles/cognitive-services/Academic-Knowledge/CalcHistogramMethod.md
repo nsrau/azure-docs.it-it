@@ -1,20 +1,21 @@
 ---
-title: Metodo CalcHistogram nell'API Academic Knowledge | Microsoft Docs
-description: Usare il metodo CalcHistogram per calcolare la distribuzione dei valori di attributo per un set di entità documenti in Servizi cognitivi Microsoft.
+title: Metodo CalcHistogram - API Academic Knowledge
+titlesuffix: Azure Cognitive Services
+description: Usare il metodo CalcHistogram per calcolare la distribuzione dei valori di attributo per un set di entità documenti.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e0b773fb9791ee638c8cfdbbc9dca40543e50ec0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372796"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321292"
 ---
 # <a name="calchistogram-method"></a>Metodo CalcHistogram
 
@@ -29,16 +30,18 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
   
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-Nome  |Valore | Obbligatorio?  |Descrizione
+NOME  |Valore | Obbligatorio?  |DESCRIZIONE
 -----------|----------|--------|----------
-**expr**    |Stringa di testo | Sì  |Espressione di query che specifica le entità su cui calcolare gli istogrammi.
+**expr**    |Stringa di testo | Yes  |Espressione di query che specifica le entità su cui calcolare gli istogrammi.
 **model** |Stringa di testo | No  |Selezionare il nome del modello su cui si vuole eseguire la query.  Attualmente il valore predefinito è *latest*.
 **attributes** | Stringa di testo | No <br>Impostazione predefinita: | Elenco delimitato da virgole che specifica i valori di attributo inclusi nella risposta. Per i nomi degli attributi viene fatta distinzione tra maiuscole e minuscole.
 **count** |Number | No <br>Valore predefinito: 10 |Numero di risultati da restituire.
 **offset**  |Number | No <br>Predefinito: 0 |Indice del primo risultato da restituire.
-<br>
+**timeout**  |Number | No <br>Valore predefinito: 1000 |Timeout in millisecondi. Vengono restituite solo le interpretazioni trovate prima del timeout.
+
 ## <a name="response-json"></a>Risposta (JSON)
-Nome | Descrizione
+
+NOME | DESCRIZIONE
 --------|---------
 **expr**  |Parametro expr della richiesta.
 **num_entities** | Numero totale di entità corrispondenti.
@@ -52,7 +55,7 @@ Nome | Descrizione
 **histograms[x].histogram[y].count**  |Numero di entità corrispondenti con questo valore di attributo.
 **aborted** | True se si è verificato il timeout della richiesta.
 
- <br>
+
 #### <a name="example"></a>Esempio:
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

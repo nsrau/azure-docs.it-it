@@ -14,14 +14,15 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 680cea983fb7435bf4492fc295e29f3a234a4323
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356064"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387278"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory
+
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Informazioni sul provisioning utenti automatizzato per app SaaS
 Azure Active Directory (Azure AD) consente di automatizzare la creazione, la manutenzione e la rimozione delle identità utente in applicazioni cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)), ad esempio Dropbox, Salesforce, ServiceNow e così via.
 
@@ -42,6 +43,7 @@ Azure Active Directory (Azure AD) consente di automatizzare la creazione, la man
 * Log di report e attività per facilitare il monitoraggio e la risoluzione dei problemi.
 
 ## <a name="why-use-automated-provisioning"></a>Perché usare il provisioning automatico?
+
 Di seguito sono riportate alcune motivazioni comuni per l'uso di questa funzionalità:
 
 * Per evitare i costi, le inefficienze e gli errori umani associati ai processi di provisioning manuali.
@@ -69,6 +71,7 @@ Il **servizio di provisioning di Azure AD** effettua il provisioning degli utent
 Azure AD offre il supporto preintegrato per un'ampia gamma di sistemi di risorse umane e app SaaS comuni, nonché il supporto generico per le app che implementano parti specifiche dello standard SCIM 2.0.
 
 ### <a name="pre-integrated-applications"></a>Applicazioni preintegrate
+
 Per un elenco di tutte le applicazioni per cui Azure AD supporta un connettore di provisioning preintegrato, vedere l'[elenco delle esercitazioni sulle applicazioni per il provisioning utenti](../saas-apps/tutorial-list.md).
 
 Per contattare il team di progettazione di Azure AD e richiedere supporto per il provisioning di applicazioni aggiuntive, inviare un messaggio tramite il [forum dei commenti di Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
@@ -77,6 +80,7 @@ Per contattare il team di progettazione di Azure AD e richiedere supporto per il
 > Per supportare il provisioning utenti automatico, un'applicazione deve prima di tutto includere le API di gestione utenti necessarie che consentono ai programmi esterni di automatizzare la creazione, la manutenzione e la rimozione degli utenti. Pertanto, non tutte le app SaaS sono compatibili con questa funzionalità. Per le app che supportano le API di gestione utenti, il team di progettazione di Azure AD potrà creare un connettore di provisioning e l'ordine di priorità di questa operazione è stabilito in base alle esigenze dei clienti attuali e potenziali. 
 
 ### <a name="connecting-applications-that-support-scim-20"></a>Connessione di applicazioni che supportano SCIM 2.0
+
 Per informazioni su come connettere genericamente applicazioni che implementano API di gestione utenti basate su SCIM 2.0, vedere [Uso di System for Cross-Domain Identity Management (SCIM) per abilitare il provisioning automatico di utenti e gruppi da Azure Active Directory ad applicazioni](use-scim-to-provision-users-and-groups.md).
 
     
@@ -124,26 +128,28 @@ Il provisioning è configurato nella scheda **Provisioning** della schermata di 
 Quando Azure AD è il sistema di origine, il servizio di provisioning usa la [funzionalità di query differenziale dell'API di Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) per monitorare gli utenti e i gruppi. Il servizio di provisioning esegue una sincronizzazione iniziale rispetto al sistema di origine e a quello di destinazione, seguita da sincronizzazioni incrementali periodiche. 
 
 ### <a name="initial-sync"></a>Sincronizzazione iniziale
+
 Quando viene avviato il servizio di provisioning, la prima sincronizzazione consiste nelle operazioni seguenti:
 
 1. Il servizio esegue una query su tutti gli utenti e i gruppi presenti nel sistema di origine e recupera tutti gli attributi definiti nei [mapping degli attributi](customize-application-attributes.md).
 2. Il servizio filtra gli utenti e i gruppi restituiti, usando [assegnazioni](assign-user-or-group-access-portal.md) configurate o [filtri di ambito basati su attributi](define-conditional-rules-for-provisioning-user-accounts.md).
 3. Quando viene trovato un utente da assegnare o incluso nell'ambito per il provisioning, il servizio esegue una query sul sistema di destinazione per individuare un utente corrispondente usando gli [attributi di corrispondenza](customize-application-attributes.md#understanding-attribute-mapping-properties) designati. Se ad esempio il nome userPrincipal nel sistema di origine è un attributo di corrispondenza ed è mappato a userName nel sistema di destinazione, il servizio di provisioning esegue una query sul sistema di destinazione per trovare i valori di userName che corrispondono ai valori del nome userPrincipal nel sistema di origine.
-4. Se nel sistema di destinazione non viene trovato un utente corrispondente, questo viene creato usando gli attributi restituiti dal sistema di origine.
-5. Se invece viene trovato un utente corrispondente, questo viene aggiornato usando gli attributi forniti dal sistema di origine.
+4. Se nel sistema di destinazione non viene trovato un utente corrispondente, questo viene creato usando gli attributi restituiti dal sistema di origine. Dopo aver creato l'account utente, il servizio di provisioning rileva e memorizza nella cache l'ID del sistema di destinazione per il nuovo utente, che viene usato per eseguire tutte le operazioni future di tale utente.
+5. Se invece viene trovato un utente corrispondente, questo viene aggiornato usando gli attributi forniti dal sistema di origine. Dopo aver abbinato l'account utente, il servizio di provisioning rileva e memorizza nella cache l'ID del sistema di destinazione per il nuovo utente, che viene usato per eseguire tutte le operazioni future di tale utente.
 6. Se i mapping degli attributi contengono attributi "di riferimento", il servizio esegue altri aggiornamenti nel sistema di destinazione per creare e collegare gli oggetti a cui viene fatto riferimento. È ad esempio possibile che nel sistema di destinazione un utente abbia un attributo "Manager" collegato a un altro utente creato nel sistema di destinazione.
 7. Al termine della sincronizzazione iniziale, il servizio salva in modo permanente una filigrana che fornisce il punto di partenza per le successive sincronizzazioni incrementali.
 
 Alcune applicazioni come ServiceNow, Google Apps e Box supportano non solo il provisioning degli utenti ma anche quello dei gruppi e dei relativi membri. In questi casi, se nei [mapping](customize-application-attributes.md) è abilitato il provisioning di gruppi, il servizio di provisioning sincronizza sia gli utenti che i gruppi e successivamente anche le appartenenze ai gruppi. 
 
 ### <a name="incremental-syncs"></a>Sincronizzazioni incrementali
+
 Dopo la sincronizzazione iniziale, tutte le sincronizzazioni successive consistono nelle operazioni seguenti:
 
 1. Il servizio esegue una query sul sistema di origine per trovare gli utenti e i gruppi che sono stati aggiornati dopo il salvataggio dell'ultima filigrana.
 2. Il servizio filtra gli utenti e i gruppi restituiti, usando [assegnazioni](assign-user-or-group-access-portal.md) configurate o [filtri di ambito basati su attributi](define-conditional-rules-for-provisioning-user-accounts.md).
 3. Quando viene trovato un utente da assegnare o incluso nell'ambito per il provisioning, il servizio esegue una query sul sistema di destinazione per individuare un utente corrispondente usando gli [attributi di corrispondenza](customize-application-attributes.md#understanding-attribute-mapping-properties) designati.
-4. Se nel sistema di destinazione non viene trovato un utente corrispondente, questo viene creato usando gli attributi restituiti dal sistema di origine.
-5. Se invece viene trovato un utente corrispondente, questo viene aggiornato usando gli attributi forniti dal sistema di origine.
+4. Se nel sistema di destinazione non viene trovato un utente corrispondente, questo viene creato usando gli attributi restituiti dal sistema di origine. Dopo aver creato l'account utente, il servizio di provisioning rileva e memorizza nella cache l'ID del sistema di destinazione per il nuovo utente, che viene usato per eseguire tutte le operazioni future di tale utente.
+5. Se invece viene trovato un utente corrispondente, questo viene aggiornato usando gli attributi forniti dal sistema di origine. Se viene abbinato un account utente appena assegnato, il servizio di provisioning rileva e memorizza nella cache l'ID del sistema di destinazione per il nuovo utente, che viene usato per eseguire tutte le operazioni future di tale utente.
 6. Se i mapping degli attributi contengono attributi "di riferimento", il servizio esegue altri aggiornamenti nel sistema di destinazione per creare e collegare gli oggetti a cui viene fatto riferimento. È ad esempio possibile che nel sistema di destinazione un utente abbia un attributo "Manager" collegato a un altro utente creato nel sistema di destinazione.
 7. Se un utente precedentemente incluso nell'ambito per il provisioning viene rimosso dall'ambito e la relativa assegnazione viene annullata, il servizio disabilita l'utente nel sistema di destinazione eseguendo un aggiornamento.
 8. Se un utente precedentemente incluso nell'ambito per il provisioning viene disabilitato o eliminato temporaneamente nel sistema di origine, il servizio disabilita l'utente nel sistema di destinazione eseguendo un aggiornamento.
@@ -160,7 +166,8 @@ Il servizio di provisioning continua a eseguire sincronizzazioni incrementali ba
 * Viene attivata una nuova sincronizzazione iniziale a causa di una modifica nel mapping degli attributi o nei filtri di ambito. Anche per effetto di questa operazione, le eventuali filigrane salvate vengono cancellate e tutti gli oggetti di origine vengono nuovamente valutati.
 * Il processo di provisioning entra in quarantena (vedere sotto) a causa di errori molto frequenti e resta in quarantena per più di quattro settimane. In questo caso, il servizio viene disabilitato automaticamente.
 
-### <a name="errors-and-retries"></a>Errori e ripetizione di tentativi 
+### <a name="errors-and-retries"></a>Errori e ripetizione di tentativi
+
 Se non è possibile aggiungere, aggiornare o eliminare un singolo utente nel sistema di destinazione a causa di un errore in tale sistema, il tentativo di eseguire questa operazione viene ripetuto nel ciclo di sincronizzazione successivo. Se l'errore si verifica nuovamente, la frequenza dei tentativi viene gradualmente ridotta fino a un solo tentativo al giorno. Per risolvere l'errore, gli amministratori devono verificare gli eventi di "deposito dei processi" nei [log di controllo](check-status-user-account-provisioning.md) per determinare la causa all'origine del problema e intraprendere l'azione appropriata. Tra gli errori comuni possono essere inclusi i seguenti:
 
 * Per gli utenti nel sistema di origine non è definito un valore di attributo che è necessario nel sistema di destinazione.
@@ -169,6 +176,7 @@ Se non è possibile aggiungere, aggiornare o eliminare un singolo utente nel sis
 Questi errori possono essere risolti modificando i valori di attributo per l'utente interessato nel sistema di origine o modificando i mapping degli attributi in modo da non causare conflitti.   
 
 ### <a name="quarantine"></a>Quarantena
+
 Se la maggior parte o tutte le chiamate al sistema di destinazione non riuscono a causa di un errore (ad esempio nel caso di credenziali di amministratore non valide), il processo di provisioning passa allo stato di "quarantena". Questa condizione viene indicata nel [report di riepilogo sul provisioning](check-status-user-account-provisioning.md) e tramite posta elettronica, se nel portale di Azure sono state configurate le notifiche di posta elettronica. 
 
 In stato di quarantena, la frequenza delle sincronizzazioni incrementali viene gradualmente ridotta fino a diventare giornaliera. 
@@ -219,26 +227,52 @@ Riepilogo dei fattori che influenzano il tempo necessario per completare una **s
 * Numero e dimensione dei gruppi assegnati. La sincronizzazione dei gruppi assegnati richiede più tempo rispetto alla sincronizzazione degli utenti. Il numero e la dimensione dei gruppi assegnati incidono sulle prestazioni. Se in un'applicazione è [abilitato il mapping per la sincronizzazione dell'oggetto del gruppo](customize-application-attributes.md#editing-group-attribute-mappings), in aggiunta agli utenti vengono sincronizzate le proprietà del gruppo, come i nomi e le appartenenze del gruppo. Queste sincronizzazioni aggiuntive richiederanno più tempo rispetto alla sincronizzazione dei soli oggetti utente.
 
 
-##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Come è possibile stabilire se il provisioning utenti viene eseguito correttamente?
+## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Come è possibile stabilire se il provisioning utenti viene eseguito correttamente?
 
 Tutte le operazioni eseguite dal servizio di provisioning utenti vengono registrate nei log di controllo di Azure AD. Nella registrazione sono incluse tutte le operazioni di lettura e scrittura eseguite nei sistemi di origine e di destinazione, oltre ai dati degli utenti che sono stati letti o scritti durante ogni operazione.
 
 Per informazioni su come leggere i log di controllo nel portale di Azure, vedere la [guida alla creazione di report sul provisioning](check-status-user-account-provisioning.md).
 
 
-##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Come si risolvono i problemi relativi al provisioning utenti?
+## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Come si risolvono i problemi relativi al provisioning utenti?
 
 Per informazioni aggiuntive su come risolvere i problemi di provisioning automatico dell'utente in base agli scenari, vedere [Problemi di configurazione e provisioning degli utenti in un'applicazione](application-provisioning-config-problem.md).
 
 
-##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Quali sono le procedure consigliate per implementare il provisioning utenti automatico?
+## <a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Quali sono le procedure consigliate per implementare il provisioning utenti automatico?
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
 Per un esempio di piano di distribuzione dettagliato per il provisioning utenti in uscita verso un'applicazione, vedere [Identity Deployment Guide for User Provisioning](https://aka.ms/userprovisioningdeploymentplan) (Guida alla distribuzione delle identità per il provisioning utenti).
 
+## <a name="more-frequently-asked-questions"></a>Domande frequenti
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Il provisioning utenti automatico nelle app SaaS funziona con gli utenti B2B in Azure AD?
+
+Sì, è possibile usare il servizio di provisioning utenti di Azure AD per effettuare il provisioning degli utenti B2B (o guest) di Azure AD in applicazioni SaaS.
+
+Tuttavia, perché gli utenti B2B possano accedere all'applicazione SaaS con Azure AD, la funzionalità Single Sign-On basata su SAML dell'applicazione SaaS deve essere configurata in modo specifico. Per altre informazioni su come configurare le applicazioni SaaS per supportare gli accessi dagli utenti B2B, vedere [Configurare app SaaS per Collaborazione B2B]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>Il provisioning utenti automatico nelle app SaaS funziona con i gruppi dinamici in Azure AD?
+
+Sì. Il servizio di provisioning utenti di Azure AD, se configurato per "sincronizzare solo utenti e gruppi assegnati", può effettuare il provisioning o il deprovisioning degli utenti in un'applicazione SaaS a seconda che siano o meno membri di un [gruppo dinamico](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). I gruppi dinamici funzionano anche con l'opzione "Sincronizza tutti gli utenti e i gruppi".
+
+Tuttavia, l'utilizzo di gruppi dinamici può compromettere le prestazioni complessive del provisioning utenti end-to-end da Azure AD alle applicazioni SaaS. Quando si usano i gruppi dinamici, tenere presenti queste avvertenze e raccomandazioni:
+
+* La velocità di provisioning o deprovisioning di un utente di un gruppo dinamico in un'applicazione SaaS dipende dalla velocità con cui il gruppo dinamico riesce a valutare le modifiche all'appartenenza. Per informazioni su come controllare lo stato di elaborazione di un gruppo dinamico, vedere [Controllare lo stato di elaborazione per una regola di appartenenza](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+
+* Quando si usano i gruppi dinamici, è necessario prestare particolare attenzione alle regole in relazione al provisioning e al deprovisioning, perché una perdita dell'appartenenza genererà un evento di deprovisioning.
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>Il provisioning utenti automatico nelle app SaaS funziona con i gruppi annidati in Azure AD?
+
+No. Il servizio di provisioning utenti di Azure AD, se configurato per "sincronizzare solo utenti e gruppi assegnati", non riesce a effettuare la lettura o il provisioning di utenti inclusi in gruppi annidati. Può effettuare la lettura e il provisioning solo degli utenti che sono membri immediati del gruppo assegnato in modo esplicito.
+
+Si tratta di una limitazione delle "assegnazioni basate su gruppi alle applicazioni", che ha effetto anche su Single Sign-On e viene descritta in [Uso di un gruppo per gestire l'accesso ad applicazioni SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
+
+Come soluzione alternativa è consigliabile assegnare in modo esplicito (o [definire l'ambito](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) i gruppi contenenti gli utenti di cui è necessario effettuare il provisioning.
 
 ## <a name="related-articles"></a>Articoli correlati
+
 * [Elenco di esercitazioni pratiche sulla procedura di integrazione delle applicazioni SaaS](../saas-apps/tutorial-list.md)
 * [Personalizzazione dei mapping degli attributi per il Provisioning dell’utente](customize-application-attributes.md)
 * [Scrittura di espressioni per i mapping degli attributi](functions-for-customizing-application-data.md)

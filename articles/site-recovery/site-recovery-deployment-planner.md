@@ -11,15 +11,15 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 0311fed95adf7005512f0b675031ab90657c963a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a04a372e52c682af428938514eac5d5e0f4274f0
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159959"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093715"
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
@@ -85,7 +85,7 @@ Lo strumento prevede due fasi principali: profilatura e generazione di report. �
 | Requisito server | DESCRIZIONE|
 |---|---|
 |Profilatura e misurazione della velocità effettiva| <ul><li>Sistema operativo: Windows Server 2016 o Windows Server 2012 R2<br>(idealmente corrispondente almeno alle [dimensioni consigliate per il server di configurazione](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1.000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>Le impostazioni a livello di statistiche di VMware vCenter possono essere 1 o un valore superiore</li><li>Consentire la porta vCenter, 443 per impostazione predefinita: Site Recovery Deployment Planner usa questa porta per la connessione al server vCenter o all'host ESXi</ul></ul>|
-| Generazione di report | Un PC o server Windows con Excel 2013 o versione successiva.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) è obbligatorio solo quando si passa l'opzione -User nel comando di generazione del report per recuperare le informazioni di configurazione macchina virtuale più recenti delle VM. Se viene passata l'opzione -User, lo strumento di pianificazione della distribuzione si connette al server vCenter. Consentire la porta vCenter, che è la 443 per impostazione predefinita, per la connessione al server vCenter.</li>|
+| Generazione di report | Un PC o server Windows con Excel 2013 o versione successiva.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) è obbligatorio solo quando si passa l'opzione -User nel comando di generazione del report per recuperare le informazioni di configurazione macchina virtuale più recenti delle VM. Lo strumento di pianificazione della distribuzione si connette al server vCenter. Consentire la porta vCenter, che è la 443 per impostazione predefinita, per la connessione al server vCenter.</li>|
 | Autorizzazioni utente | Autorizzazioni di sola lettura per l'account utente usato per accedere al server VMware vCenter o all'host VMware vSphere ESXi durante la profilatura |
 
 > [!NOTE]

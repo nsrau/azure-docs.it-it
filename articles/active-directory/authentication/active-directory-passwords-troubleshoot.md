@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298320"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321799"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Risolvere i problemi di reimpostazione della password self-service
 
@@ -173,16 +173,14 @@ Per una maggiore granularità, fare riferimento all'elenco degli [intervalli di 
 
 Per altre informazioni, vedere i prerequisiti di connettività nell'articolo [Prerequisiti di Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 
-
-
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Riavviare il servizio di sincronizzazione Azure AD Connect
 
 Per risolvere i problemi di connettività o altri problemi temporanei, riavviare il servizio di sincronizzazione Azure AD Connect:
 
    1. Con un account amministratore selezionare **Start** nel server che esegue Azure AD Connect.
-   2. Immettere **services.msc** nel campo di ricerca e premere **INVIO**.
-   3. Cercare la voce **Microsoft Azure AD Sync**.
-   4. Fare clic con il pulsante destro del mouse sulla voce relativa al servizio, scegliere **Riavvia** e attendere il completamento dell'operazione.
+   1. Immettere **services.msc** nel campo di ricerca e premere **INVIO**.
+   1. Cercare la voce **Microsoft Azure AD Sync**.
+   1. Fare clic con il pulsante destro del mouse sulla voce relativa al servizio, scegliere **Riavvia** e attendere il completamento dell'operazione.
 
    ![Riavviare il servizio Azure AD Sync][Service restart]
 
@@ -193,15 +191,15 @@ Questi passaggi consentono di ristabilire la connessione con il servizio cloud e
 Per risolvere i problemi di connettività, disabilitare e quindi riabilitare la funzionalità di writeback delle password:
 
    1. Con un account amministratore aprire la procedura di configurazione guidata di Azure AD Connect.
-   2. In **Connessione ad Azure AD** immettere le credenziali di amministratore globale di Azure AD.
-   3. In **Connessione ad AD DS** immettere le credenziali di amministratore di AD Domain Services.
-   4. In **Identificazione univoca per gli utenti** fare clic su **Avanti**.
-   5. In **Funzionalità facoltative** deselezionare la casella di controllo **Writeback password**.
-   6. Fare clic su **Avanti** nelle pagine rimanenti senza apportare alcuna modifica fino a quando non viene visualizzata la pagina **Pronto per la configurazione**.
-   7. Verificare che nella pagina **Pronto per la configurazione** l'opzione **Writeback password** sia **disabilitata** e quindi fare clic sul pulsante verde **Configura** per salvare le modifiche.
-   8. In **Operazione completata** deselezionare l'opzione **Sincronizza adesso** e quindi fare clic su **Fine** per chiudere la procedura guidata.
-   9. Aprire di nuovo la procedura guidata di configurazione di Azure AD Connect.
-   10. Ripetere i passaggi da 2 a 8, verificando di selezionare l'opzione **Writeback password** nella schermata **Funzionalità facoltative** per riabilitare il servizio.
+   1. In **Connessione ad Azure AD** immettere le credenziali di amministratore globale di Azure AD.
+   1. In **Connessione ad AD DS** immettere le credenziali di amministratore di AD Domain Services.
+   1. In **Identificazione univoca per gli utenti** fare clic su **Avanti**.
+   1. In **Funzionalità facoltative** deselezionare la casella di controllo **Writeback password**.
+   1. Fare clic su **Avanti** nelle pagine rimanenti senza apportare alcuna modifica fino a quando non viene visualizzata la pagina **Pronto per la configurazione**.
+   1. Verificare che nella pagina **Pronto per la configurazione** l'opzione **Writeback password** sia **disabilitata** e quindi fare clic sul pulsante verde **Configura** per salvare le modifiche.
+   1. In **Operazione completata** deselezionare l'opzione **Sincronizza adesso** e quindi fare clic su **Fine** per chiudere la procedura guidata.
+   1. Aprire di nuovo la procedura guidata di configurazione di Azure AD Connect.
+   1. Ripetere i passaggi da 2 a 8, verificando di selezionare l'opzione **Writeback password** nella schermata **Funzionalità facoltative** per riabilitare il servizio.
 
 Questi passaggi consentono di ristabilire la connessione con il servizio cloud e di risolvere eventuali interruzioni che si sono verificate.
 
@@ -215,10 +213,11 @@ Si consiglia di eseguire questo passaggio solo dopo aver provato a eseguire i du
 
 > [!WARNING]
 > Se le regole di sincronizzazione sono state personalizzate, *eseguire il backup prima di procedere con l'aggiornamento e ridistribuire manualmente le regole dopo aver completato l'operazione*.
+>
 
-   1. Scaricare la versione più recente di Azure AD Connect dall'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
-   2. Poiché Azure AD Connect è già stato installato, è necessario eseguire un aggiornamento sul posto per aggiornare l'installazione di Azure AD Connect alla versione più recente.
-   3. Eseguire il pacchetto scaricato e seguire le istruzioni visualizzate per aggiornare il computer che esegue Azure AD Connect.
+1. Scaricare la versione più recente di Azure AD Connect dall'[Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Poiché Azure AD Connect è già stato installato, è necessario eseguire un aggiornamento sul posto per aggiornare l'installazione di Azure AD Connect alla versione più recente.
+1. Eseguire il pacchetto scaricato e seguire le istruzioni visualizzate per aggiornare il computer che esegue Azure AD Connect.
 
 I passaggi precedenti dovrebbero consentire di ristabilire la connessione con il servizio cloud e di risolvere eventuali interruzioni che si sono verificate.
 
@@ -228,34 +227,33 @@ Se l'installazione della versione più recente del server Azure AD Connect non r
 
 Per eseguire il writeback delle password, Azure AD Connect richiede l'autorizzazione **Reimposta password** di Active Directory. Per verificare se Azure AD Connect ha l'autorizzazione per uno specifico account utente di Active Directory locale, è possibile usare la funzionalità di autorizzazione valida di Windows:
 
-   1. Accedere al server Azure AD Connect e avviare **Synchronization Service Manager** selezionando **Start** > **Synchronization Service**.
-   2. Nella scheda **Connettori** selezionare il connettore **Active Directory Domain Services** locale e quindi selezionare **Proprietà**.  
-
+1. Accedere al server Azure AD Connect e avviare **Synchronization Service Manager** selezionando **Start** > **Synchronization Service**.
+1. Nella scheda **Connettori** selezionare il connettore **Active Directory Domain Services** locale e quindi selezionare **Proprietà**.  
    ![Autorizzazione valida - passaggio 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. Nella finestra popup selezionare **Connetti a foresta Active Directory** e annotare la proprietà **Nome utente**. Questa proprietà corrisponde all'account di Active Directory Domain Services usato da Azure AD Connect per eseguire la sincronizzazione della directory. Per consentire ad Azure AD Connect di eseguire il writeback delle password l'account di Active Directory Domain Services deve avere l'autorizzazione di reimpostazione della password.  
+1. Nella finestra popup selezionare **Connetti a foresta Active Directory** e annotare la proprietà **Nome utente**. Questa proprietà corrisponde all'account di Active Directory Domain Services usato da Azure AD Connect per eseguire la sincronizzazione della directory. Per consentire ad Azure AD Connect di eseguire il writeback delle password l'account di Active Directory Domain Services deve avere l'autorizzazione di reimpostazione della password.  
    
    ![Autorizzazione valida - passaggio 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. Accedere a un controller di dominio locale e avviare l'applicazione **Utenti e computer di Active Directory**.
-   5. Selezionare **Visualizza** e verificare che l'opzione **Funzionalità avanzate** sia abilitata.  
+1. Accedere a un controller di dominio locale e avviare l'applicazione **Utenti e computer di Active Directory**.
+1. Selezionare **Visualizza** e verificare che l'opzione **Funzionalità avanzate** sia abilitata.  
    
    ![Autorizzazione valida - passaggio 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. Cercare l'account utente di Active Directory che si vuole verificare. Fare clic con il pulsante destro del mouse sull'account e scegliere **Proprietà**.  
+1. Cercare l'account utente di Active Directory che si vuole verificare. Fare clic con il pulsante destro del mouse sull'account e scegliere **Proprietà**.  
    
    ![Autorizzazione valida - passaggio 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. Nella finestra popup passare alla scheda **Sicurezza** e selezionare **Avanzate**.  
+1. Nella finestra popup passare alla scheda **Sicurezza** e selezionare **Avanzate**.  
    
    ![Autorizzazione valida - passaggio 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. Nella finestra popup **Advanced Security Settings for Administrator** (Impostazioni di sicurezza avanzate per l'amministratore) passare alla scheda **Accesso valido**.
-   9. Fare clic su **Selezionare un utente**, selezionare l'account di Active Directory Domain Services usato da Azure AD Connect (vedere il passaggio 3) e quindi selezionare **Visualizza accesso valido**.  
-   
+1. Nella finestra popup **Advanced Security Settings for Administrator** (Impostazioni di sicurezza avanzate per l'amministratore) passare alla scheda **Accesso valido**.
+1. Fare clic su **Selezionare un utente**, selezionare l'account di Active Directory Domain Services usato da Azure AD Connect (vedere il passaggio 3) e quindi selezionare **Visualizza accesso valido**.
+
    ![Autorizzazione valida - passaggio 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. Scorrere verso il basso e cercare **Reimposta password**. Se la voce è selezionata, significa che l'account di Active Directory Domain Services ha l'autorizzazione per reimpostare la password dell'account utente di Active Directory selezionato.  
+1. Scorrere verso il basso e cercare **Reimposta password**. Se la voce è selezionata, significa che l'account di Active Directory Domain Services ha l'autorizzazione per reimpostare la password dell'account utente di Active Directory selezionato.  
    
    ![Autorizzazione valida - passaggio 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -285,8 +283,6 @@ Per garantire un supporto adeguato, verrà richiesto il maggior numero di dettag
     * Si tratta di un utente solo cloud?
 * **Licenze**: All'utente è assegnata una licenza di Azure AD Premium o Azure AD Basic?
 * **Log eventi dell'applicazione**: se si usa il writeback delle password e l'errore si verifica nell'infrastruttura locale, includere una copia compressa del log eventi dell'applicazione del server Azure AD Connect.
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Riavviare il servizio Azure AD Sync"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Il codice di supporto si trova in basso a destra nella finestra"

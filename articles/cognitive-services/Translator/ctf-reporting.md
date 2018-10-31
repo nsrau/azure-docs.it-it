@@ -1,27 +1,28 @@
 ---
-title: Report di Microsoft Translator Collaborative Translation Framework (CTF)
+title: Report di Collaborative Translation Framework (CTF) - API Traduzione testuale
+titlesuffix: Azure Cognitive Services
 description: Come usare i report di Collaborative Translation Framework (CTF).
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: cefc630a82a56703ba4942bcad18f6e0a38b1ee5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374369"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646011"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
 
 > [!NOTE]
 > Questo metodo è deprecato. Non è disponibile nella versione 3.0 dell'API Traduzione testuale.
 
-> Collaborative Translations Framework (CTF), precedentemente disponibile per la versione 2.0 dell'API Traduzione testuale, è stato deprecato a partire dal 1 febbraio 2018. Le funzioni AddTranslation e AddTranslationArray consentono agli utenti di attivare le correzioni tramite Collaborative Translation Framework. Dal 31 gennaio 2018, queste due funzioni non accettano più l'invio di nuove frasi e gli utenti ricevono un messaggio di errore. Queste funzioni sono state ritirate e non verranno sostituite. 
+> Collaborative Translations Framework (CTF), precedentemente disponibile per la versione 2.0 dell'API Traduzione testuale, è stato deprecato a partire dal 1 febbraio 2018. Le funzioni AddTranslation e AddTranslationArray consentono agli utenti di attivare le correzioni tramite Collaborative Translation Framework. Dal 31 gennaio 2018, queste due funzioni non accettano più l'invio di nuove frasi e gli utenti ricevono un messaggio di errore. Queste funzioni sono state ritirate e non verranno sostituite.
 
 >Nell'API Translator Hub è disponibile una funzionalità simile, che consente di compilare un sistema di traduzione con terminologia e stile personalizzati e che si può richiamare usando l'ID categoria nell'API Traduzione testuale. Translator Hub: [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). API Translator Hub: [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
@@ -32,10 +33,10 @@ L'API di creazione report di Collaborative Translation Framework (CTF) restituis
 
 ## <a name="endpoint"></a>Endpoint
 L'endpoint dell'API di creazione report di CTF è http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-                        
+
 
 ## <a name="methods"></a>Metodi
-| NOME |    DESCRIZIONE|
+| NOME |    Descrizione|
 |:---|:---|
 | Metodo GetUserTranslationCounts | Ottiene i conteggi delle traduzioni create dall'utente. |
 | Metodo GetUserTranslations | Recupera le traduzioni create dall'utente. |
@@ -63,7 +64,7 @@ UserTranslationCount[]GetUserTranslationCounts(
            string to,
            int? minRating,
            int? maxRating,
-           string user, 
+           string user,
            string category
            DateTime? minDateUtc,
            DateTime? maxDateUtc,
@@ -73,7 +74,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 **Parameters**
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix | **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
@@ -95,7 +96,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserTranslationCount presenta gli elementi seguenti:
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 |:---|:---|
 | Conteggio| Numero di risultati recuperati|
 | Da | Lingua di origine|
@@ -134,17 +135,17 @@ UserTranslation[] GetUserTranslations (
             string to,
             int? minRating,
             int? maxRating,
-            string user, 
+            string user,
             string category
             DateTime? minDateUtc,
             DateTime? maxDateUtc,
             int? skip,
-            int? take); 
+            int? take);
 ```
 
 **Parameters**
 
-| Parametro | DESCRIZIONE |
+| Parametro | Descrizione |
 |:---|:---|
 | appId | **Obbligatorio** Se si usa l'intestazione dell'autorizzazione, lasciare vuoto il campo appid. In caso contrario specificare una stringa contenente il token di accesso "Bearer" + " " +.|
 | uriPrefix| **Facoltativo** Stringa contenente il prefisso dell'URI della traduzione.|
@@ -153,8 +154,8 @@ UserTranslation[] GetUserTranslations (
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | user| **Facoltativo. Stringa usata per filtrare i risultati in base all'iniziatore dell'invio**|
-| category| **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita general.| 
-| minDateUtc| **Facoltativo** Data da cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.| 
+| category| **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita general.|
+| minDateUtc| **Facoltativo** Data da cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
 | maxDateUtc| **Facoltativo** Data fino a cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
 | skip| **Facoltativo** Numero di risultati da ignorare in una pagina. Ad esempio, se si vogliono ignorare le prime 20 righe di risultati e visualizzare a partire dal record dei risultati 21, specificare 20 per questo parametro. Il valore predefinito per questo parametro è 0.|
 | take| **Facoltativo** Numero di risultati da recuperare. Il numero massimo di ogni richiesta è 100. Il valore predefinito è 50.|
@@ -166,7 +167,7 @@ UserTranslation[] GetUserTranslations (
 
 Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTranslation presenta gli elementi seguenti:
 
-| Campo | DESCRIZIONE |
+| Campo | Descrizione |
 |:---|:---|
 | CreatedDateUtc| Data di creazione della voce mediante AddTranslation()|
 | Da| Lingua di origine|
@@ -191,21 +192,3 @@ Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTransl
 **Visualizzare esempi di codice in GitHub**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

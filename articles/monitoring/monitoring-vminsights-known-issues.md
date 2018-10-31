@@ -12,19 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 819c3e74355cf80c7a998abb8b02b10c9e077059
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47062769"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385092"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms"></a>Problemi noti relativi a Monitoraggio di Azure per le macchine virtuali
 
 Di seguito vengono descritti i problemi noti relativi alla funzionalità di integrità di Monitoraggio di Azure per le macchine virtuali:
 
+- L'onboarding della funzionalità di integrità viene eseguito in tutte le macchine virtuali connesse all'area di lavoro di Log Analytics, anche quando l'operazione viene avviata e completata da una singola macchina virtuale.
+- Se una macchina virtuale di Azure non è più presente perché è stata rimossa o eliminata, rimane visualizzata nella visualizzazione elenco delle macchine virtuali per un periodo da tre a sette giorni. Facendo clic sullo stato di una macchina virtuale rimossa o eliminata, inoltre, viene aperta la visualizzazione **Diagnostica integrità** per tale macchina, che entra quindi in un ciclo di caricamento. Selezionando il nome di una macchina virtuale eliminata, viene aperto un pannello con un messaggio che indica che la macchina virtuale è stata eliminata.
 - In questa versione non è possibile modificare il tempo e la frequenza dei criteri di integrità. 
 - I criteri di integrità non possono essere disabilitati. 
 - Dopo l'onboarding, la visualizzazione dei dati in Monitoraggio di Azure -> Macchine virtuali -> Integrità o dal pannello della risorsa della VM -> Insights può richiedere tempo.
@@ -36,9 +38,26 @@ Di seguito vengono descritti i problemi noti relativi alla funzionalità di inte
 - L'arresto delle macchine virtuali aggiornerà alcuni dei criteri di integrità allo stato critico e altri allo stato di integrità con uno stato netto della macchina virtuale in uno stato critico.
 - La gravità degli avvisi di integrità non può essere modificata. Gli avvisi possono solo essere abilitati o disabilitati.  Alcuni livelli di gravità inoltre vengono aggiornati in base allo stato dei criteri di integrità.
 - Se si modifica un'impostazione di un'istanza di criteri di integrità, la stessa impostazione verrà modificata in tutte le istanze di criteri di integrità dello stesso tipo nella macchina virtuale. Se ad esempio viene modificata la soglia dell'istanza dei criteri di integrità dello spazio libero su disco corrispondente al disco logico C:, questa soglia verrà applicata a tutti gli altri dischi logici che vengono individuati e monitorati per la stessa macchina virtuale.   
-- Le soglie per alcuni criteri di integrità di Windows come l'integrità del servizio client DNS non sono modificabili, perché il relativo stato di integrità è già bloccato sullo stato **in esecuzione**, **disponibile** del servizio o dell'entità a seconda del contesto.  Il valore è invece rappresentato dal numero 4. Verrà convertito nella stringa di visualizzazione effettiva in una versione futura.  
-- Le soglie per alcuni criteri di integrità di Linux, ad esempio l'integrità del disco logico, non sono modificabili in quanto sono già impostate sull'attivazione in caso di stato di non integrità.  Queste soglie indicano se qualche componente è online/offline, acceso o spento e vengono rappresentate e indicano la stessa informazione mostrando il valore 1 o 0.
-- Se si aggiorna il filtro Gruppo di risorse in un qualsiasi gruppo di risorse mentre si usa la vista di qualsiasi elenco in scala in Monitoraggio di Azure -> Macchine virtuali -> Integrità con la sottoscrizione e il gruppo di risorse preselezionati, la vista elenco mostrerà **nessun risultato**.  Tornare alla scheda Monitoraggio di Azure -> Macchine virtuali -> Integrità e selezionare la sottoscrizione e il gruppo di risorse desiderati, quindi passare alla vista elenco.
+- Le soglie per i criteri di integrità seguenti per una macchina virtuale Windows non possono essere modificate, perché il relativo stato di integrità è già impostato su **in esecuzione** o **disponibile**. Quando viene eseguita una query sullo stato di integrità dall'[API di monitoraggio del carico di lavoro](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager), per lo stato di integrità viene visualizzato il valore di *OperatoreDiConfronto* **MinoreDi** o **MaggioreDi** con un valore di *soglia* pari a **4** per il servizio o l'entità se:
+   - Integrità servizio client DNS - Servizio non in esecuzione 
+   - Integrità servizio client DHCP - Servizio non in esecuzione 
+   - Integrità servizio RPC - Servizio non in esecuzione 
+   - Integrità servizio Windows Firewall - Servizio non in esecuzione
+   - Integrità servizio Registro eventi di Windows - Servizio non in esecuzione 
+   - Integrità servizio server - Servizio non in esecuzione 
+   - Integrità servizio Gestione remota Windows - Servizio non in esecuzione 
+   - Errore o danneggiamento file system - Disco logico non disponibile
+
+- Le soglie per i criteri di integrità Linux seguenti non possono essere modificate, perché il relativo stato di integrità è già impostato su **true**.  Quando viene eseguita una query sullo stato di integrità dall'API di monitoraggio del carico di lavoro per l'entità in base al contesto, per lo stato di integrità viene visualizzato il valore di *OperatoreDiConfronto* **MinoreDi** con un valore di *soglia* pari a **1**:
+   - Stato disco logico - Disco logico non online/disponibile
+   - Stato disco - Disco non online/disponibile
+   - Stato scheda di rete - Scheda di rete disabilitata  
+
+- Il criterio di integrità **Utilizzo CPU totale** in Windows mostra una soglia **diverso da 4** nel portale e quando sottoposto a query dall'API di monitoraggio del carico di lavoro quando l'utilizzo della CPU è superiore al 95% e la lunghezza della coda di sistema è superiore a 15. Questo criterio di integrità non può essere modificato in questa versione.  
+- Le modifiche alla configurazione, ad esempio l'aggiornamento di una soglia, richiedono fino a 30 minuti per l'applicazione, anche se l'API di monitoraggio del carico di lavoro o il portale potrebbe venire aggiornato immediatamente.  
+- I criteri di integrità per il livello di singoli processori e processori logici non sono disponibili in Windows e per le macchine virtuali Windows è disponibile solo il criterio **Utilizzo CPU totale**.  
+- Le regole di avviso definite per ogni criterio di integrità non vengono esposte nel portale di Azure. Possono essere configurate solo dall'[API di monitoraggio del carico di lavoro](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/workloadmonitor/resource-manager) per abilitare o disabilitare una regola di avviso per l'integrità.  
+- Non è possibile assegnare un [gruppo di azioni di Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-action-groups.md) per gli avvisi di integrità dal portale di Azure. È necessario usare l'API di impostazione delle notifiche per configurare un gruppo di azioni in modo che venga attivato ogni volta che viene generato un avviso di integrità. Attualmente, i gruppi di azioni possono essere assegnati a una macchina virtuale, in modo che tutti gli *avvisi di integrità* generati per la macchina virtuale attivino gli stessi gruppi di azione. Non è possibile usare un gruppo di azione distinto per ogni regola di avviso di integrità, come con gli avvisi di Azure tradizionali. Inoltre, quando vengono generati avvisi di integrità, sono supportati solo i gruppi di azioni configurati per inviare una notifica tramite posta elettronica o SMS. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere [Eseguire l'onboarding di Monitoraggio di Azure per le macchine virtuali](monitoring-vminsights-onboard.md) per informazioni sui requisiti e i metodi per abilitare il monitoraggio delle macchine virtuali.

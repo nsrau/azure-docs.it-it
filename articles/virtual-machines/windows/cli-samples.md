@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c9837ae7b218fd4fdf6d0b97c0218fdfc9de3c53
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6861399b63b7f06bac7599704a6dd1aa87800ebf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726194"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403339"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Esempi dell'interfaccia della riga di comando di Azure per macchine virtuali Windows
 
@@ -40,5 +40,5 @@ La tabella seguente fornisce collegamenti a script Bash, compilati tramite l'int
 |**Proteggere le macchine virtuali**||
 | [Crittografare una macchina virtuale e i dischi dati](./../scripts/virtual-machines-windows-cli-sample-encrypt-vm.md?toc=%2fcli%2fazure%2ftoc.json) | Crea un'istanza di Azure Key Vault, una chiave di crittografia e un'entità servizio, quindi crittografa una macchina virtuale. |
 |**Monitorare le macchine virtuali**||
-| [Monitorare una macchina virtuale con Operations Management Suite](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Consente di creare una macchina virtuale, installare l'agente Operations Management Suite e registrare la macchina virtuale in un'area di lavoro OMS.  |
+| [Monitorare una macchina virtuale con Log Analytics](./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md?toc=%2fcli%2fazure%2ftoc.json) | Crea una macchina virtuale, installa l'agente di Log Analytics e registra la macchina virtuale in un'area di lavoro di Log Analytics.  |
 | | |

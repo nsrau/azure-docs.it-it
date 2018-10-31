@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a4ea483104a28e436ac35b50b962d3a153483789
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804175"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321734"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -27,7 +27,7 @@ Questo articolo descrive i criteri password e i requisiti di complessità associ
 
 Con il criterio a doppio controllo, gli **amministratori non hanno la possibilità di usare le domande di sicurezza**.
 
- Un criterio a due gate richiede due tipi di dati di autenticazione, ad esempio un indirizzo di posta elettronica *e* un numero di telefono. Un criterio a due gate si applica nelle circostanze seguenti:
+Un criterio a due gate richiede due tipi di dati di autenticazione, ad esempio un indirizzo di posta elettronica *e* un numero di telefono. Un criterio a due gate si applica nelle circostanze seguenti:
 
 * Sono interessati tutti i ruoli di amministratore di Azure seguenti:
   * Amministratore dell'help desk
@@ -50,29 +50,17 @@ Con il criterio a doppio controllo, gli **amministratori non hanno la possibilit
   * Amministratore del servizio CRM
   * Amministratore del servizio Power BI
 
-* Se sono trascorsi 30 giorni per una sottoscrizione di valutazione
-
-  oppure
-
-* È presente un dominio personale, ad esempio contoso.com
-
-  oppure
-
+* Se sono trascorsi 30 giorni per una sottoscrizione di valutazione o
+* È presente un dominio personale, ad esempio contoso.com, o
 * Identità sincronizzate da Azure AD Connect nella directory locale
 
 ### <a name="exceptions"></a>Eccezioni
 
 Un criterio a un gate richiede un tipo di dati di autenticazione, ad esempio un indirizzo di posta elettronica *o* un numero di telefono. Un criterio a un gate si applica nelle circostanze seguenti:
 
-* Non sono ancora trascorsi i primi 30 giorni per una sottoscrizione di valutazione
-
-  oppure
-
-* Non è presente un dominio personale (*.onmicrosoft.com)
-
-  e
-
-  Azure AD Connect non sincronizza le identità
+* Non sono ancora trascorsi i primi 30 giorni per una sottoscrizione di valutazione o
+* Non è presente un dominio personale (*.onmicrosoft.com) e
+* Azure AD Connect non sincronizza le identità
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Criteri UserPrincipalName che si applicano a tutti gli account utente
 
@@ -80,7 +68,7 @@ A ogni account utente che deve eseguire l'accesso ad Azure AD è necessario che 
 
 | Proprietà | Requisiti di UserPrincipalName |
 | --- | --- |
-| Caratteri consentiti |<ul> <li>A-Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
+| Caratteri consentiti |<ul> <li>A-Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Caratteri non consentiti |<ul> <li>Qualsiasi carattere "\@\" che non separa il nome utente dal dominio.</li> <li>Non può contenere un punto "." subito prima del simbolo "\@\"</li></ul> |
 | Vincoli di lunghezza |<ul> <li>La lunghezza totale non deve superare i 113 caratteri</li><li>Prima del simbolo "\@\" possono essere presenti al massimo 64 caratteri</li><li>Dopo il simbolo "\@\" possono essere presenti al massimo 48 caratteri</li></ul> |
 
@@ -117,7 +105,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 ### <a name="check-the-expiration-policy-for-a-password"></a>Controllare i criteri di scadenza per una password
 
 1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
-2. Eseguire uno di questi comandi:
+1. Eseguire uno di questi comandi:
 
    * Per vedere se la password di un singolo utente è impostata in modo da non scadere mai, eseguire il cmdlet seguente usando l'UPN (ad esempio, *aprilr@contoso.onmicrosoft.com*) o l'ID dell'utente che si desidera controllare: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Per visualizzare l'impostazione **La password non scade mai** per tutti gli utenti, eseguire il cmdlet seguente: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -125,7 +113,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 ### <a name="set-a-password-to-expire"></a>Impostare una scadenza della password
 
 1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
-2. Eseguire uno di questi comandi:
+1. Eseguire uno di questi comandi:
 
    * Per impostare la password di un utente in modo che scada, eseguire il cmdlet seguente usando l'UPN o l'ID dell'utente: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
    * Per impostare le password di tutti gli utenti dell'organizzazione in modo che scadano, usare il cmdlet seguente: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
@@ -133,7 +121,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 ### <a name="set-a-password-to-never-expire"></a>Impostare una password senza scadenza
 
 1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
-2. Eseguire uno di questi comandi:
+1. Eseguire uno di questi comandi:
 
    * Per impostare la password di un utente in modo che non scada mai, eseguire il cmdlet seguente usando l'UPN o l'ID dell'utente: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
    * Per impostare le password degli utenti in un'organizzazione in modo che non scadano mai, eseguire il cmdlet seguente: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`

@@ -1,26 +1,27 @@
 ---
-title: Informazioni sulla traduzione vocale
+title: Informazioni su Traduzione vocale
+titlesuffix: Azure Cognitive Services
 description: Panoramica delle funzionalità di traduzione vocale
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/28/2018
-ms.author: v-jerkin
-ms.openlocfilehash: f80c0f3cdc114b53c002266820e8d9b8773acc5d
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: erhopf
+ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432190"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469144"
 ---
 # <a name="about-the-speech-translation-api"></a>Informazioni sull'API Traduzione vocale
 
-Microsoft Speech API consente di aggiungere la traduzione vocale end-to-end in tempo reale e in più lingue alle applicazioni, agli strumenti e ai dispositivi. La stessa API può essere usata sia per la traduzione vocale che per la traduzione con riconoscimento vocale.
+L'API del servizio Voce consente di aggiungere la traduzione vocale end-to-end in tempo reale e in più lingue alle applicazioni, agli strumenti e ai dispositivi. La stessa API può essere usata sia per la traduzione vocale che per la traduzione con riconoscimento vocale.
 
-Con l'API Traduzione vocale di Microsoft, le applicazioni client trasmettono l'audio vocale al servizio e ricevono un flusso di risultati. Questi risultati includono il testo riconosciuto nella lingua di origine e la traduzione nella lingua di destinazione. Possono essere fornite traduzioni provvisorie fino al completamento di un'espressione, quando viene fornita una traduzione finale.
+Con l'API Traduzione vocale le applicazioni client trasmettono l'audio vocale al servizio e ricevono un flusso di risultati. Questi risultati includono il testo riconosciuto nella lingua di origine e la traduzione nella lingua di destinazione. Possono essere fornite traduzioni provvisorie fino al completamento di un'espressione, quando viene fornita una traduzione finale.
 
 È facoltativamente possibile preparare una versione audio sintetizzata della traduzione finale, abilitando la vera traduzione vocale.
 
@@ -41,7 +42,7 @@ Le differenze tra i modelli sono interne al motore di traduzione. Gli utenti fin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+* [Ottenere una sottoscrizione di valutazione gratuita del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
 * [Informazioni sulla traduzione vocale in C#](how-to-translate-speech-csharp.md)
 * [Informazioni sulla traduzione vocale in C++](how-to-translate-speech-cpp.md)
 * [Informazioni sulla traduzione vocale in Java](how-to-translate-speech-java.md)

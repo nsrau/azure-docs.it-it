@@ -7,23 +7,101 @@ ms.component: core
 ms.topic: reference
 author: hning86
 ms.author: haining
+ms.reviewer: j-martens
 ms.date: 03/28/2018
-ROBOTS: NOINDEX
-ms.openlocfilehash: 08be059cb30c8a7ec4ad24fc4f73f4b569883483
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 58d0d028c920faa7e86884c85f8fb677ce67c390
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970618"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389922"
 ---
-# <a name="release-notes-in-azure-machine-learning-sept-2017---jun-2018"></a>Note sulle versioni di Azure Machine Learning da settembre 2017 al giugno 2018
+# <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
-[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine Learning. 
 
-In questo articolo, vengono fornite informazioni sulle versioni precedenti di Azure Machine Learning. 
+## <a name="2018-10-12"></a>2018-10-12
+
+### <a name="azure-machine-learning-sdk-for-python-v0168"></a>Azure Machine Learning SDK per Python v0.1.68
+
+#### <a name="new-features"></a>Nuove funzionalità
+ * Supporto di più tenant durante la creazione di una nuova area di lavoro.
+
+#### <a name="breaking-changes"></a>Modifiche di rilievo
+ * **Nella prossima versione** *Workspace.compute_targets, datastores, experiments, images, models* e *webservices* diventeranno proprietà invece di metodi. Ad esempio, *Workspace.compute_targets()* dovrà essere sostituito con *Workspace.compute_targets*.
+
+#### <a name="bugs-fixed"></a>Bug risolti
+ * Non è più necessario bloccare la versione della libreria pynacl durante la distribuzione di un servizio Web.
+
+### <a name="azure-machine-learning-data-prep-sdk-v030"></a>Azure Machine Learning Data Prep SDK v0.3.0
+
+#### <a name="new-features"></a>Nuove funzionalità:
+* È stato aggiunto il metodo transform_partition_with_file(script_path), che consente agli utenti di passare il percorso di un file Python da eseguire
+
+## <a name="2018-10-01"></a>2018-10-01
+
+### <a name="azure-machine-learning-sdk-for-python-v0165"></a>Azure Machine Learning SDK per Python v0.1.65
+La [versione 0.1.65](https://pypi.org/project/azureml-sdk/0.1.65) include nuove funzionalità, ulteriore documentazione, correzioni di bug e nuovi [blocchi appunti di esempio](https://aka.ms/aml-notebooks).
+
+Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+#### <a name="breaking-changes"></a>Modifiche di rilievo
+ * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images e Workspace.web_services restituiscono un dizionario, mentre in precedenza restituivano un elenco. Vedere la documentazione dell'API [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py).
+
+ * Le funzionalità automatizzate di Machine Learning hanno rimosso l'errore quadratico medio normalizzato dalle metriche principali.
 
 
-## <a name="2018-05-sprint-5"></a>Sprint 5 05-2018
+#### <a name="hyperdrive"></a>HyperDrive
+ * Diverse correzioni di bug di HyperDrive per Bayes, miglioramenti alle prestazioni delle chiamate di recupero delle metriche. 
+ * Aggiornamento di Tensorflow da 1.9 a 1.10 
+ * Ottimizzazione dell'immagine Docker per l'avvio a freddo. 
+ * I processi ora segnalano lo stato corretto anche se terminano con un codice di errore diverso da 0. 
+ * Convalida dell'attributo RunConfig in SDK. 
+ * L'oggetto esecuzione HyperDrive supporta l'annullamento in modo analogo a una normale esecuzione, senza bisogno di passare alcun parametro. 
+ * Miglioramenti ai widget per gestire lo stato dei valori degli elenchi a discesa per le esecuzioni distribuite e le esecuzioni di HyperDrive. 
+ * Supporto di TensorBoard e di altri file di log risolto per il server dei parametri. 
+ * Supporto di Intel(R) MPI sul lato servizi. 
+ * Correzione di bug dell'ottimizzazione dei parametri per l'esecuzione distribuita durante la convalida in Batch per intelligenza artificiale. 
+ * Gestione contesto ora identifica l'istanza primaria. 
+
+#### <a name="azure-portal-experience"></a>Esperienza del portale di Azure
+ * log_table() e log_row() sono supportati nei dettagli dell'esecuzione. 
+ * Creazione automatica di grafici per tabelle e righe con 1, 2 o 3 colonne numeriche e una colonna categorica facoltativa.
+
+#### <a name="automated-machine-learning"></a>Funzionalità automatizzate di Machine Learning
+ * Miglioramenti alla gestione degli errori e alla relativa documentazione 
+ * Correzione di problemi di prestazioni relativi al recupero delle proprietà di esecuzione. 
+ * Correzione di un problema di esecuzione continua. 
+ * Correzione di problemi di iterazione di insiemi.
+ * Correzione di un bug di blocco del training in MAC OS.
+ * Sottocampionamento della curva di precisione-recupero/ROC media della macro in uno scenario di convalida personalizzata.
+ * Rimozione della logica di indicizzazione eccedente.
+ * Rimozione del filtro dall'API get_output.
+
+#### <a name="pipelines"></a>Pipeline
+ * È stato aggiunto un metodo Pipeline.publish() per pubblicare una pipeline direttamente, senza un'esecuzione preventiva.   
+ * È stato aggiunto un metodo PipelineRun.get_pipeline_runs() per recuperare le esecuzioni di pipeline generate da una pipeline pubblicata.
+
+#### <a name="project-brainwave"></a>Project Brainwave
+ * Supporto aggiornato per i nuovi modelli di intelligenza artificiale disponibili in FPGA.
+
+### <a name="azure-machine-learning-data-prep-sdk-v020"></a>Azure Machine Learning Data Prep SDK v0.2.0
+La [versione 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) include le funzionalità e le correzioni di bug seguenti:
+
+**Nuove funzionalità:** 
+ * Supporto della codifica one-hot
+ * Supporto della trasformazione dei quantili
+   
+**Bug risolto:**
+ * Funziona con qualsiasi versione di Tornado, senza bisogno di effettuare il downgrade della versione di Tornado in uso
+ * Vengono conteggiati tutti i valori, non solo i primi tre
+
+## <a name="2018-09-public-preview-refresh"></a>2018-09 (aggiornamento dell'anteprima pubblica)
+
+Una nuova versione completamente aggiornata di Azure Machine Learning. Per altre informazioni, visitare https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+
+## <a name="older-notes-sept-2017---jun-2018"></a>Note sulle versioni meno recenti: settembre 2017 - giugno 2018
+### <a name="2018-05-sprint-5"></a>Sprint 5 05-2018
 
 Con questa versione di Azure Machine Learning, è possibile:
 + Creare funzionalità dalle immagini con una versione quantizzata di ResNet 50, eseguire il training di un classificatore in base a tali funzionalità e [distribuire tale modello in un dispositivo FPGA in Azure](../service/how-to-deploy-fpga-web-service.md) per inferenze a latenza estremamente bassa.
@@ -33,7 +111,7 @@ Con questa versione di Azure Machine Learning, è possibile:
   + [Analisi del testo](../desktop-workbench/how-to-build-deploy-text-classification-models.md)
   + [Previsione](../desktop-workbench/how-to-build-deploy-forecast-models.md)
 
-## <a name="2018-03-sprint-4"></a>Sprint 4 03-2018
+### <a name="2018-03-sprint-4"></a>Sprint 4 03-2018
 **Numero di versione**: 0.1.1801.24353 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
@@ -50,7 +128,7 @@ Molti degli aggiornamenti riportati di seguito sono una conseguenza diretta dei 
 
 Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area dei componenti di Azure Machine Learning in questo sprint.
 
-### <a name="workbench-ui"></a>Interfaccia utente di Workbench
+#### <a name="workbench-ui"></a>Interfaccia utente di Workbench
 - Report sulla cronologia di esecuzione personalizzabili
   - Configurazione dei grafici migliorata per i report sulla cronologia di esecuzione
     - I punti di ingresso usati possono essere modificati
@@ -68,14 +146,14 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 
 - Miglioramenti delle prestazioni apportati all'elenco di file nella barra laterale
 
-### <a name="data-preparation"></a>Preparazione dei dati 
+#### <a name="data-preparation"></a>Preparazione dei dati 
 - Azure Machine Learning Workbench ora consente di cercare una colonna usando il nome di una colonna nota.
 
 
-### <a name="experimentation"></a>Sperimentazione
+#### <a name="experimentation"></a>Sperimentazione
 - Azure Machine Learning Workbench ora supporta l'esecuzione degli script in modo nativo nell'ambiente python o pyspark. Per questa capacità, l'utente crea e gestisce i propri ambienti dalla VM remota e usa Azure Machine Learning Workbench per eseguire gli script in tale destinazione. Vedere [Configurazione del servizio Sperimentazione di Azure Machine Learning](../desktop-workbench/experimentation-service-configuration.md) 
 
-### <a name="model-management"></a>Gestione modelli
+#### <a name="model-management"></a>Gestione modelli
 - Supporto per la personalizzazione dei contenitori distribuiti: consente di personalizzare l'immagine del contenitore permettendo l'installazione di librerie esterne con apt-get e così via. Non è più limitato alle librerie installabili con pip. Per altre informazioni, vedere la [documentazione](../desktop-workbench/model-management-custom-container.md).
   - Usare il flag `--docker-file myDockerStepsFilename` e il nome file con i comandi per la creazione del manifesto, dell'immagine o del servizio.
   - Tenere presente che l'immagine di base è Ubuntu e non può essere modificata.
@@ -87,7 +165,7 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 
 
 
-## <a name="2018-01-sprint-3"></a>Sprint 3 01-2018 
+### <a name="2018-01-sprint-3"></a>Sprint 3 01-2018 
 **Numero di versione**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Di seguito è riportato un elenco degli aggiornamenti e miglioramenti in questo sprint. Molti degli aggiornamenti sono una conseguenza diretta del feedback ricevuto. 
@@ -97,19 +175,19 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 
 - Gli aggiornamenti allo stack di autenticazione forzano la selezione di login e account all'avvio
 
-### <a name="workbench"></a>Workbench
+#### <a name="workbench"></a>Workbench
 - Possibilità di installare o disinstallare l'app da Installazione applicazioni
 - Gli aggiornamenti allo stack di autenticazione forzano la selezione di login e account all'avvio
 - Esperienza di Single Sign-On (SSO) migliorata in Windows
 - Gli utenti che appartengono a più tenant con credenziali diverse ora saranno in grado di accedere a Workbench
 
-### <a name="ui"></a>UI
+#### <a name="ui"></a>UI
 - Correzioni di bug e miglioramenti generali
 
-### <a name="notebooks"></a>Notebook
+#### <a name="notebooks"></a>Notebook
 - Correzioni di bug e miglioramenti generali
 
-### <a name="data-preparation"></a>Preparazione dei dati 
+#### <a name="data-preparation"></a>Preparazione dei dati 
 - Miglioramento dei suggerimenti automatici migliorata durante l'esecuzione di trasformazioni in base a esempi
 - Algoritmo migliorato per il controllo della frequenza
 - Possibilità di inviare dati di esempio e feedback durante l'esecuzione di trasformazioni in base a esempi ![Immagine del collegamento per l'invio di feedback nella trasformazione di derivazione colonna](media/azure-machine-learning-release-notes/SendFeedbackFromDeriveColumn.png)
@@ -118,11 +196,11 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 - Risolta l'impossibilità di chiudere i dati non applicabili per la funzione di controllo delle serie temporali 
 - Risolto il tempo di blocco per l'esecuzione di preparazione dei dati per HDI
 
-### <a name="model-management-cli-updates"></a>Aggiornamenti all'interfaccia della riga di comando di Gestione modelli 
+#### <a name="model-management-cli-updates"></a>Aggiornamenti all'interfaccia della riga di comando di Gestione modelli 
   - Per il provisioning di risorse non è più necessaria la proprietà della sottoscrizione. Per configurare l'ambiente di distribuzione sarà sufficiente l'accesso al gruppo di risorse di tipo Collaboratore.
   - Abilitata la configurazione dell'ambiente locale per le sottoscrizioni gratuite 
 
-## <a name="2017-12-sprint-2-qfe"></a>Sprint 2 QFE 12-2017 
+### <a name="2017-12-sprint-2-qfe"></a>Sprint 2 QFE 12-2017 
 **Numero di versione**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Questa è la versione QFE (Quick Fix Engineering), una versione minore. In questa versione sono stati risolti alcuni problemi di telemetria e per il team di prodotto risulta più semplice comprendere meglio l'uso del prodotto. Le conoscenze acquisite potranno essere quindi sfruttate nell'impegno futuro per il miglioramento dell'esperienza del prodotto. 
@@ -132,7 +210,7 @@ Sono inoltre disponibili due aggiornamenti importanti:
 - Correzione di un bug nella preparazione dei dati che ha impedito la visualizzazione della funzione di controllo delle serie temporali nei pacchetti di preparazione dei dati.
 - Nello strumento della riga di comando non è più necessario essere un proprietario della sottoscrizione di Azure per eseguire il provisioning di cluster ACS di calcolo di Machine Learning. 
 
-## <a name="2017-12-sprint-2"></a>Sprint 2 12-2017
+### <a name="2017-12-sprint-2"></a>Sprint 2 12-2017
 **Numero di versione**: 0.1.1711.15263  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 Benvenuti al terzo aggiornamento di Azure Machine Learning, che include miglioramenti all'app Workbench, all'interfaccia della riga di comando e ai servizi back-end. Si ringrazia per i commenti inviati. Molti degli aggiornamenti riportati di seguito sono una conseguenza diretta dei commenti ricevuti. 
@@ -147,21 +225,21 @@ Benvenuti al terzo aggiornamento di Azure Machine Learning, che include migliora
 
 **Aggiornamenti dettagliati** Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area dei componenti di Azure Machine Learning in questo sprint.
 
-### <a name="installer"></a>Programma di installazione
+#### <a name="installer"></a>Programma di installazione
 - Il programma di installazione può aggiornarsi automaticamente in modo da supportare le correzioni di bug e le nuove funzionalità senza che l'utente debba rieseguire l'installazione.
 
-### <a name="workbench-authentication"></a>Autenticazione di Workbench
+#### <a name="workbench-authentication"></a>Autenticazione di Workbench
 - Più correzioni al sistema di autenticazione. Inviare un commento nel caso in cui si verifichino ancora problemi di accesso.
 - Modifiche all'interfaccia utente che rendono più semplice trovare le impostazioni di gestione proxy.
 
-### <a name="workbench"></a>Workbench
+#### <a name="workbench"></a>Workbench
 - La visualizzazione dei file di sola lettura è ora su sfondo azzurro.
 - Il pulsante Modifica è stato spostato a destra per renderlo più facilmente individuabile.
 - È ora possibile eseguire il rendering dei formati di file "dsource", "dprep" e "ipynb" in un formato di testo non elaborato.
 - È ora disponibile una nuova esperienza di modifica nel Workbench che guida gli utenti all'uso di ambienti IDE esterni per modificare gli script e all'uso del Workbench solo per modificare i tipi di file con un'esperienza di modifica avanzata (ad esempio notebook, origini dati, pacchetti di preparazione dei dati).
 - Il caricamento dell'elenco delle aree di lavoro e dei progetti a cui l'utente ha accesso è ora notevolmente più veloce.
 
-### <a name="data-preparation"></a>Preparazione dei dati 
+#### <a name="data-preparation"></a>Preparazione dei dati 
 - È disponibile un controllo della frequenza dei modelli per visualizzare i modelli di stringa in una colonna. È anche possibile filtrare i dati tramite questi modelli. Comparirà una visualizzazione simile a quella del controllo dei conteggi di valore. La differenza è che la frequenza dei modelli mostra i conteggi dei modelli univoci dei dati, anziché i conteggi dei dati univoci. È anche possibile applicare filtri per visualizzare o escludere tutte le righe che soddisfano un determinato modello.
 
 ![Immagine del controllo della frequenza dei modelli sul numero del prodotto](media/azure-machine-learning-release-notes/pattern-inspector-product-number.png)
@@ -182,7 +260,7 @@ Benvenuti al terzo aggiornamento di Azure Machine Learning, che include migliora
 - È stato risolto il problema relativo alla conversione di più colonne in data.
 - È stato risolto il problema per cui un utente poteva selezionare una colonna di output come origine in Deriva colonna dall'esempio dopo avere modificato il nome della colonna di output nella modalità avanzata.
 
-### <a name="job-execution"></a>Esecuzione dei processi
+#### <a name="job-execution"></a>Esecuzione dei processi
 È ora possibile creare e accedere a una destinazione di calcolo di tipo cluster o remotedocker tramite l'autenticazione basata su chiave SSH eseguendo la procedura riportata di seguito:
 - Collegare una destinazione di calcolo usando il comando seguente dell'interfaccia della riga di comando.
 
@@ -198,13 +276,13 @@ Benvenuti al terzo aggiornamento di Azure Machine Learning, che include migliora
 
 Per altre informazioni sulla creazione di destinazioni di calcolo, vedere [Configurazione del servizio Sperimentazione di Azure Machine Learning](../desktop-workbench/experimentation-service-configuration.md).
 
-### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
+#### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
 - È stato aggiunto il supporto per [Visual Studio Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
 
-### <a name="command-line-interface-cli"></a>Interfaccia della riga di comando
+#### <a name="command-line-interface-cli"></a>Interfaccia della riga di comando
 - È stato aggiunto il comando `az ml datasource create` che consente di creare un file di origine dati dalla riga di comando.
 
-### <a name="model-management-and-operationalization"></a>Gestione modelli e operazionalizzazione
+#### <a name="model-management-and-operationalization"></a>Gestione modelli e operazionalizzazione
 - [Compatibilità di tutti i contenitori AML con i dispositivi Azure IoT Edge quando vengono resi operativi (non sono necessarie operazioni aggiuntive)](http://aka.ms/aml-iot-edge-blog). 
 - Miglioramenti dei messaggi di errore nell'interfaccia della riga di comando o16n.
 - Correzioni di bug nel portale di gestione modelli UX.  
@@ -216,27 +294,27 @@ Per altre informazioni sulla creazione di destinazioni di calcolo, vedere [Confi
 
 ![panoramica modello nel portale](media/azure-machine-learning-release-notes/model-overview-portal.jpg)
 
-### <a name="mmlspark"></a>MMLSpark
+#### <a name="mmlspark"></a>MMLSpark
 - Apprendimento avanzato su Spark con [supporto GPU](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md).
 - Supporto per modelli di Resource Manager per la distribuzione semplificata delle risorse.
 - Supporto per l'ecosistema SparklyR.
 - [Integrazione di AZTK](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark).
 
-### <a name="sample-projects"></a>Progetti di esempio
+#### <a name="sample-projects"></a>Progetti di esempio
 - Gli esempi [Iris](https://github.com/Azure/MachineLearningSamples-Iris) e [MMLSpark](https://github.com/Azure/mmlspark) sono stati aggiornati con la nuova versione SDK di Azure Machine Learning.
 
-### <a name="breaking-changes"></a>Modifiche di rilievo
+#### <a name="breaking-changes"></a>Modifiche di rilievo
 - L'opzione `--type` in `az ml computetarget attach` è stata alzata di livello a sottocomando. 
 
     - `az ml computetarget attach --type remotedocker` è ora `az ml computetarget attach remotedocker`
     - `az ml computetarget attach --type cluster` è ora `az ml computetarget attach cluster`
 
-## <a name="2017-11-sprint-1"></a>Sprint 1 11-2017 
+### <a name="2017-11-sprint-1"></a>Sprint 1 11-2017 
 **Numero di versione**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 In questa versione sono stati apportati miglioramenti alla sicurezza, alla stabilità e alla manutenibilità nell'app Workbench, dell'interfaccia della riga di comando e del livello di servizi back-end. Si ringrazia per i commenti inviati. Molti degli aggiornamenti riportati di seguito sono una conseguenza diretta dei commenti ricevuti. Si prega di continuare a inviarli!
 
-### <a name="notable-new-features"></a>Nuove funzionalità importanti
+#### <a name="notable-new-features"></a>Nuove funzionalità importanti
 - Azure ML è ora disponibile in due nuove aree di Azure: **Europa occidentale** e **Asia sud-orientale**. Queste vanno a unirsi alle precedenti aree **Stati Uniti orientali 2**, **Stati Uniti centro-occidentali** e **Australia orientale**, portando a cinque il numero totale di aree di distribuzione.
 - È stata abilitata l'evidenziazione della sintassi del codice Python nell'app Workbench per facilitare la lettura e la modifica del codice sorgente Python. 
 - Ora è possibile avviare l'IDE preferito direttamente da un file, anziché dall'intero progetto.  Aprendo un file in Workbench e facendo clic su "Modifica" si avvia l'IDE (attualmente sono supportati VS Code e PyCharm ) con il file e il progetto correnti aperti.  È anche possibile fare clic sulla freccia accanto al pulsante Modifica per modificare il file nell'editor di testo di Workbench.  I file sono di sola lettura fino a quando non si fa clic su Modifica, impedendo modifiche accidentali.
@@ -245,22 +323,22 @@ In questa versione sono stati apportati miglioramenti alla sicurezza, alla stabi
 - È stata abilitata una home page dell'app specifica della versione, perciò sarà possibile ottenere note sulla versione e suggerimenti di aggiornamento più pertinenti in base alla versione corrente dell'app.
 - Se il nome utente locale ha uno spazio, l'applicazione può ora essere installata correttamente. 
 
-### <a name="detailed-updates"></a>Aggiornamenti dettagliati
+#### <a name="detailed-updates"></a>Aggiornamenti dettagliati
 Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area dei componenti di Azure Machine Learning in questo sprint.
 
-#### <a name="installer"></a>Programma di installazione
+##### <a name="installer"></a>Programma di installazione
 - Il programma di installazione dell'app ora pulisce la directory di installazione creata dalla versione precedente dell'app.
 - È stato corretto un bug che bloccava il programma di installazione al 100% in macOS High Sierra.
 - Ora c'è un collegamento diretto alla directory del programma di installazione con cui l'utente può vedere i log del programma di installazione in caso di errori di installazione.
 - L'installazione ora funziona per gli utenti che hanno spazi nel nome utente.
 
-#### <a name="workbench-authentication"></a>Autenticazione di Workbench
+##### <a name="workbench-authentication"></a>Autenticazione di Workbench
 - Supporto per l'autenticazione in gestione proxy.
 - Ora l'accesso riesce se l'utente si trova dietro un firewall. 
 - Se l'utente dispone di account Sperimentazione in più aree di Azure e se succede che un'area non è disponibile, l'app non verrà più interrotta.
 - Quando l'autenticazione non è completata e la finestra di dialogo di autenticazione è ancora visibile, l'app non tenta più di caricare l'area di lavoro dalla cache locale.
 
-#### <a name="workbench-app"></a>App Workbench
+##### <a name="workbench-app"></a>App Workbench
 - L'evidenziazione della sintassi del codice Python è abilitata nell'editor di testo.
 - Il pulsante Modifica nell'editor di testo consente di modificare il file o in un IDE (sono supportati VS Code e PyCharm) o nell'editor di testo integrato.
 - L'editor di testo è in modalità di sola lettura per impostazione predefinita. 
@@ -279,7 +357,7 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 - Il nome dell'account Sperimentazione è ora visibile sulla barra del titolo dell'app prima del nome dell'app "Azure Machine Learning Workbench".
 - Ora viene visualizzata una home page dell'app specifica della versione in base alla versione dell'app rilevata.
 
-#### <a name="data-preparation"></a>Preparazione dei dati 
+##### <a name="data-preparation"></a>Preparazione dei dati 
 - Il sito Web esterno non può più essere caricato dal controllo mappa per evitare potenziali problemi di sicurezza.
 - I controlli istogramma e conteggio dei valori hanno ora un'opzione per visualizzare un grafico in scala logaritmica.
 - Quando un calcolo è in corso, la barra della qualità dei dati mostra un colore diverso per segnalare lo stato "calcolo in corso".
@@ -301,7 +379,7 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 - La vista metriche adesso rispetta gli aggiornamenti della strategia di campionamento.
 - Ora i processi di campionamento remoto funzioni correttamente.
 
-#### <a name="job-execution"></a>Esecuzione dei processi
+##### <a name="job-execution"></a>Esecuzione dei processi
 - L'argomento è ora incluso nei record della cronologia di esecuzione.
 - I processi avviati nell'interfaccia della riga di comando adesso sono mostrati nel pannello del processo della cronologia di esecuzione.
 - Il pannello del processo ora mostra i processi creati dagli utenti guest aggiunti al tenant di Azure AD.
@@ -319,14 +397,14 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 - MMLSpark ora include la trasformazione di codifica del soggetto (codifica Mesh) per i documenti di tipo medico.
 - `matplotlib` versione 2.1.0 è ora accluso a Workbench.
 
-#### <a name="jupyter-notebook"></a>Notebook Jupyter
+##### <a name="jupyter-notebook"></a>Notebook Jupyter
 - La ricerca dei nomi di Notebook ora funziona correttamente nella visualizzazione Notebook.
 - È ora possibile eliminare un Notebook nella visualizzazione Notebook.
 - Un nuovo e magico `%upload_artifact` è stato aggiunto per caricare i file prodotti nell'ambiente di esecuzione Notebook nell'archivio dati della cronologia di esecuzione.
 - Gli errori del kernel sono ora rilevati nello stato del processo Notebook per semplificare il debug.
 - Il server Jupyter adesso si arresta correttamente quando l'utente si disconnette dall'app.
 
-#### <a name="azure-portal"></a>Portale di Azure
+##### <a name="azure-portal"></a>Portale di Azure
 - L'account di sperimentazione e l'account Gestione modelli ora possono essere creati in due nuove aree di Azure: Europa occidentale e Asia sud-orientale.
 - Il piano DevTest dell'account Gestione modelli è ora disponibile solo quando è il primo a essere creato nella sottoscrizione. 
 - Il collegamento alla guida nel portale di Azure è stato aggiornato in modo da puntare alla pagina di documentazione corretta.
@@ -334,13 +412,13 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 - Informazioni dettagliate, fra cui AppInsights e le impostazioni di scalabilità automatica, sono state aggiunte alla pagina dei dettagli del servizio Web.
 - La pagina di gestione modelli ora viene visualizzata anche se i cookie di terze parti sono disabilitati nel browser. 
 
-#### <a name="operationalization"></a>Operazionalizzazione
+##### <a name="operationalization"></a>Operazionalizzazione
 - I servizi Web con il "trattino" nel nome non si bloccano più.
 - L'utente può creare ora un ambiente di distribuzione con il solo accesso come collaboratore a un gruppo di risorse di Azure o alla sottoscrizione. L'accesso come proprietario all'intera sottoscrizione non è più necessario.
 - L'interfaccia della riga di comando di operazionalizzazione ora dispone del completamento automatico con il tasto Tab in Linux.
 - Il servizio di creazione di immagini adesso supporta la creazione di immagini per i servizi e dispositivi IoT di Azure.
 
-#### <a name="sample-projects"></a>Progetti di esempio
+##### <a name="sample-projects"></a>Progetti di esempio
 - Progetto di esempio [_Classificazione iris_](../desktop-workbench/tutorial-classifying-iris-part-1.md):
     - `iris_pyspark.py` viene rinominata come `iris_spark.py`.
     - `iris_score.py` viene rinominata come `score_iris.py`.
@@ -353,20 +431,20 @@ Di seguito è riportato un elenco degli aggiornamenti dettagliati in ogni area d
 - Nuovo progetto di esempio [_Classificazione delle immagini con CNTK_](../desktop-workbench/scenario-image-classification-using-cntk.md).
 
 
-## <a name="2017-10-sprint-0"></a>Sprint 0 10-2017 
+### <a name="2017-10-sprint-0"></a>Sprint 0 10-2017 
 **Numero di versione**: 0.1.1710.31013  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([Trovare la versione](../desktop-workbench/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 È uscito il primo aggiornamento di Azure Machine Learning Workbench in seguito alla versione di anteprima pubblica iniziale in occasione della conferenza Microsoft Ignite 2017. Gli aggiornamenti principali di questa versione sono costituiti da correzioni relative all'affidabilità e alla stabilizzazione.  Ecco alcuni dei problemi critici risolti:
 
-### <a name="new-features"></a>Nuove funzionalità
+#### <a name="new-features"></a>Nuove funzionalità
 - macOS High Sierra è ora supportato
 
-### <a name="bug-fixes"></a>Correzioni di bug
-#### <a name="workbench-experience"></a>Esperienza in Workbench
+#### <a name="bug-fixes"></a>Correzioni di bug
+##### <a name="workbench-experience"></a>Esperienza in Workbench
 - Un'operazione di trascinamento e rilascio di un file in Workbench causa l'arresto anomalo di Workbench.
 - La finestra del terminale in VS Code configurata come IDE per Workbench non riconosce i comandi _az ml_.
 
-#### <a name="workbench-authentication"></a>Autenticazione di Workbench
+##### <a name="workbench-authentication"></a>Autenticazione di Workbench
 Sono stati apportati numerosi aggiornamenti per migliorare i vari problemi di accesso e autenticazione segnalati.
 - La finestra di autenticazione viene continuamente visualizzata, in particolare quando la connessione Internet non è stabile.
 - Sono stati apportati miglioramenti per i problemi di affidabilità relativi alla scadenza del token di autenticazione.
@@ -374,27 +452,27 @@ Sono stati apportati numerosi aggiornamenti per migliorare i vari problemi di ac
 - La finestra principale di Workbench continua a visualizzare un messaggio che indica che è in corso l'autenticazione anche quando il processo di autenticazione è terminato e la finestra di dialogo popup è già stata chiusa.
 - Se non c'è la connessione Internet, la finestra di dialogo di autenticazione viene visualizzata con una schermata vuota.
 
-#### <a name="data-preparation"></a>Preparazione dei dati 
+##### <a name="data-preparation"></a>Preparazione dei dati 
 - Quando viene filtrato un valore specifico, vengono filtrati anche gli errori e i valori mancanti.
 - La modifica di una strategia di campionamento comporta la rimozione delle successive operazioni di join esistenti.
 - La trasformazione di sostituzione dei valori mancanti non prende in considerazione i valori NaN (Not a Number, non un numero).
 - L'inferenza del tipo di dati genera un'eccezione quando viene rilevato un valore Null.
 
-#### <a name="job-execution"></a>Esecuzione dei processi
+##### <a name="job-execution"></a>Esecuzione dei processi
 - Non c'è un chiaro messaggio di errore quando, durante l'esecuzione dei processi, non è possibile caricare la cartella di progetto perché è stato superato il limite di dimensioni.
 - Se lo script Python dell'utente cambia la directory di lavoro, non viene tenuta traccia dei file scritti nelle cartelle di output. 
 - Se la sottoscrizione di Azure attiva è diversa da quella a cui appartiene il progetto corrente, l'invio dei processi provoca un errore 403.
 - Quando Docker non è presente, non viene restituito un chiaro messaggio di errore se l'utente cerca di usare Docker come destinazione di esecuzione.
 - Il file con estensione runconfig non viene salvato automaticamente quando l'utente fa clic sul pulsante _Esegui_.
 
-#### <a name="jupyter-notebook"></a>Notebook Jupyter
+##### <a name="jupyter-notebook"></a>Notebook Jupyter
 - Non è possibile avviare il server Notebook se l'utente usa determinati tipi di account di ascesso.
 - I messaggi di errore del server Notebook non sono presenti nei log visibili all'utente.
 
-#### <a name="azure-portal"></a>Portale di Azure
+##### <a name="azure-portal"></a>Portale di Azure
 - Se si seleziona il tema scuro del portale di Azure, il pannello di Gestione modelli viene visualizzato come una casella nera.
 
-#### <a name="operationalization"></a>Operazionalizzazione
+##### <a name="operationalization"></a>Operazionalizzazione
 - Se si riutilizza un manifesto per aggiornare un servizio Web, viene creata una nuova immagine Docker con un nome casuale.
 - Non è possibile recuperare i log del servizio Web dal cluster Kubernetes.
 - Viene visualizzato un messaggio di errore fuorviante quando l'utente cerca di creare un account di Gestione modelli o un account di calcolo di ML e si verificano problemi relativi alle autorizzazioni.

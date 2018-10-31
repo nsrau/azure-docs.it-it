@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248073"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645798"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo (anteprima)
 
@@ -26,14 +26,14 @@ L'[API di riconoscimento entità denominate](https://westus.dev.cognitive.micros
 L'endpoint `entities` di Analisi del testo supporta sia il riconoscimento delle entità denominate (NER) sia il collegamento di entità.
 
 ### <a name="entity-linking"></a>Collegamento delle entità
-Il collegamento delle entità è la capacità di identificare senza ambiguità l'identità di un'entità trovata nel testo (ad esempio, determinare se "Marte" viene usato per indicare il pianeta o il dio romano della guerra). Questo processo richiede la presenza di una knowledge base a cui sono collegate le entità riconosciute. Wikipedia è usata come knowledge base per l'endpoint `entities` di Analisi del testo.
+Per collegamento delle entità si intende la capacità di identificare senza ambiguità l'identità di un'entità trovata nel testo, ad esempio per determinare se "Marte" viene usato per indicare il pianeta o il dio romano della guerra. Questo processo richiede la presenza di una knowledge base a cui sono collegate le entità riconosciute. Wikipedia è usata come knowledge base per l'endpoint `entities` di Analisi del testo.
 
-In Analisi del testo [versione 2.1 anteprima](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) è disponibile solo il collegamento di entità.
+In Analisi del testo [versione 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) è disponibile solo il collegamento delle entità.
 
 ### <a name="named-entity-recognition-ner"></a>Riconoscimento delle entità denominate (NER)
 Il riconoscimento delle entità denominate (NER) è la possibilità di identificare le diverse entità in formato testo e classificarle in classi già definite. Le classi di entità supportate sono elencate di seguito.
 
-In Analisi del testo versione 2.1 anteprima (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`) sono disponibili sia il collegamento di entità che il riconoscimento delle entità denominate (NER).
+In Analisi del testo [versione 2.1-preview](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) sono disponibili sia il collegamento delle entità che il riconoscimento delle entità denominate (NER).
 
 ### <a name="language-support"></a>Supporto per le lingue
 

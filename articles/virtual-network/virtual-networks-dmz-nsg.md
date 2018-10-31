@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23126679"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457290"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Esempio 1: Creare una rete perimetrale semplice usando gruppi di sicurezza di rete con un modello di Azure Resource Manager
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -99,7 +99,7 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
     ``` 
 
 2. La prima regola in questo esempio consente il traffico DNS fra tutte le reti interne al server DNS nella subnet back-end. Nella regola sono inclusi alcuni parametri importanti:
-  * Questi tag sono identificatori forniti dal sistema che consentono di gestire in modo semplice una categoria più ampia di prefissi di indirizzi; "destinationAddressPrefix": le regole possono usare un tipo speciale di prefisso denominato "Tag predefinito". Questa regola usa il tag predefinito "Internet" per indicare qualsiasi indirizzo all'esterno della rete virtuale. Altre etichette di prefisso sono VirtualNetwork e AzureLoadBalancer.
+  * "destinationAddressPrefix": il prefisso dell'indirizzo di destinazione è impostato su "10.0.2.4" in modo da consentire al traffico DNS di raggiungere il server DNS.
   * "Direction" indica la direzione del flusso di traffico a cui verrà applicata questa regola dal punto di vista della subnet o della macchina virtuale, a seconda della posizione a cui è associato il gruppo di sicurezza di rete. Se Direction è impostato su "Inbound", la regola verrà applicata al traffico in ingresso nella subnet, ma non al traffico in uscita da essa.
   * "Priority" consente di impostare l'ordine in base al quale viene valutato un flusso di traffico. Più è basso il numero, maggiore sarà la priorità. Quando un flusso di traffico specifico è applicabile a una determinata regola, non vengono elaborate altre regole. Se quindi una regola con priorità 1 consente il traffico e una regola con priorità 2 lo blocca ed entrambe le regole sono applicabili, il passaggio del traffico viene consentito perché viene applicata la regola 1 con priorità più alta e non vengono considerate altre regole.
   * "Access" indica se il traffico a cui si applica la regola viene bloccato ("Deny") o consentito ("Allow").
@@ -180,7 +180,7 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
     },
      ```
 
-6. Questa regola blocca il traffico da Internet a qualsiasi server della rete. Insieme alla regola con priorità 110 e 120, consente esclusivamente il traffico Internet in ingresso diretto al firewall e alle porte RDP sui server e blocca tutto il traffico restante. Questa regola è di tipo fail-safe per bloccare tutti i flussi imprevisti.
+6. Le regole possono usare un tipo speciale di prefisso di indirizzo denominato "tag predefinito" e questi tag sono identificatori forniti dal sistema che permettono di gestire in tutta semplicità una categoria più ampia di prefissi di indirizzi. Questa regola usa il tag predefinito "VirtualNetwork" per il prefisso di indirizzo di destinazione, a indicare qualsiasi indirizzo all'interno della rete virtuale. Altre etichette di prefisso sono Internet e AzureLoadBalancer. Questa regola blocca il traffico da Internet a qualsiasi server della rete. Insieme alla regola con priorità 110 e 120, consente esclusivamente il traffico Internet in ingresso diretto al firewall e alle porte RDP sui server e blocca tutto il traffico restante. Questa regola è di tipo fail-safe per bloccare tutti i flussi imprevisti.
 
     ```JSON
     {

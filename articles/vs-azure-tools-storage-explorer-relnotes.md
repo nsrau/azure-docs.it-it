@@ -14,44 +14,46 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94ade24f1761700b93ab79d497e273c64c51bddf
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990898"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388298"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
-Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0, nonché sulle versioni precedenti.
+Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3, nonché delle versioni precedenti.
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
-## <a name="version-130"></a>Versione 1.3.0
-09/07/2018
+## <a name="version-144"></a>Versione 1.4.4
+15/10/2018
 
-### <a name="download-azure-storage-explorer-130"></a>Scaricare Azure Storage Explorer 1.3.0
-- [Azure Storage Explorer 1.3.0 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.3.0 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.3.0 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-144"></a>Scaricare Azure Storage Explorer 1.4.4
+- [Azure Storage Explorer 1.4.4 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.4.4 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.4.4 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="hotfixes"></a>Hotfix
+* È stato eseguito il rollback della versione dell'API di Gestione delle risorse di Azure per sbloccare gli utenti di Azure per enti pubblici statunitensi. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Le caselle di selezione di caricamento ora usano animazioni CSS per ridurre la quantità di GPU usata da Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
 
 ### <a name="new"></a>Nuovo
-* L'accesso ai contenitori $web usati da siti Web statici è ora supportato. In questo modo è possibile caricare e gestire facilmente i file e le cartelle in uso nel sito Web. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
-* La barra delle applicazioni in macOS è stata riorganizzata. Le modifiche includono un menu File, alcune modifiche ai tasti di scelta rapida e diversi nuovi comandi nel menu dell'app. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* L'endpoint dell'autorità per l'accesso ad Azure Governo degli Stati Uniti è stato modificato in https://login.microsoftonline.us/
-* Accessibilità: quando è attiva un'utilità per la lettura dello schermo, la navigazione da tastiera ora funziona con le tabelle usate per visualizzare gli elementi sul lato destro. È possibile usare i tasti di direzione per spostarsi tra righe e colonne, INVIO per richiamare le azioni predefinite, il tasto del menu di scelta rapida per aprire il menu relativo a un elemento e MAIUSC o CTRL per la selezione multipla. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+* Gli allegati delle risorse esterne, ad esempio per le connessioni di firma di accesso condiviso e gli emulatori, sono stati notevolmente migliorati. A questo punto è possibile:
+   * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+   * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
+   * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
+   * Annullare l'eliminazione dei blob eliminati temporaneamente.
 
 ### <a name="fixes"></a>Correzioni
-*  In alcuni computer i processi figlio impiegavano troppo tempo ad avviarsi. Quando si verifica questa situazione, un messaggio di errore indica che il processo figlio non è stato avviato in modo tempestivo. Il tempo a disposizione per l'avvio di un processo figlio è stato aumentato da 20 a 90 secondi. Se si verifica ancora questo problema, aggiungere un commento sul problema GitHub collegato. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
-* Usando una firma di accesso condiviso priva di autorizzazioni di lettura, in precedenza non era possibile caricare un BLOB di grandi dimensioni. La logica per il caricamento è stata modificata in modo da funzionare in questo scenario. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
-* L'impostazione del livello di accesso pubblico per un contenitore rimuove tutti i criteri di accesso e viceversa. Ora il livello di accesso pubblico e i criteri di accesso vengono mantenuti quando si imposta uno dei due elementi. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
-* "AccessTierChangeTime" era troncato nella finestra di dialogo Proprietà. Questo problema è stato risolto. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
-* Il prefisso "Microsoft Azure Storage Explorer -" mancava nella finestra di dialogo Crea nuova Directory. Questo problema è stato risolto. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
-* Accessibilità: è difficile spostarsi nella finestra di dialogo Aggiungi entità quando si usa VoiceOver. Sono stati apportati miglioramenti. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
-* Accessibilità: il colore di sfondo del pulsante che comprime ed espande il riquadro Azioni e proprietà non era coerente con controlli simili dell'interfaccia utente nel tema Nero a contrasto elevato. Il colore è stato modificato. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
-* Accessibilità: nel tema Nero a contrasto elevato lo stile stato attivo per il pulsante "X" della finestra di dialogo Proprietà non era visibile. Questo problema è stato risolto. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
-* Accessibilità: nelle schede Azioni e Proprietà mancavano diversi valori ARIA e quindi l'esperienza di lettura dello schermo risultava scadente. I valori ARIA mancanti sono stati aggiunti. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
-* Accessibilità: ai nodi dell'albero compressi sul lato sinistro non veniva assegnato false come valore aria-expanded. Questo problema è stato risolto. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+* L'azione "Configura impostazioni CORS" non è più disponibile negli account di Archiviazione Premium poiché gli account di Archiviazione Premium non supportano CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* È ora disponibile una proprietà di firma di accesso condiviso per i servizi collegati di firma di accesso condiviso. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* L'azione "Imposta livello di accesso predefinito" è ora disponibili per gli account di archiviazione BLOB e GPV2 aggiunti ad Accesso rapido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* In alcuni casi, Storage Explorer non riuscirebbe a visualizzare gli account di archiviazione classici. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>Problemi noti
 * Quando si usano gli emulatori, ad esempio Emulatore di archiviazione di Azure o Azurite, è necessario che rimangano in attesa di connessioni sulle porte predefinite. In caso contrario, Storage Explorer non potrà eseguire la connessione degli emulatori.
@@ -70,7 +72,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -88,6 +90,10 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
 
 ## <a name="previous-releases"></a>Versioni precedenti
 
+* [Versione 1.4.3](#version-143)
+* [Versione 1.4.2](#version-142)
+* [Versione 1.4.1](#version-141)
+* [Versione 1.3.0](#version-130)
 * [Versione 1.2.0](#version-120)
 * [Versione 1.1.0](#version-110)
 * [Versione 1.0.0](#version-100)
@@ -113,6 +119,234 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
 * [Versione 0.7.20160129.1](#version-07201601291)
 * [Versione 0.7.20160105.0](#version-07201601050)
 * [Versione 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-143"></a>Versione 1.4.3
+11/10/2018
+
+### <a name="hotfixes"></a>Hotfix
+* È stato eseguito il rollback della versione dell'API di Gestione delle risorse di Azure per sbloccare gli utenti di Azure per enti pubblici statunitensi. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
+* Le caselle di selezione di caricamento ora usano animazioni CSS per ridurre la quantità di GPU usata da Storage Explorer. [#653](https://github.com/Microsoft/AzureStorageExplorer/issues/653)
+
+### <a name="new"></a>Nuovo
+* Gli allegati delle risorse esterne, ad esempio per le connessioni di firma di accesso condiviso e gli emulatori, sono stati notevolmente migliorati. A questo punto è possibile:
+   * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+   * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
+   * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
+   * Annullare l'eliminazione dei blob eliminati temporaneamente.
+
+### <a name="fixes"></a>Correzioni
+* L'azione "Configura impostazioni CORS" non è più disponibile negli account di Archiviazione Premium poiché gli account di Archiviazione Premium non supportano CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* È ora disponibile una proprietà di firma di accesso condiviso per i servizi collegati di firma di accesso condiviso. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* L'azione "Imposta livello di accesso predefinito" è ora disponibili per gli account di archiviazione BLOB e GPV2 aggiunti ad Accesso rapido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* In alcuni casi, Storage Explorer non riuscirebbe a visualizzare gli account di archiviazione classici. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemi noti
+* Quando si usano gli emulatori, ad esempio Emulatore di archiviazione di Azure o Azurite, è necessario che rimangano in attesa di connessioni sulle porte predefinite. In caso contrario, Storage Explorer non potrà eseguire la connessione degli emulatori.
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su [questo problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta [qui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-142"></a>Versione 1.4.2
+24/09/2018
+
+### <a name="hotfixes"></a>Hotfix
+* Aggiornare la versione dell'API di Gestione delle risorse di Azure al 01/07/2018 per aggiungere il supporto di nuovi tipi di account di Archiviazione di Azure. [#652](https://github.com/Microsoft/AzureStorageExplorer/issues/652)
+
+### <a name="new"></a>Nuovo
+* Gli allegati delle risorse esterne, ad esempio per le connessioni di firma di accesso condiviso e gli emulatori, sono stati notevolmente migliorati. A questo punto è possibile:
+   * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+   * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
+   * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
+   * Annullare l'eliminazione dei blob eliminati temporaneamente.
+
+### <a name="fixes"></a>Correzioni
+* L'azione "Configura impostazioni CORS" non è più disponibile negli account di Archiviazione Premium poiché gli account di Archiviazione Premium non supportano CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* È ora disponibile una proprietà di firma di accesso condiviso per i servizi collegati di firma di accesso condiviso. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* L'azione "Imposta livello di accesso predefinito" è ora disponibili per gli account di archiviazione BLOB e GPV2 aggiunti ad Accesso rapido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* In alcuni casi, Storage Explorer non riuscirebbe a visualizzare gli account di archiviazione classici. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemi noti
+* Quando si usano gli emulatori, ad esempio Emulatore di archiviazione di Azure o Azurite, è necessario che rimangano in attesa di connessioni sulle porte predefinite. In caso contrario, Storage Explorer non potrà eseguire la connessione degli emulatori.
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su [questo problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta [qui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-141"></a>Versione 1.4.1
+28/08/2018
+
+### <a name="hotfixes"></a>Hotfix
+* Al primo avvio, Storage Explorer non è riuscito a generare la chiave usata per crittografare dati sensibili. Ciò potrebbe causare problemi quando si usa Accesso rapido e si collegano risorse. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
+* Se l'account non richiede l'autenticazione a più fattori per il relativo tenant principale, ma è necessario per altri tenant, Storage Explorer potrebbe non elencare le sottoscrizioni. A questo punto, dopo l'accesso con un account di questo tipo, Storage Explorer richiederà di immettere nuovamente le credenziali ed eseguire l'autenticazione a più fattori. [#74](https://github.com/Microsoft/AzureStorageExplorer/issues/74)
+* Storage Explorer non è riuscito a collegare le risorse di Azure Germania e Azure US Government. [#572](https://github.com/Microsoft/AzureStorageExplorer/issues/572)
+* Se l'utente è connesso a due account con lo stesso indirizzo di posta elettronica, Storage Explorer talvolta non riuscirà a mostrare le risorse nella visualizzazione struttura ad albero. [#580](https://github.com/Microsoft/AzureStorageExplorer/issues/580)
+* Nei computer Windows più lenti, la schermata iniziale potrebbe talvolta richiedere molto tempo prima di essere visualizzata. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
+* La finestra di dialogo di connessione viene visualizzata anche se sono presenti account o servizi collegati. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
+
+### <a name="new"></a>Nuovo
+* Gli allegati delle risorse esterne, ad esempio per le connessioni di firma di accesso condiviso e gli emulatori, sono stati notevolmente migliorati. A questo punto è possibile:
+   * Personalizzare il nome della risorsa visualizzato che si collega. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Collegarsi a più emulatori locali usando porte diverse. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Aggiungere le risorse collegate ad Accesso rapido. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Storage Explorer supporta ora l'eliminazione temporanea. È possibile:
+   * Configurare un criterio per l'eliminazione temporanea facendo clic sul nodo dei contenitori Blob dell'account di archiviazione.
+   * Visualizzare i blob eliminati temporaneamente nell'editor di Blob, selezionare "Blob attivati ed eliminati" nell'elenco a discesa accanto alla barra di spostamento.
+   * Annullare l'eliminazione dei blob eliminati temporaneamente.
+
+### <a name="fixes"></a>Correzioni
+* L'azione "Configura impostazioni CORS" non è più disponibile negli account di Archiviazione Premium poiché gli account di Archiviazione Premium non supportano CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* È ora disponibile una proprietà di firma di accesso condiviso per i servizi collegati di firma di accesso condiviso. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* L'azione "Imposta livello di accesso predefinito" è ora disponibili per gli account di archiviazione BLOB e GPV2 aggiunti ad Accesso rapido. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* In alcuni casi, Storage Explorer non riuscirebbe a visualizzare gli account di archiviazione classici. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
+
+### <a name="known-issues"></a>Problemi noti
+* Quando si usano gli emulatori, ad esempio Emulatore di archiviazione di Azure o Azurite, è necessario che rimangano in attesa di connessioni sulle porte predefinite. In caso contrario, Storage Explorer non potrà eseguire la connessione degli emulatori.
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su [questo problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta [qui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Sebbene Azure Stack attualmente non supporta le condivisioni file, viene comunque visualizzato un nodo delle condivisioni di file in un account di archiviazione di Azure Stack associato.
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="version-130"></a>Versione 1.3.0
+09/07/2018
+
+### <a name="new"></a>Nuovo
+* L'accesso ai contenitori $web usati da siti Web statici è ora supportato. In questo modo è possibile caricare e gestire facilmente i file e le cartelle in uso nel sito Web. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
+* La barra delle applicazioni in macOS è stata riorganizzata. Le modifiche includono un menu File, alcune modifiche ai tasti di scelta rapida e diversi nuovi comandi nel menu dell'app. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
+* L'endpoint dell'autorità per l'accesso ad Azure Governo degli Stati Uniti è stato modificato in https://login.microsoftonline.us/
+* Accessibilità: quando è attiva un'utilità per la lettura dello schermo, la navigazione da tastiera ora funziona con le tabelle usate per visualizzare gli elementi sul lato destro. È possibile usare i tasti di direzione per spostarsi tra righe e colonne, INVIO per richiamare le azioni predefinite, il tasto del menu di scelta rapida per aprire il menu relativo a un elemento e MAIUSC o CTRL per la selezione multipla. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+
+### <a name="fixes"></a>Correzioni
+*  In alcuni computer i processi figlio impiegavano troppo tempo ad avviarsi. Quando si verifica questa situazione, un messaggio di errore indica che il processo figlio non è stato avviato in modo tempestivo. Il tempo a disposizione per l'avvio di un processo figlio è stato aumentato da 20 a 90 secondi. Se si verifica ancora questo problema, aggiungere un commento sul problema GitHub collegato. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
+* Usando una firma di accesso condiviso priva di autorizzazioni di lettura, in precedenza non era possibile caricare un BLOB di grandi dimensioni. La logica per il caricamento è stata modificata in modo da funzionare in questo scenario. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
+* L'impostazione del livello di accesso pubblico per un contenitore rimuove tutti i criteri di accesso e viceversa. Ora il livello di accesso pubblico e i criteri di accesso vengono mantenuti quando si imposta uno dei due elementi. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* "AccessTierChangeTime" era troncato nella finestra di dialogo Proprietà. Questo problema è stato risolto. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* Il prefisso "Microsoft Azure Storage Explorer -" mancava nella finestra di dialogo Crea nuova Directory. Questo problema è stato risolto. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* Accessibilità: è difficile spostarsi nella finestra di dialogo Aggiungi entità quando si usa VoiceOver. Sono stati apportati miglioramenti. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Accessibilità: il colore di sfondo del pulsante che comprime ed espande il riquadro Azioni e proprietà non era coerente con controlli simili dell'interfaccia utente nel tema Nero a contrasto elevato. Il colore è stato modificato. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* Accessibilità: nel tema Nero a contrasto elevato lo stile stato attivo per il pulsante "X" della finestra di dialogo Proprietà non era visibile. Questo problema è stato risolto. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* Accessibilità: nelle schede Azioni e Proprietà mancavano diversi valori ARIA e quindi l'esperienza di lettura dello schermo risultava scadente. I valori ARIA mancanti sono stati aggiunti. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* Accessibilità: ai nodi dell'albero compressi sul lato sinistro non veniva assegnato false come valore aria-expanded. Questo problema è stato risolto. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+
+### <a name="known-issues"></a>Problemi noti
+* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore blob, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere [questo problema](https://github.com/Microsoft/AzureStorageExplorer/issues/537).
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su [questo problema](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta [qui](https://github.com/Azure/azure-storage-node/issues/317).
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Azure Stack non supporta le funzionalità seguenti; provando a usarle durante l'utilizzo di Azure Stack potrebbero verificarsi errori imprevisti:
+   * Condivisioni file
+   * Livelli di accesso
+   * Eliminazione temporanea
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-120"></a>Versione 1.2.0
 06/12/2018
@@ -155,7 +389,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -176,7 +410,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
 
 ### <a name="new"></a>Nuovo
 * Storage Explorer supporta ora l'uso di Azurite. Nota: la connessione ad Azurite è hardcoded per gli endpoint di sviluppo predefiniti.
-* Storage Explorer supporta ora i livelli di accesso solo per BLOB e gli account di archiviazione per utilizzo generico v2. Per altre informazioni sui livelli di accesso, vedere [qui](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers).
+* Storage Explorer supporta ora i livelli di accesso solo per BLOB e gli account di archiviazione per utilizzo generico v2. Per altre informazioni sui livelli di accesso, vedere [qui](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers).
 * L'ora di inizio non è più necessaria per la generazione di una firma di accesso condiviso.
 
 ### <a name="fixes"></a>Correzioni
@@ -209,7 +443,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```
@@ -236,7 +470,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
 * I feedback di Storage Explorer ora si basano su GitHub. È possibile raggiungere la pagina dei problemi facendo clic sul pulsante di feedback nella parte inferiore sinistra o andando su [https://github.com/Microsoft/AzureStorageExplorer/issues](https://github.com/Microsoft/AzureStorageExplorer/issues). È possibile fornire suggerimenti, segnalare un problema, porre domande o lasciare qualsiasi altra forma di feedback.
 * Se si sono verificati problemi relativi ai certificati SSL ed è impossibile trovare il certificato che causa l'errore, è possibile avviare Storage Explorer dalla riga di comando con il flag `--ignore-certificate-errors`. Quando viene avviato con questo flag, Storage Explorer ignorerà gli errori del certificato SSL.
 * È ora disponibile l'opzione "Scarica" nel menu di scelta rapida per gli elementi di BLOB e di file.
-* Accessibilità e supporto di lettura dello schermo migliorati. Se ci si basa sulle funzionalità di accessibilità, vedere la nostra [documentazione di accessibilità](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-accessibility) per ulteriori informazioni.
+* Accessibilità e supporto di lettura dello schermo migliorati. Se ci si basa sulle funzionalità di accessibilità, vedere la nostra [documentazione di accessibilità](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-accessibility) per ulteriori informazioni.
 * Storage Explorer usa ora Electron 1.8.3
 
 ### <a name="breaking-changes"></a>Modifiche di rilievo
@@ -275,7 +509,7 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.2.0,
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
 * Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
 
     ```

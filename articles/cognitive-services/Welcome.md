@@ -9,12 +9,12 @@ ms.component: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: nitinme
-ms.openlocfilehash: 5fcd625edf913e6629bfedb7ce7a6b5fe204af28
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901432"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025396"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Informazioni su Servizi cognitivi di Azure
 
@@ -35,8 +35,8 @@ Servizi cognitivi di Azure sono API, SDK e servizi che consentono agli sviluppat
 
 |Nome servizio|Descrizione del servizio|
 |:-----------|:------------------|
-|[Servizio di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Servizio di riconoscimento vocale") (anteprima)|Il Servizio di riconoscimento vocale aggiunge funzionalità abilitate al riconoscimento vocale alle applicazioni.|
-|[Servizio di riconoscimento vocale personalizzato](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "Servizio di riconoscimento vocale personalizzato") (anteprima)|Il Servizio di riconoscimento vocale personalizzato consente di creare modelli linguistici e modelli acustici personalizzati su misura per l'applicazione e gli utenti.|
+|[Servizio Voce](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Servizio Voce") (anteprima)|Il servizio Voce aggiunge funzionalità abilitate al riconoscimento vocale alle applicazioni.|
+|[Servizio di riconoscimento vocale personalizzato](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "Servizio di riconoscimento vocale personalizzato") (anteprima)|Il servizio di riconoscimento vocale personalizzato consente di creare modelli linguistici e modelli acustici personalizzati su misura per l'applicazione e gli utenti.|
 |[API riconoscimento vocale Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "API riconoscimento vocale Bing")|L'API Riconoscimento vocale Bing offre un modo semplice per creare funzionalità abilitate al riconoscimento vocale nelle applicazioni.|
 |[API Traduzione vocale](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "API Traduzione vocale")|Traduzione vocale è un servizio di traduzione automatica.|
 |[API Riconoscimento del parlante](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API Riconoscimento del parlante") (anteprima)|L'API Riconoscimento del parlante fornisce algoritmi per l'identificazione voce e la verifica.|
@@ -74,11 +74,11 @@ Servizi cognitivi di Azure sono API, SDK e servizi che consentono agli sviluppat
 
 ## <a name="use-free-trials"></a>Usare le versioni di prova gratuite
 
-[Per registrarsi e ottenere le versioni di prova gratuite] (https://azure.microsoft.com/try/cognitive-services/"Sign-up Help" (Guida alla registrazione)) è sufficiente immettere l'indirizzo e-mail e completare pochi semplici passaggi. È necessario un account Microsoft. Si riceverà una coppia di chiavi univoca per ogni API richiesta. La seconda è semplicemente di riserva. Non condividere le chiavi private con nessuno. Le versioni di valutazione hanno sia un limite di frequenza, ovvero transazioni al secondo o al minuto, sia un limite di utilizzo mensile. Una transazione è semplicemente una chiamata API. È possibile eseguire l'aggiornamento ai livelli a pagamento per sbloccare le restrizioni.
+Per eseguire la [procedura di registrazione che permette di ottenere le versioni di prova gratuite](https://azure.microsoft.com/try/cognitive-services/ "Guida per la registrazione"), basta immettere l'indirizzo di posta elettronica e completare alcuni semplici passaggi. È necessario un account Microsoft. Si riceverà una coppia di chiavi univoca per ogni API richiesta. La seconda è semplicemente di riserva. Non condividere le chiavi private con nessuno. Le versioni di valutazione hanno sia un limite di frequenza, ovvero transazioni al secondo o al minuto, sia un limite di utilizzo mensile. Una transazione è semplicemente una chiamata API. È possibile eseguire l'aggiornamento ai livelli a pagamento per sbloccare le restrizioni.
 
 ## <a name="subscription-management"></a>Gestione sottoscrizioni
 
-Dopo aver eseguito l'accesso con l'account Microsoft sarà possibile accedere a [Sottoscrizioni personali] (https://www.microsoft.com/cognitive-services/en-us/subscriptions "Sottoscrizioni personali") per vedere i prodotti utilizzati, la quota rimanente e la possibilità di aggiungere altri prodotti alla sottoscrizione.
+Dopo aver eseguito l'accesso con l'account Microsoft, sarà possibile accedere a [Sottoscrizioni personali](https://www.microsoft.com/cognitive-services/en-us/subscriptions "Sottoscrizioni personali") per visualizzare i prodotti usati e la quota rimanente, nonché aggiungere altri prodotti alla sottoscrizione.
 
 ## <a name="upgrade-to-unlock-limits"></a>Eseguire l'aggiornamento per sbloccare i limiti
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6a3edfd426fcdce83bd60332ba2b1ff6224dae1a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888289"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645560"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Aggiungere espressioni di esempio ed etichette con entità
 
@@ -159,6 +159,36 @@ Nell'emissione `Book 2 tickets from Seattle to Cairo`, Seattle è l'origine, men
     >I nomi delle entità figlio devono essere univoci per tutte le entità in una singola app. Due diverse entità gerarchiche non possono contenere entità figlio con lo stesso nome. 
 
     Per altre informazioni sull'estrazione dell'entità gerarchica dalla risposta alla query JSON sull'endpoint, vedere [Estrazione di dati](luis-concept-data-extraction.md#hierarchical-entity-data). Per altre informazioni sull'uso delle entità gerarchiche, seguire la relativa [guida introduttiva](luis-quickstart-intent-and-hier-entity.md).
+
+## <a name="entity-status-predictions"></a>Previsioni dello stato dell'entità
+
+Quando si immette una nuova espressione nel portale LUIS, è possibile che l'espressione contenga errori di previsione dell'entità. Per errore di previsione si intende la differenza tra come un'entità viene etichettata e come viene prevista in LUIS. 
+
+Questa differenza è rappresentata visivamente nel portale LUIS con una sottolineatura rossa nell'espressione. La sottolineatura rossa può essere visualizzata all'interno o all'esterno delle parentesi quadre che racchiudono l'entità. 
+
+![Screenshot relativo alla discrepanza della previsione dello stato dell'entità](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+
+Selezionare le parole sottolineate in rosso nell'espressione. 
+
+In caso di discrepanza della previsione la casella dell'entità visualizza un punto esclamativo rosso accanto a **Entity status** (Stato entità). Per visualizzare lo stato dell'entità unitamente alle informazioni sulla differenza tra entità etichettate e previste, selezionare **Entity status** (Stato entità) e quindi l'elemento a destra.
+
+![Screenshot relativo alla discrepanza della previsione dello stato dell'entità](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+La linea rossa può essere presente nelle circostanze seguenti:
+
+    * Quando un'espressione viene immessa prima che l'entità venga etichettata
+    * Quando l'etichetta viene applicata all'entità
+    * Quando l'etichetta viene rimossa dall'entità
+    * Quando per il testo viene prevista più di un'etichetta di entità 
+
+Le soluzioni seguenti consentono di risolvere la discrepanza nella previsione dell'entità:
+
+|Entità|Indicatore visivo|Previsione|Soluzione|
+|--|--|--|--|
+|Espressione immessa, ma entità non ancora etichettata.|sottolineatura rossa|Previsione corretta|Etichettare l'entità con il valore previsto.|
+|Testo non etichettato|sottolineatura rossa|Previsione errata|Le espressioni correnti che usano questa entità errata devono essere esaminate in tutte le finalità. Le espressioni correnti hanno indicato erroneamente a LUIS che questo testo è l'entità prevista.
+|Testo correttamente etichettato|entità con evidenziazione blu, sottolineatura rossa|Previsione errata|Fornire più espressioni con l'entità correttamente etichettata in diverse posizioni e ambiti di utilizzo. Le espressioni correnti non sono sufficienti per insegnare a LUIS che questa è l'entità oppure nel contesto sono presenti entità simili. Le entità simili devono essere combinate in un'unica entità in modo da non confondere LUIS. Un'altra soluzione consiste nell'aggiungere un elenco di frasi per migliorare la significatività delle parole. |
+|Testo non correttamente etichettato|entità con evidenziazione blu, sottolineatura rossa|Previsione corretta| Fornire più espressioni con l'entità correttamente etichettata in diverse posizioni e ambiti di utilizzo. 
 
 
 ## <a name="remove-entity-labels-from-utterances"></a>Rimuovere le etichette di entità dalle espressioni

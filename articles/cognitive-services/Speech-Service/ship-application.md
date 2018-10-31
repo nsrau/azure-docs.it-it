@@ -1,20 +1,21 @@
 ---
-title: Servizi cognitivi di Azure, Documentazione di API Speech SDK su Servizi cognitivi - Esercitazioni e riferimento sulle API
-description: Di seguito viene descritto come creare e sviluppare le app con Speech SDK di Servizi cognitivi
-titleSuffix: Microsoft Cognitive Services
+title: Documentazione dell'API di Speech Service SDK - Esercitazioni, informazioni di riferimento per l'API
+titleSuffix: Azure Cognitive Services
+description: Informazioni su come creare e sviluppare app con Speech Service SDK
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: 4bfede8df88c64e795e33620650efb579f43ebba
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 7510b1501051b79f6bdaf33ec57647a7982fafda
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47404309"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469419"
 ---
 # <a name="ship-an-application"></a>Spedire un'applicazione
 
@@ -37,7 +38,7 @@ Per l'input del microfono, è necessario installare le raccolte Media Foundation
 
 I file Speech SDK richiesti possono essere distribuiti nella stessa directory dell'applicazione. In questo modo l'applicazione può accedere direttamente alle raccolte. Assicurarsi di selezionare la versione corretta (Win32/x64) corrispondente all'applicazione.
 
-| NOME | Funzione
+| Nome | Funzione
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK di base, necessario per la distribuzione nativa e gestita
 | `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Obbligatorio per le distribuzioni gestite
@@ -62,5 +63,5 @@ sudo apt-get install libssl1.0.0 libcurl3 libasound2 wget
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+* [Ottenere una sottoscrizione di valutazione gratuita del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
 * [Informazioni sul riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)

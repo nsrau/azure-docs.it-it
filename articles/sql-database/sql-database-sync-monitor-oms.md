@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a5792998654ed1d334e514591da3bef9805a5e79
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 712c729a214cdab66961fb399c9d797a758fcf7b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163359"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409680"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Monitorare la sincronizzazione dati SQL con Log Analytics 
 
@@ -97,7 +97,7 @@ Per altre informazioni sulla creazione di un runbook, vedere [Il primo runbook P
 
     2.  Informazioni sul gruppo di sincronizzazione.
 
-    3.  Informazioni su OMS. Individuare queste informazioni nel portale di OMS | Impostazioni | Origini connesse. Per altre informazioni sull'invio di dati a Log Analytics, vedere [Inviare dati a Log Analytics con l'API dell'agente di raccolta dati HTTP (anteprima)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Informazioni su Log Analytics. Trovare queste informazioni nel portale di Azure | Impostazioni | Origini connesse. Per altre informazioni sull'invio di dati a Log Analytics, vedere [Inviare dati a Log Analytics con l'API dell'agente di raccolta dati HTTP (anteprima)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Eseguire il runbook nel riquadro di test. Assicurarsi che sia stato eseguito correttamente.
 
@@ -117,7 +117,7 @@ Per pianificare il runbook:
 
 4.  Selezionare quindi **Crea una nuova pianificazione**.
 
-5.  Impostare **Ricorrenza** su Ricorrente e impostare l'intervallo desiderato. Usare lo stesso intervallo qui, nello script e in OMS.
+5.  Impostare **Ricorrenza** su Ricorrente e impostare l'intervallo desiderato. Usare lo stesso intervallo qui, nello script e in Log Analytics.
 
 6.  Selezionare **Create**.
 
@@ -129,7 +129,7 @@ Per monitorare se l'automazione è in esecuzione come previsto, in **Anteprima**
 
 Per creare un avviso che usa Log Analytics, completare i passaggi seguenti. Come prerequisito, è necessario che Log Analytics sia collegato a un'area di lavoro di Log Analytics.
 
-1.  Nel portale di OMS selezionare **Ricerca log**.
+1.  Nel portale di Azure selezionare **Ricerca log**.
 
 2.  Creare una query per selezionare gli errori e gli avvisi per gruppo di sincronizzazione entro l'intervallo selezionato. Ad esempio: 
 
@@ -147,9 +147,9 @@ Per creare un avviso che usa Log Analytics, completare i passaggi seguenti. Come
 
 6.  Fare clic su **Save**. I destinatari specificati ora ricevono notifiche tramite e-mail in caso di errori.
 
-## <a name="create-an-oms-view-for-monitoring"></a>Creare una vista di OMS per il monitoraggio
+## <a name="create-a-log-analytics-view-for-monitoring"></a>Creare una visualizzazione di Log Analytics per il monitoraggio
 
-Questo passaggio consente di creare una vista in OMS per monitorare visivamente tutti i gruppi di sincronizzazione specificati. La vista include diversi componenti:
+Questo passaggio consente di creare una vista in Log Analytics per monitorare visivamente tutti i gruppi di sincronizzazione specificati. La vista include diversi componenti:
 
 -   Un riquadro di panoramica che indica il numero di errori, le operazioni riuscite e gli avvisi di tutti i gruppi di sincronizzazione.
 
@@ -157,9 +157,9 @@ Questo passaggio consente di creare una vista in OMS per monitorare visivamente 
 
 -   Un riquadro per ogni gruppo di sincronizzazione, indicante il numero di errori, le operazioni riuscite e gli avvisi, oltre ai messaggi di errore recenti.
 
-Per configurare la vista di OMS, eseguire le operazioni seguenti:
+Per configurare la vista di Log Analytics, eseguire le operazioni seguenti:
 
-1.  Nella home page di OMS selezionare il segno più a sinistra per aprire la **finestra di progettazione viste**.
+1.  Nella home page di Log Analytics selezionare il segno più a sinistra per aprire la **finestra di progettazione viste**.
 
 2.  Selezionare **Importa** nella barra superiore della finestra di progettazione viste. Selezionare quindi il file di esempio "DataSyncLogOMSView".
 

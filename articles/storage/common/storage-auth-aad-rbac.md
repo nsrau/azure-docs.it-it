@@ -1,29 +1,31 @@
 ---
-title: Usare il controllo degli accessi in base al ruolo per gestire i diritti di accesso a contenitori e code di Archiviazione di Azure (anteprima) | Microsoft Docs
-description: Usare il controllo degli accessi in base al ruolo per assegnare ruoli per l'accesso a dati di Archiviazione di Azure a utenti, gruppi, entità servizio dell'applicazione o identità del servizio gestite. Archiviazione di Azure supporta ruoli predefiniti e personalizzati per i diritti di accesso a contenitori e code.
+title: Usare il controllo degli accessi in base al ruolo per gestire i diritti di accesso a contenitori e code (anteprima) | Microsoft Docs
+description: Usare il controllo degli accessi in base al ruolo per assegnare ruoli per l'accesso ai dati a utenti, gruppi, entità servizio dell'applicazione o identità del servizio gestite. Archiviazione di Azure supporta ruoli predefiniti e personalizzati per i diritti di accesso a contenitori e code.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5da34e8e79c0df88cfad0b398aa8e1c22f158489
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298676"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428879"
 ---
-# <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gestire i diritti di accesso a dati di Archiviazione di Azure con il controllo degli accessi in base al ruolo (anteprima)
+# <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Gestire i diritti di accesso a dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo (anteprima)
 
 Azure Active Directory (Azure AD) autorizza diritti di accesso a risorse protette tramite il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview). Archiviazione di Azure definisce un set di ruoli di controllo degli accessi in base al ruolo predefiniti che includono un set comune di autorizzazioni usate per accedere a contenitori o code. Quando un ruolo di controllo degli accessi in base al ruolo viene assegnato a un'identità di Azure AD, all'identità viene concesso l'accesso a queste risorse, in base all'ambito specificato. È possibile definire l'ambito dell'accesso a livello di sottoscrizione, gruppo di risorse, account di archiviazione o singolo contenitore o coda. È possibile assegnare diritti di accesso per risorse di Archiviazione di Azure tramite il portale di Azure, strumenti da riga di comando di Azure e API di gestione di Azure. 
 
-Un'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'*identità del servizio gestita*. Un'entità di sicurezza può essere un utente, un gruppo o un'entità servizio dell'applicazione. Un'[identità del servizio gestita](../../active-directory/managed-identities-azure-resources/overview.md) è un'identità gestita automaticamente usata per l'autenticazione da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Per una panoramica dell'identità in Azure AD, vedere [Understand Azure identity solutions](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions) (Informazioni sulle soluzioni di gestione delle identità di Azure).
+Un'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'identità gestita per le risorse di Azure. Un'entità di sicurezza può essere un utente, un gruppo o un'entità servizio dell'applicazione. Un'[identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md) è un'identità gestita automaticamente usata per l'autenticazione da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Per una panoramica dell'identità in Azure AD, vedere [Understand Azure identity solutions](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions) (Informazioni sulle soluzioni di gestione delle identità di Azure).
 
-## <a name="rbac-roles-for-azure-storage"></a>Ruoli di controllo degli accessi in base al ruolo per Archiviazione di Azure
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
-Archiviazione di Azure supporta ruoli di controllo degli accessi in base al ruolo predefiniti e personalizzati. Archiviazione di Azure offre i ruoli predefiniti seguenti da usare con Azure AD:
+## <a name="rbac-roles-for-blobs-and-queues"></a>Ruoli Controllo degli accessi in base al ruolo per BLOB e code
+
+Archiviazione di Azure supporta ruoli Controllo degli accessi in base al ruolo predefiniti e personalizzati. Archiviazione di Azure offre i ruoli predefiniti seguenti da usare con Azure AD:
 
 - [Collaboratore ai dati del BLOB di archiviazione (anteprima)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
 - [Lettore dei dati dei BLOB di archiviazione (anteprima)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)

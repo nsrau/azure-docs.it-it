@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 43845a55589be9550e64b4a491b7d3675fb22e8c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ff846717287fb2b125b549f6ca0de6c7908d4c35
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641782"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344814"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Supporto della distribuzione Docker Compose in Azure Service Fabric (anteprima)
 
@@ -122,6 +122,15 @@ Questa versione di anteprima supporta un subset delle opzioni di configurazione 
 * Volume & Deploy > Volume
 
 Configurare il cluster in modo da applicare i limiti delle risorse, come descritto in [Governance delle risorse di Service Fabric](service-fabric-resource-governance.md). Tutte le altre direttive Docker Compose non sono supportate per questa versione di anteprima.
+
+### <a name="ports-section"></a>Sezione delle porte
+
+Nella sezione delle porte che verrà usata dal listener del servizio di Service Fabric, specificare il protocollo http o https. Ciò garantisce che il protocollo di endpoint venga pubblicato correttamente con il Naming Service per consentire al proxy inverso di inoltrare le richieste:
+* Per il routing a servizi Compose di Service Fabric non sicuri, specificare **/http**. Ad esempio, - **"80:80/http"**.
+* Per il routing a servizi Compose di Service Fabric sicuri, specificare **/https**. Ad esempio, - **"443:443/https"**.
+
+> [!NOTE]
+> La sintassi /http e /https della sezione delle porte è specifica di Service Fabric e consente la registrazione corretta dell'URL del listener di Service Fabric.  Se la sintassi del file Docker Compose viene convalidata a livello di codice, potrebbe causare un errore di convalida.
 
 ## <a name="servicednsname-computation"></a>Calcolo di ServiceDnsName
 

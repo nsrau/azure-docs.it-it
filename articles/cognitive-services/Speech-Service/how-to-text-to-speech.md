@@ -1,24 +1,25 @@
 ---
-title: Usare Sintesi vocale tramite i servizi di riconoscimento vocale
-description: Informazioni su come usare Sintesi vocale nel Servizio di riconoscimento vocale.
-titleSuffix: Microsoft Cognitive Services
+title: Usare Sintesi vocale nel servizio Voce
+titleSuffix: Azure Cognitive Services
+description: Informazioni su come usare Sintesi vocale nel servizio Voce.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165046"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469918"
 ---
-# <a name="use-text-to-speech-in-speech-service"></a>Usare "Sintesi vocale" nel Servizio di riconoscimento vocale
+# <a name="use-text-to-speech-in-speech-service"></a>Usare "Sintesi vocale" nel servizio Voce
 
-Il Servizio di riconoscimento vocale offre la funzionalità Sintesi vocale attraverso una semplice richiesta HTTP. Dopo aver eseguito il `POST` del testo da pronunciare nell'endpoint appropriato, l'utente riceve dal servizio un file audio (`.wav`) contenente la sintesi vocale. L'applicazione può quindi usare questo audio nel modo previsto.
+Il servizio Voce offre la funzionalità Sintesi vocale attraverso una semplice richiesta HTTP. Dopo aver eseguito il `POST` del testo da pronunciare nell'endpoint appropriato, l'utente riceve dal servizio un file audio (`.wav`) contenente la sintesi vocale. L'applicazione può quindi usare questo audio nel modo previsto.
 
 Il corpo della richiesta POST per Sintesi vocale può essere costituito da testo normale (ASCII o UTF8) o da un documento [SSML](speech-synthesis-markup.md). Se il testo della richiesta è in formato testo normale, viene pronunciato con una voce predefinita. Nella maggior parte dei casi, è consigliabile usare un corpo in formato SSML. La richiesta HTTP deve includere un token di [autorizzazione](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication).
 
@@ -83,7 +84,7 @@ Response audio payload
 
 Se si verifica un errore, vengono usati i codici di stato seguenti. Il corpo della risposta in caso di errore contiene anche una descrizione del problema.
 
-|Codice|DESCRIZIONE|Problema|
+|Codice|Descrizione|Problema|
 |-|-|-|
 400 |Bad Request |Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione.
 401|Non autorizzata |La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido.
@@ -95,7 +96,7 @@ Per altre informazioni sull'API REST di Sintesi vocale, vedere [API REST](rest-a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di valutazione gratuita del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
 - [Riconoscimento vocale in C++](quickstart-cpp-windows.md)
 - [Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
 - [Riconoscimento vocale in Java](quickstart-java-android.md)

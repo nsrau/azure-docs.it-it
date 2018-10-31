@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067768"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649313"
 ---
 # <a name="language-understanding-faq"></a>Domande frequenti su LUIS
 
@@ -157,11 +157,9 @@ Se si usa il log per l'analisi delle stime, non acquisire le espressioni di test
 * È possibile eliminare le espressioni dall'elenco di espressioni utente suggerite da LUIS nella pagina **Review endpoint utterances** (Esamina espressioni endpoint). Le espressioni eliminate da questo elenco non vengono più suggerite, ma non vengono eliminate dai log.
 * Se si elimina un account, vengono eliminate tutte le app insieme ai relativi log ed espressioni di esempio. I dati vengono mantenuti nei server per 60 giorni prima di essere eliminati in modo permanente.
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft accede ai dati dell'app LUIS per i propri scopi, ad esempio per migliorare LUIS o Microsoft in generale?
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>In che modo Microsoft gestisce i dati inviati a LUIS?
 
-No. Il modello di dati dell'app LUIS non viene usato da LUIS per migliorare l'app LUIS stessa come piattaforma né viene usato da Microsoft in alcun modo. I dati di ogni app sono separati e di esclusiva proprietà dell'utente e dei suoi collaboratori.
-
-Vedere altre informazioni sulla [privacy degli utenti](luis-user-privacy.md), sulla [conformità alla sicurezza](luis-concept-security.md#security-compliance) e sull'[archiviazione dei dati](luis-concept-data-storage.md).
+In [Trust Center](https://www.microsoft.com/trustcenter) sono illustrati i principi cardine adottati da Microsoft e le opzioni disponibili per gli utenti in relazione alla gestione dei dati e all'accesso in Servizi di Azure.
 
 ## <a name="language-and-translation-support"></a>Supporto linguistico e di traduzione
 
@@ -196,7 +194,7 @@ No.
 
 In occasione della conferenza Build 2018 sono state rilasciate le seguenti funzionalità:
 
-|NOME|Content|
+|Nome|Contenuto|
 |--|--|
 |Miglioramenti|Entità [Espressione regolare](luis-concept-data-extraction.md##regular-expression-entity-data) ed entità [Frase chiave](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)
 |Modelli|Modelli [concept](luis-concept-patterns.md), [tutorial](luis-tutorial-pattern.md), [how-to](luis-how-to-model-intent-pattern.md)<br>Concetto dell'entità [Patterns.Any](luis-concept-entity-types.md), incluso un [elenco esplicito](luis-concept-patterns.md#explicit-lists) per le eccezioni<br>Concetto [Ruoli](luis-concept-roles.md)|

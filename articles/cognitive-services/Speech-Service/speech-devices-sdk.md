@@ -1,24 +1,25 @@
 ---
 title: Informazioni su Speech Devices SDK
-description: Introduzione a Speech Devices SDK.
 titleSuffix: Azure Cognitive Services
+description: Introduzione a Speech Devices SDK.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: ba91d5fd556cdc189f6303ac216c8fdd9495c74b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: eac3542059f1bc5d32a91ef871e5185fad1d2798
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165421"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464098"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Informazioni su Speech Devices SDK (anteprima)
 
-Il [servizio Voce Microsoft](overview.md) funziona con un'ampia gamma di origini audio e dispositivi. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni. 
+Il [servizio Voce](overview.md) è compatibile con una vasta gamma di dispositivi e sorgenti audio. Ora è possibile portare le applicazioni vocali a un livello superiore con hardware e software abbinati. Speech Devices SDK è una libreria pre-ottimizzata abbinata a kit dedicati per lo sviluppo di matrici di microfoni. 
 
 Speech Devices SDK consente di:
 * Testare rapidamente nuovi scenari vocali.

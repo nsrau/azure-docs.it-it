@@ -1,23 +1,25 @@
 ---
 title: Aree del servizio Voce
-description: Riferimento per le aree del servizio Speech.
+titlesuffix: Azure Cognitive Services
+description: Informazioni di riferimento sulle aree del servizio Voce.
 services: cognitive-services
 author: mahilleb-msft
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: mahilleb
-ms.openlocfilehash: 01c76d80d6b2fd64165b126df01c391d7e18292f
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a5fce6f9547a96da3ce482ce388e5ba2093f2af4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887548"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468127"
 ---
-# <a name="regions-of-the-speech-service"></a>Aree del servizio Speech
+# <a name="regions-of-the-speech-service"></a>Aree del servizio Voce
 
-Il servizio Speech è disponibile in aree diverse.
+Il servizio Voce è disponibile in diverse aree.
 Quando si crea una sottoscrizione è possibile selezionare un'area disponibile in base alle esigenze.
 
 Quando si usa la sottoscrizione è necessario considerare l'area selezionata.
@@ -29,7 +31,7 @@ Vedere [API REST](rest-apis.md) per informazioni dettagliate.
 
 ## <a name="speech-sdk"></a>Speech SDK
 
-In [Speech SDK](speech-sdk.md) le aree vengono specificate sotto forma di stringa (ad esempio, come parametro `SpeechConfig.FromSubscription` in Speech SDK per C#).
+In [Speech Service SDK](speech-sdk.md) le aree vengono specificate sotto forma di stringa, ad esempio come parametro `SpeechConfig.FromSubscription` in Speech SDK per C#.
 
 ### <a name="regions-for-speech-recognition-and-translation"></a>Aree per il riconoscimento vocale e la traduzione vocale
 

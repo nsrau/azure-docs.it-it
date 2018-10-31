@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: f27716cc416b162a5b2df5542d709058f3b3e903
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 362c5e2e7216d584a9858ace5fb607dc0ee126d5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182038"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426105"
 ---
 # <a name="train-your-luis-app-version"></a>Eseguire il training della propria versione applicazione LUIS
 
@@ -26,8 +26,11 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 Il training e il [test](luis-concept-test.md) di un'app costituiscono un processo iterativo. Dopo aver eseguito il training dell'app LUIS, testarla con espressioni di esempio per verificare se le finalità e le entità vengono riconosciute correttamente. Se così non fosse, aggiornare l'app LUIS ed eseguire nuovamente il training e il test. 
 
-## <a name="how-to-train"></a>Procedura per eseguire il training
-Per avviare il processo iterativo, è prima necessario eseguire il training dell'app LUIS almeno una volta. Prima del training, assicurarsi che ogni finalità abbia almeno un'espressione.
+Il training viene applicato alla versione attiva nel portale LUIS. 
+
+## <a name="how-to-train-interactively"></a>Come eseguire il training in modo interattivo
+
+Per avviare il processo iterativo nel [portale LUIS](https://www.luis.ai), è prima necessario eseguire il training dell'app LUIS almeno una volta. Prima del training, assicurarsi che ogni finalità abbia almeno un'espressione.
 
 1. Accedere all'app selezionando il relativo nome nella pagina **App personali**. 
 
@@ -41,7 +44,18 @@ Per avviare il processo iterativo, è prima necessario eseguire il training dell
 >Se nell'app ci sono una o più finalità che non includono espressioni di esempio, non è possibile eseguire il training. Aggiungere espressioni per tutte le finalità. Per altre informazioni, vedere [Add example utterances](luis-how-to-add-example-utterances.md) (Aggiungere espressioni di esempio).
 
 ## <a name="train-with-all-data"></a>Eseguire il training con tutti i dati
-Il training usa una piccola percentuale di campionamento negativo. Per utilizzare tutti i dati anziché il campionamento negativo piccolo, usare l'[API delle impostazioni della versione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con il `UseAllTrainingData` impostato su true per disattivare questa funzionalità. 
+
+Il training usa una piccola percentuale di campionamento negativo. Per usare tutti i dati invece del campionamento negativo ridotto, usare l'[API delle impostazioni della versione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) con `UseAllTrainingData` impostato su true per disattivare questa funzionalità. 
+
+## <a name="unnecessary-training"></a>Training non necessario
+
+Non è necessario eseguire il training dopo ogni singola modifica. È opportuno eseguire il training dopo l'applicazione di un gruppo di modifiche al modello, quando il passaggio da eseguire successivamente è il test o la pubblicazione. Se non è necessario testare o pubblicare il modello, il training non è necessario. 
+
+## <a name="training-with-the-rest-apis"></a>Training con le API REST
+
+Il training nel portale LUIS consiste nell'eseguire un unico passaggio, ovvero fare clic sul pulsante **Train** (Esegui training). Il training con le API REST è invece un processo in due passaggi. Il primo passaggio consiste nel [richiedere il training](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) con HTTP POST. Il secondo consiste invece nel richiedere lo [stato del training](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46) con HTTP Get. 
+
+Per sapere quando il training è completo, è necessario eseguire il polling dello stato finché il training non risulta completato per tutti i modelli. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

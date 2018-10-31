@@ -1,22 +1,25 @@
 ---
-title: Che cos'è una voce personalizzata? - Servizi cognitivi di Azure
-description: Questo articolo offre una panoramica della personalizzazione della Sintesi vocale di Microsoft che consente di creare una voce distintiva e unica per il proprio marchio.
+title: Come creare un carattere voce personalizzato
+titlesuffix: Azure Cognitive Services
+description: Questo articolo offre una panoramica della personalizzazione della voce in Sintesi vocale che consente di creare una voce distintiva e unica per il proprio marchio.
 services: cognitive-services
-author: noellelacharite
+author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolach
-ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: panosper
+ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113921"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467719"
 ---
 # <a name="creating-custom-voice-fonts"></a>Creazione di caratteri voce personalizzati
 
-La personalizzazione della voce del servizio di Sintesi vocale Microsoft consente di creare una voce distintiva e di tipo unico per il proprio marchio: un *carattere voce.* 
+La personalizzazione della voce di Sintesi vocale consente di creare una voce distintiva e unica per il proprio marchio, ovvero un *carattere voce*. 
 
 Per creare un carattere voce, effettuare una registrazione in studio e caricare gli script associati come dati di training. Il servizio crea quindi un modello vocale univoco ottimizzato per la registrazione. È possibile usare questo carattere voce per la sintesi vocale. 
 
@@ -227,5 +230,5 @@ La personalizzazione della voce è disponibile per l'inglese (Stati Uniti) (en-U
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di valutazione gratuita del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
 - [Registra esempi vocali](record-custom-voice-samples.md)

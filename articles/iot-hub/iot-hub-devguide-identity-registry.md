@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 041eed3a65faeb4e6c19cd9220a9e6393e18532a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452208"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319133"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendere il registro delle identità nell'hub IoT
 
@@ -29,7 +29,9 @@ Usare il registro delle identità quando è necessario:
 * Controllare l'accesso per dispositivo/per modulo agli endpoint collegati al dispositivo o modulo dell'hub.
 
 > [!NOTE]
-> Il registro delle identità non contiene metadati specifici delle applicazioni.
+> * Il registro delle identità non contiene metadati specifici delle applicazioni.
+> * Le funzionalità di identità del modulo e di modulo gemello sono disponibili in anteprima pubblica. La funzionalità seguente è supportata per l'identità del modulo in disponibilità generale.
+>
 
 ## <a name="identity-registry-operations"></a>Operazioni del registro delle identità
 
@@ -40,7 +42,6 @@ Il registro delle identità dell'hub IoT espone le operazioni seguenti:
 * Recupero dell'identità del dispositivo o del modulo tramite ID
 * Eliminazione dell'identità del dispositivo o del modulo
 * Elencare al massimo 1000 identità
-> Le funzionalità di identità del modulo e di modulo gemello sono disponibili in anteprima pubblica. La funzionalità seguente è supportata per l'identità del modulo in disponibilità generale.
 * Esportare le identità del dispositivo in Archiviazione BLOB di Azure
 * Importare le identità del dispositivo da Archiviazione BLOB di Azure
 
@@ -197,6 +198,9 @@ Le identità dei dispositivi vengono rappresentate da documenti JSON con le prop
 > [!NOTE]
 > Lo stato della connessione può rappresentare solo la visualizzazione Hub IoT dello stato della connessione. Gli aggiornamenti dello stato possono essere ritardati a seconda delle condizioni e delle configurazioni della rete.
 
+> [!NOTE]
+> Attualmente gli SDK del dispositivo non supportano l'uso dei caratteri `+` e `#` in **deviceId**.
+
 ## <a name="module-identity-properties"></a>Proprietà delle identità dei moduli
 
 Le identità dei moduli vengono rappresentate da documenti JSON con le proprietà seguenti:
@@ -215,6 +219,9 @@ Le identità dei moduli vengono rappresentate da documenti JSON con le propriet�
 | connectionState |Sola lettura |Campo indicante lo stato della connessione: **Connected** o **Disconnected**. Questo campo rappresenta la visualizzazione Hub IoT dello stato di connessione del dispositivo. **Importante**: è consigliabile usare questo campo solo per scopi di sviluppo e di debug. Lo stato di connessione viene aggiornato solo per i dispositivi che usano MQTT o AMQP. Si basa anche su ping a livello di protocollo (ping MQTT o AMQP) e può avere un ritardo massimo di soli 5 minuti. Per questi motivi possono essere presenti falsi positivi, ad esempio dispositivi segnalati come connessi, ma in realtà disconnessi. |
 | connectionStateUpdatedTime |Sola lettura |Indicatore temporale che mostra la data e l'ora dell'ultimo aggiornamento dello stato della connessione. |
 | lastActivityTime |Sola lettura |Indicatore temporale che mostra la data e l'ora in cui il dispositivo si è connesso oppure ha ricevuto o inviato un messaggio per l'ultima volta. |
+
+> [!NOTE]
+> Attualmente gli SDK del dispositivo non supportano l'uso dei caratteri `+` e `#` in **deviceId** e **moduleId**.
 
 ## <a name="additional-reference-material"></a>Materiale di riferimento
 

@@ -10,16 +10,16 @@ ms.reviewer: klam, estfan, LADocs
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 97c928c34a18a5d4f3549c348a273df268ee1db0
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 068e5399073959d2c5aa6c4bbeb0d7bccf7d05e6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123309"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393780"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>Panoramica: architettura senza server di Azure con le App per la logica di Azure e Funzioni di Azure
 
-Le applicazioni senza server offrono una serie di vantaggi, tra cui un aumento della velocità di sviluppo, una riduzione del codice necessario e una scalabilità più semplice.  Questo articolo illustra i diversi attributi delle soluzioni senza server e delle offerte senza server di Azure.
+Le applicazioni [serverless](https://azure.microsoft.com/solutions/serverless/) offrono una serie di vantaggi, tra cui un aumento della velocità di sviluppo, una riduzione del codice necessario e una scalabilità più semplice.  Questo articolo illustra i diversi attributi delle soluzioni senza server e delle offerte senza server di Azure.
 
 ## <a name="what-is-serverless"></a>Cosa significa "senza server"?
 

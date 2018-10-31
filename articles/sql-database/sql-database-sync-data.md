@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161982"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362238"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -127,6 +127,8 @@ Sulle prestazioni del database possono incidere anche il provisioning e il depro
 
 -   L'autenticazione di Azure Active Directory non è supportata.
 
+-   Le tabelle con lo stesso nome ma con schema diverso (ad esempio, dbo.customers e sales.customers) non sono supportate.
+
 #### <a name="unsupported-data-types"></a>Tipi di dati non supportati
 
 -   FileStream
@@ -150,7 +152,7 @@ La sincronizzazione dati non sincronizza le colonne di sola lettura o generate d
 | **Dimensioni**                                                      | **Limite**              | **Soluzione alternativa**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Numero massimo di gruppi di sincronizzazione a cui può appartenere qualsiasi database.       | 5                      |                             |
-| Numero massimo di endpoint in un singolo gruppo di sincronizzazione              | 30                     | Creare più gruppi di sincronizzazione |
+| Numero massimo di endpoint in un singolo gruppo di sincronizzazione              | 30                     |                             |
 | Numero massimo di endpoint locali in un singolo gruppo di sincronizzazione. | 5                      | Creare più gruppi di sincronizzazione |
 | Nomi di database, tabella, schema e colonna                       | 50 caratteri per nome |                             |
 | Tabelle in un gruppo di sincronizzazione                                          | 500                    | Creare più gruppi di sincronizzazione |
@@ -158,6 +160,8 @@ La sincronizzazione dati non sincronizza le colonne di sola lettura o generate d
 | Dimensioni delle righe di dati in una tabella                                        | 24 MB                  |                             |
 | Intervallo minimo di sincronizzazione                                           | 5 minuti              |                             |
 |||
+> [!NOTE]
+> Se è presente un unico gruppo di sincronizzazione, questo può contenere fino a 30 endpoint. Se esistono più gruppi di sincronizzazione, il numero totale di endpoint in tutti i gruppi di sincronizzazione non può essere maggiore di 30. Se un database appartiene a più gruppi di sincronizzazione, vale come più endpoint.
 
 ## <a name="faq-about-sql-data-sync"></a>Domande frequenti sulla sincronizzazione dati SQL
 

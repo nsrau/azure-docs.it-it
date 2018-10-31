@@ -1,20 +1,21 @@
 ---
 title: Informazioni su Sintesi vocale - Servizio Voce
 titleSuffix: Azure Cognitive Services
-description: Il servizio di sintesi vocale Microsoft offre più di 75 voci in più di 45 lingue e impostazioni locali. Per usare caratteri voce standard, è sufficiente specificare il nome della voce con pochi altri parametri quando si chiama il servizio Voce.
+description: L'API Sintesi vocale offre più di 75 voci in più di 45 lingue e impostazioni locali. Per usare caratteri voce standard, è sufficiente specificare il nome della voce con pochi altri parametri quando si chiama il servizio Voce.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 2f79ecbb42ba6453c7fb615114c0b7e56402ada3
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7f01fe5c71cdd6f4c70527fcf2553374aae9a5d8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363064"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469927"
 ---
 # <a name="about-the-text-to-speech-api"></a>Informazioni sull'API Sintesi vocale
 
@@ -55,5 +56,5 @@ Molte delle funzionalità dell'API **Sintesi vocale**, soprattutto per quanto ri
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+* [Ottenere una sottoscrizione di valutazione gratuita del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
 * [Informazioni sulla sintesi vocale tramite l'API REST](how-to-text-to-speech.md)

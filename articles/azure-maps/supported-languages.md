@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 68438a317b33bb7e3e784936cdfd1282ba823ad8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 380bf5cb89a165534d0084758d532613eeff480a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600239"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320493"
 ---
 # <a name="azure-maps-supported-languages"></a>Lingue supportate in Mappe di Azure
 I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue.  Nella tabella seguente sono elencati i codici della lingua supportata per ogni servizio.  
@@ -54,6 +54,8 @@ I servizi disponibili in Mappe di Azure sono stati localizzati in varie lingue. 
 | lt-LT      | Lituano             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ms-MY      | Malese (alfabeto latino)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | nb-NO      | Norvegese bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NGT        | Mappa con esonimi: lingue ufficiali per tutte le aree con lo specifico sistema di caratteri, se disponibile |   ✓     |        |         |                   |      ✓          |         |
+| NGT-Latn   | Mappa con esonimi: esonimi latini. Verrà usato il sistema di caratteri dell'alfabeto latino, se disponibile |   ✓     |        |         |                   |        ✓         |          |
 | pl-PL      | Polacco                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portoghese (Brasile)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Portoghese (Portogallo)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

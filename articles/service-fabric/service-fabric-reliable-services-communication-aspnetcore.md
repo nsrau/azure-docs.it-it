@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/29/2018
+ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701535"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310250"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Reliable Services di Service Fabric
 
@@ -54,12 +54,12 @@ Le applicazioni ASP.NET Core con self-hosting creano in genere un WebHost in un 
 
 Il punto di ingresso dell'applicazione non è tuttavia la posizione corretta per creare un WebHost in un servizio Reliable Services, perché il punto di ingresso dell'applicazione viene usato solo per registrare un tipo di servizio con il runtime di Service Fabric per poter creare istanze di quel tipo di servizio. Il WebHost deve essere creato in un servizio Reliable Services. Nel processo host del servizio, le istanze e/o le repliche del servizio possono attraversare più cicli di vita. 
 
-Un'istanza di Reliable Services è rappresentata dalla classe del servizio derivante da `StatelessService` o `StatefulService`. Lo stack di comunicazione di un servizio è contenuto in un'implementazione `ICommunicationListener` nella classe del servizio. I pacchetti NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` contengono implementazioni di `ICommunicationListener` che avviano e gestiscono WebHost ASP.NET Core per Kestrel o HttpSys in un servizio Reliable Services.
+Un'istanza di Reliable Services è rappresentata dalla classe del servizio derivante da `StatelessService` o `StatefulService`. Lo stack di comunicazione di un servizio è contenuto in un'implementazione `ICommunicationListener` nella classe del servizio. I pacchetti NuGet `Microsoft.ServiceFabric.AspNetCore.*` contengono implementazioni di `ICommunicationListener` che avviano e gestiscono WebHost ASP.NET Core per Kestrel o HttpSys in un servizio Reliable Services.
 
 ![Hosting di ASP.NET Core in un servizio Reliable Services][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ICommunicationListeners ASP.NET Core
-Le implementazioni di `ICommunicationListener` per Kestrel e HttpSys nei pacchetti NuGet `Microsoft.ServiceFabric.Services.AspNetCore.*` hanno modelli di uso simili, ma eseguono azioni leggermente specifiche per ogni server Web. 
+Le implementazioni di `ICommunicationListener` per Kestrel e HttpSys nei pacchetti NuGet `Microsoft.ServiceFabric.AspNetCore.*` hanno modelli di uso simili, ma eseguono azioni leggermente specifiche per ogni server Web. 
 
 Entrambi i listener di comunicazione forniscono un costruttore che accetta gli argomenti seguenti:
  - **`ServiceContext serviceContext`**: oggetto `ServiceContext` che contiene informazioni sul servizio in esecuzione.
@@ -67,7 +67,7 @@ Entrambi i listener di comunicazione forniscono un costruttore che accetta gli a
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: espressione lambda implementata in cui viene creato e restituito un elemento `IWebHost`. È così possibile configurare `IWebHost` come si farebbe normalmente in un'applicazione ASP.NET Core. L'espressione lambda fornisce un URL che viene generato automaticamente a seconda delle opzioni di integrazione di Service Fabric usate e della configurazione `Endpoint` specificata. L'URL può quindi essere modificato o usato così com'è per avviare il server Web.
 
 ## <a name="service-fabric-integration-middleware"></a>Middleware di integrazione di Service Fabric
-Il pacchetto NuGet `Microsoft.ServiceFabric.Services.AspNetCore` include il metodo di estensione `UseServiceFabricIntegration` in `IWebHostBuilder` che aggiunge middleware compatibile con Service Fabric. Questo middleware configura l'elemento `ICommunicationListener` di Kestrel o HttpSys per la registrazione di un URL di servizio univoco con Service Fabric Naming Service e quindi convalida le richieste dei client per assicurare che i client si connettano al servizio corretto. Ciò è necessario in un ambiente host condiviso, ad esempio Service Fabric, in cui più applicazioni Web possono essere eseguite nello stesso computer fisico o nella stessa macchina virtuale ma non usano nomi host univoci, per impedire ai client di connettersi erroneamente al servizio sbagliato. Questo scenario è descritto più dettagliatamente nella sezione successiva.
+Il pacchetto NuGet `Microsoft.ServiceFabric.AspNetCore` include il metodo di estensione `UseServiceFabricIntegration` in `IWebHostBuilder` che aggiunge middleware compatibile con Service Fabric. Questo middleware configura l'elemento `ICommunicationListener` di Kestrel o HttpSys per la registrazione di un URL di servizio univoco con Service Fabric Naming Service e quindi convalida le richieste dei client per assicurare che i client si connettano al servizio corretto. Ciò è necessario in un ambiente host condiviso, ad esempio Service Fabric, in cui più applicazioni Web possono essere eseguite nello stesso computer fisico o nella stessa macchina virtuale ma non usano nomi host univoci, per impedire ai client di connettersi erroneamente al servizio sbagliato. Questo scenario è descritto più dettagliatamente nella sezione successiva.
 
 ### <a name="a-case-of-mistaken-identity"></a>Un caso di identità errata
 Le repliche del servizio, indipendentemente dal protocollo, sono in ascolto in una combinazione IP:porta univoca. Quando è in ascolto su un endpoint IP:porta, la replica del servizio segnala l'indirizzo dell'endpoint a Service Fabric Naming Service, dove può essere individuato dai client o da altri servizi. Se i servizi usano porte delle applicazioni assegnate dinamicamente, una replica del servizio può usare per coincidenza lo stesso endpoint IP:porta di un altro servizio che si trovava precedentemente nello stesso computer fisico o nella stessa macchina virtuale. In questo modo un client può connettersi per errore al servizio sbagliato. Questa situazione può verificarsi in presenza di questa sequenza di eventi:
@@ -252,6 +252,50 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 In questo esempio viene fornita un'istanza singleton di `IReliableStateManager` al contenitore di inserimento delle dipendenze WebHost. Questa operazione non è strettamente necessaria, ma consente di usare `IReliableStateManager` e Reliable Collections nei metodi di azione del controller MVC.
 
 **Non** viene fornito un nome di configurazione `Endpoint` a `KestrelCommunicationListener` in un servizio con stato, come spiegato più dettagliatamente nella sezione seguente.
+
+### <a name="configure-kestrel-to-use-https"></a>Configurare Kestrel per l'uso di HTTPS
+Quando si abilita HTTPS con Kestrel nel servizio, è necessario impostare diverse opzioni di ascolto.  Aggiornare `ServiceInstanceListener` perché usi un endpoint EndpointHttps e sia in ascolto su una porta specifica (ad esempio la porta 443). Quando si configura l'host Web per l'uso di un server Kestrel, è necessario configurare Kestrel per l'ascolto di indirizzi IPv6 su tutte le interfacce di rete: 
+
+```csharp
+new ServiceInstanceListener(
+serviceContext =>
+    new KestrelCommunicationListener(
+        serviceContext,
+        "EndpointHttps",
+        (url, listener) =>
+        {
+            ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting Kestrel on {url}");
+
+            return new WebHostBuilder()
+                .UseKestrel(opt =>
+                {
+                    int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
+                    opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
+                    {
+                        listenOptions.UseHttps(GetCertificateFromStore());
+                        listenOptions.NoDelay = true;
+                    });
+                })
+                .ConfigureAppConfiguration((builderContext, config) =>
+                {
+                    config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                })
+
+                .ConfigureServices(
+                    services => services
+                        .AddSingleton<HttpClient>(new HttpClient())
+                        .AddSingleton<FabricClient>(new FabricClient())
+                        .AddSingleton<StatelessServiceContext>(serviceContext))
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseStartup<Startup>()
+                .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                .UseUrls(url)
+                .Build();
+        }))
+```
+
+Per un'esercitazione in cui venga usato un esempio completo, vedere [Configurare Kestrel per l'uso di HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#configure-kestrel-to-use-https).
+
 
 ### <a name="endpoint-configuration"></a>Configurazione dell'endpoint
 Non è necessaria una configurazione `Endpoint` per usare Kestrel. 

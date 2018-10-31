@@ -6,26 +6,28 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525553"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395157"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
 ## <a name="quotas-and-throttling"></a>Quote e limitazioni
+
 Ogni sottoscrizione di Azure può avere al massimo 50 hub IoT e al massimo un hub gratuito.
 
-Il provisioning di ogni hub IoT viene eseguito con un determinato numero di unità in un livello specifico. Per altre informazioni, vedere [Prezzi di Hub IoT][lnk-pricing]. Il livello e il numero di unità determinano la quota giornaliera massima dei messaggi che è possibile inviare.
+Il provisioning di ogni hub IoT viene eseguito con un determinato numero di unità in un livello specifico. Il livello e il numero di unità determinano la quota giornaliera massima dei messaggi che è possibile inviare. La dimensione dei messaggi usata per calcolare che la quota giornaliera è 0,5 kB per un hub di livello gratuito e 4 kB per tutti gli altri livelli. Per altre informazioni, vedere [Prezzi di Hub IoT](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 Il livello determina anche le limitazioni che l'hub IoT applica alle operazioni.
 
 ## <a name="operation-throttles"></a>Limitazioni per le operazioni
-Le limitazioni per le operazioni sono limitazioni di frequenza, applicate a intervalli di minuti, con lo scopo di evitare abusi. L'hub IoT cerca di evitare di restituire errori, se possibile, ma inizia a restituire eccezioni se la limitazione viene violata troppo a lungo.
+
+Le limitazioni per le operazioni sono limitazioni di frequenza, applicate a intervalli di minuti, con lo scopo di evitare abusi. L'hub IoT cerca di evitare di restituire errori, se possibile, ma inizia a restituire `429 ThrottlingException` se la limitazione viene violata troppo a lungo.
 
 È possibile incrementare i limiti delle quote o delle limitazioni in qualsiasi momento aumentando il numero di unità sottoposte a provisioning in un hub IoT.
 
@@ -42,21 +44,21 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Metodi diretti<sup>1</sup> | 160 KB/sec/unità<sup>2</sup> | 480 KB/sec/unità<sup>2</sup> | 24 MB/sec/unità<sup>2</sup> | 
 | Letture di dispositivi e moduli gemelli <sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Aggiornamenti di dispositivi e moduli gemelli <sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
-| Operazioni dei processi<sup>1</sup> <br/> (creazione, aggiornamento, elenco, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
+| Operazioni dei processi<sup>1,3</sup> <br/> (creazione, aggiornamento, elenco, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | Operazioni dei dispositivi dei processi<sup>1</sup> <br/> (aggiornamento del dispositivo gemello, chiamata del metodo diretto) | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Configurazioni e distribuzioni Edge<sup>1</sup> <br/> (creazione, aggiornamento, elenco, eliminazione) | 0,33/sec/unità (20/min/unità) | 0,33/sec/unità (20/min/unità) | 0,33/sec/unità (20/min/unità) |
 
 
-<sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto). <br/><sup>2</sup>La dimensione del contatore delle limitazioni è 8 KB.
+<sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto). <br/><sup>2</sup>La dimensione del contatore delle limitazioni è 8 KB. <br/><sup>3</sup>È possibile avere solo un processo attivo alla volta di importazione/esportazione di dispositivi.
 
-La limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT. La limitazione delle *connessioni del dispositivo* non determina il numero massimo di dispositivi connessi contemporaneamente. La limitazione dipende dal numero di unità di cui viene eseguito il provisioning per l'hub IoT.
+La limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT. La limitazione delle *connessioni del dispositivo* non determina il numero massimo di dispositivi connessi contemporaneamente. La limitazione di frequenza delle *connessioni del dispositivo* dipende dal numero di unità di cui viene effettuato il provisioning per l'hub IoT.
 
 Ad esempio, se si acquista una singola unità S1, si ottiene un limite di 100 connessioni al secondo. Di conseguenza, per connettere 100.000 dispositivi sono necessari almeno 1000 secondi (circa 16 minuti). Tuttavia, è consentito un numero di dispositivi connessi simultaneamente pari al numero di dispositivi registrati nel registro delle identità.
 
-Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post del blog [IoT Hub throttling and you][lnk-throttle-blog] (Limitazione dell'hub IoT).
+Per un'analisi approfondita del comportamento della limitazione dell'hub IoT, vedere il post di blog [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/) (Limitazione dell'hub IoT).
 
 > [!IMPORTANT]
-> Le operazioni del registro delle identità sono destinate all'uso in fase di esecuzione negli scenari di gestione e provisioning dei dispositivi. L'operazione di lettura o aggiornamento di un numero elevato di identità dei dispositivi è supportata tramite i [processi di importazione ed esportazione][lnk-importexport].
+> Le operazioni del registro delle identità sono destinate all'uso in fase di esecuzione negli scenari di gestione e provisioning dei dispositivi. L'operazione di lettura o aggiornamento di un numero elevato di identità dei dispositivi è supportata tramite i [processi di importazione ed esportazione](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 > 
 > 
 
@@ -73,9 +75,9 @@ L'hub IoT applica altri limiti operativi:
 | Messaggistica da dispositivo a cloud | Dimensioni massime dei messaggi 256 KB |
 | Messaggistica da cloud a dispositivo<sup>1</sup> | La dimensione massima dei messaggi è 64 KB. Il numero massimo di messaggi in sospeso è 50. |
 | Metodo diretto<sup>1</sup> | La dimensione massima del payload del metodo diretto è 128 KB. |
-| Configurazioni | 20 configurazioni per hub. |
-| Distribuzioni Edge | 20 distribuzioni per hub. 20 moduli per distribuzione. |
-| Elementi gemelli | Le dimensioni massime per ogni sezione dell'elemento gemello (tag, proprietà desiderate, proprietà segnalate) sono pari a 8 kB |
+| Configurazioni automatiche dei dispositivi<sup>1</sup> | 100 configurazioni per hub SKU a pagamento. 20 configurazioni per hub SKU gratuito. |
+| Distribuzioni Edge automatiche<sup>1</sup> | 20 moduli per distribuzione. 100 distribuzioni per hub SKU a pagamento. 20 distribuzioni per hub SKU gratuito. |
+| Dispositivi gemelli<sup>1</sup> | Le dimensioni massime per ogni sezione dell'elemento gemello (tag, proprietà desiderate, proprietà segnalate) sono pari a 8 kB |
 
 <sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto).
 
@@ -90,19 +92,11 @@ L'hub IoT punta a fornire bassa latenza per tutte le operazioni. Tuttavia, a cau
 * Considerare l'eventualità di usare Azure IoT Edge per eseguire operazioni sensibili alla latenza sul dispositivo o su un gateway vicino al dispositivo.
 
 Più unità dell'hub IoT influiscono sulla limitazione come descritto in precedenza, ma non forniscono alcuna prestazione di latenza aggiuntiva o garanzia.
+
 In caso di incremento imprevisto della latenza dell'operazione, contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
-* [Endpoint dell'hub IoT][lnk-devguide-endpoints]
-* [Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing messaggi][lnk-devguide-query]
-* [Supporto di MQTT nell'hub IoT][lnk-devguide-mqtt]
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-throttle-blog]: https://azure.microsoft.com/blog/iot-hub-throttling-and-you/
-[lnk-importexport]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-query]: iot-hub-devguide-query-language.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+* [Endpoint hub IoT](iot-hub-devguide-endpoints.md)

@@ -15,18 +15,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: b8a946588d09eb05e1609344318c91f76c7ee106
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452123"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404852"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Log Analytics per Linux
 
 ## <a name="overview"></a>Panoramica
 
 Log Analytics include funzionalità di monitoraggio, impostazione di avvisi e correzione tramite avvisi per asset cloud e locali. L'estensione macchina virtuale agente di Log Analytics per Linux è pubblicata e supportata da Microsoft. L'estensione installa l'agente di Log Analytics in macchine virtuali di Azure e registra le macchine virtuali in un'area di lavoro di Log Analytics esistente. Questo documento descrive in dettaglio le piattaforme, le configurazioni e le opzioni di distribuzione supportate per l'estensione macchina virtuale di Log Analytics per Linux.
+
+>[!NOTE]
+>Nel quadro della transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, l'Agente OMS per Windows o Linux verrà indicato come agente di Log Analytics per Windows e agente di Log Analytics per Linux.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -49,7 +52,7 @@ L'estensione agente di Log Analytics può essere eseguita in queste distribuzion
 >
 
 ### <a name="agent-and-vm-extension-version"></a>Versione dell'estensione della macchina virtuale e dell'agente
-La tabella seguente illustra il mapping della versione delle estensioni macchina virtuale di Log Analytics e dei bundle agenti di Log Analytics per ogni versione. È incluso un collegamento alle note sulla versione per la versione bundle agenti di Log Analytics. Le note sulla versione includono i dettagli sulle correzioni di bug e sulle nuove funzionalità disponibili per una determinata versione degli agenti.  
+La tabella seguente contiene informazioni sull'associazione tra la versione delle estensioni di macchina virtuale di Log Analytics e del bundle dell'agente di Log Analytics per ogni versione. È incluso un collegamento alle note sulla versione per la versione bundle agenti di Log Analytics. Le note sulla versione includono i dettagli sulle correzioni di bug e sulle nuove funzionalità disponibili per una determinata versione degli agenti.  
 
 | Versione delle estensioni di macchina virtuale di Log Analytics per Linux | Versione bundle agenti Log Analytics | 
 |--------------------------------|--------------------------|
@@ -80,9 +83,9 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di L
 
 ```json
 {
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -101,11 +104,15 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione agente di L
 }
 ```
 
+>[!NOTE]
+>Lo schema indicato sopra presuppone che deve essere inserito a livello radice del modello. Se è stato inserito all'interno della risorsa macchina virtuale nel modello, le proprietà `type` e `name` devono essere modificate, come descritto [più avanti](#template-deployment).
+>
+
 ### <a name="property-values"></a>Valori delle proprietà
 
 | NOME | Valore/Esempio |
 | ---- | ---- |
-| apiVersion | 2015-06-15 |
+| apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
@@ -125,7 +132,7 @@ L'esempio seguente presuppone che l'estensione macchina virtuale sia annidata al
 {
   "type": "extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -150,7 +157,7 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "<parentVmResource>/OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -206,13 +213,13 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 | 9 | Chiamata Enable anomala | [Aggiornare l'agente Linux di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) all'ultima versione disponibile. |
 | 10 | La macchina virtuale è già connessa a un'area di lavoro di Log Analytics | Per connettere la macchina virtuale all'area di lavoro specificata nello schema dell'estensione, impostare stopOnMultipleConnections su false nelle impostazioni pubbliche o rimuovere questa proprietà. Questa macchina virtuale viene fatturata una volta per ogni area di lavoro a cui è connessa. |
 | 11 | Configurazione non valida generata per l'estensione | Seguire l'esempio precedente per impostare tutti i valori della proprietà necessari alla distribuzione. |
-| 17 | Errore di installazione del pacchetto OMS | 
+| 17 | Errore di installazione del pacchetto di Log Analytics | 
 | 19 | Errore di installazione del pacchetto OMI | 
 | 20 | Errore di installazione del pacchetto SCX |
 | 51 | Questa estensione non è supportata sul sistema operativo della macchina virtuale | |
-| 55 | Non è possibile connettersi al servizio OMS o i pacchetti necessari sono mancanti o la gestione pacchetti dpkg è bloccata| Verificare che il sistema disponga dell'accesso a Internet o che sia stato fornito un proxy HTTP valido. Inoltre, verificare la correttezza dell'ID dell'area di lavoro e verificare che le utilità curl e tar siano installate. |
+| 55 | Non è possibile connettersi al servizio Log Analytics, i pacchetti necessari sono mancanti o la gestione pacchetti dpkg è bloccata| Verificare che il sistema disponga dell'accesso a Internet o che sia stato fornito un proxy HTTP valido. Inoltre, verificare la correttezza dell'ID dell'area di lavoro e verificare che le utilità curl e tar siano installate. |
 
-Altre informazioni sulla risoluzione dei problemi possono essere consultate nella [Guida alla risoluzione dei problemi per l'agente OMS per Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Altre informazioni sulla risoluzione dei problemi sono disponibili nella [Guida alla risoluzione dei problemi relativi all'agente di Log Analytics per Linux](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### <a name="support"></a>Supporto
 

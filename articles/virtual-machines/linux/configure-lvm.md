@@ -13,22 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2017
+ms.date: 09/27/2018
 ms.author: szark
-ms.openlocfilehash: 9a22426d0422585714cb78d541a84d55d2fce6e0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 81ee7957c0b26440c064b7f39bc4cfb32b2abd15
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912230"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648337"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Configurare LVM in una macchina virtuale Linux in Azure
-Questo documento illustra come configurare il gestore dei volumi logici (Logical Volume Manager, LVM) nella macchina virtuale di Azure. Sebbene sia possibile configurare una LVM su qualsiasi disco collegato alla macchina virtuale, per impostazione predefinita la maggior parte delle immagini di cloud non avrà alcuna LVM configurata sul disco del sistema operativo. Questa impostazione consente di evitare problemi con i gruppi di volumi duplicati se il disco del sistema operativo viene collegato a un'altra macchina virtuale dello stesso tipo e della stessa distribuzione, ad esempio durante uno scenario di ripristino. Pertanto è consigliabile usare la LVM solo sui dischi dati.
+Questo documento illustra come configurare il gestore dei volumi logici (Logical Volume Manager, LVM) nella macchina virtuale di Azure. È possibile usare LVM nel disco del sistema operativo o in dischi dati in macchine virtuali di Azure, ma per impostazione predefinita LVM non è configurato nel disco del sistema operativo nella maggior parte delle immagini cloud. La procedura seguente è incentrata sulla configurazione di LVM per i dischi dati.
 
 ## <a name="linear-vs-striped-logical-volumes"></a>Volumi lineari e volumi con striping logici
-La LVM può essere usata per combinare un numero di dischi fisici in un unico volume di archiviazione. Per impostazione predefinita la LVM crea generalmente volumi logici lineari, il che significa che l'archiviazione fisica è concatenata. In questo caso, le operazioni di lettura/scrittura sono in genere inviate solo a un singolo disco. Al contrario, è anche possibile creare volumi logici con striping in cui le operazioni di lettura e scrittura sono distribuite in più dischi contenuti nel gruppo di volumi, ad esempio simile a RAID0. Per motivi di prestazioni è probabile che si debba eseguire lo striping dei volumi logici in modo che le letture e le scritture usino tutti i dischi dati associati.
+La LVM può essere usata per combinare un numero di dischi fisici in un unico volume di archiviazione. Per impostazione predefinita la LVM crea generalmente volumi logici lineari, il che significa che l'archiviazione fisica è concatenata. In questo caso, le operazioni di lettura/scrittura sono in genere inviate solo a un singolo disco. Al contrario, è anche possibile creare volumi logici con striping in cui le operazioni di lettura e scrittura sono distribuite in più dischi contenuti nel gruppo di volumi (analogamente a RAID0). Per motivi di prestazioni, è probabile che sia necessario eseguire lo striping dei volumi logici in modo che le letture e le scritture usino tutti i dischi dati associati.
 
-In questo documento viene descritto come combinare più dischi dati in un singolo gruppo di volumi e quindi creare un volume con striping logici. I passaggi seguenti sono generalizzati per funzionare con la maggior parte delle distribuzioni. Nella maggior parte dei casi le utilità e i flussi di lavoro per la gestione di LVM in Azure non sono fondamentalmente diversi da altri ambienti. Come sempre, consultare anche il fornitore Linux per la documentazione e le procedure consigliate per l'uso delle LVM con una distribuzione particolare.
+In questo documento viene descritto come combinare più dischi dati in un singolo gruppo di volumi e quindi creare un volume con striping logici. La procedura seguente è generalizzata per l'uso con la maggior parte delle distribuzioni. Nella maggior parte dei casi le utilità e i flussi di lavoro per la gestione di LVM in Azure non sono fondamentalmente diversi da altri ambienti. Come sempre, rivolgersi anche al fornitore Linux per la documentazione e le procedure consigliate per l'uso di LVM con una distribuzione specifica.
 
 ## <a name="attaching-data-disks"></a>Collegamento di dischi dati
 In genere si preferisce iniziare con due o più dischi dati vuoti quando si usano le LVM. In base alle esigenze di I/O, è possibile scegliere di collegare dischi che sono archiviati nell'archiviazione Standard con un massimo di 500 IO/ps per ogni disco o nell'archiviazione Premium con un massimo di 5.000 IO/ps per ogni disco. In questo articolo non verrà illustrato in dettaglio come eseguire il provisioning e collegare dischi dati a una macchina virtuale Linux. Per istruzioni dettagliate su come collegare un disco dati vuoto a una macchina virtuale Linux in Azure, vedere l'articolo di Microsoft Azure relativo al [collegamento di dischi](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -59,14 +59,14 @@ In genere si preferisce iniziare con due o più dischi dati vuoti quando si usan
     sudo zypper install lvm2
     ```
 
-    In SLES11 è anche necessario modificare `/etc/sysconfig/lvm` e impostare `LVM_ACTIVATED_ON_DISCOVERED` su "attivo":
+    In SLES11 è anche necessario modificare `/etc/sysconfig/lvm` e impostare `LVM_ACTIVATED_ON_DISCOVERED` su "enable":
 
     ```sh   
     LVM_ACTIVATED_ON_DISCOVERED="enable" 
     ```
 
 ## <a name="configure-lvm"></a>Configurare la LVM
-In questa guida si presuppone che siano stati connessi tre dischi dati, che vengono indicati come `/dev/sdc`, `/dev/sdd` e `/dev/sde`. Si noti che questi nomi di percorso potrebbero non essere sempre gli stessi nella VM. È possibile eseguire`sudo fdisk -l`o un comando simile per elencare i dischi disponibili.
+In questa guida si presuppone che siano stati connessi tre dischi dati, che vengono indicati come `/dev/sdc`, `/dev/sdd` e `/dev/sde`. Questi percorsi potrebbero non corrispondere ai nomi di percorso dei dischi nella macchina virtuale. È possibile eseguire`sudo fdisk -l`o un comando simile per elencare i dischi disponibili.
 
 1. Preparare i volumi fisici:
 
@@ -132,7 +132,7 @@ In questa guida si presuppone che siano stati connessi tre dischi dati, che veng
     sudo mount -a
     ```
 
-    Se questo comando genera un messaggio di errore, verificare la sintassi nel file `/etc/fstab`.
+    Se questo comando restituisce un messaggio di errore, verificare la sintassi nel file `/etc/fstab`.
    
     Eseguire quindi il comando `mount` per assicurarsi che il file system venga montato:
 
@@ -144,7 +144,7 @@ In questa guida si presuppone che siano stati connessi tre dischi dati, che veng
 
 5. (Facoltativo) Parametri di avvio alternativo in `/etc/fstab`
    
-    Molte distribuzioni includono i parametri di montaggio `nobootwait` o `nofail`, che è possibile aggiungere al file `/etc/fstab`. Tali parametri consentono di ignorare gli errori durante il montaggio di uno specifico file system. Consentono pertanto di proseguire l'avvio del sistema Linux anche se non è possibile montare correttamente il file system RAID. Per ulteriori informazioni su questi parametri, fare riferimento alla documentazione della distribuzione.
+    Molte distribuzioni includono i parametri di montaggio `nobootwait` o `nofail`, che è possibile aggiungere al file `/etc/fstab`. Tali parametri consentono di ignorare gli errori durante il montaggio di uno specifico file system. Consentono pertanto di proseguire l'avvio del sistema Linux anche se non è possibile montare correttamente il file system RAID. Per altre informazioni su questi parametri, fare riferimento alla documentazione della distribuzione.
    
     Esempio (Ubuntu):
 

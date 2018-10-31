@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 09-05-2018
-ms.openlocfilehash: 065ac0855fc47b23b434287f9f4406bd641f01ae
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 4b51631e8b7d3f53edd1afdba76de3031b112254
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47454391"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49805017"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure
 
@@ -35,7 +35,7 @@ Le istanze di macchina virtuale riservate sono disponibili per la maggior parte 
   - Dimensioni con vCPU vincolate
   - Serie di macchine virtuali: serie A, serie Av2 o serie G
   - Macchine virtuali in anteprima: qualsiasi dimensione o serie di macchine virtuali disponibile in anteprima
-- Cloud: le prenotazioni non sono disponibili per l'acquisto nelle aree di Azure US Government, Germania o Cina.
+- Cloud: le prenotazioni non sono disponibili per le aree di Germania e Cina.
 - Quota insufficiente: una prenotazione con ambito riferito a una singola sottoscrizione deve avere una quota di CPU virtuali disponibile nell'istanza riservata. Ad esempio, se la sottoscrizione di destinazione ha un limite di quota pari a 10 vCPU per la serie D, non sarà possibile acquistare una prenotazione per 11 istanze Standard_D1. Il controllo della quota per le prenotazioni include le macchine virtuali già distribuite nella sottoscrizione. Ad esempio, se la sottoscrizione include una quota di 10 vCPU per la serie D e distribuisce due istanze Standard_D1, sarà possibile acquistare una prenotazione per le 10 istanze Standard_D1 nella sottoscrizione. 
 - Restrizioni della capacità: in rari casi Azure limita l'acquisto di nuove prenotazioni per subset di dimensioni di macchine virtuali a causa della bassa capacità in un'area specifica.
 

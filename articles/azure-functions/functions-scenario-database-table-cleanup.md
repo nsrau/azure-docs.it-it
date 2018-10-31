@@ -11,17 +11,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: a257948c97437d6045f705acb02054928d22ff89
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 024958d8a548313b53fc24ade5805de036a89afb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092870"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351916"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usare Funzioni di Azure per connettersi al database SQL di Azure
 In questo argomento viene illustrato come usare Funzioni di Azure per creare un processo pianificato al fine di eseguire la pulizia delle righe in una tabella del database SQL di Azure. La nuova funzione di script C# viene creata in base a un modello predefinito di attivazione del timer nel portale di Azure. Per supportare questo scenario, è necessario anche impostare una stringa di connessione di database come impostazione app nell'app per le funzioni. Questo scenario esegue un'operazione in blocco sul database. 
 
 Affinché la funzione elabori le singole operazioni CRUD (creazione, lettura, aggiornamento ed eliminazione) in una tabella di un'app per dispositivi mobili, è necessario usare invece le [associazioni di app per dispositivi mobili](functions-bindings-mobile-apps.md).
+
+> [!IMPORTANT]
+> Gli esempi contenuti in questo documento si applicano al runtime 1.x. [Qui](./functions-versions.md#creating-1x-apps) è possibile trovare informazioni su come creare un'app per le funzioni 1.x.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

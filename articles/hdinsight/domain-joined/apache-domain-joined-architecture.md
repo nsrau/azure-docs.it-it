@@ -3,18 +3,18 @@ title: Architettura di Azure HDInsight con Enterprise Security Package
 description: Informazioni su come pianificare la sicurezza di HDInsight con Enterprise Security Package.
 services: hdinsight
 ms.service: hdinsight
-author: omidm1
-ms.author: omidm
-ms.reviewer: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 975a4f7b15d1e1c13767cd7026e961e9d4227603
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8d344adc367eb9b93e52d9423a2ab4dda657b298
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998927"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115540"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Uso di Enterprise Security Package in HDInsight
 
@@ -26,26 +26,20 @@ HDInsight si basa su un provider di identità diffuso, Active Directory, in modo
 
 Le macchine virtuali (VM) in HDInsight sono parte del dominio specificato. Pertanto, tutti i servizi in esecuzione in HDInsight, come Ambari, server Hive, Ranger, server Thrift Spark e altri, funzionano senza problemi per l'utente autenticato. Gli amministratori possono quindi creare criteri di autorizzazione sicuri usando Apache Ranger per fornire il controllo di accesso basato sui ruoli per le risorse nel cluster.
 
-
 ## <a name="integrate-hdinsight-with-active-directory"></a>Integrare HDInsight con Active Directory
 
 Hadoop open source si basa su Kerberos per l'autenticazione e la sicurezza. Pertanto, i nodi del cluster HDInsight con Enterprise Security Package (ESP) vengono aggiunti a un dominio gestito da Azure Active Directory Domain Services. La sicurezza Kerberos è configurata per i componenti Hadoop nel cluster. 
 
-Per ciascun componente Hadoop viene creata automaticamente un'entità servizio. Viene creata anche un'entità computer corrispondente per ogni computer aggiunto al dominio. Per poter archiviare queste entità servizio e computer, è necessario specificare un'unità organizzativa nel controller di dominio (Azure Active Directory Domain Services) in cui posizionare queste entità. 
+Gli elementi seguenti vengono creati automaticamente:
+- un'entità servizio per ogni componente Hadoop 
+- un'entità computer per ogni computer aggiunto al dominio
+- un'unità organizzativa (OU) per ogni cluster in cui archiviare le entità servizio e computer 
 
 In sintesi, è necessario configurare un ambiente con gli elementi seguenti:
 
 - Un dominio Active Directory (gestito tramite Azure Active Directory Domain Services).
 - Secure LDAP (LDAPS) abilitato in Azure Active Directory Domain Services.
 - Connettività di rete adeguata dalla rete virtuale HDInsight alla rete virtuale di Azure Active Directory Domain Services, se si scelgono reti virtuali separate. Una macchina virtuale all'interno della rete virtuale HDInsight dovrebbe avere una linea visiva verso Azure Active Directory Domain Services attraverso il peering di rete virtuale. Se HDInsight e Azure Active Directory Domain Services sono distribuiti nella stessa rete virtuale, la connettività viene stabilita automaticamente e non sono necessarie altre operazioni.
-- Un'unità Organizzativa [creata in Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-admin-guide-create-ou.md).
-- Un account del servizio che dispone delle autorizzazioni per:
-    - Creare le entità servizio nell'unità organizzativa.
-    - Aggiungere computer al dominio e creare entità computer nell'unità organizzativa.
-
-Lo screenshot seguente mostra un'unità organizzativa creata in contoso.com. Sono visualizzate anche alcune delle entità servizio ed entità computer.
-
-![Unità organizzativa per i cluster HDInsight con ESP](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>Configurazione diversa dei controller di dominio
 HDInsight attualmente supporta solo Azure Active Directory Domain Services come controller di dominio principale che il cluster userà per la comunicazione Kerberos. Ma sono possibili anche altre configurazioni complesse di Active Directory, purché tali configurazioni portino all'abilitazione di Azure Active Directory Domain Services per l'accesso a HDInsight.

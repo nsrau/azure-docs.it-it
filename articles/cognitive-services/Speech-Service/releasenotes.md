@@ -1,34 +1,35 @@
 ---
-title: Documentazione di Speech SDK di Servizi cognitivi | Microsoft Docs
+title: Documentazione di Speech Service SDK
+titlesuffix: Azure Cognitive Services
 description: 'Note sulla versione: modifiche alle versioni più recenti'
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340002"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471138"
 ---
 # <a name="release-notes"></a>Note sulla versione
 
-## <a name="cognitive-services-speech-sdk-101"></a>Speech SDK di Servizi cognitivi 1.0.1
+## <a name="speech-service-sdk-101"></a>Speech Service SDK 1.0.1
 
 Miglioramenti apportati alla stabilità e correzioni di bug:
 
-* Risoluzione di un potenziale errore irreversibile dovuto a una race condition nell'eliminazione dello strumento di riconoscimento
+* Risoluzione di un potenziale errore irreversibile dovuto a una race condition nell'eliminazione dello strumento di riconoscimento.
 * Risoluzione di un potenziale errore irreversibile in caso di proprietà non impostate.
-* Controllo aggiuntivo di errori e parametri.
+* Aggiunta di un ulteriore controllo di errori e parametri.
 * Objective-C: risoluzione di un potenziale errore irreversibile causato dall'override del nome in NSString.
-* Objectice-C: modifica della visibilità dell'API
+* Objective-C: modifica della visibilità dell'API
 * JavaScript: correzioni relative a eventi e payload correlati.
-* Miglioramenti alla documentazione.
+* Miglioramenti apportati alla documentazione.
 
 Al [repository di esempi](https://aka.ms/csspeech/samples) è stato aggiunto un nuovo esempio per JavaScript.
 

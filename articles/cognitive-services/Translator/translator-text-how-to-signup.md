@@ -1,23 +1,23 @@
 ---
-title: Registrazione all'API Traduzione testuale | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Come registrarsi all'API Traduzione testuale.
+title: Come eseguire la registrazione a Traduzione testuale - API Traduzione testuale
+titleSuffix: Azure Cognitive Services
+description: Informazioni su come eseguire la registrazione all'API Traduzione testuale e ottenere una chiave di sottoscrizione.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 2aa293acfa1a9e3fd95a64f6981bd8dc9747b6b6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.author: erhopf
+ms.openlocfilehash: a08a3a5f2c4e17406863ab203c5af1781b4223d3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "36265558"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648334"
 ---
-# <a name="how-to-sign-up-for-the-translator-text-api"></a>Come registrarsi all'API Traduzione testuale
+# <a name="how-to-sign-up-for-the-translator-text-api"></a>Come eseguire la registrazione all'API Traduzione testuale
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 

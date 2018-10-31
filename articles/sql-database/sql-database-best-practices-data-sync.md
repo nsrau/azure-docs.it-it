@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/20/2018
-ms.openlocfilehash: 1d292007b06e12b6be28e053bc6def3b12c7befe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/22/2018
+ms.openlocfilehash: 4bc655f1e9da00a42c60e1ab763c5503b393d4a1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063653"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646303"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL 
 
@@ -70,6 +70,10 @@ Non è necessario includere in un gruppo di sincronizzazione tutte le tabelle pr
 Ogni tabella inclusa in un gruppo di sincronizzazione deve avere una chiave primaria. Il servizio di sincronizzazione dati SQL non può sincronizzare una tabella che non dispone di una chiave primaria.
 
 Prima di usare la sincronizzazione dati SQL in fase di produzione, testare le prestazioni della sincronizzazione iniziale e di quella continua.
+
+#### <a name="empty-tables-provide-the-best-performance"></a>Le tabelle vuote offrono le migliori prestazioni
+
+Le tabelle vuote offrono le migliori prestazioni al momento dell'inizializzazione. Se la tabella di destinazione è vuota, la sincronizzazione dati usa l'inserimento in blocco per caricare i dati. In caso contrario, la sincronizzazione dei dati esegue un confronto e l'inserimento riga per riga per verificare la presenza di conflitti. Se le prestazioni non sono un problema, tuttavia, è possibile impostare la sincronizzazione tra le tabelle che contengono già i dati.
 
 ### <a name="provisioning-destination-databases"></a>Provisioning dei database di destinazione
 

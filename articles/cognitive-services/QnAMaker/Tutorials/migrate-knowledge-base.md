@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031629"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365561"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Eseguire la migrazione di una knowledge base utilizzando la funzione di importazione ed esportazione
 QnA Maker ha annunciato General Availability il 7 maggio 2018 in occasione della conferenza \\\build\. QnA Maker GA ha una nuova architettura basata su Azure. Le knowledge base create con QnA Maker Free Preview dovranno essere migrate a QnA Maker GA. QnA Maker Preview sarà deprecato a novembre 2018. Per ulteriori informazioni sulle modifiche apportate a QnA Maker GA, vedere il [post di blog](https://aka.ms/qnamakerga-blog) con l'annuncio di QnA Maker GA.
 
-QnA Maker include ora un [modello di determinazione prezzi](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
+QnA Maker include ora un [modello di determinazione prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 
 Prerequisiti
 > [!div class="checklist"]
@@ -38,9 +38,7 @@ Prerequisiti
 
     ![Scaricare una knowledge base](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. Accedere al [portale di QnA Maker](https://qnamaker.ai) con le credenziali di Azure e fare clic su **Crea nuovo servizio**.
-
-    ![Creare la knowledge base ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+4. Accedere al [portale di QnA Maker](https://qnamaker.ai) con le credenziali di Azure e fare clic su **Create a knowledge base** (Crea una knowledge base).
     
 5. Se non è già stato creato un servizio QnA Maker, selezionare **Create a QnA service** (Crea servizio QnA). In caso contrario, scegliere un servizio QnA Maker negli elenchi a discesa nel passaggio 2. Selezionare il servizio QnA Maker che ospiterà la knowledge base.
 

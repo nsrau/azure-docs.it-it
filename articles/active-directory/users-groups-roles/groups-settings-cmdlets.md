@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 10/12/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9e065b04083cce958bc42f2efade0038bf137f8a
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 1e8f5728697e63737ec44fedd8ed336366241f66
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145112"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310743"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo
 In questo articolo sono contenute le istruzioni per l'uso di cmdlet PowerShell in Azure Active Directory (Azure AD) per creare e aggiornare i gruppi. Questo contenuto si applica solo ai gruppi di Office 365, noti anche come gruppi unificati. 
@@ -27,7 +27,7 @@ In questo articolo sono contenute le istruzioni per l'uso di cmdlet PowerShell i
 > [!IMPORTANT]
 > Alcune impostazioni richiedono una licenza per Azure Active Directory Premium P1. Per altre informazioni, vedere la tabella relativa alle [impostazioni modello](#template-settings).
 
-Per altre informazioni su come evitare che utenti non amministratori creino gruppi di *sicurezza*, configurare il valore `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` come illustrato in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+Per altre informazioni su come evitare che utenti non amministratori creino gruppi di sicurezza, configurare il valore `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` come illustrato in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 Le impostazioni di Gruppi di Office 365 vengono configurare con un oggetto Settings e un oggetto SettingsTemplate. Non vengono inizialmente visualizzati oggetti Settings nella directory, perché la directory è configurata con le impostazioni personalizzate. Per modificarle, è necessario creare un nuovo oggetto Settings usando un modello di impostazioni. I modelli di impostazioni sono definiti da Microsoft. Sono disponibili diversi modelli di impostazioni. Per configurare le impostazioni di gruppo di Office 365 per la directory, usare il modello denominato "Group.Unified". Per configurare le impostazioni di gruppo di Office 365 per un singolo gruppo, usare il modello denominato "Group.Unified.Guest". Questo modello viene usato per gestire l'accesso guest a un gruppo di Office 365. 
 
@@ -45,12 +45,12 @@ I passaggi seguenti permettono di creare le impostazioni a livello di directory,
 
 1. Nei cmdlet DirectorySettings è necessario specificare l'ID del SettingsTemplate che si vuole usare. Se non si conosce l'ID, questo cmdlet restituisce l'elenco di tutti i modelli di impostazioni:
   
-  ```
+  ```powershell
   PS C:> Get-AzureADDirectorySettingTemplate
   ```
   Questa chiamata del cmdlet restituirà tutti i modelli disponibili:
   
-  ```
+  ```powershell
   Id                                   DisplayName         Description
   --                                   -----------         -----------
   62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
@@ -62,32 +62,33 @@ I passaggi seguenti permettono di creare le impostazioni a livello di directory,
   ```
 2. Per aggiungere un URL alle linee guida sull'utilizzo, è necessario innanzitutto ottenere l'oggetto SettingsTemplate che definisce il valore di URL delle linee guida sull'utilizzo, vale a dire il modello Group.Unified:
   
-  ```
+  ```powershell
   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
   ```
 3. Successivamente, creare un nuovo oggetto impostazioni sulla base del modello:
   
-  ```
+  ```powershell
   $Setting = $template.CreateDirectorySetting()
   ```  
 4. Aggiornare quindi il valore delle linee guida sull'utilizzo:
   
-  ```
+  ```powershell
   $setting["UsageGuidelinesUrl"] = "https://guideline.example.com"
-
   ```  
 5. Infine, applicare le impostazioni:
   
-  ```
+  ```powershell
   New-AzureADDirectorySetting -DirectorySetting $setting
   ```
 
 Al termine, il cmdlet restituisce l'ID del nuovo oggetto Settings:
-  ```
+
+  ```powershell
   Id                                   DisplayName TemplateId                           Values
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
+
 ## <a name="template-settings"></a>Impostazioni modello
 Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.Unified. Se non diversamente indicato, queste funzionalità richiedono una licenza per Azure Active Directory Premium P1. 
 
@@ -112,27 +113,27 @@ Di seguito sono riportate le impostazioni definite in SettingsTemplate di Group.
 Quelli che seguono sono i passaggi necessari per leggere le impostazioni a livello di directory, che si applicano a tutti i gruppi di Office presenti nella directory.
 
 1. Leggere tutte le impostazioni della directory esistenti:
-  ```
+  ```powershell
   Get-AzureADDirectorySetting -All $True
   ```
   Questo cmdlet restituisce un elenco di tutte le impostazioni della directory:
-  ```
+  ```powershell
   Id                                   DisplayName   TemplateId                           Values
   --                                   -----------   ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
 
 2. Leggere tutte le impostazioni di un determinato gruppo:
-  ```
+  ```powershell
   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups
   ```
 
 3. Leggere tutti i valori delle impostazioni di directory di un oggetto Settings della directory specifico, usando il GUID delle impostazioni:
-  ```
+  ```powershell
   (Get-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323).values
   ```
   Questo cmdlet restituisce i nomi e valori in questo oggetto Settings per il gruppo specifico:
-  ```
+  ```powershell
   Name                          Value
   ----                          -----
   ClassificationDescriptions
@@ -152,7 +153,7 @@ Quelli che seguono sono i passaggi necessari per leggere le impostazioni a livel
 ## <a name="update-settings-for-a-specific-group"></a>Aggiornare le impostazioni per un gruppo specifico
 
 1. Cercare il modello di impostazioni denominato "Groups.Unified.Guest"
-  ```
+  ```powershell
   Get-AzureADDirectorySettingTemplate
   
   Id                                   DisplayName            Description
@@ -164,20 +165,20 @@ Quelli che seguono sono i passaggi necessari per leggere le impostazioni a livel
   5cf42378-d67d-4f36-ba46-e8b86229381d Password Rule Settings ...
   ```
 2. Recuperare l'oggetto modello per il modello Groups.Unified.Guest:
-  ```
+  ```powershell
   $Template = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
   ```
 3. Creare un nuovo oggetto Settings dal modello:
-  ```
+  ```powershell
   $Setting = $Template.CreateDirectorySetting()
   ```
 
 4. Impostare il valore richiesto:
-  ```
+  ```powershell
   $Setting["AllowToAddGuests"]=$False
   ```
 5. Creare la nuova impostazione per il gruppo richiesto nella directory:
-  ```
+  ```powershell
   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $Setting
   
   Id                                   DisplayName TemplateId                           Values
@@ -190,29 +191,23 @@ Quelli che seguono sono i passaggi necessari per leggere le impostazioni a livel
 Quelli che seguono sono i passaggi necessari per aggiornare le impostazioni a livello di directory, che si applicano a tutti i gruppi di Office 365 presenti nella directory. Questi esempi presuppongono che nella directory esista già un oggetto Settings.
 
 1. Trovare l'oggetto Settings esistente:
-  ```
-  Get-AzureADDirectorySetting | Where-object -Property Displayname -Value "Group.Unified" -EQ
-  
-  Id                                   DisplayName   TemplateId                           Values
-  --                                   -----------   ----------                           ------
-  c391b57d-5783-4c53-9236-cefb5c6ef323 Group.Unified 62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
-  
-  $setting = Get-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323
+  ```powershell
+  $setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
   ```
 2. Aggiornare il valore:
   
-  ```
+  ```powershell
   $Setting["AllowToAddGuests"] = "false"
   ```
 3. Aggiornare l'impostazione:
   
-  ```
+  ```powershell
   Set-AzureADDirectorySetting -Id c391b57d-5783-4c53-9236-cefb5c6ef323 -DirectorySetting $Setting
   ```
 
 ## <a name="remove-settings-at-the-directory-level"></a>Rimuovere le impostazioni a livello di directory
 Questo passaggio consente di rimuovere le impostazioni a livello di directory, che si applicano a tutti i gruppi di Office presenti nella directory.
-  ```
+  ```powershell
   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
   ```
 
@@ -222,4 +217,4 @@ Per altre informazioni su Azure Active Directory PowerShell, consultare la docum
 ## <a name="additional-reading"></a>Informazioni aggiuntive
 
 * [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](../fundamentals/active-directory-manage-groups.md)
-* [Integrazione delle identità locali con Azure Active Directory](../connect/active-directory-aadconnect.md)
+* [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

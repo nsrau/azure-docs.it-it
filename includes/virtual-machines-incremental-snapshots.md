@@ -1,3 +1,20 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: storage
+author: roygara
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960306"
+---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Eseguire il backup dei dischi di VM non gestiti con snapshot incrementali
 ## <a name="overview"></a>Panoramica
 Archiviazione di Azure offre la possibilità di creare snapshot di BLOB. Gli snapshot acquisiscono lo stato del BLOB in un dato momento. Questo articolo illustra uno scenario che permette di mantenere backup dei dischi delle macchine virtuali tramite snapshot. Quando si sceglie di non utilizzare Backup di Azure e il servizio di ripristino e si desidera creare una strategia di backup personalizzata per i dischi delle macchine virtuali, è possibile utilizzare questa metodologia.
@@ -49,7 +66,7 @@ Quando si ha una strategia di backup personalizzata che usa gli snapshot, copiar
 È possibile implementare una copia di snapshot incrementale effettuando le seguenti operazioni,
 
 * Creare uno snapshot del BLOB di base usando [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Copiare lo snapshot in un account di archiviazione di backup di destinazione mediante [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Questo è il BLOB di pagine di backup. Creare uno snapshot del BLOB di pagine di backup e archiviarlo nell'account di backup.
+* Copiare lo snapshot nell'account di archiviazione di backup di destinazione nella stessa area di Azure o in un'altra tramite [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Questo è il BLOB di pagine di backup. Creare uno snapshot del BLOB di pagine di backup e archiviarlo nell'account di backup.
 * Creare un altro snapshot del BLOB di base usando Snapshot Blob.
 * Ottenere la differenza tra il primo e il secondo snapshot del BLOB di base usando [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Usare il nuovo parametro **prevsnapshot** per specificare il valore DateTime dello snapshot di cui ottenere la differenza. Quando questo parametro è presente, la risposta REST include solo le pagine modificate tra lo snapshot di destinazione e lo snapshot precedente, incluse quelle non crittografate.
 * Usare [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) per applicare queste modifiche al BLOB di pagine di backup.
@@ -62,7 +79,7 @@ Questa sezione illustra uno scenario che comporta una strategia di backup person
 
 Si consideri una VM Azure serie DS a cui è collegato un disco P30 di Archiviazione Premium. Il disco P30 chiamato *mypremiumdisk* viene archiviato in un account di Archiviazione Premium denominato *mypremiumaccount*. Un account di Archiviazione Standard denominato *mybackupstdaccount* viene usato per l'archiviazione del backup di *mypremiumdisk*. Si desidera mantenere uno snapshot di *mypremiumdisk* ogni 12 ore.
 
-Per informazioni sulla creazione di account di archiviazione e dischi, fare riferimento a [Informazioni sugli account di archiviazione di Azure](../articles/storage/storage-create-storage-account.md).
+Per informazioni su come creare un account di archiviazione, vedere [Creare un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
 Per informazioni sul backup di VM di Azure, fare riferimento a [Pianificare backup di VM di Azure](../articles/backup/backup-azure-vms-introduction.md).
 

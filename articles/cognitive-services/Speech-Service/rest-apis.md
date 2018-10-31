@@ -1,27 +1,28 @@
 ---
-title: API REST del Servizio di riconoscimento vocale
-description: Informazioni di riferimento sulle API REST per il Servizio di riconoscimento vocale.
+title: API REST del servizio Voce
+description: Informazioni di riferimento sulle API REST per il servizio Voce.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
-ms.openlocfilehash: f8b27277cbf3ea6d53a8f02e550beae67fc50741
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167631"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025838"
 ---
-# <a name="speech-service-rest-apis"></a>API REST del Servizio di riconoscimento vocale
+# <a name="speech-service-rest-apis"></a>API REST del servizio Voce
 
 Le API REST del servizio Voce di Servizi cognitivi Azure sono simili alle API offerte dall'[API Riconoscimento vocale Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Gli endpoint sono diversi da quelli usati dal servizio di API Riconoscimento vocale Bing. Sono disponibili endpoint a livello di area ed è necessario usare una chiave di sottoscrizione che corrisponda all'endpoint in uso.
 
 ## <a name="speech-to-text"></a>Riconoscimento vocale
 
-Gli endpoint per il riconoscimento vocale all'API REST di testo vengono visualizzati nella tabella seguente. Usare l'endpoint corrispondente all'area della propria sottoscrizione. 
+Gli endpoint per il riconoscimento vocale all'API REST di testo vengono visualizzati nella tabella seguente. Usare l'endpoint corrispondente all'area della propria sottoscrizione.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -47,26 +48,26 @@ I seguenti campi sono inviati nell'intestazione della richiesta HTTP.
 
 |Intestazione|Significato|
 |------|-------|
-|`Ocp-Apim-Subscription-Key`|La chiave di sottoscrizione al Servizio di riconoscimento vocale dell'utente. È necessario fornire l'intestazione oppure `Authorization`.|
+|`Ocp-Apim-Subscription-Key`|La chiave di sottoscrizione al servizio Voce dell'utente. È necessario fornire l'intestazione oppure `Authorization`.|
 |`Authorization`|Un token di autorizzazione preceduto dalla parola `Bearer`. È necessario fornire l'intestazione oppure `Ocp-Apim-Subscription-Key`. Vedere [Autenticazione](#authentication).|
 |`Content-type`|Descrive il formato e il codec dei dati audio. Attualmente, questo valore deve essere impostato su `audio/wav; codec=audio/pcm; samplerate=16000`.|
 |`Transfer-Encoding`|facoltativo. Se specificato, deve essere `chunked` per consentire l'invio dei dati audio in più blocchi di piccole dimensioni, anziché di un singolo file.|
-|`Expect`|Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. Il Servizio di riconoscimento vocale legge la richiesta iniziale e attende ulteriori dati.|
-|`Accept`|facoltativo. Se specificato, deve includere `application/json`, perché il Servizio di riconoscimento vocale fornisce i risultati in formato JSON. (Alcuni framework per le richieste Web offrono un valore predefinito incompatibile se non se ne specifica uno, pertanto è buona norma includere sempre `Accept`.)|
+|`Expect`|Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. Il servizio Voce legge la richiesta iniziale e attende ulteriori dati.|
+|`Accept`|facoltativo. Se specificato, deve includere `application/json`, perché il servizio Voce fornisce i risultati in formato JSON. (Alcuni framework per le richieste Web offrono un valore predefinito incompatibile se non se ne specifica uno, pertanto è buona norma includere sempre `Accept`.)|
 
 ### <a name="audio-format"></a>Formato audio
 
-L'audio viene inviato nel corpo della richiesta HTTP `PUT`. Deve essere in formato WAV 16 bit con singolo canale PCM (mono) a 16 kHz nel formato/codifica seguente.
+L'audio viene inviato nel corpo della richiesta HTTP `POST`. Deve essere in formato WAV 16 bit con singolo canale PCM (mono) a 16 kHz nel formato/codifica seguente.
 
 * Formato WAV con codec PCM
 * Formato Ogg con codec OPUS
 
 >[!NOTE]
->I formati indicati sono supportati tramite l'API REST e WebSocket nel servizio Voce. [Speech SDK](/index.yml) attualmente supporta solo il formato WAV con codec PCM. 
+>I formati indicati sono supportati tramite l'API REST e WebSocket nel servizio Voce. [Speech SDK](/index.yml) attualmente supporta solo il formato WAV con codec PCM.
 
 ### <a name="chunked-transfer"></a>Trasferimento in blocchi
 
-Il trasferimento in blocchi (`Transfer-Encoding: chunked`) aiuta a ridurre la latenza di riconoscimento perché consente al Servizio di riconoscimento vocale di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali. Questa opzione è intesa unicamente a migliorare la velocità di risposta.
+Il trasferimento in blocchi (`Transfer-Encoding: chunked`) aiuta a ridurre la latenza di riconoscimento perché consente al servizio Voce di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali. Questa opzione è intesa unicamente a migliorare la velocità di risposta.
 
 Nel codice seguente viene illustrato come inviare l'audio in blocchi. Solo il primo blocco deve contenere l'intestazione del file audio. `request` è un oggetto HTTPWebRequest connesso all'endpoint REST appropriato. `audioFile` è il percorso di un file audio su disco.
 
@@ -135,7 +136,7 @@ I risultati sono restituiti in formato JSON. Il formato `simple` include solo i 
 
 Il campo `RecognitionStatus` può contenere i valori seguenti.
 
-|Valore di stato|DESCRIZIONE
+|Valore di stato|Descrizione
 |-|-|
 | `Success` | Il riconoscimento ha avuto esito positivo e il campo DisplayText è presente. |
 | `NoMatch` | La parte parlata è stata rilevata nel flusso audio, ma non sono state trovate corrispondenze per alcuna parola nella lingua di destinazione. In genere significa che la lingua di riconoscimento è una lingua diversa da quella parlata dall'utente. |
@@ -144,7 +145,7 @@ Il campo `RecognitionStatus` può contenere i valori seguenti.
 | `Error` | Il servizio di riconoscimento ha rilevato un errore interno e non è in grado di continuare. Provare di nuovo, se possibile. |
 
 > [!NOTE]
-> Se l'audio è costituito solo da contenuto volgare e il parametro di query `profanity` è impostato su `remove`, il servizio non restituisce un risultato di riconoscimento vocale. 
+> Se l'audio è costituito solo da contenuto volgare e il parametro di query `profanity` è impostato su `remove`, il servizio non restituisce un risultato di riconoscimento vocale.
 
 
 Il formato `detailed` include gli stessi campi del formato `simple`, accompagnati da un campo `NBest`. Il campo `NBest` è un elenco di interpretazioni alternative dello stesso discorso, classificate dalla più probabile alla meno probabile. La prima voce corrisponde al risultato del riconoscimento principale. Ciascuna voce include i campi seguenti:
@@ -198,15 +199,15 @@ Di seguito è riportata una tipica risposta per il riconoscimento `detailed`.
 
 ## <a name="text-to-speech"></a>Sintesi vocale
 
-Gli endpoint REST per l'API Sintesi vocale del Servizio di riconoscimento vocale sono riportati di seguito. Usare l'endpoint corrispondente all'area della propria sottoscrizione.
+Gli endpoint REST per l'API Sintesi vocale del servizio Voce sono riportati di seguito. Usare l'endpoint corrispondente all'area della propria sottoscrizione.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-Il Servizio di riconoscimento vocale supporta output audio a 24 KHz, oltre all'output a 16 Khz, supportato dal Riconoscimento vocale Bing. Nell'intestazione HTTP `X-Microsoft-OutputFormat` sono disponibili per l'uso quattro formati di output a 24 KHz, così come due voci a 24 KHz, `Jessa24kRUS` e `Guy24kRUS`.
+Il servizio Voce supporta output audio a 24 KHz, oltre all'output a 16 Khz, supportato dal Riconoscimento vocale Bing. Nell'intestazione HTTP `X-Microsoft-OutputFormat` sono disponibili per l'uso quattro formati di output a 24 KHz, così come due voci a 24 KHz, `Jessa24kRUS` e `Guy24kRUS`.
 
 Impostazioni locali | Linguaggio   | Sesso | Mapping nome del servizio
 -------|------------|--------|------------
-it-IT  | Inglese (Stati Uniti) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+it-IT  | Inglese (Stati Uniti) | Femmina | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
 it-IT  | Inglese (Stati Uniti) | Maschio   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
 È disponibile un elenco completo delle voci disponibili in [Lingue supportate](language-support.md#text-to-speech).
@@ -234,7 +235,7 @@ I formati di output audio disponibili (`X-Microsoft-OutputFormat`) incorporano u
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> Se la voce selezionata e il formato di output hanno velocità in bit diverse, il campionamento audio viene ripetuto secondo necessità. Tuttavia, le voci a 24 kHz non supportano i formati di output `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren`. 
+> Se la voce selezionata e il formato di output hanno velocità in bit diverse, il campionamento audio viene ripetuto secondo necessità. Tuttavia, le voci a 24 kHz non supportano i formati di output `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren`.
 
 ### <a name="request-body"></a>Corpo della richiesta
 
@@ -253,7 +254,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -276,9 +277,9 @@ Se lo stato HTTP è `200 OK`, il corpo della risposta contiene un file audio nel
 
 ## <a name="authentication"></a>Authentication
 
-L'invio di una richiesta all'API REST del Servizio di riconoscimento vocale richiede un token di accesso. In generale, è più semplice inviare direttamente la chiave di sottoscrizione. Il Servizio di riconoscimento vocale ottiene quindi il token di accesso per l'utente. Per ridurre al minimo il tempo di risposta, potrebbe essere meglio usare un token di accesso.
+L'invio di una richiesta all'API REST del servizio Voce richiede un token di accesso. In generale, è più semplice inviare direttamente la chiave di sottoscrizione. Il servizio Voce ottiene quindi il token di accesso per l'utente. Per ridurre al minimo il tempo di risposta, potrebbe essere meglio usare un token di accesso.
 
-È possibile ottenere un token immettendo la propria chiave di sottoscrizione nell'endpoint `issueToken` del Servizio di riconoscimento vocale di un'area, indicato nella tabella riportata di seguito. Usare l'endpoint corrispondente all'area della propria sottoscrizione.
+È possibile ottenere un token immettendo la propria chiave di sottoscrizione nell'endpoint `issueToken` del servizio Voce di un'area, indicato nella tabella riportata di seguito. Usare l'endpoint corrispondente all'area della propria sottoscrizione.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
@@ -288,7 +289,7 @@ Le sezioni seguenti illustrano come ottenere un token e come usarlo in una richi
 
 ### <a name="get-a-token-http"></a>Ottenere un token: HTTP
 
-Di seguito è riportato un esempio di richiesta HTTP per ottenere un token. Sostituire `YOUR_SUBSCRIPTION_KEY` con la chiave di sottoscrizione per il Servizio di riconoscimento vocale. Se la sottoscrizione non si trova nell'area Stati Uniti occidentali, sostituire l'intestazione `Host` con il nome host della propria area.
+Di seguito è riportato un esempio di richiesta HTTP per ottenere un token. Sostituire `YOUR_SUBSCRIPTION_KEY` con la chiave di sottoscrizione per il servizio Voce. Se la sottoscrizione non si trova nell'area Stati Uniti occidentali, sostituire l'intestazione `Host` con il nome host della propria area.
 
 ```
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -302,7 +303,7 @@ Il corpo della risposta a questa richiesta è il token di accesso in formato JWT
 
 ### <a name="get-a-token-powershell"></a>Ottenere un token: PowerShell
 
-Lo script Windows PowerShell riportato di seguito illustra come ottenere un token di accesso. Sostituire `YOUR_SUBSCRIPTION_KEY` con la chiave di sottoscrizione per il Servizio di riconoscimento vocale. Se la sottoscrizione non si trova nell'area Stati Uniti occidentali, modificare di conseguenza il nome host dell'URI specificato.
+Lo script Windows PowerShell riportato di seguito illustra come ottenere un token di accesso. Sostituire `YOUR_SUBSCRIPTION_KEY` con la chiave di sottoscrizione per il servizio Voce. Se la sottoscrizione non si trova nell'area Stati Uniti occidentali, modificare di conseguenza il nome host dell'URI specificato.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -321,22 +322,22 @@ $OAuthToken
 
 ### <a name="get-a-token-curl"></a>Ottenere un token: cURL
 
-cURL è uno strumento da riga di comando disponibile in Linux (e nel sottosistema Windows per Linux). Il comando cURL riportato di seguito illustra come ottenere un token di accesso. Sostituire `YOUR_SUBSCRIPTION_KEY` con la chiave di sottoscrizione per il Servizio di riconoscimento vocale. Se la sottoscrizione non si trova nell'area Stati Uniti occidentali, modificare di conseguenza il nome host dell'URI specificato.
+cURL è uno strumento da riga di comando disponibile in Linux (e nel sottosistema Windows per Linux). Il comando cURL riportato di seguito illustra come ottenere un token di accesso. Sostituire `YOUR_SUBSCRIPTION_KEY` con la chiave di sottoscrizione per il servizio Voce. Se la sottoscrizione non si trova nell'area Stati Uniti occidentali, modificare di conseguenza il nome host dell'URI specificato.
 
 > [!NOTE]
 > Il comando viene visualizzato su più righe per migliorare la leggibilità, ma deve essere immesso in un'unica riga in un prompt della shell.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
 ### <a name="get-a-token-c"></a>Ottenere un token: C#
 
-La classe C# riportata di seguito illustra come ottenere un token di accesso. Passare la chiave di sottoscrizione del Servizio di riconoscimento vocale durante la creazione di un'istanza della classe. Se la sottoscrizione non si trova nell'area Stati Uniti occidentali, modificare in modo appropriato il nome host di `FetchTokenUri`.
+La classe C# riportata di seguito illustra come ottenere un token di accesso. Passare la chiave di sottoscrizione del servizio Voce durante la creazione di un'istanza della classe. Se la sottoscrizione non si trova nell'area Stati Uniti occidentali, modificare in modo appropriato il nome host di `FetchTokenUri`.
 
 ```cs
 /*
@@ -410,7 +411,7 @@ Come in precedenza, verificare che il valore `FetchTokenUri` corrisponda all'are
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -482,7 +483,6 @@ public class Authentication
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di valutazione gratuita del Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di valutazione gratuita del servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
 - [Personalizzare modelli acustici](how-to-customize-acoustic-models.md)
 - [Personalizzare modelli linguistici](how-to-customize-language-model.md)
-

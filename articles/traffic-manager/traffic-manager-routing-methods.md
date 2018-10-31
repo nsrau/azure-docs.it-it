@@ -4,7 +4,6 @@ description: Questo articolo fornisce informazioni sui diversi metodi di routing
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785410"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955219"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
 
@@ -82,7 +81,7 @@ La velocità di risposta di molte applicazioni può essere migliorata distribuen
 
 L'endpoint più vicino non è necessariamente il più vicino in termini di distanza geografica. Il metodo di routing del traffico "Prestazioni" determina invece l'endpoint più vicino in termini di latenza di rete. La tabella della latenza di Internet indica il tempo di round trip tra intervalli di indirizzi IP e ciascun data center di Azure.
 
-Gestione traffico individua nella tabella la riga relativa all'indirizzo IP di origine della richiesta DNS in ingresso, sceglie quindi nel data center di Azure l'endpoint disponibile con la latenza più bassa per l'intervallo di indirizzi IP specifico e restituisce tale endpoint nella risposta DNS.
+Gestione traffico individua nella tabella la riga relativa all'indirizzo IP di origine della richiesta DNS in ingresso sceglie quindi nel data center di Azure l'endpoint disponibile con la latenza più bassa per l'intervallo di indirizzi IP specifico e restituisce tale endpoint nella risposta DNS.
 
 Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manager-how-it-works.md), le query DNS non vengono ricevute direttamente dai client, ma dal servizio DNS ricorsivo per il quale sono configurati. Pertanto, l'indirizzo IP usato per determinare l'endpoint più vicino non è l'indirizzo IP del client, ma l'indirizzo IP del servizio DNS ricorsivo. In pratica, questo indirizzo IP è un proxy valido a questo scopo per il client.
 
@@ -129,8 +128,11 @@ Come spiegato in [Modalità di funzionamento di Gestione traffico](traffic-manag
 Il metodo di routing del traffico **Multivalore** consente di ottenere più endpoint integri in un'unica risposta a una query DNS. In questo modo, il chiamante, in caso di mancata risposta da parte di un endpoint restituito, può eseguire nuovi tentativi sul lato client con altri endpoint. Questo modello può aumentare la disponibilità di un servizio e ridurre la latenza associata a una nuova query DNS per ottenere un endpoint integro. Il metodo di routing Multivalore funziona solo se tutti gli endpoint di tipo Esterno sono specificati come indirizzi IPv4 o IPv6. Quando si riceve una query per profili di questo tipo, tutti gli endpoint integri vengono restituiti e sono soggetti a un numero massimo di restituzioni configurabili.
 
 ## <a name = "subnet"></a>Metodo di routing del traffico Subnet
-Il metodo di routing del traffico **Subnet** consente di eseguire il mapping di un set di intervalli di indirizzi IP dell'utente finale a endpoint specifici di un profilo. Successivamente, se Gestione traffico riceve una query DNS per tale profilo, controllerà l'indirizzo IP di origine della richiesta (nella maggior parte dei casi si tratta dell'indirizzo IP in uscita del resolver DNS usato dal chiamante), determinerà l'endpoint a cui eseguire il mapping e restituirà l'endpoint nella risposta alla query. L'indirizzo IP di cui eseguire il mapping a un endpoint può essere specificato come intervallo CIDR, ad esempio 1.2.3.0/24, o come intervallo di indirizzi, ad esempio 1.2.3.4-5.6.7.8. Gli intervalli IP associati a un endpoint devono essere univoci nell'ambito di tale profilo e non possono sovrapporsi con il set di indirizzi IP di un endpoint diverso nello stesso profilo.
-Se non sono presenti endpoint a cui è possibile eseguire il mapping dell'indirizzo IP, Gestione traffico invierà una risposta NODATA. È pertanto consigliabile verificare che tutti gli intervalli IP possibili siano specificati negli endpoint.
+Il metodo di routing del traffico **Subnet** consente di eseguire il mapping di un set di intervalli di indirizzi IP dell'utente finale a endpoint specifici di un profilo. Successivamente, se Gestione traffico riceve una query DNS per tale profilo, controllerà l'indirizzo IP di origine della richiesta (nella maggior parte dei casi si tratta dell'indirizzo IP in uscita del resolver DNS usato dal chiamante), determinerà l'endpoint a cui eseguire il mapping e restituirà l'endpoint nella risposta alla query. 
+
+L'indirizzo IP di cui eseguire il mapping a un endpoint può essere specificato come intervallo CIDR, ad esempio 1.2.3.0/24, o come intervallo di indirizzi, ad esempio 1.2.3.4-5.6.7.8. Gli intervalli IP associati a un endpoint devono essere univoci nell'ambito di tale profilo e non possono sovrapporsi con il set di indirizzi IP di un endpoint diverso nello stesso profilo.
+Se si definisce un endpoint senza intervallo di indirizzi, questo funziona come fallback e accetta il traffico da qualsiasi subnet rimanente. Se non è incluso alcun endpoint di fallback, Gestione traffico invia una risposta NODATA per tutti gli intervalli non definiti. Di conseguenza, è consigliabile definire un endpoint di fallback o assicurarsi che negli endpoint siano specificati tutti gli intervalli di indirizzi IP possibili.
+
 È possibile usare il metodo di routing Subnet per offrire un'esperienza diversa per gli utenti che si connettono da uno spazio di IP specifico. Ad esempio, con questo metodo un cliente può fare in modo che tutte le richieste provenienti dall'ufficio aziendale vengano instradate a un endpoint diverso dove è possibile testare una versione solo interna dell'app. Un altro scenario può essere quello in cui si voglia offrire un'esperienza diversa agli utenti che si connettono da un ISP specifico, ad esempio per bloccare gli utenti di un determinato ISP.
 
 ## <a name="next-steps"></a>Passaggi successivi

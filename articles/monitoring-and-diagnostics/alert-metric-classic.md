@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: e0c9cc342bb4b06053f53abc891ee1c415327998
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ffac9511ab93367cba3f006249bd92658a520e09
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410001"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386935"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire avvisi classici per le metriche con Monitoraggio di Azure
 
@@ -36,7 +36,7 @@ Gli avvisi delle metriche classici in Monitoraggio di Azure consentono di riceve
 
 6. Selezionare **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori** se si vuole che gli amministratori e i coamministratori ricevano una notifica tramite posta elettronica quando si attiva l'avviso.
 
-7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, usare il campo **Indirizzi di posta elettronica aggiuntivi dell'amministratore**. Separare gli indirizzi di posta elettronica con punti e virgola, con il formato seguente: *email@contoso.com; email2@contoso.com*
+7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, usare il campo **Indirizzi di posta elettronica aggiuntivi dell'amministratore**. Separare gli indirizzi di posta elettronica con punti e virgola, con il formato seguente: *email@contoso.com;email2@contoso.com*
 
 8. Inserire un URI valido nel campo **Webhook** per eseguire la chiamata quando viene attivato l'avviso.
 
@@ -54,7 +54,7 @@ Dopo aver creato un avviso, è possibile selezionarlo ed eseguire una delle atti
 
 ## <a name="with-azure-cli"></a>Con l'interfaccia della riga di comando di Azure
 
-Le sezioni precedenti descrivono come creare, visualizzare e gestire le regole di avviso per le metriche tramite il portale di Azure. Questa sezione descrive come eseguire la stessa operazione usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) multipiattaforma. [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest) è il metodo più rapido per iniziare a usare l'interfaccia della riga di comando di Azure.
+Le sezioni precedenti descrivono come creare, visualizzare e gestire le regole di avviso per le metriche tramite il portale di Azure. Questa sezione descrive come eseguire la stessa operazione usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) multipiattaforma. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest) è il metodo più rapido per iniziare a usare l'interfaccia della riga di comando di Azure.
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>Ottenere tutte le regole di avviso classico per le metriche in un gruppo di risorse
 

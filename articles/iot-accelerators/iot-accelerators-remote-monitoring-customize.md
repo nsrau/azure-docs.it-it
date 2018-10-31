@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 36e63d26bf7ada2d23fa3cd9fddbb5ba90494527
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 59f2860168782d96bf82d0a27f9bb9eeed0f1020
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126023"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167495"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personalizzare l'acceleratore di soluzioni di monitoraggio remoto
 
@@ -35,7 +35,7 @@ I passaggi seguenti illustrano il processo per configurare un ambiente locale pe
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Attivare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [disabilitarlo appena possibile](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
+    Attivare l'accesso SSH solo durante il test e lo sviluppo. Se si abilita SSH, [disabilitarlo appena possibile](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
 1. Usare il portale di Azure o [l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) per trovare il nome e l'indirizzo IP pubblico della macchina virtuale. Ad esempio: 
 
@@ -454,15 +454,21 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 Per modificare ulteriormente i livelli di presentazione e visualizzazione nella soluzione di monitoraggio remoto, è possibile modificare il codice. I repository GitHub rilevanti sono i seguenti:
 
-* [The configuration microservice for Azure IoT Solutions (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/) (Microservizio di configurazione per Soluzioni di Azure IoT (.NET))
-* [The configuration microservice for Azure IoT Solutions (Java)](https://github.com/Azure/pcs-ui-config-java/) (Microservizio di configurazione per Soluzioni di Azure IoT (Java))
+* [The configuration microservice for Azure IoT Solutions (.NET)](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config) (Microservizio di configurazione per Soluzioni di Azure IoT (.NET))
+* [The configuration microservice for Azure IoT Solutions (Java)](https://github.com/Azure/remote-monitoring-services-java/tree/master/config) (Microservizio di configurazione per Soluzioni di Azure IoT (Java))
 * [Azure IoT PCS Remote Monitoring Web UI](https://github.com/Azure/pcs-remote-monitoring-webui) (Interfaccia utente Web di monitoraggio remoto di Azure IoT PCS)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha fornito informazioni sulle risorse disponibili per personalizzare l'interfaccia utente Web nell'acceleratore di soluzioni di monitoraggio remoto.
+Questo articolo ha fornito informazioni sulle risorse disponibili per personalizzare l'interfaccia utente Web nell'acceleratore di soluzioni di monitoraggio remoto. Per altre informazioni sulla personalizzazione dell'interfaccia utente, vedere gli articoli seguenti:
+
+* [Aggiungere una pagina personalizzata all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-monitoring-customize-page.md)
+* [Aggiungere un servizio personalizzato all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-monitoring-customize-service.md)
+* [Aggiungere una griglia personalizzata all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Aggiungere un riquadro a comparsa personalizzato all'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Aggiungere un nuovo pannello al dashboard nell'interfaccia utente Web dell'acceleratore di soluzione Monitoraggio remoto](iot-accelerators-remote-monitoring-customize-panel.md)
 
 Per altre informazioni concettuali sull'acceleratore di soluzioni di monitoraggio remoto, vedere [Architettura della soluzione di monitoraggio remoto](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Per altre informazioni sulla personalizzazione della soluzione di monitoraggio remoto, vedere [Personalizzare e ridistribuire un microservizio](iot-accelerators-microservices-example.md)
+Per altre informazioni sulla personalizzazione dei microservizi della soluzione Monitoraggio remoto, vedere [Personalizzare e ridistribuire un microservizio](iot-accelerators-microservices-example.md).
 <!-- Next tutorials in the sequence -->

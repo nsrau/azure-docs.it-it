@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49347013"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49437031"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM
 
@@ -151,7 +151,11 @@ Se si usano account di archiviazione Premium per dischi non gestiti e l'applicaz
 ### <a name="premium-storage-disk-limits"></a>Limiti dei dischi di Archiviazione Premium
 Quando si effettua il provisioning di un disco di archiviazione Premium, la dimensione del disco determina il livello massimo di IOPS e velocità effettiva (larghezza di banda). Azure offre otto tipi GA di dischi di Archiviazione Premium: P4 (solo Managed Disks), P6 (solo Managed Disks), P10, P15 (solo Managed Disks), P20, P30, P40 e P50. Oltre a tre dimensioni di disco in anteprima: P60, P70 e P80. Ogni tipo di disco di Archiviazione Premium ha limiti specifici di IOPS e velocità effettiva. I limiti per i tipi di dischi sono descritti nella tabella seguente:
 
-| Tipo di disco Premium | P4   | P6   | P10   | P15   | P20   | P30   | P40   | P50   | P60   | P70   | P80   | |---------------------|-------|-------|-------|-------|-------|-------|-------|-------||-------||-------||-------| | Dimensione del disco           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8.192 GiB (8 TiB)    | 16.384 GiB (16 TiB)    | 32.767 GiB (32 TiB)    | | IOPS per disco       | 120   | 240   | 500   | 1100   | 2300              | 5000              | 7500              | 7500              | 12.500              | 15.000              | 20,000              | | Velocità effettiva per disco | 25 MB al secondo  | 50 MB al secondo  | 100 MB al secondo | 125 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo | 480 MB al secondo | 750 MB al secondo | 750 MB al secondo |
+| Tipo di disco Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+|---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
+| Dimensioni disco           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16.384 GiB (16 TiB)| 32.767 GiB (32 TiB)|
+| IOPS per disco       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12.500          | 15.000             | 20.000             |
+| Velocità effettiva per disco | 25 MB al secondo | 50 MB al secondo | 100 MB al secondo | 125 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo | 480 MB al secondo | 750 MB al secondo | 750 MB al secondo |
 
 > [!NOTE]
 > Assicurarsi che nella VM sia disponibile una larghezza di banda sufficiente per il traffico dell'unità disco, come descritto in [Macchine virtuali supportate da Archiviazione Premium](#premium-storage-supported-vms). In caso contrario, la velocità effettiva del disco e IOPS sarà limitata a valori più bassi. IOPS e velocità effettiva massima si basano sui limiti della VM, non sui limiti del disco descritti nella tabella precedente.  

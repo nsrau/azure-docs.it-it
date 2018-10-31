@@ -1,26 +1,27 @@
 ---
-title: Informazioni di riferimento sull'API Traduzione testuale Microsoft V3.0 | Microsoft Docs
-description: Documentazione di riferimento per l'API Traduzione testuale Microsoft V3.0.
+title: Riferimenti per l'API Traduzione testuale v3.0
+titlesuffix: Azure Cognitive Services
+description: Documentazione di riferimento per l'API Traduzione testuale v3.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: cfaa9584e833b137b417d9074fbfcf606eb21388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374497"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430035"
 ---
-#<a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
+# <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
 ## <a name="whats-new"></a>Novità
 
-La versione 3 dell'API Traduzione testuale Microsoft fornisce un'API Web moderna basata su JSON. Migliora l'usabilità e le prestazioni consolidando le funzionalità esistenti in un minor numero di operazioni e offre nuove funzionalità.
+La versione 3 dell'API Traduzione testuale fornisce un'API Web moderna basata su JSON. Migliora l'usabilità e le prestazioni consolidando le funzionalità esistenti in un minor numero di operazioni e offre nuove funzionalità.
 
  * Traslitterazione per convertire il testo in una lingua da un carattere all'altro.
  * Traduzione in più lingue in una sola richiesta.
@@ -32,7 +33,7 @@ La versione 3 dell'API Traduzione testuale Microsoft fornisce un'API Web moderna
 
 L'API Traduzione testuale v3.0 è disponibile nel cloud seguente:
 
-| DESCRIZIONE | Region | URL di base                                        |
+| Descrizione | Region | URL di base                                        |
 |-------------|--------|-------------------------------------------------|
 | Azure       | Globale | api.cognitive.microsofttranslator.com           |
 
@@ -70,7 +71,7 @@ Riassumendo, una richiesta client all'API del servizio Translator includerà un'
 
 <table width="100%">
   <th width="30%">Headers</th>
-  <th>DESCRIZIONE</th>
+  <th>Descrizione</th>
   <tr>
     <td>Ocp-Apim-Subscription-Key</td>
     <td>*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.</td>
@@ -94,8 +95,48 @@ Ad esempio, un cliente con una sottoscrizione della versione di valutazione grat
 ```
 {
   "error": {
-    "code":403000,
-    "message":"The subscription has exceeded its free quota."
+    "code":403001,
+    "message":"The operation is not allowed because the subscription has exceeded its free quota."
     }
 }
 ```
+Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. Codici errore comuni sono:
+
+| Codice | Descrizione |
+|:----|:-----|
+| 400000| Uno degli input della richiesta non è valido.|
+| 400001| Il parametro "scope" non è valido.|
+| 400002| Il parametro "category" non è valido.|
+| 400003| Un identificatore di lingua manca o non è valido.|
+| 400004| Un identificatore di script di destinazione ("To script") manca o non è valido.|
+| 400005| Un testo di input manca o non è valido.|
+| 400006| La combinazione di lingua e script non è valida.|
+| 400018| Un identificatore di script di origine ("From script") manca o non è valido.|
+| 400019| Una delle lingue specificate non è supportata.|
+| 400020| Uno degli elementi nella matrice del testo di input non è valido.|
+| 400021| Il parametro della versione API manca o non è valido.|
+| 400023| Una delle coppie di lingue specificata non è valida.|
+| 400035| La lingua di origine (campo "From") non è valida.|
+| 400036| La lingua di destinazione (campo "To") manca o non è valida.|
+| 400042| Una delle opzioni specificate (campo "Options") non è valida.|
+| 400043| L'ID traccia client (campo ClientTraceId o intestazione X-ClientTraceId) manca o non è valido.|
+| 400050| Il testo di input è troppo lungo.|
+| 400064| Il parametro "translation" manca o non è valido.|
+| 400070| Il numero di script di destinazione (parametro ToScript) non corrisponde al numero di lingue di destinazione (parametro To).|
+| 400071| Il valore non è valido per TextType.|
+| 400072| La matrice del testo di input contiene troppi elementi.|
+| 400073| Il parametro script non è valido.|
+| 400074| Il corpo della richiesta non è in formato JSON valido.|
+| 400075| La combinazione di coppia di lingue e categoria non è valida.|
+| 400077| Le dimensioni massime della richiesta sono state superate.|
+| 400079| Il sistema personalizzato richiesto per la traduzione da/verso la lingua non esiste.|
+| 401000| La richiesta non è autorizzata perché le credenziali mancano o non sono valide.|
+| 401015| "Le credenziali specificate si riferiscono a Speech API. Per questa richiesta sono necessarie le credenziali per l'API Testo. Usare una sottoscrizione all'API Traduzione testuale."|
+| 403000| L'operazione non è consentita.|
+| 403001| L'operazione non è consentita perché la sottoscrizione ha superato la quota gratuita.|
+| 405000| Il metodo della richiesta non è supportato per la risorsa richiesta.|
+| 415000| L'intestazione Content-Type manca o non è valida.|
+| 429000, 429001, 429002| Il server ha rifiutato la richiesta perché il client invia un numero eccessivo di richieste. Ridurre la frequenza per evitare la limitazione delle richieste.|
+| 500000| Si è verificato un errore imprevisto. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
+| 503000| Il servizio è temporaneamente non disponibile. Riprovare. Se l'errore persiste, segnalarlo specificando data e ora dell'errore, identificatore della richiesta indicato in X-RequestId nell'intestazione della risposta e identificatore del client indicato in X-ClientTraceId nell'intestazione della richiesta.|
+

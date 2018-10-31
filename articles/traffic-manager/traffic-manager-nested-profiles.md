@@ -4,22 +4,19 @@ description: Questo articolo descrive la funzionalità "Profili nidificati" di G
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: f1b112c4-a3b1-496e-90eb-41e235a49609
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
+ms.date: 10/22/2018
 ms.author: kumud
-ms.openlocfilehash: 1ac4ec2775ca9f690f5adf4f939908f8cee3f715
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 876305c7195a186671c30c4bdd9bb0c6b5331e9a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23111699"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648599"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profili nidificati di Gestione traffico
 
@@ -66,9 +63,7 @@ L'immagine seguente illustra questa configurazione:
 
 ## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Esempio 3: Aree di failover con priorità con metodo di routing del traffico "Prestazioni"
 
-Il comportamento predefinito per il metodo di routing del traffico "Prestazioni" è progettato per evitare il sovraccarico dell'endpoint successivo più vicino e una conseguente serie di errori a catena. Se un endpoint ha esito negativo, tutto il traffico normalmente indirizzato a tale endpoint viene invece distribuito in modo uniforme tra gli altri endpoint in tutte le aree.
-
-![Routing del traffico "Prestazioni" con failover predefinito][5]
+In base al comportamento predefinito per il metodo di routing del traffico "Prestazioni", quando sono presenti più endpoint in aree geografiche diverse gli utenti finali vengono instradati all'endpoint "più vicino" in termini di latenza di rete inferiore.
 
 Si supponga tuttavia di preferire che il failover del traffico dell'Europa occidentale venga eseguito negli Stati Uniti occidentali e che il traffico venga indirizzato in altre aree solo se entrambi gli endpoint non sono disponibili. A tale scopo,creare un profilo figlio che usa il metodo di routing del traffico "Priorità".
 

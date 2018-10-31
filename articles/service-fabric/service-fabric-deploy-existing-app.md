@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 99d34d59bb9d55ff074d454fe4544917c4e91110
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a80895db8a89b8d9392d0ed067b95daa23474d8b
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205988"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113870"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Creare il pacchetto e distribuire un eseguibile esistente in Service Fabric
 Quando si crea il pacchetto di un eseguibile esistente come [eseguibile guest](service-fabric-guest-executables-introduction.md), è possibile scegliere di usare un modello di progetto di Visual Studio oppure di [creare manualmente il pacchetto dell'applicazione](#manually). Se si usa Visual Studio, la struttura del pacchetto dell'applicazione e i file manifesto vengono creati automaticamente dal nuovo modello di progetto.
@@ -168,7 +168,9 @@ Nell'esempio precedente SetupEntryPoint esegue un file batch denominato `LaunchC
 </EntryPoint>
 ```
 
-L'elemento `EntryPoint` nel manifesto del servizio consente di specificare la modalità di avvio del servizio. L'elemento `ExeHost` specifica il file eseguibile e i relativi argomenti da usare per avviare il servizio.
+L'elemento `EntryPoint` nel manifesto del servizio consente di specificare la modalità di avvio del servizio.
+
+L'elemento `ExeHost` specifica il file eseguibile e i relativi argomenti da usare per avviare il servizio. Facoltativamente, è possibile aggiungere l'attributo `IsExternalExecutable="true"` a `ExeHost` per indicare che il programma è un eseguibile esterno di fuori del pacchetto di codice. Ad esempio: `<ExeHost IsExternalExecutable="true">`.
 
 * `Program` specifica il nome dell'eseguibile che deve avviare il servizio.
 * `Arguments` specifica gli argomenti da passare al file eseguibile. Può essere un elenco di parametri con argomenti.

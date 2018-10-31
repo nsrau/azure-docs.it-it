@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 849253dd4a2e66acc6a509a0515a22309c90e081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: b9b6c67930e251302f397e199c65f949997a25cf
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145372"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637971"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure
 
@@ -23,13 +23,13 @@ Monitoraggio di Azure fornisce interfacce utente unificate per il monitoraggio t
 
 ## <a name="access-metrics"></a>Accedere alle metriche
 
-Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedervi dal [portale di Azure](https://portal.azure.com), dalle API di Monitoraggio di Azure (REST e .Net) e dalle soluzioni di analisi come Operation Management Suite e Hub eventi. Per altre informazioni, vedere [Metriche di Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedervi dal [portale di Azure](https://portal.azure.com), dalle API di Monitoraggio di Azure (REST e .Net) e da soluzioni di analisi come Hub eventi. Per altre informazioni, vedere [Metriche di Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-Le metriche sono abilitate per impostazione predefinita ed è possibile accedere agli ultimi 30 giorni di dati. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Monitoraggio di Azure.
+Le metriche sono abilitate per impostazione predefinita ed è possibile accedere agli ultimi 93 giorni di dati. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) in Monitoraggio di Azure.
 
 ### <a name="access-metrics-in-the-azure-portal"></a>Accedere alle metriche nel portale di Azure
 
-È possibile monitorare le metriche nel tempo nel portale di Azure. L'esempio seguente mostra come visualizzare la metrica **UsedCapacity** a livello di account.
+È possibile monitorare le metriche nel tempo nel portale di Azure. L'esempio seguente mostra come visualizzare la metrica **Transactions** a livello di account.
 
 ![Screenshot dell'accesso alle metriche nel portale di Azure](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
@@ -51,7 +51,7 @@ L'esempio seguente mostra come elencare le definizioni delle metriche a livello 
 # Login to Azure and enter your credentials when prompted.
 > armclient login
 
-> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2017-05-01-preview
+> armclient GET /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metricdefinitions?api-version=2018-01-01
 
 ```
 
@@ -95,7 +95,7 @@ La risposta contiene la definizione della metrica in formato JSON:
 L'esempio seguente mostra come leggere i dati relativi alle metriche a livello di account:
 
 ```
-> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metric=Availability&api-version=2017-05-01-preview&aggregation=Average&interval=PT1H"
+> armclient GET "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/providers/microsoft.insights/metrics?metricnames=Availability&api-version=2018-01-01&aggregation=Average&interval=PT1H"
 
 ```
 
@@ -312,7 +312,7 @@ Di seguito viene mostrato il formato per specificare l'ID risorsa per ogni servi
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * ID risorsa del servizio file `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>ID risorsa nell'API REST di Monitoraggio di Azure
@@ -403,7 +403,7 @@ Le metriche legacy sono disponibili in parallelo rispetto alle metriche gestite 
 
 **Archiviazione di Azure supporta le metriche per i dischi gestiti o non gestiti?**
 
-No, le metriche relative ai dischi sono supportate da Calcolo di Azure. Per informazioni più dettagliate, vedere [questo articolo](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/).
+No, le metriche relative ai dischi sono supportate da Calcolo di Azure. Per informazioni più dettagliate, vedere [questo articolo](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,7 +4,7 @@ description: Informazioni su come usare Processi Web per eseguire attività in b
 services: app-service
 documentationcenter: ''
 author: ggailey777
-manager: erikre
+manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2017
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: c3a41733dd193d10349a0126bfa9c25ce4ba56e7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.date: 10/16/2018
+ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.openlocfilehash: 901cf32557e0a437e938ceb50ecd500c69c8c3be
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577678"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364031"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Eseguire attività in background con Processi Web in Servizio app di Azure
 
@@ -44,7 +44,7 @@ La tabella seguente descrive le differenze tra processi Web *continui* e *attiva
 | Supporta il debug remoto. | Non supporta il debug remoto.|
 
 > [!NOTE]
-> Un'app Web può raggiungere il timeout dopo 20 minuti di inattività. Solo le richieste al sito scm (distribuzione) o alle pagine dell'app Web nel portale reimpostano il timer. Le richieste al sito effettivo non comportano la reimpostazione del timer. Se l'app esegue processi Web continui o pianificati, abilitare **Sempre online** per assicurarsi che i processi Web vengano eseguiti in modo affidabile. Questa funzionalità è disponibile solo nei [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Basic, Standard e Premium.
+> Un'app Web può raggiungere il timeout dopo 20 minuti di inattività. Solo le richieste all'app Web effettiva comportano la reimpostazione del timer. Se si visualizza la configurazione dell'app nel portale di Azure o si effettuano richieste al sito degli strumenti avanzati (https://<app_name>.scm.azurewebsites.net), il timer non verrà reimpostato. Se l'app esegue processi Web continui o pianificati, abilitare **Sempre online** per assicurarsi che i processi Web vengano eseguiti in modo affidabile. Questa funzionalità è disponibile solo nei [piani tariffari](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Basic, Standard e Premium.
 
 ## <a name="acceptablefiles"></a>Tipi di file supportati per script e programmi
 

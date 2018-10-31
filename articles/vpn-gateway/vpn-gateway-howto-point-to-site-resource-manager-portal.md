@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: d524555330653a90f52505c22f50f4d677ab6632
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3254f0c26e21bc7ba71fc23362f263cb126ea3b0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387260"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026365"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione del certificato di Azure nativo: portale di Azure
 
@@ -73,7 +73,7 @@ Dopo aver creato la rete virtuale, è possibile aggiungere l'indirizzo IP di un 
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->Lo SKU Basic non supporta l'autenticazione IKEv2 o RADIUS.
+>Lo SKU Basic non supporta l'autenticazione IKEv2 o RADIUS. Se si prevede che client Mac si connetteranno alla rete virtuale, non usare lo SKU Basic.
 >
 
 ## <a name="generatecert"></a>5. Generare i certificati
@@ -172,7 +172,7 @@ I file di configurazione del client VPN contengono le impostazioni per configura
 
 Dalla finestra di dialogo Rete individuare il profilo client che si vuole usare, specificare le impostazioni del file [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) e quindi fare clic su **Connessione**.
 
-Per informazioni dettagliate, vedere [Installazione in Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac).
+Per istruzioni dettagliate, vedere [Installazione in Mac (OS X)](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac). Se si riscontrano problemi di connessione, verificare che il gateway di rete virtuale non usi uno SKU Basic. Lo SKU Basic non è supportato per i client Mac.
 
   ![Connessione Mac](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

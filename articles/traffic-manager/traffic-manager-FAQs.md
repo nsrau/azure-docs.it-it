@@ -4,22 +4,19 @@ description: Questo articolo risponde ad alcune domande frequenti su Gestione tr
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038216"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987240"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Domande frequenti (FAQ) su Gestione traffico
 
@@ -32,7 +29,7 @@ Come spiegato nella sezione [Modalità di funzionamento di Gestione traffico](..
 Gestione traffico non prevede quindi un endpoint o indirizzo IP per la connessione dei client. Se si intende avere un indirizzo IP statico per un servizio, è necessario configurarlo nel servizio, non in Gestione traffico.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quali tipi di traffico è possibile indirizzare tramite Gestione traffico?
-Come spiegato in [Funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), un endpoint di Gestione traffico può essere qualsiasi servizio con connessione Internet all'interno o all'esterno di Azure. Di conseguenza, Gestione traffico può indirizzare il traffico che ha origine da Internet pubblico a un set di endpoint anch'esso con connessione Internet. In caso di endpoint presenti all'interno di una rete privata (ad esempio, una versione interna del [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) o di utenti che inviano richieste DNS da tali reti interne, Gestione traffico non può essere usato per tale traffico.
+Come spiegato in [Funzionamento di Gestione traffico](../traffic-manager/traffic-manager-how-it-works.md), un endpoint di Gestione traffico può essere qualsiasi servizio con connessione Internet all'interno o all'esterno di Azure. Di conseguenza, Gestione traffico può indirizzare il traffico che ha origine da Internet pubblico a un set di endpoint anch'esso con connessione Internet. In caso di endpoint all'interno di una rete privata, ad esempio una versione interna di [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer), o se gli utenti effettuano richieste DNS da queste reti interne, non è possibile usare Gestione traffico per instradare il traffico.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Gestione traffico supporta sessioni "permanenti"?
@@ -72,7 +69,7 @@ Per risolvere questo problema, è consigliabile usare un reindirizzamento HTTP p
 Il supporto completo per i domini naked in Gestione traffico è riportato nel backlog delle funzionalità. È possibile registrare il supporto per questa funzionalità [votandolo sul sito dei commenti della community](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Gestione traffico tiene conto dell'indirizzo della subnet client quando si gestiscono query DNS? 
-Sì, oltre all'indirizzo IP di origine della query DNS che riceve (che è in genere l'indirizzo IP del sistema di risoluzione DNS), quando si eseguono ricerche per i metodi di routing geografico e le prestazioni, Gestione traffico considera anche l'indirizzo di subnet del client se viene incluso nella query dal resolver che effettua la richiesta per conto dell'utente finale.  
+Sì, oltre all'indirizzo IP di origine della query DNS che riceve (che è in genere l'indirizzo IP del sistema di risoluzione DNS), quando si eseguono ricerche per i metodi di routing Geografico, Prestazioni e Subnet, Gestione traffico considera anche l'indirizzo di subnet del client se viene incluso nella query dal resolver che effettua la richiesta per conto dell'utente finale.  
 Per altri dettagli, vedere la [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) (RFC 7871 - Subnet client nelle query DNS), che indica un [meccanismo di estensione per DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) che può trasferire l'indirizzo della subnet client dai resolver che lo supportano.
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>Cos'è la durata TTL del DNS e che impatto ha sugli utenti?
@@ -87,7 +84,7 @@ Quando una query DNS viene ricevuta da Gestione traffico, nella risposta viene i
 A livello di singolo profilo, è possibile impostare una durata TTL del DNS minima di 0 secondi e massima di 2.147.483.647 secondi, ovvero l'intervallo massimo conforme a [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt ). Una durata TTL pari a 0 indica che i resolver DNS a valle non memorizzano nella cache le risposte alle query; tutte le query vengono ricevute dai server DNS di Gestione traffico per essere risolte.
 
 ### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Come si può verificare il volume delle query destinate al profilo personale? 
-Una delle metriche fornite da Gestione traffico è costituita dal numero di query a cui un profilo risponde. È possibile ottenere queste informazioni tramite un'aggregazione a livello di profilo oppure è possibile suddividerle ulteriormente per visualizzare il volume di query in cui sono stati restituiti endpoint specifici. È anche possibile configurare avvisi per l'invio di notifiche se il volume di risposte delle query soddisfa le condizioni impostate. Per altri dettagli, vedere [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md) (Metriche e avvisi di Gestione traffico).
+Una delle metriche fornite da Gestione traffico è costituita dal numero di query cui un profilo risponde. È possibile ottenere queste informazioni tramite un'aggregazione a livello di profilo oppure è possibile suddividerle ulteriormente per visualizzare il volume di query in cui sono stati restituiti endpoint specifici. È anche possibile configurare avvisi per l'invio di notifiche se il volume di risposte delle query soddisfa le condizioni impostate. Per altri dettagli, vedere [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md) (Metriche e avvisi di Gestione traffico).
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Metodi geografico di routing del traffico di Gestione traffico
 
@@ -134,16 +131,49 @@ Un'area può essere assegnata a un solo endpoint all'interno di un profilo se us
 
 Sì, solo l'API versione 2017-03-01 e versioni successive supportano il routing di tipo geografico. Le versioni precedenti dell'API non possono essere usate per creare profili con routing di tipo Geografico o assegnare aree geografiche agli endpoint. Se viene usata una versione precedente dell'API per recuperare i profili da una sottoscrizione di Azure, non vengono restituiti profili con routing di tipo Geografico. Inoltre, quando si usano versioni precedenti dell'API, tutti i profili restituiti che hanno endpoint con un'area geografica assegnata non mostreranno l'area geografica assegnata.
 
+## <a name="traffic-manager-subnet-traffic-routing-method"></a>Metodo di routing del traffico Subnet di Gestione traffico
+
+### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Quali sono alcuni casi di uso in cui il routing della subnet è utile?
+Il routing della subnet consente di differenziare l'esperienza per gruppi specifici di utenti identificati dall'IP di origine del relativo indirizzo IP delle richieste DNS. Un esempio è la visualizzazione di un contenuto diverso se gli utenti si connettono a un sito Web dalla sede centrale dell'azienda. Un altro esempio può essere limitare gli utenti di alcuni ISP in modo che accedano solo agli endpoint che supportano solo le connessioni IPv4 se la qualità delle prestazioni di tali ISP si riduce quando si usa IPv6.
+Un altro motivo per usare il metodo di routing Subnet è la combinazione con altri profili in un set di profili annidati. Ad esempio, se si vuole usare il metodo di routing Geografico per creare un recinto virtuale per gli utenti, ma per un ISP specifico si vuole usare un metodo di routing diverso, è possibile avere un profilo con metodo di routing Subnet come profilo padre ed eseguire l'override di tale ISP in modo da usare un profilo figlio specifico e usare il profilo Geografico standard per tutti gli altri.
+
+### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>In che modo Gestione traffico riconosce l'indirizzo IP dell'utente finale?
+I dispositivi degli utenti finali usano in genere un sistema di risoluzione DNS per eseguire la ricerca DNS per loro conto. L'indirizzo IP in uscita di questi resolver è quello visualizzato da Gestione traffico come indirizzo IP di origine. Inoltre, il metodo di routing Subnet verifica anche se esistono informazioni ECS (Extended Client Subnet) EDNS0 passate con la richiesta. Se le informazioni ECS sono presenti, quello è l'indirizzo usato per determinare il routing. In assenza di informazioni ECS, l'indirizzo IP di origine della query viene usato a scopo di routing.
+
+### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>Come si possono specificare gli indirizzi IP quando si usa il routing Subnet?
+Gli indirizzi IP da associare a un endpoint possono essere specificati in due modi. Prima di tutto, è possibile usare la notazione decimale puntata in ottetti con indirizzi di inizio e fine per specificare l'intervallo (ad esempio, 1.2.3.4-5.6.7.8 o 3.4.5.6-3.4.5.6). In secondo luogo, è possibile usare la notazione CIDR per specificare l'intervallo (ad esempio, 1.2.3.0/24). È possibile specificare più intervalli e usare entrambi i tipi di notazione in un intervallo impostato. Si applicano alcune restrizioni.
+-   Poiché ogni indirizzo IP deve essere mappato solo a un singolo endpoint non è possibile sovrapporre gli intervalli di indirizzi
+-   L'indirizzo iniziale non può superare l'indirizzo finale
+-   Nel caso della notazione CIDR, l'indirizzo IP prima di "/" deve essere l'indirizzo iniziale dell'intervallo. Ad esempio, 1.2.3.0/24 è valido, ma 1.2.3.4.4/24 NON lo è
+
+### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Come si può specificare un endpoint di fallback quando si usa il routing Subnet?
+In un profilo con il routing di tipo Subnet, se si usa un endpoint senza subnet mappate, qualsiasi richiesta che non corrisponde ad altri endpoint verrà indirizzata qui. Si consiglia vivamente di avere tale endpoint di fallback nel proprio profilo poiché Gestione traffico restituirà una risposta NXDOMAIN se arriva una richiesta e non viene mappata ad alcun endpoint o se viene mappata a un endpoint ma tale endpoint non è integro.
+
+### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>Cosa accade se un endpoint è disabilitato in un profilo con routing Subnet?
+In un profilo con routing Subnet, se un endpoint è presente ma disabilitato, Gestione traffico si comporta come se tale endpoint e i relativi mapping della subnet non esistessero. Se si riceve una query corrispondente al mapping dell'indirizzo IP e l'endpoint è disabilitato, Gestione traffico restituisce un endpoint di fallback (uno con nessun mapping). In alternativa, se questo endpoint non è presente, viene restituita una risposta NXDOMAIN.
+
+## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Metodo di routing del traffico Multivalore di Gestione traffico
+
+### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>Quali sono alcuni casi di uso in cui il routing multivalore è utile?
+Il routing multivalore restituisce più endpoint integri in risposta a una singola query. Il vantaggio principale di questo approccio è che, se un endpoint non è integro, il client ha più possibilità di ripetere il tentativo senza effettuare un'altra chiamata DNS, che potrebbe restituire lo stesso valore da una cache upstream. Questo vale per le applicazioni sensibili in termini di disponibilità in cui è opportuno ridurre al minimo il tempo di inattività.
+Un altro uso del metodo di routing multivalore è se un endpoint è "dual-homed" in entrambi gli indirizzi IPv4 e IPv6 e si vuole assegnare al chiamante le due opzioni tra cui scegliere quando avvia una connessione all'endpoint.
+
+### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>Quanti endpoint vengono restituiti quando si usa il routing multivalore?
+È possibile specificare il numero massimo di endpoint da restituire perché il routing multivalore restituisca un numero di endpoint non superiore a quelli integri quando viene ricevuta una query. Il valore massimo possibile per questa configurazione è 10.
+
+### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>Si riceve lo stesso set di endpoint quando si usa il routing multivalore?
+Non è possibile garantire che in ogni query venga restituito lo stesso set di endpoint. Questo dipende anche dal fatto che alcuni degli endpoint potrebbero non essere più integri e per questo non verranno inclusi nella risposta
+
 ## <a name="real-user-measurements"></a>Misurazioni utente reale
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quali sono i vantaggi offerti dall'utilizzo di Misurazioni utente reale?
-Quando si usa il metodo di routing basato sulle prestazioni, Gestione traffico seleziona l'area di Azure migliore a cui l'utente finale può connettersi, controllando l'IP di origine e la subnet client EDNS (se passata) e confrontandoli con l'intelligence di latenza di rete gestita dal servizio. La funzionalità Misurazioni utente reale migliora questo scenario facendo in modo che le esperienze della base di utenti finali contribuiscano a questa tabella di latenza e assicurando che la tabella includa adeguatamente le reti degli utenti finali da cui gli utenti finali si connettono ad Azure. In questo modo si ottiene una maggiore precisione nel routing degli utenti finali.
+Quando si usa il metodo di routing basato sulle prestazioni, Gestione traffico seleziona l'area di Azure migliore a cui l'utente finale può connettersi, controllando l'IP di origine e la subnet client EDNS (se passata) e confrontandoli con l'intelligence di latenza di rete gestita dal servizio. La funzionalità Misurazioni utente reale migliora questo scenario facendo in modo che le esperienze della base di utenti finali contribuiscano a questa tabella di latenza e assicurando che la tabella includa adeguatamente le reti degli utenti finali da cui gli utenti finali si connettono ad Azure. In questo modo, si ottiene una maggiore precisione nel routing degli utenti finali.
 
 ### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>È possibile usare Misurazioni utente reale con aree non di Azure?
 La funzionalità Misurazioni utente finale misura e riporta solo la latenza per raggiungere le aree di Azure. Se si usa il routing basato sulle prestazioni con endpoint ospitati in aree non di Azure, è comunque possibile beneficiare di questa funzionalità facendo in modo che le informazioni di latenza aumentata sull'area di Azure rappresentativa precedentemente selezionata vengano associate a questi endpoint.
 
 ### <a name="which-routing-method-benefits-from-real-user-measurements"></a>Quale metodo di routing trae vantaggio dalla funzionalità Misurazioni utente reale?
-Le informazioni aggiuntive ottenute tramite Misurazioni utente reale sono applicabili solo ai profili che usano il metodo di routing basato sulle prestazioni. Si noti che il collegamento Misurazioni utente reale è disponibile da tutti i profili quando lo si visualizza tramite il portale di Azure.
+Le informazioni aggiuntive ottenute tramite Misurazioni utente reale sono applicabili solo ai profili che usano il metodo di routing basato sulle prestazioni. Il collegamento delle misurazioni utente reale è disponibile da tutti i profili quando viene visualizzato tramite il portale di Azure.
 
 ### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>È necessario abilitare Misurazioni utente reale per ogni profilo separatamente?
 No, basta abilitare la funzionalità una sola volta per ogni sottoscrizione e tutte le informazioni di latenza misurate e riportate diventano disponibili per tutti i profili.
@@ -157,12 +187,12 @@ No, basta abilitare la funzionalità una sola volta per ogni sottoscrizione e tu
 Sì, Misurazioni utente reale è progettata per inserire i dati raccolti tramite tipi diversi di client utente finale. Queste domande frequenti verranno aggiornate man mano che verranno supportati nuovi tipi di applicazioni client.
 
 ### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>Quante misurazioni vengono effettuate ogni volta che viene eseguito il rendering di una pagina Web con Misurazioni utente reale abilitata?
-Quando Misurazioni utente reale viene usata con il codice JavaScript di misurazione specificato, ogni rendering di pagina restituisce sei misurazioni. Queste misurazioni vengono quindi riportate al servizio Gestione traffico. Si noti che l'addebito per questa funzionalità avviene in base al numero di misurazioni riportate al Gestione traffico. Se, ad esempio, l'utente esce dalla pagina Web durante le misurazioni ma prima che queste siano riportate al servizio,tali misurazioni non vengono considerate per la fatturazione.
+Quando Misurazioni utente reale viene usata con il codice JavaScript di misurazione specificato, ogni rendering di pagina restituisce sei misurazioni. Queste misurazioni vengono quindi riportate al servizio Gestione traffico. L'addebito per questa funzionalità avviene in base al numero di misurazioni indicate al servizio Gestione traffico. Se, ad esempio, l'utente esce dalla pagina Web durante le misurazioni ma prima che queste siano riportate al servizio,tali misurazioni non vengono considerate per la fatturazione.
 
 ### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>È presente un ritardo prima dell'esecuzione dello script di Misurazioni utente reale nella pagina Web?
 No, non vi sono ritardi programmati prima che lo script venga richiamato.
 
-### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>È possibile configurare Misurazioni utente reale solo con le aree di Azure che si intende misurare?
+### <a name="can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>È possibile usare misurazioni utente reale solo con le aree di Azure che si intende misurare?
 No, ogni volta che viene chiamato, lo script di Misurazioni utente reale misura un set di sei aree di Azure determinato dal servizio. Questo set cambia tra una chiamata e l'altra e, quando si verificano tante chiamate, la copertura delle misurazioni spazia tra aree di Azure diverse.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>È possibile limitare il numero di misurazioni effettuate a un numero specifico?
@@ -178,7 +208,7 @@ Poiché la logica di misurazione viene eseguita dall'applicazione client, si ha 
 Quando si incorpora lo script di misurazione in una pagina Web, gli altri utenti possono visualizzare lo script e la chiave di Misurazioni utente reale. È tuttavia importante sapere che questa chiave è diversa dall'ID sottoscrizione e viene generata da Gestione traffico per essere usata solo a questo scopo. Il fatto che altri utenti conoscano la chiave di Misurazioni utente reale di un utente non compromette la sicurezza dell'account di Azure che la usa.
 
 ### <a name="can-others-abuse-my-rum-key"></a>È possibile che altri utenti usino la chiave di Misurazioni utente reale di un utente senza autorizzazione?
-Sebbene sia possibile che altri utenti usino la chiave di un utente per inviare informazioni errate ad Azure, la presenza di alcune misurazioni errate non cambia il routing, in quanto viene preso in considerazione insieme a tutte le altre misurazioni ricevute. Se è necessario modificare le chiavi, è possibile generare la chiave nuovamente e a quel punto la chiave precedente viene eliminata.
+Benché altri utenti possano usare la chiave dell'utente per inviare informazioni errate ad Azure, la presenza di alcune misurazioni errate non influisce sul routing, in quanto viene preso in considerazione insieme a tutte le altre misurazioni ricevute. Se è necessario modificare le chiavi, è possibile generare la chiave nuovamente e a quel punto la chiave precedente viene eliminata.
 
 ###  <a name="do-i-need-to-put-the-measurement-javascript-in-all-my-web-pages"></a>È necessario inserire il codice JavaScript di misurazione in tutte le pagine Web?
 Il servizio Misurazioni utente reale diventa più prezioso man mano che il numero delle misurazioni aumenta. Spetta comunque all'utente valutare se è necessario inserirlo in tutte le pagine Web o solo in alcune. Si consiglia di iniziare inserendolo nella pagina più visitata, dove si presume che gli utenti vi rimangano per almeno cinque secondi.
@@ -190,10 +220,10 @@ Quando si usa il codice JavaScript di misurazione, Gestione traffico può vedere
 No, non deve necessariamente usare Gestione traffico. Il lato routing di Gestione traffico opera separatamente dal lato Misurazioni utente reale e, sebbene sia molto utile usarli entrambi nella stessa proprietà Web, non è obbligatorio.
 
 ### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>È necessario ospitare un qualsiasi servizio nelle aree di Azure da usare con Misurazioni utente reale?
-No, non è necessario ospitare alcun componente lato server in Azure perché Misurazioni utente reale funzioni. L'immagine a pixel singolo scaricata dal codice JavaScript di misurazione e il servizio che lo esegue in aree di Azure diverse sono ospitati e gestiti da Azure. 
+No, non è necessario ospitare alcun componente lato server in Azure perché le misurazioni utente reale funzionino. L'immagine a pixel singolo scaricata dal codice JavaScript di misurazione e il servizio che lo esegue in aree di Azure diverse sono ospitati e gestiti da Azure. 
 
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>L'utilizzo della larghezza di banda di Azure aumenta quando si usa Misurazioni utente reale?
-Come indicato nella risposta precedente, i componenti lato server di Misurazioni utente reale sono di proprietà e gestiti da Azure. Questo significa che l'uso di Misurazioni utente reale non determina un aumento dell'utilizzo della larghezza di banda. Si noti che questo non include qualsiasi utilizzo della larghezza di banda al di fuori di quanto viene addebitato da Azure. La larghezza di banda usata per scaricare solo un'immagine a pixel singolo viene limitata alla misurazione della latenza a un'area di Azure. 
+Come indicato nella risposta precedente, i componenti lato server di Misurazioni utente reale sono di proprietà e gestiti da Azure. Questo significa che l'uso di Misurazioni utente reale non determina un aumento dell'utilizzo della larghezza di banda. Non è incluso alcun utilizzo della larghezza di banda al di fuori di quanto viene addebitato da Azure. La larghezza di banda usata per scaricare solo un'immagine a pixel singolo viene limitata alla misurazione della latenza a un'area di Azure. 
 
 ## <a name="traffic-view"></a>Visualizzazione traffico
 
@@ -257,7 +287,7 @@ Sì. Gli slot di "staging" del servizio cloud possono essere configurati come en
 
 Attualmente Gestione traffico non fornisce server dei nomi indirizzabili tramite IPv6. Può comunque essere usato da client IPv6 che si connettono a endpoint IPv6. Un client non invia richieste DNS direttamente a Gestione traffico, ma usa un servizio DNS ricorsivo. Un client solo IPv6 invia richieste al servizio DNS ricorsivo tramite IPv6. Il servizio ricorsivo può quindi contattare i server dei nomi di Gestione traffico tramite IPv4.
 
-Gestione traffico risponde con il nome DNS dell'endpoint. Per supportare un endpoint IPv6, è necessaria la presenza di un record AAAA DNS che punti il nome DNS dell'endpoint all'indirizzo IPv6. I controlli di integrità di Gestione traffico supportano soltanto gli indirizzi IPv4. Il servizio deve esporre un endpoint IPv4 sullo stesso nome DNS.
+Gestione traffico risponde con il nome DNS o l'indirizzo IP dell'endpoint. Per supportare un endpoint IPv6, sono disponibili due opzioni. È possibile aggiungere l'endpoint come nome DNS cui è associato un record AAAA perché Gestione traffico verifichi l'integrità dell'endpoint e lo restituisca come tipo di record CNAME nella risposta alla query. È anche possibile aggiungere l'endpoint direttamente usando l'indirizzo IPv6 e Gestione traffico restituisce un record di tipo AAAA nella risposta alla query. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>È possibile usare Gestione traffico con più app Web nella stessa area?
 
@@ -300,6 +330,46 @@ Gestione traffico non prevede alcuna convalida di certificati, tra cui:
 * I certificati SNI sul lato server non sono supportati
 * I certificati client non sono supportati
 
+### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Si usa un indirizzo IP o un nome DNS quando si aggiunge un endpoint?
+Gestione traffico supporta l'aggiunta degli endpoint usando tre modi per farvi riferimento: come nome DNS, come indirizzo IPv4 e come indirizzo IPv6. Se l'endpoint viene aggiunto come indirizzo IPv4 o IPv6, la risposta alla query sarà rispettivamente il tipo di record A o AAAA. Se l'endpoint è stato aggiunto come nome DNS, la risposta alla query sarà il tipo di record CNAME. L'aggiunta di endpoint come indirizzo IPv4 o IPv6 è consentita solo se l'endpoint è di tipo **Esterno**.
+Tutti i metodi di routing e le impostazioni di monitoraggio sono supportati dai tre tipi di indirizzamento endpoint.
+
+### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Quali tipi di indirizzi IP è possibile usare quando si aggiunge un endpoint?
+Gestione traffico consente di usare gli indirizzi IPv4 o IPv6 per specificare gli endpoint. Esistono alcune restrizioni elencate di seguito:
+- Gli indirizzi che corrispondono a spazi indirizzi IP privati riservati non sono consentiti. Questi indirizzi includono quelli indicati nelle specifiche RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 e RFC 5771
+- L'indirizzo non deve contenere numeri di porta (è possibile specificare le porte da usare nelle impostazioni di configurazione del profilo) 
+- Due endpoint nello stesso profilo non possono avere lo stesso indirizzo IP di destinazione
+
+### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>È possibile usare tipi di indirizzamento diversi per gli endpoint all'interno di un singolo profilo?
+No, Gestione traffico non consente di combinare diversi tipi di indirizzamento degli endpoint all'interno di un profilo, ad eccezione del caso di un profilo con tipo di routing multivalore in cui è possibile combinare i tipi di indirizzamento IPv4 e IPv6
+
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>Cosa accade quando il tipo di record di una query in ingresso è diverso dal tipo di record associato al tipo di indirizzamento degli endpoint?
+Quando si riceve una query per un profilo, Gestione traffico per prima cosa individua l'endpoint che deve essere restituito in base al metodo di routing specificato e allo stato di integrità degli endpoint. Quindi esamina il tipo di record richiesto nella query in ingresso e il tipo di record associato all'endpoint prima di restituire una risposta in base alla tabella che segue.
+
+Per i profili con metodo di routing diverso da Multivalore:
+|Richiesta query in ingresso|    Tipo di endpoint|  Risposta specificata|
+|--|--|--|
+|ANY |  A / AAAA / CNAME |  Endpoint di destinazione| 
+|Una  |    A / CNAME | Endpoint di destinazione|
+|Una  |    AAAA |  NODATA |
+|AAAA | AAAA / CNAME |  Endpoint di destinazione|
+|AAAA | Una  | NODATA |
+|CNAME |    CNAME | Endpoint di destinazione|
+|CNAME  |A / AAAA | NODATA |
+|
+Per i profili con metodo di routing impostato su Multivalore:
+
+|Richiesta query in ingresso|    Tipo di endpoint | Risposta specificata|
+|--|--|--|
+|ANY |  Combinazione di A e AAAA | Endpoint di destinazione|
+|Una  |    Combinazione di A e AAAA | Solo endpoint di destinazione di tipo A|
+|AAAA   |Combinazione di A e AAAA|     Solo endpoint di destinazione di tipo AAAA|
+|CNAME |    Combinazione di A e AAAA | NODATA |
+
+### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>È possibile usare un profilo con endpoint con indirizzi IPv4 o IPv6 in un profilo annidato?
+Sì, è possibile con l'eccezione che un profilo di tipo Multivalore non può essere un profilo padre in un profilo annidato impostato.
+
+
 ### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>L'endpoint del servizio cloud e dell'applicazione Web Azure è stato interrotto nel profilo di Gestione traffico, ma non si riceve traffico neanche dopo il riavvio. Come si risolve questo problema?
 
 Quando un endpoint del servizio cloud e dell'applicazione Web Azure viene interrotto, Gestione traffico non ne verifica più l'integrità e riavvia i controlli di integrità solo quando rileva che l'endpoint è stato riavviato. Per evitare questo ritardo, disabilitare e riabilitare l'endpoint nel profilo di Gestione traffico dopo aver riavviato l'endpoint.   
@@ -326,9 +396,13 @@ Con queste impostazioni Gestione traffico può segnalare i failover entro 10 sec
 
 Le impostazioni di monitoraggio di Gestione traffico sono configurate a livello di profilo. Se è necessario usare un'impostazione di monitoraggio diversa per un unico endpoint, è consigliabile configurare tale endpoint come [profilo annidato](traffic-manager-nested-profiles.md), con impostazioni di monitoraggio diverse da quelle del profilo padre.
 
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>Quali intestazione host viene usata per i controlli di integrità degli endpoint?
+### <a name="how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints"></a>Come si assegnano le intestazioni HTTP ai controlli di integrità di Gestione traffico per gli endpoint?
+Gestione traffico consente di specificare intestazioni personalizzate nei controlli di integrità HTTP(S) avviati per gli endpoint. Per specificare un'intestazione personalizzata, è possibile eseguire questa operazione a livello di profilo (applicabile a tutti gli endpoint) o a livello di endpoint. Se un'intestazione viene definita su entrambi i livelli, quella specificata a livello di endpoint sostituirà quella a livello di profilo.
+Un caso d'uso comune è specificare intestazioni host in modo che le richieste di Gestione traffico possano essere instradate correttamente a un endpoint ospitato in un ambiente multi-tenant. Un altro caso d'uso è identificare le richieste di Gestione traffico dai log delle richieste HTTP(S) di un endpoint.
 
-Gestione traffico usa le intestazioni host nei controlli di integrità HTTP e HTTPS. L'intestazione host usata da Gestione traffico è il nome dell'endpoint di destinazione configurato nel profilo. Il valore usato nell'intestazione host non può essere specificato separatamente dalla proprietà target.
+## <a name="what-host-header-do-endpoint-health-checks-use"></a>Quali intestazione host viene usata per i controlli di integrità degli endpoint?
+Se non viene specificata alcuna impostazione di intestazione host personalizzata, l'intestazione host usata da Gestione traffico è il nome DNS della destinazione dell'endpoint configurata nel profilo, se disponibile. 
+
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quali sono gli indirizzi IP da cui si originano i controlli di integrità?
 

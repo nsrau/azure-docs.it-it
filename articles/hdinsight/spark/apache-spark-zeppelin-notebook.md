@@ -9,20 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9b076709ee24c61b2699672d28bd61204c88a744
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e32939f3e253bfdd6f8d989f616f30e1b9f27eb
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048042"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364864"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Usare i notebook di Zeppelin con cluster Apache Spark in Azure HDInsight
 
 I cluster HDInsight Spark includono notebook Zeppelin che possono essere usati per eseguire processi Spark. Questo articolo illustra come usare il notebook Zeppelin in un cluster HDInsight.
-
-> [!NOTE]
-> I notebook Zeppelin sono disponibili solo per Spark 1.6.3 in HDInsight 3.5 e Spark 2.1.0 in HDInsight 3.6.
->
 
 **Prerequisiti:**
 
@@ -50,7 +46,7 @@ I cluster HDInsight Spark includono notebook Zeppelin che possono essere usati p
    
     Nel paragrafo vuoto creato per impostazione predefinita del nuovo notebook, incollare il frammento di codice riportato di seguito.
    
-        %livy.spark
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
@@ -77,6 +73,11 @@ I cluster HDInsight Spark includono notebook Zeppelin che possono essere usati p
     ![Creare una tabella temporanea dai dati non elaborati](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Creare una tabella temporanea dai dati non elaborati")
    
     È inoltre possibile fornire un titolo a ogni paragrafo. Nell'angolo superiore destro fare clic sull'icona **Settings** (Impostazioni) e quindi su **Show title** (Mostra titolo).
+
+> [!NOTE]
+> L'interprete %spark2 non è supportato nei notebook Zeppelin in tutte le versioni di HDInsight e l'interprete %sh non sarà supportato a partire da HDInsight 4.0.
+>
+
 1. È ora possibile eseguire istruzioni SQL Spark su tabella **hvac** . Incollare la query seguente in un nuovo paragrafo. La query recupera l'ID dell'edificio e la differenza tra le temperature effettive e quelle di destinazione per ogni edificio in una determinata data. Premere **MAIUSC + INVIO**.
    
         %sql

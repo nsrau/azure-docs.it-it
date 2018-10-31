@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 5678b8408eac303d9036d21612f60fafc325425d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 983a551da26e08797b2a65f609cff17954a52828
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801914"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954813"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuità aziendale e ripristino di emergenza nelle aree geografiche abbinate di Azure
 
@@ -33,6 +33,7 @@ Figura 1: coppie di aree di Azure
 | Brasile |Brasile meridionale 2 |Stati Uniti centro-meridionali |
 | Canada |Canada centrale |Canada orientale |
 | Cina |Cina settentrionale |Cina orientale|
+| Cina |Cina settentrionale 2 |Cina orientale 2|
 | Europa |Europa settentrionale |Europa occidentale |
 | Francia |Francia centrale|Francia meridionale|
 | Germania |Germania centrale |Germania nord-orientale |

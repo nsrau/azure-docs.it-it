@@ -5,21 +5,23 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 837601a55bbe97e904f3dece9f4c87563d6dd4e9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144919"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092678"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Creare un modello nel portale di Azure
 
 La funzione finestra di progettazione Web di Azure Analysis Services (anteprima) nel portale di Azure offre un modo semplice e rapido per creare e modificare modelli tabulari ed eseguire query nei dati dei modelli direttamente dal browser in uso. 
 
-Tenere presente che la finestra di progettazione Web è in versione di **anteprima**. La funzionalità è limitata. Per operazioni più avanzate di sviluppo e testing dei modelli, è consigliabile usare Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
+> [!IMPORTANT]
+> Questa funzionalità è deprecata. Potrebbe venire rimossa o cambiata in modo significativo in un aggiornamento futuro. È consigliabile interrompere l'uso di questa funzionalità nei progetti nuovi ed esistenti per mantenere la compatibilità con gli aggiornamenti futuri. Per operazioni più avanzate di sviluppo e testing dei modelli, è consigliabile usare Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
+
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 

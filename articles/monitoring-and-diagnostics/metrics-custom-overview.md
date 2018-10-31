@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c136772e27dab014c22234f1ef1d2baddd2ffe58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1bdf1e1f5e58ecb0939d5876e0cef349e32de517
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978081"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344751"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Metriche personalizzate in Monitoraggio di Azure
 
@@ -29,9 +29,9 @@ Le metriche personalizzate possono essere inviate a Monitoraggio di Azure in mod
 
 Quando si inviano le metriche personalizzate a Monitoraggio di Azure, ogni punto dati (o valore) segnalato deve includere le informazioni seguenti:
 
-### <a name="authentication"></a>Autenticazione
+### <a name="authentication"></a>Authentication
 Per inviare le metriche personalizzate a Monitoraggio di Azure, l'entità a cui inviare la metrica deve disporre di un token di Azure Active Directory valido nell'intestazione "Bearer" della richiesta. Sono supportati alcuni modi per acquisire un token di connessione valido:
-1. [Identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) - Assegna un'identità a una risorsa di Azure (ad esempio una macchina virtuale). L'identità del servizio gestita assegna alle risorse le autorizzazioni per eseguire determinate operazioni, ad esempio consente a una risorsa di generare metriche su se stessa. A una risorsa (o alla relativa identità del servizio gestita) possono essere concesse le autorizzazioni di autore delle metriche di monitoraggio, consentendo in tal modo all'identità del servizio gestita di generare metriche anche per le altre risorse.
+1. [Identità gestite per risorse di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) - Assegna un'identità a una risorsa di Azure (ad esempio una macchina virtuale). L'identità del servizio gestita assegna alle risorse le autorizzazioni per eseguire determinate operazioni, ad esempio consente a una risorsa di generare metriche su se stessa. A una risorsa (o alla relativa identità del servizio gestita) possono essere concesse le autorizzazioni di autore delle metriche di monitoraggio, consentendo in tal modo all'identità del servizio gestita di generare metriche anche per le altre risorse.
 2. [Entità servizio AAD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) - In questo scenario a un'applicazione AAD (servizio) possono essere concesse autorizzazioni per generare metriche su una risorsa di Azure.
 Per autenticare la richiesta, Monitoraggio di Azure convalida il token dell'applicazione usando le chiavi pubbliche di AAD. Il ruolo di autore delle metriche di monitoraggio dispone già di tale autorizzazione, disponibile nel portale di Azure. All'entità servizio, in base alle risorse per cui genera le metriche personalizzate, può essere assegnato il ruolo di autore delle metriche di monitoraggio nell'ambito richiesto (sottoscrizione, gruppo di risorse o risorsa specifica).
 
@@ -46,7 +46,7 @@ Questa proprietà consente di acquisire l'ID risorsa di Azure per cui viene indi
 >
 >
 
-### <a name="region"></a>Area
+### <a name="region"></a>Region
 Questa proprietà consente di acquisire l'area di Azure in cui è distribuita la risorsa per cui si generano le metriche. Le metriche devono essere inviate allo stesso endpoint regionale di Monitoraggio di Azure dell'area in cui la risorsa è distribuita. Per una macchina virtuale distribuita negli Stati Uniti occidentali, ad esempio, le metriche personalizzate devono essere inviate all'endpoint di Monitoraggio di Azure in tale area. Le informazioni sulle aree sono codificate anche nell'URL della chiamata API.
 
 > [!NOTE]
@@ -60,7 +60,7 @@ Ogni punto dati inviato a Monitoraggio di Azure deve essere contrassegnato con u
 ### <a name="namespace"></a>Spazio dei nomi
 Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Gli spazi dei nomi consentono di isolare i gruppi di metriche per cui possono essere raccolte informazioni dettagliate o indicatori di prestazioni diversi. Possono essere presenti, ad esempio, uno spazio dei nomi denominato *ContosoMemoryMetrics*, usato per monitorare le metriche di consumo della memoria, e un altro spazio dei nomi denominato *ContosoAppTransaction* che tiene traccia di tutti metriche relative alle transazioni utente nell'applicazione.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>NOME
 Nome della metrica indicata. In genere il nome è sufficientemente descrittivo per aiutare a identificare l'elemento misurato. Una metrica che misura il numero di byte di memoria usati in una determinata macchina virtuale, ad esempio, può essere denominata "Byte di memoria in uso".
 
 ### <a name="dimension-keys"></a>Chiavi di dimensione

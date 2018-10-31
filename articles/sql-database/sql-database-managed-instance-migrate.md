@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 10/15/2018
+ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394062"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345306"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migrazione di un'istanza di SQL Server a Istanza gestita di database SQL di Azure
 
@@ -38,9 +38,9 @@ A livello generale, il processo di migrazione del database è simile a quello in
 
 ## <a name="assess-managed-instance-compatibility"></a>Valutare la compatibilità di Istanza gestita
 
-Per prima cosa, determinare se Istanza gestita è compatibile con i requisiti di database dell'applicazione. Il servizio Istanza gestita è progettato per consentire una facile migrazione in modalità lift-and-shift della maggior parte delle applicazioni che usano SQL Server in locale o in macchine virtuali. Talvolta, tuttavia, possono essere necessarie caratteristiche o funzionalità non ancora supportate e il costo di implementazione di una soluzione alternativa è troppo elevato. 
+Per prima cosa, determinare se Istanza gestita è compatibile con i requisiti di database dell'applicazione. Il servizio Istanza gestita è progettato per consentire una facile migrazione in modalità lift-and-shift della maggior parte delle applicazioni che usano SQL Server in locale o in macchine virtuali. Talvolta, tuttavia, possono essere necessarie caratteristiche o funzionalità non ancora supportate e il costo di implementazione di una soluzione alternativa è troppo elevato.
 
-Per rilevare i potenziali problemi di compatibilità che influirebbero sulle funzionalità dei database nel database SQL di Azure, usare [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview). DMA non supporta ancora Istanza gestita come destinazione della migrazione, ma è consigliabile eseguire una valutazione rispetto al database SQL di Azure e confrontare attentamente l'elenco dei problemi di compatibilità e parità di funzionalità segnalati con la documentazione del prodotto. Vedere [Funzionalità di database SQL di Azure](sql-database-features.md) per controllare se sono stati segnalati problemi di blocco non presenti in Istanza gestita poiché la maggior parte dei problemi che impediscono la migrazione al database SQL di Azure è stata risolta con Istanza gestita. Nelle istanze gestite, ad esempio, sono disponibili funzionalità come le query tra database, le transazioni tra database nella stessa istanza, il server collegato per altre origini SQL, CLR, le tabelle temporanee globali, le viste a livello di istanza, Service Broker e così via. 
+Per rilevare i potenziali problemi di compatibilità che influirebbero sulle funzionalità dei database nel database SQL di Azure, usare [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview). DMA non supporta ancora Istanza gestita come destinazione della migrazione, ma è consigliabile eseguire una valutazione rispetto al database SQL di Azure e confrontare attentamente l'elenco dei problemi di compatibilità e parità di funzionalità segnalati con la documentazione del prodotto. Vedere [Funzionalità di database SQL di Azure](sql-database-features.md) per controllare se sono stati segnalati problemi di blocco non presenti in Istanza gestita poiché la maggior parte dei problemi che impediscono la migrazione al database SQL di Azure è stata risolta con Istanza gestita. Nelle istanze gestite, ad esempio, sono disponibili funzionalità come le query tra database, le transazioni tra database nella stessa istanza, il server collegato per altre origini SQL, CLR, le tabelle temporanee globali, le viste a livello di istanza, Service Broker e così via.
 
 Se sono presenti alcuni problemi di blocco che non sono stati risolti in Istanza gestita di database SQL di Azure, può essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in macchine virtuali in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Di seguito sono riportati alcuni esempi:
 
@@ -64,12 +64,12 @@ Per informazioni su come creare l'infrastruttura di rete virtuale e un'istanza g
 
 ## <a name="select-migration-method-and-migrate"></a>Selezionare il metodo ed eseguire la migrazione
 
-Il servizio Istanza gestita è destinato a scenari utente che prevedono la migrazione di massa di database da implementazioni di database locali o IaaS. Questa opzione è ottimale quando è necessario trasferire in modalità lift-and-shift il back-end di applicazioni che usano regolarmente funzionalità a livello di istanza e/o tra database. In questo scenario, è possibile spostare un'intera istanza in un ambiente corrispondente in Azure senza dover ridefinire l'architettura delle applicazioni. 
+Il servizio Istanza gestita è destinato a scenari utente che prevedono la migrazione di massa di database da implementazioni di database locali o IaaS. Questa opzione è ottimale quando è necessario trasferire in modalità lift-and-shift il back-end di applicazioni che usano regolarmente funzionalità a livello di istanza e/o tra database. In questo scenario, è possibile spostare un'intera istanza in un ambiente corrispondente in Azure senza dover ridefinire l'architettura delle applicazioni.
 
 Per spostare istanze di SQL, è necessario pianificare accuratamente quanto segue:
 
--   La migrazione di tutti i database da collocare (quelli in esecuzione nella stessa istanza)
--   La migrazione degli oggetti a livello di istanza da cui dipende l'applicazione, quali account di accesso, credenziali, operatori e processi di SQL Agent e trigger a livello di server. 
+- La migrazione di tutti i database da collocare (quelli in esecuzione nella stessa istanza)
+- La migrazione degli oggetti a livello di istanza da cui dipende l'applicazione, quali account di accesso, credenziali, operatori e processi di SQL Agent e trigger a livello di server.
 
 Istanza gestita è un servizio completamente gestito che consente di delegare alcune delle regolari attività di amministrazione di database alla piattaforma, perché sono predefinite. Di conseguenza, non è necessario eseguire la migrazione di alcuni dati a livello di istanza, come i processi di manutenzione per i backup regolari o la configurazione Always On, perché la [disponibilità elevata](sql-database-high-availability.md) è predefinita.
 
@@ -80,7 +80,7 @@ Istanza gestita supporta le opzioni di migrazione di database descritte di segui
 
 ### <a name="azure-database-migration-service"></a>Servizio Migrazione del database di Azure
 
-[Servizio Migrazione del database di Azure](../dms/dms-overview.md) è un servizio completamente gestito progettato per consentire migrazioni senza problemi da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti in Azure. Le opzioni di distribuzione in anteprima pubblica includono il database SQL di Azure, Istanza gestita e SQL Server in una macchina virtuale di Azure. Servizio Migrazione del database è il metodo di migrazione consigliato per i carichi di lavoro aziendali. 
+[Servizio Migrazione del database di Azure](../dms/dms-overview.md) è un servizio completamente gestito progettato per consentire migrazioni senza problemi da più origini di database alle piattaforme dati di Azure con tempi di inattività minimi. Questo servizio semplifica le attività necessarie per spostare database di SQL Server e di terze parti in Azure. Le opzioni di distribuzione in anteprima pubblica includono il database SQL di Azure, Istanza gestita e SQL Server in una macchina virtuale di Azure. Servizio Migrazione del database è il metodo di migrazione consigliato per i carichi di lavoro aziendali.
 
 Se si utilizza SQL Server Integration Services (SSIS) in SQL Server in locale, DMS non supporta ancora la migrazione del catalogo SSIS (SSISDB) in cui sono archiviati i pacchetti SSIS, ma è possibile eseguire il provisioning del runtime di integrazione Azure-SSIS in Azure Data Factory (ADF), che creerà un nuovo SSISDB nell'istanza gestita/database SQL di Azure. Sarà quindi possibile ridistribuire i pacchetti su di esso. Vedere [Creare il runtime di integrazione SSIS di Azure in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime).
 
@@ -88,7 +88,7 @@ Per altre informazioni su questo scenario e sulla procedura di configurazione pe
 
 ### <a name="native-restore-from-url"></a>Ripristino nativo da URL
 
-Il ripristino di backup nativi (file con estensione bak) ottenuti da SQL Server in locale o [SQL Server in macchine virtuali](https://azure.microsoft.com/services/virtual-machines/sql-server/) e disponibili in [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) è una delle funzionalità principali di Istanza gestita di database SQL e consente una migrazione di database offline semplice e rapida. 
+Il ripristino di backup nativi (file con estensione bak) ottenuti da SQL Server in locale o [SQL Server in macchine virtuali](https://azure.microsoft.com/services/virtual-machines/sql-server/) e disponibili in [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) è una delle funzionalità principali di Istanza gestita di database SQL e consente una migrazione di database offline semplice e rapida.
 
 Il diagramma seguente offre una panoramica di alto livello del processo:
 
@@ -121,6 +121,7 @@ Dopo essere passati a una piattaforma completamente gestita, usufruire dei vanta
 Non è inoltre necessario preoccuparsi della configurazione della disponibilità elevata, perché la [disponibilità elevata](sql-database-high-availability.md) è predefinita.
 
 Per potenziare la sicurezza, valutare la possibilità di usare alcune delle funzionalità disponibili:
+
 - Autenticazione di Azure Active Directory a livello di database
 - Per proteggere l'istanza, usare le [funzionalità di sicurezza avanzate](sql-database-security-overview.md), ad esempio [Controllo](sql-database-managed-instance-auditing.md), [Rilevamento delle minacce](sql-advanced-threat-protection.md), [Sicurezza a livello di riga](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) e [Maschera dati dinamica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
 

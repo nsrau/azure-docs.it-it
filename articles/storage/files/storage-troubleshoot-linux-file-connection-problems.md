@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 87190a7f46a209ae66ca47d9346ed4b5929ac8fd
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2ae116649de02c5602aa50d706f6a88ac5872960
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394202"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025855"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
 
@@ -180,7 +180,7 @@ ln -s linked -n t
 ln: failed to create symbolic link 't': Operation not supported
 ```
 ### <a name="solution"></a>Soluzione
-Il client Linux CIFS non supporta la creazione di collegamenti simbolici in stile Windows tramite il protocollo SMB2/3. Il client Linux attualmente supporta un altro stile di collegamenti simbolici, i [collegamenti simbolici Mishall+French] (https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) sia per creare che per seguire le operazioni. I clienti per i quali sono necessari collegamenti simbolici possono usare l'opzione di montaggio "mfsymlinks". L'opzione "mfsymlinks" è in genere consigliata perché è anche il formato usato dai computer Mac.
+Il client Linux CIFS non supporta la creazione di collegamenti simbolici in stile Windows tramite il protocollo SMB2/3. Il client Linux supporta attualmente un altro stile di collegamenti simbolici, i cosiddetti [collegamenti simbolici Mishall+French](https://wiki.samba.org/index.php/UNIX_Extensions#Minshall.2BFrench_symlinks) per le operazioni create e follow. I clienti per i quali sono necessari collegamenti simbolici possono usare l'opzione di montaggio "mfsymlinks". L'opzione "mfsymlinks" è in genere consigliata perché è anche il formato usato dai computer Mac.
 
 Per poter usare collegamenti simbolici, aggiungere quanto segue alla fine del comando di montaggio CIFS:
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/07/2018
+ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: 29b045266836ace35aab12c51746b7e339cbb88f
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354343"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024418"
 ---
 # <a name="virtual-machine-serial-console"></a>Console seriale per macchine virtuali
 
@@ -53,7 +53,6 @@ La console seriale per le macchine virtuali è accessibile solo tramite il [port
   3. Fare clic sulla macchina virtuale nell'elenco. Viene visualizzata la pagina Panoramica relativa alla macchina virtuale.
   4. Scorrere verso il basso fino alla sezione Supporto e risoluzione dei problemi e fare clic sull'opzione "Console seriale". Verrà aperto un nuovo riquadro con la console seriale e verrà avviata la connessione.
 
-
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Abilitare la console seriale nelle immagini personalizzate o precedenti
 Per le immagini di Windows Server più recenti in Azure la [console amministrativa speciale](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC, Special Administrative Console) è abilitata per impostazione predefinita. La console SAC è supportata nelle versioni server di Windows, ma non è disponibile nelle versioni client (ad esempio, Windows 10, Windows 8 o Windows 7). Per abilitare la console seriale per le macchine virtuali Windows create prima di febbraio 2018, seguire questa procedura: 
 
@@ -74,7 +73,7 @@ Se necessario, la console SAC può anche essere abilitata offline:
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>Come capire se la console SAC è abilitata?
 
-Se la console [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) non è abilitata, la console seriale non visualizzerà il prompt SAC. In alcuni casi, verranno visualizzate le informazioni di integrità della macchina virtuale e in altri casi sarà vuota. Se si usa un'immagine di Windows Server creata prima di febbraio 2018, la console SAC probabilmente non verrà abilitata.
+Se la [console SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) non è abilitata, nella console seriale non verrà visualizzato il prompt SAC. In alcuni casi, verranno visualizzate le informazioni di integrità della macchina virtuale e in altri casi sarà vuota. Se si usa un'immagine di Windows Server creata prima di febbraio 2018, la console SAC probabilmente non verrà abilitata.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Abilitare il menu di avvio di Windows nella console seriale 
 
@@ -93,11 +92,26 @@ Se è necessario abilitare i prompt del caricatore di avvio di Windows da visual
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Usare la console seriale per le chiamate NMI nelle macchine virtuali Windows
 Un interrupt non mascherabile (NMI) è progettato per creare un segnale che il software in una macchina virtuale non ignorerà. In passato, gli NMI sono stati usati per verificare la presenza di problemi hardware in sistemi che necessitavano di tempi di risposta specifici.  Oggi, gli amministratori di sistema e i programmatori usano spesso gli NMI come un meccanismo per eseguire il debug o risolvere i problemi di sistemi che sono bloccati.
 
-La console seriale può essere usata per inviare un NMI a una macchina virtuale di Azure usando l'icona della tastiera nella barra dei comandi, mostrata di seguito. Dopo che l'interrupt non mascherabile viene recapitato, la configurazione della macchina virtuale potrà controllare la modalità di risposta del sistema. Windows può essere configurato per l'arresto anomalo del sistema e per la creazione di un dump di arresto anomalo del sistema di memoria quando si riceve un NMI.
+La console seriale può essere usata per inviare un interrupt non mascherabile (NMI) a una macchina virtuale di Azure usando l'icona della tastiera sulla barra dei comandi, mostrata di seguito. Dopo che l'interrupt non mascherabile viene recapitato, la configurazione della macchina virtuale potrà controllare la modalità di risposta del sistema. Windows può essere configurato per l'arresto anomalo del sistema e per la creazione di un dump di arresto anomalo del sistema di memoria quando si riceve un NMI.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
 
 Per informazioni sulla configurazione di Windows per creare un dump di arresto anomalo del sistema quando riceve un NMI, vedere: [come generare un file di dump di arresto anomalo del sistema completo o un file di dump di arresto anomalo del sistema del kernel usando un NMI su un sistema basato su Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
+
+## <a name="open-cmd-or-powershell-in-serial-console"></a>Aprire CMD o Powershell nella console seriale
+
+1. Connettersi alla console seriale. Se ci si connette correttamente alla console seriale, verrà visualizzato il prompt **SAC>**, come illustrato nello screenshot seguente:
+
+    ![Connettersi a SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.  Digitare `cmd` per creare un canale con un'istanza di CMD. 
+4.  Digitare `ch -si 1` per passare al canale che esegue l'istanza di CMD. 
+5.  Premere INVIO e quindi immettere le credenziali di accesso con autorizzazioni amministrative.
+6.  Dopo avere immesso credenziali valide, verrà aperta l'istanza di CMD.
+7.  Per avviare un'istanza di PowerShell, digitare `PowerShell` nell'istanza di CMD e quindi premere INVIO. 
+
+    ![Aprire l'istanza di PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
 
 ## <a name="disable-serial-console"></a>Disabilitare la console seriale
 Per impostazione predefinita, tutte le sottoscrizioni hanno accesso alla console seriale in tutte le macchine virtuali. È possibile disabilitare la console seriale a livello di sottoscrizione o a livello di macchina virtuale.
@@ -110,7 +124,7 @@ La console seriale può essere disattivata per un'intera sottoscrizione tramite 
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-In alternativa, è possibile usare il set di comandi in Cloud Shell seguente (comandi bash mostrati) per disabilitare, abilitare e visualizzare lo stato disabilitato della console seriale per una sottoscrizione. 
+In alternativa, è possibile usare il set di comandi seguente in Cloud Shell (comandi Bash illustrati) per disabilitare, abilitare e visualizzare lo stato disabilitato della console seriale per una sottoscrizione. 
 
 * Per ottenere lo stato disabilitato della console seriale per una sottoscrizione:
     ```azurecli-interactive
@@ -196,7 +210,7 @@ La console seriale presenta alcuni problemi. Di seguito è riportato un elenco d
 
 Problema                             |   Mitigazione 
 :---------------------------------|:--------------------------------------------|
-Premendo INVIO dopo il banner della connessione, non viene visualizzato un prompt di accesso | Vedere questa pagina: [L'inserimento non esegue alcuna operazione](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo può verificarsi se è in esecuzione una macchina virtuale personalizzata, un'appliance con protezione avanzata o una configurazione di avvio che non consente a Windows di connettersi correttamente alla porta seriale. Questo si verifica anche se si esegue una macchina virtuale client Windows 10, perché solo le macchine virtuali Windows Server sono configurate per l'abilitazione di EMS.
+Premendo INVIO dopo il banner della connessione, non viene visualizzato un prompt di accesso | Vedere questa pagina: [Premendo INVIO non succede niente](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Questo può verificarsi se è in esecuzione una macchina virtuale personalizzata, un'appliance con protezione avanzata o una configurazione di avvio che non consente a Windows di connettersi correttamente alla porta seriale. Questo si verifica anche se si esegue una macchina virtuale client Windows 10, perché solo le macchine virtuali Windows Server sono configurate per l'abilitazione di EMS.
 Non è possibile digitare nel prompt SAC se è abilitato il debug del kernel | Effettuare una connessione RDP ed eseguire `bcdedit /debug {current} off` da un prompt dei comandi con privilegi elevati. Se non è possibile effettuare una connessione RDP, è invece possibile collegare il disco del sistema operativo a un'altra macchina virtuale di Azure e modificarlo mentre è collegato come disco dati usando `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, quindi effettuare lo swapping del disco.
 Incollare nei risultati SAC di PowerShell usando un terzo carattere se il contenuto originale aveva un carattere ripetuto | Una soluzione alternativa consiste nello scaricare il modulo PSReadLine dalla sessione corrente. Eseguire `Remove-Module PSReadLine` per scaricare il modulo PSReadLine dalla sessione corrente. Questo non eliminerà o disinstallerà il modulo.
 Alcuni input della tastiera producono output di configurazione SAC particolari (es `[A`, `[3~`) | Le sequenze di escape [VT100](https://aka.ms/vtsequences) non sono supportate per il prompt SAC.

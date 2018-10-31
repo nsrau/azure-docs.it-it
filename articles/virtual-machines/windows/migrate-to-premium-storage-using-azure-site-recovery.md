@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.component: disks
-ms.openlocfilehash: 5d3c2f09a6e4c45aa477cd85911147eab6de7a2c
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 7378331e5f7540d807c76511226fcd2ed99883fa
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714707"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404138"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 
@@ -77,8 +77,10 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 ### <a name="step-1-create-a-recovery-services-vault"></a>Passaggio 1: Creare l'insieme di credenziali dei servizi di ripristino
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
-2. Selezionare **Crea una risorsa** > **Gestione** > **Backup e Site Recovery (OMS)**. In alternativa, è possibile selezionare **Sfoglia** > **Insieme di credenziali dei servizi di ripristino** > **Aggiungi**. 
-3. Specificare un'area in cui verranno replicate le macchine virtuali. Per eseguire la migrazione nella stessa area, selezionare l'area in cui si trovano le VM di origine e gli account di archiviazione di origine. 
+2. Selezionare **Crea una risorsa** > **Gestione** > **Backup e Site Recovery (OMS)**. In alternativa, è possibile selezionare **Sfoglia** > **Insieme di credenziali dei servizi di ripristino** > **Aggiungi**.
+   >[!NOTE]
+   >Backup e Site Recovery in precedenza faceva parte della ![suite OMS](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+1. Specificare un'area in cui verranno replicate le macchine virtuali. Per eseguire la migrazione nella stessa area, selezionare l'area in cui si trovano le VM di origine e gli account di archiviazione di origine. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Passaggio 2: Scegliere gli obiettivi della protezione 
 

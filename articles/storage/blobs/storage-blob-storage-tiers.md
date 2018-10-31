@@ -5,15 +5,15 @@ services: storage
 author: kuhussai
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 922e7ed5d55f50b2069dad71ead73d9ef4475ed0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3aad10c398aa4f009ab29f4684cc500b6fb428e7
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389905"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427587"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Archivio BLOB di Azure: livelli di archiviazione Premium (anteprima), ad accesso frequente, ad accesso sporadico e archivio
 
@@ -37,9 +37,9 @@ Per i diversi livelli di archiviazione si possono fare le considerazioni seguent
 
 - L'archiviazione archivio è offline e offre i costi di archiviazione più bassi, ma anche i costi di accesso più alti.
  
-- È possibile impostare a livello di account solo i livelli di archiviazione ad accesso sporadico e ad accesso frequente, non il livello archivio.
+- È possibile impostare a livello di account solo i livelli di archiviazione ad accesso sporadico e ad accesso frequente. Al momento il livello archivio non può essere impostato a livello di account.
  
-- Tutti i livelli possono essere impostati a livello di oggetto.
+- I livelli ad accesso frequente, ad accesso sporadico e archivio possono essere impostati a livello di oggetto.
 
 La quantità di dati archiviati nel cloud è in crescita esponenziale. Per gestire i costi in base alle esigenze di archiviazione crescenti, può essere utile organizzare i dati in base ad attributi quali la frequenza di accesso e il periodo di conservazione pianificato, in modo da ottimizzare i costi. I dati archiviati nel cloud possono essere diversi dal punto di vista della generazione, dell'elaborazione e dell'accesso nel corso del tempo. Alcuni dati presentano accessi attivi e modifiche continue nel corso della rispettiva durata. Alcuni dati presentano un accesso frequente nelle fasi iniziali e l'accesso si riduce drasticamente con il passare del tempo. Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione.
 
@@ -49,7 +49,7 @@ Tutti questi scenari di accesso ai dati usufruiscono di un livello di archiviazi
 
 È possibile suddividere in livelli i dati dell'archivio oggetti, in dati ad accesso frequente, ad accesso sporadico o archivio, solo negli account di archiviazione BLOB o per utilizzo generico v2. Gli account per utilizzo generico v1 non supportano la suddivisione in livelli. I clienti possono tuttavia convertire facilmente gli account per utilizzo generico v1 o di archiviazione BLOB in account per utilizzo generico v2 tramite un semplice processo con un clic nel portale di Azure. L'utilizzo generico v2 fornisce un nuovo piano tariffario per BLOB, file e code, oltre all'accesso a diverse altre nuove funzionalità di archiviazione. In futuro inoltre alcune nuove funzionalità e tagli sui prezzi saranno offerti solo negli account per utilizzo generico v2. I clienti dovrebbero quindi valutare l'uso degli account v2, ma solo dopo avere verificato i prezzi per tutti i servizi perché alcuni carichi di lavoro nell'utilizzo generico v2 possono essere più costosi che nell'utilizzo generico v1. Per altre informazioni, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
 
-Gli account di archiviazione BLOB e per utilizzo generico v2 espongono l'attributo **Livello di accesso** a livello di account, consentendo così di specificare il livello di archiviazione predefinito come ad accesso frequente o ad accesso sporadico per tutti i BLOB dell'account di archiviazione il cui livello non è impostato a livello di oggetto. Per gli oggetti con il livello impostato a livello di oggetto, il livello di account non verrà applicato. Il livello archivio è applicabile solo a livello di oggetto. È possibile passare da uno di questi livelli di archiviazione all'altro in qualsiasi momento.
+Gli account di archiviazione BLOB e per utilizzo generico v2 espongono l'attributo **Livello di accesso** a livello di account, consentendo così di specificare il livello di archiviazione predefinito come ad accesso frequente o ad accesso sporadico per tutti i BLOB dell'account di archiviazione il cui livello non è impostato in modo esplicito a livello di oggetto. Per gli oggetti con il livello impostato a livello di oggetto, il livello di account non verrà applicato. Il livello archivio è applicabile solo a livello di oggetto. È possibile passare da uno di questi livelli di archiviazione all'altro in qualsiasi momento.
 
 ## <a name="premium-access-tier"></a>Livello di accesso Premium
 
@@ -86,7 +86,7 @@ Il livello di archiviazione ad accesso sporadico ha costi di archiviazione più 
 
 Il livello di archiviazione archivio ha costi di archiviazione più bassi e costi di recupero dati più alti rispetto all'archiviazione ad accesso sporadico e ad accesso frequente. Questo livello è destinato ai dati che possono tollerare alcune ore di latenza di recupero e rimarranno nel livello archivio per almeno 180 giorni.
 
-Quando un BLOB si trova nel livello di archiviazione archivio, è offline e non può essere letto (eccetto i metadati che sono online e disponibili), copiato, sovrascritto o modificato. o creare snapshot del BLOB. È tuttavia possibile usare le operazioni esistenti per eliminarli, elencarli, ottenere proprietà o metadati dei BLOB oppure modificare il livello dei BLOB.
+Quando un BLOB si trova nel livello di archiviazione archivio, è offline e non può essere letto (eccetto i metadati che sono online e disponibili), copiato, sovrascritto o modificato. Né è possibile creare snapshot del BLOB. È tuttavia possibile usare le operazioni esistenti per eliminarli, elencarli, ottenere proprietà o metadati dei BLOB oppure modificare il livello dei BLOB.
 
 Gli scenari di utilizzo di esempio per il livello di archiviazione archivio includono:
 
@@ -97,7 +97,7 @@ Gli scenari di utilizzo di esempio per il livello di archiviazione archivio incl
 ### <a name="blob-rehydration"></a>Riattivazione di BLOB
 Per leggere i dati nel livello archivio, è prima necessario modificare il livello di accesso del BLOB in frequente o sporadico. Questo processo è noto come riattivazione e può richiedere fino a 15 ore. Per ottenere prestazioni ottimali, si consigliano BLOB di grandi dimensioni. La riattivazione simultanea di diversi BLOB di piccole dimensioni, può richiedere altro tempo.
 
-Durante la riattivazione è possibile controllare la proprietà BLOB **Archive Status** (Stato di archiviazione) per assicurarsi che il livello sia stato modificato. Lo stato può essere "rehydrate-pending-to-hot" o "rehydrate-pending-to-cool" a seconda del livello di destinazione. Al termine, la proprietà relativa allo stato di archiviazione viene rimossa e la proprietà BLOB **Livello di accesso** indica un il nuovo livello frequente o sporadico.  
+Durante la riattivazione è possibile controllare la proprietà BLOB **Archive Status** (Stato di archiviazione) per assicurarsi che il livello sia stato modificato. Lo stato può essere "rehydrate-pending-to-hot" o "rehydrate-pending-to-cool" a seconda del livello di destinazione. Al termine, la proprietà relativa allo stato di archiviazione viene rimossa e la proprietà BLOB **Livello di accesso** indica il nuovo livello frequente o sporadico.  
 
 ## <a name="blob-level-tiering"></a>Organizzazione a livello di BLOB
 
@@ -207,7 +207,7 @@ No. Solo i livelli di archiviazione ad accesso sporadico e ad accesso frequente 
 
 **In quali aree sono disponibili i livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio?**
 
-I livello di archiviazione ad accesso frequente e ad accesso sporadico con l'organizzazione a livello di BLOB sono disponibili in tutte le aree. Lo spazio di archiviazione sarà inizialmente disponibile solo in alcune aree. Per un elenco completo, vedere [Prodotti di Azure disponibili in base all'area](https://azure.microsoft.com/regions/services/).
+I livelli di archiviazione ad accesso frequente e ad accesso sporadico con l'organizzazione a livello di BLOB sono disponibili in tutte le aree. Lo spazio di archiviazione sarà inizialmente disponibile solo in alcune aree. Per un elenco completo, vedere [Prodotti di Azure disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 
 **I BLOB nel livello di archiviazione ad accesso sporadico si comportano in modo diverso rispetto a quelli del livello di archiviazione ad accesso frequente?**
 
@@ -221,7 +221,7 @@ Sì. Tutte le operazioni nell'accesso frequente e nell'accesso sporadico sono co
 
 **Quando si riattiva un BLOB dal livello archivio al livello ad accesso frequente o sporadico, come è possibile sapere quando la riattivazione è stata completata?**
 
-Durante la riattivazione, è possibile usare l'operazione di acquisizione delle proprietà BLOB per eseguire il polling dell'attributo **Archive Status** (Stato di archiviazione) per verificare quando la modifica del livello è completa. Lo stato può essere "rehydrate-pending-to-hot" o "rehydrate-pending-to-cool" a seconda del livello di destinazione. Al termine, la proprietà relativa allo stato di archiviazione viene rimossa e la proprietà BLOB **Livello di accesso** indica un il nuovo livello frequente o sporadico.  
+Durante la riattivazione, è possibile usare l'operazione di acquisizione delle proprietà BLOB per eseguire il polling dell'attributo **Archive Status** (Stato di archiviazione) per verificare quando la modifica del livello è completa. Lo stato può essere "rehydrate-pending-to-hot" o "rehydrate-pending-to-cool" a seconda del livello di destinazione. Al termine, la proprietà relativa allo stato di archiviazione viene rimossa e la proprietà BLOB **Livello di accesso** indica il nuovo livello frequente o sporadico.  
 
 **Dopo avere impostato il livello di un BLOB, quando inizieranno a essere fatturati i costi con la tariffa appropriata?**
 

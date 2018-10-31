@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: dd9a2c6a5b2183d4909b6bcfd24dc1fae401c785
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fa316ee47e6fdabacf22e1e419bfd501620dd83d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412626"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429151"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Informazioni sul riavvio del sistema della macchina virtuale di Azure
 
@@ -73,7 +73,7 @@ Il riavvio della macchina virtuale si verifica solitamente anche quando si esegu
 ### <a name="azure-security-center-and-windows-update"></a>Centro sicurezza di Azure e Windows Update
 Il Centro sicurezza di Azure monitora ogni giorno le macchine virtuali Windows e Linux alla ricerca di eventuali aggiornamenti mancanti del sistema operativo. Il Centro sicurezza recupera un elenco di aggiornamenti di sicurezza e critici disponibili da Windows Update o Windows Server Update Services (WSUS), in base al servizio configurato nella macchina virtuale Windows. Il Centro sicurezza cerca gli aggiornamenti più recenti anche per i sistemi Linux. Se nella macchina virtuale non è stato eseguito un aggiornamento del sistema, il Centro sicurezza ne consiglia l'applicazione. L'applicazione di questi aggiornamenti di sistema è controllata tramite il Centro sicurezza nel portale di Azure. Dopo l'applicazione di alcuni aggiornamenti, potrebbe essere necessario il riavvio della macchina virtuale. Per altre informazioni, vedere [Applicare gli aggiornamenti del sistema nel Centro sicurezza di Azure](../../security-center/security-center-apply-system-updates.md).
 
-Come per i server locali, Azure non effettua il push degli aggiornamenti da Windows Update alle macchine virtuali di Windows Azure perché questi computer sono pensati per essere gestiti dagli utenti. Tuttavia si consiglia di lasciare abilitata l'impostazione automatica di Windows Update. Con l'installazione automatica degli aggiornamenti da Windows Update, il riavvio può anche verificarsi dopo l'applicazione degli aggiornamenti. Per altre informazioni, vedere [Windows Update: domande frequenti](https://support.microsoft.com/help/12373/windows-update-faq).
+Analogamente ai server locali, Azure non esegue il push degli aggiornamenti da Windows Update alle macchine virtuali Windows, perché queste macchine sono pensate per essere gestite dagli utenti. Tuttavia si consiglia di lasciare abilitata l'impostazione automatica di Windows Update. Con l'installazione automatica degli aggiornamenti da Windows Update, il riavvio può anche verificarsi dopo l'applicazione degli aggiornamenti. Per altre informazioni, vedere [Windows Update: domande frequenti](https://support.microsoft.com/help/12373/windows-update-faq).
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>Altre situazioni che influiscono sulla disponibilità della macchina virtuale
 Esistono altri casi in cui Azure può sospendere attivamente l'uso di una macchina virtuale. Si riceveranno tuttavia notifiche di posta elettronica prima che venga intrapresa questa azione e si avrà quindi la possibilità di risolvere i problemi sottostanti. Tra i problemi che compromettono la disponibilità delle VM sono incluse le violazioni della sicurezza e la scadenza dei metodi di pagamento.

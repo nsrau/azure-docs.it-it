@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc8abee93983ce4ea06d0b433eb35ed22e0f61b4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218072"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377798"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoraggio, metriche e avvisi di ExpressRoute
 
@@ -20,7 +20,7 @@ ms.locfileid: "47218072"
 
 ## <a name="circuit-metrics"></a>Metrica del circuito
 
-Per passare a **Metrica**, fare clic sulla pagina di ExpressRoute relativa al circuito che si intende monitorare. In **Monitoraggio** è disponibile l'opzione **Metrica**.
+Per passare a **Metrica**, fare clic sulla pagina di ExpressRoute relativa al circuito che si intende monitorare. In **Monitoraggio** è disponibile l'opzione **Metrica**. Selezionare BitsInPerSecond o BitsOutPerSecond e l'aggregazione. Facoltativamente, è possibile applicare una divisione che mostri le metriche per ogni tipo di peering.
 
 ![metrica del circuito](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 

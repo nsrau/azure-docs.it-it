@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 53d94d8674a064960b3447374f68af0d3fdf6e0c
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b951d0b8d91729340cf382e70f72511fb009053e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412566"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386553"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Risoluzione degli errori di limitazione delle richieste delle API 
 
@@ -26,7 +26,7 @@ ms.locfileid: "47412566"
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitazione delle richieste di Azure Resource Manager e dei provider di risorse  
 
-Come porta di accesso per Azure, Azure Resource Manager esegue l'autenticazione, la convalida di primo grado e la limitazione di tutte le richieste API in ingresso. I limiti per la frequenza delle chiamate di Azure Resource Manager e le intestazioni HTTP delle risposte di diagnostica correlate sono descritti [qui](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-request-limits).
+Come porta di accesso per Azure, Azure Resource Manager esegue l'autenticazione, la convalida di primo grado e la limitazione di tutte le richieste API in ingresso. I limiti per la frequenza delle chiamate di Azure Resource Manager e le intestazioni HTTP delle risposte di diagnostica correlate sono descritti [qui](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits).
  
 Quando un client API di Azure riceve un errore di limitazione delle richieste, lo stato HTTP è 429 - Numero eccessivo di richieste. Per stabilire se la limitazione delle richieste viene applicata da Azure Resource Manager o da un provider di risorse sottostante come il provider di risorse di calcolo, esaminare `x-ms-ratelimit-remaining-subscription-reads` per le richieste GET e le intestazioni della risposta `x-ms-ratelimit-remaining-subscription-writes` per le richieste non GET. Se il conteggio delle chiamate rimanenti è prossimo a 0, è stato raggiunto il limite di chiamate generale della sottoscrizione definito da Azure Resource Manager. Le attività di tutti i client della sottoscrizione vengono conteggiate insieme. In caso contrario, la limitazione proviene dal provider di risorse di destinazione (quello interessato dal segmento `/providers/<RP>` dell'URL della richiesta). 
 
@@ -40,7 +40,7 @@ Quando un client API di Azure riceve un errore di limitazione delle richieste, l
 
 Si noti che una richiesta API può essere sottoposta a più criteri di limitazione delle richieste. Sarà presente un'intestazione `x-ms-ratelimit-remaining-resource` distinta per ogni criterio. 
 
-Di seguito è riportato un esempio di risposta per l'eliminazione di una macchina virtuale in una richiesta di set di scalabilità di macchine virtuali.
+Di seguito è riportato un esempio di risposta per l'eliminazione di una richiesta di set di scalabilità di macchine virtuali.
 
 ```
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/DeleteVMScaleSet3Min;107 
@@ -49,7 +49,7 @@ x-ms-ratelimit-remaining-resource: Microsoft.Compute/VMScaleSetBatchedVMRequests
 x-ms-ratelimit-remaining-resource: Microsoft.Compute/VmssQueuedVMOperations;4720 
 ```
 
-##<a name="throttling-error-details"></a>Dettagli dell'errore di limitazione delle richieste
+## <a name="throttling-error-details"></a>Dettagli dell'errore di limitazione delle richieste
 
 Lo stato HTTP 429 viene generalmente usato per rifiutare una richiesta perché è stato raggiunto un limite di frequenza delle chiamate. Una tipica risposta di errore di limitazione delle richieste dal provider di risorse di calcolo avrà un aspetto simile all'esempio seguente (sono visualizzate solo le intestazioni pertinenti):
 
@@ -73,18 +73,19 @@ Content-Type: application/json; charset=utf-8
 
 ```
 
-Il criterio con un conteggio delle chiamate rimanenti pari a 0 è quello che determina la restituzione dell'errore di limitazione delle richieste. In questo caso, si tratta di `HighCostGet30Min`. Il formato complessivo del corpo della risposta è il formato di errore generale dell'API di Azure Resource Manager (conforme a OData). Il codice di errore principale, `OperationNotAllowed`, è quello usato dal provider di risorse di calcolo per segnalare gli errori di limitazione delle richieste (tra gli altri tipi di errori client). 
+Il criterio con un conteggio delle chiamate rimanenti pari a 0 è quello che determina la restituzione dell'errore di limitazione delle richieste. In questo caso, si tratta di `HighCostGet30Min`. Il formato complessivo del corpo della risposta è il formato di errore generale dell'API di Azure Resource Manager (conforme a OData). Il codice di errore principale, `OperationNotAllowed`, è quello usato dal provider di risorse di calcolo per segnalare gli errori di limitazione delle richieste (tra gli altri tipi di errori client). La proprietà `message` degli errori interni contiene una struttura JSON serializzata con i dettagli della violazione relativa alla limitazione delle richieste.
 
 Come illustrato in precedenza, tutti gli errori di limitazione delle richieste includono l'intestazione `Retry-After`, che fornisce il numero minimo di secondi che il client deve attendere prima di ritentare la richiesta. 
 
 ## <a name="best-practices"></a>Procedure consigliate 
 
-- Non eseguire nuovi tentativi per gli errori API del servizio Azure in modo incondizionato. Una situazione che si verifica di frequente è quella in cui il codice client entra velocemente in un ciclo di ripetizione dei tentativi quando si verifica un errore che non supporta nuovi tentativi. I nuovi tentativi finiscono per causare il raggiungimento del limite di chiamate consentite per gruppo di operazioni di destinazione e influiscono sugli altri client della sottoscrizione. 
+- Non eseguire nuovi tentativi per gli errori API del servizio Azure in modo incondizionato e/o immediatamente. Una situazione che si verifica di frequente è quella in cui il codice client entra velocemente in un ciclo di ripetizione dei tentativi quando si verifica un errore che non supporta nuovi tentativi. I nuovi tentativi finiscono per causare il raggiungimento del limite di chiamate consentite per gruppo di operazioni di destinazione e influiscono sugli altri client della sottoscrizione. 
 - Nei casi di automazione di API con volumi elevati, è consigliabile implementare preventivamente funzionalità di limitazione automatica delle richieste sul lato client quando il conteggio delle chiamate disponibili per un gruppo di operazioni di destinazione scende sotto una certa soglia. 
 - Quando si tiene traccia di operazioni asincrone, rispettare gli hint dell'intestazione Retry-After. 
-- Se il codice client richiede informazioni relative a una determinata macchina virtuale, inviare una query direttamente a tale macchina virtuale invece di elencare tutte le macchine virtuali nel gruppo di risorse o nell'intera sottoscrizione e quindi selezionare la macchina virtuale necessaria sul lato client. 
-- Se il codice client richiede macchine virtuali, dischi e snapshot da una specifica posizione di Azure, usare il formato della query basato sulla posizione invece di inviare una query a tutte le macchine virtuali della sottoscrizione e quindi applicare il filtro in base alla posizione sul lato client: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` e `/subscriptions/<subId>/providers/Microsoft.Compute/virtualMachines` inviano la query agli endpoint a livello di area del provider di risorse di calcolo. • Soprattutto quando si creano o si aggiornano risorse API, macchine virtuali e set di scalabilità di macchine virtuali, è molto più efficiente tenere traccia dell'operazione asincrona restituita fino al completamento che eseguire il polling sull'URL della risorsa stessa (in base a `provisioningState`).
+- Se il codice client richiede informazioni relative a una determinata macchina virtuale, inviare una query direttamente alla macchina virtuale invece di elencare tutte le macchine virtuali nel gruppo di risorse o nell'intera sottoscrizione e quindi selezionare la macchina virtuale necessaria sul lato client. 
+- Se il codice client richiede macchine virtuali, dischi e snapshot da una specifica posizione di Azure, usare il formato della query basato sulla posizione invece di inviare una query a tutte le macchine virtuali della sottoscrizione e quindi applicare il filtro in base alla posizione sul lato client: `GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` invia la query agli endpoint a livello di area del provider di risorse di calcolo. 
+-   Soprattutto quando si creano o si aggiornano risorse API, macchine virtuali e set di scalabilità di macchine virtuali, è molto più efficiente tenere traccia dell'operazione asincrona restituita fino al completamento che eseguire il polling sull'URL della risorsa stessa (in base a `provisioningState`).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle linee guida relative alla ripetizione dei tentativi per altri servizi in Azure, vedere [Materiale sussidiario su come eseguire nuovi tentativi per servizi specifici](https://docs.microsoft.com/en-us/azure/architecture/best-practices/retry-service-specific)
+Per altre informazioni sulle linee guida relative alla ripetizione dei tentativi per altri servizi in Azure, vedere [Materiale sussidiario su come eseguire nuovi tentativi per servizi specifici](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)

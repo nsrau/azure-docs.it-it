@@ -13,28 +13,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: f8c10e2200f830ea6e568e7b3fba1f0a6085cef2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1b7499990a049f276bf1af9e31b639ea4944d8f7
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055657"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167569"
 ---
-# <a name="copy-data-from-netezza-using-azure-data-factory"></a>Copiare dati da Netezza usando Azure Data Factory 
+# <a name="copy-data-from-netezza-by-using-azure-data-factory"></a>Copiare dati da Netezza usando Azure Data Factory 
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Netezza. Si basa sull'articolo di [panoramica dell'attività di copia](copy-activity-overview.md) che presenta una panoramica generale sull'attività di copia.
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da Netezza. È basato sull'articolo [Attività di copia in Azure Data Factory](copy-activity-overview.md), che presenta una panoramica generale dell'attività di copia.
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-È possibile copiare dati da Netezza a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati come origini/sink dall'attività di copia, vedere la tabella relativa agli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+È possibile copiare dati da Netezza a qualsiasi archivio dati di sink supportato. Per un elenco degli archivi dati supportati dall'attività di copia come origini e sink, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
 
-Azure Data Factory offre un driver predefinito per consentire la connettività, pertanto non è necessario installare manualmente alcun driver usando questo connettore.
+Azure Data Factory fornisce un driver predefinito per abilitare la connettività. Non è pertanto necessario installare manualmente un driver per usare questo connettore.
 
-## <a name="getting-started"></a>Introduzione
+## <a name="get-started"></a>Attività iniziali
 
-È possibile creare una pipeline con l'attività di copia usando .NET SDK, Python SDK, Azure PowerShell, l'API REST o il modello Azure Resource Manager. Vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md) per le istruzioni dettagliate sulla creazione di una pipeline con un'attività di copia.
+È possibile creare una pipeline che usa un'attività di copia tramite .NET SDK, Python SDK, Azure PowerShell, l'API REST o un modello di Azure Resource Manager. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l'[esercitazione sull'attività di copia](quickstart-create-data-factory-dot-net.md).
 
-Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che vengono usate per definire entità di Data Factory specifiche per il connettore Netezza.
+Le sezioni seguenti presentano informazioni dettagliate sulle proprietà che è possibile usare per definire entità di Data Factory specifiche per il connettore Netezza.
 
 ## <a name="linked-service-properties"></a>Proprietà del servizio collegato
 
@@ -42,18 +42,18 @@ Per il servizio collegato Netezza sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Netezza** | Sì |
-| connectionString | Stringa di connessione ODBC per la connessione a Netezza. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
+| type | La proprietà **type** deve essere impostata su **Netezza**. | Yes |
+| connectionString | Stringa di connessione ODBC per la connessione a Netezza. Contrassegnare questo campo come tipo **SecureString** per archiviare la password in modo sicuro in Data Factory. È anche possibile [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile scegliere un runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se questa proprietà non è specificata, viene usato il tipo Azure Integration Runtime predefinito. |No  |
 
-Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. Altre proprietà che è possibile impostare per il case:
+Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<database>;UID=<user name>;PWD=<password>`. La tabella seguente descrive altre proprietà che è possibile impostare:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
-|:--- |:--- |:--- |:--- |
-| SecurityLevel | Il livello di sicurezza (SSL/TLS) che usa il driver per la connessione all'archivio dati. ad esempio `SecurityLevel=preferredSecured`. I valori supportati sono:<br/>- Solo non protetto (**onlyUnSecured**): il driver non usa SSL.<br/>- **Preferibilmente non protetto (preferredUnSecured) (impostazione predefinita)**: se il server fornisce una scelta, il driver non usa SSL. <br/>- **Preferibilmente protetto (preferredSecured)**: se il server fornisce una scelta, il driver usa SSL. <br/>- **Solo protetto (onlySecured)**: il driver non si connette a meno che non sia disponibile una connessione SSL | No  |
-| CaCertFile | Il percorso completo per il certificato SSL usato dal server. ad esempio `CaCertFile=<cert path>;`| Sì, se SSL è abilitato |
+|:--- |:--- |:--- |
+| SecurityLevel | Il livello di sicurezza (SSL/TLS) che usa il driver per la connessione all'archivio dati. Esempio: `SecurityLevel=preferredSecured`. I valori supportati sono:<br/>- **Solo senza protezione** (**onlyUnSecured**): il driver non usa SSL.<br/>- **Preferibilmente senza protezione (preferredUnSecured) - Valore predefinito**: se il server consente di scegliere, il driver non usa SSL. <br/>- **Preferibilmente con protezione (preferredSecured)**: se il server consente di scegliere, il driver usa SSL. <br/>- **Solo con protezione (onlySecured)**: il driver non si connette a meno che non sia disponibile una connessione SSL. | No  |
+| CaCertFile | Il percorso completo per il certificato SSL usato dal server. Esempio: `CaCertFile=<cert path>;`| Sì, se SSL è abilitato |
 
-**Esempio:**
+**Esempio**
 
 ```json
 {
@@ -76,9 +76,11 @@ Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<data
 
 ## <a name="dataset-properties"></a>Proprietà dei set di dati
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Netezza.
+Questa sezione presenta un elenco delle proprietà supportate dal set di dati Netezza.
 
-Per copiare dati da Netezza, impostare la proprietà type del set di dati su **NetezzaTable**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo [Set di dati](concepts-datasets-linked-services.md). 
+
+Per copiare dati da Netezza, impostare la proprietà **type** del set di dati su **NetezzaTable**. Non sono presenti proprietà aggiuntive specifiche del tipo in questo tipo di set di dati.
 
 **Esempio**
 
@@ -97,16 +99,18 @@ Per copiare dati da Netezza, impostare la proprietà type del set di dati su **N
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 
-Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo sulle [pipeline](concepts-pipelines-activities.md). Questa sezione presenta un elenco delle proprietà supportate dall'origine Netezza.
+Questa sezione presenta un elenco delle proprietà supportate dall'origine Netezza.
+
+Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere [Pipelines](concepts-pipelines-activities.md) (Pipeline). 
 
 ### <a name="netezza-as-source"></a>Netezza come origine
 
-Per copiare dati da Netezza, impostare il tipo di origine nell'attività di copia su **NetezzaSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da Netezza, impostare il tipo di **origine** nell'attività di copia su **NetezzaSource**. Nella sezione **source** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | DESCRIZIONE | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine dell'attività di copia deve essere impostata su: **NetezzaSource** | Sì |
-| query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | Sì |
+| type | La proprietà **type** dell'origine dell'attività di copia deve essere impostata su **NetezzaSource**. | Yes |
+| query | Usare la query SQL personalizzata per leggere i dati. Esempio: `"SELECT * FROM MyTable"` | Yes |
 
 **Esempio:**
 
@@ -141,4 +145,5 @@ Per copiare dati da Netezza, impostare il tipo di origine nell'attività di copi
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere gli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
+
+Per un elenco degli archivi dati supportati come origini o sink dall'attività di copia in Azure Data Factory, vedere [Archivi dati e formati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
