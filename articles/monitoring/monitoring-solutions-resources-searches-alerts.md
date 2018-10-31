@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269531"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024771"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Aggiunta di avvisi e di ricerche salvate di Log Analytics alla soluzione di gestione (anteprima)
 
@@ -54,7 +54,7 @@ La tabella seguente elenca la versione dell'API per la risorsa usata in questo e
 
 
 ## <a name="saved-searches"></a>Ricerche salvate
-Includere [ricerche salvate](../log-analytics/log-analytics-log-searches.md) in una soluzione per consentire agli utenti di eseguire query sui dati raccolti dalla soluzione.  Le ricerche salvate vengono visualizzate in **Preferiti** nel portale di OMS e in **Ricerche salvate** nel portale di Azure.  È necessaria una ricerca salvata anche per ogni avviso.   
+Includere [ricerche salvate](../log-analytics/log-analytics-log-searches.md) in una soluzione per consentire agli utenti di eseguire query sui dati raccolti dalla soluzione.  Le ricerche salvate vengono visualizzate in **Ricerche salvate** nel portale di Azure.  È necessaria una ricerca salvata anche per ogni avviso.   
 
 Le risorse [ricerca salvata di Log Analytics](../log-analytics/log-analytics-log-searches.md) sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches` e hanno la struttura seguente.  Nella struttura sono inclusi parametri e variabili comuni ed è quindi possibile copiare e incollare questo frammento di codice nel file della soluzione e, se necessario, modificare i nomi dei parametri. 
 
@@ -90,7 +90,7 @@ Le singole proprietà di una ricerca salvata sono descritte nella tabella seguen
 Gli [avvisi del log di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) vengono creati dalle regole di avviso di Azure che eseguono le query di log specificate a intervalli regolari.  Se i risultati della query corrispondono ai criteri specificati, viene creato un record di avviso e vengono eseguite una o più azioni usando i [gruppi di azioni](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics inizierà ad estendersi automaticamente ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics verranno estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Le regole di avviso in una soluzione di gestione sono costituite dalle tre diverse risorse riportate di seguito.
 
@@ -146,7 +146,7 @@ Una pianificazione può avere più azioni. Un'azione può definire uno o più pr
 Le azioni possono essere definite usando la risorsa [gruppo di azioni] o la risorsa azione.
 
 > [!NOTE]
-> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics inizierà ad estendersi automaticamente ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics verranno automaticamente estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 La proprietà **Type** specifica due tipi di risorsa azione.  Una pianificazione richiede un'azione **Alert** che definisce i dettagli della regola di avviso e le azioni da eseguire quando viene creato un avviso. Le risorse azione sono di tipo `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -242,7 +242,7 @@ Per gli utenti che hanno esteso gli avvisi in Azure, per una pianificazione devo
 Ogni pianificazione ha un'azione **Alert**.  che definisce i dettagli dell'avviso e, facoltativamente, le azioni di notifica e correzione.  Una notifica invia un messaggio di posta elettronica a uno o più indirizzi.  Una correzione avvia un runbook in Automazione di Azure per provare a risolvere il problema rilevato.
 
 > [!NOTE]
-> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics inizierà ad estendersi automaticamente ad Azure. L'utente può volontariamente iniziare a estendere gli avvisi ad Azure prima del 14 maggio 2018. Per altre informazioni, vedere [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md) (Estendere gli avvisi ad Azure da OMS). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> A partire dal 14 maggio 2018, tutti gli avvisi in un'istanza su cloud pubblico dell'area di lavoro di Log Analytics verranno automaticamente estesi ad Azure. Per altre informazioni, vedere [Estendere avvisi da Log Analytics ad Avvisi di Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). Per gli utenti che scelgono di estendere gli avvisi ad Azure, le azioni vengono ora controllate nei gruppi di azioni di Azure. Quando un'area di lavoro e i suoi avvisi vengono estesi ad Azure è possibile recuperare o aggiungere azioni usando il [modello di Azure Resource Manager - gruppo di azioni](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### <a name="emailnotification"></a>EmailNotification
  Questa sezione è facoltativa. Includere la sezione se si vuole inviare un messaggio di posta elettronica a uno o più destinatari.

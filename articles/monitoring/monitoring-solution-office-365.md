@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 3772b03d9a9d688b9d0eac42d51af7a2f2e0c5bd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139945"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406322"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Soluzione Gestione di Office 365 in Azure (Anteprima)
 
@@ -37,7 +37,7 @@ Prima di installare e configurare la soluzione, è richiesto quanto segue.
 
 - Sottoscrizione a Office 365 dell'organizzazione.
 - Credenziali per un account utente che rappresenta un Amministratore globale.
-- Per ricevere i dati di controllo, è necessario [configurare il controllo](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) nella sottoscrizione di Office 365.  Si noti che [controllo delle cassette postali](https://technet.microsoft.com/library/dn879651.aspx) viene configurato separatamente.  È comunque possibile installare la soluzione e raccogliere altri dati se il controllo non è configurato.
+- Per ricevere i dati di controllo, è necessario [configurare il controllo](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) nella sottoscrizione di Office 365.  Si noti che [controllo delle cassette postali](https://technet.microsoft.com/library/dn879651.aspx) viene configurato separatamente.  È comunque possibile installare la soluzione e raccogliere altri dati se il controllo non è configurato.
  
 
 ## <a name="management-packs"></a>Management Pack
@@ -477,7 +477,7 @@ At line:12 char:18
 
 ## <a name="data-collection"></a>Raccolta dei dati
 ### <a name="supported-agents"></a>Agenti supportati
-La soluzione Office 365 non recupera i dati dagli [agenti OMS](../log-analytics/log-analytics-data-sources.md).  Recupera dati direttamente da Office 365.
+La soluzione Office 365 non recupera i dati dagli [agenti Log Analytics](../log-analytics/log-analytics-data-sources.md).  Recupera dati direttamente da Office 365.
 
 ### <a name="collection-frequency"></a>Frequenza della raccolta
 L'operazione iniziale di raccolta dei dati può richiedere alcune ore. Dopo l'avvio della raccolta, ogni volta che viene creato un record, Office 365 invia a Log Analytics una [notifica webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) con dati dettagliati. Il record è disponibile in Log Analytics entro pochi minuti dalla ricezione.

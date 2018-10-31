@@ -9,14 +9,14 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831620"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407555"
 ---
-# <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto di sicurezza e conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
+# <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 
 ## <a name="overview"></a>Panoramica
 
@@ -361,8 +361,8 @@ La soluzione supporta Griglia di eventi di Azure, un singolo servizio per la ges
 ### <a name="azure-alerts"></a>Avvisi di Azure
 - Gli avvisi consentono di monitorare i servizi Azure e di configurare le condizioni sui dati. Gli avvisi forniscono anche le notifiche quando c'è una corrispondenza tra una condizione di avviso e i dati di monitoraggio.
 
-### <a name="operations-management-suite-oms"></a>Operations Management Suite (OMS)
-[Operations Management Suite (o OMS)](/azure/operations-management-suite/operations-management-suite-overview) è una raccolta di servizi di gestione.
+### <a name="log-analytics"></a>Log Analytics
+[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) è una raccolta di servizi di gestione.
 
 -   L'area di lavoro è abilitata per il Centro sicurezza
 

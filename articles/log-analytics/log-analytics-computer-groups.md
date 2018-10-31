@@ -1,5 +1,5 @@
 ---
-title: Gruppi di computer nelle ricerche nei log in Azure Log Analytics | Documentazione Microsoft
+title: Gruppi di computer nelle ricerche nei log in Azure Log Analytics | Microsoft Docs
 description: I gruppi di computer in Log Analytics consentono di limitare l'ambito delle ricerche nei log a uno specifico set di computer.  Questo articolo descrive i diversi metodi disponibili per creare gruppi di computer e come usare tali gruppi in una ricerca nei log.
 services: log-analytics
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7e4889148a752b552f8bd65702ea5dda450ded31
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044298"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408541"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Gruppi di computer nelle ricerche nei log in Log Analytics
 
@@ -62,7 +62,7 @@ Eseguire questa procedura per creare un gruppo di computer da una ricerca log ne
 
 
 ### <a name="active-directory"></a>Active Directory
-Quando si configura Log Analytics per importare le appartenenze ai gruppi di Active Directory, viene analizzata l'appartenenza ai gruppi di tutti i computer aggiunti a un dominio con l'agente OMS.  Viene creato un gruppo di computer in Log Analytics per ogni gruppo di sicurezza in Active Directory e ogni computer viene aggiunto ai gruppi di computer corrispondenti ai gruppi di sicurezza di cui è membro.  L'appartenenza viene aggiornata continuamente ogni 4 ore.  
+Quando si configura Log Analytics per importare le appartenenze ai gruppi di Active Directory, viene analizzata l'appartenenza ai gruppi di tutti i computer aggiunti a un dominio con l'agente Log Analytics.  Viene creato un gruppo di computer in Log Analytics per ogni gruppo di sicurezza in Active Directory e ogni computer viene aggiunto ai gruppi di computer corrispondenti ai gruppi di sicurezza di cui è membro.  L'appartenenza viene aggiornata continuamente ogni 4 ore.  
 
 È possibile configurare Log Analytics per l'importazione dei gruppi di sicurezza di Active Directory in **Impostazioni avanzate** di Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer**, **Active Directory** e quindi **Importa le appartenenze a gruppi di Active Directory dai computer**.  Non è richiesta alcuna ulteriore configurazione.
 
@@ -71,7 +71,7 @@ Quando si configura Log Analytics per importare le appartenenze ai gruppi di Act
 Al termine dell'importazione dei gruppi, nel menu vengono elencati il numero dei computer di cui sono state rilevate le appartenenze a gruppi e il numero dei gruppi importati.  È possibile fare clic su uno di questi collegamenti per ottenere i record **ComputerGroup** con tali informazioni.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-Quando si configura Log Analytics per importare le appartenenze a gruppi di WSUS, viene analizzata l'appartenenza a gruppi di destinazione di tutti i computer con l'agente OMS.  Se si usa la destinazione lato client, vengono importate in Log Analytics le appartenenze a gruppi di tutti i computer connessi a Log Analytics che fanno parte di qualsiasi gruppo di destinazione di WSUS. Se si usa la destinazione lato server, per poter importare le informazioni relative all'appartenenza a gruppi in Log Analytics è necessario che l'agente OMS sia installato nel server WSUS.  L'appartenenza viene aggiornata continuamente ogni 4 ore. 
+Quando si configura Log Analytics per importare le appartenenze a gruppi WSUS, viene analizzata l'appartenenza a gruppi di destinazione di tutti i computer con l'agente Log Analytics.  Se si usa la destinazione lato client, vengono importate in Log Analytics le appartenenze a gruppi di tutti i computer connessi a Log Analytics che fanno parte di qualsiasi gruppo di destinazione di WSUS. Se si usa la destinazione lato server, per poter importare le informazioni relative all'appartenenza a gruppi in Log Analytics è necessario che l'agente Log Analytics sia installato nel server WSUS.  L'appartenenza viene aggiornata continuamente ogni 4 ore. 
 
 È possibile configurare Log Analytics per l'importazione di gruppi WSUS in **Impostazioni avanzate** di Log Analytics nel portale di Azure.  Selezionare **Gruppi di computer**, **WSUS** e quindi **Importa appartenenze a gruppi WSUS**.  Non è richiesta alcuna ulteriore configurazione.
 

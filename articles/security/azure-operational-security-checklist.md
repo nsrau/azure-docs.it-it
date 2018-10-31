@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 481fcb869004a6fca83fdf19c32c41010057de32
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: aa68bb0cb2e404072ef359591ce9309f8c27b631
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008196"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403986"
 ---
 # <a name="azure-operational-security-checklist"></a>Elenco di controllo per la sicurezza operativa di Azure
 La distribuzione di un'applicazione in Azure è rapida, semplice ed economica. Prima di distribuire l'applicazione cloud nell'ambiente di produzione è utile disporre di un elenco di controllo per facilitare la valutazione dell'applicazione in un elenco di azioni di sicurezza operative essenziali e consigliate da prendere in considerazione.
@@ -51,8 +51,7 @@ Questo elenco di controllo ha lo scopo di aiutare la aziende a valutare diverse 
 Molte organizzazioni hanno distribuito e gestito con esito positivo le applicazioni cloud in Azure. Gli elenchi di controllo forniti evidenziano che è essenziale avere diversi elenchi di controllo per permettere di aumentare la probabilità di distribuzioni con esito positivo e operazioni prive di frustrazione. Si consigliano vivamente queste considerazioni operative e strategiche per le distribuzioni di applicazioni nuove ed esistenti in Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento è stata introdotta la soluzione Sicurezza e controllo di OMS. Per altre informazioni sulle funzionalità di OMS per la sicurezza, vedere gli articoli seguenti:
+Per altre informazioni sulla sicurezza, vedere gli articoli seguenti:
 
-- [Panoramica di Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Progettazione e sicurezza operativa](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Pianificazione e gestione del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

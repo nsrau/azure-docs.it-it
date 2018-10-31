@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e75409e791c00dc0a5bec591aecfbaa019df8f81
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 8641b6cfb14bceb248cc587095a9d3469ce2c9e0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225163"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402150"
 ---
 # <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Uso di Monitoraggio di Azure per la mappa di macchine virtuali per comprendere i componenti dell'applicazione
-I componenti di applicazione individuati in macchine virtuali Windows e Linux in esecuzione nell'ambiente di Azure dell'utente possono essere visualizzati in due modi con Monitoraggio di Azure per le macchine virtuali, ovvero direttamente da una macchina virtuale o tra gruppi di macchine virtuali in Monitoraggio di Azure. 
+I componenti di applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure nell'ambiente dell'utente possono essere visualizzati in due modi con Monitoraggio di Azure per le macchine virtuali, ovvero direttamente da una macchina virtuale o tra gruppi di macchine virtuali in Monitoraggio di Azure. 
 
 Questo articolo descrive la diversa esperienza tra le due prospettive e il modo in cui usare la funzionalità Mappa. Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine virtuali, vedere [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md) (Abilitare Monitoraggio di Azure per le macchine virtuali).
 
@@ -107,7 +107,9 @@ In Monitoraggio di Azure la funzionalità Mappa offre una visualizzazione global
 
 ![Panoramica delle mappe di più macchine virtuali in Monitoraggio di Azure](./media/monitoring-vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Nel selettore **Area di lavoro** nella parte superiore della pagina, se sono disponibili più aree di lavoro di Log Analytics scegliere quella integrata con la soluzione e con macchine virtuali collegate.  È quindi possibile scegliere nel selettore **Gruppo** una sottoscrizione o un gruppo di risorse per visualizzare un set di macchine virtuali e di dipendenze relative corrispondenti al gruppo in un periodo di tempo specificato.  Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti.  Grazie al selettore **TimeRange**, è possibile cercare intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica.   
+Nel selettore **Area di lavoro** nella parte superiore della pagina, se sono disponibili più aree di lavoro di Log Analytics scegliere l'area abilitata con la soluzione e con macchine virtuali collegate. Il selettore **Gruppo** restituisce le sottoscrizioni, i gruppi di risorse, i [gruppi di computer](../log-analytics/log-analytics-computer-groups.md) e i set di scalabilità delle macchine virtuali dei computer correlati all'area di lavoro selezionata. La selezione è valida solo per la funzionalità Mappa e non si applica alla funzionalità Prestazioni.
+
+Per impostazione predefinita, la mappa visualizza gli ultimi 30 minuti. Grazie al selettore **TimeRange**, è possibile cercare intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica.   
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni su come usare la funzionalità di integrità, vedere [View Azure VM Health](monitoring-vminsights-health.md) (Visualizzare l'integrità delle macchine virtuali di Azure) o per identificare colli di bottiglia e l'uso complessivo con le prestazioni delle macchine virtuali, vedere [View Azure Monitor for VMs Performance](monitoring-vminsights-performance.md) (Visualizzare Monitoraggio di Azure per le prestazioni delle macchine virtuali). 

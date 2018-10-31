@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237178"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429463"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Distribuire servizi Web nelle Istanze di contenitore di Azure 
 
@@ -82,10 +82,10 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 > Ignorare questo prerequisito se si [distribuisce da un file di modello](#deploy-from-model-file) (`Webservice.deploy()`).
 
-Registrare un modello per usare [`Webservice.deploy_from_model`](#deploy-from-registered-model) o [`Webservice.deploy_from_image`](#deploy-from-image). O se si dispone già di un modello registrato, recuperarlo adesso.
+Registrare un modello per usare [Webservice.deploy_from_model](#deploy-from-registered-model) o [Webservice.deploy_from_image](#deploy-from-image). O se si dispone già di un modello registrato, recuperarlo adesso.
 
 ### <a name="retrieve-a-registered-model"></a>Recuperare un modello registrato
-Se Azure Machine Learning è stato usato per il training del modello, questo potrebbe essere già registrato nell'area di lavoro.  Ad esempio, l'ultimo passaggio dell'esercitazione [eseguire il training di un modello](tutorial-train-models-with-aml.md) ha registrato il modello.  È quindi possibile recuperare il modello registrato per la distribuzione.
+Se Azure Machine Learning è stato usato per il training del modello, questo potrebbe essere già registrato nell'area di lavoro.  L'ultimo passaggio dell'esercitazione [eseguire il training di un modello](tutorial-train-models-with-aml.md) ad esempio ha registrato il modello.  È quindi possibile recuperare il modello registrato per la distribuzione.
 
 ```python
 from azureml.core.model import Model
@@ -109,7 +109,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         workspace = ws)
 ```
 
-
+<a name='deploy-from-model-file'/>
 ## <a name="option-1-deploy-from-model-file"></a>Opzione 1: distribuire dal file di modello
 
 L'opzione per distribuire da un file di modello richiede la quantità minima di scrittura del codice, ma offre anche la quantità minima di controllo sulla denominazione dei componenti. Questa opzione inizia con un file di modello e lo registra nell'area di lavoro per l'utente.  Tuttavia, non è possibile denominare il modello o associare i tag o una descrizione.  
@@ -148,6 +148,7 @@ Questa opzione usa il metodo SDK, Webservice.deploy().
 
 1. È ora possibile [testare il servizio Web](#test-web-service).
 
+<a name='deploy-from-registered-model'/>
 ## <a name="option-2-deploy-from-registered-model"></a>Opzione 2: distribuire da modello registrato
 
 L'opzione di distribuzione di un file di modello registrato richiede ulteriori righe di codice e consente un buon controllo sulla denominazione degli output. Questa opzione è un modo pratico per distribuire un modello registrato che già si possiede.  Tuttavia, non è possibile assegnare un nome all'immagine Docker.  
@@ -173,6 +174,7 @@ Questa opzione usa il metodo SDK, Webservice.deploy_from_model().
 
 1. È ora possibile [testare il servizio Web](#test-web-service).
 
+<a name='deploy-from-image'/>
 ## <a name="option-3-deploy-from-image"></a>Opzione 3: distribuire da immagine
 
 Distribuire un modello registrato (`model`) tramite `Webservice.deploy_from_image()`. Questo metodo consente di creare l'immagine Docker separatamente e quindi distribuire a partire da tale immagine.
@@ -215,6 +217,7 @@ Questo metodo offre il massimo controllo sulla creazione e la denominazione dei 
 
 È ora possibile testare il servizio Web.
 
+<a name='test-web-service'/>
 ## <a name="test-the-web-service"></a>Testare il servizio Web
 
 Il servizio Web è lo stesso, indipendentemente dal metodo usato.  Per ottenere le stime, usare il metodo `run` del servizio.  

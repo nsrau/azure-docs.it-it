@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1db1b8ee7ba3611f8d1d69f711f1ec72308c7d06
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833329"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465628"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Domande frequenti sui concorsi Microsoft Cortana Intelligence
 **Informazioni sui concorsi Cortana Intelligence**
@@ -55,11 +55,11 @@ I partecipanti al concorso usano Azure Machine Learning Studio, un servizio basa
 
 **La competizione è riservata ai data scientist?**
 
-di serie Sono invitati a partecipare gli appassionati di analisi scientifica dei dati, gli aspiranti data scientist e chiunque sia interessato alla materia. Sono stati preparati documenti di supporto per consentire a chiunque di partecipare. I destinatari sono:
+No. Sono invitati a partecipare gli appassionati di analisi scientifica dei dati, gli aspiranti data scientist e chiunque sia interessato alla materia. Sono stati preparati documenti di supporto per consentire a chiunque di partecipare. I destinatari sono:
 
 * **Sviluppatori di dati**, **data scientist** e **professionisti di analisi** e **business intelligence**: sono responsabili della produzione di dati e contenuti di analisi utilizzati da altri utenti
 * **Amministratori dei dati**: hanno informazioni relative ai dati, al significato dei dati, al metodo d'uso e allo scopo
-* **Studenti** & **ricercatori**: studiano e acquisiscono competenze relative ai dati attraverso programmi universitari oppure partecipano a corsi aperti online su larga scala (MOOC)
+* **Studenti** e **Ricercatori:** studiano e acquisiscono competenze relative ai dati attraverso programmi universitari oppure partecipano a corsi aperti online su larga scala (MOOCs)
 
 **È possibile iscriversi con i colleghi come team?**
 
@@ -106,7 +106,7 @@ Per lo spareggio viene presa in considerazione l'ora di invio. I contributi invi
 
 **È possibile partecipare usando l'area di lavoro guest?**
 
-di serie Per partecipare, è necessario usare un'area di lavoro standard o gratuita. In un'area di lavoro guest si può aprire l'esperimento iniziale del concorso, ma non sarà possibile creare un contributo valido per l'invio da tale area di lavoro. 
+No. Per partecipare, è necessario usare un'area di lavoro standard o gratuita. In un'area di lavoro guest si può aprire l'esperimento iniziale del concorso, ma non sarà possibile creare un contributo valido per l'invio da tale area di lavoro. 
 
 **È possibile partecipare usando un'area di lavoro in qualsiasi area di Azure?**
 

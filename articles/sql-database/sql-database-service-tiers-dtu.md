@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: a9e274cea7543fc3361b1f2d0a60fc18176b6248
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/22/2018
+ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831314"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955258"
 ---
 # <a name="dtu-based-service-tiers"></a>Livelli di servizio basati su DTU
 
@@ -25,7 +25,6 @@ I livelli di servizio basati su DTU si differenziano in base a diverse dimension
 
 > [!IMPORTANT]
 > Istanza gestita di database SQL, attualmente in anteprima pubblica, non supporta un modello di acquisto basato su DTU. Per altre informazioni, vedere l'articolo relativo a [Istanza gestita di database SQL di Azure](sql-database-managed-instance.md).
-
 > [!NOTE]
 > Per informazioni sui livelli di servizio basati su vCore, vedere [Livelli di servizio basati su vCore](sql-database-service-tiers-vcore.md). Per informazioni sulle differenze tra i livelli di servizio basati su DTU e quelli basati su vCore, vedere [Modelli di acquisto del database SQL di Azure](sql-database-service-tiers.md).
 
@@ -33,7 +32,7 @@ I livelli di servizio basati su DTU si differenziano in base a diverse dimension
 
 La scelta di un livello di servizio dipende soprattutto dai requisiti in termini di continuità aziendale, archiviazione e prestazioni.
 ||Basic|Standard|Premium|
-| :-- | --: |--:| --:| --:| 
+| :-- | --: |--:| --:| --:|
 |Carico di lavoro di destinazione|Sviluppo e produzione|Sviluppo e produzione|Sviluppo e produzione||
 |Contratto di servizio relativo al tempo di attività|99,99%|99,99%|99,99%|N/d in anteprima|
 |Conservazione backup|7 giorni|35 giorni|35 giorni|
@@ -44,13 +43,16 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 |OLTP in memoria|N/D|N/D|Supportato|
 |||||
 
+> [!NOTE]
+> È possibile ottenere un database SQL di Azure al livello di servizio Basic con un account Azure gratuito per provare a usare Azure. Per informazioni, vedere [Crea un database cloud gestito con il tuo account Azure gratuito](https://azure.microsoft.com/free/services/sql-database/).
+
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU database singolo e limiti di archiviazione
 
 Le dimensioni di calcolo per i database singoli sono espresse in unità di transazione di database (DTU), quelle per i pool elastici sono espresse in unità di transazione di database elastico (eDTU). Per altre informazioni su DTU ed EDTU, vedere [Modelli di acquisto basati su DTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
-| Dimensioni massime di archiviazione | 2 GB | 1 TB | 4 TB  | 
+| Dimensioni massime di archiviazione | 2 GB | 1 TB | 4 TB  |
 | DTU massime | 5 | 3000 | 4000 | |
 ||||||
 
@@ -59,18 +61,17 @@ Le dimensioni di calcolo per i database singoli sono espresse in unità di trans
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>eDTU pool elastico, archiviazione e limiti del database in pool
 
-| | **Basic** | **Standard** | **Premium** | 
+| | **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: | --: |
-| Dimensioni massime di archiviazione per ogni database  | 2 GB | 1 TB | 1 TB | 
-| Dimensioni massime di archiviazione per ogni pool | 156 GB | 4 TB | 4 TB | 
-| Numero massimo di eDTU per ogni database | 5 | 3000 | 4000 | 
-| Numero massimo di eDTU per ogni pool | 1600 | 3000 | 4000 | 
-| Numero massimo di database per pool | 500  | 500 | 100 | 
+| Dimensioni massime di archiviazione per ogni database  | 2 GB | 1 TB | 1 TB |
+| Dimensioni massime di archiviazione per ogni pool | 156 GB | 4 TB | 4 TB |
+| Numero massimo di eDTU per ogni database | 5 | 3000 | 4000 |
+| Numero massimo di eDTU per ogni pool | 1600 | 3000 | 4000 |
+| Numero massimo di database per pool | 500  | 500 | 100 |
 ||||||
 
 > [!IMPORTANT]
 > Nel livello Premium è attualmente disponibile più di 1 TB di archiviazione in tutte le aree tranne le seguenti: Stati Uniti centro-occidentali, Cina orientale, USDoDCentral, Germania centrale, USDoDEast, US Gov Southwest, USGov Iowa, Germania nord-orientale, Cina settentrionale. Nelle altre aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB. Vedere [Limitazioni correnti per P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
 > [!IMPORTANT]
 > In alcune circostanze, può essere necessario compattare un database per recuperare spazio inutilizzato. Per altre informazioni, vedere [Gestire lo spazio file nel database SQL di Azure](sql-database-file-space-management.md).
 

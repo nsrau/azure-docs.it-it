@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4157b812fbb17b524a21814f41e0e4ec43e39e70
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7c6d91da0634e7f847af01d1c057607ab095cdf6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042088"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408209"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Soluzione di gestione Connettore di Application Insights (anteprima)
 
@@ -58,8 +58,8 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 ## <a name="configuration"></a>Configurazione
 
 1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
-2. Nel portale OMS fare clic su **Impostazioni** &gt; **Dati** &gt; **Application Insights**.
-3. In **Selezionare una sottoscrizione**, selezionare una sottoscrizione con risorse Application Insights e quindi, in **Nome applicazione**, selezionare una o più applicazioni.
+2. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutti i servizi** per aprire Application Insights. Cercare quindi Application Insights. 
+3. In **Sottoscrizioni** selezionare una sottoscrizione che contenga risorse di Application Insights e quindi in **Nome** selezionare una o più applicazioni.
 4. Fare clic su **Save**.
 
 Dopo circa 30 minuti, i dati diverranno disponibili e il riquadro Application Insights verrà aggiornato con alcuni dati, come nell'immagine seguente:
@@ -133,7 +133,7 @@ I componenti della prospettiva vengono aggiornati a seconda della query di ricer
 
 ### <a name="pivot-to-an-app-in-the-azure-portal"></a>Passare a un'app nel portale di Azure
 
-I pannelli di Connettore di Application Insights sono progettati per consentire di passare all'app Application Insights selezionata *quando si usa il portale di OMS*. È possibile usare la soluzione come piattaforma di monitoraggio ad alto livello che contribuisce alla risoluzione dei problemi di un'app. Quando viene riscontrato un potenziale problema in una delle applicazioni connesse, è possibile analizzarlo nella ricerca di Log Analytics oppure passare direttamente all'app di Application Insights.
+I pannelli di Connettore di Application Insights sono progettati per consentire di passare all'app Application Insights selezionata *quando si usa il portale di Azure*. È possibile usare la soluzione come piattaforma di monitoraggio ad alto livello che contribuisce alla risoluzione dei problemi di un'app. Quando viene riscontrato un potenziale problema in una delle applicazioni connesse, è possibile analizzarlo nella ricerca di Log Analytics oppure passare direttamente all'app di Application Insights.
 
 A tale scopo, fare clic sui puntini di sospensione (**...**) visualizzati alla fine di ogni riga e selezionare **Apri in Application Insights**.
 

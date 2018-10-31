@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 6df7d42bc291713a815cac9f719f53136ed35b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956673"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637999"
 ---
-## <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster AKS con Monitoraggio di Azure per contenitori
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster AKS con Monitoraggio di Azure per contenitori
 La visualizzazione delle prestazioni del cluster del servizio Kubernetes di Azure (AKS) può essere osservata da due prospettive con Monitoraggio di Azure per contenitori, direttamente da un cluster di AKS o visualizzando tutti i cluster di AKS in una sottoscrizione da Monitoraggio di Azure. 
 
 Questo articolo illustra l'esperienza tra le due prospettive e spiega come valutare, analizzare e risolvere rapidamente i problemi rilevati.
@@ -109,6 +109,10 @@ Passando alla scheda **Nodi**, la gerarchia delle righe seguirà il modello a og
 
 ![Gerarchia di nodi Kubernetes di esempio nella vista prestazioni](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
+Da un nodo espanso è possibile eseguire il drill-down dal pod o contenitore in esecuzione nel nodo al controller per visualizzare i dati sulle prestazioni filtrati per il controller specifico. Fare clic sul valore nella colonna **Controller** per il nodo specifico.   
+
+![Esempio di drill-down dal nodo al controller nella vista prestazioni](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+
 È possibile selezionare controller o contenitori nella parte superiore della pagina e controllare lo stato e l'uso delle risorse per tali oggetti.  Se invece si vuole controllare l'uso della memoria, nell'elenco a discesa **Metrica** selezionare **Memoria RSS** o **Working set della memoria**. L'opzione **Memoria RSS** è supportata solo per Kubernetes versione 1.8 e successive. Se si usa un'altra versione, per i valori di **Min&nbsp;%** verrà visualizzato *NaN&nbsp;%*, ovvero un valore di tipo di dati numerico che indica un valore non definito o non rappresentabile. 
 
 ![Visualizzazione delle prestazioni dei nodi del contenitore](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
@@ -144,7 +148,9 @@ Qui è possibile visualizzare l'integrità delle prestazioni dei controller.
 
 ![Vista prestazioni dei controller di <nome>](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-La gerarchia di righe inizia con un controller e lo espande, visualizzando uno o più contenitori. Espandendo un pod, nell'ultima riga viene mostrato il contenitore raggruppato nel pod.  
+La gerarchia di righe inizia con un controller e quando si espande un controller vengono visualizzati uno o più pod.  Espandendo il pod, nell'ultima riga viene mostrato il contenitore raggruppato nel pod. Da un controller espanso è possibile eseguire il drill-down nel nodo in cui viene eseguito per visualizzare i dati sulle prestazioni filtrati per il nodo. Fare clic sul valore nella colonna **Nodo** per il controller specifico.   
+
+![Esempio di drill-down dal nodo al controller nella vista prestazioni](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 Le informazioni presentate quando si visualizzano i controller sono descritte nella tabella seguente:
 
@@ -178,6 +184,10 @@ Nel selettore selezionare **Contenitori**.
 Qui è possibile visualizzare l'integrità delle prestazioni dei contenitori di Kubernetes di Azure.  
 
 ![Vista prestazioni dei controller di <nome>](./media/monitoring-container-insights-analyze/containers-containers-view.png)
+
+Da un contenitore è possibile eseguire il drill-down in un pod o nodo per visualizzare i dati sulle prestazioni filtrati per l'oggetto. Fare clic sul valore nella colonna **Pod** o **Nodo** per il controller specifico.   
+
+![Esempio di drill-down dal nodo al controller nella vista prestazioni](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 Le informazioni presentate quando si visualizzano i contenitori sono descritte nella tabella seguente:
 

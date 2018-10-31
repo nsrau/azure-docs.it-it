@@ -1,5 +1,5 @@
 ---
-title: Creare più modelli da un esperimento | Documentazione Microsoft
+title: Creare più modelli da un esperimento | Microsoft Docs
 description: Usare PowerShell per creare più modelli di Machine Learning ed endpoint di servizio Web con lo stesso algoritmo ma con set di dati di training diversi.
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: 17354891b50138911f36314620f0c826db4b5dac
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: dcf4e9fa9435d8f20784b20f3873d408adb78c20
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833666"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469827"
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Creare più modelli di Machine Learning ed endpoint di servizio Web da un esperimento usando PowerShell
 Uno scenario di apprendimento automatico comune è il seguente: si vuole creare più modelli che usano lo stesso flusso di lavoro di training e lo stesso algoritmo, ma si desidera che abbiano set di dati di training diversi come input. Questo articolo illustra come eseguire questa operazione su larga scala in Azure Machine Learning Studio usando un singolo esperimento.
@@ -29,7 +29,7 @@ Si supponga, ad esempio, di essere proprietari di un franchising globale di nole
 
 Si potrebbe eseguire il training del modello una sola volta usando una versione unita di tutti i set di dati di tutte le località. Tuttavia, ogni negozio ha un ambiente unico. Perciò è preferibile eseguire il training del modello di regressione separatamente usando i set di dati dei singoli punti di noleggio. In questo modo, ogni modello di cui è stato eseguito il training terrà conto delle diverse caratteristiche, quali dimensioni del negozio, volume, posizione geografica, popolazione, traffico compatibile con le biciclette e così via.
 
-Questo potrebbe essere l'approccio migliore, ma creare 1.000 esperimenti di training in Azure Machine Learning che rappresentano le singole località non è molto pratico. Oltre a essere un'attività piuttosto complessa, è anche inefficiente perché ogni esperimento avrà gli stessi componenti eccetto il set di dati di training.
+Questo potrebbe essere l'approccio migliore, ma creare 1.000 esperimenti di training in Azure Machine Learning che rappresentano le singole località non è molto pratico. Oltre a essere un'attività eccessivamente complessa, risulta anche inefficiente poiché ogni esperimento avrebbe tutti gli stessi componenti eccetto il set di dati di training.
 
 Per fortuna, l'[API di ripetizione del training di Azure Machine Learning](retrain-models-programmatically.md) permette di eseguire questa operazione, automatizzando l'attività con [Azure Machine Learning PowerShell](powershell-module.md).
 
@@ -48,7 +48,7 @@ Usare l'esempio [esperimento di training](https://gallery.cortanaintelligence.co
 
 L’esperimento utilizza un modulo **Import Data** per importare il set di dati di training *customer001.csv* da un account di archiviazione di Azure. Si supponga di aver raccolto i set di dati di training da tutti i punti di noleggio di biciclette e di averli archiviati nello stesso archivio BLOB con nomi di file da *rentalloc001.csv* a *rentalloc10.csv*.
 
-![immagine](./media/create-models-and-endpoints-with-powershell/reader-module.png)
+![image](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 
 Si noti che al modulo **Train Model** (Modello di training) è stato aggiunto un modulo **Web service output** (Output servizio Web).
 Quando l'esperimento viene distribuito come servizio Web, l'endpoint associato a tale output restituisce il modello di cui è stato eseguito il training come file con estensione .ilearner.
@@ -56,7 +56,7 @@ Quando l'esperimento viene distribuito come servizio Web, l'endpoint associato a
 Si noti anche che viene impostato un parametro del servizio Web che definisce l'URL usato dal modulo **Import Data**. Questo permette di usare il parametro per specificare singoli set di dati di training per eseguire il training del modello per ogni punto di noleggio.
 Sarebbe stato possibile farlo in altri modi. È possibile usare una query SQL con un parametro di servizio Web per ottenere dati da un database SQL Azure. Oppure è possibile usare un modulo **Input del servizio Web** per passare un set di dati al servizio Web.
 
-![immagine](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
+![image](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 
 Provare a eseguire l'esperimento di training usando il valore predefinito *rental001.csv* come set di dati di training. Fare clic sull'output del modulo **Evaluate** (Valuta) e selezionare **Visualize** (Visualizza) per vedere che è stata ottenuta una prestazione soddisfacente di *AUC* = 0,91. A questo punto è possibile distribuire un servizio Web basato su questo esperimento di training.
 
@@ -93,7 +93,7 @@ Quindi, eseguire il comando di PowerShell seguente:
 
 I 10 endpoint appena creati contengono tutti lo stesso modello di cui è stato eseguito il training sul set di dati *customer001.csv*. Possono essere visualizzati nel portale di Azure.
 
-![immagine](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
+![image](./media/create-models-and-endpoints-with-powershell/created-endpoints.png)
 
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Aggiornare gli endpoint per l'uso di set di dati di training separati tramite PowerShell
 Il passaggio successivo consiste nell'aggiornare gli endpoint con i modelli di cui è stato eseguito il training univoco sui dati dei singoli clienti. Prima, però, è necessario produrre tali modelli dal servizio Web **Bike Rental Training** . Tornare al servizio Web **Bike Rental Training** . È necessario chiamare 10 volte il relativo endpoint BES con 10 set di dati di training diversi per produrre 10 modelli differenti. A tale scopo, usare il cmdlet **InovkeAmlWebServiceBESEndpoint** di PowerShell.

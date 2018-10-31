@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 06/19/2018
-ms.openlocfilehash: 5bf5385824eb9b711a2fee547c29d24d7ef5a01d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125769"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405685"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Tenere traccia delle comunicazioni B2B con Azure Log Analytics
 
@@ -40,9 +40,9 @@ Dopo avere configurato la comunicazione B2B tra due processi o applicazioni azie
 >  
 > Se non si dispone di un'area di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Aggiungere la soluzione B2B di App per la logica a Log Analytics
+## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>Aggiungere la soluzione App per la logica B2B in Azure
 
-Per fare in modo che Log Analytics tenga traccia dei messaggi B2B per l'app per la logica, è necessario aggiungere la soluzione **App per la logica B2B** al portale di OMS. Informazioni sull'[aggiunta di soluzioni a Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Per fare in modo che Log Analytics tenga traccia dei messaggi B2B per l'app per la logica, è necessario aggiungere la soluzione **App per la logica B2B** a Log Analytics. Informazioni sull'[aggiunta di soluzioni a Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) scegliere **Tutti i servizi**. Cercare "Log Analytics" e quindi scegliere **Log Analytics**, come illustrato qui:
 
@@ -52,7 +52,7 @@ Per fare in modo che Log Analytics tenga traccia dei messaggi B2B per l'app per 
 
    ![Selezionare l'area di lavoro di Log Analytics](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. In **Gestione** scegliere **Panoramica**.
+3. In **Gestione** scegliere **Riepilogo dell'area di lavoro**.
 
    ![Scegliere il portale di Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
@@ -136,7 +136,7 @@ Per ogni tipo di messaggio, di seguito sono elencate le descrizioni delle propri
 
 Ecco le descrizioni delle proprietà per ogni messaggio AS2.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo AS2 |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo AS2 |
@@ -167,7 +167,7 @@ Ecco i formati dei nomi per ogni cartella e file di messaggi AS2 scaricati.
 
 Ecco le descrizioni delle proprietà per ogni messaggio X12.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo X12 |
@@ -200,7 +200,7 @@ Ecco i formati dei nomi per ogni cartella e file di messaggi X12 scaricati.
 
 Ecco le descrizioni delle proprietà per ogni messaggio EDIFACT.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | Mittente | Partner guest specificato in **Impostazioni di ricezione** o partner host specificato in **Impostazioni di invio** di un accordo EDIFACT |
 | Ricevitore | Partner host specificato in **Impostazioni di ricezione** o partner guest specificato in **Impostazioni di invio** di un accordo EDIFACT |

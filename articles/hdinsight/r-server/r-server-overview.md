@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ca596b2d33a6248dac94ddd7eef9a9c44daac3c8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: af7a0d01fcf9df42da79a6529c8d4b0e31d73aa1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343742"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985489"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introduzione a ML Services e alle funzionalità R open source in HDInsight
 
@@ -61,7 +61,7 @@ ML Services in HDInsight offre i vantaggi seguenti:
 
 Le funzionalità seguenti sono incluse in ML Services su HDInsight.
 
-| Categoria funzionalità | DESCRIZIONE |
+| Categoria funzionalità | Descrizione |
 |------------------|-------------|
 | Abilitazione per R | [Pacchetti R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) per soluzioni scritte in R, con una distribuzione open source di R e un'infrastruttura di runtime per l'esecuzione di script. |
 | Abilitazione per Python | [Moduli Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) per soluzioni scritte in Python, con una distribuzione open source di Python e un'infrastruttura di runtime per l'esecuzione di script.
@@ -102,7 +102,7 @@ Se si sceglie questa opzione, è necessario convertire gli oggetti del modello S
 
 ### <a name="score-on-premises"></a>Assegnare punteggi in locale
 
-Per assegnare punteggi in locale dopo aver creato il modello, si potrebbe serializzare il modello in R, scaricarlo, deserializzarlo e poi usarlo per assegnare punteggi ai nuovi dati. È possibile assegnare punteggi ai nuovi dati usando l'approccio descritto in precedenza in [Assegnare punteggi in HDInsight](#scoring-in-hdinsight) o tramite i [servizi Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
+Per assegnare punteggi in locale dopo aver creato il modello, si potrebbe serializzare il modello in R, scaricarlo, deserializzarlo e poi usarlo per assegnare punteggi ai nuovi dati. È possibile assegnare punteggi ai nuovi dati usando l'approccio descritto in precedenza in [Assegnare punteggi in HDInsight](#score-in-hdinsight) o tramite i [servizi Web](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services).
 
 ## <a name="maintain-the-cluster"></a>Eseguire la manutenzione del cluster
 

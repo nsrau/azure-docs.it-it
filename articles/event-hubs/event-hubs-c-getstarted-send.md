@@ -12,31 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 12/4/2017
+ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 25da8255af6a23a4f01db5a1ec4f1ddcd2eeb1bb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 32345b0f064aa78dbf1cbb84cb2309138e7bf4f7
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40002458"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49455386"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>Inviare eventi a Hub di eventi di Azure usando C
 
 ## <a name="introduction"></a>Introduzione
-Hub eventi è un sistema di inserimento a scalabilità elevata, in grado di inserire milioni di eventi al secondo, che permette a un'applicazione di elaborare e analizzare le elevate quantità di dati prodotti dalle applicazioni e dai dispositivi connessi. Dopo la raccolta in un hub eventi, è possibile trasformare e archiviare i dati usando qualsiasi provider di analisi in tempo reale o un cluster di archiviazione.
+Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
-Per altre informazioni, vedere [Panoramica di Hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview).
+Questa esercitazione illustra come inviare eventi a un hub eventi usando un'applicazione console in C. 
 
-Questa esercitazione illustra come inviare eventi a un hub eventi usando un'applicazione console in C. Per informazioni su come ricevere gli eventi, fare clic sul linguaggio di ricezione appropriato nel sommario a sinistra.
-
+## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Ambiente di sviluppo in C. Questa esercitazione presuppone l'uso di uno stack gcc in una VM Linux di Azure con Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-* Un account Azure attivo. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="send-messages-to-event-hubs"></a>Inviare messaggi all'hub eventi
+## <a name="write-code-to-send-messages-to-event-hubs"></a>Scrivere codice per inviare messaggi ad Hub eventi
 In questa sezione viene illustrato come scrivere un'app C per inviare eventi all'hub eventi. Il codice usa la libreria Proton AMQP dal [progetto Apache Qpid](http://qpid.apache.org/). Il procedimento è simile a quello adottato per l'uso di code e argomenti del bus di servizio con AMQP da C, come illustrato [in questo esempio](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). Per altre informazioni, vedere la [documentazione di Qpid Proton](http://qpid.apache.org/proton/index.html).
 
 1. Dalla [pagina di Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) seguire le istruzioni per l'installazione di Qpid Proton a seconda dell'ambiente corrente.
@@ -150,12 +148,13 @@ In questa sezione viene illustrato come scrivere un'app C per inviare eventi all
     > [!NOTE]
     > Questo codice usa una finestra in uscita pari a 1 per imporre un invio dei messaggi il più rapido possibile. È opportuno che l'applicazione provi a inviare i messaggi in batch per aumentare la velocità effettiva. Vedere la [pagina di Qpid AMQP Messenger](https://qpid.apache.org/proton/messenger.html) per informazioni sull'uso della libreria Qpid Proton in questo e in altri ambienti e anche nelle piattaforme per le quali sono disponibili associazioni, al momento Perl, PHP, Python e Ruby.
 
+Eseguire l'applicazione per inviare messaggi all'hub eventi. 
+
+Congratulazioni! Sono stati inviati messaggi a un hub eventi.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
+Per informazioni su come ricevere gli eventi dall'hub eventi, fare clic sul linguaggio di ricezione appropriato nel nodo **Ricevere eventi da un hub eventi** del sommario.
 
-* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Domande frequenti su Hub eventi](event-hubs-faq.md)
 
 <!-- Images. -->
 [21]: ./media/event-hubs-c-ephcs-getstarted/run-csharp-ephcs1.png

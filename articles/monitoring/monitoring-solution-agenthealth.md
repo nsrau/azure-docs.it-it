@@ -1,6 +1,6 @@
 ---
-title: Soluzione Integrità agente in OMS | Microsoft Docs
-description: Questo articolo fornisce informazioni su come usare questa soluzione per monitorare l'integrità degli agenti che inviano report direttamente a OMS o System Center Operations Manager.
+title: Soluzione Integrità agente in Azure | Microsoft Docs
+description: L'obiettivo di questo articolo è spiegare come usare questa soluzione per monitorare l'integrità degli agenti che inviano report direttamente a Log Analytics o System Center Operations Manager.
 services: operations-management-suite
 documentationcenter: ''
 author: MGoedtel
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: 8a6275748c82fbb448a767af690121abbd1f669a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347886"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404036"
 ---
-#  <a name="agent-health-solution-in-oms"></a>Soluzione Integrità agente in OMS
-La soluzione Integrità agente in OMS consente di individuare gli agenti che non rispondono e quelli che inviano dati operativi tra tutti gli agenti che inviano report direttamente all'area di lavoro di OMS o a un gruppo di gestione di System Center Operations Manager connesso a OMS.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
+#  <a name="agent-health-solution-in-azure"></a>Soluzione Integrità agente in Azure
+La soluzione Integrità agente in Azure consente di individuare gli agenti che non rispondono e quelli che inviano dati operativi tra tutti gli agenti che inviano report direttamente all'area di lavoro di Log Analytics o a un gruppo di gestione di System Center Operations Manager connesso a Log Analytics.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
 
-## <a name="prerequisites"></a>prerequisiti
-Prima di distribuire questa soluzione, assicurarsi che l'invio di report da parte degli [agenti di Windows](../log-analytics/log-analytics-windows-agent.md) all'area di lavoro di OMS o a un [gruppo di gestione di Operations Manager](../log-analytics/log-analytics-om-agents.md) integrato con l'area di lavoro di OMS sia attualmente supportato.    
+## <a name="prerequisites"></a>Prerequisiti
+Prima di distribuire questa soluzione, assicurarsi che sia attualmente supportato l'invio di report da parte degli [agenti di Windows](../log-analytics/log-analytics-windows-agent.md) all'area di lavoro di Log Analytics o a un [gruppo di gestione di Operations Manager](../log-analytics/log-analytics-om-agents.md) integrato con l'area di lavoro.    
 
 ## <a name="solution-components"></a>Componenti della soluzione
 Questa soluzione è costituita dalle risorse seguenti che vengono aggiunte all'area di lavoro e agli agenti direttamente connessi o al gruppo di gestione connesso di Operations Manager.
 
 ### <a name="management-packs"></a>Management Pack
-Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di OMS, in Operations Manager verranno installati i Management Pack seguenti.  Questi Management Pack vengono installati anche su computer Windows direttamente connessi dopo l'aggiunta di questa soluzione. Non sono richieste attività di configurazione o gestione con questi Management Pack.
+Se il gruppo di gestione di System Center Operations Manager è connesso all'area di lavoro di Log Analytics, in Operations Manager verranno installati i Management Pack seguenti.  Questi Management Pack vengono installati anche su computer Windows direttamente connessi dopo l'aggiunta di questa soluzione. Non sono richieste attività di configurazione o gestione con questi Management Pack.
 
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
@@ -39,7 +39,7 @@ Se il gruppo di gestione di System Center Operations Manager è connesso all'are
 Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ## <a name="configuration"></a>Configurazione
-Aggiungere la soluzione Integrità agente all'area di lavoro di OMS usando la procedura descritta in [Aggiungere soluzioni](../log-analytics/log-analytics-add-solutions.md). Non è richiesta alcuna ulteriore configurazione.
+Aggiungere la soluzione Integrità agente all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](../log-analytics/log-analytics-add-solutions.md). Non è richiesta alcuna ulteriore configurazione.
 
 
 ## <a name="data-collection"></a>Raccolta dei dati
@@ -48,11 +48,11 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 | Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
-| Agenti di Windows | Sì | Gli eventi di heartbeat vengono raccolti dagli agenti di Windows diretti.|
-| Gruppo di gestione di System Center Operations Manager | Sì | Gli eventi di heartbeat dagli agenti che inviano report al gruppo di gestione vengono raccolti ogni 60 secondi e vengono quindi inoltrati a Log Analytics. Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli eventi di heartbeat vengono inoltrati dal gruppo di gestione al repository di Log Analytics.|
+| Agenti di Windows | Yes | Gli eventi di heartbeat vengono raccolti dagli agenti di Windows diretti.|
+| Gruppo di gestione di System Center Operations Manager | Yes | Gli eventi di heartbeat dagli agenti che inviano report al gruppo di gestione vengono raccolti ogni 60 secondi e vengono quindi inoltrati a Log Analytics. Non è necessaria una connessione diretta dall'agente Operations Manager a Log Analytics. I dati degli eventi di heartbeat vengono inoltrati dal gruppo di gestione al repository di Log Analytics.|
 
 ## <a name="using-the-solution"></a>Uso della soluzione
-Quando si aggiunge la soluzione Integrità agente all'area di lavoro di OMS, il riquadro **Integrità agente** verrà aggiunto al dashboard OMS. Questo riquadro mostra il numero totale di agenti e il numero di agenti che non rispondono nelle ultime 24 ore.<br><br> ![Riquadro della soluzione Integrità agente nel dashboard](./media/monitoring-solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Quando si aggiunge la soluzione Integrità agente all'area di lavoro di Log Analytics, il riquadro **Integrità agente** viene aggiunto al dashboard. Questo riquadro mostra il numero totale di agenti e il numero di agenti che non rispondono nelle ultime 24 ore.<br><br> ![Riquadro della soluzione Integrità agente nel dashboard](./media/monitoring-solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Fare clic sul riquadro **Integrità agente** per aprire il dashboard di **Integrità agente**.  Il dashboard include le colonne nella tabella seguente. Ogni colonna elenca i primi dieci eventi per numero corrispondente ai criteri della colonna per l'intervallo di tempo specificato. È possibile eseguire una ricerca log che fornisce l'intero elenco selezionando **Visualizza tutto** nella parte inferiore destra di ogni colonna o facendo clic sull'intestazione di colonna.
 
@@ -65,12 +65,12 @@ Fare clic sul riquadro **Integrità agente** per aprire il dashboard di **Integr
 | Distribution by Agent Category (Distribuzione per categoria dell'agente) | Indicazione delle diverse categorie di agenti che inviano eventi di heartbeat, ovvero agenti diretti, agenti OpsMgr o un server di gestione di OpsMgr.|
 | Distribution by Management Group (Distribuzione per gruppo di gestione) | Indicazione dei diversi gruppi di gestione di SCOM disponibili nell'ambiente.|
 | Geo-location of Agents (Posizione geografica degli agenti) | Indicazione dei diversi paesi in cui sono presenti agenti e conteggio totale del numero di agenti installati in ogni paese.|
-| Count of Gateways Installed (Conteggio dei gateway installati) | Numero di server in cui è installato il Gateway OMS ed elenco di tali server.|
+| Count of Gateways Installed (Conteggio dei gateway installati) | Numero di server in cui è installato il gateway Log Analytics ed elenco dei server.|
 
 ![Esempio di dashboard della soluzione Integrità agente](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
-La soluzione crea un tipo di record nel repository di OMS.  
+La soluzione crea un tipo di record nell'area di lavoro di Log Analytics.  
 
 ### <a name="heartbeat-records"></a>Record di heartbeat
 Viene creato un record di tipo **Heartbeat**.  Questi record includono le proprietà elencate nella tabella seguente.  
@@ -83,9 +83,9 @@ Viene creato un record di tipo **Heartbeat**.  Questi record includono le propri
 | OSType | Sistema operativo Windows o Linux.|
 | OSMajorVersion | Versione principale del sistema operativo.|
 | OSMinorVersion | Versione secondaria del sistema operativo.|
-| Version | Versione dell'agente di OMS o dell'agente di Operations Manager.|
+| Version | Versione dell'agente di Log Analytics o dell'agente di Operations Manager.|
 | SCAgentChannel | Il valore è *Direct* e/o *SCManagementServer*.|
-| IsGatewayInstalled | Se il Gateway OMS è installato, il valore è *true*. In caso contrario, il valore è *false*.|
+| IsGatewayInstalled | Se il gateway Log Analytics è installato, il valore è *true*. In caso contrario, il valore è *false*.|
 | ComputerIP | Indirizzo IP del computer.|
 | RemoteIPCountry | Posizione geografica in cui è distribuito il computer.|
 | ManagementGroupName | Nome del gruppo di gestione di Operations Manager.|
@@ -93,7 +93,7 @@ Viene creato un record di tipo **Heartbeat**.  Questi record includono le propri
 | RemoteIPLongitude | Longitudine della posizione geografica del computer.|
 | RemoteIPLatitude | Latitudine della posizione geografica del computer.|
 
-Ogni agente che invia report a un server di gestione di Operations Manager invierà due heartbeat e il valore della proprietà SCAgentChannel includerà **Direct** e **SCManagementServer**, in base alle origini dati e alle soluzioni di Log Analytics abilitate nella sottoscrizione di OMS. Come si può ricordare, i dati delle soluzioni vengono inviati direttamente da un server di gestione di Operations Manager al servizio Web OMS oppure, a causa del volume dei dati raccolti nell'agente, vengono inviati direttamente dall'agente al servizio Web OMS. Per gli eventi di heartbeat con valore **SCManagementServer**, il valore ComputerIP è l'indirizzo IP del server di gestione, perché i dati vengono effettivamente caricati da tale server.  Per gli heartbeat il cui valore SCAgentChannel è impostato su **Direct**, corrisponde all'indirizzo IP pubblico dell'agente.  
+Ogni agente che invia report a un server di gestione di Operations Manager invierà due heartbeat e il valore della proprietà SCAgentChannel includerà **Direct** e **SCManagementServer**, in base alle origini dati e alle soluzioni di Log Analytics abilitate nella sottoscrizione. Come si può ricordare, i dati delle soluzioni vengono inviati direttamente da un server di gestione di Operations Manager a Log Analytics oppure, a causa del volume dei dati raccolti nell'agente, vengono inviati direttamente dall'agente a Log Analytics. Per gli eventi di heartbeat con valore **SCManagementServer**, il valore ComputerIP è l'indirizzo IP del server di gestione, perché i dati vengono effettivamente caricati da tale server.  Per gli heartbeat il cui valore SCAgentChannel è impostato su **Direct**, corrisponde all'indirizzo IP pubblico dell'agente.  
 
 ## <a name="sample-log-searches"></a>Ricerche di log di esempio
 La tabella seguente contiene esempi di ricerche nei log per i record raccolti da questa soluzione.
@@ -111,7 +111,7 @@ La tabella seguente contiene esempi di ricerche nei log per i record raccolti da
 | Heartbeat &#124; summarize AggregatedValue = count() by Category |Distribuzione per categoria dell'agente |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by ManagementGroupName | Distribuzione per gruppo di gestione |
 | Heartbeat &#124; summarize AggregatedValue = dcount(Computer) by RemoteIPCountry |Posizione geografica degli agenti |
-| Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Numero di gateway OMS installati |
+| Heartbeat &#124; where iff(isnotnull(toint(IsGatewayInstalled)), IsGatewayInstalled == true, IsGatewayInstalled == "true") == true &#124; distinct Computer |Numero di gateway Log Analytics installati |
 
 
 

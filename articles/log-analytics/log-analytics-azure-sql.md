@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: d16f9add2cd31eb5a8db650798c241c3dcf2610f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379305"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025669"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorare il database SQL di Azure usando Analisi SQL di Azure (anteprima)
 
 ![Simbolo di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Analisi SQL di Azure è una soluzione di monitoraggio del cloud per il monitoraggio delle prestazioni dei database SQL di Azure, dei pool elastici e delle istanze gestite su larga scala e tra più sottoscrizioni. Raccoglie e Visualizza importanti metriche sulle prestazioni di Database SQL di Azure con funzionalità di intelligence integrata per la risoluzione dei problemi.
+Analisi SQL di Azure è una soluzione cloud che consente di monitorare le prestazioni di database SQL di Azure, istanze gestite e pool elastici in scala e in più sottoscrizioni da una singola finestra. Raccoglie e Visualizza importanti metriche sulle prestazioni di Database SQL di Azure con funzionalità di intelligence integrata per la risoluzione dei problemi.
 
 Usando le metriche raccolte con la soluzione, è possibile creare regole e avvisi di monitoraggio personalizzati. La soluzione consente di identificare i problemi a ogni livello dello stack di applicazioni. Usa le metriche di Diagnostica di Azure insieme alle viste di Log Analytics per presentare i dati su tutti i database SQL di Azure, i pool elastici e i database nelle istanze gestite in un'unica area di lavoro di Log Analytics. Log Analytics consente di raccogliere, correlare e visualizzare dati strutturati e non strutturati.
 
@@ -66,23 +66,11 @@ Eseguire questa procedura per aggiungere la soluzione Analisi SQL di Azure al da
 
 ### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>Configurare i database SQL di Azure, i pool elastici e le istanze gestite per lo streaming dei dati di telemetria di diagnostica
 
-Dopo aver creato la soluzione di Analisi SQL di Azure nell'area di lavoro, per poter monitorare le prestazioni dei database SQL di Azure, dei database in Istanza gestita e dei pool elastici, sarà necessario **configurare ognuna** di queste risorse da monitorare per trasmettere i dati di telemetria di diagnostica alla soluzione.
+Dopo avere creato la soluzione Analisi SQL di Azure nella propria area di lavoro, per monitorare le prestazioni dei database SQL di Azure, i database nei database delle istanze gestite e i pool elastici, è necessario **configurare ognuna** delle risorse da monitorare in modo che trasmetta i dati di telemetria di diagnostica alla soluzione. Seguire le istruzioni dettagliate in questa pagina:
 
 - Abilitare Diagnostica di Azure per il database SQL di Azure, i database in Istanza gestita e i pool elastici per [trasmettere i dati di telemetria di diagnostica ad Analisi SQL di Azure](../sql-database/sql-database-metrics-diag-logging.md).
 
-### <a name="to-configure-multiple-azure-subscriptions"></a>Per configurare più sottoscrizioni di Azure
- 
-Per supportare più sottoscrizioni, usare lo script di PowerShell contenuto in [Enable Azure resource metrics logging using PowerShell](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/) (Abilitare la registrazione delle metriche sulle risorse di Azure usando PowerShell). Specificare l'ID risorsa dell'area di lavoro come parametro quando si esegue lo script per inviare i dati di diagnostica dalle risorse in una sottoscrizione di Azure a un'area di lavoro in un'altra sottoscrizione di Azure.
-
-**Esempio**
-
-```
-PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
-```
-
-```
-PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
-```
+La pagina sopra indicata include anche le istruzioni per abilitare il supporto per il monitoraggio di più sottoscrizioni di Azure da una singola area di lavoro di Analisi SQL di Azure come singola finestra.
 
 ## <a name="using-the-solution"></a>Uso della soluzione
 
@@ -159,11 +147,48 @@ Tramite le prospettive relativa a durata e attese delle query, è possibile corr
 
 ![Query di Analisi SQL di Azure](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
-### <a name="pricing"></a>Prezzi
+## <a name="permissions"></a>Autorizzazioni
 
-La soluzione è disponibile gratuitamente. Viene addebitato il consumo di telemetria di diagnostica oltre il limite mensile di unità gratuite di inserimento dati. Per informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). Le unità gratuite di inserimento dati fornite consentono di monitorare gratuitamente più database ogni mese. Si noti che i database più attivi con carichi di lavoro più pesanti inseriranno più dati rispetto ai database inattivi. È possibile monitorare facilmente il consumo di dati nella soluzione selezionando Area di lavoro di OMS nel menu di spostamento di Analisi SQL di Azure e quindi scegliendo Utilizzo e costi stimati.
+Per usare Analisi SQL di Azure, gli utenti devono disporre come minimo del ruolo di Lettore in Azure. Questo ruolo non consentirà loro di visualizzare il testo della query o di eseguire una qualsiasi azione di ottimizzazione automatica. I ruoli più liberali di Azure che consentiranno di usare la soluzione nella sua completezza sono Proprietario, Collaboratore, Collaboratore Database SQL o Collaboratore SQL Server. È possibile anche creare nel portale un ruolo personalizzato dotato di autorizzazioni specifiche necessarie solo per usare Analisi SQL di Azure e senza accesso per gestire altre risorse.
 
-### <a name="analyze-data-and-create-alerts"></a>Analizzare i dati e creare avvisi
+### <a name="creating-a-custom-role-in-portal"></a>Creazione di un ruolo personalizzato nel portale
+
+Alcune organizzazioni applicano controlli severi sulle autorizzazioni in Azure. Lo script di PowerShell seguente consente di creare un ruolo personalizzato "Operatore di monitoraggio Analisi SQL" nel portale di Azure dotato delle autorizzazioni minime di lettura e scrittura per usare Analisi SQL di Azure nella sua completezza.
+
+Sostituire "{SubscriptionId}" nello script sottostante con l'ID di sottoscrizione di Azure ed eseguire lo script eseguendo l'accesso ad Azure con il ruolo di Proprietario o di Collaboratore.
+
+   ```powershell
+    Connect-AzureRmAccount
+    Select-AzureRmSubscription {SubscriptionId}
+    $role = Get-AzureRmRoleDefinition -Name Reader
+    $role.Name = "SQL Analytics Monitoring Operator"
+    $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
+    $role.IsCustom = $true
+    $role.Actions.Add("Microsoft.SQL/servers/databases/read");
+    $role.Actions.Add("Microsoft.SQL/servers/databases/topQueries/queryText/*");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Resources/deployments/write");
+    $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
+    New-AzureRmRoleDefinition $role
+   ```
+
+Dopo aver creato il nuovo ruolo, assegnarlo a ogni utente a cui è necessario concedere autorizzazioni personalizzate per l'utilizzo di Analisi SQL di Azure.
+
+## <a name="analyze-data-and-create-alerts"></a>Analizzare i dati e creare avvisi
+
+L'analisi dei dati in Analisi SQL di Azure è basata sul [linguaggio di Log Analytics](./query-language/get-started-queries.md) per la creazione di report e di query personalizzati. Una descrizione dei dati disponibili raccolti dalla risorsa del database per la creazione di query personalizzate è disponibile in [Metriche e log disponibili](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+
+La generazione di avvisi automatica nella soluzione è basata sulla scrittura di una query di Log Analytics che genera un avviso al verificarsi di una condizione. Di seguito sono riportati molti esempi di query di Log Analytics per le quali è possibile configurare gli avvisi nella soluzione.
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Creazione di avvisi per il database SQL di Azure
 
@@ -257,6 +282,10 @@ AzureDiagnostics
 > [!NOTE]
 > - Il prerequisito di configurazione di questo avviso prevede che per l'istanza gestita monitorata sia abilitata la trasmissione del log ResourceUsageStats alla soluzione.
 > - Questa query richiede una regola di avviso da impostare in modo da attivare un avviso quando vengono restituiti risultati (> 0 risultati) dalla query, a indicare che la condizione è presente nell'istanza gestita. L'output è il consumo percentuale delle risorse di archiviazione nell'istanza gestita.
+
+### <a name="pricing"></a>Prezzi
+
+La soluzione è disponibile gratuitamente. Viene addebitato il consumo di telemetria di diagnostica oltre il limite mensile di unità gratuite di inserimento dati. Per informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). Le unità gratuite di inserimento dati fornite consentono di monitorare gratuitamente più database ogni mese. Si noti che i database più attivi con carichi di lavoro più pesanti inseriranno più dati rispetto ai database inattivi. È possibile monitorare facilmente il consumo di dati nella soluzione selezionando Area di lavoro di OMS nel menu di spostamento di Analisi SQL di Azure e quindi scegliendo Utilizzo e costi stimati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

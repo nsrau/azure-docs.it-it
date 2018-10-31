@@ -10,12 +10,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2ec0dea7e50747f8af337874c8f12463cecb8df7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 798960f30ae13f42c0198cf4bf63412192edc63e
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163478"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429831"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Eseguire il training di modelli di apprendimento automatico nel cloud
 
@@ -110,7 +110,7 @@ def get_data():
 
 ## <a name="configure-experiment"></a>Configurare l'esperimento
 
-Specificare le impostazioni per `AutoMLConfig`.  (Vedere un [elenco completo di parametri]() e i relativi valori possibili.)
+Specificare le impostazioni per `AutoMLConfig`.  (Vedere un [elenco completo di parametri](how-to-configure-auto-train.md#configure-experiment) e i relativi valori possibili.)
 
 Nelle impostazioni, `run_configuration` è impostato sull'oggetto `run_config`, che contiene le impostazioni e la configurazione per la DSVM.  
 
@@ -141,7 +141,7 @@ automl_config = AutoMLConfig(task='classification',
 
 ## <a name="submit-training-experiment"></a>Inviare l'esperimento di training
 
-A questo punto inviare la configurazione per selezionare automaticamente l'algoritmo, i parametri hyper e il training del modello. ([Altre informazioni sulle impostazioni]() per il metodo `submit`)
+A questo punto inviare la configurazione per selezionare automaticamente l'algoritmo, i parametri hyper e il training del modello.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -203,7 +203,7 @@ Trovare i log nel DSVM in /tmp/azureml_run/{iterationid}/azureml-logs.
 
 ## <a name="example"></a>Esempio
 
-Il notebook `automl/03.auto-ml-remote-execution.ipynb` illustra i concetti descritti in questo articolo.  Per ottenere questo blocco appunti:
+Il blocco appunti [automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) dimostra i concetti illustrati in questo articolo.  Per ottenere questo blocco appunti:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

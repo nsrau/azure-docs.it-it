@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: rajanaki
-ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922749"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456491"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility in una replica di Azure
 
@@ -62,6 +62,19 @@ Quando si abilita la replica di una macchina virtuale a partire [dalla visualizz
 > [!Note] 
 > Entrambe le opzioni segnalano con quale account di automazione vengono gestiti gli aggiornamenti. Se è la prima volta che si abilita questa funzionalità in un insieme di credenziali, verrà creato un nuovo account di automazione. Tutte le operazioni di replica successive nello stesso insieme di credenziali useranno l'account precedentemente creato.
 
+### <a name="manage-manually"></a>Gestire manualmente
+
+1. Se sono disponibili nuovi aggiornamenti per il servizio Mobility installato nella macchina virtuale di Azure, viene visualizzata la notifica "È disponibile un nuovo aggiornamento dell'agente di replica di Site Recovery. Fare clic per installare."
+
+     ![Finestra Elementi replicati](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+3. Selezionare la notifica per aprire la pagina di selezione della macchina virtuale.
+4. Selezionare le macchine virtuali su cui aggiornare il servizio Mobility e quindi selezionare **OK**.
+
+     ![Elenco delle macchine virtuali in Elementi replicati](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+
+Verrà avviato il processo di aggiornamento del servizio Mobility per ognuna delle macchine virtuali selezionate.
+
+
 ## <a name="common-issues--troubleshooting"></a>Problemi comuni e risoluzione dei problemi
 
 In caso di problemi con gli aggiornamenti automatici, verrà visualizzata una notifica in "Problemi comuni" nel dashboard dell'insieme di credenziali. 
@@ -79,8 +92,8 @@ Se il pulsante Ripara non è disponibile, fare riferimento al messaggio di error
 
  - **Errore**: l'account RunAs non ha l'autorizzazione per accedere alla risorsa dei servizi di ripristino.
 
-    **Azione consigliata**: eliminare e [ricreare l'account RunAs](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) o verificare che l'applicazione Azure Active Directory dell'account RunAs di Automazione abbia accesso alla risorsa dei servizi di ripristino.
+    **Azione consigliata**: eliminare e [ricreare l'account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account) o verificare che l'applicazione Azure Active Directory dell'account RunAs di Automazione abbia accesso alla risorsa dei servizi di ripristino.
 
 - **Errore**: impossibile trovare l'account RunAs. È possibile che uno degli elementi seguenti (applicazione di Azure Active Directory, entità servizio, ruolo, asset di certificato di Automazione, asset di connessione di Automazione) o l'identificazione personale non siano identici tra certificato e connessione. 
 
-    **Azione consigliata**: eliminare e [ricreare l'account RunAs](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **Azione consigliata**: eliminare e [ricreare l'account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

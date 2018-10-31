@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: a08cd6289fc85b79ccec731126a33a9549d60546
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123534"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405736"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorare lo stato, configurare la registrazione diagnostica e attivare gli avvisi per App per la logica di Azure
 
@@ -90,7 +90,9 @@ Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Infor
 
    1. Selezionare **Invia a Log Analytics**. 
    2. In **Log Analytics** scegliere **Configura**. 
-   3. In **Aree di lavoro OMS** selezionare l'area di lavoro di Log Analytics da usare per la registrazione.
+   3. In **Aree di lavoro OMS** selezionare l'area di lavoro da usare per la registrazione.
+   > [!NOTE]
+   > Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
    4. In **Log** selezionare la categoria **WorkflowRuntime**.
    5. Scegliere l'intervallo di metrica.
    6. Al termine dell'operazione, scegliere **Salva**.

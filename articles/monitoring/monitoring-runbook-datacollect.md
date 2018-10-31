@@ -1,6 +1,6 @@
 ---
 title: Raccolta di dati di Log Analytics con un runbook in Automazione di Azure | Microsoft Docs
-description: Esercitazione dettagliata che illustra la creazione di un runbook in Automazione di Azure per la raccolta di dati nel repository OMS per la successiva analisi da parte di Log Analytics.
+description: Esercitazione dettagliata che illustra la creazione di un runbook in Automazione di Azure per la raccolta di dati nel repository per la successiva analisi da parte di Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: d3e8e876a6c01123d65c1e8df13328bdd5fad71f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347896"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409510"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Raccogliere dati in Log Analytics con un runbook di Automazione di Azure
 È possibile raccogliere una quantità significativa di dati in Log Analytics da una serie di origini, tra cui [origini dati](../log-analytics/log-analytics-data-sources.md) negli agenti e [dati raccolti da Azure](../log-analytics/log-analytics-azure-storage.md).  Esistono tuttavia scenari in cui è necessario raccogliere dati non accessibili tramite queste origini standard.  In questi casi è possibile usare l'[API di raccolta dati HTTP](../log-analytics/log-analytics-data-collector-api.md) per inviare dati a Log Analytics da qualsiasi client dell'API REST.  Un modo comune per eseguire questa raccolta dati è usare un runbook in Automazione di Azure.   
@@ -27,7 +27,7 @@ ms.locfileid: "37347896"
 Questa esercitazione illustra il processo di creazione e pianificazione di un runbook in Automazione di Azure per l'invio di dati a Log Analytics.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questo scenario richiede la configurazione delle risorse seguenti nella sottoscrizione di Azure.  Per entrambe è possibile usare un account gratuito.
 
 - [Area di lavoro di Log Analytics](../log-analytics/log-analytics-get-started.md).
@@ -56,7 +56,7 @@ PowerShell Gallery offre tuttavia un'opzione rapida per distribuire un modulo di
 
 
 ## <a name="2-create-automation-variables"></a>2. Creare variabili di Automazione
-Le [variabili di Automazione](..\automation\automation-variables.md) contengono valori che possono essere usati da tutti i runbook presenti nell'account di Automazione.  Rendono i runbook più flessibili perché consentono di modificare questi valori senza modificare il runbook vero e proprio. Ogni richiesta inviata dall'API di raccolta dati HTTP richiede l'ID e la chiave dell'area di lavoro OMS e gli asset di tipo variabile sono ideali per archiviare queste informazioni.  
+Le [variabili di Automazione](..\automation\automation-variables.md) contengono valori che possono essere usati da tutti i runbook presenti nell'account di Automazione.  Rendono i runbook più flessibili perché consentono di modificare questi valori senza modificare il runbook vero e proprio. Ogni richiesta inviata dall'API di raccolta dati HTTP richiede l'ID e la chiave dell'area di lavoro Log Analytics e gli asset di tipo variabile sono ideali per archiviare queste informazioni.  
 
 ![variables](media/monitoring-runbook-datacollect/variables.png)
 
@@ -69,7 +69,7 @@ Le [variabili di Automazione](..\automation\automation-variables.md) contengono 
 | NOME | WorkspaceId | WorkspaceKey |
 | type | string | string |
 | Valore | Incollare l'ID dell'area di lavoro di Log Analytics. | Incollare la chiave primaria o secondaria dell'area di lavoro di Log Analytics. |
-| Crittografato | No  | Sì |
+| Crittografato | No  | Yes |
 
 
 

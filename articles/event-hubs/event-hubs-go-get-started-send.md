@@ -7,34 +7,33 @@ manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 40b3aa82c3e9e8ab9a30362c0a41998877655725
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f5e30a103b09613caee8e9912a89a5bc2d390f65
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005598"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458089"
 ---
 # <a name="send-events-to-event-hubs-using-go"></a>Inviare eventi ad Hub eventi usando Go
 
-Hub eventi di Azure è un sistema di gestione degli eventi a scalabilità elevata, in grado di gestire milioni di eventi al secondo, che consente alle applicazioni di elaborare e analizzare le elevate quantità di dati generati dai dispositivi connessi e da altri sistemi. Dopo aver raccolto gli eventi in un hub eventi, è possibile riceverli e gestirli usando dei gestori in-process o inoltrandoli ad altri sistemi di analisi.
+Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
-Per altre informazioni su Hub eventi, vedere [Panoramica di Hub eventi][Event Hubs overview].
+Questa esercitazione descrive come inviare eventi a un hub eventi da un'applicazione scritta in Go. 
 
-Questa esercitazione descrive come inviare eventi a un hub eventi da un'applicazione scritta in Go. Per ricevere eventi, usare il pacchetto **Go eph** (Host processore di eventi), come descritto nell'[articolo corrispondente relativo alla ricezione](event-hubs-go-get-started-receive-eph.md).
-
-Il codice riportato nell'esercitazione proviene da [questi esempi di GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), che è possibile esaminare per visualizzare la versione completa dell'applicazione in funzione, incluse le istruzioni di importazione e le dichiarazioni di variabili.
-
-Altri esempi sono disponibili [nel repository del pacchetto di Hub eventi](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples).
+> [!NOTE]
+> È possibile scaricare questa guida introduttiva come esempio da [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs), sostituire le stringhe `EventHubConnectionString` e `EventHubName` con i valori dell'hub eventi in uso ed eseguirla. In alternativa, è possibile seguire la procedura illustrata in questa esercitazione per creare una soluzione propria.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
 * Go installato in locale. Seguire [queste istruzioni](https://golang.org/doc/install), se necessario.
-* Un account Azure attivo. Se non si ha una sottoscrizione di Azure, creare un [account gratuito][] prima di iniziare.
 * Un hub eventi e uno spazio dei nomi di Hub eventi esistenti. È possibile creare queste entità seguendo le istruzioni di [questo articolo](event-hubs-create.md).
+
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi
+Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e quindi procedere con i passaggi seguenti di questa esercitazione.
 
 ## <a name="install-go-package"></a>Installare il pacchetto di Go
 
@@ -125,15 +124,13 @@ if err != nil {
 log.Printf("got partition IDs: %s\n, info.PartitionIDs)
 ```
 
+Eseguire l'applicazione per inviare gli eventi all'hub eventi. 
+
+Congratulazioni! Sono stati inviati messaggi a un hub eventi.
+
 ## <a name="next-steps"></a>Passaggi successivi
-
-Per altre informazioni su Hub eventi, visitare le pagine seguenti:
-
-* [Ricevere eventi da Hub eventi usando Go](event-hubs-go-get-started-receive-eph.md)
-* [Panoramica di Hub eventi][Event Hubs overview]
-* [Creare un hub eventi](event-hubs-create.md)
-* [Domande frequenti su Hub eventi](event-hubs-faq.md)
+In questa guida introduttiva si sono inviati messaggi a un hub eventi usando Go. Per informazioni su come ricevere eventi da un hub eventi usando Go, vedere [Ricevere eventi da Hub eventi usando Go](event-hubs-go-get-started-receive-eph.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

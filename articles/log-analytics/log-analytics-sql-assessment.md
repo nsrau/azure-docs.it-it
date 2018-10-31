@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare l'ambiente SQL Server con Log Analytics di Azure|Documentazione Microsoft
+title: Ottimizzare l'ambiente SQL Server con Log Analytics di Azure|Microsoft Docs
 description: Con Azure Log Analytics, è possibile usare la soluzione Controllo integrità SQL per valutare i rischi e l'integrità degli ambienti a intervalli regolari.
 services: log-analytics
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 43faf1b29f602d2930a2b5764dd83ea4ce1fc9ac
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043591"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407725"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Ottimizzare l'ambiente SQL Server con la soluzione Controllo integrità SQL Server in Log Analytics
 
@@ -86,7 +86,7 @@ Usare le informazioni seguenti per impostare l'account RunAs di Operations Manag
 >
 
 1. In Operations Manager aprire la console operatore e quindi fare clic su **Administration**.
-2. In **Esegui come configurazione**, fare clic su **Profili** e aprire **Profilo RunAs di OMS SQL Assessment**.
+2. In **Run As Configuration** (Configurazione RunAs) fare clic su **Profiles** (Profili) e aprir **SQL Assessment Run As Profile** (Profilo RunAs di Valutazione SQL).
 3. Nella pagina **Esegui come account** fare clic su **Aggiungi**.
 4. Selezionare un account RunAs Windows che contiene le credenziali necessarie per SQL Server oppure fare clic su **New** per crearne uno.
 
@@ -123,7 +123,7 @@ Aprire una finestra di PowerShell ed eseguire il seguente script dopo averlo agg
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
-    $profile = Get-SCOMRunAsProfile -DisplayName "OMS SQL Assessment Run As Profile"
+    $profile = Get-SCOMRunAsProfile -DisplayName "SQL Assessment Run As Profile"
     $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```

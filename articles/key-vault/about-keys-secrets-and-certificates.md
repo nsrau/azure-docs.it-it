@@ -1,6 +1,6 @@
 ---
-title: Informazioni su chiavi, segreti e certificati
-description: Panoramica dell'interfaccia REST e dettagli per sviluppatori KV
+title: Informazioni su chiavi, segreti e certificati di Azure Key Vault
+description: Panoramica dei dettagli di sviluppo e dell'interfaccia REST di Azure Key Vault per le chiavi, i segreti e i certificati.
 services: key-vault
 documentationcenter: ''
 author: BryanLa
@@ -12,59 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 60b8689e602f0716cdd1a383ab6568979a37e7c0
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302946"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958653"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
-Azure Key Vault consente agli utenti di archiviare e utilizzare le chiavi di crittografia all'interno dell'ambiente Microsoft Azure. Key Vault supporta più tipi di chiavi e algoritmi e consente l'utilizzo di moduli di protezione hardware (HSM) per le chiavi di valore elevato. Inoltre, Key Vault consente agli utenti di archiviare in modo sicuro i segreti. I segreti sono oggetti ottetto di dimensioni limitate senza alcuna semantica specifica. Key Vault supporta inoltre certificati, che si avvalgono di chiavi e segreti, e aggiunge una funzionalità di rinnovo automatico.
 
-Per altre informazioni su Azure Key Vault, vedere [Cos'è Azure Key Vault?](/azure/key-vault/key-vault-whatis)
+Azure Key Vault consente agli utenti e alle applicazioni di Microsoft Azure di archiviare e usare diversi tipi di segreti e chiavi:
 
-**Dettagli generali di Key Vault**
+- Chiavi crittografiche: supporta più tipi di chiavi e algoritmi e consente l'uso di moduli di protezione hardware (HSM) per chiavi ad alto valore. 
+- Segreti: offre l'archiviazione sicura di segreti, ad esempio password e stringhe di connessione di database.
+- Certificati: supporta i certificati, che sono basati su chiavi e segreti, e aggiunge una funzionalità di rinnovo automatico.
+- Archiviazione di Azure: consente di gestire le chiavi di un account di archiviazione di Azure dell'utente. Internamente, Key Vault può elencare (sincronizzare) le chiavi con un account di archiviazione di Azure e rigenerare (ruotare) tali chiavi con cadenza periodica. 
 
--   [Standard di supporto](#BKMK_Standards)
--   [Tipi di dati](#BKMK_DataTypes)  
--   [Oggetti, identificatori e controllo delle versioni](#BKMK_ObjId)  
+Per altre informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](/azure/key-vault/key-vault-whatis)
 
-**Informazioni sulle chiavi**
+## <a name="azure-key-vault"></a>Azure Key Vault
 
--   [Chiavi e i tipi di chiave](#BKMK_KeyTypes)  
--   [Algoritmi RSA](#BKMK_RSAAlgorithms)  
--   [Algoritmi RSA-HSM](#BKMK_RSA-HSMAlgorithms)  
--   [Protezione crittografica](#BKMK_Cryptographic)
--   [Operazioni chiave](#BKMK_KeyOperations)  
--   [Attributi chiave](#BKMK_KeyAttributes)  
--   [Tag della chiave](#BKMK_Keytags)  
+Le sezioni seguenti forniscono informazioni generali applicabili all'intera implementazione del servizio Key Vault.
 
-**Informazioni sui segreti** 
-
--   [Utilizzo dei segreti](#BKMK_WorkingWithSecrets)  
--   [Attributi dei segreti](#BKMK_SecretAttrs)  
--   [Tag dei segreti](#BKMK_SecretTags)  
--   [Controllo di accesso per i segreti](#BKMK_SecretAccessControl)  
-
-**Informazioni sui certificati**
-
--   [Componenti di un certificato](#BKMK_CompositionOfCertificate)  
--   [Tag e attributi del certificato](#BKMK_CertificateAttributesAndTags)  
--   [Criteri dei certificati](#BKMK_CertificatePolicy)  
--   [Autorità di certificazione](#BKMK_CertificateIssuer)  
--   [Contatti relativi al certificato](#BKMK_CertificateContacts)  
--   [Controllo di accesso di certificato](#BKMK_CertificateAccessControl)  
-
---
-
-## <a name="key-vault-general-details"></a>Dettagli generali di Key Vault
-
-Nelle sezioni seguenti vengono presentate informazioni generali applicabili internamente alle implementazioni del servizio insieme Azure Key Vault.
-
-###  <a name="BKMK_Standards"></a> Standard di supporto
+###  <a name="supporting-standards"></a>Standard di supporto
 
 Le specifiche di JavaScript Object Notation (JSON) e JavaScript Object Signing and Encryption (JOSE) costituiscono informazioni generiche importanti.  
 
@@ -73,28 +45,28 @@ Le specifiche di JavaScript Object Notation (JSON) e JavaScript Object Signing a
 -   [JSON Web Algorithms (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [JSON Web Signature (JWS)](http://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
 
-### <a name="BKMK_DataTypes"></a> Tipi di dati
+### <a name="data-types"></a>Tipi di dati
 
-Consultare le [specifiche JOSE](#BKMK_Standards) per i tipi di dati pertinenti per chiavi, crittografia e firma.  
+Fare riferimento alle specifiche JOSE per i tipi di dati pertinenti per chiavi, crittografia e firma.  
 
--   **algoritmo**: un algoritmo supportato per un'operazione della chiave, ad esempio, RSA1_5  
--   **valore di testo crittografato**: ottetti di testo cifrati, codificati tramite Base64URL  
--   **valore di digest**: l'output di un algoritmo hash, codificato tramite Base64URL  
--   **tipo di chiave**: uno dei tipi di chiave supportati, ad esempio RSA.  
--   **valore di testo non crittografato**: ottetti di testo non crittografato, codificati tramite Base64URL  
--   **valore di firma**: l'output di un algoritmo di firma, codificato tramite Base64URL  
--   **base64URL**: un valore binario Base64URL [RFC4648] codificato  
--   **booleano**: vero o falso  
--   **Identità**: un identità di Azure Active Directory (AAD).  
--   **IntDate** : un valore decimale JSON che rappresenta il numero di secondi da 1970-01-01T0:0:0Z UTC fino alla data/ora UTC specificata. Vedere [RFC3339] per dettagli relativi alla data/ora a livello generale e UTC in particolare.  
+-   **algorithm**: algoritmo supportato per un'operazione della chiave, ad esempio RSA1_5  
+-   **ciphertext-value**: ottetti di testo cifrati, codificati tramite Base64URL  
+-   **digest-value**: output di un algoritmo hash, codificato tramite Base64URL  
+-   **key-type**: uno dei tipi di chiave supportati, ad esempio RSA (Rivest-Shamir-Adleman)  
+-   **plaintext-value**: ottetti di testo non crittografato, codificati tramite Base64URL  
+-   **signature-value**: output di un algoritmo di firma, codificato tramite Base64URL  
+-   **base64URL**: valore binario con codifica Base64URL [RFC4648]  
+-   **boolean**: true o false  
+-   **Identity**: identità di Azure Active Directory (AAD)  
+-   **IntDate** : valore decimale JSON che rappresenta il numero di secondi da 1970-01-01T0:0:0Z UTC fino al valore data/ora UTC specificato. Per informazioni dettagliate sui valori data/ora in generale e UTC in particolare, vedere RFC3339.  
 
-###  <a name="BKMK_ObjId"></a> Oggetti, identificatori e controllo delle versioni
+###  <a name="objects-identifiers-and-versioning"></a>Oggetti, identificatori e controllo delle versioni
 
-Gli oggetti archiviati Azure Key Vault conservano le versioni ogni volta che viene creata una nuova istanza di un oggetto e ogni versione ha un identificatore univoco e un URL. Quando viene creato per la prima volta un oggetto, viene assegnato a un identificatore univoco della versione e viene contrassegnato come la versione corrente dell'oggetto. La creazione di una nuova istanza con lo stesso nome di oggetto fornisce al nuovo oggetto un identificatore univoco della versione e lo rende la versione corrente.  
+Agli oggetti archiviati in Key Vault viene applicato il controllo delle versioni ogni volta che si crea una nuova istanza di un oggetto. A ogni versione vengono assegnati un identificatore univoco e un URL. Un oggetto creato per la prima volta viene etichettato con un identificatore univoco della versione e contrassegnato come versione corrente dell'oggetto. La creazione di una nuova istanza con lo stesso nome assegna al nuovo oggetto un identificatore univoco della versione, trasformando tale oggetto nella versione corrente.  
 
-Gli oggetti Azure Key Vault possono essere trattati usando l'identificatore attuale o un identificatore specifico della versione. Ad esempio, data una chiave con nome "MasterKey", l'esecuzione di operazioni con l'identificatore attuale fa sì che il sistema userà la versione più recente disponibile. L'esecuzione di operazioni con l'identificatore specifico della versione fa sì che il sistema userà quella versione specifica dell'oggetto.  
+È possibile fare riferimento agli oggetti di Key Vault usando l'identificatore corrente o un identificatore specifico della versione. Considerando ad esempio una chiave con nome `MasterKey`, l'esecuzione di operazioni con l'identificatore corrente fa sì che venga usata automaticamente la versione disponibile più recente. L'esecuzione di operazioni con l'identificatore specifico della versione fa sì che il sistema userà quella versione specifica dell'oggetto.  
 
-Gli oggetti vengono identificati in modo univoco all'interno di Azure Key Vault tramite l’utilizzo di un URL in modo che nessuno tra i due oggetti nel sistema, indipendentemente dalla posizione geografica, abbia lo stesso URL. L'URL completo per un oggetto viene chiamato l'identificatore di oggetto ed è costituito da un prefisso che identifica l'insieme di credenziali chiave, il tipo di oggetto, il nome dell'oggetto fornito dall'utente e una versione dell'oggetto. Il nome dell'oggetto non è modificabile e non fa distinzione tra maiuscole e minuscole. Gli identificatori che non includono la versione dell'oggetto vengono definiti come identificatori di base.  
+All'interno di Key Vault gli oggetti sono identificati in modo univoco con un URL. Nel sistema non esistono coppie di oggetti con lo stesso URL, indipendentemente dalla posizione geografica. L'URL completo di un oggetto viene chiamato identificatore di oggetto. L'URL è costituito da un prefisso che identifica l'insieme di credenziali delle chiavi, seguito dal tipo di oggetto, dal nome dell'oggetto specificato dall'utente e dalla versione dell'oggetto. Il nome dell'oggetto non è modificabile e non fa distinzione tra maiuscole e minuscole. Gli identificatori che non includono la versione dell'oggetto vengono definiti identificatori di base.  
 
 Per ulteriori informazioni, vedere[ Autenticazione, richieste e risposte](authentication-requests-and-responses.md)
 
@@ -106,196 +78,217 @@ Dove:
 
 |||  
 |-|-|  
-|`keyvault-name`|Il nome per un insieme di credenziali delle chiavi nel servizio Microsoft Azure Key Vault.<br /><br /> I nomi di Key Vault vengono selezionati dall'utente e sono univoci.<br /><br /> Il nome di Key Vault deve essere una stringa composta da un minimo di 3 a un massimo di 24 caratteri e contenente solo (0-9, a-z, A-Z e -).|  
-|`object-type`|Il tipo di oggetto, "chiavi" o "segreti".|  
-|`object-name`|Un `object-name` è un nome utente fornito per un Key Vault e deve essere univoco all'interno di esso. Il nome deve essere una stringa composta da un minimo di uno a un massimo di 127 caratteri e contenente solo i caratteri 0-9, a-z, A-Z e -.|  
-|`object-version`|Un `object-version` è un identificatore di stringa di 32 caratteri generato dal sistema che consente eventualmente di far fronte a una versione univoca di un oggetto.|  
+|`keyvault-name`|Nome per un insieme di credenziali delle chiavi nel servizio Microsoft Azure Key Vault.<br /><br /> I nomi di Key Vault vengono selezionati dall'utente e sono univoci.<br /><br /> Il nome dell'insieme di credenziali delle chiavi deve essere costituito da una stringa di lunghezza compresa tra 3 e 24 caratteri, contenente solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -.|  
+|`object-type`|Tipo di oggetto, "chiave" o "segreto".|  
+|`object-name`|`object-name` è un nome utente fornito per un Key Vault e deve essere univoco all'interno di esso. Il nome deve essere costituito da una stringa di lunghezza compresa tra 1 e 127 caratteri, contenente solo i numeri 0-9, i caratteri a-z e A-Z e il trattino -.|  
+|`object-version`|`object-version` è un identificatore di stringa di 32 caratteri generato dal sistema che viene usato facoltativamente per fare riferimento a una versione univoca di un oggetto.|  
 
 ## <a name="key-vault-keys"></a>Chiavi Key Vault
 
-###  <a name="BKMK_KeyTypes"></a> Chiavi e i tipi di chiave
+###  <a name="keys-and-key-types"></a>Chiavi e i tipi di chiave
 
-Le chiavi crittografiche in Azure Key Vault sono rappresentate come oggetti JSON Web Key [JWK]. Le specifiche di base JWK/JWA vengono inoltre estese per consentire l’implementazione in Azure Key Vault dei tipi di chiave univoci, ad esempio importando le chiavi Azure Key Vault tramite il pacchetto specifico del fornitore (Thales) del modulo di protezione hardware per abilitare il trasporto sicuro di chiavi utilizzabili solo nei moduli di protezione hardware di Azure Key Vault.  
+Le chiavi crittografiche in Key Vault sono rappresentate come oggetti JSON Web Key [JWK]. Le specifiche JWK/JWA di base vengono anche estese per abilitare tipi di chiave univoci per l'implementazione di Key Vault. Ad esempio, l'importazione di chiavi tramite la creazione di pacchetti HSM specifici del fornitore consente il trasporto sicuro delle chiavi, che possono essere usate solo nei moduli di protezione hardware di Key Vault.  
 
-- **Chiavi "soft"**: chiave elaborata da Key Vault nel software ma archiviata come crittografata quando inattiva tramite l'utilizzo di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA o EC esistente o richiedere ad Azure Key Vault di generarne una.
-- **Chiavi "hard"**: chiave elaborata in un modulo di protezione hardware. Queste chiavi sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Azure Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA o EC, in forma soft o tramite l'esportazione da un dispositivo del modulo di protezione hardware, o richiedere ad Azure Key Vault di generarne una. Questo tipo di chiave aggiunge l'attributo T a JWK per riportare il materiale della chiave HSM.
+- **Chiavi "soft"**: chiave elaborata da Key Vault nel software ma archiviata come crittografata quando inattiva tramite l'utilizzo di una chiave di sistema che si trovi in un modulo di protezione hardware. I client possono importare una chiave RSA o EC (Elliptic Curve) esistente oppure richiedere a Key Vault di generarne una.
+- **Chiavi "hard"**: chiave elaborata in un modulo di protezione hardware. Queste chiavi sono protette in uno degli scenari di sicurezza di un modulo di protezione hardware di Key Vault (è disponibile uno scenario di sicurezza per ogni area geografica per garantire l'isolamento). I client possono importare una chiave RSA o EC, in forma soft o tramite l'esportazione da un modulo di protezione hardware compatibile. I client possono anche richiedere a Key Vault di generare una chiave. Questo tipo di chiave aggiunge l'attributo T a JWK per riportare il materiale della chiave HSM.
 
      Per ulteriori informazioni sui limiti geografici, vedere [Centro di protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/privacy/)  
 
-Azure Key Vault supporta solo le chiavi RSA e a curva ellittica; le versioni future potrebbero supportare altri tipi di chiave, ad esempio simmetriche.
+Key Vault supporta solo chiavi RSA ed EC (Elliptic Curve). 
 
 -   **EC**: chiave "soft" a curva ellittica.
 -   **EC-HSM**: chiave "hard" a curva ellittica.
 -   **RSA**: chiave RSA "soft".
 -   **RSA-HSM**: chiave RSA "hard".
 
-Azure Key Vault supporta le chiavi RSA di dimensioni 2048, 3072 e 4096, e le chiavi a curva ellittica di tipo P-256, P-384, P-521 e P-256K.
+Key Vault supporta chiavi RSA di dimensioni pari a 2048, 3072 e 4096 e chiavi EC (Elliptic Curve) di tipo P-256, P-384, P-521 e P-256K (SECP256K1).
 
-### <a name="BKMK_Cryptographic"></a> Protezione crittografica
+### <a name="cryptographic-protection"></a>Protezione crittografica
 
-I moduli di crittografia utilizzati da Azure Key Vault Azure, moduli di protezione hardware o software, sono dispongono di convalida FIPS. Non è necessario attuare misure preventive particolari per l'esecuzione in modalità FIPS. Se si **creano** oppure si **importano** chiavi come protette del modulo di protezione hardware, queste verranno elaborate all'interno dei moduli di protezione hardware convalidati per il livello 2 o una versione successiva di FIPS 140-2. Se si **creano** oppure si **importano** chiavi come protette dal software, queste verranno elaborate all'interno di moduli di crittografia convalidati per il livello 1 o la versione successivi di FIPS 140-2. Per ulteriori informazioni, vedere [Chiavi e i tipi di chiave](#BKMK_KeyTypes).
+I moduli crittografici usati da Key Vault, moduli di protezione hardware o software, dispongono di convalida FIPS (Federal Information Processing Standards). Non è necessario attuare misure preventive particolari per l'esecuzione in modalità FIPS. Le chiavi **create** o **importate** come protette tramite il modulo di protezione hardware vengono elaborate all'interno di un modulo di questo tipo e convalidate per FIPS 140-2 livello 2 o successivo. Le chiavi **create** o **importate** come protette tramite software vengono elaborate all'interno di moduli crittografici e convalidate per FIPS 140-2 livello 1 o successivo. Per ulteriori informazioni, vedere [Chiavi e i tipi di chiave](#keys-and-key-types).
 
-###  <a name="BKMK_ECAlgorithms"></a> Algoritmi EC
- Gli identificatori di algoritmi seguenti sono supportati con le chiavi EC ed EC-HSM in Azure Key Vault. 
+###  <a name="ec-algorithms"></a>Algoritmi EC
+ Gli identificatori di algoritmo seguenti sono supportati con le chiavi EC ed EC-HSM in Key Vault. 
 
-#### <a name="signverify"></a>SIGN//VERIFY
+#### <a name="curve-types"></a>Tipi di curva
 
--   **ES256** - ECDSA per digest e chiavi SHA-256 creati con la curva P-256. Questo algoritmo è descritto in [RFC7518].
+-   **P-256**: curva NIST P-256, definita in [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-256K**: curva SEC SECP256K1, definita in [SEC 2: Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf) (SEC 2: parametri di dominio EC consigliati).
+-   **P-384**: curva NIST P-384, definita in [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-521**: curva NIST P-521, definita in [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+
+#### <a name="signverify"></a>SIGN/VERIFY
+
+-   **ES256** - ECDSA per digest e chiavi SHA-256 creati con la curva P-256. Questo algoritmo è descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES256K** - ECDSA per digest e chiavi SHA-256 creati con la curva P-256K. Questo algoritmo è in attesa di standardizzazione.
--   **ES384** - ECDSA per digest e chiavi SHA-384 creati con la curva P-384. Questo algoritmo è descritto in [RFC7518].
--   **ES512** - ECDSA per digest e chiavi SHA-512 creati con la curva P-521. Questo algoritmo è descritto in [RFC7518].
+-   **ES384** - ECDSA per digest e chiavi SHA-384 creati con la curva P-384. Questo algoritmo è descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **ES512** - ECDSA per digest e chiavi SHA-512 creati con la curva P-521. Questo algoritmo è descritto in [RFC7518](https://tools.ietf.org/html/rfc7518).
 
-###  <a name="BKMK_RSAAlgorithms"></a> Algoritmi RSA  
- Gli identificatori di algoritmi seguenti sono supportati con le chiavi RSA e RSA-HSM in Azure Key Vault.  
+###  <a name="rsa-algorithms"></a>Algoritmi RSA  
+ Gli identificatori di algoritmo seguenti sono supportati con le chiavi RSA e RSA-HSM in Key Vault.  
 
-#### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>ESEGUI/NON ESEGUIRE IL WRAPPING DELLA CHIAVE, CRITTOGRAFA/DECRITTOGRAFA
+#### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, ENCRYPT/DECRYPT
 
 -   **RSA1_5**: crittografia della chiave RSAES-PKCS1-V1_5 [RFC3447]  
 -   **RSA-OAEP**: RSAES con OAEP (Optimal Asymmetric Encryption Padding) [RFC3447] con i parametri predefiniti specificati da RFC 3447 nella sezione A.2.1. Tali parametri predefiniti usano una funzione hash di SHA-1 e una funzione di generazione della maschera MGF1 con SHA-1.  
 
-#### <a name="signverify"></a>SIGN//VERIFY
+#### <a name="signverify"></a>SIGN/VERIFY
 
 -   **RS256**: RSASSA-PKCS-v1_5 tramite SHA-256. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-256 e deve avere una lunghezza di 32 byte.  
 -   **RS384**: RSASSA-PKCS-v1_5 tramite SHA-384. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-384 e deve avere una lunghezza di 48 byte.  
 -   **RS512**: RSASSA-PKCS-v1_5 tramite SHA-512. Il valore di digest dell'applicazione fornito deve essere calcolato tramite SHA-512 e deve avere una lunghezza di 64 byte.  
 -   **RSNULL**: vedere [RFC2437], un caso di utilizzo specializzato per abilitare determinati scenari TLS.  
 
-###  <a name="BKMK_KeyOperations"></a> Operazioni chiave
+###  <a name="key-operations"></a>Operazioni relative alle chiavi
 
-Azure Key Vault supporta le seguenti operazioni sugli oggetti chiave:  
+Key Vault supporta le operazioni seguenti sugli oggetti chiave:  
 
--   **Crea**: consente al client di creare una chiave in Azure Key Vault. Il valore della chiave generato da Azure Key Vault e archiviato e non rilasciato al client. Le chiavi asimmetriche (e in futuro, chiavi a curva ellittica e simmetriche) possono essere create in Azure Key Vault.  
--   **Importa**: consente al client di importare una chiave esistente in Azure Key Vault. Le chiavi asimmetriche (e in futuro, chiavi a curva ellittica e simmetriche) possono essere importate in Azure Key Vault usando una serie di metodi di creazione di pacchetti diversi all'interno di un costrutto JWK.  
--   **Aggiorna**: consente al client con autorizzazioni sufficienti di modificare i metadati (attributi chiave) associati a una chiave archiviata in precedenza in Azure Key Vault.  
--   **Elimina**: consente al client con autorizzazioni sufficienti di eliminare una chiave dall'insieme da Azure Key Vault.  
--   **Elenca**: consente al client di elencare tutte le chiavi in un determinato Azure Key Vault.  
--   **Elenca versioni**: consente al client di elencare tutte le versioni di una data chiave in un dato Azure Key Vault.  
--   **Ottieni**: consente al client di recuperare le parti pubbliche di una data chiave in un Azure Key Vault.  
+-   **Create**: consente al client di creare una chiave in Key Vault. Il valore della chiave viene generato da Key Vault e archiviato e non viene rilasciato al cliente. In Key Vault è possibile creare chiavi asimmetriche.  
+-   **Import**: consente al client di importare una chiave esistente in Key Vault. Le chiavi asimmetriche possono essere importate in Key Vault usando una serie di metodi di creazione di pacchetti diversi all'interno di un costrutto JWK. 
+-   **Update**: consente a un client con autorizzazioni sufficienti di modificare i metadati (attributi chiave) associati a una chiave archiviata in precedenza in Key Vault.  
+-   **Delete**: consente a un client con autorizzazioni sufficienti di eliminare una chiave da Key Vault.  
+-   **List**: consente a un client di elencare tutte le chiavi di un determinato insieme di credenziali.  
+-   **List versions**: consente a un client di elencare tutte le versioni di una data chiave in un determinato insieme di credenziali.  
+-   **Get**: consente a un client di recuperare le parti pubbliche di una determinata chiave in un insieme di credenziali.  
 -   **Backup**: esporta una chiave in un formato protetto.  
--   **Ripristina**: importa una chiave precedentemente sottoposta a backup.  
+-   **Restore**: importa una chiave precedentemente sottoposta a backup.  
 
 Per altre informazioni, vedere le [operazioni relative alle chiavi nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault).  
 
-Dopo avere creato una chiave in Azure Key Vault, le operazioni crittografiche seguenti potranno essere eseguite utilizzando la chiave:  
+Dopo aver creato una chiave in Key Vault, sarà possibile eseguire le operazioni crittografiche seguenti usando tale chiave:  
 
--   **Firma e verifica**: in via del tutto eccezionale, questa operazione è "firma hash" o "verifica hash" poiché Azure Key Vault non supporta l'hashing del contenuto in quanto parte della creazione della firma. Le applicazioni devono eseguire l'hashing dei dati per la firma locale, quindi richiedere la firma dell'hash a Azure Key Vault. La verifica degli hash firmati è supportata come operazione utile per le applicazioni che potrebbero non avere accesso al materiale della chiave [pubblica]; per garantire le prestazioni ottimali delle applicazioni, è consigliabile verificare che le operazioni siano eseguite localmente.  
--   **Chiave di crittografia/Esecuzione del wrapping**: una chiave archiviata in Azure Key Vault può essere utilizzata per proteggere un'altra chiave, in genere una chiave di crittografia simmetrica dei contenuti (CEK). Quando la chiave in Azure Key Vault è asimmetrica, viene utilizzata la crittografia con chiave, ad esempio RSA-OAEP e le operazioni ESEGUI/NON ESEGUIRE IL WRAPPING DELLA CHIAVE equivalgono a CRITTOGRAFA/DECRITTOGRAFA. Quando la chiave in Azure Key Vault è simmetrica,il wrapping della chiave viene utilizzato; ad esempio AES-KW. L’operazione ESEGUI IL WRAPPING DELLA CHIAVE è supportata come operazione utile per le applicazioni che potrebbero non avere accesso al materiale della chiave [pubblica]; per garantire le prestazioni ottimali delle applicazioni, è consigliabile verificare che le operazioni ESEGUI IL WRAPPING DELLA CHIAVE siano eseguite localmente.  
--   **Crittografa e decrittografa**: una chiave archiviata in Azure Key Vault può essere utilizzata per crittografare o decrittografare un singolo blocco di dati, la cui dimensione è determinata dal tipo di chiave e dall'algoritmo di crittografia selezionato. L’operazione Crittografa è fornita come operazione utile per le applicazioni che potrebbero non avere accesso al materiale della chiave [pubblica]; per garantire le prestazioni ottimali delle applicazioni, è consigliabile verificare che le operazioni di crittografia siano eseguite localmente.  
+-   **Firma e verifica**: in senso stretto, si tratta di "firmare hash" o "verificare hash", poiché Key Vault non supporta l'hashing del contenuto durante la creazione della firma. Le applicazioni devono eseguire l'hashing dei dati per la firma locale e quindi richiedere a Key Vault la firma dell'hash. La verifica degli hash firmati è supportata come operazione utile per le applicazioni che non possono accedere al materiale delle chiavi [pubblico]. Per ottenere prestazioni ottimali dalle applicazioni, verificare che le operazioni vengano eseguite in locale.  
+-   **Crittografia tramite chiave/Wrapping**: una chiave archiviata in Key Vault può essere usata per proteggere un'altra chiave, in genere una chiave CEK (Content Encryption Key) simmetrica. Quando la chiave in Key Vault è asimmetrica, viene usata la crittografia della chiave. Ad esempio, RSA-OAEP e le operazioni WRAPKEY/UNWRAPKEY equivalgono a ENCRYPT/DECRYPT. Quando la chiave in Key Vault è simmetrica, viene usato il wrapping della chiave, ad esempio AES-KW. L'operazione WRAPKEY è supportata come strumento utile per le applicazioni che non possono accedere al materiale delle chiavi [pubblico]. Per ottenere prestazioni ottimali dalle applicazioni, le operazioni WRAPKEY devono essere eseguite in locale.  
+-   **Crittografia e decrittografia**: una chiave archiviata in Key Vault può essere usata per crittografare o decrittografare un singolo blocco di dati. Le dimensioni del blocco sono determinate dal tipo di chiave e dall'algoritmo di crittografia selezionato. L'operazione Encrypt viene fornita per comodità per le applicazioni che non possono accedere al materiale delle chiavi [pubblico]. Per ottenere prestazioni ottimali dalle applicazioni, le operazioni Encrypt devono essere eseguite in locale.  
 
-Mentre l’operazione ESEGUI/NON ESEGUIRE IL WRAPPING DELLA CHIAVE con chiavi asimmetriche potrebbe sembrare superflua poiché l'operazione è equivalente a CRITTOGRAFA/DECRITTOGRAFA, l'utilizzo di operazioni distinte è considerato importante per offrire la separazione dalla semantica e dall’autorizzazione di queste operazioni e coerenza quando altri tipi di chiave sono supportati dal servizio.  
+Anche se WRAPKEY/UNWRAPKEY con chiavi asimmetriche possono sembrare superflue (in quanto equivalenti a ENCRYPT/DECRYPT), l'uso di operazioni distinte è importante. La distinzione assicura la separazione delle operazioni a livello di semantica e autorizzazioni e garantisce coerenza quando sono supportati altri tipi di chiave da parte del servizio.  
 
-Azure Key Vault non supporta le operazioni di esportazione: una volta che viene eseguito il provisioning di una chiave nel sistema, il materiale non può essere estratto o modificato.  Tuttavia, gli utenti di Azure Key Vault che potrebbero necessitare della chiave per altri casi d'uso o dopo che è stata eliminata da Azure Key Vault, possono utilizzare le operazioni BACKUP e RIPRISTINA per esportare/importare la chiave in un formato protetto. Le chiavi create dall'operazione di BACKUP non sono utilizzabili all'esterno di Azure Key Vault. In alternativa, l'operazione di importazione può essere utilizzata in più istanze di Azure Key Vault.  
+Key Vault non supporta le operazioni EXPORT. Una volta effettuato il provisioning di una chiave nel sistema, la chiave non può essere estratta e il relativo materiale non può essere modificato. Tuttavia, è possibile che gli utenti di Key Vault richiedano la chiave per altri casi d'uso, ad esempio dopo che è stata eliminata. In casi di questo tipo, è possibile usare le operazioni BACKUP e RESTORE per esportare o importare la chiave in un formato protetto. Le chiavi create dall'operazione BACKUP non possono essere usate all'esterno di Key Vault. In alternativa, l'operazione IMPORT può essere usata a fronte di più istanze di Key Vault.  
 
-Gli utenti possono limitare le operazioni di crittografia che supporta Azure Key Vault su base per chiave utilizzando la proprietà key_ops dell'oggetto JWK.  
+Gli utenti possono limitare le operazioni crittografiche supportate da Key Vault per ciascuna chiave usando la proprietà key_ops dell'oggetto JWK.  
 
 Per ulteriori informazioni sugli oggetti JWK, vedere [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
 
-###  <a name="BKMK_KeyAttributes"></a> Attributi chiave
+###  <a name="key-attributes"></a>Attributi della chiave
 
 Oltre al materiale della chiave,è possibile specificare gli attributi seguenti. In una richiesta JSON, la parola chiave di attributi e le parentesi graffe, ' {' '}', sono necessari anche se non sono stati specificati gli attributi.  
 
-- *abilitato*: il valore predefinito booleano facoltativo è **vero**. Specifica se la chiave è abilitata e utilizzabile per le operazioni di crittografia. L’attributo *abilitato* viene utilizzato in combinazione con *nbf* ed *exp*. Quando si verifica un'operazione tra *nbf* ed *exp*, questa verrà consentita solo se *abilitato* è impostato su **vero**. Le operazioni di fuori delle finestre *nbf* / *exp* non sono impostate automaticamente, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#BKMK_key-date-time-ctrld-ops).
-- *nbf*: il valore predefinito IntDate facoltativo è adesso. L’attributo *nbf* (non precedente) identifica l'ora prima della quale la chiave NON DEVE essere usata per le operazioni di crittografia, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#BKMK_key-date-time-ctrld-ops). L'elaborazione dell’attributo *nbf* richiede che la data/ora corrente SIA successiva o uguale a data/ora non precedente elencata nell’attributo *nbf*. Azure Key Vault di Azure PUÒ concedere un minimo margine temporale, in genere non più di qualche minuto, per tenere conto dello sfasamento di orario. Il valore DEVE essere un numero contenente un valore IntDate.  
-- *nbf*: il valore predefinito IntDate facoltativo è "per sempre". L’attributo *exp* (data di scadenza) identifica la data di scadenza in cui o precedentemente alla quale la chiave NON DEVE essere usata per l’operazione di crittografia, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#BKMK_key-date-time-ctrld-ops). L'elaborazione dell’attributo *exp* richiede che la data/ora corrente SIA precedente a data/ora di scadenza elencata nell’attributo *exp*. Azure Key Vault di Azure PUÒ concedere un minimo margine temporale, in genere non più di qualche minuto, per tenere conto dello sfasamento di orario. Il valore DEVE essere un numero contenente un valore IntDate.  
+- *enabled*: valore booleano facoltativo. Il valore predefinito è **true**. Specifica se la chiave è abilitata e utilizzabile per le operazioni di crittografia. L'attributo *enabled* viene usato in combinazione con *nbf* ed *exp*. Quando si verifica un'operazione tra *nbf* ed *exp*, questa verrà consentita solo se *enabled* è impostato su **true**. Le operazioni che non rientrano nella finestra *nbf* / *exp* sono automaticamente non consentite, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#date-time-controlled-operations).
+- *nbf*: valore IntDate facoltativo. Il valore predefinito è now. L'attributo *nbf* (not before) identifica l'ora prima della quale la chiave NON DEVE essere usata per le operazioni di crittografia, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#date-time-controlled-operations). L'elaborazione dell'attributo *nbf* richiede che la data e l'ora correnti SIANO successive o uguali alla data e all'ora not-before specificate nell'attributo *nbf*. Key Vault PUÒ concedere un minimo margine temporale, in genere non più di qualche minuto, per tenere conto dello sfasamento di orario. Il valore DEVE essere un numero contenente un valore IntDate.  
+- *exp*: valore IntDate facoltativo. Il valore predefinito è "forever". L'attributo *exp* (expiration time) identifica la data di scadenza in cui o oltre la quale la chiave NON DEVE essere usata per l'operazione di crittografia, ad eccezione di alcuni tipi di operazione in [particolari condizioni](#date-time-controlled-operations). L'elaborazione dell'attributo *exp* richiede che la data e l'ora correnti SIANO precedenti alla data e all'ora di scadenza specificate nell'attributo *exp*. Key Vault PUÒ concedere un minimo margine temporale, in genere non più di qualche minuto, per tenere conto dello sfasamento di orario. Il valore DEVE essere un numero contenente un valore IntDate.  
 
 Sono disponibili altri attributi di sola lettura che sono inclusi in una risposta che include gli attributi chiave:  
 
-- *creato*: IntDate facoltativo. L’attributo *creato* indica quando è stata creata questa versione della chiave. Questo valore è null per le chiavi create prima dell'aggiunta di questo attributo. Il valore DEVE essere un numero contenente un valore IntDate.  
-- *aggiornato*: IntDate facoltativo. L’attributo *aggiornato* indica quando è stata aggiornata questa versione della chiave. Questo valore è null per le chiavi aggiornate prima dell'aggiunta di questo attributo. Il valore DEVE essere un numero contenente un valore IntDate.  
+- *created*: valore IntDate facoltativo. L'attributo *created* indica quando è stata creata questa versione della chiave. Il valore è null per le chiavi create prima dell'aggiunta di questo attributo. Il valore DEVE essere un numero contenente un valore IntDate.  
+- *updated*: valore IntDate facoltativo. L'attributo *updated* indica quando è stata aggiornata questa versione della chiave. Il valore è null per le chiavi che sono state aggiornate per l'ultima volta prima dell'aggiunta di questo attributo. Il valore DEVE essere un numero contenente un valore IntDate.  
 
-Per ulteriori informazioni su IntDate e altri tipi di dati, vedere [Tipi di dati](#BKMK_DataTypes)  
+Per ulteriori informazioni su IntDate e altri tipi di dati, vedere [Tipi di dati](#data-types)  
 
-#### <a name="BKMK_key-date-time-ctrld-ops"></a> Operazioni controllate in base a data e ora
+#### <a name="date-time-controlled-operations"></a>Operazioni controllate in base a data e ora
 
-Chiavi non ancora valide e scadute, al di fuori della finestra *nbf* / *exp*, possono essere utilizzate per **decrittografare**, **non eseguire il wrapping** e **verificare** operazioni (non verrà restituito, 403 accesso negato). La logica per l'utilizzo di stato non ancora valido consiste nel consentire a una chiave di essere sottoposta a test prima dell'uso di produzione. La logica per l'utilizzo di stato scaduto consiste nel consentire operazioni di ripristino sui dati creati quando la chiave risultava valida. Inoltre, è possibile disabilitare l'accesso a una chiave usando i criteri di Key Vault, o aggiornando l’attributo chiave *abilitato* per **falso**.
+Le chiavi non ancora valide e scadute, che non rientrano nella finestra *nbf* / *exp*, possono essere usate per le operazioni di **decrittografia**, **annullamento del wrapping** e **verifica** (non verrà restituito l'errore 403 Accesso negato). La logica per l'utilizzo di stato non ancora valido consiste nel consentire a una chiave di essere sottoposta a test prima dell'uso di produzione. La logica per l'utilizzo di stato scaduto consiste nel consentire operazioni di ripristino sui dati creati quando la chiave risultava valida. Inoltre, è possibile disabilitare l'accesso a una chiave usando i criteri di Key Vault o aggiornando l'attributo chiave *enabled* su **false**.
 
-Per ulteriori informazioni sui tipi di dati, vedere [Tipi di dati](#BKMK_DataTypes).
+Per altre informazioni sui tipi di dati, vedere [Tipi di dati](#data-types).
 
-Per ulteriori informazioni su altri attributi possibili, vedere la [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Per altre informazioni su altri possibili attributi, vedere [JSON Web Key (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
-### <a name="BKMK_Keytags"></a> Tag della chiave
+### <a name="key-tags"></a>Tag della chiave
 
-È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Azure Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
+È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
 
 >[!Note]
->I tag sono leggibili da un chiamante se hanno l’autorizzazione *elenca* o *ottieni* a tale tipo di oggetto, chiave, segreto o certificato.
+>I tag possono essere letti da un chiamante che ha l'autorizzazione *list* o *get* per accedere a un determinato tipo di oggetto (chiave, segreto o certificato).
 
-###  <a name="BKMK_KeyAccessControl"></a> Controllo di accesso per le chiavi
+###  <a name="key-access-control"></a>Controllo di accesso per le chiavi
 
-Controllo di accesso per le chiavi gestite da Key Vault fornito a livello di un Key Vault che funge da contenitore delle chiavi. Vi è un criterio di controllo di accesso per le chiavi distinto dal criterio di controllo di accesso per i segreti nello stesso Key Vault. Gli utenti possono creare uno o più insiemi di credenziali per le chiavi e sono necessari per mantenere una segmentazione di scenario e una gestione delle chiavi appropriate. Il controllo degli accessi per le chiavi è indipendente dal controllo di accesso per i segreti.  
+Il controllo di accesso per le chiavi gestite da Key Vault viene fornito al livello di un insieme di credenziali che funge da contenitore delle chiavi. I criteri di controllo di accesso per le chiavi sono distinti dai criteri di controllo di accesso per i segreti presenti nello stesso insieme di credenziali delle chiavi. Gli utenti possono creare uno o più insiemi di credenziali per le chiavi e sono tenuti a mantenere una segmentazione e una gestione delle chiavi appropriate in base allo scenario. Il controllo degli accessi per le chiavi è indipendente dal controllo di accesso per i segreti.  
 
 Le autorizzazioni seguenti possono essere concesse, su base principale utente/servizio, nella voce di controllo di accesso chiavi in un insieme di credenziali. Queste autorizzazioni rispecchiano fedelmente le operazioni consentite su un oggetto chiave:  
 
--   *crea*: creare nuove chiavi
--   *ottieni*: leggere la parte pubblica di una chiave e i relativi attributi
--   *elenca*: elencare le chiavi o le versioni di una chiave archiviata in un insieme di credenziali delle chiavi
--   *aggiorna*: aggiornare gli attributi per una chiave
--   *elimina*: eliminare l'oggetto chiave
--   *firma*: usare la chiave per firmare digest
--   *verifica*: usare la chiave per firmare digest
--   *esegui il wrapping della chiave*: usare la chiave per custodire una chiave simmetrica
--   *non eseguire il wrapping della chiave*: usare la chiave per custodire una chiave simmetrica
--   *crittografa*: usare la chiave per proteggere una sequenza arbitraria di byte
--   *decrittografa*: usare la chiave per non custodire una sequenza arbitraria di byte
--   *importa*: importare una chiave in un insieme di credenziali delle chiavi
--   *backup*: backup di una chiave in un insieme di credenziali delle chiavi
--   *ripristina*: ripristinare una chiave precedentemente sottoposta a backup a un insieme di credenziali delle chiavi
--   *tutte*: tutte le autorizzazioni
+- Autorizzazioni per le operazioni di gestione delle chiavi
+  - *get*: consente di leggere la parte pubblica di una chiave e i relativi attributi
+  - *list*: consente di elencare le chiavi o le versioni di una chiave archiviata in un insieme di credenziali delle chiavi
+  - *update*: consente di aggiornare gli attributi di una chiave
+  - *create*: consente di creare nuove chiavi
+  - *import*: consente di importare una chiave in un insieme di credenziali delle chiavi
+  - *delete*: consente di eliminare l'oggetto chiave
+  - *recover*: consente di recuperare una chiave eliminata
+  - *backup*: consente di eseguire il backup di una chiave in un insieme di credenziali delle chiavi
+  - *restore*: consente di ripristinare una chiave sottoposta a backup in un insieme di credenziali delle chiavi
+
+- Autorizzazioni per le operazioni di crittografia
+  - *decrypt*: consente di usare la chiave per annullare la protezione di una sequenza di byte
+  - *encrypt*: consente di usare la chiave per proteggere una sequenza arbitraria di byte
+  - *unwrapKey*: consente di usare la chiave per annullare la protezione delle chiavi simmetriche di cui è stato eseguito il wrapping
+  - *wrapKey*: consente di usare la chiave per proteggere una chiave simmetrica
+  - *verify*: consente di usare la chiave per verificare i digest  
+  - *sign*: consente di usare la chiave per firmare i digest
+    
+- Autorizzazioni per le operazioni privilegiate
+  - *purge*: consente di ripulire (eliminare definitivamente) una chiave eliminata
+
+Per altre informazioni sull'uso delle chiavi, vedere le operazioni relative alle chiavi in [Key Vault REST API reference](/rest/api/keyvault) (Riferimenti sull'API REST di Key Vault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy). 
 
 ## <a name="key-vault-secrets"></a>Segreti Key Vault 
 
-###  <a name="BKMK_WorkingWithSecrets"></a> Utilizzo dei segreti
+### <a name="working-with-secrets"></a>Uso dei segreti
 
-I segreti in Azure Key Vault sono sequenze di ottetti con una dimensione massima di 25 KB ciascuna. Il servizio Azure Key Vault non fornisce alcuna semantica per i segreti; accetta semplicemente i dati, esegue la crittografia e li archivia, restituendo un identificatore di segreto, "id", che può essere usato per recuperare il segreto in un secondo momento.  
+Dal punto di vista dello sviluppo, le API di Key Vault accettano e restituiscono i valori dei segreti sotto forma di stringhe. Internamente, Key Vault archivia e gestisce i segreti come sequenze di ottetti (byte a 8 bit), con dimensioni massime di 25 kbyte ciascuno. Il servizio Key Vault non fornisce la semantica per i segreti. Accetta semplicemente i dati, li crittografa, li archivia e restituisce un identificatore di segreto ("id"). L'identificatore può essere usato per recuperare il segreto in un secondo momento.  
 
-Per i dati altamente sensibili, i client devono prendere in considerazione livelli aggiuntivi di protezione per i dati archiviati in Azure Key Vault; ad esempio per i dati pre-crittografati utilizzando una chiave di protezione separata.  
+Per i dati altamente sensibili è opportuno prendere in considerazione livelli di protezione aggiuntivi, ad esempio la crittografia dei dati con una chiave di protezione separata prima dell'archiviazione in Key Vault.  
 
-Azure Key Vault supporta anche un campo contentType per i segreti. I client possono specificare il tipo di contenuto, "contentType", di un segreto per facilitare l'interpretazione dei dati dei segreti quando vengono recuperati. Il campo può contenere al massimo 255 caratteri. Non sono presenti valori predefiniti. L'utilizzo consigliato è come un hint per l'interpretazione dei dati segreti. Ad esempio, un'implementazione può archiviare password e certificati come segreti quindi usare questo campo per indicare quali fra essi. Non sono presenti valori predefiniti.  
+Key Vault supporta anche un campo contentType per i segreti. I client possono specificare il tipo di contenuto di un segreto per facilitare l'interpretazione dei dati del segreto quando vengono recuperati. Il campo può contenere al massimo 255 caratteri. Non sono presenti valori predefiniti. L'utilizzo consigliato è come un hint per l'interpretazione dei dati segreti. Ad esempio, in un'implementazione possono essere archiviati password e certificati come segreti. Questo campo consente quindi di distinguerli. Non sono presenti valori predefiniti.  
 
-###  <a name="BKMK_SecretAttrs"></a> Attributi dei segreti
+### <a name="secret-attributes"></a>Attributi dei segreti
 
 Oltre ai dati dei segreti,è possibile specificare gli attributi seguenti:  
 
-- *nbf*: il valore predefinito IntDate facoltativo è **per sempre**. L’attributo *exp* (ora di scadenza) identifica l'ora di scadenza in cui o successiva alla quale i dati dei segreti NON DEVONO essere recuperati, tranne che in [situazioni particolari](#BKMK_secret-date-time-ctrld-ops). Il campo è a solo scopo **informativo** e informa gli utenti del servizio di insieme di credenziali delle chiavi che non è possibile usare un segreto specifico. Il valore DEVE essere un numero contenente un valore IntDate.   
-- *nbf*: il valore predefinito IntDate facoltativo è **adesso**. L’attributo *nbf* (non precedente) identifica l'ora precedente alla quale i dati dei segreti NON DEVONO essere recuperati, tranne che in [situazioni particolari](#BKMK_secret-date-time-ctrld-ops). Questo documento è esclusivamente a scopo **informativo**. Il valore DEVE essere un numero contenente un valore IntDate. 
-- *abilitato*: il valore predefinito booleano facoltativo è **vero**. Questo attributo specifica se i dati dei segreti possono essere recuperati. L’attributo abilitato viene usato in combinazione con ed *exp* quando si verifica un'operazione tra ed exp, sarà consentito solo se abilitato è impostato su **vero**. Le operazioni all'esterno della finestra *nbf* ed *exp* non sono impostate automaticamente non consentiti, ad eccezione di [situazioni particolari](#BKMK_secret-date-time-ctrld-ops).  
+- *nbf*: valore IntDate facoltativo. Il valore predefinito è **forever**. L'attributo *exp* (expiration time) identifica l'ora di scadenza oltre la quale i dati dei segreti NON DEVONO essere recuperati, tranne che in [situazioni particolari](#date-time-controlled-operations). Il campo, a solo scopo **informativo**, informa gli utenti del servizio Key Vault che non è possibile usare un determinato segreto. Il valore DEVE essere un numero contenente un valore IntDate.   
+- *nbf*: valore IntDate facoltativo. Il valore predefinito è **now**. L'attributo *nbf* (not before) identifica l'ora prima della quale i dati dei segreti NON DEVONO essere recuperati, tranne che in [situazioni particolari](#date-time-controlled-operations). Questo campo ha solo scopo **informativo**. Il valore DEVE essere un numero contenente un valore IntDate. 
+- *enabled*: valore booleano facoltativo. Il valore predefinito è **true**. Questo attributo specifica se i dati dei segreti possono essere recuperati. L'attributo enabled viene usato in combinazione con nbf ed *exp* quando si verifica un'operazione nella finestra tra questi attributi. Ne sarà consentito l'uso solo se enabled è impostato su **true**. Le operazioni che non rientrano nella finestra tra *nbf* ed *exp* sono automaticamente non consentite, tranne che in [situazioni particolari](#date-time-controlled-operations).  
 
 Sono disponibili altri attributi di sola lettura che sono inclusi in una risposta che include gli attributi dei segreti:  
 
-- *creato*: IntDate facoltativo. L’attributo creato indica quando è stata creata questa versione del segreto. Questo valore è null per i segreti creati prima dell'aggiunta di questo attributo. Il valore deve essere un numero contenente un valore IntDate.  
-- *aggiornato*: IntDate facoltativo. L’attributo aggiornato indica quando è stata aggiornata questa versione del segreto. Questo valore è null peri segreti aggiornati prima dell'aggiunta di questo attributo. Il valore deve essere un numero contenente un valore IntDate.
+- *created*: valore IntDate facoltativo. L'attributo created indica quando è stata creata questa versione del segreto. Questo valore è null per i segreti creati prima dell'aggiunta di questo attributo. Il valore deve essere un numero contenente un valore IntDate.  
+- *updated*: valore IntDate facoltativo. L'attributo updated indica la data in cui è stata aggiornata questa versione del segreto. Questo valore è null per i segreti che sono stati aggiornati per l'ultima volta prima dell'aggiunta di questo attributo. Il valore deve essere un numero contenente un valore IntDate.
 
-#### <a name="BKMK_secret-date-time-ctrld-ops"></a> Operazioni controllate in base a data e ora
+#### <a name="date-time-controlled-operations"></a>Operazioni controllate in base a data e ora
 
-L’operazione **ottieni** di un segreto funzionerà per i segreti non ancora validi e scaduti, all'esterno della finestra *nbf* / *exp*. La chiamata dell’operazione **ottieni** di un segreto, per una chiave privata non ancora valida, può essere utilizzata per scopi di test. Il recupero (l’**ottenimento**) di un segreto scaduto può essere utilizzato per le operazioni di ripristino.
+L'operazione **get** di un segreto funzionerà per i segreti non ancora validi e scaduti che non rientrano nella finestra *nbf* / *exp*. La chiamata dell'operazione **get** per un segreto non ancora valido può essere usata per scopi di test. Il recupero (**get**) di un segreto scaduto può essere usato per le operazioni di ripristino.
 
-Per ulteriori informazioni sui tipi di dati, vedere [Tipi di dati](#BKMK_DataTypes).  
+Per altre informazioni sui tipi di dati, vedere [Tipi di dati](#data-types).  
 
-###  <a name="BKMK_SecretAccessControl"></a> Controllo di accesso per i segreti
+### <a name="secret-access-control"></a>Controllo di accesso per i segreti
 
-Controllo di accesso per i segreti gestiti da Key Vault Azure fornito a livello di un Key Vault che funge da contenitore di tali segreti. Vi è un criterio di controllo di accesso per i segreti distinti dal criterio di controllo di accesso per i segreti nello stesso Key Vault. Gli utenti possono creare uno o più insiemi di credenziali per i segreti e sono necessari per mantenere una segmentazione di scenario e una gestione dei segreti appropriati. Il controllo degli accessi per i segreti è indipendente dal controllo di accesso per le chiavi.  
+Il controllo di accesso per i segreti gestiti in Key Vault viene fornito al livello dell'insieme di credenziali delle chiavi che contiene tali segreti. I criteri di controllo di accesso per i segreti sono distinti dai criteri di controllo di accesso per le chiavi presenti nello stesso insieme di credenziali delle chiavi. Gli utenti possono creare uno o più insiemi di credenziali per i segreti e sono tenuti a mantenere una segmentazione e una gestione dei segreti appropriate in base allo scenario.   
 
 Le autorizzazioni seguenti sono utilizzabili, su base principale, nella voce di controllo di accesso dei segreti in un insieme di credenziali e riflettono fedelmente le operazioni consentite su un oggetto segreto:  
 
--   *imposta*: creare nuovi segreti  
--   *ottieni*: legge un segreto  
--   *elenca*: elencare i segreti o le versioni di un segreto archiviato in un Key Vault  
--   *elimina*: eliminare il segreto  
--   *tutte*: tutte le autorizzazioni  
+- Autorizzazioni per le operazioni di gestione dei segreti
+  - *get*: consente di leggere un segreto  
+  - *list*: consente di elencare i segreti o le versioni di un segreto archiviati in un insieme di credenziali delle chiavi  
+  - *set*: consente di creare un segreto  
+  - *delete*: consente di eliminare un segreto  
+  - *recover*: consente di recuperare un segreto eliminato
+  - *backup*: consente di eseguire il backup di un segreto in un insieme di credenziali delle chiavi
+  - *restore*: consente di ripristinare un segreto sottoposto a backup in un insieme di credenziali delle chiavi
 
-Per altre informazioni sull'uso dei segreti, vedere le [operazioni relative ai segreti nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault).  
+- Autorizzazioni per le operazioni privilegiate
+  - *purge*: consente di ripulire (eliminare definitivamente) un segreto eliminato
 
-###  <a name="BKMK_SecretTags"></a> Tag dei segreti  
-È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Azure Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
+Per altre informazioni sull'uso dei segreti, vedere le [operazioni relative ai segreti nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy). 
+
+### <a name="secret-tags"></a>Tag dei segreti  
+È possibile specificare metadati aggiuntivi specifici dell'applicazione sotto forma di tag. Key Vault supporta fino a 15 tag, ognuno dei quali può avere un nome di 256 caratteri e un valore di 256 caratteri.  
 
 >[!Note]
->I tag sono leggibili da un chiamante se hanno l’autorizzazione *elenca* o *ottieni* a tale tipo di oggetto, chiave, segreto o certificato.
+>I tag possono essere letti da un chiamante che ha l'autorizzazione *list* o *get* per accedere a un determinato tipo di oggetto (chiave, segreto o certificato).
 
 ## <a name="key-vault-certificates"></a>Certificati Key Vault
 
 La funzionalità Certificati dell'insieme di credenziali delle chiavi supporta la gestione di certificati X509 e consente di eseguire le operazioni seguenti:  
 
--   Il proprietario di un certificato può creare un certificato tramite un processo di creazione dell'insieme di credenziali delle chiavi o tramite l'importazione di un certificato esistente. Sono inclusi i certificati autofirmati e i certificati generati dall'autorità di certificazione.
+-   Il proprietario di un certificato può creare un certificato tramite un processo di creazione dell'insieme di credenziali delle chiavi o tramite l'importazione di un certificato esistente. Sono inclusi i certificati autofirmati e quelli generati dall'autorità di certificazione.
 -   Il proprietario di un certificato dell'insieme di credenziali delle chiavi può implementare l'archiviazione sicura e la gestione di certificati X509 senza interagire con materiale della chiave privata.  
 -   Il proprietario di un certificato può creare criteri che guidano l'insieme di credenziali delle chiavi nella gestione del ciclo di vita di un certificato.  
 -   I proprietari di un certificato possono specificare informazioni sul contatto per notificare eventi sul ciclo di vita di un certificato, come la scadenza e il rinnovo.  
@@ -304,25 +297,25 @@ La funzionalità Certificati dell'insieme di credenziali delle chiavi supporta l
 >[!Note]
 >Sono ammessi anche i provider e le autorità di certificazione senza partnership, ma non supportano la funzionalità di rinnovo automatico.
 
-###  <a name="BKMK_CompositionOfCertificate"></a> Componenti di un certificato
+### <a name="composition-of-a-certificate"></a>Componenti di un certificato
 
 Quando viene creato un certificato Key Vault, vengono creati anche una chiave e un segreto indirizzabili con lo stesso nome. La chiave Key Vault consente operazioni di chiave e il segreto Key Vault consente il recupero del valore del certificato come segreto. Un certificato Key Vault contiene inoltre metadati del certificato x509 pubblico.  
 
 L'identificatore e la versione dei certificati sono simili a quelli delle chiavi e segreti. Una versione specifica di una chiave e del segreto indirizzabili creati con la versione di certificato Key Vault è disponibile nella risposta di certificato Key Vault.
  
-![I certificati sono oggetti complessi](media/azure-key-vault.png)
+![Certificati come oggetti complessi](media/azure-key-vault.png)
 
-###  <a name="BKMK_CertificateExportableOrNonExportableKey"></a> Chiave esportabile o non esportabile
+### <a name="exportable-or-non-exportable-key"></a>Chiave esportabile o non esportabile
 
-Quando viene creato un certificato Key Vault, questo può essere recuperato dal segreto di indirizzabile con la chiave privata nel formato PFX o PEM se i criteri utilizzati per creare il certificato indicano che la chiave è esportabile. Se i criteri utilizzati per creare il certificato Key Vault indicano la chiave come non esportabile, la chiave privata non è una parte del valore quando viene recuperata come un segreto.  
+Un certificato di Key Vault creato può essere recuperato dal segreto indirizzabile con la chiave privata in formato PFX o PEM. I criteri usati per creare il certificato devono indicare che la chiave è esportabile. Se i criteri indicano che non è esportabile, la chiave privata non farà parte del valore recuperato come segreto.  
 
 La chiave indirizzabile diventa maggiormente pertinente con certificati KV non esportabili. Le operazioni della chiave KV indirizzabile sono mappate dal campo *keyusage* dei criteri del certificato KV utilizzato per creare il certificato KV.  
 
-Sono supportati due tipi di chiave *RSA* oppure *RSA HSM* con certificati. La possibilità di essere esportabile è consentita solo con RSA, non è supportata da RSA HSM.  
+Sono supportati due tipi di chiave *RSA* oppure *RSA HSM* con certificati. La chiave esportabile è consentita solo con RSA e non è supportata da RSA HSM.  
 
-###  <a name="BKMK_CertificateAttributesAndTags"></a> Tag e attributi del certificato
+### <a name="certificate-attributes-and-tags"></a>Tag e attributi dei certificati
 
-Oltre ai metadati del certificato, a una chiave indirizzabile e a un segreto indirizzabile, anche un certificato Key Vault contiene gli attributi e tag.  
+Oltre ai metadati del certificato, a una chiave e a un segreto indirizzabili, un certificato di Key Vault contiene anche attributi e tag.  
 
 #### <a name="attributes"></a>Attributi
 
@@ -330,14 +323,14 @@ Gli attributi di certificato si riflettono negli attributi della chiave e del se
 
 Un certificato Key Vault ha gli attributi seguenti:  
 
--   *abilitato*: il valore predefinito booleano facoltativo è **vero**. Questo attributo può essere specificato per indicare se i dati del certificato possono essere recuperati come segreti o eseguibili come chiave. Questo viene usato in combinazione con *nbf* ed *exp* quando si verifica un'operazione tra *nbf* ed *exp*, sarà consentito solo se abilitato è impostato su vero. Le operazioni all'esterno della finestra di *nbf* ed *exp* non sono consentite automaticamente.  
+-   *enabled*: valore booleano facoltativo. Il valore predefinito è **true**. Questo attributo può essere specificato per indicare se i dati del certificato possono essere recuperati come segreti o sono eseguibili come chiave. Viene anche usato in combinazione con *nbf* ed *exp* quando si verifica un'operazione nella finestra tra *nbf* ed *exp*. Ne sarà consentito l'uso solo se enabled è impostato su true. Le operazioni che non rientrano nella finestra tra *nbf* ed *exp* sono automaticamente non consentite.  
 
 Sono disponibili altri attributi di sola lettura che sono inclusi in una risposta:
 
--   *creato*: IntDate: indica quando è stata creata questa versione del certificato.  
--   *aggiornato*: IntDate: indica quando è stata aggiornata questa versione del certificato.  
--   *exp*: IntDate: contiene il valore della data di scadenza del certificato x509.  
--   *nbf*: IntDate: contiene il valore della data del certificato x509.  
+-   *created*: valore IntDate che indica quando è stata creata questa versione del certificato.  
+-   *updated*: valore IntDate che indica quando è stata aggiornata questa versione del certificato.  
+-   *exp*: valore IntDate che contiene il valore della data di scadenza del certificato x509.  
+-   *nbf*: valore IntDate che contiene il valore della data del certificato x509.  
 
 > [!Note] 
 > Se un certificato in Key Vault scade, la chiave e il segreto indirizzabili sono inutilizzabili.  
@@ -347,28 +340,26 @@ Sono disponibili altri attributi di sola lettura che sono inclusi in una rispost
  Dizionario specificato dal client di coppie chiave-valore, simile ai tag delle chiavi e dei segreti.  
 
  > [!Note]
-> I tag sono leggibili da un chiamante se hanno l’autorizzazione *elenca* o *ottieni* a tale tipo di oggetto, chiave, segreto o certificato.
+> I tag possono essere letti da un chiamante che ha l'autorizzazione *list* o *get* per accedere a un determinato tipo di oggetto (chiave, segreto o certificato).
 
-###  <a name="BKMK_CertificatePolicy"></a> Criteri dei certificati
+### <a name="certificate-policy"></a>Criteri dei certificati
 
-Un criterio di certificato contiene informazioni sulla creazione e la gestione del ciclo di vita di un certificato KV. Quando un certificato con chiave privata viene importato nell'insieme di credenziali delle chiavi, viene creato un criterio predefinito leggendo il certificato x509.  
+I criteri dei certificati contengono informazioni su come creare e gestire la durata di un certificato di Key Vault. Quando un certificato con chiave privata viene importato nell'insieme di credenziali delle chiavi, viene creato un criterio predefinito leggendo il certificato x509.  
 
-Quando viene creato un certificato KV da zero, Key Vault deve ricevere un criterio per specificare le modalità di creazione di questa versione del certificato KV o della versione successiva del certificato KV. Dopo aver stabilito un criterio, questo non richiesto con le successive operazioni di creazione per creare le versioni successive del certificato KV.  
+Quando viene creato un certificato di Key Vault completamente nuovo, è necessario specificare i criteri. I criteri specificano come creare questa versione o la versione successiva del certificato di Key Vault. Dopo aver definito i criteri, non sarà necessario ripetere la procedura per le successive operazioni di creazione delle versioni future. È presente una sola istanza dei criteri per tutte le versioni di un certificato di Key Vault.  
 
-È disponibile una sola istanza di un criterio per tutte le versioni di un certificato KV.  
+In generale, i criteri dei certificati contengono le informazioni seguenti:  
 
-In generale, i criteri dei certificati contengono quanto segue:  
-
--   Proprietà del certificato X509: contiene il nome oggetto, nomi alternativi dell’oggetto e così via. utilizzata per creare una richiesta di certificato x509.  
--   Proprietà della chiave: contiene il tipo di chiave, la lunghezza della chiave e i campi chiave della chiave esportabile e riutilizza. Questi campi indicare all’insieme di credenziali delle chiavi come generare una chiave.  
+-   Proprietà del certificato X509: contiene il nome del soggetto, i nomi alternativi del soggetto e altre proprietà usate per creare una richiesta di certificato x509.  
+-   Proprietà della chiave: contiene il tipo di chiave, la lunghezza della chiave e i campi relativi alla chiave esportabile e di riutilizzo. Questi campi indicano all'insieme di credenziali delle chiavi come generare una chiave.  
 -   Proprietà del segreto: contiene le proprietà del segreto, ad esempio tipo di contenuto del segreto indirizzabile per generare il valore del segreto, al fine di recuperare il certificato come segreto.  
 -   Azioni di durata: contiene le azioni di durata per il certificato KV. Ogni azione di durata contiene:  
 
-     - Trigger: specificato tramite i giorni precedenti alla scadenza o alla percentuale dell’intervallo di vita  
+     - Trigger: specificato in base ai giorni che precedono la scadenza o alla percentuale dell'intervallo di durata  
 
      - Azione: specificare il tipo di azione *emailContacts* o *autoRenew*  
 
--   Autorità di certificazione: i parametri relativi all’autorità di certificazione del certificato da utilizzare per l’emissione dei certificati x509.  
+-   Autorità di certificazione: i parametri relativi all'autorità di certificazione del certificato da usare per l'emissione dei certificati x509  
 -   Attributi dei criteri: contiene gli attributi associati al criterio  
 
 #### <a name="x509-to-key-vault-usage-mapping"></a>Mappatura di X509 per l’utilizzo in Key Vault
@@ -377,16 +368,16 @@ La tabella seguente rappresenta il mapping dei criteri di utilizzo della chiave 
 
 |**Flag utilizzo chiave X509**|**Operazioni chiave Key Vault**|**Comportamento predefinito**|
 |----------|--------|--------|
-|DataEncipherment|crittografa, decrittografa| N/D |
+|DataEncipherment|encrypt, decrypt| N/D |
 |DecipherOnly|decrypt| N/D  |
-|DigitalSignature|firma, verifica| Valore predefinito Key Vault senza una specifica di utilizzo al momento della creazione di certificati | 
+|DigitalSignature|sign, verify| Valore predefinito Key Vault senza una specifica di utilizzo al momento della creazione di certificati | 
 |EncipherOnly|encrypt| N/D |
-|KeyCertSign|firma, verifica|N/D|
-|KeyEncipherment|esegui/non eseguire il wrapping della chiave| Valore predefinito Key Vault senza una specifica di utilizzo al momento della creazione di certificati | 
-|NonRepudiation|firma, verifica| N/D |
-|crlsign|firma, verifica| N/D |
+|KeyCertSign|sign, verify|N/D|
+|KeyEncipherment|wrapKey, unwrapKey| Valore predefinito Key Vault senza una specifica di utilizzo al momento della creazione di certificati | 
+|NonRepudiation|sign, verify| N/D |
+|crlsign|sign, verify| N/D |
 
-###  <a name="BKMK_CertificateIssuer"></a> Autorità di certificazione
+### <a name="certificate-issuer"></a>Autorità di certificazione
 
 Un oggetto del certificato Key Vault contiene una configurazione utilizzata per comunicare con un provider dell’autorità di certificazione selezionato per ordinare certificati x509.  
 
@@ -413,37 +404,79 @@ Key Vault consente di creare più oggetti di autorità di certificazione con una
 
 Gli oggetti di autorità di certificazione vengono creati nell'insieme di credenziali e possono essere utilizzati solo con certificati KV nello stesso insieme di credenziali.  
 
-###  <a name="BKMK_CertificateContacts"></a> Contatti relativi al certificato
+### <a name="certificate-contacts"></a>Contatti relativi al certificato
 
 I contatti relativi al certificato contengono le informazioni di contatto per inviare notifiche attivate da eventi di durata dei certificati. Le informazioni dei contatti vengono condivise da tutti i certificati nell'insieme di credenziali delle chiavi. Viene inviata una notifica a tutti i contatti specificati per un evento per qualsiasi certificato presente nell'insieme di credenziali delle chiavi.  
 
-Se i criteri del certificato sono impostato per il rinnovo automatico, viene inviata una notifica sugli eventi seguenti.  
+Se i criteri del certificato sono impostati per il rinnovo automatico, viene inviata una notifica sugli eventi seguenti.  
 
 -   Prima del rinnovo del certificato
 -   Dopo il rinnovo del certificato, che indica se il certificato è stato rinnovato, o se si è verificato un errore, richiede il rinnovo manuale del certificato.  
 
- Se i criteri del certificato sono impostati per essere manualmente rinnovati (solo posta elettronica), viene inviata una notifica quando giunge il momento di rinnovare il certificato.  
+ Se i criteri del certificato sono impostati per il rinnovo manuale (solo posta elettronica), viene inviata una notifica al momento del rinnovo.  
 
-###  <a name="BKMK_CertificateAccessControl"></a> Controllo di accesso di certificato
+### <a name="certificate-access-control"></a>Controllo di accesso per i certificati
 
- Il controllo di accesso per i certificati gestiti da Key Vault e fornito a livello di un Key Vault che funge da contenitore di tali certificati. Vi è un criterio di controllo di accesso per i certificati distinto dal criterio di controllo di accesso per le chiavi e i segreti nello stesso Key Vault. Gli utenti possono creare uno o più insiemi di credenziali per i certificati e sono necessari per mantenere una segmentazione di scenario e una gestione dei certificati appropriati.  
+ Il controllo di accesso per i certificati è gestito da Key Vault e viene fornito dall'insieme di credenziali delle chiavi che contiene tali certificati. I criteri di controllo di accesso per i certificati sono distinti dai criteri di controllo di accesso per le chiavi e i segreti presenti nello stesso insieme di credenziali delle chiavi. Gli utenti possono creare uno o più insiemi di credenziali per i certificati e per mantenere una segmentazione e una gestione dei certificati appropriate in base allo scenario.  
 
  Le autorizzazioni seguenti sono utilizzabili, su base principale, nella voce di controllo di accesso dei segreti in un insieme di credenziali delle chiavi e riflettono fedelmente le operazioni consentite su un oggetto segreto:  
 
--   *ottieni*: consente di ottenere qualsiasi versione di un certificato o la versione corrente di un certificato 
--   *elenca*: consente di elencare qualsiasi certificato o versione di un certificato  
--   *elimina*: consente l'eliminazione di un certificato, i criterio e tutte le versioni corrispondenti  
--   *crea*: consente di creare un certificato Key Vault.  
--   *importa*: consente l'importazione del materiale di certificato in un certificato Key Vault.  
--   *aggiorna*: consente l'aggiornamento di un certificato.  
--   *managecontacts*: consente la gestione dei contatti del certificato Key Vault  
--   *getissuers*: consente di ottenere l’autorità di certificazione del certificato  
--   *listissuers*: consente di elencare le autorità di certificazione del certificato  
--   *setissuers*: consente di creare o aggiornare l’autorità di certificazione Key Vault  
--   *deleteissuers*: consente di eliminare le autorità di certificazione Key Vault  
--   *tutti*: concede tutte le autorizzazioni  
+- Autorizzazioni per le operazioni di gestione dei certificati
+  - *get*: consente di ottenere la versione corrente del certificato o qualsiasi versione di un certificato 
+  - *list*: consente di elencare i certificati correnti o le versioni correnti di un certificato  
+  - *update*: consente di aggiornare un certificato
+  - *create*: consente di creare un certificato di Key Vault
+  - *import*: consente di importare il materiale apposito in un certificato di Key Vault
+  - *delete*: consente di eliminare un certificato, i relativi criteri e tutte le relative versioni  
+  - *recover*: consente di recuperare un certificato eliminato
+  - *backup*: consente di eseguire il backup di un certificato in un insieme di credenziali delle chiavi
+  - *restore*: consente di ripristinare un certificato sottoposto a backup in un insieme di credenziali delle chiavi
+  - *managecontacts*: consente di gestire i contatti relativi al certificato di Key Vault  
+  - *manageissuers*: consente di gestire le autorità di certificazione di Key Vault
+  - *getissuers*: consente di ottenere le autorità di certificazione di un certificato
+  - *listissuers*: consente di elencare le autorità di certificazione di un certificato  
+  - *setissuers*: consente di creare o aggiornare le autorità di certificazione di un certificato di Key Vault  
+  - *deleteissuers*: consente di eliminare le autorità di certificazione di un certificato di Key Vault  
+ 
+- Autorizzazioni per le operazioni privilegiate
+  - *purge*: consente di ripulire (eliminare definitivamente) un certificato eliminato
 
-Per altre informazioni, vedere le [operazioni relative ai certificati nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). 
+Per altre informazioni, vedere le [operazioni relative ai certificati nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy).
+
+## <a name="azure-storage-account-key-management"></a>Gestione delle chiavi dell'account di archiviazione di Azure
+
+Key Vault può gestire le chiavi dell'account di archiviazione Azure:
+
+- Internamente, Key Vault può elencare (sincronizzare) le chiavi con un account di archiviazione di Azure. 
+- Key Vault rigenera (ruota) le chiavi con cadenza periodica.
+- I valori di chiave non vengono mai restituiti in risposta al chiamante.
+- Key Vault gestisce le chiavi sia degli account di archiviazione sia degli account di archiviazione classici.
+
+Per altre informazioni, vedere [Chiavi dell'account di archiviazione Key Vault](key-vault-ovw-storage-keys.md).
+
+### <a name="storage-account-access-control"></a>Controllo di accesso dell'account di archiviazione
+
+Le autorizzazioni seguenti consentono di autorizzare un utente o un'entità di sicurezza dell'applicazione a eseguire operazioni su un account di archiviazione gestito:  
+
+- Autorizzazioni per le operazioni relative all'account di archiviazione gestito e alla definizione SAS
+  - *get*: consente di ottenere informazioni su un account di archiviazione 
+  - *list*: consente di elencare gli account di archiviazione gestiti da Key Vault
+  - *update*: consente di aggiornare un account di archiviazione
+  - *delete*: consente di eliminare un account di archiviazione  
+  - *recover*: consente di recuperare un account di archiviazione eliminato
+  - *backup*: consente di eseguire il backup di un account di archiviazione
+  - *restore*: consente di ripristinare un account di archiviazione sottoposto a backup in un insieme di credenziali delle chiavi
+  - *set*: consente di creare o aggiornare un account di archiviazione
+  - *regeneratekey*: consente di rigenerare un valore di chiave specificato per un account di archiviazione
+  - *getsas*: consente di ottenere informazioni su una definizione SAS per un account di archiviazione
+  - *listsas*: consente di elencare le definizioni SAS di archiviazione per un account di archiviazione
+  - *deletesas*: consente di eliminare una definizione SAS da un account di archiviazione
+  - *setsas*: consente di creare o aggiornare una nuova definizione SAS/nuovi attributi per un account di archiviazione
+
+- Autorizzazioni per le operazioni privilegiate
+  - *purge*: consente di ripulire (eliminare definitivamente) un account di archiviazione gestito
+
+Per altre informazioni, vedere le operazioni relative ai certificati in [Key Vault REST API reference](/rest/api/keyvault) (Riferimenti sull'API REST di Key Vault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy).
 
 ## <a name="see-also"></a>Vedere anche
 

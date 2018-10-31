@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972197"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405566"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funzionalità tecniche per la sicurezza di Azure
 
@@ -43,7 +43,7 @@ Microsoft Azure consente di:
 
 ## <a name="scope"></a>Scope
 
-Questo white paper si concentra sulle caratteristiche e le funzionalità di sicurezza che supportano i componenti principali di Microsoft Azure, ossia [Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), i [database SQL di Microsoft Azure](https://docs.microsoft.com/azure/sql-database/), il [modello delle macchine virtuali di Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/) e gli strumenti e l'infrastruttura con cui tutto viene gestito. Questo white paper illustra le funzionalità tecniche di Microsoft Azure a disposizione dei clienti affinché possano svolgere il proprio ruolo nell'ambito della protezione della sicurezza e della riservatezza dei dati.
+Questo white paper si concentra sulle caratteristiche e le funzionalità di sicurezza che supportano i componenti principali di Microsoft Azure, ossia [Archiviazione di Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), il [database SQL di Microsoft Azure](https://docs.microsoft.com/azure/sql-database/), il [modello delle macchine virtuali di Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/) e gli strumenti e l'infrastruttura con cui tutto viene gestito. Questo white paper illustra le funzionalità tecniche di Microsoft Azure a disposizione dei clienti affinché possano svolgere il proprio ruolo nell'ambito della protezione della sicurezza e della riservatezza dei dati.
 
 Comprendere questo modello di responsabilità condivisa è di importanza fondamentale per i clienti che passano al cloud. I provider di servizi cloud offrono notevoli vantaggi ai fini della sicurezza e della conformità, ma tali vantaggi non esentano il cliente dal proteggere i propri utenti, le proprie applicazioni e i servizi offerti.
 
@@ -398,17 +398,17 @@ La [sicurezza operativa di Azure](https://docs.microsoft.com/azure/security/azur
 
 La sicurezza operativa di Azure è basata su un framework che incorpora le conoscenze acquisite tramite varie funzionalità esclusive di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica.
 
-### <a name="microsoft-operations-management-suiteoms"></a>Microsoft Operations Management Suite (OMS)
+### <a name="microsoft-azure-log-analytics"></a>Log Analytics di Microsoft Azure
 
-[Microsoft Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) è la soluzione di gestione IT per il cloud ibrido. Usato autonomamente o come estensione per la distribuzione esistente di System Center, OMS offre la massima flessibilità e il massimo controllo per la gestione basata su cloud dell'infrastruttura.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) è la soluzione di gestione IT per il cloud ibrido. Usato autonomamente o come estensione per la distribuzione esistente di System Center, Log Analytics offre la massima flessibilità e il massimo controllo per la gestione basata su cloud dell'infrastruttura.
 
-![Microsoft Operations Management Suite (OMS)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
+![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig8.png)
 
-Con OMS, è possibile gestire qualsiasi istanza di qualsiasi cloud, inclusi i cloud locali, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a un costo inferiore rispetto alle soluzioni della concorrenza. OMS, realizzato per le realtà orientate principalmente al cloud, offre un nuovo approccio alla gestione dell'azienda, vale a dire il modo più veloce e più economico per affrontare nuove problematiche aziendali e gestire nuovi carichi di lavoro, applicazioni e ambienti cloud.
+Con Log Analytics è possibile gestire qualsiasi istanza di qualsiasi cloud, inclusi i cloud locali, Azure, AWS, Windows Server, Linux, VMware e OpenStack, a un costo inferiore rispetto alle soluzioni della concorrenza. Log Analytics, realizzato per le realtà orientate principalmente al cloud, offre un nuovo approccio alla gestione dell'azienda, vale a dire il modo più veloce e più economico per affrontare nuove problematiche aziendali e gestire nuovi carichi di lavoro, applicazioni e ambienti cloud.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) fornisce servizi di monitoraggio per OMS raccogliendo i dati delle risorse gestite in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione.
+[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) offre servizi di monitoraggio raccogliendo i dati delle risorse gestite in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 

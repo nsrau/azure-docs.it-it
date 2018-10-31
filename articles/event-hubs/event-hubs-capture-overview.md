@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 603a5dfcf2137c15ae19ea248f3e0f4f136c22f1
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 91263d7f6e8c0c2774df560a45eeff9efc672343
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140165"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408425"
 ---
 # <a name="azure-event-hubs-capture"></a>Acquisizione di Hub eventi di Azure
 
@@ -104,6 +104,10 @@ In Apache Avro sono disponibili guide introduttive complete per [Java][Java] e [
 ## <a name="how-event-hubs-capture-is-charged"></a>Come viene addebitato l'uso di Acquisizione di Hub eventi
 
 L'uso di Acquisizione di Hub eventi viene registrato in modo simile a quello delle unità elaborate, come tariffa oraria. L'addebito è direttamente proporzionale al numero di unità elaborate acquistate per lo spazio dei nomi. Quando le unità elaborate aumentano o diminuiscono, anche Acquisizione di Hub eventi aumenta o diminuisce per offrire prestazioni corrispondenti. Le misurazioni vengono eseguite in parallelo. Per i dettagli sui prezzi, vedere [Prezzi di Hub eventi](https://azure.microsoft.com/pricing/details/event-hubs/). 
+
+## <a name="integration-with-event-grid"></a>Integrazione con Griglia di eventi 
+È possibile creare una sottoscrizione di Griglia di eventi di Azure con uno spazio dei nomi di Hub eventi come origine. L'esercitazione seguente illustra come creare una sottoscrizione di Griglia di eventi con un hub eventi come origine e un'app di Funzioni di Azure come sink: [Elaborare i dati di Hub eventi acquisiti ed eseguirne la migrazione a SQL Data Warehouse con Griglia di eventi e Funzioni di Azure](store-captured-data-data-warehouse.md).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

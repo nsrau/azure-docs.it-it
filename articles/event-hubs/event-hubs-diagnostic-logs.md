@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: d4ed53cf1f0d21e488631434b60309602169b59a
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004651"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985167"
 ---
-# <a name="event-hubs-diagnostic-logs"></a>Log di diagnostica di Hub eventi
+# <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
 È possibile visualizzare due tipi di log per Hub eventi di Azure:
 
@@ -70,7 +70,7 @@ Tutti i log vengono archiviati in formato JavaScript Object Notation (JSON). Ogn
 
 Le stringhe JSON dei log di archiviazione includono gli elementi elencati nella tabella seguente:
 
-NOME | DESCRIZIONE
+NOME | Descrizione
 ------- | -------
 TaskName | Descrizione dell'attività non riuscita.
 ActivityId | ID interno, usato a scopo di rilevamento.
@@ -108,7 +108,7 @@ Il codice seguente è un esempio di stringa JSON di log di archiviazione:
 
 Le stringhe JSON dei log operativi includono gli elementi elencati nella seguente tabella:
 
-NOME | DESCRIZIONE
+NOME | Descrizione
 ------- | -------
 ActivityId | ID interno, usato a scopo di rilevamento.
 EventName | Nome operazione.  

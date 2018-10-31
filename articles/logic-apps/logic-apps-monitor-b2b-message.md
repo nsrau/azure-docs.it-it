@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63aa455851633d1e49fd1b26861aaac8a670ef15
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948010"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404785"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Monitorare i messaggi B2B e configurare la registrazione per gli account di integrazione in App per la logica di Azure
 
@@ -58,7 +58,9 @@ Dopo avere configurato la comunicazione B2B tra due processi o applicazioni azie
 
    1. Selezionare **Invia a Log Analytics**. 
    2. In **Log Analytics** scegliere **Configura**. 
-   3. In **Aree di lavoro OMS** selezionare l'area di lavoro di Log Analytics da usare per la registrazione.
+   3. In **Aree di lavoro OMS** selezionare l'area di lavoro di Log Analytics da usare per la registrazione. 
+   > [!NOTE]
+   > Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics. 
    4. In **Log** selezionare la categoria **IntegrationAccountTrackingEvents**.
    5. Scegliere **Salva**.
 
@@ -93,6 +95,8 @@ Dopo avere configurato la comunicazione B2B tra due processi o applicazioni azie
    1. Selezionare **Invia a Log Analytics**. 
    2. In **Log Analytics** scegliere **Configura**. 
    3. In **Aree di lavoro OMS** selezionare l'area di lavoro di Log Analytics da usare per la registrazione.
+   > [!NOTE]
+   > Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
    4. In **Log** selezionare la categoria **IntegrationAccountTrackingEvents**.
    5. Al termine dell'operazione, scegliere **Salva**.
 
@@ -129,6 +133,6 @@ Azure supporta questi tipi di schemi di rilevamento, che sono tutti fissi ad ecc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Tenere traccia dei messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Tenere traccia dei messaggi B2B in OMS")
+* [Tenere traccia dei messaggi B2B in Azure Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Tenere traccia dei messaggi B2B in Azure Log Analytics")
 * [Altre informazioni su Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Informazioni su Enterprise Integration Pack")
 

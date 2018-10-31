@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8d3e0874637bc3f13905c6038349b34c18b5fe56
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406041"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637798"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Monitoraggio dei dati raccolti da Monitoraggio di Azure
 [Monitoraggio di Azure](../azure-monitor/overview.md) è un servizio che permette di monitorare le applicazioni e le risorse su cui si basano. Al centro di questa funzione vi è l'archiviazione dei dati di telemetria e di altro tipo dalle risorse monitorate. Questo articolo presenta una descrizione completa di come questi dati vengono archiviati e usati da Monitoraggio di Azure.
@@ -108,7 +108,7 @@ Tra le attività che è possibile eseguire con le metriche sono incluse le segue
 
 
 ### <a name="viewing-metrics"></a>Visualizzazione di metriche
-Le metriche in Azure vengono raccolte nell'archivio delle metriche di Monitoraggio di Azure. Si tratta di una serie temporale ottimizzata per il recupero rapido e in cui sono archiviati i valori delle metriche per 93 giorni. È possibile copiare metriche in Log Analytics per l'analisi e l'identificazione delle tendenze a lungo termine.
+Le metriche in Azure vengono raccolte nel database delle metriche di Monitoraggio di Azure. Si tratta di una serie temporale ottimizzata per il recupero rapido e in cui sono archiviati i valori delle metriche per 93 giorni. È possibile copiare metriche in Log Analytics per l'analisi e l'identificazione delle tendenze a lungo termine.
 
 I dati delle metriche vengono usati in molti modi diversi, come descritto in precedenza. È possibile usare [Esplora metriche](../monitoring-and-diagnostics/monitoring-metric-charts.md) per analizzare direttamente i dati nell'archivio delle metriche e tracciare un grafico dei valori di più metriche nel tempo. È possibile visualizzare i grafici in modo interattivo o aggiungerli a un dashboard per visualizzarli con altre visualizzazioni. È anche possibile recuperare le metriche usando l'[API REST di monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
@@ -173,7 +173,7 @@ Tutti i dati di Log Analytics vengono recuperati usando una [query di log](../lo
 Per indicazioni sulla raccolta delle metriche dalle risorse di Azure, vedere [Raccolta di log e metriche per i servizi di Azure da usare in Log Analytics](../log-analytics/log-analytics-azure-storage.md). Le linee guida per la raccolta di metriche dalle risorse PaaS di Azure sono disponibili in [Configurare la raccolta di metriche delle risorse PaaS di Azure con Log Analytics](../log-analytics/log-analytics-collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Da log a metriche
-Come descritto sopra, le metriche sono più reattive rispetto ai log e di conseguenza permettono di creare avvisi con latenza e costi inferiori. Log Analytics raccoglie una quantità significativa di dati numerici che potrebbero essere adatti alle metriche, ma che non vengono archiviati nell'archivio delle metriche di Azure.  Un esempio comune sono i dati sulle prestazioni raccolti dagli agenti e dalle soluzioni di gestione. Alcuni di questi valori possono essere copiati nell'archivio delle metriche, in cui sono disponibili per la generazione di avvisi e l'analisi con Esplora metriche.
+Come descritto sopra, le metriche sono più reattive rispetto ai log e di conseguenza permettono di creare avvisi con latenza e costi inferiori. Log Analytics raccoglie una quantità significativa di dati numerici che potrebbero essere adatti alle metriche, ma che non vengono archiviati nel database delle metriche di Azure.  Un esempio comune sono i dati sulle prestazioni raccolti dagli agenti e dalle soluzioni di gestione. Alcuni di questi valori possono essere copiati nel database delle metriche, in cui sono disponibili per la generazione di avvisi e l'analisi con Esplora metriche.
 
 La spiegazione di questa funzionalità è riportata in [Creare avvisi delle metriche per i log in Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). L'elenco dei valori supportati è disponibile in [Metriche supportate con il monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 

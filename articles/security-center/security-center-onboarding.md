@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379996"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405447"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Caricamento del livello Standard di Centro sicurezza di Azure per la sicurezza avanzata
 Eseguire l'aggiornamento al livello Standard di Centro sicurezza di Azure per la sicurezza avanzata per sfruttare i vantaggi della gestione della sicurezza avanzata e la protezione dalle minacce per i carichi di lavoro cloud ibridi.  È possibile provare gratuitamente il livello Standard per 60 giorni. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
@@ -44,7 +44,7 @@ Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro
 Per aggiornare una sottoscrizione o area di lavoro al livello Standard:
 1. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
   ![Introduzione](./media/security-center-onboarding/get-started.png)
-2. In **Aggiorna** il Centro sicurezza di Azure elenca le sottoscrizioni e le aree di lavoro idonee per il caricamento. 
+2. In **Aggiorna**, il Centro sicurezza di Azure elenca tutte le sottoscrizioni e i carichi di lavoro idonei per il caricamento. 
    - È possibile espandere **Applica la versione di prova gratuita** per visualizzare un elenco di tutte le sottoscrizioni e aree di lavoro con il relativo stato di idoneità di valutazione.
    -    È possibile aggiornare le sottoscrizioni e le aree di lavoro che non sono idonee per la versione di prova gratuita.
    -    È possibile selezionare le aree di lavoro e le sottoscrizioni idonee per avviare la versione di prova gratuita.
@@ -82,6 +82,8 @@ Se sono disponibili, le aree di lavoro esistenti vengono elencate sotto **Add ne
    ![Aggiungere una nuova area di lavoro][4]
 
 2. In **Sicurezza e controllo** selezionare **Area di lavoro OMS** per creare una nuova area di lavoro.
+> [!NOTE]
+> Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
 3. In **Area di lavoro OMS** immettere le informazioni per l'area di lavoro.
 4. Nell'**area di lavoro di OMS**selezionare **OK**.  Dopo avere selezionato OK, verrà visualizzato un collegamento per scaricare un agente Windows o Linux e le chiavi per l'ID dell'area di lavoro da usare nella configurazione dell'agente.
 5. In **Sicurezza e controllo** selezionare **OK**.

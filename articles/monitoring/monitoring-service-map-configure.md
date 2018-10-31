@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: a68c35ba2f740720e3d7940d6fafa2dcfe183589
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064374"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405515"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurare Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di avere una vista dei server corrispondente alla loro rappresentazione concettuale, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -138,22 +138,22 @@ Mapping dei servizi ottiene i dati da Microsoft Dependency Agent. Dependency Age
 | Gruppo di gestione di System Center Operations Manager | Yes | Mapping dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione System Center Operations Manager](../log-analytics/log-analytics-om-agents.md) connesso. <br><br>È necessaria una connessione diretta dal computer agente System Center Operations Manager a Log Analytics. |
 | Account di archiviazione di Azure | No  | Mapping dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'Archiviazione di Azure. |
 
-In Windows, Microsoft Monitoring Agent (MMA) viene usato sia da System Center Operations Manager che da Log Analytics per raccogliere e inviare dati di monitoraggio. Questo agente viene chiamato agente System Center Operations Manager, agente di OMS, agente di Log Analytics, agente MMA o diretto, a seconda del contesto. System Center Operations Manager e Log Analytics offrono versioni diverse pronte all'uso dell'agente MMA. Ognuna di queste versioni può inviare segnalazioni a System Center Operations Manager, Log Analytics o entrambi.  
+In Windows, Microsoft Monitoring Agent (MMA) viene usato sia da System Center Operations Manager che da Log Analytics per raccogliere e inviare dati di monitoraggio. Questo agente è chiamato agente System Center Operations Manager, agente di Log Analytics, agente MMA o diretto, a seconda del contesto. System Center Operations Manager e Log Analytics offrono versioni diverse pronte all'uso dell'agente MMA. Ognuna di queste versioni può inviare segnalazioni a System Center Operations Manager, Log Analytics o entrambi.  
 
 In Linux, l'agente di Log Analytics per Linux raccoglie e invia i dati di monitoraggio a Log Analytics. È possibile usare Mapping dei servizi nei server con gli agenti di Log Analytics connessi direttamente al servizio o che inviano report a un gruppo di gestione di Operations Manager integrato con Log Analytics.  
 
 In questo articolo si fa riferimento a tutti gli agenti, sia Linux che Windows, connessi a un gruppo di gestione di System Center Operations Manager o direttamente a Log Analytics, con l'espressione *agente di Log Analytics*. 
 
-L'agente dell'elenco dei servizi non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati in Mapping dei servizi vengono sempre trasmessi dall'agente di Log Analytics al servizio Log Analytics, direttamente o tramite il gateway OMS.
+L'agente dell'elenco dei servizi non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati in Mapping dei servizi vengono sempre trasmessi dall'agente di Log Analytics al servizio Log Analytics, direttamente o tramite il gateway Log Analytics.
 
 ![Agenti di Mapping dei servizi](media/monitoring-service-map/agents.png)
 
 Per un cliente di System Center Operations Manager con un gruppo di gestione connesso a Log Analytics:
 
 - Non è necessaria alcuna configurazione aggiuntiva se gli agenti System Center Operations Manager possono accedere a Internet per connettersi a Log Analytics.  
-- È necessario configurare il gateway OMS in modo da usare System Center Operations Manager quando gli agenti System Center Operations Manager non possono connettersi a Log Analytics tramite Internet.
+- Se gli agenti System Center Operations Manager non possono accedere a Log Analytics tramite Internet è necessario configurare il gateway Log Analytics per l'uso con System Center Operations Manager.
   
-Se i computer Windows o Linux in uso non possono connettersi direttamente al servizio, è necessario configurare l'agente di Log Analytics per la connessione a Log Analytics tramite il gateway OMS. Per altre informazioni su come distribuire e configurare il gateway OMS, vedere [Connettere computer senza accesso a Internet tramite il gateway OMS](../log-analytics/log-analytics-oms-gateway.md).  
+Se i computer Windows o Linux in uso non possono connettersi direttamente al servizio, è necessario configurare l'agente di Log Analytics per la connessione all'area di lavoro Log Analytics tramite il gateway. Per altre informazioni su come distribuire e configurare il gateway Log Analytics, vedere [Connettere computer senza accesso a Internet tramite il gateway Log Analytics](../log-analytics/log-analytics-oms-gateway.md).  
 
 ### <a name="management-packs"></a>Management Pack
 Quando viene attivato Mapping dei servizi in un'area di lavoro di Log Analytics, a tutti i server Windows nell'area di lavoro viene inoltrato un Management Pack di 300 KB. Se si usano gli agenti System Center Operations Manager in un [gruppo di gestione connesso](../log-analytics/log-analytics-om-agents.md), il management pack di Mapping dei servizi viene distribuito da System Center Operations Manager. 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: ff0ebbb140627caaaa71c5d09d0a4078eca86055
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 29b5f877065029dc271e49c1afd6d547def58a6e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888114"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408133"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usare gli endpoint del servizio della rete virtuale con Hub eventi di Azure
 
@@ -24,7 +24,7 @@ L'integrazione di Hub eventi con gli [endpoint del servizio della rete virtuale]
 > [!IMPORTANT]
 > Le reti virtuali sono supportate nei livelli **standard** e **dedicato** di Hub eventi. Non sono supportate nel livello Basic. 
 
-Una volta configurato per essere associato ad almeno un endpoint del servizio della subnet della rete virtuale, lo spazio dei nomi di Hub eventi corrispondente non accetta più traffico se non dalle reti virtuali autorizzate. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi di Hub eventi a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica.
+Dopo averlo configurato per essere associato ad almeno un endpoint del servizio della subnet della rete virtuale, il corrispondente spazio dei nomi di Hub eventi non accetta più traffico se non dalle subnet autorizzate delle reti virtuali. Dal punto di vista della rete virtuale, l'associazione di uno spazio dei nomi di Hub eventi a un endpoint del servizio consente di configurare un tunnel di rete isolato dalla subnet della rete virtuale al servizio di messaggistica.
 
 Il risultato è una relazione privata e isolata tra i carichi di lavoro associati alla subnet e lo spazio dei nomi di Hub eventi corrispondente, nonostante l'indirizzo di rete osservabile dell'endpoint del servizio di messaggistica sia in un intervallo di IP pubblici.
 
@@ -38,7 +38,7 @@ Questo significa che le soluzioni cloud con requisiti di sicurezza elevati non s
 
 ## <a name="bind-event-hubs-to-virtual-networks"></a>Associare Hub eventi a reti virtuali
 
-Le *regole della rete virtuale* rappresentano una funzionalità di sicurezza del firewall che consente di definire se il server di Hub eventi di Azure accetta le connessioni da una subnet specifica della rete virtuale.
+Le *regole delle reti virtuali* rappresentano la funzionalità di sicurezza firewall che controlla se lo spazio dei nomi di Hub eventi di Azure accetta le connessioni da una specifica subnet della rete virtuale.
 
 L'associazione di uno spazio dei nomi di Hub eventi a una rete virtuale è un processo in due passaggi. È prima necessario creare un **endpoint del servizio di rete virtuale** su una subnet della rete virtuale e abilitarlo per "Microsoft.EventHub" come descritto nella [panoramica sull'endpoint del servizio][vnet-sep]. Dopo aver aggiunto l'endpoint del servizio, è necessario associare lo spazio dei nomi di Hub eventi all'endpoint con una *regola della rete virtuale*.
 

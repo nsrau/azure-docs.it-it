@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: de7ae5788224b83105e4dc9a24aea35c8b841c88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19d015947e5d2331c50cd64956e8a7650f96616d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986728"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638325"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Risoluzione dei problemi di Monitoraggio di Azure per contenitori
 
@@ -91,6 +91,18 @@ Se Monitoraggio di Azure per contenitori è stato correttamente abilitato e conf
     omsagent 1.6.0.23
     docker-cimprov 1.0.0.31
     ```
+
+## <a name="error-messages"></a>messaggi di errore
+
+La tabella seguente riepiloga gli errori noti che è possibile si verifichino durante l'uso di Monitoraggio di Azure per i contenitori.
+
+| messaggi di errore  | Azione |  
+| ---- | --- |  
+| Messaggio di errore `No data for selected filters`  | L'individuazione del flusso di dati di monitoraggio per i nuovi cluster potrebbe richiedere alcuni minuti. Attendere almeno 10/15 minuti perché vengano visualizzati i dati per il cluster. |   
+| Messaggio di errore `Error retrieving data` | Durante l'installazione del servizio Kubenetes di Azure per il monitoraggio dell'integrità e delle prestazioni, viene stabilita una connessione tra il cluster e l'area di lavoro di Azure Log Analytics. Un'area di lavoro di Log Analytics viene usata per archiviare tutti i dati di monitoraggio per il cluster. Questo errore può verificarsi quando l'area di lavoro di Log Analitycs è stata eliminata o persa. Verificare se l'area di lavoro è disponibile rivedendo le informazioni su come [gestire l'accesso](../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information). Se l'area di lavoro è mancante, è necessario ripetere il caricamento del cluster con Monitoraggio di Azure per i contenitori. Per ripetere il caricamento, è necessario [disabilitare](/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json) il monitoraggio per il cluster e [abilitarlo](monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) di nuovo in Monitoraggio di Azure per i contenitori. |  
+| `Error retrieving data` dopo l'aggiunta di Monitoraggio di Azure per contenitori tramite l'interfaccia della riga di comando AKS | Quando si esegue il caricamento usando `az aks cli`, molto raramente Monitoraggio di Azure per i contenitori potrebbe non essere caricato correttamente. Controllare se la soluzione è caricata. A tale scopo, passare all'area di lavoro di Log Analytics e verificare se la soluzione è disponibile selezionando **Soluzioni** dal riquadro sul lato sinistro. Per risolvere questo problema, è necessario ridistribuire la soluzione seguendo le istruzioni per la [distribuzione di Monitoraggio di Azure per i contenitori](monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json) |  
+
+Per eseguire la diagnosi del problema, è disponibile uno script di risoluzione dei problemi [qui](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script).  
 
 ## <a name="next-steps"></a>Passaggi successivi
 Con il monitoraggio abilitato per acquisire le metriche di integrità sia per i nodi del cluster AKS che per i pod, queste metriche di integrità sono disponibili nel portale di Azure. Per informazioni su come usare Monitoraggio di Azure per contenitori, vedere [Visualizzare l'integrità del servizio Kubernetes di Azure](monitoring-container-insights-analyze.md).

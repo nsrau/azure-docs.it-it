@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353292"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638204"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -65,17 +65,17 @@ Usare i processi di base per installare agenti in [Connettere computer Windows a
 
 ### <a name="where-to-install-the-agents"></a>Dove installare gli agenti 
 
-* **Monitoraggio delle prestazioni:** installare gli agenti di Operations Management Suite in almeno un nodo connesso a ciascuna subnet da cui si desidera monitorare la connettività di rete ad altre subnet.
+* **Performance Monitor:** installare gli agenti di Log Analytics in almeno un nodo connesso a ogni subnet da cui si vuole monitorare la connettività di rete ad altre subnet.
 
     Per monitorare un collegamento di rete, installare agenti in entrambi gli endpoint del collegamento. Se non si conosce la topologia della rete, installare gli agenti nei server con carichi di lavoro critici tra cui si desidera monitorare le prestazioni di rete. Ad esempio, se si desidera monitorare la connessione di rete tra un server Web e un server che esegue SQL, installare un agente in entrambi i server. Gli agenti monitorano la connettività di rete (collegamenti) tra host, non gli host stessi. 
 
-* **Monitoraggio connettività servizio:** installare un agente di Operations Management Suite in ogni nodo da cui si vuole monitorare la connettività di rete all'endpoint servizio. Un esempio è dato dal caso in cui si desidera monitorare la connettività di rete a Office 365 da siti di uffici etichettati O1, O2 e O3. Installare l'agente di Operations Management Suite in almeno un nodo ciascuno in O1, O2 e O3. 
+* **Monitoraggio connettività servizio:** installare un agente di Log Analytics in ogni nodo da cui si vuole monitorare la connettività di rete all'endpoint di servizio. Un esempio è dato dal caso in cui si desidera monitorare la connettività di rete a Office 365 da siti di uffici etichettati O1, O2 e O3. Installare l'agente di Log Analytics in almeno un nodo ciascuno in O1, O2 e O3. 
 
-* **Monitoraggio di ExpressRoute**: installare almeno un agente di Operations Management Suite nella rete virtuale di Microsoft Azure. Installare anche almeno un agente nella subnet locale, connessa attraverso il peering privato di ExpressRoute.  
+* **Monitoraggio di ExpressRoute**: installare almeno un agente di Log Analytics nella rete virtuale di Azure. Installare anche almeno un agente nella subnet locale, connessa attraverso il peering privato di ExpressRoute.  
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Configurare gli agenti di Operations Management Suite per il monitoraggio 
+### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurare gli agenti di Log Analytics per il monitoraggio 
 
-Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le prestazioni di rete tra gli agenti di origine e di destinazione. È possibile scegliere tra TCP e ICMP come protocollo di monitoraggio per le funzionalità Monitoraggio prestazioni e Monitoraggio connettività servizio. Per Monitoraggio di ExpressRoute è disponibile solo il protocollo di monitoraggio TCP. Assicurarsi che il firewall consenta la comunicazione tra gli agenti di Operations Management Suite usati per il monitoraggio sul protocollo scelto. 
+Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le prestazioni di rete tra gli agenti di origine e di destinazione. È possibile scegliere tra TCP e ICMP come protocollo di monitoraggio per le funzionalità Monitoraggio prestazioni e Monitoraggio connettività servizio. Per Monitoraggio di ExpressRoute è disponibile solo il protocollo di monitoraggio TCP. Assicurarsi che il firewall consenta la comunicazione tra gli agenti di Log Analytics usati per il monitoraggio sul protocollo scelto. 
 
 * **Protocollo TCP:** se si è scelto TCP come protocollo di monitoraggio, aprire la porta del firewall sugli agenti usati per le funzionalità Monitoraggio prestazioni rete e Monitoraggio di ExpressRoute per assicurarsi che gli agenti possano connettersi tra loro. Per aprire la porta, eseguire lo script di PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) senza alcun parametro nella finestra di PowerShell con privilegi di amministratore.
 
@@ -109,7 +109,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
 
    ![Riquadro Monitoraggio delle prestazioni di rete](media/log-analytics-network-performance-monitor/npm-config.png)
 
-4. Nella pagina **Installazione** è presente l'opzione per installare gli agenti di Operations Management Suite e per configurarli per il monitoraggio nella visualizzazione **Impostazioni comuni**. Come descritto in precedenza, se si sono installati e configurati agenti di Operations Management Suite, selezionare la visualizzazione **Installazione** per configurare la funzionalità che si desidera utilizzare. 
+4. Nella pagina **Installazione** viene visualizzata l'opzione per installare gli agenti di Log Analytics e configurare gli agenti per il monitoraggio nella visualizzazione **Impostazioni comuni**. Come descritto in precedenza, se sono stati installati e configurati agenti di Log Analytics, selezionare la visualizzazione **Installazione** per configurare la funzionalità che si desidera usare. 
 
    **Monitoraggio prestazioni**: scegliere il protocollo da usare per le transazioni sintetiche nella regola di Monitoraggio prestazioni **predefinita** e selezionare **Salva e continua**. La selezione di questo protocollo viene mantenuta solo per la regola predefinita generata dal sistema. È necessario scegliere il protocollo ogni volta che si crea in modo esplicito una regola di Monitoraggio prestazioni. È sempre possibile passare alle impostazioni della regola **predefinita** nella scheda **Monitoraggio prestazioni** (visualizzata dopo avere completato la configurazione del giorno 0) e modificare il protocollo in seguito. Se non si è interessati alla funzionalità Monitoraggio prestazioni, è possibile disabilitare la regola predefinita dalle impostazioni della regola **predefinita** nella scheda **Monitoraggio prestazioni**.
 
@@ -135,7 +135,7 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
     
 Il monitoraggio di questi peering è inizialmente disabilitato. Selezionare ogni peering che si desidera monitorare e configurarne il monitoraggio nella visualizzazione dettagli a destra. Selezionare **Salva** per salvare la configurazione. Per altre informazioni, vedere l'articolo "Configurare Monitoraggio di ExpressRoute". 
 
-Dopo aver completato la configurazione, il popolamento dei dati richiede da 30 minuti a un'ora. Mentre la soluzione aggrega i dati dalla rete, nel riquadro **Panoramica** di Monitoraggio prestazioni rete viene visualizzato il messaggio *La soluzione richiede una configurazione aggiuntiva*. Al termine della raccolta e dell'indicizzazione dei dati, il riquadro **Panoramica** cambia e mostra un riepilogo dell'integrità della rete. È quindi possibile modificare il monitoraggio dei nodi in cui sono installati gli agenti di Operations Management Suite e delle subnet individuate nell'ambiente.
+Dopo aver completato la configurazione, il popolamento dei dati richiede da 30 minuti a un'ora. Mentre la soluzione aggrega i dati dalla rete, nel riquadro **Panoramica** di Monitoraggio prestazioni rete viene visualizzato il messaggio *La soluzione richiede una configurazione aggiuntiva*. Al termine della raccolta e dell'indicizzazione dei dati, il riquadro **Panoramica** cambia e mostra un riepilogo dell'integrità della rete. È quindi possibile modificare il monitoraggio dei nodi in cui sono installati gli agenti di Log Analytics, nonché delle subnet individuate dall'ambiente.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Modificare le impostazioni di monitoraggio per le subnet e i nodi 
 
@@ -144,7 +144,7 @@ Tutte le subnet con almeno un agente installato sono elencate nella scheda  **
 
 Per abilitare o disabilitare il monitoraggio di subnet specifiche:
 
-1. Selezionare o deselezionare la casella di controllo accanto agli  **ID subnet**. Assicurarsi che **Usa per il monitoraggio** sia selezionato o deselezionato, secondo le esigenze. È possibile selezionare o deselezionare più subnet. Se disabilitate, le subnet non vengono monitorate e gli agenti vengono aggiornati in modo da interrompere l'invio di ping ad altri agenti. 
+1. Selezionare o deselezionare la casella di controllo accanto all'**ID subnet**. Assicurarsi quindi che la casella **Usa per il monitoraggio** sia selezionata o deselezionata a seconda delle esigenze. È possibile selezionare o deselezionare più subnet. Se disabilitate, le subnet non vengono monitorate e gli agenti vengono aggiornati in modo da interrompere l'invio di ping ad altri agenti. 
 2. Scegliere i nodi che si desidera monitorare in una subnet specifica. Selezionare la subnet dall'elenco e spostare i nodi necessari tra gli elenchi che contengono nodi non monitorati e monitorati. È possibile aggiungere una descrizione personalizzata alla subnet.
 3. Selezionare **Salva** per salvare la configurazione. 
 
@@ -176,7 +176,7 @@ Nella tabella seguente vengono illustrati i metodi di raccolta dei dati e altri 
  
 
  
-La soluzione usa le transazioni sintetiche per valutare l'integrità della rete. Gli agenti di Operations Management Suite installati in vari punti della rete si scambiano pacchetti TCP o ICMP Echo. Il fatto che gli agenti usino pacchetti TCP o ICMP Echo dipende dal protocollo selezionato per il monitoraggio. Durante il processo, gli agenti vengono informati del tempo di round trip e di eventuali perdite di pacchetti. Periodicamente, ogni agente esegue anche un comando di tracciamento delle route agli altri agenti per trovare tutte le varie route nella rete che devono essere verificate. Usando questi dati, gli agenti possono dedurre i valori relativi a latenza di rete e perdita di pacchetti. I test vengono ripetuti ogni cinque secondi. I dati vengono aggregati per circa tre minuti dagli agenti prima di essere caricati nel servizio Log Analytics.
+La soluzione usa le transazioni sintetiche per valutare l'integrità della rete. Gli agenti di Log Analytics installati in vari punti della rete si scambiano pacchetti TCP o ICMP Echo. Il fatto che gli agenti usino pacchetti TCP o ICMP Echo dipende dal protocollo selezionato per il monitoraggio. Durante il processo, gli agenti vengono informati del tempo di round trip e di eventuali perdite di pacchetti. Periodicamente, ogni agente esegue anche un comando di tracciamento delle route agli altri agenti per trovare tutte le varie route nella rete che devono essere verificate. Usando questi dati, gli agenti possono dedurre i valori relativi a latenza di rete e perdita di pacchetti. I test vengono ripetuti ogni cinque secondi. I dati vengono aggregati per circa tre minuti dagli agenti prima di essere caricati nel servizio Log Analytics.
 
 
 
@@ -259,7 +259,7 @@ Il Monitoraggio delle prestazioni di rete usa le funzionalità di avviso di [Mon
 
 Ciò significa che tutte le notifiche vengono gestite mediante [gruppi di azioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Per gli utenti di NPM che creano un avviso tramite OMS: 
+Per gli utenti di NPM che creano un avviso tramite Log Analytics: 
 1. Verrà visualizzato un collegamento di reindirizzamento al portale di Azure. Fare clic per accedere al portale.
 2. Fare clic sul riquadro della soluzione di Monitoraggio delle prestazioni di rete. 
 3. Passare a Configura.  

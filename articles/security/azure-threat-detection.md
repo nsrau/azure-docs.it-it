@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b688ca6faaa7e0d84dff0ae28e2a9b8b8279490
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856879"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408830"
 ---
 # <a name="azure-advanced-threat-detection"></a>Rilevamento delle minacce avanzato in Azure
 
-Azure offre funzionalità predefinite di rilevamento avanzato delle minacce attraverso servizi quali Azure Active Directory (Azure AD), Azure Operations Management Suite (OMS) e Centro sicurezza di Azure. Questa raccolta di servizi e funzionalità di sicurezza offre un modo semplice e veloce per comprendere ciò che accade all'interno delle distribuzioni di Azure.
+Azure offre funzionalità predefinite di rilevamento avanzato delle minacce attraverso servizi quali Azure Active Directory (Azure AD), Azure Log Analytics e Centro sicurezza di Azure. Questa raccolta di servizi e funzionalità di sicurezza offre un modo semplice e veloce per comprendere ciò che accade all'interno delle distribuzioni di Azure.
 
 Azure offre una vasta gamma di opzioni per configurare e personalizzare la sicurezza e soddisfare i requisiti delle distribuzioni di app. Questo articolo illustra come soddisfare questi requisiti.
 
@@ -75,21 +75,21 @@ PIM consente di:
 
 -   Ricevere avvisi relativi all'accesso a un ruolo con privilegi.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) è una soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. Poiché OMS viene implementato come servizio basato sul cloud, è possibile renderlo operativo rapidamente con un investimento minimo nei servizi di infrastruttura. Le nuove funzionalità di sicurezza sono disponibili automaticamente, evitando così i costi di manutenzione e aggiornamento continui.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) è una soluzione Microsoft per la gestione IT basata sul cloud che consente di gestire e proteggere l'infrastruttura locale e cloud. Poiché Log Analytics viene implementato come servizio basato sul cloud, è possibile renderlo operativo rapidamente con un investimento minimo nei servizi di infrastruttura. Le nuove funzionalità di sicurezza sono disponibili automaticamente, evitando così i costi di manutenzione e aggiornamento continui.
 
-Oltre a offrire importanti servizi in sé, OMS può essere integrato con i componenti di System Center, come [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), per estendere al cloud gli investimenti per la gestione della sicurezza già esistenti. System Center e OMS possono essere usati insieme per offrire un'esperienza di gestione ibrida completa.
+Oltre a offrire importanti servizi in sé, Log Analytics può essere integrato con i componenti di System Center, ad esempio [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), per estendere al cloud gli investimenti per la gestione della sicurezza già esistenti. System Center e Log Analytics possono essere usati insieme per offrire un'esperienza di gestione ibrida completa.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Approccio olistico a sicurezza e conformità
 
-Il [dashboard Sicurezza e controllo di OMS](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) consente di ottenere una panoramica completa dell'infrastruttura di sicurezza IT dell'organizzazione, grazie alla disponibilità di query di ricerca predefinite per i problemi rilevanti che richiedono l'attenzione dell'utente. Il dashboard Sicurezza e controllo è la schermata iniziale per tutti gli elementi correlati alla sicurezza in OMS. Fornire una visione generale lo stato di sicurezza dei computer. Consente anche di visualizzare tutti gli eventi delle ultime 24 ore, di 7 giorni o di qualsiasi altro intervallo di tempo personalizzato.
+Il [dashboard Sicurezza e controllo di Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre una panoramica completa dell'infrastruttura di sicurezza IT dell'organizzazione con query di ricerca predefinite per i problemi rilevanti che richiedono l'attenzione dell'utente. Il dashboard Sicurezza e controllo è la schermata iniziale per tutti gli elementi correlati alla sicurezza in Log Analytics. Fornire una visione generale lo stato di sicurezza dei computer. Consente anche di visualizzare tutti gli eventi delle ultime 24 ore, di 7 giorni o di qualsiasi altro intervallo di tempo personalizzato.
 
-I dashboard OMS permettono di comprendere rapidamente e facilmente l'approccio complessivo alla sicurezza di qualsiasi ambiente, tutto nel contesto delle operazioni IT, tra cui la valutazione dell'aggiornamento software, la valutazione antimalware e le linee di base di configurazione. I dati del log di sicurezza sono facilmente accessibili per semplificare i processi di controllo di sicurezza e conformità.
+I dashboard di Log Analytics permettono di comprendere rapidamente e facilmente l'approccio complessivo alla sicurezza di qualsiasi ambiente, tutto nel contesto delle operazioni IT, tra cui la valutazione dell'aggiornamento software, la valutazione antimalware e le linee di base di configurazione. I dati del log di sicurezza sono facilmente accessibili per semplificare i processi di controllo di sicurezza e conformità.
 
-![Il dashboard Sicurezza e controllo di OMS](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
+![Dashboard Sicurezza e controllo di Log Analytics](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
-Il dashboard Sicurezza e controllo di OMS è organizzato in quattro categorie principali:
+Il dashboard Sicurezza e controllo di Log Analytics è organizzato in quattro categorie principali:
 
 -   **Domini di sicurezza**: qui si possono esplorare ulteriormente i record di sicurezza nel tempo, accedere alla valutazione della presenza di malware, aggiornare la valutazione, verificare la sicurezza della rete, controllare identità e accesso alle informazioni, visualizzare i computer con eventi di sicurezza e accedere rapidamente al dashboard del Centro sicurezza di Azure.
 
@@ -102,25 +102,25 @@ Il dashboard Sicurezza e controllo di OMS è organizzato in quattro categorie pr
 -   **Query comuni sulla sicurezza**: elenca le query più comuni sulla sicurezza che è possibile usare per monitorare l'ambiente. Quando si seleziona una qualsiasi query, il riquadro di ricerca apre e mostra i risultati della query.
 
 ### <a name="insight-and-analytics"></a>Informazioni dettagliate e analisi
-Al centro di [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) è presente il repository OMS, ospitato da Azure.
+Al centro di [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) è presente il repository, ospitato da Azure.
 
 ![Schema di informazioni dettagliate e analisi](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 I dati vengono raccolti nel repository da origini connesse configurando le origini dati e aggiungendo soluzioni alla sottoscrizione.
 
-![Il dashboard OMS ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Dashboard di Log Analytics ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Origini dati e soluzioni creano tipi di record distinti con il proprio set di proprietà, ma è comunque possibile analizzarli insieme nelle query al repository. Questa funzionalità consente di usare gli stessi strumenti e metodi per lavorare con diversi tipi di dati raccolti da diverse origini.
 
 
-La maggior parte delle interazioni con Log Analytics avviene attraverso il portale OMS che viene eseguito in qualsiasi browser e fornisce all'utente l'accesso alle impostazioni e a più strumenti di configurazione per analizzare e agire in base ai dati raccolti. Nel portale è possibile usare:
+La maggior parte delle interazioni con Log Analytics avviene attraverso il portale di Azure che viene eseguito in qualsiasi browser e fornisce all'utente l'accesso alle impostazioni e a più strumenti di configurazione per analizzare e agire in base ai dati raccolti. Nel portale è possibile usare:
 * [Ricerche nei log](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) in cui si creano query per analizzare i dati raccolti.
 * [Dashboard](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), che è possibile personalizzare con rappresentazioni grafiche delle ricerche più importanti.
 * [Soluzioni](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), che forniscono ulteriori funzionalità e strumenti di analisi.
 
 ![Strumenti di analisi](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Le soluzioni aggiungono funzionalità a Log Analytics. Vengono eseguite principalmente nel cloud e forniscono un'analisi dei dati raccolti nel repository OMS. Le soluzioni possono anche definire nuovi tipi di record da raccogliere, che possono essere analizzati con ricerche di log o con l'interfaccia utente aggiuntiva fornita dalla soluzione nel dashboard di OMS.
+Le soluzioni aggiungono funzionalità a Log Analytics. Vengono eseguite principalmente nel cloud e offrono un'analisi dei dati raccolti nel repository Log Analytics. Le soluzioni possono anche definire nuovi tipi di record da raccogliere, che possono essere analizzati con ricerche di log o con l'interfaccia utente aggiuntiva fornita dalla soluzione nel dashboard di Log Analytics.
 
 Il dashboard Sicurezza e controllo è un esempio di questo tipo di soluzioni.
 

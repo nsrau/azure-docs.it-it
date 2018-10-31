@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren;dairwin
-ms.openlocfilehash: 5aca1400ddfe1522cd9dc8d68d8cba8a222e4d21
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6fc6afa9c0ccbddcfa408556dee92618fe63c8fb
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095199"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407113"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>Integrazione di Elenco dei servizi con System Center Operations Manager
   > [!NOTE]
@@ -45,6 +45,9 @@ L'integrazione tra Operations Manager ed Elenco dei servizi viene abilitata impo
 
 ## <a name="configure-the-service-map-integration"></a>Configurare l'integrazione di Elenco dei servizi
 Dopo avere installato il management pack di Elenco dei servizi, nel riquadro **Amministrazione** di **Operations Management Suite** sarà presente il nuovo nodo **Elenco dei servizi**. 
+
+>[!NOTE]
+>[Operations Management Suite era una raccolta di servizi](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) che includeva Log Analytics, ora incluso in [Monitoraggio di Azure](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
 
 Per configurare l'integrazione di Elenco dei servizi, eseguire le operazioni seguenti:
 
@@ -104,7 +107,12 @@ La cartella Mapping dei servizi ha quattro nodi:
     ![Diagramma applicazioni distribuite di Operations Manager](media/monitoring-service-map/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Modificare o eliminare l'area di lavoro
-È possibile modificare o eliminare l'area di lavoro configurata tramite il riquadro **Service Map Overview** (Panoramica di Elenco dei servizi): riquadro **Amministrazione** --> **Operations Management Suite** > **Elenco dei servizi**. Per il momento è possibile configurare una sola area di lavoro di Log Analytics.
+È possibile modificare o eliminare l'area di lavoro configurata tramite il riquadro **Service Map Overview** (Panoramica di Elenco dei servizi): riquadro **Amministrazione** --> **Operations Management Suite** > **Elenco dei servizi**.
+
+>[!NOTE]
+>[Operations Management Suite era una raccolta di servizi](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) che includeva Log Analytics, ora incluso in [Monitoraggio di Azure](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+
+Per il momento è possibile configurare una sola area di lavoro di Log Analytics.
 
 ![Riquadro Modifica area di lavoro di Operations Manager](media/monitoring-service-map/scom-edit-workspace.png)
 

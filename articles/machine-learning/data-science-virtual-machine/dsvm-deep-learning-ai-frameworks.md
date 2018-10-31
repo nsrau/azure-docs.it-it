@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 234e9233e69877c9afe79a5a053a4310d013a9ab
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952825"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646111"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Apprendimento avanzato e framework AI
 La [macchina virtuale per data science](http://aka.ms/dsvm) e la [macchina virtuale per l'apprendimento avanzato](http://aka.ms/dsvm/deeplearning) supportano diversi framework per consentire la creazione delle applicazioni di Intelligenza artificiale con analisi predittiva e funzionalità cognitive come comprensione delle immagini e del linguaggio. 
@@ -174,7 +174,7 @@ Accedere alla macchina virtuale con X2Go. In un terminale avviare il servizio:
 
     sudo systemctl start digits
 
-L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare all'indirizzo `http://localhost:5000`.
+L'avvio del servizio richiede circa un minuto. Aprire un Web browser e passare all'indirizzo `http://localhost:5000`. Si noti che DIGITS non offre un accesso protetto ed è consigliabile che non venga esposto al di fuori della macchina virtuale.
 
 
 
