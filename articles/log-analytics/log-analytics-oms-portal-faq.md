@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223832"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404563"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Domande frequenti sulla transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics
 In precedenza, Log Analytics usava il proprio portale, chiamato portale di OMS, per gestire la configurazione e l'analisi dei dati raccolti.  Tutte le funzionalità di questo portale sono state spostate al portale di Azure in cui continueranno a essere sviluppate.
@@ -97,7 +97,7 @@ Gestire la maggior parte delle impostazioni dei dati nel menu **Impostazioni ava
 | log di IIS                     | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Campi personalizzati                | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Log personalizzati                  | Menu **Impostazioni avanzate** per l'area di lavoro. |
-| syslog                       | Menu **Impostazioni avanzate** per l'area di lavoro. |
+| Syslog                       | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Application Insights         | La soluzione è stata deprecata, dal momento che Log Analytics e Application Insights condividono lo stesso motore di dati.  |
 | Rilevamento file di Windows        | Menu **Rilevamento modifiche** in Automazione di Azure. Per altri dettagli, vedere [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../automation/automation-change-tracking.md). |
 | Rilevamento del Registro di sistema di Windows        | Menu **Rilevamento modifiche** in Automazione di Azure. Per altri dettagli, vedere [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../automation/automation-change-tracking.md). |
@@ -113,7 +113,7 @@ Nel portale di OMS le soluzioni di gestione vengono installate dalla Raccolta so
 Le regole di avviso basate sulle query di Log Analytics vengono ora gestite nella [visualizzazione unificata degli avvisi](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Per altri dettagli sulla configurazione e l'uso di avvisi nel portale di Azure, vedere [Come estendere gli avvisi di Log Analytics a Azure](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md).
 
 ## <a name="how-do-i-access-my-dashboards"></a>Come si accede ai dashboard personali?
-I [dashboard](../log-analytics/log-analytics-dashboards.md) in Log Analytics sono stati deprecati.  È possibile visualizzare i dati in Log Analytics usando la [progettazione vista](../log-analytics/log-analytics-view-designer.md) che ha altre funzionalità per aggiungere query e viste ai dashboard di Azure.
+La funzionalità [Dashboard](../log-analytics/log-analytics-dashboards.md) di Log Analytics è deprecata. Questa funzionalità consentiva di avere una raccolta privata di parti della progettazione vista ed è stata sostituita dalla funzionalità Dashboard di Azure incorporata. È possibile continuare a visualizzare i dati in Log Analytics usando la funzionalità di [progettazione vista](../log-analytics/log-analytics-view-designer.md) per le viste condivise. È anche possibile aggiungere visualizzazioni da queste viste o per [singole query](../log-analytics/log-analytics-tutorial-dashboards.md) ai dashboard di Azure.
 
 ## <a name="how-do-i-check-my-usage"></a>Come è possibile controllare l'utilizzo?
 Ora è possibile visualizzare e gestire facilmente l'utilizzo e il costo di Log Analytics selezionando **Utilizzo e costi stimati** nell'area di lavoro.

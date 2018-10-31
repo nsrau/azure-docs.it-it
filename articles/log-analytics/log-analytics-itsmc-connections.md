@@ -1,6 +1,6 @@
 ---
-title: Connettere i servizi/prodotti ITSM con IT Service Management Connector in Azure Log Analytics | Microsoft Docs
-description: Il presente articolo fornisce informazioni su come connettere i prodotti/servizi ITSM con IT Service Management Connector (ITSMC) in OMS Log Analytics per monitorare e gestire centralmente gli elementi di lavoro di ITSM.
+title: Connessioni supportate con Connettore di Gestione dei servizi IT in Azure Log Analytics | Microsoft Docs
+description: Questo articolo offre informazioni su come connettere i prodotti/servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT in Monitoraggio di Azure per monitorare e gestire centralmente gli elementi di lavoro di Gestione dei servizi IT.
 documentationcenter: ''
 author: jyothirmaisuri
 manager: riyazp
@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 50ab09d39fc0c224a97b6cf0c758c55026ac8ce7
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042845"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409204"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](log-analytics-itsmc-overview.md).
 
-Sono supportati i prodotti/servizi ITSM seguenti. Selezionare il prodotto per visualizzare informazioni dettagliate su come connettere il prodotto a ITSMC.
+Sono supportati i prodotti o i servizi di Gestione dei servizi IT seguenti. Selezionare il prodotto per visualizzare informazioni dettagliate su come connettere il prodotto a Connettore di Gestione dei servizi IT.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -43,7 +43,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - L'applicazione Web (app Web) Service Manager è stata distribuita e configurata. Per informazioni sull'app Web, vedere[qui](#create-and-deploy-service-manager-web-app-service).
 - Connessione ibrida è stata creata e configurata. Per altre informazioni, vedere [Configurare la connessione ibrida](#configure-the-hybrid-connection).
 - Versioni supportate di Service Manager: 2012 R2 o 2016.
@@ -76,13 +76,13 @@ Usare la procedura seguente per connettere l'istanza di System Center Service Ma
 | **Segreto client**   | Digitare il segreto client, generato per questo ID.   |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di Service Manager da sincronizzare tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics. **Opzioni:** Eventi imprevisti, Richieste di modifica.|
 | **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, OMS crea le integrazioni continue interessate come elementi di configurazione (in caso di integrazioni continue inesistenti) nel sistema ITSM supportato. **Impostazione predefinita**: disabilitata. |
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto di Gestione dei servizi IT. Se questa opzione è selezionata, Log Analytics crea le integrazioni continue interessate come elementi di configurazione (in caso di integrazioni continue inesistenti) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
 
 ![Connessione di Service Manager](./media/log-analytics-itsmc/service-manager-connection.png)
 
 **Dopo la corretta connessione e la sincronizzazione**:
 
-- Gli elementi di lavoro selezionati in Service Manager vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
+- Gli elementi di lavoro selezionati in Service Manager vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro Connettore di Gestione dei servizi IT.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Service Manager.
 
@@ -186,7 +186,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 ### <a name="prerequisites"></a>Prerequisiti
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versioni supportate di ServiceNow: Kingston, Giacarta, Istanbul, Helsinki, Ginevra.
 
 **ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow**:
@@ -199,7 +199,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
     - [Set up OAuth for Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html) (Configurare OAuth per Ginevra)
 
 
-- Installare l'app utente per l'integrazione Microsoft OMS (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )
+- Installare l'app utente per l'integrazione di Microsoft Log Analytics (app ServiceNow). [Altre informazioni](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 )
 - Creare un ruolo utente integrazione per l'app utente installata. Per informazioni su come creare il ruolo utente di integrazione, vedere [qui](#create-integration-user-role-in-servicenow-app).
 
 ### <a name="connection-procedure"></a>**Procedura di connessione**
@@ -221,7 +221,7 @@ Seguire questa procedura per creare una connessione ServiceNow:
 
 | **Campo** | **Descrizione** |
 | --- | --- |
-| **Connection Name** (Nome connessione)   | Digitare un nome per l'istanza di ServiceNow da connettere a Connettore di Gestione dei servizi IT.  Questo nome viene usato in seguito in OMS durante la configurazione degli elementi di lavoro in questa istanza di ITSM o quando si visualizzano analisi del log dettagliate. |
+| **Connection Name** (Nome connessione)   | Digitare un nome per l'istanza di ServiceNow da connettere a Connettore di Gestione dei servizi IT.  Questo nome viene usato in seguito in Log Analytics quando si configurano elementi di lavoro in questa istanza di Gestione dei servizi IT o si visualizzano analisi del log dettagliate. |
 | **Tipo di partner**   | Selezionare **ServiceNow**. |
 | **Nome utente**   | Digitare il nome utente di integrazione creato nell'app ServiceNow per supportare la connessione a Connettore di Gestione dei servizi IT. Per altre informazioni, vedere [Create ServiceNow app user role](#create-integration-user-role-in-servicenow-app) (Creare il ruolo utente dell'app ServiceNow).|
 | **Password**   | Digitare la password associata a questo nome utente. **Nota**: il nome utente e la password vengono usati solo per generare i token di autenticazione e non vengono archiviati nel servizio Connettore di Gestione dei servizi IT.  |
@@ -230,13 +230,13 @@ Seguire questa procedura per creare una connessione ServiceNow:
 | **Segreto client**   | Digitare il segreto client, generato per questo ID.   |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di ServiceNow da sincronizzare con Azure Log Analytics tramite Connettore di Gestione dei servizi IT.  I valori selezionati vengono importati in Log Analytics.   **Opzioni:** Eventi imprevisti e Richieste di modifica.|
 | **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto di Gestione dei servizi IT. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
 
 ![Connessione di ServiceNow](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
 
 **Dopo la corretta connessione e la sincronizzazione**:
 
-- Gli elementi di lavoro selezionati nell'istanza di ServiceNow vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
+- Gli elementi di lavoro selezionati nell'istanza di ServiceNow vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro Connettore di Gestione dei servizi IT.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di ServiceNow.
 
@@ -247,6 +247,9 @@ Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei ser
 Seguire questa procedura:
 
 1.  Passare a [ServiceNow Store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) e installare l'**app utente per ServiceNow e per l'integrazione con Microsoft OMS** nell'istanza di ServiceNow.
+   
+   >[!NOTE]
+   >In base alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, OMS è ora denominato Log Analytics.     
 2.  Dopo l'installazione, passare alla barra di spostamento sinistra dell'istanza di ServiceNow, eseguire una ricerca e selezionare Microsoft OMS Integrator.  
 3.  Fare clic su **Installation Checklist** (Elenco di controllo installazione).
 
@@ -289,7 +292,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
 
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - L'app Provance deve essere registrata in Azure AD e l'ID client deve essere stato reso disponibile. Per informazioni dettagliate, vedere [Come configurare l'autenticazione di Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Ruolo utente: amministratore.
@@ -321,13 +324,13 @@ Seguire questa procedura per creare una connessione Provance:
 | **ID client**   | Digitare l'ID client per l'autenticazione di questa connessione, generato nell'istanza di Provance.  Per altre informazioni sull'ID client, vedere [Come configurare l'autenticazione di Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di Provance da sincronizzare con Azure Log Analytics tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics.   **Opzioni:** Eventi imprevisti, Richieste di modifica.|
 | **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata.|
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto di Gestione dei servizi IT. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata.|
 
 ![Connessione Provance](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
 
 **Dopo la corretta connessione e la sincronizzazione**:
 
-- Gli elementi di lavoro selezionati nell'istanza di Provance vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
+- Gli elementi di lavoro selezionati nell'istanza di Provance vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro Connettore di Gestione dei servizi IT.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Provance.
 
@@ -341,7 +344,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - L'ID client è stato generato. Per altre informazioni, vedere [Generare l'ID client per Cherwell](#generate-client-id-for-cherwell).
 - Ruolo utente: amministratore.
 
@@ -372,14 +375,14 @@ Seguire questa procedura per creare una connessione Provance:
 | **ID client**   | Digitare l'ID client per l'autenticazione di questa connessione, generato nell'istanza di Cherwell.   |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di Cherwell da sincronizzare tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics.   **Opzioni:** Eventi imprevisti, Richieste di modifica. |
 | **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto di Gestione dei servizi IT. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
 
 
 ![Connessione Provance](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
 
 **Dopo la corretta connessione e la sincronizzazione**:
 
-- Gli elementi di lavoro selezionati nell'istanza di Cherwell vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
+- Gli elementi di lavoro selezionati nell'istanza di Cherwell vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro Connettore di Gestione dei servizi IT.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Cherwell.
 

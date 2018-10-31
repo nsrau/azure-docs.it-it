@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 2c78e1d39227153dd65f145512fab4769b09e5c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d79a57db6f56264d4070debbca83de4192f7f503
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966569"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987087"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associazioni di Hub eventi di Azure per Funzioni di Azure
 
@@ -89,7 +89,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Per ottenere l'accesso ai [metadati dell'evento](#trigger---event-metadata) nel codice funzione, associare un oggetto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (richiede un'istruzione using per `Microsoft.ServiceBus.Messaging`). È possibile anche accedere alle stesse proprietà usando le espressioni di associazione nella firma del metodo.  Nell'esempio seguente vengono illustrati entrambi i modi per ottenere gli stessi dati:
+Per ottenere l'accesso ai [metadati dell'evento](#trigger---event-metadata) nel codice funzione, associare un oggetto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (richiede un'istruzione using per `Microsoft.Azure.EventHubs`). È possibile anche accedere alle stesse proprietà usando le espressioni di associazione nella firma del metodo.  Nell'esempio seguente vengono illustrati entrambi i modi per ottenere gli stessi dati:
 
 ```csharp
 [FunctionName("EventHubTriggerCSharp")]
@@ -100,27 +100,31 @@ public static void Run(
     string offset,
     TraceWriter log)
 {
-    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
+    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.Body)}");
     // Metadata accessed by binding to EventData
-    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
-    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
-    log.Info($"Offset={myEventHubMessage.Offset}");
-    // Metadata accessed by using binding expressions
+    log.Info($"EnqueuedTimeUtc={myEventHubMessage.SystemProperties.EnqueuedTimeUtc}");
+    log.Info($"SequenceNumber={myEventHubMessage.SystemProperties.SequenceNumber}");
+    log.Info($"Offset={myEventHubMessage.SystemProperties.Offset}");
+    // Metadata accessed by using binding expressions in method parameters
     log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
     log.Info($"SequenceNumber={sequenceNumber}");
     log.Info($"Offset={offset}");
 }
 ```
 
-Per ricevere gli eventi in un batch, impostare `string` o `EventData` come matrice:
+Per ricevere gli eventi in un batch, impostare `string` o `EventData` come matrice.  
+
+> [!NOTE]
+> Quando vengono ricevuti in un batch non è possibile eseguire l'associazione ai parametri del metodo come nell'esempio precedente con `DateTime enqueuedTimeUtc` ed è necessario riceverli da ciascun oggetto `EventData`  
 
 ```cs
 [FunctionName("EventHubTriggerCSharp")]
-public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] string[] eventHubMessages, TraceWriter log)
+public static void Run([EventHubTrigger("samples-workitems", Connection = "EventHubConnectionAppSetting")] EventData[] eventHubMessages, TraceWriter log)
 {
     foreach (var message in eventHubMessages)
     {
-        log.Info($"C# Event Hub trigger function processed a message: {message}");
+        log.Info($"C# Event Hub trigger function processed a message: {Encoding.UTF8.GetString(message.Body)}");
+        log.Info($"EnqueuedTimeUtc={message.SystemProperties.EnqueuedTimeUtc}");
     }
 }
 ```
@@ -162,29 +166,30 @@ public static void Run(string myEventHubMessage, TraceWriter log)
 }
 ```
 
-Per ottenere l'accesso ai [metadati dell'evento](#trigger---event-metadata) nel codice funzione, associare un oggetto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (richiede un'istruzione using per `Microsoft.ServiceBus.Messaging`). È possibile anche accedere alle stesse proprietà usando le espressioni di associazione nella firma del metodo.  Nell'esempio seguente vengono illustrati entrambi i modi per ottenere gli stessi dati:
+Per ottenere l'accesso ai [metadati dell'evento](#trigger---event-metadata) nel codice funzione, associare un oggetto [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) (richiede un'istruzione using per `Microsoft.Azure.EventHubs`). È possibile anche accedere alle stesse proprietà usando le espressioni di associazione nella firma del metodo.  Nell'esempio seguente vengono illustrati entrambi i modi per ottenere gli stessi dati:
 
 ```cs
-#r "Microsoft.ServiceBus"
+#r "Microsoft.Azure.EventHubs"
+
 using System.Text;
 using System;
-using Microsoft.ServiceBus.Messaging;
+using Microsoft.Azure.EventHubs;
 
 public static void Run(EventData myEventHubMessage,
     DateTime enqueuedTimeUtc, 
     Int64 sequenceNumber,
     string offset,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"Event: {Encoding.UTF8.GetString(myEventHubMessage.GetBytes())}");
-    // Metadata accessed by binding to EventData
-    log.Info($"EnqueuedTimeUtc={myEventHubMessage.EnqueuedTimeUtc}");
-    log.Info($"SequenceNumber={myEventHubMessage.SequenceNumber}");
-    log.Info($"Offset={myEventHubMessage.Offset}");
+    log.LogInformation($"Event: {Encoding.UTF8.GetString(myEventHubMessage.Body)}");
+    log.LogInformation($"EnqueuedTimeUtc={myEventHubMessage.SystemProperties.EnqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={myEventHubMessage.SystemProperties.SequenceNumber}");
+    log.LogInformation($"Offset={myEventHubMessage.SystemProperties.Offset}");
+
     // Metadata accessed by using binding expressions
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"SequenceNumber={sequenceNumber}");
-    log.Info($"Offset={offset}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"SequenceNumber={sequenceNumber}");
+    log.LogInformation($"Offset={offset}");
 }
 ```
 
@@ -342,7 +347,7 @@ public void eventHubProcessor(
 
 ## <a name="trigger---attributes"></a>Trigger - attributi
 
-Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs).
+Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs).
 
 Il costruttore dell'attributo accetta il nome di Hub eventi, il nome del gruppo di consumer e il nome di un'impostazione di app che contiene la stringa di connessione. Per altre informazioni su queste impostazioni, vedere la [sezione relativa alla configurazione dei trigger](#trigger---configuration). Di seguito è riportato un esempio di attributo `EventHubTriggerAttribute`:
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 821d263856f21897915ba7954487b4d029cc4ed0
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: d6e99c2d57baa5fc62f3894abc9d04635f81f5aa
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395246"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638053"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
@@ -41,9 +41,9 @@ Per aggiungere un utente come amministratore per una sottoscrizione di Azure, as
 
 1. Aprire [**Sottoscrizioni** nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 2. Selezionare la sottoscrizione a cui concedere l'accesso.
-3. Selezionare **Aggiungi**.
+3. Selezionare **Controllo di accesso (IAM)** nell'elenco.
+4. Selezionare **Aggiungi**.
    (Se manca il pulsante Aggiungi, non si è autorizzati ad aggiungere autorizzazioni.)
-4. Selezionare **Controllo di accesso (IAM)** nell'elenco.
 5. Nella casella **Ruolo** selezionare **Proprietario**. 
 6. Nella casella **Assegna accesso a** selezionare **Applicazione, gruppo o utente di Azure AD**. 
 7. Nella casella **Seleziona** digitare l'indirizzo di posta elettronica dell'utente che si vuole aggiungere come proprietario. Selezionare l'utente e quindi selezionare **Salva**.
@@ -67,6 +67,19 @@ Solo un [Proprietario](../role-based-access-control/built-in-roles.md#owner) pu�
     Per rimuovere l'autorizzazione di coamministratore, **fare clic con il pulsante destro del mouse** sull'utente "Coamministratore" e quindi scegliere **Rimuovi coamministratore**.
 
     ![Schermata per la rimozione di un coamministratore](./media/billing-add-change-azure-subscription-administrator/remove-coadmin.png)
+
+### <a name="adding-a-guest-user-as-a-co-administrator"></a>Aggiunta di un utente guest come coamministratore
+
+Gli utenti guest a cui è stato assegnato il ruolo di coamministratore potrebbero notare alcune differenze rispetto agli utenti membri con ruolo di coamministratore. Si consideri lo scenario seguente:
+
+- L'utente A con un account aziendale o dell'istituto di istruzione di Azure AD è un amministratore del servizio per una sottoscrizione di Azure.
+- L'utente B ha un account Microsoft.
+- L'utente A assegna il ruolo di coamministratore all'utente B.
+- L'utente B può eseguire quasi tutte le operazioni, ma non può registrare le applicazioni o cercare gli utenti nella directory di Azure AD.
+
+Ci si aspetta che l'utente B possa gestire tutto. Il motivo di questa differenza è che l'account Microsoft viene aggiunto alla sottoscrizione come utente guest invece di utente membro. Gli utenti guest hanno diverse autorizzazioni predefinite in Azure AD rispetto agli utenti membri. Ad esempio, gli utenti membri possono leggere gli altri utenti di Azure AD mentre gli utenti guest non possono farlo. Gli utenti membri possono registrare nuove entità servizio in Azure AD mentre gli utenti guest non possono farlo. Se un utente guest deve essere in grado di eseguire queste attività, una possibile soluzione consiste nell'assegnare i ruoli di amministratore di Azure AD specifici necessari all'utente guest. Ad esempio, nello scenario precedente è possibile assegnare i [ruoli con autorizzazioni di lettura nella directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) per leggere altri utenti e assegnare il ruolo [sviluppatore di applicazioni](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) per poter creare le entità servizio. Per altre informazioni sugli utenti membri e guest e le relative autorizzazioni, vedere [Autorizzazioni utente predefinite in Azure Active Directory](../active-directory/fundamentals/users-default-permissions.md).
+
+Si noti che i [ruoli predefiniti per le risorse di Azure](../role-based-access-control/built-in-roles.md) sono diversi dai [ruoli di amministratore di Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). I ruoli predefiniti non concedono l'accesso ad Azure AD. Per altre informazioni, vedere [Informazioni sui diversi ruoli](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 <a name="change-service-administrator-for-a-subscription"></a>
 

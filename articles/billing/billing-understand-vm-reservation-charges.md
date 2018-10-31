@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 460cd3a5b05680563661e2f6519eaa3506eee03b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e43188459bf495748a054b0f24936c9141bd218c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392082"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025713"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Informazioni su come viene applicato alle macchine virtuali lo sconto sulla prenotazione di Azure
 
@@ -51,7 +51,7 @@ Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'u
 
 ## <a name="application-of-reservation-discount-to-windows-vms"></a>Applicazione dello sconto relativo alla prenotazione a VM Windows
 
-Quando si eseguono istanze di macchine virtuali Windows, viene applicata la prenotazione per coprire i costi di infrastruttura. L'applicazione della prenotazione ai costi di infrastruttura per le VM Windows è uguale a quella per le VM non Windows. Il software Windows viene addebitato separatamente per ogni singola vCPU. Vedere [Costi del software Windows con le prenotazioni](https://go.microsoft.com/fwlink/?linkid=862756). È possibile coprire i costi di licenza di Windows con [Vantaggio Azure Hybrid per Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing)).
+Quando si eseguono istanze di macchine virtuali Windows, viene applicata la prenotazione per coprire i costi di infrastruttura. L'applicazione della prenotazione ai costi di infrastruttura per le VM Windows è uguale a quella per le VM non Windows. Il software Windows viene addebitato separatamente per ogni singola vCPU. Vedere [Costi del software Windows con le prenotazioni](https://go.microsoft.com/fwlink/?linkid=862756). È possibile coprire i costi di licenza di Windows con [Vantaggio Azure Hybrid per Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

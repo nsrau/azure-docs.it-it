@@ -2,20 +2,20 @@
 title: Associazioni per Funzioni permanenti - Azure
 description: Come usare trigger e associazioni per l'estensione Funzioni permanenti di Funzioni di Azure.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 29cc7982dbe9991e6b0e3363cd636ac88881fc7b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f9bf42e5e20a7d9e861d0c3354040e981bf3ef21
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237282"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987750"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associazioni per Funzioni permanenti (Funzioni di Azure)
 
@@ -112,7 +112,7 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
-    const result = yield context.df.callActivityAsync("SayHello", name);
+    const result = yield context.df.callActivity("SayHello", name);
     return result;
 });
 ```
@@ -123,7 +123,7 @@ Il trigger di attività consente di creare le funzioni chiamate dalle funzioni d
 
 Se si usa Visual Studio, il trigger di attività viene configurato tramite l'attributo .NET [ActvityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html). 
 
-Se si usa il portale di Azure per lo sviluppo, il trigger di attività viene definito per l'oggetto JSON seguente nella matrice `bindings` di *function.json*:
+Se si usa VS Code o il portale di Azure per lo sviluppo, il trigger di attività viene definito per l'oggetto JSON seguente nella matrice `bindings` di *function.json*:
 
 ```json
 {
@@ -249,7 +249,7 @@ L'associazione del client di orchestrazione consente di scrivere funzioni che in
 
 Se si usa Visual Studio, è possibile eseguire l'associazione al client di orchestrazione tramite l'attributo .NET [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html).
 
-Se per lo sviluppo si usano linguaggi di scripting, ad esempio file con estensione *.csx*, il trigger di orchestrazione viene definito dall'oggetto JSON seguente nella matrice `bindings` di *function.json*:
+Se per lo sviluppo si usano linguaggi di scripting, ad esempio file con estensione *CSX* o *JS*, il trigger di orchestrazione viene definito dall'oggetto JSON seguente nella matrice `bindings` di *function.json*:
 
 ```json
 {

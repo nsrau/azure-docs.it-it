@@ -11,16 +11,16 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: backup; backup di macchine virtuali
-ms.openlocfilehash: c3bb198a65f907080023af707080f60c9c1fccbf
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398890"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985887"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Backup di macchine virtuali di Azure in insiemi di credenziali di Servizi di ripristino
 
-Questo articolo illustra le modalità di configurazione della protezione per una macchina virtuale dal menu Operazioni macchina virtuale o dall'insieme di credenziali di Servizi di ripristino. Gli insiemi di credenziali di Servizi di ripristino proteggono:
+Questo articolo illustra come configurare la protezione per una macchina virtuale dal menu delle operazioni delle macchine virtuali o dall'insieme di credenziali di Servizi di ripristino. Gli insiemi di credenziali di Servizi di ripristino proteggono:
 
 * VM distribuite in Azure Resource Manager
 * Macchine virtuali classiche
@@ -96,11 +96,11 @@ Usare i passaggi seguenti per configurare il processo di backup dal menu Operazi
 
   Fino al completamento del backup iniziale, lo **stato dell'ultimo backup** è **Avviso (backup iniziale in sospeso)**. Per visualizzare la data e l'ora del processo di backup successivo pianificato, fare clic sul nome del criterio in **Riepilogo**. Viene visualizzato il menu Criteri di backup in cui viene indicata l'ora del backup pianificato.
 
-10. Per proteggere la macchina virtuale, fare clic su **Esegui backup ora**. 
+10. Per proteggere la macchina virtuale, fare clic su **Esegui backup ora**.
 
   ![Fare clic su Esegui backup ora per eseguire il backup iniziale](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  Si aprirà il menu Esegui backup ora. 
+  Si aprirà il menu Esegui backup ora.
 
   ![mostra il pannello Esegui backup ora](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -185,7 +185,7 @@ Per modificare le impostazioni di replica di archiviazione:
   ![Visualizzare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. Nel menu di gestione del nuovo insieme di credenziali, usare il dispositivo di scorrimento verticale per passare alla sezione Gestisci e fare clic su **Infrastruttura di backup** per aprire il menu corrispondente.
- 
+
    ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. Nel menu Infrastruttura di backup fare clic su **Configurazione backup** per aprire il menu **Configurazione backup**.
@@ -292,6 +292,11 @@ Per eseguire il processo di backup iniziale:
 
   Le notifiche sulla distribuzione consentono di sapere che il processo di backup è stato attivato e che è possibile monitorare lo stato di avanzamento del processo nella pagina Processi di backup. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
+  > [!NOTE]
+  > Tutti i dati sottoposti a backup tramite Backup di Azure vengono crittografati a riposo mediante la [crittografia del servizio di archiviazione](../storage/common/storage-service-encryption.md).
+  >
+  >
+
 6. Per visualizzare o tenere traccia dello stato del backup iniziale, nel dashboard dell'insieme di credenziali, nel riquadro **Processi di backup** fare clic sul riquadro **In corso**.
 
   ![Riquadro dei processi di backup](./media/backup-azure-vms-first-look-arm/open-backup-jobs-1.png)
@@ -317,7 +322,7 @@ Per altre informazioni, vedere gli articoli sull'[agente di macchine virtuale](h
 
 La tabella seguente fornisce informazioni aggiuntive sull'agente di macchine virtuali per macchine virtuali Windows e Linux.
 
-| **Operazione** | **Windows** | **Linux** |
+| **operazione** | **Windows** | **Linux** |
 | --- | --- | --- |
 | Installazione dell'agente di macchine virtuali |<li>Scaricare e installare il file [MSI per l'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione sono necessari privilegi di amministratore. <li>[Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. |<li> Installare l' [agente Linux](https://github.com/Azure/WALinuxAgent) più recente da GitHub. Per completare l'installazione sono necessari privilegi di amministratore. <li> [Aggiornare le proprietà della VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) per indicare che l'agente è stato installato. |
 | Aggiornamento dell'agente di VM |L'aggiornamento dell'agente di VM è semplice quanto la reinstallazione dei [file binari dell'agente di VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente VM. |Seguire le istruzioni sull'[aggiornamento dell'agente di macchine virtuali Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br>Assicurarsi che non siano in esecuzione operazioni di backup durante l'aggiornamento dell'agente di VM. |

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 38fbb62de60bc5604210c8ad7339368a04967c27
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867053"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429389"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Creare un trigger che esegue una pipeline in risposta a un evento
 
@@ -71,23 +71,26 @@ La tabella seguente offre una panoramica degli elementi dello schema correlati a
 | **Elemento JSON** | **Descrizione** | **Tipo** | **Valori consentiti** | **Obbligatorio** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **scope** | ID risorsa di Azure Resource Manager dell'account di archiviazione. | string | ID Azure Resource Manager | Yes |
-| **eventi** | Tipo di eventi che provocano l'attivazione del trigger. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sì, qualsiasi combinazione. |
-| **blobPathBeginsWith** | Il percorso del BLOB deve iniziare con il modello fornito per l'attivazione del trigger. Ad esempio, '/records/blobs/december/' attiva solo il trigger per i BLOB nella cartella december all'interno del contenitore records. | string   | | È necessario specificare almeno una di queste proprietà: blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | Il percorso del BLOB deve terminare con il modello fornito per l'attivazione del trigger. Ad esempio, 'december/boxes.csv' attiva solo il trigger per i BLOB denominati boxes in una cartella december. | string   | | È necessario specificare almeno una di queste proprietà: blobPathBeginsWith, blobPathEndsWith. |
+| **eventi** | Tipo di eventi che provocano l'attivazione del trigger. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Sì, qualsiasi combinazione di questi valori. |
+| **blobPathBeginsWith** | Il percorso del BLOB deve iniziare con il modello fornito per l'attivazione del trigger. Ad esempio, `/records/blobs/december/` attiva il trigger solo per i BLOB nella cartella `december` nel contenitore `records`. | string   | | È necessario specificare un valore per almeno una di queste proprietà: `blobPathBeginsWith` o `blobPathEndsWith`. |
+| **blobPathEndsWith** | Il percorso del BLOB deve terminare con il modello fornito per l'attivazione del trigger. Ad esempio, `december/boxes.csv` attiva il trigger solo per i BLOB denominati `boxes` in una cartella `december`. | string   | | È necessario specificare un valore per almeno una di queste proprietà: `blobPathBeginsWith` o `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Esempi di trigger basati su eventi
 
 Questa sezione contiene alcuni esempi di impostazioni di trigger basati su eventi.
 
--   **Percorso BLOB inizia con**('/nomecontenitore/'): riceve gli eventi per qualsiasi BLOB nel contenitore.
--   **Il percorso BLOB inizia con**("/nomecontenitore/blobs/nomecartella"): riceve gli eventi per tutti i BLOB nel contenitore nomecontenitore e nella cartella nomecartella.
--   **Il percorso BLOB inizia con**("/nomecontenitore/blobs/nomecartella/file.txt"): riceve gli eventi per un BLOB denominato file.txt nella cartella nomecartella all'interno del contenitore nomecontenitore.
--   **Percorso BLOB termina con**('file.txt'): riceve gli eventi per un BLOB denominato file.txt in qualsiasi percorso.
--   **Il percorso BLOB termina con**("/nomecontenitore/blobs/file.txt"): riceve gli eventi per un BLOB denominato file.txt nel contenitore nomecontenitore.
--   **Percorso BLOB termina con**('nomecartella/file.txt'): riceve gli eventi per un BLOB denominato file.txt nella cartella nomecartella all'interno di qualsiasi contenitore.
+> [!IMPORTANT]
+> È necessario includere il segmento `/blobs/` del percorso, come illustrato negli esempi seguenti, ogni volta che si specifica il contenitore e la cartella, il contenitore e il file o il contenitore, la cartella e il file.
 
-> [!NOTE]
-> È necessario includere il segmento `/blobs/` del percorso ogni volta che si specifica il contenitore e la cartella, il contenitore e il file o il contenitore, la cartella e il file.
+| Proprietà | Esempio | Descrizione |
+|---|---|---|
+| **Il percorso del BLOB inizia con** | `/containername/` | Riceve gli eventi per qualsiasi BLOB nel contenitore. |
+| **Il percorso del BLOB inizia con** | `/containername/blobs/foldername/` | Riceve gli eventi per qualsiasi BLOB nel contenitore `containername` e nella cartella `foldername`. |
+| **Il percorso del BLOB inizia con** | `/containername/blobs/foldername/subfoldername/` | È anche possibile fare riferimento a una sottocartella. |
+| **Il percorso del BLOB inizia con** | `/containername/blobs/foldername/file.txt` | Riceve gli eventi per un BLOB denominato `file.txt` nella cartella `foldername` nel contenitore `containername`. |
+| **Il percorso del BLOB termina con**  | `file.txt` | Riceve gli eventi per un BLOB denominato `file.txt` in qualsiasi percorso. |
+| **Il percorso del BLOB termina con**  | `/containername/blobs/file.txt` | Riceve gli eventi per un BLOB denominato `file.txt` nel contenitore `containername`. |
+| **Il percorso del BLOB termina con**  | `foldername/file.txt` | Riceve gli eventi per un BLOB denominato `file.txt` nella cartella `foldername` in qualsiasi contenitore. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per informazioni dettagliate sui trigger, vedere [Esecuzione e trigger di pipeline](concepts-pipeline-execution-triggers.md#triggers).

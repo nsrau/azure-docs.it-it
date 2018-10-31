@@ -2,20 +2,20 @@
 title: Gestione degli errori in Funzioni permanenti - Azure
 description: Informazioni su come gestire gli errori nell'estensione Funzioni permanenti per le Funzioni di Azure.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377906"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984129"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestione degli errori in Funzioni permanenti (Funzioni di Azure)
 
@@ -26,6 +26,8 @@ Le orchestrazioni di Funzioni permanenti vengono implementate nel codice e posso
 Qualsiasi eccezione generata in una funzione di attività viene sottoposta a marshalling nella funzione dell'agente di orchestrazione e generata come `FunctionFailedException`. È possibile scrivere il codice di compensazione e gestione degli errori adatto alle esigenze nella funzione dell'agente di orchestrazione.
 
 Ad esempio, si consideri la seguente funzione dell'agente di orchestrazione che consente di trasferire fondi da un account a un altro:
+
+#### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -64,11 +66,49 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const transferDetails = context.df.getInput();
+
+    yield context.df.callActivity("DebitAccount",
+        {
+            account = transferDetails.sourceAccount,
+            amount = transferDetails.amount,
+        }
+    );
+
+    try {
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.destinationAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+    catch (error) {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.sourceAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+});
+```
+
 Se la chiamata alla funzione **CreditAccount** ha esito negativo per il conto di destinazione, la funzione dell'agente di orchestrazione esegue la compensazione tramite l'accredito di fondi al conto di origine.
 
 ## <a name="automatic-retry-on-failure"></a>Ripetizione automatica in caso di errore
 
 Quando si chiamano le funzioni di attività o di orchestrazione secondaria, è possibile specificare un criterio di ripetizione automatica. Nell'esempio seguente si tenta di chiamare una funzione fino a tre volte e si attende 5 secondi tra un tentativo e l'altro:
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -83,7 +123,21 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-L'API `CallActivityWithRetryAsync` accetta un parametro `RetryOptions`. Le chiamate di orchestrazione secondarie che usano l'API `CallSubOrchestratorWithRetryAsync` possono usare gli stessi criteri di ripetizione.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const retryOptions = new df.RetryOptions(5000, 3);
+    
+    yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
+
+    // ...
+});
+```
+
+L'API `CallActivityWithRetryAsync` (C#) o `callActivityWithRetry` (JS) accetta un parametro `RetryOptions`. Le chiamate di orchestrazione secondarie che usano l'API `CallSubOrchestratorWithRetryAsync` (C#) o `callSubOrchestratorWithRetry` (JS) possono usare gli stessi criteri di ripetizione.
 
 Per personalizzare i criteri di ripetizione automatica, sono disponibili diverse opzioni, incluse le seguenti:
 
@@ -97,6 +151,8 @@ Per personalizzare i criteri di ripetizione automatica, sono disponibili diverse
 ## <a name="function-timeouts"></a>Timeout delle funzioni
 
 È possibile abbandonare una chiamata di funzione nell'ambito di una funzione dell'agente di orchestrazione, se il completamento richiede troppo tempo. A tale scopo il metodo migliore è creare un [timer permanente](durable-functions-timers.md) usando `context.CreateTimer` in combinazione con `Task.WhenAny`, come nell'esempio seguente:
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -123,6 +179,30 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
         }
     }
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
+
+    const activityTask = context.df.callActivity("FlakyFunction");
+    const timeoutTask = context.df.createTimer(deadline.toDate());
+
+    const winner = yield context.df.Task.any([activityTask, timeoutTask]);
+    if (winner === activityTask) {
+        // success case
+        timeoutTask.cancel();
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
+});
 ```
 
 > [!NOTE]

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627441"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406144"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrare Cloud Foundry con Azure
 
@@ -70,9 +70,9 @@ La tecnologia Service Broker di Azure offre un'interfaccia coerente per la gesti
 
 ## <a name="6-metrics-and-logging"></a>6. Metriche e registrazione
 Azure Log Analytics Nozzle è un componente di Cloud Foundry che inoltra le metriche dal [Firehose Cloud Foundry Loggregator](https://docs.cloudfoundry.org/loggregator/architecture.html) ad [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). Questo strumento consente di raccogliere, visualizzare e analizzare le metriche relative a prestazioni e integrità del sistema CF tra più distribuzioni.
-Fare clic [qui](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) per informazioni su come distribuire Azure Log Analytics Nozzle negli ambienti Cloud Foundry open source e Pivotal Cloud Foundry e quindi accedere ai dati dalla console OMS di Azure Log Analytics. 
+Fare clic [qui](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) per informazioni su come distribuire il nozzle di Azure Log Analytics negli ambienti Cloud Foundry open source e Pivotal Cloud Foundry e quindi accedere ai dati dalla console di Azure Log Analytics. 
 > [!NOTE]
-> A partire da PCF 2.0, le metriche sull'integrità BOSH per le macchine virtuali vengono inoltrate al Firehose Loggregator per impostazione predefinita e sono integrate nella console OMS di Azure Log Analytics.
+> A partire da PCF 2.0, le metriche sull'integrità BOSH per le macchine virtuali vengono inoltrate al firehose loggregator per impostazione predefinita e sono integrate nella console di Azure Log Analytics.
 
 ## <a name="7-cost-saving"></a>7. Risparmio sui costi
 ### <a name="cost-saving-for-devtest-environments"></a>Risparmio sui costi per gli ambienti di sviluppo/test

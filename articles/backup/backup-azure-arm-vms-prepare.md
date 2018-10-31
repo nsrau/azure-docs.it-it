@@ -2,26 +2,25 @@
 title: 'Backup di Azure: preparare il backup di macchine virtuali'
 description: Assicurarsi che l'ambiente sia pronto per il backup di macchine virtuali in Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: backup; eseguire il backup;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
-ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/23/2018
+ms.author: raynew
+ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884934"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025940"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparare l’ambiente per il backup di macchine virtuali distribuite con Resource Manager
+# <a name="prepare-to-back-up-azure-vms"></a>Preparare il backup delle macchine virtuali di Azure
 
-Questo articolo illustra i passaggi per preparare l'ambiente per il backup di una macchina virtuale (VM) distribuita con Azure Resource Manager. I passaggi descritti nelle procedure usano il portale di Azure. Quando si esegue il backup di una macchina virtuale, i dati di backup o i punti di ripristino vengono archiviati in un insieme di credenziali dei servizi di ripristino. Gli insiemi di credenziali dei servizi di ripristino archiviano i dati di backup per le macchine virtuali distribuite con il modello di distribuzione classica o Resource Manager.
+Questo articolo illustra i passaggi per preparare l'ambiente per il backup di una macchina virtuale (VM) distribuita con Azure Resource Manager. I passaggi descritti nelle procedure usano il portale di Azure. Quando si esegue il backup di una macchina virtuale, i dati di backup o i punti di ripristino vengono archiviati in un insieme di credenziali di backup di Servizi di ripristino. 
 
-> [!NOTE]
-> Azure offre due modelli di distribuzione per creare e usare le risorse: [Azure Resource Manager e la distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
+
 
 Prima di proteggere una macchina virtuale distribuita con Resource Manager o eseguirne il backup, assicurarsi di rispettare questi prerequisiti:
 
@@ -47,7 +46,6 @@ Se nell'ambiente esistono già queste condizioni, passare all'articolo su come [
 Prima di preparare l'ambiente, assicurarsi di conoscere queste limitazioni:
 
 * Il backup di macchine virtuali con più di 32 dischi dati non è supportato.
-* Il backup di macchine virtuali con un indirizzo IP riservato e nessun endpoint definito non è supportato.
 * Il backup di VM Linux crittografate con la crittografia Linux Unified Key Setup (LUKS) non è supportato.
 * Non è consigliabile eseguire il backup di VM contenenti la configurazione di volumi condivisi del cluster o file server di scalabilità orizzontale, in caso contrario, potranno verificarsi errori dei writer CSV per cui durante un'attività di snapshot è necessario il coinvolgimento di tutte le VM incluse nella configurazione cluster. Backup di Azure non supporta la coerenza tra più macchine virtuali.
 * I dati di backup non includono le unità di rete montate che sono collegate a una VM.

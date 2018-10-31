@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 10/18/2018
 ms.author: shvija
-ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004793"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987002"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Aumentare automaticamente le unità elaborate di Hub eventi di Azure
 
@@ -27,6 +27,8 @@ Hub eventi di Azure è una piattaforma di streaming dei dati altamente scalabile
 
 * Le velocità di ingresso dei dati superano le unità elaborate impostate.
 * Le velocità di richiesta dei dati in uscita superano le unità elaborate impostate.
+
+Il servizio Hub eventi aumenta la velocità effettiva quando il carico supera la soglia minima, senza che le richieste abbiano esito negativo con errori ServerBusy.
 
 ## <a name="how-auto-inflate-works"></a>Funzionamento di Aumento automatico
 
@@ -54,6 +56,10 @@ Dopo avere abilitato questa opzione, è possibile iniziare con un numero ridotto
 È anche possibile abilitare la funzionalità Aumento automatico usando l'opzione **Ridimensiona** nel riquadro Impostazioni del portale:
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+
+
+> [!NOTE]
+> Quando si applica la configurazione per l'aumento automatico delle unità elaborate, il servizio Hub eventi crea i log di diagnostica che forniscono informazioni su quando e perché la velocità effettiva è aumentata. Per abilitare la registrazione diagnostica per un hub eventi, selezionare **Impostazioni di diagnostica** nel menu a sinistra della pagina Hub eventi nel portale di Azure. Per altre informazioni, vedere [Log di diagnostica di Hub eventi](event-hubs-diagnostic-logs.md). 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Abilitare Aumento automatico usando un modello di Azure Resource Manager
 
@@ -101,6 +107,7 @@ Dopo avere abilitato questa opzione, è possibile iniziare con un numero ridotto
 ```
 
 Per il modello completo, vedere il modello [Create Event Hubs namespace and enable inflate (Creare uno spazio dei nomi Hub eventi e abilitare l'aumento)](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) in GitHub.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

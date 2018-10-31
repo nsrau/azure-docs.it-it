@@ -2,20 +2,20 @@
 title: Installare l'estensione Funzioni permanenti e i relativi esempi - Azure
 description: Informazioni su come installare l'estensione Funzioni permanenti per Funzioni di Azure, per lo sviluppo nel portale o in Visual Studio.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2eb838bcb9d3f64d0bbf4657c516adb50d103223
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 6bbf232fc17b9acfd4e8cd84a0cb1346ab8ea9b5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585306"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986819"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installare l'estensione Funzioni permanenti e i relativi esempi (Funzioni di Azure)
 
@@ -45,7 +45,7 @@ Visual Studio offre al momento l'esperienza ottimale per lo sviluppo di applicaz
 Seguire le stesse istruzioni fornite per l'avvio con l'esempio, ma eseguire i passaggi seguenti invece di scaricare il file con estensione *zip*:
 
 1. Creare un progetto di app per le funzioni.
-2. Cercare il riferimento al pacchetto NuGet seguente usando *Gestisci pacchetti NuGet* e aggiungerlo al progetto: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
+2. Cercare il riferimento al pacchetto NuGet seguente usando *Gestisci pacchetti NuGet* e aggiungerlo al progetto: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.2
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -75,12 +75,12 @@ Visual Studio Code offre un'esperienza di sviluppo locale che copre tutte le pri
 3. Installare l'estensione Funzioni permanenti di Funzioni di Azure eseguendo le operazioni seguenti in un prompt dei comandi/finestra del terminale:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.2
     ```
 4. Installare l'estensione Twilio di Funzioni di Azure eseguendo le operazioni seguenti in un prompt dei comandi o una finestra del terminale:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0
     ```
 5. In alternativa, è possibile aggiornare il file *local.settings.json* con la stringa di connessione di Archiviazione di Azure autentica.
 6. Aprire il progetto in Visual Studio Code. 
@@ -96,14 +96,14 @@ Visual Studio Code offre un'esperienza di sviluppo locale che copre tutte le pri
 2. Spostarsi nella [cartelle di esempi JavaScript](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
 3. Installare l'estensione Funzioni permanenti di Funzioni di Azure eseguendo le operazioni seguenti in un prompt dei comandi/finestra del terminale
 
-    ```
+    ```bash
     func extensions install
     ```
     > [!NOTE] 
     > Questa operazione richiede l'installazione di [.NET Core SDK](https://www.microsoft.com/net/download) nel computer
 4. Ripristinare i pacchetti npm eseguendo questo comando in una finestra del prompt dei comandi/terminale:
     
-    ```
+    ```bash
     npm install
     ``` 
 5. Aggiornare il file *local.settings.json* con la stringa di connessione di un account di archiviazione di Azure `AzureWebJobsStorage`.  Questo account di archiviazione verrà usato per lo stato di funzione permanente.
@@ -119,13 +119,13 @@ Visual Studio Code offre un'esperienza di sviluppo locale che copre tutte le pri
 1. Nel prompt/terminale dei comandi passare alla cartella che ospiterà l'app per le funzioni.
 3. Creare un progetto app per le funzioni con il comando seguente:
 
-    ```
+    ```bash
     func init
     ``` 
 4. Eseguire l'emulatore di archiviazione di Azure (solo Windows) o aggiornare il file *local.settings.json* con la stringa di connessione di Archiviazione di Azure autentica per `AzureWebJobsStorage`.
 5. Successivamente, creare una nuova funzione con il comando seguente e seguire i passaggi della procedura guidata:
 
-    ```
+    ```bash
     func new
     ```
     >[!IMPORTANT]

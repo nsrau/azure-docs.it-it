@@ -1,6 +1,6 @@
 ---
 title: Guida di riferimento per gli sviluppatori di Funzioni di Azure in F# | Documentazione Microsoft
-description: Informazioni su come sviluppare Funzioni di Azure in F#.
+description: Informazioni su come sviluppare Funzioni di Azure usando lo script F#.
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -10,18 +10,21 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.date: 09/09/2016
+ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: ec4260363aa0af3062a6d61db44a75d9ebd599db
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090745"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025430"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#
 
-F# per Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole parti di codice, o "funzioni", nel cloud. I dati vengono trasmessi alla funzione F# tramite argomenti della funzione. I nomi di argomento sono specificati in `function.json`e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento.
+F# per Funzioni di Azure è una soluzione che consente di eseguire facilmente piccole parti di codice, o "funzioni", nel cloud. I dati vengono trasmessi alla funzione F# tramite argomenti della funzione. I nomi di argomento sono specificati in `function.json`e sono disponibili nomi predefiniti per l'accesso a elementi quali il logger delle funzioni e i token di annullamento. 
+
+>[!IMPORTANT]
+>Lo script F# (.fsx) è supportato solo dalla [versione 1.x](functions-versions.md#creating-1x-apps) del runtime di Funzioni di Azure. Se si desidera usare F# con la versione 2.x del runtime, è necessario usare un progetto della libreria di classi F# (.fs) precompilato. Creare, gestire e pubblicare un progetto della libreria di classi F# con Visual Studio, come si farebbe con un [progetto della libreria di classi C#](functions-dotnet-class-library.md). Per altre informazioni sulle versioni di Funzioni, vedere [Panoramica delle versioni del runtime per Funzioni di Azure](functions-versions.md).
 
 Questo articolo presuppone che l'utente abbia già letto [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md).
 
@@ -29,6 +32,29 @@ Questo articolo presuppone che l'utente abbia già letto [Guida di riferimento p
 Un file `.fsx` è uno script F#. Può essere considerato un progetto F# contenuto in un singolo file. Il file contiene il codice per il programma (in questo caso la funzione di Azure) e direttive per la gestione delle dipendenze.
 
 Quando si usa un file `.fsx` per una funzione di Azure, gli assembly normalmente necessari sono inclusi automaticamente, consentendo di concentrarsi sulla funzione anziché sul codice "boilerplate".
+
+## <a name="folder-structure"></a>Struttura di cartelle
+
+La struttura di cartelle per un progetto di script F# ha un aspetto simile al seguente:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+È presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione fsx) e il file di configurazione delle associazioni (function.json).
+
+Le estensioni di associazione richieste nella [versione 2.x](functions-versions.md) del runtime di Funzioni sono definite nel file `extensions.csproj`, con gli effettivi file di libreria inclusi nella cartella `bin`. Quando si sviluppa una funzione in locale, è necessario [registrare le estensioni di associazione](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Quando si sviluppano funzioni nel portale di Azure, la registrazione viene eseguita automaticamente.
 
 ## <a name="binding-to-arguments"></a>Associazione agli argomenti
 Ogni associazione supporta set di argomenti, come descritto nei dettagli in [Guida di riferimento per gli sviluppatori di trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md). Ad esempio, una delle associazioni di argomento supportate da un trigger del BLOB è un oggetto POCO, che può essere espresso con un record F#. Ad esempio: 

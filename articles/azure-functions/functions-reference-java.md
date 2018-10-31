@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 9e07cddb9d446ea24143d3a6dec5e310d3ed6f1c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 423661b8a459abf0b3028da92d6fd3ec885bb2c9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802118"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025023"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -52,7 +52,7 @@ FunctionsProject
  | - pom.xml
 ```
 
-È presente un file [host.json] (functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione java) e il proprio file di configurazione delle associazioni (function.json).
+È presente un file [host.json](functions-host-json.md) condiviso che può essere usato per configurare l'app per le funzioni. Ogni funzione ha il proprio file di codice (con estensione java) e il proprio file di configurazione delle associazioni (function.json).
 
 È possibile inserire più funzioni in un progetto. Evitare di inserire le funzioni in file con estensione jar separati. L'elemento FunctionApp nella directory di destinazione viene distribuito all'app per le funzioni in Azure.
 

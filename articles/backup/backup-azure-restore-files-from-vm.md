@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616910"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638308"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -45,7 +45,7 @@ Per ripristinare file o cartelle dal punto di recupero, passare alla macchina vi
 
 4. Nel menu a discesa **Selezionare il punto di ripristino**, selezionare il punto di ripristino contenente i file desiderati. Per impostazione predefinita, il punto di ripristino più recente è già selezionato.
 
-5. Per scaricare il software usato per copiare i file dal punto di ripristino, fare clic su **Download Executable** (Scarica eseguibile), per una VM Windows di Azure, oppure su **Scarica script**, per una VM Linux di Azure.
+5. Per scaricare il software usato per copiare i file dal punto di ripristino, fare clic su **Scarica eseguibile**, per una macchina virtuale Windows di Azure, oppure su **Scarica script**, per una macchina virtuale Linux di Azure per cui viene generato uno script di Python.
 
     ![Password generata](./media/backup-azure-restore-files-from-vm/download-executable.png)
 

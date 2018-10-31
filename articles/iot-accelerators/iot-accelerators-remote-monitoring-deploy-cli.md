@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: dd696330c9ee78ef84ac9fcf85946c837ad5b824
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188016"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956698"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
 
@@ -49,12 +49,12 @@ Seguire le istruzioni visualizzate sullo schermo per completare il processo di a
 
 Quando si distribuisce l'acceleratore di soluzioni, sono disponibili diverse opzioni per la configurazione del processo di distribuzione:
 
-| Opzione | Valori | DESCRIZIONE |
+| Opzione | Valori | Descrizione |
 | ------ | ------ | ----------- |
 | SKU    | `basic`, `standard`, `local` | Una distribuzione _di base_ è destinata agli ambienti di test e demo e distribuisce tutti i microservizi in un'unica macchina virtuale. Una distribuzione _standard_ è destinata agli ambienti di produzione e distribuisce i microservizi in più macchine virtuali. Una distribuzione _local_ configura un contenitore Docker per l'esecuzione dei microservizi nel computer locale e usa servizi di Azure, ad esempio l'archiviazione e Cosmos DB, nel cloud. |
 | Runtime | `dotnet`, `java` | Seleziona l'implementazione del linguaggio dei microservizi. |
 
-Per altre informazioni su come usare la distribuzione locale, vedere [Running the remote monitoring solution locally](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables) (Esecuzione della soluzione di monitoraggio remota in locale).
+Per altre informazioni su come usare la distribuzione locale, vedere [Running the remote monitoring solution locally](iot-accelerators-remote-monitoring-deploy-local.md) (Esecuzione della soluzione di monitoraggio remota in locale).
 
 ## <a name="basic-vs-standard-deployments"></a>Distribuzioni di base e distribuzioni standard
 
@@ -69,23 +69,35 @@ Quando si crea una soluzione di base, viene effettuato il provisioning dei servi
 |-------|--------------------------------|--------------|----------|
 | 1     | [Macchina virtuale Linux](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Microservizi di hosting |
 | 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                  | S1 - livello Standard | Comunicazione e gestione dei dispositivi |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Archiviazione dei dati di configurazione e di telemetria dei dispositivi quali regole, avvisi e messaggi |  
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Archiviazione dei dati di configurazione, delle regole, degli allarmi e di altre risorse di archiviazione offline sicura |  
 | 1     | [Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Archiviazione per le macchine virtuali e i checkpoint di streaming |
 | 1     | [Applicazione Web](https://azure.microsoft.com/services/app-service/web/)        |                 | Hosting dell'applicazione web front-end |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestione della sicurezza e delle identità utente |
+| 1     | [Mappe di Azure](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualizzazione della posizione degli asset |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unità              | Abilitazione dell'analisi in tempo reale |
+| 1     | [Servizio Device Provisioning di Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning dei dispositivi su larga scala |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   Unità S1 – 1              | Archiviazione dei dati e abilitazione dell'analisi dettagliata dei dati di telemetria |
+
+
 
 ### <a name="standard"></a>Standard
-La distribuzione standard è una distribuzione di produzione pronta che uno sviluppatore può personalizzare ed estendere in modo da soddisfare le proprie esigenze. Per scopi di affidabilità e scalabilità, i microservizi dell'applicazione vengono creati come contenitori Docker e distribuiti usando un agente di orchestrazione (per impostazione predefinita, [Kubernetes](https://kubernetes.io/)). L'agente di orchestrazione è responsabile della distribuzione, del ridimensionamento e della gestione dell'applicazione.
+La distribuzione standard è una distribuzione di produzione pronta che uno sviluppatore può personalizzare ed estendere in modo da soddisfare le proprie esigenze. L'opzione di distribuzione standard dovrebbe essere usata quando è possibile personalizzare un'architettura di produzione, creata per la scalabilità e l'estendibilità. I microservizi dell'applicazione vengono creati come contenitori Docker e distribuiti tramite il servizio Kubernetes di Azure (AKS). L'agente di orchestrazione è responsabile della distribuzione, del ridimensionamento e della gestione dell'applicazione.
+
 
 Quando si crea una soluzione standard, viene effettuato il provisioning dei servizi di Azure nella sottoscrizione dell'utente al costo seguente:
 
 | Conteggio | Risorsa                                     | SKU / Dimensioni      | Utilizzo |
 |-------|----------------------------------------------|-----------------|----------|
-| 4     | [Macchine virtuali Linux](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 master e 3 agenti per microservizi di hosting con ridondanza |
-| 1     | [Servizio contenitore di Azure](https://azure.microsoft.com/services/container-service/) |                 | Agente di orchestrazione [Kubernetes](https://kubernetes.io) |
-| 1     | [Hub IoT di Azure][https://azure.microsoft.com/services/iot-hub/]                     | S2 - livello Standard | Gestione, comando e controllo dei dispositivi |
+| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Usa un servizio di orchestrazione di contenitori Kubernetes completamente gestito, con un'impostazione predefinita di tre agenti|
+| 1     | [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/)                     | S2 - livello Standard | Gestione, comando e controllo dei dispositivi |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Archiviazione dei dati di configurazione e di telemetria dei dispositivi quali regole, avvisi e messaggi |
 | 5     | [Account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 per l'archiviazione di macchine virtuali e 1 per i checkpoint di streaming |
 | 1     | [Servizio app](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Gateway applicazione su SSL |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestione della sicurezza e delle identità utente |
+| 1     | [Mappe di Azure](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Visualizzazione della posizione degli asset |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unità              | Abilitazione dell'analisi in tempo reale |
+| 1     | [Servizio Device Provisioning di Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Provisioning dei dispositivi su larga scala |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   Unità S1 – 1              | Archiviazione dei dati e abilitazione dell'analisi dettagliata dei dati di telemetria |
 
 > Le informazioni sui prezzi di questi servizi sono reperibili [qui](https://azure.microsoft.com/pricing). I dati di utilizzo e i dettagli di fatturazione per la sottoscrizione sono reperibili nel [portale di Azure](https://portal.azure.com/).
 
@@ -128,7 +140,7 @@ Per altre informazioni sull'interfaccia della riga di comando, vedere [How to us
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Configurare l'acceleratore di soluzioni

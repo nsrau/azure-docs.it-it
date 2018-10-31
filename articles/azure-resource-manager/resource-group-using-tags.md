@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 82a48c902b72b5aca546c45032a13e831533f9ee
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b6386f4a23a0ca6d0134f8c4e298a3f7100cc1d6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393469"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466954"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usare tag per organizzare le risorse di Azure
 
@@ -31,7 +31,7 @@ Per applicare tag alle risorse, l'utente deve avere accesso in scrittura a quel 
 
 ## <a name="powershell"></a>PowerShell
 
-Gli esempi di questo articolo richiedono la versione 6.0 o successiva di Azure PowerShell. Se non si dispone della versione 6.0 o successiva [aggiornare la versione](/powershell/azure/install-azurerm-ps).
+Gli esempi di questo articolo richiedono la versione 6.0 o successiva di Azure PowerShell. Se non si dispone della versione 6.0 o successiva [eseguire l'aggiornamento](/powershell/azure/install-azurerm-ps).
 
 Per visualizzare i tag esistenti per un *gruppo di risorse*, usare:
 
@@ -264,13 +264,11 @@ Sia il portale di Azure che PowerShell usano l' [API REST di Gestione Risorse](h
 
 ## <a name="tags-and-billing"></a>Tag e fatturazione
 
-È possibile usare i tag per raggruppare i dati di fatturazione. Ad esempio, se si eseguono più macchine virtuali per organizzazioni diverse, usare i tag per raggruppare l'utilizzo in base al centro di costo. È anche possibile usare i tag per classificare i costi in base all'ambiente di runtime; ad esempio, l'uso di fatturazione per le macchine virtuali in esecuzione nell'ambiente di produzione.
+È possibile usare i tag per raggruppare i dati di fatturazione. Se, ad esempio, sono in esecuzione più macchine virtuali per organizzazioni diverse, usare i tag per raggrupparne l'uso in base al centro di costo. È anche possibile usare i tag per classificare i costi in base all'ambiente di runtime; ad esempio, l'uso di fatturazione per le macchine virtuali in esecuzione nell'ambiente di produzione.
 
-Le informazioni sui tag possono essere recuperate tramite l' [API di utilizzo della risorsa di Azure e della Rate Card](../billing/billing-usage-rate-card-overview.md) o il file di utilizzo con valori delimitati da virgole (CSV). Il file di utilizzo può essere scaricato dal [portale dell'account di Azure](https://account.windowsazure.com/) o dal [portale EA](https://ea.azure.com). Per altre informazioni sull'accesso a livello di codice alle informazioni sulla fatturazione, vedere [Ottenere informazioni dettagliate sul consumo delle risorse di Microsoft Azure](../billing/billing-usage-rate-card-overview.md). Per le operazioni API REST, vedere [Riferimento API REST alla fatturazione di Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c).
+Le informazioni sui tag possono essere recuperate tramite l' [API di utilizzo della risorsa di Azure e della Rate Card](../billing/billing-usage-rate-card-overview.md) o il file di utilizzo con valori delimitati da virgole (CSV). Il file d'uso può essere scaricato dal [Centro account di Azure](https://account.azure.com/Subscriptions) o dal portale di Azure. Per altre informazioni, vedere [Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure](../billing/billing-download-azure-invoice-daily-usage-date.md). Quando si scarica il file d'uso dal Centro account di Azure, selezionare **Versione 2**. Per i servizi che supportano tag con fatturazione, i tag vengono visualizzati nella colonna **Tag**.
 
-Quando si scarica il CSV di utilizzo per i servizi che supportano i tag di fatturazione, i tag vengono visualizzati nella colonna **Tag** . Per altre informazioni, vedere [Comprendere la fattura per Microsoft Azure](../billing/billing-understand-your-bill.md).
-
-![Vedere i tag della fatturazione](./media/resource-group-using-tags/billing_csv.png)
+Per le operazioni API REST, vedere [Riferimento API REST alla fatturazione di Azure](/rest/api/billing/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

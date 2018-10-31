@@ -1,5 +1,5 @@
 ---
-title: Requisiti di routing per Azure ExpressRoute | Documentazione Microsoft
+title: Requisiti di routing per Azure ExpressRoute | Microsoft Docs
 description: Questa pagina illustra i requisiti dettagliati per la configurazione e la gestione del routing per i circuiti ExpressRoute.
 services: expressroute
 author: ganesr
@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: ganesr
-ms.openlocfilehash: 525d75264ecb54d42d920cacb0712397f4d8c3a8
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43304358"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650129"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -211,7 +211,11 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | SharePoint Online | 12076:5020 |
 | Skype for Business Online | 12076:5030 |
 | Dynamics 365 | 12076:5040 |
+| Servizi globali di Azure* | 12076:5050 |
 | Altri servizi online di Office 365 | 12076:5100 |
+
+***Servizi globali di Azure include Azure DevOps**
+
 
 > [!NOTE]
 > Microsoft non riconosce eventuali valori di BGP Community impostati sulle route pubblicate su Microsoft.

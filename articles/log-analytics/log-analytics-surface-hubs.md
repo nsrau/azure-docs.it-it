@@ -1,5 +1,5 @@
 ---
-title: Monitorare dispositivi Surface Hub con Log Analytics di Azure | Documentazione Microsoft
+title: Monitorare dispositivi Surface Hub con Log Analytics di Azure | Microsoft Docs
 description: Usare la soluzione Surface Hub per monitorarne l'integrità e comprenderne la modalità d'uso.
 services: log-analytics
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f7fe7cee39468558ce503c050d5574e4be15ebf5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041482"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407166"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Monitorare dispositivi Surface Hub con Log Analytics per tracciare la loro integrità
 
@@ -51,7 +51,7 @@ InTune è un prodotto Microsoft che consente di gestire centralmente le impostaz
 1. Accedere a Intune.
 2. Andare a **Impostazioni** > **Origini connesse**.
 3. Creare o modificare un criterio basato sul modello di Surface Hub.
-4. Andare alla sezione OMS (Azure Operational Insights) del criterio e aggiungere l'*ID area di lavoro* di Log Analytics e la *Chiave area di lavoro* al criterio.
+4. Andare alla sezione Azure Operational Insights del criterio e aggiungere al criterio i valori di *ID area di lavoro* e *Chiave dell'area di lavoro* di Log Analytics.
 5. Salvare il criterio.
 6. Associare il criterio al gruppo di dispositivi appropriato.
 
@@ -66,9 +66,9 @@ Se non si usa Intune per gestire l'ambiente, è possibile registrare i dispositi
 
 1. Da Surface Hub aprire **Impostazioni**.
 2. Immettere le credenziali di amministratore del dispositivo quando richiesto.
-3. Fare clic su **Questo dispositivo** e in **Monitoraggio** fare clic su **Configura impostazioni OMS**.
+3. Fare clic su **Questo dispositivo** e in **Monitoraggio** fare clic su **Configure Log Analytics Settings** (Configura impostazioni di Log Analytics).
 4. Selezionare **Abilita monitoraggio**.
-5. Nella finestra di dialogo Impostazioni di OMS, immetter l'**ID area di lavoro** di Log Analytics e la **Chiave area di lavoro**.  
+5. Nella finestra di dialogo delle impostazioni di Log Analytics immettere i valori per **ID area di lavoro** e **Chiave dell'area di lavoro** di Log Analytics.  
    ![impostazioni](./media/log-analytics-surface-hubs/settings.png)
 6. Fare clic su **OK** per portare a termine la configurazione.
 

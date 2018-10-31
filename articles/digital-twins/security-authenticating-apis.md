@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2018
 ms.author: lyrana
-ms.openlocfilehash: ef7838c41bb479da273123c2eb3def8e12802390
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: dc5570b188bfdc0e1be78aa2bd5c5d92e884f377
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351303"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638019"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>Connettersi alle API ed eseguire l'autenticazione
 
@@ -46,6 +46,7 @@ Per iniziare a usare le API di Gemelli digitali, è possibile usare un client co
 1. Passare a https://www.getpostman.com/ per scaricare l'app
 1. Seguire la procedura illustrata [qui](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) per creare un'applicazione di Azure Active Directory. In alternativa, è possibile scegliere di riutilizzare una registrazione esistente. 
 1. In Required permissions (Autorizzazioni necessarie) aggiungere "Azure Digital Twins" (Gemelli digitali di Azure) e selezionare Delegated Permissions (Autorizzazioni delegate). Fare clic su Grant Permissions (Concedi autorizzazioni) per finalizzare l'operazione.
+1. Aprire il manifesto dell'applicazione e impostare oauth2AllowImplicitFlow su true
 1. Configurare un URL di risposta a [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback).
 1. Selezionare la scheda **Authorization** (Autorizzazione), fare clic su **OAuth 2.0** e selezionare **Get New Access Token** (Ottieni nuovo token di accesso).
 

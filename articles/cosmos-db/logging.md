@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963390"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409000"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Registrazione diagnostica di Azure Cosmos DB
 
@@ -356,11 +356,14 @@ I log di diagnostica vengono resi disponibili nell'account due ore dopo avere es
 
 Se all'attivazione della registrazione diagnostica è stata selezionata l'opzione **Invia a Log Analytics**, i dati di diagnostica della raccolta vengono inoltrati a Log Analytics entro due ore. Immediatamente dopo l'attivazione della registrazione, in Log Analytics non sono visualizzati dati. È sufficiente attendere due ore e riprovare. 
 
-Prima di visualizzare i log, verificare se l'area di lavoro di Log Analytics è stata aggiornata per l'uso del nuovo linguaggio di query di Log Analytics. A tale scopo, aprire il [portale di Azure](https://portal.azure.com), selezionare **Log Analytics** all'estrema sinistra e quindi selezionare il nome dell'area di lavoro come illustrato nella figura seguente. Viene visualizzata la pagina **Area di lavoro di OMS**:
+Prima di visualizzare i log, verificare se l'area di lavoro di Log Analytics è stata aggiornata per l'uso del nuovo linguaggio di query di Log Analytics. A tale scopo, aprire il [portale di Azure](https://portal.azure.com), selezionare **Log Analytics** all'estrema sinistra e quindi selezionare il nome dell'area di lavoro come illustrato nella figura seguente. Viene visualizzata la pagina **Area di lavoro di Log Analytics**:
 
 ![Log Analytics nel portale di Azure](./media/logging/azure-portal.png)
 
-Se nella pagina **Area di lavoro di OMS** viene visualizzato il messaggio seguente, l'area di lavoro non è stata aggiornata per l'uso del nuovo linguaggio. Per altre informazioni su come eseguire l'aggiornamento al nuovo linguaggio di query, vedere [Aggiornare l'area di lavoro di Azure Log Analytics alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md). 
+>[!NOTE]
+>Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.  
+
+Se nella pagina **Area di lavoro di Log Analytics** viene visualizzato il messaggio seguente, l'area di lavoro non è stata aggiornata per l'uso del nuovo linguaggio. Per altre informazioni su come eseguire l'aggiornamento al nuovo linguaggio di query, vedere [Aggiornare l'area di lavoro di Azure Log Analytics alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Messaggio dell'aggiornamento di Log Analytics](./media/logging/upgrade-notification.png)
 

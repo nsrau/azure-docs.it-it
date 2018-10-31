@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965535"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409527"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio
 
@@ -85,7 +85,7 @@ Altre destinazioni facoltative per i log di diagnostica:
 
 * Trasmettere gli eventi dei log di diagnostica di Batch a un [hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Hub eventi è in grado di inserire milioni di eventi al secondo, che è quindi possibile trasformare e archiviare tramite un qualsiasi provider di analisi in tempo reale. 
 
-* Inviare i log di diagnostica ad [Azure Log Analytics](../log-analytics/log-analytics-overview.md), in cui è possibile analizzarli nel portale di Operations Management Suite (OMS) o esportarli per l'analisi in Power BI o Excel.
+* Inviare i log di diagnostica ad [Azure Log Analytics](../log-analytics/log-analytics-overview.md), in cui è possibile analizzarli o esportarli per l'analisi in Power BI o Excel.
 
 > [!NOTE]
 > Potrebbero essere previsti costi aggiuntivi per archiviare o elaborare dati dei log di diagnostica con servizi di Azure. 

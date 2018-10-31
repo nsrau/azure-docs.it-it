@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 8039a660a0f9fc94471e4b3e28b1b00bfb0d6b9e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042446"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409136"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizzare l'utilizzo dei dati in Log Analytics
 
@@ -161,12 +161,12 @@ Per ridurre il volume dei log raccolti, seguire questa procedura:
 | Eventi di sicurezza            | Selezionare gli [eventi di sicurezza comuni o minimi](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/) <br> Modificare i criteri di controllo di sicurezza in modo che vengano raccolti solo gli eventi necessari. In particolare, esaminare la necessità di raccogliere eventi per: <br> - [controllo piattaforma filtro](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [controllo Registro di sistema](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [controllo file system](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [controllo oggetto kernel](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [controllo manipolazione handle](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - controllo archivi rimovibili |
 | Contatori delle prestazioni       | Modificare la [configurazione del contatore delle prestazioni](log-analytics-data-sources-performance-counters.md) per: <br> - Ridurre la frequenza di raccolta <br> - Ridurre il numero di contatori delle prestazioni |
 | Log eventi                 | Modificare la [configurazione del log eventi](log-analytics-data-sources-windows-events.md) per: <br> - Ridurre il numero di log eventi raccolti <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* |
-| syslog                     | Modificare la [configurazione di Syslog](log-analytics-data-sources-syslog.md) per: <br> - Ridurre il numero di strutture raccolte <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* e *debug* |
+| Syslog                     | Modificare la [configurazione di Syslog](log-analytics-data-sources-syslog.md) per: <br> - Ridurre il numero di strutture raccolte <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* e *debug* |
 | AzureDiagnostics           | Modificare la raccolta dei log delle risorse per: <br> - Ridurre il numero di risorse che inviano log a Log Analytics <br> - Raccogliere solo i log necessari |
 | Dati della soluzione da computer che non richiedono la soluzione | Usare il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Verificare se sono presenti più nodi del previsto
-Con il piano tariffario *Per nodo (OMS)*, l'importo addebitato dipende dal numero di nodi e di soluzioni usate. È possibile visualizzare il numero di nodi in uso per ogni offerta nella sezione *offerte* del dashboard di uso.<br><br> ![Dashboard di utilizzo](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
+Con il piano tariffario *Per nodo (Log Analytics)*, l'importo addebitato dipende dal numero di nodi e soluzioni usati. È possibile visualizzare il numero di nodi in uso per ogni offerta nella sezione *offerte* del dashboard di uso.<br><br> ![Dashboard di utilizzo](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Fare clic su **Visualizza tutto...** per visualizzare l'elenco completo dei computer che inviano dati per l'offerta selezionata.
 

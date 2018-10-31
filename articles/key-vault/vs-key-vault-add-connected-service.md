@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840620"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958517"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Aggiungere Key Vault all'applicazione Web usando Servizi connessi di Visual Studio
 
@@ -39,7 +39,8 @@ Per i dettagli sulle modifiche apportate da Servizi connessi al progetto per abi
 
    ![Scegliere "Proteggi i segreti con Azure Key Vault"](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Se è stato effettuato l'accesso a Visual Studio e al proprio account è associata una sottoscrizione di Azure, viene visualizzata una pagina contenente un elenco a discesa con le sottoscrizioni.
+   Se è stato effettuato l'accesso a Visual Studio e al proprio account è associata una sottoscrizione di Azure, viene visualizzata una pagina contenente un elenco a discesa con le sottoscrizioni. Assicurarsi di aver eseguito l'accesso a Visual Studio e verificare che l'account di accesso sia lo stesso usato per la sottoscrizione di Azure.
+
 1. Selezionare la sottoscrizione da usare e quindi scegliere un Key Vault nuovo o esistente oppure scegliere il collegamento per la modifica per cambiare il nome generato automaticamente.
 
    ![Selezionare la propria sottoscrizione](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)
@@ -137,7 +138,29 @@ Per accedere ai segreti:
       <h3>@ViewBag.Secret2</h3>
    ```
 
-A questo punto è stata verificata l'abilitazione dell'app Web all'uso di Key Vault per accedere ai segreti archiviati in modo sicuro.
+1. Eseguire l'app in locale per verificare che sia possibile leggere il valore del segreto immesso nel portale di Azure, non il valore fittizio dal file di configurazione.
+
+Successivamente, pubblicare l'app in Azure.
+
+## <a name="publish-to-azure-app-service"></a>Pubblicare in Servizio app di Azure
+
+1. Fare clic con il pulsante destro del mouse sul nodo del progetto e scegliere **Pubblica**. Verrà visualizzata la schermata **Selezionare una destinazione di pubblicazione**. A sinistra scegliere **Servizio app** e quindi **Crea nuovo**.
+
+   ![Eseguire la pubblicazione nel servizio app](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. Nella schermata **Crea servizio app** verificare che la sottoscrizione e il gruppo di risorse corrispondano a quelli creati in Key Vault e scegliere **Crea**.
+
+   ![Creare un servizio app](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. Dopo aver creato l'applicazione Web, viene visualizzata la schermata **Pubblica**. Prendere nota dell'URL per l'applicazione Web pubblicata, ospitata in Azure. Se viene visualizzato **Nessuno** accanto a **Insieme di credenziali delle chiavi**, è comunque necessario indicare a Servizio app l'insieme di credenziali delle chiavi con cui si vuole stabilire la connessione. Scegliere il collegamento **Aggiungi Key Vault** e scegliere l'insieme di credenziali delle chiavi creato.
+
+   ![Aggiungere l'insieme di credenziali delle chiavi](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   Se viene visualizzato **Gestisci insieme di credenziali delle chiavi**, è possibile fare clic per visualizzare le impostazioni correnti, modificare le autorizzazioni o apportare modifiche ai segreti nel portale di Azure.
+
+1. A questo punto, scegliere il collegamento dell'URL del sito per visitare l'applicazione Web nel browser. Verificare che venga visualizzato il valore corretto di Key Vault.
+
+A questo punto si è verificato che l'app Web può usare Key Vault per accedere ai segreti archiviati in modo sicuro quando viene eseguita in Azure.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

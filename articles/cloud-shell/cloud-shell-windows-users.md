@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: aad474195060c01a3f9d85e6f9037b568b0c16ad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4fc4f6523eb19294cabdf6b5b910dd346a877502
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630387"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645039"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell in Azure Cloud Shell per utenti Windows
 
@@ -54,7 +54,7 @@ Di seguito sono riportati gli alias comuni che sono stati rimossi, assieme ai co
 ## <a name="persisting-home"></a>Persistenza $HOME
 
 In precedenza gli utenti potevano rendere persistenti solo gli script e altri file nell'unità cloud.
-Ora la directory $HOME degli utenti è persistente tra le sessioni.
+Ora la directory $HOME dell'utente è persistente anche tra le sessioni.
 
 ## <a name="powershell-profile"></a>Profilo di PowerShell
 

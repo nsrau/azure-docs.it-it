@@ -12,19 +12,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: e1964b7f46259e54c65aeb46aa795713922c3504
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114613"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945876"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager
 Questo articolo descrive la struttura di un modello di Azure Resource Manager. Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. Per un'esercitazione dettagliata sulla creazione di un modello, vedere [Creare il primo modello di Azure Resource Manager](resource-manager-create-first-template.md).
 
+## <a name="quickstarts-and-tutorials"></a>Guide introduttive ed esercitazioni
+
+Usare le guide introduttive e le esercitazioni seguenti per imparare a sviluppare modelli di Resource Manager:
+
+- Guide introduttive
+
+  	|Title|DESCRIZIONE|
+  	|------|-----|
+  	|[Usare il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)|Generare un modello usando il portale e il processo di modifica e distribuzione del modello.|
+  	|[Usare Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Usare Visual Studio Code per creare e modificare modelli e come usare Azure Cloud Shell per distribuire i modelli.|
+  	|[Usare Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Usare Visual Studio per creare, modificare e distribuire modelli.|
+
+- Esercitazioni
+
+  	|Title|DESCRIZIONE|
+  	|------|-----|
+  	|[Utilizzare il riferimento del modello](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilizzare la documentazione di riferimento dei modelli per lo sviluppo di modelli. Nell'esercitazione, trovare lo schema dell'account di archiviazione e usare le informazioni per creare un account di archiviazione crittografato.|
+  	|[Creare più istanze](./resource-manager-tutorial-create-multiple-instances.md)|Creare più istanze di risorse di Azure. Nell'esercitazione si creeranno più istanze dell'account di archiviazione.|
+  	|[Impostare l'ordine di distribuzione delle risorse](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Definire le dipendenze delle risorse. Nell'esercitazione, verranno create una rete virtuale, una macchina virtuale e le risorse di Azure dipendenti. Si apprenderà come vengono definite le dipendenze.|
+  	|[Usare le condizioni](./resource-manager-tutorial-use-conditions.md)|Distribuire le risorse basate su alcuni valori di parametro. Nell'esercitazione, si definisce un modello per creare un nuovo account di archiviazione oppure usarne uno esistente in base al valore di un parametro.|
+  	|[Integrare Key Vault](./resource-manager-tutorial-use-key-vault.md)|Recuperare i segreti/le password di Azure Key Vault. Nell'esercitazione, verrà creata una macchina virtuale.  La password amministratore della macchina virtuale viene recuperata da un Key Vault.|
+  	|[Creare modelli collegati](./resource-manager-tutorial-create-linked-templates.md)|Modularizzare i modelli e chiamare altri modelli da un modello. Nell'esercitazione, verranno create una rete virtuale, una macchina virtuale e le risorse dipendenti.  L'account di archiviazione dipendente è definito in un modello collegato. |
+  	|[Usare procedure di distribuzione sicure](./deployment-manager-tutorial.md)|Usare Azure Deployment Manager. |
+
 ## <a name="template-format"></a>Formato del modello
+
 La struttura più semplice di un modello è costituita dagli elementi seguenti:
 
 ```json
@@ -33,7 +58,7 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
-    "functions": {  },
+    "functions": [  ],
     "resources": [  ],
     "outputs": {  }
 }
@@ -41,12 +66,12 @@ La struttura più semplice di un modello è costituita dagli elementi seguenti:
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--- |:--- |:--- |
-| $schema |sì |Percorso del file di schema JSON che descrive la versione del linguaggio del modello. Usare l'URL riportato nell'esempio precedente. |
-| contentVersion |sì |Versione del modello (ad esempio 1.0.0.0). Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto. |
+| $schema |Yes |Percorso del file di schema JSON che descrive la versione del linguaggio del modello. Usare l'URL riportato nell'esempio precedente. |
+| contentVersion |Yes |Versione del modello (ad esempio 1.0.0.0). Questo elemento accetta tutti i valori. Usare questo valore per documentare le modifiche significative al modello. Quando si distribuiscono risorse tramite il modello, è possibile usare questo valore per assicurarsi che venga usato il modello corretto. |
 | Parametri |No  |Valori forniti durante la distribuzione per personalizzare la distribuzione di risorse. |
 | variables |No  |Valori usati come frammenti JSON nel modello per semplificare le espressioni di linguaggio del modello. |
 | functions |No  |Funzioni definite dall'utente disponibili nel modello. |
-| resources |sì |Tipi di risorse che vengono distribuite o aggiornate in un gruppo di risorse. |
+| resources |Yes |Tipi di risorse che vengono distribuite o aggiornate in un gruppo di risorse. |
 | outputs |No  |Valori restituiti dopo la distribuzione. |
 
 Ogni elemento ha proprietà che è possibile impostare. L'esempio seguente illustra la sintassi completa per un modello:
@@ -279,7 +304,7 @@ Nella sezione risorse è possibile definire le risorse da distribuire o aggiorna
 ],
 ```
 
-Per altre informazioni, vedere [Sezione relativa alle risorse dei modelli di Azure Resource Manager](resource-manager-templates-resources.md).
+Per includere o escludere in modo condizionale una risorsa durante la distribuzione, usare l'[elemento Condition](resource-manager-templates-resources.md#condition). Per altre informazioni sulla sezione resources, vedere [Sezione resources dei modelli di Azure Resource Manager](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Output
 Nella sezione dell'output è possibile specificare i valori restituiti dalla distribuzione. Ad esempio, è possibile restituire l'URI per accedere a una risorsa distribuita.
@@ -313,4 +338,4 @@ Esistono anche i limiti seguenti:
 * Per visualizzare modelli completi per molti tipi diversi di soluzioni, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/).
 * Per informazioni dettagliate sulle funzioni che è possibile usare in un modello, vedere [Funzioni del modello di Azure Resource Manager](resource-group-template-functions.md).
 * Per unire più modelli durante la distribuzione, vedere [Uso di modelli collegati con Azure Resource Manager](resource-group-linked-templates.md).
-* Per altri suggerimenti sulla creazione di modelli di Resource Manager da usare in Azure globale, nei cloud sovrani di Azure e in Azure Stack, vedere [Sviluppare modelli di Azure Resource Manager per garantire l'uniformità cloud](templates-cloud-consistency.md).
+* Per consigli su come creare modelli di Resource Manager da usare in Azure a livello globale, nei cloud sovrani di Azure e in Azure Stack, vedere [Sviluppare modelli di Azure Resource Manager per la coerenza del cloud](templates-cloud-consistency.md).

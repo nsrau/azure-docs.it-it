@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007162"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945196"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Sezione resources dei modelli di Azure Resource Manager
 
@@ -84,9 +84,9 @@ Le risorse vengono definite con la struttura seguente:
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--- |:--- |:--- |
 | condition | No  | Valore booleano che indica se verrà eseguito il provisioning della risorsa durante questa distribuzione. Se `true`, la risorsa viene creata durante la distribuzione. Se `false`, la risorsa viene ignorata per questa distribuzione. |
-| apiVersion |sì |Versione dell'API REST da utilizzare per la creazione della risorsa. |
-| type |sì |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio **Microsoft.Storage/storageAccounts**. |
-| name |sì |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi Azure che rendono visibile il nome della risorsa a terze parti convalidano anche il nome, per garantire che non si tratti di un tentativo di spoofing per un'identità alternativa. |
+| apiVersion |Yes |Versione dell'API REST da utilizzare per la creazione della risorsa. |
+| type |Yes |Tipo di risorsa. Questo valore è una combinazione dello spazio dei nomi del provider di risorse e del tipo di risorsa, ad esempio **Microsoft.Storage/storageAccounts**. |
+| name |Yes |Nome della risorsa. Il nome deve rispettare le restrizioni dei componenti URI definite dallo standard RFC3986. I servizi Azure che rendono visibile il nome della risorsa a terze parti convalidano anche il nome, per garantire che non si tratti di un tentativo di spoofing per un'identità alternativa. |
 | location |Variabile |Aree geografiche supportate della risorsa specificata. È possibile selezionare qualsiasi località disponibile, ma è in genere opportuno sceglierne una vicina agli utenti. Di solito è anche opportuno inserire le risorse che interagiscono tra loro nella stessa area. La maggior parte dei tipi di risorsa richiede una posizione, ma alcuni tipi (ad esempio un'assegnazione di ruolo) non la richiedono. |
 | tags |No  |Tag associati alla risorsa. Applicare i tag per organizzare in modo logico le risorse nella sottoscrizione. |
 | commenti |No  |Le note per documentare le risorse nel modello |
@@ -100,7 +100,9 @@ Le risorse vengono definite con la struttura seguente:
 
 ## <a name="condition"></a>Condizione
 
-Quando durante la distribuzione occorre decidere se creare o meno una risorsa, usare l'elemento `condition`. Il valore di questo elemento restituisce true o false. Quando il valore è true, la risorsa viene creata. Quando il valore è false, la risorsa non viene creata. In genere, si usa questo valore quando si vuole creare una nuova risorsa o usarne una esistente. Per indicare, ad esempio, se viene distribuito un nuovo account di archiviazione o se ne viene usato uno esistente, specificare:
+Quando durante la distribuzione occorre decidere se creare o meno una risorsa, usare l'elemento `condition`. Il valore di questo elemento restituisce true o false. Quando il valore è true, la risorsa viene creata. Quando il valore è false, la risorsa non viene creata. Il valore può essere applicato solo all'intera risorsa.
+
+In genere, si usa questo valore quando si vuole creare una nuova risorsa o usarne una esistente. Per indicare, ad esempio, se viene distribuito un nuovo account di archiviazione o se ne viene usato uno esistente, specificare:
 
 ```json
 {
@@ -156,7 +158,7 @@ Quando si imposta il nome, è possibile creare manualmente un nome univoco o usa
 ```
 
 ### <a name="resource-names-for-identification"></a>Nomi di risorse per l'identificazione
-Si tratta di risorse cui si desidera attribuire un nome, ma di cui non è necessario garantire l'univocità. Per questi tipi di risorse, è sufficiente indicare un nome che identifichi il contesto e il tipo di risorsa.
+Si tratta di risorse a cui si desidera attribuire un nome, ma di cui non è necessario garantire l'univocità. Per questi tipi di risorse, è sufficiente indicare un nome che identifichi il contesto e il tipo di risorsa.
 
 ```json
 "parameters": {

@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419305"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958429"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -246,7 +246,7 @@ Sarà anche necessario contattare il provider di connettività per assicurare ch
 ExpressRoute Premium è una raccolta delle funzionalità seguenti:
 
 * Aumento del limite delle tabelle di routing da 4000 a 10.000 route per il peering privato.
-* Incremento del numero di VNet che possono essere connesse al circuito ExpressRoute (il valore predefinito è 10). Per altre informazioni, vedere la tabella [Limiti di ExpressRoute](#limits).
+* Incremento del numero di reti virtuali e connessioni di Copertura globale di ExpressRoute che possono essere abilitate per un circuito ExpressRoute (il valore predefinito è 10). Per altre informazioni, vedere la tabella [Limiti di ExpressRoute](#limits).
 * Connettività a Office 365 e Dynamics 365.
 * Connettività globale sulla rete di base Microsoft. È ora possibile collegare una VNet in un'area geopolitica a un circuito ExpressRoute in un'altra area.<br>
     **Esempi:**
@@ -255,9 +255,9 @@ ExpressRoute Premium è una raccolta delle funzionalità seguenti:
     *  Nel peering Microsoft vengono pubblicati i prefissi di altre aree geopolitiche, in modo che sia possibile, ad esempio, connettersi a SQL Azure in Europa occidentale da un circuito di Silicon Valley.
 
 
-### <a name="limits"></a>Quante VNet possono essere collegate a un circuito ExpressRoute se è stato abilitato ExpressRoute Premium?
+### <a name="limits"></a>Quante reti virtuali e connessioni di Copertura globale di ExpressRoute è possibile abilitare su un circuito ExpressRoute se è stato abilitato ExpressRoute Premium?
 
-Le tabelle seguenti illustrano i limiti di ExpressRoute e il numero di reti virtuali per ogni circuito ExpressRoute:
+Le tabelle seguenti illustrano i limiti di ExpressRoute e il numero di reti virtuali e connessioni di Copertura globale di ExpressRoute per ogni circuito ExpressRoute:
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 

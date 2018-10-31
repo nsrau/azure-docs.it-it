@@ -8,21 +8,21 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/21/2018
+ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 443cb2786c12bddd87535a7267d66c0332473b1b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42140935"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023952"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK del processore dei feed delle modifiche .NET: download e note sulla versione
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Feed delle modifiche .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.JS](sql-api-sdk-node.md)
+> * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
@@ -42,6 +42,18 @@ ms.locfileid: "42140935"
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="v2-builds"></a>Build della seconda versione
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Correzione del calcolo di stima per gli account Multimaster e nuovo formato del Token di sessione.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Aggiunta del supporto per le raccolte partizionate di lease. La chiave di partizione deve essere definita come /id.
+* Modifica che causa un'interruzione minore: i metodi dell'interfaccia IChangeFeedDocumentClient e la classe ChangeFeedDocumentClient sono stati modificati per includere i parametri RequestOptions e CancellationToken. IChangeFeedDocumentClient è un punto di estendibilità avanzata che consente di offrire un'implementazione personalizzata del client di documenti da usare con il processore dei feed delle modifiche, ad esempio, decorare DocumentClient e intercettare tutte le chiamate a esso per eseguire operazioni di analisi, gestione degli errori, e così via, extra. Con questo aggiornamento, il codice che implementa IChangeFeedDocumentClient dovrà essere modificato per includere i nuovi parametri nell'implementazione.
+* Miglioramenti della diagnostica secondari.
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* È stata aggiunta una nuova API, Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(), utilizzabile per ottenere il lavoro stimato per ogni partizione.
+* Supporta Microsoft.Azure.DocumentDB SDK 2.0. Richiede Microsoft.Azure.DocumentDB 2.0 o versione successiva.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
 * È stata aggiunta la proprietà pubblica ChangeFeedEventHost.HostName per la compatibilità con la versione 1.
@@ -130,6 +142,7 @@ Qualsiasi richiesta inviata a Cosmos DB con un SDK ritirato verrà rifiutata dal
 
 | Version | Data di rilascio | Data di ritiro |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 ottobre 2018 |--- |
 | [1.3.3](#1.3.3) |8 maggio 2018 |--- |
 | [1.3.2](#1.3.2) |18 aprile 2018 |--- |
 | [1.3.1](#1.3.1) |13 marzo 2018 |--- |

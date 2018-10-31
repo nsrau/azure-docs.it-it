@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/22/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: cc206e1134fe6df0280512e89447336a32a2d810
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 633717a9f5f74648f7418970dd8047079efe18b9
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068366"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649092"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 Aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale di Azure negli scenari seguenti: 
@@ -104,9 +104,10 @@ Se è necessario implementare un gruppo di sicurezza di rete per la subnet usata
 
 | Direzione | Protocollo di trasporto | Sorgente | Intervallo di porte di origine | Destination | Intervallo di porte di destinazione | Commenti |
 |---|---|---|---|---|---|---|
-| In ingresso | TCP | Internet | * | VirtualNetwork | 29876, 29877 (se si aggiunge il runtime di integrazione a una rete virtuale di Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se si aggiunge il runtime di integrazione a una rete virtuale classica)| Il servizio di Data Factory usa queste porte per comunicare con i nodi del runtime di integrazione Azure-SSIS nella rete virtuale. <br/><br/> Anche se non è stato creato un gruppo di sicurezza di rete a livello di subnet, Data Factory configura sempre un gruppo di sicurezza di rete a livello di schede di interfaccia di rete collegato alle macchine virtuali che ospitano il runtime di integrazione Azure-SSIS. Il gruppo di sicurezza di rete a livello di scheda di interfaccia di rete consente solo il traffico in entrata dagli indirizzi IP di Data Factory nelle porte specificate. Anche se si aprono queste porte al traffico Internet a livello di subnet, il traffico proveniente da indirizzi IP diversi dagli indirizzi IP di Data Factory è bloccato a livello di scheda di interfaccia di rete. |
-| In uscita | TCP | VirtualNetwork | * | Internet | 443 | I nodi del runtime di integrazione Azure-SSIS nella rete virtuale usano questa porta per accedere ai servizi di Azure, ad esempio Archiviazione di Azure e Hub eventi di Azure. |
-| In uscita | TCP | VirtualNetwork | * | Internet o Sql | 1433, 11000-11999, 14000-14999 | I nodi di Azure-SSIS Integration Runtime nella rete virtuale usano queste porte per accedere al database SSIS ospitato dal server di database SQL di Azure. Questo non vale per il database SSIS ospitato da Istanza gestita. |
+| In ingresso | TCP | AzureCloud<br/>(o un ambito più ampio, ad esempio Internet) | * | VirtualNetwork | 29876, 29877 (se si aggiunge il runtime di integrazione a una rete virtuale di Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se si aggiunge il runtime di integrazione a una rete virtuale classica)| Il servizio di Data Factory usa queste porte per comunicare con i nodi del runtime di integrazione Azure-SSIS nella rete virtuale. <br/><br/> Anche se non è stato creato un gruppo di sicurezza di rete a livello di subnet, Data Factory configura sempre un gruppo di sicurezza di rete a livello di schede di interfaccia di rete collegato alle macchine virtuali che ospitano il runtime di integrazione Azure-SSIS. Il gruppo di sicurezza di rete a livello di scheda di interfaccia di rete consente solo il traffico in entrata dagli indirizzi IP di Data Factory nelle porte specificate. Anche se si aprono queste porte al traffico Internet a livello di subnet, il traffico proveniente da indirizzi IP diversi dagli indirizzi IP di Data Factory è bloccato a livello di scheda di interfaccia di rete. |
+| In uscita | TCP | VirtualNetwork | * | AzureCloud<br/>(o un ambito più ampio, ad esempio Internet) | 443 | I nodi del runtime di integrazione Azure-SSIS nella rete virtuale usano questa porta per accedere ai servizi di Azure, ad esempio Archiviazione di Azure e Hub eventi di Azure. |
+| In uscita | TCP | VirtualNetwork | * | Internet | 80 | I nodi del runtime di integrazione Azure-SSIS nella rete virtuale usano questa porta per scaricare l'elenco di revoche di certificati da Internet. |
+| In uscita | TCP | VirtualNetwork | * | Sql<br/>(o un ambito più ampio, ad esempio Internet) | 1433, 11000-11999, 14000-14999 | I nodi di Azure-SSIS Integration Runtime nella rete virtuale usano queste porte per accedere al database SSIS ospitato dal server di database SQL di Azure. Questo non vale per il database SSIS ospitato da Istanza gestita. |
 ||||||||
 
 ### <a name="route"></a> Usare Azure ExpressRoute o una route definita dall'utente

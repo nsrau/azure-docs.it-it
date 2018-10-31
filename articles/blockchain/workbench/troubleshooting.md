@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ba6bfe8240c758806c4ff3e46ab08fdacad83db9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240922"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405485"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Risoluzione dei problemi relativi ad Azure Blockchain Workbench
 
@@ -24,7 +24,7 @@ ms.locfileid: "48240922"
 * Rete blockchain, ad esempio Ethereum
 * Microservizi Blockchain Workbench
 * Application Insights
-* Monitoraggio di Azure (OMS)
+* Monitoraggio di Azure (Log Analytics)
 
 È possibile usare le informazioni per determinare i passaggi successivi e determinare la causa principale dei problemi. 
 
@@ -52,9 +52,9 @@ Questo script accetta i parametri seguenti:
 | ResourceGroupName | Nome del gruppo di risorse di Azure in cui è stato distribuito Blockchain Workbench. | Yes |
 | OutputDirectory | Percorso in cui creare il file ZIP di output. Se non è specificato, per impostazione predefinita viene usata la directory corrente. | No  |
 | LookbackHours | Numero di ore da usare durante il pull dei dati di telemetria. Il valore predefinito è 24 ore. Il valore massimo è 90 ore. | No  |
-| OmsSubscriptionId | ID sottoscrizione in cui è distribuito OMS. Passare questo parametro solo se OMS per la rete blockchain viene distribuito esternamente al gruppo di risorse di Blockchain Workbench.| No  |
-| OmsResourceGroup |Gruppo di risorse in cui viene distribuito OMS. Passare questo parametro solo se OMS per la rete blockchain viene distribuito esternamente al gruppo di risorse di Blockchain Workbench.| No  |
-| OmsWorkspaceName | Nome dell'area di lavoro OMS. Passare questo parametro solo se OMS per la rete blockchain viene distribuito esternamente al gruppo di risorse di Blockchain Workbench | No  |
+| OmsSubscriptionId | ID della sottoscrizione in cui è distribuito Log Analytics. Passare questo parametro solo se Log Analytics per la rete blockchain viene distribuito esternamente al gruppo di risorse di Blockchain Workbench.| No  |
+| OmsResourceGroup |Gruppo di risorse in cui viene distribuito Log Analytics. Passare questo parametro solo se Log Analytics per la rete blockchain viene distribuito esternamente al gruppo di risorse di Blockchain Workbench.| No  |
+| OmsWorkspaceName | Nome dell'area di lavoro di Log Analytics. Passare questo parametro solo se Log Analytics per la rete blockchain viene distribuito esternamente al gruppo di risorse di Blockchain Workbench | No  |
 
 ## <a name="what-is-collected"></a>Quali dati vengono raccolti?
 

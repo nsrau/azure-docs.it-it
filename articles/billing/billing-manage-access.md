@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2017
-ms.author: vikdesai
-ms.openlocfilehash: 7329b06171bd538cc6e9aa8172380a2d4dd47dae
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.author: cwatson
+ms.openlocfilehash: 38cfd354f11ef3d888ad70e71549868d398495f5
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204123"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429644"
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gestire l'accesso alle informazioni di fatturazione per Azure tramite il controllo di accesso basato sui ruoli
 
@@ -67,11 +67,11 @@ Il ruolo di lettore della fatturazione dispone di accesso in sola lettura alle i
     ![Schermata che mostra ciò che vede il lettore della fatturazione nel portale di Azure](./media/billing-manage-access/billing-reader-view.png)
 
 > [!NOTE]
-> La funzionalità Fatturazione per lettore è disponibile in anteprima e non supporta ancora le sottoscrizioni enterprise (EA) o i cloud non globali.
+> La funzionalità Fatturazione per lettore è disponibile in anteprima e non supporta ancora i cloud non globali. Le sottoscrizioni Enterprise possono visualizzare i costi se l'amministratore dell'organizzazione ha abilitato la visualizzazione degli addebiti.
 
 ## <a name="adding-users-to-other-roles"></a>Aggiunta di utenti ad altri ruoli
 
-Gli utenti in altri ruoli, ad esempio proprietario o collaboratore, possono accedere non solo alle informazioni di fatturazione, ma anche ai servizi di Azure. Per gestire questi ruoli, vedere [Aggiungere o modificare i ruoli di amministratore di Azure che gestiscono la sottoscrizione o i servizi](billing-add-change-azure-subscription-administrator.md).
+Gli utenti in altri ruoli, ad esempio proprietario o collaboratore, possono accedere non solo alle informazioni di fatturazione, ma anche ai servizi di Azure. Per gestire questi ruoli, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="who-can-access-the-account-centerhttpsaccountwindowsazurecom"></a>Chi può accedere al [Centro account](https://account.windowsazure.com)?
 

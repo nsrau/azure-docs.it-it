@@ -1,6 +1,6 @@
 ---
-title: Raccogliere prestazioni delle applicazioni Linux in Log Analytics di OMS | Microsoft Docs
-description: Questo articolo fornisce informazioni dettagliate per configurare l'agente OMS per Linux in modo che raccolga i contatori delle prestazioni per il server HTTP Apache e MySQL.
+title: Raccogliere le prestazioni per applicazioni Linux in Log Analytics | Microsoft Docs
+description: Questo articolo offre informazioni dettagliate per configurare l'agente di Log Analytics per Linux in modo che raccolga i contatori delle prestazioni per il server HTTP Apache e MySQL.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,26 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: df5e55c2c03fec13ada258be91f0d98b7ce70d94
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044570"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406161"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Raccogliere i contatori delle prestazioni per applicazioni Linux in Log Analytics 
-Questo articolo fornisce informazioni dettagliate per configurare l'[agente OMS per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) in modo che raccolga i contatori delle prestazioni per applicazioni specifiche.  Le applicazioni incluse in questo articolo sono:  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+Questo articolo offre informazioni dettagliate per configurare l'[agente di Log Analytics per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) in modo che raccolga i contatori delle prestazioni per applicazioni specifiche.  Le applicazioni incluse in questo articolo sono:  
 
 - [MySQL](#MySQL)
 - [Server HTTP Apache](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-Se viene rilevato un server MySQL o MariaDB nel computer in cui è installato l'agente OMS, viene automaticamente installato un provider di monitoraggio delle prestazioni per il server MySQL. Questo provider si connette al server MySQL/MariaDB locale per esporre le statistiche relative alle prestazioni. Le credenziali utente di MySQL devono essere configurate in modo che il provider possa accedere al server MySQL.
+Se viene rilevato un server MySQL o MariaDB nel computer in cui è installato l'agente di Log Analytics, viene automaticamente installato un provider di monitoraggio delle prestazioni per il server MySQL. Questo provider si connette al server MySQL/MariaDB locale per esporre le statistiche relative alle prestazioni. Le credenziali utente di MySQL devono essere configurate in modo che il provider possa accedere al server MySQL.
 
 ### <a name="configure-mysql-credentials"></a>Configurare le credenziali di MySQL
 Il provider OMI MySQL richiede un utente di MySQL preconfigurato e librerie client MySQL installate, in modo da poter eseguire query sulle prestazioni o sulle informazioni di integrità dall'istanza di MySQL.  Queste credenziali vengono salvate in un file di autenticazione archiviato nell'agente Linux.  Il file di autenticazione specifica il valore bind-address e la porta su cui è in ascolto l'istanza di MySQL e le credenziali da usare per raccogliere metriche.  
 
-Durante l'installazione dell'agente OMS per Linux, il provider OMI MySQL analizzerà i file di configurazione my.cnf di MySQL (percorsi predefiniti) per cercare il valore bind-address e la porta e imposterà in modo parziale il file di configurazione di OMI MySQL.
+Durante l'installazione dell'agente di Log Analytics per Linux, il provider OMI MySQL analizzerà i file di configurazione my.cnf di MySQL (percorsi predefiniti) per cercare il valore bind-address e la porta e imposterà in modo parziale il file di autenticazione di OMI MySQL.
 
 Il file di autenticazione di MySQL viene archiviato in `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
@@ -49,7 +50,7 @@ Di seguito è riportato il formato per il file di autenticazione di OMI MySQL
 
 Nella tabella seguente sono descritte le voci presenti nel file di autenticazione.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | Porta | Rappresenta la porta corrente su cui è in ascolto l'istanza di MySQL. La porta 0 indica che per l'istanza predefinita vengono usate le proprietà seguenti. |
 | Bind-address| Valore bind-address corrente di MySQL. |
@@ -62,7 +63,7 @@ Il file di autenticazione di OMI MySQL può definire un numero di porta e un'ist
 
 Nella tabella seguente sono riportate impostazioni di un'istanza di esempio 
 
-| DESCRIZIONE | File |
+| Descrizione | File |
 |:--|:--|
 | Istanza predefinita e istanza con porta 3308. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=, ,`<br>`AutoUpdate=true` |
 | Istanza predefinita e istanza con porta 3308 e nome e password diversi. | `0=127.0.0.1, myuser, cnBwdA==`<br>`3308=127.0.1.1, myuser2,cGluaGVhZA==`<br>`AutoUpdate=true` |
@@ -78,7 +79,7 @@ Con l'installazione del provider OMI MySQL viene fornito un programma per il fil
 
 La tabella seguente fornisce informazioni dettagliate sulla sintassi per l'utilizzo di mycimprovauth.
 
-| Operazione | Esempio | DESCRIZIONE
+| Operazione | Esempio | Descrizione
 |:--|:--|:--|
 | aggiornamento automatico *vero o falso* | mycimprovauth autoupdate false | Specifica se il file di autenticazione verrà aggiornato automaticamente in caso di riavvio o aggiornamento. |
 | default *bind-address nome utente password* | mycimprovauth default 127.0.0.1 root pwd | Imposta l'istanza predefinita nel file di autenticazione di OMI MySQL.<br>Nel campo della password deve essere immesso un valore in testo normale: la password nel file di autenticazione di OMI MySQL verrà codificata in Base 64. |
@@ -115,7 +116,7 @@ Questi privilegi possono essere concessi mediante l'esecuzione dei comandi grant
 
 ### <a name="define-performance-counters"></a>Definire i contatori delle prestazioni
 
-Dopo aver configurato l'agente OMS per Linux per inviare dati a Log Analytics, è necessario configurare i contatori delle prestazioni da raccogliere.  Usare la procedura descritta in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](log-analytics-data-sources-windows-events.md) con i contatori presenti nella tabella seguente.
+Dopo aver configurato l'agente di Log Analytics per Linux per l'invio di dati a Log Analytics, è necessario configurare i contatori delle prestazioni da raccogliere.  Usare la procedura descritta in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](log-analytics-data-sources-windows-events.md) con i contatori presenti nella tabella seguente.
 
 | Nome oggetto | Nome contatore |
 |:--|:--|
@@ -151,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Definire i contatori delle prestazioni
 
-Dopo aver configurato l'agente OMS per Linux per inviare dati a Log Analytics, è necessario configurare i contatori delle prestazioni da raccogliere.  Usare la procedura descritta in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](log-analytics-data-sources-windows-events.md) con i contatori presenti nella tabella seguente.
+Dopo aver configurato l'agente di Log Analytics per Linux per l'invio di dati a Log Analytics, è necessario configurare i contatori delle prestazioni da raccogliere.  Usare la procedura descritta in [Origini dati per le prestazioni di Windows e Linux in Log Analytics](log-analytics-data-sources-windows-events.md) con i contatori presenti nella tabella seguente.
 
 | Nome oggetto | Nome contatore |
 |:--|:--|

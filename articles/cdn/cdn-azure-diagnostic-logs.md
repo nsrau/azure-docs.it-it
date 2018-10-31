@@ -3,8 +3,8 @@ title: Log di diagnostica di Azure | Microsoft Docs
 description: Il cliente può abilitare l'analisi dei log per la rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
-ms.author: v-deasim
-ms.openlocfilehash: 0baa43977099af9c6c0d9c2e4c03abc121ec279d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: magattus
+ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47097007"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409255"
 ---
 # <a name="azure-diagnostic-logs"></a>Log di diagnostica di Azure
 
@@ -95,17 +95,23 @@ Per usare Log Analytics per archiviare i log, seguire questa procedura:
 
 2. Fare clic su **Configura** per configurare la registrazione di Log Analytics. 
 
-   Verrà visualizzata la pagina **Aree di lavoro OMS**.
+   Viene visualizzata la pagina **Aree di lavoro di Log Analytics**.
+
+    >[!NOTE] 
+    >Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
 
     ![portale - Log di diagnostica](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Selezionare **Crea una nuova area di lavoro**.
 
-    Verrà visualizzata la pagina **Area di lavoro OMS**.
+    Viene visualizzata la pagina **Area di lavoro di Log Analytics**.
+
+    >[!NOTE] 
+    >Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
 
     ![portale - Log di diagnostica](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. In **Area di lavoro OMS** immettere un nome per l'area di lavoro OMS. Il nome dell'area di lavoro OMS deve essere univoco e contenere solo lettere, numeri e segni meno. Non sono consentiti spazi e caratteri di sottolineatura. 
+4. In **Area di lavoro di Log Analytics** immettere un nome per l'area di lavoro di Log Analytics. Il nome dell'area di lavoro di Log Analytics deve essere univoco e contenere solo lettere, numeri e segni meno. Non sono consentiti spazi e caratteri di sottolineatura. 
 
 5. In **Sottoscrizione** selezionare una sottoscrizione esistente nell'elenco a discesa. 
 

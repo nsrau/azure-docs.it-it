@@ -3,18 +3,18 @@ title: Usare Log Analytics per monitorare i cluster Azure HDInsight
 description: Informazioni su come usare Azure Log Analytics per monitorare i processi in esecuzione in un cluster HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jasonh
-ms.openlocfilehash: 990a836a405c7baf6327e625aa31a9828f217d9f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 1a526bfdd951e4dc2897ec52c03bfbe96ee14d4c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600975"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403679"
 ---
 # <a name="use-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Usare Azure Log Analytics per monitorare i cluster HDInsight
 
@@ -93,7 +93,7 @@ Queste sono le soluzioni HDInsight disponibili:
 
 Per installare una soluzione di gestione, vedere [Soluzioni di gestione in Azure](../monitoring/monitoring-solutions.md#install-a-management-solution). Per provare, installare una soluzione di monitoraggio Hadoop di HDInsight. Al termine verrà visualizzato il riquadro **HDInsightHadoop** elencato sotto **Riepilogo**. Selezionare il riquadro **HDInsightHadoop**. La soluzione HDInsightHadoop appare come segue:
 
-![Visualizzazione della soluzione di monitoraggio Hadoop di HDInsight OMS](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
+![Visualizzazione della soluzione di monitoraggio di HDInsight](media/hdinsight-hadoop-oms-log-analytics-tutorial/hdinsight-oms-hdinsight-hadoop-monitoring-solution.png)
 
 Poiché il cluster è nuovo, il report non visualizza tutte le attività.
 

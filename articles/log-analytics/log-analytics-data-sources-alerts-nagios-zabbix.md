@@ -1,6 +1,6 @@
 ---
-title: Raccogliere avvisi Nagios e Zabbix in Log Analytics di OMS | Microsoft Docs
-description: Nagios e Zabbix sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad avvisi provenienti da altre origini.  Questo articolo descrive come configurare l'agente OMS per Linux per raccogliere avvisi da questi sistemi.
+title: Raccogliere avvisi di Nagios e Zabbix in Log Analytics | Microsoft Docs
+description: Nagios e Zabbix sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad avvisi provenienti da altre origini.  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,18 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e668b2e989571d911c967d08d8012b11adaebd4d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041034"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402941"
 ---
-# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Log Analytics tramite l'agente OMS per Linux 
-[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](log-analytics-alerts.md).  Questo articolo descrive come configurare l'agente OMS per Linux per raccogliere avvisi da questi sistemi.
+# <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Log Analytics tramite l'agente di Log Analytics per Linux 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](log-analytics-alerts.md).  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
  
 ## <a name="prerequisites"></a>Prerequisiti
-L'agente OMS per Linux supporta la raccolta degli avvisi di Nagios fino alla versione 4.2.x e di Zabbix fino alla versione 2.x.
+L'agente di Log Analytics per Linux supporta la raccolta di avvisi di Nagios fino alla versione 4.2.x e di Zabbix fino alla versione 2.x.
 
 ## <a name="configure-alert-collection"></a>Configurare la raccolta di avvisi
 
@@ -85,9 +86,9 @@ Per raccogliere avvisi nel server Nagios, seguire questa procedura.
 
 Nei record di avvisi raccolti da Nagios, la proprietà **Tipo** è impostata su **Avviso** e **SourceSystem** su **Nagios**.  Includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
-| type |*Avviso* |
+| Type |*Avviso* |
 | SourceSystem |*Nagios* |
 | AlertName |Nome dell'avviso. |
 | AlertDescription | Descrizione dell'avviso. |
@@ -101,15 +102,15 @@ Nei record di avvisi raccolti da Nagios, la proprietà **Tipo** è impostata su 
 ### <a name="zabbix-alert-records"></a>Record di avvisi Zabbix
 Nei record di avvisi raccolti da Zabbix, la proprietà **Tipo** è impostata su **Avviso** e **SourceSystem** su **Zabbix**.  Includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--- |:--- |
-| type |*Avviso* |
+| Type |*Avviso* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nome dell'avviso. |
-| AlertPriority | Gravità dell'avviso<br><br>non classificata<br>Informazioni<br>Avviso<br>average<br>elevata<br>emergenza  |
+| AlertPriority | Gravità dell'avviso.<br><br>non classificata<br>informazioni<br>avviso<br>media<br>elevata<br>emergenza  |
 | AlertState | Stato dell'avviso.<br><br>0: stato aggiornato.<br>1: stato sconosciuto.  |
 | AlertTypeNumber | Specifica se l'avviso può generare più eventi relativi a problemi.<br><br>0: stato aggiornato.<br>1: stato sconosciuto.    |
-| Commenti | Commenti aggiuntivi per l'avviso. |
+| Comments | Commenti aggiuntivi per l'avviso. |
 | HostName | Nome dell'host che ha creato l'avviso. |
 | PriorityNumber | Valore che indica il livello di gravità dell'avviso.<br><br>0: non classificata<br>1: informazioni<br>2: avviso<br>3: media<br>4: elevata<br>5: emergenza |
 | TimeGenerated |Data e ora in cui è stato creato l'avviso. |

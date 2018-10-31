@@ -3,8 +3,8 @@ title: Uso della rete CDN di Azure con firma di accesso condiviso | Documentazio
 description: La rete CDN di Azure supporta l'uso della firma di accesso condiviso, ovvero SAS, per garantire l'accesso limitato ai contenitori di archiviazione privati.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
-ms.author: v-deasim
-ms.openlocfilehash: 15a4e0a8d62b38fa7aa542d95e53d29621965666
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: magattus
+ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316569"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955236"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso della rete CDN di Azure con firma di accesso condiviso
 
@@ -32,7 +32,7 @@ La firma di accesso condiviso consente di definire vari parametri di accesso a u
 ## <a name="setting-up-azure-cdn-to-work-with-storage-sas"></a>Configurazione della rete CDN di Azure per l'uso della firma di accesso condiviso di archiviazione
 Di seguito sono riportate le tre opzioni consigliate per l'uso della firma di accesso condiviso con la rete CDN di Azure. Per tutte le opzioni, si presuppone che sia stata già creata una firma di accesso condiviso (vedere Prerequisiti). 
  
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 Per iniziare, creare un account di archiviazione e quindi generare una firma di accesso condiviso per l'asset. È possibile generare due tipi di firme di accesso condiviso: una firma di accesso condiviso del servizio o una firma di accesso condiviso dell'account. Per altre informazioni, vedere [Tipi di firme di accesso condiviso](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#types-of-shared-access-signatures).
 
 Dopo aver generato un token di firma di accesso condiviso, è possibile accedere al file di archiviazione BLOB aggiungendo `?sv=<SAS token>` all'URL. Questo URL ha il formato seguente: 
@@ -71,28 +71,28 @@ Per altre informazioni sull'impostazione dei parametri, vedere [Considerazioni s
  
 Questa opzione è disponibile solo per i profili di **rete CDN Premium di Azure fornita da Verizon**. Con questa opzione, è possibile proteggere l'archivio BLOB nel server di origine. È consigliabile usarla se non sono necessarie restrizioni di accesso specifiche per il file, ma si desidera impedire agli utenti di accedere all'origine di archiviazione in maniera diretta per migliorare i tempi di offload della rete CDN di Azure. Il token di firma di accesso condiviso, che non è noto all'utente, è necessario per chiunque acceda ai file nel contenitore specificato del server di origine. Il token di firma di accesso condiviso non è invece necessario nell'endpoint della rete CDN a causa della regola di riscrittura URL.
  
-1. Usare il [motore regole](cdn-rules-engine.md) per creare una regola di riscrittura URL. La propagazione delle nuove regole richiede circa 10 minuti.
+1. Usare il [motore regole](cdn-rules-engine.md) per creare una regola di riscrittura URL. Potrebbero essere necessarie fino a 4 ore per la propagazione delle nuove regole.
 
    ![Pulsante Gestisci della rete CDN](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
    ![Pulsante Motore regole della rete CDN](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   La regola di riscrittura dell'URL di esempio seguente usa un modello di espressione regolare con un gruppo di acquisizione e un endpoint denominato *storagedemo*:
+   La regola di riscrittura dell'URL di esempio seguente usa un modello di espressione regolare con un gruppo di acquisizione e un endpoint denominato *sasstoragedemo*:
    
    Origine:   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Destinazione:   
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![Regola di riscrittura URL della rete CDN - sinistra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Regola di riscrittura URL della rete CDN - destra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![Regola di riscrittura URL della rete CDN - destra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 2. Dopo l'attivazione della nuova regola, chiunque può accedere ai file nel contenitore specificato nell'endpoint della rete CDN indipendentemente dal fatto che venga usato o meno un token di firma di accesso condiviso nell'URL. Il formato è il seguente: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Ad esempio:    
-   `https://demoendpoint.azureedge.net/container1/demo.jpg`
+   `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
 3. Specificare la durata della cache tramite le regole di memorizzazione nella cache o aggiungendo intestazioni `Cache-Control` al server di origine. Poiché la rete CDN di Azure considera il token di firma di accesso condiviso come una stringa di query semplice, la procedura consigliata prevede la configurazione della durata della cache con scadenza alla stessa ora di scadenza della firma di acceso condiviso o a un'ora antecedente. In caso contrario, se un file viene memorizzato nella cache per un periodo più lungo di quello in cui la firma di accesso condiviso è attiva, una volta scaduta la firma di accesso condiviso, sarà possibile accedere a tale file dal server di origine della rete CDN di Azure. In questo caso, se si desidera rendere inaccessibile il file memorizzato nella cache, è necessario eseguire un'operazione di ripulitura sul file per cancellarlo dalla cache. Per informazioni sull'impostazione della durata della cache sulla rete CDN di Azure, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole di memorizzazione nella cache](cdn-caching-rules.md).
@@ -108,24 +108,24 @@ Per usare l'autenticazione tramite token di sicurezza della rete CDN di Azure, �
  
    Ad esempio:    
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
    Le opzioni dei parametri per l'autenticazione tramite token di sicurezza sono diverse rispetto a quelle per un token di firma di accesso condiviso. Se si sceglie di usare una scadenza quando si crea un token di sicurezza, è consigliabile impostarla sullo stesso valore di scadenza del token di firma di accesso condiviso, in modo da garantire che sia stimabile. 
  
-2. Usare il [motore regole](cdn-rules-engine.md) per creare una regola di riscrittura dell'URL per abilitare l'accesso tramite token di firma di accesso condiviso a tutti i BLOB presenti nel contenitore. La propagazione delle nuove regole richiede circa 10 minuti.
+2. Usare il [motore regole](cdn-rules-engine.md) per creare una regola di riscrittura dell'URL per abilitare l'accesso tramite token di firma di accesso condiviso a tutti i BLOB presenti nel contenitore. Potrebbero essere necessarie fino a 4 ore per la propagazione delle nuove regole.
 
-   La regola di riscrittura dell'URL di esempio seguente usa un modello di espressione regolare con un gruppo di acquisizione e un endpoint denominato *storagedemo*:
+   La regola di riscrittura dell'URL di esempio seguente usa un modello di espressione regolare con un gruppo di acquisizione e un endpoint denominato *sasstoragedemo*:
    
    Origine:   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Destinazione:   
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![Regola di riscrittura URL della rete CDN - sinistra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Regola di riscrittura URL della rete CDN - destra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![Regola di riscrittura URL della rete CDN - destra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Se si rinnova la firma di accesso condiviso, assicurarsi di aggiornare la regola di riscrittura URL con il nuovo token di firma di accesso condiviso. 
 

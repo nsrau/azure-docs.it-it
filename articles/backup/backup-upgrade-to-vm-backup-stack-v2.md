@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 6f19a536861d236a82cc77a17570d8e3004a2ba1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888272"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406535"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Eseguire l'aggiornamento alla versione 2 dello stack di macchine virtuali di Azure
 
@@ -28,8 +28,8 @@ Il modello di distribuzione Resource Manager per l'aggiornamento allo stack di b
 
 * Possibilità di usare gli account di archiviazione originali quando si esegue il ripristino di una macchina virtuale non gestita. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali vengono velocizzate.
     > [!NOTE]
-    > Non è come eseguire l'override della macchina virtuale originale.
-    >
+    > Questa possibilità non corrisponde alla sostituzione dei dischi della macchina virtuale con i dati del punto di ripristino. 
+    
 
 ## <a name="whats-changing-in-the-new-stack"></a>Modifiche nel nuovo stack
 Il processo di backup è attualmente costituito da due fasi:

@@ -1,5 +1,5 @@
 ---
-title: IT Service Management Connector in Azure Log Analytics | Microsoft Docs
+title: Connettore di Gestione dei servizi IT in Azure Log Analytics | Microsoft Docs
 description: Questo articolo fornisce una panoramica di Connettore di Gestione dei servizi IT e informazioni su come usare questa soluzione per monitorare e gestire da una posizione centrale gli elementi di lavoro di Gestione dei servizi IT in Azure Log Analytics e risolvere rapidamente eventuali problemi.
 services: log-analytics
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 5f5b03090f374f936e03d487596ca0462feea348
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b99c14e6022fa34d41caaa02bfc9feecb3c840ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042429"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407504"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connettere Azure agli strumenti di Gestione dei servizi IT usando Connettore di Gestione dei servizi IT
 
-![Simbolo di IT Service Management Connector](./media/log-analytics-itsmc/itsmc-symbol.png)
+![Simbolo di Connettore di Gestione dei servizi IT](./media/log-analytics-itsmc/itsmc-symbol.png)
 
 Connettore di Gestione dei servizi IT consente di connettere Azure e un prodotto o servizio di Gestione dei servizi IT supportato.
 
@@ -50,7 +50,7 @@ Con Connettore di Gestione dei servizi IT, è possibile
 3.  [Usare la connessione](#using-the-solution)
 
 
-##  <a name="adding-the-it-service-management-connector-solution"></a>Aggiunta della soluzione IT Service Management Connector
+##  <a name="adding-the-it-service-management-connector-solution"></a>Aggiunta della soluzione Connettore di Gestione dei servizi IT
 
 Prima di creare una connessione, è necessario aggiungere la soluzione Connettore di Gestione dei servizi IT.
 
@@ -63,11 +63,15 @@ Prima di creare una connessione, è necessario aggiungere la soluzione Connettor
     ![Aggiungere la soluzione Connettore di Gestione dei servizi IT](./media/log-analytics-itsmc/add-itsmc-solution.png)
 
 3.  Nella sezione **Area di lavoro di OMS** selezionare l'area di lavoro di Azure Log Analytics dove si vuole installare la soluzione.
+   >[!NOTE]
+   >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
 4.  Nella sezione **Impostazioni dell'area di lavoro OMS** selezionare il gruppo di risorse in cui si vuole creare la risorsa soluzione.
 
     ![Area di lavoro di Connettore di Gestione dei servizi IT](./media/log-analytics-itsmc/itsmc-solution-workspace.png)
+    >[!NOTE]
+    >In conformità alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate aree di lavoro di Log Analytics.
 
-5.  Fare clic su **Create**(Crea).
+5.  Fare clic su **Crea**.
 
 Quando la risorsa soluzione viene distribuita, viene visualizzata una notifica nella parte superiore destra della finestra.
 
@@ -128,10 +132,10 @@ Utilizzare la procedura seguente:
 4. Nell'elenco Azioni selezionare **Gestione dei servizi IT** dal menu a discesa **Tipo di azione**. Specificare un **nome** per l'azione e fare clic su **Modifica dettagli**.
 5. Selezionare la **sottoscrizione** in cui si trova l'area di lavoro di Log Analytics. Selezionare il nome della **Connessione**, ovvero il nome del Connettore di Gestione dei servizi IT, seguito dal nome dell'area di lavoro. ad esempio "MyITSMMConnector(MyWorkspace)".
 
-    ![Informazioni dettagliate sulle azioni ITSM](./media/log-analytics-itsmc/itsm-action-details.png)
+    ![Informazioni dettagliate sulle azioni di Gestione dei servizi IT](./media/log-analytics-itsmc/itsm-action-details.png)
 
 6. Selezionare il tipo di **Elemento di lavoro** dal menu a discesa.
-   Scegliere di usare un modello esistente o compilare i campi necessari per il prodotto ITSM.
+   Scegliere di usare un modello esistente o compilare i campi necessari per il prodotto di Gestione dei servizi IT.
 7. Fare clic su **OK**.
 
 Quando si crea/modifica una regola di avviso di Azure, usare un gruppo di azioni con un'azione Gestione dei servizi IT. Quando l'avviso viene attivato, nello strumento di Gestione dei servizi IT viene creato o aggiornato un elemento di lavoro.
@@ -164,7 +168,7 @@ Altre informazioni: [Mapping dei servizi](../operations-management-suite/operati
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 
-### <a name="data-synced-from-itsm-product"></a>Dati sincronizzati dal prodotto ITSM
+### <a name="data-synced-from-itsm-product"></a>Dati sincronizzati dal prodotto di Gestione dei servizi IT
 Gli eventi imprevisti e le richieste di modifica vengono sincronizzati dal prodotto di Gestione dei servizi IT all'area di lavoro di Log Analytics in base alla configurazione della connessione.
 
 Le informazioni seguenti mostrano esempi di dati raccolti da Connettore di Gestione dei servizi IT:
@@ -176,27 +180,27 @@ Le informazioni seguenti mostrano esempi di dati raccolti da Connettore di Gesti
 **Elemento di lavoro:** **Eventi imprevisti**  
 ServiceDeskWorkItemType_s="Incident"
 
-**Fields**
+**Campi**
 
 - ServiceDeskConnectionName
 - ID Service Desk
-- Stato
-- Urgenza
-- Impatto
-- Priorità
-- Riassegnazione
-- Created By (Creato da)
-- Resolved By (Risolto da)
-- Closed By (Chiuso da)
-- Sorgente
-- Assegnato a 
-- Categoria
+- State
+- Urgency
+- Impact
+- Priority
+- Escalation
+- Created By
+- Resolved By
+- Closed By
+- Source
+- Assigned To
+- Category
 - Title
-- DESCRIZIONE
-- Data di creazione
-- Data di chiusura
-- Data di risoluzione
-- Data ultima modifica
+- Description
+- Created Date
+- Closed Date
+- Resolved Date
+- Last Modified Date
 - Computer
 
 
@@ -204,55 +208,55 @@ ServiceDeskWorkItemType_s="Incident"
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
-**Fields**
+**Campi**
 - ServiceDeskConnectionName
 - ID Service Desk
-- Created By (Creato da)
-- Closed By (Chiuso da)
-- Sorgente
-- Assegnato a 
+- Created By
+- Closed By
+- Source
+- Assigned To
 - Title
-- type
-- Categoria
-- Stato
-- Riassegnazione
-- Conflict Status (Stato di conflitto)
-- Urgenza
-- Priorità
-- Rischio
-- Impatto
-- Assegnato a 
-- Data di creazione
-- Data di chiusura
-- Data ultima modifica
-- Data richiesta
-- Planned Start Date (Data di inizio pianificata)
-- Planned End Date (Data di fine pianificata)
-- Work Start Date (Data di inizio lavoro)
-- Work End Date (Data di fine pianificata)
-- DESCRIZIONE
+- Type
+- Category
+- State
+- Escalation
+- Conflict Status
+- Urgency
+- Priority
+- Risk
+- Impact
+- Assigned To
+- Created Date
+- Closed Date
+- Last Modified Date
+- Requested Date
+- Planned Start Date
+- Planned End Date
+- Work Start Date
+- Work End Date
+- Description
 - Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dati di output per un evento imprevisto ServiceNow
 
-| Campo Log Analytics | Campo di ServiceNow |
+| Campo di Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| IncidentState_s | Stato |
-| Urgency_s |Urgenza |
-| Impact_s |Impatto|
-| Priority_s | Priorità |
-| CreatedBy_s | Aperto da |
-| ResolvedBy_s | Risolto da|
-| ClosedBy_s  | Chiuso da |
+| IncidentState_s | State |
+| Urgency_s |Urgency |
+| Impact_s |Impact|
+| Priority_s | Priority |
+| CreatedBy_s | Opened by |
+| ResolvedBy_s | Resolved by|
+| ClosedBy_s  | Closed by |
 | Source_s| Tipo di contatto |
-| AssignedTo_s | Assegnato a  |
-| Category_s | Categoria |
-| Title_s|  Breve descrizione |
-| Description_s|  Note |
-| CreatedDate_t|  Aperto |
+| AssignedTo_s | Assigned to  |
+| Category_s | Category |
+| Title_s|  Short description |
+| Description_s|  Notes |
+| CreatedDate_t|  Opened |
 | ClosedDate_t| closed|
-| ResolvedDate_t|Risolto|
+| ResolvedDate_t|Resolved|
 | Computer  | Elemento di configurazione |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Dati di output per una richiesta di modifica ServiceNow
@@ -260,24 +264,24 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Log Analytics | Campo di ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| CreatedBy_s | Richiesto da |
-| ClosedBy_s | Chiuso da |
-| AssignedTo_s | Assegnato a  |
-| Title_s|  Breve descrizione |
-| Type_s|  type |
-| Category_s|  Categoria |
-| CRState_s|  Stato|
-| Urgency_s|  Urgenza |
-| Priority_s| Priorità|
-| Risk_s| Rischio|
-| Impact_s| Impatto|
-| RequestedDate_t  | Data richiesta |
-| ClosedDate_t | Data di chiusura |
-| PlannedStartDate_t  |     Data di inizio pianificata |
-| PlannedEndDate_t  |   Data di fine pianificata |
-| WorkStartDate_t  | Data di inizio effettiva |
-| WorkEndDate_t | Data di fine effettiva|
-| Description_s | DESCRIZIONE |
+| CreatedBy_s | Requested by |
+| ClosedBy_s | Closed by |
+| AssignedTo_s | Assigned to  |
+| Title_s|  Short description |
+| Type_s|  Type |
+| Category_s|  Category |
+| CRState_s|  State|
+| Urgency_s|  Urgency |
+| Priority_s| Priority|
+| Risk_s| Risk|
+| Impact_s| Impact|
+| RequestedDate_t  | Requested by date |
+| ClosedDate_t | Closed date |
+| PlannedStartDate_t  |     Planned start date |
+| PlannedEndDate_t  |   Planned end date |
+| WorkStartDate_t  | Actual start date |
+| WorkEndDate_t | Actual end date|
+| Description_s | Description |
 | Computer  | Elemento di configurazione |
 
 
@@ -285,16 +289,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 1.  Se si verifica un errore di connessione nell'interfaccia utente dell'origine connessa con un messaggio **Errore durante il salvataggio della connessione**, seguire questa procedura:
  - Per le connessioni ServiceNow, Cherwell e Provance,  
     - assicurarsi di immettere correttamente il nome utente, la password, l'ID client e il segreto client per ognuna delle connessioni.  
-    - controllare se si hanno privilegi sufficienti nel prodotto ITSM corrispondente per stabilire la connessione.  
+    - controllare se si hanno privilegi sufficienti nel prodotto di Gestione dei servizi IT corrispondente per stabilire la connessione.  
  - Per le connessioni Service Manager,  
     - verificare che l'app Web sia stata distribuita correttamente e che la connessione ibrida sia stata creata. Per verificare che la connessione sia stata stabilita con il computer Service Manager on-premises, visitare l'URL dell'app Web come descritto nella documentazione per la creazione della [connessione ibrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Se i dati provenienti da ServiceNow non vengono sincronizzati con Log Analytics, assicurarsi che l'istanza del servizio ServiceNow non sia sospesa. Le istanze di sviluppo di ServiceNow a volte vanno in sospensione se rimangono inattive a lungo. In caso contrario, segnalare il problema.
-3.  Se gli avvisi OMS vengono generati, ma gli elementi di lavoro non vengono creati nel prodotto ITSM o gli elementi di configurazione non vengono creati/collegati a elementi di lavoro o per qualsiasi altra informazione generica, esaminare le posizioni seguenti:
- -  Gestione dei servizi IT: la soluzione mostra un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul riquadro contenente **Stato connettore** per passare a **Ricerca log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
+3.  Se vengono generati avvisi di Log Analytics, ma gli elementi di lavoro non vengono creati nel prodotto di Gestione dei servizi IT o gli elementi di configurazione non vengono creati o collegati a elementi di lavoro o per qualsiasi altra informazione generica, fare riferimento a quanto segue:
+ -  Connettore di Gestione dei servizi IT: la soluzione mostra un riepilogo delle connessioni/elementi di lavoro/computer e così via. Fare clic sul riquadro contenente **Stato connettore** per passare a **Ricerca log** con la query pertinente. Esaminare i record di log con ERROR LogType_S per altre informazioni.
  - Pagina **Ricerca log**: consente di visualizzare gli errori o le informazioni correlate direttamente usando la query `*`ServiceDeskLog_CL`*`.
 
-## <a name="troubleshoot-service-manager-web-app-deployment"></a>Risolvere i problemi di distribuzione dell’app Web Service Manager
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>Risolvere i problemi di distribuzione dell'app Web Service Manager
 1.  In caso di problemi con la distribuzione dell'app Web, assicurarsi di disporre di autorizzazioni sufficienti nella sottoscrizione indicata per creare/distribuire risorse.
 2.  Se viene visualizzato un errore **"Riferimento a oggetto non impostato sull'istanza di un oggetto"** quando si esegue lo [script](log-analytics-itsmc-service-manager-script.md), assicurarsi di aver immesso valori validi nella sezione **Configurazione utente**.
 3.  Se non è possibile creare lo spazio dei nomi di inoltro del bus di servizio, assicurarsi che il provider di risorse richiesto sia registrato nella sottoscrizione. Qualora non fosse registrato, creare manualmente lo spazio dei nomi di inoltro del bus di servizio dal portale di Azure. È inoltre possibile crearlo durante [la creazione della connessione ibrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection) dal portale di Azure.
@@ -302,7 +306,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="contact-us"></a>Contatti
 
-Per eventuali domande o commenti e suggerimenti su IT Service Management Connector, è possibile contattare [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
+Per eventuali domande o feedback su Connettore di Gestione dei servizi IT, è possibile contattare [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Aggiungere prodotti o servizi ITSM a IT Service Management Connector](log-analytics-itsmc-connections.md).
+[Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT](log-analytics-itsmc-connections.md).

@@ -1,6 +1,6 @@
 ---
-title: Linee guida per l'ottimizzazione delle prestazioni di Hive in Azure Data Lake Store | Microsoft Docs
-description: Linee guida per l'ottimizzazione delle prestazioni di Hive in Azure Data Lake Store
+title: Linee guida per l'ottimizzazione delle prestazioni di Hive in Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Linee guida per l'ottimizzazione delle prestazioni di Hive in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: c46eb1b2da62d70337e60066ed0706c3a4fdedcf
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198970"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024291"
 ---
-# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-store"></a>Linee guida per l'ottimizzazione delle prestazioni di Hive in HDInsight e di Azure Data Lake Store
+# <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Materiale sussidiario per l'ottimizzazione delle prestazioni di Hive in HDInsight e Azure Data Lake Storage Gen1
 
-Le impostazioni predefinite sono state impostate per fornire buone prestazioni per molti casi d'uso diversi.  Per le query con attività di I/O intensive, è possibile regolare Hive per ottenere prestazioni migliori con ADLS.  
+Le impostazioni predefinite sono state impostate per fornire buone prestazioni per molti casi d'uso diversi.  Per le query con attività di I/O intensive, è possibile regolare Hive per ottenere prestazioni migliori con Azure Data Lake Storage Gen1.  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account Azure Data Lake Store**. Per istruzioni su come crearne uno, vedere [Introduzione ad Archivio Data Lake di Azure](data-lake-store-get-started-portal.md)
-* **Cluster Azure HDInsight** con accesso a un account di Archivio Data Lake. Vedere [Creare un cluster HDInsight con Data Lake Store tramite il portale di Azure](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
-* **Esecuzione di Hive in HDInsight**.  Per informazioni sull'esecuzione di processi Hive in HDInsight, vedere [Usare Hive in HDInsight] (https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
-* **Linee guida per l'ottimizzazione delle prestazioni in ADLS**.  Per i concetti generali relativi alle prestazioni, vedere [Linee guida per l'ottimizzazione delle prestazioni in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
+* **Un account Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Cluster HDInsight di Azure** con accesso a un account Data Lake Storage Gen1. Vedere [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Assicurarsi di abilitare il Desktop remoto per il cluster.
+* **Esecuzione di Hive in HDInsight**.  Per informazioni sull'esecuzione di processi Hive in HDInsight, vedere [Usare Hive in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
+* **Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1**.  Per informazioni sui concetti generali relativi alle prestazioni, vedere [Linee guida per l'ottimizzazione delle prestazioni in Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance)
 
 ## <a name="parameters"></a>Parametri
 
-Di seguito vengono elencate le impostazioni più importanti da regolare per ottenere prestazioni migliori in ADLS:
+Di seguito sono elencate le impostazioni più importanti da ottimizzare per ottenere prestazioni migliori in Data Lake Storage Gen1:
 
 * **hive.tez.container.size**: la quantità di memoria usata da ciascuna attività
 
@@ -63,7 +63,7 @@ Il numero di attività simultanee in esecuzione o il parallelismo verrà ristret
 
         Total YARN memory = nodes * YARN memory per node
         # of YARN containers = Total YARN memory / Tez container size
-La chiave per migliorare le prestazioni usando ADLS consiste nell'aumentare il più possibile la concorrenza.  Tez calcola automaticamente il numero di attività da creare, in modo che non debba essere impostato manualmente.   
+La chiave per migliorare le prestazioni usando Data Lake Storage Gen1 consiste nell'aumentare il più possibile la concorrenza.  Tez calcola automaticamente il numero di attività da creare, in modo che non debba essere impostato manualmente.   
 
 ## <a name="example-calculation"></a>Calcolo di esempio
 
@@ -75,9 +75,9 @@ Si supponga di disporre di un cluster D14 a 8 nodi.
 
 ## <a name="limitations"></a>Limitazioni
 
-**Limitazione ADLS** 
+**Limitazione della larghezza di banda della rete di Data Lake Storage Gen1** 
 
-Se si raggiungono i limiti di larghezza di banda di ADLS, le attività inizieranno ad avere esiti negativi. Ciò può essere constatato verificando la presenza di errori di limitazione nei log delle attività.  È possibile ridurre il parallelismo aumentando la dimensione del contenitore Tez.  Se occorre maggiore concorrenza per il processo, contattare Microsoft.
+Se si raggiungono i limiti di larghezza di banda di Data Lake Storage Gen1, è possibile che le attività abbiano esito negativo. Ciò può essere constatato verificando la presenza di errori di limitazione nei log delle attività.  È possibile ridurre il parallelismo aumentando la dimensione del contenitore Tez.  Se occorre maggiore concorrenza per il processo, contattare Microsoft.
 
 Per verificare la presenza di limitazioni, è necessario abilitare la registrazione di debug sul lato client. Ecco come fare:
 

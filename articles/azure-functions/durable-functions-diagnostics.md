@@ -2,20 +2,20 @@
 title: Diagnostica in Funzioni permanenti - Azure
 description: Informazioni su come eseguire la diagnostica dei problemi con l'estensione Funzioni permanenti per Funzioni di Azure.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 1ebca858632a64b5822658182a3b83c48f310164
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1c111031af4163dcc915ab6c705edbd613cfcefd
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953036"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984826"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>Diagnostica in Funzioni permanenti (Funzioni di Azure)
 
@@ -153,13 +153,13 @@ public static async Task Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context){
+module.exports = df.orchestrator(function*(context){
     context.log("Calling F1.");
-    yield context.df.callActivityAsync("F1");
+    yield context.df.callActivity("F1");
     context.log("Calling F2.");
-    yield context.df.callActivityAsync("F2");
+    yield context.df.callActivity("F2");
     context.log("Calling F3.");
-    yield context.df.callActivityAsync("F3");
+    yield context.df.callActivity("F3");
     context.log("Done!");
 });
 ```
@@ -184,6 +184,8 @@ Done!
 
 Se si vuole eseguire la registrazione solo con l'esecuzione senza riesecuzione, è possibile scrivere un'espressione condizionale per eseguire la registrazione solo se `IsReplaying` è `false`. Si consideri l'esempio precedente, ma questa volta con i controlli di riesecuzione.
 
+#### <a name="c"></a>C#
+
 ```cs
 public static async Task Run(
     DurableOrchestrationContext ctx,
@@ -198,6 +200,23 @@ public static async Task Run(
     log.Info("Done!");
 }
 ```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (solo funzioni v2)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    if (!context.df.isReplaying) context.log("Calling F1.");
+    yield context.df.callActivity("F1");
+    if (!context.df.isReplaying) context.log("Calling F2.");
+    yield context.df.callActivity("F2");
+    if (!context.df.isReplaying) context.log("Calling F3.");
+    yield context.df.callActivity("F3");
+    context.log("Done!");
+});
+```
+
 Con questa modifica, l'output del log è il seguente:
 
 ```txt
@@ -206,9 +225,6 @@ Calling F2.
 Calling F3.
 Done!
 ```
-
-> [!NOTE]
-> La proprietà `IsReplaying` non è ancora disponibile in JavaScript.
 
 ## <a name="custom-status"></a>Stato personalizzato
 
@@ -226,6 +242,9 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
     // ...do more work...
 }
 ```
+
+> [!NOTE]
+> Gli stati dell'orchestrazione personalizzata per JavaScript saranno disponibili in una versione futura.
 
 Mentre l'orchestrazione è in esecuzione, i client esterni possono recuperare questo stato personalizzato:
 

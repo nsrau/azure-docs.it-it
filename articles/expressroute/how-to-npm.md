@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 47f219b7319e4d2bbadf03954f7bd7f6f39da3b4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128980"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404342"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute
 
@@ -43,7 +43,7 @@ Monitoraggio prestazioni rete (NPM) è una soluzione di monitoraggio di rete bas
 
 Gli agenti di monitoraggio sono installati su più server, sia in locale che in Azure. Gli agenti comunicano tra loro, ma non inviano dati, inviano pacchetti di handshake TCP. La comunicazione tra gli agenti consente ad Azure di eseguire il mapping della topologia di rete e del percorso che il traffico potrebbe prendere.
 
-1. Creare un'area di lavoro di Monitoraggio prestazioni rete. Equivale a un'area di lavoro OMS.
+1. Creare un'area di lavoro di Monitoraggio prestazioni rete. La procedura corrisponde a quella adottata per creare un'area di lavoro di Log Analytics.
 2. Installare e configurare gli agenti software: 
     * Installare agenti di monitoraggio sui server locali e sulle macchine virtuali di Azure (per il peering privato).
     * Configurare le impostazioni nei server degli agenti di monitoraggio per consentire agli agenti di monitoraggio di comunicare (aprire le porte del firewall, ecc.).
@@ -63,10 +63,10 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
    >
 
    ![portal](.\media\how-to-npm\3.png)<br><br>
-2. Nella parte inferiore della pagina principale **Monitoraggio prestazioni rete** fare clic su **Crea** per aprire la pagina **Monitoraggio prestazioni rete - Crea nuova soluzione**. Fare clic su **Area di lavoro di OMS - Selezionare un'area di lavoro** per aprire la pagina Aree di lavoro. Fare clic su **+Crea nuova area di lavoro** per aprire la pagina Area di lavoro.
-3. Nella pagina **Area di lavoro OMS** selezionare **Crea nuovo**, quindi configurare le impostazioni seguenti:
+2. Nella parte inferiore della pagina principale **Monitoraggio prestazioni rete** fare clic su **Crea** per aprire la pagina **Monitoraggio prestazioni rete - Crea nuova soluzione**. Fare clic su **Area di lavoro di Log Analytics - Selezionare un'area di lavoro** per aprire la pagina Aree di lavoro. Fare clic su **+Crea nuova area di lavoro** per aprire la pagina Area di lavoro.
+3. Nella pagina **Area di lavoro di Log Analytics** selezionare **Crea nuovo** e quindi configurare le impostazioni seguenti:
 
-  * Area di lavoro OMS: immettere un nome per l'area di lavoro.
+  * Area di lavoro di Log Analytics: immettere un nome per l'area di lavoro.
   * Sottoscrizione: in presenza di più sottoscrizioni, scegliere quella da associare alla nuova area di lavoro.
   * Gruppo di risorse: creare un gruppo di risorse o usarne uno esistente.
   * Località: questa località viene usata per specificare la località dell'account di archiviazione usato per i log di connessione dell'agente.
@@ -86,9 +86,9 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
 
 ### <a name="download"></a>2.1: Scaricare il file di installazione dell'agente
 
-1. Passare alla scheda **Impostazioni comuni** della pagina **Configurazione del monitoraggio prestazioni di rete** della risorsa. Fare clic sull'agente corrispondente al processore del server indicato nella sezione **Installa agenti OMS** e scaricare il file di installazione.
+1. Passare alla scheda **Impostazioni comuni** della pagina **Configurazione del monitoraggio prestazioni di rete** della risorsa. Fare clic sull'agente corrispondente al processore del server indicato nella sezione **Installa agenti di Log Analytics** e scaricare il file di installazione.
 2. Quindi copiare l'**ID area di lavoro** e la **chiave primaria** nel Blocco note.
-3. Nella sezione **Configurare gli agenti OMS per il monitoraggio tramite il protocollo TCP** scaricare lo script PowerShell. Lo script di PowerShell consente di aprire la porta firewall pertinente per le transazioni TCP.
+3. Nella sezione **Configurare gli agenti di Log Analytics per il monitoraggio tramite il protocollo TCP** scaricare lo script PowerShell. Lo script di PowerShell consente di aprire la porta firewall pertinente per le transazioni TCP.
 
   ![Script di PowerShell](.\media\how-to-npm\7.png)
 
@@ -117,7 +117,7 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
     ![Account](.\media\how-to-npm\10.png)
 6. Nella pagina **Pronto per l'installazione** rivedere le scelte effettuate e quindi fare clic su **Installa**.
 7. Nella pagina **Configurazione completata** fare clic su **Fine**.
-8. Al termine verrà visualizzato Microsoft Monitoring Agent nel Pannello di controllo. È possibile rivedere la configurazione e verificare che l'agente sia connesso ad Azure Log Analytics (OMS). Quando si è connessi, l'agente visualizza un messaggio nel quale è indicato che **Microsoft Monitoring Agent ha eseguito la connessione al servizio Microsoft Operations Management Suite**.
+8. Al termine verrà visualizzato Microsoft Monitoring Agent nel Pannello di controllo. È possibile rivedere la configurazione e verificare che l'agente sia connesso ad Azure Log Analytics. Quando si è connessi, l'agente visualizza un messaggio nel quale è indicato che **Microsoft Monitoring Agent ha eseguito la connessione al servizio Microsoft Operations Management Suite**.
 
 9. Ripetere questa procedura per ogni rete virtuale da monitorare.
 
@@ -154,7 +154,7 @@ Per creare le chiavi del Registro di sistema necessarie per Monitoraggio prestaz
 La porta 8084 è aperta per impostazione predefinita. È possibile usare una porta personalizzata fornendo il parametro "portNumber" allo script. In questo caso però è necessario specificare la stessa porta per tutti i server in cui viene eseguito lo script.
 
 >[!NOTE]
->Lo script di PowerShell "EnableRules" configura le regole di Windows Firewall solo nel server in cui viene eseguito lo script. Se si dispone di un firewall di rete, è necessario assicurarsi che consenta il traffico destinato alla porta TCP usata dal monitoraggio delle prestazioni di rete.
+>Lo script di PowerShell "EnableRules" configura le regole di Windows Firewall solo nel server in cui viene eseguito lo script. Se si dispone di un firewall di rete, è necessario assicurarsi che consenta il traffico destinato alla porta TCP usata da Monitoraggio prestazioni rete.
 >
 >
 

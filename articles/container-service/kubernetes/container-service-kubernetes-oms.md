@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164320"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426414"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Monitorare un cluster del servizio contenitore di Azure con Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Si presume che questa procedura dettagliata abbia [creato un cluster Kubernetes mediante il servizio contenitore di Azure](container-service-kubernetes-walkthrough.md).
 
 Si presume anche che gli strumenti dell'interfaccia della riga di comando di Azure `az` e `kubectl` siano installati.
@@ -69,7 +69,7 @@ Per altre informazioni sulla soluzione contenitore, consultare [Log Analytics de
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Ottenere l'ID e la chiave dell'area di lavoro
 Per consentire la comunicazione dell'agente di Log Analytics con il servizio, è necessario configurare il rispettivo ID e la rispettiva chiave dell'area di lavoro. Per ottenere l'ID e la chiave dell'area di lavoro, è necessario creare un account in <https://mms.microsoft.com>.
-Attenersi alla procedura di creazione di un account. Al termine della creazione dell'account, è necessario ottenere l'ID e la chiave facendo clic su **Impostazioni**, quindi **Origini connesse** e infine **Server Linux**, come illustrato di seguito.
+Attenersi alla procedura di creazione di un account. Al termine della creazione dell'account, è possibile ottenere l'ID e la chiave facendo clic sul pannello **Log Analytics** e quindi sul nome dell'area di lavoro. In **Impostazioni avanzate**, **Origini connesse** e quindi **Server Linux** sono disponibili le informazioni necessarie, come illustrato di seguito.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
