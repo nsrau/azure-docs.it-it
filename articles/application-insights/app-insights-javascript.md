@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 70269fc71fcb2ef9158b50d3bb281097abee0740
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992414"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167053"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 Scoprire le prestazioni e l'utilizzo della pagina Web o dell'app. Se si aggiunge [Application Insights](app-insights-overview.md) allo script di pagina, si ottengono gli intervalli di tempo di caricamento delle pagine e delle chiamate AJAX, i conteggi e i dettagli delle eccezioni del browser e degli errori AJAX, nonché i conteggi relativi a utenti e sessioni. Tutti questi elementi possono essere segmentati per pagina, sistema operativo client e versione del browser, posizione geografica e altre dimensioni. È possibile impostare avvisi relativi al numero di errori o rallentare il caricamento delle pagine. Inoltre, inserendo le chiamate di traccia nel codice JavaScript, è possibile rilevare come vengono usate le diverse funzionalità dell'applicazione della pagina Web.
@@ -48,12 +48,6 @@ Se non si ha un account, crearlo:
 *Altre domande?* [Altre informazioni sulla creazione di una risorsa](app-insights-create-new-resource.md).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Aggiungere lo script SDK per l'app o pagine Web
-In Avvio rapido ottenere lo script per le pagine Web:
-
-![Nel pannello di panoramica delle app, scegliere Avvio rapido, quindi ottenere il codice per monitorare le pagine Web. Copiare lo script.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-> [!NOTE]
-> L'esperienza *Introduzione* varia a seconda del tipo di applicazione selezionata durante la creazione della risorsa di Application Insights. Se lo script non è presente per l'app come illustrato nella schermata precedente, usare lo script seguente.
 
 ```HTML
 <!-- 
