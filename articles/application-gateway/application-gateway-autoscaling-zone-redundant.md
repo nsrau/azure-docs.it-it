@@ -20,7 +20,7 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 09/25/2018
 ms.locfileid: "47165230"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Gateway applicazione con scalabilità automatica ridondanza della zona (anteprima pubblica)
+# <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)
 
 Il gateway applicazione e Web application firewall sono ora disponibili in anteprima pubblica in una nuova SKU che offre miglioramenti alle prestazioni e aggiunge il supporto per nuove importanti funzionalità quali scalabilità automatica, ridondanza della zona e supporto per gli indirizzi VIP. Le funzionalità esistenti nella SKU disponibile a livello generale continuano a essere supportate nella nuova SKU, con alcune eccezioni elencate nella sezione delle limitazioni note. Le nuove SKU includono i miglioramenti seguenti:
 
@@ -34,7 +34,7 @@ Il gateway applicazione e Web application firewall sono ora disponibili in antep
 - **VIP statico**: l'indirizzo VIP del gateway applicazione supporta ora esclusivamente il tipo di indirizzo VIP statico. Questa funzionalità garantisce che l'indirizzo VIP associato al gateway applicazione non cambi neppure dopo il riavvio.
 
 > [!IMPORTANT]
-> La SKU del gateway applicazione con scalabilità automatica e ridondanza della zona è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Lo SKU del gateway applicazione con scalabilità automatica e ridondanza della zona è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 

@@ -76,7 +76,7 @@ Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](load
 
 Load Balancer Standard supporta funzionalità aggiuntive in aree in cui sono disponibili zone di disponibilità.  Queste funzionalità sono incrementali rispetto a tutte le funzioni di Load Balancer Standard.  Le configurazioni delle zone di disponibilità sono disponibili per Load Balancer Standard pubblico e interno.
 
-Server front-end non zonali diventano a ridondanza della zona per impostazione predefinita quando vengono distribuiti in un'area con zone di disponibilità.   Un server front-end a ridondanza della zona sopravvive all’errore di zona e viene fornito da parte di infrastrutture dedicate in tutte le zone contemporaneamente. 
+Server front-end non zonali diventano con ridondanza della zona per impostazione predefinita quando vengono distribuiti in un'area con zone di disponibilità.   Un server front-end con ridondanza della zona sopravvive all'errore di zona e viene fornito da parte di infrastrutture dedicate in tutte le zone contemporaneamente. 
 
 Inoltre, è possibile garantire un front-end a una zona specifica. Un server front-end zonale condivide il destino con la rispettiva zona ed è servito solo da un'infrastruttura dedicata in una singola zona.
 

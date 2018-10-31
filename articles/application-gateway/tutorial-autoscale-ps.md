@@ -22,7 +22,7 @@ Questa esercitazione descrive come creare un gateway applicazione di Azure trami
 Per altre informazioni sulla scalabilità automatica e la ridondanza della zona del gateway applicazione, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md).
 
 > [!IMPORTANT]
-> La SKU del gateway applicazione con scalabilità automatica e ridondanza della zona è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Lo SKU del gateway applicazione con scalabilità automatica e ridondanza della zona è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 In questa esercitazione si apprenderà come:
 

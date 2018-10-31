@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: ddb9e36775a815c07d40cecd61360c3e5b9c2611
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/22/2018
+ms.openlocfilehash: c74d71f0ca8faec587cb36a789ed0328f9b24711
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378772"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954698"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Livelli di servizio vCore, Vantaggio Azure Hybrid e migrazione
 
@@ -29,7 +29,7 @@ Il modello di acquisto basato su vCore consente di ridimensionare le risorse di 
 Il modello vCore offre inoltre la possibilità di usare il [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per ottenere un risparmio sui costi.
 
 > [!NOTE]
-> Per informazioni sui livelli di servizio basati su DTU, vedere [Livelli di servizio basati su DTU](sql-database-service-tiers-dtu.md). Per informazioni sulle differenze tra i livelli di servizio basati su DTU e i livelli di servizio basati su vCore, vedere [Modelli di acquisto del database SQL di Azure](sql-database-service-tiers.md).
+> Per informazioni sui livelli di servizio basati su DTU, vedere [Livelli di servizio basati su DTU](sql-database-service-tiers-dtu.md). Per informazioni sulle differenze tra i livelli di servizio basati su DTU e quelli basati su vCore, vedere [Modelli di acquisto del database SQL di Azure](sql-database-service-tiers.md).
 
 ## <a name="service-tier-characteristics"></a>Caratteristiche del livello di servizio
 
@@ -48,6 +48,9 @@ La tabella seguente consente di comprendere le differenze tra questi due livelli
 |Backup|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), da 7 a 35 giorni (7 giorni per impostazione predefinita)|Backup basato su snapshot nell'archiviazione remota di Azure e questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscono sulle prestazioni di I/O di calcolo. I ripristini sono molto veloci e non corrispondono a un'operazione di dimensionamento dei dati (impiegano pochi minuti invece di ore o giorni).|
 |In memoria|Non supportate|Supportato|Non supportate|
 |||
+
+> [!NOTE]
+> È possibile ottenere un database SQL di Azure al livello di servizio Basic con un account Azure gratuito per provare a usare Azure. Per informazioni, vedere [Crea un database cloud gestito con il tuo account Azure gratuito](https://azure.microsoft.com/free/services/sql-database/).
 
 - Per altre informazioni, vedere [Limiti delle risorse vCore nel database singolo](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse vCore nell'istanza gestita](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Per altre informazioni sui livelli di servizio Utilizzo generico e Business critical, vedere [Livelli di servizio Utilizzo generico e Business critical](sql-database-service-tiers-general-purpose-business-critical.md).

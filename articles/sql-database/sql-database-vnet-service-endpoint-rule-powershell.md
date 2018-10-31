@@ -7,24 +7,24 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dmalik
+author: oslake
+ms.author: moslake
 ms.reviewer: genemi, vanto
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: f21614757716b860c25436acfa7b6275cd848109
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b841f985c758cb1e354d3c3537c532a253e81d92
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868209"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945927"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: Creare un endpoint del servizio virtuale e una regola di rete virtuale per SQL
 
 Sia il [database SQL di Azure](sql-database-technical-overview.md) che quello di [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) supportano gli endpoint del servizio virtuale.
 
 > [!NOTE]
-> Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
+> Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. Questo articolo *non* si applica a **Istanza gestita di database SQL di Azure** perché non c'è un endpoint di servizio associato a una subnet dell'istanza gestita.
 
 Questo articolo fornisce e descrive uno script di PowerShell che esegue le azioni seguenti:
 

@@ -11,21 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 07/16/2018
-ms.openlocfilehash: b2d4166c25014416efbb7392acda3f3f028b4fa9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/24/2018
+ms.openlocfilehash: 7fe34423e706054daf84eaa8baf45fe201a661c9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162047"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026178"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Archiviare i backup del database SQL di Azure per un massimo di 10 anni
 
 Molte applicazioni sono vincolate da ragioni normative, di conformità o altri scopi aziendali che richiedono di conservare i backup del database oltre i 7-35 giorni offerti dai [backup automatici](sql-database-automated-backups.md) del database SQL di Azure. La funzionalità di conservazione a lungo termine consente di archiviare i backup completi del database SQL in una risorsa di archiviazione BLOB [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) fino a un massimo di 10 anni. È quindi possibile ripristinare qualsiasi backup come nuovo database.
 
+> [!NOTE]
+> La conservazione a lungo termine può essere abilitata nei database ospitati nei server logici del database SQL di Azure. Non è ancora disponibile per database ospitati in Istanze gestite.
+> 
+
 ## <a name="how-sql-database-long-term-retention-works"></a>Funzionamento della conservazione a lungo termine del database SQL
 
-La conservazione dei backup a lungo termine sfrutta i [backup automatici dei database SQL](sql-database-automated-backups.md) creati per il ripristino temporizzato. È possibile configurare criteri di conservazione a lungo termine per ogni database SQL e specificare la frequenza con cui è necessario copiare i backup nell'archiviazione a lungo termine. Per abilitare tale flessibilità, è possibile definire i criteri usando una combinazione di quattro parametri: conservazione backup settimanale (W), conservazione backup mensile (M), conservazione backup annuale (Y) e settimana dell'anno (WeekOfYear). Se si specifica W, verrà copiato nella risorsa di archiviazione a lungo termine un backup ogni settimana. Se si specifica M, verrà copiato nella risorsa di archiviazione a lungo termine un backup nella prima settimana di ogni mese. Se si specifica Y, verrà copiato nella risorsa di archiviazione a lungo termine un backup nella settimana specificata dal valore WeekOfYear. Ogni backup verrà conservato nella risorsa di archiviazione a lungo termine per il periodo specificato da questi parametri. 
+La conservazione dei backup a lungo termine consente di sfruttare i backup di database completi che vengono [creati automaticamente](sql-database-automated-backups.md) per abilitare il recupero temporizzato. Questi backup vengono copiati in BLOB di archiviazione diversi se sono configurati criteri di conservazione a lungo termine.
+È possibile configurare criteri di conservazione a lungo termine per ogni database SQL e specificare la frequenza con cui è necessario copiare i backup nei BLOB di archiviazione a lungo termine. Per abilitare tale flessibilità, è possibile definire i criteri usando una combinazione di quattro parametri: conservazione backup settimanale (W), conservazione backup mensile (M), conservazione backup annuale (Y) e settimana dell'anno (WeekOfYear). Se si specifica W, verrà copiato nella risorsa di archiviazione a lungo termine un backup ogni settimana. Se si specifica M, verrà copiato nella risorsa di archiviazione a lungo termine un backup nella prima settimana di ogni mese. Se si specifica Y, verrà copiato nella risorsa di archiviazione a lungo termine un backup nella settimana specificata dal valore WeekOfYear. Ogni backup verrà conservato nella risorsa di archiviazione a lungo termine per il periodo specificato da questi parametri. 
 
 Esempi:
 

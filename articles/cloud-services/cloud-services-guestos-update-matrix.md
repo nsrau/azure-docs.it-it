@@ -4,7 +4,6 @@ description: Notizie sui rilasci più recenti e sulla compatibilità SDK per il 
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: timlt
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2018
+ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 2ee31e0a2d563ddf2aa63498b4ca280e4da26754
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524859"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376670"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK
 Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure più recente per i servizi cloud. Queste informazioni sono utili per pianificare il percorso di aggiornamento prima che un sistema operativo guest venga disabilitato. Se si configurano i ruoli per l'uso degli aggiornamenti *automatici* del sistema operativo guest come descritto in [Impostazioni di aggiornamento del sistema operativo guest di Azure][Azure Guest OS Update Settings], non è indispensabile leggere questa pagina.
@@ -36,13 +35,19 @@ Fornisce informazioni aggiornate sui rilasci del sistema operativo guest Azure p
 >
 
 > [!IMPORTANT]
-> A partire dall'implementazione di novembre, solo le due versioni più recenti del sistema operativo Guest saranno supportate e disponibili nel portale di Azure.
+> Solo le due versioni più recenti del sistema operativo Guest saranno supportate e disponibili nel portale di Azure.
 >
 >
 
 In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste informazioni][cloud updates].
 
 ## <a name="news-updates"></a>Novità e aggiornamenti
+
+###### <a name="october-12-2018"></a>**12 ottobre 2018**
+È stato rilasciato il sistema operativo guest di settembre.
+
+###### <a name="september-12-2018"></a>**12 settembre 2018**
+È stato rilasciato il sistema operativo guest di agosto.
 
 ###### <a name="august-3-2018"></a>**3 agosto 2018**
 È stato rilasciato il sistema operativo guest di luglio.
@@ -56,28 +61,6 @@ In caso di dubbi su come aggiornare il sistema operativo guest, vedere [queste i
 ###### <a name="may-4-2018"></a>**4 maggio 2018**
 È stato rilasciato il sistema operativo guest di aprile.
 
-###### <a name="april-6-2018"></a>**6 aprile 2018**
-È stato rilasciato il sistema operativo guest di marzo.
-
-###### <a name="march-19-2018"></a>**19 marzo 2018**
-È stato rilasciato il sistema operativo guest di febbraio.
-
-###### <a name="january-29-2018"></a>**29 gennaio 2018**
-Il sistema operativo guest di gennaio è stato rilasciato per le famiglie di sistemi operativi 2 (WA-GUEST-OS-2.70_201801-01) e 3 (WA-GUEST-OS-3.57_201801-01)
-
-###### <a name="january-4-2018"></a>**4 gennaio 2018**
-Il sistema operativo guest di gennaio è stato rilasciato per le famiglie di sistemi operativi 4 (WA-GUEST-OS-4.50_201801-01) e 5 (WA-GUEST-OS-5.15_201801-01) e contiene importanti patch di protezione.  
-
-###### <a name="january-4-2018"></a>**4 gennaio 2018**
-È stato rilasciato il sistema operativo guest di dicembre.
-
-###### <a name="december-14-2017"></a>**14 dicembre 2017**
-È stato rilasciato il sistema operativo guest di novembre.
-
-###### <a name="november-8-2017"></a>**8 novembre 2017**
-È stato rilasciato il sistema operativo guest di ottobre.
-
-
 
 ## <a name="releases"></a>Rilasci
 ## <a name="family-5-releases"></a>Versioni della famiglia 5
@@ -86,98 +69,59 @@ Il sistema operativo guest di gennaio è stato rilasciato per le famiglie di sis
 Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> La date contrassegnate da * sono soggette a modifiche.
->
-> La password RDP per la famiglia di sistemi operativi 5 deve contenere almeno 10 caratteri.
+> La password di RDP per la famiglia di sistemi operativi 5 deve contenere almeno 10 caratteri.
 >
 
-| Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-5.21_201807-02 |3 agosto 2018 |Post 5.23 |Da definire |
-| WA-GUEST-OS-5.20_201806-01 |3 luglio 2018 |Post 5.22 |Da definire |
-|~~WA-GUEST-OS-5.19_201805-01~~ |1 giugno 2018 |3 agosto 2018 |Da definire |
-|~~WA-GUEST-OS-5.18_201804-01~~ |4 maggio 2018 |3 luglio 2018 |Da definire |
-|~~WA-GUEST-OS-5.17_201803-01~~ |6 aprile 2018 |1 giugno 2018|Da definire |
-|~~WA-GUEST-OS-5.16_201802-01~~ |12 marzo 2018 |4 maggio 2018 |Da definire |
-|~~WA-GUEST-OS-5.15_201801-01~~ |4 gennaio 2018 |6 aprile 2018 |Da definire |
-|~~WA-GUEST-OS-5.14_201712-01~~ |4 gennaio 2018 |12 marzo 2018 |Da definire |
-|~~WA-GUEST-OS-5.13_201711-01~~ |14 dicembre 2017 |4 gennaio 2018|Da definire |
-|~~WA-GUEST-OS-5.12_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
-
+| Stringa di configurazione | Data di rilascio | Data di disabilitazione |
+| --- | --- | --- |
+| WA-GUEST-OS-5.23_201809-01 |12 ottobre 2018 |Post 5.25 |
+| WA-GUEST-OS-5.22_201808-01 |12 settembre 2018 |Post 5.24 |
+|~~WA-GUEST-OS-5.21_201807-02~~ |3 agosto 2018 |12 ottobre 2018 |
+|~~WA-GUEST-OS-5.20_201806-01~~ |3 luglio 2018 |12 settembre 2018 |
+|~~WA-GUEST-OS-5.19_201805-01~~ |1 giugno 2018 |3 agosto 2018 |
+|~~WA-GUEST-OS-5.18_201804-01~~ |4 maggio 2018 |3 luglio 2018 |
 
 ## <a name="family-4-releases"></a>Versioni della famiglia 4
 **Windows Server 2012 R2**
 
 Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> La date contrassegnate da * sono soggette a modifiche.
->
->
-
-| Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-4.56_201807-02 |3 agosto 2018 |Post 4.58 |Da definire |
-| WA-GUEST-OS-4.55_201806-01 |3 luglio 2018 |Post 4.57 |Da definire |
-|~~WA-GUEST-OS-4.54_201805-01~~ |1 giugno 2018 |3 agosto 2018 |Da definire |
-|~~WA-GUEST-OS-4.53_201804-01~~ |4 maggio 2018 |3 luglio 2018 |Da definire |
-|~~WA-GUEST-OS-4.52_201803-01~~ |6 aprile 2018 |1 giugno 2018 |Da definire |
-|~~WA-GUEST-OS-4.51_201802-01~~ |12 marzo 2018 |4 maggio 2018 |Da definire |
-|~~WA-GUEST-OS-4.50_201801-01~~ |4 gennaio 2018 |6 aprile 2018 |Da definire |
-|~~WA-GUEST-OS-4.49_201712-01~~ |4 gennaio 2018 |12 marzo 2018 |Da definire |
-|~~WA-GUEST-OS-4.48_201711-01~~ |14 dicembre 2017 |4 gennaio 2018 |Da definire |
-|~~WA-GUEST-OS-4.47_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
-
+| Stringa di configurazione | Data di rilascio | Data di disabilitazione |
+| --- | --- | --- |
+| WA-GUEST-OS-4.58_201809-01 |12 ottobre 2018 |Post 4.60 |
+| WA-GUEST-OS-4.57_201808-01 |12 settembre 2018 |Post 4.59 |
+|~~WA-GUEST-OS-4.56_201807-02~~ |3 agosto 2018 |12 ottobre 2018 |
+|~~WA-GUEST-OS-4.55_201806-01~~ |3 luglio 2018 |12 settembre 2018 |
+|~~WA-GUEST-OS-4.54_201805-01~~ |1 giugno 2018 |3 agosto 2018 |
+|~~WA-GUEST-OS-4.53_201804-01~~ |4 maggio 2018 |3 luglio 2018 |
 
 ## <a name="family-3-releases"></a>Versioni della famiglia 3
 **Windows Server 2012**
 
 Versione .NET Framework installata: 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> La date contrassegnate da * sono soggette a modifiche.
->
->
-
-| Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-3.63_201807-02 |3 agosto 2018 |Post 3.65 |Da definire |
-| WA-GUEST-OS-3.62_201806-01 |3 luglio 2018 |Post 3.64 |Da definire |
-|~~WA-GUEST-OS-3.61_201805-01~~ |1 giugno 2018 |3 agosto 2018 |Da definire |
-|~~WA-GUEST-OS-3.60_201804-01~~ |4 maggio 2018 |3 luglio 2018 |Da definire |
-|~~WA-GUEST-OS-3.59_201803-01~~ |6 aprile 2018 |1 giugno 2018 |Da definire |
-|~~WA-GUEST-OS-3.58_201802-01~~ |19 marzo 2018 |4 maggio 2018 |Da definire |
-|~~WA-GUEST-OS-3.57_201801-01~~ |29 gennaio 2018 |6 aprile 2018 |Da definire |
-|~~WA-GUEST-OS-3.56_201712-01~~ |4 gennaio 2018 |19 marzo 2018 |Da definire |
-|~~WA-GUEST-OS-3.55_201711-01~~ |14 dicembre 2017 |29 gennaio 2018 |Da definire |
-|~~WA-GUEST-OS-3.54_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
-
+| Stringa di configurazione | Data di rilascio | Data di disabilitazione |
+| --- | --- | --- |
+| WA-GUEST-OS-3.65_201809-01 |12 ottobre 2018 |Post 3.67 |
+| WA-GUEST-OS-3.64_201808-01 |12 settembre 2018 |Post 3.66 |
+|~~WA-GUEST-OS-3.63_201807-02~~ |3 agosto 2018 |12 ottobre 2018 |
+|~~WA-GUEST-OS-3.62_201806-01~~ |3 luglio 2018 |12 settembre 2018 |
+|~~WA-GUEST-OS-3.61_201805-01~~ |1 giugno 2018 |3 agosto 2018 |
+|~~WA-GUEST-OS-3.60_201804-01~~ |4 maggio 2018 |3 luglio 2018 |
 
 ## <a name="family-2-releases"></a>Versioni della famiglia 2
 **Windows Server 2008 R2 SP1**
 
 Versione .NET Framework installata: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
-> [!NOTE]
-> La date contrassegnate da * sono soggette a modifiche.
->
->
-
-| Stringa di configurazione | Data di rilascio | Data di disabilitazione | Data di scadenza |
-| --- | --- | --- | --- |
-| WA-GUEST-OS-2.76_201807-02 |3 agosto 2018 |Post 2.78 |Da definire |
-| WA-GUEST-OS-2.75_201806-01 |3 luglio 2018 |Post 2.77 |Da definire |
-|~~WA-GUEST-OS-2.74_201805-01~~ |1 giugno 2018 |3 agosto 2018|Da definire |
-|~~WA-GUEST-OS-2.73_201804-01~~ |4 maggio 2018 |3 luglio 2018 |Da definire |
-|~~WA-GUEST-OS-2.72_201803-01~~ |6 aprile 2018 |1 giugno 2018 |Da definire |
-|~~WA-GUEST-OS-2.71_201802-01~~ |12 marzo 2018 |4 maggio 2018 |Da definire |
-|~~WA-GUEST-OS-2.70_201801-01~~ |29 gennaio 2018 |6 aprile 2018 |Da definire |
-|~~WA-GUEST-OS-2.69_201712-01~~ |4 gennaio 2018 |12 marzo 2018 |Da definire |
-|~~WA-GUEST-OS-2.68_201711-01~~ |14 dicembre 2017 |29 gennaio 2018 |Da definire |
-|~~WA-GUEST-OS-2.67_201710-02~~ |8 novembre 2017 |4 gennaio 2018 |Da definire |
-|~~WA-GUEST-OS-2.66_201709-01~~ |6 ottobre 2017 |14 dicembre 2017 |Da definire |
-|~~WA-GUEST-OS-2.65_201708-01~~ |24 agosto 2017 |14 dicembre 2017 |Da definire |
-
+| Stringa di configurazione | Data di rilascio | Data di disabilitazione |
+| --- | --- | --- |
+| WA-GUEST-OS-2.78_201809-01 |12 ottobre 2018 |Post 2.80 |
+| WA-GUEST-OS-2.77_201808-01 |12 settembre 2018 |Post 2.79 |
+|~~WA-GUEST-OS-2.76_201807-02~~ |3 agosto 2018 |12 ottobre 2018 |
+|~~WA-GUEST-OS-2.75_201806-01~~ |3 luglio 2018 |12 settembre 2018 |
+|~~WA-GUEST-OS-2.74_201805-01~~ |1 giugno 2018 |3 agosto 2018|
+|~~WA-GUEST-OS-2.73_201804-01~~ |4 maggio 2018 |3 luglio 2018 |
 
 ## <a name="msrc-patch-updates"></a>Patch di aggiornamento MSRC
 L'elenco di patch incluse con il rilascio del sistema operativo guest di ogni mese è disponibile [qui][patches].
@@ -185,7 +129,7 @@ L'elenco di patch incluse con il rilascio del sistema operativo guest di ogni me
 ## <a name="sdk-support"></a>Supporto SDK
 Anche se le [informazioni sul ritiro di Azure SDK][retire policy sdk] indicano che solo le versioni successive alla 2.2 sono supportate, determinate famiglie di sistemi operativi guest consentono di usare versioni precedenti. È sempre necessario usare l'SDK più recente supportato.
 
-| Famiglia del sistema operativo guest | Versioni dell’SDK compatibili |
+| Famiglia del sistema operativo guest | Versioni SDK compatibili |
 | --- | --- |
 | 5 |Versione 2.9.5.1+ |
 | 4 |Versione 2.1+ |
@@ -193,14 +137,14 @@ Anche se le [informazioni sul ritiro di Azure SDK][retire policy sdk] indicano c
 | 2 |Versione 1.3+ |
 | 1 |Versione 1.0+ |
 
-## <a name="guest-os-release-information"></a>Informazioni sui rilasci del sistema operativo guest
+## <a name="guest-os-release-information"></a>Informazioni sulle versioni dei sistemi operativi guest
 Sono tre le date importanti per le versioni dei sistemi operativi guest: la data di **rilascio**, la data di **disabilitazione** e la data di **scadenza**. Un sistema operativo guest è considerato disponibile quando è disponibile sul portale e può essere selezionato come sistema operativo guest di destinazione. Quando un sistema operativo guest raggiunge la data di **disabilitazione**, viene rimosso da Azure. Tuttavia, qualsiasi servizio cloud destinato a tale sistema operativo guest funzionerà normalmente.
 
 La finestra temporale fra la data di **disabilitazione** e la data di **scadenza** offre un margine di tempo che facilita la transizione da un sistema operativo guest a un altro più recente. Se si usa l'opzione *automatico* come sistema operativo guest, la versione usata sarà sempre la più recente e non ci si dovrà preoccupare della scadenza.
 
 Quando si supera la data di **scadenza** , qualsiasi servizio cloud che usa ancora quel sistema operativo guest verrà arrestato, eliminato o costretto all'aggiornamento. Altre informazioni sui criteri di ritiro sono disponibili [qui][retirepolicy].
 
-## <a name="guest-os-family-version-explanation"></a>Spiegazione delle famiglie e delle versioni del sistema operativo guest
+## <a name="guest-os-family-version-explanation"></a>Spiegazione delle versioni delle famiglie di sistemi operativi guest
 Le famiglie dei sistemi operativi guest sono basate sulle versioni rilasciate di Microsoft Windows Server e il sistema operativo guest è il sistema operativo sottostante in cui viene eseguito Servizi cloud di Azure. A ogni sistema operativo guest sono associati una famiglia, una versione e un numero di rilascio.
 
 * **Guest OS family**  
@@ -221,7 +165,7 @@ Nell'esempio seguente, 2 rappresenta la famiglia, 12 la versione e "rel2" il ril
 Nella stringa di configurazione per un sistema operativo guest sono contenute queste stesse informazioni, insieme a una data che indica quali patch di MSRC sono state prese in considerazione per il rilascio. In questo esempio, sono state incluse le patch di MSRC prodotte per Windows Server 2008 R2 fino ad agosto 2012. Vengono incluse solo le patch che si applicano specificatamente alla versione di Windows Server. Ad esempio, se una patch MSRC si applica a Microsoft Office, non verrà inclusa poiché il prodotto non fa parte dell'immagine di base di Windows Server.
 
 ## <a name="guest-os-system-update-process"></a>Processo di aggiornamento del sistema operativo guest
-In questa pagina vengono fornite informazioni sui prossimi rilasci del sistema operativo guest. I clienti hanno indicato di voler sapere quando viene rilasciata una versione poiché i ruoli del servizio cloud vengono riavviati se impostati per l'aggiornamento automatico. Le versioni del sistema operativo guest vengono in genere rilasciate almeno cinque (5) giorni dopo il rilascio dell'aggiornamento di MSRC che avviene il secondo martedì di ogni mese. Le nuove versioni includono tutte le patch importanti di MSRC per ogni famiglia del sistema operativo guest.
+In questa pagina vengono fornite informazioni sui prossimi rilasci del sistema operativo guest. I clienti hanno indicato di voler sapere quando viene rilasciata una versione poiché i ruoli del servizio cloud vengono riavviati se impostati per l'aggiornamento automatico. Le versioni del sistema operativo guest vengono in genere rilasciate 2-3 settimane dopo il rilascio dell'aggiornamento di MSRC che avviene il secondo martedì di ogni mese. Le nuove versioni includono tutte le patch importanti di MSRC per ogni famiglia del sistema operativo guest.
 
 Gli aggiornamenti di Microsoft Azure vengono rilasciati costantemente. Il sistema operativo guest rappresenta solo uno di tali aggiornamenti nella pipeline. Una versione può essere influenzata da molti fattori, troppo numerosi per essere elencati in questa pagina. Inoltre, Azure viene eseguito su centinaia di migliaia di computer. Ciò significa che è impossibile specificare una data e un'ora esatte del riavvio dei ruoli. Stiamo lavorando a un piano per limitare o temporizzare i riavvii.
 

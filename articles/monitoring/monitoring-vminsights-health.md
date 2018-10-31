@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160622"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387822"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Comprendere l'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali
 Azure include più servizi che singolarmente eseguono un'attività o un ruolo specifico nello spazio di monitoraggio, ma la possibilità di avere una prospettiva approfondita sull'integrità del sistema operativo ospitato nelle macchine virtuali di Azure non era disponibile.  Anche se è possibile monitorare diverse condizioni utilizzando Log Analytics o Monitoraggio di Azure, queste applicazioni non sono progettate per modellare e rappresentare l'integrità dei componenti di base o quella globale della macchina virtuale.  Con la funzionalità dell'integrità di Monitoraggio di Azure per macchine virtuali, è possibile monitorare in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux con un modello che rappresenta i componenti principali e le relative relazioni, criteri che specificano come misurare l'integrità di tali componenti e avvisi che segnalano quando viene rilevata una condizione di non integrità.  
@@ -31,7 +31,7 @@ Questo articolo illustra come valutare, analizzare e risolvere rapidamente i pro
 Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine virtuali, vedere [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md) (Abilitare Monitoraggio di Azure per le macchine virtuali).
 
 ## <a name="monitoring-configuration-details"></a>Dettagli di configurazione di monitoraggio
-Questa sezione descrive i criteri di integrità predefiniti per monitorare le macchine virtuali Linux e Windows Azure.
+Questa sezione descrive i criteri di integrità predefiniti per monitorare le macchine virtuali Linux e Windows Azure. Tutti i criteri di integrità sono preconfigurati per l'invio di un avviso quando viene rilevata una condizione di non integrità. 
 
 ### <a name="windows-vms"></a>Macchine virtuali di Windows
 
@@ -110,7 +110,7 @@ Per visualizzare la raccolta di integrità per tutte le macchine virtuali in un 
 
 ![Visualizzazione del monitoraggio di Informazioni dettagliate macchina virtuale da Monitoraggio di Azure](./media/monitoring-vminsights-health/vminsights-aggregate-health.png)
 
-Dagli elenchi a discesa **Sottoscrizione** e **Gruppo di risorse** selezionare l'opzione appropriata che include le macchine virtuali di destinazione caricate per visualizzarne lo stato di integrità. 
+Dagli elenchi a discesa **Sottoscrizione** e **Gruppo di risorse** selezionare il gruppo di risorse appropriato, in cui sono incluse le macchine virtuali correlate al gruppo, per visualizzarne lo stato di integrità.  La selezione è valida solo per la funzionalità Integrità e non si applica alla funzionalità Prestazioni o Mappa.
 
 Dalla scheda **Integrità** si apprende quanto segue:
 
@@ -253,21 +253,29 @@ Il numero totale di avvisi di integrità delle macchine virtuali classificati in
 
 ![Esempio di tutti gli avvisi con livello di gravità 1](./media/monitoring-vminsights-health/vminsights-sev1-alerts-01.png)
 
+Nella pagina **Avvisi** non vengono solo visualizzati gli avvisi corrispondenti alla sezione, ma viene anche applicato il filtro **Tipo di risorsa**, che consente di visualizzare solo gli avvisi di integrità generati dalla risorsa macchina virtuale.  Nell'elenco degli avvisi presente nella colonna **Risorsa di destinazione** viene infatti visualizzata la macchina virtuale di Azure per la quale è stato generato l'avviso quando è stata rilevata una condizione di non integrità in base a determinati criteri di integrità.  
+
+In questa visualizzazione non sono inclusi gli avvisi provenienti da altri tipi di risorse o servizi, come gli avvisi di log basati su query di Log Analytics o gli avvisi di metriche normalmente visualizzati nella pagina [Tutti gli avvisi](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) predefinita di Monitoraggio di Azure. 
+
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 
 |Colonna |DESCRIZIONE | 
 |-------|------------| 
 |Sottoscrizione |Selezionare una sottoscrizione di Azure. Sono inclusi nella visualizzazione solo gli avvisi della sottoscrizione selezionata. | 
 |Gruppo di risorse |Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. | 
-|Tipo di risorsa |Selezionare uno o più tipi di risorsa. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni del tipo selezionato. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. | 
+|Tipo di risorsa |Selezionare uno o più tipi di risorsa. Per impostazione predefinita, in questa visualizzazione sono selezionati e inclusi solo gli avvisi della **Macchina virtuale** di destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un gruppo di risorse. | 
 |Risorsa |Selezionare una risorsa. Nella visualizzazione vengono inclusi solo gli avvisi con tale risorsa definita come destinazione. Questa colonna risulta disponibile solo dopo che è stato specificato un tipo di risorsa. | 
 |Gravità |Selezionare un livello di gravità degli avvisi oppure *Tutti* per includere gli avvisi di tutti i livelli di gravità. | 
 |Condizione del monitoraggio |Selezionare una condizione di monitoraggio per filtrare gli avvisi se sono stati *Attivati* dal sistema oppure *Risolti* dal sistema se la condizione non è più attiva. In alternativa selezionare *Tutti* per includere gli avvisi di tutte le condizioni. | 
 |Stato dell'avviso |Selezionare uno stato dell'avviso, *Nuovo*, *Conferma*, *Chiuso*, oppure selezionare *Tutti* per includere gli avvisi di tutti gli stati. | 
-|Servizio di monitoraggio |Selezionare un servizio oppure *Tutti* per includere tutti i servizi. Per questa funzionalità sono supportati solo gli avvisi da Informazioni dettagliate sull'infrastruttura. | 
+|Servizio di monitoraggio |Selezionare un servizio oppure *Tutti* per includere tutti i servizi. Per questa funzionalità sono supportati solo gli avvisi generati da *Informazioni dettagliate macchina virtuale*.| 
 |Intervallo di tempo| Nella visualizzazione vengono inclusi solo gli avvisi attivati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. | 
 
-La pagina **Dettagli avviso** viene visualizzata quando si seleziona un avviso, fornendo i dettagli dell'avviso e consentendo di modificarne lo stato. Altre informazioni su come utilizzare le regole di avviso e gestire gli avvisi sono disponibili in [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+La pagina **Dettagli avviso** viene visualizzata quando si seleziona un avviso, fornendo i dettagli dell'avviso e consentendo di modificarne lo stato. Per altre informazioni sulla gestione degli avvisi, vedere [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+
+>[!NOTE]
+>Attualmente non è supportata la creazione di nuovi avvisi in base ai criteri di integrità o la modifica di regole di avvisi di integrità esistenti in Monitoraggio di Azure direttamente dal portale.  
+>
 
 ![Riquadro Dettagli avvisi per un avviso selezionato](./media/monitoring-vminsights-health/alert-details-pane-01.png)
 

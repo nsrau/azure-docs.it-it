@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/16/2018
 ms.author: spelluru
-ms.openlocfilehash: f13e46b310f4f9048b38ab50ce0241d1b2b3161b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395696"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377651"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js
 
@@ -61,7 +61,7 @@ Per usare il bus di servizio, scaricare il pacchetto Azure Node.js, che include 
    ├── xml2js@0.2.7 (sax@0.5.2)
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
-3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node\_modules**. In tale cartella trovare il pacchetto **azure**, che contiene le librerie necessarie per accedere agli argomenti del bus di servizio.
+3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node\_modules**. In tale cartella individuare il pacchetto **azure**, che contiene le librerie necessarie per accedere agli argomenti del bus di servizio.
 
 ### <a name="import-the-module"></a>Importare il modulo
 Usando il Blocco note o un altro editor di testo, aggiungere quanto segue alla parte superiore del file **server.js** dell'applicazione:
@@ -73,7 +73,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Configurare una stringa di connessione per il bus di servizio
 Il modulo Azure legge la variabile di ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` per la stringa di connessione ottenuta dal passaggio "Ottenere le credenziali" precedente. Se questa variabile di ambiente non è impostata, è necessario specificare le informazioni relative all'account durante la chiamata di `createServiceBusService`.
 
-Per un esempio di impostazione delle variabili di ambiente per un servizio cloud di Azure, vedere [Servizio cloud Node.js con Archiviazione][Node.js Cloud Service with Storage].
+Per un esempio di impostazione delle variabili di ambiente per un servizio cloud di Azure, vedere [Impostare variabili di ambiente](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -127,7 +127,7 @@ function (returnObject, finalCallback, next)
 
 Dopo l'elaborazione di `returnObject` (ossia della risposta della richiesta al server), questo callback deve richiamare next, se esistente, per continuare a elaborare altri filtri o richiamare `finalCallback` per terminare la chiamata al servizio.
 
-In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di ripetizione dei tentativi. Sono **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente consente di creare un oggetto **ServiceBusService** che usa **ExponentialRetryPolicyFilter**:
+In Azure SDK per Node.js sono inclusi due filtri che implementano la logica di ripetizione dei tentativi. Sono **ExponentialRetryPolicyFilter** e **LinearRetryPolicyFilter**. Il codice seguente crea un oggetto **ServiceBusService** che usa **ExponentialRetryPolicyFilter**:
 
 ```javascript
 var retryOperations = new azure.ExponentialRetryPolicyFilter();

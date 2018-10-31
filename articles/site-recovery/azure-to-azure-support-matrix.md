@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 49773e076ed8bb06ff76f9f654b914a709051fb5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173051"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378619"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice di supporto per la replica da un'area di Azure a un'altra
 
@@ -29,18 +29,18 @@ Questo articolo riepiloga le configurazioni e i componenti supportati per la rep
 **Portale di Azure** | Supportato
 **PowerShell** | [Replica da Azure ad Azure con PowerShell](azure-to-azure-powershell.md)
 **API REST** | Attualmente non supportato
-**Interfaccia della riga di comando** | Attualmente non supportato
+**CLI** | Attualmente non supportato
 
 
 ## <a name="resource-support"></a>Supporto delle risorse
 
-**Tipo spostamento risorse** | **Dettagli** 
+**Tipo spostamento risorse** | **Dettagli**
 --- | --- | ---
-**Spostamento insieme di credenziali tra gruppi di risorse** | Non supportato<br/><br/> Non è possibile spostare l'insieme di credenziali di Servizi di ripristino tra gruppi di risorse.
-**Spostamento di risorse di calcolo, archiviazione e rete tra gruppi di risorse** | Non supportato<br/><br/> Se si sposta una macchina virtuale o componenti associati come archiviazione o rete dopo la replica, è necessario disabilitare la replica e riabilitarla per la macchina virtuale.
-**Replica di macchine virtuali di Azure da una sottoscrizione a un'altra per il ripristino di emergenza** | Non supportata
-**Migrazione di macchine virtuali tra sottoscrizioni** | Non supportata
-**Migrazione di macchine virtuali all'interno della stessa area** | Non supportata
+**Spostamento insieme di credenziali tra gruppi di risorse** | Non supportate<br/><br/> Non è possibile spostare l'insieme di credenziali di Servizi di ripristino tra gruppi di risorse.
+**Spostamento di risorse di calcolo, archiviazione e rete tra gruppi di risorse** | Non supportati.<br/><br/> Se si sposta una macchina virtuale o componenti associati come archiviazione o rete dopo la replica, è necessario disabilitare la replica e riabilitarla per la macchina virtuale.
+**Replica di macchine virtuali di Azure da una sottoscrizione a un'altra per il ripristino di emergenza** | Supportate nello stesso tenant di Azure Active Directory. Non supportata per le macchine virtuali classiche.
+**Eseguire la migrazione di macchine virtuali tra aree all'interno dei cluster geografici supportati (all'interno e tra sottoscrizioni)** | Supportato nello stesso tenant di Azure Active Directory per le macchine virtuali con "Modello di distribuzione Resource manager". Non supportato per le macchine virtuali con "Modello di distribuzione classica".
+**Migrazione di macchine virtuali all'interno della stessa area** | Non supportati.
 
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Supporto per le versioni dei sistemi operativi dei computer replicati
@@ -60,8 +60,8 @@ Il supporto è applicabile a qualsiasi carico di lavoro in esecuzione nel sistem
 
 #### <a name="linux"></a>Linux
 
-- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5   
-- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2, 7.3,7.4, 7.5
+- Red Hat Enterprise Linux 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5   
+- CentOS 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3,7.4, 7.5
 - Server Ubuntu 14.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Server Ubuntu 16.04 LTS[ (versioni del kernel supportate)](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 - Debian 7 [ (versioni del kernel supportate)](#supported-debian-kernel-versions-for-azure-virtual-machines)
@@ -69,7 +69,7 @@ Il supporto è applicabile a qualsiasi carico di lavoro in esecuzione nel sistem
 - SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versioni del kernel supportate)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
-- Oracle Enterprise Linux 6.4 o 6.5 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3)
+- Oracle Linux 6.4, 6.5, 6.6, 6.7 che esegue il kernel compatibile Red Hat o Unbreakable Enterprise Kernel versione 3 (UEK3)
 
 (L'aggiornamento dei computer di replica da SLES 11 SP3 a SLES 11 SP4 non è supportato. Se un computer replicato è stato aggiornato da 11SP3 SLES a SLES 11 SP4, è necessario disabilitare la replica e proteggere di nuovo il computer dopo l'aggiornamento.)
 
@@ -81,31 +81,33 @@ Il supporto è applicabile a qualsiasi carico di lavoro in esecuzione nel sistem
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
+14.04 LTS | 9.19 | Da 3.13.0-24 generica a 3.13.0-153 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-131 generica |
 14.04 LTS | 9.18 | Da 3.13.0-24 generica a 3.13.0-151 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-128 generica |
 14.04 LTS | 9.17 | Da 3.13.0-24 generica a 3.13.0-147 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-124 generica |
 14.04 LTS | 9.16 | Da 3.13.0-24 generica a 3.13.0-144 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-119 generica |
-14.04 LTS | 9.15 | Da 3.13.0-24 generica a 3.13.0-143 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-116 generica |
 |||
+16.04 LTS | 9.19 | Da 4.4.0-21 generica a 4.4.0-131 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.15.0-13 generica a 4.15.0-30 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure <br/>Da 4.15.0-1012 Azure a 4.15.0-1019 Azure|
 16.04 LTS | 9.18 | Da 4.4.0-21 generica a 4.4.0-128 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-45 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1018 Azure |
 16.04 LTS | 9.17 | Da 4.4.0-21 generica a 4.4.0-124 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-41 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1016 Azure |
 16.04 LTS | 9.16 | Da 4.4.0-21 generica a 4.4.0-119 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-38 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1012 Azure |
-16.04 LTS | 9.15 | Da 4.4.0-21 generica a 4.4.0-116 generica<br/>Da 4.8.0-34 generica a 4.8.0-58 generica<br/>Da 4.10.0-14 generica a 4.10.0-42 generica<br/>Da 4.11.0-13 generica a 4.11.0-14 generica<br/>Da 4.13.0-16 generica a 4.13.0-37 generica<br/>Da 4.11.0-1009 Azure a 4.11.0-1016 Azure<br/>Da 4.13.0-1005 Azure a 4.13.0-1012 Azure |
 
 
 ### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel Debian supportate per macchine virtuali di Azure
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
-Debian 7 | 9.17,9.18 | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.15, 9.16 | Da 3.2.0-4-amd64 a 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17, 9.18, 9.19 | Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.16 | Da 3.2.0-4-amd64 a 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
+Debian 8 | 9.19 | Da 3.16.0-4-amd64 a 3.16.0-6-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.7-amd64 |
 Debian 8 | 9.17, 9.18 | Da 3.16.0-4-amd64 a 3.16.0-6-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.15, 9.16 | Da 3.16.0-4-amd64 a 3.16.0-5-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.5-amd64 |
+Debian 8 | 9.16 | Da 3.16.0-4-amd64 a 3.16.0-5-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-0.bpo.5-amd64 |
 
 ### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versioni del kernel SUSE Linux Enterprise Server 12 supportate per macchine virtuali di Azure
 
 **Versione** | **Versione del servizio Mobility** | **Versione del kernel** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.19 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.93 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.80 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.140-94.42 predefinita |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.18 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.93 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>Da 4.4.121-92.73 SP2(LTSS) predefinita a 4.4.121-92.80 predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.138-94.39 predefinita |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | Da 3.12.49-11 SP1 predefinita a 3.12.74-60.64.40 predefinita</br></br> Da 3.12.74-60.64.45 SP1 (LTSS) predefinita a 3.12.74-60.64.88 predefinita</br></br> Da 4.4.21-69 SP2 predefinita a 4.4.120-92.70 predefinita</br></br>4.4.121-92.73 SP2 (LTSS) predefinita</br></br>Da 4.4.73-5 SP3 predefinita a 4.4.126-94.22 predefinita |
 
@@ -124,7 +126,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.17 | Da 3.12.49-11 SP1 prede
 America | Canada orientale, Canada centrale, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali
 Europa | Regno Unito occidentale, Regno Unito meridionale, Europa settentrionale,Europa occidentale, Francia centrale, Francia meridionale
 Asia | India meridionale, India centrale, Asia sud-orientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea del Sud centrale, Corea del Sud meridionale
-Australia   | Australia orientale, Australia sudorientale
+Australia   | Australia orientale, Australia sud-orientale, Australia centrale, Australia centrale 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
 Germania | Germania centrale, Germania nord-orientale
 Cina | Cina orientale, Cina settentrionale
@@ -138,7 +140,7 @@ Cina | Cina orientale, Cina settentrionale
 **Azione** | **Dettagli**
 -- | ---
 Ridimensionamento del disco nella macchina virtuale replicata | Supportato
-Aggiunta del disco alla macchina virtuale replicata | Non supportata È necessario disabilitare la replica per la macchina virtuale, aggiungere il disco e quindi riabilitare nuovamente la replica.
+Aggiunta del disco alla macchina virtuale replicata | Non supportati. È necessario disabilitare la replica per la macchina virtuale, aggiungere il disco e quindi riabilitare nuovamente la replica.
 
 
 ## <a name="support-for-compute-configuration"></a>Supporto per la configurazione del servizio di calcolo
@@ -147,6 +149,7 @@ Aggiunta del disco alla macchina virtuale replicata | Non supportata È necessar
 --- | --- | ---
 Dimensione | Macchine virtuali di Azure di qualsiasi dimensione con almeno 2 core CPU e 1 GB di RAM | Vedere [Dimensioni delle macchine virtuali di Azure](../virtual-machines/windows/sizes.md)
 Set di disponibilità | Supportato | Se si usa l'opzione predefinita durante il passaggio 'Abilita replica' sul portale, il set di disponibilità viene creato automaticamente in base alla configurazione dell'area di origine. È possibile modificare la disponibilità di destinazione impostata in 'Elemento replicato > Impostazioni > Calcolo e rete > Set di disponibilità' in qualsiasi momento.
+Zone di disponibilità | Non supportate | Le macchine virtuali distribuite nelle zone di disponibilità non sono attualmente supportate.
 Macchine virtuali con vantaggio Hybrid Use (HUB, Hybrid Use Benefit) | Supportato | Se la macchina virtuale di origine dispone di una licenza HUB abilitata, anche la macchina virtuale di failover o il failover di test userà la licenza HUB.
 set di scalabilità di macchine virtuali | Non supportate |
 Immagini della raccolta di Azure - Pubblicate da Microsoft | Supportato | Supportato purché la macchina virtuale sia eseguita in un sistema operativo supportato da Site Recovery
@@ -169,7 +172,8 @@ Dischi gestiti standard | Supportato nelle aree di Azure in cui è supportato Az
 Dischi gestiti premium | Supportato nelle aree di Azure in cui è supportato Azure Site Recovery. |
 Spazi di archiviazione | Supportato |         
 Crittografia per dati inattivi (SSE) | Supportato | La crittografia per dati inattivi (SSE) è l'impostazione predefinita per gli account di archiviazione.   
-Crittografia dischi di Azure (ADE) | Non supportate |
+Crittografia dischi di Azure (ADE) per sistema operativo Windows | Le macchine virtuali abilitate per [la crittografia con l'app di Azure AD](https://aka.ms/ade-aad-app) sono supportate |
+Crittografia dischi di Azure (ADE) per sistema operativo Linux | Non supportate |
 Aggiunta/rimozione a caldo disco | Non supportate | Se si aggiungono o rimuovono dischi dati dalla macchina virtuale, è necessario disabilitare la replica e abilitarla nuovamente per la macchina virtuale.
 Esclusione disco | Non supportate|   Il disco temporaneo è escluso per impostazione predefinita.
 Spazi di archiviazione diretta  | Non supportate|
@@ -179,8 +183,8 @@ Archiviazione con ridondanza geografica | Supportato |
 RA-GRS | Supportato |
 ZRS | Non supportate |  
 Archiviazione ad accesso frequente e sporadico | Non supportate | I dischi delle macchine virtuali non sono supportati per l'archiviazione ad accesso frequente e sporadico
-Firewall di Archiviazione di Azure per reti virtuali  | No | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato.
-Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | No | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
+Firewall di Archiviazione di Azure per reti virtuali  | No  | L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato.
+Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | No  | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 
 >[!IMPORTANT]
 > Per evitare problemi di prestazioni, assicurarsi di osservare gli obiettivi di scalabilità e prestazioni per il disco della macchina virtuale per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) o [Windows](../virtual-machines/windows/disk-scalability-targets.md). Se si seguono le impostazioni predefinite, Site Recovery crea gli account di archiviazione e i dischi necessari in base alla configurazione di origine. Se si personalizzano e si selezionano impostazioni specifiche, assicurarsi di rispettare gli obiettivi di scalabilità e prestazioni per i dischi delle macchine virtuali.
@@ -205,7 +209,7 @@ Proxy autenticato | Non supportate | Se la macchina virtuale utilizza un proxy a
 VPN da sito a sito locale (con o senza ExpressRoute)| Supportato | Verificare che le route definite dall'utente e i gruppi di sicurezza di rete siano configurati in modo che il traffico di Site Recovery non venga instradato in locale. Vedere il [documento sulle indicazioni per la connettività di rete.](site-recovery-azure-to-azure-networking-guidance.md)  
 Connessione da rete virtuale a rete virtuale | Supportato | Vedere il [documento sulle indicazioni per la connettività di rete.](site-recovery-azure-to-azure-networking-guidance.md)  
 Endpoint del servizio Rete virtuale | Supportato | I firewall di Archiviazione Azure per le reti virtuali non sono supportati. L'accesso alle reti virtuali di Azure specifiche negli account di archiviazione della cache usati per archiviare i dati replicati non è supportato.
-Rete accelerata | Non supportate | È possibile replicare una macchina virtuale con accelerazione di rete abilitata, ma la macchina virtuale di failover non avrà Rete accelerata abilitata. Rete accelerata verrà disabilitata anche per la macchina virtuale di origine nel failback.
+Rete accelerata | Supportato | La rete accelerata deve essere abilitata su una macchina virtuale di origine. [Altre informazioni](azure-vm-disaster-recovery-with-accelerated-networking.md)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

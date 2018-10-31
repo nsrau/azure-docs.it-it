@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 99df133b9f626f970189df578c6d107086b9dab9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855001"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365625"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribuzione dell'uso da parte dei clienti e dei partner di Azure
 
@@ -44,7 +44,7 @@ Molte soluzioni dei partner vengono distribuite nella sottoscrizione del cliente
 
 Per aggiungere un identificatore univoco globale (GUID), si apporta una sola modifica nel file di modello principale:
 
-1. Creare un GUID (ad esempio, eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. [Creare un GUID](#create-guids) (ad esempio, eb7927c8-dd66-43e1-b0cf-c346a422063) e [registrare il GUID](#register-guids-and-offers).
 
 1. Aprire il modello di Resource Manager.
 
@@ -55,6 +55,8 @@ Per aggiungere un identificatore univoco globale (GUID), si apporta una sola mod
 1. Controllare il modello per individuare eventuali errori.
 
 1. Pubblicare nuovamente il modello nel repository appropriato.
+
+1. [Verificare l'esito positivo del GUID nella distribuzione del modello](#verify-the-guid-deployment).
 
 ### <a name="sample-template-code"></a>Codice del modello di esempio
 
@@ -99,6 +101,24 @@ Quando si utilizza Azure CLI per aggiungere il proprio GUID, impostare la variab
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
+## <a name="create-guids"></a>Crea GUID
+
+Un GUID è un numero di riferimento univoco con 32 cifre esadecimali. Per creare un GUID per il rilevamento, è necessario usare un generatore di GUID. È consigliabile usare il [form per il generatore di GUID di Archiviazione di Azure](https://aka.ms/StoragePartners). Se, tuttavia, si preferisce non usare il generatore di GUID di Archiviazione di Azure, sono disponibili altri [generatori di GUID online](https://www.bing.com/search?q=guid%20generator).
+
+> [!Note]
+> Per la creazione di questo GUID è altamente consigliato l'uso del [form per il generatore di GUID di Archiviazione di Azure](https://aka.ms/StoragePartners). Per altre informazioni, vedere la sezione [Domande frequenti](#faq).
+
+Creare un GUID univoco per ogni canale di offerta e distribuzione. Se si utilizzano due soluzioni utilizzando un modello e ciascuna è disponibile su Azure Marketplace e su GitHub, è necessario creare quattro GUID:
+
+*   Offerta A su Azure Marketplace 
+*   Offerta A su GitHub
+*   Offerta B su Azure Marketplace 
+*   Offerta B su GitHub
+
+La creazione di report viene effettuata in base al valore partner (ID partner Microsoft) e al GUID. 
+
+È anche possibile tracciare i GUID a un livello più granulare, come a livello di SKU (dove le SKU sono varianti di un'offerta).
 
 ## <a name="register-guids-and-offers"></a>Registrare GUID e offerte
 
@@ -183,21 +203,6 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="create-guids"></a>Crea GUID
-
-Un GUID è un numero di riferimento univoco con 32 cifre esadecimali. Per creare un GUID per il rilevamento, è necessario usare un generatore di GUID. Sono disponibili più [generatori GUID online](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E).
-
-Creare un GUID univoco per ogni canale di offerta e distribuzione. Se si utilizzano due soluzioni utilizzando un modello e ciascuna è disponibile su Azure Marketplace e su GitHub, è necessario creare quattro GUID:
-
-*   Offerta A su Azure Marketplace 
-*   Offerta A su GitHub
-*   Offerta B su Azure Marketplace 
-*   Offerta B su GitHub
-
-La creazione di report viene effettuata in base al valore partner (ID partner Microsoft) e al GUID. 
-
-È anche possibile tracciare i GUID a un livello più granulare, come a livello di SKU (dove le SKU sono varianti di un'offerta).
-
 ## <a name="notify-your-customers"></a>Informare i clienti
 
 I partner devono informare i propri clienti sulle distribuzioni che utilizzano il rilevamento del GUID di Resource Manager. Microsoft segnala l'utilizzo di Azure associato a queste distribuzioni al partner. Gli esempi seguenti includono i contenuti che è possibile utilizzare per notificare ai clienti queste distribuzioni. Negli esempi, sostituire \<PARTNER> con il nome della società. I partner devono garantire che la notifica sia allineata sia in linea con le politiche in materia di privacy e raccolta dei dati, comprese le opzioni di esclusione dei clienti dal rilevamento. 
@@ -275,3 +280,7 @@ I clienti sono in grado di rilevare l'utilizzo di singole risorse o gruppi di ri
 **Questa metodologia di rilevamento è simile a DPOR(Digital Partner of Record)?**
 
 Questo nuovo metodo per collegare la distribuzione e l'utilizzo alla soluzione di un partner fornisce un meccanismo per collegare una soluzione partner all'utilizzo di Azure. DPOR intende associare un partner di consulenza (integratore di sistemi) o di gestione (provider di servizio gestito) all'abbonamento Azure di un cliente.   
+
+**Quali vantaggi offre l'utilizzo del form per il generatore di GUID di Archiviazione di Azure?**
+
+Il form per il generatore di GUID di Archiviazione di Azure garantisce la generazione di un GUID del formato richiesto. Se si usa uno dei metodi di rilevamento del piano dati di Archiviazione di Azure, inoltre, è possibile usare lo stesso GUID per il rilevamento del piano di controllo del Marketplace. In questo modo, è possibile usare un GUID unificato per l'attribuzione dei partner, senza dover gestire GUID separati.

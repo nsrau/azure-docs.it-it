@@ -194,7 +194,7 @@ I clienti possono usare Gestione traffico per distribuire il traffico tra più g
 
 **D. La scalabilità automatica è supportata?**
 
-Sì, lo SKU versione 2 del gateway applicazione supporta la scalabilità automatica. Per altre informazioni, vedere [Gateway applicazione con scalabilità automatica ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md).
+Sì, lo SKU versione 2 del gateway applicazione supporta la scalabilità automatica. Per altre informazioni, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md).
 
 **D. Il ridimensionamento manuale causa tempi di inattività?**
 

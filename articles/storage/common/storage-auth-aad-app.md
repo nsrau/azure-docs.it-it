@@ -1,21 +1,21 @@
 ---
 title: Eseguire l'autenticazione con Azure Active Directory per accedere ai dati BLOB e della coda dalle applicazioni (anteprima) | Microsoft Docs
-description: Usare Azure Active Directory per eseguire l'autenticazione dall'interno di un'applicazione e quindi autorizzare le richieste alle risorse di archiviazione di Azure (anteprima).
+description: Usare Azure Active Directory per eseguire l'autenticazione dall'interno di un'applicazione e quindi autorizzare le richieste ai BLOB e alle code di Azure (anteprima).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6a0b7139fd8d216397090154a4324c8e4305a939
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d249753dd954ba610a757a88060c6c0f7c58ad95
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816379"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427094"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Eseguire l'autenticazione con Azure Active Directory da un'applicazione di Archiviazione di Azure (anteprima)
+# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>Eseguire l'autenticazione con Azure Active Directory da un'applicazione per l'accesso ai BLOB e alle code (anteprima)
 
 Un vantaggio fondamentale dell'uso di Azure Active Directory (Azure AD) con Archiviazione di Azure è che le credenziali non devono più essere archiviate nel codice. È invece possibile richiedere un token di accesso OAuth 2.0 da Azure AD. Azure AD gestisce l'autenticazione dell'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione riesce, Azure AD restituisce il token di accesso all'applicazione e questa può quindi usare il token di accesso per autorizzare le richieste ad Archiviazione di Azure.
 
@@ -26,6 +26,10 @@ Prima di poter autenticare un'entità di sicurezza dall'applicazione di Archivia
 Per una panoramica del flusso di concessione del codice di OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web di Azure Active Directory mediante il flusso di concessione di OAuth 2.0](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 [!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>Assegnare un ruolo Controllo degli accessi in base al ruolo a un'entità di sicurezza di Azure AD
+
+Prima di poter autenticare un'entità di sicurezza dall'applicazione di Archiviazione di Azure, configurare le impostazioni di controllo degli accessi in base al ruolo per l'entità di sicurezza. Archiviazione di Azure definisce ruoli di controllo degli accessi in base al ruolo che includono autorizzazioni per contenitori e code. Quando il ruolo di controllo degli accessi in base al ruolo viene assegnato a un'entità di sicurezza, a questa viene concesso l'accesso a tale risorsa. Per altre informazioni, vedere [Gestire i diritti di accesso a dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md).
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Registrare l'applicazione nel tenant di Azure AD
 

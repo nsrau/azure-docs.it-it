@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068537"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470065"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 Archiviazione di Azure offre un modello di sicurezza a più livelli che consente di proteggere gli account di archiviazione per un set specifico di reti autorizzate.  Quando si configurano le regole di rete, solo le applicazioni delle reti consentite possono accedere a un account di archiviazione.  Quando le applicazioni eseguono chiamate da una rete autorizzata devono comunque avere l'autorizzazione necessaria (una chiave di accesso o un token di firma di accesso condiviso validi) per accedere all'account di archiviazione.
@@ -188,11 +188,15 @@ Gli intervalli di indirizzi Internet consentiti possono essere specificati con l
 > Gli intervalli di indirizzi di piccole dimensioni con dimensioni di prefisso "/31" o "/32" non sono supportati.  Questi intervalli vanno configurati con le regole usate per gli indirizzi IP singoli.
 >
 
-Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **rete Internet pubblica**.  Gli intervalli di indirizzi IP riservati per le reti private (come da definizione in RFC 1918) non sono consentiti nelle regole IP.  Le reti private includono gli indirizzi che iniziano con *10.\**, *172.16.\** e *192.168.\**
+Le regole di rete per gli IP sono consentite solo per gli indirizzi IP della **rete Internet pubblica**.  Gli intervalli di indirizzi IP riservati per le reti private (come definito in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) non sono consentiti nelle regole IP.  Le reti private includono gli indirizzi che iniziano con *10.\**, *172.16.\** - *172.31.\** e *192.168.\**.
+
+> [!NOTE]
+> Le regole della rete IP non avranno alcun effetto sulle richieste provenienti dalla stessa area di Azure dell'account di archiviazione.  Usare le [regole della rete virtuale](#grant-access-from-a-virtual-network) per consentire richieste della stessa area.
+>
 
 Attualmente sono supportati solo gli indirizzi IPV4.
 
-Ogni account di archiviazione può supportare fino a 100 regole di rete IP, che possono essere combinate con le [regole della rete virtuale di Microsoft Azure](#grant-access-from-a-virtual-network)
+Ogni account di archiviazione può supportare fino a 100 regole di rete IP, che possono essere combinate con le [regole della rete virtuale di Microsoft Azure](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurazione dell'accesso da reti locali
 Per garantire l'accesso all'account di archiviazione dalle reti locali con una regola di rete IP è necessario identificare gli indirizzi IP esposti a Internet usati dalla rete.  Per assistenza contattare l'amministratore di rete.
@@ -283,7 +287,7 @@ Per far sì che questo tipo di servizi funzioni come previsto, è possibile cons
 
 Quando è abilitata l'eccezione "Servizi Microsoft attendibili" i servizi seguenti (se registrati nella sottoscrizione) dispongono dell'accesso all'account di archiviazione:
 
-|Servizio|Nome provider di risorse|Scopo|
+|Service|Nome provider di risorse|Scopo|
 |:------|:---------------------|:------|
 |Backup di Azure|Microsoft.Backup|Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup)|
 |Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti.  [Altre informazioni](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview)|

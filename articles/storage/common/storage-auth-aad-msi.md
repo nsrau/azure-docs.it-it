@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c06dc83f8b460e6215448fbc9e4ac42c749b5922
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354003"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427417"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Autenticare l'accesso a BLOB e code con identità gestite per Risorse di Azure (anteprima)
 
-Archiviazione di BLOB e coda di Azure supporta l'autenticazione con [identità gestite di Azure Active Directory per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). È possibile usare le identità gestite per le risorse di Azure per autenticare l'accesso a BLOB e code da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Usando le identità gestite per le risorse di Azure e sfruttando tutte le potenzialità dell'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni in esecuzione nel cloud.  
+Archiviazione di BLOB e coda di Azure supporta l'autenticazione con [identità gestite di Azure Active Directory per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). Le identità gestite per le risorse di Azure possono autenticare l'accesso a BLOB e code usando le credenziali di Azure AD da applicazioni in esecuzione in macchine virtuali, app per le funzioni, set di scalabilità di macchine virtuali di Azure e altro ancora. Usando le identità gestite per le risorse di Azure e sfruttando tutte le potenzialità dell'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni in esecuzione nel cloud.  
 
 Per concedere autorizzazioni a un'identità gestita per un contenitore blob o una coda, si assegna un ruolo di controllo degli accessi in base al ruolo all'identità gestita che include le autorizzazioni per la risorsa nell'ambito appropriato. Per altre informazioni sui ruoli di controllo degli accessi in base al ruolo per l'archiviazione, vedere [Gestire i diritti di accesso a dati di archiviazione con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md). 
 
@@ -34,6 +34,10 @@ Prima di poter utilizzare le identità gestite per le risorse di Azure per auten
 - [Interfaccia della riga di comando di Azure](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Modello di Azure Resource Manager](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure SDK](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+
+## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Assegnare un ruolo Controllo degli accessi in base al ruolo a un'identità gestita di Azure AD
+
+Prima di poter autenticare un'identità gestita dall'applicazione di Archiviazione di Azure, configurare le impostazioni di controllo degli accessi in base al ruolo per l'identità gestita. Archiviazione di Azure definisce ruoli di controllo degli accessi in base al ruolo che includono autorizzazioni per contenitori e code. Quando a un'identità gestita viene assegnato il ruolo Controllo degli accessi in base al ruolo, all'identità gestita viene concesso l'accesso a tale risorsa. Per altre informazioni, vedere [Gestire i diritti di accesso a dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md).
 
 ## <a name="get-a-managed-identity-access-token"></a>Ottenere token di accesso a un'identità gestita
 

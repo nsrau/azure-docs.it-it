@@ -1,22 +1,22 @@
 ---
-title: Risoluzione dei problemi | Microsoft Docs
+title: Risoluzione dei problemi | Documentazione Microsoft
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 ms.topic: article
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenitori
 manager: douge
-ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841610"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353359"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -26,9 +26,13 @@ Questa guida contiene informazioni sui problemi comuni in cui si potrebbe incorr
 
 Per risolvere i problemi in modo più efficace, può essere utile per creare log maggiormente dettagliati per la revisione.
 
-Per l'estensione di Visual Studio, è possibile effettuare questa operazione impostando la variabile di ambiente `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` su 1. Assicurarsi di riavviare Visual Studio per rendere effettiva la variabile di ambiente. Una volta abilitati, i log dettagliati verranno scritti nella directory `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
+Per l'estensione di Visual Studio impostare la variabile di ambiente `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` su 1. Assicurarsi di riavviare Visual Studio per rendere effettiva la variabile di ambiente. Una volta abilitati, i log dettagliati verranno scritti nella directory `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools`.
 
-Nell'interfaccia della riga di comando è possibile visualizzare altre informazioni durante l'esecuzione del comando usando lo switch `--verbose`.
+Nell'interfaccia della riga di comando è possibile visualizzare altre informazioni durante l'esecuzione del comando usando lo switch `--verbose`. È anche possibile esplorare i registri più dettagliati in `%TEMP%\Azure Dev Spaces`. In un computer Mac la directory TEMP è reperibile eseguendo `echo $TMPDIR` da una finestra del terminale. In un computer Linux la directory TEMP è generalmente `/tmp`.
+
+## <a name="debugging-services-with-multiple-instances"></a>Debug dei servizi con più istanze
+
+A questo punto, Azure Dev Spaces funziona meglio durante il debug di una singola istanza (pod). Il file azds.yaml contiene un'impostazione, replicaCount, che indica il numero di pod che verrà eseguito per il servizio. Se si modifica replicaCount per configurare l'app in modo che esegua più pod per un determinato servizio, il debugger si collegherà al primo pod (se elencato in ordine alfabetico). Se il pod viene riciclato per un qualsiasi motivo, il debugger si collegherà a un pod diverso, determinando un comportamento imprevisto.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Errore "Failed to create Azure Dev Spaces controller" (Non è stato possibile creare il controller di Azure Dev Spaces)
 
@@ -67,14 +71,31 @@ Quando si usa _azds.exe_, usare l'opzione della riga di comando --verbose e usar
 
 In Visual Studio:
 
-1. Aprire **Strumenti > Opzioni** e in **Projects and Solutions** (Progetti e soluzioni), scegliere e **Build and Run** (Compila ed esegui).
+1. Aprire **Strumenti > Opzioni** e in **Projects and Solutions** (Progetti e soluzioni), scegliere **Build and Run** (Compila ed esegui).
 2. Modificare le impostazioni per **MSBuild project build output verbosity** (Livello di dettaglio output di compilazione progetto MSBuild) in **Detailed** (Dettagliato) oppure in **Diagnostic** (Diagnostica).
 
     ![Screenshot della finestra di dialogo Strumenti > Opzioni](media/common/VerbositySetting.PNG)
     
+È possibile che questo errore venga visualizzato quando si tenta di usare un Dockerfile a più fasi. L'output dettagliato sarà simile al seguente:
+
+```cmd
+$ azds up
+Using dev space 'default' with target 'AksClusterName'
+Synchronizing files...6s
+Installing Helm chart...2s
+Waiting for container image build...10s
+Building container image...
+Step 1/12 : FROM [imagename:tag] AS base
+Error parsing reference: "[imagename:tag] AS base" is not a valid repository/tag: invalid reference format
+Failed to build container image.
+Service cannot be started.
+```
+
+Questo perché i nodi AKS eseguono una versione precedente di Docker che non supporta compilazioni in più fasi. Sarà necessario riscrivere il Dockerfile per evitare compilazioni in più fasi.
+
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Risoluzione dei nomi DNS non completa l'operazione per un URL pubblico associato al servizio Dev Spaces
 
-In questo caso, potrebbe essere visualizzato un errore "Impossibile visualizzare la pagina" o "Impossibile raggiungere il sito" nel browser Web quando si prova a connettersi all'URL pubblico associato al servizio Dev Spaces.
+Quando la risoluzione dei nomi DNS ha esito negativo potrebbe essere visualizzato un errore "Impossibile visualizzare la pagina" o "Impossibile raggiungere il sito" nel browser Web quando si prova a connettersi all'URL pubblico associato al servizio Dev Spaces.
 
 ### <a name="try"></a>Soluzione:
 
@@ -84,7 +105,7 @@ In questo caso, potrebbe essere visualizzato un errore "Impossibile visualizzare
 azds list-uris
 ```
 
-Se un URL mostra lo stato *In sospeso* significa che Dev Spaces è ancora in attesa di completamento della registrazione DNS. In alcuni casi, sono necessari alcuni minuti per completare l'operazione. Dev Spaces offre anche un tunnel localhost per ogni servizio, che è possibile usare durante l'attesa della registrazione DNS.
+Se un URL mostra lo stato *In sospeso* significa che Dev Spaces è ancora in attesa di completamento della registrazione DNS. In alcuni casi sono necessari alcuni minuti per completare la registrazione. Dev Spaces offre anche un tunnel localhost per ogni servizio, che è possibile usare durante l'attesa della registrazione DNS.
 
 Se un URL rimane nello stato *In sospeso* per più di 5 minuti, potrebbe indicare un problema con il pod DNS esterno che crea l'endpoint pubblico e/o con il pod del controller di ingresso nginx che è responsabile dell'acquisizione dell'endpoint pubblico. È possibile usare i comandi seguenti per eliminare i POD. Questi verranno ricreati automaticamente.
 
@@ -121,7 +142,7 @@ Azure Dev Spaces fornisce il supporto nativo per C# e Node.js. Quando si esegue 
 È comunque possibile usare Azure Dev Spaces con il codice scritto in altri linguaggi, ma sarà necessario creare il Dockerfile prima di eseguire *azds up* per la prima volta.
 
 ### <a name="try"></a>Soluzione:
-Se l'applicazione è scritta in un linguaggio non supportato da Azure Dev Spaces in modo nativo, è necessario fornire un Dockerfile appropriato per creare un'immagine del contenitore che esegua il codice. Docker offre un [elenco di procedure consigliate per la scrittura di Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) nonché un [riferimento a Dockerfile](https://docs.docker.com/engine/reference/builder/) per l'esecuzione di questa operazione.
+Se l'applicazione è scritta in un linguaggio non supportato da Azure Dev Spaces in modo nativo, è necessario fornire un Dockerfile appropriato per creare un'immagine del contenitore che esegua il codice. Docker offre un [elenco di procedure consigliate per la scrittura di Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) nonché un [riferimento a Dockerfile](https://docs.docker.com/engine/reference/builder/) per la scrittura di un Dockerfile in base alle proprie esigenze.
 
 Quando si dispone di un Dockerfile appropriato è possibile procedere con l'esecuzione di *azds up* per eseguire l'applicazione in Azure Dev Spaces.
 
@@ -152,7 +173,7 @@ Si esegue `azds up` e viene visualizzato l'errore seguente: `Config file not fou
 1. Se nella cartella del codice non è presente un file _azds.yaml_, eseguire `azds prep` per generare le risorse Docker, Kubernetes e Azure Dev Spaces.
 
 ## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Errore: "The pipe program 'azds' exited unexpectedly with code 126." (Il programma della pipe 'azds' è stato chiuso in modo imprevisto con codice 126.)
-L'avvio del debugger di VS Code può talvolta generare questo errore. Questo è un problema noto.
+L'avvio del debugger di VS Code può talvolta generare questo errore.
 
 ### <a name="try"></a>Soluzione:
 1. Chiudere e riaprire VS Code.
@@ -162,7 +183,7 @@ L'avvio del debugger di VS Code può talvolta generare questo errore. Questo è 
 L'esecuzione del debugger di VS Code genera l'errore: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Motivo
-Non si dispone dell'estensione di Visual Studio Code per C# installata nel computer di sviluppo che include il supporto del debug per.Net Core (CoreCLR).
+Nel computer di sviluppo non è installata l'estensione VS Code per C#. L'estensione C# include il supporto per il debug di .Net Core (CoreCLR).
 
 ### <a name="try"></a>Soluzione:
 Installare l'[estensione di Visual Studio Code per C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
@@ -202,6 +223,14 @@ Un utente con accesso Proprietario o Collaboratore per la sottoscrizione di Azur
 ```cmd
 az provider register --namespace Microsoft.DevSpaces
 ```
+
+## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>"Error: could not find a ready tiller pod" ("Errore: impossibile trovare un pod Tiller pronto") quando si avvia Dev Spaces
+
+### <a name="reason"></a>Motivo
+Questo errore si verifica se il client Helm non può più comunicare con il pod Tiller in esecuzione nel cluster.
+
+### <a name="try"></a>Soluzione:
+Il riavvio dei nodi agente nel cluster risolve in genere questo problema.
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces non sembra utilizzare il Dockerfile esistente per compilare un contenitore 
 

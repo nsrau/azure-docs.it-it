@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
-ms.reviewer: vanto, carlrab, ronitr
+ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: b8bb9cbf53b297d8dca1ac67bae8765edcc2c9f4
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 10/22/2018
+ms.openlocfilehash: 9978497f8bd3ebb11247f3bffe319866128e9f1d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311202"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646508"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -32,7 +32,11 @@ Per una panoramica completa delle funzionalità di sicurezza disponibili in tutt
 Il database SQL protegge i dati in movimento con la crittografia [Transport Layer Security](https://support.microsoft.com/kb/3135244), i dati inattivi con la crittografia [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) e i dati in uso con la crittografia [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
 > [!IMPORTANT]
-> Tutte le connessioni al database SQL di Azure richiedono la crittografia SSL/TLS (SSL/TLS) in qualsiasi caso quando i dati sono "in transito" da e verso il database in qualsiasi momento. Nella stringa di connessione dell'applicazione è necessario specificare parametri per crittografare la connessione e *non* considerare attendibile il certificato del server (ciò viene eseguito automaticamente se si copia la stringa di connessione dal portale di Azure). In caso contrario, la connessione non verifica l'identità del server e sono possibili attacchi "man-in-the-middle". Per il driver ADO.NET, ad esempio, questi parametri della stringa di connessione sono **Encrypt=True** e **TrustServerCertificate=False**. Per informazioni su TLS e sulla connettività, vedere [Considerazioni su TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Database SQL di Azure applica la crittografia (SSL/TLS) in qualsiasi caso per tutte le connessioni, in modo da garantire che i dati vengano crittografati quando sono in transito tra il database e il client. Questo avviene indipendentemente dall'impostazione di **Encrypt** o di **TrustServerCertificate** nella stringa di connessione.
+>
+> Nella stringa di connessione dell'applicazione assicurarsi di specificare una connessione crittografata e di *non* considerare attendibile il certificato del server. Per il driver ADO.NET corrisponde a **Encrypt=True** e **TrustServerCertificate=False**. In questo modo si impediscono attacchi di tipo man-in-the-middle, forzando l'applicazione a verificare il server e ad applicare la crittografia. Se si ottiene la stringa di connessione dal portale di Azure, le impostazioni saranno corrette.
+>
+> Per informazioni su TLS e sulla connettività, vedere [Considerazioni su TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 Per altri modi di crittografare i dati, considerare quanto segue:
 
@@ -90,7 +94,7 @@ Il database SQL protegge i dati fornendo funzionalità di controllo e di rilevam
 
 ### <a name="auditing"></a>Controllo
 
-Il servizio di controllo del database SQL tiene traccia delle attività del database e consente di gestire la conformità alle normative, registrando gli eventi del database in un log di controllo nell'account di archiviazione di Azure. Il servizio di controllo consente di conoscere le attività del database in corso e di analizzare ed esaminare l'attività cronologica per identificare potenziali minacce o uso improprio sospetto e violazioni della sicurezza. Per altre informazioni, vedere [Introduzione al controllo del database SQL](sql-database-auditing.md).  
+Il servizio di controllo del database SQL tiene traccia delle attività del database e consente di gestire la conformità alle normative, registrando gli eventi del database in un log di controllo nell'account di archiviazione di Azure. Il servizio di controllo consente di conoscere le attività del database in corso e di analizzare ed esaminare l'attività cronologica per identificare potenziali minacce o uso improprio sospetto e violazioni della sicurezza. Per ulteriori informazioni, vedere l' [Introduzione al controllo del database SQL](sql-database-auditing.md).  
 
 ### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
 
@@ -104,7 +108,7 @@ Oltre alle caratteristiche e alle funzionalità sopra descritte, che consentono 
 
 Il database SQL di Azure consente di gestire la sicurezza dei dati fornendo analisi di database e una dashboard di sicurezza centralizzata mediante [Valutazione delle vulnerabilità di SQL](sql-vulnerability-assessment.md).
 
-**Valutazione della vulnerabilità**: [Valutazione della vulnerabilità di SQL](sql-vulnerability-assessment.md), attualmente in anteprima, è uno strumento semplice da configurare integrato nel database SQL di Azure che facilita l'individuazione, il monitoraggio e la risoluzione di potenziali vulnerabilità del database. Lo strumento esegue un'analisi delle vulnerabilità sul database e genera un report che offre visibilità sullo stato di sicurezza, incluse azioni implementabili per risolvere i problemi e migliorare la sicurezza del database. È possibile personalizzare il report di valutazione per l'ambiente, impostando una baseline accettabile per le configurazioni delle autorizzazioni e delle funzioni e le impostazioni del database. Questo può essere utile per:
+**[Valutazione della vulnerabilità](sql-vulnerability-assessment.md)** è uno strumento semplice da configurare integrato nel database SQL di Azure che facilita l'individuazione, il monitoraggio e la risoluzione di potenziali vulnerabilità del database. Lo strumento esegue un'analisi delle vulnerabilità sul database e genera un report che offre visibilità sullo stato di sicurezza, incluse azioni implementabili per risolvere i problemi e migliorare la sicurezza del database. È possibile personalizzare il report di valutazione per l'ambiente, impostando una baseline accettabile per le configurazioni delle autorizzazioni e delle funzioni e le impostazioni del database. Questo può essere utile per:
 
 - Soddisfare i requisiti di conformità che richiedono i report di scansione del database.
 - Soddisfare gli standard di privacy.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 38a026e8995bb7384c866dcd2f12588ca816009f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205774"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389684"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregazione e raccolta di eventi con Diagnostica di Microsoft Azure
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Quando si esegue un cluster Azure Service Fabric, è consigliabile raccogliere i
 
 Un modo per caricare e raccogliere i log consiste nell'usare l'estensione Diagnostica di Microsoft Azure, che carica i log in Archiviazione di Azure e offre anche la possibilità di inviarli ad Azure Application Insights o Hub eventi. È anche possibile usare un processo esterno per leggere gli eventi dalla risorsa di archiviazione e inserirli in una piattaforma di analisi come [Log Analytics](../log-analytics/log-analytics-service-fabric.md) o in un'altra soluzione di analisi di log.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 In questo articolo vengono usati gli strumenti seguenti:
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
@@ -65,7 +65,7 @@ Dopo aver impostato l'aggregazione di eventi in Archiviazione di Azure, [configu
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Distribuire l'estensione Diagnostica tramite Azure Resource Manager
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Creare un cluster con l'estensione Diagnostica
-Per creare un cluster tramite Resource Manager, è necessario aggiungere il file JSON di configurazione di Diagnostica al modello di Resource Manager completo prima di creare il cluster. Gli esempi relativi ai modelli di Gestione risorse includono un modello di cluster con 5 VM con aggiunta della configurazione di Diagnostica, disponibile nella raccolta di esempi di Azure nella pagina relativa all'[esempio di modello di Resource Manager di cluster con cinque nodi con Diagnostica](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Per creare un cluster tramite Resource Manager, è necessario aggiungere il file JSON di configurazione di Diagnostica al modello di Resource Manager completo prima di creare il cluster. Gli esempi relativi ai modelli di Gestione risorse includono un modello di cluster con 5 VM con aggiunta della configurazione di Diagnostica, disponibile nella raccolta di esempi di Azure nella pagina relativa all'[esempio di modello di Resource Manager di cluster con cinque nodi con Diagnostica](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Per visualizzare l'impostazione di Diagnostica nel modello di Resource Manager, aprire il file azuredeploy.json e cercare **IaaSDiagnostics**. Per creare un cluster con questo modello, è sufficiente selezionare il pulsante di **distribuzione in Azure** disponibile nel collegamento precedente.
 
@@ -223,7 +223,7 @@ Sono disponibili per la raccolta anche log da canali aggiuntivi; di seguito sono
 >Questo canale ha un volume molto elevato di eventi; permettendo la raccolta di eventi da questo canale dettagliato vengono generate numerose tracce e pertanto ciò può comportare un maggiore uso della capacità di archiviazione. Attivare questa funzionalità solo quando è strettamente necessario.
 
 
-Per abilitare il **Canale per la messaggistica e i dati** si consiglia una registrazione completa; `EtwManifestProviderConfiguration` nel modello `WadCfg` avrà un aspetto simile al seguente:
+Per abilitare il **canale operativo di base** è consigliabile la registrazione completa con la minor quantità di rumore possibile. `EtwManifestProviderConfiguration` in `WadCfg` del modello avrà un aspetto simile al seguente:
 
 ```json
   "WadCfg": {
@@ -251,7 +251,7 @@ Per abilitare il **Canale per la messaggistica e i dati** si consiglia una regis
               {
                 "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
                 "scheduledTransferLogLevelFilter": "Information",
-                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
                 "scheduledTransferPeriod": "PT5M",
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"

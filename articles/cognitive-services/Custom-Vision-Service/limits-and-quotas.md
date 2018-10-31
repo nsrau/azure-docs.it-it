@@ -1,5 +1,5 @@
 ---
-title: Limiti e quote - Servizio visione artificiale personalizzato
+title: Prezzi e limiti - Servizio visione artificiale personalizzato
 titlesuffix: Azure Cognitive Services
 description: Informazioni sui limiti e le quote per il Servizio visione artificiale personalizzato.
 services: cognitive-services
@@ -8,22 +8,24 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 10/16/2018
 ms.author: anroth
-ms.openlocfilehash: ce06effbce12abb6271e050829d3218f4fbbfbf4
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d0a6b7be62afcd8e9f51b6a9387c9aa33f62d9a9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902860"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430069"
 ---
-# <a name="limits-and-quotas"></a>Limiti e quote
+# <a name="pricing-and-limits"></a>Prezzi e limiti
 
-Esistono tre livelli di chiavi per il Servizio visione artificiale personalizzato. Le risorse F0 e S0 vengono ottenute tramite il portale di Azure. Dettagli su definizioni di prezzi e transazioni sono disponibili alla [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/).  I progetti F0 possono essere aggiornati a progetti S0.
+Esistono tre livelli di chiavi per il Servizio visione artificiale personalizzato. Le risorse per il progetto delle versioni di valutazione limitate sono associate all'account di accesso del Servizio visione artificiale personalizzato, ovvero un account Azure Active Directory o un account Microsoft. Sono destinate all'uso per brevi versioni di valutazione del servizio. È possibile registrarsi per una sottoscrizione F0 (gratuita) o S0 (standard) tramite il portale di Azure. Per informazioni dettagliate su prezzi e transazioni, vedere la pagina corrispondente di [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/).
 
-Le risorse per il progetto delle versioni di valutazione limitate sono allegate all'accesso al Servizio visione artificiale personalizzato (cioè un account AAD o un account Microsoft). Sono destinate all'uso per brevi versioni di valutazione del servizio.  Gli account creati durante l'anteprima gratuita, prima dell'introduzione delle anteprime di Azure (1° marzo 2018), manterranno le rispettive quote precedenti per le versioni di valutazione limitate. 
+Gli account creati durante l'anteprima gratuita, prima dell'introduzione delle anteprime di Azure (1° marzo 2018), manterranno le rispettive quote precedenti per le versioni di valutazione limitate. 
 
-||**Versione di valutazione limitata**|**F0 (Azure)**|**S0 (Azure)**|
+Si prevede che nel tempo il numero di immagini di training per progetto di tag per progetto aumenterà per i progetti S0.
+
+||**Versione di valutazione limitata**|**F0**|**S0**|
 |-----|-----|-----|-----|
 |Progetti|2|2|100|
 |Immagini di training per progetto, classificazione|5.000|5.000|50.000|
@@ -41,4 +43,4 @@ Le risorse per il progetto delle versioni di valutazione limitate sono allegate 
 |Dimensioni max dell'immagine (caricamento dell'immagine di training) |6 MB|6 MB|6 MB|
 |Dimensioni max dell'immagine (stima)|4 MB|4 MB|4 MB|
 
-Si prevede che le limitazioni sul *numero di immagini di training per progetto* e sui *numeri di tag per progetto* aumenteranno nel tempo per i progetti S0. 
+

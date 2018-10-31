@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 15518d8122f66c2e6f4ab398e0c69563fe0c79e0
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/23/2018
+ms.openlocfilehash: 0a514cced50a2a05008c03dfb438cceefb332d17
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354060"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987325"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto basato su DTU
 
@@ -81,17 +81,17 @@ Per i database singoli, le tabelle seguenti illustrano le risorse disponibili pe
 |||||||
 
 > [!IMPORTANT]
-> Nel livello Premium è attualmente disponibile più di 1 TB di archiviazione in tutte le aree tranne le seguenti: Stati Uniti centro-occidentali, Cina orientale, USDoDCentral, Germania centrale, USDoDEast, US Gov Southwest, Germania nord-orientale, USGovIowa, Cina settentrionale. Nelle altre aree la quantità massima di risorse di archiviazione nel livello Premium è limitata a 1 TB. Vedere [Limitazioni correnti per P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> Nel livello Premium è attualmente disponibile più di 1 TB di spazio di archiviazione in tutte le aree ad eccezione delle seguenti: Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Regno Unito settentrionale, Regno Unito meridionale, US DoD (area centrale), US DoD (area orientale), US Gov (area centrale) e Stati Uniti centro-occidentali.  In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB. Vedere [Limitazioni correnti per P11-P15](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 ## <a name="single-database-change-storage-size"></a>Database singolo: modifica delle dimensioni di archiviazione
 
 - Il prezzo DTU per un singolo database include una determinata quantità di risorse di archiviazione senza costi aggiuntivi. Le risorse di archiviazione extra rispetto alla quantità inclusa possono essere sottoposte a provisioning per un costo aggiuntivo fino alla quantità massima in incrementi di 250 GB fino a 1 TB e quindi in incrementi di 256 GB oltre 1 TB. Per le quantità di risorse di archiviazione incluse e i limiti di dimensioni massime, vedere [Database singolo: dimensioni di archiviazione e dimensioni di calcolo](#single-database-storage-sizes-and-compute-sizes).
-- Le risorse di archiviazione extra per un singolo database possono essere sottoposte a provisioning aumentandone le dimensioni massime mediante il [portale di Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/databases_update).
+- Le risorse di archiviazione extra per un singolo database possono essere sottoposte a provisioning aumentandone le dimensioni massime mediante il [portale di Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 - Il prezzo delle risorse di archiviazione extra per un singolo database corrisponde alla quantità di risorse di archiviazione extra moltiplicata per il prezzo unitario del livello di servizio. Per informazioni dettagliate sul prezzo delle risorse di archiviazione extra, vedere [Prezzi di Database SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="single-database-change-dtus"></a>Database singolo: modifica delle DTU
 
-Dopo aver inizialmente selezionato un livello di servizio, una dimensione di calcolo e una quantità di spazio di archiviazione, è possibile eseguire l'aumento o la riduzione per un database singolo in modo dinamico in base all'esperienza effettiva tramite il [portale di Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/databases_update).
+Dopo aver inizialmente selezionato un livello di servizio, una dimensione di calcolo e una quantità di spazio di archiviazione, è possibile eseguire l'aumento o la riduzione per un database singolo in modo dinamico in base all'esperienza effettiva tramite il [portale di Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](/sql/t-sql/statements/alter-database-azure-sql-database#examples), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqldatabase), l'[interfaccia della riga di comando di Azure](/cli/azure/sql/db#az-sql-db-update) o l'[API REST](https://docs.microsoft.com/rest/api/sql/databases/update).
 
 Il video seguente mostra come modificare in modo dinamico il livello di servizio e la dimensione di calcolo per aumentare le DTU disponibili per un singolo database.
 
@@ -103,7 +103,7 @@ La modifica del livello di servizio e/o della dimensione di calcolo crea una rep
 La durata dell'intero processo di scalabilità verticale dipende dalla dimensione e dal livello di servizio del database prima e dopo la modifica. Ad esempio, il passaggio di un database di 250 GB al livello di servizio Standard o dal livello di servizio Standard a un altro livello o nell'ambito dello stesso livello di servizio Standard viene completato entro 6 ore. Per un database delle stesse dimensioni in fase di modifica delle dimensioni di calcolo all'interno del livello di servizio Premium, il completamento dovrebbe avvenire entro 3 ore.
 
 > [!TIP]
-> Per monitorare le operazioni in corso, vedere: [Gestire le operazioni tramite l'API REST SQL](https://docs.microsoft.com/rest/api/sql/databaseoperations/databaseoperations_listbydatabase
+> Per monitorare le operazioni in corso, vedere: [Gestire le operazioni tramite l'API REST SQL](https://docs.microsoft.com/rest/api/sql/databaseoperations/listbydatabase
 ), [Gestire le operazioni tramite l'interfaccia della riga di comando](/cli/azure/sql/db/op), [Monitorare le operazioni tramite T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) e i due comandi PowerShell seguenti: [Get-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/get-azurermsqldatabaseactivity) e [Stop-AzureRmSqlDatabaseActivity](/powershell/module/azurerm.sql/stop-azurermsqldatabaseactivity).
 
 - Se si esegue l'aggiornamento a un livello di servizio o una dimensione di calcolo superiore, le dimensioni massime del database non aumentano a meno che non si specifichino esplicitamente dimensioni più elevate (massime).
@@ -116,7 +116,7 @@ La durata dell'intero processo di scalabilità verticale dipende dalla dimension
 
 ## <a name="single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb"></a>Database singolo: limitazioni di P11 e P15 quando la dimensione massima è maggiore di 1 TB
 
-Nelle aree seguenti è supportata una dimensione massima maggiore di 1 TB per database P11 e P15: Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Stati Uniti centrali, Francia centrale, Germania centrale, Giappone orientale, Giappone occidentale, Corea del Sud centrale, Stati Uniti centro-settentrionali, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Regno Unito meridionale, Regno Unito occidentale, Stati Uniti orientali 2, Stati Uniti occidentali, US Gov Virginia ed Europa occidentale. Ai database P11 e P15 con dimensioni massime maggiori di 1 TB vengono applicate le considerazioni e le limitazioni seguenti:
+Ai database P11 e P15 con dimensioni massime maggiori di 1 TB vengono applicate le considerazioni e le limitazioni seguenti:
 
 - Se durante la creazione di un database si sceglie una dimensione massima di 1 TB (usando un valore di 4 TB o 4.096 GB) e si effettua il provisioning del database in un'area non supportata, il comando di creazione avrà esito negativo e restituirà un errore.
 - Per i database P11 e P15 esistenti che si trovano in una delle aree supportate, è possibile aumentare la quantità massima di risorse di archiviazione oltre 1 TB, in incrementi di 256 GB fino a 4 TB. Per verificare se nella propria area è supportata una dimensione maggiore, usare la funzione [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql) o controllare le dimensioni del database nel portale di Azure. È possibile eseguire l'aggiornamento di un database P11 o P15 esistente solo tramite un accesso entità a livello del server o come membri del ruolo del database dbmanager.

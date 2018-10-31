@@ -1,6 +1,6 @@
 ---
 title: Suggerimenti sull'ottimizzazione delle prestazioni del database SQL di Azure | Microsoft Docs
-description: Informazioni su come usare le raccomandazioni per migliorare le prestazioni query del database SQL di Azure.
+description: Informazioni su come usare le raccomandazioni per ottimizzare le prestazioni delle query del database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,42 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 9af699dca5aab26f0bf24b4609bef14558236523
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/22/2018
+ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854814"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645525"
 ---
-# <a name="tuning-performance-in-azure-sql-database"></a>Ottimizzazione delle prestazioni del database SQL di Azure
+# <a name="manual-tune-query-performance-in-azure-sql-database"></a>Ottimizzazione manuale delle prestazioni delle query in Database SQL di Azure
 
-Il servizio Database SQL di Azure fornisce [suggerimenti](sql-database-advisor.md) per migliorare le prestazioni del database. In alternativa, è possibile lasciare che il database di SQL Azure [si adatti automaticamente all'applicazione](sql-database-automatic-tuning.md) e applichi le modifiche che miglioreranno le prestazioni del carico di lavoro.
+Dopo aver identificato un problema di prestazioni che si verifica con Database SQL, grazie alle informazioni incluse in questo articolo è possibile:
 
-Se non sono disponibili suggerimenti applicabili e continuano a verificarsi problemi di prestazioni, è possibile usare i metodi seguenti per migliorarle:
-
-- Aumentare i livelli di servizio nel [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) oppure nel [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) per fornire altre risorse al database.
 - Ottimizzare l'applicazione e applicare alcune procedure consigliate che consentono di migliorare le prestazioni.
 - Ottimizzare il database modificando gli indici e le query per usare i dati in modo più efficiente.
 
-Questi sono metodi manuali perché è necessario decidere la quantità di risorse adatta alle proprie esigenze. In caso contrario, sarà necessario riscrivere il codice dell'applicazione o del database e distribuire le modifiche.
-
-## <a name="increasing-service-tier-of-your-database"></a>Aumento del livello di servizio del database
-
-Il database SQL di Azure offre [due modelli di acquisto](sql-database-service-tiers.md): un [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md) e un [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md). Ogni livello di servizio isola rigorosamente le risorse che possono essere usate dal database SQL e assicura prestazioni prevedibili per tale livello di servizio. In questo articolo sono disponibili indicazioni utili per scegliere il livello di servizio per l'applicazione. Viene illustrato anche come ottimizzare l'applicazione per ottenere il massimo dal database SQL di Azure. Ogni livello di servizio presenta specifici [limiti delle risorse](sql-database-resource-limits.md). Per altre informazioni, vedere [Limiti delle risorse basate su vCore](sql-database-vcore-resource-limits-single-databases.md) e [Limiti delle risorse basate su DTU](sql-database-dtu-resource-limits-single-databases.md).
-
-> [!NOTE]
-> Questo articolo è incentrato sulle indicazioni relative alle prestazioni per singoli database nel database SQL di Azure. Per indicazioni sulle prestazioni relative ai pool elastici, vedere le [considerazioni su prezzo e prestazioni per i pool elastici](sql-database-elastic-pool-guidance.md). Si noti, tuttavia, che molte raccomandazioni sull'ottimizzazione contenute in questo articolo possono essere applicate ai database in un pool elastico ottenendo vantaggi simili a livello di prestazioni.
-
-Il livello di servizio esatto necessario per il database SQL dipende dai requisiti del carico massimo per ogni dimensione di risorsa. È possibile che alcune applicazioni usino quantità irrilevanti di una singola risorsa, ma abbiano requisiti significativi per altre.
-
-### <a name="service-tier-capabilities-and-limits"></a>Limiti e funzionalità dei livelli di servizio
-
-È possibile configurare la dimensione di calcolo per ogni livello di servizio. Questa flessibilità consente di pagare solo la capacità necessaria. È possibile [regolare la capacità](sql-database-single-database-scale.md), in base alle modifiche del carico di lavoro. Ad esempio, se il carico di lavoro del database è intenso durante il periodo di acquisti per il ritorno a scuola, è possibile aumentare la dimensione di calcolo per il database per un periodo specifico, da luglio a settembre. È quindi possibile ridurlo al termine del picco stagionale. È possibile ridurre al minimo i costi del servizio ottimizzando l'ambiente cloud in base alla stagionalità della propria attività. Questo modello è adatto anche per i cicli di rilascio di prodotti software. Un team di test può allocare la capacità durante l'esecuzione di test e quindi rilasciare tale capacità al termine dei test. In un modello basato sulla richiesta di capacità, si paga la capacità necessaria, evitando i costi per risorse dedicate usate raramente.
-
-### <a name="the-purpose-of-service-tiers"></a>Scopo dei livelli di servizio
-
-Anche se ogni carico di lavoro può presentare caratteristiche diverse, lo scopo dei livelli di servizio è offrire la prevedibilità delle prestazioni a diverse dimensioni di calcolo. I clienti con requisiti di risorse di database su larga scala possono operare in un ambiente di calcolo più dedicato.
+In questo articolo si presuppone che siano già state esaminate le [raccomandazioni di Advisor per database](sql-database-advisor.md) e le [raccomandazioni di ottimizzazione automatica](sql-database-automatic-tuning.md) di Database SQL di Azure. Si presuppone inoltre che sia già stato letto [Monitoraggio e ottimizzazione delle prestazioni](sql-database-monitor-tune-overview.md) e gli articoli correlati alla risoluzione dei problemi relativi alle prestazioni. In questo articolo si presuppone inoltre che il problema di prestazioni non sia correlato a risorse della CPU per la cui soluzione basta incrementare le dimensioni di calcolo o il livello di servizio per fornire maggiori risorse al database.
 
 ## <a name="tune-your-application"></a>Ottimizzare l'applicazione
 
@@ -75,17 +55,6 @@ Anche se i livelli di servizio del database SQL di Azure sono progettati per mig
 ## <a name="tune-your-database"></a>Ottimizzare il database
 
 Questa sezione illustra alcune tecniche che è possibile usare per ottimizzare il database SQL di Azure, in modo da ottenere le prestazioni migliori per l'applicazione ed eseguirla alla dimensione di calcolo più bassa possibile. Alcune di queste tecniche corrispondono alle tradizionali procedure consigliate di ottimizzazione di SQL Server, ma altre sono specifiche del database SQL di Azure. In alcuni casi è possibile esaminare le risorse utilizzate per un database, in modo da individuare aree che richiedono ottimizzazione aggiuntiva e da estendere le tecniche tradizionali di SQL Server per l'uso nel database SQL di in Azure.
-
-### <a name="identify-performance-issues-using-azure-portal"></a>Identificare i problemi di prestazioni usando il portale di Azure
-
-Nel portale di Azure sono disponibili i seguenti strumenti, utili per l'analisi e la risoluzione dei problemi di prestazioni del database SQL:
-
-- [Query Performance Insight](sql-database-query-performance.md)
-- [Advisor per database SQL](sql-database-advisor.md)
-
-Il portale di Azure include altre informazioni su entrambi gli strumenti e sul relativo uso. Per diagnosticare e correggere in modo efficiente i problemi, è consigliabile provare prima di tutto a usare gli strumenti nel portale di Azure. È consigliabile usare gli approcci di ottimizzazione manuale illustrati di seguito, per gli indici mancanti e l'ottimizzazione delle query, solo in casi speciali.
-
-Altre informazioni sull'identificazione dei problemi nel database SQL di Azure sono disponibili nell'articolo sul [monitoraggio delle prestazioni nel portale di Azure](sql-database-monitor-tune-overview.md) e in [Monitorare i database con le viste a gestione dinamica](sql-database-monitoring-with-dmvs.md).
 
 ### <a name="identifying-and-adding-missing-indexes"></a>Identificazione e aggiunta di indici mancanti
 

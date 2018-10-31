@@ -5,27 +5,32 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 8882a44b0b6db1b3c23c017a072ebddfe9aa20f5
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144324"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090873"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importare un file di Power BI Desktop
 
 È possibile importare un modello di dati in un file di Power BI Desktop in Azure Analysis Services. Vengono importati i metadati del modello, i dati memorizzati nella cache e le connessioni dell'origine dati. Non vengono importati i report e le visualizzazioni. I modelli di dati importati da Power BI Desktop hanno il livello di compatibilità 1400.
 
+> [!IMPORTANT]
+> Questa funzionalità è deprecata. Potrebbe venire rimossa o cambiata in modo significativo in un aggiornamento futuro. È consigliabile interrompere l'uso di questa funzionalità nei progetti nuovi ed esistenti per mantenere la compatibilità con gli aggiornamenti futuri. Per operazioni più avanzate di sviluppo e testing dei modelli, è consigliabile usare Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
+
 **Restrizioni**   
 
-- L'importazione da un file pbix usa la funzionalità di progettazione web nel portale, ovvero **anteprima**. La funzionalità è limitata. Per operazioni più avanzate di sviluppo e testing dei modelli, è consigliabile usare Visual Studio (SSDT) e SQL Server Management Studio (SSMS).
+
+- Se il modello di dati è stato creato in Power BI Desktop, aggiornamento di luglio 2018 (2.60.5169.3201) o successivo, assicurarsi che nessuna funzionalità di anteprima è abilitata. Le funzionalità di anteprima non sono ancora supportate in Azure Analysis Services. Se viene visualizzato l'errore seguente durante l'importazione, sono abilitate funzionalità di anteprima del file pbix che non sono ancora supportate in Azure Analysis Services.
+
+    ![Avviso sul livello di compatibilità](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - È necessario disporre delle autorizzazioni di amministratore del server per importare da un file con estensione pbix.
 - Il modello con estensione pbix può connettersi solo alle origini dati di **database SQL di Azure** e **Azure SQL Data Warehouse**.
 - Il modello con estensione PBIX non può avere connessioni dinamiche o DirectQuery. 
-- L'importazione potrebbe non riuscire se il modello di dati con estensione PBIX contiene metadati non supportati in Analysis Services.
 
 
 ## <a name="to-import-from-pbix"></a>Per importare da un file con estensione PBIX

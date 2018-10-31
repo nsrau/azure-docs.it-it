@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 12b46b4abaa17fe9dd0e9055bca5463312bbd15d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341124"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -73,19 +75,49 @@ Lo standard definisce inoltre due schemi di generazione di `Request-Id`: semplic
 
 Application Insights definisce l'[estensione](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) per il protocollo HTTP per la correlazione. Usa le coppie nome-valore `Request-Context` per propagare la raccolta di proprietà usate dal chiamante o dal destinatario della chiamata. Application Insights SDK usa questa intestazione per impostare i campi `dependency.target` e `request.source`.
 
+### <a name="w3c-distributed-tracing"></a>Analisi distribuita W3C
+
+Stiamo eseguendo la transizione a (formato di analisi distribuita W3C) [https://w3c.github.io/distributed-tracing/report-trace-context.html], che definisce quanto segue:
+- `traceparent`: contiene l'ID operazione globalmente univoco e un identificatore univoco della chiamata
+- `tracestate`: contiene il contesto specifico del sistema di analisi.
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-classic-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET classiche
+
+Questa funzionalità è disponibile nei pacchetti Microsoft.ApplicationInsights.Web e Microsoft.ApplicationInsights.DependencyCollector a partire dalla versione 2.8.0-beta1.
+È **disattivata** per impostazione predefinita; per abilitarla, modificare `ApplicationInsights.config`:
+
+* in `RequestTrackingTelemetryModule` aggiungere l'elemento `EnableW3CHeadersExtraction` con il valore impostato su `true`
+* in `DependencyTrackingTelemetryModule` aggiungere l'elemento `EnableW3CHeadersInjection` con il valore impostato su `true`
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Abilitare il supporto di analisi distribuita W3C per le app ASP.NET Core
+
+Questa funzionalità è presente in Microsoft.ApplicationInsights.AspNetCore con la versione 2.5.0-beta1 e in Microsoft.ApplicationInsights.DependencyCollector versione 2.8.0-beta1.
+È **disattivata** per impostazione predefinita; per abilitarla, impostare `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` su `true`:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry(o => 
+        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
+    // ....
+}
+```
+
 ## <a name="open-tracing-and-application-insights"></a>OpenTracing e Application Insights
 
-Ecco come si presentano i modelli di dati di [OpenTracing](http://opentracing.io/) e Application Insights: 
+La [specifica del modello di dati OpenTracing](http://opentracing.io/) e i modelli di dati di Application Insights eseguono il mapping nel modo seguente:
 
-- `request`, `pageView` esegue il mapping a **Span** con `span.kind = server`
-- `dependency` esegue il mapping a **Span** con `span.kind = client`
-- `id` di una `request` e `dependency` esegue il mapping a **Span.Id**
-- `operation_Id` esegue il mapping a **TraceId**
-- `operation_ParentId` esegue il mapping a **Reference** di tipo `ChildOf`
+| Application Insights                  | OpenTracing                                      |
+|------------------------------------   |-------------------------------------------------  |
+| `Request`, `PageView`                 | `Span` con `span.kind = server`                  |
+| `Dependency`                          | `Span` con `span.kind = client`                  |
+| `Id` di `Request` e `Dependency`    | `SpanId`                                          |
+| `Operation_Id`                        | `TraceId`                                         |
+| `Operation_ParentId`                  | `Reference` di tipo `ChildOf` (l'intervallo padre)   |
 
-Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](application-insights-data-model.md).
+Per altre informazioni sul modello di dati di Application Insights, vedere il [modello di dati](application-insights-data-model.md). 
 
-Per le definizioni di OpenTracing, vedere a [specifica](https://github.com/opentracing/specification/blob/master/specification.md) e le [convenzioni semantiche](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
+Per le definizioni dei concetti di OpenTracing, vedere la [specifica](https://github.com/opentracing/specification/blob/master/specification.md) e le [convenzioni semantiche](https://github.com/opentracing/specification/blob/master/semantic_conventions.md).
 
 
 ## <a name="telemetry-correlation-in-net"></a>Correlazione di dati di telemetria in .NET
@@ -135,3 +167,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Caricare tutti i componenti del microservizio in Application Insights. Controllare le [piattaforme supportate](app-insights-platforms.md).
 - Per informazioni sul modello di dati e sui tipi di Application Insights, vedere il [modello di dati](application-insights-data-model.md).
 - Informazioni su come [estendere e filtrare i dati di telemetria](app-insights-api-filtering-sampling.md).
+- [Application Insights config reference](app-insights-configuration-with-applicationinsights-config.md) (Informazioni di riferimento sulla configurazione di Application Insights)
+

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 10/15/2018
 ms.author: jeedes
-ms.openlocfilehash: a7d77df4d6be1572d2076684cfa4702cb32b5ed6
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: a9acb9539497c85f408ce7417fa5983072ea80b9
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391913"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365663"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Esercitazione: Integrazione di Azure Active Directory con più account di Amazon Web Service (AWS)
 
@@ -35,6 +35,19 @@ L'integrazione di Amazon Web Service (AWS) con Azure AD offre i vantaggi seguent
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ![Amazon Web Services (AWS) nell'elenco dei risultati](./media/aws-multi-accounts-tutorial/amazonwebservice.png)
+
+>[!NOTE]
+>Si noti che collegare un'app AWS a tutti gli account AWS non è l'approccio consigliato. Si consiglia di usare [questo](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) approccio per configurare più istanze di account AWS con più istanze di app AWS in Azure AD.
+
+**Non è consigliabile usare questo approccio per i motivi seguenti:**
+
+* È necessario usare l'approccio Graph Explorer per applicare la patch a tutti i ruoli dell'app. Non è consigliabile usare l'approccio del file manifesto.
+
+* Molti clienti hanno segnalato che dopo aver aggiunto ~1200 ruoli dell'app per una singola app AWS, qualsiasi operazione sull'app generava errori relativi alle dimensioni. Esiste un limite rigido di dimensioni nell'oggetto applicazione.
+
+* È necessario aggiungere manualmente il ruolo quando viene aggiunto in uno degli account. Si tratta di un approccio Replace e non Append. Inoltre, se gli account aumentano, diventa una relazione n x n con account e ruoli.
+
+* Tutti gli account AWS useranno lo stesso file XML dei metadati della federazione e al momento del rollover dei certificati sarà necessario aggiornare il certificato in tutti gli account AWS contemporaneamente
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -64,19 +77,19 @@ Per configurare l'integrazione di Amazon Web Service (AWS) in Azure AD, è neces
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
-    ![Pulsante Azure Active Directory][1]
+    ![image](./media/aws-multi-accounts-tutorial/selectazuread.png)
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Pannello Applicazioni aziendali][2]
+    ![image](./media/aws-multi-accounts-tutorial/a_select_app.png)
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Pulsante Nuova applicazione][3]
+    ![image](./media/aws-multi-accounts-tutorial/a_new_app.png)
 
 4. Nella casella di ricerca digitare **Amazon Web Services (AWS)** selezionare **Amazon Web Services (AWS)** nel riquadro dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Amazon Web Services (AWS) nell'elenco dei risultati](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
+     ![image](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
 5. Dopo avere aggiunto l'applicazione, andare alla pagina **Proprietà** e copiare l'**ID oggetto**.
 
@@ -101,62 +114,61 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 **Per configurare l'accesso Single Sign-On di Azure AD con Amazon Web Service (AWS), seguire la procedura seguente:**
 
-1. Nella pagina di integrazione dell'applicazione **Amazon Web Services (AWS)** del portale di Azure fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Amazon Web Services (AWS)** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
 
-    ![Collegamento Configura accesso Single Sign-On][4]
+    ![image](./media/aws-multi-accounts-tutorial/B1_B2_Select_SSO.png)
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Finestra di dialogo Single Sign-On](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_samlbase.png)
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare il Single Sign-On.
 
-3. Nella sezione **URL e dominio Amazon Web Services (AWS)** l'utente non deve eseguire alcuna operazione perché l'applicazione è già preintegrata in Azure.
+    ![image](./media/aws-multi-accounts-tutorial/b1_b2_saml_sso.png)
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Amazon Web Services (AWS)](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_url.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
-4. L'applicazione Amazon Web Services (AWS) si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione "**Attributi utente**" nella pagina di integrazione dell'applicazione. La schermata seguente illustra un esempio relativo a questa operazione.
+    ![image](./media/aws-multi-accounts-tutorial/b1-domains_and_urlsedit.png)
 
-    ![Configurare l'attributo Single Sign-On](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_attribute.png)    
+4. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
 
-5. Nella sezione **Attributi utente** della finestra di dialogo **Single Sign-On** configurare l'attributo del token SAML come indicato nell'immagine precedente e seguire questa procedura:
+    ![image](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-    | Nome attributo  | Valore attributo | Spazio dei nomi |
+5. L'applicazione Amazon Web Services (AWS) si aspetta che le asserzioni SAML abbiano un formato specifico. Configurare le attestazioni seguenti per questa applicazione. È possibile gestire i valori di questi attributi dalla sezione **Attributi utente e attestazioni** nella pagina di integrazione dell'applicazione. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Attributi utente e attestazioni**.
+
+    ![image](./media/aws-multi-accounts-tutorial/i4-attribute.png)
+
+6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente e attestazioni** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
+    
+    | NOME  | Source Attribute  | Spazio dei nomi |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | Ruolo            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
-    | SessionDuration             | "Specificare il valore della durata della sessione in base alle proprie esigenze" |  https://aws.amazon.com/SAML/Attributes |
+    | SessionDuration             | "inserire un valore compreso tra 900 secondi (15 minuti) e 43200 secondi (12 ore)" |  https://aws.amazon.com/SAML/Attributes |
 
-    >[!TIP]
-    >È necessario configurare il provisioning dell'utente in Azure AD per recuperare tutti i ruoli dalla Console AWS. Vedere la procedura di provisioning seguente.
+    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    a. Fare clic su **Aggiungi attributo** per aprire la finestra di dialogo **Aggiungi attributo**.
+    ![image](./media/aws-multi-accounts-tutorial/i2-attribute.png)
 
-    ![Configurare l'aggiunta dell'accesso Single Sign-On](./media/aws-multi-accounts-tutorial/tutorial_attribute_04.png)
-
-    ![Configurare l'attributo Single Sign-On](./media/aws-multi-accounts-tutorial/tutorial_attribute_05.png)
+    ![image](./media/aws-multi-accounts-tutorial/i3-attribute.png)
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
-    c. Nell'elenco **Valore** digitare il valore dell'attributo indicato per la riga.
+    c. Immettere il valore **Nome spazio dei nomi**.
 
-    d. Nella casella di testo **Spazio dei nomi**, digitare il valore dello spazio dei nomi indicato per la riga.
+    d. Per Origine selezionare **Attributo**.
 
-    d. Fare clic su **OK**.
+    e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
-6. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
+    f. Fare clic su **Save**.
 
-    ![Collegamento di download del certificato](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML dei metadati federazione** e salvarlo nel computer in uso.
 
-7. Fare clic sul pulsante **Salva** .
+    ![image](./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/aws-multi-accounts-tutorial/tutorial_general_400.png)
-
-8. In un'altra finestra del browser accedere al sito aziendale di Amazon Web Service (AWS) come amministratore.
+8. In un'altra finestra del Web browser accedere al sito aziendale di Amazon Web Service (AWS) come amministratore.
 
 9. Fare clic su **AWS** nella home page della console.
 
     ![Configurare la home page dell'accesso Single Sign-On][11]
 
-10. Fare clic su **IAM** (Identity and Access Management).
+10. Fare clic su **Identity and Access Management**.
 
     ![Configurare l'identità dell'accesso Single Sign-On][12]
 
@@ -196,7 +208,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
   
     d. Fare clic su **Next: Permissions** (Avanti: Autorizzazioni).
 
-16. Nella finestra di dialogo **Attach Permissions Policies** (Collega i criteri di autorizzazione) fare clic su **Next: Review** (Avanti: Riepilogo).  
+16. Nella finestra di dialogo **Attach Permissions Policies** (Collega i criteri di autorizzazione) non è necessario associare alcun criterio. Fare clic su **Next: Review** (Avanti: Riepilogo).  
 
     ![Configurare criteri dell'accesso Single Sign-On][33]
 
@@ -208,9 +220,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     b. Nella casella di testo **Role description** (Descrizione ruolo) immettere la descrizione.
 
-    a. Fare clic su **Crea ruolo**.
+    c. Fare clic su **Crea ruolo**.
 
-    b. Creare tutti i ruoli necessari in base alle esigenze ed eseguirne il mapping per il Provider di identità.
+    d. Creare tutti i ruoli necessari in base alle esigenze ed eseguirne il mapping per il Provider di identità.
 
 18. Disconnettersi dall'account AWS corrente e accedere con l'altro account in cui si vuole configurare Single Sign-On con Azure AD.
 
@@ -349,17 +361,6 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 
 <!--Image references-->
 
-[1]: ./media/aws-multi-accounts-tutorial/tutorial_general_01.png
-[2]: ./media/aws-multi-accounts-tutorial/tutorial_general_02.png
-[3]: ./media/aws-multi-accounts-tutorial/tutorial_general_03.png
-[4]: ./media/aws-multi-accounts-tutorial/tutorial_general_04.png
-
-[100]: ./media/aws-multi-accounts-tutorial/tutorial_general_100.png
-
-[200]: ./media/aws-multi-accounts-tutorial/tutorial_general_200.png
-[201]: ./media/aws-multi-accounts-tutorial/tutorial_general_201.png
-[202]: ./media/aws-multi-accounts-tutorial/tutorial_general_202.png
-[203]: ./media/aws-multi-accounts-tutorial/tutorial_general_203.png
 [11]: ./media/aws-multi-accounts-tutorial/ic795031.png
 [12]: ./media/aws-multi-accounts-tutorial/ic795032.png
 [13]: ./media/aws-multi-accounts-tutorial/ic795033.png
@@ -378,5 +379,4 @@ Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello
 [38]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_createnewaccesskey.png
 [39]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
 [40]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
-[41]: ./media/aws-multi-accounts-tutorial/tutorial_amazonwebservices_provisioning_on.png
-
+[41]: ./media/aws-multi-accounts-tutorial/

@@ -11,20 +11,23 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 4f6c98533a2ab1289ca5f1da25c44fe1a77a983c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353666"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945468"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Regole del firewall per il database SQL di Azure e SQL Data Warehouse
 
 Il [database SQL di Microsoft Azure](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) forniscono un servizio di database relazionale per Azure e altre applicazioni basate su Internet. Per proteggere i dati, il firewall impedisce qualsiasi accesso al server di database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso ai database in base all'indirizzo IP di origine di ogni richiesta.
 
 > [!NOTE]
-> Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
+> Questo articolo è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. 
+
+> [!IMPORTANT]
+> Le informazioni di questo articolo *non* sono valide per **Istanza gestita di database SQL di Azure**. Vedere l'articolo seguente sulla [connessione a un'istanza gestita](sql-database-managed-instance-connect-app.md) per ulteriori informazioni sulla configurazione di rete necessaria.
 
 ## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Regole della rete virtuale come alternativa alle regole IP
 
@@ -80,7 +83,7 @@ Per consentire alle applicazioni da Azure di stabilire la connessione al server 
 
 ## <a name="creating-and-managing-firewall-rules"></a>Creazione e gestione di regole del firewall
 
-La prima impostazione del firewall a livello di server può essere creata usando il [Portale di Azure](https://portal.azure.com/) o a livello di programmazione tramite [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [l'interfaccia della riga di comando di Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), o l'[API REST](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate). Le regole del firewall a livello di server successive possono essere create e gestite utilizzando questi metodi e tramite Transact-SQL.
+La prima impostazione del firewall a livello di server può essere creata usando il [Portale di Azure](https://portal.azure.com/) o a livello di programmazione tramite [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [l'interfaccia della riga di comando di Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create), o l'[API REST](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Le regole del firewall a livello di server successive possono essere create e gestite utilizzando questi metodi e tramite Transact-SQL.
 
 > [!IMPORTANT]
 > Le regole del firewall a livello di database possono essere create e gestite solo con Transact-SQL.
@@ -189,10 +192,10 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 | API | Level | DESCRIZIONE |
 | --- | --- | --- |
-| [Elencare le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver) |Server |Visualizza le regole del firewall a livello di server correnti |
-| [Creare o aggiornare la regola del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate) |Server |Crea o aggiorna regole del firewall a livello di server |
-| [Eliminare la regola del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete) |Server |Rimuove regole del firewall a livello di server |
-| [Ottenere le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get) | Server | Ottiene le regole del firewall a livello di server |
+| [Elencare le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Server |Visualizza le regole del firewall a livello di server correnti |
+| [Creare o aggiornare la regola del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Server |Crea o aggiorna regole del firewall a livello di server |
+| [Eliminare la regola del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Rimuove regole del firewall a livello di server |
+| [Ottenere le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Ottiene le regole del firewall a livello di server |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>Regola del firewall a livello di server contro una regola del firewall a livello di database
 

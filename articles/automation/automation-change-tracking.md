@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/31/2018
+ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669484"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167002"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche
 
@@ -33,13 +33,23 @@ Le versioni seguenti del sistema operativo Windows sono ufficialmente supportate
 
 Le distribuzioni Linux seguenti sono supportate ufficialmente. È tuttavia possibile che l'agente Linux sia eseguito in altre distribuzioni non elencate. Se non diversamente indicato, tutte le versioni minori sono supportate per ogni versione principale elencata.  
 
-* Amazon Linux da 2012.09 a 2015.09 (x86/x64)
-* CentOS Linux 5, 6 e 7 (x86/x64)  
-* Oracle Linux 5, 6 e 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
-* Debian GNU/Linux 6, 7 e 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 e 12 (x86/x64)
+### <a name="64-bit"></a>64 bit
+
+* CentOS 6 e 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 e 7
+* Red Hat Enterprise Linux Server 6 e 7
+* Debian GNU/Linux 8 e 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+### <a name="32-bit"></a>32 bit
+
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 e 9
+* Ubuntu Linux 14.04 LTS e 16.04 LTS
 
 ## <a name="enable-change-tracking-and-inventory"></a>Abilitare il rilevamento delle modifiche e l'inventario
 
@@ -146,6 +156,7 @@ Altre limitazioni:
 La soluzione Rilevamento modifiche sta riscontrando attualmente i problemi seguenti:
 
 * Gli aggiornamenti rapidi non vengono raccolti per le macchine Windows 10 Creators Update e Windows Server 2016 Core RS3.
+* Per i file di Windows, attualmente la soluzione Rilevamento modifiche non rileva se un nuovo file è stato aggiunto a un percorso cartella rilevato
 
 ## <a name="change-tracking-data-collection-details"></a>Informazioni dettagliate sulla raccolta dei dati di Change Tracking
 
@@ -213,6 +224,17 @@ Lo scopo del monitoraggio delle modifiche alle chiavi del Registro di sistema è
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitora l'elenco delle DLL di sistema note o comunemente usate. Questo sistema impedisce di sfruttare le autorizzazioni vulnerabili delle directory delle applicazioni rilasciando trojan nelle DLL di sistema.|
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Monitora l'elenco dei pacchetti in grado di ricevere le notifiche degli eventi da Winlogon, il modello di supporto di accesso interattivo per il sistema operativo Windows.|
+
+## <a name="network-requirements"></a>Requisiti di rete
+
+I seguenti indirizzi sono necessari e specifici per Rilevamento modifiche. La comunicazione verso questi indirizzi avviene sulla porta 443.
+
+|Azure Public  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Uso di Change Tracking
 

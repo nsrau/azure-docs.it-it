@@ -1,26 +1,18 @@
 ---
 title: 'Creare un gateway VPN basato su route: portale di Azure | Microsoft Docs'
-description: Creare rapidamente un gateway VPN basato su route usando il portale di Azure
+description: Creare un gateway VPN basato su route usando il portale di Azure
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: fe05ab36f971105cf72342b8df5e2a82de7fc2b8
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7139b2de79b4e092ca761a4e51061c233e6031b5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391794"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470303"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Creare un gateway VPN basato su route usando il portale di Azure
 
@@ -74,33 +66,19 @@ La subnet del gateway contiene gli indirizzi IP riservati usati dai servizi del 
   - **SKU**: VpnGw1
   - **Location**: Stati Uniti orientali
   - **Rete virtuale**: fare clic su **Rete virtuale/Scegliere una rete virtuale** per aprire la pagina **Scegliere una rete virtuale**. Selezionare **VNet1**.
+  - **Indirizzo IP pubblico**: questa impostazione specifica l'oggetto indirizzo IP pubblico che viene associato al gateway VPN. L'indirizzo IP pubblico viene assegnato dinamicamente a questo oggetto durante la creazione del gateway VPN. Il gateway VPN supporta attualmente solo l'allocazione degli indirizzi IP pubblici *dinamici*. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP pubblico viene modificato solo quando il gateway viene eliminato e ricreato. Non viene modificato in caso di ridimensionamento, reimpostazione o altre manutenzioni/aggiornamenti del gateway VPN.
 
-  ![Configurare le impostazioni del gateway](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "Configurare le impostazioni del gateway")
+    - Lasciare **Crea nuovo** selezionato.
+    - Nella casella di testo digitare un **nome** per l'indirizzo IP pubblico. Per questo esercizio, usare **VNet1GWIP**.<br>
 
-## <a name="pip"></a>Creare un indirizzo IP pubblico
-
-Un gateway VPN deve avere un indirizzo IP pubblico allocato in modo dinamico. Si tratta dell'indirizzo IP a cui si connette il dispositivo locale quando si crea una connessione a un gateway VPN.
-
-1. Selezionare **Prima configurazione IP Crea configurazione IP gateway** per richiedere un indirizzo IP pubblico.
-
-  ![Prima configurazione IP](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "Prima configurazione IP")
-2. Nella pagina **Scegli indirizzo IP pubblico** fare clic su **+ Crea nuovo** per aprire la pagina **Crea indirizzo IP pubblico**.
-3. Configurare le impostazioni con i valori seguenti:
-
-  - **Nome**: **VNet1GWIP**
-  - **SKU**: **Basic**
-
-  ![Crea indirizzo IP pubblico](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "")
-4. Fare clic su **OK** nella parte inferiore di questa pagina per salvare le modifiche.
+    ![Configurare le impostazioni del gateway](./media/create-routebased-vpn-gateway-portal/gw.png "Configurare le impostazioni del gateway")
 
 ## <a name="creategw"></a>Creare il gateway VPN
 
 1. Verificare le impostazioni nella pagina **Crea gateway di rete virtuale**. Modificare i valori, se necessario.
-
-  ![Creare il gateway VPN](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "Creare il gateway VPN")
 2. Fare clic su **Crea** nella parte inferiore della pagina.
 
-Dopo avere fatto clic su **Crea**, le impostazioni vengono convalidate e nel dashboard viene visualizzato il riquadro **Deploying Virtual network gateway** (Distribuzione del gateway di rete virtuale). Per un gateway VPN possono essere necessari fino a 45 minuti. Potrebbe essere necessario aggiornare la pagina del portale per visualizzare lo stato di completamento.
+  Dopo avere fatto clic su **Crea**, le impostazioni vengono convalidate e nel dashboard viene visualizzato il riquadro **Deploying Virtual network gateway** (Distribuzione del gateway di rete virtuale). Per un gateway VPN possono essere necessari fino a 45 minuti. Potrebbe essere necessario aggiornare la pagina del portale per visualizzare lo stato di completamento.
 
 ## <a name="viewgw"></a>Visualizzare il gateway VPN
 

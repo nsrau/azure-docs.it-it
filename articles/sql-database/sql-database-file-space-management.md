@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 306e541ad67d6b44d2d3cc4cd2f73aa09d629d0c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377941"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954757"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gestire lo spazio file nel database SQL di Azure
 Questo articolo descrive i diversi tipi di spazio di archiviazione nel database SQL di Azure e le operazioni che è possibile eseguire quando lo spazio file allocato per i database e i pool elastici deve essere gestito esplicitamente.
@@ -216,7 +216,7 @@ Per altre informazioni su questo comando, vedere [SHRINKDATABASE](https://docs.m
 
 ### <a name="auto-shrink"></a>Compattazione automatica
 
-In alternativa, è possibile abilitare la compattazione automatica per un database.  La compattazione automatica riduce la complessità della gestione dei file e il suo impatto sulle prestazioni del database è inferiore rispetto a SHRINKDATABASE o SHRINKFILE.  Può essere particolarmente utile per la gestione dei pool elastici con molti database.  È però meno efficace nel recupero dello spazio file rispetto a SHRINKDATABASE e SHRINKFILE.
+In alternativa, è possibile abilitare la compattazione automatica per un database.  La compattazione automatica riduce la complessità della gestione dei file e il suo impatto sulle prestazioni del database è inferiore rispetto a SHRINKDATABASE o SHRINKFILE.  Può essere particolarmente utile per la gestione dei pool elastici con molti database.  Può essere però meno efficace nel recupero dello spazio file rispetto a SHRINKDATABASE e SHRINKFILE.
 Per abilitare la compattazione automatica, modificare il nome del database nel comando seguente.
 
 
@@ -225,7 +225,7 @@ Per abilitare la compattazione automatica, modificare il nome del database nel c
 ALTER DATABASE [db1] SET AUTO_SHRINK ON
 ```
 
-Per altre informazioni su questo comando, vedere [Opzioni ALTER DATABASE SET](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017). 
+Per altre informazioni su questo comando, vedere [Opzioni ALTER DATABASE SET](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017). 
 
 ### <a name="rebuild-indexes"></a>Ricompilazione degli indici
 

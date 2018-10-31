@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 13ff24c24a881297775fa5f65821e53ceb83c351
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 727cf523f2a505729377f36738657fc5489134a7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108759"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025991"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Usare il servizio Gestione dispositivi StorSimple per modificare la configurazione del dispositivo StorSimple
 
@@ -65,7 +65,7 @@ Il dispositivo deve sincronizzare l'ora per l'autenticazione con il provider di 
 
  Selezionare il fuso orario dall'elenco a discesa. È possibile specificare fino a due server NTP (Network Time Protocol):
 
- - **Server NTP primario**: la configurazione è obbligatoria e si specifica quando si usa Windows PowerShell per StorSimple per configurare il dispositivo. È possibile specificare il valore predefinito di Windows Server **time.windows.com** come server NTP. È possibile visualizzare la configurazione del server NTP primario nel portale di Azure, ma è necessario usare l'interfaccia Windows PowerShell per modificarla. Usare il cmdlet `Set-HcsNTPClientServerAddress` per modificare il server NTP primario del dispositivo. Per altre informazioni, vedere la sintassi per il cmdlet [Set-HcsNTPClientServerAddress] (https://technet.microsoft.com/library/dn688138.aspx).
+ - **Server NTP primario**: la configurazione è obbligatoria e si specifica quando si usa Windows PowerShell per StorSimple per configurare il dispositivo. È possibile specificare il valore predefinito di Windows Server **time.windows.com** come server NTP. È possibile visualizzare la configurazione del server NTP primario nel portale di Azure, ma è necessario usare l'interfaccia Windows PowerShell per modificarla. Usare il cmdlet `Set-HcsNTPClientServerAddress` per modificare il server NTP primario del dispositivo. Per altre informazioni, vedere la sintassi per il cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
 
 - **Server NTP secondario**: la configurazione è facoltativa. È possibile usare il portale per configurare un server NTP secondario.
 

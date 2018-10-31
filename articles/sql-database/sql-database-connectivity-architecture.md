@@ -7,28 +7,27 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: DhruvMsft
-ms.author: dhruv
+author: oslake
+ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/24/2018
-ms.openlocfilehash: 66f558db713ab951864fe694f27f2e60d52e875a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064145"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986322"
 ---
-# <a name="azure-sql-database-connectivity-architecture"></a>Architettura della connettività del database SQL di Azure 
+# <a name="azure-sql-database-connectivity-architecture"></a>Architettura della connettività del database SQL di Azure
 
-Questo articolo illustra l'architettura della connettività del database SQL di Azure e spiega il funzionamento dei diversi componenti per indirizzare il traffico a un'istanza del database SQL di Azure. La funzione dei componenti di connettività del database SQL di Azure è indirizzare il traffico di rete verso il database di Azure con client che si connettono dall'interno di Azure e client che si connettono dall'esterno di Azure. Questo articolo include anche alcuni esempi di script per modificare la modalità di connessione e propone alcune considerazioni sulla modifica delle impostazioni di connettività predefinite. 
+Questo articolo illustra l'architettura della connettività del database SQL di Azure e spiega il funzionamento dei diversi componenti per indirizzare il traffico a un'istanza del database SQL di Azure. La funzione dei componenti di connettività del database SQL di Azure è indirizzare il traffico di rete verso il database di Azure con client che si connettono dall'interno di Azure e client che si connettono dall'esterno di Azure. Questo articolo include anche alcuni esempi di script per modificare la modalità di connessione e propone alcune considerazioni sulla modifica delle impostazioni di connettività predefinite.
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 
 Il diagramma seguente offre una panoramica generale dell'architettura della connettività del database SQL di Azure.
 
 ![panoramica dell'architettura](./media/sql-database-connectivity-architecture/architecture-overview.png)
-
 
 I passaggi seguenti descrivono come viene stabilita una connessione a un database SQL di Azure tramite il servizio di bilanciamento del carico software del database SQL di Azure e il gateway del database SQL di Azure.
 
@@ -39,7 +38,6 @@ I passaggi seguenti descrivono come viene stabilita una connessione a un databas
 
 > [!IMPORTANT]
 > Ognuno di questi componenti incorpora la protezione DDoS (Distributed Denial of Service) a livello di rete e di app.
->
 
 ## <a name="connectivity-from-within-azure"></a>Connettività dall'interno di Azure
 
@@ -54,7 +52,9 @@ Se ci si connette dall'esterno di Azure, le connessioni usano un criterio di con
 ![panoramica dell'architettura](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Quando si usano gli endpoint servizio con il database SQL di Azure i criteri sono di **Proxy** per impostazione predefinita. Per abilitare la connettività dall'interno della rete virtuale, consentire le connessioni in uscita agli indirizzi IP del gateway del database SQL di Azure specificate nell'elenco riportato di seguito. Quando si usano endpoint di servizio, è consigliabile modificare il criterio di connessione in **Reindirizzamento** per consentire prestazioni migliori. Se si modifica il criterio di connessione in **Reindirizzamento**, non sarà sufficiente consentire l'uscita dal gruppo di sicurezza di rete ai soli indirizzi IP del gateway del database SQL elencati di seguito, ma a tutti gli indirizzi IP del database SQL di Azure. Ciò è possibile con l'aiuto di tag di servizio NSG (gruppi di sicurezza di rete). Per altre informazioni, vedere [Tag di servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+> Quando si usano gli endpoint servizio con il database SQL di Azure i criteri sono di **Proxy** per impostazione predefinita. Per abilitare la connettività dall'interno della rete virtuale, consentire le connessioni in uscita agli indirizzi IP del gateway del database SQL di Azure specificate nell'elenco riportato di seguito.
+
+Quando si usano endpoint di servizio, è consigliabile modificare il criterio di connessione in **Reindirizzamento** per consentire prestazioni migliori. Se si modifica il criterio di connessione in **Reindirizzamento**, non sarà sufficiente consentire l'uscita dal gruppo di sicurezza di rete ai soli indirizzi IP del gateway del database SQL di Azure elencati di seguito, ma a tutti gli indirizzi IP del database SQL di Azure. Ciò è possibile con l'aiuto di tag di servizio NSG (gruppi di sicurezza di rete). Per altre informazioni, vedere [Tag di servizio](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Indirizzi IP del gateway del database SQL di Azure
 
@@ -73,11 +73,18 @@ La tabella seguente elenca gli indirizzi IP primario e secondario del gateway de
 | Canada centrale | 40.85.224.249 | |
 | Canada orientale | 40.86.226.166 | |
 | Stati Uniti centrali | 23.99.160.139 | 13.67.215.62 |
+| Cina orientale 1 | 139.219.130.35 | |
+| Cina orientale 2 | 40.73.82.1 | |
+| Cina settentrionale 1 | 139.219.15.17 | |
+| Cina settentrionale 2 | 40.73.50.0 | |
 | Asia orientale | 191.234.2.139 | 52.175.33.150 |
 | Stati Uniti orientali 1 | 191.238.6.43 | 40.121.158.30 |
 | Stati Uniti orientali 2 | 191.239.224.107 | 40.79.84.180 * |
-| India centrale | 104.211.96.159  | |
-| India meridionale | 104.211.224.146  | |
+| Francia centrale | 40.79.137.0 | 40.79.129.1 |
+| Germania centrale | 51.4.144.100 | |
+| Germania nord-orientale | 51.5.144.179 | |
+| India centrale | 104.211.96.159 | |
+| India meridionale | 104.211.224.146 | |
 | India occidentale | 104.211.160.80 | |
 | Giappone orientale | 191.237.240.43 | 13.78.61.196 |
 | Giappone occidentale | 191.238.68.11 | 104.214.148.156 |
@@ -90,11 +97,11 @@ La tabella seguente elenca gli indirizzi IP primario e secondario del gateway de
 | Regno Unito settentrionale | 13.87.97.210 | |
 | Regno Unito meridionale 1 | 51.140.184.11 | |
 | Regno Unito meridionale 2 | 13.87.34.7 | |
-| Regno Unito occidentale | 51.141.8.11  | |
+| Regno Unito occidentale | 51.141.8.11 | |
 | Stati Uniti centro-occidentali | 13.78.145.25 | |
 | Europa occidentale | 191.237.232.75 | 40.68.37.158 |
 | Stati Uniti occidentali 1 | 23.99.34.75 | 104.42.238.205 |
-| Stati Uniti occidentali 2 | 13.66.226.202  | |
+| Stati Uniti occidentali 2 | 13.66.226.202 | |
 ||||
 
 \* **NOTA:** *Stati Uniti orientali 2* ha anche l'indirizzo IP terziario `52.167.104.0`.
@@ -170,10 +177,10 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 
 > [!IMPORTANT]
 > Per questo script è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
->
 
 Lo script dell'interfaccia della riga di comando seguente mostra come modificare il criterio di connessione.
 
+```azurecli-interactive
 <pre>
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
@@ -181,13 +188,14 @@ sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-grou
 # Set URI
 id="$sqlserverid/connectionPolicies/Default"
 
-# Get current connection policy 
+# Get current connection policy
 az resource show --ids $id
 
-# Update connection policy 
+# Update connection policy
 az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

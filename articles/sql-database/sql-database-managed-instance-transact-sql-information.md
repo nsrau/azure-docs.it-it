@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 08/13/2018
-ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/24/2018
+ms.openlocfilehash: fd63d0ce9ef335efdebf9759d52cf93312986d16
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166504"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025379"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server 
 
@@ -103,7 +103,7 @@ Vedere [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/crea
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### <a name="clr"></a>CLR 
@@ -333,21 +333,22 @@ Per informazioni sulle istruzioni Restore, vedere [Istruzioni RESTORE](https://d
  - `remote proc trans` 
 - `sp_execute_external_scripts` non è supportato. Vedere [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` non è supportato. Vedere [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- Le `Extended stored procedures` non sono supportate, incluse `sp_addextendedproc` e `sp_dropextendedproc`. Vedere [Stored procedure estese](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- Le `Extended stored procedures` non sono supportate, incluse `sp_addextendedproc`  e `sp_dropextendedproc`. Vedere [Stored procedure estese](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db` e `sp_detach_db` non sono supportati. Vedere [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) e [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` non è supportato. Vedere [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ### <a name="sql-server-agent"></a>Agente SQL Server
 
 - Le impostazioni dell'agente SQL sono di sola lettura. La routine `sp_set_agent_properties` non è supportata in Istanza gestita.  
-- Processi - attualmente sono supportati i passaggi dei processi T-SQL
-- Al momento non sono supportati altri tipi di passaggi dei processi (durante l'anteprima pubblica verranno aggiunti altri passaggi).
-  - Non sono supportati i processi di replica, tra cui:
+- Processi
+ - I passaggi dei processi T-SQL sono supportati.
+ - I processi di replica seguenti sono supportati:
     - Lettore di log delle transazioni.  
     - Snapshot.
-    - Database di distribuzione.  
-    - Unione.  
-  - SSIS non è ancora supportato. 
+    - Database di distribuzione.
+ - SSIS è supportato. 
+- Altri tipi di passaggi dei processi non sono attualmente supportati, tra cui:
+  - Il passaggio del processo di replica di tipo merge non è supportato.  
   - La lettura coda non è supportata.  
   - La shell dei comandi non è ancora supportata. 
   - Istanza gestita non può accedere a risorse esterne (ad esempio a condivisioni di rete tramite robocopy).  
@@ -411,7 +412,7 @@ In questo esempio i database esistenti continueranno a funzionare e potranno cre
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configurazione non corretta della chiave di firma di accesso condiviso durante il ripristino del database
 
 L'istruzione `RESTORE DATABASE` che legge il file con estensione bak potrebbe cercare continuamente di leggere il file e restituire un errore dopo un lungo periodo di tempo se la firma di accesso condiviso in `CREDENTIAL` non è corretta. Eseguire RESTORE HEADERONLY prima di ripristinare un database per avere la certezza che la chiave di firma di accesso condiviso sia corretta.
-Accertarsi di rimuovere il carattere `?` iniziale dalla chiave generata mediante il portale di Azure.
+Assicurarsi di rimuovere il carattere `?` iniziale dalla chiave SAS generata con il portale di Azure.
 
 ### <a name="tooling"></a>Strumenti
 

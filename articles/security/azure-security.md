@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971007"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405209"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica
@@ -74,10 +74,10 @@ Le funzionalità predefinite sono organizzate in sei (6) aree funzionali: operaz
 ## <a name="operations"></a>Operazioni
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per le operazioni di sicurezza e informazioni di riepilogo su tali funzionalità.
 
-### <a name="operations-management-suite-security-and-audit-dashboard"></a>Dashboard Sicurezza e controllo di Operations Management Suite
-La [soluzione Sicurezza e controllo di OMS](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) consente di ottenere un quadro completo dello stato della sicurezza IT dell'organizzazione con [query di ricerca predefinite](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) per i problemi rilevanti che richiedono l'attenzione dell'utente. Il dashboard [Sicurezza e controllo](https://technet.microsoft.com/library/mt484091.aspx) è la schermata iniziale per tutti gli elementi correlati alla sicurezza in OMS. Offre una visione generale dello stato dei computer in termini di sicurezza. Consente anche di visualizzare tutti gli eventi delle ultime 24 ore, di 7 giorni o di qualsiasi altro intervallo di tempo personalizzato.
+### <a name="security-and-audit-dashboard"></a>Dashboard Sicurezza e controllo
+La [soluzione Sicurezza e controllo](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre un quadro completo dello stato della sicurezza IT dell'organizzazione con [query di ricerca predefinite](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) per i problemi rilevanti che richiedono l'attenzione dell'utente. Il dashboard [Sicurezza e controllo](https://technet.microsoft.com/library/mt484091.aspx) è la schermata iniziale per tutti gli elementi correlati alla sicurezza in Log Analytics. Offre una visione generale dello stato dei computer in termini di sicurezza. Consente anche di visualizzare tutti gli eventi delle ultime 24 ore, di 7 giorni o di qualsiasi altro intervallo di tempo personalizzato.
 
-È anche possibile configurare OMS Security & Compliance per [eseguire automaticamente azioni specifiche](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando viene rilevato un determinato evento.
+È anche possibile configurare Sicurezza e conformità per [eseguire automaticamente azioni specifiche](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando viene rilevato un determinato evento.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) consente di usare le risorse incluse nella soluzione come un gruppo. È possibile distribuire, aggiornare o eliminare tutte le risorse della soluzione con un'unica operazione coordinata. Per la distribuzione viene usato un [modello di Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) che può essere usato per diversi ambienti, ad esempio di testing, di staging e di produzione. Gestione risorse offre funzionalità di sicurezza, controllo e categorizzazione che semplificano la gestione delle risorse dopo la distribuzione.
@@ -95,12 +95,12 @@ Se sono presenti arresti anomali del sistema, errori o problemi di prestazioni, 
 [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre funzionalità di visualizzazione, query, routing, avviso, ridimensionamento automatico e automazione dei dati sia dall'infrastruttura di Azure ([log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) che da ogni singola risorsa di Azure ([log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). È possibile usare Monitoraggio di Azure per ricevere avvisi sugli eventi relativi alla sicurezza generati nei log di Azure.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), parte di [Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), offre una soluzione di gestione IT per l'infrastruttura sia locale che basata sul cloud di terze parti (ad esempio AWS), oltre che per le risorse di Azure. I dati di Monitoraggio di Azure possono essere indirizzati direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) offre una soluzione di gestione IT per l'infrastruttura sia locale che basata sul cloud di terze parti (ad esempio AWS) in aggiunta alle risorse di Azure. I dati di Monitoraggio di Azure possono essere indirizzati direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.
 
 Log Analytics può essere utile per analisi della sicurezza per scopi legali e di altro tipo perché questo strumento consente di eseguire rapidamente ricerche in grandi quantità di voci relative alla sicurezza con un approccio di query flessibile. Inoltre, [i log di proxy e firewall locali possono essere esportati in Azure ed essere resi disponibili per l'analisi con Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall).
 
 ### <a name="azure-advisor"></a>Azure Advisor
-[Azure Advisor](https://docs.microsoft.com/azure/advisor/) è un servizio di consulenza personalizzato per il cloud che consente di ottimizzare le distribuzioni di Azure. Analizza la configurazione e la telemetria delle risorse e propone quindi soluzioni utili per migliorare le [prestazioni](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), la [sicurezza](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) e la [disponibilità elevata](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) delle risorse cercando al tempo stesso opportunità di [ridurre la spesa complessiva di Azure](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor offre raccomandazioni sulla sicurezza che possono migliorare notevolmente lo stato di sicurezza complessivo delle soluzioni distribuite in Azure. Tali raccomandazioni vengono ricavate dall'analisi della sicurezza eseguita dal [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro).
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/) è un servizio di consulenza personalizzato per il cloud che consente di ottimizzare le distribuzioni di Azure. Analizza la configurazione e la telemetria delle risorse e propone quindi soluzioni utili per migliorare le [prestazioni](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), la [sicurezza](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) e la [disponibilità elevata](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) delle risorse cercando al tempo stesso opportunità di [ridurre la spesa complessiva di Azure](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor offre consigli che possono migliorare notevolmente lo stato di sicurezza complessivo delle soluzioni distribuite in Azure. Tali raccomandazioni vengono ricavate dall'analisi della sicurezza eseguita dal [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro).
 
 ### <a name="azure-security-center"></a>Centro sicurezza di Azure
 Il [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) consente di prevenire, rilevare e rispondere alle minacce con un livello di visibilità e controllo più elevato della sicurezza delle risorse di Azure. Offre funzionalità integrate di monitoraggio della sicurezza e gestione dei criteri tra le sottoscrizioni di Azure, facilita il rilevamento delle minacce che altrimenti passerebbero inosservate e funziona con un ampio ecosistema di soluzioni di sicurezza.

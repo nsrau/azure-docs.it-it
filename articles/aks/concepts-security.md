@@ -1,0 +1,98 @@
+---
+title: Concetti - Sicurezza nei servizi Kubernetes di Azure
+description: Informazioni sulla sicurezza nel servizio Kubernetes di Azure, inclusi comunicazione master e tra nodi, criteri di rete e segreti di Kubernetes.
+services: container-service
+author: iainfoulds
+ms.service: container-service
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: iainfou
+ms.openlocfilehash: e29b94f270b295725400103f288f3d3bd0c2a2eb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49380696"
+---
+# <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Concetti relativi alla sicurezza per le applicazioni e i cluster nel servizio Kubernetes di Azure
+
+Per proteggere i dati dei clienti durante l'esecuzione di carichi di lavoro dell'applicazione nel servizio Kubernetes di Azure, la sicurezza del cluster è un fattore fondamentale. Kubernetes include componenti di sicurezza, ad esempio *criteri di rete* e *segreti*. Azure aggiunge quindi componenti come i gruppi di sicurezza di rete e gli aggiornamenti del cluster orchestrati. Questi componenti di sicurezza vengono combinati in modo che il cluster del servizio Kubernetes di Azure esegua sempre gli aggiornamenti della sicurezza del sistema operativo e le versioni di Kubernetes più recenti, con il traffico di pod e l'accesso sicuri alle credenziali sensibili.
+
+Questo articolo introduce i principali concetti per proteggere le applicazioni nel servizio Kubernetes di Azure:
+
+- [Sicurezza dei componenti master](#master-security)
+- [Sicurezza dei nodi](#node-security)
+- [Aggiornare un cluster di Service Fabric](#cluster-upgrades)
+- [Sicurezza di rete](#network-security)
+- [Segreti di Kubernetes](#secrets)
+
+## <a name="master-security"></a>Sicurezza master
+
+Nel servizio Kubernetes di Azure i componenti master di Kubernetes fanno parte del servizio gestito fornito da Microsoft. Ogni cluster del servizio Kubernetes di Azure ha un proprio master di Kubernetes dedicato con tenant singolo per fornire il server dell'API, l'utilità di pianificazione e così via. Questo master è gestito da Microsoft
+
+Per impostazione predefinita, il server dell'API Kubernetes usa un indirizzo IP pubblico con nome di dominio completo (FQDN). È possibile controllare l'accesso al server dell'API usando i controlli degli accessi in base al ruolo di Kubernetes e Azure Active Directory. Per altre informazioni, vedere [Integrazione di Azure AD con il servizio Kubernetes di Azure][aks-aad].
+
+## <a name="node-security"></a>Sicurezza dei nodi
+
+I nodi del servizio Kubernetes di Azure sono macchine virtuali di Azure gestite dall'utente. I nodi eseguono una distribuzione di Ubuntu Linux ottimizzata con il runtime del contenitore Docker. Quando un cluster del servizio Kubernetes di Azure viene creato o fatto passare a un piano superiore, i nodi vengono distribuiti automaticamente con le configurazioni e gli aggiornamenti della sicurezza del sistema operativo più recenti.
+
+La piattaforma Azure applica automaticamente le patch di sicurezza del sistema operativo ai nodi durante la notte. Se un aggiornamento della sicurezza del sistema operativo richiede un riavvio dell'host, tale riavvio non viene eseguito automaticamente. È possibile riavviare manualmente i nodi oppure usare [Kured][kured], un daemon di riavvio open source per Kubernetes. Kured viene eseguito come [DaemonSet][aks-daemonset] e monitora ogni nodo per verificare se è presente un file che indichi che è necessario un riavvio. I riavvii sono gestiti all'interno del cluster usando lo stesso [processo di blocco e svuotamento](#cordon-and-drain) come aggiornamento del cluster.
+
+I nodi vengono distribuiti in una subnet di rete privata virtuale, senza indirizzi IP pubblici assegnati. Per motivi di gestione e risoluzione dei problemi, SSH è abilitato per impostazione predefinita. Questo accesso SSH è disponibile solo tramite l'indirizzo IP interno. Si possono usare regole del gruppo di sicurezza di rete di Azure per limitare ulteriormente l'accesso dell'intervallo IP ai nodi del servizio Kubernetes di Azure. L'eliminazione della regola SSH predefinita del gruppo di sicurezza di rete e la disabilitazione del servizio SSH nei nodi impedisce alla piattaforma Azure di eseguire attività di manutenzione.
+
+Per fornire spazio di archiviazione, i nodi usano Azure Managed Disks. Per la maggior parte delle dimensioni dei nodi delle macchine virtuali, si tratta di dischi Premium supportati da unità SSD a prestazioni elevate. I dati inattivi archiviati nei dischi gestiti vengono automaticamente crittografati all'interno della piattaforma Azure. Per migliorare la ridondanza, questi dischi vengono anche replicati in modo sicuro nel data center di Azure.
+
+## <a name="cluster-upgrades"></a>Aggiornamenti dei cluster
+
+Per la sicurezza e la conformità o per usare le funzionalità più recenti, Azure offre strumenti per orchestrare l'aggiornamento di un cluster e dei componenti del servizio Kubernetes di Azure. Questa orchestrazione dell'aggiornamento include sia il master che i componenti agente di Kubernetes. È possibile visualizzare un elenco delle versioni di Kubernetes disponibili per il cluster del servizio Kubernetes di Azure. Per avviare il processo di aggiornamento, si specifica una di queste versioni disponibili. Azure quindi blocca e svuota in modo sicuro ogni nodo del servizio Kubernetes di Azure ed esegue l'aggiornamento.
+
+### <a name="cordon-and-drain"></a>Blocco e svuotamento
+
+Durante il processo di aggiornamento, i nodi del servizio Kubernetes di Azure vengono bloccati singolarmente dal cluster in modo che non vi vengano pianificati nuovi pod. I nodi vengono quindi svuotati e aggiornati nel modo seguente:
+
+- I pod esistenti vengono normalmente terminati e pianificati nei nodi rimanenti.
+- Il nodo viene riavviato, il processo di aggiornamento viene completato e il nodo viene quindi aggiunto nuovamente al cluster del servizio Kubernetes di Azure.
+- Viene di nuovo pianificata l'esecuzione dei pod nei nodi.
+- Il nodo successivo nel cluster viene bloccato e svuotato con lo stesso processo fino a quando non vengono aggiornati tutti i nodi.
+
+Per altre informazioni, vedere [Aggiornare un cluster del servizio Kubernetes di Azure][aks-upgrade-cluster].
+
+## <a name="network-security"></a>Sicurezza di rete
+
+Per la connettività e sicurezza con le reti locali, è possibile distribuire il cluster del servizio Kubernetes di Azure nelle subnet di rete virtuale di Azure esistenti. Queste reti virtuali possono avere una connessione ExpressRoute o VPN da sito a sito di Azure con la rete locale. È possibile definire controller in ingresso di Kubernetes con indirizzi IP privati interni in modo che i servizi siano accessibili solo tramite questa connessione di rete interna.
+
+### <a name="azure-network-security-groups"></a>Gruppi di sicurezza di rete di Azure
+
+Per filtrare il flusso del traffico nelle reti virtuali, Azure usa le regole dei gruppi di sicurezza di rete. Queste regole definiscono gli intervalli IP, le porte e i protocolli di origine e di destinazione a cui è consentito o negato l'accesso alle risorse. Vengono create regole predefinite per consentire il traffico TLS al server dell'API Kubernetes e per l'accesso SSH ai nodi. Quando si creano servizi con servizi di bilanciamento del carico, mapping delle porte o route in ingresso, il servizio Kubernetes di Azure modifica automaticamente il gruppo di sicurezza di rete per trasmettere il traffico in modo appropriato.
+
+## <a name="kubernetes-secrets"></a>Segreti di Kubernetes
+
+Un *segreto* di Kubernetes viene usato per inserire nei pod i dati sensibili, ad esempio chiavi o credenziali di accesso. Si crea prima di tutto un segreto usando l'API di Kubernetes. Quando si definisce il pod o la distribuzione, è possibile richiedere un segreto specifico. I segreti vengono forniti solo ai nodi che hanno un pod pianificato che li richiede, perché i segreti vengono archiviati in *tmpfs* e non scritti su disco. Quando viene eliminato l'ultimo pod in un nodo che richiede un segreto, il segreto viene eliminato da tmpfs del nodo. I segreti vengono archiviati all'interno di un determinato spazio dei nomi e sono accessibili solo dai pod all'interno dello stesso spazio dei nomi.
+
+L'uso dei segreti riduce le informazioni riservate definite nel pod o nel manifesto YAML del servizio. Si richiede invece il segreto archiviato nel server dell'API di Kubernetes come parte del manifesto YAML. Questo approccio fornisce solo l'accesso del pod specifico al segreto.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per iniziare a proteggere i cluster del servizio Kubernetes di Azure, vedere [Aggiornare un cluster del servizio contenitore di Azure][aks-upgrade-cluster].
+
+Per altre informazioni sui concetti fondamentali relativi a Kubernetes e al servizio Kubernetes di Azure, vedere gli articoli seguenti:
+
+- [Kubernetes / Cluster AKS e carichi di lavoro][aks-concepts-clusters-workloads]
+- [Kubernetes / Identità di AKS][aks-concepts-identity]
+- [Kubernetes / Reti virtuali in AKS][aks-concepts-network]
+- [Kubernetes / Archiviazione in AKS][aks-concepts-storage]
+- [Kubernetes / Ridimensionamento in AKS][aks-concepts-scale]
+
+<!-- LINKS - External -->
+[kured]: https://github.com/weaveworks/kured
+[kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
+
+<!-- LINKS - Internal -->
+[aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
+[aks-upgrade-cluster]: upgrade-cluster.md
+[aks-aad]: aad-integration.md
+[aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
+[aks-concepts-identity]: concepts-identity.md
+[aks-concepts-scale]: concepts-scale.md
+[aks-concepts-storage]: concepts-storage.md
+[aks-concepts-network]: concepts-network.md

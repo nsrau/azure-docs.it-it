@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 477bd6047da639dcf21592a7ec0c1b80844e031e
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5f6ce3564cf4056dc9295e1885be425bbe3d7701
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43337735"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165301"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Google tramite Azure Active Directory B2C
 
@@ -25,26 +25,19 @@ Per usare un account Google come provider di identità in Azure Active Directory
 
 1. Accedere alla [Google Developers Console](https://console.developers.google.com/) con le credenziali dell'account Google.
 2. Selezionare **Crea progetto** e quindi fare clic su **Crea**. Se sono stati già creati altri progetti, selezionare l'elenco dei progetti e quindi selezionare **Nuovo progetto**.
-3. Fare clic su un **Nome progetto** e quindi su **Crea**.
+3. Immettere un **Nome progetto**, fare clic su **Crea**e quindi assicurarsi di usare il nuovo progetto.
 3. Selezionare **Credenziali** nel menu a sinistra e quindi selezionare **Crea credenziali di accesso** > **ID client Oauth**.
 4. Selezionare **Configure consent screen** (Configura schermata di consenso).
-5. Selezionare o specificare un **Indirizzo di posta elettronica** valido, fornire un **Product name shown to users** (Nome prodotto visualizzato dagli utenti) e fare clic su **Salva**.
+5. Selezionare o specificare un **indirizzo di posta elettronica**, inserire il **nome del prodotto visualizzato agli utenti**, aggiungere `b2clogin.com` in **Domini autorizzati** e fare clic su **Salva**.
 6. In **Tipo di applicazione** selezionare **Applicazione Web**.
-7. Fornire un **Nome** per l'applicazione, immettere `https://{tenant}.b2clogin.com` nel campo **Origini JavaScript autorizzate** e `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire **{tenant}** con il nome del tenant, ad esempio contosob2c.
+7. Fornire un **Nome** per l'applicazione, immettere `https://your-tenant-name.b2clogin.com` nel campo **Origini JavaScript autorizzate** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire `your-tenant-name` con il nome del tenant. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
 8. Fare clic su **Create**(Crea).
 9. Copiare i valori **ID client** e **Segreto client**. Sono necessari entrambi per configurare Google come provider di identità nel tenant. **Segreto client** è una credenziale di sicurezza importante.
 
 ## <a name="configure-a-google-account-as-an-identity-provider"></a>Configurare un account Google come provider di identità
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
-2. Assicurarsi di usare la directory contenente il tenant Azure AD B2C passando a tale directory nell'angolo in alto a destra del portale di Azure. Selezionare le informazioni sulla sottoscrizione e quindi selezionare **Cambia directory**. 
-
-    ![Passare al tenant di Azure AD B2C](./media/active-directory-b2c-setup-fb-app/switch-directories.png)
-
-    Scegliere la directory contenente il tenant.
-
-    ![Selezionare la directory](./media/active-directory-b2c-setup-fb-app/select-directory.png)
-
+2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 4. Selezionare **Provider di identità** e quindi selezionare **Aggiungi**.
 5. Immettere un **Nome**. Ad esempio, immettere *Google*.

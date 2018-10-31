@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247783"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429559"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gestione del ciclo di vita di Archiviazione BLOB di Azure (anteprima)
 
@@ -30,14 +30,14 @@ Si consideri un set di dati a cui si accede di frequente durante la fase inizial
 
 ## <a name="storage-account-support"></a>Supporto dell'account di archiviazione
 
-I criteri di gestione del ciclo di vita sono disponibili sia con l'account per utilizzo generico v2 (GPv2) sia con l'account di archiviazione BLOB. Nel portale di Azure è possibile convertire un account per utilizzo generico (GPv1) esistente in un account GPv2 con un semplice clic. Per altre informazioni, vedere [Opzioni di account di archiviazione di Azure](../common/storage-account-options.md).  
+I criteri di gestione del ciclo di vita sono disponibili sia con l'account per utilizzo generico v2 (GPv2) sia con l'account di archiviazione BLOB. Nel portale di Azure è possibile convertire un account per utilizzo generico (GPv1) esistente in un account GPv2 con un semplice clic. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Prezzi 
 
 La funzionalità di gestione del ciclo di vita è gratuita in anteprima. Ai clienti viene addebitato il normale costo dell'operazione per le chiamate API [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (Elenca BLOB) e [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (Imposta livello BLOB). Vedere [Prezzi per i BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/) per altre informazioni sui prezzi.
 
 ## <a name="register-for-preview"></a>Eseguire la registrazione per l'anteprima 
-Per registrarsi nell'anteprima pubblica è necessario inviare una richiesta per registrare questa funzionalità nella propria sottoscrizione. Dopo che la richiesta è stata approvata (entro pochi giorni), gli account GPv2 o di Archiviazione BLOB nuovi ed esistenti nelle aree Stati Uniti occidentali 2, Stati Uniti centro-occidentali e Europa occidentale avranno la funzionalità abilitata. Durante l'anteprima è supportato solo il BLOB in blocchi. Come per la maggior parte delle versioni di anteprima, questa funzionalità non deve essere usata per i carichi di lavoro in produzione fino al momento della disponibilità generale.
+Per registrarsi nell'anteprima pubblica è necessario inviare una richiesta per registrare questa funzionalità nella propria sottoscrizione. Dopo che la richiesta è stata approvata (entro pochi giorni), gli account GPv2 o di Archiviazione BLOB nuovi ed esistenti nelle aree Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Stati Uniti orientali 2 e Europa occidentale avranno la funzionalità abilitata. Durante l'anteprima è supportato solo il BLOB in blocchi. Come per la maggior parte delle versioni di anteprima, questa funzionalità non deve essere usata per i carichi di lavoro in produzione fino al momento della disponibilità generale.
 
 Per inviare una richiesta, eseguire i comandi PowerShell o dell'interfaccia della riga di comando seguenti.
 
@@ -54,7 +54,7 @@ Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 ```
 Se la funzionalità è stata approvata e registrata correttamente, si dovrebbe ricevere lo stato di "Registrazione completata".
 
-### <a name="cli-20"></a>Interfaccia della riga di comando 2.0
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 Per inviare una richiesta: 
 ```cli
@@ -69,7 +69,7 @@ Se la funzionalità è stata approvata e registrata correttamente, si dovrebbe r
 
 ## <a name="add-or-remove-policies"></a>Aggiungere o rimuovere criteri 
 
-È possibile aggiungere, modificare o rimuovere criteri tramite il portale di Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), le [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) o gli strumenti client nei linguaggi seguenti: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby]( https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+È possibile aggiungere, modificare o rimuovere criteri tramite il portale di Azure, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), le [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate) o gli strumenti client nei linguaggi seguenti: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -316,6 +316,10 @@ Per i dati che vengono modificati e usati regolarmente per tutto il loro ciclo d
   ]
 }
 ```
+## <a name="faq"></a>Domande frequenti
+### <a name="i-created-a-new-policy-why-are-the-actions-specified-not-executed-immediately"></a>Ho creato un nuovo criterio, perché le azioni specificate non vengono eseguite immediatamente? 
+
+I criteri del ciclo di vita vengono eseguiti una volta al giorno dalla piattaforma. Dopo avere impostato un nuovo criterio, possono essere necessarie fino a 24 ore per avviare ed eseguire azioni come la suddivisione in livelli o l'eliminazione.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 
