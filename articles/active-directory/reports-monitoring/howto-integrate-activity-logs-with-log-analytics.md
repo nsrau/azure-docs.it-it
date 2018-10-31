@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 10/01/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 95dac6804f3226cac23bce95a1b09b2907d084b0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc918d0ee3b3b435905546507287dc655f68e8c9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395522"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429780"
 ---
 # <a name="integrate-azure-ad-logs-with-log-analytics-using-azure-monitor-preview"></a>Integrare i log di Azure AD con Log Analytics tramite Monitoraggio di Azure (anteprima)
 
@@ -30,7 +30,11 @@ Log Analytics consente di eseguire query sui dati per trovare eventi specifici, 
  * Confrontare i log di accesso di Azure AD con i log di sicurezza pubblicati dal Centro sicurezza di Azure
 
  * Risolvere i problemi di colli di bottiglia delle prestazioni nella pagina di accesso dell'applicazione tramite la correlazione dei dati sulle prestazioni delle applicazioni da Azure Application Insights.  
- 
+
+Il video seguente di una sessione di Ignite illustra i vantaggi derivanti dall'utilizzo di Log Analytics per i log di Azure AD in scenari utente pratici.
+
+> [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
+
 Questo articolo illustra come integrare i log di Azure Active Directory (Azure AD) con Log Analytics tramite Monitoraggio di Azure.
 
 ## <a name="supported-reports"></a>Report supportati
@@ -51,7 +55,7 @@ Per usare questa funzionalità, sono necessari:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
 * Un tenant di Azure AD.
 * Un utente con il ruolo di *amministratore globale* o *amministratore della sicurezza* per il tenant di Azure AD.
-* Un'area di lavoro di Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro di Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+* Disporre di un'area di lavoro di Log Analytics nella sottoscrizione di Azure. Informazioni su [come creare un'area di lavoro di Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
 ## <a name="send-logs-to-log-analytics"></a>Inviare log a Log Analytics
 

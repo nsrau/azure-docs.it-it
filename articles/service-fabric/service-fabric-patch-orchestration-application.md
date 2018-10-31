@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: a8b2070b6f5b10cb60c6658aefc8cc90331ecfd9
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746898"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409357"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Windows nel cluster di Service Fabric
 
@@ -28,6 +28,8 @@ ms.locfileid: "42746898"
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
+
+[Aggiornamenti automatici dell'immagine del sistema operativo con i set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) è la procedura consigliata per mantenere i sistemi operativi con patch in Azure e Patch Orchestration Application è un wrapper del servizio dei sistemi Gestione ripristini di Service Fabric che consente la pianificazione delle patch del sistema operativo basate sulla configurazione per i cluster non ospitati in Azure. Patch Orchestration Application non è obbligatorio per i cluster non ospitati in Azure, ma la pianificazione dell'installazione delle patch dai domini di aggiornamento è necessaria per applicare le patch agli host di cluster di Service Fabric senza tempi di inattività.
 
 Patch Orchestration Application è un'applicazione Azure Service Fabric che automatizza l'applicazione di patch nei sistemi operativi in un cluster di Service Fabric senza tempi di inattività.
 

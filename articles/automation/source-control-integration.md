@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785325"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023748"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
@@ -23,12 +23,12 @@ Il controllo del codice sorgente consente di mantenere i runbook inclusi nell'ac
 Automazione di Azure supporta 3 tipi di controllo del codice sorgente:
 
 * GitHub
-* Visual Studio Team Services (Git)
-* Visual Studio Team Services (Controllo della versione di Team Foundation)
+* Azure DevOps (Git)
+* Azure DevOps (TFVC)
 
 ## <a name="pre-requisites"></a>Prerequisiti
 
-* Un repository del controllo del codice sorgente (GitHub o Visual Studio Team Services)
+* Un repository di controllo del codice sorgente (GitHub o Azure DevOps)
 * Le [autorizzazioni](#personal-access-token-permissions) corrette per il repository del controllo del codice sorgente
 * Un [account RunAs e una connessione](manage-runas-account.md)
 
@@ -50,7 +50,7 @@ Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorge
 |Proprietà  |DESCRIZIONE  |
 |---------|---------|
 |Nome del controllo del codice sorgente     | Nome descrittivo per il controllo del codice sorgente        |
-|Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (Controllo della versione di Team Foundation)        |
+|Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Repository     | Nome del repository o del progetto. Questo valore viene sottoposto a pull dal repository del controllo del codice sorgente. Esempio: $/ContosoFinanceTFVCExample         |
 |Ramo     | Ramo da cui eseguire il pull dei file di origine. La selezione della destinazione del ramo non è disponibile per il controllo del codice sorgente di tipo Controllo della versione di Team Foundation.          |
 |Percorso della cartella     | Cartella che contiene i runbook da sincronizzare. Esempio: /Runbooks         |

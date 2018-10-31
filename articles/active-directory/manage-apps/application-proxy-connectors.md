@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 23bf9d5fb26ee3a0f224f7a8acc2b0539a5c1607
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364611"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406278"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -79,7 +79,7 @@ Sebbene i connettori bilanceranno automaticamente il carico all'interno di un gr
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Questo computer ha un limite di connessione di 800. Per tutti gli altri computer è stato usato il limite di connessione predefinito di 200.
+\* Questo computer ha usato un'impostazione personalizzata per aumentare alcuni limiti di connessione predefiniti rispetto alle impostazioni consigliate .NET. È consigliabile eseguire un test con le impostazioni predefinite prima di contattare il supporto per ottenere la modifica di questo limite per il tenant specifico.
  
 >[!NOTE]
 >Non c'è molta differenza nel numero massimo di TPS tra computer Core 4, 8 e 16. La differenza principale è la latenza prevista.  

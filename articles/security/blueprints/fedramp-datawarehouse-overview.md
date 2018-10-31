@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: 110ce131286f437e051dd859eb4d2baa29f106f6
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 727c76dc62c054baff24f0e3e7a3b677450a4070
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206516"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404835"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-warehouse-for-fedramp-automation"></a>Progetto di conformità e sicurezza di Azure: data warehouse per automazione FedRAMP
 
@@ -69,7 +69,7 @@ Insieme di credenziali dei servizi di ripristino
 
 Azure Key Vault
 
-Operations Management Suite (OMS)
+Log Analytics
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 
@@ -83,7 +83,7 @@ La sezione seguente descrive in modo dettagliato gli elementi di sviluppo e impl
 
 È stata creata una macchina virtuale come bastion host aggiunto al dominio con le configurazioni seguenti:
 -   [Estensione antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
--   [Estensione di OMS](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
+-   [Estensione di Log Analytics](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-oms)
 -   [Estensione di Diagnostica di Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Crittografia dischi di Azure](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) tramite Azure Key Vault (rispetta i requisiti di Azure per enti pubblici, dello standard PCI DSS, di HIPAA e altri)
 -   [Criteri di arresto automatico](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) per ridurre il consumo di risorse della macchina virtuale quando non è in uso
@@ -100,7 +100,7 @@ Questa architettura di riferimento definisce una rete privata virtuale con uno s
 
 Per ognuno dei gruppi di sicurezza di rete sono aperti porte e protocolli specifici per garantire il funzionamento protetto e corretto della soluzione. Per ogni gruppo di sicurezza di rete sono abilitate anche le configurazioni seguenti:
   - [Log ed eventi di diagnostica](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) abilitati e archiviati in un account di archiviazione
-  - OMS Log Analytics è connesso alla [diagnostica del gruppo di sicurezza di rete](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
+  - Log Analytics è connesso alla [diagnostica del gruppo di sicurezza di rete](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Subnet**: ogni subnet è associata al gruppo di sicurezza di rete corrispondente.
 
@@ -124,16 +124,16 @@ L'architettura protegge i dati inattivi tramite la crittografia, il controllo de
 ### <a name="business-continuity"></a>Continuità aziendale
 **Disponibilità elevata**: i carichi di lavoro del server sono raggruppati in un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per assicurare la disponibilità elevata delle macchine virtuali in Azure. Almeno una macchina virtuale è disponibile durante un evento di manutenzione pianificato o non pianificato, rispettando il Contratto di servizio di Azure al 99,95%.
 
-**Insieme di credenziali di Servizi di ripristino**: l'[insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) ospita i dati di backup e protegge tutte le configurazioni delle macchine virtuali di Azure in questa architettura. Con un insieme di credenziali di Servizi di ripristino i clienti possono ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale, consentendo tempi di ripristino più rapidi.
+**Insieme di credenziali di Servizi di ripristino**: l'[insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) ospita i dati di backup e protegge tutte le configurazioni di Macchine virtuali di Azure in questa architettura. Con un insieme di credenziali di Servizi di ripristino i clienti possono ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale, consentendo tempi di ripristino più rapidi.
 
 ### <a name="logging-and-audit"></a>Registrazione e controllo
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) offre funzioni di registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. La soluzione [Log Analytics](https://azure.microsoft.com/services/log-analytics/) di OMS raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) offre una registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. La soluzione [Log Analytics](https://azure.microsoft.com/services/log-analytics/) raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
 - **Log attività**: i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) includono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione.
 - **Log di diagnostica**: i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) includono tutti i log generati da ogni risorsa. Questi log includono i registri di sistema degli eventi di Windows e i log di Archiviazione BLOB di Azure, delle tabelle e delle code.
 - **Log del firewall**: il gateway applicazione genera log completi relativi a diagnostica e accesso. I log del firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
 - **Archiviazione dei log**: tutti i log di diagnostica scrivono in un account di archiviazione di Azure crittografato e centralizzato per l'archiviazione con un periodo di mantenimento definito di 2 giorni. Questi log si connettono quindi a Log Analytics di Azure per l'elaborazione, l'archiviazione e la creazione di report nel dashboard.
 
-Questa architettura include anche le soluzioni OMS seguenti:
+Questa architettura include anche le soluzioni di monitoraggio seguenti:
 -   [Valutazione AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la soluzione Controllo integrità Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e presenta un elenco classificato in ordine di priorità di consigli specifici per l'infrastruttura di server distribuita.
 -   [Valutazione antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): la soluzione Antimalware crea report relativi a malware, minacce e stato della protezione.
 -   [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): la soluzione Automazione di Azure archivia, esegue e gestisce i runbook.
@@ -158,7 +158,7 @@ Per altre informazioni sull'uso delle funzionalità di sicurezza del database SQ
 
 **Protezione da malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) per Macchine virtuali offre una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso con avvisi configurabili per i casi in cui un software dannoso o indesiderato prova a installare o eseguire se stesso su macchine virtuali protette.
 
-**Gestione delle patch**: le macchine virtuali Windows distribuite come parte di questa architettura di riferimento vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione include anche il servizio [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro) di OMS, che consente di creare distribuzioni aggiornate per applicare patch alle macchine virtuali quando necessario.
+**Gestione delle patch**: le macchine virtuali Windows distribuite come parte di questa architettura di riferimento sono configurate per impostazione predefinita in modo da ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione include anche il servizio [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro) che consente di creare distribuzioni aggiornate per applicare patch alle macchine virtuali quando è necessario.
 
 
 ## <a name="guidance-and-recommendations"></a>Indicazioni e consigli

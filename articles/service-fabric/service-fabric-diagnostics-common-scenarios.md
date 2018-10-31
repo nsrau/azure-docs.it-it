@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/16/2018
 ms.author: srrengar
-ms.openlocfilehash: bd7a7e0288ced0219a0600034b273d1acba6b09b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 35d1fa5f8963d007b1d8b59ccf0f1dec7abafa09
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659641"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402235"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Scenari comuni di diagnosi con Service Fabric
 
@@ -31,8 +31,8 @@ Le soluzioni in questo articolo useranno gli strumenti seguenti. È consigliabil
 
 * [Application Insights con Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)
 * [Abilitare Diagnostica di Azure nel cluster](service-fabric-diagnostics-event-aggregation-wad.md)
-* [Configurare un'area di lavoro di OMS Log Analytics](service-fabric-diagnostics-oms-setup.md)
-* [Agente di OMS per tenere traccia dei contatori delle prestazioni](service-fabric-diagnostics-oms-agent.md)
+* [Configurare un'area di lavoro di Log Analytics](service-fabric-diagnostics-oms-setup.md)
+* [Agente di Log Analytics per tenere traccia dei contatori delle prestazioni](service-fabric-diagnostics-oms-agent.md)
 
 ## <a name="how-can-i-see-unhandled-exceptions-in-my-application"></a>Come visualizzare le eccezioni non gestite nell'applicazione
 
@@ -63,7 +63,7 @@ Le soluzioni in questo articolo useranno gli strumenti seguenti. È consigliabil
 1. Il cluster di Service Fabric tiene traccia degli eventi dei nodi. Passare alla risorsa della soluzione Analisi Service Fabric denominata **ServiceFabric(NameofResourceGroup)**
 2. Fare clic sul grafico nella parte inferiore del pannello intitolato "Riepilogo"
 
-    ![Soluzione OMS](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
+    ![Soluzione di Log Analytics](media/service-fabric-diagnostics-common-scenarios/oms-solution-azure-portal.png)
 
 3. Sono disponibili molti grafici e riquadri con diverse metriche. Fare clic su uno dei grafici per passare alla ricerca log, dove è possibile cercare gli eventi del cluster o i contatori delle prestazioni.
 4. Immettere la query seguente. Questi ID evento sono inclusi nella [documentazione di riferimento sugli eventi dei nodi](service-fabric-diagnostics-event-generation-operational.md#application-events)
@@ -75,7 +75,7 @@ Le soluzioni in questo articolo useranno gli strumenti seguenti. È consigliabil
 
 5. Fare clic su "Nuova regola di avviso" nella parte superiore. Da questo momento, ogni volta che arriva un evento basato su questa query, si riceverà un avviso con il metodo di comunicazione scelto.
 
-    ![Nuovo avviso di OMS](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
+    ![Nuovo avviso di Log Analytics](media/service-fabric-diagnostics-common-scenarios/oms-create-alert.png)
 
 ## <a name="how-can-i-be-alerted-of-application-upgrade-rollbacks"></a>Come essere avvisati dei ripristini dello stato precedente dell'aggiornamento dell'applicazione?
 
@@ -90,24 +90,24 @@ Le soluzioni in questo articolo useranno gli strumenti seguenti. È consigliabil
 
 ## <a name="how-do-i-see-container-metrics"></a>Come visualizzare le metriche dei contenitori
 
-Nella stessa visualizzazione con tutti i grafici si noteranno alcuni riquadri per le prestazioni dei contenitori. Sono necessari l'agente di OMS e la [soluzione Monitoraggio contenitori](service-fabric-diagnostics-oms-containers.md) per popolare questi riquadri.
+Nella stessa visualizzazione con tutti i grafici si noteranno alcuni riquadri per le prestazioni dei contenitori. Sono necessari l'agente di Log Analytics e la [soluzione Monitoraggio contenitori](service-fabric-diagnostics-oms-containers.md) per popolare questi riquadri.
 
-![Metriche dei contenitori di OMS](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
+![Metriche del contenitore di Log Analytics](media/service-fabric-diagnostics-common-scenarios/containermetrics.png)
 
 >[!NOTE]
 >Per instrumentare i dati di telemetria dall'**interno** del contenitore, sarà necessario aggiungere il [pacchetto nuget di Application Insights per i contenitori](https://github.com/Microsoft/ApplicationInsights-servicefabric#microsoftapplicationinsightsservicefabric--for-service-fabric-lift-and-shift-scenarios).
 
 ## <a name="how-can-i-monitor-performance-counters"></a>Come monitorare i contatori delle prestazioni
 
-1. Dopo aver aggiunto l'agente di OMS al cluster, è necessario aggiungere i contatori delle prestazioni specifici di cui si vuole tenere traccia. Passare alla pagina dell'area di lavoro di OMS nel portale. Nella pagina della soluzione la scheda dell'area di lavoro è nel menu a sinistra.
+1. Dopo aver aggiunto l'agente di Log Analytics al cluster, è necessario aggiungere i contatori delle prestazioni specifici di cui si vuole tenere traccia. Passare alla pagina dell'area di lavoro di Log Analytics nel portale. Nella pagina della soluzione la scheda dell'area di lavoro è nel menu a sinistra.
 
-    ![Scheda Area di lavoro OMS](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
+    ![Scheda dell'area di lavoro di Log Analytics](media/service-fabric-diagnostics-common-scenarios/workspacetab.png)
 
 2. Nella pagina dell'area di lavoro fare clic su "Impostazioni avanzate" nello stesso menu a sinistra.
 
-    ![Impostazioni avanzate di OMS](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
+    ![Impostazioni avanzate di Log Analytics](media/service-fabric-diagnostics-common-scenarios/advancedsettingsoms.png)
 
-3. Fare clic su Dati > Contatori delle prestazioni di Windows (Dati > Contatori delle prestazioni di Linux per i computer Linux) per avviare la raccolta di contatori specifici dai nodi tramite l'agente di OMS. Ecco alcuni esempi del formato dei contatori da aggiungere
+3. Fare clic su Dati > Contatori delle prestazioni di Windows (Dati > Contatori delle prestazioni di Linux per i computer Linux) per avviare la raccolta di contatori specifici dai nodi tramite l'agente di Log Analytics. Ecco alcuni esempi del formato dei contatori da aggiungere
 
     * `.NET CLR Memory(<ProcessNameHere>)\\# Total committed Bytes`
     * `Processor(_Total)\\% Processor Time`
@@ -118,7 +118,7 @@ Nella stessa visualizzazione con tutti i grafici si noteranno alcuni riquadri pe
     * `.NET CLR Memory(VotingData)\\# Total committed Bytes`
     * `.NET CLR Memory(VotingWeb)\\# Total committed Bytes`
 
-    ![Contatori delle prestazioni di OMS](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
+    ![Contatori delle prestazioni Log Analytics](media/service-fabric-diagnostics-common-scenarios/omsperfcounters.png)
 
 4. In questo modo sarà possibile visualizzare come l'infrastruttura gestisce i carichi di lavoro e impostare avvisi pertinenti in base all'utilizzo delle risorse. È ad esempio possibile impostare un avviso se l'utilizzo totale del processore è superiore al 90% o inferiore al 5%. Il nome del contatore usato in questo caso sarà "% Processor Time". A questo scopo, è possibile creare una regola di avviso per la query seguente:
 
@@ -128,7 +128,7 @@ Nella stessa visualizzazione con tutti i grafici si noteranno alcuni riquadri pe
 
 ## <a name="how-do-i-track-performance-of-my-reliable-services-and-actors"></a>Come tenere traccia delle prestazioni di Reliable Services e Actors
 
-Per tenere traccia delle prestazioni di Reliable Services o Actors nelle applicazioni, è consigliabile aggiungere anche i contatori Actor di Service Fabric, Metodo Actor, Service e Metodo Service. È possibile aggiungere questi contatori in modo simile a quello dello scenario precedente. Di seguito sono disponibili alcuni esempi di contatori delle prestazioni di Reliable Services e Actors da aggiungere in OMS
+Per tenere traccia delle prestazioni di Reliable Services o Actors nelle applicazioni, è consigliabile aggiungere anche i contatori Actor di Service Fabric, Metodo Actor, Service e Metodo Service. È possibile aggiungere questi contatori in modo simile a quello dello scenario precedente. Di seguito sono disponibili alcuni esempi di contatori delle prestazioni di Reliable Services e Actors da aggiungere in Log Analytics:
 
 * `Service Fabric Service(*)\\Average milliseconds per request`
 * `Service Fabric Service Method(*)\\Invocations/Sec`
@@ -141,7 +141,7 @@ Fare clic su questi collegamenti per l'elenco completo dei contatori delle prest
 
 * [Configurare gli avvisi in AI](../application-insights/app-insights-alerts.md) per ricevere una notifica sulle modifiche apportate alle prestazioni o all'uso
 * [Rilevamento intelligente in Application Insights](../application-insights/app-insights-proactive-diagnostics.md) esegue un'analisi proattiva dei dati di telemetria che vengono inviati ad AI per avvisare l'utente in caso di potenziali problemi di prestazioni
-* Altre informazioni sugli [avvisi](../log-analytics/log-analytics-alerts.md) di OMS Log Analytics per agevolare il rilevamento e la diagnostica.
-* Per i cluster locali, OMS offre un Gateway, ovvero un proxy di inoltro HTTP, che può essere usato per inviare i dati a OMS. Per altre informazioni leggere [Connettere computer senza accesso a Internet a OMS usando il gateway OMS](../log-analytics/log-analytics-oms-gateway.md)
+* Altre informazioni sugli [avvisi](../log-analytics/log-analytics-alerts.md) di Log Analytics per agevolare il rilevamento e la diagnostica.
+* Per i cluster locali, Log Analytics offre un Gateway, ovvero un proxy di inoltro HTTP, che può essere usato per inviare i dati a Log Analytics. Per altre informazioni, vedere [Connettere computer senza accesso a Internet a Log Analytics usando il gateway Log Analytics](../log-analytics/log-analytics-oms-gateway.md)
 * Acquisire familiarità con le funzionalità di [ricerca log e query](../log-analytics/log-analytics-log-searches.md) incluse in Log Analytics
 * Per avere una panoramica più dettagliata di Log Analytics e dei vantaggi offerti, leggere [Informazioni su Log Analytics](../operations-management-suite/operations-management-suite-overview.md)

@@ -4,19 +4,19 @@ description: Questo articolo descrive le caratteristiche degli asset e come veng
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284839"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985234"
 ---
 # <a name="assets"></a>Asset
 
@@ -36,7 +36,7 @@ Nella tabella seguente vengono illustrate le proprietà di un asset e le relativ
 
 |NOME|type|DESCRIZIONE|
 |---|---|---|
-|ID|stringa|ID di risorsa completo per la risorsa.|
+|id|stringa|ID di risorsa completo per la risorsa.|
 |name|stringa|Nome della risorsa.|
 |properties.alternateId |stringa|ID alternativo dell'asset.|
 |properties.assetId |stringa|ID dell'asset.|
@@ -59,18 +59,27 @@ Servizi multimediali supporta le opzioni di query OData seguenti per gli asset:
 * $top 
 * $skiptoken 
 
+Descrizione dell'operatore:
+
+* Eq = uguale a
+* Ne = diverso da
+* Ge = maggiore o uguale a
+* Le = minore o uguale a
+* Gt = maggiore di
+* Lt = minore di
+
 ### <a name="filteringordering"></a>Filtri/Ordinamento
 
 La tabella seguente illustra come queste opzioni possono essere applicate alle proprietà di un asset: 
 
 |NOME|Filtro|Ordine|
 |---|---|---|
-|ID|Supporta:<br/>Uguale a<br/>Maggiore di<br/>Minore di|Supporta:<br/>Crescente<br/>Decrescente|
-|name|||
-|properties.alternateId |Supporta:<br/>Uguale a||
-|properties.assetId |Supporta:<br/>Uguale a||
+|id|||
+|name|Supporta: Eq, Gt, Lt|Supporta: Crescente e decrescente|
+|properties.alternateId |Supporta: Eq||
+|properties.assetId |Supporta: Eq||
 |properties.container |||
-|properties.created|Supporta:<br/>Uguale a<br/>Maggiore di<br/>Minore di|Supporta:<br/>Crescente<br/>Decrescente|
+|properties.created|Supporta: Eq, Gt, Lt| Supporta: Crescente e decrescente|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
@@ -86,9 +95,12 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### <a name="pagination"></a>Paginazione
 
-La paginazione è supportata per ognuno dei quattro ordinamenti abilitati. 
+La paginazione è supportata per ognuno dei quattro ordinamenti abilitati. Attualmente, la dimensione della pagina è 1000.
 
-Se la risposta di una query contiene molti elementi (attualmente più di 1000), il servizio restituisce una proprietà "\@odata.nextLink" per ottenere la pagina di risultati successiva. Questa proprietà può essere usata per scorrere l'intero set di risultati. Le dimensioni della pagina non sono configurabili dall'utente. 
+> [!TIP]
+> Usare sempre il collegamento seguente per enumerare la raccolta e non dipendere da una determinata dimensione di pagina.
+
+Se la risposta di una query contiene molti elementi, il servizio restituisce una proprietà "\@odata.nextLink" per ottenere la pagina di risultati successiva. Questa proprietà può essere usata per scorrere l'intero set di risultati. Non è possibile configurare la dimensione della pagina. 
 
 Se gli asset vengono creati o eliminati durante il paging della raccolta, le modifiche vengono riflesse nei risultati restituiti (se tali modifiche si trovano nella parte della raccolta che non è stata scaricata). 
 
@@ -106,7 +118,6 @@ while (currentPage.NextPageLink != null)
 
 Per esempi REST, vedere [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list) (Asset - Elenco)
 
-
 ## <a name="storage-side-encryption"></a>Crittografia lato archiviazione
 
 Per proteggere gli asset inattivi, è necessario crittografarli tramite crittografia lato archiviazione. La tabella seguente illustra il funzionamento della crittografia lato archiviazione in Servizi multimediali:
@@ -123,5 +134,4 @@ Per proteggere gli asset inattivi, è necessario crittografarli tramite crittogr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)
+[Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)

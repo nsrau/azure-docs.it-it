@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627526"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025006"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opzioni di creazione di rapporti per la gestione delle password di Azure AD
 
@@ -23,7 +23,7 @@ Dopo la distribuzione molte organizzazioni vogliono sapere come o se il servizio
 
 ![Creazione di report][Reporting]
 
-È possibile rispondere alle domande seguenti grazie ai report presenti nel [portale di Azure] (https://portal.azure.com/):
+È possibile rispondere alle domande seguenti grazie ai report presenti nel [Portale di Azure](https://portal.azure.com/):
 
 > [!NOTE]
 > È necessario essere [un amministratore globale](../users-groups-roles/directory-assign-admin-roles.md) e si deve acconsentire esplicitamente alla raccolta di questi dati per conto dell'organizzazione. A tale scopo, è necessario visualizzare almeno una volta la scheda **Creazione report** o i log di controllo. I dati vengono raccolti per l'organizzazione solo dopo questa operazione.

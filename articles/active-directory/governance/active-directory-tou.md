@@ -12,19 +12,29 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 09/04/2018
+ms.date: 10/19/2018
 ms.author: rolyon
-ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393984"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944144"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
-Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare a usare Condizioni per l'utilizzo di Azure AD.
+Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare con Condizioni per l'utilizzo.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+## <a name="overview-videos"></a>Panoramica video
+
+Il video seguente presenta una rapida panoramica di Condizioni per l'utilizzo.
+
+>[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
+
+Per altri video, vedere:
+- [Come distribuire Condizioni per l'utilizzo in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [Come distribuire Condizioni per l'utilizzo in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>Quali operazioni si possono eseguire con Condizioni per l'utilizzo?
 Condizioni per l'utilizzo di Azure AD consente di eseguire le operazioni seguenti:
@@ -33,8 +43,9 @@ Condizioni per l'utilizzo di Azure AD consente di eseguire le operazioni seguent
 - Presentare condizioni per l'utilizzo specifiche basate sugli attributi di un utente (ad esempio, medici o infermieri oppure dipendenti nazionali o internazionali, tramite [gruppi dinamici](../users-groups-roles/groups-dynamic-membership.md)).
 - Presentare condizioni per l'utilizzo specifiche al momento dell'accesso ad applicazioni a elevato impatto aziendale, come Salesforce.
 - Presentare condizioni per l'utilizzo in lingue diverse.
+- Contribuire a rispettare le normative sulla privacy.
 - Elencare gli utenti hanno accettato o rifiutato le condizioni per l'utilizzo.
-- Visualizzare un log di controllo delle attività di Condizioni per l'utilizzo.
+- Visualizzare un log dell'attività di Condizioni per l'utilizzo per conformità e controllo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare e configurare Condizioni per l'utilizzo di Azure AD, è necessario disporre di:

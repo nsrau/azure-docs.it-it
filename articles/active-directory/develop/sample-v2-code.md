@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/17/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e76097c0d0cbaf14f2fc2b1a407bc2d320a2091d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7323f532787fa767d875e13262cce9f1ceaa79d8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964402"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955522"
 ---
 # <a name="azure-active-directory-code-samples-v2-endpoint"></a>Esempi di codice di Azure Active Directory (endpoint versione 2)
 
@@ -49,8 +49,8 @@ Questo esempio illustra come scrivere un'applicazione a pagina singola protetta 
  Piattaforma |  Chiama Microsoft Graph
  -------- |  ---------------------
 ![JavaScript](media/sample-v2-code/logo_js.png) JavaScript (msal.js)  | [javascript-graphapi-web-v2](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2)
-![Angular JS](media/sample-v2-code/logo_angular.png) JavaScript (msal AngularJS) | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
-![Angular](media/sample-v2-code/logo_angular.png) JavaScript (msal Angular) | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp)
+![Angular JS](media/sample-v2-code/logo_angular.png) JavaScript (MSAL AngularJS) | [MsalAngularjsDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angularjs/samples/MsalAngularjsDemoApp)
+![Angular](media/sample-v2-code/logo_angular.png) JavaScript (MSAL Angular) | [MSALAngularDemoApp](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-angular/samples/MSALAngularDemoApp)
 
 ## <a name="web-applications"></a>Applicazioni Web
 
@@ -65,15 +65,17 @@ Gli esempi seguenti illustrano le applicazioni Web che eseguono l'accesso degli 
 
 ## <a name="desktop-and-mobile-public-client-apps"></a>App client pubbliche per dispositivi mobili e desktop
 
-Gli esempi seguenti mostrano applicazioni client pubbliche (per desktop o dispositivi mobili) che accedono a Microsoft Graph o a un'API Web a nome di un utente, usando l'accesso interattivo. Tutte queste applicazioni client usano MicroSoft Authentication Library (MSAL).
+Gli esempi seguenti mostrano applicazioni client pubbliche, per desktop o dispositivi mobili, che accedono all'API Microsoft Graph o alla propria API Web a nome di un utente. Tutte queste applicazioni client usano MicroSoft Authentication Library (MSAL).
 
-Applicazione client | Piattaforma | Chiama Microsoft Graph | Chiama un'API Web ASP.NET Core 2.0
------------------- | -------- |  -------------------- | -------------------------
-Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
-Dispositivi mobili (UWP)   | ![.NET/C# (UWP)](media/sample-v2-code/logo_windows.png) | [dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
-Dispositivi mobili (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
-Dispositivi mobili (iOS)       | ![iOS/Objective C o swift](media/sample-v2-code/logo_iOS.png) | [ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
-Dispositivi mobili (Android)   | ![Android/Java](media/sample-v2-code/logo_Android.png) |   [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
+Applicazione client | Piattaforma | Flusso/Concessione | Chiama Microsoft Graph | Chiama un'API Web ASP.NET Core 2.0
+------------------ | -------- |  ----------| ---------- | -------------------------
+Desktop (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | interattivo | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) <p/> [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2)
+Desktop (Console)   | ![.NET/C# (Desktop)](media/sample-v2-code/logo_NET.png) | Autenticazione integrata di Windows |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
+Desktop (Console)   | ![.NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Nome utente/password |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-up-v2)
+Dispositivi mobili (UWP)   | ![.NET/C# (UWP)](media/sample-v2-code/logo_windows.png) | interattivo |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) |
+Dispositivi mobili (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | interattivo |[xamarin-native-v2](https://Github.com/azure-samples/active-directory-xamarin-native-v2) |
+Dispositivi mobili (iOS)       | ![iOS/Objective C o swift](media/sample-v2-code/logo_iOS.png) | interattivo |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) <p/> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |
+Dispositivi mobili (Android)   | ![Android/Java](media/sample-v2-code/logo_Android.png) | interattivo |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |
 
 ## <a name="daemon-applications"></a>Applicazioni daemon
 
@@ -81,9 +83,16 @@ L'esempio seguente mostra un'applicazione che accede a Microsoft Graph con la pr
 
 Applicazione client | Piattaforma | Flusso/Concessione | Chiama Microsoft Graph
 ------------------ | -------- | ---------- | --------------------
+Console | ![.NET Core](media/sample-v2-code/logo_NETcore.png)<p/> ASP.NET  | Client Credentials | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2)
 app Web | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET  | Client Credentials | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2)
 
-> Un esempio che illustra un'applicazione daemon per desktop è nel backlog.
+## <a name="headless-applications"></a>Applicazioni headless
+
+Gli esempi seguenti mostrano applicazioni client pubbliche eseguite in un dispositivo senza un Web browser. Queste app possono essere strumenti da riga di comando, app eseguite su Linux/Mac o applicazioni IoT. Gli esempi presentano app che accedono a Microsoft Graph a nome di un utente che esegue l'accesso in modo interattivo in un altro dispositivo, ad esempio un telefono cellulare. Tutte queste applicazioni client usano MicroSoft Authentication Library (MSAL).
+
+Applicazione client | Piattaforma | Flusso/Concessione | Chiama Microsoft Graph
+------------------ | -------- |  ----------| ----------
+Desktop (Console)   | ![.NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Flusso del codice del dispositivo |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2)
 
 ## <a name="web-apis"></a>API Web
 
@@ -99,7 +108,7 @@ Per informazioni su [esempi](https://github.com/microsoftgraph/msgraph-community
 
 ## <a name="see-also"></a>Vedere anche 
 
-[Guida per gli sviluppatori di Azure Active Directory](azure-ad-developers-guide.md)
+[Guida per gli sviluppatori di Azure Active Directory](v1-overview.md)
 
 [Concetti e riferimenti relativi all'API Graph di Azure AD](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8e06cf1a443d4fd158e29ef4b53206a83800dfe9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 36025bf8460d690aab3b3617ad3341dfe7005e9e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803053"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649276"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Impostare gli URL di reindirizzamento su b2clogin.com per Azure Active Directory B2C
 
@@ -26,7 +26,12 @@ L'uso di b2clogin.com offre vantaggi aggiuntivi, ad esempio:
 - I cookie non vengono più condivisi con altri servizi Microsoft.
 - Gli URL non includono più un riferimento a Microsoft. Ad esempio: `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-Per usare b2clogin.com, impostare gli URL di reindirizzamento nelle applicazioni del provider di identità a tale scopo. Impostare anche l'applicazione Azure AD B2C per l'uso di b2clogin.com per i riferimenti a criteri e gli endpoint di token. Se si usa MSAL, è necessario impostare la proprietà **ValidateAuthority** su `false`.
+Prendere in considerazione queste impostazioni che potrebbe essere necessario modificare quando si usa b2clogin.com:
+
+- Impostare gli URL di reindirizzamento nelle applicazioni del provider di identità per l'uso di b2clogin.com. 
+- Impostare l'applicazione Azure AD B2C per l'uso di b2clogin.com per i riferimenti a criteri e gli endpoint di token. 
+- Se si usa MSAL, è necessario impostare la proprietà **ValidateAuthority** su `false`.
+- Assicurarsi di modificare le **Origini consentite** definite nelle impostazioni CORS per la [personalizzazione dell'interfaccia utente](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
 ## <a name="change-redirect-urls"></a>Modificare gli URL di reindirizzamento
 

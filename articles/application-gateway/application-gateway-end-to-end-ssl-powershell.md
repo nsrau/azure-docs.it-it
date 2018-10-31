@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/27/2018
+ms.date: 10/23/2018
 ms.author: victorh
-ms.openlocfilehash: 7e259936dce433683dd135171ee1c5626bf23739
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5ea022d38970122b88ae35c592af3e4a9351190b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154195"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945332"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurare SSL end-to-end usando un gateway applicazione con PowerShell
 
@@ -127,20 +127,20 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -Name 'public
 
 Tutti gli elementi di configurazione vengono impostati prima di creare il gateway applicazione. La procedura seguente consente di creare gli elementi di configurazione necessari per una risorsa del gateway applicazione.
 
-   1. Creare una configurazione IP per il gateway applicazione. Questa impostazione configura le subnet usate dal gateway applicazione. All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP dei back-end. Tenere presente che ogni istanza ha un indirizzo IP.
+1. Creare una configurazione IP per il gateway applicazione. Questa impostazione configura le subnet usate dal gateway applicazione. All'avvio, il gateway applicazione seleziona un indirizzo IP dalla subnet configurata e instrada il traffico di rete agli indirizzi IP nel pool di indirizzi IP dei back-end. Tenere presente che ogni istanza ha un indirizzo IP.
 
    ```powershell
    $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
 
-   2. Creare una configurazione di indirizzi IP front-end. Questa impostazione esegue il mapping di un indirizzo IP pubblico o privato al front-end del gateway applicazione. Il passaggio seguente consente di associare l'indirizzo IP pubblico del passaggio precedente alla configurazione IP front-end.
+2. Creare una configurazione di indirizzi IP front-end. Questa impostazione esegue il mapping di un indirizzo IP pubblico o privato al front-end del gateway applicazione. Il passaggio seguente consente di associare l'indirizzo IP pubblico del passaggio precedente alla configurazione IP front-end.
 
    ```powershell
    $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAddress $publicip
    ```
 
-   3. Configurare il pool di indirizzi IP dei back-end con gli indirizzi IP dei server Web back-end. Questi indirizzi IP saranno quelli che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP nell'esempio con gli endpoint di indirizzi IP dell'applicazione.
+3. Configurare il pool di indirizzi IP dei back-end con gli indirizzi IP dei server Web back-end. Questi indirizzi IP saranno quelli che ricevono il traffico di rete proveniente dall'endpoint IP front-end. Sostituire gli indirizzi IP nell'esempio con gli endpoint di indirizzi IP dell'applicazione.
 
    ```powershell
    $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
@@ -150,13 +150,13 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    > Anche un nome di dominio completo (FQDN) è un valore valido da usare al posto di un indirizzo IP per i server back-end. Per abilitarlo, usare l'opzione **-BackendFqdns**. 
 
 
-   4. Configurare la porta d indirizzo IP front-end con l'endpoint di indirizzo IP pubblico. Si tratta della porta a cui si connettono gli utenti finali.
+4. Configurare la porta d indirizzo IP front-end con l'endpoint di indirizzo IP pubblico. Si tratta della porta a cui si connettono gli utenti finali.
 
    ```powershell
    $fp = New-AzureRmApplicationGatewayFrontendPort -Name 'port01'  -Port 443
    ```
 
-   5. Configurare il certificato per il gateway applicazione. Questo certificato viene usato per decrittografare e crittografare di nuovo il traffico nel gateway applicazione.
+5. Configurare il certificato per il gateway applicazione. Questo certificato viene usato per decrittografare e crittografare di nuovo il traffico nel gateway applicazione.
 
    ```powershell
    $passwd = ConvertTo-SecureString  <certificate file password> -AsPlainText -Force 
@@ -166,13 +166,13 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    > [!NOTE]
    > Questo esempio configura il certificato usato per la connessione SSL. Il certificato deve essere in formato PFX e la password deve contenere da 4 a 12 caratteri.
 
-   6. Creare il listener HTTP per il gateway applicazione. Assegnare la configurazione IP, la porta e il certificato SSL del front-end da usare.
+6. Creare il listener HTTP per il gateway applicazione. Assegnare la configurazione IP, la porta e il certificato SSL del front-end da usare.
 
    ```powershell
    $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01 -Protocol Https -FrontendIPConfiguration $fipconfig -FrontendPort $fp -SSLCertificate $cert
    ```
 
-   7. Caricare il certificato da usare per le risorse del pool back-end abilitate per SSL.
+7. Caricare il certificato da usare per le risorse del pool back-end abilitate per SSL.
 
    > [!NOTE]
    > Il probe predefinito ottiene la chiave pubblica dall'associazione SSL *predefinita* nell'indirizzo IP del back-end e confronta il valore della chiave pubblica ricevuta con il valore della chiave pubblica specificata qui. 
@@ -186,27 +186,40 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    > [!NOTE]
    > Il certificato fornito in questo passaggio deve essere la chiave pubblica del certificato PFX presente nel back-end. Esportare il certificato (non il certificato radice) installato nel server back-end in formato CER e usarlo in questo passaggio. Questo passaggio mostra come aggiungere il back-end all'elenco elementi consentiti con il gateway applicazione.
 
-   8. Configurare le impostazioni HTTP per il back-end del gateway applicazione. Assegnare il certificato caricato nel passaggio precedente alle impostazioni HTTP.
+   Se si usa lo SKU v2 di gateway applicazione, creare un certificato radice attendibile anziché un certificato di autenticazione. Per altre informazioni, vedere [Panoramica di SSL end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
+
+   ```powershell
+   $trustedRootCert01 = New-AzureRmApplicationGatewayTrustedRootCertificate -Name "test1" -CertificateFile  <path to root cert file>
+   ```
+
+8. Configurare le impostazioni HTTP per il back-end del gateway applicazione. Assegnare il certificato caricato nel passaggio precedente alle impostazioni HTTP.
 
    ```powershell
    $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name 'setting01' -Port 443 -Protocol Https -CookieBasedAffinity Enabled -AuthenticationCertificates $authcert
    ```
-   9. Creare la regola di routing del bilanciamento del carico per la configurazione del comportamento di bilanciamento del carico. In questo esempio viene creata una regola di round robin di base.
+
+   Per lo SKU v2 di gateway applicazione usare il comando seguente:
+
+   ```powershell
+   $poolSetting01 = New-AzureRmApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+   ```
+
+9. Creare la regola di routing del bilanciamento del carico per la configurazione del comportamento di bilanciamento del carico. In questo esempio viene creata una regola di round robin di base.
 
    ```powershell
    $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-   10. Configurare le dimensioni dell'istanza del gateway applicazione. Le dimensioni disponibili sono **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**.  Per la capacità, i valori disponibili sono compresi tra **1** e **10**.
+10. Configurare le dimensioni dell'istanza del gateway applicazione. Le dimensioni disponibili sono **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**.  Per la capacità, i valori disponibili sono compresi tra **1** e **10**.
 
-   ```powershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
-   ```
+    ```powershell
+    $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+    ```
 
-   > [!NOTE]
-   > A scopo di test si può scegliere 1 come numero di istanze. È importante tenere presente che qualsiasi numero di istanze inferiore a due non è coperto dal contratto di servizio ed è quindi sconsigliato. È opportuno usare gateway Small a scopo di sviluppo/test e non per la produzione.
+    > [!NOTE]
+    > A scopo di test si può scegliere 1 come numero di istanze. È importante tenere presente che qualsiasi numero di istanze inferiore a due non è coperto dal contratto di servizio ed è quindi sconsigliato. È opportuno usare gateway Small a scopo di sviluppo/test e non per la produzione.
 
-   11. Configurare i criteri SSL da usare nel gateway applicazione. Il gateway applicazione supporta la funzionalità di impostazione di una versione minima per le versioni del protocollo SSL.
+11. Configurare i criteri SSL da usare nel gateway applicazione. Il gateway applicazione supporta la funzionalità di impostazione di una versione minima per le versioni del protocollo SSL.
 
    I valori seguenti rappresentano un elenco di versioni del protocollo che è possibile definire:
 

@@ -1,7 +1,7 @@
 ---
 pageTitle: Synonyms in Azure Search | Microsoft Docs
 description: Usare sinonimi per espandere l'ambito di una query di ricerca
-authors: mhko
+author: mhko
 services: search
 ms.service: search
 ms.devlang: rest-api
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 579d92f41e41cdb38d4a1eb0bb6e56ce4d4b2a45
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093215"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468552"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinonimi in Ricerca di Azure
 
@@ -148,6 +148,8 @@ La funzionalità relativa ai sinonimi riscrive la query originale con sinonimi u
 La funzionalità relativa ai sinonimi si applica alle query di ricerca e non ai filtri o ai facet. Analogamente, i suggerimenti sono basati solo sul termine originale; le corrispondenze sinonimiche non compaiono nella risposta.
 
 Le espansioni dei sinonimi non si applicano ai termini di ricerca con caratteri jolly; i termini con prefisso, fuzzy e regex non vengono espansi.
+
+Se è necessario eseguire un'unica query che comprenda espansioni sinonimiche, caratteri jolly, espressioni regolari o ricerche fuzzy, è possibile combinare le relative istruzioni con la sintassi OR. Ad esempio, per combinare sinonimi e caratteri jolly in una sintassi di query semplice, il termine è `<query> | <query>*`.
 
 ## <a name="tips-for-building-a-synonym-map"></a>Suggerimenti per la creazione di una mappa sinonimica
 

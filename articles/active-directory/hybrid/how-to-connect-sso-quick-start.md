@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8cfe8c309c11eb24bc6e7af9fc3ba3eef0422c35
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405989"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638217"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: guida introduttiva
 
@@ -57,6 +57,9 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 ## <a name="step-2-enable-the-feature"></a>Passaggio 2: Abilitare la funzionalità
 
 Abilitare l'accesso SSO facile tramite [Azure AD Connect](whatis-hybrid-identity.md).
+
+>[!NOTE]
+> Inoltre, se Azure AD Connect non soddisfa i requisiti, è possibile [abilitare l'accesso Seamless SSO tramite PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature). Usare questa opzione se si dispone di più domini per ogni foresta Active Directory e si desidera rivolgersi in modo più mirato al dominio per cui si vuole abilitare l'accesso Seamless SSO.
 
 Se si esegue una nuova installazione di Azure AD Connect, scegliere il [percorso di installazione personalizzato](how-to-connect-install-custom.md). Nella pagina **Accesso utente** selezionare l'opzione **Abilita Single Sign-On**.
 

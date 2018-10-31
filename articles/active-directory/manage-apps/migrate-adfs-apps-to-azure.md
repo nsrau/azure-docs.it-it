@@ -1,6 +1,6 @@
 ---
-title: Eseguire la migrazione ad Azure di app locali di AD FS | Microsoft Docs
-description: Questo articolo illustra come le organizzazioni possono eseguire la migrazione ad Azure AD di applicazioni locali, in particolare di applicazioni SaaS federate.
+title: Spostare le app da Active Directory Federation Services (AD FS) ad Azure Active Directory (Azure AD). | Microsoft Docs
+description: Questo articolo illustra come le organizzazioni possono spostare le applicazioni in Azure Active Directory, in particolare applicazioni SaaS federate.
 services: active-directory
 author: barbkess
 manager: mtillman
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: fa19c932a18102107068303e1474abd992df3161
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: b799a3947770b44752b599dbb2c47cbf1cfbcda2
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48903029"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959061"
 ---
-# <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>Eseguire la migrazione ad Azure di app locali di AD FS 
+# <a name="move-applications-from-ad-fs-to-azure-ad"></a>Spostare le app da Active Directory Federation Services (AD FS) ad Azure Active Directory (Azure AD) 
 
-Questo articolo illustra come eseguire la migrazione ad Azure Active Directory (Azure AD) di applicazioni locali ed è incentrato sulle applicazioni SaaS federate. 
+Questo articolo illustra come spostare le applicazioni da Active Directory Federation Services ad Azure Active Directory. ed è incentrato sulle applicazioni SaaS federate. 
 
 Non offre istruzioni dettagliate, ma indicazioni concettuali che consentiranno di realizzare la migrazione comprendendo come le configurazioni locali verranno convertite in Azure AD. Descrive inoltre scenari comuni.
 
@@ -31,7 +31,7 @@ Se si ha una directory locale contenente account utente, è probabile che si abb
 
 Nella maggior parte delle organizzazioni vengono adottate in varia misura identità e applicazioni cloud ed è possibile che vengano usati Office 365 e Azure AD Connect e che siano state configurate applicazioni SaaS basate sul cloud per alcuni carichi di lavoro chiave ma non per tutti.  
 
-Molte organizzazioni hanno applicazioni line-of-business personalizzate o SaaS che sono federate direttamente a un servizio di accesso locale come Active Directory Federation Services (AD FS), nonché app basate su Azure AD e Office 365. Questa guida alla migrazione descrive perché e come eseguire la migrazione ad Azure AD di applicazioni locali.
+Molte organizzazioni hanno applicazioni line-of-business personalizzate o SaaS che sono federate direttamente a un servizio di accesso locale come Active Directory Federation Services (AD FS), nonché app basate su Azure AD e Office 365. Questa guida descrive come e perché spostare le applicazioni ad Azure AD.
 
 >[!NOTE]
 >Questa guida contiene informazioni dettagliate sulla configurazione e la migrazione di app SaaS, con informazioni generali sulle app line-of-business personalizzate. Indicazioni più dettagliate per le app line-of-business personalizzate saranno disponibili in futuro.
@@ -40,9 +40,9 @@ Molte organizzazioni hanno applicazioni line-of-business personalizzate o SaaS c
 
 ![App federate tramite Azure AD](media/migrate-adfs-apps-to-azure/migrate2.png)
 
-## <a name="reasons-for-migrating-apps-to-azure-ad"></a>Motivi per eseguire la migrazione di app ad Azure AD
+## <a name="reasons-for-moving-apps-to-azure-ad"></a>Motivi per spostare le app ad Azure AD
 
-Per un'organizzazione che usa già AD FS, Ping o un altro provider di autenticazione locale, la migrazione delle app ad Azure AD offre i vantaggi seguenti:
+Per un'organizzazione che usa già AD FS, Ping o un altro provider di autenticazione locale, lo spostamento delle app ad Azure AD offre i vantaggi seguenti:
 
 **Accesso più sicuro**
 - È possibile configurare controlli di accesso per applicazione granulari, tra cui Azure Multi-Factor Authentication, usando l'[accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md). I criteri possono essere applicati alle app SaaS e personalizzate così come eventualmente già applicati per Office 365.
@@ -61,7 +61,7 @@ Per un'organizzazione che usa già AD FS, Ping o un altro provider di autenticaz
 - Pur ottenendo i vantaggi di Azure AD, è possibile continuare a usare la soluzione locale per l'autenticazione, usufruendo così di vantaggi come registrazione, controllo e soluzioni Multi-Factor Authentication locali. 
 
 **Semplificazione del ritiro del provider di identità locale**
-- Per le organizzazioni che vogliono ritirare il prodotto di autenticazione locale, la migrazione delle app ad Azure AD facilita la transizione rimuovendo parte del lavoro. 
+- Per le organizzazioni che vogliono ritirare il prodotto di autenticazione locale, lo spostamento delle app ad Azure AD facilita la transizione eliminando parte del lavoro. 
 
 ## <a name="mapping-types-of-apps-on-premises-to-types-of-apps-in-azure-ad"></a>Mapping tra tipi di app in locale e tipi di app in Azure AD
 In base al tipo di accesso usato, la maggior parte delle app rientra in una specifica categoria. Queste categorie determinano il modo in cui l'app viene rappresentata in Azure AD.
@@ -126,8 +126,8 @@ La tabella seguente descrive i principali elementi di configurazione del provide
 |Identificatore/</br>"autorità di certificazione"|Identificatore del provider di identità dal punto di vista dell'app, talvolta denominato "ID autorità di certificazione".</br></br>Nel token SAML, il valore è presente come elemento **Issuer**.|L'identificatore per AD FS è in genere l'identificatore del servizio federativo riportato in **Servizio** > **Modifica proprietà servizio federativo** in Gestione AD FS. Ad esempio, http&#58;//fs.contoso.com/adfs/services/trust|Il valore corrispondente per Azure AD segue questo modello, in cui {id-tenant} verrà sostituito con l'ID del tenant. Questo è riportato come **ID directory** nel portale di Azure in **Azure Active Directory** > **Proprietà**: https&#58;//sts.windows.net/{id-tenant}/|
 |Metadati </br>federazione </br>metadata|Posizione dei metadati di federazione disponibili pubblicamente del provider di identità. Alcune app usano i metadati di federazione come alternativa alla configurazione di URL, identificatore e certificato per la firma di token eseguita singolarmente dall'amministratore.|L'URL dei metadati di federazione di AD FS è riportato in **Servizio** > **Endpoint** > **Metadati** > **Tipo: Metadati federativi** in Gestione AD FS. Ad esempio: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Il valore corrispondente per Azure AD segue il modello https&#58;//login.microsoftonline.com/{NomeDominioTenant}/FederationMetadata/2007-06/FederationMetadata.xml. Il valore di {NomeDominioTenant} verrà sostituito con il nome del tenant nel formato "contoso.onmicrosoft.com". </br></br>Per altre informazioni, vedere [Metadati della federazione](../develop/azure-ad-federation-metadata.md).
 
-## <a name="migrating-saas-apps"></a>Migrazione delle app SaaS
-La migrazione di app SaaS da AD FS o un altro provider di identità ad Azure AD è attualmente un processo manuale. Per istruzioni per app specifiche, vedere l'[elenco delle esercitazioni sull'integrazione delle app SaaS disponibili nel Marketplace](../saas-apps/tutorial-list.md).
+## <a name="moving-saas-apps"></a>Spostamento delle app SaaS
+Lo spostamento di app SaaS da AD FS o altro provider di identità ad Azure AD è attualmente un processo manuale. Per istruzioni per app specifiche, vedere l'[elenco delle esercitazioni sull'integrazione delle app SaaS disponibili nel Marketplace](../saas-apps/tutorial-list.md).
 
 Le esercitazioni sull'integrazione presuppongono che si esegua un'integrazione "vergine". Nel corso della pianificazione, della valutazione, della configurazione e della migrazione completa delle app è consigliabile conoscere alcuni concetti chiave specifici della migrazione:  
 - La migrazione di alcune app può essere eseguita facilmente. Le app con requisiti più complessi, come le attestazioni personalizzate, potrebbero richiedere operazioni di configurazione aggiuntive in Azure AD e/o Azure AD Connect.
@@ -135,7 +135,7 @@ Le esercitazioni sull'integrazione presuppongono che si esegua un'integrazione "
 - Dopo aver determinato che sono necessarie attestazioni aggiuntive, verificare che siano disponibili in Azure AD. Controllare la configurazione di sincronizzazione di Azure AD Connect per assicurarsi che un attributo obbligatorio, ad esempio **samAccountName**, venga sincronizzato con Azure AD.
 - Quando gli attributi sono disponibili in Azure AD, è possibile aggiungere regole di rilascio delle attestazioni in Azure AD per includere tali attributi come attestazioni nei token rilasciati. Queste regole vengono aggiunte nelle proprietà **Single Sign-On** dell'app in Azure AD.
 
-### <a name="assess-what-can-be-migrated"></a>Valutare la possibilità di migrazione
+### <a name="assess-what-can-be-moved"></a>Valutare ciò che può essere spostato
 Le applicazioni SAML 2.0 possono essere integrate con Azure AD tramite la raccolta di applicazioni di Azure AD nel Marketplace o come applicazioni non incluse nel Marketplace.  
 
 Alcune configurazioni richiedono passaggi aggiuntivi per la configurazione in Azure AD e alcune non sono attualmente supportate. Per determinare le app che possono essere spostate, esaminare la configurazione corrente di ogni app, in particolare quanto segue:
@@ -144,8 +144,8 @@ Alcune configurazioni richiedono passaggi aggiuntivi per la configurazione in Az
 - Versioni di token SAML rilasciate.
 - Altre configurazioni come le regole di autorizzazione rilascio o i criteri di controllo di accesso e le regole di Multi-Factor Authentication (autenticazione aggiuntiva).
 
-#### <a name="what-can-be-migrated-today"></a>App di cui è attualmente possibile eseguire la migrazione
-Attualmente è possibile eseguire facilmente la migrazione delle app SAML 2.0 che usano il set standard di elementi di configurazione e attestazioni. Queste app possono includere:
+#### <a name="what-can-be-moved-today"></a>Elementi che possono essere spostati immediatamente
+Attualmente è possibile spostare facilmente le app SAML 2.0 che usano il set standard di elementi di configurazione e attestazioni. Queste app possono includere:
 - Nome dell'entità utente.
 - Indirizzo di posta elettronica.
 - Nome.

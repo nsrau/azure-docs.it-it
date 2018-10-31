@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5943357bc421bbae0caef7f0acd7aa3364813826
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 771ec7713c989025635e585b7bb511986e71cda9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597519"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024765"
 ---
 # <a name="api-management-policy-expressions"></a>Espressioni di criteri di Gestione API
 Questo articolo illustra la sintassi delle espressioni di criteri, che è C# 7. Ogni espressione ha accesso alla variabile [context](api-management-policy-expressions.md#ContextVariables) fornita implicitamente e a un [subset](api-management-policy-expressions.md#CLRTypes) autorizzato di tipi di .NET Framework.  
@@ -52,15 +52,15 @@ Per altre informazioni:
   
 @(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
-@{   
-  string value;   
-  if (context.Request.Headers.TryGetValue("Authorization", out value))   
-  {   
-    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
-  }   
-  else   
-  {   
-    return null;  
+@{   
+  string value;   
+  if (context.Request.Headers.TryGetValue("Authorization", out value))   
+  {   
+    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
+  }   
+  else   
+  {   
+    return null;  
   }  
 }  
 ```  
@@ -74,18 +74,18 @@ Per altre informazioni:
 ##  <a name="CLRTypes"></a> Tipi di .NET Framework consentiti nelle espressioni di criteri  
  Nella tabella seguente sono elencati i tipi di .NET Framework e i relativi membri consentiti nelle espressioni di criteri.  
   
-|Tipo CLR|Metodi supportati|  
+|Tipo CLR|Membri supportati|  
 |--------------|-----------------------|  
-|Newtonsoft.Json.Linq.Extensions|Tutti i metodi sono supportati|  
-|Newtonsoft.Json.Linq.JArray|Tutti i metodi sono supportati|  
-|Newtonsoft.Json.Linq.JConstructor|Tutti i metodi sono supportati|  
-|Newtonsoft.Json.Linq.JContainer|Tutti i metodi sono supportati|  
-|Newtonsoft.Json.Linq.JObject|Tutti i metodi sono supportati|  
-|Newtonsoft.Json.Linq.JProperty|Tutti i metodi sono supportati|  
-|Newtonsoft.Json.Linq.JRaw|Tutti i metodi sono supportati|  
-|Newtonsoft.Json.Linq.JToken|Tutti i metodi sono supportati|  
-|Newtonsoft.Json.Linq.JTokenType|Tutti i metodi sono supportati|  
-|Newtonsoft.Json.Linq.JValue|Tutti i metodi sono supportati|  
+|Newtonsoft.Json.Linq.Extensions|Tutti|  
+|Newtonsoft.Json.Linq.JArray|Tutti|  
+|Newtonsoft.Json.Linq.JConstructor|Tutti|  
+|Newtonsoft.Json.Linq.JContainer|Tutti|  
+|Newtonsoft.Json.Linq.JObject|Tutti|  
+|Newtonsoft.Json.Linq.JProperty|Tutti|  
+|Newtonsoft.Json.Linq.JRaw|Tutti|  
+|Newtonsoft.Json.Linq.JToken|Tutti|  
+|Newtonsoft.Json.Linq.JTokenType|Tutti|  
+|Newtonsoft.Json.Linq.JValue|Tutti|  
 |System.Collections.Generic.IReadOnlyCollection<T\>|Tutti|  
 |System.Collections.Generic.IReadOnlyDictionary<TKey,  TValue>|Tutti|  
 |System.Collections.Generic.ISet<TKey, TValue>|Tutti|  
@@ -105,9 +105,10 @@ Per altre informazioni:
 |System.Int16|Tutti|  
 |System.Int32|Tutti|  
 |System.Int64|Tutti|  
-|System.Linq.Enumerable<T\>|Tutti i metodi sono supportati|  
+|System.Linq.Enumerable<T\>|Tutti|  
 |System.Math|Tutti|  
-|System.MidpointRounding|Tutti|  
+|System.MidpointRounding|Tutti|
+|System.Net.WebUtility|Tutti|
 |System.Nullable<T\>|Tutti|  
 |System.Random|Tutti|  
 |System.SByte|Tutti|  
@@ -146,23 +147,23 @@ Per altre informazioni:
 |System.UInt32|Tutti|  
 |System.UInt64|Tutti|  
 |System.Uri|Tutti|  
-|System.Xml.Linq.Extensions|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XAttribute|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XCData|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XComment|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XContainer|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XDeclaration|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XDocument|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XDocumentType|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XElement|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XName|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XNamespace|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XNode|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XNodeDocumentOrderComparer|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XNodeEqualityComparer|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XObject|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XProcessingInstruction|Tutti i metodi sono supportati|  
-|System.Xml.Linq.XText|Tutti i metodi sono supportati|  
+|System.Xml.Linq.Extensions|Tutti|  
+|System.Xml.Linq.XAttribute|Tutti|  
+|System.Xml.Linq.XCData|Tutti|  
+|System.Xml.Linq.XComment|Tutti|  
+|System.Xml.Linq.XContainer|Tutti|  
+|System.Xml.Linq.XDeclaration|Tutti|  
+|System.Xml.Linq.XDocument|Tutti|  
+|System.Xml.Linq.XDocumentType|Tutti|  
+|System.Xml.Linq.XElement|Tutti|  
+|System.Xml.Linq.XName|Tutti|  
+|System.Xml.Linq.XNamespace|Tutti|  
+|System.Xml.Linq.XNode|Tutti|  
+|System.Xml.Linq.XNodeDocumentOrderComparer|Tutti|  
+|System.Xml.Linq.XNodeEqualityComparer|Tutti|  
+|System.Xml.Linq.XObject|Tutti|  
+|System.Xml.Linq.XProcessingInstruction|Tutti|  
+|System.Xml.Linq.XText|Tutti|  
 |System.Xml.XmlNodeType|Tutti|  
   
 ##  <a name="ContextVariables"></a> Variabile di contesto  

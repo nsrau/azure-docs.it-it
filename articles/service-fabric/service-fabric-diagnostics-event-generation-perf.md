@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 9e740dd3acce842f888e5994fe8f46222477adc1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208234"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408014"
 ---
 # <a name="performance-metrics"></a>Metriche delle prestazioni
 
@@ -84,4 +84,4 @@ Se si usa Reliable Collection, infine, è consigliabile aggiungere il contatore 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sulla [generazione di eventi a livello piattaforma](service-fabric-diagnostics-event-generation-infra.md) in Service Fabric
-* Raccogliere metriche delle prestazioni tramite l'[agente di OMS](service-fabric-diagnostics-oms-agent.md)
+* Raccogliere metriche delle prestazioni tramite l'[agente di Log Analytics](service-fabric-diagnostics-oms-agent.md)

@@ -1,31 +1,31 @@
 ---
-title: Personalizzare un'interfaccia utente tramite criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
-description: Informazioni sulla personalizzazione di un'interfaccia utente con l'uso di criteri personalizzati in Azure AD B2C.
+title: Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C | Microsoft Docs
+description: Informazioni sulla personalizzazione di un'interfaccia utente mediante un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9908a7cf96c56e414e0a8d7faea0352b60214ea4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446164"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945061"
 ---
-# <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: configurare la personalizzazione dell'interfaccia utente in un criterio personalizzato
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personalizzare l'interfaccia utente dell'applicazione usando un criterio personalizzato in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 Dopo aver completato questo articolo si avrà un criterio personalizzato per l'iscrizione e l'accesso con il proprio marchio e aspetto. Con Azure Active Directory B2C (Azure AD B2C) si ottiene il controllo quasi completo del contenuto HTML e CSS presentato agli utenti. Quando si usa un criterio personalizzato, si configura la personalizzazione dell'interfaccia utente in XML anziché usare i controlli nel portale di Azure. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, completare [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md). È necessario disporre di un criterio personalizzato di lavoro per l'iscrizione e l'accesso con account locali.
+Completare la procedura descritta in [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md). È necessario disporre di un criterio personalizzato di lavoro per l'iscrizione e l'accesso con account locali.
 
 ## <a name="page-ui-customization"></a>Personalizzazione dell'interfaccia utente della pagina
 
@@ -119,27 +119,44 @@ Verificare che tutte le operazioni preliminari siano state completate seguendo q
 2. Fare clic su **Send Request** (Invia richiesta).  
     Se si riceve un messaggio d'errore, verificare che le [impostazioni CORS](#configure-cors) siano corrette. Potrebbe anche essere necessario cancellare la cache del browser o aprire una sessione di esplorazione anonima premendo Ctrl+Maiusc+P.
 
-## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Modificare i criteri personalizzati di iscrizione o di accesso
+## <a name="modify-the-extensions-file"></a>Modificare il file delle estensioni
 
-Sotto il tag *\<TrustFrameworkPolicy\>* di primo livello dovrebbe essere presente il tag *\<BuildingBlocks\>*. All'interno dei tag *\<BuildingBlocks\>* aggiungere un tag *\<ContentDefinitions\>* copiando l'esempio seguente. Sostituire *your_storage_account* con il nome del proprio account di archiviazione.
+Per configurare la personalizzazione dell'interfaccia utente, si copia **ContentDefinition** e i relativi elementi figlio dal file di base al file delle estensioni.
 
-  ```xml
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.idpselections">
-        <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>
-  ```
+1. Aprire il file di base dei criteri, ad esempio *TrustFrameworkBase.xml*.
+2. Cercare e copiare l'intero contenuto dell'elemento **ContentDefinitions**.
+3. Aprire il file di estensione. ad esempio *TrustFrameworkExtensions.xml*. Cercare l'elemento **BuildingBlocks**. Se l'elemento non esiste, aggiungerlo.
+4. Incollare l'intero contenuto dell'elemento **ContentDefinitions** copiato come figlio dell'elemento **BuildingBlocks**. 
+5. Cercare l'elemento **ContentDefinition** che contiene `Id="api.signuporsignin"` nel codice XML copiato.
+6. Cambiare il valore di **LoadUri** nell'URL del file HTML caricato nell'archivio. Ad esempio `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+    
+    I criteri personalizzati dovrebbero essere simili ai seguenti:
+
+    ```xml
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsignin">
+          <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>
+    ```
+
+7. Salvare il file delle estensioni.
 
 ## <a name="upload-your-updated-custom-policy"></a>Caricare il criterio personalizzato aggiornato
 
-1. Nel [portale di Azure](https://portal.azure.com) [passare al contesto del tenant di Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e quindi aprire il pannello **Azure AD B2C**.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant.
+3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
+4. Fare clic su **Framework dell'esperienza di gestione delle identità**.
 2. Fare clic su **Tutti i criteri**.
 3. Fare clic su **Carica il criterio**.
-4. Caricare `SignUpOrSignin.xml` con il tag *\<ContentDefinitions\>* aggiunto in precedenza.
+4. Caricare il file delle estensioni modificato in precedenza.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Testare i criteri personalizzati tramite **Esegui adesso**
 
@@ -147,7 +164,7 @@ Sotto il tag *\<TrustFrameworkPolicy\>* di primo livello dovrebbe essere present
 2. Selezionare il criterio personalizzato che è stato caricato e fare clic sul pulsante **Esegui adesso**.
 3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
 
-## <a name="reference"></a>Riferimenti
+## <a name="reference"></a>riferimento
 
 È possibile trovare modelli di esempio per la personalizzazione dell'interfaccia utente qui:
 

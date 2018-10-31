@@ -15,42 +15,45 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 1b884571707aab71e8a8d124ba68f938e5a63a43
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063745"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986289"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Guida introduttiva: Accesso utenti e acquisizione di un token di accesso da un'applicazione JavaScript
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-In questa guida introduttiva si apprenderà come usare un codice di esempio che dimostra come un'applicazione a pagina singola JavaScript possa concedere l'accesso ad account personali, di lavoro o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph o qualsiasi API Web.
+Questo avvio rapido illustra come usare un codice di esempio che dimostra come un'applicazione a pagina singola JavaScript possa concedere l'accesso ad account personali, di lavoro o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Microsoft Graph o qualsiasi API Web.
 
 ![Funzionamento dell'app di esempio generata da questa Guida introduttiva](media/quickstart-v2-javascript/javascriptspa-intro.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registrare l'applicazione e scaricare l'app della guida introduttiva
 >
-> ### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
+> #### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
 >
-> 1. Passare al [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app) per registrare un'applicazione.
-> 1. Nella casella **Application Name** (Nome applicazione) immettere un nome per l'applicazione.
-> 1. Verificare che la casella di controllo **Guided Setup** (Configurazione guidata) sia deselezionata e quindi selezionare **Create** (Crea).
-> 1. Fare clic su **Aggiungi piattaforma** e quindi selezionare **Web**.
-> 1. Assicurarsi che l'opzione **Consenti il flusso implicito** sia *selezionata*.
-> 1. In **URL di reindirizzamento** aggiungere `http://localhost:30662/`.
-> 1. Fare clic su **Save**.
+> 1. Accedere al [Portale di Azure](https://portal.azure.com/) per registrare un'applicazione.
+> 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
+> 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima) > Nuova registrazione**.
+> 1. Nella pagina **Registra un'applicazione** visualizzata immettere il nome dell'applicazione.
+> 1. In **Tipi di account supportati** selezionare **Account in qualsiasi directory organizzativa e account Microsoft personali**.
+> 1. Selezionare la piattaforma **Web** nella sezione **URI di reindirizzamento** e impostare il valore su `http://localhost:30662/`.
+> 1. Al termine, selezionare **Registra**.  Nella pagina **Panoramica**  dell'app, prendere nota del valore del campo **ID applicazione (client)**.
+> 1. Per questo avvio rapido è necessario abilitare il [flusso di concessione implicito](v2-oauth2-implicit-grant-flow.md). Nel riquadro di spostamento a sinistra dell'applicazione registrata selezionare **Autenticazione**.
+> 1. Nelle **Impostazioni avanzate**, in **Concessione implicita**, selezionare entrambe le caselle di controllo **Token ID** e **Token di accesso**. I token ID e di accesso sono obbligatori perché l'app deve consentire l'accesso agli utenti e chiamare un'API.
+> 1. Selezionare **Salva**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
 > Per il funzionamento dell'esempio di codice di questa guida introduttiva è necessario aggiungere un URI di reindirizzamento come `http://localhost:30662/` e abilitare l'opzione **Concessione implicita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta queste modifiche per me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Già configurata](media/quickstart-v2-javascript/green-check.png) L'applicazione è configurata con questi attributi
+> > ![Già configurata](media/quickstart-v2-javascript/green-check.png) L'applicazione è configurata con questi attributi.
 
 #### <a name="step-2-download-the-project"></a>Passaggio 2: Scaricare il progetto
 
@@ -82,14 +85,20 @@ var applicationConfig = {
 
 #### <a name="step-4-run-the-project"></a>Passaggio 4: Eseguire il progetto
 
-Se si usa Node.js, in una riga di comando è possibile eseguire i comandi seguenti dalla directory del progetto per avviare il server:
- ```batch
- npm install
- node server.js
- ```
-Aprire un Web browser e passare a `http://localhost:30662/`. Fare clic sul pulsante **Accedi** per effettuare l'accesso e poi chiamare l'API Microsoft Graph.
+* Se si usa Node.js:
 
-Se si usa Visual Studio, assicurarsi di selezionare la soluzione di progetto e quindi premere **F5** per eseguire il progetto.
+    1. Nella directory del progetto eseguire il comando seguente per avviare il server:
+
+        ```batch
+        npm install
+        node server.js
+        ```
+
+    1. Aprire un Web browser e passare a `http://localhost:30662/`.
+    1. Fare clic sul pulsante **Accedi** per effettuare l'accesso e poi chiamare l'API Microsoft Graph.
+
+
+* Se si usa Visual Studio, assicurarsi di selezionare la soluzione di progetto e quindi premere **F5** per eseguire il progetto.
 
 ## <a name="more-information"></a>Altre informazioni
 
@@ -134,15 +143,14 @@ myMSALObj.loginPopup(applicationConfig.graphScopes).then(function (idToken) {
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | (Facoltativo) Contiene gli ambiti richiesti per il consenso dell'utente al momento dell'accesso, ad esempio `[ "user.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate (ovvero `api://<Application ID>/access_as_user`). Qui viene passato `applicationConfig.graphScopes`. |
+> | `scopes`   | (Facoltativo) Contiene gli ambiti richiesti per il consenso dell'utente al momento dell'accesso, ad esempio: `[ "user.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate, ovvero `api://<Application ID>/access_as_user`. Qui viene passato `applicationConfig.graphScopes`. |
 
 > [!TIP]
 > In alternativa, è possibile usare il metodo `loginRedirect` per reindirizzare alla pagina corrente alla pagina di accesso anziché a una finestra popup.
 
-
 ### <a name="request-tokens"></a>Richiedere token
 
-In MSAL sono disponibili tre metodi per acquisire i token: `acquireTokenRedirect`, `acquireTokenPopup` e `acquireTokenSilent`:
+In MSAL sono disponibili tre metodi per acquisire i token: `acquireTokenRedirect`, `acquireTokenPopup` e `acquireTokenSilent`
 
 #### <a name="get-a-user-token-silently"></a>Ottenere un token utente in modo automatico
 
@@ -156,11 +164,11 @@ myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (acces
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | Contiene gli ambiti da restituire nel token di accesso per l'API, ad esempio `[ "user.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate (ovvero `api://<Application ID>/access_as_user`). Qui viene passato `applicationConfig.graphScopes`.|
+> | `scopes`   | Contiene gli ambiti da restituire nel token di accesso per l'API, ad esempio: `[ "user.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate, ovvero `api://<Application ID>/access_as_user`. Qui viene passato `applicationConfig.graphScopes`.|
 
 #### <a name="get-a-user-token-interactively"></a>Ottenere un token utente in modo interattivo
 
- In alcune situazioni, è necessario forzare gli utenti a interagire con l'endpoint v2.0 di Azure AD. Ad esempio: 
+In alcune situazioni, è necessario forzare gli utenti a interagire con l'endpoint v2.0 di Azure AD. Ad esempio: 
 * Un utente deve immettere nuovamente le credenziali perché la password è scaduta
 * L'applicazione richiede l'accesso ad ambiti di risorse aggiuntivi per cui è necessario il consenso dell'utente
 * È necessaria l'autenticazione a due fattori
@@ -191,6 +199,3 @@ Per una guida più dettagliata su come creare l'applicazione per questa guida in
 
 > [!div class="nextstepaction"]
 > [Repository msal.js di GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js)
-
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7557e2b993a5059df8aea63c7394539acc28c110
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295871"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403525"
 ---
 # <a name="production-readiness-checklist"></a>Elenco di controllo per l'idoneità per la produzione
 
@@ -36,7 +36,7 @@ L'applicazione e il cluster sono pronti ad accettare il traffico della produzion
 6. Comprendere la finalità del [livello di affidabilità](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) del tipo di nodo e selezionarlo. È consigliabile impostare un livello di affidabilità Silver o superiore.
 7. Eseguire i test di carico e scalabilità dei carichi di lavoro per identificare i [requisiti di capacità](service-fabric-cluster-capacity.md) per il cluster. 
 8. I servizi e le applicazioni sono sottoposti a monitoraggio e vengono generati e archiviati log delle applicazioni, con funzionalità di avviso. Vedere ad esempio [Aggiungere la registrazione all'applicazione di Service Fabric](service-fabric-how-to-diagnostics-log.md) e [Monitorare i contenitori con Log Analytics](service-fabric-diagnostics-oms-containers.md).
-9. Il cluster viene monitorato con funzionalità di avviso, ad esempio con [OMS](service-fabric-diagnostics-event-analysis-oms.md). 
+9. Il cluster viene monitorato con funzionalità di avviso, ad esempio con [Log Analytics](service-fabric-diagnostics-event-analysis-oms.md). 
 10. L'infrastruttura del set di scalabilità di macchine virtuali sottostante viene monitorata con funzionalità di avviso, ad esempio con [Log Analytics](service-fabric-diagnostics-oms-agent.md).
 11. Il cluster ha sempre [un certificato primario e uno secondario](service-fabric-cluster-security-update-certs-azure.md) per evitare che gli utenti restino bloccati.
 12. Gestire cluster separati per lo sviluppo, la gestione temporanea e la produzione. 

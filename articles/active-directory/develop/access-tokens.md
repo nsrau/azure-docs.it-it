@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f184c18e97144f7efb30d61ebd024344510f3f5c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a3768e796284895b25eb62d00a58b20ca811540
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078767"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958942"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Token di accesso di Azure Active Directory
 
@@ -179,7 +179,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Provare questo URL in un browser.
+> Provare questo [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) in un browser.
 
 Il documento di metadati ha le caratteristiche seguenti:
 
@@ -187,7 +187,7 @@ Il documento di metadati ha le caratteristiche seguenti:
 * Include un oggetto `jwks_uri` che fornisce la posizione del set di chiavi pubbliche usate per firmare i token. Il documento JSON disponibile in `jwks_uri` contiene tutte le informazioni sulla chiave pubblica usata in un determinato momento. L'app può usare l'attestazione `kid` nell'intestazione JWT per selezionare quale chiave pubblica è stata usata in questo documento per firmare un determinato token. Può quindi eseguire la convalida della firma usando la chiave pubblica corretta e l'algoritmo indicato.
 
 > [!NOTE]
-> L'endpoint v1.0 restituisce entrambe le attestazioni `x5t` e `kid`. L'attestazione `x5t` non è presente nei token v2.0. L'endpoint v2.0 risponde con l'attestazione `kid`. In futuro è consigliabile usare l'attestazione `kid` per convalidare il token.
+> L'endpoint v1.0 restituisce entrambe le attestazioni `x5t` e `kid`, mentre l'endpoint v2.0 restituisce solo l'attestazione `kid`. In futuro è consigliabile usare l'attestazione `kid` per convalidare il token.
 
 L'esecuzione della convalida della firma non rientra nell'ambito di questo documento, sono tuttavia disponibili numerose librerie open source che contengono informazioni per eseguire questa operazione.
 
@@ -202,7 +202,7 @@ La logica di business dell'applicazione richiede questo passaggio e di seguito s
 * Controllare che `tid` corrisponda a un tenant autorizzato a chiamare l'API.
 * Usare l'attestazione `acr` per verificare che l'utente abbia eseguito l'autenticazione a più fattori. Si noti che ciò può essere applicato usando l'[accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Se è stata richiesta l'attestazione `roles` o `groups` nel token di accesso, verificare che l'utente sia incluso nel gruppo autorizzato a eseguire questa azione.
-  * Per i token recuperati tramite il flusso implicito, sarà probabilmente necessario eseguire una query su [Graph](https://developer.microsoft.com/graph/) per ottenere questi dati, in quanto in genere le dimensioni sono troppo grandi per l'inserimento nel token. 
+  * Per i token recuperati tramite il flusso implicito, sarà probabilmente necessario eseguire una query su [Microsoft Graph](https://developer.microsoft.com/graph/) per ottenere questi dati, in quanto in genere le dimensioni sono troppo grandi per l'inserimento nel token. 
 
 ## <a name="user-and-application-tokens"></a>Token utente e dell'applicazione
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
+ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: 4575bed18697a5661d58dc350c24a9497f7c46ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e7020ef5c1f7411c7226e7a2db489112ee6bf0a4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578814"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945502"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Panoramica di SSL end-to-end con il gateway applicazione
 
@@ -33,9 +33,21 @@ Il gateway applicazione comunica solo con istanze back-end note, il cui certific
 > [!NOTE]
 > L'installazione di certificati di autenticazione non è necessaria per servizi di Azure attendibili, come ad esempio App Web di Azure.
 
+## <a name="end-to-end-ssl-with-the-v2-sku"></a>SSL end-to-end con SKU v2
+
+I certificati di autenticazione sono stati deprecati e sostituiti da certificati radice attendibili nello SKU v2 gateway applicazione. Funzionano in modo analogo ai certificati di autenticazione con alcune differenze principali:
+
+- I certificati firmati da autorità di certificazione note il cui nome comune corrisponde al nome host nelle impostazioni HTTP di back-end non richiedono alcun passaggio aggiuntivo per il funzionamento di SSL end-to-end. 
+
+   Ad esempio, se i certificati di back-end sono rilasciati da un'autorità di certificazione nota il cui nome comune è contoso.com e anche il campo host delle impostazioni HTTP di back-end è impostato su contoso.com, non sono necessarie altre operazioni. Se si configura il protocollo come HTTPS nell'impostazione HTTP di back-end, sia il probe di integrità che il percorso dei dati saranno abilitati per SSL. Se si usano app Web di Azure o altri servizi Web di Azure come back-end, anche questi sono considerati implicitamente attendibili e non sono necessari altri passaggi per SSL end-to-end.
+- Se il certificato è autofirmato o firmato da intermediari sconosciuti, per abilitare SSL end-to-end nello SKU v2 deve essere definito un certificato radice attendibile. Il gateway applicazione comunicherà solo con back-end il cui certificato radice del certificato del server corrisponde a uno dei certificati dell'elenco dei certificati radice attendibili nell'impostazione HTTP di back-end associata al pool.
+- Oltre alla corrispondenza del certificato radice, il gateway applicazione verifica anche se l'impostazione Host specificata nell'impostazione HTTP di back-end corrisponde a quella del nome comune presentata dal certificato SSL del server back-end. Quando si tenta di stabilire una connessione SSL al back-end, il gateway applicazione imposta l'estensione Indicazione nome server (SNI) sull'host specificato nell'impostazione HTTP di back-end.
+- Se si sceglie **pick hostname from backend address** (selezionare il nome host dall'indirizzo di back-end) anziché il campo Host nell'impostazione HTTP di back-end, l'intestazione SNI è sempre impostata sul nome di dominio completo del pool di back-end e il nome comune sul certificato SSL del server back-end deve corrispondere al nome di dominio completo. I membri del pool di back-end con indirizzi IP non sono supportati in questo scenario.
+- Il certificato radice è un certificato radice codificato con codifica base64 dai certificati del server back-end.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo avere appreso i concetti di SSL end-to-end, passare a [Configurare un gateway applicazione con la terminazione SSL tramite il portale di Azure](create-ssl-portal.md) per creare un gateway applicazione usando SSL end-to-end.
+Dopo avere appreso i concetti di SSL end-to-end, passare a [Configurare SSL end-to-end usando un gateway applicazione con PowerShell](application-gateway-end-to-end-ssl-powershell.md) per creare un gateway applicazione usando SSL end-to-end.
 
 <!--Image references-->
 

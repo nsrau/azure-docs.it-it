@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2018
+ms.date: 10/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 7d044559d72b07dc86a5ee1c2269452a9059de61
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354394"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471510"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -42,6 +42,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.AAD/locations/operationresults/read |  |
 > | Azione | Microsoft.AAD/Operations/read |  |
 > | Azione | Microsoft.AAD/register/action | Registra un servizio di dominio |
+> | Azione | Microsoft.AAD/unregister/action | Annulla la registrazione di un servizio di dominio |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
@@ -665,6 +666,26 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.BingMaps/mapApis/regenerateKey/action | Rigenera la chiave |
 > | Azione | Microsoft.BingMaps/mapApis/Write | Operazione di scrittura |
 > | Azione | Microsoft.BingMaps/Operations/read | Descrizione dell'operazione. |
+
+## <a name="microsoftblueprint"></a>Microsoft.Blueprint
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Tipo di azione | Operazione | Descrizione |
+> | --- | --- | --- |
+> | Azione | Microsoft.Blueprint/blueprintAssignments/delete | Elimina gli artefatti del progetto |
+> | Azione | Microsoft.Blueprint/blueprintAssignments/read | Esegue la lettura degli artefatti del progetto |
+> | Azione | Microsoft.Blueprint/blueprintAssignments/write | Crea o aggiorna gli artefatti del progetto |
+> | Azione | Microsoft.Blueprint/blueprints/artifacts/delete | Elimina gli artefatti del progetto |
+> | Azione | Microsoft.Blueprint/blueprints/artifacts/read | Esegue la lettura degli artefatti del progetto |
+> | Azione | Microsoft.Blueprint/blueprints/artifacts/write | Crea o aggiorna gli artefatti del progetto |
+> | Azione | Microsoft.Blueprint/blueprints/delete | Elimina i progetti |
+> | Azione | Microsoft.Blueprint/blueprints/read | Esegue la lettura dei progetti |
+> | Azione | Microsoft.Blueprint/blueprints/versions/artifacts/read | Esegue la lettura degli artefatti del progetto |
+> | Azione | Microsoft.Blueprint/blueprints/versions/delete | Elimina i progetti |
+> | Azione | Microsoft.Blueprint/blueprints/versions/read | Esegue la lettura dei progetti |
+> | Azione | Microsoft.Blueprint/blueprints/versions/write | Crea o aggiorna i progetti |
+> | Azione | Microsoft.Blueprint/blueprints/write | Crea o aggiorna i progetti |
+> | Azione | Microsoft.Blueprint/register/action | Registra il provider di risorse di progetto |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -1610,9 +1631,12 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.DataFactory/factories/integrationruntimes/monitoringdata/read | Recupera i dati di monitoraggio per tutti i runtime di integrazione. |
 > | Azione | Microsoft.DataFactory/factories/integrationruntimes/nodes/delete | Elimina il nodo per il runtime di integrazione specificato. |
 > | Azione | Microsoft.DataFactory/factories/integrationruntimes/nodes/ipAddress/action | Restituisce l'indirizzo IP per il nodo specificato del runtime di integrazione. |
+> | Azione | Microsoft.DataFactory/factories/integrationruntimes/nodes/read | Legge il nodo per il runtime di integrazione specificato. |
 > | Azione | Microsoft.DataFactory/factories/integrationruntimes/nodes/write | Aggiorna un nodo di runtime di integrazione self-hosted. |
+> | Azione | Microsoft.DataFactory/factories/integrationruntimes/queryactivityruns/action | Esegue query sulle esecuzioni attività per il runtime di integrazione specificato. |
 > | Azione | Microsoft.DataFactory/factories/integrationruntimes/read | Legge tutti i runtime di integrazione. |
 > | Azione | Microsoft.DataFactory/factories/integrationruntimes/regenerateauthkey/action | Rigenera le chiavi di autenticazione per il runtime di integrazione specificato. |
+> | Azione | Microsoft.DataFactory/factories/integrationruntimes/removelinks/action | Rimuove i riferimenti del runtime di integrazione collegato dal runtime di integrazione specificato. |
 > | Azione | Microsoft.DataFactory/factories/integrationruntimes/start/action | Avvia tutti i runtime di integrazione. |
 > | Azione | Microsoft.DataFactory/factories/integrationruntimes/stop/action | Arresta tutti i runtime di integrazione. |
 > | Azione | Microsoft.DataFactory/factories/integrationruntimes/synccredentials/action | Sincronizza le credenziali per il runtime di integrazione specificato. |
@@ -1983,7 +2007,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.DevTestLab/labs/users/secrets/read | Esegue la lettura di segreti. |
 > | Azione | Microsoft.DevTestLab/labs/users/secrets/write | Aggiunge o modifica segreti. |
 > | Azione | Microsoft.DevTestLab/labs/users/serviceFabrics/delete | Elimina le infrastrutture di servizi. |
-> | Azione | Microsoft.DevTestLab/labs/users/serviceFabrics/ListApplicableSchedules/action | Elenca tutte le pianificazioni applicabili |
+> | Azione | Microsoft.DevTestLab/labs/users/serviceFabrics/ListApplicableSchedules/action | Elenca le pianificazioni di avvio/arresto applicabili, se presenti. |
 > | Azione | Microsoft.DevTestLab/labs/users/serviceFabrics/read | Legge le infrastrutture di servizi. |
 > | Azione | Microsoft.DevTestLab/labs/users/serviceFabrics/schedules/delete | Elimina le pianificazioni. |
 > | Azione | Microsoft.DevTestLab/labs/users/serviceFabrics/schedules/Execute/action | Esegue una pianificazione. |
@@ -1999,7 +2023,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/delete | Elimina macchine virtuali. |
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/DetachDataDisk/action | Rimuove il disco specificato dalla macchina virtuale. |
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/GetRdpFileContents/action | Ottiene una stringa che rappresenta il contenuto del file RDP per la macchina virtuale |
-> | Azione | Microsoft.DevTestLab/labs/virtualMachines/ListApplicableSchedules/action | Elenca tutte le pianificazioni applicabili |
+> | Azione | Microsoft.DevTestLab/labs/virtualMachines/ListApplicableSchedules/action | Elenca le pianificazioni di avvio/arresto applicabili, se presenti. |
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/read | Esegue la lettura di macchine virtuali. |
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/Redeploy/action | Ridistribuisce una macchina virtuale. |
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/Resize/action | Ridimensiona la macchina virtuale. |
@@ -2010,7 +2034,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/schedules/write | Aggiunge o modifica pianificazioni. |
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/Start/action | Avvia una macchina virtuale. |
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/Stop/action | Arrestare una macchina virtuale |
-> | Azione | Microsoft.DevTestLab/labs/virtualMachines/TransferDisks/action | Trasferisce la proprietà dei dischi della macchina virtuale all'utente |
+> | Azione | Microsoft.DevTestLab/labs/virtualMachines/TransferDisks/action | Trasferisce tutti i dischi dati collegati alla macchina virtuale in modo che diventino di proprietà dell'utente corrente. |
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/UnClaim/action | Rilascia la proprietà di una macchina virtuale esistente |
 > | Azione | Microsoft.DevTestLab/labs/virtualMachines/write | Aggiunge o modifica macchine virtuali. |
 > | Azione | Microsoft.DevTestLab/labs/virtualNetworks/delete | Elimina reti virtuali. |
@@ -2122,6 +2146,13 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > [!div class="mx-tdCol2BreakAll"]
 > | Tipo di azione | Operazione | Descrizione |
 > | --- | --- | --- |
+> | Azione | Microsoft.EventGrid/domains/delete | Elimina un dominio |
+> | Azione | Microsoft.EventGrid/domains/listKeys/action | Elenca le chiavi per un dominio |
+> | Azione | Microsoft.EventGrid/domains/providers/Microsoft.Insights/metricDefinitions/read | Recupera le metriche disponibili per i domini |
+> | Azione | Microsoft.EventGrid/domains/read | Legge un dominio |
+> | Azione | Microsoft.EventGrid/domains/regenerateKey/action | Rigenera la chiave per un dominio |
+> | Azione | Microsoft.EventGrid/domains/topics/read | Legge un argomento di dominio |
+> | Azione | Microsoft.EventGrid/domains/write | Crea o aggiorna un dominio |
 > | Azione | Microsoft.EventGrid/eventSubscriptions/delete | Elimina una sottoscrizione evento |
 > | Azione | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | Ottiene l'URL completo per la sottoscrizione evento |
 > | Azione | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per le sottoscrizioni evento |
@@ -2132,15 +2163,21 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per gli argomenti |
 > | Azione | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna l'impostazione di diagnostica per gli argomenti |
 > | Azione | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | Ottiene la metrica disponibile per gli argomenti |
-> | Azione | Microsoft.EventGrid/register/action | Registra la sottoscrizione evento per il provider di risorse EventGrid e abilita la creazione di sottoscrizioni Griglia di eventi. |
+> | Azione | Microsoft.EventGrid/locations/operationResults/read | Legge il risultato di un'operazione a livello di area |
+> | Azione | Microsoft.EventGrid/locations/operationsStatus/read | Legge lo stato di un'operazione a livello di area |
+> | Azione | Microsoft.EventGrid/operationResults/read | Legge il risultato di un'operazione |
+> | Azione | Microsoft.EventGrid/operationsStatus/read | Legge lo stato di un'operazione |
+> | Azione | Microsoft.EventGrid/register/action | Registra la sottoscrizione per il provider di risorse EventGrid. |
 > | Azione | Microsoft.EventGrid/topics/delete | Eliminare un argomento |
-> | Azione | Microsoft.EventGrid/topics/listKeys/action | Elenca le chiavi per l'argomento |
+> | Azione | Microsoft.EventGrid/topics/listKeys/action | Elenca le chiavi per un argomento |
 > | Azione | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per gli argomenti |
 > | Azione | Microsoft.EventGrid/topics/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna l'impostazione di diagnostica per gli argomenti |
 > | Azione | Microsoft.EventGrid/topics/providers/Microsoft.Insights/metricDefinitions/read | Ottiene la metrica disponibile per gli argomenti |
 > | Azione | Microsoft.EventGrid/topics/read | Legge un argomento |
-> | Azione | Microsoft.EventGrid/topics/regenerateKey/action | Rigenera la chiave per l'argomento |
+> | Azione | Microsoft.EventGrid/topics/regenerateKey/action | Rigenera la chiave per un argomento |
 > | Azione | Microsoft.EventGrid/topics/write | Crea o aggiorna un argomento |
+> | Azione | Microsoft.EventGrid/topictypes/eventtypes/read | Legge i tipi di evento supportati da un tipo di argomento |
+> | Azione | Microsoft.EventGrid/topictypes/read | Legge un tipo di argomento |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
@@ -2711,8 +2748,10 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Legge i dati dalla tabella Heartbeat |
 > | DataAction | Microsoft.LogAnalytics/logs/IISAssessmentRecommendation/read | Legge i dati dalla tabella IISAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/InboundConnection/read | Legge i dati dalla tabella InboundConnection |
+> | DataAction | Microsoft.LogAnalytics/logs/KubeEvents/read | Legge i dati dalla tabella KubeEvents |
 > | DataAction | Microsoft.LogAnalytics/logs/KubeNodeInventory/read | Legge i dati dalla tabella KubeNodeInventory |
 > | DataAction | Microsoft.LogAnalytics/logs/KubePodInventory/read | Legge i dati dalla tabella KubePodInventory |
+> | DataAction | Microsoft.LogAnalytics/logs/KubeServices/read | Legge i dati dalla tabella KubeServices |
 > | DataAction | Microsoft.LogAnalytics/logs/LinuxAuditLog/read | Legge i dati dalla tabella LinuxAuditLog |
 > | DataAction | Microsoft.LogAnalytics/logs/MAApplication/read | Legge i dati dalla tabella MAApplication |
 > | DataAction | Microsoft.LogAnalytics/logs/MAApplicationHealth/read | Legge i dati dalla tabella MAApplicationHealth |
@@ -3033,6 +3072,9 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | --- | --- | --- |
 > | DataAction | Microsoft.Maps/accounts/data/read | Concede l'accesso in lettura ai dati in un account di Mappe. |
 > | Azione | Microsoft.Maps/accounts/delete | Elimina un account Mappe |
+> | Azione | Microsoft.Maps/accounts/eventGridFilters/delete | Elimina un filtro di Griglia di eventi |
+> | Azione | Microsoft.Maps/accounts/eventGridFilters/read | Recupera un filtro di Griglia di eventi |
+> | Azione | Microsoft.Maps/accounts/eventGridFilters/write | Crea o aggiorna un filtro di Griglia di eventi |
 > | Azione | Microsoft.Maps/accounts/listKeys/action | Elenca le chiavi degli account Mappe |
 > | Azione | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per la risorsa |
 > | Azione | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna l'impostazione di diagnostica per la risorsa |
@@ -3739,6 +3781,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Tipo di azione | Operazione | Descrizione |
 > | --- | --- | --- |
 > | Azione | Microsoft.OperationalInsights/linkTargets/read | Elenca gli account esistenti non associati a una sottoscrizione di Azure. Per collegare questa sottoscrizione di Azure a un’area di lavoro, utilizzare un ID cliente restituito da questa operazione nella proprietà ID cliente dell’operazione Crea area di lavoro. |
+> | Azione | microsoft.operationalinsights/operations/read | Elenca tutte le operazioni API Rest OperationalInsights disponibili. |
 > | Azione | Microsoft.OperationalInsights/register/action | Registra una sottoscrizione a un provider di risorse. |
 > | Azione | Microsoft.OperationalInsights/workspaces/analytics/query/action | Esegue la ricerca usando il nuovo motore. |
 > | Azione | Microsoft.OperationalInsights/workspaces/analytics/query/schema/read | Ottiene lo schema di ricerca V2. |
@@ -3751,6 +3794,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.OperationalInsights/workspaces/datasources/read | Ottiene le origini dati in un'area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/datasources/write | Crea/Aggiorna le origini dati in un'area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/delete | Elimina un'area di lavoro. Se l'area di lavoro era collegata a un’area di lavoro esistente al momento della creazione, l’area di lavoro alla quale era collegata non viene eliminata. |
+> | Azione | Microsoft.OperationalInsights/workspaces/gateways/delete | Rimuove un gateway configurato per l'area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/generateregistrationcertificate/action | Genera il certificato di registrazione per l’area di lavoro. Il certificato viene utilizzato per la connessione di Microsoft System Center Operations Manager all'area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/intelligencepacks/disable/action | Disabilita un Intelligence Pack per una specifica area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/intelligencepacks/enable/action | Abilita un Intelligence Pack per una specifica area di lavoro. |
@@ -3813,8 +3857,10 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | Legge i dati dalla tabella Heartbeat |
 > | Azione | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Legge i dati dalla tabella IISAssessmentRecommendation |
 > | Azione | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | Legge i dati dalla tabella InboundConnection |
+> | Azione | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | Legge i dati dalla tabella KubeEvents |
 > | Azione | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | Legge i dati dalla tabella KubeNodeInventory |
 > | Azione | Microsoft.OperationalInsights/workspaces/query/KubePodInventory/read | Legge i dati dalla tabella KubePodInventory |
+> | Azione | Microsoft.OperationalInsights/workspaces/query/KubeServices/read | Legge i dati dalla tabella KubeServices |
 > | Azione | Microsoft.OperationalInsights/workspaces/query/LinuxAuditLog/read | Legge i dati dalla tabella LinuxAuditLog |
 > | Azione | Microsoft.OperationalInsights/workspaces/query/MAApplication/read | Legge i dati dalla tabella MAApplication |
 > | Azione | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealth/read | Legge i dati dalla tabella MAApplicationHealth |
@@ -3920,16 +3966,20 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | Legge i dati dalla tabella WUDOAggregatedStatus |
 > | Azione | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | Legge i dati dalla tabella WUDOStatus |
 > | Azione | Microsoft.OperationalInsights/workspaces/read | Ottiene un'area di lavoro esistente |
+> | Azione | Microsoft.OperationalInsights/workspaces/regeneratesharedkey/action | Rigenera la chiave condivisa dell'area di lavoro specificata |
 > | Azione | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Elimina una query di ricerca salvata |
 > | Azione | Microsoft.OperationalInsights/workspaces/savedSearches/read | Ottiene una query di ricerca salvata |
+> | Azione | microsoft.operationalinsights/workspaces/savedsearches/results/read | Recupera i risultati delle ricerche salvati. Funzionalità deprecate |
 > | Azione | Microsoft.OperationalInsights/workspaces/savedSearches/write | Crea una query di ricerca salvata |
 > | Azione | Microsoft.OperationalInsights/workspaces/schema/read | Ottiene lo schema di ricerca per l'area di lavoro.  Lo schema di ricerca include i campi esposti e i relativi tipi. |
 > | Azione | Microsoft.OperationalInsights/workspaces/search/action | Esegue una query di ricerca |
+> | Azione | microsoft.operationalinsights/workspaces/search/read | Ottiene i risultati della ricerca. Operazione deprecata. |
 > | Azione | Microsoft.OperationalInsights/workspaces/sharedKeys/action | Recupera le chiavi condivise per l'area di lavoro. Queste chiavi servono per collegare gli agenti di Microsoft Operational Insights all’area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/sharedKeys/read | Recupera le chiavi condivise per l'area di lavoro. Queste chiavi servono per collegare gli agenti di Microsoft Operational Insights all’area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/delete | Elimina una configurazione di archiviazione. Questa operazione interrompe la lettura dei dati dall’account di archiviazione da parte di Microsoft Operational Insights. |
 > | Azione | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/read | Ottiene una configurazione di archiviazione. |
 > | Azione | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/write | Crea una nuova configurazione di archiviazione. Tali configurazioni servono per estrarre i dati da una posizione in un account di archiviazione esistente. |
+> | Azione | Microsoft.OperationalInsights/workspaces/upgradetranslationfailures/read | Ottiene il log di errore ricerca aggiornamento traduzione per l'area di lavoro |
 > | Azione | Microsoft.OperationalInsights/workspaces/usages/read | Ottiene i dati di utilizzo di un'area di lavoro tra cui la quantità di dati letti dall'area di lavoro. |
 > | Azione | Microsoft.OperationalInsights/workspaces/write | Crea una nuova area di lavoro o collega a un'area di lavoro esistente fornendo l'ID cliente dall’area di lavoro esistente. |
 
@@ -4234,7 +4284,9 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Resourcehealth/healthevent/Resolved/action | Indica la variazione dello stato di integrità per la risorsa specificata |
 > | Azione | Microsoft.Resourcehealth/healthevent/Updated/action | Indica la variazione dello stato di integrità per la risorsa specificata |
 > | Azione | Microsoft.ResourceHealth/impactedResources/read | Recupera le risorse interessate per la sottoscrizione specificata |
+> | Azione | Microsoft.ResourceHealth/Operations/read | Recupera le operazioni disponibili per Integrità risorse Microsoft |
 > | Azione | Microsoft.ResourceHealth/register/action | Registra la sottoscrizione per Microsoft ResourceHealth |
+> | Azione | Microsoft.ResourceHealth/unregister/action | Annulla la registrazione della sottoscrizione per Integrità risorse Microsoft |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
@@ -4358,6 +4410,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Security/securityStatuses/read | Ottiene gli stati di integrità della sicurezza per le soluzioni Azure |
 > | Azione | Microsoft.Security/securityStatusesSummaries/read | Ottiene i riepiloghi degli stati di sicurezza per l'ambito |
 > | Azione | Microsoft.Security/tasks/read | Ottiene tutti i consigli per la sicurezza disponibili |
+> | Azione | Microsoft.Security/unregister/action | Annulla la registrazione della sottoscrizione da Centro sicurezza di Azure |
 > | Azione | Microsoft.Security/webApplicationFirewalls/delete | Elimina un firewall dell'applicazione Web |
 > | Azione | Microsoft.Security/webApplicationFirewalls/read | Ottiene i firewall dell'applicazione Web |
 > | Azione | Microsoft.Security/webApplicationFirewalls/write | Crea un nuovo firewall dell'applicazione Web o ne aggiorna uno esistente |
@@ -4534,6 +4587,8 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Sql/locations/instanceFailoverGroups/write | Crea un gruppo di failover dell'istanza con i parametri specificati oppure aggiorna le proprietà o i tag per il gruppo di failover dell'istanza specificato. |
 > | Azione | Microsoft.Sql/locations/interfaceEndpointProfileAzureAsyncOperation/read | Restituisce i dettagli di una specifica operazione asincrona di Azure sull'endpoint di interfaccia |
 > | Azione | Microsoft.Sql/locations/interfaceEndpointProfileOperationResults/read | Restituisce i dettagli di una specifica operazione di profilo sull'endpoint di interfaccia |
+> | Azione | Microsoft.Sql/locations/jobAgentAzureAsyncOperation/read | Ottiene lo stato di un'operazione agente processo. |
+> | Azione | Microsoft.Sql/locations/jobAgentOperationResults/read | Ottiene il risultato di un'operazione agente processo. |
 > | Azione | Microsoft.Sql/locations/longTermRetentionBackups/read | Elenca i backup di conservazione a lungo termine per tutti i database in ogni server in una posizione |
 > | Azione | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read | Elenca i backup di conservazione a lungo termine per tutti i database in un server |
 > | Azione | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete | Elimina un backup di conservazione a lungo termine |
@@ -4552,6 +4607,8 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Sql/managedInstances/administrators/delete | Elimina un amministratore esistente dell'istanza gestita. |
 > | Azione | Microsoft.Sql/managedInstances/administrators/read | Ottiene un elenco degli amministratori di istanza gestita. |
 > | Azione | Microsoft.Sql/managedInstances/administrators/write | Crea o aggiorna un amministratore di istanza gestita con i parametri specificati. |
+> | Azione | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/read | Ottiene i criteri di conservazione a breve termine per un database gestito |
+> | Azione | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/write | Aggiorna i criteri di conservazione a breve termine per un database gestito |
 > | Azione | Microsoft.Sql/managedInstances/databases/delete | Elimina un database gestito esistente |
 > | Azione | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per la risorsa |
 > | Azione | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna l'impostazione di diagnostica per la risorsa |
@@ -4585,6 +4642,8 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/logDefinitions/read | Ottiene i log disponibili per le istanze gestite |
 > | Azione | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/metricDefinitions/read | Restituisce i tipi di metrica disponibili per le istanze gestite |
 > | Azione | Microsoft.Sql/managedInstances/read | Restituisce l'elenco delle istanze gestite o ottiene le proprietà per l'istanza gestita specificata. |
+> | Azione | Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies/read | Ottiene i criteri di conservazione a breve termine per un database gestito rilasciato |
+> | Azione | Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies/write | Aggiorna i criteri di conservazione a breve termine per un database gestito rilasciato |
 > | Azione | Microsoft.Sql/managedInstances/restorableDroppedDatabases/read | Restituisce un elenco di database gestiti eliminati ripristinabili. |
 > | Azione | Microsoft.Sql/managedInstances/securityAlertPolicies/read | Recupera i dettagli dei criteri di rilevamento minacce configurati per uno specifico server gestito |
 > | Azione | Microsoft.Sql/managedInstances/securityAlertPolicies/write | Modifica i criteri di rilevamento minacce per uno specifico server gestito |
@@ -4773,6 +4832,9 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per recu
 > | Azione | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | Elimina il profilo dell'endpoint di interfaccia specificato |
 > | Azione | Microsoft.Sql/servers/interfaceEndpointProfiles/read | Restituisce le proprietà del profilo dell'endpoint di interfaccia specificato |
 > | Azione | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Crea un profilo dell'endpoint di interfaccia con i parametri specificati oppure aggiorna le proprietà o i tag per l'endpoint di interfaccia specificato |
+> | Azione | Microsoft.Sql/servers/jobAgents/delete | Elimina un agente processo di database SQL di Azure |
+> | Azione | Microsoft.Sql/servers/jobAgents/read | Ottiene un agente processo di database SQL di Azure |
+> | Azione | Microsoft.Sql/servers/jobAgents/write | Crea o aggiorna un agente processo di database SQL di Azure |
 > | Azione | Microsoft.Sql/servers/keys/delete | Elimina una chiave server esistente. |
 > | Azione | Microsoft.Sql/servers/keys/read | Restituisce l'elenco delle chiavi server o ottiene le proprietà per la chiave server specificata. |
 > | Azione | Microsoft.Sql/servers/keys/write | Crea una chiave con i parametri specificati o aggiorna le proprietà o i tag per la chiave server specificata. |

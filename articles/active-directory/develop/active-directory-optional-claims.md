@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/05/2018
 ms.author: celested
-ms.reviewer: hirsin
+ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c42e8978a94730669f3c3f879d1d26c4426bd9da
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 784213531c061912dded8e7776e79bea5adb217b
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079138"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466053"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Procedura: Fornire attestazioni facoltative per l'applicazione Azure AD (anteprima pubblica)
 
@@ -215,7 +215,7 @@ Sono disponibili più opzioni per l'aggiornamento delle proprietà di configuraz
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Dopo essersi autenticati, scegliere il tenant di Azure AD selezionandolo nell'angolo superiore destro della pagina.
-1. Selezionare l'**estensione Azure AD** dal pannello di navigazione a sinistra e fare clic su **Registrazioni per l'app**.
+1. Selezionare **Registrazioni per l'app** dal lato sinistro.
 1. Trovare l'applicazione per cui si vogliono configurare le attestazioni facoltative e fare clic sul nome.
 1. Nella pagina dell'applicazione fare clic su **Manifesto** per aprire l'editor manifesto incorporato. 
 1. È possibile modificare direttamente il manifesto usando l'editor. Il manifesto segue lo schema per l'[entità applicazione](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity) e viene automaticamente formattato dopo essere stato salvato. Alla proprietà `OptionalClaims` verranno aggiunti nuovi elementi.

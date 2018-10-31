@@ -4,14 +4,14 @@ description: Questo articolo offre una panoramica dei problemi noti relativi al 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126365"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945519"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -34,6 +34,20 @@ Per abilitare la raccolta dei dati sulle prestazioni di dischi e reti, impostare
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>Ho installato gli agenti e usato la visualizzazione delle dipendenze per creare gruppi. Ora, in seguito a un failover, sulle macchine viene visualizzata l'azione "Installa agente" anziché "Visualizza dipendenze"
 * In seguito a un failover pianificato o non pianificato, le macchine locali vengono disattivate e le macchine equivalenti vengono riattivate in Azure. Queste macchine acquisiscono un indirizzo MAC diverso ed eventualmente anche un indirizzo IP diverso, in base alla scelta dell'utente di mantenere o meno l'indirizzo IP locale. Se gli indirizzi IP e MAC sono diversi, Azure Migrate non associa le macchine locali ai dati sulle dipendenze di Elenco dei servizi e chiede all'utente di installare gli agenti anziché visualizzare le dipendenze.
 * In seguito al failover di test, le macchine locali rimangono attivate come previsto. Le macchine equivalenti riattivate in Azure acquisiscono un indirizzo MAC diverso ed eventualmente anche un indirizzo IP diverso. Se l'utente non blocca il traffico di Log Analytics in uscita da queste macchine, Azure Migrate non associa le macchine locali ai dati sulle dipendenze di Elenco dei servizi e chiede all'utente di installare gli agenti anziché visualizzare le dipendenze.
+
+### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>Durante la creazione di un progetto di migrazione è stata specificata un'area geografica di Azure. Come è possibile individuare l'esatta area di Azure in cui verranno archiviati i metadati individuati?
+
+È possibile passare alla sezione **Informazioni di base** della pagina **Panoramica** del progetto per identificare la posizione esatta in cui sono archiviati i metadati. La posizione viene selezionata in modo casuale all'interno dell'area geografica da Azure Migrate e non è possibile modificarla. Se si vuole creare un progetto solo in una determinata area, è possibile usare le API REST per creare il progetto di migrazione e passare alla regione desiderata.
+
+   ![Posizione del progetto](./media/troubleshooting-general/geography-location.png)
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Sto usando un OVA di individuazione continua, ma le macchine virtuali eliminate dal mio ambiente locale vengono ancora visualizzate nel portale.
+
+L'appliance per l'individuazione continua si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se si esegue una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
+
+1. Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare l'individuazione dall'appliance e quindi riavviarla. Ciò garantisce che le modifiche vengono aggiornate nel progetto Azure Migrate.
+
+2. Eliminazione di macchine virtuali: a causa della modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
 
 ## <a name="collector-errors"></a>Errori dell'agente di raccolta
 
@@ -86,9 +100,11 @@ L'agente di raccolta di Azure Migrate scarica PowerCLI ed esegue l'installazione
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Si è verificato l'errore interno UnhandledException: System.IO.FileNotFoundException
 
-Si tratta di un problema che si è verificato nelle versioni dell'agente di raccolta precedenti alla 1.0.9.5. Se si usa la versione dell'agente di raccolta 1.0.9.2 o le versioni precedenti a GA quali 1.0.8.59, si riscontrerà questo problema. Seguire il [collegamento ai forum specificato qui per avere una risposta dettagliata](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+Questo problema può verificarsi a causa di un problema con l'installazione di VMware PowerCLI. Seguire la procedura seguente per risolvere il problema:
 
-[Aggiornare l'agente di raccolta per risolvere il problema](https://aka.ms/migrate/col/checkforupdates).
+1. Se non si usa la versione più recente dell'appliance dell'agente di raccolta, [eseguire l'aggiornamento dell'agente di raccolta alla versione più recente](https://aka.ms/migrate/col/checkforupdates) e verificare che il problema si sia risolto.
+2. Se si dispone già della versione più recente dell'agente di raccolta, installare manualmente [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) e verificare che il problema sia risolto.
+3. Se le operazioni precedenti non risolvono il problema, passare alla cartella C:\Program Files\ProfilerService e rimuovere i file VMware.dll e VimService65.dll presenti nella cartella e quindi riavviare il servizio "Agente di raccolta di Azure Migrate" in Service Manager di Windows (Aprire "Esegui" e digitare "Services.msc" per aprire Service Manager di Windows).
 
 ### <a name="error-unabletoconnecttoserver"></a>Errore UnableToConnectToServer
 
@@ -102,6 +118,37 @@ Se l'errore si verifica anche con la versione più recente, è possibile che com
 2. Se il passaggio 1 ha esito negativo, provare a connettersi al server vCenter sull'indirizzo IP.
 3. Identificare il numero di porta corretto per connettersi al server vCenter.
 4. Infine controllare che il server vCenter sia attivo e in esecuzione.
+
+## <a name="troubleshoot-dependency-visualization-issues"></a>Risolvere i problemi di visualizzazione delle dipendenze
+
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>È stato installato Microsoft Monitoring Agent (MMA) e Dependency Agent nelle macchine virtuali locali, ma le dipendenze sono ora visualizzate nel portale di Azure Migrate.
+
+Dopo aver installato gli agenti, Azure Migrate richiede in genere 15-30 minuti per visualizzare le dipendenze nel portale. Se si è atteso per più di 30 minuti, verificare che l'agente MMA sia in grado di comunicare con l'area di lavoro OMS, seguendo questa procedura:
+
+Per la macchina virtuale Windows:
+1. Andare al **pannello di controllo** e avviare **Microsoft Monitoring Agent**
+2. Andare alla scheda **Azure Log Analytics (OMS)** nella finestra popup delle proprietà MMA
+3. Verificare che lo **Stato** dell'area di lavoro sia di colore verde.
+4. Se lo stato non è di colore verde, provare a rimuovere l'area di lavoro e aggiungerla nuovamente a MMA.
+        ![Stato MMA](./media/troubleshooting-general/mma-status.png)
+
+Per la macchina virtuale Linux, verificare che i comandi di installazione per l'agente MMA e per il Dependency Agent abbiano avuto esito positivo.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Quali sono i sistemi operativi supportati da MMA?
+
+L'elenco dei sistemi operativi Windows supportati da MMA è reperibile [qui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+L'elenco dei sistemi operativi Linux supportati da MMA è reperibile [qui](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quali sono i sistemi operativi supportati dal Dependency Agent?
+
+L'elenco dei sistemi operativi Windows supportati dal Dependency Agent è reperibile [qui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+L'elenco dei sistemi operativi Linux supportati dal Dependency Agent è reperibile [qui](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Non riesco a visualizzare le dipendenze in Azure Migrate per più di un'ora.
+Azure Migrate consente di visualizzare le dipendenze per la durata di un'ora. Azure Migrate tuttavia consente di tornare a una determinata data nella cronologia al massimo nel mese precedente. Il tempo massimo per cui possibile visualizzare le dipendenze è un'ora. Ad esempio, è possibile usare la funzionalità di durata nella mappa delle dipendenze per visualizzare le dipendenze di ieri ma possono essere visualizzate solo per un'ora.
+
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Non riesco a visualizzare le dipendenze per i gruppi con più di 10 macchine virtuali.
+È possibile [visualizzare le dipendenze per i gruppi](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) che hanno fino a 10 macchine virtuali. Se si dispone di un gruppo con più di 10 macchine virtuali, è consigliabile dividere il gruppo in gruppi più piccoli e visualizzarne le dipendenze.
 
 ## <a name="troubleshoot-readiness-issues"></a>Risolvere problemi di idoneità
 
@@ -167,7 +214,7 @@ Per raccogliere Event Trace for Windows, seguire questa procedura:
 
 |           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
 |-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Codice di errore | Nome errore                      | Messaggio                                                                       | Possibili cause                                                                                        | Azione consigliata                                                                                                                          |
+| Codice di errore | Nome errore                      | Message                                                                       | Possibili cause                                                                                        | Azione consigliata                                                                                                                          |
 | 601       | CollectorExpired               | L'agente di raccolta è scaduto.                                                        | Agente di raccolta scaduto.                                                                                    | Scaricare una nuova versione dell'agente di raccolta e riprovare.                                                                                      |
 | 751       | UnableToConnectToServer        | Non è possibile connettersi al server vCenter "%Name;" a causa dell'errore: %ErrorMessage;     | Per altre informazioni, controllare il messaggio di errore.                                                             | Risolvere il problema e riprovare.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | Il server "%Name;" non è un server vCenter.                                  | Specificare i dettagli del server vCenter.                                                                       | Ritentare l'operazione con i dettagli del server vCenter corretti.                                                                                   |

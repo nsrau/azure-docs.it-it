@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: 49d9b5306a0fcf51cc0de036c725fca8345cd0ec
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 6dee895ba9fc024baac0500619b7d6cc62167b6d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36302183"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404478"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Analisi e visualizzazione di eventi con Log Analytics
 Log Analytics raccoglie e analizza i dati telemetrici delle applicazioni e dei servizi ospitati nel cloud e fornisce gli strumenti di analisi per sfruttare al meglio la loro disponibilità e le prestazioni. In questo articolo viene descritto come eseguire query in Log Analytics per ottenere informazioni e risolvere i problemi che si verificano nel cluster. Vengono affrontate le seguenti domande comuni:
@@ -105,7 +105,7 @@ Il linguaggio di query Kusto è potente. Un'altra query importante che è possib
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per abilitare il monitoraggio dell'infrastruttura, ovvero i contatori delle prestazioni, vedere come [aggiungere l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md). L'agente raccoglie i contatori delle prestazioni e li aggiunge all'area di lavoro esistente.
-* Per i cluster locali, Log Analytics offre un Gateway, ovvero un proxy di inoltro HTTP, che può essere usato per inviare i dati a Log Analytics. Per altre informazioni, vedere [Connettere computer senza accesso a Internet a Log Analytics usando il gateway OMS](../log-analytics/log-analytics-oms-gateway.md)
-* Configurare gli [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) in modo da semplificare il rilevamento e la diagnostica
-* Acquisire familiarità con le funzionalità di [ricerca log e query](../log-analytics/log-analytics-log-searches.md) incluse in Log Analytics
-* Per avere una panoramica più dettagliata di Log Analytics e dei vantaggi offerti, leggere [Informazioni su Log Analytics](../operations-management-suite/operations-management-suite-overview.md)
+* Per i cluster locali, Log Analytics offre un Gateway, ovvero un proxy di inoltro HTTP, che può essere usato per inviare i dati a Log Analytics. Per altre informazioni, vedere [Connettere computer senza accesso a Internet a Log Analytics usando il gateway Log Analytics](../log-analytics/log-analytics-oms-gateway.md).
+* Configurare gli [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) in modo da semplificare il rilevamento e la diagnostica.
+* Acquisire familiarità con le funzionalità di [ricerca log ed esecuzione di query](../log-analytics/log-analytics-log-searches.md) incluse in Log Analytics.
+* Per avere una panoramica più dettagliata di Log Analytics e dei vantaggi offerti, vedere la pagina che spiega [che cos'è Log Analytics](../operations-management-suite/operations-management-suite-overview.md).

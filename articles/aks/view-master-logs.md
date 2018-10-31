@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 011654dcbad21c3e8cea51d6ab98eeca461e4685
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068826"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406042"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Abilitare e controllare i log del nodo master di Kubernetes nel servizio Kubernetes di Azure
 
@@ -37,9 +37,12 @@ Log Analytics è abilitato e gestito nel portale di Azure. Per abilitare la racc
 1. Nell'elenco dei log disponibili selezionare i log che si vuole abilitare, ad esempio *kube-apiserver*, *kube-controller-manager* e *kube-scheduler*. È possibile restituire e modificare i log raccolti dopo l'abilitazione del Log Analytics.
 1. Quando si è pronti, selezionare **Salva** per abilitare la raccolta dei log selezionati.
 
-L'esempio di screenshot del portale seguente mostra la finestra *Impostazioni di diagnostica* e l'opzione per creare un'area di lavoro OMS:
+Lo screenshot di esempio del portale seguente mostra la finestra *Impostazioni di diagnostica* e l'opzione per creare un'area di lavoro di Log Analytics:
 
-![Abilitare l'area di lavoro OMS per il cluster AKS in Log Analytics](media/view-master-logs/enable-oms-log-analytics.png)
+![Abilitare l'area di lavoro di Log Analytics per il cluster AKS in Log Analytics](media/view-master-logs/enable-oms-log-analytics.png)
+
+>[!NOTE]
+>Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics. 
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Pianificare un pod di test nel cluster AKS
 
@@ -75,7 +78,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visualizzare i log raccolti
 
-Potrebbero occorrere alcuni minuti prima che i log di diagnostica siano abilitati e vengano visualizzati nell'area di lavoro OMS. Nel portale di Azure selezionare il gruppo di risorse per l'area di lavoro di Log Analytics, ad esempio *myResourceGroup*, quindi scegliere la risorsa di Log Analytics, ad esempio *myAKSLogs*.
+Potrebbero occorrere alcuni minuti prima che i log di diagnostica siano abilitati e vengano visualizzati nell'area di lavoro di Log Analytics. Nel portale di Azure selezionare il gruppo di risorse per l'area di lavoro di Log Analytics, ad esempio *myResourceGroup*, quindi scegliere la risorsa di Log Analytics, ad esempio *myAKSLogs*.
 
 ![Selezionare l'area di lavoro di Log Analytics per il cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 

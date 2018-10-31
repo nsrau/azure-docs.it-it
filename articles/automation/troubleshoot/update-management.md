@@ -4,16 +4,16 @@ description: Informazioni su come risolvere i problemi con Gestione aggiornament
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42140945"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405228"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
@@ -87,7 +87,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 #### <a name="cause"></a>Causa
 
-Potrebbe trattarsi di un proxy, un gateway o un firewall che blocca la comunicazione di rete.
+La comunicazione di rete potrebbe essere bloccata da un proxy, un gateway o un firewall.
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -105,11 +105,33 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 #### <a name="cause"></a>Causa
 
-Il ruolo di lavoro ibrido per runbook non è stato in grado di generare un certificato autofirmato
+Il ruolo di lavoro ibrido per runbook non è stato in grado di generare un certificato autofirmato.
 
 #### <a name="resolution"></a>Risoluzione
 
 Verificare che l'account di sistema abbia accesso in lettura alla cartella **C:\ProgramData\Microsoft\Crypto\RSA** e riprovare.
+
+### <a name="hresult"></a>Scenario: il computer viene indicato come non valutato e genera a un'eccezione HResult.
+
+#### <a name="issue"></a>Problema
+
+Sono presenti computer che risultano **non valutati** in **Conformità** con un messaggio di eccezione sottostante.
+
+#### <a name="cause"></a>Causa
+
+Windows Update non è configurato correttamente nel computer.
+
+#### <a name="resolution"></a>Risoluzione
+
+Fare doppio clic sull'eccezione in rosso per visualizzare il messaggio completo. Nella tabella seguente individuare possibili soluzioni o azioni da intraprendere:
+
+|Eccezione  |Risoluzione o azione  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | Per maggiori dettagli sulla causa dell'eccezione, cercare il codice di errore pertinente nell'[elenco codici di errore relativi a Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list).        |
+|`0x8024402C` oppure `0x8024401C`     | Sono problemi di connettività di rete. Assicurarsi che il computer disponga della connettività di rete appropriata per Gestione aggiornamenti. Per un elenco di porte e indirizzi necessari, vedere la sezione sulla [pianificazione della rete](../automation-update-management.md#ports).        |
+|`0x8024402C`     | Se si usa un server WSUS, assicurarsi che i valori del Registro di sistema per `WUServer` e `WUStatusServer` nella chiave del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` contengano il server WSUS corretto.        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Assicurarsi che il servizio Windows Update (wuauserv) sia in esecuzione e non sia disattivato.        |
+|Qualsiasi altra eccezione generica     | Ricercare possibili soluzioni in Internet e collaborare con il supporto tecnico IT locale.         |
 
 ## <a name="linux"></a>Linux
 
@@ -159,7 +181,7 @@ Se non è possibile risolvere un problema di patch, creare una copia del seguent
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il problema che si riscontra non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ricevere assistenza:
+Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
 * Ottieni risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/)
 * Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.

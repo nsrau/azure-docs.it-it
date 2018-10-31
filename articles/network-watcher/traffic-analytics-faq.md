@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903748"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402761"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -58,12 +58,12 @@ Per verificare i ruoli assegnati a un utente per una sottoscrizione:
 
 3. Per elencare tutti i ruoli assegnati a un utente specifico, usare **Get-AzureRmRoleAssignment -SignInName [e-mail utente] -IncludeClassicAdministrators**. 
 
-Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbonamento per ottenere l'accesso ed eseguire i comandi. Per altre informazioni, consultare [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbonamento per ottenere l'accesso ed eseguire i comandi. Per altre informazioni, consultare [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>In quali aree è disponibile Analisi del traffico?
 
-È possibile usare Analisi del traffico per i gruppi di sicurezza di rete in tutte le seguenti aree supportate: Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa occidentale, Europa settentrionale, Regno Unito orientale, Regno Unito meridionale, Australia orientale, Australia sud-orientale e Asia sud-orientale. L'area di lavoro di Log Analytics deve esistere nell'area Stati Uniti centro-occidentali, Stati Uniti orientali, Europa occidentale, Regno Unito meridionale, Australia sud-orientale o Asia sud-orientale.
+È possibile usare Analisi del traffico per i gruppi di sicurezza di rete in tutte le seguenti aree supportate: Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-settentrionali, Stati Uniti centro-meridionali, Stati Uniti centrali, Stati Uniti occidentali, Stati Uniti occidentali 2, Europa occidentale, Europa settentrionale, Regno Unito occidentale, Regno Unito meridionale, Australia orientale, Australia sud-orientale e Asia sud-orientale. L'area di lavoro di Log Analytics deve esistere nell'area Stati Uniti centro-occidentali, Stati Uniti orientali, Europa occidentale, Regno Unito meridionale, Australia sud-orientale o Asia sud-orientale.
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>I gruppi di sicurezza di rete per cui vengono abilitati i log dei flussi possono trovarsi in aree differenti dalla propria area di lavoro?
 
@@ -77,9 +77,9 @@ Sì.
 
 Sì. Se si seleziona un'area di lavoro esistente, assicurarsi che sia stata eseguita la migrazione al nuovo linguaggio di query. Se non si vuole aggiornare l'area di lavoro, è necessario crearne una nuova. Per altre informazioni sul nuovo linguaggio di query, vedere [Aggiornamento di Azure Log Analytics alla nuova ricerca log](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>È possibile usare abbonamenti diversi per l'account di archiviazione di Azure e l'area di lavoro Operations Management Suite?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>È possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro di Log Analytics?
 
-Sì, è possibile usare abbonamenti diversi per l'account di archiviazione di Azure e l'area di lavoro Operations Management Suite.
+Sì, è possibile usare sottoscrizioni diverse per l'account di archiviazione di Azure e l'area di lavoro di Log Analytics.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso archiviare i log non elaborati in un altro abbonamento?
 
@@ -115,7 +115,7 @@ Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli
 
 È possibile che venga visualizzato questo messaggio perché:
 - Analisi del traffico è stato abilitato di recente ed è possibile che non abbia già aggregato dati sufficienti per ricavare informazioni dettagliate significative.
-- Si sta utilizzando la versione gratuita dell'area di lavoro di Operations Management Suite, che ha superato i limiti di quota. Potrebbe essere necessario utilizzare un'area di lavoro con una capacità maggiore.
+- Si sta usando la versione gratuita dell'area di lavoro di Log Analytics, che ha superato i limiti di quota. Potrebbe essere necessario utilizzare un'area di lavoro con una capacità maggiore.
     
 Se i problemi persistono, chiedere assistenza nel [forum di suggerimenti per gli utenti](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     
@@ -196,7 +196,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 L'analisi del traffico viene misurata. La misurazione si basa sull'elaborazione dei dati del registro di flusso da parte del servizio e sulla memorizzazione dei registri avanzati risultanti in un'area di lavoro Log Analytics. 
 
-Ad esempio, in base il [piano tariffario](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), prendere in considerazione l'area degli Stati Uniti centrali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico è 10 GB e i log avanzati inseriti nell'area di lavoro di Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x 2.3$ + 1 x 2.76$ = 25.76$
+Ad esempio, in base il [piano tariffario](https://azure.microsoft.com/pricing/details/network-watcher/), prendere in considerazione l'area degli Stati Uniti centrali. Se i dati archiviati per i log dei flussi in un account di archiviazione elaborato da Analisi del traffico è 10 GB e i log avanzati inseriti nell'area di lavoro di Log Analytics sono pari a 1 GB, gli addebiti applicabili saranno: 10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Come è possibile spostarsi con la tastiera nella visualizzazione mappa geografica?
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: b9372c806eab1b0ca69ba078d972b076c8a7d6f6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ca63d67f6d7c19b4ca6928c4cc0f9ccb06eace2b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212721"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402982"
 ---
 # <a name="service-fabric-events"></a>Eventi di Service Fabric 
 
@@ -45,7 +45,7 @@ Di seguito sono riportati alcuni esempi di scenari importanti per cui è possibi
 ## <a name="how-to-access-events"></a>Come accedere agli eventi
 
 Esistono diversi modi tramite cui è possibile accedere agli eventi di Service Fabric:
-* tramite il canale operativo. Questi possono essere raccolti tramite l'estensione Diagnostica di Azure e inviati a una tabella Archiviazione per il consumo o l'inserimento in uno strumento quale OMS Log Analytics. Quando l'opzione "Diagnostica" è abilitata per un cluster, l'agente di Diagnostica di Azure viene distribuito nel cluster e viene configurato per impostazione predefinita per la lettura nei log dal canale operativo. Altre informazioni sulla configurazione dell'[agente di Diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md) per modificare la configurazione della diagnostica del cluster in modo da prelevare più log o contatori delle prestazioni. 
+* tramite il canale operativo. Questi possono essere raccolti tramite l'estensione Diagnostica di Azure e inviati a una tabella Archiviazione per il consumo o l'inserimento in uno strumento come Azure Log Analytics. Quando l'opzione "Diagnostica" è abilitata per un cluster, l'agente di Diagnostica di Azure viene distribuito nel cluster e viene configurato per impostazione predefinita per la lettura nei log dal canale operativo. Altre informazioni sulla configurazione dell'[agente di Diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md) per modificare la configurazione della diagnostica del cluster in modo da prelevare più log o contatori delle prestazioni. 
 * tramite le API Rest del servizio EventStore che consentono di eseguire una query del cluster, direttamente o tramite la libreria client di Service Fabric. Vedere [Eseguire query sulle API di EventStore per eventi del cluster](service-fabric-diagnostics-eventstore-query.md).
 
 ## <a name="next-steps"></a>Passaggi successivi

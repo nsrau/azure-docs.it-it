@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ae2fab560ca9579860aeba91f9322c6521a83de1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 1465ba23f6fed85f0d4164f8e3fdc8c38be43ad3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167767"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427733"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Procedura: Abilitare la reimpostazione della password da Windows 7, 8 e 8.1
 
@@ -27,7 +27,7 @@ A differenza dei computer Windows 10, i computer Windows 7, 8 e 8.1 non hanno re
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Reimpostazione password self-service di Azure AD abilitata.
+* È necessario abilitare la reimpostazione password self-service di Azure AD.
 * Sistema operativo Windows 7 con patch o Windows 8.1.
 * Protocollo TLS 1.2 abilitato seguendo le indicazioni riportate in [Transport Layer Security (TLS) registry settings](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) (Impostazioni del Registro di sistema di Transport Layer Security - TLS).
 
@@ -60,7 +60,7 @@ A differenza dei computer Windows 10, i computer Windows 7, 8 e 8.1 non hanno re
 
 In questa versione iniziale non è possibile usare l'app Microsoft Authenticator per le notifiche e i codici necessari per la reimpostazione della password. Gli utenti devono avere precedentemente registrato metodi alternativi conformi ai requisiti dei criteri.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Gli eventi verranno registrati sia nel computer sia in Azure AD.
 
@@ -76,6 +76,8 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provide
 
 * Per abilitare la registrazione dettagliata, creare un REG_DWORD: "EnableLogging" e impostarlo su 1.
 * Per disabilitare la registrazione dettagliata, creare un REG_DWORD: "EnableLogging" e impostarlo su 0.
+
+Se i computer Windows 7, 8, e 8.1 sono protetti da un server proxy o da un firewall, deve essere consentito il traffico HTTPS (443) verso passwordreset.microsoftonline.com.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

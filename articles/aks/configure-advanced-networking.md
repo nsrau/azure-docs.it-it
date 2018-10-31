@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 87c3ab9624116e9c1c61041531fdf5d3b26117e1
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 4c60474c07a3853e409436359713578178b639fb
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380765"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024859"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete avanzate nel servizio Kubernetes di Azure (AKS)
 
@@ -33,23 +33,23 @@ Questo articolo illustra come usare le funzionalità di rete avanzate per creare
 
 I cluster configurati con la rete avanzata richiedono una pianificazione aggiuntiva. Le dimensioni della rete virtuale e della subnet devono essere sufficienti sia per il numero di pod che si prevede di eseguire che per il numero di nodi per il cluster.
 
-Gli indirizzi IP per i pod e i nodi del cluster vengono assegnati dalla subnet specificata all'interno della rete virtuale. Ogni nodo è configurato con un IP primario, ovvero l'IP del nodo stesso, e 30 indirizzi IP aggiuntivi preconfigurati da Azure CNI che vengono assegnati ai pod pianificati per il nodo. Quando si aumenta il numero di istanze del cluster, ogni nodo viene configurato in modo simile con gli indirizzi IP della subnet.
+Gli indirizzi IP per i pod e i nodi del cluster vengono assegnati dalla subnet specificata all'interno della rete virtuale. Ogni nodo è configurato con un indirizzo IP primario. Per impostazione predefinita, l'interfaccia di rete dei contenitori di Azure preconfigura 30 indirizzi IP aggiuntivi che vengono assegnati ai pod pianificati nel nodo. Quando si aumenta il numero di istanze del cluster, ogni nodo viene configurato in modo simile con gli indirizzi IP della subnet. È anche possibile visualizzare il [numero massimo di pod per nodo](#maximum-pods-per-node).
 
 Il piano di indirizzo IP per un cluster AKS è costituito da una rete virtuale, almeno una subnet per i nodi e i pod e un intervallo di indirizzi per il servizio Kubernetes.
 
 | Intervallo di indirizzi / Risorsa di Azure | Limiti e dimensioni |
 | --------- | ------------- |
 | Rete virtuale | La rete virtuale di Azure può avere dimensioni pari a /8, ma è limitata a 65.536 indirizzi IP configurati. |
-| Subnet | Deve essere sufficientemente grande da contenere i nodi, i pod e tutte le risorse Kubernetes e Azure che potrebbero essere sottoposte a provisioning nel cluster. Ad esempio, se si distribuisce un Azure Load Balancer interno, i relativi indirizzi IP front-end vengono allocati dalla subnet del cluster, ma non gli indirizzi IP pubblici. <p/>Per calcolare le dimensioni *minime* della subnet: `(number of nodes) + (number of nodes * pods per node)` <p/>Esempio relativo a un cluster a 50 nodi: `(50) + (50 * 30) = 1,550` (/21 o più grande) |
+| Subnet | Deve essere sufficientemente grande da contenere i nodi, i pod e tutte le risorse Kubernetes e Azure che potrebbero essere sottoposte a provisioning nel cluster. Ad esempio, se si distribuisce un Azure Load Balancer interno, i relativi indirizzi IP front-end vengono allocati dalla subnet del cluster, ma non gli indirizzi IP pubblici. <p/>Per calcolare le dimensioni *minime* della subnet: `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Esempio relativo a un cluster a 50 nodi: `(50) + (50 * 30 (default)) = 1,550` (/21 o più grande)<p>Se non si specifica un numero massimo di pod per nodo al momento della creazione del cluster, l'impostazione predefinita è *30*. Il numero minimo di indirizzi IP richiesti si basa su questo valore. Se si calcolano i requisiti di indirizzi IP minimi in base a un valore massimo diverso, vedere la sezione relativa a [come configurare il numero massimo di pod per nodo](#configure-maximum---new-clusters) per impostare questo valore quando si distribuisce il cluster. |
 | Intervallo di indirizzi del servizio Kubernetes | Questo intervallo non deve essere usato da nessun elemento della rete che si trova su questa rete virtuale o è connesso a essa. Il CIDR dell'indirizzo del servizio deve essere più piccolo di /12. |
 | Indirizzo IP del servizio DNS Kubernetes | Indirizzo IP compreso nell'intervallo di indirizzi del servizio Kubernetes che verrà usato dall'individuazione del servizio cluster (kube-dns). |
 | Indirizzo del bridge Docker | Indirizzo IP (in notazione CIDR) utilizzato come indirizzo IP del bridge Docker nei nodi. Il valore predefinito è 172.17.0.1/16. |
 
 ## <a name="maximum-pods-per-node"></a>Numero massimo di pod per nodo
 
-Il numero massimo predefinito di pod per ogni nodo in un cluster AKS varia tra la rete di base e avanzata e il metodo di distribuzione del cluster.
+Il numero massimo di pod per nodo in un cluster AKS è 110. Il numero massimo *predefinito* di pod per nodo varia tra la rete di base e avanzata e il metodo di distribuzione del cluster.
 
-| Metodo di distribuzione | Basic | Avanzate | Configurabile in fase di distribuzione |
+| Metodo di distribuzione | Predefiniti per la rete di base | Predefiniti per la rete avanzata | Configurabile in fase di distribuzione |
 | -- | :--: | :--: | -- |
 | Interfaccia della riga di comando di Azure | 110 | 30 | Sì (fino a 110) |
 | Modello di Resource Manager | 110 | 30 | Sì (fino a 110) |

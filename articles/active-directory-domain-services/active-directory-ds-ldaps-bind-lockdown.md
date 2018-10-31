@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: 9728d42710ce44226363ea4954d83fcc3efbfb75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d3fbefd002f0b2774578d24cf2e3145a21a5e1f3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502953"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456406"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Eseguire il binding a un dominio gestito di Azure Active Directory Domain Services tramite l'accesso LDAP sicuro (LDAPS)
 
@@ -31,15 +31,15 @@ Completare l'[Attività 4: Configurare il DNS per l'accesso al dominio gestito d
 ## <a name="task-5-bind-to-the-managed-domain-over-ldap-using-ldpexe"></a>Attività 5: Eseguire il binding al dominio gestito su LDAP tramite LDP.exe
 È possibile usare lo strumento LDP.exe, incluso nel pacchetto di Strumenti di amministrazione remota del server, per eseguire il binding e la ricerca su LDAP.
 
-Innanzitutto, aprire LDP e connettersi al dominio gestito. Fare clic su **Connessione**, quindi fare clic su **Connetti** nel menu. Specificare il nome di dominio DNS del dominio gestito. Specificare la porta da usare per le connessioni. Per le connessioni LDAP, usare la porta 389. Per le connessioni LDAPS, usare la porta 636. Fare clic sul pulsante **OK** per connettersi al dominio gestito.
+Innanzitutto, aprire LDP e connettersi al dominio gestito. Fare clic su **Connessione**, quindi fare clic su **Connetti...**  nel menu. Specificare il nome di dominio DNS del dominio gestito. Specificare la porta da usare per le connessioni. Per le connessioni LDAP, usare la porta 389. Per le connessioni LDAPS, usare la porta 636. Fare clic sul pulsante **OK** per connettersi al dominio gestito.
 
 Eseguire quindi il binding al dominio gestito. Fare clic su **Connessione**, quindi fare clic su **Associazione...** nel menu. Fornire le credenziali di un account utente appartenente al gruppo "AAD DC Administrators".
 
 Selezionare **Visualizza**, quindi selezionare **Albero** nel menu. Lasciare vuoto il campo Nome distinto di base e fare clic su OK. Passare al contenitore in cui si desidera eseguire la ricerca, fare clic su di esso con il pulsante destro, quindi selezionare Cerca.
 
 > [!TIP]
-> - Utenti e gruppi sincronizzati da Azure AD vengono archiviati nel contenitore **AADDC Users**. Il percorso di ricerca per questo contenitore è simile a ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
-> - Gli account computer per tutti i computer aggiunti al dominio gestito sono archiviati nel contenitore **AADDC Computers**. Il percorso di ricerca per questo contenitore è simile a ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+> - Utenti e gruppi sincronizzati da Azure AD vengono archiviati nell'unità organizzativa **AADDC Users** (Utenti AADDC). Il percorso di ricerca per questa unità organizzativa è simile a ```OU=AADDC Users,DC=CONTOSO100,DC=COM```.
+> - Gli account computer per tutti i computer aggiunti al dominio gestito sono archiviati nell'unità organizzativa **AADDC Computers**. Il percorso di ricerca per questa unità organizzativa è simile a ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```.
 >
 >
 

@@ -3,22 +3,22 @@ title: Usare l'autenticazione di Azure AD per accedere all'API Servizi multimedi
 description: Informazioni su come accedere all'API Servizi multimediali di Azure con l'autenticazione di Azure Active Directory tramite REST.
 services: media-services
 documentationcenter: ''
-author: willzhan
-manager: cfowler
+author: juliako
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/26/2017
+ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: b44c5b29f41f08ac5c1d5e6aa3c37f8c15ae7c54
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984658"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945078"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali di Microsoft Azure con REST
 
@@ -47,7 +47,7 @@ In questa esercitazione si apprenderà come:
 
 - Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 - [Creare un account Servizi multimediali di Azure con il portale di Azure](media-services-portal-create-account.md).
-- Rivedere l'argomento di carattere generale [Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
+- Rivedere l'articolo [Panoramica dell'accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in questo articolo. 
 
     In questa esercitazione si sta usando **Postman** ma si può usare qualsiasi strumento REST. Tra le alternative vi sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
@@ -60,7 +60,7 @@ Per accedere alle API di Servizi multimediali, è necessario raccogliere i punti
 
 |Impostazione|Esempio|DESCRIZIONE|
 |---|-------|-----|
-|Dominio del tenant di Azure Active Directory|microsoft.onmicrosoft.com|Azure AD come servizio token di sicurezza viene creato usando il formato seguente: https://login.microsoftonline.com/{your-aad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD emette un token JWT per accedere alle risorse (token di accesso).|
+|Dominio del tenant di Azure Active Directory|microsoft.onmicrosoft.com|Azure AD come servizio token di sicurezza viene creato usando il formato seguente: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD emette un token JWT per accedere alle risorse (token di accesso).|
 |Endpoint API REST|https://amshelloworld.restv2.westus.media.azure.net/api/|Si tratta dell'endpoint verso il quale vengono eseguite tutte le chiamate all'API REST di Servizi multimediali nell'applicazione,|
 |ID client (ID applicazione)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|ID applicazione (cliente) Azure AD. L'ID client è obbligatorio per ottenere il token di accesso. |
 |Client Secret|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Chiavi (segreto client) dell'applicazione Azure AD. Il segreto client è obbligatorio per ottenere il token di accesso.|
@@ -144,8 +144,8 @@ Questa sezione mostra come usare **Postman** per eseguire un'API REST che restit
     In alternativa, fare clic su **Modifica in blocco** a destra della finestra di Postman e incollare il corpo seguente. Sostituire i valori ID client e segreto:
 
         grant_type:client_credentials
-        client_id:{Your Client ID that you got from your AAD Application}
-        client_secret:{Your client secret that you got from your AAD Application's Keys}
+        client_id:{Your Client ID that you got from your Azure AD Application}
+        client_secret:{Your client secret that you got from your Azure AD Application's Keys}
         resource:https://rest.media.azure.net
 
 8. Fare clic su **Invia**.

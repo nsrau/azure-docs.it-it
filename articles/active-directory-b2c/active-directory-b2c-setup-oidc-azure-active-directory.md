@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5f51fbff11412324ad167d49202f7215cefb5ac2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: beb2d618d93f4c599f946194bd483326471065f4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076919"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944804"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configurare l'accesso per account Azure Active Directory usando criteri predefiniti in Azure Active Directory B2C
 
@@ -26,21 +26,18 @@ Questo articolo illustra come consentire l'accesso agli utenti di una specifica 
 
 ## <a name="create-an-azure-ad-app"></a>Creare un'app di Azure AD
 
-Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD, è necessario registrare un'applicazione all'interno del tenant aziendale di Azure AD.
-
->[!NOTE]
->Nelle istruzioni seguenti, `Contoso.com` viene usato come tenant di Azure AD dell'organizzazione e `fabrikamb2c.onmicrosoft.com` come tenant di Azure AD B2C.
+Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD, è necessario registrare un'applicazione all'interno del tenant aziendale di Azure AD che non corrisponde al tenant di Azure AD B2C.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Assicurarsi di usare la directory contenente il tenant di Azure AD (contoso.com) facendo clic sul filtro Directory e sottoscrizione nel menu in alto e scegliendo tale directory.
+2. Assicurarsi di usare la directory contenente il tenant di Azure AD facendo clic sul filtro Directory e sottoscrizione nel menu in alto e scegliendo tale directory.
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Registrazioni per l'app**.
 4. Selezionare **Registrazione nuova applicazione**.
 5. Immettere un nome per l'applicazione. Ad esempio: `Azure AD B2C App`.
 6. In **Tipo di applicazione** selezionare `Web app / API`.
-7. In **URL di accesso** immettere l'URL seguente, interamente in lettere minuscole, sostituendo `your-tenant` con il nome del tenant di Azure AD B2C (fabrikamb2c.onmicrosoft.com):
+7. In **URL di accesso** immettere l'URL seguente, interamente in lettere minuscole, sostituendo `your-B2C-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio, `https://fabrikam.b2clogin.com/fabrikam.b2clogin.com/oauth2/authresp`:
 
     ```
-    https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.b2clogin.com/oauth2/authresp
     ```
 
     Tutti gli URL dovrebbero ora usare [b2clogin.com](b2clogin.md).
@@ -49,21 +46,22 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 9. Selezionare l'applicazione e quindi **Impostazioni**.
 10. Selezionare **Chiavi**, immettere la descrizione della chiave, selezionare una durata e quindi fare clic su **Salva**. Copiare il valore della chiave visualizzato, che dovrà essere usato in seguito.
 
-## <a name="configure-azure-ad-as-an-identity-provider-in-your-tenant"></a>Configurare Azure AD come provider di identità nel tenant
+## <a name="configure-azure-ad-as-an-identity-provider"></a>Configurare Azure AD come provider di identità
 
-1. Assicurarsi di usare la directory contenente il tenant di Azure AD B2C (fabrikamb2c.onmicrosoft.com) facendo clic sul filtro **Directory e sottoscrizione** nel menu in alto e scegliendo tale directory.
+1. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant di Azure AD B2C.
 2. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra nel portale di Azure e quindi cercare e selezionare **Azure AD B2C**.
 3. Selezionare **Provider di identità** e quindi selezionare **Aggiungi**.
 4. Immettere un **Nome**. Ad esempio, immettere "Contoso Azure AD".
 5. Fare clic su **Tipo di provider di identità**, selezionare **OpenID Connect (anteprima)** e quindi fare clic su **OK**.
 6. Fare clic su **Configura questo provider di identità**
-7. In **URL dei metadati** immettere l'URL seguente, sostituendo `your-tenant` con il nome del tenant di Azure AD:
+7. In **URL dei metadati** immettere l'URL seguente, sostituendo `your-AD-tenant-domain` con il nome di dominio del tenant di Azure AD. Ad esempio, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 
     ```
-    https://login.microsoftonline.com/your-tenant/.well-known/openid-configuration
+    https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
+
 8. In **ID client** e **Segreto client** immettere rispettivamente l'ID applicazione e il valore della chiave registrati in precedenza.
-9. Facoltativamente, immettere un valore in **Suggerimento di dominio**, ad esempio `ContosoAD`. Si tratta del valore da usare quando si fa riferimento a questo provider di identità specificando *domain_hint* nella richiesta. 
+9. Facoltativamente immettere un valore per **Domain_hint**. Ad esempio: `ContosoAD`. Si tratta del valore da usare quando si fa riferimento a questo provider di identità specificando *domain_hint* nella richiesta. 
 10. Fare clic su **OK**.
 11. Selezionare **Esegui mapping delle attestazioni di questo provider di identità** e impostare le attestazioni seguenti:
     

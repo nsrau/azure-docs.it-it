@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 10/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3c1c681e2c7ccd6b5fd3eaa3639853d99cb1e0b7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 397aa000da7ea70c12883622b60c0e3e6dded811
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005212"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025306"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Esperienze di accesso con Azure AD Identity Protection
 Con Azure Active Directory Identity Protection è possibile:
@@ -57,13 +57,18 @@ Gli amministratori possono impostare criteri che richiedono agli utenti di confi
 
 1. Nel primo passaggio l'utente riceve una notifica della necessità di impostare l'account per l’autenticazione a più fattori. 
    
-    ![Correzione](./media/flows/140.png "Correzione")
+    ![Correzione](./media/flows/301.png "Correzione")
+
 2. Per configurare l'autenticazione a più fattori, occorre indicare al sistema in che modo si vuole essere contattati.
    
-    ![Correzione](./media/flows/141.png "Correzione")
-3. Il sistema invia una richiesta ed è necessario rispondere.
-   
-    ![Correzione](./media/flows/142.png "Correzione")
+    ![Correzione](./media/flows/302.png "Correzione")
+
+3. Specificare il sistema con il numero di telefono e la modalità di contatto preferita.
+
+    ![Correzione](./media/flows/303.png "Correzione")
+
+Per completare la registrazione è necessario rispondere a una chiamata telefonica o immettere un codice. 
+
 
 ## <a name="risky-sign-in-recovery"></a>Ripristino di un accesso rischioso
 Se un amministratore ha configurato criteri per i rischi di accesso, gli utenti interessati ricevono una notifica quando provano ad accedere. 

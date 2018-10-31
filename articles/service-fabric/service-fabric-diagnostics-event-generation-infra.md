@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 31f23e3f8e792c6b61870c640f99ec3392a940d3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 96bbb221f5fa133ee88a09d489627e3d2f9b0713
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211175"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409187"
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>Monitoraggio del cluster e della piattaforma
 
@@ -91,7 +91,7 @@ Per un elenco dei contatori delle prestazioni da raccogliere quando si usa Servi
 Di seguito sono illustrati due modi comuni disponibili per configurare la raccolta dei dati sulle prestazioni del cluster.
 
 * **Uso di un agente**  
-Modo preferito per raccogliere dati sulle prestazioni da un computer, perché gli agenti includono in genere un elenco delle possibili metriche delle prestazioni disponibili per la raccolta e scegliere o modificare le metriche da raccogliere è un processo relativamente semplice. Per altre informazioni sull'agente OMS, un agente di monitoraggio di questo tipo che può acquisire i dati sulle prestazioni delle VM del cluster e dei contenitori distribuiti, vedere gli articoli su [come configurare OMS per Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) e sulla [configurazione dell'agente Windows di OMS](../log-analytics/log-analytics-windows-agent.md).
+Modo preferito per raccogliere dati sulle prestazioni da un computer, perché gli agenti includono in genere un elenco delle possibili metriche delle prestazioni disponibili per la raccolta e scegliere o modificare le metriche da raccogliere è un processo relativamente semplice. Per altre informazioni sull'agente di Log Analytics, un agente di monitoraggio di questo tipo che può acquisire i dati sulle prestazioni delle macchine virtuali del cluster e dei contenitori distribuiti, vedere gli articoli su [come configurare l'agente di Log Analytics per Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) e sulla [configurazione dell'agente di Log Analytics](../log-analytics/log-analytics-windows-agent.md).
 
 * **Configurazione della diagnostica per scrivere contatori delle prestazioni in una tabella**  
 Per i cluster in Azure, ciò significa modificare la configurazione di Diagnostica di Microsoft Azure per scegliere i contatori delle prestazioni appropriati dalle VM del cluster e abilitarla per acquisire le statistiche Docker se si distribuiranno contenitori. Per configurare la raccolta dei contatori delle prestazioni, leggere l'articolo relativo alla configurazione dei [contatori delle prestazioni in Diagnostica di Microsoft Azure](service-fabric-diagnostics-event-aggregation-wad.md) per Service Fabric.

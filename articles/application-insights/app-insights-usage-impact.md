@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/25/2018
 ms.reviewer: daviste
 ms.author: mbullwin
-ms.openlocfilehash: 9188776fdd213f01523069b08bd898f48bee57a4
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 85547bd8528c4d5d4a627750bb5334f05ed231b1
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091482"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024311"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analisi di impatto con Application Insights
 
@@ -68,7 +68,7 @@ In questo caso i risultati non rientrano più in un modello di asse x continuo c
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Come vengono calcolati questi tassi di conversione dallo strumento Impatto?
 
-Dietro le quinte lo strumento Impatto si basa sull'[indice di correlazione di Pearson] (https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). I risultati calcolati sono compresi tra -1 e 1, con -1 che rappresenta zero correlazione e 1 che rappresenta una correlazione positiva.
+Dietro le quinte lo strumento Impatto si basa sull'[indice di correlazione di Pearson](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient). I risultati calcolati sono compresi tra -1 e 1, con -1 che rappresenta zero correlazione e 1 che rappresenta una correlazione positiva.
 
 L'analisi di impatto funziona in base alla suddivisione di base seguente:
 

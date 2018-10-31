@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 4001d0e21e7a0c8977d785463fb54aa4de45786c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: db68f979239a5783338d99360209ae231a75c936
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378738"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945036"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3 
 
@@ -35,10 +35,6 @@ Questa sezione descrive gli aggiornamenti di ottobre di Servizi multimediali di 
 ### <a name="rest-v3-ga-release"></a>Versione di disponibilità generale di REST v3
 
 La [versione di disponibilità generale di REST v3](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) include altre API per Live, filtri di manifesto a livello di account/asset e il supporto DRM.
-
-#### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
- 
-Il modulo dell'interfaccia della riga di comando di Azure 2.0 per tutte le funzionalità, tra cui Live, criteri di chiave simmetrica, filtri di account/asset e criteri di streaming.
 
 #### <a name="azure-resource-management"></a>Gestione delle risorse di Azure 
 
@@ -95,7 +91,9 @@ La versione di disponibilità generale di Video Indexer era stata annunciata nel
 
 ### <a name="plans-for-changes"></a>Modifiche pianificate
 
-La versione dell'interfaccia della riga di comando di Azure sarà disponibile a partire dal 23/10/2018.
+#### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+ 
+Il modulo dell'interfaccia della riga di comando di Azure 2.0 che include operazioni per tutte le funzionalità, tra cui Live, criteri di chiave simmetrica, filtri di account/risorse e criteri di streaming, sarà presto disponibile. 
 
 ### <a name="known-issues"></a>Problemi noti
 

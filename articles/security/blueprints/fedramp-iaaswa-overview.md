@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6a2a72f46c4d5faacb7d5871f4c917a5cd578e96
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: f5ba6a001f8933283e0867367ef7bd8d3918c3fd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809166"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405379"
 ---
 # <a name="azure-security-and-compliance-blueprint-iaas-web-application-for-fedramp"></a>Progetto per la sicurezza e la conformità di Azure: applicazione Web IaaS per FedRAMP
 
@@ -72,7 +72,7 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 - Azure Key Vault
 - Azure Active Directory (Azure AD)
 - Azure Resource Manager
-- Operations Management Suite (OMS)
+- Log Analytics
 - Monitoraggio di Azure
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
@@ -148,13 +148,13 @@ Le tecnologie seguenti offrono funzionalità di gestione delle identità nell'am
 
 ### <a name="logging-and-auditing"></a>Registrazione e controllo
 
-OMS offre una soluzione di registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. La soluzione [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) di OMS raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
+Log Analytics offre una registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. La soluzione [Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
 
 - **Log attività**: i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) includono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione. I log attività possono essere utili per determinare l'iniziatore di un'operazione, l'ora in cui si è verificata e lo stato.
 - **Log di diagnostica:** i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sono tutti i log generati da ogni risorsa. Questi log includono log eventi del sistema Windows, log di archiviazione di Azure, log di controllo di Azure Key Vault e log degli accessi e del firewall del gateway applicazione.
 - **Archiviazione di log**: tutti i log di diagnostica eseguono operazioni di scrittura in un account di archiviazione di Azure centralizzato e crittografato per finalità di archiviazione. La conservazione può essere configurata dall'utente per un massimo di 730 giorni per soddisfare i requisiti di conservazione specifici dell'organizzazione. Questi log si connettono quindi a Log Analytics di Azure per l'elaborazione, l'archiviazione e la creazione di report nel dashboard.
 
-Questa architettura include anche l'installazione delle soluzioni OMS seguenti. Si noti che è responsabilità del cliente configurare le soluzioni per allinearle ai controlli di sicurezza FedRAMP:
+Questa architettura include anche l'installazione delle soluzioni di monitoraggio seguenti. Si noti che è responsabilità del cliente configurare le soluzioni per allinearle ai controlli di sicurezza FedRAMP:
 -   [Valutazione AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la soluzione Controllo integrità Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e presenta un elenco classificato in ordine di priorità di consigli specifici per l'infrastruttura di server distribuita.
 -   [Valutazione antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): la soluzione Antimalware crea report relativi a malware, minacce e stato della protezione.
 -   [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): la soluzione Automazione di Azure archivia, esegue e gestisce i runbook.

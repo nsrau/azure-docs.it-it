@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 10/11/2018
+ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: 9306280d00ec901633585aba2f23ed06b25b4e1e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 12115770959c3869184f0af78c4feba2fd6f2be4
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115455"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984894"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione (Anteprima pubblica)
 
@@ -22,6 +22,9 @@ Il Web application firewall del gateway applicazione di Azure (WAF) fornisce la 
 > La configurazione dei limiti di dimensioni di richiesta di Web application firewall e degli elenchi di esclusione è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="waf-request-size-limits"></a>Limiti di dimensioni di richiesta WAF
+
+![Limiti di dimensioni di richiesta](media/application-gateway-waf-configuration/waf-requestsizelimit.png)
+
 Web application firewall consente agli utenti di configurare i limiti di dimensioni di richiesta entro i limiti inferiori e superiori. Sono disponibili le seguenti due configurazioni di limiti di dimensioni:
 
 - Il campo della dimensione massima del corpo di richiesta è specificato in KB e controlla il limite di dimensioni di richiesta complessivo, escluso qualsiasi caricamento di file. Questo campo può variare da un minimo di 1 kB a un valore massimo di 128 kB. Il valore predefinito per le dimensioni del corpo della richiesta è 128 kB.
@@ -30,6 +33,8 @@ Web application firewall consente agli utenti di configurare i limiti di dimensi
 Web application firewall offre anche una funzione configurabile per attivare o disattivare l'ispezione del corpo della richiesta. Per impostazione predefinita, viene abilitata l'ispezione del corpo della richiesta. Se l'ispezione del corpo della richiesta è stata disattivata, Web application firewall non valuta il contenuto del corpo del messaggio HTTP. In questi casi, WAF continua applicare le regole WAF su intestazioni, cookie e URI. Se l'ispezione del corpo della richiesta è stata disattivata, il campo dimensioni massime del corpo di richiesta non è applicabile e non può essere impostato. La disattivazione dell'ispezione del corpo della richiesta consente l'invio a WAF di messaggi superiori a 128 kB. Tuttavia, il corpo del messaggio non viene controllato per le vulnerabilità.
 
 ## <a name="waf-exclusion-lists"></a>Elenchi di esclusione di WAF
+
+![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
 Gli elenchi di esclusione di Web Application firewall consentono agli utenti di omettere determinati attributi di richiesta da una valutazione di WAF. Un esempio comune è rappresentato dai token inseriti in Active Directory che vengono usati per l'autenticazione o per i campi password. Tali attributi sono soggetti a contenere caratteri speciali che possono attivare un falso positivo dalle regole di WAF. Una volta che un attributo viene aggiunto all'elenco di esclusione WAF, non viene preso in considerazione da nessuna regola WAF configurata e attiva. Gli elenchi di esclusione hanno ambito globale.
 È possibile aggiungere intestazioni di richiesta, il corpo della richiesta, i cookie di richiesta o gli argomenti di stringa di query di richiesta per gli elenchi di esclusione di WAF. Se il corpo ha dati del modulo o XML/JSON (coppie chiave-valore), è possibile usare il tipo di esclusione dell'attributo della richiesta.

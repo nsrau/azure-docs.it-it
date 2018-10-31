@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2018
+ms.date: 10/18/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 6f66deff9052b79265222f052bebb8439a95d269
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 065eee57b78ea10d5e8079de3a938dc00dd60ee2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352745"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406773"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory? 
 
@@ -105,7 +105,7 @@ Con le app client approvate, è possibile richiedere a un'app client che prova a
 È possibile richiedere a un utente nel tenant di accettare le condizioni per l'utilizzo prima di concedergli il permesso di accedere a una risorsa. Gli amministratori possono configurare e personalizzare le condizioni per l'utilizzo caricando un documento PDF. Se un utente rientra nell'ambito di questo controllo, gli viene concesso l'accesso a un'applicazione solo se ha accettato le condizioni per l'utilizzo. 
 
 
-### <a name="custom-controls"></a>Controlli personalizzati 
+### <a name="custom-controls-preview"></a>Controlli personalizzati (anteprima) 
 
 Nell'accesso condizionale è possibile creare controlli personalizzati che comportano il reindirizzamento degli utenti a un servizio compatibile per soddisfare altri requisiti esterni ad Azure Active Directory. In questo modo, è possibile usare determinati provider di verifica e autenticazione a più fattori esterni per applicare le regole di accesso condizionale o per creare un servizio personalizzato. Per soddisfare questo controllo, il browser dell'utente viene reindirizzato al servizio esterno, esegue le eventuali attività di autenticazione e convalida richieste e viene quindi reindirizzato ad Azure Active Directory. Se l'utente è stato correttamente autenticato o convalidato, può proseguire nel flusso di accesso condizionale. 
 

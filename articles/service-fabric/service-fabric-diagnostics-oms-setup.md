@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: srrengar
-ms.openlocfilehash: a73a288852eea713623b65324853761e10fad282
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 68374cd1675f76555ff313b42e35bdf2aed96874
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220467"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408082"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>Configurare Log Analytics per un cluster
 
@@ -80,7 +80,7 @@ Quando si distribuisce un cluster con un modello di Resource Manager, il modello
 
 * Creare un cluster di Service Fabric composto da 5 nodi
 * Creare un'area di lavoro di Log Analytics e una soluzione Service Fabric
-* Configurare l'agente OMS in modo da raccogliere e inviare 2 contatori delle prestazioni di esempio all'area di lavoro
+* Configurare l'agente di Log Analytics in modo da raccogliere e inviare 2 contatori delle prestazioni di esempio all'area di lavoro
 * Configurare WAD in modo da raccogliere i dati di Service Fabric e inviarli alle tabelle di archiviazione di Azure (WADServiceFabric*EventTable)
 * Configurare l'area di lavoro di Log Analytics per la lettura degli eventi da queste tabelle
 
@@ -126,6 +126,6 @@ Al termine, seguire i passaggi nella sezione precedente per connettere Log Analy
 È anche possibile aggiungere altre soluzioni o apportare altre modifiche all'area di lavoro di Log Analytics usando PowerShell. Per altre informazioni, vedere [Gestire Log Analytics con PowerShell](../log-analytics/log-analytics-powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere i contatori delle prestazioni, le statistiche Docker e registri per i contenitori
+* [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere contatori delle prestazioni, statistiche Docker e registri per i contenitori
 * Acquisire familiarità con le funzionalità di [ricerca log e query](../log-analytics/log-analytics-log-searches.md) incluse in Log Analytics
 * [Usare Progettazione viste per creare viste personalizzate in Log Analytics](../log-analytics/log-analytics-view-designer.md)

@@ -4,14 +4,14 @@ description: Questo articolo descrive come valutare un elevato numero di compute
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 32bed3a60c40b93471b75b9d54dccd822ccc3be8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325023"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025875"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -122,9 +122,9 @@ In presenza di più progetti, occorre scaricare l'appliance dell'agente di racco
 1. Nel progetto di Azure Migrate fare clic su **Attività iniziali** > **Individua e valuta** > **Individua macchine virtuali**.
 2. In **Individua macchine virtuali** sono disponibili due opzioni per l'appliance: fare clic su **Scarica** per scaricare l'appliance appropriata in base alle proprie preferenze.
 
-    a. **Individuazione una tantum:** l'appliance per questo modello comunica con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Per la raccolta dati sulle prestazioni delle macchine virtuali, si basa sui dati cronologici relativi alle prestazioni archiviati nel server vCenter e raccoglie la cronologia delle prestazioni dell'ultimo mese. In questo modello, Azure Migrate raccoglie un contatore relativo al valore medio (anziché un contatore del valore di picco) per ogni metrica. [Ulteriori informazioni] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Poiché si tratta di un'individuazione una tantum, le modifiche nell'ambiente locale non vengono riflesse una volta completata l'individuazione. Se si desidera che le modifiche siano riflesse, è necessario eseguire una nuova individuazione dello stesso ambiente allo stesso progetto.
+    a. **Individuazione una tantum:** l'appliance per questo modello comunica con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Per la raccolta dati sulle prestazioni delle macchine virtuali, si basa sui dati cronologici relativi alle prestazioni archiviati nel server vCenter e raccoglie la cronologia delle prestazioni dell'ultimo mese. In questo modello Azure Migrate raccoglie un contatore relativo al valore medio (anziché un contatore del valore di picco) per ogni metrica. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Poiché si tratta di un'individuazione una tantum, le modifiche nell'ambiente locale non vengono riflesse una volta completata l'individuazione. Per ottenere che le modifiche siano riflesse è necessario eseguire una nuova individuazione dello stesso ambiente nello stesso progetto.
 
-    b. **Individuazione continua:** l'appliance per questo modello profila in modo continuo l'ambiente locale per raccogliere i dati di utilizzo in tempo reale per ogni macchina virtuale. In questo modello vengono raccolti i contatori di picco per ogni metrica (utilizzo della CPU, utilizzo della memoria e così via). Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per la raccolta dei dati sulle prestazioni. È possibile interrompere la profilazione continua in qualsiasi momento dall'appliance.
+    b. **Individuazione continua:** l'appliance per questo modello profila in modo continuo l'ambiente locale per raccogliere i dati di utilizzo in tempo reale per ogni macchina virtuale. In questo modello vengono raccolti i contatori di picco per ogni metrica (utilizzo della CPU, utilizzo della memoria e così via). Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per la raccolta dei dati sulle prestazioni. È possibile interrompere la profilatura continua in qualsiasi momento dall'appliance.
 
     > [!NOTE]
     > La funzionalità di individuazione continua è disponibile in anteprima.
@@ -148,7 +148,17 @@ Prima di distribuire il file con estensione ova, verificarne la sicurezza:
 
 #### <a name="one-time-discovery"></a>Individuazione una tantum
 
-Per OVA versione 1.0.9.14
+<<<<<<< HEAD per OVA versione 1.0.9.15 (data di rilascio 23/10/2018)
+
+ <a name="algorithm--hash-value"></a>**Algoritmo** | **Valore hash**
+=======
+Per OVA versione 1.0.9.15
+
+**Algoritmo**  |  **Valore hash**
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37 --- | --- MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+
+<<<<<<< HEAD per OVA versione 1.0.9.14 (data di rilascio 24/8/2018) ======= Per OVA versione 1.0.9.14
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 **Algoritmo** | **Valore hash**
 --- | ---
@@ -277,7 +287,7 @@ Per ogni individuazione da eseguire, è necessario eseguire l'agente di raccolta
 
 Per l'individuazione una tantum, il tempo di individuazione dipende dal numero di macchine virtuali da individuare. In genere, per 100 macchine virtuali, dopo che l'agente di raccolta termina l'esecuzione, è necessaria circa un'ora per completare la raccolta dei dati di configurazione e sulle prestazioni. È possibile creare le valutazioni (sia basate sulle prestazioni che come valutazioni locali) immediatamente dopo che l'individuazione è stata eseguita.
 
-Per l'individuazione continua (in anteprima), l'agente di raccolta eseguirà il profiling continuo dell'ambiente locale e continuerà a inviare i dati sulle prestazioni a intervalli di un'ora. È possibile esaminare le macchine virtuali nel portale dopo un'ora dall'avvio del processo di individuazione. Si consiglia vivamente di attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni per le macchine virtuali.
+Per l'individuazione continua, che è in fase di anteprima, l'agente di raccolta eseguirà la profilatura continua dell'ambiente locale e continuerà a inviare i dati sulle prestazioni ogni ora. È possibile esaminare le macchine virtuali nel portale dopo un'ora dall'avvio del processo di individuazione. Si consiglia vivamente di attendere almeno un giorno prima di creare valutazioni basate sulle prestazioni per le macchine virtuali.
 
 1. Nel progetto di migrazione fare clic su **Gestisci** > **Macchine virtuali**.
 2. Verificare che le macchine virtuali da individuare siano visualizzate nel portale.

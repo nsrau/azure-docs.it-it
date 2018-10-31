@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1ef5d51db34e0d0a947a4d6ba6c7e614b1ac3384
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: fa089db385995f6c44ea2238c91a3ac59946daae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348889"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407657"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installare e configurare un gateway dati locale
 Quando uno o più server Azure Analysis Services nella stessa area si connettono a origini dati locali, è necessario un gateway dati locale. Per altre informazioni sul gateway, vedere [Gateway dati locale](analysis-services-gateway.md).
@@ -40,7 +40,7 @@ Quando uno o più server Azure Analysis Services nella stessa area si connettono
 * Quando si installa il gateway, l'account utente con il quale è stato effettuato l'accesso al computer deve accedere come privilegi del servizio. Al termine dell'installazione, il servizio di gateway dati locale usa l'account NT SERVICE\PBIEgwService per accedere come un servizio. È possibile specificare un altro account durante l'installazione o in Services al termine dell'installazione. Assicurarsi che le impostazioni dei Criteri di gruppo consentano di accedere come privilegi di servizio all'account con il quale ci si è connessi al momento dell'installazione e all'account di servizio scelto per l'accesso.
 * Accedere ad Azure con un account di Azure AD per lo stesso [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) della sottoscrizione in cui si sta registrando il gateway. Gli account Azure B2B (guest) non sono supportati per l'installazione e registrazione di un gateway.
 * Se le origini dati si trovano in un'istanza di Rete virtuale di Azure (VNet), è necessario configurare la proprietà del server [AlwaysUseGateway](analysis-services-vnet-gateway.md).
-* Il gateway (unificato) qui descritto non è supportato in Azure per enti pubblici e nelle aree sovrane Azure Germania e Azure Cina. Usare il **gateway locale dedicato per Azure Analysis Services**, installato da **Avvio rapido** del server nel portale. 
+* Il gateway (unificato) qui descritto non è supportato nelle aree di Azure Germania. Usare invece il **gateway locale dedicato per Azure Analysis Services**, installato da **Avvio rapido** del server nel portale. 
 
 
 ## <a name="download"></a>Scaricare

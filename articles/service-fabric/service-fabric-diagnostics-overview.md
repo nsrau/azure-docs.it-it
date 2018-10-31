@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/18/2018
 ms.author: srrengar
-ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5fc2674a145be99fb8867c5cf1b1f65ba860db80
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643176"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457834"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Monitoraggio e diagnostica in Azure Service Fabric
 
@@ -44,7 +44,7 @@ Service Fabric offre un set completo di eventi immediatamente disponibili. Tali 
 * EventStore - EventStore (disponibile su Windows 6.2 e versioni successive, su Linux ancora in corso alla data dell'ultimo aggiornamento dell'articolo) espone questi eventi tramite un set di API (accessibile tramite gli endpoint REST o la libreria client). Altre informazioni su EventStore sono disponibili nella [Panoramica di EventStore](service-fabric-diagnostics-eventstore.md).
 * Eventi di canale di Service Fabric - In Windows, sono disponibili da un unico provider ETW con un set di `logLevelKeywordFilters` rilevanti che consente di scegliere tra canali operativi, dati e messaggistica. È così che gli eventi di Service Fabric in uscita vengono separati per essere filtrati in base alle esigenze. In Linux, tutti gli eventi di Service Fabric vengono forniti tramite LTTng e raccolti in una tabella di Archiviazione, da dove possono essere filtrati in base alle esigenze. Questi canali contengono eventi curati e strutturati che consentono di comprendere meglio lo stato del cluster. Il canale di diagnostica è abilitato per impostazione predefinita al momento della creazione di un cluster, nel corso della quale viene creata una tabella di archiviazione di Azure in cui vengono inviati gli eventi generati dai canali, su cui poter eseguire query in futuro. 
 
-Si consiglia di usare EventStore per un'analisi veloce e per ottenere un'idea di snapshot del modo in cui il cluster sta funzionando e se le operazioni vengono eseguite come previsto. Per raccogliere i log e gli eventi che vengono generati dal cluster, è in genere consigliabile usare l'[estensione Diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md), che si integra bene con Analisi Service Fabric, la soluzione specifica per Service Fabric di OMS Log Analytics, che fornisce un dashboard personalizzato per il monitoraggio dei cluster di Service Fabric e consente di eseguire query sugli eventi del cluster e di impostare avvisi. Per altre informazioni, vedere [Analisi di eventi con OMS](service-fabric-diagnostics-event-analysis-oms.md). 
+Si consiglia di usare EventStore per un'analisi veloce e per ottenere un'idea di snapshot del modo in cui il cluster sta funzionando e se le operazioni vengono eseguite come previsto. Per raccogliere i log e gli eventi che vengono generati dal cluster, è in genere consigliabile usare l'[estensione Diagnostica di Azure](service-fabric-diagnostics-event-aggregation-wad.md), che si integra bene con Analisi Service Fabric, la soluzione specifica per Service Fabric di Log Analytics, che offre un dashboard personalizzato per il monitoraggio dei cluster di Service Fabric e consente di eseguire query sugli eventi del cluster e di impostare avvisi. Per altre informazioni, vedere [Analisi di eventi con Log Analytics](service-fabric-diagnostics-event-analysis-oms.md). 
 
  È possibile leggere altre informazioni sul monitoraggio del cluster nell'articolo [Generazione di eventi e log a livello piattaforma](service-fabric-diagnostics-event-generation-infra.md).
 
@@ -58,7 +58,7 @@ Un elenco dei contatori delle prestazioni che è possibile raccogliere a livello
 
 Service Fabric fornisce un set di contatori delle prestazioni per i modelli di programmazione Reliable Services e Reliable Actors. Se si usa uno di questi modelli, i contatori delle prestazioni possono fornire indicatori KPI in grado di assicurare che gli attori vengano attivati e disattivati correttamente o che richieste di Reliable Services vengano gestite in modo sufficientemente rapido. Per altre informazioni, vedere [Monitoraggio delle prestazioni per Reliable Service Remoting](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters) e [Monitoraggio delle prestazioni per Reliable Actors](service-fabric-reliable-actors-diagnostics.md#performance-counters). Se configurato con l'applicazione in uso, anche Application Insights offre un set di metriche delle prestazioni che è in grado di raccogliere.
 
-Usare l'[agente OMS](service-fabric-diagnostics-oms-agent.md) per raccogliere i contatori delle prestazioni appropriati e visualizzare gli indicatori KPI in OMS Log Analytics.
+Usare l'[agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) per raccogliere i contatori delle prestazioni appropriati e visualizzare gli indicatori KPI in Azure Log Analytics.
 
 ![Grafico di panoramica della diagnostica](media/service-fabric-diagnostics-overview/diagnostics-overview.png)
 
@@ -71,7 +71,7 @@ I report di integrità più recenti possono essere visualizzati in SFX, ma ogni 
 
 ## <a name="other-logging-solutions"></a>Altre soluzioni di registrazione
 
-Anche se le due soluzioni consigliate, [OMS](service-fabric-diagnostics-event-analysis-oms.md) e [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), hanno l'integrazione predefinita con Service Fabric, diversi eventi vengono scritti tramite provider ETW e sono estendibili con altre soluzioni di registrazione. È opportuno prendere in considerazione anche [Elastic Stack](https://www.elastic.co/products), soprattutto se si intende eseguire un cluster in un ambiente offline, [Splunk](https://www.splunk.com/), [Dynatrace](https://www.dynatrace.com/) o qualsiasi altra piattaforma preferita. 
+Anche se le due soluzioni consigliate, [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) e [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md), hanno l'integrazione predefinita con Service Fabric, diversi eventi vengono scritti tramite provider ETW e sono estendibili con altre soluzioni di registrazione. È opportuno prendere in considerazione anche [Elastic Stack](https://www.elastic.co/products), soprattutto se si intende eseguire un cluster in un ambiente offline, [Dynatrace](https://www.dynatrace.com/) o qualsiasi altra piattaforma preferita. Un elenco di partner integrati è disponibile [qui](service-fabric-diagnostics-partners.md).
 
 Nella scelta della piattaforma si deve considerare l'interfaccia utente e le opzioni di query, la possibilità di visualizzare i dati e creare dashboard facilmente leggibili, oltre agli strumenti aggiuntivi offerti per migliorare il monitoraggio, ad esempio gli avvisi automatici.
 
@@ -81,4 +81,6 @@ Nella scelta della piattaforma si deve considerare l'interfaccia utente e le opz
 * Per altre informazioni sul monitoraggio della piattaforma e gli eventi messi a disposizione da Service Fabric, vedere [Generazione di eventi e log a livello piattaforma](service-fabric-diagnostics-event-generation-infra.md).
 * Completare i passaggi per configurare AI con [Monitorare e diagnosticare un'applicazione ASP.NET Core in Service Fabric](service-fabric-tutorial-monitoring-aspnet.md).
 * Informazioni su come configurare Log Analytics OMS per il monitoraggio dei contenitori: [Monitoraggio e diagnostica per i contenitori di Windows in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md).
+* Vedere gli esempi di problemi di diagnostica e le soluzioni con Service Fabric negli [ scenari comuni di diagnosi](service-fabric-diagnostics-common-scenarios.md)
+* Per informazioni sugli altri prodotti di diagnostica che si integrano con Service Fabric, vedere l'articolo sui [partner di diagnostica di Service Fabric](service-fabric-diagnostics-partners.md)
 * Per suggerimenti generali sul monitoraggio delle risorse di Azure, vedere [Procedure consigliate: monitoraggio e diagnostica](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). 

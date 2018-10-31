@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: e51c0178691279d803e9a1afcd4147f1d6ed767e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498233"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985251"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -104,7 +104,7 @@ Gli agenti installati in macchine virtuali e computer raccolgono i dati sugli ag
 
 La tabella seguente descrive le origini connesse supportate da questa soluzione:
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | DESCRIZIONE |
 | --- | --- | --- |
 | Agenti di Windows |Yes |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Windows e quindi avvia l'installazione degli aggiornamenti necessari. |
 | Agenti Linux |Yes |Gestione aggiornamenti raccoglie informazioni sugli aggiornamenti del sistema dagli agenti Linux e quindi avvia l'installazione degli aggiornamenti necessari nelle distribuzioni supportate. |
@@ -155,7 +155,7 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
 
 - **Controllo riavvio:** questa impostazione determina come vengono gestiti i riavvii per la distribuzione degli aggiornamenti.
 
-   |Opzione|Descrizione|
+   |Opzione|DESCRIZIONE|
    |---|---|
    |Riavvia se necessario| **(Impostazione predefinita)** Se necessario, viene eseguito il riavvio se la finestra di manutenzione lo consente.|
    |Riavvia sempre|Il computer viene riavviato indipendentemente dal fatto che il riavvio sia richiesto o no. |
@@ -163,6 +163,9 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
    |Riavvia solamente: gli aggiornamenti non verranno installati|Questa opzione ignora l'installazione degli aggiornamenti e esegue solo il riavvio.|
 
 Dopo avere configurato la pianificazione, selezionare il pulsante **Crea** per tornare al dashboard di stato. Nella tabella **Pianificata** appare la pianificazione della distribuzione appena creata.
+
+> [!NOTE]
+> Gestione aggiornamenti supporta la distribuzione degli aggiornamenti proprietari e il pre-download di patch. Ciò richiede modifiche dei sistemi sui quali sono applicate gli aggiornamenti. Vedere la sezione sul [supporto del pre-download di aggiornamenti proprietari](automation-update-management.md#firstparty-predownload) per vedere come configurare queste impostazioni nei propri sistemi.
 
 ## <a name="view-results-of-an-update-deployment"></a>Visualizzare i risultati di una distribuzione di aggiornamenti
 

@@ -1,56 +1,89 @@
 ---
-title: Gestire i gruppi appartenenti a un gruppo in Azure AD | Microsoft Docs
-description: I gruppi possono contenere altri gruppi in Azure Active Directory. Di seguito viene illustrato come gestire queste appartenenze.
+title: Come aggiungere o rimuovere un gruppo da un altro gruppo in Azure Active Directory | Microsoft Docs
+description: Informazioni su come aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 10/10/2017
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 8a71677ae3ceb5617f0a817a8eff438d5e3f2774
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860366"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468031"
 ---
-# <a name="manage-to-which-groups-a-group-belongs-in-your-azure-active-directory-tenant"></a>Gestire i gruppi a cui appartiene il proprio gruppo nel tenant di Azure Active Directory
-I gruppi possono contenere altri gruppi in Azure Active Directory. Di seguito viene illustrato come gestire queste appartenenze.
+# <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Procedura: Aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory
+Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory.
 
-## <a name="how-do-i-find-the-groups-of-which-my-group-is-a-member"></a>Come è possibile trovare i gruppi di cui il gruppo dell'utente è un membro?
-1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account amministratore globale per la directory.
-2. Selezionare **Utenti e gruppi**.
+>[!Note]
+>Se si sta tentando di eliminare il gruppo padre, vedere [Come aggiornare o eliminare un gruppo e i relativi membri](active-directory-groups-delete-group.md).
 
-   ![Immagine dell'apertura di Utenti e gruppi](./media/active-directory-groups-membership-azure-portal/search-user-management.png)
-1. Selezionare **Tutti i gruppi**.
+## <a name="add-a-group-to-another-group"></a>Aggiungere un gruppo a un altro gruppo
+È possibile aggiungere un gruppo di sicurezza esistente a un altro gruppo di sicurezza esistente, ovvero creare gruppi annidati, creando un gruppo membri, o sottogruppo, e un gruppo padre. Il gruppo membri eredita gli attributi e le proprietà del gruppo padre, consentendo di risparmiare tempo di configurazione.
 
-   ![Immagine della selezione dei gruppi](./media/active-directory-groups-membership-azure-portal/view-groups-blade.png)
-1. Selezionare un gruppo.
-2. Selezionare **Appartenenze a gruppi**.
+>[!Important]
+>Attualmente non sono supportate le operazioni seguenti:<ul><li>Aggiunta di gruppi di sicurezza a gruppi di Office 365</li><li>Aggiunta di gruppi di Office 365 a gruppi di sicurezza o ad altri gruppi di Office 365</li><li>Assegnazione di app a gruppi annidati</li><li>Applicazione di licenze a gruppi annidati</li></ul>
 
-   ![Immagine dell'apertura delle appartenenze a gruppi](./media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
-1. Per aggiungere il gruppo come membro di un altro gruppo, nel pannello **Gruppo - Appartenenza ai gruppi** selezionare il comando **Aggiungi**.
-2. Selezionare un gruppo nel pannello **Seleziona gruppo** e quindi fare clic sul pulsante **Seleziona** nella parte inferiore del pannello. È possibile aggiungere il gruppo a un solo gruppo alla volta. La visualizzazione nella casella **Utente** viene filtrata in base alla corrispondenza con l'immissione di una parte di un nome utente o di dispositivo. I caratteri jolly non sono consentiti nella casella.
+### <a name="to-add-a-group-as-a-member-of-another-group"></a>Per aggiungere un gruppo come membro di un altro gruppo
 
-   ![Aggiungere l'appartenenza a un gruppo](./media/active-directory-groups-membership-azure-portal/add-group-membership.png)
-8. Per rimuovere il proprio gruppo come membro di un altro gruppo, nel pannello **Gruppo - Appartenenza ai gruppi** selezionare un gruppo.
-9. Selezionare il comando **Rimuovi** e confermare la scelta quando viene richiesto.
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale per la directory.
 
-   ![Comando Rimuovi appartenenza](./media/active-directory-groups-membership-azure-portal/remove-group-membership.png)
-10. Al termine della modifica delle appartenenze dei gruppi per il proprio gruppo, selezionare **Salva**.
+2. Selezionare **Azure Active Directory** e quindi **Gruppi**.
+
+3. Nella pagina **Gruppi - Tutti i gruppi** cercare e selezionare il gruppo che deve diventare membro di un altro gruppo. Per questo esercizio, viene usato il gruppo **MDM policy - West**.
+
+    >[!Note]
+    >È possibile aggiungere il gruppo come membro di un solo gruppo alla volta. La casella **Seleziona gruppo** filtra la visualizzazione in base alla corrispondenza dei dati immessi con una parte qualsiasi del nome dell'utente o del dispositivo. Tuttavia, i caratteri jolly non sono supportati.
+
+    ![Pagina Gruppi - Tutti i gruppi con il gruppo MDM policy - West selezionato](media/active-directory-groups-membership-azure-portal/group-all-groups-screen.png)
+
+4. Nella pagina **MDM policy - West - Appartenenze a gruppi** selezionare **Appartenenze a gruppi**, **Aggiungi**, individuare il gruppo di cui si vuole che il gruppo selezionato faccia parte e scegliere **Seleziona**. Per questo esercizio, viene usato il gruppo **MDM policy - All org**.
+
+    Il gruppo **MDM policy - West** ora è un membro del gruppo **MDM policy - All org** ed eredita tutte le proprietà e la configurazione del gruppo MDM policy - All org.
+
+    ![Creare l'appartenenza a un gruppo tramite l'aggiunta di un gruppo a un altro gruppo](media/active-directory-groups-membership-azure-portal/add-group-membership.png)
+
+5. Rivedere la pagina **MDM policy - West - Appartenenze a gruppi** per visualizzare la relazione tra il gruppo e i membri.
+
+    ![Pagina MDM policy - West - Appartenenze a gruppi che visualizza il gruppo padre](media/active-directory-groups-membership-azure-portal/group-membership-blade.png)
+
+6. Per una visualizzazione più dettagliata della relazione tra gruppo e membri, selezionare il nome del gruppo (**MDM policy - All org**) e osservare i dettagli della pagina **MDM policy - West**.
+
+    ![Pagina delle appartenenze ai gruppi con i dettagli sia del membro che del gruppo](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
+
+## <a name="remove-a-group-from-another-group"></a>Rimuovere un gruppo da un altro gruppo
+È possibile rimuovere un gruppo di sicurezza esistente da un altro gruppo di sicurezza. Tuttavia, rimuovendo il gruppo vengono rimossi anche tutti gli attributi e le proprietà ereditati per i membri.
+
+### <a name="to-remove-a-member-group-from-another-group"></a>Per rimuovere un gruppo membri da un altro gruppo
+1. Nella pagina **Gruppi - Tutti i gruppi** cercare e selezionare il gruppo da rimuovere come membro di un altro gruppo. Per questo esercizio, viene usato ancora il gruppo **MDM policy - West**.
+
+2. Nella pagina **Panoramica MDM policy - West**  selezionare **Appartenenze a gruppi**.
+
+    ![Pagina Panoramica MDM policy - West](media/active-directory-groups-membership-azure-portal/group-membership-overview.png)
+
+3. Selezionare il gruppo **MDM policy - All org** nella pagina **MDM policy - West - Appartenenze a gruppi** e quindi selezionare **Rimuovi** dai dettagli della pagina **MDM policy - West**.
+
+    ![Pagina delle appartenenze ai gruppi con i dettagli sia del membro che del gruppo](media/active-directory-groups-membership-azure-portal/group-membership-remove.png)
+
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
 
-* [Vedere i gruppi esistenti](active-directory-groups-view-azure-portal.md)
-* [Creare un nuovo gruppo e aggiunta di membri](active-directory-groups-create-azure-portal.md)
-* [Gestire le impostazioni di un gruppo](active-directory-groups-settings-azure-portal.md)
-* [Gestire i membri di un gruppo](active-directory-groups-members-azure-portal.md)
-* [Gestire le regole dinamiche per gli utenti in un gruppo](../users-groups-roles/groups-dynamic-membership.md)
+- [Visualizzare gruppi e membri](active-directory-groups-view-azure-portal.md)
+
+- [Creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md)
+
+- [Aggiungere o rimuovere membri di un gruppo](active-directory-groups-members-azure-portal.md)
+
+- [Modificare le impostazioni del gruppo](active-directory-groups-settings-azure-portal.md)
+
+- [Utilizzare un gruppo per gestire l'accesso alle applicazioni SaaS](../users-groups-roles/groups-saasapps.md)
+
+- [Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

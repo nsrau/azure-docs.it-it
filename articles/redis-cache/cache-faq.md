@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: c0d88f0eaacaadbb508519f2e6804b9b311408c2
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c5a18a2e8d58553e49797da418f76fc3f251e003
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259331"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026042"
 ---
 # <a name="azure-redis-cache-faq"></a>Domande frequenti sulla Cache Redis di Azure
 Risposte alle domande più comuni, modelli e procedure consigliate per la Cache Redis di Azure.
@@ -184,7 +184,7 @@ Per informazioni sull'uso di Cache Redis di Azure con PowerShell in Azure Govern
 ### <a name="what-do-the-stackexchangeredis-configuration-options-do"></a>Qual è la funzione delle opzioni di configurazione StackExchange.Redis?
 StackExchange.Redis include diverse opzioni. Questa sezione illustra alcune impostazioni comuni. Per informazioni più dettagliate sulle opzioni StackExchange.Redis, vedere la pagina relativa alla [configurazione di StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/Configuration).
 
-| Opzioni configurazione | Descrizione | Raccomandazione |
+| Opzioni configurazione | DESCRIZIONE | Raccomandazione |
 | --- | --- | --- |
 | AbortOnConnectFail |Se impostata su true, la connessione non verrà ristabilita dopo un errore di rete. |Impostare su false, per permettere a StackExchange.Redis di riconnettersi automaticamente. |
 | ConnectRetry |Numero di nuovi tentativi di connessione durante la connessione iniziale. |Per indicazioni, vedere le note seguenti. |
@@ -392,7 +392,7 @@ Come configurare questa impostazione:
   > Il valore specificato in questo elemento di configurazione è un'impostazione *per core*. Ad esempio, se si dispone di un computer a 4 memorie centrali e si desidera che l'impostazione minIoThreads raggiunga 200 in fase di esecuzione, occorre usare `<processModel minIoThreads="50"/>`.
   >
 
-* Al di fuori di ASP.NET e global.asax dei siti Web di Azure, usare l'API [ThreadPool.SetMinThreads (...)] (https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx)).
+* Al di fuori di ASP.NET e di global.asax di Siti Web di Azure, usare l'API [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) .
 
   > [!NOTE]
   > Il valore specificato da questa API è un'impostazione globale, che interessa l'intero dominio dell'applicazione. Se si dispone di un computer a 4 core e si desidera impostare minIOThreads e minWorkerThreads su 50 per ogni CPU durante la fase di esecuzione, si dovrà usare ThreadPool.SetMinThreads (200, 200).

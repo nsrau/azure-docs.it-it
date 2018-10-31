@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902026"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466717"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -49,21 +49,38 @@ Per modificare i valori di attestazione predefiniti, selezionare la riga dell'at
 ![Modifica attributo utente][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>Modifica dell'attestazione NameIdentifier
-Per risolvere il problema relativo alla distribuzione dell'applicazione con un nome utente diverso, fare clic sull'elenco a discesa **Identificatore utente** nella sezione **Attributi utente**. Verrà visualizzata una finestra di dialogo con diverse opzioni:
+
+Per risolvere il problema relativo alla distribuzione dell'applicazione con un nome utente diverso, selezionare un valore nell'elenco a discesa **Identificatore utente** nella sezione **Attributi utente**. Verrà visualizzata una finestra di dialogo con diverse opzioni:
 
 ![Modifica attributo utente][4]
 
-Nell'elenco a discesa selezionare **user.mail** per impostare l'attestazione NameIdentifier in modo che corrisponda all'indirizzo e-mail dell'utente nella directory. In alternativa, selezionare **user.onpremisessamaccountname** per impostare il nome account SAM dell'utente sincronizzato da Azure AD in locale.
+### <a name="attributes"></a>Attributi
 
-È anche possibile usare la funzione speciale **ExtractMailPrefix()** per rimuovere il suffisso del dominio dall'indirizzo e-mail, dal nome account SAM o dal nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com.
+Selezionare l'origine desiderata per l'attestazione `NameIdentifier` (o NameID). Si può scegliere fra le opzioni seguenti.
 
-![Modifica attributo utente][5]
+| NOME | DESCRIZIONE |
+|------|-------------|
+| Email | L'indirizzo e-mail dell'utente |
+| userprincipalName | Il nome dell'entità utente (UPN) dell'utente |
+| onpremisessamaccount | Il nome dell'account SAM che è stato sincronizzato da Azure AD locale |
+| objectID | Il valore objectID dell'utente in Azure AD |
+| EmployeeID | Il valore EmployeeID dell'utente |
+| Estensioni della directory | Estensioni di directory [sincronizzate da Active Directory locale mediante la sincronizzazione di Azure AD Connect](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Attributi di estensione 1-15 | Attributi di estensione utilizzati per estendere lo schema di Azure AD locale |
 
-È stata anche aggiunta la funzione **join()** per unire il dominio verificato con il valore dell'identificatore utente. Quando si seleziona la funzione join() in **Identificatore utente** selezionare prima l'identificatore utente come indirizzo e-mail o nome dell'entità utente e selezionare il dominio verificato nel secondo elenco a discesa. Se si seleziona l'indirizzo e-mail con il dominio verificato, AD Azure estrae il nome utente dal primo valore joe_smith di joe_smith@contoso.com e lo aggiunge a contoso.onmicrosoft.com. Vedere l'esempio seguente:
+### <a name="transformations"></a>Trasformazioni
 
-![Modifica attributo utente][6]
+È possibile anche usare le funzioni speciali di trasformazione delle attestazioni.
+
+| Funzione | DESCRIZIONE |
+|----------|-------------|
+| **ExtractMailPrefix()** | Rimuove il suffisso del dominio dall'indirizzo e-mail, il nome dell'account SAM o il nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com. |
+| **join()** | Aggiunge un attributo a un dominio verificato. Se il valore dell'ID utente selezionato ha un dominio, estrarrà il nome utente per accodare il dominio verificato selezionato. Ad esempio, se si seleziona l'indirizzo e-mail (joe_smith@contoso.com) come valore dell'ID utente e si seleziona contoso.onmicrosoft.com come dominio verificato, si avrà come risultato joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Converte i caratteri dell'attributo selezionato in minuscole. |
+| **ToUpper()** | Converte i caratteri dell'attributo selezionato in maiuscole. |
 
 ## <a name="adding-claims"></a>Aggiunta di attestazioni
+
 Quando si aggiunge un'attestazione, è possibile specificare il nome dell'attributo (che non deve necessariamente seguire un modello di URI secondo la specifica SAML). Impostare il valore su qualsiasi attributo utente archiviato nella directory.
 
 ![Aggiungi attributo utente][7]
@@ -132,8 +149,8 @@ Esistono alcune attestazioni con restrizioni in SAML. Se si aggiungono queste at
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Gestione di applicazioni in Azure AD](../manage-apps/what-is-application-management.md)
-* [Configurazione del servizio Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Risoluzione dei problemi dell'accesso Single Sign-On basato su SAML](howto-v1-debug-saml-sso-issues.md)
+* [Configurare l'accesso Single Sign-On in applicazioni non presenti nella raccolta di applicazioni di Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

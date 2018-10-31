@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 4b13d2d277721d37a6b96f6640377c875f0b5c0f
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b22d18408d040d564d6220e74e8b8a893fe41ae9
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161579"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646246"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Ripristino di emergenza in Azure Service Fabric
 Una parte fondamentale della distribuzione a disponibilità elevata consiste nel garantire la resistenza dei servizi a tutti i tipi di errori. Ciò è particolarmente importante per gli errori imprevisti e incontrollabili. Questo articolo descrive alcune modalità di errore comuni che possono generare situazioni di emergenza se non organizzate e gestite correttamente. Illustra anche le mitigazioni e le azioni da intraprendere in presenza di un'emergenza. L'obiettivo consiste nel limitare o eliminare il rischio di tempi di inattività o di perdita di dati quando si verificano errori, pianificati o imprevisti.
@@ -133,7 +133,7 @@ Esistono due diverse strategie per superare un errore permanente o prolungato di
 ### <a name="random-failures-leading-to-cluster-failures"></a>Errori casuali che generano errori del cluster
 In Service Fabric è presente il concetto di nodi di inizializzazione. Si tratta di nodi che gestiscono la disponibilità del cluster sottostante. Questi nodi aiutano a garantire che il cluster rimanga attivo stabilendo lease con altri nodi e servendo da tiebreaker durante determinati tipi di errori di rete. Se si verificano errori casuali che rimuovono la maggior parte dei nodi di inizializzazione nel cluster e i nodi non vengono ripristinati, il cluster si arresta automaticamente. In Azure i nodi di inizializzazione vengono gestiti automaticamente: vengono distribuiti nei domini di errore e di aggiornamento disponibili e, se dal cluster viene rimosso un singolo nodo di inizializzazione, ne verrà creato un altro al suo posto. 
 
-Sia nei cluster di Service Fabric autonomi che in Azure il "tipo di nodo primario" è quello che esegue il seeding. Quando si definisce un tipo di nodo primario, Service Fabric sfrutta automaticamente il numero di nodi forniti creando fino a 9 nodi di inizializzazione e 9 repliche di ognuno dei servizi di sistema. Se un set di errori casuali interrompe l'esecuzione contemporaneamente della maggior parte delle repliche dei servizi di sistema, i servizi del sistema saranno coinvolti nella perdita del quorum, come descritto sopra. Se la maggior parte dei nodi di inizializzazione viene persa, il cluster si arresta subito dopo.
+Sia nei cluster di Service Fabric autonomi che in Azure il "tipo di nodo primario" è quello che esegue il seeding. Quando si definisce un tipo di nodo primario, Service Fabric sfrutta automaticamente il numero di nodi offerti creando fino a 9 nodi di inizializzazione e 7 repliche di ognuno dei servizi di sistema. Se un set di errori casuali interrompe l'esecuzione contemporaneamente della maggior parte delle repliche dei servizi di sistema, i servizi del sistema saranno coinvolti nella perdita del quorum, come descritto sopra. Se la maggior parte dei nodi di inizializzazione viene persa, il cluster si arresta subito dopo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Informazioni su come simulare diversi errori con il [framework di verificabilità](service-fabric-testability-overview.md)

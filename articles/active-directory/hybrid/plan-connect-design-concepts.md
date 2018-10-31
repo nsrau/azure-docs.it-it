@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f85726f7058c783b6e369126532e40ceecc3c846
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308180"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945995"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
 L'obiettivo di questo documento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri documenti.
@@ -91,7 +91,7 @@ Per questa funzionalità, l'account Active Directory Domain Services usato per l
 È possibile abilitare l'uso di ConsistencyGuid come sourceAnchor durante una nuova installazione. Questa sezione descrive dettagliatamente sia l'installazione rapida che quella personalizzata.
 
   >[!NOTE]
-  > Solo le versioni più recenti di Azure AD Connect, 1.1.524.0 e successive, supportano l'uso di ConsistencyGuid come sourceAnchor durante una nuova installazione.
+  > Solo le versioni più recenti di Azure AD Connect, ovvero la 1.1.524.0 e successive, supportano l'uso di ConsistencyGuid come sourceAnchor durante una nuova installazione.
 
 ### <a name="how-to-enable-the-consistencyguid-feature"></a>Come abilitare la funzionalità ConsistencyGuid
 Al momento la funzionalità può essere abilitata solo durante una nuova installazione di Azure AD Connect.
@@ -102,7 +102,7 @@ Quando si installa Azure AD Connect in modalità rapida, la procedura guidata di
 * In primo luogo, la procedura guidata di Azure AD Connect invia una query al tenant di Azure AD per recuperare l'attributo AD usato come attributo sourceAnchor nell'installazione di Azure AD Connect precedente (se presente). Se queste informazioni sono disponibili, Azure AD Connect usa lo stesso attributo AD.
 
   >[!NOTE]
-  > Solo le versioni più recenti di Azure AD Connect, 1.1.524.0 e successive, consentono di archiviare nel tenant di Azure AD le informazioni relative all'attributo sourceAnchor usato durante l'installazione. Le versioni precedenti di Azure AD Connect non lo consentono.
+  > Solo le versioni più recenti di Azure AD Connect, ovvero la 1.1.524.0 e successive, consentono di archiviare nel tenant di Azure AD le informazioni relative all'attributo sourceAnchor utilizzato durante l'installazione. Le versioni precedenti di Azure AD Connect non lo consentono.
 
 * Se le informazioni sull'attributo sourceAnchor usato non sono disponibili, la procedura guidata controlla lo stato dell'attributo ms-DS-ConsistencyGuid in Active Directory locale. Se l'attributo non è configurato in un qualsiasi oggetto nella directory, la procedura usa l'attributo ms-DS-ConsistencyGuid come attributo sourceAnchor. Se l'attributo è configurato su uno o più oggetti nella directory, la procedura conclude che l'attributo è usato da altre applicazioni e non è adatto come attributo sourceAnchor.
 
@@ -128,7 +128,7 @@ Quando si installa Azure AD Connect in modalità personalizzata, la procedura gu
 Se si ha una distribuzione di Azure AD Connect esistente che usa objectGUID come attributo dell'ancoraggio di origine, è possibile far sì che al suo posto usi ConsistencyGuid.
 
 >[!NOTE]
-> Solo le versioni più recenti di Azure AD Connect, 1.1.552.0 e successive, supportano il passaggio da ObjectGuid a ConsistencyGuid come attributo dell'ancoraggio di origine.
+> Solo le versioni più recenti di Azure AD Connect, ovvero la 1.1.552.0 e successive, supportano il passaggio da ObjectGuid a ConsistencyGuid per l'attributo sourceAnchor.
 
 Per passare da objectGUID a ConsistencyGuid come attributo dell'ancoraggio di origine:
 

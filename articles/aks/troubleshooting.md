@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287540"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025346"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di AKS
 Quando si creano o gestiscono cluster AKS, possono occasionalmente verificarsi problemi. Questo articolo illustra alcuni problemi comuni e i passaggi per la risoluzione dei problemi.
 
 ### <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-issues"></a>In generale, dove è possibile trovare informazioni sul debug di problemi di Kubernetes?
 
-[Qui] (https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) è un collegamento ufficiale per la risoluzione dei problemi dei cluster di Kubernetes.
+[Qui](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) è disponibile un collegamento ufficiale per la risoluzione dei problemi dei cluster Kubernetes.
 [Questo](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) è un collegamento a una guida di risoluzione dei problemi pubblicata da un tecnico Microsoft per la risoluzione dei problemi di pod, nodi, cluster e così via.
 
 ### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>Come si procede se viene visualizzato un errore di quota superata Cosa devo fare? 

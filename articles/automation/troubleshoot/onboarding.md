@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 044cb56b8991a1eb2dd6a1d35be621f2ffab3250
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 40a1955e88b23ecfb86412b388413b920dd2eb1a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064463"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407606"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Risoluzione di problemi di onboarding delle soluzioni
 
@@ -59,9 +59,11 @@ Controllare le notifiche nell'angolo inferiore destro del portale di Azure o pas
 
 ## <a name="mma-extension-failures"></a>Errori delle estensioni di MMA
 
-Quando si distribuisce una soluzione, vengono distribuite anche varie risorse correlate. Una di queste risorse è l'estensione Microsoft Monitoring Agent o l'agente di OMS per Linux. Si tratta di estensioni macchina virtuale installate dall'agente guest della macchina virtuale che è responsabile per la comunicazione con l'area di lavoro di Operations Management Suite (OMS) configurata, ai fini del successivo coordinamento del download dei file binari e di altri file da cui dipende la soluzione di cui si sta eseguendo l'onboarding, una volta cominciata l'esecuzione.
-In genere gli errori di installazione di MMA o dell'agente di OMS per Linux vengono notificati nell'hub delle notifiche. Facendo clic sulla notifica vengono visualizzate altre informazioni sull'errore specifico. Si possono visualizzare altri dettagli sugli errori di distribuzione che si sono verificati anche accedendo alla risorsa Gruppi di risorse e quindi all'elemento Distribuzioni al suo interno.
-L'installazione di MMA o dell'agente di OMS per Linux può non riuscire per diverse ragioni e la procedura per risolvere gli errori varia a seconda del problema. Di seguito vengono riportate le procedure per la risoluzione di problemi specifici.
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
+
+Quando si distribuisce una soluzione, vengono distribuite anche varie risorse correlate. Una di queste risorse è l'estensione Microsoft Monitoring Agent o l'agente di Log Analytics per Linux. Si tratta di estensioni della macchina virtuale installate dall'agente guest della macchina virtuale responsabile della comunicazione con l'area di lavoro di Log Analytics configurata; lo scopo è coordinare successivamente il download di file binari e di altri file da cui dipende la soluzione di cui si sta eseguendo l'onboarding, una volta cominciata l'esecuzione.
+In genere gli errori di installazione dell'estensione MMA o dell'agente di Log Analytics per Linux vengono notificati nell'Hub di notifica. Facendo clic sulla notifica vengono visualizzate altre informazioni sull'errore specifico. Si possono visualizzare altri dettagli sugli errori di distribuzione che si sono verificati anche accedendo alla risorsa Gruppi di risorse e quindi all'elemento Distribuzioni al suo interno.
+L'installazione dell'estensione MMA o dell'agente di Log Analytics per Linux può non riuscire per diverse ragioni e la procedura per risolvere gli errori varia a seconda del problema. Di seguito vengono riportate le procedure per la risoluzione di problemi specifici.
 
 Nella sezione seguente vengono descritti diversi problemi che possono verificarsi durante l'onboarding che causano errori nella distribuzione dell'estensione MMA.
 

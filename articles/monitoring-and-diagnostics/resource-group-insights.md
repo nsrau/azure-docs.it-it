@@ -9,15 +9,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 723006d37ed0570e32790a0bb70a3dce5a87ade8
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346701"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986424"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorare i gruppi di risorse con Monitoraggio di Azure (anteprima)
 
@@ -109,6 +109,16 @@ Viene visualizzata automaticamente una raccolta di cartelle di lavoro. Per il se
 In questo caso, se si seleziona l'opzione di modifica si noterà che questo set di visualizzazioni si basa sulle metriche di Monitoraggio di Azure.
 
  ![Screenshot della vista delle prestazioni con Metriche di Azure](.\media\resource-group-insights\0012-performance-metrics.png)
+
+## <a name="troubleshooting"></a>risoluzione dei problemi
+
+### <a name="enabling-access-to-alerts"></a>Abilitazione dell'accesso agli avvisi
+
+Per visualizzare gli avvisi in Monitoraggio di Azure per i gruppi di risorse, un utente con ruolo Proprietario o Collaboratore per questa sottoscrizione deve aprire Monitoraggio di Azure per i gruppi di risorse per qualsiasi gruppo di risorse nella sottoscrizione. Ciò consentirà a tutti gli utenti con accesso in lettura di visualizzare gli avvisi in Monitoraggio di Azure per i gruppi di risorse per tutti i gruppi di risorse nella sottoscrizione. Se si ha il ruolo Proprietario o Collaboratore, aggiornare questa pagina tra qualche minuto.
+
+Monitoraggio di Azure per i gruppi di risorse si basa sul sistema Gestione avvisi di Monitoraggio di Azure per recuperare lo stato dell'avviso. Gestione avvisi non è configurata per impostazione predefinita per ogni gruppo di risorse e sottoscrizione e può essere abilitata solo da un utente con ruolo Proprietario o Collaboratore. Può essere abilitata in uno dei modi seguenti:
+* Aprire Monitoraggio di Azure per i gruppi di risorse per qualsiasi gruppo di risorse nella sottoscrizione.
+* In alternativa, passare alla sottoscrizione, fare clic su **Provider di risorse** e quindi su **Register for Alerts.Management** (Iscriviti a Gestione avvisi).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

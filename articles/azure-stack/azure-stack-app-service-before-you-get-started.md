@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 08fcaa44fc807f986324b8304010792af99fd838
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388002"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240869"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Prima di iniziare con il servizio App in Azure Stack
 
@@ -170,7 +170,7 @@ Servizio App di Azure richiede l'uso di un file server. Per le distribuzioni di 
 Azure Stack Development Kit solo per le distribuzioni, è possibile usare la [modello di distribuzione Azure Resource Manager di esempio](https://aka.ms/appsvconmasdkfstemplate) per distribuire un server di file a nodo singolo configurato. Il server a nodo singolo file sarà un gruppo di lavoro.
 
 >[!IMPORTANT]
-> Se si sceglie di distribuire il servizio App in una rete virtuale esistente nel File Server deve essere distribuito in una Subnet separata dal servizio App.
+> Se si sceglie di distribuire il servizio App in una rete virtuale esistente, il File Server deve essere distribuito in una Subnet separata dal servizio App.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Effettuare il provisioning di gruppi e account in Active Directory
 

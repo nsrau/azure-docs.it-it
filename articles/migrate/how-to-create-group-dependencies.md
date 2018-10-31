@@ -4,28 +4,43 @@ description: Descrive come ridefinire una valutazione usando il mapping delle di
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2d2688799b1a0b4518b9c91bbc530936c834c5e3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622899"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407437"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Ridefinire un gruppo usando il mapping delle dipendenze del gruppo
 
-In questo articolo viene descritto come ridefinire un gruppo visualizzando le dipendenze di tutti i computer nel gruppo. In genere si usa questo metodo quando si vogliono ridefinire le appartenenze di un gruppo esistente, controllando in modo incrociato le dipendenze del gruppo, prima di eseguire una valutazione. La ridefinizione di un gruppo mediante la visualizzazione delle dipendenze può aiutare a pianificare la migrazione a Azure in modo efficace, in quanto consente di individuare tutti i sistemi interdipendenti che dovranno essere migrati. Garantisce inoltre una migrazione completa e senza interruzioni a sorpresa. 
+In questo articolo viene descritto come ridefinire un gruppo visualizzando le dipendenze di tutti i computer nel gruppo. In genere si usa questo metodo quando si vogliono ridefinire le appartenenze di un gruppo esistente, controllando in modo incrociato le dipendenze del gruppo, prima di eseguire una valutazione. Ridefinizione di un gruppo tramite la visualizzazione delle dipendenze è utile per pianificare in modo efficace la migrazione a Azure. È possibile individuare tutti i sistemi interdipendenti di cui è necessario eseguire la migrazione insieme. Garantisce inoltre una migrazione completa e senza interruzioni a sorpresa.
 
 
 > [!NOTE]
 > I gruppi per i quali si vuole visualizzare le dipendenze non devono includere più di 10 computer. Se il gruppo contiene più di 10 computer, è consigliabile suddividerlo in gruppi più piccoli per sfruttare la funzionalità di visualizzazione delle dipendenze.
 
 
-# <a name="prepare-the-group-for-dependency-visualization"></a>Preparare il gruppo per la visualizzazione delle dipendenze
-Per visualizzare le dipendenze di un gruppo, è necessario scaricare e installare gli agenti in ogni computer locale appartenente al gruppo. Inoltre, se si dispone di computer senza accesso a Internet, è necessario scaricare e installare il [gateway OMS](../log-analytics/log-analytics-oms-gateway.md).
+## <a name="prepare-for-dependency-visualization"></a>Prepararsi per la visualizzazione delle dipendenze
+Per abilitare la visualizzazione delle dipendenze dei computer, Azure Migrate usa la soluzione Mapping dei servizi in Log Analytics.
+
+### <a name="associate-a-log-analytics-workspace"></a>Associare un'area di lavoro di Log Analytics
+Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro di Log Analytics, nuova o esistente, a un progetto di Azure Migrate. È possibile creare o collegare solo un'area di lavoro nella stessa sottoscrizione in cui viene creato il progetto di migrazione.
+
+- Per collegare un'area di lavoro di Log Analytics a un progetto, in **Panoramica** passare alla sezione **Essentials** del progetto e fare clic su **Configurazione richiesta**
+
+    ![Associare un'area di lavoro di Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- Quando si crea una nuova area di lavoro è necessario specificare un nome per essa. L'area di lavoro viene quindi creata nella stessa sottoscrizione del progetto di migrazione e in una regione della stessa [area geografica di Azure](https://azure.microsoft.com/global-infrastructure/geographies/) come progetto di migrazione.
+- L'opzione **Usa esistente** elenca solo le aree di lavoro che vengono create nelle aree in cui è disponibile il Mapping dei servizi. Se si dispone di un'area di lavoro in un'area in cui il Mapping dei servizi non è disponibile, non verrà elencata nell'elenco a discesa.
+
+> [!NOTE]
+> Non è possibile modificare l'area di lavoro associata a un progetto di migrazione.
 
 ### <a name="download-and-install-the-vm-agents"></a>Scaricare e installare gli agenti di macchine virtuali
+Per visualizzare le dipendenze di un gruppo, è necessario scaricare e installare gli agenti in ogni computer locale appartenente al gruppo. Se si hanno computer senza accesso a Internet, è necessario scaricare e installare il [Gateway Log Analytics](../log-analytics/log-analytics-oms-gateway.md).
+
 1. In **Panoramica**, fare clic su **Gestisci** > **gruppi** e andare al gruppo desiderato.
 2. Nell'elenco di computer nella colonna **Dependency agent**, fare clic su **Richiede l'installazione** per visualizzare le istruzioni su come scaricare e installare gli agenti.
 3. Nella pagina **Dipendenze**, scaricare e installare Microsoft Monitoring Agent (MMA) e Dependency Agent in ogni macchina virtuale del gruppo.
@@ -37,8 +52,8 @@ Per installare l'agente in un computer Windows:
 
 1. Fare doppio clic sull'agente scaricato.
 2. Nella pagina di **benvenuto** fare clic su **Avanti**. Nella pagina **Condizioni di licenza** fare clic su **Accetto** per accettare la licenza.
-3. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**. 
-4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**. 
+3. In **Cartella di destinazione** mantenere o modificare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
+4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
 5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro di Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.
 
 
@@ -56,7 +71,7 @@ Per installare l'agente in un computer Linux:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Vedere altre informazioni sul supporto di Dependency Agent per i sistemi operativi [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) e [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems).
+Altre informazioni sul supporto di Dependency Agent per sistemi operativi [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) e [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems).
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>Ridefinire il gruppo in base alla visualizzazione delle dipendenze
 Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile visualizzare le dipendenze e ridefinirle seguendo i passaggi seguenti.
@@ -65,8 +80,8 @@ Dopo aver installato gli agenti in tutti i computer del gruppo, è possibile vis
 2. Nella pagina relativa al gruppo fare clic su  **Visualizza dipendenze** per aprire la mappa delle dipendenze del gruppo.
 3. La mappa delle dipendenze del gruppo mostra i dettagli seguenti:
     - Connessioni TCP in entrata (client) e in uscita (server) a/da tutti i computer che fanno parte del gruppo
-        - Le macchine dipendenti su cui non sono installati l'agente MMA e l'agente Dependency Agent verranno raggruppate in base ai numeri di porta
-        - I computer dipendenti in cui sono installati l'agente MMA e l'agente Dependency Agent sono visualizzati in caselle separate 
+        - I computer dipendenti in cui non sono installati l'agente MMA e l'agente Dependency Agent sono raggruppati in base ai numeri di porta
+        - I computer dipendenti in cui sono installati l'agente MMA e l'agente Dependency Agent sono visualizzati in caselle separate
     - I processi in esecuzione sul computer: è possibile espandere ogni casella di computer per visualizzare i processi
     - Proprietà quali: nome di dominio completo, sistema operativo, indirizzo MAC di ogni computer e così via. Fare clic su ogni casella macchina per visualizzare questi dettagli
 
@@ -86,5 +101,5 @@ Se si vogliono verificare le dipendenze di un computer specifico che viene visua
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-[Altre informazioni](concepts-assessment-calculation.md) sul modo in cui vengono calcolate le valutazioni.
+- [Altre informazioni](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) sulle domande frequenti sulla visualizzazione delle dipendenze.
+- [Altre informazioni](concepts-assessment-calculation.md) sul modo in cui vengono calcolate le valutazioni.

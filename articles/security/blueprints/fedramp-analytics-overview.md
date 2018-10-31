@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: jomolesk
-ms.openlocfilehash: db9e49cc4dc02b6864bee2dc4b73ff3c085f5380
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 0e5beb89f3ea2a5c14fc56af35112710964bdb16
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206527"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406569"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-fedramp"></a>Progetto di sicurezza e conformità di Azure: analisi per FedRAMP
 
@@ -37,7 +37,7 @@ Dopo che sono stati caricati nel database SQL di Azure e che ne è stato eseguit
 
 L'intera soluzione si basa su una risorsa di Archiviazione di Azure che i clienti con un account possono configurare nel portale di Azure. Archiviazione di Azure crittografa tutti i dati tramite la crittografia del servizio di archiviazione per mantenere la riservatezza dei dati inattivi.  L'archiviazione con ridondanza geografica garantisce che un evento negativo nel data center principale del cliente non comporti la perdita di dati perché una seconda copia verrà archiviata in una posizione separata lontana centinaia di chilometri.
 
-Per una sicurezza ottimale, questa architettura gestisce le risorse con Azure Active Directory in combinazione con Azure Key Vault. L'integrità del sistema viene monitorata tramite Operations Management Suite (OMS) e Monitoraggio di Azure. I clienti configurano entrambi i servizi di monitoraggio per acquisire i log e visualizzare l'integrità del sistema in un singolo dashboard, facilmente navigabile.
+Per una sicurezza ottimale, questa architettura gestisce le risorse con Azure Active Directory in combinazione con Azure Key Vault. L'integrità del sistema è monitorata tramite Log Analytics e Monitoraggio di Azure. I clienti configurano entrambi i servizi di monitoraggio per acquisire i log e visualizzare l'integrità del sistema in un singolo dashboard, facilmente navigabile.
 
 Il database SQL di Azure viene gestito in genere con SQL Server Management Studio (SSMS), eseguito in un computer locale configurato per l'accesso al database SQL di Azure tramite una connessione VPN o ExpressRoute sicura. **Azure consiglia di configurare una connessione Azure ExpressRoute o VPN per gestire e importare i dati nel gruppo di risorse dell'architettura di riferimento.**
 
@@ -59,15 +59,15 @@ L'utente operativo aggiorna regolarmente i dati ed è responsabile della generaz
 
 Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'architettura di distribuzione sono disponibili nella sezione [Architettura di distribuzione](#deployment-architecture).
 - Funzioni di Azure
-- Database SQL di Azure
+- database SQL di Azure
 - Azure Analysis Services
 - Azure Active Directory
 - Azure Key Vault
-- OMS
+- Azure Log Analytics
 - Monitoraggio di Azure
 - Archiviazione di Azure
 - Gateway VPN/ExpressRoute
-- Dashboard di Power BI
+- dashboard di Power BI
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 La sezione seguente descrive in modo dettagliato gli elementi di sviluppo e implementazione.
@@ -85,7 +85,7 @@ La sezione seguente descrive in modo dettagliato gli elementi di sviluppo e impl
 
 Per ognuno dei gruppi di sicurezza di rete sono aperti porte e protocolli specifici per garantire il funzionamento protetto e corretto della soluzione. Per ogni gruppo di sicurezza di rete sono abilitate anche le configurazioni seguenti:
   - [Log ed eventi di diagnostica](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) abilitati e archiviati in un account di archiviazione
-  - [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) di OMS connesso ai log di diagnostica dei gruppi di sicurezza di rete.
+  - [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) connesso ai log di diagnostica dei gruppi di sicurezza di rete.
 
 ### <a name="data-at-rest"></a>Dati inattivi
 L'architettura protegge i dati inattivi tramite la crittografia, il controllo del database e altre misure.
@@ -110,13 +110,13 @@ L'architettura protegge i dati inattivi tramite la crittografia, il controllo de
 
 ### <a name="logging-and-audit"></a>Registrazione e controllo
 [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) genera una visualizzazione completa dei dati di monitoraggio, ad esempio log attività, metriche e dati di diagnostica, consentendo ai clienti di creare un quadro completo dello stato del sistema.  
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) offre funzioni di registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. La soluzione [Log Analytics](https://azure.microsoft.com/services/log-analytics/) di OMS raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
+[Log Analytics](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) offre una registrazione completa delle attività di sistema e degli utenti, nonché dell'integrità del sistema. Raccoglie e analizza i dati generati dalle risorse in Azure e negli ambienti locali.
 - **Log attività**: i [log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) includono informazioni dettagliate sulle operazioni eseguite sulle risorse di una sottoscrizione.
 - **Log di diagnostica**: i [log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) includono tutti i log generati da ogni risorsa. Questi log includono i registri di sistema degli eventi di Windows e i log di Archiviazione BLOB di Azure, delle tabelle e delle code.
 - **Log del firewall**: il gateway applicazione genera log completi relativi a diagnostica e accesso. I log del firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
 - **Archiviazione dei log**: tutti i log di diagnostica scrivono in un account di archiviazione di Azure crittografato e centralizzato per l'archiviazione con un periodo di mantenimento definito di 2 giorni. Questi log si connettono quindi a Log Analytics di Azure per l'elaborazione, l'archiviazione e la creazione di report nel dashboard.
 
-Questa architettura include anche le soluzioni OMS seguenti:
+Questa architettura include anche le soluzioni di monitoraggio seguenti:
 -   [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): la soluzione Automazione di Azure archivia, esegue e gestisce i runbook.
 -   [Sicurezza e controllo](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): il dashboard Sicurezza e controllo offre informazioni dettagliate sullo stato di sicurezza delle risorse, grazie a metriche relative a domini di sicurezza, problemi rilevanti, rilevamenti, intelligence per le minacce e query comuni per la sicurezza.
 -   [Valutazione SQL](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): la soluzione Controllo integrità SQL valuta il rischio e l'integrità degli ambienti server a intervalli regolari e presenta un elenco classificato in ordine di priorità di consigli specifici per l'infrastruttura di server distribuita.
@@ -130,7 +130,7 @@ Questa architettura include anche le soluzioni OMS seguenti:
 Per altre informazioni sull'uso delle funzionalità di sicurezza del database SQL di Azure, vedere l'[applicazione demo di esempio Contoso Clinic](https://github.com/Microsoft/azure-sql-security-sample).
 
 ### <a name="security"></a>Sicurezza
-**Gestione dei segreti**: la soluzione usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi e dei segreti. Azure Key Vault consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud.
+**Gestione dei segreti**: la soluzione usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) per la gestione delle chiavi e dei segreti. L'insieme di credenziali delle chiavi di Azure consente di proteggere le chiavi e i segreti di crittografia usati da servizi e applicazioni cloud.
 
 ## <a name="guidance-and-recommendations"></a>Indicazioni e consigli
 
@@ -142,14 +142,14 @@ Per altre informazioni sull'uso delle funzionalità di sicurezza del database SQ
 
 ### <a name="additional-services"></a>Servizi aggiuntivi
 #### <a name="iaas---vm-vonsiderations"></a>Considerazioni su IaaS e sulle macchine virtuali
-Questa soluzione PaaS non incorpora alcuna macchina virtuale IaaS di Azure. Un cliente potrebbe creare una macchina virtuale di Azure per eseguire molti servizi PaaS descritti. In questo caso possono essere sfruttati servizi e funzionalità specifici per la continuità aziendale e OMS:
+Questa soluzione PaaS non incorpora alcuna macchina virtuale IaaS di Azure. Un cliente potrebbe creare una macchina virtuale di Azure per eseguire molti servizi PaaS descritti. In questo caso possono essere sfruttati servizi e funzionalità specifici per la continuità aziendale e Log Analytics:
 
 ##### <a name="business-continuity"></a>Continuità aziendale
 - **Disponibilità elevata**: i carichi di lavoro del server sono raggruppati in un [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) per assicurare la disponibilità elevata delle macchine virtuali in Azure. Almeno una macchina virtuale è disponibile durante un evento di manutenzione pianificato o non pianificato, rispettando il Contratto di servizio di Azure al 99,95%.
 
-- **Insieme di credenziali di Servizi di ripristino**: l'[insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) ospita i dati di backup e protegge tutte le configurazioni delle macchine virtuali di Azure in questa architettura. Con un insieme di credenziali di Servizi di ripristino i clienti possono ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale, consentendo tempi di ripristino più rapidi.
+- **Insieme di credenziali di Servizi di ripristino**: l'[insieme di credenziali di Servizi di ripristino](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) ospita i dati di backup e protegge tutte le configurazioni di Macchine virtuali di Azure in questa architettura. Con un insieme di credenziali di Servizi di ripristino i clienti possono ripristinare file e cartelle da una macchina virtuale IaaS senza ripristinare l'intera macchina virtuale, consentendo tempi di ripristino più rapidi.
 
-##### <a name="oms"></a>OMS
+##### <a name="monitoring-solutions"></a>Soluzioni di monitoraggio
 -   [Valutazione AD](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): la soluzione Controllo integrità Active Directory valuta il rischio e l'integrità degli ambienti server a intervalli regolari e presenta un elenco classificato in ordine di priorità di consigli specifici per l'infrastruttura di server distribuita.
 -   [Valutazione antimalware](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): la soluzione antimalware crea report relativi a malware, minacce e stato della protezione.
 -   [Gestione aggiornamenti](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): la soluzione Gestione aggiornamenti consente ai clienti di gestire gli aggiornamenti della sicurezza del sistema operativo, offrendo anche lo stato degli aggiornamenti disponibili e un processo per l'installazione di quelli necessari.
@@ -158,7 +158,7 @@ Questa soluzione PaaS non incorpora alcuna macchina virtuale IaaS di Azure. Un c
 
 ##### <a name="security"></a>Sicurezza
 - **Protezione da malware**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) per Macchine virtuali offre una funzionalità di protezione in tempo reale che consente di identificare e rimuovere virus, spyware e altro software dannoso con avvisi configurabili per i casi in cui un software dannoso o indesiderato prova a installare o eseguire se stesso su macchine virtuali protette.
-- **Gestione delle patch**: le macchine virtuali Windows distribuite come parte di questa architettura di riferimento vengono configurate per impostazione predefinita per ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione include anche il servizio [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro) di OMS, che consente di creare distribuzioni aggiornate per applicare patch alle macchine virtuali quando necessario.
+- **Gestione delle patch**: le macchine virtuali Windows distribuite come parte di questa architettura di riferimento sono configurate per impostazione predefinita in modo da ricevere aggiornamenti automatici dal servizio Windows Update. Questa soluzione include anche il servizio [Automazione di Azure](https://docs.microsoft.com/azure/automation/automation-intro) che consente di creare distribuzioni aggiornate per applicare patch alle macchine virtuali quando è necessario.
 
 #### <a name="azure-commercial"></a>Azure Commercial
 Sebbene questa architettura di analisi dei dati non sia progettata per la distribuzione nell'ambiente di [Azure Commercial](https://azure.microsoft.com/overview/what-is-azure/), obiettivi simili possono essere ottenuti tramite i servizi descritti in questa architettura di riferimento, nonché tramite servizi aggiuntivi disponibili solo nell'ambiente Azure Commercial. Azure Commercial mantiene un JAB P-ATO FedRAMP a livello di impatto moderato, consentendo agli enti e ai partner governativi di distribuire le informazioni moderatamente riservate nel cloud sfruttando l'ambiente Azure Commercial.

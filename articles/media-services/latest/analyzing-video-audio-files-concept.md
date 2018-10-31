@@ -9,20 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 36c30e11e8b7bd8b3e8ae3e424649998dcfff5bb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380715"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987614"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisi di file video e audio
 
 Servizi multimediali di Azure v3 consente anche di estrarre informazioni dettagliate da file audio e video con Video Indexer tramite i set di impostazioni di analisi di Servizi multimediali di Azure v3 descritti in questo articolo. Per ottenere informazioni più dettagliate, usare direttamente Video Indexer. Per comprendere quando è opportuno usare Video Indexer invece dei set di impostazioni di analisi di Servizi multimediali, vedere il [documento di confronto](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
 Per eseguire l'analisi con Servizi multimediali di Azure v3, si crea un oggetto **Transform** e si invia un oggetto **Job** che usa uno dei due set di impostazioni **AudioAnalyzerPreset** e **VideoAnalyzerPreset**. L'articolo seguente illustra come usare **VideoAnalyzerPreset**: [Esercitazione: Analizzare i video con Servizi multimediali di Azure](analyze-videos-tutorial-with-api.md).
+
+> [!NOTE]
+> Quando si usa un set di impostazioni di analisi video o audio, usare il portale di Azure per impostare l'account in modo che abbia 10 unità riservate di codifica S3. Per altre informazioni, vedere l'argomento relativo al [ridimensionamento dell'elaborazione di contenuti multimediali](../previous/media-services-scale-media-processing-overview.md).
 
 ## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
