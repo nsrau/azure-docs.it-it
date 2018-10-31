@@ -4,19 +4,24 @@ items:
 - name: Panoramica
   items:
   - name: Panoramica dei criteri di Azure
+    displayName: rbac, assign, initiative, parameters, count
     href: overview.md
 - name: Guide introduttive
   items:
   - name: Assegnare un criterio - Portale
+    displayName: assign, compliance
     href: assign-policy-portal.md
   - name: Assegnare un criterio - PowerShell
+    displayName: assign, compliance
     href: assign-policy-powershell.md
   - name: Assegnare un criterio - Interfaccia della riga di comando di Azure
+    displayName: assign, compliance
     href: assign-policy-azurecli.md
   expanded: true
 - name: Esercitazioni
   items:
   - name: Creare e gestire i criteri di Azure
+    displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
 - name: Esempi
   href: ./samples/index.md
@@ -26,164 +31,222 @@ items:
     - name: Denominazione
       items:
       - name: Consentire modelli nome multipli
+        displayName: deny, indexed
         href: samples/allow-multiple-name-patterns.md
       - name: Richiedere il modello like
+        displayName: deny, indexed
         href: samples/enforce-like-pattern.md
       - name: Richiedere il modello di corrispondenza
+        displayName: deny, indexed
         href: samples/enforce-match-pattern.md
       - name: Richiedere il modello di corrispondenza tag
+        displayName: deny, all
         href: samples/enforce-tag-match-pattern.md
     - name: Tag
       items:
       - name: Applicare il tag e il relativo valore predefinito
+        displayName: append, builtin, concat
         href: samples/apply-tag-def-val.md
       - name: Iniziativa relativa ai criteri dei tag di fatturazione
         href: samples/billing-tags-policy-init.md
       - name: Imporre un tag e il relativo valore
+        displayName: deny, concat, builtin
         href: samples/enforce-tag-val.md
       - name: Applicare un tag e il relativo valore a gruppi di risorse
+        displayName: deny, concat
         href: samples/enforce-tag-rg.md
     - name: Località
       items:
       - name: Percorsi consentiti
+        displayName: deny, builtin, location
         href: samples/allowed-locs.md
     - name: Tipi di risorse
       items:
       - name: Tipi di risorse consentiti
+        displayName: deny, builtin, resourceTypes
         href: samples/allowed-res-types.md
       - name: Tipi di risorse non consentiti
+        displayName: deny, builtin, resourceTypes
         href: samples/not-allowed-res-type.md
   - name: Calcolo
     items:
     - name: Macchine virtuali
       items:
       - name: Consentire un'immagine di macchina virtuale personalizzata da un gruppo di risorse
+        displayName: deny, concat, ExistingResourceGroups
         href: samples/allow-custom-vm-image.md
       - name: SKU consentiti per account di archiviazione e macchine virtuali
+        displayName: initiative, vmSKUs, storageSKUs
         href: samples/allowed-skus-storage.md
       - name: Immagini di macchine virtuali approvate
+        displayName: deny
         href: samples/allowed-custom-images.md
       - name: Controllare se l'estensione non esiste
+        displayName: auditIfNotExists
         href: samples/audit-ext-not-exist.md
       - name: Estensioni di macchine virtuali non consentite
+        displayName: deny
         href: samples/not-allowed-vm-ext.md
     - name: set di scalabilità di macchine virtuali
       items:
       - name: Controllare quando la macchina virtuale non usa il disco gestito
+        displayName: audit
         href: samples/create-vm-managed-disk.md
       - name: Creare una macchina virtuale usando un disco gestito
+        displayName: deny
         href: samples/use-managed-disk-vm.md
       - name: Deny hybrid use benefit (Rifiuta vantaggio Hybrid Use)
+        displayName: deny
         href: samples/deny-hybrid-use.md
       - name: Consentire solo una determinata immagine della piattaforma della macchina virtuale
+        displayName: deny
         href: samples/allow-certain-vm-image.md
   - name: Data Lake
     items:
     - name: Applicare la crittografia di Data Lake Store
+      displayName: deny
       href: samples/enforce-datalakestore-encryption.md
   - name: Monitoraggio
     items:
     - name: Audit diagnostic setting (Controllare le impostazioni di diagnostica)
+      displayName: auditIfNotExists, resourceTypes
       href: samples/audit-diag-setting.md
   - name: Rete
     items:
     - name: Interfacce di rete
       items:
       - name: NSG X in ogni scheda di interfaccia di rete
+        displayName: deny
         href: samples/nsg-on-nic.md
       - name: Usare una subnet approvata per le interfacce di rete delle macchine virtuali
+        displayName: deny
         href: samples/use-approved-subnet-vm-nics.md
       - name: Usare una rete virtuale approvata per le interfacce di rete delle macchine virtuali
+        displayName: deny, concat
         href: samples/use-approved-vnet-vm-nics.md
     - name: Reti virtuali
       items:
       - name: SKU del gateway applicazione consentiti
+        displayName: deny
         href: samples/allowed-app-gate-sku.md
       - name: Nessun peering reti per la rete ER
+        displayName: deny, all, concat, ExistingResourceGroups
         href: samples/no-peering-er-net.md
       - name: Nessuna tabella di route definita dall'utente
+        displayName: deny, all
         href: samples/no-user-def-route-table.md
       - name: NSG X in ogni subnet
+        displayName: deny, all
         href: samples/nsg-on-subnet.md
       - name: Usare una subnet approvata per le interfacce di rete delle macchine virtuali
+        displayName: deny
         href: samples/use-approved-subnet-vm-nics.md
       - name: Usare una rete virtuale approvata per le interfacce di rete delle macchine virtuali
+        displayName: deny
         href: samples/use-approved-vnet-vm-nics.md
     - name: Gruppi di sicurezza di rete
       items:
       - name: NSG X in ogni scheda di interfaccia di rete
+        displayName: deny
         href: samples/nsg-on-nic.md
       - name: NSG X in ogni subnet
+        displayName: deny, all
         href: samples/nsg-on-subnet.md
     - name: Istanze di ExpressRoute
       items:
       - name: Larghezza di banda di Express Route consentita
+        displayName: deny
         href: samples/allowed-er-band.md
       - name: SKU di Express Route consentiti
+        displayName: deny
         href: samples/allowed-er-skus.md
       - name: Località di peering consentita per Express Route
+        displayName: deny, Location
         href: samples/allowed-peering-er.md
     - name: Network Watcher
       items:
       - name: Controllare se Network Watcher non è abilitato per l'area
+        displayName: auditIfNotExists, Location
         href: samples/net-watch-not-enabled.md
     - name: Gateway di applicazione
       items:
       - name: SKU del gateway applicazione consentiti
+        displayName: deny
         href: samples/allowed-app-gate-sku.md
   - name: SQL
     items:
     - name: Server SQL
       items:
       - name: Controlla l'assenza di un amministratore per Azure Active Directory
+        displayName: auditIfNotExists
         href: samples/audit-no-aad-admin.md
       - name: Controllare l'impostazione di rilevamento delle minacce a livello di server
+        displayName: auditIfNotExists
         href: samples/audit-sql-ser-threat-det-setting.md
       - name: Verificare le impostazioni di controllo di SQL Server
+        displayName: auditIfNotExists, builtin
         href: samples/sql-server-audit.md
       - name: Controllare l'impostazione di controllo a livello di SQL Server
+        displayName: auditIfNotExists
         href: samples/audit-sql-ser-leve-audit-setting.md
       - name: Richiedere SQL Server versione 12.0
+        displayName: deny, builtin
         href: samples/req-sql-12.md
     - name: DATABASE SQL
       items:
       - name: SKU del database SQL consentiti
+        displayName: deny
         href: samples/allowed-sql-db-skus.md
       - name: Controllare l'impostazione di rilevamento delle minacce a livello di database SQL
+        displayName: auditIfNotExists
         href: samples/audit-db-threat-det-setting.md
       - name: Controllare la crittografia del database SQL
+        displayName: auditIfNotExists, disabled, indexed, builtin
         href: samples/sql-database-encryption-audit.md
       - name: Controllare l'impostazione di controllo a livello di database SQL
+        displayName: auditIfNotExists
         href: samples/audit-sql-db-audit-setting.md
   - name: Archiviazione
     items:
     - name: SKU consentiti per l'account di archiviazione e le macchine virtuali
+      displayName: initiative, vmSKUs, storageSKUs
       href: samples/allowed-skus-storage.md
     - name: SKU degli account di archiviazione consentiti
+      displayName: deny, builtin, storageSKUs
       href: samples/allowed-stor-acct-skus.md
     - name: Rifiutare la suddivisione in livelli di accesso sporadico per gli account di archiviazione
+      displayName: deny, all
       href: samples/deny-cool-access-tiering.md
     - name: Assicurare solo traffico HTTPS per un account di archiviazione
+      displayName: deny, all
       href: samples/ensure-https-stor-acct.md
     - name: Assicurare la crittografia dei file di archiviazione
+      displayName: deny, all
       href: samples/ensure-store-file-enc.md
     - name: Richiedere la crittografia dell'account di archiviazione
+      displayName: deny, builtin
       href: samples/req-store-acct-enc.md
 - name: Concetti
   items:
   - name: Struttura delle definizioni di criteri di Azure
+    displayName: parameters, location, rule, alias, initiatives
     href: ./concepts/definition-structure.md
   - name: Informazioni sugli effetti di Criteri
+    displayName: order, evaluation
     href: ./concepts/effects.md
   - name: Controllare le VM con la configurazione guest
+    displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
 - name: Guide alle procedure
   items:
   - name: Creare criteri a livello di programmazione
+    displayName: assign, definition
     href: ./how-to/programmatically-create.md
   - name: Ottenere dati sulla conformità
+    displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/getting-compliance-data.md
   - name: Correggere le risorse non conformi
+    displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
 - name: riferimento
   items:
@@ -227,9 +290,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: UserVoice
     href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: ba412513631e9a130e3f95ac772e6d0076c63071
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3fbe1f250dbf07fc27f9fda58f6ea85347066018
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221462"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248371"

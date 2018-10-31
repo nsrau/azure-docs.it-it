@@ -4,7 +4,6 @@
 ## [Informazioni su Azure Active Directory](fundamentals/active-directory-whatis.md)
 ## [Informazioni sulla Gestione delle identità di Azure](fundamentals/identity-fundamentals.md)
 ## [Informazioni sulle soluzioni di gestione delle identità di Azure](fundamentals/understand-azure-identity-solutions.md)
-## [Scegliere una soluzione ibrida di gestione delle identità](choose-hybrid-identity-solution.md)
 ## [Associate Azure subscriptions](fundamentals/active-directory-how-subscriptions-associated-directory.md) (Associare le sottoscrizioni di Azure)
 ## [Considerazioni sulla residenza e sui dati](fundamentals/active-directory-data-storage-eu.md)
 ## [Domande frequenti](fundamentals/active-directory-faq.md)
@@ -47,7 +46,6 @@
 ### [Aggiungere nuovi utenti ad Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Gestire i profili utente](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [Reimpostare le password utente](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [Condividere gli account](active-directory-sharing-accounts.md)
 ### [Assegnare utenti a ruoli amministrativi](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Aggiungere utenti guest da un'altra directory (B2B)](b2b/what-is-b2b.md)
 #### [Aggiunta di utenti B2B da parte di amministratori](b2b/add-users-administrator.md)
@@ -320,9 +318,7 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [Distribuire AD FS in Azure](hybrid/how-to-connect-fed-azure-adfs.md)
-### [Disponibilità elevata](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-### [Modificare l'algoritmo hash della firma](active-directory-federation-sha256-guidance.md)
+
 
 ## [Risolvere i problemi](fundamentals/active-directory-troubleshooting-support-howto.md)
 
