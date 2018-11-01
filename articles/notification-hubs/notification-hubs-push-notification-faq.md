@@ -1,5 +1,5 @@
 ---
-title: Hub di notifica di Azure - Domande frequenti (FAQ) | Microsoft Docs
+title: Hub di notifica di Azure - Domande frequenti (FAQ) | Documentazione Microsoft
 description: Domande frequenti su progettazione/implementazione di soluzioni di Hub di notifica
 services: notification-hubs
 documentationcenter: mobile
@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/14/2018
+ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: fbdb52b1b2dee682021fd822d584551f41f723ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778512"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251023"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifiche push sicure con Hub di notifica di Azure - Domande frequenti
 ## <a name="general"></a>Generale
@@ -70,7 +70,7 @@ Passare al **[portale di Azure]** > **Spazi dei nomi di Hub di notifica** o **Hu
 Gli SDK server sono disponibili per .NET, Java, Node.js, PHP e Python. Le API di Hub di notifica si basano su interfacce REST, pertanto è possibile lavorare direttamente con le API REST se si usano piattaforme diverse o se non si desidera una dipendenza aggiuntiva. Per altre informazioni, vedere la pagina sulle [API REST di Hub di notifica].
 
 ### <a name="which-client-platforms-do-you-support"></a>Quali piattaforme client sono supportate?
-È supportato l'invio di notifiche push alle piattaforme [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Introduzione ad Hub di notifica].
+È supportato l'invio di notifiche push alle piattaforme [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md), [Android](notification-hubs-android-push-notification-google-gcm-get-started.md), [Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md), [Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md), [Kindle](notification-hubs-kindle-amazon-adm-push-notification.md), [Android China (via Baidu)](notification-hubs-baidu-china-android-notifications-get-started.md), Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md) e [Android](xamarin-notification-hubs-push-notifications-android-gcm.md)), [Chrome Apps](notification-hubs-chrome-push-notifications-get-started.md) e [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari). Per altre informazioni, vedere la pagina [Esercitazioni introduttive si Hub di notifica].
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>Sono supportate le notifiche via SMS, messaggi di posta elettronica o Web?
 Hub di notifica è progettato principalmente per l'invio di notifiche alle app per dispositivi mobili. Non offre funzionalità di posta elettronica o SMS. Esistono però piattaforme di terze parti che forniscono queste funzionalità e che possono essere integrate con Hub di notifica per inviare notifiche push native tramite [App per dispositivi mobili].
@@ -154,7 +154,7 @@ Tutte le connessioni, dal mittente a Hub notifiche di Azure al PNS, usano HTTPS.
 > 
 > 
 
-Per l'invio di payload sensibili è consigliabile usare un modello push sicuro. Il mittente invia una notifica ping con un identificatore di messaggio al dispositivo senza il payload sensibile. Quando l'app sul dispositivo riceve il payload, l'applicazione chiama un'API sicura direttamente per recuperare i dettagli del messaggio. Per informazioni di guida su come implementare questo modello, vedere la pagina sull'[esercitazione relativa al push sicuro di Hub di notifica].
+Per l'invio di payload sensibili è consigliabile usare un modello push sicuro. Il mittente invia una notifica ping con un identificatore di messaggio al dispositivo senza il payload sensibile. Quando l'app sul dispositivo riceve il payload, l'applicazione chiama un'API sicura direttamente per recuperare i dettagli del messaggio. Per informazioni di guida su come implementare questo modello, vedere la pagina sull'[Esercitazione sul push sicuro di Hub di notifica].
 
 ## <a name="operations"></a>Operazioni
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Quale supporto è fornito per il ripristino di emergenza?
@@ -184,7 +184,7 @@ Tutte le operazioni di gestione di Hub di notifica passano ai log delle operazio
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitoraggio e risoluzione dei problemi
 ### <a name="what-troubleshooting-capabilities-are-available"></a>Quali funzionalità di risoluzione dei problemi sono disponibili?
-Hub di notifica di Azure fornisce numerose funzionalità per la risoluzione dei problemi, in particolare nello scenario frequente delle notifiche eliminate. Per informazioni dettagliate, vedere il white paper sulla [risoluzione dei problemi relativi a Hub di notifica].
+Hub di notifica di Azure fornisce numerose funzionalità per la risoluzione dei problemi, in particolare nello scenario frequente delle notifiche eliminate. Per informazioni dettagliate, vedere il white paper sulla [Risoluzione dei problemi di Hub di notifica].
 
 ### <a name="what-telemetry-features-are-available"></a>Sono disponibili le funzionalità di telemetria?
 Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel [portale di Azure]. Per informazioni dettagliate sulle metriche, vedere la pagina relativa alle [metriche di Hub di notifica].
@@ -196,7 +196,7 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 
 È disponibile anche l'opzione di esportare i dati di telemetria a livello di codice (nel livello Standard). Per informazioni dettagliate, vedere l'[esempio sulle metriche di Hub di notifica].
 
-[portale di Azure]: https://portal.azure.com
+[Portale di Azure]: https://portal.azure.com
 [Prezzi di Hub di notifica]: http://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
 [Case Study: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
@@ -205,16 +205,16 @@ Hub di notifica di Azure consente la visualizzazione dei dati di telemetria nel 
 [Case Study: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Case Study: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [API REST di Hub di notifica]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Introduzione ad Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Esercitazioni introduttive si Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [esercitazione per app Chrome]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
 [Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
 [Registrazione dal back-end dell'app]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Guida alla registrazione del back-end 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[modello di sicurezza di Hub di notifica]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[esercitazione relativa al push sicuro di Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[risoluzione dei problemi relativi a Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[metriche di Hub di notifica]: https://msdn.microsoft.com/library/dn458822.aspx
-[esempio sulle metriche di Hub di notifica]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[Modello di sicurezza di Hub di notifica]: https://msdn.microsoft.com/library/azure/dn495373.aspx
+[Esercitazione sul push sicuro di Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Risoluzione dei problemi di Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Metriche di Hub di notifica]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Esempio sulle metriche di Hub di notifica]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [esportazione/importazione delle registrazioni]: https://msdn.microsoft.com/library/dn790624.aspx
 [Portale di Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
