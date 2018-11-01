@@ -1,4 +1,16 @@
-
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 9919521c8cb77f23f50a8097c4e630b4467dc725
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166336"
+---
 ### <a name="installation-failures"></a>Errori di installazione
 | **Messaggio di errore di esempio** | **Azione consigliata** |
 |--------------------------|------------------------|

@@ -1,5 +1,16 @@
-
-
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 658fd9178495f14274c85eab2129c9dcd3be7693
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164909"
+---
 | **Identificatore limite** | **Limite** | **Commenti** |
 | --- | --- | --- |
 | Capacità totale (incluso il cloud) |Fino a 64 TB per dispositivo virtuale |È possibile eseguire il failover di un array virtuale StorSimple completo in un altro array vuoto. Se si prova a eseguire il ripristino nello stesso dispositivo, assicurarsi che lo spazio disponibile sul dispositivo sia sufficiente per completare questa operazione. Dopo il superamento di 32 TB, non è possibile eseguire il ripristino nello stesso dispositivo. |

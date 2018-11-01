@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 12a660b49d1a81865c34ceda38f041de9be31eb1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc4a1a7f99de657a6199985dd0c963eed741ac97
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037474"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210024"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Guida introduttiva: Usare l'app Home Automation predefinita
 
@@ -23,7 +23,7 @@ In questa guida introduttiva si crea un'app LUIS che usa il dominio predefinito 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questo articolo è necessario un account LUIS gratuito, creato nel portale LUIS all'indirizzo [http://www.luis.ai](http://www.luis.ai). 
+Per questo articolo è necessario un account LUIS gratuito, creato nel portale LUIS all'indirizzo [https://www.luis.ai](https://www.luis.ai). 
 
 ## <a name="create-a-new-app"></a>Creare una nuova app
 È possibile creare e gestire le applicazioni in **My Apps** (App personali). 

@@ -13,19 +13,19 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: fee22c7f0215a53794869b4b775cb59a582d4992
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 94fd95414d8cf277d3c061d331a14febebf47485
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858618"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085794"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Archiviare dati non strutturati usando Funzioni di Azure e Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) offre un approccio ottimale per archiviare dati non strutturati e JSON. Insieme a Funzioni di Azure, Cosmos DB semplifica e velocizza l'archiviazione dei dati con una quantità minore di codice rispetto a quella necessaria per l'archiviazione dei dati in un database relazionale.
 
 > [!NOTE]
-> Al momento, il trigger e i binding di input e output di Azure Cosmos DB funzionano solo con gli account API SQL e API Graph.
+> Al momento, il trigger e le associazioni di input e output di Azure Cosmos DB funzionano solo con gli account API SQL e API Graph.
 
 In Funzioni di Azure, i binding di input e di output forniscono una modalità dichiarativa per connettersi a dati di servizio esterni dalla funzione. Questo articolo illustra come aggiornare una funzione esistente per l'aggiunta di un binding di output che archivia dati non strutturati in un documento di Azure Cosmos DB.
 
@@ -59,7 +59,7 @@ Prima di creare il binding di output è necessario un account Azure Cosmos DB ch
 
     ![Configurare il binding di output di Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
-    | Impostazione      | Valore consigliato  | Descrizione                                |
+    | Impostazione      | Valore consigliato  | DESCRIZIONE                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nome del parametro del documento** | taskDocument | Nome che fa riferimento all'oggetto Cosmos DB nel codice. |
     | **Nome database** | taskDatabase | Nome del database per il salvataggio dei documenti. |
@@ -83,6 +83,7 @@ Sostituire la funzione C# esistente con il codice seguente:
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 public static IActionResult Run(HttpRequest req, out object taskDocument, ILogger log)
 {

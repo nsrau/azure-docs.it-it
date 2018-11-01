@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 8e6db54853efcba4d648c1d3bc793a9d1ce57441
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165537"
+---
 <!--author=alkohli last changed: 9/16/15-->
 
 

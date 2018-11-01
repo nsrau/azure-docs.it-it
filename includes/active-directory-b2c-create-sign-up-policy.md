@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 511b05e6cae769a5b39ae81a3e67efd05d374511
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132816"
+---
 Se si vuole abilitare solo l'iscrizione nell'applicazione, si usano i criteri di **iscrizione**. Questi criteri descrivono l'esperienza utente durante la procedura di iscrizione e il contenuto dei token che l'applicazione riceverà al completamento dell'iscrizione.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
@@ -14,7 +27,7 @@ Fare clic su **Attributi iscrizione**. Qui è possibile scegliere gli attributi 
 
 Fare clic su **Attestazioni applicazione**. Qui si scelgono le attestazioni che verranno restituite all'applicazione nei token inviati al termine di una corretta esperienza di iscrizione. Selezionare ad esempio **Nome visualizzato**, **Provider di identità**, **Codice postale**, **L'utente è nuovo** e l'**ID oggetto dell'utente**.
 
-Fare clic su **Crea**. Il criterio creato viene visualizzato come **B2C_1_SiUp** (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di iscrizione**.
+Fare clic su **Create**(Crea). Il criterio creato viene visualizzato come **B2C_1_SiUp** (il frammento **B2C\_1\_** viene aggiunto automaticamente) nel pannello **Criteri di iscrizione**.
 
 Aprire il criterio facendo clic su **B2C_1_SiUp**.
 

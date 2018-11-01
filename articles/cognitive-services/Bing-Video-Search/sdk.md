@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: conceptual
 ms.date: 1/25/2018
 ms.author: rosh
-ms.openlocfilehash: 3d8656748a9632ac20b6a658e4bcbdd647c0573e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 951ab55d737a4344c5523aad2991c42fa143316e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224682"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214495"
 ---
 # <a name="bing-search-sdk"></a>Bing Search SDK
 Gli esempi dell'API Ricerca video Bing includono scenari di:
@@ -31,7 +31,7 @@ I Bing Search SDK rendono facilmente accessibile la funzionalità di ricerca Web
 * Introduzione agli [esempi Node.js](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * Vedere anche [Librerie Node.js](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/videoSearch) per le definizioni e le dipendenze.
 * Introduzione agli [esempi Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * Vedere anche [Librerie Java](h https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) per le definizioni e le dipendenze.
+    * Vedere anche [Librerie Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) per le definizioni e le dipendenze.
 * Introduzione agli [esempi Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * Vedere anche [Librerie Python](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-videosearch) per le definizioni e le dipendenze.
 

@@ -1,27 +1,27 @@
 ---
-title: Archiviazione non modificabile per Archiviazione BLOB di Azure (anteprima) | Microsoft Docs
+title: Archiviazione non modificabile per i BLOB del servizio di archiviazione di Azure | Microsoft Docs
 description: Archiviazione di Azure offre il supporto WORM per l'archiviazione BLOB (oggetti), che consente agli utenti di archiviare i dati in uno stato non cancellabile e non modificabile per un intervallo specificato.
 services: storage
-author: sangsinh
+author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
-ms.author: sangsinh
+ms.date: 09/18/2018
+ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: cfc25906e926e8dd6687eeccd311a38653772c4d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 38e34391294e1a070d506583fbc30dcdb703bea0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398999"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156902"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage-preview"></a>Archiviare dati business critical in Archiviazione BLOB di Azure (anteprima)
+# <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
 
 L'archiviazione non modificabile per i BLOB di Azure (oggetti) consente agli utenti di archiviare i dati business critical in uno stato WORM (Write Once, Read Many). Questo stato rende i dati non cancellabili e non modificabili per un intervallo di tempo specificato dall'utente. Per la durata dell'intervallo di conservazione, i BLOB possono essere creati e letti, ma non modificati o eliminati.
 
 ## <a name="overview"></a>Panoramica
 
-L'archiviazione non modificabile aiuta le istituzioni finanziarie e i settori correlati, in particolare le organizzazioni che si occupano di intermediazione finanziaria, ad archiviare i dati in modo sicuro.
+L'archiviazione non modificabile aiuta le istituzioni finanziarie e i settori correlati, in particolare le organizzazioni che si occupano di intermediazione finanziaria, ad archiviare i dati in modo sicuro. Può essere sfruttata anche in qualsiasi altro scenario per proteggere i dati critici dall'eliminazione.  
 
 Le applicazioni tipiche includono:
 
@@ -37,7 +37,7 @@ L'archiviazione non modificabile offre:
 
 - **Supporto per i criteri di blocco a fini giudiziari**: quando l'intervallo di conservazione non è noto, gli utenti possono impostare blocchi a fini giudiziari per archiviare i dati in modo non modificabile finché non viene rimosso il blocco.  Quando viene impostato un blocco a fini giudiziari, i BLOB possono essere creati e letti, ma non modificati o eliminati. Ogni blocco a fini giudiziari è associato a un tag alfanumerico definito dall'utente che viene usato come stringa di identificazione, ad esempio un ID del caso.
 
-- **Supporto per tutti i livelli BLOB**: i criteri WORM sono indipendenti dal livello di Archiviazione BLOB di Azure e si applicano a tutti i livelli (ad accesso frequente, ad accesso sporadico e archivio). Gli utenti possono archiviare i dati nel livello con i costi ottimali per i carichi di lavoro, mantenendo al tempo stesso la non modificabilità dei dati.
+- **Supporto per tutti i livelli BLOB**: i criteri WORM sono indipendenti dal livello di Archiviazione BLOB di Azure e si applicano a tutti i livelli (ad accesso frequente, ad accesso sporadico e archivio). Gli utenti possono trasferire i dati nel livello con i costi ottimali per i carichi di lavoro, mantenendo al tempo stesso la non modificabilità dei dati.
 
 - **Configurazione a livello di contenitore**: gli utenti possono configurare criteri di conservazione basati sul tempo e tag di blocco a fini giudiziari a livello di contenitore. Grazie a semplici impostazioni a livello di contenitore, gli utenti possono creare e bloccare i criteri di conservazione basati sul tempo, estendere gli intervalli di conservazione, impostare e rimuovere i blocchi a fini giudiziari e così via. Questi criteri si applicano a tutti i BLOB nel contenitore, nuovi ed esistenti.
 
@@ -54,13 +54,13 @@ Quando in un contenitore vengono applicati criteri di conservazione basati sul t
 > [!IMPORTANT]
 > I criteri di conservazione basati sul tempo devono essere *bloccati* perché il BLOB sia in uno stato non modificabile (protetto da scrittura ed eliminazione) per la conformità a SEC 17a-4(f) e ad altri requisiti normativi. È consigliabile bloccare i criteri in un periodo di tempo ragionevole, in genere entro 24 ore. Non è consigliabile usare lo stato *sbloccato* per scopi diversi da valutazioni delle funzionalità a breve termine.
 
-Quando vengono applicati criteri di conservazione basati sul tempo a un contenitore, tutti i BLOB nel contenitore rimangono nello stato non modificabile per la durata del periodo di conservazione *effettivo*. Il periodo di conservazione effettivo per i BLOB esistenti è uguale alla differenza tra l'ora di creazione del BLOB e il periodo di conservazione specificato dall'utente. 
+Quando vengono applicati criteri di conservazione basati sul tempo a un contenitore, tutti i BLOB nel contenitore rimangono nello stato non modificabile per la durata del periodo di conservazione *effettivo*. Il periodo di conservazione effettivo per i BLOB esistenti è uguale alla differenza tra l'ora di creazione del BLOB e il periodo di conservazione specificato dall'utente.
 
-Per i nuovi BLOB, il periodo di conservazione effettivo è uguale all'intervallo di conservazione specificato dall'utente. Poiché gli utenti possono modificare l'intervallo di conservazione, l'archiviazione non modificabile usa il valore più recente dell'intervallo di conservazione specificato dall'utente per calcolare il periodo di conservazione effettivo.
+Per i nuovi BLOB, il periodo di conservazione effettivo è uguale all'intervallo di conservazione specificato dall'utente. Poiché gli utenti possono estendere l'intervallo di conservazione, l'archiviazione non modificabile usa il valore più recente dell'intervallo di conservazione specificato dall'utente per calcolare il periodo di conservazione effettivo.
 
 > [!TIP]
 > Esempio:
-> 
+>
 > Un utente crea criteri di conservazione basati sul tempo con un intervallo di conservazione di cinque anni.
 >
 > Nel contenitore è presente un BLOB, testblob1, creato un anno prima. Il periodo di conservazione effettivo per testblob1 è di quattro anni.
@@ -77,35 +77,30 @@ La tabella seguente illustra i tipi di operazioni BLOB che vengono disabilitate 
 
 |Scenario  |Stato BLOB  |Operazioni BLOB non consentite  |
 |---------|---------|---------|
-|L'intervallo di conservazione effettivo nel BLOB non è ancora scaduto e/o è impostato un blocco a fini giudiziari     |Non modificabile: protetto da eliminazione e scrittura         |Delete Container, Delete Blob, Put Blob1, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
-|L'intervallo di conservazione effettivo nel BLOB è scaduto     |Solo protetto da scrittura (le operazioni di eliminazione sono consentite)         |Put Blob, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
+|L'intervallo di conservazione effettivo nel BLOB non è ancora scaduto e/o è impostato un blocco a fini giudiziari     |Non modificabile: protetto da eliminazione e scrittura         |Delete Container, Delete Blob, Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
+|L'intervallo di conservazione effettivo nel BLOB è scaduto     |Solo protetto da scrittura (le operazioni di eliminazione sono consentite)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties,  Snapshot Blob, Incremental Copy Blob, Append Block         |
 |Tutti i blocchi a fini giudiziari sono stati rimossi e non sono impostati criteri di conservazione basati sul tempo nel contenitore     |Modificabile         |Nessuna         |
 |Non sono stati creati criteri WORM (conservazione basata sul tempo o blocco a fini giudiziari)     |Modificabile         |Nessuna         |
 
+<sup>1</sup> L'applicazione può chiamare questa operazione per creare un BLOB una sola volta. Tutte le operazioni successive sul BLOB non sono consentite.
+
 > [!NOTE]
-> La prima operazione Put Blob e le operazioni Put Block List e Put Block necessarie per creare un BLOB sono consentite nei primi due scenari della tabella precedente. Tutte le operazioni successive non sono consentite.
 >
-> L'archiviazione non modificabile è disponibile solo negli account di archiviazione BLOB e GPv2. La creazione deve avvenire tramite [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> L'archiviazione non modificabile è disponibile solo negli account di archiviazione BLOB e per utilizzo generico V2. L'account deve essere creato tramite [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Prezzi
 
-Per l'uso di questa funzionalità non sono previsti costi aggiuntivi. Il prezzo dei dati non modificabili è lo stesso dei normali dati modificabili. Per informazioni sui prezzi, vedere la [pagina dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Per l'uso di questa funzionalità non sono previsti costi aggiuntivi. Il prezzo dei dati non modificabili è lo stesso dei normali dati modificabili. Per informazioni sui prezzi di Archiviazione BLOB di Azure, vedere la [pagina dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-### <a name="restrictions"></a>Restrizioni
-
-Durante l'anteprima pubblica si applicano le restrizioni seguenti:
-
-- *Non archiviare dati di produzione o business critical.*
-- Si applicano tutte le restrizioni relative all'anteprima e all'accordo di riservatezza.
 
 ## <a name="getting-started"></a>Introduzione
 
-Le versioni più recenti del [portale di Azure](http://portal.azure.com), l'[interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) supportano l'archiviazione non modificabile per Archiviazione BLOB di Azure.
+Le versioni più recenti del [portale di Azure](http://portal.azure.com) e dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e la versione di anteprima di [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) supportano l'archiviazione non modificabile per Archiviazione BLOB di Azure.
 
 ### <a name="azure-portal"></a>Portale di Azure
 
 1. Creare un nuovo contenitore o selezionare un contenitore esistente per archiviare i BLOB che devono essere mantenuti nello stato non modificabile.
- Il contenitore deve essere in un account di archiviazione per utilizzo generico v2.
+ Il contenitore deve essere in un account di archiviazione per utilizzo generico v2 o BLOB.
 2. Selezionare **Criteri di accesso** nelle impostazioni del contenitore. Selezionare quindi **+ Aggiungi criteri** in **Archivio BLOB non modificabile**.
 
     ![Impostazioni del contenitore nel portale](media/storage-blob-immutable-storage/portal-image-1.png)
@@ -134,11 +129,9 @@ Le versioni più recenti del [portale di Azure](http://portal.azure.com), l'[int
 
     ![Casella "Nome tag" sotto il tipo di criteri](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-### <a name="azure-cli-20"></a>Interfaccia della riga di comando di Azure 2.0
+8. Per cancellare un blocco a fini giudiziari, è sufficiente rimuovere il tag.
 
-Installare l'[estensione dell'interfaccia della riga di comando di Azure](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) usando `az extension add -n storage-preview`.
-
-Se l'estensione è già installata, usare il comando seguente per abilitare l'archiviazione non modificabile: `az extension update -n storage-preview`.
+### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 La funzionalità è inclusa nei gruppi di comandi seguenti: `az storage container immutability-policy` e `az storage container legal-hold`. Eseguire `-h` per visualizzare i comandi.
 
@@ -160,7 +153,8 @@ Le librerie client seguenti supportano l'archiviazione non modificabile per Arch
 
 - [Libreria client .NET versione 7.2.0-preview e versioni successive](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [Libreria client Node.js versione 4.0.0 e versioni successive](https://www.npmjs.com/package/azure-arm-storage)
-- [Libreria client Python versione 2.0.0 versione finale candidata 2 e versioni successive](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
+- [Libreria client Python versione 2.0.0 versione finale candidata 2 e versioni successive](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
+- [Libreria client Java](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
 ## <a name="supported-values"></a>Valori supportati
 
@@ -176,15 +170,15 @@ Le librerie client seguenti supportano l'archiviazione non modificabile per Arch
 
 **La funzionalità si applica solo ai BLOB in blocchi o anche ai BLOB di pagine e di aggiunta?**
 
-L'archiviazione non modificabile può essere usata con qualsiasi tipo di BLOB.  È tuttavia consigliabile usarla principalmente per i BLOB in blocchi. A differenza dei BLOB in blocchi, i BLOB di pagine e i BLOB di aggiunta devono essere creati al di fuori di un contenitore WORM e quindi copiati al suo interno. Una volta copiati questi BLOB in un contenitore WORM, non sono consentite ulteriori *aggiunte* a un BLOB di aggiunta o modifiche a un BLOB di pagine.
+L'archiviazione non modificabile può essere usata con qualsiasi tipo di BLOB, ma è consigliabile usarla principalmente per i BLOB in blocchi. A differenza dei BLOB in blocchi, i BLOB di pagine e i BLOB di aggiunta devono essere creati al di fuori di un contenitore WORM e quindi copiati al suo interno. Una volta copiati questi BLOB in un contenitore WORM, non sono consentite ulteriori *aggiunte* a un BLOB di aggiunta o modifiche a un BLOB di pagine.
 
 **Per usare questa funzionalità è sempre necessario creare un nuovo account di archiviazione?**
 
-È possibile usare l'archiviazione non modificabile con tutti gli account GPv2 esistenti oppure nei nuovi account di archiviazione se il tipo di account è GPv2. Questa funzionalità è disponibile solo con l'archiviazione BLOB.
+È possibile usare l'archiviazione non modificabile con qualsiasi account di archiviazione BLOB o per utilizzo generico V2 esistente o di nuova creazione. Questa funzionalità è disponibile solo per l'archivio BLOB.
 
 **Che cosa accade se si tenta di eliminare un contenitore con un criterio di conservazione basato sul tempo *bloccato* o un blocco a fini giudiziari?**
 
-L'operazione di eliminazione del contenitore avrà esito negativo se è presente almeno un BLOB con criteri di conservazione basati sul tempo bloccati o un blocco a fini giudiziari. Ciò vale anche in caso di [eliminazione temporanea](storage-blob-soft-delete.md) dei dati. L'operazione di eliminazione del contenitore verrà completata se non è presente alcun BLOB con un intervallo di conservazione attivo e non sono impostati blocchi a fini giudiziari. È necessario eliminare i BLOB prima di poter eliminare il contenitore. 
+L'operazione di eliminazione del contenitore avrà esito negativo se esiste almeno un BLOB con criteri di conservazione basati sul tempo bloccati o un blocco a fini giudiziari. L'operazione di eliminazione del contenitore verrà completata solo se non esistono BLOB con un intervallo di conservazione attivo e non sono impostati blocchi a fini giudiziari. È necessario eliminare i BLOB prima di poter eliminare il contenitore.
 
 **Che cosa accade se si tenta di eliminare un account di archiviazione con un contenitore WORM che dispone di un criterio di conservazione basato sul tempo *bloccato* o un blocco a fini giudiziari?**
 
@@ -192,7 +186,7 @@ L'eliminazione dell'account di archiviazione avrà esito negativo se è presente
 
 **È possibile spostare i dati tra i diversi livelli BLOB (ad accesso frequente, ad accesso sporadico e archivio) quando il BLOB è in stato non modificabile?**
 
-Sì, è possibile usare il comando Set Blob Tier per spostare i dati tra i livelli BLOB, mantenendo al tempo stesso i dati nello stato non modificabile. L'archiviazione non modificabile è supportata nei livelli BLOB ad accesso frequente, ad accesso sporadico e offline.
+Sì, è possibile usare il comando Set Blob Tier per spostare i dati tra i livelli BLOB, mantenendo al tempo stesso i dati nello stato non modificabile. L'archiviazione non modificabile è supportata nei livelli BLOB ad accesso frequente, ad accesso sporadico e archivio.
 
 **Che cosa accade se non si effettua il pagamento e il periodo di conservazione non è scaduto?**
 
@@ -210,6 +204,8 @@ L'archiviazione non modificabile è attualmente disponibile solo nelle aree pubb
 
 Lo script di PowerShell di esempio seguente viene fornito a scopo di riferimento. Questo script crea un nuovo account di archiviazione e un nuovo contenitore. Viene quindi illustrato come impostare e rimuovere i blocchi a fini giudiziari, creare e bloccare i criteri di conservazione basati sul tempo (noti anche come criteri di immutabilità) ed estendere l'intervallo di conservazione.
 
+Configurare e testare l'account di archiviazione di Azure:
+
 ```powershell
 $ResourceGroup = "<Enter your resource group>”
 $StorageAccount = "<Enter your storage account name>"
@@ -226,7 +222,7 @@ New-AzureRmResourceGroup -Name $ResourceGroup -Location $location
 
 # Create your Azure storage account
 New-AzureRmStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
-    $StorageAccount -SkuName Standard_LRS -Location $location -Kind Storage
+    $StorageAccount -SkuName Standard_LRS -Location $location -Kind StorageV2
 
 # Create a new container
 New-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `
@@ -258,115 +254,128 @@ Remove-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 # Remove a container with a container object
 $containerObject2 = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 Remove-AzureRmStorageContainer -InputObject $containerObject2
+```
 
+Impostare e cancellare i blocchi a fini giudiziari:
+
+```powershell
 # Set a legal hold
 Add-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container -Tag tag1,tag2
+    -StorageAccountName $StorageAccount -Name $container -Tag <tag1>,<tag2>,...
 
-# Set a legal hold with an account object
-Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3
+# with an account object
+Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
 
-# Set a legal hold with a container object
-Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4,tag5
+# with a container object
+Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
 
 # Clear a legal hold
 Remove-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container -Tag tag2
+    -StorageAccountName $StorageAccount -Name $container -Tag <tag2>
 
-# Clear a legal hold with an account object
-Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3,tag5
+# with an account object
+Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
 
-# Clear a legal hold with a container object
-Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4
+# with a container object
+Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>
+```
 
-# Create or update an immutability policy
-## with an account name or container name
-
+Creare o aggiornare i criteri di immutabilità:
+```powershell
+# with an account name or container name
 Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container -ImmutabilityPeriod 10
 
-## with an account object
+# with an account object
 Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -ImmutabilityPeriod 1 -Etag $policy.Etag
 
-## with a container object
+# with a container object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 7
 
-## with an immutability policy object
+# with an immutability policy object
 Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
+```
 
+Recuperare i criteri di immutabilità:
+```powershell
 # Get an immutability policy
 Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container
 
-# Get an immutability policy with an account object
+# with an account object
 Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container
 
-# Get an immutability policy with a container object
+# with a container object
 Get-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject
+```
 
-# Lock an immutability policy (add -Force to dismiss the prompt)
-## with an immutability policy object
-
+Bloccare i criteri di immutabilità (aggiungere -Force per ignorare il prompt):
+```powershell
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
-## with an account name or container name
+# with an account name or container name
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
-## with an account object
+# with an account object
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -Etag $policy.Etag
 
-## with a container object
+# with a container object
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -Etag $policy.Etag -force
+```
 
-# Extend an immutability policy
-## with an immutability policy object
+Estendere i criteri di immutabilità:
+```powershell
 
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 
-## with an account name or container name
+# with an account name or container name
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -ImmutabilityPeriod 11 -Etag $policy.Etag -ExtendPolicy
 
-## with an account object
+# with an account object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -ImmutabilityPeriod 12 -Etag `
     $policy.Etag -ExtendPolicy
 
-## with a container object
+# with a container object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
+```
 
-# Remove an immutability policy (add -Force to dismiss the prompt)
-## with an immutability policy object
+Rimuovere un criterio di immutabilità (aggiungere -Force per ignorare il prompt):
+```powershell
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
-## with an account name or container name
+# with an account name or container name
 Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
-## with an account object
+# with an account object
 Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -Etag $policy.Etag
 
-## with a container object
+# with a container object
 Remove-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject `
     -Etag $policy.Etag
-    
+
 ```

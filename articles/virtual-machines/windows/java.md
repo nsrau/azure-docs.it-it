@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: zarhoads
-ms.openlocfilehash: 00c242ae75e8a581e2b403bac8e75f6b0bb421ad
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 2e8cc14c2879c9ef98357f19580e59dacc11b930
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955514"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420065"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Creare e gestire macchine virtuali Windows in Azure tramite Java
 
@@ -39,7 +39,7 @@ L'esecuzione di questi passaggi richiede circa 20 minuti.
 
 ## <a name="create-a-maven-project"></a>Creare un progetto Maven
 
-1. Installare [Java](http://www.oracle.com/technetwork/java/javase/downloads/index.html), se non lo si è già fatto.
+1. Installare [Java](https://aka.ms/azure-jdks), se non lo si è già fatto.
 2. Installare [Maven](http://maven.apache.org/download.cgi).
 3. Creare una nuova cartella e il progetto:
     

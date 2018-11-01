@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645832"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231033"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Guida introduttiva: Creare app per la logica per automatizzare flussi di lavoro con App per la logica di Azure - Visual Studio
 
@@ -93,7 +93,7 @@ Dopo aver creato il progetto Gruppo di risorse di Azure, creare e compilare l'ap
 
    Visual Studio necessita della sottoscrizione di Azure dell'utente e di un gruppo di risorse per la creazione e distribuzione delle risorse associate all'app per la logica e alle connessioni dell'utente. 
 
-   | Impostazione | Valore di esempio | Descrizione | 
+   | Impostazione | Valore di esempio | DESCRIZIONE | 
    | ------- | ------------- | ----------- | 
    | User profile list (Elenco profili utente) | Contoso <br> jamalhartnett@contoso.com | Per impostazione predefinita, l'account usato per eseguire l'accesso | 
    | **Sottoscrizione** | Pagamento in base al consumo <br> (jamalhartnett@contoso.com) | Il nome della sottoscrizione di Azure e l'account associato |
@@ -184,7 +184,7 @@ Selezionare il gruppo di risorse dell'app per la logica e quindi **Panoramica**.
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">forum di App per la logica di Azure</a>.
-* Per votare o inviare idee relative alle funzionalità, visitare il <a href="http://aka.ms/logicapps-wish" target="_blank">sito dei commenti e suggerimenti degli utenti di App per la logica</a>.
+* Per votare o inviare idee relative alle funzionalità, visitare il <a href="https://aka.ms/logicapps-wish" target="_blank">sito dei commenti e suggerimenti degli utenti di App per la logica</a>.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

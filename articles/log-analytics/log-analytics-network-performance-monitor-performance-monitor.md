@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 1254afc1ad1c513c18d565be8a6543a6ee0ae94b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 17a15ca00d7343064bde84860de91b62ff136cfe
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040592"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414118"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Soluzione Monitoraggio prestazioni rete - Monitoraggio delle prestazioni
 
@@ -33,12 +33,12 @@ La funzionalità Performance Monitor in [Monitoraggio prestazioni rete](log-anal
 - Monitoraggio dell'integrità della rete senza la necessità di usare SNMP.
 
 
-![Monitoraggio delle prestazioni di rete](media/log-analytics-network-performance-monitor/npm-performance-monitor.png)
+![Monitoraggio delle prestazioni di rete](media/log-analytics-network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Configurazione
 Per visualizzare la configurazione di Monitoraggio prestazioni rete, aprire la [soluzione Monitoraggio prestazioni rete](log-analytics-network-performance-monitor.md) e selezionare **Configura**.
 
-![Configurare Monitoraggio prestazioni rete](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Configurare Monitoraggio prestazioni rete](media/log-analytics-network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>Creazione di nuove reti
 
@@ -120,21 +120,21 @@ La pagina di drill-down indica che il collegamento di rete **DMZ2-DMZ1** non è 
 
 La pagina di drill-down mostra tutti i collegamenti di subnet inclusi nel collegamento di rete **DMZ2-DMZ1**. Per entrambi i collegamenti di subnet, la latenza ha superato la soglia, compromettendo l'integrità del collegamento di rete. È anche possibile vedere le tendenze della latenza di entrambi i collegamenti di subnet. Usare il controllo di selezione di data e ora nel grafico per delimitare l'intervallo di tempo necessario. È possibile vedere l'ora del giorno in cui la latenza ha raggiunto il valore di picco. Per analizzare il problema, cercare successivamente nei log questo intervallo di tempo. Selezionare **Visualizza collegamenti nodo** per eseguire ulteriori operazioni di drill-down. 
  
- ![Pagina Collegamenti della subnet](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
+ ![Pagina Collegamenti della subnet](media/log-analytics-network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
 In modo simile alla pagina precedente, nella pagina di drill-down di questo collegamento di subnet vengono elencati i relativi collegamenti di nodo. È possibile eseguire azioni simili, come nel passaggio precedente. Selezionare **Visualizza topologia** per visualizzare la topologia tra i due nodi. 
  
- ![Pagina Collegamenti nodo](media/log-analytics-network-performance-monitor/node-links.png) 
+ ![Pagina Collegamenti nodo](media/log-analytics-network-performance-monitor-performance-monitor/node-links.png) 
 
 Tutti i percorsi tra i due nodi selezionati vengono tracciati nella mappa topologica. È possibile visualizzare la topologia hop-by-hop delle route tra due nodi nella mappa topologica. Tale mappa offre un quadro preciso del numero di route esistenti tra i due nodi e dei percorsi intrapresi dai pacchetti di dati. I colli di bottiglia delle prestazioni di rete sono visualizzati in rosso. Per individuare connessioni o dispositivi di rete difettosi, identificare gli elementi in rosso nella mappa della topologia. 
 
- ![Dashboard Topologia con mappa della topologia](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
+ ![Dashboard Topologia con mappa della topologia](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
 È possibile rivedere i dati relativi a perdita, latenza e numero di hop di ogni percorso nel riquadro **Azione**. Usare la barra di scorrimento per visualizzare i dettagli dei percorsi non integri. Usare i filtri per selezionare i percorsi con l'hop non integro, in modo che venga tracciata la topologia solo per i percorsi selezionati. Per ingrandire o ridurre la mappa della topologia, usare la rotellina del mouse. 
 
 Nella figura seguente la causa radice delle aree problematiche relative alla sezione specifica della rete è visualizzata negli hop e nei percorsi di colore rosso. Selezionare un nodo nella mappa della topologia per visualizzare le proprietà di tale nodo, inclusi il nome di dominio completo e l'indirizzo IP. Selezionando un hop viene visualizzato il relativo indirizzo IP. 
  
-![Mappa della topologia con proprietà del nodo selezionato](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
+![Mappa della topologia con proprietà del nodo selezionato](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Effettuare una ricerca nei log](log-analytics-log-searches.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.

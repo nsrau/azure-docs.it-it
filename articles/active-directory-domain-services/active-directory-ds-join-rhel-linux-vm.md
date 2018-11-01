@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: aggiungere una macchina virtuale
 description: Aggiungere una macchina virtuale Red Hat Enterprise Linux a Servizi di dominio Azure AD
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: e84a4b0c1f3496bc26f4a8830f7a08ddd5506338
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: bfad3b8c8347b885fd713d30c620d6c86377fab3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503724"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155236"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale di Red Hat Enterprise Linux 7 a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale di Red Hat Enterprise Linux (RHEL) 7 a un dominio gestito di Servizi di dominio Azure AD.
@@ -38,7 +38,7 @@ Per eseguire le attività elencate in questo articolo sono necessari gli element
 
 ## <a name="provision-a-red-hat-enterprise-linux-virtual-machine"></a>Eseguire il provisioning di una macchina virtuale di Red Hat Enterprise Linux
 Eseguire il provisioning di una macchina virtuale RHEL 7 in Azure, usando uno dei metodi seguenti:
-* [portale di Azure](../virtual-machines/linux/quick-create-portal.md)
+* [Portale di Azure](../virtual-machines/linux/quick-create-portal.md)
 * [Interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -140,7 +140,7 @@ Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Co
 Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) .
 
 ## <a name="related-content"></a>Contenuti correlati
-* [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
+* [Servizi di dominio Azure AD: introduzione](active-directory-ds-getting-started.md)
 * [Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Installazione di Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)

@@ -3,18 +3,18 @@ title: Aggiungere un dispositivo reale a un'applicazione Azure IoT Central | Mic
 description: Un operatore può aggiungere un dispositivo reale all'applicazione Azure IoT Central.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 984457968de5ef5e43b15201dac213cd96b4b0e2
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: c3b8f4f8188a6a28cca8b77f169a00657b11dfc5
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309757"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154812"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Esercitazione: Aggiungere un dispositivo reale all'applicazione Azure IoT Central
 
@@ -122,7 +122,7 @@ La procedura seguente illustra come preparare l'esempio [Node.js](https://nodejs
 
 1. Nella pagina Device Connection (Connessione del dispositivo) copiare l'ID ambito, l'ID dispositivo e la chiave primaria e incollarli in un editor di testo, quindi salvare. Questi valori verranno usati nel passaggio successivo.
 
-   ![Dettagli di connessione](media/tutorial-add-device/device-connect.PNG)
+   ![Dettagli della connessione](media/tutorial-add-device/device-connect.PNG)
 
 1. Tornare all'ambiente della riga di comando e generare la stringa di connessione eseguendo:
 

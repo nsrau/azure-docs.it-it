@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068697"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158857"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -87,7 +87,7 @@ Non è consentito connettere più server di sincronizzazione di Azure AD Connect
 ### <a name="multiple-forests-separate-topologies"></a>Più foreste, topologie separate
 ![Opzione per rappresentare gli utenti solo una volta in tutte le directory](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![Immagine di più foreste e topologie separate](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![Immagine di più foreste e topologie separate](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 In questo ambiente tutte le foreste locali vengono considerate entità separate. Nessun utente è presente in nessuna altra foresta. Ogni foresta presenta un'organizzazione Exchange dedicata e non viene effettuata alcuna sincronizzazione dell'elenco di indirizzi globale (GALSync) tra le foreste. Questa topologia può presentarsi dopo una fusione o acquisizione o in un'organizzazione in cui ogni business unit opera in modo indipendente. In Azure AD queste foreste si trovano nella stessa organizzazione e vengono visualizzate con un elenco di indirizzi globale unificato. Nell'immagine precedente ogni oggetto di ogni foresta viene rappresentato una sola volta nel metaverse e aggregato nel tenant di Azure AD di destinazione.
 

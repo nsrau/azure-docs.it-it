@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696449"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242291"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Introduzione ad Azure Cosmos DB
 
@@ -55,7 +55,7 @@ Come servizio di database multimodello distribuito a livello globale, Azure Cosm
 * **Disponibilità Always On**
     * Contratto di servizio con disponibilità del 99,99% per tutti gli account di database in una singola area e disponibilità in lettura del 99,999% per tutti gli account di database in più aree.
     * Distribuzione in un numero qualsiasi di [aree di Azure](https://azure.microsoft.com/regions) per una maggiore disponibilità e migliori prestazioni.
-    * Impostazione dinamica delle priorità per le aree e [simulazione di un errore](regional-failover.md) di una o più aree con garanzie di perdita dei dati pari a zero per testare la disponibilità end-to-end per l'intera app (oltre che per il solo database). 
+    * Impostazione dinamica delle priorità per le aree e [simulazione di un errore](high-availability.md) di una o più aree con garanzie di perdita dei dati pari a zero per testare la disponibilità end-to-end per l'intera app (oltre che per il solo database). 
 
 * **Scrittura di applicazioni distribuite a livello globale in modo immediato**
     * Cinque [modelli di coerenza](consistency-levels.md) ben definiti, pratici e intuitivi offrono un'ampia gamma di livelli di coerenza, da quella assoluta di tipo SQL alla coerenza minima finale di tipo NoSQL, compresi i livelli intermedi. 

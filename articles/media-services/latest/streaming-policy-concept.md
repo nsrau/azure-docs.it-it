@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 118660e8947663328554ac0116b5519267197336
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984299"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085496"
 ---
 # <a name="streaming-policies"></a>Criteri di streaming
 
@@ -29,17 +29,17 @@ In Servizi multimediali di Azure v3, i criteri di streaming consentono di defini
 
 Nella tabella seguente vengono illustrate le proprietà dei criteri di streaming e le relative definizioni.
 
-|NOME|type|DESCRIZIONE|
-|---|---|---|
-|id|stringa|ID di risorsa completo per la risorsa.|
-|name|stringa|Nome della risorsa.|
-|properties.commonEncryptionCbcs|CommonEncryptionCbcs|Configurazione di CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|CommonEncryptionCenc|Configurazione di CommonEncryptionCenc|
-|properties.created |stringa|Ora di creazione dei criteri di streaming|
-|properties.defaultContentKeyPolicyName |stringa|ContentKey predefinita usata dai criteri di streaming correnti|
-|properties.envelopeEncryption  |EnvelopeEncryption|Configurazione di EnvelopeEncryption|
-|properties.noEncryption|NoEncryption|Configurazione di NoEncryption|
-|type|stringa|Tipo di risorsa.|
+|NOME|DESCRIZIONE|
+|---|---|
+|id|ID di risorsa completo per la risorsa.|
+|name|Nome della risorsa.|
+|properties.commonEncryptionCbcs|Configurazione di CommonEncryptionCbcs|
+|properties.commonEncryptionCenc|Configurazione di CommonEncryptionCenc|
+|properties.created |Ora di creazione dei criteri di streaming|
+|properties.defaultContentKeyPolicyName |ContentKey predefinita usata dai criteri di streaming correnti|
+|properties.envelopeEncryption  |Configurazione di EnvelopeEncryption|
+|properties.noEncryption|Configurazione di NoEncryption|
+|type|Tipo di risorsa.|
 
 Per la definizione completa, vedere [Criteri di streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies).
 

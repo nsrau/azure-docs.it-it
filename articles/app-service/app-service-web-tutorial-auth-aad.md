@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 4bdb182d93b842bf94e75672b1d7b4cf4f6da253
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589153"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416155"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure
 
@@ -50,7 +50,7 @@ I passaggi illustrati in questa esercitazione possono essere eseguiti in macOS, 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione:
 
@@ -82,6 +82,10 @@ Per arrestare ASP.NET Core in qualsiasi momento, premere `Ctrl+C` nel terminale.
 ## <a name="deploy-apps-to-azure"></a>Distribuire le app in Azure
 
 In questo passaggio si distribuisce il progetto in due app del servizio app: una è l'app front-end e l'altra è l'app back-end.
+
+### <a name="configure-a-deployment-user"></a>Configurare un utente della distribuzione
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="create-azure-resources"></a>Creare le risorse di Azure
 
@@ -241,7 +245,7 @@ Dalla pagina di gestione dell'applicazione AD copiare l'**ID applicazione** in u
 
 Seguire la stessa procedura per l'app front-end, ignorando però l'ultimo passaggio. Per l'app front-end non è necessario l'**ID applicazione**. Tenere aperta la pagina **Impostazioni di Azure Active Directory**.
 
-Se si vuole, passare a `http://<front_end_app_name>.azurewebsites.net`. Si dovrebbe essere indirizzati a una pagina di accesso. Dopo aver effettuato l'accesso, non è comunque possibile accedere ai dati dell'app back-end perché è necessario eseguire ancora tre operazioni:
+Se si vuole, passare a `http://<front_end_app_name>.azurewebsites.net`. Si verrà indirizzati a una pagina di accesso protetta. Dopo aver effettuato l'accesso, non è comunque possibile accedere ai dati dell'app back-end perché è necessario eseguire ancora tre operazioni:
 
 - Concedere al front-end l'accesso al back-end
 - Configurare il servizio app per la restituzione di un token utilizzabile
@@ -322,7 +326,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-Accedere di nuovo a `http://<front_end_app_name>.azurewebsites.net`. Nella pagina del contratto per l'utilizzo dei dati utente fare clic su **Accetta**.
+Accedere di nuovo a `https://<front_end_app_name>.azurewebsites.net`. Nella pagina del contratto per l'utilizzo dei dati utente fare clic su **Accetta**.
 
 Dovrebbe ora essere possibile creare, leggere, aggiornare ed eliminare i dati dell'app back-end come prima. L'unica differenza consiste nel fatto che ora entrambe le app, incluse le chiamate da servizio a servizio, sono protette dall'autenticazione e dall'autorizzazione del servizio app.
 
@@ -340,7 +344,7 @@ Mentre il codice del server ha accesso alle intestazioni delle richieste, il cod
 
 ### <a name="configure-cors"></a>Configurare CORS
 
-In Cloud Shell abilitare CORS per l'URL del client usando il comando [`az resource update`](/cli/azure/resource#az_resource_update). Sostituire i segnaposto _\<back\_end\_app\_name>_ e _\<front\_end\_app\_name>_.
+In Cloud Shell abilitare CORS per l'URL del client usando il comando [`az resource update`](/cli/azure/resource#az-resource-update). Sostituire i segnaposto _\<back\_end\_app\_name>_ e _\<front\_end\_app\_name>_.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
@@ -352,7 +356,7 @@ Questo passaggio non è correlato all'autenticazione e all'autorizzazione. È tu
 
 Nel repository locale aprire _wwwroot/index.html_.
 
-Nella riga 51 impostare la variabile `apiEndpoint` sull'URL dell'app back-end (`http://<back_end_app_name>.azurewebsites.net`). Sostituire _\<back\_end\_app\_name>_ con il nome dell'app nel servizio app.
+Nella riga 51 impostare la variabile `apiEndpoint` sull'URL dell'app back-end (`https://<back_end_app_name>.azurewebsites.net`). Sostituire _\<back\_end\_app\_name>_ con il nome dell'app nel servizio app.
 
 Nel repository locale aprire _wwwroot/app/scripts/todoListSvc.js_ e verificare che `apiEndpoint` sia anteposto a tutte le chiamate API. L'app Angular.js chiama ora le API back-end. 
 
@@ -406,9 +410,13 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-Passare di nuovo a `http://<front_end_app_name>.azurewebsites.net`. Dovrebbe ora essere possibile creare, leggere, aggiornare ed eliminare i dati dell'app back-end direttamente nell'app Angular.js.
+Passare di nuovo a `https://<front_end_app_name>.azurewebsites.net`. Dovrebbe ora essere possibile creare, leggere, aggiornare ed eliminare i dati dell'app back-end direttamente nell'app Angular.js.
 
 Congratulazioni! Il codice del client accede ora ai dati del back-end per conto dell'utente autenticato.
+
+## <a name="when-access-tokens-expire"></a>Quando scadono i token di accesso
+
+Il token di accesso scade dopo un certo periodo di tempo. Per informazioni su come aggiornare i token di accesso senza chiedere agli utenti di autenticarsi di nuovo nell'app, vedere [Aggiornare i token di accesso](app-service-authentication-how-to.md#refresh-access-tokens).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -3,7 +3,7 @@ title: Analisi dell'utilizzo con Azure Application Insights | Documentazione Mic
 description: Informazioni sugli utenti e le operazioni eseguite con l'app.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.author: mbullwin
-ms.openlocfilehash: d5b580df531e2f0c61ac1d43cfd5ae353f314fce
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: eeaf46a9ce523ecd11689d0aa430fcc522732f70
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091902"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139857"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Uso dell'analisi con Application Insights
 
@@ -82,7 +84,7 @@ Cosa fare se si desidera analizzare il traffico del sito in modo più dettagliat
 
 ## <a name="retention---how-many-users-come-back"></a>Conservazione: numero di utenti che ritornano
 
-La conservazione consente di comprendere la frequenza con cui gli utenti tornano a usare l'app, in base alle coorti di utenti che hanno eseguito un'azione aziendale in un determinato intervallo di tempo. 
+La conservazione consente di comprendere la frequenza con cui gli utenti tornano a usare l'app, in base alle coorti di utenti che hanno eseguito un'azione aziendale in un determinato intervallo di tempo. 
 
 - Comprendere le funzionalità specifiche per cui alcuni utenti ritornano di più rispetto ad altri 
 - Fare ipotesi in base a dati utente reali 

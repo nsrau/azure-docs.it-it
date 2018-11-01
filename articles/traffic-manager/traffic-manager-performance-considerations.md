@@ -4,9 +4,6 @@ description: Informazioni sulle prestazioni in Gestione traffico e su come testa
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 3ba5dfa1-2922-43f1-9a23-d06969c4a516
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: f686685138625a53971f1fc5fc754fd22c9d67b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2fabe1671e9cc2aeed3b0dcd08ad5b5f09da3f11
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110789"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140841"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerazioni sulle prestazioni per Gestione traffico
 
@@ -85,5 +82,5 @@ Gli strumenti disponibili in questi siti misurano la latenza DNS e visualizzano 
 
 [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Cmdlet di Gestione traffico di Azure](http://go.microsoft.com/fwlink/p/?LinkId=400769)
+[Cmdlet di Gestione traffico di Azure](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
 

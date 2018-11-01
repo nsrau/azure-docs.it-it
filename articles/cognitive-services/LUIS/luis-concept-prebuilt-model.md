@@ -1,7 +1,7 @@
 ---
 title: Modelli predefiniti - Entità, finalità, dominio - LUIS
 titleSuffix: Azure Cognitive Services
-description: ''
+description: I modelli predefiniti includono domini, finalità, espressioni ed entità. È possibile avviare l'app con un dominio predefinito o aggiungere all'app un dominio pertinente in un secondo momento.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2a978665eff2f8aa3eab3c7d70b39bdb61ecfda4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6237dc66e6e085a2501642abd679844c38e98ed1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651830"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210534"
 ---
 # <a name="prebuilt-domain-intent-and-entity-models"></a>Modelli predefiniti per dominio, finalità ed entità
 
@@ -27,7 +27,7 @@ Esistono tre tipi di modelli predefiniti forniti da LUIS. Ogni modello può esse
 
 |Tipo di modello|Include|
 |--|--|
-|Dominio|Finalità, espressioni, entità|
+|Domain|Finalità, espressioni, entità|
 |Finalità|Finalità, espressioni|
 |Entità|Solo entità| 
 
@@ -37,11 +37,11 @@ Language Understanding (LUIS) fornisce *domini predefiniti*, ovvero gruppi prede
 
 I domini predefiniti sono stati sottoposti a training e possono essere aggiunti all'app LUIS. Le finalità e le entità in un dominio predefinito sono completamente personalizzabili dopo che sono state aggiunte all'app. 
 
-Se in primo luogo personalizzi un intero dominio predefinito, elimina le finalità e le entità non necessarie alla tua app. È anche possibile aggiungere alcune finalità o entità al set già fornito dal dominio predefinito. Ad esempio, se si usa il dominio predefinito **Eventi** per un'app di eventi sportivi, è possibile aggiungere le entità per squadra. Quando inizi a [fornire espressioni](luis-how-to-add-example-utterances.md) a LUIS, includi i termini specifici per la tua app. LUIS impara a riconoscerli e adatta le finalità e le entità del dominio predefinito alle esigenze dell'applicazione. 
+Se in primo luogo personalizzi un intero dominio predefinito, elimina le finalità e le entità non necessarie alla tua app. Puoi inoltre aggiungere alcune finalità o entità al set già fornito dal dominio predefinito. Ad esempio, se usi il dominio predefinito **Eventi** per un'app di eventi sportivi, puoi aggiungere le entità per squadra. Quando inizi a [fornire espressioni](luis-how-to-add-example-utterances.md) a LUIS, includi i termini specifici per la tua app. LUIS impara a riconoscerli e adatta le finalità e le entità del dominio predefinito alle esigenze dell'applicazione. 
 
 > [!TIP]
 > Le finalità e le entità in un dominio predefinito hanno una maggiore efficacia quando operano in modo collaborativo. È consigliabile combinare le finalità e le entità provenienti dallo stesso dominio, quando possibile.
-> Il dominio predefinito Utilities include finalità che è possibile personalizzare per l'uso in qualsiasi dominio. Ad esempio, è possibile aggiungere `Utilities.Repeat` all'app ed eseguire il training per riconoscere qualsiasi azione che l'utente vuole ripetere nell'applicazione. 
+> Il dominio predefinito Utilities include finalità che è possibile personalizzare per l'uso in qualsiasi dominio. Ad esempio, puoi aggiungere `Utilities.Repeat` alla tua app ed eseguirvi il training per riconoscere qualsiasi azione che l'utente vuole ripetere nell'applicazione. 
 
 ### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Modifica del comportamento delle finalità di dominio predefinito
 

@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: 13eddced155eab6dedfbce77330e7a178ecfb3cb
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166047"
+---
 > [!div class="op_single_selector"]
 > * [Dispositivo: Node.js Service: Node.js](../articles/iot-hub/iot-hub-node-node-device-management-get-started.md)
 > * [Dispositivo: C# Service: C#](../articles/iot-hub/iot-hub-csharp-csharp-device-management-get-started.md)

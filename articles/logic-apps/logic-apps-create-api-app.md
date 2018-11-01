@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122247"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233515"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
@@ -36,12 +36,12 @@ Per consentire alle API personalizzate di funzionare con le app per la logica, l
 > 
 > * [ASP.NET](../app-service/app-service-web-get-started-dotnet.md). 
 > * [Java](../app-service/app-service-web-get-started-java.md)
-> * [Node.JS](../app-service/app-service-web-get-started-nodejs.md)
+> * [Node.js](../app-service/app-service-web-get-started-nodejs.md)
 > * [PHP](../app-service/app-service-web-get-started-php.md)
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Per gli esempi di app per le API compilate per le app per la logica, visitare il [repository GitHub](http://github.com/logicappsio) o il [blog sulle app per la logica di Azure](http://aka.ms/logicappsblog).
+> Per gli esempi di app per le API compilate per le app per la logica, visitare il [repository GitHub](http://github.com/logicappsio) o il [blog sulle app per la logica di Azure](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Differenza tra le API e i connettori personalizzati
 
@@ -230,7 +230,7 @@ Per rendere le API personalizzate disponibili a tutti gli utenti in App per la l
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* Per contribuire al miglioramento di App per la logica, è possibile votare o inviare idee nel [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish). 
+* Per contribuire al miglioramento di App per la logica, è possibile votare o inviare idee nel [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

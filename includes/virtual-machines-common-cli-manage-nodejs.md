@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226940"
+---
 Per usare l'interfaccia della riga di comando di Azure con i comandi e i modelli di Resource Manager per distribuire risorse e carichi di lavoro di Azure tramite gruppi di risorse, è necessario un account Azure. Se non si dispone di un account, è possibile ottenere un [Azure qui versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 Se non è già stata installata l'interfaccia della riga di comando di Azure e non è stata stabilita la connessione alla sottoscrizione, vedere [Installare l'interfaccia della riga di comando di Azure](../articles/cli-install-nodejs.md), impostare la modalità su `arm` con `azure config mode arm`, quindi connettersi ad Azure con il comando `azure login`.
@@ -5,11 +18,12 @@ Se non è già stata installata l'interfaccia della riga di comando di Azure e n
 ## <a name="cli-versions-to-complete-the-task"></a>Versioni dell'interfaccia della riga di comando per completare l'attività
 È possibile completare l'attività usando una delle versioni seguenti dell'interfaccia della riga di comando:
 
-- Interfaccia della riga di comando di Azure 1.0: interfaccia della riga di comando per i modelli di distribuzione classica e Resource Manager (questo articolo)
-- [Interfaccia della riga di comando di Azure 2.0](../articles/virtual-machines/linux/cli-manage.md): interfaccia della riga di comando di prossima generazione per il modello di distribuzione di Gestione risorsa
+- Interfaccia della riga di comando classica di Azure: l'interfaccia della riga di comando per i modelli di distribuzione classica e di gestione delle risorse (questo articolo)
+- [Interfaccia della riga di comando di Azure](../articles/virtual-machines/linux/cli-manage.md): interfaccia della riga di comando avanzata per il modello di distribuzione di gestione delle risorse
 
-## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandi di base di Azure Resource Manager nell'interfaccia della riga di comando di Azure
-Questo articolo illustra i comandi di base da usare con l'interfaccia della riga di comando di Azure per gestire le risorse, principalmente macchine virtuali, e interagire con esse nella sottoscrizione di Azure.  Per una guida più dettagliata con parametri e opzioni della riga di comando specifici, è possibile usare la Guida in linea dei comandi e le relative opzioni digitando `azure <command> <subcommand> --help` o `azure help <command> <subcommand>`.
+## <a name="basic-azure-resource-manager-commands-in-azure-classic-cli"></a>Comandi di base di Azure Resource Manager nell'interfaccia della riga di comando classica di Azure
+
+Questo articolo illustra i comandi di base da usare con l'interfaccia della riga di comando classica di Azure per gestire le risorse, principalmente macchine virtuali, e interagire con esse nella sottoscrizione di Azure.  Per una guida più dettagliata con parametri e opzioni della riga di comando specifici, è possibile usare la Guida in linea dei comandi e le relative opzioni digitando `azure <command> <subcommand> --help` o `azure help <command> <subcommand>`.
 
 > [!NOTE]
 > Questi esempi non includono operazioni basate su modelli che sono in genere consigliate per distribuzioni di macchine virtuali in Gestione risorse. Per informazioni, vedere come [usare l'interfaccia della riga di comando di Azure con Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md) e [Distribuire e gestire le macchine virtuali usando modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../articles/virtual-machines/linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

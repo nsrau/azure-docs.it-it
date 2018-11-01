@@ -1,3 +1,16 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: 9fb462b83eccde3d2b486d491517973fe6bac4f1
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132956"
+---
 [Trigger e associazioni](..\articles\azure-functions\functions-triggers-bindings.md) di Funzioni di Azure comunicano con diversi servizi di Azure. In caso di integrazione con questi servizi, possono venire generati errori originati dalle API dei servizi di Azure sottostanti. Possono verificarsi errori anche quando si prova a comunicare con altri servizi dal codice della funzione usando librerie client o REST. Per evitare la perdita di dati e garantire un comportamento corretto delle funzioni, è importante gestire gli errori da entrambe le origini.
 
 I trigger seguenti hanno il supporto di ripetizione dei tentativi incorporato:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d670b90404d441876727336fc50a848965082de5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389684"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232495"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Aggregazione e raccolta di eventi con Diagnostica di Microsoft Azure
 > [!div class="op_single_selector"]
@@ -292,7 +292,7 @@ Se si usa un sink di Application Insights, come descritto nella sezione di segui
 
 ## <a name="send-logs-to-application-insights"></a>Inviare i log ad Application Insights
 
-L'invio dei dati di monitoraggio e diagnostica ad Application Insights può essere eseguito nell'ambito della configurazione di Diagnostica di Microsoft Azure. Se si decide di usare Application Insights per l'analisi e la visualizzazione degli eventi, vedere la [procedura per configurare un sink di Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template) nel file di configurazione "WadCfg".
+L'invio dei dati di monitoraggio e diagnostica ad Application Insights può essere eseguito nell'ambito della configurazione di Diagnostica di Microsoft Azure. Se si decide di usare Application Insights per l'analisi e la visualizzazione degli eventi, vedere la [procedura per configurare un sink di Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template) nel file di configurazione "WadCfg".
 
 ## <a name="next-steps"></a>Passaggi successivi
 

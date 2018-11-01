@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: amministrare DNS in domini gesti
 description: Amministrare DNS in domini gestiti di Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: f20b2859f72087e208e8963fb18b297c7c670f4f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: f2eea139209a03950217a855b5c8af7bc9a17372
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504285"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155304"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Amministrare DNS in un dominio gestito dai Servizi di dominio Azure AD
 I Servizi di dominio Azure Active Directory includono un server DNS (Domain Name System, sistema dei nomi di dominio) che fornisce la risoluzione DNS per il dominio gestito. In alcuni casi potrebbe essere necessario configurare DNS nel dominio gestito. Potrebbe anche essere necessario creare record DNS per i computer non aggiunti al dominio, configurare indirizzi IP virtuali per servizi di bilanciamento del carico oppure impostare server d'inoltro DNS esterni. Per questo motivo, agli utenti che appartengono al gruppo "AAD DC Administrators" vengono concessi privilegi di amministrazione DNS nel dominio gestito.
@@ -102,7 +102,7 @@ Ora, è possibile usare gli strumenti del serve DNS Windows per amministrare DNS
 Per altre informazioni sulla gestione DNS, vedere l' [articolo sugli strumenti DNS in Technet](https://technet.microsoft.com/library/cc753579.aspx).
 
 ## <a name="related-content"></a>Contenuti correlati
-* [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
+* [Servizi di dominio Azure AD: introduzione](active-directory-ds-getting-started.md)
 * [Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Amministrare un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-administer-domain.md)
 * [Strumenti di amministrazione DNS](https://technet.microsoft.com/library/cc753579.aspx)

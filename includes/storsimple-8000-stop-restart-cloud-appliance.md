@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: c10482029e6cfce7063d205161fed54030919c48
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166339"
+---
 #### <a name="to-stop-and-start-a-cloud-appliance"></a>Per arrestare e avviare un'appliance cloud
 
 1. Per arrestare un'appliance cloud, passare alla relativa macchina virtuale.

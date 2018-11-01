@@ -3,7 +3,7 @@ title: Coorti di utilizzo di Azure Application Insights | Microsoft Docs
 description: Analizzare set diversi di utenti, sessioni, eventi o operazioni con elementi in comune
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 30ef00fa1bfd2933df5e5c966cb8266d7c598a47
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 35737b91d8ef0b58223f51530f56408df1c7eb8e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162169"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138793"
 ---
 # <a name="application-insights-cohorts"></a>Coorti di Application Insights
 

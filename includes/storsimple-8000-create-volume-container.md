@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: abef93d30ff9cdf1ecdbbfd450d9f96e6352a513
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164600"
+---
 <!--author=alkohli last changed: 06/22/17-->
 
 #### <a name="to-create-a-volume-container"></a>Per creare un contenitore di volumi
@@ -20,7 +33,7 @@
       Se si dispone delle informazioni sulla larghezza di banda, è possibile allocare la larghezza di banda in base a una pianificazione specificando **Seleziona un modello di larghezza di banda**. Per una procedura dettagliata, vedere [Aggiunta di un modello di larghezza di banda](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 
       ![Pannello Contenitore del volume](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
-   7. Fare clic su **Crea**.
+   7. Fare clic su **Create**(Crea).
 
         ![Pannello Contenitore del volume](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
    

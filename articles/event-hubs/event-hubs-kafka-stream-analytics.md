@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: spelluru
-ms.openlocfilehash: 497249baa10956c37762172bd0c48fad7be14e0b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e7d140f212dd2506f48b23fe99db5ba2be91dac9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319320"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421034"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Elaborare gli eventi di Apache Kafka per Hub eventi mediante Analisi di flusso 
 Questo articolo illustra come trasmettere i dati in Hub eventi abilitati per Kafka ed elaborarli con Analisi di flusso di Azure. L'articolo include le istruzioni dettagliate per le operazioni seguenti: 
@@ -35,7 +35,7 @@ Non è necessario modificare i client di protocollo o eseguire i propri cluster 
 Per completare questa guida introduttiva, accertarsi di soddisfare i requisiti seguenti:
 
 * Una sottoscrizione di Azure. Se non se ne ha una, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
 * [Scaricare](http://maven.apache.org/download.cgi) e [installare](http://maven.apache.org/install.html) un archivio binario Maven.
 * [Git](https://www.git-scm.com/)
 * Un **account di archiviazione di Azure**. Se non è disponibile, [crearne uno](../storage/common/storage-quickstart-create-account.md) prima di procedere. Il processo di Analisi di flusso in questa procedura archivia i dati di output in un archivio BLOB di Azure. 

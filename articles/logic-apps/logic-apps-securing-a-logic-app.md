@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377395"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232597"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Proteggere l'accesso alle App per la logica di Azure
 
@@ -168,7 +168,7 @@ Esistono alcuni aspetti della definizione di un flusso di lavoro per cui potrebb
 
 ### <a name="using-parameters-and-secure-parameters"></a>Uso di parametri e parametri protetti
 
-Il [linguaggio di definizione del flusso di lavoro](http://aka.ms/logicappsdocs) assicura un'operazione `@parameters()` per accedere al valore di un parametro di risorsa in fase di runtime. È inoltre possibile [specificare parametri nel modello di distribuzione risorse](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Se si specifica un tipo di parametro come `securestring`, questo non verrà restituito con il resto della definizione della risorsa, ovvero non sarà accessibile visualizzando la risorsa dopo la distribuzione.
+Il [linguaggio di definizione del flusso di lavoro](https://aka.ms/logicappsdocs) assicura un'operazione `@parameters()` per accedere al valore di un parametro di risorsa in fase di runtime. È inoltre possibile [specificare parametri nel modello di distribuzione risorse](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Se si specifica un tipo di parametro come `securestring`, questo non verrà restituito con il resto della definizione della risorsa, ovvero non sarà accessibile visualizzando la risorsa dopo la distribuzione.
 
 > [!NOTE]
 > Se il parametro viene usato nelle intestazioni o nel corpo della richiesta, potrebbe essere visibile accedendo alla cronologia delle esecuzioni e alla richiesta HTTP in uscita. Assicurarsi di configurare di conseguenza i criteri di accesso ai contenuti.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: a0aa63291a7fb3f069663d40687f81c3a3265712
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ea0987eaea8ee558df35ecce6afb5e7bab3ac4de
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945944"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087627"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migrazione di Contoso: valutare i carichi di lavoro in locale per la migrazione ad Azure
 
@@ -289,19 +289,11 @@ Prima di distribuire la macchina virtuale, Contoso verifica che il file OVA sia 
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. L'hash generato deve corrispondere a queste impostazioni (versione 1.0.9.15):
 
-<<<<<<< HEAD
     **Algoritmo** | **Valore hash**
     --- | ---
     MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
     SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
     SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
-=======
-**Algoritmo** | **Valore hash**
---- | ---
-MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
-SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
-SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
->>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 ### <a name="create-the-collector-appliance"></a>Creare l'appliance dell'agente di raccolta
 

@@ -1,5 +1,17 @@
-
-1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in [Connettersi ad Azure dall'interfaccia della riga di comando di Azure 1.0](/cli/azure/authenticate-azure-cli).
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: ae29451e3f7ec263f296e69656a5c66045334687
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226858"
+---
+1. Accedere alla sottoscrizione di Azure seguendo i passaggi elencati in [Connettersi ad Azure dall'interfaccia della riga di comando classica di Azure](/cli/azure/authenticate-azure-cli).
 
 2. Assicurarsi che sia attiva la modalità di distribuzione classica nel modo seguente:
 
@@ -52,5 +64,5 @@
     ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per informazioni su tutti questi comandi della macchina virtuale dell'interfaccia della riga di comando di Azure 1.0, vedere [Uso dell'interfaccia della riga di comando di Azure 1.0 con l'API di distribuzione classica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+Per informazioni su tutti questi comandi della macchina virtuale dell'interfaccia della riga di comando classica di Azure, leggere [Uso dell'interfaccia della riga di comando classica di Azure con l'API di distribuzione classica](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 

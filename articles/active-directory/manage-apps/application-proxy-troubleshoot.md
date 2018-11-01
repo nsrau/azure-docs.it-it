@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8be0e909ea391ed1b66fc78349cc2283d009e8cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347648"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240376"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Risolvere i problemi e i messaggi di errore del proxy dell'applicazione
 Se si verificano errori durante l'accesso a un'applicazione pubblicata o durante la pubblicazione di applicazioni, controllare le opzioni seguenti per verificare se il Proxy applicazione di Microsoft Azure AD funziona correttamente: 
@@ -43,7 +43,7 @@ Se si modifica il percorso per includere il contenuto a cui viene fatto riferime
 
 Se la registrazione non riesce durante l'installazione guidata del connettore, esistono due modi per visualizzare il motivo dell'errore. Cercare nel log eventi in **Registri applicazioni e servizi\Microsoft\AadApplicationProxy\Connector\Admin** oppure eseguire il comando di Windows PowerShell seguente:
 
-    Get-EventLog application –source “Microsoft AAD Application Proxy Connector” –EntryType “Error” –Newest 1
+    Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
 
 Dopo aver individuato l'errore del connettore nel log eventi, usare questa tabella di errori comuni per risolvere il problema:
 

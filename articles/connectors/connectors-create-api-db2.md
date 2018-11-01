@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 354e67183a36f511811d74a0685dea2e23d6c0e2
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 9ba2476ccf2601f5d7d2c0e93c7661f740f32145
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818876"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231764"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Gestione delle risorse di IBM DB2 con App per la logica di Azure
 
@@ -65,7 +65,7 @@ Gli esempi di questo articolo usano il trigger **Ricorrenza**.
 
 ## <a name="add-db2-action---get-tables"></a>Aggiungere un'azione DB2 - Ottieni tabelle
 
-1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica, se ancora chiusa.
+1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
 1. Nel trigger scegliere **Nuovo passaggio**.
 
@@ -109,7 +109,7 @@ Prima di creare la connessione, è necessario aver già installato il gateway da
 | **Connection Name** (Nome connessione) | Yes | Il nome della connessione, ad esempio, "MyLogicApp-DB2-connection" | 
 | **Server** | Yes | L'indirizzo o l'alias-due punti-numero di porta del server DB2, ad esempio, "myDB2server:50000" <p><p>**Nota**: questo valore è una stringa che rappresenta un alias o un indirizzo TCP/IP, in formato IPv4 o IPv6, seguito da due punti e un numero di porta TCP/IP. | 
 | **Database** | Yes | Il nome del database <p><p>**Nota**: questo valore è una stringa che rappresenta un nome di database relazionale (RDBNAM) DRDA: <p>- DB2 per z/OS accetta una stringa di 16 byte, in cui il database è definito come posizione di IBM DB2 per z/OS. <br>- DB2 per i accetta una stringa di 18 byte, in cui il database è definito come database relazionale IBM DB2 per i. <br>- DB2 per LUW accetta una stringa di 8 byte. | 
-| **Autenticazione** | Yes | Il tipo di autenticazione per la connessione, ad esempio, "Base" <p><p>**Nota**: selezionare questo valore dall'elenco, che include Base o Windows (Kerberos). | 
+| **autenticazione** | Yes | Il tipo di autenticazione per la connessione, ad esempio, "Base" <p><p>**Nota**: selezionare questo valore dall'elenco, che include Base o Windows (Kerberos). | 
 | **Nome utente** | Yes | Il nome utente del database <p><p>**Nota**: questo valore è una stringa la cui lunghezza è basata sul database specifico: <p><p>- DB2 per z/OS accetta una stringa di 8 byte. <br>- DB2 per i accetta una stringa di 10 byte. <br>- DB2 per Linux o UNIX accetta una stringa di 8 byte. <br>- DB2 per Windows accetta una stringa di 30 byte. | 
 | **Password** | Yes | La password amministrativa per il database | 
 | **Gateway** | Yes | Il nome del gateway dati locale installato <p><p>**Nota**: selezionare questo valore dall'elenco, che include tutti i gateway dati installati all'interno del gruppo di risorse e della sottoscrizione di Azure. | 
@@ -361,7 +361,7 @@ Per informazioni tecniche, ad esempio su trigger, azioni e limiti indicati nel f
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

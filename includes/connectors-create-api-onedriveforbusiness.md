@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>prerequisiti
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 48cd41d432c5969fc4128b055ca61fc86a57bdd2
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133144"
+---
+### <a name="prerequisites"></a>Prerequisiti
 * Un account [OneDrive](http://OneDrive.com) 
 
 Prima di poter usare l'account OneDrive for Business in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account OneDrive for Business. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure. 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985234"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085809"
 ---
 # <a name="assets"></a>Asset
 
@@ -34,19 +34,19 @@ Inoltre, consultare gli articoli sugli [account di archiviazione in Servizi mult
 
 Nella tabella seguente vengono illustrate le proprietà di un asset e le relative definizioni.
 
-|NOME|type|DESCRIZIONE|
-|---|---|---|
-|id|stringa|ID di risorsa completo per la risorsa.|
-|name|stringa|Nome della risorsa.|
-|properties.alternateId |stringa|ID alternativo dell'asset.|
-|properties.assetId |stringa|ID dell'asset.|
-|properties.container |stringa|Nome del contenitore BLOB dell'asset.|
-|properties.created |stringa|Data di creazione dell'asset.|
-|properties.description |stringa|Descrizione dell'asset.|
-|properties.lastModified |stringa|Data dell'ultima modifica dell'asset.|
-|properties.storageAccountName |stringa|Nome dell'account di archiviazione.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |Formato di crittografia dell'asset. None oppure MediaStorageEncryption.|
-|type|stringa|Tipo di risorsa.|
+|NOME|DESCRIZIONE|
+|---|---|
+|id|ID di risorsa completo per la risorsa.|
+|name|Nome della risorsa.|
+|properties.alternateId |ID alternativo dell'asset.|
+|properties.assetId |ID dell'asset.|
+|properties.container |Nome del contenitore BLOB dell'asset.|
+|properties.created |Data di creazione dell'asset.|
+|properties.description|Descrizione dell'asset.|
+|properties.lastModified |Data dell'ultima modifica dell'asset.|
+|properties.storageAccountName |Nome dell'account di archiviazione.|
+|properties.storageEncryptionFormat |Formato di crittografia dell'asset. None oppure MediaStorageEncryption.|
+|type|Tipo di risorsa.|
 
 Per la definizione completa, vedere [Assets](https://docs.microsoft.com/rest/api/media/assets) (Asset).
 

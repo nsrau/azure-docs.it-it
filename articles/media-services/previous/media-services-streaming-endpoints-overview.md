@@ -5,7 +5,7 @@ services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
@@ -13,14 +13,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 7b4077747d4c9ec581496786063fc8fbe0c6b247
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785950"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240223"
 ---
 # <a name="streaming-endpoints-overview"></a>Panoramica degli endpoint di streaming 
 
@@ -69,24 +69,24 @@ Se l'endpoint di streaming **versione "1.0"** ha una o più unità di streaming 
 |type|StreamingEndpointVersion|ScaleUnits|RETE CDN|Fatturazione|Contratto di servizio| 
 |--------------|----------|-----------------|-----------------|-----------------|-----------------|    
 |Classico|1.0|0|ND|Gratuito|ND|
-|Endpoint di streaming Standard|2.0|0|Sì|A pagamento|Sì|
-|Unità di streaming Premium|1.0|>0|Sì|A pagamento|Sì|
-|Unità di streaming Premium|2.0|>0|Sì|A pagamento|Sì|
+|Endpoint di streaming Standard|2.0|0|Yes|A pagamento|Yes|
+|Unità di streaming Premium|1.0|>0|Yes|A pagamento|Yes|
+|Unità di streaming Premium|2.0|>0|Yes|A pagamento|Yes|
 
 ### <a name="features"></a>Funzionalità
 
 Funzionalità|Standard|Premium
 ---|---|---
-Gratis per i primi 15 giorni| Sì |No 
+Gratis per i primi 15 giorni| Yes |No 
 Velocità effettiva |Fino a 600 Mbps quando non si usa la rete CDN di Azure. Scalabilità con la rete CDN.|200 Mbps per unità di streaming (SU). Scalabilità con la rete CDN.
 Contratto di servizio | 99,9|99,9 (200 Mbps per SU).
 RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Giornaliera|Giornaliera
-Crittografia dinamica|Sì|Sì
-creazione dinamica dei pacchetti|Sì|Sì
+Crittografia dinamica|Yes|Yes
+creazione dinamica dei pacchetti|Yes|Yes
 Scalabilità|Scalabilità automatica fino alla velocità effettiva di destinazione.|Unità di streaming aggiuntive
-Host con filtro IP/G20/personalizzato|Sì|Sì
-Download progressivo|Sì|Sì
+Host con filtro IP/G20/personalizzato|Yes|Yes
+Download progressivo|Yes|Yes
 Uso consigliato |Consigliato per la maggior parte dei casi di streaming.|Uso professionale.<br/>Per esigenze superiori alle funzionalità offerte dalla tipologia Standard. Se si prevede un numero di destinatari simultanei superiore a 50.000 visualizzatori, contattare Microsoft (amsstreaming@microsoft.com).
 
 

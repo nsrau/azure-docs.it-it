@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 3c8202f762c65d72417020b0524e415e55076eb0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248330"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415263"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività in Monitoraggio di Azure  
 
@@ -43,11 +43,11 @@ Utilizzare la procedura seguente:
 1. Nel portale di Azure selezionare **Monitoraggio** > **Avvisi**
 2. Fare clic su **Nuova regola di avviso** in alto alla finestra **Avvisi**.
 
-     ![nuova regola di avviso](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+     ![nuova regola di avviso](media/alert-activity-log/AlertsPreviewOption.png)
 
      Viene visualizzata la finestra **Crea regola**.
 
-      ![nuove opzioni delle regole di avviso](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule-options.png)
+      ![nuove opzioni delle regole di avviso](media/alert-activity-log/create-new-alert-rule-options.png)
 
 3. Nella condizione **Definisci avviso** fornire le informazioni seguenti e fare clic su **Fatto**.
 
@@ -57,7 +57,7 @@ Utilizzare la procedura seguente:
 
     > Per il segnale del log attività è possibile selezionare una risorsa, un gruppo di risorse o un'intera sottoscrizione.
 
-    **Visualizzazione di esempio di destinazione di avviso** ![Selezionare la destinazione](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
+    **Visualizzazione di esempio di destinazione di avviso** ![Selezionare la destinazione](media/alert-activity-log/select-target.png)
 
     - In **Criteri di destinazione** fare clic su **Aggiungi criteri**. Verranno visualizzati tutti i segnali disponibili per la destinazione, inclusi quelli appartenenti alle varie categorie di **Log attività** con il nome della categoria accodato al nome del **Servizio di monitoraggio**.
 
@@ -67,7 +67,7 @@ Utilizzare la procedura seguente:
 
     **Schermata Aggiungi criteri**
 
-    ![aggiungi criteri](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
+    ![aggiungi criteri](media/alert-activity-log/add-criteria.png)
 
     **Periodo cronologia**: è possibile tracciare gli eventi disponibili per l'operazione selezionata nelle ultime 6/12/24 ore oppure nell'ultima settimana.
 
@@ -79,7 +79,7 @@ Utilizzare la procedura seguente:
 
         Grafico del segnale di esempio con logica avvisi applicata:
 
-        ![ criteri selezionati](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ criteri selezionati](media/alert-activity-log/criteria-selected.png)
 
 4. In **Definire i dettagli dell'avviso** fornire i dettagli seguenti:
 
@@ -99,20 +99,20 @@ Utilizzare la procedura seguente:
 
 In alternativa, una semplice analogia per comprendere le condizioni in cui è possibile creare le regole di avviso nel log attività è quella di esplorare o filtrare gli eventi tramite il [Log attività nel portale di Azure](monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). In Monitoraggio di Azure - Log attività, un utente può filtrare o trovare l'evento necessario e quindi creare un avviso usando il pulsante **Aggiungi avviso del log attività**, quindi seguire i passaggi dal 4 in poi come indicato in precedenza nell'esercitazione.
     
- ![ Aggiungere un avviso dal log attività](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
+ ![ Aggiungere un avviso dal log attività](media/alert-activity-log/add-activity-log.png)
     
 
 ### <a name="view-and-manage-in-azure-portal"></a>Visualizzare e gestire gli avvisi nel portale di Azure
 
 1. Nel portale di Azure fare clic su **Monitoraggio** > **Avvisi**, quindi su **Gestisci le regole** nella parte superiore sinistra della finestra.
 
-    ![ gestione delle regole di avviso](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ gestione delle regole di avviso](media/alert-activity-log/manage-alert-rules.png)
 
     Viene visualizzato l'elenco delle regole disponibili.
 
 2. Cercare la regola del log attività da modificare.
 
-    ![ cercare le regole di avviso del log attività](./media/monitoring-activity-log-alerts-new-experience/searth-activity-log-rule-to-edit.png)
+    ![ cercare le regole di avviso del log attività](media/alert-activity-log/searth-activity-log-rule-to-edit.png)
 
     È possibile usare i filtri disponibili: _Sottoscrizione_, _Gruppo di risorse_, _Risorsa_, _Tipo di segnale_ o _Stato_ per trovare la regola dell'attività che si vuole modificare.
 
@@ -122,7 +122,7 @@ In alternativa, una semplice analogia per comprendere le condizioni in cui è po
 
 3.  Selezionare la regola e fare doppio clic per modificare le opzioni della regola. Apportare le modifiche necessarie e quindi fare clic su **Salva**.
 
-    ![ gestione delle regole di avviso](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
+    ![ gestione delle regole di avviso](media/alert-activity-log/activity-log-rule-edit-page.png)
 
 4.  È possibile disabilitare, abilitare o eliminare una regola. Selezionare l'opzione appropriata nella parte superiore della finestra, dopo aver selezionato la regola come descritto nel passaggio 2.
 

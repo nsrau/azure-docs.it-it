@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6882dd56ee96e1fcab5926b77f11ce928bf950b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442356"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139510"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
@@ -41,7 +41,7 @@ Rispetto alla precedente modalità tradizionale, in cui le pagine modello sono d
 È possibile inserire un numero illimitato di pagine contenuto creando file HTML5/CSS secondo le esigenze.
 
 > [!NOTE]
-> Per motivi di sicurezza non è attualmente possibile usare JavaScript per la personalizzazione. Per sbloccare JavaScript, è necessario usare un nome di dominio per il tenant Azure AD B2C.
+> Per motivi di sicurezza non è attualmente possibile usare JavaScript per la personalizzazione. 
 
 In ogni modello HTML5/CSS si inserisce un elemento *anchor*, che corrisponde all'elemento `<div id=”api”>` necessario nella pagina HTML o contenuto, come illustrato più avanti. Azure AD B2C richiede che tutte le pagine contenuto abbiano questo specifico elemento div.
 
@@ -84,12 +84,12 @@ Come prerequisito, è necessario creare un account di archiviazione. Per creare 
 2. Accedere con le credenziali amministrative.
 3. Fare clic su **Crea una risorsa** > **Archiviazione** > **Account di archiviazione**.  Viene aperto un riquadro **Crea account di archiviazione**.
 4. In **Nome** specificare un nome per l'account di archiviazione, ad esempio *contoso369b2c*. Questo valore viene indicato più avanti come *storageAccountName*.
-5. Impostare le selezioni appropriate per il piano tariffario, il gruppo di risorse e la sottoscrizione. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Crea**.
+5. Impostare le selezioni appropriate per il piano tariffario, il gruppo di risorse e la sottoscrizione. Verificare che l'opzione **Aggiungi alla Schermata iniziale** sia selezionata. Fare clic su **Create**(Crea).
 6. Tornare alla schermata iniziale e fare clic sull'account di archiviazione creato.
 7. Nella sezione **Servizi** fare clic su **BLOB**. Viene aperto un riquadro **Servizio BLOB**.
 8. Fare clic su **+ Contenitore**.
 9. In **Nome** specificare un nome per il contenitore, ad esempio *b2c*. Questo valore viene indicato più avanti come *containerName*.
-9. Selezionare **BLOB** come **Tipo di accesso**. Fare clic su **Crea**.
+9. Selezionare **BLOB** come **Tipo di accesso**. Fare clic su **Create**(Crea).
 10. Il contenitore appena creato verrà visualizzato nell'elenco nel riquadro **Servizio BLOB**.
 11. Chiudere il riquadro **BLOB**.
 12. Nel riquadro **Account di archiviazione** fare clic sull'icona **Chiave**. Viene aperto un riquadro **Chiavi di accesso**.  
@@ -119,7 +119,7 @@ La condivisione di risorse tra le origini (CORS) deve essere abilitata nell'endp
 
 Per verificare che CORS sia abilitato per la risorsa di archiviazione in cui si ospita il contenuto, procedere con i passaggi seguenti:
 
-1. Aprire una sessione del browser e passare alla pagina *unified.html* usando l'URL completo del percorso nell'account di archiviazione, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Ad esempio, https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
+1. Aprire una sessione del browser e passare alla pagina *unified.html* usando l'URL completo del percorso nell'account di archiviazione, `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`. Ad esempio: https://contoso369b2c.blob.core.windows.net/b2c/unified.html.
 2. Accedere a http://test-cors.org. Questo sito consente di verificare che CORS sia abilitato per la pagina in uso.  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)

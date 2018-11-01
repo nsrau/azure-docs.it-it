@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371903e1ee080d2b98fd46ac4d6d9838416e1335
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b1b4e3e19adb38a69e16aaa98300972df3bb71a8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973423"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093650"
 ---
 # <a name="build-and-deploy-image-similarity-models-with-azure-machine-learning"></a>Compilare e distribuire modelli di somiglianza delle immagini con Azure Machine Learning
 
@@ -38,7 +38,7 @@ Quando si compila e si distribuisce questo modello con Azure Machine Learning Pa
 7. Distribuzione del servizio Web
 8. Test di carico del servizio Web
 
-Viene usato [CNTK](https://www.microsoft.com/cognitive-toolkit/) come framework di Deep Learning, il training viene eseguito localmente in un computer con tecnologica GPU, ad esempio la [VM per l'analisi scientifica dei dati di Deep Learning](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), e la distribuzione usa l'interfaccia della riga di comando di operazionalizzazione di Azure Machine Learning.
+Viene usato [CNTK](https://www.microsoft.com/en-us/cognitive-toolkit/) come framework di Deep Learning, il training viene eseguito localmente in un computer con tecnologica GPU, ad esempio la [VM per l'analisi scientifica dei dati di Deep Learning](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), e la distribuzione usa l'interfaccia della riga di comando di operazionalizzazione di Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -74,7 +74,7 @@ Per altre informazioni su Azure Machine Learning Package per Visione artificiale
 
 + Informazioni su come [migliorare l'accuratezza di questo modello](how-to-improve-accuracy-for-computer-vision-models.md).
 
-+ Vedere la [panoramica dei pacchetti](https://aka.ms/aml-packages/vision).
++ Consultare la [panoramica dei pacchetti](https://aka.ms/aml-packages/vision).
 
 + Esplorare la [documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) relativa a questo pacchetto.
 

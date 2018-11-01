@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: 2da5e4653c345464ef11a2ceac89fc6650c69e5d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164880"
+---
 1. Copiare il file di installazione nel server e quindi aprire il programma di installazione.
 2. In **Opzioni di installazione** selezionare **Install Mobility Service** (Installa il servizio Mobility).
 

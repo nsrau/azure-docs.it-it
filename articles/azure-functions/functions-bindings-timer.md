@@ -3,26 +3,22 @@ title: Trigger timer per Funzioni di Azure
 description: Informazioni su come usare trigger timer in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+author: craigshoemaker
+manager: jeconnoc
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 02/27/2017
-ms.author: glenga
+ms.date: 09/08/2018
+ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 8459c08866fb71e755663aaddd32015af8b0d1df
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: ae2d4d3fc4f5c0961b942326b2071a0553c81e8d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345243"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248976"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -50,6 +46,7 @@ Vedere l'esempio specifico per ciascun linguaggio:
 * [Script C# (file con estensione csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### <a name="c-example"></a>Esempio in C#
 
@@ -57,13 +54,13 @@ L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) c
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
     if(myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
 ```
 
@@ -85,13 +82,13 @@ Ecco i dati di associazione nel file *function.json*:
 Ecco il codice script C#:
 
 ```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+public static void Run(TimerInfo myTimer, ILogger log)
 {
     if(myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}" );  
 }
 ```
 
@@ -113,11 +110,11 @@ Ecco i dati di associazione nel file *function.json*:
 Ecco il codice script F#:
 
 ```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
+let Run(myTimer: TimerInfo, log: ILogger ) =
     if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
+        log.LogInformation("F# function is running late.")
     let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
+    log.LogInformation(sprintf "F# function executed at %s!" now)
 ```
 
 ### <a name="javascript-example"></a>Esempio JavaScript
@@ -135,7 +132,7 @@ Ecco i dati di associazione nel file *function.json*:
 }
 ```
 
-Ecco il codice script JavaScript:
+Ecco il codice JavaScript:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -143,12 +140,27 @@ module.exports = function (context, myTimer) {
 
     if(myTimer.isPastDue)
     {
-        context.log('Node.js is running late!');
+        context.log('Node is running late!');
     }
-    context.log('Node.js timer trigger function ran!', timeStamp);   
+    context.log('Node timer trigger function ran!', timeStamp);   
 
     context.done();
 };
+```
+
+### <a name="java-example"></a>Esempio per Java
+
+La funzione di esempio seguente si attiva e viene eseguita ogni cinque minuti. L’`@TimerTrigger`annotazione sulla funzione definisce la pianificazione usando lo stesso formato di stringa delle [espressioni CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression).
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
 ```
 
 ## <a name="attributes"></a>Attributi
@@ -159,13 +171,13 @@ Il costruttore dell'attributo accetta un'espressione CRON o un valore `TimeSpan`
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
     if (myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
  ```
 
@@ -179,10 +191,13 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**direction** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
 |**nome** | n/d | Nome della variabile che rappresenta l'oggetto timer nel codice della funzione. | 
 |**schedule**|**ScheduleExpression**|[Espressione CRON](#cron-expressions) o valore [TimeSpan](#timespan). `TimeSpan` può essere usato solo per un'app per le funzioni in esecuzione in un piano di servizio app. È possibile inserire l'espressione schedule in un'impostazione dell'app e definire per questa proprietà il nome dell'impostazione dell'app racchiuso tra simboli **%**, come in questo esempio: "%ImpostazioneAppSchedule%". |
-|**runOnStartup**|**RunOnStartup**|Se `true`, la funzione viene richiamata all'avvio del runtime. Ad esempio, il runtime viene avviato quando l'app per le funzioni si riattiva dopo un periodo di inattività, quando l'app per le funzioni viene riavviata a causa di modifiche alla funzione e quando l'app per le funzioni viene scalata orizzontalmente. Di conseguenza, **runOnStartup** deve essere impostato raramente, o addirittura mai, su `true`, in quando causa l'esecuzione del codice in momenti estremamente imprevedibili.|
+|**runOnStartup**|**RunOnStartup**|Se `true`, la funzione viene richiamata all'avvio del runtime. Ad esempio, il runtime viene avviato quando l'app per le funzioni si riattiva dopo un periodo di inattività, quando l'app per le funzioni viene riavviata a causa di modifiche alla funzione e quando l'app per le funzioni viene scalata orizzontalmente. **runOnStartup** dovrebbe quindi essere impostato su `true` solo in rari casi o mai, specialmente in ambienti di produzione. |
 |**useMonitor**|**UseMonitor**|Impostata su `true` o `false` per indicare se monitorare la pianificazione. Il monitoraggio della pianificazione rende persistenti le occorrenze della pianificazione per garantire che la pianificazione venga gestita correttamente anche quando le istanze dell'app per le funzioni vengono riavviate. Se la proprietà non è impostata in modo esplicito, il valore predefinito è `true` per le pianificazioni che hanno un intervallo di ricorrenza maggiore di 1 minuto. Per le pianificazioni attivate più di una volta al minuto, il valore predefinito è `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!CAUTION]
+> L'impostazione di **runOnStartup** su `true` non è consigliata in ambienti di produzione. Con questa impostazione, il codice viene eseguito in momenti estremamente imprevedibili. In alcune impostazioni di produzione queste esecuzioni aggiuntive possono determinare costi molto più elevati per le app ospitate in piani a consumo. Con **runOnStartup** abilitato, ad esempio, il trigger viene richiamato ogni volta che il numero di istanze dell'app per le funzioni viene aumentato. Prima di abilitare **runOnStartup** in un ambiente di produzione assicurarsi di avere ben compreso il comportamento in produzione delle proprie funzioni.   
 
 ## <a name="usage"></a>Uso
 
@@ -259,6 +274,8 @@ In alternativa, è possibile creare un'impostazione per l'app per le funzioni de
 ```json
 "schedule": "0 0 10 * * *"
 ``` 
+
+Quando si usa `WEBSITE_TIME_ZONE`, l'ora viene regolata per modifiche all'ora nel fuso orario specifico, ad esempio l'ora legale. 
 
 ## <a name="timespan"></a>Intervallo di tempo
 

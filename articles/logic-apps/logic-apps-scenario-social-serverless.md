@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 6ba274bb3ff3679b4a44950db168215c54f3ade6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c8abc153084f0c6491cab3677b93f8c450ad908
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299747"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229418"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Creare un dashboard Customer Insights in streaming con App per la logica di Azure e Funzioni di Azure
 
@@ -26,7 +26,7 @@ App per la logica di Azure fornisce un motore del flusso di lavoro senza server 
 
 In questo scenario viene creata un'app per la logica attivabile con i suggerimenti dei clienti. Tra i connettori che consentono di rispondere ai suggerimenti dei clienti sono inclusi Outlook.com, Office 365, Survey Monkey, Twitter e una [richiesta HTTP da un Web Form](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). Il flusso di lavoro creato monitora un hashtag su Twitter.
 
-È possibile [compilare l'intera soluzione in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [distribuire la soluzione con un modello di Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md). Per una procedura dettagliata video per la creazione di questa soluzione, [guardare questo video su Channel 9](http://aka.ms/logicappsdemo). 
+È possibile [compilare l'intera soluzione in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [distribuire la soluzione con un modello di Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md). Per una procedura dettagliata video per la creazione di questa soluzione, [guardare questo video su Channel 9](https://aka.ms/logicappsdemo). 
 
 ## <a name="trigger-on-customer-data"></a>Attivare con i dati dei clienti
 

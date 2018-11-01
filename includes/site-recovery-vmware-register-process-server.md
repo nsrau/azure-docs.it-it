@@ -1,3 +1,16 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+ms.openlocfilehash: e18d0a6a01a86f844edc213fc95003cf4f4b46c9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164972"
+---
 * Connettersi alla macchina virtuale del server di elaborazione tramite Connessione Desktop remoto.
 * È possibile avviare cspsconfigtool.exe facendo clic sul collegamento disponibile sul desktop. Se è la prima volta che si accede al server di elaborazione, lo strumento viene avviato automaticamente.
   - Nome completo (FQDN) o indirizzo IP del server di configurazione.

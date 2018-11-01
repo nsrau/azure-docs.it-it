@@ -11,12 +11,12 @@ ms.assetid: 54fe5af8-7d2a-4da8-94e7-15d029e029bf
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 03c250f153402c68889c2e3ac187ccab3e2d858b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 292d517f2c99974f4674a4c94472a0a320320ce4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887486"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233838"
 ---
 # <a name="monitor-create-and-manage-salesforce-resources-by-using-azure-logic-apps"></a>Monitorare, creare e gestire le risorse di Salesforce con App per la logica di Azure
 
@@ -25,7 +25,7 @@ Con App per la logica di Azure e il connettore Salesforce, è possibile creare a
 * Eseguire il monitoraggio quando i record vengono creati o modificati. 
 * Creare, ottenere e gestire processi e record, tra cui azioni di inserimento, aggiornamento ed eliminazione.
 
-È possibile usare i trigger di Salesforce per ottenere risposte dall'account Salesforce e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire attività con le risorse di Salesforce. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+È possibile usare i trigger di Salesforce per ottenere risposte dall'account Salesforce e rendere l'output disponibile per altre azioni. È possibile usare azioni nelle app per la logica per eseguire attività con le risorse di Salesforce. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ Con App per la logica di Azure e il connettore Salesforce, è possibile creare a
 
 * Un [account Salesforce](https://salesforce.com/).
 
-* Conoscenza di base sulla [creazione delle app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account Salesforce. Per iniziare con un trigger di Salesforce, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di Salesforce, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
 
@@ -65,7 +65,7 @@ Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizi
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

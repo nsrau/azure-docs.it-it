@@ -5,17 +5,17 @@ keywords: hiveql, cos'è hive, hadoop hiveql, come usare hive, informazioni su h
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0ca968c0412396852e531af3b37f6675e0b519db
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9f22766b0ecbaff027cf4b495624f892d4339d17
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596661"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249347"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Cosa sono Apache Hive e HiveQL in Azure HDInsight
 
@@ -222,7 +222,7 @@ Esistono numerosi servizi che possono essere utilizzati per eseguire le query Hi
 
 ### <a name="azure-data-factory"></a>Data factory di Azure
 
-Azure Data Factory consente di usare HDInsight come parte di una pipeline di Data Factory. Per ulteriori informazioni sull'uso di Hive da una pipeline, vedere il documento [Trasformare dati usando l'attività Hive in Azure Data Factory](/data-factory/transform-data-using-hadoop-hive.md).
+Azure Data Factory consente di usare HDInsight come parte di una pipeline di Data Factory. Per ulteriori informazioni sull'uso di Hive da una pipeline, vedere il documento [Trasformare dati usando l'attività Hive in Azure Data Factory](../../data-factory/transform-data-using-hadoop-hive.md).
 
 ### <a name="hive-jobs-and-sql-server-integration-services"></a>Processi di Hive e SQL Server Integration Services
 
@@ -245,8 +245,6 @@ Dopo avere appreso che cos'è Hive e come si usa con Hadoop in HDInsight, vedere
 * [Caricare dati in HDInsight][hdinsight-upload-data]
 * [Usare Pig con HDInsight][hdinsight-use-pig]
 * [Usare processi MapReduce con HDInsight][hdinsight-use-mapreduce]
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

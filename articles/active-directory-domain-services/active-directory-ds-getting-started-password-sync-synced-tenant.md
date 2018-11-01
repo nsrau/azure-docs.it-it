@@ -3,7 +3,7 @@ title: 'Azure AD Domain Services: abilitare la sincronizzazione password | Docum
 description: Introduzione ad Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: maheshu
-ms.openlocfilehash: 261cb45bd3b7b7f284eff3397aca141917a82502
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 751c9df8dc3826b54baab6166cd63a0dd8cff4f5
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504856"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155950"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Abilitare la sincronizzazione password con Azure Active Directory Domain Services
 Nelle attività precedenti è stato abilitato Azure Active Directory Domain Services per il tenant di Azure Active Directory (Azure AD). L'attività successiva prevede l'abilitazione della sincronizzazione degli hash delle credenziali necessari per l'autenticazione NTLM (NT LAN Manager) e Kerberos con Azure AD Domain Services. Al termine della configurazione della sincronizzazione delle credenziali, gli utenti potranno accedere al dominio gestito con le credenziali aziendali.
@@ -59,7 +59,7 @@ Versione consigliata: **1.1.614.0** - pubblicata il 5 settembre 2017.
 >
 >
 
-Le istruzioni per l'installazione di Azure AD Connect sono disponibili nell'articolo [Introduzione ad Azure AD Connect](../active-directory/active-directory-aadconnect.md)
+Le istruzioni per l'installazione di Azure AD Connect sono disponibili nell'articolo [Introduzione ad Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)
 
 ### <a name="enable-synchronization-of-ntlm-and-kerberos-credential-hashes-to-azure-ad"></a>Abilitare la sincronizzazione di hash di credenziali NTLM e Kerberos in Azure AD
 Eseguire lo script di PowerShell seguente in ogni foresta di AD. Lo script consente la sincronizzazione degli hash delle password NTLM e Kerberos di tutti gli utenti locali con il tenant di Azure AD. Lo script avvia anche una sincronizzazione completa in Azure AD Connect.

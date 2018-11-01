@@ -14,39 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 8f1fc9eb5e7b19f25af2005cb3a99cb320cba640
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945876"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214546"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager
 Questo articolo descrive la struttura di un modello di Azure Resource Manager. Presenta le diverse sezioni di un modello e le proprietà disponibili in queste sezioni. Il modello è composto da JSON ed espressioni che è possibile usare per creare valori per la distribuzione. Per un'esercitazione dettagliata sulla creazione di un modello, vedere [Creare il primo modello di Azure Resource Manager](resource-manager-create-first-template.md).
 
-## <a name="quickstarts-and-tutorials"></a>Guide introduttive ed esercitazioni
-
-Usare le guide introduttive e le esercitazioni seguenti per imparare a sviluppare modelli di Resource Manager:
-
-- Guide introduttive
-
-  	|Title|DESCRIZIONE|
-  	|------|-----|
-  	|[Usare il portale di Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)|Generare un modello usando il portale e il processo di modifica e distribuzione del modello.|
-  	|[Usare Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Usare Visual Studio Code per creare e modificare modelli e come usare Azure Cloud Shell per distribuire i modelli.|
-  	|[Usare Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Usare Visual Studio per creare, modificare e distribuire modelli.|
-
-- Esercitazioni
-
-  	|Title|DESCRIZIONE|
-  	|------|-----|
-  	|[Utilizzare il riferimento del modello](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilizzare la documentazione di riferimento dei modelli per lo sviluppo di modelli. Nell'esercitazione, trovare lo schema dell'account di archiviazione e usare le informazioni per creare un account di archiviazione crittografato.|
-  	|[Creare più istanze](./resource-manager-tutorial-create-multiple-instances.md)|Creare più istanze di risorse di Azure. Nell'esercitazione si creeranno più istanze dell'account di archiviazione.|
-  	|[Impostare l'ordine di distribuzione delle risorse](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Definire le dipendenze delle risorse. Nell'esercitazione, verranno create una rete virtuale, una macchina virtuale e le risorse di Azure dipendenti. Si apprenderà come vengono definite le dipendenze.|
-  	|[Usare le condizioni](./resource-manager-tutorial-use-conditions.md)|Distribuire le risorse basate su alcuni valori di parametro. Nell'esercitazione, si definisce un modello per creare un nuovo account di archiviazione oppure usarne uno esistente in base al valore di un parametro.|
-  	|[Integrare Key Vault](./resource-manager-tutorial-use-key-vault.md)|Recuperare i segreti/le password di Azure Key Vault. Nell'esercitazione, verrà creata una macchina virtuale.  La password amministratore della macchina virtuale viene recuperata da un Key Vault.|
-  	|[Creare modelli collegati](./resource-manager-tutorial-create-linked-templates.md)|Modularizzare i modelli e chiamare altri modelli da un modello. Nell'esercitazione, verranno create una rete virtuale, una macchina virtuale e le risorse dipendenti.  L'account di archiviazione dipendente è definito in un modello collegato. |
-  	|[Usare procedure di distribuzione sicure](./deployment-manager-tutorial.md)|Usare Azure Deployment Manager. |
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="template-format"></a>Formato del modello
 

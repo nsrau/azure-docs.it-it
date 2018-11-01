@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365063"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421085"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Avvisi del log in Monitoraggio di Azure
 Questo articolo contiene informazioni dettagliate sugli avvisi di log, uno dei tipi di avvisi supportati nel nuovo servizio [Avvisi di Azure](monitoring-overview-unified-alerts.md) che consente agli utenti di usare la piattaforma di analisi di Azure come base per la generazione di avvisi.
@@ -93,7 +93,7 @@ Si consideri uno scenario in cui si desidera creare un avviso se l'uso del proce
 
 La query crea un valore medio per ogni computer a intervalli di 5 minuti.  Questa query verrebbe eseguita ogni 5 minuti per i dati raccolti nei 30 minuti precedenti.  Di seguito sono illustrati dati di esempio per tre computer.
 
-![Risultati della query di esempio](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
+![Risultati della query di esempio](media/monitor-alerts-unified-log/metrics-measurement-sample-graph.png)
 
 In questo esempio vengono creati avvisi separati per srv02 e srv03, in quanto hanno superato la soglia del 90% per tre volte nel periodo di tempo.  Se l'impostazione di **Attiva l'avviso in base a:** venisse modificata in **Consecutivo** verrebbe creato un avviso solo per srv03 poiché ha violato la soglia di tre volte consecutive.
 

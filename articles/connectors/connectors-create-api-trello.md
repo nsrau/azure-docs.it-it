@@ -11,12 +11,12 @@ ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 4ae8d3dff108f14844c31d7b9d0b0871326832a3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 31357fa313cfa31c0f8a90c0f7722f627e4394d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046150"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229333"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Monitorare e gestire Trello con App per la logica di Azure
 
@@ -28,7 +28,7 @@ Con App per la logica di Azure e il connettore Trello, è possibile creare attiv
 * Elencare bacheche, etichette delle bacheche, schede sulle bacheche, commenti alle schede, membri delle schede, membri del team e team di cui si è membri. 
 * Ottenere team.
 
-È possibile usare i trigger per ottenere risposte dall'account Trello e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Trello. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Trello. Ad esempio, quando una nuova scheda viene aggiunta a una bacheca o a un elenco, è possibile inviare messaggi con il connettore Slack. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+È possibile usare i trigger per ottenere risposte dall'account Trello e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Trello. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Trello. Ad esempio, quando una nuova scheda viene aggiunta a una bacheca o a un elenco, è possibile inviare messaggi con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -38,7 +38,7 @@ Con App per la logica di Azure e il connettore Trello, è possibile creare attiv
 
   Le credenziali autorizzano l'app per la logica alla creazione di una connessione e all'accesso all'account Trello.
 
-* Conoscenza di base sulla [creazione delle app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account Trello. Per iniziare con un trigger di Trello, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di Trello, avviare l'app per la logica con un trigger, ad esempio, il trigger **Ricorrenza**.
 
@@ -70,7 +70,7 @@ Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizi
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

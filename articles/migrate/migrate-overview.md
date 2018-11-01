@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 1aeaff486ed9f7cb99ea0b95451fc765344847a1
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025637"
+ms.locfileid: "50086676"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -37,7 +37,7 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 -  È possibile creare un progetto Azure Migrate solo nell'area geografica Stati Uniti. È tuttavia possibile pianificare una migrazione in qualsiasi località di Azure di destinazione.
     - Nell'area del progetto di migrazione vengono archiviati solo i metadati individuati dall'ambiente locale.
     - I metadati vengono archiviati in una delle aree dell'area geografica di Azure, ovvero Stati Uniti centro-occidentali o Stati Uniti orientali.
-    - Se si usa la visualizzazione delle dipendenze con un'area di Azure di Log Analytics, questa verrà creata nella stessa area del progetto. 
+    - Se si usa la visualizzazione delle dipendenze con un'area di Azure di Log Analytics, questa verrà creata nella stessa area del progetto.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Costo del servizio

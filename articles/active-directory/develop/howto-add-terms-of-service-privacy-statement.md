@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2018
+ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: cb05139241f92eb930a99c387e2f06cabac35caf
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2195a43665f99e8388b13fc6dc3e528496bd3901
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39580408"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242688"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Condizioni per l'utilizzo del servizio e informativa sulla privacy per le app di Azure Active Directory registrate
 
@@ -54,12 +54,14 @@ Esempi: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-statem
 ## <a name="adding-links-to-the-terms-of-service-and-privacy-statement"></a>Aggiunta di collegamenti per le condizioni per l'utilizzo del servizio e l'informativa sulla privacy
 
 Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy sono pronte, è possibile aggiungere collegamenti a questi documenti nell'app con uno dei metodi seguenti:
+
 * [Tramite il portale di Azure](#registered-in-azure-portal)
 * [Nel portale di registrazione delle applicazioni, o Dev Center](#registered-in-app-reg-portal)
 * [Con il codice JSON dell'oggetto app](#app-object-json)
 * [Con la versione beta dell'API REST MSGraph](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Se l'app è stata registrata nel portale di Azure
+
 Seguire questa procedura se l'app è stata registrata nel portale di Azure.
 
 1. Accedere al  [portale di Azure](https://portal.azure.com/).
@@ -68,9 +70,10 @@ Seguire questa procedura se l'app è stata registrata nel portale di Azure.
 4. Compilare i campi  **URL delle condizioni d'uso**  e  **URL dell'informativa sulla privacy** .
 5. Salvare le modifiche.
 
-![Sezione delle proprietà dell'app con gli URL delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![Sezione delle proprietà dell'app con gli URL delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="registered-in-app-reg-portal"></a>Se l'app è stata registrata nel portale di registrazione delle applicazioni
+
 Seguire questa procedura se l'app è stata registrata nel portale di registrazione delle applicazioni o DevCenter.
 
 1. Accedere al  [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/).
@@ -78,19 +81,21 @@ Seguire questa procedura se l'app è stata registrata nel portale di registrazio
 3. Compilare i campi  **URL delle condizioni d'uso**  e  **URL dell'informativa sulla privacy** .
 4. Salvare le modifiche.
 
-![Sezione del profilo dell'app con gli URL delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
+    ![Sezione del profilo dell'app con gli URL delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Con il codice JSON dell'oggetto app
+
 Se si preferisce modificare direttamente il codice JSON dell'oggetto app, è possibile usare l'editor del manifesto nel portale di Azure o nel portale di registrazione delle applicazioni per includere i collegamenti alle condizioni per l'utilizzo del servizio e all'informativa sulla privacy.
 
 ```json
     "informationalUrls": { 
-        "termsOfService": “<your_terms_of_service_url>”, 
-        "privacy": “<your_privacy_statement_url>” 
+        "termsOfService": "<your_terms_of_service_url>", 
+        "privacy": "<your_privacy_statement_url>" 
     }
 ```
 
 ### <a name="msgraph-beta-rest-api"></a>Con la versione beta dell'API REST MSGraph
+
 Per aggiornare tutte le app a livello di programmazione, è possibile usare la versione beta dell'API REST MSGraph per aggiornare tutte le app per includere collegamenti ai documenti delle condizioni per l'utilizzo del servizio e dell'informativa sulla privacy.
 
 ```

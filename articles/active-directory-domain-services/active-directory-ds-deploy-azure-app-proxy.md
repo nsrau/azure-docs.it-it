@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: distribuire il proxy di applicaz
 description: Usare il proxy di applicazione di Azure AD nei domini gestiti di Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: 11967e850e9d626edf757526b8ae7d320bad1a4e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 96ef005f095e5ab774a88ec766080f647414a7ce
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504346"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155542"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuire il proxy di applicazione di Azure AD in un dominio gestito di Azure AD Domain Services
 Il proxy dell'applicazione di Azure Active Directory (AD) consente di supportare lavoratori remoti pubblicando applicazioni locali in modo che siano accessibili tramite Internet. Azure AD Domain Services ora consente di trasferire in modalità lift-and-shift le applicazioni legacy in esecuzione in locale nei servizi di infrastruttura di Azure. È quindi possibile pubblicare queste applicazioni con il proxy di applicazione di Azure AD per garantire l'accesso remoto sicuro agli utenti dell'organizzazione.
@@ -129,6 +129,6 @@ Se sono stati distribuiti più connettori del proxy di applicazione nel dominio 
 
 
 ## <a name="related-content"></a>Contenuti correlati
-* [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
+* [Servizi di dominio Azure AD: introduzione](active-directory-ds-getting-started.md)
 * [Configurare la delega vincolata Kerberos in un dominio gestito](active-directory-ds-enable-kcd.md)
 * [Panoramica della delega vincolata Kerberos](https://technet.microsoft.com/library/jj553400.aspx)

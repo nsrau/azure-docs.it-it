@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c4071da60ed1311d8dd75d6a369c48cf711778cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050747"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243215"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure
 Questa esercitazione illustra come effettuare il provisioning di un'applicazione costituita da [microservizi](https://en.wikipedia.org/wiki/Microservices) e come distribuirla nel [servizio app di Azure](https://azure.microsoft.com/services/app-service/) come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell. 
@@ -148,7 +148,7 @@ Le impostazioni dell'app vengono definite anche come risorsa annidata.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-Nell'elemento `properties` per `config/appsettings` sono disponibili due impostazioni app nel formato `“<name>” : “<value>”`.
+Nell'elemento `properties` per `config/appsettings` sono disponibili due impostazioni app nel formato `"<name>" : "<value>"`.
 
 * `PROJECT` è un' [impostazione KUDU](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) che indica alla distribuzione di Azure quale progetto usare in una soluzione di Visual Studio con più progetti. Più avanti verrà illustrato come configurare il controllo del codice sorgente, ma poiché il codice di ToDoApp è una soluzione di Visual Studio con più progetti, questa impostazione è necessaria.
 * `clientUrl` è semplicemente un'impostazione app usata dal codice dell'applicazione.
@@ -158,7 +158,7 @@ Le stringhe di connessione vengono definite anche come risorsa annidata.
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-Nell'elemento `properties` per `config/connectionstrings` ogni stringa di connessione è definita anche come coppia nome/valore con il formato specifico `“<name>” : {“value”: “…”, “type”: “…”}`. Per l'elemento `type` i valori possibili sono `MySql`, `SQLServer`, `SQLAzure` e `Custom`.
+Nell'elemento `properties` per `config/connectionstrings` ogni stringa di connessione è definita anche come coppia nome/valore con il formato specifico `"<name>" : {"value": "…", "type": "…"}`. Per l'elemento `type` i valori possibili sono `MySql`, `SQLServer`, `SQLAzure` e `Custom`.
 
 > [!TIP]
 > Per un elenco definitivo di tipi di stringhe di connessione, eseguire il comando seguente in Azure PowerShell: \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
@@ -264,7 +264,7 @@ In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita
 
 ## <a name="more-resources"></a>Altre risorse
 * [Linguaggio del modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Funzioni del modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-functions.md)
 * [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/resource-group-template-deploy.md)
 * [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/powershell-azure-resource-manager.md)

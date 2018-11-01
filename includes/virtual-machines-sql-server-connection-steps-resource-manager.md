@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226484"
+---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configurare un'etichetta DNS per l'indirizzo IP pubblico
 
 Per connettersi al motore di database di SQL Server da Internet, prendere in considerazione la possibilità di configurare un'etichetta DNS per l'indirizzo IP pubblico. È possibile connettersi tramite l'indirizzo IP, ma l'etichetta DNS crea un record A che è più facile da identificare ed estrae l'indirizzo IP pubblico sottostante.
@@ -23,7 +36,7 @@ Per creare un'etichetta DNS, selezionare prima di tutto **Macchine virtuali** ne
 
 1. In un computer connesso a Internet aprire SQL Server Management Studio (SSMS). Se SQL Server Management Studio non è installato, è possibile scaricarlo [qui](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP o il nome DNS completo della macchina virtuale, determinato nell'attività precedente. È anche possibile aggiungere una virgola e specificare la porta TCP di SQL Server. Ad esempio, `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
+1. Nella finestra di dialogo **Connetti al server** o **Connetti al motore di database** modificare il valore di **Nome server**. Immettere l'indirizzo IP o il nome DNS completo della macchina virtuale, determinato nell'attività precedente. È anche possibile aggiungere una virgola e specificare la porta TCP di SQL Server. Ad esempio: `mysqlvmlabel.eastus.cloudapp.azure.com,1433`.
 
 1. Nella casella **Autenticazione** selezionare **Autenticazione di SQL Server**.
 

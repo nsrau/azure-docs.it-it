@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 6b31882ec3916e60ac7dc7b8117328176abef1b4
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818535"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233634"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
 
@@ -158,7 +158,7 @@ Per rendere pubblici i connettori o le app per le API personalizzate da utilizza
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* Per sottoporre o votare idee per Azure Logic Apps e connettori, visitare il [sito di feedback degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per sottoporre o votare idee per Azure Logic Apps e connettori, visitare il [sito di feedback degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 * I documenti mancano di articoli o dettagli che si ritiene importanti? In caso affermativo, è possibile contribuire aggiungendo gli articoli esistenti o scrivendo il proprio. La documentazione è open source e ospitata su GitHub. Iniziate dal [repository GitHub](https://github.com/Microsoft/azure-docs) della documentazione Azure. 
 

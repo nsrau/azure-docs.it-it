@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6ec81d6154f15d1c49428b50f0e65eed8edcedad
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986515"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215090"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Risoluzione dei problemi: Errore durante la creazione o l'eliminazione di un database o di una tabella in Esplora dati di Azure
 
@@ -21,7 +21,7 @@ In Esplora dati di Azure vengono regolarmente usati database e tabelle. Questo a
 
 ## <a name="creating-a-database"></a>Creazione di un database
 
-1. Verificare di disporre delle autorizzazioni appropriate. Per creare un database è necessario essere un membro del ruolo *Collaboratore* oppure *Proprietario* della sottoscrizione di Azure. Se necessario rivolgersi all'amministratore della sottoscrizione per essere aggiunti al ruolo appropriato.
+1. Assicurarsi di disporre delle autorizzazioni appropriate. Per creare un database è necessario essere un membro del ruolo *Collaboratore* oppure *Proprietario* della sottoscrizione di Azure. Se necessario rivolgersi all'amministratore della sottoscrizione per essere aggiunti al ruolo appropriato.
 
 1. Verificare che non siano presenti errori di convalida del nome per il nome del database. Il nome deve essere alfanumerico con una lunghezza massima di 260 caratteri.
 
@@ -53,11 +53,11 @@ Per altre informazioni sulle autorizzazioni, vedere [Gestire le autorizzazioni p
 
 ## <a name="general-guidance"></a>Indicazioni generali
 
-1. Controllare il [dashboard dell'integrità dei servizi di Azure](https://azure.microsoft.com/status/>). Individuare lo stato di Esplora dati di Azure nell'area in cui si sta cercando di lavorare con il database o la tabella.
+1. Controllare il [dashboard di integrità dei servizi di Azure](https://azure.microsoft.com/status/>). Individuare lo stato di Esplora dati di Azure nell'area in cui si sta cercando di lavorare con il database o la tabella.
 
     Se lo stato non è **Buono** (segno di spunta verde), provare di nuovo non appena lo stato migliora.
 
-1. Per richiedere ulteriore assistenza per la risoluzione del problema, aprire una richiesta di supporto nel [portale di Azure](https://portal.azure.com).
+1. Per richiedere ulteriore assistenza per la risoluzione del problema, aprire una richiesta di supporto nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

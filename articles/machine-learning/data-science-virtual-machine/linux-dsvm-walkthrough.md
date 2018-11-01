@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c125f503166e3f63599dbd09acf42c69fab8d2ce
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7576c479b9e3e443b048a9295c0ff0f30d4b9423
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044655"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240325"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Data science con una macchina virtuale di data science Linux in Azure
 Questa procedura dettagliata illustra come eseguire varie attività comuni di analisi scientifica dei dati con la macchina virtuale Linux per l'analisi scientifica dei dati. La macchina virtuale Linux per l'analisi scientifica dei dati (DSVM) è un'immagine di macchina virtuale, disponibile in Azure, in cui è preinstallata una raccolta di strumenti usati comunemente per l'analisi dei dati e l'apprendimento automatico. I componenti software principali sono elencati nell'argomento [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](linux-dsvm-intro.md). L'immagine di macchina virtuale permette di iniziare le attività di analisi scientifica dei dati in pochi minuti, senza dover installare e configurare ogni strumento singolarmente. Se necessario, è possibile aumentare facilmente le prestazioni della macchina virtuale e arrestarla quando non viene usata, caratteristiche che rendono questa risorsa flessibile e conveniente.
 
-Le attività di analisi scientifica dei dati illustrate in questa procedura dettagliata seguono i passaggi descritti nel [Processo di analisi scientifica dei dati per i team](https://azure.microsoft.com/documentation/learning-paths/data-science-process/). Questo processo offre un approccio sistematico all'analisi scientifica dei dati, che permette ai team di data scientist di collaborare in modo efficace al ciclo di vita della compilazione di applicazioni intelligenti. Il processo di analisi scientifica dei dati fornisce anche un framework iterativo di analisi scientifica dei dati da seguire.
+Le attività di analisi scientifica dei dati illustrate in questa procedura dettagliata seguono i passaggi descritti nel [Processo di analisi scientifica dei dati per i team](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview). Questo processo offre un approccio sistematico all'analisi scientifica dei dati, che permette ai team di data scientist di collaborare in modo efficace al ciclo di vita della compilazione di applicazioni intelligenti. Il processo di analisi scientifica dei dati fornisce anche un framework iterativo di analisi scientifica dei dati da seguire.
 
 Questa procedura dettagliata illustra il set di dati [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) . Si tratta di un set di messaggi di posta elettronica contrassegnati come posta indesiderata o ham, ovvero non indesiderata. Il set contiene anche alcune statistiche sul contenuto dei messaggi di posta elettronica che verranno illustrate più avanti in questa procedura dettagliata.
 
