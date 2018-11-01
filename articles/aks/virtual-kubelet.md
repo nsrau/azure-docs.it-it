@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: e7208cb4c2cdef6fc4e639b32fdb2fac242bd3a2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: cd41fba675a0814e6f2a1b17576add7811a803eb
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104062"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233481"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usare Virtual Kubelet con Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -115,15 +115,18 @@ virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
 
 ## <a name="run-linux-container"></a>Eseguire il contenitore Linux
 
-Creare un file denominato `virtual-kubelet-linux.yaml` e copiarlo nel codice YAML seguente. Sostituire il valore `kubernetes.io/hostname` con il nome del nodo Virtual Kubelet Linux. Si noti che vengono usati gli elementi [nodeSelector][node-selector] e [toleration][toleration] per pianificare il contenitore nel nodo.
+Creare un file denominato `virtual-kubelet-linux.yaml` e copiarlo nel codice YAML seguente. Si noti che vengono usati gli elementi [nodeSelector][node-selector] e [toleration][toleration] per pianificare il contenitore nel nodo.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aci-helloworld
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:
@@ -135,9 +138,13 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-linux
+        beta.kubernetes.io/os: linux
+        kubernetes.io/role: agent
+        type: virtual-kubelet
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 
@@ -158,15 +165,18 @@ aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.
 
 ## <a name="run-windows-container"></a>Eseguire il contenitore Windows
 
-Creare un file denominato `virtual-kubelet-windows.yaml` e copiarlo nel codice YAML seguente. Sostituire il valore `kubernetes.io/hostname` con il nome del nodo Virtual Kubelet Windows. Si noti che vengono usati gli elementi [nodeSelector][node-selector] e [toleration][toleration] per pianificare il contenitore nel nodo.
+Creare un file denominato `virtual-kubelet-windows.yaml` e copiarlo nel codice YAML seguente. Si noti che vengono usati gli elementi [nodeSelector][node-selector] e [toleration][toleration] per pianificare il contenitore nel nodo.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nanoserver-iis
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: nanoserver-iis
   template:
     metadata:
       labels:
@@ -178,9 +188,13 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
+        beta.kubernetes.io/os: windows
+        kubernetes.io/role: agent
+        type: virtual-kubelet
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 

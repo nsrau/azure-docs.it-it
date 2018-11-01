@@ -3,7 +3,7 @@ title: Impatto sull'utilizzo di Azure Application Insights | Microsoft Docs
 description: Analizzare in che modo diverse proprietà influiscono potenzialmente sui tassi di conversione di parti delle app.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/25/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 85547bd8528c4d5d4a627750bb5334f05ed231b1
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 14f61d2cdb85b20d15d088844d12206fe57c2dc9
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024311"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139408"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analisi di impatto con Application Insights
 

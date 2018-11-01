@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 07/25/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8ac3d4ba9b9ae1268cef9d4ee255021004924377
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8de70e8df50b79f27c19c74307d9321ff8cd1eb5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39393018"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229964"
 ---
 # <a name="data-operation-code-samples-for-azure-logic-apps"></a>Esempi di codice per operazioni sui dati per App per la logica di Azure
 
@@ -25,7 +25,7 @@ In base agli standard JSON (JavaScript Object Notation), queste definizioni di a
 
 <a name="compose-action-example"></a>
 
-## <a name="compose"></a>Componi
+## <a name="compose"></a>Composizione
 
 Per provare l'[esempio dell'azione **Componi**](../logic-apps/logic-apps-perform-data-operations.md#compose-action), è possibile usare le definizioni di azioni seguenti:
 
@@ -226,7 +226,7 @@ Per provare l'[esempio dell'azione **Filtra matrice**](../logic-apps/logic-apps-
 
 <a name="join-action-example"></a>
 
-## <a name="join"></a>Aggiungi
+## <a name="join"></a>Join
 
 Per provare l'[esempio dell'azione **Aggiungi**](../logic-apps/logic-apps-perform-data-operations.md#join-action), è possibile usare le definizioni di azioni seguenti:
 
@@ -267,7 +267,7 @@ Per provare l'[esempio dell'azione **Aggiungi**](../logic-apps/logic-apps-perfor
 
 <a name="parse-json-action-example"></a>
 
-## <a name="parse-json"></a>Analizza JSON
+## <a name="parse-json"></a>Analizzare JSON
 
 Per provare l'[esempio dell'azione **Analizza JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action), è possibile usare le definizioni di azioni seguenti:
 
@@ -326,7 +326,7 @@ Per provare l'[esempio dell'azione **Analizza JSON**](../logic-apps/logic-apps-p
 
 <a name="select-action-example"></a>
 
-## <a name="select"></a>Seleziona
+## <a name="select"></a>Select
 
 Per provare l'[esempio dell'azione **Seleziona**](../logic-apps/logic-apps-perform-data-operations.md#select-action), è possibile usare le definizioni di azioni seguenti:
 
@@ -370,7 +370,7 @@ Per provare l'[esempio dell'azione **Seleziona**](../logic-apps/logic-apps-perfo
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

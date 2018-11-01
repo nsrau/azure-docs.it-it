@@ -5,14 +5,14 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 1e5cb18b4e526cd0a0607f5bc93788fcf07430e1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: cf45cb8de0e40dfe5f5772dcb1a0be2aa7585fd6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364236"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156681"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Esercitazione: Effettuare il provisioning dell'edificio e monitorare le condizioni di lavoro con Gemelli digitali di Azure
 
@@ -161,7 +161,7 @@ Nel file *provisionSample.yaml* di esempio cercare una sezione che inizia con il
             }
         ```
         
-        La funzione definita dall'utente modificata cercherà una condizione in cui viene reso disponibile un locale con le emissioni di anidride carbonica e la temperatura comprese entro limiti tollerabili. Genererà una notifica con l'istruzione `parentSpace.Notify(JSON.stringigy(alert));` quando questa condizione sarà soddisfatta. Imposterà il valore dello spazio monitorato indipendentemente dal fatto che la condizione venga soddisfatta, con il messaggio corrispondente.
+        La funzione definita dall'utente modificata cercherà una condizione in cui viene reso disponibile un locale con le emissioni di anidride carbonica e la temperatura comprese entro limiti tollerabili. Genererà una notifica con l'istruzione `parentSpace.Notify(JSON.stringify(alert));` quando questa condizione sarà soddisfatta. Imposterà il valore dello spazio monitorato indipendentemente dal fatto che la condizione venga soddisfatta, con il messaggio corrispondente.
     
     1. Salvare il file. 
     

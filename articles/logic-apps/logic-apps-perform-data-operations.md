@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7e62986569888ebbcd9f17b4eb4cfb2c70411d4a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 93c24f88fcd6a002493933ef71c5c80bd2ff8c10
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39393058"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231645"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Eseguire operazioni sui dati in App per la logica di Azure
 
@@ -70,7 +70,7 @@ Per seguire gli esempi in questo articolo, sono necessari questi elementi:
 
 <a name="compose-action"></a>
 
-## <a name="compose-action"></a>Azione Componi
+## <a name="compose-action"></a>Azione compose
 
 Per costruire un singolo output, ad esempio un oggetto JSON da più input, è possibile usare l'azione **Operazioni dati - Componi**. Gli input possono avere tipi diversi, ad esempio interi, valori booleani, matrici, oggetti JSON e qualsiasi altro tipo nativo supportato da App per la logica di Azure, ad esempio, binario e XML. È quindi possibile usare l'output nelle azioni che seguono l'azione **Componi**. L'azione **Componi** consente anche di evitare l'immissione ripetitiva degli stessi input durante la creazione del flusso di lavoro dell'app per la logica. 
 
@@ -492,7 +492,7 @@ Per verificare se l'azione **Analizza JSON** crea i risultati previsti, inviare 
 
 <a name="select-action"></a>
 
-## <a name="select-action"></a>Azione Seleziona
+## <a name="select-action"></a>Seleziona azione
 
 Per creare una matrice con oggetti JSON creati dai valori in una matrice esistente, usare l'azione **Operazioni dati - Seleziona**. Ad esempio, è possibile creare un oggetto JSON per ogni valore in una matrice di interi, specificando le proprietà che deve avere ogni oggetto JSON e come eseguire il mapping dei valori nella matrice di origine con tali proprietà. Sebbene sia possibile modificare i componenti in tali oggetti JSON, la matrice di output ha sempre lo stesso numero di elementi della matrice di origine.
 
@@ -567,7 +567,7 @@ Per verificare se l'azione **Seleziona** crea i risultati previsti, inviare a se
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

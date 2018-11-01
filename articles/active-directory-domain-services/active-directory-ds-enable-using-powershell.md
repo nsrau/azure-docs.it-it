@@ -3,7 +3,7 @@ title: Abilitare Azure Active Directory Domain Services con PowerShell | Microso
 description: Abilitare Azure Active Directory Domain Services con PowerShell
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.author: maheshu
-ms.openlocfilehash: ee3f65b7afde19a1f9c730334043cc7dae9ea791
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: b58df5ebf5332688424ac6ed2eeb9679487bcdc4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503809"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240257"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Abilitare Azure Active Directory Domain Services con PowerShell
 Questo articolo illustra come abilitare Azure Active Directory (AD) Domain Services con PowerShell.
@@ -38,7 +38,7 @@ Seguire le istruzioni nell'articolo per [installare il modulo Azure PowerShell e
 Digitare il comando PowerShell seguente per creare l'entità servizio richiesta per Azure AD Domain Services nella directory di Azure AD.
 ```powershell
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 ```
 
 ## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Attività 3: Creare e configurare il gruppo 'AAD DC Administrators'
@@ -166,7 +166,7 @@ Connect-AzureAD
 Connect-AzureRmAccount
 
 # Create the service principal for Azure AD Domain Services.
-New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
+New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 # Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `

@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 474400d92660b68fd7fef906216b8e37c6e8c94d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7330c8369fa8232c90fe6931745e298107ed6ad1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358915"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418059"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Errore RequestDisallowedByPolicy con i criteri delle risorse di Azure
 
@@ -51,7 +51,7 @@ In PowerShell specificare questo identificatore di criterio come parametro `Id` 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Nell'interfaccia della riga di comando di Azure 2.0 specificare il nome della definizione del criterio:
+Nell'interfaccia della riga di comando di Azure specificare il nome della definizione del criterio:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment

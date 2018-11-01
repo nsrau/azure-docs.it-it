@@ -1,12 +1,21 @@
-
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227135"
+---
 A seconda dell'ambiente e delle scelte effettuate, lo script può creare tutta l'infrastruttura del cluster, inclusi la rete virtuale di Azure, gli account di archiviazione, i servizi cloud, il controller di dominio, i database SQL locali o remoti, il nodo head e altri nodi del cluster. In alternativa, lo script può usare l'infrastruttura di Azure esistente e creare solo i nodi del cluster HPC.
 
 Per informazioni generali sulla pianificazione di un cluster HPC Pack, vedere la [valutazione e pianificazione del prodotto](https://technet.microsoft.com/library/jj899596.aspx) e l'[introduzione](https://technet.microsoft.com/library/jj899590.aspx) nella libreria TechNet per HPC Pack 2012 R2.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Sottoscrizione di Azure**: è possibile usare una sottoscrizione nel servizio Azure globale o Azure Cina. I limiti della sottoscrizione riguardano il numero e il tipo di nodi del cluster che è possibile distribuire. Per informazioni, vedere [Limiti, quote e vincoli delle sottoscrizioni e dei servizi di Microsoft Azure](../articles/azure-subscription-service-limits.md).
 * **Computer client Windows in cui è stato installato e configurato Azure PowerShell 0.8.10 o versioni successive**. Vedere [Introduzione ad Azure PowerShell](/powershell/azureps-cmdlets-docs) per le istruzioni di installazione e le operazioni per la connessione alla sottoscrizione di Azure.
 * **Script di distribuzione di HPC Pack IaaS**: scaricare e decomprimere la versione più recente dello script dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=44949). Controllare la versione dello script eseguendolo `New-HPCIaaSCluster.ps1 –Version`. Questo articolo si basa sulla versione 4.5.2 dello script.

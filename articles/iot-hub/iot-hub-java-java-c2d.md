@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 2c784fa2879a78e52ed7aa80cb50535a830b1ed7
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b7f0e1ff359d7ec062f35360c107e33999ca198a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376687"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414251"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (Java)
 
@@ -46,7 +46,7 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * Una versione di lavoro completa dell'esercitazione [Inviare dati di telemetria da un dispositivo a un hub (Java)](quickstart-send-telemetry-java.md) o [Configurare il routing dei messaggi con l'IoT Hub](tutorial-routing.md).
 
-* [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) più recente
+* [Java SE Development Kit 8](https://aka.ms/azure-jdks) più recente
 
 * [Maven 3](https://maven.apache.org/install.html)
 

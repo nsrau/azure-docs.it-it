@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: f1db673ad750a5d9d9d6bda9f41555d5e3affe8d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bc2b93312ed005154aa7d2530fb5493278a15c67
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043091"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418603"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Soluzioni di monitoraggio di rete di Azure in Log Analytics
 
@@ -70,7 +70,7 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Soluzione di analisi del gateway applicazione di Azure in Log Analytics
 
-![Simbolo di Analisi gateway applicazione di Azure](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Simbolo di Analisi gateway applicazione di Azure](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 I log seguenti sono supportati per i gateway applicazione:
 
@@ -94,10 +94,10 @@ Usare le istruzioni seguenti per installare e configurare la soluzione di analis
 1. Nel portale di Azure passare alla risorsa gateway applicazione da monitorare
 2. Selezionare *Log di diagnostica* per aprire la pagina seguente
 
-   ![Immagine della risorsa gateway applicazione di Azure](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics01.png)
+   ![Immagine della risorsa gateway applicazione di Azure](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. Fare clic su *Attiva diagnostica* per aprire la pagina seguente
 
-   ![Immagine della risorsa gateway applicazione di Azure](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics02.png)
+   ![Immagine della risorsa gateway applicazione di Azure](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. Per attivare la diagnostica, fare clic su *Attivato* in *Stato*
 5. Selezionare la casella di controllo *Send to Log Analytics* (Invia a Log Analytics)
 6. Selezionare un'area di lavoro Log Analytics esistente o crearne una
@@ -117,7 +117,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 ```
 
 ### <a name="use-azure-application-gateway-analytics"></a>Usare l'analisi dei gateway applicazione di Azure
-![Immagine del riquadro di analisi dei gateway applicazione di Azure](./media/log-analytics-azure-networking/log-analytics-appgateway-tile.png)
+![Immagine del riquadro di analisi dei gateway applicazione di Azure](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-tile.png)
 
 Dopo aver selezionato il riquadro **di analisi del gateway applicazione di Azure** nella panoramica, è possibile visualizzare i riepiloghi dei log e quindi analizzare i dettagli per le categorie seguenti:
 
@@ -130,9 +130,9 @@ Dopo aver selezionato il riquadro **di analisi del gateway applicazione di Azure
   * Integrità dell'host per il gateway applicazione
   * Valore massimo e 95° percentile per le richieste non riuscite del gateway applicazione
 
-![Immagine del dashboard di analisi del gateway applicazione di Azure](./media/log-analytics-azure-networking/log-analytics-appgateway01.png)
+![Immagine del dashboard di analisi del gateway applicazione di Azure](media/log-analytics-azure-networking-analytics/log-analytics-appgateway01.png)
 
-![Immagine del dashboard di analisi del gateway applicazione di Azure](./media/log-analytics-azure-networking/log-analytics-appgateway02.png)
+![Immagine del dashboard di analisi del gateway applicazione di Azure](media/log-analytics-azure-networking-analytics/log-analytics-appgateway02.png)
 
 Nel dashboard **di analisi del gateway applicazione di Azure** esaminare le informazioni di riepilogo in uno dei pannelli, quindi fare clic su un pannello per visualizzare le informazioni dettagliate nella pagina di ricerca di log.
 
@@ -141,7 +141,7 @@ In una pagina di ricerca di log qualsiasi è possibile visualizzare i risultati 
 
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Soluzione di analisi del gruppo di sicurezza di rete di Azure in Log Analytics
 
-![Simbolo di Analisi gruppo di sicurezza di rete di Azure](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Simbolo di Analisi gruppo di sicurezza di rete di Azure](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 > [!NOTE]
 > La soluzione Analisi gruppo di sicurezza di rete sta per essere destinata al supporto della community in quanto la relativa funzionalità è stata sostituita da [Analisi del traffico](../network-watcher/traffic-analytics.md).
@@ -165,10 +165,10 @@ Usare le istruzioni seguenti per installare e configurare la soluzione Azure Net
 1. Nel portale di Azure passare alla risorsa gruppo di sicurezza di rete da monitorare
 2. Selezionare *Log di diagnostica* per aprire la pagina seguente
 
-   ![Immagine della risorsa gruppo di sicurezza di rete di Azure](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics01.png)
+   ![Immagine della risorsa gruppo di sicurezza di rete di Azure](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. Fare clic su *Attiva diagnostica* per aprire la pagina seguente
 
-   ![Immagine della risorsa gruppo di sicurezza di rete di Azure](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics02.png)
+   ![Immagine della risorsa gruppo di sicurezza di rete di Azure](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. Per attivare la diagnostica, fare clic su *Attivato* in *Stato*
 5. Selezionare la casella di controllo *Send to Log Analytics* (Invia a Log Analytics)
 6. Selezionare un'area di lavoro Log Analytics esistente o crearne una
@@ -196,9 +196,9 @@ Dopo aver selezionato il riquadro **di analisi del gruppo di sicurezza di rete d
   * Regole dei gruppi di sicurezza di rete con flussi consentiti
   * Indirizzi MAC con flussi consentiti
 
-![Immagine del dashboard di analisi del gruppo di sicurezza di rete di Azure](./media/log-analytics-azure-networking/log-analytics-nsg01.png)
+![Immagine del dashboard di analisi del gruppo di sicurezza di rete di Azure](media/log-analytics-azure-networking-analytics/log-analytics-nsg01.png)
 
-![Immagine del dashboard di analisi del gruppo di sicurezza di rete di Azure](./media/log-analytics-azure-networking/log-analytics-nsg02.png)
+![Immagine del dashboard di analisi del gruppo di sicurezza di rete di Azure](media/log-analytics-azure-networking-analytics/log-analytics-nsg02.png)
 
 Nel dashboard **di analisi del gruppo di sicurezza di rete di Azure** esaminare le informazioni di riepilogo in uno dei pannelli, quindi fare clic su un pannello per visualizzare le informazioni dettagliate nella pagina di ricerca di log.
 

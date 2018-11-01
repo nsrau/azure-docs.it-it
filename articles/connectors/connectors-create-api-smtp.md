@@ -11,16 +11,16 @@ ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 90af33574093cfbe529093c7091ee6988f043aa6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 78b1eb6272fa97ef392e97723454d29cf56bb4bf
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052023"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230506"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Inviare messaggi di posta elettronica dall'account SMTP con App per la logica di Azure
 
-Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protocol), è possibile creare attività e flussi di lavoro automatizzati per inviare messaggi di posta elettronica dall'account SMTP. È anche possibile fare in modo che altre azioni usino l'output delle azioni di SMTP. Ad esempio, dopo che SMTP ha inviato un messaggio di posta elettronica, è possibile informare il team in Slack con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protocol), è possibile creare attività e flussi di lavoro automatizzati per inviare messaggi di posta elettronica dall'account SMTP. È anche possibile fare in modo che altre azioni usino l'output delle azioni di SMTP. Ad esempio, dopo che SMTP ha inviato un messaggio di posta elettronica, è possibile informare il team in Slack con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,12 +53,12 @@ Con App per la logica di Azure e il connettore SMTP (Simple Mail Transfer Protoc
 
 1. Quando richiesto, specificare queste informazioni di connessione:
 
-   | Proprietà | Obbligatoria | Descrizione |
+   | Proprietà | Obbligatoria | DESCRIZIONE |
    |----------|----------|-------------|
-   | **Nome connessione** | Sì | Nome per la connessione al server SMTP | 
-   | **Indirizzo del server SMTP** | Sì | Indirizzo relativo al server SMTP | 
-   | **Nome utente** | Sì | Nome utente per l'account SMTP | 
-   | **Password** | Sì | Password per l'account SMTP | 
+   | **Connection Name** (Nome connessione) | Yes | Nome per la connessione al server SMTP | 
+   | **Indirizzo del server SMTP** | Yes | Indirizzo relativo al server SMTP | 
+   | **Nome utente** | Yes | Nome utente per l'account SMTP | 
+   | **Password** | Yes | Password per l'account SMTP | 
    | **Porta del server SMTP** | No  | Porta specifica sul server SMTP che si vuole usare | 
    | **Abilitare SSL?** | No  | Attivare o disattivare la crittografia SSL. | 
    |||| 
@@ -74,7 +74,7 @@ Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizi
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

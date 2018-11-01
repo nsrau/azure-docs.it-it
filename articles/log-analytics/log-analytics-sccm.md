@@ -1,5 +1,5 @@
 ---
-title: Connettere Configuration Manager a Log Analytics | Microsoft Docs
+title: Connettere Configuration Manager a Log Analytics | Documentazione Microsoft
 description: In questo articolo vengono illustrati i passaggi per connettere Configuration Manager a Log Analytics e avviare l'analisi dei dati.
 services: log-analytics
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 28ddfea0f4127f402b82388a10ee150b30a65736
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954233"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418076"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Connettere Configuration Manager a Log Analytics
 È possibile connettere l'ambiente System Center Configuration Manager ad Azure Log Analytics per sincronizzare i dati delle raccolte di dispositivi e fare riferimento a queste raccolte in Log Analytics e Automazione di Azure.  
@@ -49,7 +49,7 @@ Nella procedura seguente si concede il ruolo *Collaboratore* nell'area di lavoro
 > È necessario specificare le autorizzazioni in Log Analytics per Configuration Manager. In caso contrario, viene visualizzato un messaggio di errore quando si usa la procedura guidata di configurazione in Configuration Manager.
 >
 
-1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![Portale di Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![Portale di Azure](media/log-analytics-sccm/azure-portal-01.png)<br><br>  
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare l'area di lavoro da modificare.
 3. Nel riquadro a sinistra selezionare **Controllo di accesso (IAM)**.
 4. Nella pagina Controllo di accesso fare clic su **Aggiungi** per visualizzare il riquadro **Aggiungi autorizzazioni**.
@@ -101,7 +101,7 @@ Dopo aver completato la configurazione iniziale per importare le raccolte di dis
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nell'elenco delle aree di lavoro di Log Analytics selezionare l'area di lavoro con cui è stato registrato Configuration Manager.  
-3. Selezionare **Impostazioni avanzate**.<br><br> ![Impostazioni avanzate di Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. Selezionare **Impostazioni avanzate**.<br><br> ![Impostazioni avanzate di Log Analytics](media/log-analytics-sccm/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selezionare **Gruppi di computer** e quindi **SCCM**.  
 5. Selezionare **Importa appartenenze alla raccolta di Configuration Manager** e fare clic su **Salva**.  
    ![Gruppi di computer - Scheda SCCM](./media/log-analytics-sccm/sccm-computer-groups01.png)

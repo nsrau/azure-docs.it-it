@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: c54431009105c1d213e6cefeba06c39c781e2c1a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164330"
+---
 <!--author=SharS last changed: 06/22/2016-->
 
 ### <a name="to-configure-and-register-the-device"></a>Per configurare e registrare il dispositivo

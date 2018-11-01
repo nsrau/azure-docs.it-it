@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: 1c72421be6cfb266293c98d9ad06bd6adb35019b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: be0a12bbb84db1e4016bd7126a38e750e6c0c3ad
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043594"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412823"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Soluzione di Azure Key Vault Analytics in Log Analytics
 
-![Simbolo di Key Vault](./media/log-analytics-azure-keyvault/key-vault-analytics-symbol.png)
+![Simbolo di Key Vault](media/log-analytics-azure-key-vault/key-vault-analytics-symbol.png)
 
 È possibile usare la soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics per esaminare i log AuditEvent dell'Insieme di credenziali delle chiavi di Azure.
 
@@ -46,10 +46,10 @@ Usare le istruzioni seguenti per installare e configurare la soluzione Insieme d
 1. Nel portale di Azure passare alla risorsa Key Vault da monitorare
 2. Selezionare *Log di diagnostica* per aprire la pagina seguente
 
-   ![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics01.png)
+   ![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Fare clic su *Attiva diagnostica* per aprire la pagina seguente
 
-   ![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-enable-diagnostics02.png)
+   ![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](media/log-analytics-azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
 4. Per attivare la diagnostica, fare clic su *Attivato* in *Stato*
 5. Selezionare la casella di controllo *Send to Log Analytics* (Invia a Log Analytics)
 6. Selezionare un'area di lavoro Log Analytics esistente o creare una
@@ -81,7 +81,7 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 ## <a name="use-azure-key-vault"></a>Usare l'Insieme di credenziali delle chiavi di Azure
 Dopo aver [installato la soluzione](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), è possibile visualizzare i dati Key Vault facendo clic sul riquadro **Azure Key Vault** dalla pagina **Panoramica** di Log Analytics.
 
-![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault-tile.png)
+![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](media/log-analytics-azure-key-vault/log-analytics-keyvault-tile.png)
 
 Dopo avere selezionato il riquadro **Panoramica**, è possibile visualizzare i riepiloghi dei log e quindi analizzare i dettagli per le categorie seguenti:
 
@@ -90,9 +90,9 @@ Dopo avere selezionato il riquadro **Panoramica**, è possibile visualizzare i r
 * Latenza operativa media per operazione
 * Qualità del servizio per operazioni con numero delle operazioni che richiedono più di 1000 ms ed elenco di operazioni che richiedono più di 1000 ms
 
-![Immagine del dashboard dell'Insieme di credenziali delle chiavi di Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault01.png)
+![Immagine del dashboard dell'Insieme di credenziali delle chiavi di Azure](media/log-analytics-azure-key-vault/log-analytics-keyvault01.png)
 
-![Immagine del dashboard dell'Insieme di credenziali delle chiavi di Azure](./media/log-analytics-azure-keyvault/log-analytics-keyvault02.png)
+![Immagine del dashboard dell'Insieme di credenziali delle chiavi di Azure](media/log-analytics-azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Per visualizzare i dettagli per un'operazione
 1. Nella pagina **Panoramica** fare clic sul riquadro **Insieme di credenziali delle chiavi di Azure**.
