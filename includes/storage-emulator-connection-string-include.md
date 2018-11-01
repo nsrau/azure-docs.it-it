@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: 8c577db3e9f2bff9e86c3a7c37274630f90dd680
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165258"
+---
 L'emulatore di archiviazione supporta un singolo account fisso e una chiave di autenticazione nota per l’autenticazione con chiave condivisa. Questo account e questa chiave sono le uniche credenziali con chiave condivisa consentite per l'utilizzo con l'emulatore di archiviazione. Sono:
 
 ```

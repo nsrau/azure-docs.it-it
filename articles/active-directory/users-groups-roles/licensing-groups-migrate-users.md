@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 01/14/2018
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: seohack1
-ms.openlocfilehash: 5beee2fae518fec23b65ff05a79281e0fc3f1417
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4272d16a2acba992f05bb0874a40affa7d30abb5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800741"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213645"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Come aggiungere gli utenti con licenza a un gruppo per la gestione delle licenze in Azure Active Directory
 
@@ -84,7 +84,9 @@ Di seguito è riportato un esempio di processo di migrazione:
 
 Per informazioni su altri scenari per la gestione delle licenze tramite i gruppi, vedere:
 
-* [Assegnazione di licenze a un gruppo in Azure Active Directory](licensing-groups-assign.md)
 * [Che cosa sono le licenze basate sui gruppi in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Assegnazione di licenze a un gruppo in Azure Active Directory](licensing-groups-assign.md)
 * [Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [Come eseguire la migrazione degli utenti tra licenze di prodotti diverse con la gestione delle licenze basate su gruppo in Azure Active Directory](licensing-groups-change-licenses.md)
 * [Scenari aggiuntivi relativi alle licenze basate sui gruppi in Azure Active Directory](licensing-group-advanced.md)
+* [Esempi di PowerShell per le licenze basate sui gruppi in Azure Active Directory](licensing-ps-examples.md)

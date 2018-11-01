@@ -3,7 +3,7 @@ title: Creare un certificato LDAP sicuro per un dominio gestito di Azure Active 
 description: Creare un certificato LDAP sicuro per un dominio gestito di Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2017
-ms.author: maheshu
-ms.openlocfilehash: d34da3c7a32a9fd425e30880ba9bc808d9d2bab1
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: a97b16451392ce0e84eb7b49a6fc71fb03adab12
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505985"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157293"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Creare un file PFX con il certificato LDAP sicuro (LDAPS) per un dominio gestito
 

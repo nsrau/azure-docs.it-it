@@ -4,15 +4,15 @@ description: Questo articolo descrive come individuare e valutare le macchine vi
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/24/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f468bac6f4d8c209fae51f0b84980dc8c611a29b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 18e1ecd4896277f0dd0dfc2ceac2185cbdd09b93
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025888"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241107"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -73,14 +73,14 @@ Azure Migrate crea una macchina virtuale locale definita appliance dell'agente d
 
     b. **Individuazione continua:** l'appliance per questo modello profila in modo continuo l'ambiente locale per raccogliere i dati di utilizzo in tempo reale per ogni macchina virtuale. In questo modello vengono raccolti i contatori di picco per ogni metrica (utilizzo della CPU, utilizzo della memoria e così via). Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per la raccolta dei dati sulle prestazioni. È possibile interrompere la profilatura continua in qualsiasi momento dall'appliance.
 
-    Si noti che l'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se vi è una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
+    Si noti che l'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se si apporta una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
 
     1. Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare l'individuazione dall'appliance e quindi riavviarla. Ciò garantisce che le modifiche vengono aggiornate nel progetto Azure Migrate.
 
     2. Eliminazione di macchine virtuali: a causa della modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
 
     > [!NOTE]
-    > La funzionalità di individuazione continua è disponibile in anteprima. È consigliabile utilizzare questo metodo, in quanto raccoglie dati granulari sulle prestazioni e consente un dimensionamento preciso.
+    > La funzionalità di individuazione continua è disponibile in anteprima. Si consiglia di usare questo metodo, poiché raccoglie dati granulari sulle prestazioni e consente un dimensionamento preciso.
 
 3. In **Copiare le credenziali del progetto** copiare l'ID e la chiave del progetto. Queste informazioni sono necessarie per configurare l'agente di raccolta.
 

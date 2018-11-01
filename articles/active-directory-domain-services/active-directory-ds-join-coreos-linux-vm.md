@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: aggiungere una macchina virtuale
 description: Aggiungere una macchina virtuale CoreOS Linux ad Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 5db65f30-bf69-4ea3-9ea5-add1db83fdb8
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: 1574a6a4cf727198b17f5c62488d12be12d928f4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 0552085eb5ee5e5b3d1379482e9463a7ae802388
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502033"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158449"
 ---
 # <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale CoreOS Linux a un dominio gestito
 Questo articolo illustra come aggiungere una macchina virtuale CoreOS Linux a un dominio gestito di Azure AD Domain Services.
@@ -38,7 +38,7 @@ Per eseguire le attività elencate in questo articolo sono necessari gli element
 
 ## <a name="provision-a-coreos-linux-virtual-machine"></a>Eseguire il provisioning di una macchina virtuale CoreOS Linux
 Eseguire il provisioning di una macchina virtuale CoreOS in Azure, usando uno dei metodi seguenti:
-* [portale di Azure](../virtual-machines/linux/quick-create-portal.md)
+* [Portale di Azure](../virtual-machines/linux/quick-create-portal.md)
 * [Interfaccia della riga di comando di Azure](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
@@ -147,6 +147,6 @@ Verificare se la macchina è stata aggiunta correttamente al dominio gestito. Co
 Vedere l'articolo [Risoluzione dei problemi dell'aggiunta a un dominio](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) .
 
 ## <a name="related-content"></a>Contenuti correlati
-* [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
+* [Servizi di dominio Azure AD: introduzione](active-directory-ds-getting-started.md)
 * [Aggiungere una macchina virtuale Windows Server a un dominio gestito di Servizi di dominio Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Come accedere a una macchina virtuale che esegue Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Creare chiavi SSH in Linux e Mac per le VM Linux in Azure](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -1,25 +1,18 @@
 ---
 title: Eseguire il mapping di reti virtuali tra due aree di Azure in Azure Site Recovery | Microsoft Docs
 description: Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali e server fisici. Informazioni sul failover in Azure o in un centro dati secondario.
-services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
-editor: ''
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 95e6a388d0638d2fd477d33aaf7c39cf120e29aa
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1e8bad9a7a194c96c39be0ab4f1c2f40d79031ea
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353433"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209602"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Eseguire il mapping delle reti virtuali in aree di Azure differenti
 

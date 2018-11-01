@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b3ee62ec6b8155841121eed6c4ab9c12b08f0e9b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f0c852b0b3de4edcf894d80ae397eae6c8980d49
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165219"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240410"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Librerie client per la connessione ad Azure Analysis Services
 
@@ -59,7 +59,7 @@ Le librerie client per le connessioni client sono diverse dai provider di dati n
 
 ### <a name="amo"></a>AMO  
 
- AMO è una libreria client gestita usata per l'amministrazione di server e la definizione di dati. Viene installata e usata da strumenti e applicazioni client. SQL Server Management Studio (SSMS), ad esempio, usa AMO per connettersi ad Analysis Services. Una connessione che usa AMO è in genere minima, costituita da `“data source=\<servername>”`. Dopo che è stata stabilita una connessione, l'API consente di usare le raccolte di database e gli oggetti principali. Sia SSDT che SSMS usano AMO per connettersi a un'istanza di Analysis Services.  
+ AMO è una libreria client gestita usata per l'amministrazione di server e la definizione di dati. Viene installata e usata da strumenti e applicazioni client. SQL Server Management Studio (SSMS), ad esempio, usa AMO per connettersi ad Analysis Services. Una connessione che usa AMO è in genere minima, costituita da `"data source=\<servername>"`. Dopo che è stata stabilita una connessione, l'API consente di usare le raccolte di database e gli oggetti principali. Sia SSDT che SSMS usano AMO per connettersi a un'istanza di Analysis Services.  
 
   
 ### <a name="adomd"></a>ADOMD

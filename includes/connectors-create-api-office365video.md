@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>prerequisiti
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 20729d1e73dd0ff9010201a1c6597b616b364a09
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133991"
+---
+### <a name="prerequisites"></a>Prerequisiti
 * Un account [Office 365 Video](https://support.office.com/article/Meet-Office-365-Video-ca1cc1a9-a615-46e1-b6a3-40dbd99939a6)  
 
 Prima di poter usare l'account Office 365 Video in un'app per la logica, è necessario autorizzare l'app per la logica a connettersi all'account Office 365 Video. Fortunatamente, è possibile eseguire questa operazione in modo facile dalla propria app per la logica nel Portale di Azure.  

@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 59a6a94e2906413423a4ae03a7c1c115b2ec0cc0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd3be916587ab884ea5579234a6189af54b53797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046164"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209208"
 ---
 # <a name="manage-cluster-scaling-to-accommodate-changing-demand"></a>Gestire il ridimensionamento di un cluster per rispondere al cambiamento della domanda
 
@@ -43,7 +43,7 @@ La figura seguente mostra il flusso dei passaggi successivi. Sotto la figura son
     | **Operatore** | Scegliere l'opzione appropriata, ad esempio **Maggiore o uguale a**. |
     | **Soglia** | Scegliere un valore appropriato. Ad esempio, per l'utilizzo della cache 80% è un buon punto di partenza. |
     | **Duration** | Scegliere un periodo di tempo appropriato da considerare per il calcolo delle metriche. Iniziare con il valore predefinito di dieci minuti. |
-    | **Operazione** | Scegliere l'opzione appropriata per ridurre o aumentare il numero di istanze. |
+    | **operazione** | Scegliere l'opzione appropriata per ridurre o aumentare il numero di istanze. |
     | **Numero di istanze** | Scegliere il numero di nodi o istanze da aggiungere o rimuovere quando viene soddisfatta una condizione di metrica. |
     | **Disattiva regole dopo (minuti)** | Scegliere un intervallo di tempo appropriato per l'attesa tra le operazioni di ridimensionamento. Iniziare con il valore predefinito di cinque minuti. |
     |  |  |
@@ -63,4 +63,4 @@ La figura seguente mostra il flusso dei passaggi successivi. Sotto la figura son
 
 È stata configurata un'operazione per aumentare il numero di istanze del cluster di Esplora dati di Azure. Aggiungere un'altra regola per configurare un'operazione per ridurne il numero. In questo modo il cluster può essere ridimensionato in modo dinamico in base alle metriche di utilizzo specificate.
 
-Se occorre assistenza per problemi con il ridimensionamento di un cluster, aprire una richiesta di supporto nel [portale di Azure](https://portal.azure.com).
+Se occorre assistenza per problemi con il ridimensionamento di un cluster, aprire una richiesta di supporto nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
