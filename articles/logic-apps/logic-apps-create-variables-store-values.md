@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0efce9fbbbd241f335f08bb258b6ba343982fdb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c0f2802bae366637fd93d47e33619746b7142f53
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299189"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231628"
 ---
 # <a name="create-variables-for-saving-and-managing-values-in-azure-logic-apps"></a>Creare variabili per salvare e gestire i valori nelle App per la logica di Azure
 
@@ -32,7 +32,7 @@ Le variabili esistono e sono globali solo all'interno dell'istanza dell'app per 
 
 Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per seguire questo articolo, ecco gli elementi necessari:
 
@@ -71,8 +71,8 @@ Per seguire questo articolo, ecco gli elementi necessari:
 
    | Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
    |----------|----------|-------|--------------|
-   | NOME | Sì | <*variable-name*> | Nome della variabile da incrementare | 
-   | type | Sì | <*variable-type*> | Tipo di dati per la variabile | 
+   | NOME | Yes | <*variable-name*> | Nome della variabile da incrementare | 
+   | type | Yes | <*variable-type*> | Tipo di dati per la variabile | 
    | Valore | No  | <*start-value*> | Valore iniziale della variabile <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore iniziale della variabile. | 
    ||||| 
 
@@ -207,7 +207,7 @@ Per aumentare o *incrementare* una variabile di un valore costante aggiungere l'
 
    | Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
    |----------|----------|-------|--------------|
-   | NOME | Sì | <*variable-name*> | Nome della variabile da incrementare | 
+   | NOME | Yes | <*variable-name*> | Nome della variabile da incrementare | 
    | Valore | No  | <*increment-value*> | Valore usato per incrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore specifico per incrementare la variabile. | 
    |||| 
 
@@ -327,7 +327,7 @@ Ecco le proprietà per l'azione **Decrementare una variabile**:
 
 | Proprietà | Obbligatoria | Valore |  DESCRIZIONE |
 |----------|----------|-------|--------------|
-| NOME | Sì | <*variable-name*> | Nome della variabile da decrementare | 
+| NOME | Yes | <*variable-name*> | Nome della variabile da decrementare | 
 | Valore | No  | <*increment-value*> | Valore per decrementare la variabile Il valore predefinito è uno. <p><p>**Suggerimento**: anche se è facoltativo, impostare questo valore come procedura consigliata in modo da conoscere sempre il valore specifico per decrementare la variabile. | 
 ||||| 
 
@@ -362,8 +362,8 @@ Ecco le proprietà per l'azione **Set variable** (Impostare una variabile):
 
 | Proprietà | Obbligatoria | Valore |  DESCRIZIONE | 
 |----------|----------|-------|--------------| 
-| NOME | Sì | <*variable-name*> | Nome della variabile da modificare | 
-| Valore | Sì | <*new-value*> | Valore a cui si vuole assegnare la variabile. Entrambi devono avere lo stesso tipo di dati. | 
+| NOME | Yes | <*variable-name*> | Nome della variabile da modificare | 
+| Valore | Yes | <*new-value*> | Valore a cui si vuole assegnare la variabile. Entrambi devono avere lo stesso tipo di dati. | 
 ||||| 
 
 > [!NOTE]
@@ -420,8 +420,8 @@ Ecco le proprietà per le azioni **Append to...** (Accodare a...):
 
 | Proprietà | Obbligatoria | Valore |  DESCRIZIONE | 
 |----------|----------|-------|--------------| 
-| NOME | Sì | <*variable-name*> | Nome della variabile da modificare | 
-| Valore | Sì | <*append-value*> | Valore da accodare, di qualsiasi tipo | 
+| NOME | Yes | <*variable-name*> | Nome della variabile da modificare | 
+| Valore | Yes | <*append-value*> | Valore da accodare, di qualsiasi tipo | 
 |||||  
 
 Passando dalla finestra di progettazione all'editor di visualizzazione del codice, ecco come viene visualizzata l'azione **Append to array variable** (Accodare a una variabile matrice) all'interno della definizione dell'app per la logica, nel formato JSON.
@@ -456,7 +456,7 @@ Questo esempio crea una variabile matrice e aggiunge un altro valore come ultimo
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

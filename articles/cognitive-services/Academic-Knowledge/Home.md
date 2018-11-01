@@ -3,19 +3,19 @@ title: Informazioni sull'API Academic Knowledge
 titlesuffix: Azure Cognitive Services
 description: Usare l'API Academic Knowledge per interpretare le query utente e recuperare informazioni dettagliate da Academic Graph.
 services: cognitive-services
-author: mvorvoreanu
+author: darrine
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
 ms.topic: overview
-ms.date: 03/27/2017
-ms.author: mivorvor
-ms.openlocfilehash: d08cd7124b232e50365e72753eba97c6309f401c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/30/2018
+ms.author: darrine
+ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901211"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240359"
 ---
 # <a name="academic-knowledge-api"></a>API Academic Knowledge
 
@@ -32,13 +32,10 @@ L'API Academic Knowledge è costituita da quattro endpoint REST correlati:
   1. **interpret**: interpreta una stringa di query utente in linguaggio naturale. Restituisce interpretazioni con note per consentire esperienze avanzate di completamento automatico della casella di ricerca, in grado di prevedere ciò che l'utente sta digitando.  
   2. **evaluate**: valuta un'espressione di query e restituisce risultati di entità Academic Knowledge.  
   3. **calchistogram**: calcola un istogramma della distribuzione dei valori degli attributi per le entità accademiche restituiti da un'espressione di query, ad esempio la distribuzione delle citazioni di un determinato autore in base all'anno.  
-  4. **graph search**: cerca criteri del grafo specificati e restituisce i risultati delle entità corrispondenti.
-
+  
 Usati insieme, questi metodi API consentono la creazione di un'esperienza di ricerca semantica avanzata. Data una stringa di query utente, il metodo **interpret** fornisce una versione con note della query e un'espressione di query strutturata, completando nel frattempo in modo facoltativo la query dell'utente in base alla semantica dei dati accademici sottostanti. Ad esempio, se un utente digita la stringa *latent s*, il metodo **interpret** può fornire un set di interpretazioni classificate, il che suggerisce che l'utente stia cercando il campo di studio *latent semantic analysis*, la pubblicazione *latent structure analysis* o altre espressioni di entità che iniziano con *latent s*. Queste informazioni possono essere usate per consentire all'utente di arrivare rapidamente ai risultati della ricerca desiderati.
 
 Il metodo **evaluate** può essere usato per recuperare dalla Knowledge Base accademica un set di entità pubblicazione corrispondenti, mentre il metodo**calchistogram** può essere usato per calcolare la distribuzione dei valori degli attributi per un set di entità pubblicazione, che è possibile usare per filtrare ulteriormente i risultati della ricerca.        
-
-Per il metodo **graph search** sono disponibili due modalità: *json* e *lambda*. La modalità *json* può individuare corrispondenze dei criteri del grafo in base ai criteri del grafo specificati da un oggetto JSON. La modalità *lambda* può eseguire calcoli sul lato server durante gli attraversamenti del grafo in base alle espressioni lambda specificate dall'utente.
 
 ## <a name="getting-started"></a>Introduzione 
 Vedere gli argomenti secondari a sinistra per la documentazione dettagliata.  Si noti che, per migliorare la leggibilità degli esempi, le chiamate alle API REST contengono caratteri (ad esempio, spazi) senza codifica URL.  Il codice dovrà applicare le codifiche URL appropriate.

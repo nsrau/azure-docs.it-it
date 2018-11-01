@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 111be7d3ee00f2b40ace3bfe4efdacc5029ccf77
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239135"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243130"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Applicare criteri di denominazione per i gruppi di Office 365 in Azure Active Directory (anteprima)
 
@@ -49,7 +49,7 @@ I prefissi e i suffissi possono contenere caratteri speciali supportati nel nome
 
 #### <a name="user-attributes"></a>Attributi utente
 
-È possibile utilizzare gli attributi che possono agevolare l'identificazione del reparto, dell'ufficio o dell'area geografica per cui è stato creato il gruppo. Ad esempio, se si definiscono criteri di denominazione come `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”` e `User’s department = Engineering`, un nome di gruppo imposto potrebbe essere "GRP Gruppo Ingegneria". Gli attributi di Azure AD supportati sono \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion \], \[Title\]. Gli attributi utente non supportati sono considerati stringhe fisse, ad esempio "\[postalCode\]". Gli attributi di estensione e quelli personalizzati non sono supportati.
+È possibile utilizzare gli attributi che possono agevolare l'identificazione del reparto, dell'ufficio o dell'area geografica per cui è stato creato il gruppo. Ad esempio, se si definiscono criteri di denominazione come `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"` e `User’s department = Engineering`, un nome di gruppo imposto potrebbe essere "GRP Gruppo Ingegneria". Gli attributi di Azure AD supportati sono \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion \], \[Title\]. Gli attributi utente non supportati sono considerati stringhe fisse, ad esempio "\[postalCode\]". Gli attributi di estensione e quelli personalizzati non sono supportati.
 
 È consigliabile utilizzare gli attributi con valori compilati per tutti gli utenti dell'organizzazione e non attributi con valori long.
 
