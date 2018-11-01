@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 671818ca8f8fa07b506252d5d4d0c7a768577b19
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0720edeab7577f41ddbaa67e4643f1dfe57ebac0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087475"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740315"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Eseguire un test di convalida per Azure Stack
 
@@ -39,7 +39,7 @@ Quando si verifica un problema, contattare il supporto di Microsoft Customer Ser
     3. Aprire PowerShell come amministratore.
     4. Eseguire: `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Eseguire: `Test-AzureStack`
-4. Se qualsiasi test rapporto **esito negativo**, eseguire: `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` il cmdlet raccoglie i log dai Test AzureStack. Per altre informazioni sui log di diagnostica, vedere [strumenti di diagnostica di Azure Stack](azure-stack-diagnostics.md). È non deve raccogliere i log o contattare servizi di supporto tecnico clienti Microsoft (CSS) se il report di verifica **WARN**.
+4. Se qualsiasi test rapporto **esito negativo**, eseguire: `Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath “<path>” -OutputShareCredential $cred` il cmdlet raccoglie i log dai Test AzureStack. Per altre informazioni sui log di diagnostica, vedere [strumenti di diagnostica di Azure Stack](azure-stack-diagnostics.md). È non deve raccogliere i log o contattare servizi di supporto tecnico clienti Microsoft (CSS) se il report di verifica **WARN**.
 5. Inviare il **SeedRing** i log al supporto tecnico di Microsoft Customer Services. Supporto di Microsoft Customer Services funziona con gli utenti per risolvere il problema.
 
 ## <a name="reference-for-test-azurestack"></a>Informazioni di riferimento per Test-AzureStack

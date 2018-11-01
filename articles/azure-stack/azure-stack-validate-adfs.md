@@ -1,6 +1,6 @@
 ---
-title: Convalidare l'integrazione di ad FS per Azure Stack
-description: Usare il controllo di conformità di Azure Stack per convalidare l'integrazione di ad FS per Azure Stack.
+title: Convalidare l'integrazione di AD FS per Azure Stack
+description: Usare il controllo di conformità di Azure Stack per convalidare l'integrazione di AD FS per Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: PatAltimore
@@ -15,28 +15,28 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 0aa13f2fced9122163d5278b5bb50cc1e11a0379
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 87e3f03ce5d4c65d5c4b1754300f5d57feca2a49
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49947391"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416512"
 ---
-# <a name="validate-adfs-integration-for-azure-stack"></a>Convalidare l'integrazione di ad FS per Azure Stack
+# <a name="validate-ad-fs-integration-for-azure-stack"></a>Convalidare l'integrazione di AD FS per Azure Stack
 
-Usare lo strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) per verificare che l'ambiente sia pronto per l'integrazione di ad FS con Azure Stack. È necessario convalidare l'integrazione di ad FS prima di iniziare l'integrazione di data center o prima di una distribuzione di Azure Stack.
+Usare lo strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) per verificare che l'ambiente sia pronto per l'integrazione di Active Directory Federation Services (ADFS) con Azure Stack. Convalidare l'integrazione di AD FS prima di iniziare l'integrazione di Data Center o prima di una distribuzione di Azure Stack.
 
 Il controllo di conformità di convalida:
 
 * Il *metadati della federazione* contiene gli elementi XML validi per la federazione.
-* Il *certificato SSL ADFS* possono essere recuperati e catena di certificati può essere compilato. In corrispondenza del timestamp ADFS devono considerare attendibile la catena di certificati SSL. Il certificato deve essere firmato dallo stesso *autorità di certificazione* come i certificati di distribuzione di Azure Stack o da un partner di autorità radice attendibile. Per l'elenco completo dei partner dell'autorità radice attendibile, vedere: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca
-* *Certificato di firma di ad FS* è attendibile e non sta raggiungendo una condizione di scadenza.
+* Il *certificato SSL di AD FS* può essere recuperato e una catena di trust può essere compilato. In corrispondenza del timestamp ADFS devono considerare attendibile la catena di certificati SSL. Il certificato deve essere firmato dallo stesso *autorità di certificazione* come i certificati di distribuzione di Azure Stack o da un partner di autorità radice attendibile. Per l'elenco completo dei partner dell'autorità radice attendibile, vedere [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* Il *certificato di firma di AD FS* è attendibile e non sta raggiungendo una condizione di scadenza.
 
-Per altre informazioni sull'integrazione di Azure Stack data center, vedere [integrazione di Data Center di Azure Stack - identità](azure-stack-integrate-identity.md)
+Per altre informazioni sull'integrazione di Data Center di Azure Stack, vedere [integrazione di Data Center di Azure Stack - identità](azure-stack-integrate-identity.md).
 
 ## <a name="get-the-readiness-checker-tool"></a>Ottenere lo strumento di controllo di conformità
 
-Scaricare la versione più recente dello strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) dal [PSGallery](https://aka.ms/AzsReadinessChecker).  
+Scaricare la versione più recente dello strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) dal [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).  
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,26 +47,26 @@ I seguenti prerequisiti sono necessari.
 * Windows 10 o Windows Server 2016, con connettività del dominio.
 * PowerShell 5.1 o versione successiva. Per controllare la versione, eseguire il comando PowerShell seguente e quindi esaminare i *principali* versione e *secondaria* versioni:  
    > `$PSVersionTable.PSVersion`
-* La versione più recente del [verifica di conformità di Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) dello strumento.
+* Versione più recente del [verifica di conformità di Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) dello strumento.
 
 **Ambiente attivo Directory Federation Services:**
 
 È necessario almeno uno dei seguenti formati dei metadati:
 
-* L'URL dei metadati di federazione di ad FS. Ad esempio: `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
-* Il file XML dei metadati di federazione. Ad esempio, FederationMetadata
+* L'URL per i metadati della federazione AD FS. Un esempio è `https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`.
+* Il file XML dei metadati di federazione. Un esempio è FederationMetadata.
 
-## <a name="validate-adfs-integration"></a>Convalidare l'integrazione di ad FS
+## <a name="validate-ad-fs-integration"></a>Convalidare l'integrazione di AD FS
 
-1. In un computer che soddisfi i prerequisiti, aprire un prompt amministrativo di PowerShell e quindi eseguire il comando seguente per installare il AzsReadinessChecker.
+1. In un computer che soddisfi i prerequisiti, aprire un prompt amministrativo di PowerShell e quindi eseguire il comando seguente per installare AzsReadinessChecker:
 
      `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-1. Al prompt di PowerShell, eseguire il comando seguente per avviare la convalida. Specificare il valore per **- CustomADFSFederationMetadataEndpointUri** come URI per i metadati della federazione:
+1. Al prompt di PowerShell, eseguire il comando seguente per avviare la convalida. Specificare il valore per **- CustomADFSFederationMetadataEndpointUri** come URI per i metadati della federazione.
 
      `Invoke-AzsADFSValidation -CustomADFSFederationMetadataEndpointUri https://adfs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`
 
-1. Dopo che viene eseguito lo strumento, esaminare l'output. Verificare che lo stato è OK per i requisiti di integrazione di ad FS. Convalida riuscita risulterà simile al seguente.
+1. Dopo che viene eseguito lo strumento, esaminare l'output. Verificare che lo stato è OK per i requisiti di integrazione di AD FS. Convalida riuscita è simile all'esempio seguente:
 
     ```
     Invoke-AzsADFSValidation v1.1809.1001.1 started.
@@ -89,24 +89,24 @@ I seguenti prerequisiti sono necessari.
     Invoke-AzsADFSValidation Completed
     ```
 
-Negli ambienti di produzione, catene di certificati di attendibilità da una workstation di operatori di test non può essere considerato completamente indicano le condizioni di attendibilità di infrastruttura a chiave pubblica nell'infrastruttura di Azure Stack. Rete di indirizzo VIP pubblico dell'indicatore di Azure Stack richiede la connettività per l'elenco CRL per l'infrastruttura PKI.
+Negli ambienti di produzione, test di catene di certificati di attendibilità da workstation dell'operatore non è completamente indicano le condizioni di attendibilità di infrastruttura a chiave pubblica nell'infrastruttura di Azure Stack. Rete VIP pubblico dell'indicatore di Azure Stack richiede la connettività per l'elenco CRL per l'infrastruttura PKI.
 
 ## <a name="report-and-log-file"></a>File di log e report
 
-Ogni convalida in fase di esecuzione, registra i risultati per **AzsReadinessChecker.log** e **AzsReadinessCheckerReport.json**. Consente di visualizzare la posizione di questi file con i risultati della convalida in PowerShell.
+Ogni convalida in fase di esecuzione, registra i risultati per **AzsReadinessChecker.log** e **AzsReadinessCheckerReport.json**. Il percorso di questi file viene visualizzato con i risultati della convalida in PowerShell.
 
-I file di convalida consentono di condividere lo stato prima di distribuire Azure Stack o analizzare i problemi di convalida. Entrambi i file di rendere persistenti i risultati di ogni controllo di convalida successiva. Il report fornisce di conferma del team di distribuzione della configurazione di identità. Il file di log consentono al team di supporto o distribuzione di analizzare i problemi di convalida.
+I file di convalida consentono di condividere lo stato prima di distribuire Azure Stack o analizzare i problemi di convalida. Entrambi i file di rendere persistenti i risultati di ogni controllo di convalida successiva. Il report offre di conferma del team di distribuzione della configurazione di identità. Il file di log consentono al team di supporto o distribuzione di analizzare i problemi di convalida.
 
 Per impostazione predefinita, entrambi i file vengono scritti `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`.
 
 Usare:
 
-* **-OutputPath** *percorso* parametro alla fine di Esegui riga di comando per specificare un percorso di report diversa.
-* **-CleanReport** parametro alla fine del comando di esecuzione per cancellare *AzsReadinessCheckerReport.json* delle informazioni di report precedente. Per altre informazioni, vedere [rapporto di convalida di Azure Stack](azure-stack-validation-report.md).
+* **-OutputPath**: il *percorso* parametro alla fine del comando di esecuzione per specificare un percorso di report diversa.
+* **-CleanReport**: il parametro alla fine del comando di esecuzione per cancellare AzsReadinessCheckerReport.json delle informazioni di report precedente. Per altre informazioni, vedere [rapporto di convalida di Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Errori di convalida
 
-Se un controllo di convalida non riesce, visualizzare i dettagli sull'errore nella finestra di PowerShell. Lo strumento registra inoltre informazioni per il *AzsReadinessChecker.log*.
+Se un controllo di convalida non riesce, dettagli sull'errore vengono visualizzati nella finestra di PowerShell. Lo strumento registra inoltre informazioni per *AzsReadinessChecker.log*.
 
 Gli esempi seguenti forniscono informazioni aggiuntive sugli errori di convalida comuni.
 
@@ -114,13 +114,13 @@ Gli esempi seguenti forniscono informazioni aggiuntive sugli errori di convalida
 
 `Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
 
-**Causa** -Autoload PowerShell non è riuscito a caricare correttamente il modulo di controllo di conformità.
+**Causa**: Autoload PowerShell non è riuscito a caricare correttamente il modulo di controllo di conformità.
 
-**Risoluzione** -modulo di controllo di conformità di importazione in modo esplicito. Copiare e incollare il codice seguente in PowerShell e l'aggiornamento di \<versione\> con il numero di versione per la versione attualmente installata.
+**Risoluzione**: importare il modulo di controllo di conformità in modo esplicito. Copiare e incollare il codice seguente in PowerShell e l'aggiornamento \<versione\> con il numero per la versione attualmente installata.
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 [Visualizzare il report di conformità](azure-stack-validation-report.md)  
 [Considerazioni relative all'integrazione di Azure Stack generale](azure-stack-datacenter-integration.md)  

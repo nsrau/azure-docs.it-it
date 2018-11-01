@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042292"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231815"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Controllare il traffico in base a una pianificazione con App per la logica di Azure
 
@@ -57,7 +57,7 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
    ![Specificare le informazioni sull'app per la logica](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-logic-app-settings.png)
 
-   | Impostazione | Valore | Descrizione | 
+   | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
    | **Nome** | LA-TravelTime | Nome dell'app per la logica | 
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Nome della sottoscrizione di Azure | 
@@ -88,7 +88,7 @@ Aggiungere quindi il [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
    ![Specificare i dettagli relativi a pianificazione e ricorrenza](./media/tutorial-build-scheduled-recurring-logic-app-workflow/schedule-recurrence-trigger-settings.png)
 
-   | Impostazione | Valore | Descrizione | 
+   | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
    | **Interval** | 1 | Numero di intervalli di attesa tra i controlli | 
    | **Frequenza** | Settimana | Unità di tempo da usare per la ricorrenza | 
@@ -123,7 +123,7 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-overvi
 
    ![Selezionare l'azione "Bing Maps - Get route" (Bing Maps - Ottieni itinerario)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/create-maps-connection.png)
 
-   | Impostazione | Valore | Descrizione |
+   | Impostazione | Valore | DESCRIZIONE |
    | ------- | ----- | ----------- |
    | **Connection Name** (Nome connessione) | BingMapsConnection | Specificare un nome per la connessione. | 
    | **Chiave API** | <*chiave-Bing-Maps*> | Immettere la chiave di Bing Maps ricevuta in precedenza. Se non si ha una chiave di Bing Maps, leggere le informazioni su <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">come ottenere una chiave</a>. | 
@@ -135,7 +135,7 @@ Ora che si ha un trigger, aggiungere un'[azione](../logic-apps/logic-apps-overvi
 
    ![Specificare le informazioni per l'azione "Bing Maps - Get route" (Bing Maps - Ottieni itinerario)](./media/tutorial-build-scheduled-recurring-logic-app-workflow/get-route-action-settings.png) 
 
-   | Impostazione | Valore | Descrizione |
+   | Impostazione | Valore | DESCRIZIONE |
    | ------- | ----- | ----------- |
    | **Punto di tragitto 1** | <*luogo-di-partenza*> | Origine dell'itinerario | 
    | **Punto di tragitto 2** | <*luogo-di-arrivo*> | Destinazione dell'itinerario | 
@@ -169,7 +169,7 @@ Per impostazione predefinita, l'azione **Get route** (Ottieni itinerario) preced
 
 4. Specificare i dettagli per la variabile come descritto di seguito:
 
-   | Impostazione | Valore | Descrizione | 
+   | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
    | **Nome** | travelTime | Nome della variabile | 
    | **Tipo** | Integer | Tipo di dati della variabile | 
@@ -331,7 +331,7 @@ Quando non è più necessario, eliminare il gruppo di risorse contenente l'app p
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

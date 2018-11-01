@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8cc654fca8e645253ffc79ef808075bdbe887530
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043295"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419776"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in Log Analytics
 Progettazione viste di Azure Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
@@ -50,7 +50,7 @@ Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative p
 ## <a name="list-of-queries-part"></a>Parte relativa all'elenco delle query
 La parte relativa all'elenco delle query visualizza un elenco di query di ricerca log. È possibile selezionare ogni query per visualizzarne i risultati. Per impostazione predefinita, la vista include una singola query ed è possibile aggiungerne altre facendo clic su **+ Query**.
 
-![Visualizzazione dell'elenco delle query](media/log-analytics-view-designer/view-list-queries.png)
+![Visualizzazione dell'elenco delle query](media/log-analytics-view-designer-parts/view-list-queries.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -66,7 +66,7 @@ La parte relativa all'elenco delle query visualizza un elenco di query di ricerc
 ## <a name="number-and-list-part"></a>Parte relativa a Numero ed elenco
 L'intestazione presenta un singolo numero che mostra il conteggio dei record risultanti da una query di ricerca log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
-![Visualizzazione dell'elenco delle query](media/log-analytics-view-designer/view-number-list.png)
+![Visualizzazione dell'elenco delle query](media/log-analytics-view-designer-parts/view-number-list.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -95,7 +95,7 @@ L'intestazione presenta un singolo numero che mostra il conteggio dei record ris
 ## <a name="two-numbers-and-list-part"></a>Parte relativa a Due numeri ed elenco
 L'intestazione presenta due numeri che mostrano il conteggio dei record risultanti da query di ricerca log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
-![Visualizzazione Due numeri ed elenco](media/log-analytics-view-designer/view-two-numbers-list.png)
+![Visualizzazione Due numeri ed elenco](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -126,7 +126,7 @@ L'intestazione presenta due numeri che mostrano il conteggio dei record risultan
 ## <a name="donut-and-list-part"></a>Parte relativa a Grafico ad anello ed elenco
 L'intestazione presenta un singolo numero che riepiloga una colonna di valori in una query di log. L'anello visualizza graficamente i risultati dei tre record principali.
 
-![Vista Grafico ad anello ed elenco](media/log-analytics-view-designer/view-donut-list.png)
+![Vista Grafico ad anello ed elenco](media/log-analytics-view-designer-parts/view-donut-list.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -167,7 +167,7 @@ L'intestazione presenta un singolo numero che riepiloga una colonna di valori in
 ## <a name="two-timelines-and-list-part"></a>Parte relativa a Due sequenze temporali ed elenco
 L'intestazione presenta i risultati di due query di log nel corso del tempo sotto forma di istogrammi, con un callout in cui viene visualizzato un singolo numero che riepiloga una colonna di valori in una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
-![Vista Due sequenze temporali ed elenco](media/log-analytics-view-designer/view-two-timelines-list.png)
+![Vista Due sequenze temporali ed elenco](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -199,7 +199,7 @@ L'intestazione presenta i risultati di due query di log nel corso del tempo sott
 ## <a name="information-part"></a>Parte relativa alle informazioni
 L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visualizza uno o più elementi con titolo e testo statici.
 
-![Visualizzazione delle informazioni](media/log-analytics-view-designer/view-information.png)
+![Visualizzazione delle informazioni](media/log-analytics-view-designer-parts/view-information.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -220,7 +220,7 @@ L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visu
 ## <a name="line-chart-callout-and-list-part"></a>Parte relativa a Grafico a linee, callout ed elenco
 L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo e un callout con un valore riepilogato. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
-![Vista Grafico a linee, callout ed elenco](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Vista Grafico a linee, callout ed elenco](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -260,7 +260,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 ## <a name="line-chart-and-list-part"></a>Parte relativa a Grafico a linee ed elenco
 L'intestazione presenta un grafico a linee con più serie provenienti da una query di log nel corso del tempo. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
-![Vista Grafico a linee ed elenco](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Vista Grafico a linee ed elenco](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -296,7 +296,7 @@ L'intestazione presenta un grafico a linee con più serie provenienti da una que
 ## <a name="stack-of-line-charts-part"></a>Stack dei grafici a linee
 Lo stack presenta tre grafici a linee separati con più serie provenienti da una query di log nel corso del tempo, come mostrato di seguito:
 
-![Stack dei grafici a linee](media/log-analytics-view-designer/view-stack-line-charts.png)
+![Stack dei grafici a linee](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |

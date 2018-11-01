@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 78e3bec0d00336ce7cedc1434bf6ad7c65435969
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978183"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420558"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali di Microsoft Azure
 È possibile aumentare e ridurre il numero di istanze dei set di scalabilità di macchine virtuali in base ai valori soglia per le metriche delle prestazioni, a una pianificazione ricorrente oppure a una data specifica. È anche possibile configurare notifiche di posta elettronica e webhook per le azioni di scalabilità. Questa procedura dettagliata illustra un esempio di configurazione di tutti tali oggetti usando in modello di Resource Manager in un set di scalabilità di macchine virtuali.
@@ -29,7 +29,7 @@ In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://r
 1. Distribuire un nuovo set di scalabilità con un'impostazione di scalabilità automatica di base. Questo articolo usa quello della raccolta di guide introduttive di Azure che ha un set di scalabilità Windows con il modello di scalabilità automatica di base. I set di scalabilità Linux funzionano allo stesso modo.
 2. Una volta creato il set di scalabilità, passare alla risorsa set di scalabilità da Esplora risorse di Azure. Sotto il nodo Microsoft.Insights viene visualizzato quanto segue.
 
-    ![Azure Explorer](./media/insights-advanced-autoscale-vmss/azure_explorer_navigate.png)
+    ![Azure Explorer](media/insights-advanced-autoscale-virtual-machine-scale-sets/azure_explorer_navigate.png)
 
     L'esecuzione del modello ha creato un'impostazione predefinita di ridimensionamento automatico con il nome **"autoscalewad"**. Sul lato destro è possibile visualizzare la definizione completa di questa impostazione di ridimensionamento automatico. In questo caso, l'impostazione di ridimensionamento automatico predefinita è inclusa in una regola di aumento e riduzione del numero di istanze basata sulla percentuale di CPU.  
 
@@ -58,11 +58,11 @@ In questa procedura dettagliata viene usato [Esplora risorse di Azure](https://r
 
 5. Verificare che Esplora risorse sia in modalità **Lettura/Scrittura**.
 
-    ![Autoscalewad, impostazione di ridimensionamento automatico predefinita](./media/insights-advanced-autoscale-vmss/autoscalewad.png)
+    ![Autoscalewad, impostazione di ridimensionamento automatico predefinita](media/insights-advanced-autoscale-virtual-machine-scale-sets/autoscalewad.png)
 
 6. Fare clic su Edit. **Sostituire** l'elemento "profiles" nell'impostazione di scalabilità automatica con la configurazione seguente:
 
-    ![Profili](./media/insights-advanced-autoscale-vmss/profiles.png)
+    ![Profili](media/insights-advanced-autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

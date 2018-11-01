@@ -5,15 +5,15 @@ services: storage
 author: genlin
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: ecc5948c84f7659e950c360c3b19d1985b0ab81c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521490"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416393"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -256,7 +256,7 @@ Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
 
 -   Usare un token di firma di accesso condiviso (SAS) per consentire l'accesso a una risorsa. 
 
--   Fornire a un utente la chiave primaria o secondaria per l'account di archiviazione. Per altre informazioni, vedere [Gestire l'account di archiviazione](storage-create-storage-account.md#manage-your-storage-account).
+-   Fornire a un utente la chiave primaria o secondaria per l'account di archiviazione. Per altre informazioni, vedere [Gestire l'account di archiviazione](storage-account-manage.md#access-keys).
 
 -   Modificare i criteri di accesso per consentire l'accesso anonimo. Per altre informazioni, vedere [Concedere le autorizzazioni agli utenti anonimi per contenitori e BLOB](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 

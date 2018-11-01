@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 3dd3e3391cc2536f56a5e42610c09c85b4068234
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419608"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740554"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Strumenti di diagnostica di Azure Stack
 
@@ -86,32 +86,38 @@ if($s)
   Raccogliere tutti i log per tutti i ruoli:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred
   ```
 
   Raccogliere i log dai ruoli VirtualMachines e BareMetal:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
   ```
 
   Raccogliere i log dai ruoli VirtualMachines e BareMetal, con filtro per i file di log per le ultime 8 ore delle date:
     
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
   Raccogliere i log dai ruoli VirtualMachines e BareMetal, con filtri per i file di log per il periodo di tempo compreso tra 8 ore fa e 2 ore fa data:
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considerazioni sui parametri per ASDK e i sistemi integrati
 
 - Se il **FromDate** e **ToDate** parametri vengono omessi, i log vengono raccolti per le ultime quattro ore per impostazione predefinita.
-- Usare la **FilterByNode** parametro per filtrare i log dal nome del computer. Ad esempio: ```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
-- Usare la **FilterByLogType** parametro per filtrare i log dal tipo. È possibile scegliere di filtrare in base al File, condivisione o WindowsEvent. Ad esempio: ```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
+- Usare la **FilterByNode** parametro per filtrare i log dal nome del computer. Ad esempio: 
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByNode azs-xrp01
+```
+- Usare la **FilterByLogType** parametro per filtrare i log dal tipo. È possibile scegliere di filtrare in base al File, condivisione o WindowsEvent. Ad esempio: 
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByLogType File
+```
 - È possibile usare la **TimeOutInMinutes** parametro da impostare il timeout per la raccolta di log. Si è impostato su 150 (2,5 ore) per impostazione predefinita.
 - Nella versione 1805 e versioni successive, raccolta di log file di dump è disabilitata per impostazione predefinita. Per abilitarla, usare il **IncludeDumpFile** parametro opzionale. 
 - Attualmente, è possibile usare la **FilterByRole** parametro alla raccolta di log di filtro per i ruoli seguenti:

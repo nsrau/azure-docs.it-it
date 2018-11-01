@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: e1c1ba0a065a20874bf51d7464cbcfdfa13a571d
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 43f30989fa09e711fc71941e7722dcd195212472
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49947388"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416232"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Convalidare l'integrazione di graph per Azure Stack
 
-Usare lo strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) per verificare che l'ambiente sia pronto per l'integrazione di graph con Azure Stack. È necessario convalidare l'integrazione di graph prima di iniziare l'integrazione di data center o prima di una distribuzione di Azure Stack.
+Usare lo strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) per verificare che l'ambiente sia pronto per l'integrazione di graph con Azure Stack. Convalidare l'integrazione di graph prima di iniziare l'integrazione di Data Center o prima di una distribuzione di Azure Stack.
 
 Il controllo di conformità di convalida:
 
@@ -33,11 +33,11 @@ Il controllo di conformità di convalida:
 * Il KDC possa essere risolto e contattabile.
 * È presente la connettività di rete necessarie.
 
-Per altre informazioni sull'integrazione di Azure Stack data center, vedere [integrazione di Data Center di Azure Stack - identità](azure-stack-integrate-identity.md)
+Per altre informazioni sull'integrazione di Data Center di Azure Stack, vedere [integrazione di Data Center di Azure Stack - identità](azure-stack-integrate-identity.md).
 
 ## <a name="get-the-readiness-checker-tool"></a>Ottenere lo strumento di controllo di conformità
 
-Scaricare la versione più recente dello strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) dal [PSGallery](https://aka.ms/AzsReadinessChecker).
+Scaricare la versione più recente dello strumento di controllo di conformità di Azure Stack (AzsReadinessChecker) dal [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,29 +48,29 @@ I seguenti prerequisiti sono necessari.
 * Windows 10 o Windows Server 2016, con connettività del dominio.
 * PowerShell 5.1 o versione successiva. Per controllare la versione, eseguire il comando PowerShell seguente e quindi esaminare i *principali* versione e *secondaria* versioni:  
    > `$PSVersionTable.PSVersion`
-* Modulo di Active Directory PowerShell
-* La versione più recente del [verifica di conformità di Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) strumento
+* Modulo Active Directory PowerShell.
+* Versione più recente del [verifica di conformità di Microsoft Azure Stack](https://aka.ms/AzsReadinessChecker) dello strumento.
 
 **Ambiente Active Directory:**
 
-* Identificare il nome utente e password per un account per il servizio graph in Active Directory esistente
-* Identificare la radice della foresta Active Directory FQDN
+* Identificare il nome utente e password per un account per il servizio graph nell'istanza di Active Directory esistente.
+* Identificare radice della foresta di Active Directory, nome di dominio completo.
 
-## <a name="validate-graph"></a>Convalidare graph
+## <a name="validate-the-graph-service"></a>Convalidare il servizio graph
 
-1. In un computer che soddisfi i prerequisiti, aprire un prompt amministrativo di PowerShell e quindi eseguire il comando seguente per installare il AzsReadinessChecker.
+1. In un computer che soddisfi i prerequisiti, aprire un prompt amministrativo di PowerShell e quindi eseguire il comando seguente per installare il AzsReadinessChecker:
 
      `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-1. Al prompt di PowerShell, eseguire il comando seguente per impostare *$graphCredential* variabile all'account del grafico. Sostituire `contoso\graphservice` con l'account tramite il `domain\username` formato.
+1. Al prompt di PowerShell, eseguire il comando seguente per impostare il *$graphCredential* variabile all'account del grafico. Sostituire `contoso\graphservice` con il tuo account usando il `domain\username` formato.
 
     `$graphCredential = Get-Credential contoso\graphservice -Message "Enter Credentials for the Graph Service Account"`
 
-1. Al prompt di PowerShell, eseguire il comando seguente per avviare la convalida del grafico. Specificare il valore per **- ForestFQDN** come il nome di dominio completo per la radice della foresta:
+1. Al prompt di PowerShell, eseguire il comando seguente per avviare la convalida per il servizio graph. Specificare il valore per **- ForestFQDN** come il nome di dominio completo per la radice della foresta.
 
      `Invoke-AzsGraphValidation -ForestFQDN contoso.com -Credential $graphCredential`
 
-1. Dopo che viene eseguito lo strumento, esaminare l'output. Verificare che lo stato è OK per i requisiti di integrazione di grafico. Convalida riuscita appare simile al seguente:
+1. Dopo che viene eseguito lo strumento, esaminare l'output. Verificare che lo stato è OK per i requisiti di integrazione di grafico. Convalida riuscita è simile all'esempio seguente:
 
     ```
     Testing Graph Integration (v1.0)
@@ -94,26 +94,26 @@ I seguenti prerequisiti sono necessari.
     Invoke-AzsGraphValidation Completed
     ```
 
-Negli ambienti di produzione, testare la connettività di rete da una workstation operatori non può essere considerata completamente indicativo della connettività disponibili in Azure Stack. Rete di indirizzi VIP pubblici del timbro Azure Stack sarà necessario la connettività per il traffico LDAP eseguire l'integrazione delle identità.
+Negli ambienti di produzione, testare la connettività di rete da workstation dell'operatore non è completamente indicativo della connettività disponibili in Azure Stack. Rete di indirizzi VIP pubblici del timbro Azure Stack sarà necessario la connettività per il traffico LDAP eseguire l'integrazione delle identità.
 
 ## <a name="report-and-log-file"></a>File di log e report
 
-Ogni convalida in fase di esecuzione, registra i risultati per **AzsReadinessChecker.log** e **AzsReadinessCheckerReport.json**. Consente di visualizzare la posizione di questi file con i risultati della convalida in PowerShell.
+Ogni convalida in fase di esecuzione, registra i risultati per **AzsReadinessChecker.log** e **AzsReadinessCheckerReport.json**. Il percorso di questi file viene visualizzato con i risultati della convalida in PowerShell.
 
-I file di convalida consentono di condividere lo stato prima di distribuire Azure Stack o analizzare i problemi di convalida. Entrambi i file di rendere persistenti i risultati di ogni controllo di convalida successiva. Il report fornisce di conferma del team di distribuzione della configurazione di identità. Il file di log consentono al team di supporto o distribuzione di analizzare i problemi di convalida.
+I file di convalida consentono di condividere lo stato prima di distribuire Azure Stack o analizzare i problemi di convalida. Entrambi i file di rendere persistenti i risultati di ogni controllo di convalida successiva. Il report offre di conferma del team di distribuzione della configurazione di identità. Il file di log consentono al team di supporto o distribuzione di analizzare i problemi di convalida.
 
-Per impostazione predefinita, entrambi i file vengono scritti `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`
+Per impostazione predefinita, entrambi i file vengono scritti `C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\`.
 
 Usare:
 
-* **-OutputPath** *percorso* parametro alla fine di Esegui riga di comando per specificare un percorso di report diversa.
-* **-CleanReport** parametro alla fine del comando di esecuzione per cancellare *AzsReadinessCheckerReport.json* delle informazioni di report precedente. Per altre informazioni, vedere [rapporto di convalida di Azure Stack](azure-stack-validation-report.md).
+* **-OutputPath**: il *percorso* parametro alla fine del comando di esecuzione per specificare un percorso di report diversa.
+* **-CleanReport**: il parametro alla fine del comando di esecuzione per cancellare *AzsReadinessCheckerReport.json* delle informazioni di report precedente. Per altre informazioni, vedere [rapporto di convalida di Azure Stack](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Errori di convalida
 
-Se un controllo di convalida non riesce, visualizzare i dettagli sull'errore nella finestra di PowerShell. Lo strumento registra inoltre informazioni per il *AzsGraphIntegration.log*.
+Se un controllo di convalida non riesce, dettagli sull'errore vengono visualizzati nella finestra di PowerShell. Lo strumento registra inoltre informazioni per *AzsGraphIntegration.log*.
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 
 [Visualizzare il report di conformità](azure-stack-validation-report.md)  
 [Considerazioni relative all'integrazione di Azure Stack generale](azure-stack-datacenter-integration.md)  

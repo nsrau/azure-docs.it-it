@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227215"
+---
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver attivato l'integrazione dell'insieme di credenziali delle chiavi di Azure, è possibile abilitare la crittografia di SQL Server nella macchina virtuale di SQL. Innanzitutto, è necessario creare una chiave asimmetrica nell'insieme di credenziali delle chiavi e una chiave simmetrica in SQL Server nella macchina virtuale. A questo punto, sarà possibile eseguire istruzioni T-SQL per abilitare la crittografia per i database e i backup.

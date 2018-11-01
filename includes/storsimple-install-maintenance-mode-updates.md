@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 01612b32e6c1b363df8a5c70405d0c709210328e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165232"
+---
 <!--author=SharS last changed: 9/17/15-->
 
 #### <a name="to-install-maintenance-mode-updates-via-windows-powershell-for-storsimple"></a>Per installare gli aggiornamenti in modalità di manutenzione tramite Windows PowerShell per StorSimple

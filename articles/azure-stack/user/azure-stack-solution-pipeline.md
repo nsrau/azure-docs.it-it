@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 10/30/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300836"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419836"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Esercitazione: distribuire le App in Azure e Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Esercitazione: Distribuire le App in Azure e Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
@@ -47,6 +47,12 @@ Per altre informazioni su integrazione continua e recapito Continuo:
 
 * [Che cos'è l'integrazione continua?](https://www.visualstudio.com/learn/what-is-continuous-integration/)
 * [Che cos'è il recapito continuo?](https://www.visualstudio.com/learn/what-is-continuous-delivery/)
+
+> [!Tip]  
+> ![ibrido-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
+> Microsoft Azure Stack è un'estensione di Azure. Azure Stack offre l'agilità e innovazione del cloud computing al tuo ambiente locale e abilitare l'unico cloud ibrido che consente di compilare e distribuire le app ibride ovunque.  
+> 
+> Il white paper [considerazioni sulla progettazione per applicazioni ibride](https://aka.ms/hybrid-cloud-applications-pillars) esamina i concetti fondamentali della qualità del software (selezione host, scalabilità, disponibilità, resilienza, gestibilità e sicurezza) per la progettazione, distribuzione e gestione ibrida applicazioni. Le considerazioni di progettazione assistere nell'ottimizzazione della progettazione di applicazioni ibride, riducendo al minimo le sfide negli ambienti di produzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -81,7 +87,7 @@ Questa esercitazione si presuppone una conoscenza di base di Azure e Azure Stack
  * Creare [piano/offerte](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) nello Stack di Azure.
  * Creare un [sottoscrizione tenant](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
  * Creare un'App Web nella sottoscrizione del tenant. Prendere nota del nuovo URL di App Web per usare in un secondo momento.
- * Distribuisci macchina virtuale di Azure DevOps servizi nella sottoscrizione del tenant.
+ * Distribuire una macchina virtuale di Windows Server 2012 nella sottoscrizione del tenant. Si userà questo server come server di compilazione e per eseguire i servizi di Azure DevOps.
 * Fornire un'immagine di Windows Server 2016 con .NET 3.5 per una macchina virtuale (VM). Questa macchina virtuale verrà compilata in Azure Stack come agente di compilazione privata.
 
 ### <a name="developer-tool-requirements"></a>Requisiti dello strumento per sviluppatori
@@ -247,7 +253,7 @@ La creazione di endpoint di una compilazione di Visual Studio Online (VSTO) è p
 ![App di esempio NorthwindCloud in VSTO](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. Accedi a VSTO e passare alla pagina di impostazioni dell'app.
-2. Sul **le impostazioni**, selezionare **sicurezza**.
+2. Su **Impostazioni**, selezionare **Sicurezza**.
 3. Nelle **gruppi di servizi di Azure DevOps**, selezionare **creatori di Endpoint**.
 
     ![Creatori di NorthwindCloud Endpoint](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
@@ -267,21 +273,57 @@ La creazione di endpoint di una compilazione di Visual Studio Online (VSTO) è p
 10. Selezionare **Save changes** (Salva modifiche).
 
 Ora che le informazioni sull'endpoint esistente, i servizi di DevOps di Azure alla connessione di Azure Stack è pronto per l'uso. L'agente di compilazione in Azure Stack Ottiene le istruzioni da servizi di Azure DevOps e l'agente comunica quindi informazioni sull'endpoint per la comunicazione con Azure Stack.
+
 ## <a name="create-an-azure-stack-endpoint"></a>Creare un endpoint di Azure Stack
+
+### <a name="create-an-endpoint-for-azure-ad-deployments"></a>Creare un endpoint per le distribuzioni di Azure AD
 
 È possibile seguire le istruzioni riportate in [creare una connessione al servizio Azure Resource Manager con un servizio esistente entità ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) articolo creare una connessione al servizio con un servizio esistente dell'entità e usare il mapping seguente:
 
-- Ambiente: AzureStack
-- URL dell'ambiente: Simile a `https://management.local.azurestack.external`
-- ID sottoscrizione: ID sottoscrizione dell'utente da Azure Stack
-- Nome della sottoscrizione: nome di sottoscrizione utente in Azure Stack
-- ID client dell'entità servizio: l'ID dell'entità da [ciò](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sezione in questo articolo.
-- Chiave dell'entità servizio: la chiave da stesso articolo (o la password se si usa lo script).
-- ID tenant: L'ID tenant è recuperare in seguito con l'istruzione [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+È possibile creare una connessione al servizio usando il mapping seguente:
 
-Ora che l'endpoint viene creato, è pronto per l'uso di Visual Studio Team Services alla connessione di Azure Stack. L'agente di compilazione in Azure Stack Ottiene le istruzioni da Visual Studio Team Services e l'agente comunica quindi informazioni sull'endpoint per la comunicazione con Azure Stack.
+| NOME | Esempio | DESCRIZIONE |
+| --- | --- | --- |
+| Nome connessione | Azure Stack, Azure AD | Il nome della connessione. |
+| Environment | AzureStack | Il nome dell'ambiente. |
+| URL dell'ambiente | `https://management.local.azurestack.external` | L'endpoint di gestione. |
+| Livello di ambito | Sottoscrizione | L'ambito della connessione. |
+| ID sottoscrizione | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID sottoscrizione dell'utente da Azure Stack |
+| Nome della sottoscrizione | name@contoso.com | Nome della sottoscrizione utente da Azure Stack. |
+| ID client dell'entità servizio | FF74AACF-XXXX-4776-FC 93-C63E6E021D59 | L'ID dell'entità da [ciò](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sezione in questo articolo. |
+| Chiave dell'entità servizio | THESCRETGOESHERE = | La chiave da stesso articolo (o la password se si usa lo script). |
+| ID tenant | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | L'ID tenant è recuperare segue l'istruzione a ottenere il tenant ID. L'ID tenant è recuperare in seguito con l'istruzione [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| Connessione: | Non verificato | Convalidare le impostazioni di connessione per l'entità servizio. |
 
-![Agente di compilazione](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+Ora che l'endpoint viene creato, è pronto per l'uso di DevOps alla connessione di Azure Stack. L'agente di compilazione in Azure Stack Ottiene le istruzioni dalla metodologia DevOps, e quindi l'agente fornisce informazioni sull'endpoint per la comunicazione con Azure Stack.
+
+![Azure AD dell'agente di compilazione](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+### <a name="create-an-endpoint-for-ad-fs"></a>Creare un endpoint per AD FS
+
+L'aggiornamento più recente a DevOps di Azure consente di creare una connessione al servizio usando un'entità servizio con un certificato per l'autenticazione. Ciò è necessario quando si distribuisce Azure Stack con AD FS come provider di identità. 
+
+![L'agente AD FS di compilazione](media\azure-stack-solution-hybrid-pipeline\image06.png)
+
+È possibile creare una connessione al servizio usando il mapping seguente:
+
+| NOME | Esempio | DESCRIZIONE |
+| --- | --- | --- |
+| Nome connessione | Azure Stack ad FS | Il nome della connessione. |
+| Environment | AzureStack | Il nome dell'ambiente. |
+| URL dell'ambiente | `https://management.local.azurestack.external` | L'endpoint di gestione. |
+| Livello di ambito | Sottoscrizione | L'ambito della connessione. |
+| ID sottoscrizione | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID sottoscrizione dell'utente da Azure Stack |
+| Nome della sottoscrizione | name@contoso.com | Nome della sottoscrizione utente da Azure Stack. |
+| ID client dell'entità servizio | FF74AACF-XXXX-4776-FC 93-C63E6E021D59 | L'ID client dall'entità servizio creata per AD FS. |
+| Certificate | `<certificate>` |  Convertire il file di certificato da PFX PEM. Incollare il contenuto di file di certificato con estensione PEM in questo campo. <br> Conversione di file PFX in PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
+| ID tenant | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | L'ID tenant è recuperare segue l'istruzione a ottenere il tenant ID. L'ID tenant è recuperare in seguito con l'istruzione [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| Connessione: | Non verificato | Convalidare le impostazioni di connessione per l'entità servizio. |
+
+Ora che l'endpoint viene creato, è pronto per l'uso di DevOps di Azure alla connessione di Azure Stack. L'agente di compilazione in Azure Stack Ottiene le istruzioni dalla metodologia DevOps di Azure e l'agente comunica quindi informazioni sull'endpoint per la comunicazione con Azure Stack.
+
+> [!Note]
+> Se l'endpoint di Azure Stack utente ARM non è esposta a Internet, la convalida della connessione avrà esito negativo. Questo comportamento è previsto ed è possibile convalidare la connessione mediante la creazione di una pipeline di rilascio con un'attività semplice. 
 
 ## <a name="develop-your-application-build"></a>Sviluppare la compilazione dell'applicazione
 
@@ -336,14 +378,14 @@ Utilizzo di un agente di compilazione ospitato nei servizi di Azure DevOps è un
 
 Servizi di DevOps e Team Foundation Server (TFS) di Azure forniscono una pipeline, altamente configurabile e gestibile per le versioni in più ambienti, ad esempio sviluppo, staging, controllo di qualità (QA) e produzione. Questo processo può includere che richiedono le approvazioni in specifiche fasi del ciclo di vita dell'applicazione.
 
-### <a name="create-release-pipeline"></a>Crea pipeline di rilascio
+### <a name="create-release-pipeline"></a>Creare una pipeline di versione
 
 Creazione di una pipeline di rilascio è il passaggio finale nell'applicazione processo di compilazione. Questa pipeline di rilascio viene utilizzata per creare una versione e distribuire una build.
 
 1. Accedi ai servizi di Azure DevOps e passare a **pipeline di Azure** per il progetto.
 2. Nel **rilasci** scheda, seleziona  **\[ +]** e quindi selezionare **Crea definizione di versione**.
 
-   ![Crea pipeline di rilascio](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Creare una pipeline di versione](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. Sul **selezionare un modello**, scegliere **distribuzione di Azure App Service**e quindi selezionare **Apply**.
 

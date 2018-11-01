@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: b72cab6ce90f0cbb74afd3e00a9aec73fb2908f7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003781"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238727"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Come gestire il gruppo di amministratori locale nei dispositivi aggiunti ad Azure AD
 
@@ -92,9 +92,9 @@ A partire dalla versione **Windows 10 1709**, è possibile eseguire questa attiv
  
 È anche possibile aggiungere gli utenti usando il prompt dei comandi:
 
-- Se gli utenti del tenant vengono sincronizzati da Active Directory locale, usare `net localgroup administrators /add “Contoso\username”`.
+- Se gli utenti del tenant vengono sincronizzati da Active Directory locale, usare `net localgroup administrators /add "Contoso\username"`.
 
-- Se gli utenti del tenant vengono creati in Azure AD, usare `net localgroup administrators /add “AzureAD\UserUpn”`
+- Se gli utenti del tenant vengono creati in Azure AD, usare `net localgroup administrators /add "AzureAD\UserUpn"`
 
 
 ## <a name="considerations"></a>Considerazioni 
