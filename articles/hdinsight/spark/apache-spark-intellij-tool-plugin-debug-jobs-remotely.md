@@ -4,17 +4,17 @@ description: Informazioni su come usare gli strumenti HDInsight in Azure Toolkit
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: d71186dcfd5528de48151804492d8ae51e808a07
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 55f32b498b83203a3823999a2e31024266bf37bc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618921"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413265"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Usare Azure Toolkit for IntelliJ per eseguire il debug remoto di applicazioni Spark in HDInsight tramite VPN
 
@@ -31,7 +31,7 @@ Questo articolo offre indicazioni dettagliate su come usare gli strumenti HDInsi
 ## <a name="prerequisites"></a>Prerequisiti
 * **Una sottoscrizione di Azure**. Per altre informazioni, vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **Un cluster Apache Spark in HDInsight**. Per istruzioni, vedere l'articolo dedicato alla [creazione di cluster Apache Spark in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* **Kit di sviluppo di Oracle Java**. È possibile installarlo dal [sito Web di Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* **Kit di sviluppo di Oracle Java**. È possibile installarlo dal [sito Web di Oracle](https://aka.ms/azure-jdks).
 * **IntelliJ IDEA**. In questo articolo viene usata la versione 2017.1. È possibile installarlo dal [sito Web di JetBrains](https://www.jetbrains.com/idea/download/).
 * **Strumenti HDInsight in Azure Toolkit per IntelliJ**. Gli strumenti HDInsight per IntelliJ sono disponibili come parte di Azure Toolkit for IntelliJ. Per istruzioni su come installare Azure Toolkit, vedere [Installare Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Accedere alla propria sottoscrizione di Azure da IntelliJ IDEA**. Seguire le istruzioni in [Usare Azure Toolkit for IntelliJ per creare applicazioni Spark per un cluster HDInsight](apache-spark-intellij-tool-plugin.md).
@@ -132,7 +132,7 @@ Seguire le istruzioni riportate nei collegamenti seguenti per creare una rete vi
     Aggiungere questi file al progetto copiandoli nella cartella **/src** dell'albero del progetto, ad esempio `<your project directory>\src`.
 1. Aggiornare il file `core-site.xml` per apportare le modifiche seguenti:
 
-   a. Sostituire la chiave crittografata. Il file `core-site.xml` include la chiave crittografata per l'account di archiviazione associato al cluster. Nel file `core-site.xml` aggiunto al progetto sostituire la chiave crittografata con la chiave di archiviazione effettiva associata all'account di archiviazione predefinito. Per altre informazioni, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+   a. Sostituire la chiave crittografata. Il file `core-site.xml` include la chiave crittografata per l'account di archiviazione associato al cluster. Nel file `core-site.xml` aggiunto al progetto sostituire la chiave crittografata con la chiave di archiviazione effettiva associata all'account di archiviazione predefinito. Per altre informazioni, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../../storage/common/storage-account-manage.md#access-keys).
 
            <property>
                  <name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>

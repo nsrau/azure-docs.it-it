@@ -302,8 +302,6 @@
 ##### [Problema dell'app sviluppata in modo personalizzato](manage-apps/application-sign-in-problem-custom-dev.md)
 ##### [Problema dell'app locale - Proxy dell'applicazione](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
-### [Sviluppare app](active-directory-applications-guiding-developers-for-lob-applications.md)
-
 
 ## Gestire la directory
 ### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 286f8e560ec653ed4f4f1cad5a2ae27b940f8d15
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ca412e94f65c7e1ed9a547ec9dcabc62fac7d42f
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781781"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741828"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Anteprima: Applicare la protezione password di Azure AD per Windows Server Active Directory
 
@@ -33,16 +33,6 @@ Ci sono tre componenti software che costituiscono la protezione password di Azur
 * La DLL di filtro delle password dell'agente del controller di dominio riceve le richieste di convalida delle password dal sistema operativo e le inoltra al servizio agente del controller di dominio di protezione password di Azure AD in esecuzione in locale nel controller di dominio.
 
 ![Come si integrano i componenti della password di protezione di Azure AD](./media/concept-password-ban-bad-on-premises/azure-ad-password-protection.png)
-
-## <a name="requirements"></a>Requisiti
-
-* Tutti i computer in cui sono installati i componenti di protezione password di Azure AD, inclusi i controller di dominio, devono eseguire Windows Server 2012 o versione successiva.
-* Tutti i computer in cui sono installati i componenti di protezione della password di Azure AD, inclusi i controller di dominio, devono eseguire Universal C Runtime. Questa condizione si ottiene preferibilmente con l'applicazione completa di patch alla macchina tramite Windows Update. In alternative, è possibile installare un pacchetto di aggiornamento appropriato specifico del sistema operativo. Vedere [Aggiornamento di Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
-* Deve esserci connettività di rete tra almeno un controller di dominio in ogni dominio e almeno un server che ospita il servizio proxy di protezione password di Azure AD.
-* Qualsiasi controller di dominio Active Directory che sfrutta la funzionalità di protezione delle password deve avere installato l'agente del controller di dominio.
-* Qualsiasi dominio di Active Directory che esegue il software del servizio agente del controller di dominio deve usare DFSR per la replica di sysvol.
-* Un account di amministratore globale per registrare il servizio proxy di protezione password di Azure AD in Azure AD.
-* Un account con privilegi di amministratore di dominio di Active Directory nel dominio radice della foresta.
 
 ### <a name="license-requirements"></a>Requisiti relativi alle licenze
 
@@ -70,7 +60,6 @@ Sono necessari due programmi di installazione per la password di protezione di A
 * È consigliabile installare l'agente del controller di dominio su tutti i controller di dominio per garantire l'imposizione della protezione della password. 
 * La protezione password di Azure AD non è un motore di applicazione dei criteri in tempo reale. Potrebbe esserci un ritardo tra una modifica della configurazione dei criteri password e la sua distribuzione e applicazione in tutti i controller di dominio.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Distribuire la protezione delle password di Azure AD](howto-password-ban-bad-on-premises.md)
+[Distribuire la protezione delle password di Azure AD](howto-password-ban-bad-on-premises-deploy.md)

@@ -1,5 +1,5 @@
 ---
-title: Connessioni supportate con Connettore di Gestione dei servizi IT in Azure Log Analytics | Microsoft Docs
+title: Connettere i servizi/prodotti ITSM con IT Service Management Connector in Azure Log Analytics | Microsoft Docs
 description: Questo articolo offre informazioni su come connettere i prodotti/servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT in Monitoraggio di Azure per monitorare e gestire centralmente gli elementi di lavoro di Gestione dei servizi IT.
 documentationcenter: ''
 author: jyothirmaisuri
@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 190e173e035716431c92533e42ded97e147f21a7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4faea38817a546dbab02064d22a0813362f77b3d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409204"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416461"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](log-analytics-itsmc-overview.md).
 
-Sono supportati i prodotti o i servizi di Gestione dei servizi IT seguenti. Selezionare il prodotto per visualizzare informazioni dettagliate su come connettere il prodotto a Connettore di Gestione dei servizi IT.
+Sono supportati i prodotti/servizi ITSM seguenti. Selezionare il prodotto per visualizzare informazioni dettagliate su come connettere il prodotto a ITSMC.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -43,7 +43,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - L'applicazione Web (app Web) Service Manager è stata distribuita e configurata. Per informazioni sull'app Web, vedere[qui](#create-and-deploy-service-manager-web-app-service).
 - Connessione ibrida è stata creata e configurata. Per altre informazioni, vedere [Configurare la connessione ibrida](#configure-the-hybrid-connection).
 - Versioni supportate di Service Manager: 2012 R2 o 2016.
@@ -57,7 +57,7 @@ Usare la procedura seguente per connettere l'istanza di System Center Service Ma
 
 2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT**.
 
-    ![Nuova connessione](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nuova connessione](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Nella parte superiore del riquadro destro fare clic su **Aggiungi**.
 
@@ -76,13 +76,13 @@ Usare la procedura seguente per connettere l'istanza di System Center Service Ma
 | **Segreto client**   | Digitare il segreto client, generato per questo ID.   |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di Service Manager da sincronizzare tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics. **Opzioni:** Eventi imprevisti, Richieste di modifica.|
 | **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto di Gestione dei servizi IT. Se questa opzione è selezionata, Log Analytics crea le integrazioni continue interessate come elementi di configurazione (in caso di integrazioni continue inesistenti) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Log Analytics crea le integrazioni continue interessate come elementi di configurazione (in caso di integrazioni continue inesistenti) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
 
-![Connessione di Service Manager](./media/log-analytics-itsmc/service-manager-connection.png)
+![Connessione di Service Manager](media/log-analytics-itsmc-connections/service-manager-connection.png)
 
 **Dopo la corretta connessione e la sincronizzazione**:
 
-- Gli elementi di lavoro selezionati in Service Manager vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro Connettore di Gestione dei servizi IT.
+- Gli elementi di lavoro selezionati in Service Manager vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Service Manager.
 
@@ -128,14 +128,14 @@ Usare la procedura seguente per configurare la connessione ibrida tra l'istanza 
 2. Fare clic su **Impostazioni** > **Rete**.
 3. In **Connessioni ibride** fare clic su **Configurare gli endpoint della connessione ibrida**.
 
-    ![Rete per la connessione ibrida](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
+    ![Rete per la connessione ibrida](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
 4. Nel pannello **Connessioni ibride** fare clic su **Aggiungi connessione ibrida**.
 
-    ![Aggiunta di una connessione ibrida](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
+    ![Aggiunta di una connessione ibrida](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
 5. Nel pannello **Aggiungi connessione ibrida** fare clic su **Crea nuova connessione ibrida**.
 
-    ![Nuova connessione ibrida](./media/log-analytics-itsmc/itsmc-create-new-hybrid-connection.png)
+    ![Nuova connessione ibrida](media/log-analytics-itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. Digitare i valori seguenti:
 
@@ -146,14 +146,14 @@ Usare la procedura seguente per configurare la connessione ibrida tra l'istanza 
     - **Località**: selezionare la località.
     -  **Nome**: specificare un nome per il bus di servizio, se lo si sta creando.
 
-    ![Valori della connessione ibrida](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
+    ![Valori della connessione ibrida](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Fare clic su **OK** per chiudere il pannello **Crea connessione ibrida** e iniziare a creare la connessione ibrida.
 
     Al termine della creazione, la connessione ibrida viene visualizzata sotto il pannello.
 
 7. Dopo la creazione della connessione ibrida, selezionare la connessione e fare clic su **Aggiungi connessione ibrida selezionata**.
 
-    ![Nuova connessione ibrida](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
+    ![Nuova connessione ibrida](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
 #### <a name="configure-the-listener-setup"></a>Configurare le impostazioni del listener
 
@@ -171,14 +171,14 @@ Seguire questa procedura per configurare le impostazioni del listener per la con
 
 La connessione ibrida è stata completata.
 
-![Connessione ibrida completata](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
+![Connessione ibrida completata](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
 > Al termine della creazione della connessione ibrida, verificare e testare la connessione passando all'app Web di Service Manager distribuita. Assicurarsi che la connessione funzioni prima di provare a connettersi a Connettore di Gestione dei servizi IT in Azure.
 
 L'esempio seguente mostra i dettagli di una connessione riuscita:
 
-![Test della connessione ibrida](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
+![Test della connessione ibrida](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-test.png)
 
 ## <a name="connect-servicenow-to-it-service-management-connector-in-azure"></a>Connettere ServiceNow a Connettore di Gestione dei servizi IT in Azure
 
@@ -186,7 +186,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 ### <a name="prerequisites"></a>Prerequisiti
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - Versioni supportate di ServiceNow: Kingston, Giacarta, Istanbul, Helsinki, Ginevra.
 
 **ServiceNow Admins deve eseguire le operazioni seguenti nell'istanza di ServiceNow**:
@@ -209,7 +209,7 @@ Seguire questa procedura per creare una connessione ServiceNow:
 1. Nel portale di Azure passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**
 
 2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT**.
-    ![Nuova connessione](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nuova connessione](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Nella parte superiore del riquadro destro fare clic su **Aggiungi**.
 
@@ -230,13 +230,13 @@ Seguire questa procedura per creare una connessione ServiceNow:
 | **Segreto client**   | Digitare il segreto client, generato per questo ID.   |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di ServiceNow da sincronizzare con Azure Log Analytics tramite Connettore di Gestione dei servizi IT.  I valori selezionati vengono importati in Log Analytics.   **Opzioni:** Eventi imprevisti e Richieste di modifica.|
 | **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto di Gestione dei servizi IT. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
 
-![Connessione di ServiceNow](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
+![Connessione di ServiceNow](media/log-analytics-itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
 **Dopo la corretta connessione e la sincronizzazione**:
 
-- Gli elementi di lavoro selezionati nell'istanza di ServiceNow vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro Connettore di Gestione dei servizi IT.
+- Gli elementi di lavoro selezionati nell'istanza di ServiceNow vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di ServiceNow.
 
@@ -292,7 +292,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
 
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - L'app Provance deve essere registrata in Azure AD e l'ID client deve essere stato reso disponibile. Per informazioni dettagliate, vedere [Come configurare l'autenticazione di Active Directory](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - Ruolo utente: amministratore.
@@ -304,7 +304,7 @@ Seguire questa procedura per creare una connessione Provance:
 1. Nel portale di Azure passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**
 
 2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT**.
-    ![Nuova connessione](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nuova connessione](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Nella parte superiore del riquadro destro fare clic su **Aggiungi**.
 
@@ -324,13 +324,13 @@ Seguire questa procedura per creare una connessione Provance:
 | **ID client**   | Digitare l'ID client per l'autenticazione di questa connessione, generato nell'istanza di Provance.  Per altre informazioni sull'ID client, vedere [Come configurare l'autenticazione di Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md). |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di Provance da sincronizzare con Azure Log Analytics tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics.   **Opzioni:** Eventi imprevisti, Richieste di modifica.|
 | **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto di Gestione dei servizi IT. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata.|
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata.|
 
-![Connessione Provance](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
+![Connessione Provance](media/log-analytics-itsmc-connections/itsm-connections-provance-latest.png)
 
 **Dopo la corretta connessione e la sincronizzazione**:
 
-- Gli elementi di lavoro selezionati nell'istanza di Provance vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro Connettore di Gestione dei servizi IT.
+- Gli elementi di lavoro selezionati nell'istanza di Provance vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Provance.
 
@@ -344,7 +344,7 @@ Le sezioni seguenti forniscono informazioni dettagliate su come connettere il pr
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
-- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione Connettore di Gestione dei servizi IT](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- Connettore di Gestione dei servizi IT installato. Altre informazioni: [Aggiunta della soluzione IT Service Management Connector](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
 - L'ID client è stato generato. Per altre informazioni, vedere [Generare l'ID client per Cherwell](#generate-client-id-for-cherwell).
 - Ruolo utente: amministratore.
 
@@ -355,7 +355,7 @@ Seguire questa procedura per creare una connessione Provance:
 1. Nel portale di Azure passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**
 
 2.  In **ORIGINI DATI DELL'AREA DI LAVORO** fare clic su **Connessioni di Gestione dei servizi IT**.
-    ![Nuova connessione](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+    ![Nuova connessione](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. Nella parte superiore del riquadro destro fare clic su **Aggiungi**.
 
@@ -375,14 +375,14 @@ Seguire questa procedura per creare una connessione Provance:
 | **ID client**   | Digitare l'ID client per l'autenticazione di questa connessione, generato nell'istanza di Cherwell.   |
 | **Ambito sincronizzazione dati**   | Selezionare gli elementi di lavoro di Cherwell da sincronizzare tramite Connettore di Gestione dei servizi IT.  Questi elementi di lavoro vengono importati in Log Analytics.   **Opzioni:** Eventi imprevisti, Richieste di modifica. |
 | **Sincronizza dati** | Digitare il numero di giorni precedenti da cui si vogliono recuperare i dati. **Limite massimo**: 120 giorni. |
-| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto di Gestione dei servizi IT. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
+| **Create new configuration item in ITSM solution** (Crea nuovo elemento di configurazione nella soluzione ITSM) | Selezionare questa opzione se si vogliono creare gli elementi di configurazione nel prodotto ITSM. Se questa opzione è selezionata, Connettore di Gestione dei servizi IT crea le integrazioni continue interessate come elementi di configurazione (nel caso in cui non esistano) nel sistema di Gestione dei servizi IT supportato. **Impostazione predefinita**: disabilitata. |
 
 
-![Connessione Provance](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
+![Connessione Provance](media/log-analytics-itsmc-connections/itsm-connections-cherwell-latest.png)
 
 **Dopo la corretta connessione e la sincronizzazione**:
 
-- Gli elementi di lavoro selezionati nell'istanza di Cherwell vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro Connettore di Gestione dei servizi IT.
+- Gli elementi di lavoro selezionati nell'istanza di Cherwell vengono importati in Azure **Log Analytics**. È possibile visualizzare il riepilogo di questi elementi di lavoro nel riquadro IT Service Management Connector.
 
 - È possibile creare eventi imprevisti dagli avvisi o dai record di log di Log Analytics oppure dagli avvisi di Azure in questa istanza di Cherwell.
 
@@ -396,7 +396,7 @@ Per generare l'ID client o la chiave per Cherwell, seguire questa procedura:
 2. Fare clic su **Security** (Sicurezza)  > **Edit REST API client settings** (Modifica le impostazioni client dell'API REST).
 3. Selezionare **Create new client** (Crea nuovo client)  > **client secret** (segreto client).
 
-    ![ID utente di Cherwell](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
+    ![ID utente di Cherwell](media/log-analytics-itsmc-connections/itsmc-cherwell-client-id.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

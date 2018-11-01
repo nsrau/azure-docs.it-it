@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: ebbb231e7d9eefa8eb681b0e14c711e2c4f1fad7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386520"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418422"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Funzionalità unificata di avviso e monitoraggio in Monitoraggio di Azure in sostituzione delle funzionalità classiche di avviso e monitoraggio
 
@@ -21,7 +21,7 @@ Monitoraggio di Azure è ora diventato un servizio di monitoraggio unificato del
 
 Con la nuova piattaforma di monitoraggio e avviso di Azure, verrà ritirata la versione classica della piattaforma di monitoraggio e avviso, ospitata nella sezione *Visualizza avvisi classici* degli avvisi di Azure, che sarà deprecata entro giugno 2019.
 
- ![Avviso classico nel portale di Azure](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Avviso classico nel portale di Azure](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 Gli utenti sono invitati a iniziare a usare la nuova piattaforma e ricreare al suo interno gli avvisi. Per i clienti con un numero elevato di avvisi, Microsoft sta lavorando per fornire un metodo automatico per spostare gli avvisi classici esistenti nel nuovo sistema di avvisi senza interruzioni o costi aggiuntivi.
 

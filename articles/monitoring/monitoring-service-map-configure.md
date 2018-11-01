@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4461b98c56bcf99fc11aa9d89e6c6dc5961c86ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405515"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419521"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurare Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di avere una vista dei server corrispondente alla loro rappresentazione concettuale, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -146,7 +146,7 @@ In questo articolo si fa riferimento a tutti gli agenti, sia Linux che Windows, 
 
 L'agente dell'elenco dei servizi non trasmette dati e non richiede modifiche ai firewall o alle porte. I dati in Mapping dei servizi vengono sempre trasmessi dall'agente di Log Analytics al servizio Log Analytics, direttamente o tramite il gateway Log Analytics.
 
-![Agenti di Mapping dei servizi](media/monitoring-service-map/agents.png)
+![Agenti di Mapping dei servizi](media/monitoring-service-map-configure/agents.png)
 
 Per un cliente di System Center Operations Manager con un gruppo di gestione connesso a Log Analytics:
 
@@ -172,7 +172,7 @@ Per altre informazioni sulla raccolta e l'uso dei dati, vedere l'[Informativa su
 
 ## <a name="installation"></a>Installazione
 
-## <a name="azure-vm-extension"></a>Estensione di VM Azure
+### <a name="azure-vm-extension"></a>Estensione di VM Azure
 È disponibile un'estensione per Windows (DependencyAgentWindows) e per Linux (DependencyAgentLinux) ed è possibile distribuire facilmente Dependency Agent nelle macchine virtuali di Azure usando un'[estensione di VM Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Con l'estensione di VM Azure è possibile distribuire Dependency Agent nelle macchine virtuali Windows e Linux usando uno script PowerShell o direttamente nella macchina virtuale usando un modello di Azure Resource Manager.  Se si distribuisce l'agente con l'estensione di VM Azure, gli agenti vengono automaticamente aggiornati alla versione più recente.
 
 Per distribuire l'estensione di VM Azure con PowerShell, è possibile usare l'esempio seguente:

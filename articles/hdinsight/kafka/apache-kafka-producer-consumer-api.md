@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/16/2018
-ms.openlocfilehash: c52f64c2508870bf061e144229cf26ab269c343b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f757db47ff91537405b04dbc949797f5855b7952
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049237"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416172"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Esercitazione: Usare le API Apache Kafka Producer e Consumer
 
@@ -37,7 +37,7 @@ Per altre informazioni sulle API, vedere la documentazione Apache sull'[API Prod
 
 Nell'ambiente di sviluppo devono essere installati i componenti seguenti:
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) o equivalente, ad esempio OpenJDK.
+* [Java JDK 8](https://aka.ms/azure-jdks) o equivalente, ad esempio OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/)
 

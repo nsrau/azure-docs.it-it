@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 627c0ee5a2fab333b8a120867ab54ea76bc66823
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976840"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419368"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure  
 
@@ -34,26 +34,26 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Creare una regola per gli avvisi relativi ai log con il portale di Azure
 1. Nel [portale](https://portal.azure.com/)selezionare **Monitoraggio** e nella sezione MONITORAGGIO scegliere **Avvisi**.  
-    ![Monitoraggio](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![Monitoraggio](media/alert-log/AlertsPreviewMenu.png)
 
 1. Selezionare il pulsante **Nuova regola di avviso** per creare un nuovo avviso in Azure.
-    ![Aggiungi avviso](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+    ![Aggiungi avviso](media/alert-log/AlertsPreviewOption.png)
 
 1. Viene visualizzata la sezione Crea avviso composta da tre parti: *Definire la condizione dell'avviso*, *Definire i dettagli dell'avviso* e *Definire il gruppo di azioni*.
 
-    ![Creare una regola](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![Creare una regola](media/alert-log/AlertsPreviewAdd.png)
 
 1.  Definire la condizione dell'avviso tramite il collegamento **Seleziona risorsa** e specificare la destinazione selezionando una risorsa. Filtrare scegliendo la _Sottoscrizione_, il _Tipo di risorsa_ e infine la _Risorsa_ necessaria. 
 
     >[!NOTE]
 
     > Prima di procedere, per creare un avviso relativo ai log verificare che il segnale di **log** sia disponibile per la risorsa selezionata.
-    ![Selezionare una risorsa](./media/monitor-alerts-unified/Alert-SelectResourceLog.png)
+    ![Selezionare una risorsa](media/alert-log/Alert-SelectResourceLog.png)
 
  
 1. *Avvisi del log*: verificare che **Tipo di risorsa** sia un'origine dati di analisi come *Log Analytics* o *Application Insights* e tipo di segnale **Log** quindi, dopo aver selezionato la **risorsa** appropriata, fare clic su *Operazione completata*. Usare quindi il pulsante **Aggiungi criteri** per visualizzare l'elenco delle opzioni di segnale disponibili per la risorsa e nell'elenco dei segnali selezionare l'opzione di **ricerca log personalizzata** per il servizio di monitoraggio del log scelto, ad esempio *Log Analytics* o *Application Insights*.
 
-   ![Selezionare una risorsa - ricerca log personalizzata](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![Selezionare una risorsa - ricerca log personalizzata](media/alert-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
@@ -61,7 +61,7 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
 1.  *Avvisi del log*: una volta selezionata, la query per gli avvisi può essere immessa nel campo **Query di ricerca**. Se la sintassi della query non è corretta, nel campo viene visualizzato un errore in ROSSO. Se la sintassi della query è corretta, i dati cronologici della query specificata vengono visualizzati sotto forma di grafico come riferimento con un'opzione per modificare l'intervallo di tempo dalle ultime sei ore alla settimana precedente.
 
- ![Configurare una regola di avviso](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![Configurare una regola di avviso](media/alert-log/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
@@ -69,7 +69,7 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
     >  Per il tipo Unità di misura della metrica degli avvisi del log con Application insights, è possibile specificare la variabile specifica per raggruppare i dati con l'opzione **Aggrega in base a**, come illustrato di seguito:
 
-    ![opzione aggrega in base a](./media/monitor-alerts-unified/aggregate-on.png)
+    ![opzione aggrega in base a](media/alert-log/aggregate-on.png)
 
 1.  *Avvisi del log*: con la visualizzazione impostata, è possibile selezionare in **Logica avvisi** una delle opzioni visualizzate: Condizione, Aggregazione e infine Soglia. Specificare l'ora in cui valutare la condizione specificata nella logica tramite l'opzione **Periodo**. Specificare la frequenza con cui l'avviso deve essere eseguito selezionando **Frequenza**.
 Gli **avvisi del log** possono basarsi su:
@@ -83,7 +83,7 @@ Gli **avvisi del log** possono basarsi su:
 
     - **Elimina avvisi**: quando si attiva l'eliminazione per la regola di avviso, le azioni della regola vengono disabilitate per un periodo di tempo definito dopo la creazione di un nuovo avviso. La regola è ancora in esecuzione e, se i criteri vengono soddisfatti, crea i record di avviso. L'utente ha il tempo necessario per risolvere il problema senza eseguire azioni duplicate.
 
-        ![Elimina avvisi per gli avvisi del log](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![Elimina avvisi per gli avvisi del log](media/alert-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > Specificare un valore di eliminazione dell'avviso maggiore della frequenza di avviso per garantire che le notifiche vengano arrestate senza sovrapposizione
@@ -98,19 +98,19 @@ Gli **avvisi del log** possono basarsi su:
     - **Notifica di posta elettronica**: esegue l'override dell'*oggetto di posta elettronica* nel messaggio di posta elettronica inviato tramite il gruppo di azioni, se esistono una o più azioni di posta elettronica nel gruppo di azioni. Non è possibile modificare il corpo del messaggio e questo campo **non** è destinato agli indirizzi di posta elettronica.
     - **Includi payload JSON personalizzato**: esegue l'override del webhook JSON usato dai gruppi di azioni, se nel gruppo di azioni sono presenti una o più azioni webhook. Un utente può specificare il formato JSON da usare per tutti i webhook configurati nel gruppo di azioni associato. Per altre informazioni sui formati webhook, vedere [Azioni webhook per le regole di avviso relative ai log](monitor-alerts-unified-log-webhook.md). L'opzione di visualizzazione Webhook consente di verificare il formato tramite i dati JSON di esempio.
 
-        ![Override dell'azione per gli avvisi del log](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![Override dell'azione per gli avvisi del log](media/alert-log/AlertsPreviewOverrideLog.png)
 
 
 1. Se tutti i campi sono validi e hanno un segno di spunta verde, il pulsante **Crea regola di avviso** può essere selezionato e viene creato un avviso in Monitoraggio di Azure - Avvisi. Tutti gli avvisi possono essere visualizzati nella dashboard di Avvisi.
 
-    ![Creazione di regole](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![Creazione di regole](media/alert-log/AlertsPreviewCreate.png)
 
     Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
 
 Gli utenti possono anche finalizzare le query di analisi nella [pagina Log Analytics nel portale di Azure](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
 ) e quindi eseguirne il push per creare un avviso tramite il pulsante "Imposta avviso", quindi seguendo le istruzioni dal passaggio 6 nell'esercitazione precedente.
 
- ![Log Analytics - Imposta avviso](./media/monitor-alerts-unified/AlertsAnalyticsCreate.png)
+ ![Log Analytics - Imposta avviso](media/alert-log/AlertsAnalyticsCreate.png)
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Visualizzare e gestire gli avvisi del log nel portale di Azure
 
@@ -122,7 +122,7 @@ Gli utenti possono anche finalizzare le query di analisi nella [pagina Log Analy
 
 
 1. Selezionare il pulsante **Gestisci regole** nella barra superiore per passare alla sezione di gestione delle regole in cui sono elencate tutte le regole di avviso create, inclusi gli avvisi che sono stati disabilitati.
-    ![gestione delle regole di avviso](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![gestione delle regole di avviso](media/alert-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Gestione degli avvisi del log tramite il modello di risorsa di Azure
 Attualmente gli avvisi del log possono essere creati usando due diversi modelli di risorse, secondo la piattaforma di analisi su cui si deve basare l'avviso (ovvero) Log Analytics o Application Insights.

@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 19334bd7a6c2d451e51237cc16462bae2cfffb0a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: e3201562bd532084e528dddbee667bbafc39ede6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041323"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416542"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creare un'area di lavoro di Log Analytics con l'interfaccia della riga di comando di Azure 2.0
 
@@ -123,7 +123,7 @@ I parametri seguenti impostano un valore predefinito:
 
 Per il completamento della distribuzione sarà necessario attendere alcuni minuti. Al termine, viene visualizzato un messaggio simile al seguente che include il risultato:
 
-![Esempio di risultato al termine della distribuzione](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+![Esempio di risultato al termine della distribuzione](media/log-analytics-quick-create-workspace-cli/template-output-01.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato un'area di lavoro, è possibile configurare la raccolta di dati di telemetria di monitoraggio, eseguire ricerche nei log per analizzare i dati e aggiungere una soluzione di gestione per fornire informazioni analitiche dettagliate e dati aggiuntivi.  

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/18/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 661d2f789ace8da68b6d65609d4584a11967a01f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d5d75c25d03c02d6d49fc2fd8aeec995cea52314
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366614"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414268"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Come impostare un indirizzo IP privato interno statico tramite PowerShell (classico)
 Nella maggior parte dei casi non è necessario specificare un indirizzo IP interno statico per la macchina virtuale. Le macchine virtuali in una rete virtuale infatti ricevono automaticamente un indirizzo IP interno da un intervallo specificato. In alcuni casi è tuttavia opportuno specificare un indirizzo IP statico per una determinata macchina virtuale, ad esempio se questa eseguirà DNS o sarà un controller di dominio. Un indirizzo IP interno statico resta associato alla macchina virtuale anche in caso di passaggio allo stato di arresto/deprovisioning. 

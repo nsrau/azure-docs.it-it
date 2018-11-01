@@ -4,10 +4,6 @@ description: Informazioni su come creare un servizio Load Balancer Standard pubb
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 2caf61b49ef67598fc74118d04c0a8d1153d833c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a0fc37b8e2865163ae6c55813d145a568d796e0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983600"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414484"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>Creare un servizio Load Balancer Standard pubblico con un front-end di zona usando l'interfaccia della riga di comando di Azure
 

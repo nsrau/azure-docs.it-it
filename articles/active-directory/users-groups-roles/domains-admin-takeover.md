@@ -14,15 +14,15 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 52ae7da666acaf234920a7f03afe3766f29a1e85
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629124"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250734"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
-Questo articolo illustra due modi per acquisire la proprietà di un nome di dominio DNS in una directory non gestita in Azure Active Directory (Azure AD). Quando un utente self-service si iscrive a un servizio cloud che usa Azure AD, viene aggiunto a una directory di Azure AD non gestita basata sul dominio di posta elettronica. Per altre informazioni sull'iscrizione self-service o "virale" a un servizio, vedere [Informazioni sull'iscrizione self-service per Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup).
+Questo articolo illustra due modi per acquisire la proprietà di un nome di dominio DNS in una directory non gestita in Azure Active Directory (Azure AD). Quando un utente self-service si iscrive a un servizio cloud che usa Azure AD, viene aggiunto a una directory di Azure AD non gestita basata sul dominio di posta elettronica. Per altre informazioni sull'iscrizione self-service o "virale" a un servizio, vedere [Informazioni sull'iscrizione self-service per Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup).
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Decidere come acquisire la proprietà di una directory non gestita
 Durante il processo di acquisizione della proprietà da parte di un amministratore, è possibile dimostrare la proprietà come illustrato in [Aggiungere un nome di dominio personalizzato ad Azure AD](../fundamentals/add-custom-domain.md). Nelle sezioni successive viene illustrata l'esperienza di amministratore in modo più dettagliato; in ogni caso qui di seguito è riportato un riepilogo:
@@ -128,7 +128,7 @@ Cmdlet | Uso
 
 1. Connettersi ad Azure AD usando le credenziali usate per rispondere all'offerta self-service:
   ````
-    import-module MSOnline
+    Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred

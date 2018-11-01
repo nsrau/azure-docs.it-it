@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 03cf2fab1200cd617f456a6fcfb9067673d01a19
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340903"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250615"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -37,7 +37,7 @@ Visione artificiale può eseguire le azioni seguenti durante l'analisi di un'imm
 | ------ | ----------- |
 |**[Assegnare tag agli elementi visivi](concept-tagging-images.md)**|È possibile identificare e assegnare tag agli elementi visivi di un'immagine in base a più di 2.000 oggetti riconoscibili, esseri viventi, panorami e azioni. Quando i tag sono ambigui o di conoscenza non comune, la risposta fornisce suggerimenti per chiarire il significato del tag nel contesto di un'impostazione nota. L'assegnazione di tag non è limitata al soggetto principale, ad esempio una persona in primo piano, ma include anche scenari (interni o esterni), arredamenti, strumenti, piante, animali, accessori, gadget e così via.|
 |**[Classificare un'immagine](concept-categorizing-images.md)**|È possibile identificare e classificare un'intera immagine usando una [tassonomia di categorie](Category-Taxonomy.md) con gerarchie ereditarie di tipo padre/figlio. Le categorie possono essere usate singolarmente o con i nuovi modelli di assegnazione di tag.<br/>L'inglese è attualmente l'unica lingua supportata per l'assegnazione di tag e la classificazione di immagini.|
-|**[Descrivere un'immagine](concept-describing-images.md)**|È possibile generare una descrizione di un'intera immagine in un linguaggio leggibile dall'utente, con frasi complete. Gli algoritmi di Visione artificiale generano descrizioni diverse in base agli oggetti identificati nell'immagine. Tutte le descrizioni vengono valutate e per ognuna viene generato un punteggio di attendibilità. Viene quindi restituito un elenco dei punteggi di attendibilità in ordine decrescente.<br/>Un esempio di un bot che usa questa tecnologia per generare didascalie di immagine è disponibile in [GitHub](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).|
+|**[Descrivere un'immagine](concept-describing-images.md)**|È possibile generare una descrizione di un'intera immagine in un linguaggio leggibile dall'utente, con frasi complete. Gli algoritmi di Visione artificiale generano descrizioni diverse in base agli oggetti identificati nell'immagine. Tutte le descrizioni vengono valutate e per ognuna viene generato un punteggio di attendibilità. Viene quindi restituito un elenco dei punteggi di attendibilità in ordine decrescente.|
 |**[Rilevare visi](concept-detecting-faces.md)** |È possibile rilevare visi in un'immagine e fornire informazioni su ogni viso rilevato. Visione artificiale restituisce le coordinate, un rettangolo, il sesso e l'età per ogni viso rilevato.<br/>Visione artificiale fornisce un sottoinsieme delle funzionalità disponibili in [Viso](/azure/cognitive-services/face/) ed è possibile usare il servizio Viso per ottenere analisi più dettagliate, ad esempio l'identificazione dei visi e il rilevamento della posa.|
 |**[Rilevare i tipi di immagine](concept-detecting-image-types.md)**|È possibile rilevare le caratteristiche di un'immagine, ad esempio per determinare se un'immagine è un disegno a linee o per ottenere la probabilità che un'immagine sia ClipArt.|
 |**[Rilevare contenuti specifici del dominio](concept-detecting-domain-content.md)**|È possibile usare modelli di dominio per rilevare e identificare contenuti specifici del dominio in un'immagine, ad esempio celebrità e luoghi di interesse. Se ad esempio un'immagine contiene persone, Visione artificiale può usare un modello di dominio per le celebrità incluso nel servizio per determinare se le persone rilevate nell'immagine corrispondono a celebrità note.|

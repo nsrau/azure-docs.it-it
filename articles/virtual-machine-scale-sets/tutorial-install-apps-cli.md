@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: bfeee293dfb86db2be8e799f60b5e025477293d5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 913d1b9125bcfa57334e70dcca44965fdb3d5ba6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465560"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242059"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. In un'esercitazione precedente si è appreso come usare un'immagine di macchina virtuale personalizzata per distribuire le istanze di macchina virtuale. Questa immagine personalizzata includeva installazioni e configurazioni manuali di applicazioni. È anche possibile automatizzare l'installazione delle applicazioni in un set di scalabilità dopo la distribuzione di ogni istanza di macchina virtuale oppure aggiornare un'applicazione che è già in esecuzione in un set di scalabilità. In questa esercitazione si apprenderà come:
@@ -49,7 +49,7 @@ Per usare l'estensione dello script personalizzata con l'interfaccia della riga 
 ## <a name="create-custom-script-extension-definition"></a>Creare una definizione di estensione Script personalizzato
 Per vedere l'estensione Script personalizzato in azione, creare un set di scalabilità che installa il server Web NGINX e restituisce il nome host dell'istanza di macchina virtuale del set di scalabilità. La seguente definizione dell'estensione Script personalizzato scarica uno script di esempio da GitHub, installa i pacchetti richiesti, quindi scrive il nome host dell'istanza di macchina virtuale in una pagina HTML di base.
 
-Nella shell corrente creare un file denominato *customConfig.json* e incollare la configurazione seguente. Ad esempio, creare il file in Cloud Shell anziché nel computer locale. È possibile usare qualsiasi editor. In Cloud Shell immettere `sensible-editor cloudConfig.json` per creare il file e visualizzare un elenco degli editor disponibili.
+Nella shell corrente creare un file denominato *customConfig.json* e incollare la configurazione seguente. Ad esempio, creare il file in Cloud Shell anziché nel computer locale. È possibile usare qualsiasi editor. In Cloud Shell immettere `sensible-editor customConfig.json` per creare il file e visualizzare un elenco degli editor disponibili.
 
 ```json
 {

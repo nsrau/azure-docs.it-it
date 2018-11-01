@@ -3,18 +3,18 @@ title: Usare Hive di Hadoop e Desktop remoto in HDInsight - Azure
 description: Informazioni su come connettersi a un cluster Hadoop in HDInsight tramite Desktop remoto e quindi eseguire query Hive usando l'interfaccia della riga di comando di Hive.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3f59f0b396c50d1b7694f831bbe44649c1e5f760
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: d8a0f1baa03d718b2a8e41d82a528a2c7a857c96
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590484"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250565"
 ---
 # <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>Uso di Hive con Hadoop in HDInsight con Desktop remoto
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -109,8 +109,6 @@ Se si usa Tez con Hive, vedere i documenti seguenti per le informazioni di debug
 * [Usare la vista Ambari Tez in HDInsight basato su Linux](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

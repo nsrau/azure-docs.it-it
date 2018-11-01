@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 0e2f4d83904240cb32d3e162c4c873f0c8e469fd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f54914b846c6a001a9fb10d938a038e390abf6bf
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885256"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416444"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>Guida introduttiva: la prima query di Ricerca visiva Bing in Java
 
@@ -27,7 +27,7 @@ Se si carica un'immagine locale, la figura seguente illustra i dati del modulo c
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -37,7 +37,7 @@ Questo articolo include una semplice applicazione console che invia una richiest
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Se si preferisce, è possibile usare un ambiente IDE Java, ma è sufficiente un editor di testo.
+Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](https://aka.ms/azure-jdks). Se si preferisce, è possibile usare un ambiente IDE Java, ma è sufficiente un editor di testo.
 
 Per questa guida introduttiva, è possibile usare una chiave di sottoscrizione [di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) o una chiave di sottoscrizione a pagamento.
 

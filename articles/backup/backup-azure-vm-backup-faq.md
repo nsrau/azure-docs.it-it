@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 910225e74fcd4655a9eff711d3ac1316d948c2b3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886195"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414795"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Domande sul servizio Backup delle macchine virtuali di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti del servizio Backup delle macchine virtuali di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,7 +48,7 @@ Sì. Anche quando un computer è stato arrestato i backup vengono eseguiti e il 
 Sì. È possibile annullare il processo di backup se è in fase di "Creazione dello snapshot". **Se è in corso il trasferimento di dati dallo snapshot non è possibile annullare un processo**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>È stato abilitato il blocco del gruppo di risorse sulle VM con Managed Disks di cui è stato eseguito il backup. I backup continueranno a funzionare?
-Se l'utente blocca il gruppo di risorse, il servizio di backup non è in grado di eliminare i punti di ripristino precedenti. Per questo motivo i nuovi backup non vengono eseguiti, in quanto esiste un limite massimo 18 punti di ripristino imposto dal back-end. Se i backup hanno esito negativo con un errore interno dopo il blocco del gruppo di risorse, seguire questa [procedura per rimuovere la raccolta di punti di ripristino](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+Se l'utente blocca il gruppo di risorse, il servizio di backup non è in grado di eliminare i punti di ripristino precedenti. Per questo motivo i nuovi backup non vengono eseguiti, in quanto esiste un limite massimo 18 punti di ripristino imposto dal back-end. Se i backup hanno esito negativo con un errore interno dopo il blocco del gruppo di risorse, seguire questa [procedura per rimuovere la raccolta di punti di ripristino](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Criteri di Backup accetta legale salvataggio Time(DST) in considerazione?
 No. Tenere presente che data e ora nel computer locale vengono visualizzati nel fuso orario locale e con la differenza dell'ora legale corrente. Il timeout configurato per i backup pianificati può quindi essere diverso dall'ora locale per via dell'ora legale.

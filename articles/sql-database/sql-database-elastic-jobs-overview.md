@@ -3,7 +3,7 @@ title: Gestione dei database cloud con scalabilità orizzontale | Documentazione
 description: Usare il servizio processo di database elastico per eseguire uno script in un gruppo di database.
 services: sql-database
 ms.service: sql-database
-subservice: operations
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 2bd8bff9893b804ad48032980cef383fb6d0413f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f5878c510e048bea2ce1aedaf4e0e5dbb4611caf
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954664"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242518"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>Gestione dei database cloud con scalabilità orizzontale
 
@@ -78,7 +78,7 @@ Definire gruppi personalizzati di database SQL di Azure e pianificazioni per l'e
 ## <a name="elastic-database-jobs-end-to-end"></a>Processi di database elastici: end-to-end
 
 1. Installare i componenti dei **processi di database elastici** . Per altre informazioni, vedere [Installazione dei processi di database elastici](sql-database-elastic-jobs-service-installation.md). Se l'installazione non riesce, vedere [come disinstallare](sql-database-elastic-jobs-uninstall.md).
-2. Utilizzare le API di PowerShell per accedere a ulteriori funzionalità, ad esempio la creazione di raccolte di database personalizzati, l'aggiunta di pianificazioni e/o la raccolta di set di risultati. Usare il portale per un'installazione semplice e la creazione o il monitoraggio dei processi limitati all'esecuzione in un **pool elastico**.
+2. Utilizzare le API di PowerShell per accedere a ulteriori funzionalità, ad esempio la creazione di raccolte di database personalizzati, l’aggiunta di pianificazioni e/o la raccolta di set di risultati. Usare il portale per un'installazione semplice e la creazione o il monitoraggio dei processi limitati all'esecuzione in un **pool elastico**.
 3. Creare credenziali crittografate per l'esecuzione del processo e [aggiungere l'utente (o il ruolo) a ogni database nel gruppo](sql-database-security-overview.md).
 4. Creare uno script T-SQL idempotente che può essere eseguito su ogni database nel gruppo.
 5. Seguire questi passaggi per creare processi tramite il portale di Azure: [Creazione e gestione di processi di database elastici](sql-database-elastic-jobs-create-and-manage.md)
@@ -165,7 +165,7 @@ Sono disponibili più tipi di attività di processo che eseguono l'esecuzione di
 1. Un processo viene inserito nel **database di controllo** tramite il portale o l'API di PowerShell. Il processo richiede l'esecuzione di uno script Transact-SQL su un gruppo di database che utilizza credenziali specifiche.
 2. Il controller identifica il nuovo processo. Le attività di processo vengono create ed eseguite per suddividere lo script e per aggiornare i database del gruppo. Infine, un nuovo processo viene creato ed eseguito per espandere il processo e creare nuovi processi figlio in cui ogni processo figlio è specificato per eseguire lo script Transact-SQL su un singolo database nel gruppo.
 3. Il controller identifica i processi figlio creati. Per ogni processo, il controller crea e avvia un'attività di processo per eseguire lo script su un database.
-4. Dopo aver completato tutte le attività di processo, il controller aggiorna i processi nello stato completato.
+4. Dopo aver completato tutte le attività di processo, il controller aggiorna i processi nello stato ‘completato’.
    In qualsiasi momento durante l'esecuzione del processo, l'API di PowerShell può essere utilizzata per visualizzare lo stato corrente dell'esecuzione del processo. Tutte le volte restituite dalle API PowerShell sono rappresentate in formato UTC. Se si desidera, è possibile avviare una richiesta di annullamento per interrompere un processo.
 
 ## <a name="next-steps"></a>Passaggi successivi

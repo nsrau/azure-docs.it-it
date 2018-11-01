@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: ffac9511ab93367cba3f006249bd92658a520e09
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 76a87b79ccc776e0facd57a1cff50fbbcb4f0b9e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386935"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414880"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire avvisi classici per le metriche con Monitoraggio di Azure
 
@@ -24,11 +24,11 @@ Gli avvisi delle metriche classici in Monitoraggio di Azure consentono di riceve
 
 2. Nella sezione **MONITORAGGIO** selezionare **Avvisi (versione classica)**. Il testo e l'icona possono variare leggermente per le diverse risorse. Se l'opzione **Avvisi (versione classica)** non è disponibile, cercarla in **Avvisi** o **Regole di avviso**.
 
-    ![Monitoraggio](./media/alerts-metric-classic/AlertRulesButton.png)
+    ![Monitoraggio](media/alert-metric-classic/AlertRulesButton.png)
 
 3. Selezionare il comando **Aggiungi avviso per la metrica (versione classica)** e compilare i campi.
 
-    ![Aggiungi avviso](./media/alerts-metric-classic/AddAlertOnlyParamsPage.png)
+    ![Aggiungi avviso](media/alert-metric-classic/AddAlertOnlyParamsPage.png)
 
 4. Specificare un valore per **Nome** per la regola di avviso. Compilare il campo **Descrizione**. La descrizione viene visualizzata anche nei messaggi di posta elettronica di notifica.
 

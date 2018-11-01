@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 1c9c93c198b4d88da55ecd241e096e73e4a40d5d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042187"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413061"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guida di riferimento per i riquadri di Progettazione viste in Log Analytics
 Progettazione viste in Azure Log Analytics consente di creare nel portale di Azure visualizzazioni personalizzate che mostrano una serie di viste di dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
@@ -47,7 +47,7 @@ Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative p
 ## <a name="number-tile"></a>Riquadro Numero
 Il riquadro **Numero** visualizza il numero di record restituiti da una query di log e un'etichetta.
 
-![Riquadro Numero](media/log-analytics-view-designer/tile-number.png)
+![Riquadro Numero](media/log-analytics-view-designer-tiles/tile-number.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -65,7 +65,7 @@ Il riquadro **Numero** visualizza il numero di record restituiti da una query di
 ## <a name="two-numbers-tile"></a>Riquadro Due numeri
 Il riquadro visualizza il numero di record di due diverse query di log e un'etichetta per ognuno.
 
-![Riquadro Due numeri](media/log-analytics-view-designer/tile-two-numbers.png)
+![Riquadro Due numeri](media/log-analytics-view-designer-tiles/tile-two-numbers.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -86,7 +86,7 @@ Il riquadro visualizza il numero di record di due diverse query di log e un'etic
 ## <a name="donut-tile"></a>Riquadro Anello
 Il riquadro **Anello** visualizza un singolo numero che riepiloga una colonna di valori in una query di log. L'anello visualizza graficamente i risultati dei tre record principali.
 
-![Riquadro Anello](media/log-analytics-view-designer/tile-donut.png)
+![Riquadro Anello](media/log-analytics-view-designer-tiles/tile-donut.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -110,7 +110,7 @@ Il riquadro **Anello** visualizza un singolo numero che riepiloga una colonna di
 ## <a name="line-chart-tile"></a>Riquadro Grafico a linee
 Questo riquadro contiene un grafico a linee con più serie provenienti da una query di log nel tempo. 
 
-![Riquadro Grafico a linee e callout](media/log-analytics-view-designer/tile-line-chart.png)
+![Riquadro Grafico a linee e callout](media/log-analytics-view-designer-tiles/tile-line-chart.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -131,7 +131,7 @@ Questo riquadro contiene un grafico a linee con più serie provenienti da una qu
 ## <a name="line-chart-and-callout-tile"></a>Riquadro Grafico a linee e callout
 Questo riquadro visualizza un grafico a linee con più serie provenienti da una query di log nel tempo e un callout con un valore di riepilogo. 
 
-![Riquadro Grafico a linee e callout](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Riquadro Grafico a linee e callout](media/log-analytics-view-designer-tiles/tile-line-chart-callout.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |
@@ -156,7 +156,7 @@ Questo riquadro visualizza un grafico a linee con più serie provenienti da una 
 ## <a name="two-timelines-tile"></a>Riquadro Due sequenze temporali
 Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di due query di log nel tempo. Viene visualizzato un callout per ogni serie. 
 
-![Riquadro Due sequenze temporali](media/log-analytics-view-designer/tile-two-timelines.png)
+![Riquadro Due sequenze temporali](media/log-analytics-view-designer-tiles/tile-two-timelines.png)
 
 | Impostazione | DESCRIZIONE |
 |:--- |:--- |

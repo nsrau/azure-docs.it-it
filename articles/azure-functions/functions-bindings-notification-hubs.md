@@ -3,20 +3,20 @@ title: Associazioni di Hub di notifica per Funzioni di Azure
 description: Informazioni su come usare l'associazione di Hub di notifica di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
-ms.openlocfilehash: 85992c0d89634c866012ba7fdaa982e46747ba0e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.author: cshoe
+ms.openlocfilehash: e51a74783f7d7f080d1caa237bb7aabab0100e72
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092459"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248587"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Associazioni di output di Hub di notifica per Funzioni di Azure
 
@@ -188,11 +188,11 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     // The JSON format for a native APNS notification is ...
     // { "aps": { "alert": "notification message" }}  
 
-    log.Info($"Sending APNS notification of a new user");    
+    log.LogInformation($"Sending APNS notification of a new user");    
     dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
     string apnsNotificationPayload = "{\"aps\": {\"alert\": \"A new user wants to be added (" + 
                                         user.name + ")\" }}";
-    log.Info($"{apnsNotificationPayload}");
+    log.LogInformation($"{apnsNotificationPayload}");
     await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
 }
 ```

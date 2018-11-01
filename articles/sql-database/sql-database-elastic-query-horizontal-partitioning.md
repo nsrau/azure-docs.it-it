@@ -3,7 +3,7 @@ title: Creazione di report tra database cloud con scalabilità orizzontale | Doc
 description: Come configurare query elastiche sui partizionamenti orizzontali
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 906c6825dbfdf7d4873c765d0b3eba626ef52e1b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e1eec489bf33cbf03269f68413c39c9fb03bbb22
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159364"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240393"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Creazione di report tra database cloud con scalabilità orizzontale (anteprima)
 ![Eseguire una query tra partizioni][1]

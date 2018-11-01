@@ -4,16 +4,16 @@ description: Piattaforme supportate da Azure IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 6/21/2018
+ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2163179d3353626e12495381fc64792db56ec78e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b8b4664540d07b76d0cebe5df99ba2cc67dd47e6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286363"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248556"
 ---
 # <a name="azure-iot-edge-support"></a>Supporto di Azure IoT Edge
 È possibile cercare il supporto per il prodotto Azure IoT Edge in svariati modi.
@@ -65,6 +65,3 @@ I sistemi di livello 2 possono essere considerati compatibili con Azure IoT Edge
 ## <a name="container-engines"></a>Motori di contenitore
 Azure IoT Edge necessita di un motore di contenitore per avviare i moduli, indipendentemente dal sistema operativo in cui è in esecuzione. Per soddisfare questo requisito, Microsoft fornisce un motore di contenitore, moby-engine, basato sul progetto open source Moby. Docker CE e Docker EE sono altri motori di contenitore comuni, sempre basati sul progetto open source Moby e compatibili con Azure IoT Edge. Microsoft offre il miglior supporto possibile per i sistemi che usano tali motori di contenitore, ma non può inviare le correzioni per eventuali problemi. Per questo motivo, Microsoft consiglia di usare il motore moby nei sistemi di produzione.
 
-
-<!-- Links -->
-[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/ 

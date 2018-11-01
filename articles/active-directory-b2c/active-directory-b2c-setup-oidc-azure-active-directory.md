@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: beb2d618d93f4c599f946194bd483326471065f4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 9b9754c9087f2d0064cc1aa75e76520731dfb3a9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944804"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242859"
 ---
 # <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>Configurare l'accesso per account Azure Active Directory usando criteri predefiniti in Azure Active Directory B2C
 
@@ -34,10 +34,10 @@ Per abilitare l'accesso agli utenti da una specifica organizzazione di Azure AD,
 4. Selezionare **Registrazione nuova applicazione**.
 5. Immettere un nome per l'applicazione. Ad esempio: `Azure AD B2C App`.
 6. In **Tipo di applicazione** selezionare `Web app / API`.
-7. In **URL di accesso** immettere l'URL seguente, interamente in lettere minuscole, sostituendo `your-B2C-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio, `https://fabrikam.b2clogin.com/fabrikam.b2clogin.com/oauth2/authresp`:
+7. In **URL di accesso** immettere l'URL seguente, interamente in lettere minuscole, sostituendo `your-B2C-tenant-name` con il nome del tenant di Azure AD B2C. Ad esempio, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
-    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.b2clogin.com/oauth2/authresp
+    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     Tutti gli URL dovrebbero ora usare [b2clogin.com](b2clogin.md).

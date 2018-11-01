@@ -4,10 +4,6 @@ description: Informazioni su come creare un servizio Load Balancer Standard con 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: dbb4176ac61cf707b28cddc98db80a1188be3cc8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: bf3abeaec402eaf42bee74c167812340b093161b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31592131"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413230"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-powershell"></a>Creare un servizio Load Balancer Standard con un front-end di zona usando Azure PowerShell
 
@@ -52,7 +48,7 @@ Creare un IP pubblico Standard usando il comando seguente:
 
 ```powershell
 $publicIp = New-AzureRmPublicIpAddress -ResourceGroupName myResourceGroupZLB -Name 'myPublicIPZonal' `
-  -Location westeurope -AllocationMethod Static -Sku Standard -zone 1
+  -Location westeurope -AllocationMethod Static -Sku Standard -zone 1
 ```
 
 ## <a name="create-a-front-end-ip-configuration-for-the-website"></a>Creare una configurazione IP front-end per il sito Web
@@ -92,8 +88,8 @@ Creare un servizio di bilanciamento del carico standard usando il comando seguen
 
 ```powershell
 $lb = New-AzureRmLoadBalancer -ResourceGroupName myResourceGroupZLB -Name 'MyLoadBalancer' -Location westeurope `
-  -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
-  -Probe $probe -LoadBalancingRule $rule -Sku Standard
+  -FrontendIpConfiguration $feip -BackendAddressPool $bepool `
+  -Probe $probe -LoadBalancingRule $rule -Sku Standard
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

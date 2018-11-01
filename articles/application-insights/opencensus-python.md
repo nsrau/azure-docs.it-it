@@ -9,12 +9,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c9f14664ca035b3de1af80ca3101c22751c83237
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7507cdd7f3967dc132eecf81de347f2da791487f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963646"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414982"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Raccogliere tracce distribuite da Python (anteprima)
 
@@ -51,7 +51,7 @@ Prima di tutto, è necessario creare una risorsa di Application Insights, che ge
 
 2. Fare clic su **Create**(Crea).
 
-## <a name="configure-local-forwarder"></a>Configurare l'agente di inoltro locale
+## <a name="configure-local-forwarder"></a>Configurare il servizio d'inoltro locale
 
 1. Selezionare **Panoramica** > **Informazioni di base** > copiare la **chiave di strumentazione** dell'applicazione.
 
@@ -180,7 +180,7 @@ Prima di tutto, è necessario creare una risorsa di Application Insights, che ge
 
     Poiché è stata tracciata solo una chiamata a un metodo, la mappa delle applicazioni non è così interessante. Tuttavia, la mappa delle applicazioni può essere ridimensionata in modo da visualizzare applicazioni molto più distribuite:
 
-   ![Mappa delle applicazioni](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Mappa delle applicazioni](media/opencensus-python/application-map.png)
 
 4. Selezionare **Esamina prestazioni** per eseguire un'analisi dettagliata delle prestazioni e determinare la causa principale del rallentamento delle prestazioni.
 
@@ -202,6 +202,6 @@ Sono state presentate solo le informazioni di base sull'attivazione di OpenCensu
   
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida all'utilizzo di OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
+* [Guida all'utilizzo di Python con OpenCensus](https://opencensus.io/api/python/trace/usage.html)
 * [Mappa delle applicazioni](./app-insights-app-map.md)
 * [Monitoraggio delle prestazioni end-to-end](./app-insights-tutorial-performance.md)

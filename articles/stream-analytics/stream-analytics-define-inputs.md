@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 556b71d8312c7661b58a3ccf56fd76f6753ef9cf
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987580"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248745"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -44,7 +44,7 @@ Il timestamp `EventEnqueuedUtcTime` si riferisce all'arrivo di un evento nell'hu
 ### <a name="stream-data-from-event-hubs"></a>Trasmettere dati da Hub eventi
 La tabella seguente descrive le proprietà disponibili nella pagina **Nuovo input** del portale di Azure per lo streaming dell'input dei dati da un hub eventi:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **Alias di input** |Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
 | **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa di Hub eventi. | 
@@ -58,7 +58,7 @@ La tabella seguente descrive le proprietà disponibili nella pagina **Nuovo inpu
 
 Quando i dati provengono da un input del flusso di Hub eventi, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento in Analisi di flusso. |
 | **EventEnqueuedUtcTime** |Data e ora di ricezione dell'evento da parte di Hub eventi. |
@@ -89,7 +89,7 @@ Il timestamp predefinito degli eventi provenienti da un hub IoT in Analisi di fl
 ### <a name="configure-an-iot-hub-as-a-data-stream-input"></a>Configurare un hub IoT come input del flusso dei dati
 La tabella seguente contiene la descrizione delle proprietà disponibili nella pagina **Nuovo input** del portale di Azure quando si configura un hub IoT come input del flusso.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **Alias di input** | Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input.|
 | **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa dell'hub IoT. | 
@@ -105,7 +105,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nella p
 
 Quando si usano i dati di flusso provenienti da un hub IoT, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **EventProcessedUtcTime** | Data e ora di elaborazione dell'evento. |
 | **EventEnqueuedUtcTime** | Data e ora di ricezione dell'evento da parte dell'hub IoT. |
@@ -115,7 +115,6 @@ Quando si usano i dati di flusso provenienti da un hub IoT, è possibile acceder
 | **IoTHub.ConnectionDeviceId** | ID di autenticazione usato per inviare questo messaggio. Questo valore viene riportato nei messaggi servicebound dall'hub IoT. |
 | **IoTHub.ConnectionDeviceGenerationId** | ID di generazione del dispositivo autenticato che è stato usato per inviare questo messaggio. Questo valore viene riportato nei messaggi servicebound dall'hub IoT. |
 | **IoTHub.EnqueuedTime** | Ora in cui il messaggio è stato ricevuto dall'hub IoT. |
-| **IoTHub.StreamId** | Proprietà di evento personalizzato aggiunta dal dispositivo mittente. |
 
 
 ## <a name="stream-data-from-blob-storage"></a>Trasmettere dati dall'archiviazione BLOB
@@ -137,7 +136,7 @@ Analisi di flusso attualmente non supporta la deserializzazione di messaggi AVRO
 
 La tabella seguente contiene la descrizione delle proprietà disponibili nella pagina **Nuovo input** del portale di Azure quando si configura l'archiviazione BLOB come input del flusso.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **Alias di input** | Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
 | **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa dell'hub IoT. | 
@@ -153,7 +152,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nella p
 
 Quando i dati provengono da un'origine di archiviazione BLOB, è possibile accedere ai campi di metadati seguenti nella query di Analisi di flusso:
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 | --- | --- |
 | **BlobName** |Nome del BLOB di input da cui proviene l'evento. |
 | **EventProcessedUtcTime** |Data e ora di elaborazione dell'evento in Analisi di flusso. |

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404563"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419793"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Domande frequenti sulla transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics
 In precedenza, Log Analytics usava il proprio portale, chiamato portale di OMS, per gestire la configurazione e l'analisi dei dati raccolti.  Tutte le funzionalità di questo portale sono state spostate al portale di Azure in cui continueranno a essere sviluppate.
@@ -32,7 +32,7 @@ No. Non sono presenti modifiche da apportare a Log Analytics, pertanto non è ne
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Come trovare Log Analytics in Azure?
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).  Fare clic su **Tutti i servizi** e nell'elenco di risorse digitare **Log Analytics**. Selezionare **Log Analytics** e selezionare l'area di lavoro. Viene visualizzata la pagina di riepilogo dell'area di lavoro.
 
-![Area di lavoro di Log Analytics](media/log-analytics-new-portal/log-analytics.png)
+![Area di lavoro di Log Analytics](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Come si gestiscono le autorizzazioni?
 Se non si ha accesso all'area di lavoro Log Analytics nel portale di Azure, è necessario configurare le autorizzazioni usando l'[accesso in base al ruolo di Azure](../active-directory/role-based-access-control-configure.md). Per informazioni dettagliate sulla gestione delle autorizzazioni dell'area di lavoro, vedere [Gestire le aree di lavoro](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Per informazioni sulla gestione delle autorizzazioni per gli avvisi, vedere [Introduzione a ruoli, autorizzazioni e sicurezza con Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
@@ -40,12 +40,12 @@ Se non si ha accesso all'area di lavoro Log Analytics nel portale di Azure, è n
 ## <a name="how-do-i-create-a-new-workspace"></a>Come si crea una nuova area di lavoro? 
 Dall'elenco delle aree di lavoro nel portale di Azure fare clic su **Aggiungi**.  Per informazioni più complete, vedere [Creare un'area di lavoro di Log Analytics nel portale di Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 
-![Pagina di panoramica](media/log-analytics-new-portal/new-workspace.png)
+![Pagina di panoramica](media/log-analytics-oms-portal-faq/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Dove si trova la pagina della panoramica?
 La schermata principale del portale di OMS contiene i riquadri per tutte le soluzioni di gestione installate nell'area di lavoro e le visualizzazioni personalizzate create. La stessa visualizzazione è disponibile nel portale di Azure. Nell'area di lavoro selezionare **Workspace Summary** (Riepilogo area di lavoro).
 
-![Pagina di panoramica](media/log-analytics-new-portal/overview.png)
+![Pagina di panoramica](media/log-analytics-oms-portal-faq/overview.png)
 
 ## <a name="how-do-i-open-log-search-and-view-designer"></a>Come aprire la ricerca log e la progettazione vista?
 Sia la **ricerca log** che la **progettazione vista** sono disponibili nella pagina principale e nel menu a sinistra dell'area di lavoro del portale di Azure, a destra accanto a **Informazioni generali**.
@@ -53,7 +53,7 @@ Sia la **ricerca log** che la **progettazione vista** sono disponibili nella pag
 ## <a name="where-do-i-find-settings"></a>Dove si trovano le impostazioni?
 Molte delle impostazioni della sezione **Impostazioni** del portale di OMS sono disponibili nel menu **Impostazioni avanzate** del portale di Azure per l'area di lavoro.
 
-![Impostazioni avanzate](media/log-analytics-new-portal/advanced-settings.png)
+![Impostazioni avanzate](media/log-analytics-oms-portal-faq/advanced-settings.png)
 
 Le sezioni seguenti offrono un elenco completo delle modalità per accedere alle impostazioni che in precedenza erano disponibili nella sezione **Impostazioni** del portale di OMS.
 
@@ -97,7 +97,7 @@ Gestire la maggior parte delle impostazioni dei dati nel menu **Impostazioni ava
 | log di IIS                     | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Campi personalizzati                | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Log personalizzati                  | Menu **Impostazioni avanzate** per l'area di lavoro. |
-| Syslog                       | Menu **Impostazioni avanzate** per l'area di lavoro. |
+| syslog                       | Menu **Impostazioni avanzate** per l'area di lavoro. |
 | Application Insights         | La soluzione è stata deprecata, dal momento che Log Analytics e Application Insights condividono lo stesso motore di dati.  |
 | Rilevamento file di Windows        | Menu **Rilevamento modifiche** in Automazione di Azure. Per altri dettagli, vedere [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../automation/automation-change-tracking.md). |
 | Rilevamento del Registro di sistema di Windows        | Menu **Rilevamento modifiche** in Automazione di Azure. Per altri dettagli, vedere [Rilevare le modifiche nell'ambiente in uso con la soluzione di rilevamento modifiche](../automation/automation-change-tracking.md). |
@@ -118,7 +118,7 @@ La funzionalità [Dashboard](../log-analytics/log-analytics-dashboards.md) di Lo
 ## <a name="how-do-i-check-my-usage"></a>Come è possibile controllare l'utilizzo?
 Ora è possibile visualizzare e gestire facilmente l'utilizzo e il costo di Log Analytics selezionando **Utilizzo e costi stimati** nell'area di lavoro.
 
-![Utilizzo e costi stimati](media/log-analytics-new-portal/usage.png)
+![Utilizzo e costi stimati](media/log-analytics-oms-portal-faq/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>È possibile usare ancora il portale classico?

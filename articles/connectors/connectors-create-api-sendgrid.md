@@ -11,12 +11,12 @@ ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: c8747210a77879d551e323a7c0e46a9ab013fa3f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 7eecd3908883b195b52755d03e70872afe9180bb
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887190"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50228857"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Inviare messaggi di posta elettronica e gestire liste di distribuzione in SendGrid con App per la logica di Azure
 
@@ -29,7 +29,7 @@ Con App per la logica di Azure e il connettore SendGrid, è possibile creare att
 È possibile usare azioni di SendGrid nelle app per la logica per eseguire queste attività. È anche possibile fare in modo che altre azioni usino l'output delle azioni di SendGrid. 
 
 Questo connettore offre solo azioni, quindi per avviare l'app per la logica, usare un trigger distinto, ad esempio un trigger **Ricorrenza**. Se ad esempio si aggiungono regolarmente destinatari alle liste, è possibile inviare messaggi di posta elettronica su destinatari e liste usando il connettore Office 365 Outlook o Outlook.com.
-Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,7 +39,7 @@ Se non si ha familiarità con App per la logica, consultare [Informazioni su App
 
    La chiave API autorizza l'app per la logica alla creazione di una connessione e all'accesso all'account SendGrid.
 
-* Conoscenza di base sulla [creazione delle app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SendGrid. Per usare un'azione di SendGrid, avviare l'app per la logica con un altro trigger, ad esempio il trigger **Ricorrenza**.
 
@@ -58,7 +58,7 @@ Se non si ha familiarità con App per la logica, consultare [Informazioni su App
    * Spostare il puntatore del mouse sulla freccia visualizzata tra i passaggi in cui si vuole aggiungere un'azione. 
    Scegliere il segno più (**+**) visualizzato e quindi selezionare **Aggiungi un'azione**.
 
-1. Nella casella di ricerca immettere "sendgrid" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
+1. Nella casella di ricerca immettere "sendgrid" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
 1. Specificare un nome per la connessione. 
 
@@ -73,7 +73,7 @@ Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizi
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

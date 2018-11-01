@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 2af7ceeeef347d1959b571aebf3f26bd5035e4c4
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 88a5452259978c265b8f48184f9604d9f1b4c238
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646169"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412484"
 ---
 # <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-java"></a>Guida introduttiva: Ottenere le lingue supportate con l'API REST Traduzione testuale (Java)
 
@@ -23,7 +23,7 @@ In questa guida introduttiva si ottiene un elenco di lingue supportate per la tr
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per compilare ed eseguire il codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). È possibile usare l'ambiente di sviluppo integrato Java preferito, ma è sufficiente anche un editor di testo.
+Per compilare ed eseguire il codice è necessario [JDK 7 o 8](https://aka.ms/azure-jdks). È possibile usare l'ambiente di sviluppo integrato Java preferito, ma è sufficiente anche un editor di testo.
 
 Per usare l'API Traduzione testuale, è necessario avere anche una chiave di sottoscrizione. Per informazioni, vedere [Come registrarsi all'API Traduzione testuale](translator-text-how-to-signup.md).
 

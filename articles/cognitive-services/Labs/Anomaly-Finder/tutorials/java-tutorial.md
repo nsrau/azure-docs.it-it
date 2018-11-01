@@ -10,12 +10,12 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 4b544e2e59a40cebf75042c4040b84bceebcecf7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4aab76b819ba252dbe00b3faf2f69c24df14bbd1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887701"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419028"
 ---
 # <a name="tutorial-anomaly-detection-with-java-application"></a>Esercitazione: Rilevamento anomalie con un'applicazione Java
 
@@ -28,7 +28,7 @@ Nell'esempio vengono inviati i dati di una serie temporale all'API Rilevamento a
 
 ### <a name="platform-requirements"></a>Requisiti di piattaforma
 
-Questa esercitazione è stata sviluppata usando [IntelliJ IDEA](https://www.jetbrains.com/idea). È necessario installare anche [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/index.html) versione 1.8 + e uno strumento di compilazione aggiornato [Apache's Maven](http://maven.apache.org/).
+Questa esercitazione è stata sviluppata usando [IntelliJ IDEA](https://www.jetbrains.com/idea). È necessario installare anche [Java Development Kit (JDK)](https://aka.ms/azure-jdks) versione 1.8 + e uno strumento di compilazione aggiornato [Apache's Maven](http://maven.apache.org/).
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Sottoscrivere Rilevamento anomalie e ottenere una chiave di sottoscrizione 
 

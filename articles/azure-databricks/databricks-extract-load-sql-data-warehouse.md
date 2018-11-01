@@ -2,21 +2,20 @@
 title: 'Esercitazione: Eseguire operazioni ETL tramite Azure Databricks'
 description: Informazioni su come estrarre dati da Data Lake Store in Azure Databricks, trasformare i dati e quindi caricarli in Azure SQL Data Warehouse.
 services: azure-databricks
-author: nitinme
-ms.author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: cf71eb5e227003f7b9ee0c395d0bc04538e64cfa
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c67a223a95e73161b58f8cd4f2aeba2614a9ee76
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024887"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419080"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Esercitazione: Estrarre, trasformare e caricare dati tramite Azure Databricks
 
@@ -112,7 +111,7 @@ In questa sezione è possibile creare un account Azure Data Lake Store e associa
 
     Specificare i valori seguenti: 
      
-    |Proprietà  |Descrizione  |
+    |Proprietà  |DESCRIZIONE  |
     |---------|---------|
     |**Nome**     | Immettere un nome univoco per l'account Data Lake Store.        |
     |**Sottoscrizione**     | Selezionare la sottoscrizione di Azure nell'elenco a discesa.        |
@@ -192,7 +191,7 @@ Quando si esegue l'accesso a livello di codice è necessario specificare l'ID te
 
    ![ID tenant](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
 
-## <a name="upload-data-to-data-lake-store"></a>Caricare dati nell'Archivio Data Lake
+## <a name="upload-data-to-data-lake-store"></a>Caricare dati nell’Archivio Data Lake
 
 In questa sezione viene caricato un file di dati di esempio in Data Lake Store. Questo file viene usato in seguito in Azure Databricks per eseguire alcune trasformazioni. I dati di esempio (**small_radio_json.json**) usati in questa esercitazione sono disponibili in questo [repository di Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
 
@@ -438,7 +437,7 @@ Dopo aver concluso l'esecuzione per l'esercitazione è possibile terminare il cl
 Se non viene terminato manualmente, il cluster si arresterà automaticamente se è stata selezionata la casella di controllo **Terminate after __ minutes of inactivity** (Termina dopo ___ minuti di attività) durante la creazione del cluster. In tal caso, il cluster viene automaticamente arrestato se è rimasto inattivo per il tempo specificato.
 
 ## <a name="next-steps"></a>Passaggi successivi 
-In questa esercitazione si è appreso come:
+Questa esercitazione ha illustrato come:
 
 > [!div class="checklist"]
 > * Creare un'area di lavoro di Azure Databricks

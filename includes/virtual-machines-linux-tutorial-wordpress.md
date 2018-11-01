@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227309"
+---
 ## <a name="install-wordpress"></a>Installare WordPress
 
 Per provare lo stack, installare un'app di esempio. Come esempio, con i passaggi seguenti viene installata la piattaforma open source [WordPress](https://wordpress.org/) per creare siti Web e blog. Altri carichi di lavoro da provare includono [Drupal](http://www.drupal.org) e [Moodle](https://moodle.org/). 

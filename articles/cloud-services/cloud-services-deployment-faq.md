@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 05217129d4993514acaf8c717847040584984cb3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d44cfc0164892c34bcbe16ca07e9ec67190ada24
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068905"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415305"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di distribuzione per Servizi cloud di Azure: domande frequenti
 
@@ -64,17 +64,16 @@ Non è possibile modificare le dimensioni di una VM di un servizio cloud distrib
 
 Per altre informazioni, vedere [Come aggiornare un servizio cloud](cloud-services-update-azure-service.md).
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Perché non riesco a distribuire i Servizi Cloud tramite le API Gestione dei servizi o PowerShell quando uso l'account di archiviazione di Azure Resource Manager? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Perché non riesco a distribuire i Servizi Cloud tramite le API Gestione dei servizi o PowerShell quando uso l'account di archiviazione di Azure Resource Manager? 
 
-Poiché il servizio Cloud è una risorsa classica che non è direttamente compatibile con il modello di Azure Resource Manager, non è possibile associarlo con gli account di archiviazione di Azure Resource Manager. Di seguito sono riportate alcune opzioni: 
- 
+Poiché il servizio Cloud è una risorsa classica che non è direttamente compatibile con il modello di Azure Resource Manager, non è possibile associarlo con gli account di archiviazione di Azure Resource Manager. Di seguito sono riportate alcune opzioni: 
+ 
 - Distribuzione tramite l'API REST.
 
-    Quando si esegue la distribuzione tramite l'API REST di Gestione dei servizi, è possibile risolvere la limitazione specificando un URL SAS nell'archiviazione BLOB che funziona con l'account classico e con l'account di archiviazione di Azure Resource Manager. Altre informazioni sulla proprietà 'PackageUrl' sono reperibili [qui](https://msdn.microsoft.com/library/azure/ee460813.aspx).
-  
+    Quando si esegue la distribuzione tramite l'API REST di Gestione dei servizi, è possibile risolvere la limitazione specificando un URL SAS nell'archiviazione BLOB che funziona con l'account classico e con l'account di archiviazione di Azure Resource Manager. Altre informazioni sulla proprietà 'PackageUrl' sono reperibili [qui](https://msdn.microsoft.com/library/azure/ee460813.aspx).  
 - Distribuzione tramite il [portale di Azure](https://portal.azure.com).
 
-    Questa tecnica funziona dal [portale di Azure](https://portal.azure.com) in quanto la chiamata passa attraverso un proxy/shim che consente la comunicazione tra le risorse di Azure Resource Manager e classiche. 
+    Questa tecnica funziona dal [portale di Azure](https://portal.azure.com) in quanto la chiamata passa attraverso un proxy/shim che consente la comunicazione tra le risorse di Azure Resource Manager e classiche. 
  
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Perché il portale di Azure richiede di specificare un account di archiviazione per la distribuzione? 
 
