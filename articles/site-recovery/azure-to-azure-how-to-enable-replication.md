@@ -5,15 +5,15 @@ services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: e7cd3032053b3628b94f93f3c7e00b6890afd4ca
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 2f4721155610da3be3ff0db3608d7c1e163aa344
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916283"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211843"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Eseguire la replica di macchine virtuali di Azure in un'altra area di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "37916283"
 
 In questo articolo viene descritto come abilitare la replica di macchine virtuali di Azure da un'area di Azure a un'altra.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 In questo articolo si presuppone di avere già configurato Site Recovery per questo scenario, come descritto nell'[Esercitazione da Azure in Azure](azure-to-azure-tutorial-enable-replication.md). Assicurarsi di aver preparato i prerequisiti e creato l'insieme di credenziali di Servizi di ripristino.
 
@@ -36,6 +36,7 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
     - **Origine:** punto di origine delle macchine virtuali, in questo caso **Azure**.
     - **Percorso di origine:** area di Azure da cui si vogliono proteggere le macchine virtuali. Per questa illustrazione, il percorso di origine sarà "Asia orientale"
     - **Modello di distribuzione:** modello di distribuzione di Azure per le macchine virtuali di origine.
+    - **Sottoscrizione di origine**: sottoscrizione a cui appartengono le macchine virtuali di origine. Può essere qualsiasi sottoscrizione che si trova nello stesso tenant di Azure Active Directory in cui è presente l'insieme di credenziali di Servizi di ripristino.
     - **Gruppo di risorse:** gruppo di risorse a cui appartengono le macchine virtuali di origine. Tutte le macchine virtuali nel gruppo di risorse selezionato verranno elencate per la protezione nel passaggio successivo.
 
     ![Abilitare la replica](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -46,6 +47,7 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
 4. In **Impostazioni** è possibile configurare le impostazioni del sito di destinazione:
 
     - **Percorso di destinazione:** posizione in cui verrà eseguita la replica dei dati delle macchine virtuali di origine. In base al percorso selezionato per le macchine virtuali, Site Recovery fornirà l'elenco di aree di destinazione idonee. È consigliabile mantenere il percorso di destinazione identico al percorso dell'insieme di credenziali di Servizi di ripristino.
+    - **Sottoscrizione di destinazione**: sottoscrizione di destinazione usata per il ripristino di emergenza. Per impostazione predefinita, la sottoscrizione di destinazione sarà uguale alla sottoscrizione di origine.
     - **Gruppo di risorse di destinazione:** gruppo di risorse a cui tutte le macchine virtuali replicate appartengono. Per impostazione predefinita, Azure Site Recovery crea un nuovo gruppo di risorse nell'area di destinazione il cui nome presenta il suffisso "asr". Nel caso in cui il gruppo di risorse creato da Azure Site Recovery esista già, verrà riusato. È anche possibile scegliere di personalizzarlo, come illustrato nella sezione seguente. Il percorso del gruppo di risorse di destinazione può essere in qualsiasi area di Azure, ad eccezione di quella in cui sono ospitate le macchine virtuali di origine.
     - **Rete virtuale di destinazione:** per impostazione predefinita, Site Recovery crea una nuova rete virtuale nell'area di destinazione con un nome con suffisso "asr". Questa rete è mappata alla rete di origine ed è usata per protezione futura. [Altre informazioni](site-recovery-network-mapping-azure-to-azure.md) sul mapping di rete.
     - **Account di archiviazione di destinazione (se la VM di origine non usa dischi gestiti)**: per impostazione predefinita, Site Recovery crea un nuovo account di archiviazione di destinazione, che rispecchia la configurazione delle risorse di archiviazione della VM di origine. Nel caso in cui l'account di archiviazione esista già, verrà riusato.
@@ -60,7 +62,9 @@ Abilitare la replica. Questa procedura presuppone che l'area di Azure primaria s
 
 È possibile modificare le impostazioni di destinazione predefinite usate da Site Recovery.
 
-1. Fare clic su **Personalizza:** per modificare le impostazioni predefinite:
+1. Fare clic su **Personalizza:** accanto a "Sottoscrizione di destinazione" per modificare la sottoscrizione di destinazione predefinita. Selezionare la sottoscrizione dall'elenco di tutte le sottoscrizioni disponibili nello stesso tenant di Azure Active Directory (AAD).
+
+2. Fare clic su **Personalizza:** per modificare le impostazioni predefinite:
     - In **Gruppo di risorse di destinazione** è possibile selezionare il gruppo di risorse dall'elenco di tutti i gruppi di risorse nel percorso di destinazione all'interno della sottoscrizione.
     - In **Rete virtuale di destinazione:**, selezionare la rete dall'elenco di tutte le reti virtuali nel percorso di destinazione.
     - In **Set di disponibilità** è possibile aggiungere le impostazioni del set di disponibilità per la macchina virtuale, se sono parte di un set di disponibilità nell'area di origine.

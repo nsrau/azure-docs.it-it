@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 3ea4c3a6463b831fe960bf6aec9e4c1151f8424d
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 59d3c194f08a8ede6ea2a56f95f7000eafe6c479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49644876"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413232"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-java"></a>Guida introduttiva: Ottenere la lunghezza delle frasi con l'API REST Traduzione testuale (Java)
 
@@ -23,7 +23,7 @@ In questa guida introduttiva si identifica la lunghezza delle frasi nel testo us
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per compilare ed eseguire il codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). È possibile usare l'ambiente di sviluppo integrato Java preferito, ma è sufficiente anche un editor di testo.
+Per compilare ed eseguire il codice è necessario [JDK 7 o 8](https://aka.ms/azure-jdks). È possibile usare l'ambiente di sviluppo integrato Java preferito, ma è sufficiente anche un editor di testo.
 
 Per usare l'API Traduzione testuale, è necessario avere anche una chiave di sottoscrizione. Per informazioni, vedere [Come registrarsi all'API Traduzione testuale](translator-text-how-to-signup.md).
 

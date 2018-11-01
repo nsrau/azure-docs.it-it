@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 77157cdf245546816aee748f3d388bde620c4b5f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165819"
+---
 <!--author=alkohli last changed: 06/22/17-->
 
 #### <a name="to-get-the-storsimple-service-registration-key"></a>Per ottenere la chiave di registrazione del servizio StorSimple.

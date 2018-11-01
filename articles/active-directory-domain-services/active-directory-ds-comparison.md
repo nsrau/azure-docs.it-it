@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: confronto tra Azure Active Direc
 description: Confronto tra Servizi di dominio Azure AD e controller di dominio fai da te
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: maheshu
-ms.openlocfilehash: acb125ef807193e79e45bca7e217efe3ffb31698
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505951"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155798"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Come decidere Servizi di dominio Azure AD è adatto alle esigenze del caso di utilizzo
 Con Azure Active Directory Domain Services è possibile distribuire i carichi di lavoro nei servizi di infrastruttura di Azure senza preoccuparsi di mantenere l'infrastruttura di identità in Azure. Questo servizio gestito è diverso da una tipica distribuzione di Windows Server Active Directory che viene distribuita e amministrata in modo autonomo. Il servizio è facile da distribuire e offre il monitoraggio e la correzione dell'integrità automatizzati. Il servizio è in continua evoluzione per l'aggiunta del supporto di scenari di distribuzione comuni.

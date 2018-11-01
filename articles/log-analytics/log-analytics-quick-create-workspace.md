@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 08/23/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: edebeec493b025a81a99c0458344aafe59e769e9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: c041437b610c56fd34667d9b8f3fe67080b3aafc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040875"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419351"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Creare un'area di lavoro di Log Analytics nel portale di Azure
 Nel portale di Azure è possibile configurare un'area di lavoro di Log Analytics, ovvero un ambiente di Log Analytics univoco che contiene un archivio dati, origini dati e soluzioni.  I passaggi descritti in questo articolo sono obbligatori se si intende raccogliere i dati dalle origini seguenti:
@@ -44,7 +44,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 
-    ![Portale di Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)
+    ![Portale di Azure](media/log-analytics-quick-create-workspace/azure-portal-01.png)
   
 2. Fare clic su **Crea** e quindi selezionare le opzioni per gli elementi seguenti:
 
@@ -54,7 +54,7 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
   * Selezionare una **località** disponibile.  Per altre informazioni, vedere le [are in cui è disponibile Log Analytics](https://azure.microsoft.com/regions/services/).
   * Se si sta creando un'area di lavoro in una nuova sottoscrizione creata dopo il 2 aprile 2018, verrà automaticamente usato il piano di determinazione dei prezzi *Per GB* e non sarà disponibile l'opzione che consente di selezionare un piano tariffario.  Se si sta creando un'area di lavoro per una sottoscrizione esistente creata prima del 2 aprile o per una sottoscrizione collegata a un Contratto Enterprise (EA) esistente, selezionare il piano tariffario preferito.  Per altre informazioni sui piani specifici, vedere [Dettagli prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-create-workspace/create-loganalytics-workspace-02.png)  
 
 3. Dopo aver specificato le informazioni necessarie nel riquadro **Area di lavoro di Log Analytics**, fare clic su **OK**.  
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 9a5ef8df9b1ca87430fb5e8d1da94f1899c4a856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985863"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085958"
 ---
 # <a name="content-key-policies"></a>Criteri di chiave simmetrica
 
@@ -28,16 +28,16 @@ In Servizi multimediali di Azure v3 i criteri di chiave simmetrica consentono di
 
 Nella tabella seguente vengono illustrate le proprietà dei criteri di chiave simmetrica e le relative definizioni.
 
-|NOME|type|DESCRIZIONE|
-|---|---|---|
-|id|stringa|ID di risorsa completo per la risorsa.|
-|name|stringa|Nome della risorsa.|
-|properties.created |stringa|Data di creazione dei criteri|
-|properties.description |stringa|Descrizione dei criteri.|
-|properties.lastModified    |stringa|Data dell'ultima modifica dei criteri|
-|properties.options |ContentKeyPolicyOption[]|Le opzioni dei criteri di chiave.|
-|properties.policyId    |stringa|L'ID dei criteri legacy.|
-|type   |stringa|Tipo di risorsa.|
+|NOME|DESCRIZIONE|
+|---|---|
+|id|ID di risorsa completo per la risorsa.|
+|name|Nome della risorsa.|
+|properties.created |Data di creazione dei criteri|
+|properties.description |Descrizione dei criteri.|
+|properties.lastModified|Data dell'ultima modifica dei criteri|
+|properties.options |Le opzioni dei criteri di chiave.|
+|properties.policyId    |L'ID dei criteri legacy.|
+|type   |Tipo di risorsa.|
 
 Per la definizione completa, vedere [Criteri di chiave simmetrica](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 

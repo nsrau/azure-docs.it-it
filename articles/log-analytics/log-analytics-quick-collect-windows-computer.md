@@ -16,12 +16,12 @@ ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 756b5e208cd2a3fa70f7ed3cf1c4deaaf72348ed
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 87d1aef0ffbf1a6b371947d804aa48503b507284
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407810"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417056"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurare l'agente di Log Analytics per computer Windows in un ambiente ibrido
 [Azure Log Analytics](log-analytics-overview.md) può raccogliere dati direttamente dai computer Windows fisici o virtuali nel data center o in altri ambienti cloud in un unico repository per l'esecuzione di analisi dettagliate e della correlazione.  Questa guida introduttiva mostra come configurare e raccogliere dati dal computer Windows in pochi semplici passaggi.  Per le macchine virtuali Windows di Azure, vedere l'argomento seguente [Raccogliere dati sulle macchine virtuali di Azure](log-analytics-quick-collect-azurevm.md).  
@@ -34,16 +34,16 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com). 
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
-1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![Portale di Azure](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.<br><br> ![Portale di Azure](media/log-analytics-quick-collect-windows-computer/azure-portal-01.png)<br><br>  
 2. Fare clic su **Crea** e quindi selezionare le opzioni per gli elementi seguenti:
 
-  * Specificare un nome per la nuova **area di lavoro di Log Analytics**, ad esempio *DefaultLAWorkspace*. 
+  * Specificare un nome per la nuova **area di lavoro di Log Analytics Workspace**, ad esempio *DefaultLAWorkspace*. 
   * Selezionare una **sottoscrizione** a cui collegarsi. Se la sottoscrizione selezionata per impostazione predefinita non è appropriata, è possibile sceglierne una dall'elenco a discesa.
   * Per **Gruppo di risorse**, selezionare un gruppo di risorse esistente contenente una o più macchine virtuali di Azure.  
   * Selezionare la **località** in cui sono distribuite le VM.  Per altre informazioni, vedere le [are in cui è disponibile Log Analytics](https://azure.microsoft.com/regions/services/).  
   * Se si sta creando un'area di lavoro in una nuova sottoscrizione creata dopo il 2 aprile 2018, verrà automaticamente usato il piano di determinazione dei prezzi *Per GB* e non sarà disponibile l'opzione che consente di selezionare un piano tariffario.  Se si sta creando un'area di lavoro per una sottoscrizione esistente creata prima del 2 aprile o per una sottoscrizione collegata a un Contratto Enterprise esistente, selezionare il piano tariffario preferito.  Per altre informazioni sui piani specifici, vedere [Dettagli prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)<br>  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-windows-computer/create-loganalytics-workspace-02.png)<br>  
 
 3. Dopo aver specificato le informazioni necessarie nel riquadro **Area di lavoro di Log Analytics**, fare clic su **OK**.  
 
@@ -54,7 +54,7 @@ Prima di installare Microsoft Monitoring Agent per Windows, sono necessari l'ID 
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** nell'angolo superiore sinistro. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nell'elenco di aree di lavoro di Log Analytics selezionare *DefaultLAWorkspace* creata prima.
-3. Selezionare **Impostazioni avanzate**.<br><br> ![Impostazioni avanzate di Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br>  
+3. Selezionare **Impostazioni avanzate**.<br><br> ![Impostazioni avanzate di Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-advanced-settings-01.png)<br><br>  
 4. Selezionare **Origini connesse** e quindi **Server Windows**.   
 5. Il valore a destra di **ID area di lavoro** e **Chiave primaria**. Copiare e incollare entrambi i valori nell'editor predefinito.   
 
@@ -80,20 +80,20 @@ Al termine, verrà visualizzato **Microsoft Monitoring Agent** nel **Pannello di
 Log Analytics può raccogliere gli eventi dai registri eventi e dai contatori delle prestazioni di Windows specificati per l'analisi a lungo termine e la creazione di report e intervenire quando viene rilevata una particolare condizione.  Seguire questi passaggi per configurare la raccolta di eventi dal registro eventi di Windows e di diversi contatori delle prestazioni comuni con cui iniziare.  
 
 1. Nel portale di Azure fare clic su **Altri servizi** nell'angolo in basso a sinistra. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
-2. Selezionare **Impostazioni avanzate**.<br><br> ![Impostazioni avanzate di Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-advanced-settings-01.png)<br><br> 
+2. Selezionare **Impostazioni avanzate**.<br><br> ![Impostazioni avanzate di Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-advanced-settings-01.png)<br><br> 
 3. Selezionare **Dati** e quindi selezionare **Registri eventi di Windows**.  
 4. Si aggiunge un registro eventi digitandone il nome.  Digitare **Sistema** e quindi fare clic sul segno **+**.  
 5. Nella tabella selezionare i livelli di gravità **Errore** e **Avviso**.   
 6. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
 7. Selezionare **Windows Performance Data** (Dati di prestazione di Windows) per abilitare la raccolta di contatori delle prestazioni in un computer Windows. 
-8. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro di Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.<br> ![Contatori delle prestazioni di Windows predefiniti selezionati](media/log-analytics-quick-collect-azurevm/windows-perfcounters-default.png).<br> Fare clic su **Aggiungi i contatori delle prestazioni selezionati**.  Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.  
+8. Quando si configurano i contatori delle prestazioni di Windows per la prima volta per una nuova area di lavoro di Log Analytics, è possibile creare rapidamente numerosi contatori comuni. Viene visualizzato l'elenco dei contatori con le caselle di controllo corrispondenti.<br> ![Contatori delle prestazioni di Windows predefiniti selezionati](media/log-analytics-quick-collect-windows-computer/windows-perfcounters-default.png).<br> Fare clic su **Aggiungi i contatori delle prestazioni selezionati**.  Vengono aggiunti e preimpostati con un intervallo di esempio tra le raccolte di dieci secondi.  
 9. Fare clic su **Salva** nella parte superiore della pagina per salvare la configurazione.
 
 ## <a name="view-data-collected"></a>Visualizzare i dati raccolti
 Ora che la raccolta di dati è stata abilitata, verrà eseguito un semplice esempio di ricerca nel log per visualizzare alcuni dati dal computer di destinazione.  
 
 1. Nel portale di Azure, nell'area di lavoro selezionata, fare clic sul riquadro **Ricerca log**.  
-2. Nel riquadro Ricerca log digitare `Perf` nel campo della query e quindi premere INVIO o fare clic sul pulsante di ricerca a destra del campo della query.<br><br> ![Esempio di query di ricerca log di Log Analytics](media/log-analytics-quick-collect-linux-computer/log-analytics-portal-queryexample.png)<br><br> La query nella figura seguente, ad esempio, ha restituito 735 record relativi alle prestazioni.<br><br> ![Risultato della ricerca log di Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-search-perf.png)
+2. Nel riquadro Ricerca log digitare `Perf` nel campo della query e quindi premere INVIO o fare clic sul pulsante di ricerca a destra del campo della query.<br><br> ![Esempio di query di ricerca log di Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-portal-queryexample.png)<br><br> La query nella figura seguente, ad esempio, ha restituito 735 record relativi alle prestazioni.<br><br> ![Risultato della ricerca log di Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Quando non è più necessario, è possibile rimuovere l'agente dal computer Windows ed eliminare l'area di lavoro di Log Analytics.  
@@ -104,7 +104,7 @@ Per rimuovere l'agente, eseguire la procedura seguente.
 2. Aprire **Programmi e funzionalità**.
 3. In **Programmi e funzionalità** selezionare **Microsoft Monitoring Agent** e fare clic su **Disinstalla**.
 
-Per eliminare l'area di lavoro, selezionare l'area di lavoro di Log Analytics creata in precedenza e nella pagina delle risorse fare clic su **Elimina**.<br><br> ![Eliminare la risorsa Log Analytics](media/log-analytics-quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+Per eliminare l'area di lavoro, selezionare l'area di lavoro di Log Analytics creata in precedenza e nella pagina delle risorse fare clic su **Elimina**.<br><br> ![Eliminare la risorsa Log Analytics](media/log-analytics-quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è in corso la raccolta di dati operativi e sulle prestazioni dal computer Linux locale, è possibile iniziare facilmente a esplorare, analizzare e modificare i dati raccolti *gratuitamente*.  

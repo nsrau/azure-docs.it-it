@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09cad6b76b2fdefe1163530e5437427faf29d72f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2e40e518f9f04809b1fd59b0ed12dcee9b1da9ce
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299922"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240912"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>Esercitazione: Usare il portale di Azure per creare una pipeline di Data Factory pipeline per copiare dati 
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Una pipeline può includere più attività ed è possibile concatenarne due, ovv
 > [!NOTE] 
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare i dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando un cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Prima di eseguire questa esercitazione, completare i prerequisiti indicati nell'articolo sui [prerequisiti dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 ## <a name="steps"></a>Passaggi
@@ -97,12 +97,12 @@ Una data factory può comprendere una o più pipeline. Una pipeline può compren
           Alcuni dei passaggi di questa esercitazione presuppongono l'uso del nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all' [uso di gruppi di risorse per la gestione delle risorse di Azure](../../azure-resource-manager/resource-group-overview.md).  
    4. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono visualizzate solo le aree supportate dal servizio Data Factory.
    5. Selezionare **Aggiungi al dashboard**.     
-   6. Fare clic su **Crea**.
+   6. Fare clic su **Create**(Crea).
       
       > [!IMPORTANT]
       > Per creare istanze di data factory, è necessario essere membri del ruolo [Collaboratore Data factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
       > 
-      > Il nome di Data Factory può essere registrato come un nome DNS in futuro e pertanto divenire visibile pubblicamente.                
+      > Il nome della data factory può essere registrato come nome DNS in futuro e quindi divenire visibile pubblicamente.                
       > 
       > 
 3. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 

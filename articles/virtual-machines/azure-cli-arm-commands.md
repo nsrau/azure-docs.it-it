@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: 8a2bae12fae6a1bf8f5ecbdb2ae01dea5260f3cb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8b76e1a168d39d2f39098754f43bae73c21c2049
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30839145"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155815"
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandi dell’interfaccia della riga di comando Azure in modalità Resource Manager
 In questo articolo vengono fornite sintassi e opzioni per i comandi dell'interfaccia della riga di comando (CLI) di Azure usati comunemente per creare e gestire risorse di Azure nel modello di distribuzione Azure Resource Manager. Accedere ai comandi eseguendo l’interfaccia della riga di comando in modalità di gestione risorse (arm). Non si tratta di un riferimento completo e la versione dell'interfaccia della riga di comando in uso potrebbe mostrare comandi o parametri leggermente diversi. Per informazioni generali su risorse e gruppi di risorse di Azure, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
 
 > [!NOTE]
-> Questo articolo illustra i comandi in modalità Resource Manager disponibili nell'interfaccia della riga di comando 1.0 di Azure. Per usare il modello di Resource Manager, è possibile anche provare l'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-az-cli2), ovvero la nuovissima interfaccia della riga di comando multipiattaforma.
+> Questo articolo illustra i comandi in modalità Resource Manager disponibili nell'interfaccia della riga di comando classica di Azure. Per usare il modello di Resource Manager, è possibile anche provare l'[interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2), l'interfaccia della riga di comando multipiattaforma di nuova generazione.
 >Sono disponibili altre informazioni su entrambe le versioni delle [interfacce della riga di comando di Azure](/cli/azure/old-and-new-clis).
 >
 
@@ -1453,7 +1453,7 @@ Opzioni dei parametri:
     e.g. /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>/subnets/<subnet-name>
     --subnet-name <subnet-name>                                  the subnet name
     -m, --subnet-vnet-name <subnet-vnet-name>                        the vnet name under which subnet-name exists
-    -t, --tags <tags>                                                the comma seperated list of tags.
+    -t, --tags <tags>                                                the comma separated list of tags.
     Can be multiple. In the format of "name=value".
     Name is required and value is optional.
     For example, -t tag1=value1;tag2

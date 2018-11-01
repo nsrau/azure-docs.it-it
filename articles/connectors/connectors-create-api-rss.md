@@ -11,12 +11,12 @@ ms.topic: article
 ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: c8d1122572764dda1fc550a06ae254109e3bf033
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 01573871700bbeeb653ce3efdbf6c6aca88fd454
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885799"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233056"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Gestire i feed RSS con App per la logica di Azure
 
@@ -27,7 +27,7 @@ Con App per la logica di Azure e il connettore RSS, è possibile creare attivit�
 
 RSS (Rich Site Summary), noto anche come Really Simple Syndication, è un formato comune per la diffusione Web e viene usato per la pubblicazione di contenuto aggiornato di frequente, ad esempio post di blog e notizie. Molti autori di contenuto offrono feed RSS per consentire agli utenti di eseguire la sottoscrizione al contenuto. 
 
-È possibile usare un trigger RSS che ottiene le risposte da un feed RSS e rende l'output disponibile per altre azioni. È possibile usare un'azione RSS nelle app per la logica per eseguire un'attività con il feed RSS. Se non si ha familiarità con App per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+È possibile usare un trigger RSS che ottiene le risposte da un feed RSS e rende l'output disponibile per altre azioni. È possibile usare un'azione RSS nelle app per la logica per eseguire un'attività con il feed RSS. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +35,7 @@ RSS (Rich Site Summary), noto anche come Really Simple Syndication, è un format
 
 * L'URL per un feed RSS.
 
-* Conoscenza di base sulla [creazione delle app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere al feed RSS. Per iniziare con un trigger di RSS, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione di RSS, avviare l'app per la logica con un altro trigger, ad esempio, il trigger **Ricorrenza**.
 
@@ -49,7 +49,7 @@ RSS (Rich Site Summary), noto anche come Really Simple Syndication, è un format
 
      -oppure-
 
-   * Per le app per la logica esistenti, nel passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. Nella casella di ricerca immettere "rss" come filtro. Nell'elenco delle azioni scegliere l'azione desiderata.
+   * Per le app per la logica esistenti, nel passaggio in cui si vuole aggiungere un'azione, scegliere **Nuovo passaggio**. Nella casella di ricerca immettere "rss" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
 1. Specificare i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 
@@ -60,7 +60,7 @@ Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizi
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 41855d6e562ddbb78df5d1d8794127e1064cc2ca
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: ca2d28f3438fd166fa282488206662c95777bf3b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918296"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233328"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Monitorare e gestire l'account Yammer con App per la logica di Azure
 
@@ -26,7 +26,7 @@ Con App per la logica di Azure e il connettore Yammer, è possibile creare attiv
 * Recupero di messaggi, gruppi, reti, dettagli degli utenti e altro ancora.
 * Pubblicazione e like di messaggi.
 
-È possibile usare i trigger per ottenere risposte dall'account Yammer e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Yammer. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Yammer. Ad esempio, quando vengono visualizzati nuovi messaggi in feed o gruppi, è possibile condividere tali messaggi con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md).
+È possibile usare i trigger per ottenere risposte dall'account Yammer e rendere l'output disponibile per altre azioni. È possibile usare azioni che eseguono attività con l'account Yammer. È anche possibile fare in modo che altre azioni usino l'output delle azioni di Yammer. Ad esempio, quando vengono visualizzati nuovi messaggi in feed o gruppi, è possibile condividere tali messaggi con il connettore Slack. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -76,7 +76,7 @@ Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizi
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

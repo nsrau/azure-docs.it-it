@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 58a66cfdfaada34981ef166635b0d04e2e6e8f61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 57ec7c13cdf5c2e44abf23dc0452e5eab3eb77ff
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976884"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412619"
 ---
 # <a name="smart-groups"></a>Gruppi intelligenti
 Un problema comune insito nella gestione degli avvisi è estrarre le informazioni per capirne l'effettiva importanza. I gruppi intelligenti sono destinati a essere la soluzione a questo problema.  
@@ -44,7 +44,7 @@ Sono supportati i seguenti stati di gruppo intelligente.
 
 La pagina dei dettagli del gruppo intelligente viene visualizzata quando si seleziona un gruppo intelligente. Fornisce dettagli relativi al gruppo intelligente, inclusi i motivi per cui il gruppo è stato creato, e consente di cambiarne lo stato.
  
-![Dettagli del gruppo intelligente](media/monitoring-overview-unified-alerts/smart-group-detail.png)
+![Dettagli del gruppo intelligente](media/monitoring-overview-alerts-smartgroups/smart-group-detail.png)
 
 
 La pagina dei dettagli del gruppo intelligente include le sezioni seguenti.

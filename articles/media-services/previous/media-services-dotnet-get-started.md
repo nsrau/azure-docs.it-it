@@ -4,7 +4,7 @@ description: Questa esercitazione illustra il processo di implementazione di un'
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 388b8928-9aa9-46b1-b60a-a918da75bd7b
 ms.service: media-services
@@ -12,21 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/10/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: a685043f0bc9841d2cc86f2c49469e8287a03b78
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 40057f6d7ab792557f17c777276091e7c7c05c3c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952264"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233617"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-net-sdk"></a>Introduzione alla distribuzione di contenuti su richiesta utilizzando .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
 
 Questa esercitazione illustra il processo di implementazione di un servizio per la distribuzione di contenuto video on demand (VoD) di base con l'applicazione Servizi multimediali di Azure (AMS) usando Azure Media Services .NET SDK.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione è necessario quanto segue:
 
@@ -155,7 +155,7 @@ In Servizi multimediali i file digitali vengono caricati (o inseriti) in un asse
 
 Il metodo **UploadFile** definito di seguito chiama **CreateFromFile**, definito in .NET SDK Extensions. **CreateFromFile** crea un nuovo asset in cui viene caricato il file di origine specificato.
 
-Il metodo **CreateFromFile** acquisisce \*\*AssetCreationOptions, che consente di specificare una delle opzioni di creazione seguenti:
+Il metodo **CreateFromFile** accetta **AssetCreationOptions**, che permette di specificare una delle opzioni di creazione di asset seguenti:
 
 * **None** : non viene usata alcuna crittografia. Si tratta del valore predefinito. Quando si usa questa opzione, il contenuto non è protetto durante il transito, né nell'archiviazione locale.
   Se si pianifica la distribuzione di un file MP4 con il download progressivo, usare questa opzione.

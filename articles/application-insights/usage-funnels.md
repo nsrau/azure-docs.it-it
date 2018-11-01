@@ -3,7 +3,7 @@ title: Imbuti di Azure Application Insights
 description: Informazioni su come usare gli imbuti per scoprire in che modo i clienti interagiscono con l'applicazione.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8478106fd68f6fcc65dff832b5cb27ca8db5f5bd
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: 3d4d6ba7e185b1cc5fdcee1633a11e579d8194e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093722"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413962"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Informazioni sulle modalità d'uso dell'applicazione da parte dei clienti attraverso gli imbuti di Application Insights
 
@@ -38,7 +40,7 @@ Ecco i passaggi per creare l'imbuto.
 Lo screenshot seguente mostra un esempio del tipo di dati generato dallo strumento Imbuti. I proprietari di Fabrikam possono vedere che, negli ultimi 90 giorni, il 54,3% dei clienti che hanno visitato la home page ha creato un ticket cliente. Possono inoltre appurare che 2.700 clienti hanno raggiunto l'indice dalla home page. Ciò potrebbe indicare un problema di aggiornamento.
 
 
-![Screenshot dello strumento Imbuti con dati](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Screenshot dello strumento Imbuti con dati](media/usage-funnels/funnel1.png)
 
 ### <a name="funnels-features"></a>Funzionalità Imbuti
 Lo screenshot precedente include cinque aree evidenziate. Queste sono funzionalità dello strumento Imbuti. L'elenco seguente spiega in maggiore dettaglio ogni area nello screenshot:

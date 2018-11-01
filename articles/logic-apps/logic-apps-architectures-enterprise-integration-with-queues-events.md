@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5b58f4b71d8d9f3ca91d8cefc6215073fd836765
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855375"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093667"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Integrazione dell’architettura aziendale con code ed eventi
 
@@ -26,7 +26,7 @@ Questa serie descrive le parti dei componenti riutilizzabili che possono essere 
 
 ## <a name="architecture-components"></a>Componenti dell'architettura
 
-Questa architettura si basa sull'architettura descritta nell'articolo [Architettura di riferimento: integrazione aziendale semplice](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md). Questi [elementi consigliati](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations) per l’architettura si applicano anche qui, ma per brevità, questo articolo omette tali elementi consigliati dalla sezione [Elementi consigliati](#recommendations). Questa architettura di integrazione aziendale include i componenti seguenti:
+Questa architettura si basa sull'architettura descritta nell'articolo [Architettura di riferimento: integrazione aziendale semplice](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration). Questi [elementi consigliati](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration#recommendations) per l’architettura si applicano anche qui, ma per brevità, questo articolo omette tali elementi consigliati dalla sezione [Elementi consigliati](#recommendations). Questa architettura di integrazione aziendale include i componenti seguenti:
 
 - **Gruppo di risorse**: un [gruppo di risorse](../azure-resource-manager/resource-group-overview.md) è un contenitore logico per le risorse di Azure.
 
@@ -143,4 +143,4 @@ Il servizio Griglia di eventi consente di proteggere il recapito dell'evento tra
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sull'[integrazione aziendale semplice](logic-apps-architectures-simple-enterprise-integration.md)
+* Informazioni sull'[integrazione aziendale semplice](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration)

@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: abilitare la delega vincolata Ke
 description: Abilitare la delega vincolata Kerberos in domini gestiti di Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: f50422caab2577ba24e3a7bc48b75e32d15d8d44
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: da7909853d47f680726464d6d646ca87028fd311
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505934"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158783"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Configurare la delega vincolata Kerberos in un dominio gestito
 Molte applicazioni devono accedere alle risorse nel contesto dell'utente. Active Directory supporta un meccanismo denominato delega Kerberos che consente questo caso d'uso. È anche possibile limitare la delega in modo che siano accessibili solo risorse specifiche nel contesto dell'utente. I domini gestiti di Azure AD Domain Services sono diversi dai domini di Active Directory tradizionali perché sono bloccati in modo più sicuro.
@@ -80,5 +80,5 @@ Set-ADUser backendsvc -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccoun
 >
 
 ## <a name="related-content"></a>Contenuti correlati
-* [Guida introduttiva di Azure AD Domain Services](active-directory-ds-getting-started.md)
+* [Servizi di dominio Azure AD: introduzione](active-directory-ds-getting-started.md)
 * [Panoramica della delega vincolata Kerberos](https://technet.microsoft.com/library/jj553400.aspx)

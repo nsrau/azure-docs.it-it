@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 1d1d593b7305e0cd9899f4ec388cb441ced90b10
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133666"
+---
 1. In un computer Mac visitare il [portale di Azure]. Fare clic su **Tutti i servizi** > **Servizi app** e quindi selezionare il back-end che è stato creato. Nelle impostazioni dell'app per dispositivi mobili scegliere il linguaggio preferito:
 
     - Objective-C &ndash; **Guida introduttiva** > **iOS (Objective-C)**

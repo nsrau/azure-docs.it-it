@@ -4,7 +4,7 @@ description: Informazioni sui prerequisiti generali per l'uso di Servizi multime
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ec2804c7-c656-4fbf-b3e4-3f0f78599a7f
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 639d1d6af169a0bb459dd8d6c778503b60c48e2c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5f111fea8fa1ef9f6e07c01f507e487c992729d5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783500"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233532"
 ---
 # <a name="media-services-development-with-net"></a>Sviluppo di applicazioni di Servizi multimediali con .NET
 [!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
@@ -28,7 +28,7 @@ Questo articolo illustra come iniziare a sviluppare applicazioni di Servizi mult
 
 La libreria di **Azure Media Services .NET SDK** consente di programmare per Servizi multimediali usando .NET. Per facilitare ancora di più lo sviluppo con .NET, è disponibile la libreria di **Media Services .NET SDK Extensions**, contenente un set di funzioni di supporto e metodi di estensione che semplificano il codice .NET. Entrambe le librerie sono disponibili tramite **NuGet** e **GitHub**.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * Un account di Servizi multimediali ottenuto con una sottoscrizione di Azure nuova o esistente. Vedere l'articolo [Come creare un account di Servizi multimediali](media-services-portal-create-account.md).
 * Sistemi operativi: Windows 10, Windows 7, Windows 2008 R2 o Windows 8.
 * .NET Framework 4.5 o versioni successive.

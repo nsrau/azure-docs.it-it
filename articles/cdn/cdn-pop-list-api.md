@@ -3,8 +3,8 @@ title: Recuperare l'elenco di POP Verizon corrente per la rete CDN di Azure | Mi
 description: Informazioni su come recuperare l'elenco di POP Verizon corrente tramite l'API REST.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
-ms.author: v-deasim
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: f796d18a03e14fdf652af72366762e1365523f09
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f703a934b0eaf4bff5be3811adeed8f0287bc658
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754286"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237826"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Recuperare l'elenco di POP Verizon corrente per la rete CDN di Azure
 
@@ -34,4 +34,4 @@ Per motivi di sicurezza, è possibile usare questo elenco IP per fare sì che le
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sull'API REST, vedere [API REST della rete CDN di Azure](https://docs.microsoft.com/en-us/rest/api/cdn/).
+Per informazioni sull'API REST, vedere [API REST della rete CDN di Azure](https://docs.microsoft.com/rest/api/cdn/).

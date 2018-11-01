@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: dfe584532efeab1dbc0d2928b7afb0a6695a21ee
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f0f43826c50679cb3de88aef466795cbb9e9e76f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39184946"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139493"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Panoramica dell'acceleratore di soluzioni di monitoraggio remoto
 
@@ -42,9 +42,15 @@ Da quando Microsoft ha rilasciato i primi acceleratori di soluzioni, l'architett
 
 La soluzione include i componenti seguenti nella parte dell'architettura logica relativa alla connettività dei dispositivi:
 
-### <a name="simulated-devices"></a>Dispositivi simulati
+### <a name="physical-devices"></a>Dispositivi fisici
 
-La soluzione include un microservizio che consente di gestire un pool di dispositivi simulati per testare il flusso end-to-end nella soluzione. I dispositivi simulati:
+È possibile connettere dispositivi fisici alla soluzione. È possibile implementare il comportamento dei dispositivi simulati usando Azure IoT SDK per dispositivi.
+
+È possibile effettuare il provisioning di dispositivi fisici dal dashboard nel portale della soluzione.
+
+### <a name="device-simulation-microservice"></a>Microservizio di simulazione dispositivi
+
+La soluzione include il [microservizio di simulazione dispositivi](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) che consente di gestire un pool di dispositivi simulati dal portale della soluzione per testare il flusso end-to-end nella soluzione. I dispositivi simulati:
 
 * Generano dati di telemetria da dispositivo a cloud.
 * Rispondono alle chiamate ai metodi da cloud a dispositivo dall'hub IoT.
@@ -53,24 +59,24 @@ Il microservizio fornisce un endpoint RESTful per consentire di creare, avviare 
 
 È possibile effettuare il provisioning di dispositivi simulati dal dashboard nel portale della soluzione.
 
-### <a name="physical-devices"></a>Dispositivi fisici
+### <a name="iot-hub"></a>Hub IoT
 
-È possibile connettere dispositivi fisici alla soluzione. È possibile implementare il comportamento dei dispositivi simulati usando Azure IoT SDK per dispositivi.
-
-È possibile effettuare il provisioning di dispositivi fisici dal dashboard nel portale della soluzione.
-
-### <a name="iot-hub-and-the-iot-manager-microservice"></a>Hub IoT e microservizio di gestione IoT
-
-L'[hub IoT](../iot-hub/index.yml) inserisce i dati inviati dai dispositivi nel cloud e li rende disponibili per il microservizio `telemetry-agent`.
+L'[hub IoT](../iot-hub/index.yml) inserisce i dati di telemetria inviati dai dispositivi fisici e simulati nel cloud. L'hub IoT rende i dati di telemetria disponibili per l'elaborazione da parte dei servizi nel back-end della soluzione IoT.
 
 L'hub IoT nella soluzione esegue anche le operazioni seguenti:
 
-* Gestisce un registro delle identità in cui vengono archiviati gli ID e le chiavi di autenticazione di tutti i dispositivi autorizzati a connettersi al portale. Il registro delle identità permette di abilitare e disabilitare i dispositivi.
-* Richiama i metodi nei dispositivi per conto del portale della soluzione.
+* Gestisce un registro delle identità in cui vengono archiviati gli ID e le chiavi di autenticazione di tutti i dispositivi autorizzati a connettersi al portale.
+* Richiama i metodi nei dispositivi per conto dell'acceleratore di soluzioni.
 * Gestisce i dispositivi gemelli per tutti i dispositivi registrati. Nel dispositivo gemello vengono archiviati i valori delle proprietà segnalati da un dispositivo. Qui vengono archiviate anche le proprietà desiderate, impostate nel portale della soluzione, in modo che il dispositivo possa recuperarle alla connessione successiva.
 * Pianifica processi per impostare proprietà per più dispositivi o richiamare metodi in più dispositivi.
 
-La soluzione include il microservizio `iot-manager` per la gestione delle interazioni con l'hub IoT, ad esempio:
+## <a name="data-processing-and-analytics"></a>e analisi dei dati
+
+La soluzione include i componenti seguenti nella parte dell'architettura logica relativa all'analisi e all'elaborazione dei dati:
+
+### <a name="iot-hub-manager-microservice"></a>Microservizio gestione di hub IoT
+
+La soluzione include il [microservizio gestione di hub IoT](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager) per la gestione delle interazioni con l'hub IoT, ad esempio:
 
 * Creazione e gestione di dispositivi IoT.
 * Gestione di dispositivi gemelli.
@@ -81,36 +87,54 @@ Questo servizio esegue anche query sull'hub IoT per recuperare i dispositivi app
 
 Il microservizio fornisce un endpoint RESTful per gestire i dispositivi e i dispositivi gemelli, richiamare metodi ed eseguire query sull'hub IoT.
 
-## <a name="data-processing-and-analytics"></a>e analisi dei dati
+### <a name="device-telemetry-microservice"></a>Microservizio telemetria
 
-La soluzione include i componenti seguenti nella parte dell'architettura logica relativa all'analisi e all'elaborazione dei dati:
+Il [microservizio telemetria del dispositivo](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) fornisce un endpoint RESTful per l'accesso in lettura ai dati di telemetria del dispositivo archiviati in Time Series Insights. L'endpoint RESTful abilita inoltre operazioni CRUD sulle regole e l'accesso in lettura/scrittura alle definizioni di avviso dall'archiviazione.
 
-### <a name="device-telemetry"></a>Telemetria dei dispositivi
+### <a name="storage-adapter-microservice"></a>Microservizio adattatore di archiviazione
 
-La soluzione include due microservizi per gestire i dati di telemetria dei dispositivi.
+Il [microservizio adattatore di archiviazione](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/storage-adapter) gestisce coppie chiave-valore, astrae la semantica del servizio di archiviazione e presenta un'interfaccia semplice per archiviare i dati di qualsiasi formato usando Azure Cosmos DB.
 
-Il microservizio [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet):
+I valori vengono organizzati in raccolte. È possibile operare su valori singoli o recuperare intere raccolte. Le strutture dati complesse vengono serializzate dai client e gestite come payload di testo semplice.
 
-* Archivia i dati di telemetria in Azure Cosmos DB.
-* Analizza il flusso di dati di telemetria dai dispositivi.
-* Genera allarmi in base alle regole definite.
+Il servizio fornisce un endpoint RESTful per le operazioni CRUD su coppie chiave-valore. valori
 
-Gli allarmi vengono archiviati in Azure Cosmos DB.
+### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Il microservizio [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet)a consente al portale della soluzione di leggere i dati di telemetria inviati dai dispositivi. Il portale della soluzione usa anche questo servizio per:
+Le distribuzioni dell'acceleratore di soluzioni usano [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) per l'archiviazione di regole, avvisi e impostazioni di configurazione e per tutte le altre attività di archiviazione offline sicura.
 
-* Definire regole di monitoraggio, ad esempio le soglie che attivano gli allarmi.
-* Recuperare l'elenco di allarmi passati.
+### <a name="azure-stream-analytics-manager-microservice"></a>Microservizio gestione di Analisi di flusso di Azure
 
-Usare l'endpoint RESTful fornito da questo microservizio per gestire telemetria, regole e allarmi.
+Il [microservizio gestione di Analisi di flusso di Azure](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager) gestisce i processi di Analisi di flusso di Azure, inclusa l'impostazione della configurazione, il loro avvio o arresto e il monitoraggio dello stato.
 
-### <a name="storage"></a>Archiviazione
+Il processo Analisi di flusso di Azure è supportato da due set di dati di riferimento. Un set di dati definisce le regole e uno definisce i gruppi di dispositivi. I dati di riferimento delle regole vengono generati dalle informazioni gestite dal microservizio telemetria del dispositivo. Il microservizio gestione di Analisi di flusso di Azure trasforma le regole dei dati di telemetria in logica di elaborazione del flusso.
 
-Il microservizio [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) è un adapter posto davanti al servizio di archiviazione principale usato per l'acceleratore di soluzioni. Fornisce semplice archiviazione di raccolte e coppie chiave-valore.
+I dati di riferimento dei gruppi di dispositivi vengano usati per identificare il gruppo di regole da applicare a un messaggio di telemetria in ingresso. I gruppi di dispositivi sono gestiti dal microservizio configurazione e usano query gemelle del dispositivo hub IoT di Azure.
 
-La distribuzione standard dell'acceleratore di soluzioni usa Azure Cosmos DB come servizio di archiviazione principale.
+I processi Analisi di flusso di Azure recapitano i dati di telemetria provenienti dai dispositivi connessi a Time Series Insights per l'archiviazione e analisi.
 
-Il database di Azure Cosmos DB archivia i dati nell'acceleratore di soluzioni. Il microservizio **storage-adapter** funge da adapter per consentire agli altri microservizi nella soluzione di accedere ai servizi di archiviazione.
+### <a name="azure-stream-analytics"></a>Analisi di flusso di Azure
+
+[Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/) è un motore di elaborazione di eventi che permette di esaminare volumi elevati di streaming di dati per i dispositivi.
+
+### <a name="azure-time-series-insights"></a>Azure Time Series Insights
+
+[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) archivia i dati di telemetria provenienti dai dispositivi connessi all'acceleratore di soluzioni. Consente inoltre di visualizzare e interrogare i dati di telemetria del dispositivo nell'interfaccia utente Web della soluzione.
+
+> [!NOTE]
+> Azure Time Series Insights non è attualmente disponibile nel cloud Azure Cina. Le nuove distribuzioni dell'acceleratore di soluzioni per il monitoraggio remoto nel cloud Azure Cina usano Cosmos DB per tutte le operazioni di archiviazione.
+
+### <a name="configuration-microservice"></a>Microservizio configurazione
+
+Il [microservizio configurazione](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config) fornisce un endpoint RESTful per svolgere operazioni CRUD su gruppi di dispositivi, impostazioni della soluzione e impostazioni utente nell'acceleratore di soluzioni. Funziona con il microservizio adattatore di archiviazione per rendere persistenti i dati di configurazione.
+
+### <a name="authentication-and-authorization-microservice"></a>Microservizio autenticazione e autorizzazione
+
+Il [microservizio autenticazione e autorizzazione](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) gestisce gli utenti autorizzati ad accedere all'acceleratore di soluzioni. La gestione degli utenti può essere eseguita usando qualsiasi provider di servizi di identità che supporta [OpenId Connect](http://openid.net/connect/).
+
+### <a name="azure-active-directory"></a>Azure Active Directory
+
+Le distribuzioni dell'acceleratore di soluzioni usano [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) come provider di OpenID Connect. Azure Active Directory archivia le informazioni sugli utenti e fornisce i certificati per convalidare la firma dei token JWT.
 
 ## <a name="presentation"></a>Presentazione
 
@@ -122,18 +146,20 @@ L'[interfaccia utente Web è un'applicazione Javascript React](https://github.co
 * Ha uno stile definito con CSS.
 * Interagisce con i microservizi pubblici tramite chiamate AJAX.
 
-L'interfaccia utente presenta tutte le funzionalità dell'acceleratore di soluzioni e interagisce con altri servizi, ad esempio:
+L'interfaccia utente include tutte le funzionalità dell'acceleratore di soluzioni e interagisce con altri microservizi, ad esempio:
 
-* Il microservizio [authentication](https://github.com/Azure/pcs-auth-dotnet) per proteggere i dati degli utenti.
-* Il microservizio [iothub-manager](https://github.com/Azure/iothub-manager-dotnet) per elencare e gestire i dispositivi IoT.
+* Il microservizio autenticazione e autorizzazione per proteggere i dati degli utenti.
+* Il microservizio gestione hub IoT per elencare e gestire i dispositivi IoT.
 
-Il microservizio [ui-config](https://github.com/Azure/pcs-config-dotnet) consente all'interfaccia utente di archiviare e recuperare le impostazioni di configurazione.
+Azure Time Series Insights Explorer è integrato nell'interfaccia utente per consentire l'interrogazione e l'analisi dei dati di telemetria del dispositivo.
+
+Il microservizio configurazione consente all'interfaccia utente di archiviare e recuperare le impostazioni di configurazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si vuole esplorare il codice sorgente e la documentazione per sviluppatori, iniziare con uno dei due repository GitHub principali:
+Se si vuole esplorare il codice sorgente e la documentazione per sviluppatori, iniziare con uno dei due repository GitHub:
 
-* [Acceleratore di soluzioni di monitoraggio remoto con Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Acceleratore di soluzioni di monitoraggio remoto con Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 * [Acceleratore di soluzioni di monitoraggio remoto con Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
 Diagrammi dettagliati delle architetture delle soluzioni:
