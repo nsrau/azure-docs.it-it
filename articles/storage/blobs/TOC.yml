@@ -57,7 +57,7 @@ items:
       href: storage-create-geo-redundant-storage.md
     - name: 2 - Simulare un errore con l'archiviazione con ridondanza geografica e accesso in lettura
       href: storage-simulate-failure-ragrs-account-app.md
-  - name: Eseguire la migrazione dei dati locali nel cloud con AzCopy
+  - name: Eseguire la migrazione dei dati nel cloud con AzCopy
     href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Cercare dati non strutturati nell'archiviazione cloud
     href: storage-unstructured-search.md
@@ -461,9 +461,9 @@ items:
       href: https://github.com/Azure/azure-storage-ruby
     - name: iOS
       href: https://github.com/Azure/azure-storage-ios
-ms.openlocfilehash: faed25b2e0bac18aa617131582df75bf20febac9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53958df7b8e267a29242f81cda6460ce3f600270
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390228"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740700"

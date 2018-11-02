@@ -139,6 +139,8 @@ items:
       href: how-to-connect-azureadaccount.md
     - name: Modificare la password dell'account del connettore di Active Directory Domain Services
       href: how-to-connect-sync-change-addsacct-pass.md
+    - name: Informazioni sul modulo ADConnectivityTools di PowerShell
+      href: how-to-connect-adconnectivitytools.md
   - name: Gestire Federation Services
     items:
     - name: Informazioni sulla federazione con Azure AD Connect
@@ -291,9 +293,17 @@ items:
     href: reference-connect-sync-functions-reference.md
   - name: Elenco di compatibilità di federazione di Azure AD
     href: how-to-connect-fed-compatibility.md
-ms.openlocfilehash: e5d89e467b9dd6b41e246c889f41ad9abe21182b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+  - name: Imposizione di TLS 1.2
+    href: reference-connect-tls-enforcement.md
+  - name: Informazioni di riferimento su ADSyncConfig
+    href: reference-connect-adsyncconfig.md
+  - name: Informazioni di riferimento su ADSyncTools
+    href: reference-connect-adsynctools.md
+  - name: Informazioni di riferimento su ADConnectivityTools
+    href: reference-connect-adconnectivitytools.md
+ms.openlocfilehash: e5eaaa3446db7af705825e74a456770a4e981915
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249672"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414013"

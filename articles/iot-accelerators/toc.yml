@@ -19,16 +19,24 @@ items:
     href: quickstart-device-simulation-deploy.md
 - name: Esercitazioni
   items:
-  - name: Monitorare i dispositivi IoT
-    href: iot-accelerators-remote-monitoring-monitor.md
-  - name: Rilevare i problemi dei dispositivi
-    href: iot-accelerators-remote-monitoring-automate.md
-  - name: Configurare e gestire i dispositivi
-    href: iot-accelerators-remote-monitoring-manage.md
-  - name: Eseguire un'analisi della causa radice su un avviso
-    href: iot-accelerators-remote-monitoring-root-cause-analysis.md
-  - name: Usare gli avvisi e risolvere i problemi dei dispositivi
-    href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Monitoraggio remoto
+    items:
+    - name: Monitorare i dispositivi IoT
+      href: iot-accelerators-remote-monitoring-monitor.md
+    - name: Rilevare i problemi dei dispositivi
+      href: iot-accelerators-remote-monitoring-automate.md
+    - name: Configurare e gestire i dispositivi
+      href: iot-accelerators-remote-monitoring-manage.md
+    - name: Eseguire un'analisi della causa radice su un avviso
+      href: iot-accelerators-remote-monitoring-root-cause-analysis.md
+    - name: Usare gli avvisi e risolvere i problemi dei dispositivi
+      href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Simulazione dei dispositivi
+    items:
+    - name: Creare ed eseguire una simulazione
+      href: iot-accelerators-device-simulation-create-simulation.md
+    - name: Creare un dispositivo simulato personalizzato
+      href: iot-accelerators-device-simulation-create-custom-device.md
 - name: Concetti
   items:
   - name: Monitoraggio remoto
@@ -47,12 +55,6 @@ items:
     items:
     - name: Architettura
       href: iot-accelerators-connected-factory-sample-walkthrough.md
-  - name: Simulazione dei dispositivi
-    items:
-    - name: Schema del modello dei dispositivi
-      href: iot-accelerators-device-simulation-device-schema.md
-    - name: Comportamento del modello dei dispositivi
-      href: iot-accelerators-device-simulation-device-behavior.md
   - name: Autorizzazioni in azureiotsolutions.com
     href: iot-accelerators-permissions.md
 - name: Guide alle procedure
@@ -88,7 +90,7 @@ items:
         href: iot-accelerators-remote-monitoring-customize-service.md
       - name: Aggiungere una griglia
         href: iot-accelerators-remote-monitoring-customize-grid.md
-      - name: Aggiungere un'uscita a destra
+      - name: Aggiungere un riquadro a comparsa
         href: iot-accelerators-remote-monitoring-customize-flyout.md
       - name: Aggiungere un pannello
         href: iot-accelerators-remote-monitoring-customize-panel.md
@@ -124,14 +126,10 @@ items:
     items:
     - name: Usare un hub IoT esistente
       href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Usare un modello di dispositivo personalizzato
-      href: iot-accelerators-device-simulation-custom-model.md
+    - name: Creare un dispositivo simulato avanzato
+      href: iot-accelerators-device-simulation-advanced-device.md
     - name: Visualizzare dati di telemetria con Time Series Insights
       href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Creare un dispositivo simulato
-      href: iot-accelerators-device-simulation-create-simulated-device.md
-    - name: Distribuire un dispositivo simulato
-      href: iot-accelerators-device-simulation-deploy-simulated-device.md
 - name: riferimento
   items:
   - name: Monitoraggio remoto
@@ -212,9 +210,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Percorso di apprendimento per gli acceleratori di soluzioni IoT
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: ff8e7cea540fcb722b5cc68bd811acaec3fac070
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f9b92b06850668f0f92fa77a67ac640e4c245c37
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091719"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754019"

@@ -16,28 +16,28 @@ items:
   expanded: true
 - name: Esercitazioni
   items:
-  - name: Trovare informazioni dettagliate sul perimetro
-    items:
-    - name: Filtrare i dati con Funzioni di Azure
-      href: tutorial-deploy-function.md
-    - name: Trovare medie con ASA
-      href: tutorial-deploy-stream-analytics.md
-    - name: Assegnare un punteggio ai dati con Azure ML
-      href: tutorial-deploy-machine-learning.md
-    - name: Filtrare i dati con codice personalizzato
-      items:
-      - name: C#
-        href: tutorial-csharp-module.md
-      - name: Python
-        href: tutorial-python-module.md
-      - name: Node.js
-        href: tutorial-node-module.md
-      - name: Java
-        href: tutorial-java-module.md
-      - name: C
-        href: tutorial-c-module.md
+  - name: Filtrare i dati con Funzioni di Azure
+    href: tutorial-deploy-function.md
+  - name: Trovare medie con ASA
+    href: tutorial-deploy-stream-analytics.md
+  - name: Assegnare un punteggio ai dati con Azure ML
+    href: tutorial-deploy-machine-learning.md
+  - name: Classificare immagini con Visione personalizzata
+    href: tutorial-deploy-custom-vision.md
   - name: Archiviare i dati in locale con SQL
     href: tutorial-store-data-sql-server.md
+  - name: Sviluppare moduli di codice personalizzati
+    items:
+    - name: C#
+      href: tutorial-csharp-module.md
+    - name: Python
+      href: tutorial-python-module.md
+    - name: Node.js
+      href: tutorial-node-module.md
+    - name: Java
+      href: tutorial-java-module.md
+    - name: C
+      href: tutorial-c-module.md
 - name: Concetti
   items:
   - name: Runtime di IoT Edge
@@ -136,10 +136,10 @@ items:
       href: how-to-deploy-monitor-cli.md
   - name: Usare i dispositivi perimetrali come gateway
     items:
-    - name: Gateway trasparente (Linux)
-      href: how-to-create-transparent-gateway-linux.md
-    - name: Gateway trasparente (Windows)
-      href: how-to-create-transparent-gateway-windows.md
+    - name: Configurare un gateway trasparente
+      href: how-to-create-transparent-gateway.md
+    - name: Connettere un dispositivo downstream
+      href: how-to-connect-downstream-device.md
     - name: Gateway di protocollo Modbus
       href: deploy-modbus-gateway.md
   - name: Configurare il supporto del proxy
@@ -220,9 +220,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: fa5d551c95493361cac9d661938b50fb9ad2fed6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 625545123d9cbd4c587667bb7bf4e1eda8984a6d
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816311"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913483"

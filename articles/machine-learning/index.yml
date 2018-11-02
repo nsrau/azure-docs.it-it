@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fdb4247627e5badbbb6b23b0081386b38f2c50cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f40835256ca75fa6fb2e53723b165a73e84b170b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394982"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739643"
 documentType: LandingData
 title: Documentazione di Azure Machine Learning
 metadata:
@@ -13,10 +13,11 @@ metadata:
   services: machine-learning
   author: j-martens
   ms.service: machine-learning
+  ms.component: core
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 9/24/2018
+  ms.date: 10/31/2018
   ms.author: jmartens
 abstract:
   description: Informazioni su come creare algoritmi intelligenti in app e siti Web con questi prodotti di Azure Machine Learning.  Esercitazioni, guide introduttive, informazioni di riferimento sulle API ed esempi illustrano come eseguire queste operazioni.
@@ -55,7 +56,7 @@ sections:
       - href: /azure/machine-learning/studio/create-workspace
     - title: Preparare i dati per la modellazione
       values:
-      - href: /azure/machine-learning/service/concept-data-preparation
+      - href: /azure/machine-learning/service/how-to-data-prep
       - href: /azure/machine-learning/studio/walkthrough-2-upload-data
     - title: Compilare i modelli di Machine Learning
       values:
@@ -73,6 +74,10 @@ sections:
       values:
       - href: 
       - href: /azure/machine-learning/studio/walkthrough-6-access-web-service
+    - title: Creare, ottimizzare e gestire le pipeline di Machine Learning
+      values:
+      - href: /azure/machine-learning/service/concept-ml-pipelines
+      - href: 
 - title: Altre tecnologie di Microsoft Machine Learning
   items:
   - type: list
