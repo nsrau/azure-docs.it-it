@@ -174,6 +174,10 @@ items:
         href: service-bus-resource-manager-namespace-auth-rule.md
       - name: Creare uno spazio dei nomi con argomento, sottoscrizione e regola
         href: service-bus-resource-manager-namespace-topic-with-rule.md
+  - name: Risolvere problemi
+    items:
+    - name: Eccezioni
+      href: service-bus-messaging-exceptions.md
 - name: riferimento
   items:
   - name: .NET
@@ -188,8 +192,6 @@ items:
     href: /powershell/module/azurerm.servicebus
   - name: REST
     href: /rest/api/servicebus
-  - name: Eccezioni
-    href: service-bus-messaging-exceptions.md
   - name: Quote
     href: service-bus-quotas.md
   - name: Sintassi di SQLFilter
@@ -224,9 +226,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azureservicebus
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: d3e17d59fae0675d58e094c16b0454e7e0466362
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 576e94f39cf8ccdd883b23b769669df2745341aa
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239339"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978128"
