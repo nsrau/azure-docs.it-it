@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 1414fd7b559a1bf12cc26d218f4577bbdc986916
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429066"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964119"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -157,6 +157,10 @@ Questo aggiornamento contiene anche la mitigazione dei rischi per la vulnerabili
 - In determinate circostanze quando un aggiornamento richiede attenzione, l'avviso corrispondente potrebbe non essere generato. Uno stato accurato comunque si rifletteranno nel portale e non è interessato.
 
 ### <a name="post-update-steps"></a>Passaggi di post-aggiornamento
+
+> [!Important]  
+> Preparare la distribuzione di Azure Stack per l'host dell'estensione. Preparare il sistema le seguenti linee guida [prepararsi host dell'estensione per Azure Stack](azure-stack-extension-host-prepare.md).
+
 Dopo l'installazione di questo aggiornamento, installare eventuali hotfix applicabili. Per altre informazioni, visualizzare i seguenti articoli della knowledge base, nonché nostri [criteri per la manutenzione](azure-stack-servicing-policy.md). 
 - [KB 4468920 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 
