@@ -35,28 +35,26 @@
 
 # [Portale per Cloud Partner](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
 
-<!-- remove comment markers after toc gets published with iot edge section  -->
-<!-- 
-## [Virtual machine offer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
-### [Prerequisites](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
-### [Create VM offer](./cloud-partner-portal/virtual-machine/cpp-create-offer.md)
-#### [Offer Settings tab](./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md)
-#### [SKUs tab](./cloud-partner-portal/virtual-machine/cpp-skus-tab.md)
-#### [Test Drive tab](./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md)
-#### [Marketplace tab](./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md)
-#### [Support tab](./cloud-partner-portal/virtual-machine/cpp-support-tab.md)
-### [Create VM technical assets](./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
-#### [Create VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)
-#### [Common VHD creation issues](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
-#### [Connect to VM](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
-#### [Configure VM](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
-#### [Deploy VM from VHDs](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [VHD Deployment Template (JSON)](./cpp-deploy-json-template.md)
-#### [Certify VM image](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
-#### [Get SAS URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
-#### [Common SAS URL issues](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
-### [Publish VM offer](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
-### [Update existing offer](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md) -->
+## [Offerta per le macchine virtuali](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
+### [Prerequisiti](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
+### [Creare un'offerta per le macchine virtuali](./cloud-partner-portal/virtual-machine/cpp-create-offer.md)
+#### [Scheda Impostazioni dell'offerta](./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md)
+#### [Scheda SKU](./cloud-partner-portal/virtual-machine/cpp-skus-tab.md)
+#### [Scheda Test Drive](./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md)
+#### [Scheda Marketplace](./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md)
+#### [Scheda Supporto](./cloud-partner-portal/virtual-machine/cpp-support-tab.md)
+### [Creare gli asset tecnici delle macchine virtuali](./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
+#### [Creare un disco rigido virtuale](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)
+#### [Problemi comuni di creazione dei dischi rigidi virtuali](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
+#### [Connettersi a una macchina virtuale](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
+#### [Configurare una macchina virtuale](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
+#### [Distribuire macchine virtuali da dischi rigidi virtuali](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [Modello di distribuzione di dischi rigidi virtuali (JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+#### [Certificare l'immagine di macchina virtuale](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
+#### [Ottenere l'URI di firma di accesso condiviso](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
+#### [Problemi comuni degli URL di firma di accesso condiviso](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
+### [Pubblicare un'offerta per le VM](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
+### [Aggiornare un'offerta esistente](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
 <!-- Following legacy VM section was replaced.  -->
 <!-- 
@@ -88,7 +86,18 @@
 ### [Vendita di app SaaS tramite Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [API SaaS](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
 
-## [Contenitori](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
+
+## [Offerta di contenitori](./cloud-partner-portal/containers/cpp-containers-offer.md)
+### [Prerequisiti](./cloud-partner-portal/containers/cpp-prerequisites.md)
+### [Creare un'offerta di contenitori](./cloud-partner-portal/containers/cpp-create-offer.md)
+#### [Scheda Impostazioni dell'offerta](./cloud-partner-portal/containers/cpp-offer-settings-tab.md)
+#### [Scheda SKU](./cloud-partner-portal/containers/cpp-skus-tab.md)
+#### [Scheda Marketplace](./cloud-partner-portal/containers/cpp-marketplace-tab.md)
+#### [Scheda Supporto](./cloud-partner-portal/containers/cpp-support-tab.md)
+### [Creare gli asset tecnici dei contenitori](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
+### [Pubblicare un'offerta di contenitori](./cloud-partner-portal/containers/cpp-publish-offer.md)
+### [Aggiornare un'offerta esistente](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
 
 ## [Offerta di modulo IoT Edge](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [Prerequisiti](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
