@@ -1,24 +1,24 @@
 ---
-title: Matrice di supporto per la replica Hyper-V in Azure | Microsoft Docs
-description: Vengono riepilogati i componenti supportati e i requisiti per la replica Hyper-V in Azure con Azure Site Recovery
+title: Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure | Microsoft Docs
+description: Questo articolo presenta un riepilogo dei componenti supportati e dei requisiti per il ripristino di emergenza di macchine virtuali Hyper-V in Azure con Azure Site Recovery
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 83d2fabbe3a1b0ab44cb97e53baf0aa40349aeed
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e389f37448211afc35fb98572161be4fcaea7556
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079209"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210721"
 ---
-# <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Matrice di supporto per la replica Hyper-V in Azure
+# <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
 
-Questo articolo riepiloga i componenti supportati e le impostazioni per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure con [Azure Site Recovery](site-recovery-overview.md).
+Questo articolo presenta un riepilogo dei componenti supportati e delle impostazioni per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure con [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="supported-scenarios"></a>Scenari supportati

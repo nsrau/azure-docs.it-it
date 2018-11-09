@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f58d72fe2a14b24272c9f03bbba6a33ed0f18ae7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985812"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413758"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
@@ -27,7 +27,7 @@ Analisi di flusso richiama Funzioni tramite trigger HTTP. L'adattatore di output
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un processo di Analisi di flusso.
+> * Creare un processo di Analisi di flusso
 > * Creare una funzione di Azure
 > * Configurare una funzione di Azure come output per il processo
 
@@ -189,13 +189,20 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
 1. Accedere al portale di Azure e individuare Cache Redis di Azure. Selezionare **Console**.  
 
-2. Usare i [comandi di Cache Redis](https://redis.io/commands) per verificare che i dati si trovino al suo interno. Il comando assume il formato Get {chiave}. Ad esempio: 
+2. Usare i [comandi di Cache Redis](https://redis.io/commands) per verificare che i dati si trovino al suo interno. Il comando assume il formato Get {chiave}. Ad esempio:
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
    Questo comando dovrebbe visualizzare il valore relativo alla chiave specificata:
 
    ![Screenshot dell'output di Cache Redis di Azure](./media/stream-analytics-with-azure-functions/image5.png)
+   
+## <a name="error-handling-and-retries"></a>Gestione degli errori e tentativi
+In caso di errore durante l'invio di eventi a Funzioni di Azure, Analisi di flusso effettua ulteriori tentativi per completare l'operazione. Non vengono però effettuati ulteriori tentativi per gli errori seguenti:
+
+ 1. HttpRequestExceptions
+ 2. Entità della richiesta troppo grande (codice errore HTTP 413)
+ 3. ApplicationExceptions
 
 ## <a name="known-issues"></a>Problemi noti
 

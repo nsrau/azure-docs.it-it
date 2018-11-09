@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: jeedes
-ms.openlocfilehash: c9134ceebca696ed2b3376a69e26c2ea06f4f0f6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: c33edf13a8bcafd4a6c3d4885553fc856ec941d8
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507122"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Esercitazione: Integrazione di Azure Active Directory con 4me
 
@@ -218,7 +218,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in 4me. 4me supporta il provisioning Just-in-Time, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a 4me viene creato un nuovo utente, se questo non esiste già.
 
 >[!Note]
->Se è necessario creare un utente manualmente, contattare il [team di supporto di 4me](mailto:support@4me.com).
+>Per creare un utente manualmente, contattare il  [team di supporto di 4me](mailto:support@4me.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
@@ -255,7 +255,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro 4me nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione 4me.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per ulteriori informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

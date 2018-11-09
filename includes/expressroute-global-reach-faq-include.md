@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874061"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035264"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Che cos'è Copertura globale di ExpressRoute?
 
@@ -21,7 +21,7 @@ Copertura globale di ExpressRoute è un servizio di Azure che connette le reti l
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>Come è possibile abilitare o disabilitare Copertura globale di ExpressRoute?
 
-Per abilitare Copertura globale di ExpressRoute, connettere i circuiti ExpressRoute. Per disabilitare la funzionalità, disconnettere i circuiti. Vedere la configurazione.
+Per abilitare Copertura globale di ExpressRoute, connettere i circuiti ExpressRoute. Per disabilitare la funzionalità, disconnettere i circuiti. Vedere la [configurazione](../articles/expressroute/expressroute-howto-set-global-reach.md).
 
 ### <a name="do-i-need-expressroute-premium-for-expressroute-global-reach"></a>È necessario ExpressRoute Premium per Copertura globale di ExpressRoute?
 
@@ -36,6 +36,7 @@ ExpressRoute abilita la connettività dalla rete locale ai servizi cloud Microso
 Il servizio Copertura globale di ExpressRoute è supportato nei paesi seguenti. I circuiti ExpressRoute devono essere creati in località di peering in questi paesi.
 
 * Australia
+* Francia
 * RAS di Hong Kong
 * Irlanda
 * Giappone
@@ -58,3 +59,11 @@ No. Per abilitare la connettività tra due delle reti locali, è necessario conn
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>Quale velocità effettiva della rete ci si può aspettare tra le reti locali dopo l'abilitazione di Copertura globale di ExpressRoute?
 
 La velocità effettiva di rete tra le reti locali, resa possibile da Copertura globale di ExpressRoute, è limitata dal più piccolo tra i due circuiti ExpressRoute.
+
+### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Con Copertura globale di ExpressRoute, qual è il limite al numero di route che è possibile annunciare e al numero di route che si riceverà?
+
+Il numero di route che è possibile annunciare a Microsoft nel peering privato di Azure è fissato a 4000 su un circuito Standard o 10.000 su un circuito Premium. Il numero di route che si riceverà da Microsoft nel peering privato di Azure sarà la somma di tutte le route delle reti virtuali di Azure e delle route dalle altre reti locali connesse tramite Copertura globale di ExpressRoute. Verificare di aver impostato sul router locale un limite di prefisso massimo appropriato. 
+
+### <a name="what-is-the-sla-for-expressroute-global-reach"></a>Qual è il contratto di servizio per Copertura globale di ExpressRoute?
+
+Copertura globale di ExpressRoute fornisce lo stesso [contratto di servizio relativo alla disponibilità](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/) del servizio ExpressRoute.

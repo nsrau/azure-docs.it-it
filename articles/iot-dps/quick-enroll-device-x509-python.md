@@ -1,6 +1,6 @@
 ---
 title: Questa guida introduttiva illustra come registrare i dispositivi X.509 nel servizio Device Provisioning di Azure con Python | Microsoft Docs
-description: In questa guida introduttiva verrà eseguita la registrazione dei dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure con Python
+description: Questa guida introduttiva usa registrazioni di gruppo. In questa guida introduttiva verrà eseguita la registrazione dei dispositivi X.509 nel servizio Device Provisioning in hub IoT di Azure con Python
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/25/2018
@@ -10,18 +10,18 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 84ec165a78f873f6378e840d7f339cb7590dc098
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1eae992785eac18727c138b4e31369f1cf57f93e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227385"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157242"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Guida introduttiva: Registrare i dispositivi X.509 nel servizio Device Provisioning con Python
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-I dispositivi vengono registrati in un'istanza del servizio di provisioning creando un [gruppo di registrazione](concepts-service.md#enrollment-group) o una [registrazione singola](concepts-service.md#individual-enrollment). Questa guida introduttiva illustra come usare Python per creare un [gruppo di registrazione](concepts-service.md#enrollment-group) a livello di codice che usa un certificato X.509 intermedio o CA radice. Un gruppo di registrazione controlla l'accesso al servizio di provisioning per i dispositivi che condividono un certificato di firma comune nella rispettiva catena di certificati. Il gruppo di registrazione viene creato usando [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) e un'applicazione Python di esempio. La creazione di registrazioni singole tramite *Python Provisioning Service SDK* sarà disponibile in futuro. Per altre informazioni, vedere [Controllo dell'accesso dei dispositivi al servizio di provisioning con certificati X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Per altre informazioni sull'uso di un'infrastruttura a chiave pubblica (PKI, Public Key Infrastructure) basata su certificati X.509 con l'hub IoT di Azure e il servizio Device Provisioning, vedere [Panoramica della sicurezza dei certificati della CA X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview). 
+I dispositivi vengono registrati in un'istanza del servizio di provisioning creando un [gruppo di registrazione](concepts-service.md#enrollment-group) o una [registrazione singola](concepts-service.md#individual-enrollment). Questa guida introduttiva illustra come usare Python per creare un [gruppo di registrazione](concepts-service.md#enrollment-group) a livello di codice che usa un certificato X.509 intermedio o CA radice. Un gruppo di registrazione controlla l'accesso al servizio di provisioning per i dispositivi che condividono un certificato di firma comune nella rispettiva catena di certificati. Il gruppo di registrazione viene creato usando [Python Provisioning Service SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client) e un'applicazione Python di esempio. La creazione di registrazioni singole tramite *Python Provisioning Service SDK* sarà disponibile in futuro. Per altre informazioni, vedere [Controllo dell'accesso dei dispositivi al servizio di provisioning con certificati X.509](./concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). Per altre informazioni sull'uso di un'infrastruttura a chiave pubblica (PKI, Public Key Infrastructure) basata su certificati X.509 con l'hub IoT di Azure e il servizio Device Provisioning, vedere [Panoramica della sicurezza dei certificati della CA X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview).
 
 Questa guida introduttiva prevede che siano già stati creati un hub IoT e un'istanza del servizio Device Provisioning. Se queste risorse non sono state ancora create, completare la guida introduttiva [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare con questo articolo.
 
@@ -42,7 +42,7 @@ Anche se i passaggi illustrati in questo articolo funzionano su computer sia Win
 
 Per questa guida introduttiva è necessario un file PEM o CER contenente la parte pubblica di un certificato X.509 intermedio o CA radice. Questo certificato deve essere caricato nel servizio di provisioning e verificato dal servizio. 
 
-[Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contiene strumenti di test che consentono di creare una catena di certificati X.509, caricare un certificato intermedio o radice dalla catena ed eseguire la proof-of-possession con il servizio per verificare il certificato. I certificati creati con gli strumenti dell'SDK sono progettati per l'uso per il **solo test di sviluppo**. Questi certificati **non devono essere usati nell'ambiente di produzione**. Contengono password hardcoded ("1234") che scadono dopo 30 giorni. Per informazioni su come ottenere certificati idonei all'uso nell'ambiente di produzione, vedere [Come ottenere un certificato della CA X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) nella documentazione dell'hub IoT di Azure.
+[Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) contiene strumenti di test che consentono di creare una catena di certificati X.509, caricare un certificato intermedio o radice dalla catena ed eseguire la proof-of-possession con il servizio per verificare il certificato. I certificati creati con gli strumenti dell'SDK sono progettati per essere usati solo per **test di sviluppo**. Questi certificati **non devono essere usati nell'ambiente di produzione**. Contengono password hardcoded ("1234") che scadono dopo 30 giorni. Per informazioni su come ottenere certificati idonei all'uso nell'ambiente di produzione, vedere [Come ottenere un certificato della CA X.509](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) nella documentazione dell'hub IoT di Azure.
 
 Per usare gli strumenti di test per generare certificati, seguire questa procedura: 
  

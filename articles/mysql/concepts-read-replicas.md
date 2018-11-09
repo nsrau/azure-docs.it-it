@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 283b529aa8c6431ea725b066c9b5cb3db19a929b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/30/2018
+ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969445"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412449"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -34,6 +34,10 @@ Uno scenario comune consiste nel fare in modo che i carichi di lavoro BI e anali
 ### <a name="pricing-tiers"></a>Piani tariffari
 
 Le repliche in lettura sono attualmente disponibili solo nei livelli di prezzo per utilizzo generico e ottimizzato per la memoria.
+
+### <a name="master-server-restart"></a>Riavvio del server master
+
+Durante questa anteprima, quando si crea una replica per un master che non ha repliche esistenti, il master si riavvia per prepararsi alla replica. Tenere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di scarso traffico.
 
 ### <a name="stopping-replication"></a>Arresto della replica
 

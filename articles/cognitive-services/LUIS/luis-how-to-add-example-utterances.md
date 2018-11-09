@@ -8,157 +8,119 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6a3edfd426fcdce83bd60332ba2b1ff6224dae1a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: caf8628569481149ee41e8253f4759e15e49150f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645560"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139124"
 ---
-# <a name="add-example-utterances-and-label-with-entities"></a>Aggiungere espressioni di esempio ed etichette con entità
+# <a name="add-an-entity-to-example-utterances"></a>Aggiungere un'entità in espressioni di esempio 
 
 Le espressioni di esempio sono campioni di testo con domande o commenti degli utenti. Per l'apprendimento di LUIS (Language Understanding), è necessario aggiungere [espressioni di esempio](luis-concept-utterance.md) a una [finalità](luis-concept-intent.md).
 
-In genere, si aggiunge innanzitutto un'espressione di esempio a una finalità, quindi si creano le entità e si etichettano le espressioni nella pagina della finalità. Se si desidera invece creare prima le entità, vedere [Aggiungere entità](luis-how-to-add-entities.md).
+In genere si aggiunge innanzitutto un'espressione di esempio a una finalità, quindi si creano le entità e si etichettano le espressioni nella pagina della finalità. Se si desidera invece creare prima le entità, vedere [Aggiungere entità](luis-how-to-add-entities.md).
 
-## <a name="add-an-utterance"></a>Aggiungere un'espressione
-Nella pagina di una finalità, inserire un'espressione di esempio pertinente che gli utenti potrebbero usare, ad esempio `book 2 adult business tickets to Paris tomorrow on Air France` nella casella di testo sotto al nome della finalità, quindi premere INVIO. 
- 
->[!NOTE]
->LUIS converte tutte le espressioni in caratteri minuscoli.
+## <a name="marking-entities-in-example-utterances"></a>Contrassegnare le entità in espressioni di esempio
 
-![Schermata della pagina dei dettagli delle finalità, con un'espressione evidenziata](./media/luis-how-to-add-example-utterances/add-new-utterance-to-intent.png) 
+Quando si seleziona il testo nell'espressione di esempio da contrassegnare per un'entità, viene visualizzato un menu a comparsa. Usare questo menu per creare o selezionare un'entità. 
 
-Le espressioni vengono aggiunte all'elenco Espressioni per la finalità corrente. 
+Alcuni tipi di entità, ad esempio le entità predefinite e le entità di espressione regolare, non possono essere taggati nelle espressioni di esempio perché vengono taggati automaticamente. 
 
-## <a name="ignoring-words-and-punctuation"></a>Procedura per ignorare parole e punteggiatura
-Se si desidera che vengano ignorati parole o segni di punteggiatura specifici nell'espressione di esempio, usare un [criterio](luis-concept-patterns.md#pattern-syntax) con la sintassi _ignore_. 
+## <a name="add-a-simple-entity"></a>Aggiungere un'entità semplice
 
-## <a name="add-simple-entity-label"></a>Aggiungere un'etichetta di entità semplice
-Nella procedura seguente, si creano ed etichettano le entità personalizzate all'interno dell'espressione seguente nella pagina della finalità:
+Nella procedura seguente si crea e tagga un'entità personalizzata all'interno dell'espressione seguente nella pagina della finalità:
 
-```
-book me 2 adult business tickets to Paris tomorrow on Air France
+```text
+Does John Smith work in Seattle?
 ```
 
-1. Selezionare "Air France" nell'espressione per etichettarla come entità semplice.
+1. Selezionare `Seattle` nell'espressione per etichettarla come entità semplice.
+
+    [![Screenshot della selezione del testo nell'espressione per un'entità semplice](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)](./media/luis-how-to-add-example-utterances/hr-create-simple-1.png)
 
     > [!NOTE]
-    > Quando si selezionano le parole da etichettare come entità:
+    > Quando si selezionano le parole da taggare come entità:
     > * Per una parola singola, è sufficiente selezionarla. 
     > * Per una serie di due o più parole, selezionare l'inizio e la fine della serie.
 
-2. Nella casella di riepilogo a discesa dell'entità che viene visualizzata, è possibile selezionare un'entità esistente o aggiungerne una nuova. Per aggiungere una nuova entità, digitarne il nome nella casella di testo, quindi selezionare **Crea una nuova entità**. 
- 
-    ![Schermata della pagina dei dettagli delle finalità, con l'opzione di etichettatura delle entità evidenziata](./media/luis-how-to-add-example-utterances/create-airline-simple-entity.png)
+1. Nella casella di riepilogo a discesa dell'entità che viene visualizzata, è possibile selezionare un'entità esistente o aggiungerne una nuova. Per aggiungere una nuova entità, digitarne il nome nella casella di testo, quindi selezionare **Crea una nuova entità**. 
 
-3. Nella finestra di dialogo popup **Che tipo di entità vuoi creare?**, verificare il nome dell'entità e selezionare il tipo di entità semplice, quindi selezionare **Fine**.
+    ![Screenshot di immissione del nome dell'entità](./media/luis-how-to-add-example-utterances/hr-create-simple-2.png)
 
-    ![Immagine della finestra di dialogo di conferma](./media/luis-how-to-add-example-utterances/create-simple-airline-entity.png)
+1. Nella finestra di dialogo popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) verificare il nome dell'entità e selezionare il tipo di entità **Semplice**, quindi selezionare **Done** (Chiudi).
 
-    Per altre informazioni sull'estrazione dell'entità semplice dalla risposta alla query JSON sull'endpoint, vedere [Estrazione di dati](luis-concept-data-extraction.md#simple-entity-data). Per altre informazioni sull'uso delle entità semplici, seguire la relativa [guida introduttiva](luis-quickstart-primary-and-secondary-data.md).
+    Un [elenco di frasi](luis-concept-feature.md) viene in genere usato per aumentare il segnale di un'entità semplice.
 
+## <a name="add-a-list-entity"></a>Aggiungere un'entità elenco
 
-## <a name="add-list-entity-and-label"></a>Aggiungere un'entità e un'etichetta elenco
 Le entità elenco rappresentano un set (corrispondenze testuali esatte) chiuso e fisso di parole correlate nel sistema. 
 
-Per un'entità di elenco di una serie di bevande, è possibile avere due valori normalizzati: acqua e bibita. Ciascun nome normalizzato ha dei sinonimi. I sinonimi vengono indicati in inglese. Per l'acqua, i sinonimi sono H20, gas, flat (liscia). Per bibita, i sinonimi sono fruit (fruit), cola, ginger. Non è necessario conoscere tutti i valori quando si crea l'entità. È possibile aggiungerne altri dopo aver esaminato le espressioni reali degli utenti con i sinonimi.
+Per un elenco dei reparti aziendali è possibile avere valori normalizzati: `Accounting` e `Human Resources`. Ciascun nome normalizzato ha dei sinonimi. I sinonimi vengono indicati in inglese. Per quanto riguarda un reparto, questi sinonimi possono includere qualsiasi acronimo, numero o gergo relativo al reparto. Non è necessario conoscere tutti i valori quando si crea l'entità. È possibile aggiungerne altri dopo aver esaminato le espressioni reali degli utenti con i sinonimi.
 
-|Nome normalizzato|Sinonimi|
-|--|--|
-|Acqua|H20, gas, flat|
-|Bevanda|Fruit, cola, ginger|
+1. Nell'elenco di espressioni di esempio per un'espressione specifica selezionare la parola o la frase che si desidera nel nuovo elenco. Immettere il nome dell'elenco nella casella di testo in alto, quindi selezionare **Crea nuova entità**.   
 
-Quando si crea una nuova entità elenco dalla pagina delle finalità, si eseguono due operazioni che potrebbero non essere ovvie. In primo luogo, si crea un nuovo elenco aggiungendo il primo elemento dell'elenco. In secondo luogo, il primo elemento dell'elenco è denominato con la parola o frase selezionata dall'espressione. È possibile modificare questi elementi in un secondo momento nella pagina dell'entità, ma si fa prima a selezionare un'espressione che contenga la parola desiderata per il nome dell'elemento dell'elenco.
+    ![Screenshot di immissione del nome dell'entità elenco](./media/luis-how-to-add-example-utterances/hr-create-list-1.png)
 
-Ad esempio, se si desidera creare un elenco di tipi di bevande e si seleziona la parola `h2o` dall'espressione per creare l'entità, l'elenco avrebbe un elemento con il nome h20. Se si desidera usare un nome più generico, è sufficiente scegliere un'espressione che lo contenga. 
 
-1. Nell'espressione, selezionare la parola che compare come primo elemento nell'elenco, quindi inserire il nome dell'elenco nella casella di testo e selezionare **Crea una nuova entità**.   
+1. Nella casella popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) denominare l'entità e selezionare **List** (Elenco) come tipo. Aggiungere i sinonimi di questo elemento elenco, quindi selezionare **Done** (Chiudi). 
 
-    ![Screenshot della pagina dei dettagli delle finalità, con il pulsante per la creazione di una nuova entità evidenziato](./media/luis-how-to-add-example-utterances/create-drink-list-entity.png)
+    ![Screenshot di immissione dei sinonimi dell'entità elenco](./media/luis-how-to-add-example-utterances/hr-create-list-2.png)
 
-2. Nella finestra di dialogo **Che tipo di entità vuoi creare?** finestra di dialogo, aggiungere sinonimi di questa voce dell'elenco. Per l'elemento acqua in un elenco di bevande, aggiungere `h20`, `perrier` e `waters`, quindi selezionare **Fine**. Si noti che "waters" (acque) viene aggiunto perché i sinonimi dell'elenco vengono associati a livello di token. Nella cultura inglese si usa invece il livello di parola, per cui "waters" non verrebbe associata a "water" (acqua), a meno che non sia presente nell'elenco. 
+    È possibile aggiungere più elementi elenco o più sinonimi di elementi etichettando altre espressioni o modificando l'entità da **Entities** (Entità) nel riquadro di spostamento a sinistra. Con la [modifica](luis-how-to-add-entities.md#add-list-entities) delle entità è possibile aggiungere altri elementi con sinonimi corrispondenti o importare un elenco. 
 
-    ![Schermata della finestra di dialogo Che tipo di entità vuoi creare?](./media/luis-how-to-add-example-utterances/drink-list-ddl.png)
+## <a name="add-composite-entity"></a>Aggiungere un'entità composita
 
-    Questo elenco di bevande ha un solo tipo, l'acqua. È possibile aggiungere più tipi di bevande etichettando altre espressioni o modificando l'entità dal menu **Entità** nel riquadro di spostamento sinistro. Con la [modifica](luis-how-to-add-entities.md#add-list-entities) delle entità è possibile aggiungere altri elementi con sinonimi corrispondenti o [importare](luis-how-to-add-entities.md#import-list-entity-values) un elenco. 
+Vengono create entità composite da **entità** esistenti in un'entità padre. 
 
-    Per altre informazioni sull'estrazione di entità elenco dalla risposta alla query JSON sull'endpoint, vedere [Estrazione di dati](luis-concept-data-extraction.md#list-entity-data). Per altre informazioni sull'uso di un'entità elenco, seguire la [guida introduttiva](luis-quickstart-intent-and-list-entity.md).
+Ipotizzando l'espressione, `Does John Smith work in Seattle?`, un'espressione composita può restituire informazioni sull'entità del nome del dipendente e la posizione in un singolo oggetto padre. 
 
-## <a name="add-synonyms-to-the-list-entity"></a>Aggiungere sinonimi all'entità elenco 
-Aggiungere un sinonimo all'entità elenco selezionando la parola o la frase nell'espressione. Se si dispone di un'entità elenco Bevanda e si desidera aggiungere `agua` come sinonimo per "water" (acqua), seguire questi passaggi:
+Il nome del dipendente, John Smith, è un'entità [personName](luis-reference-prebuilt-person.md) precompilata. La posizione, Seattle, è un'entità personalizzata semplice. Dopo aver creato e taggato le due entità in un'espressione di esempio, tali entità possono essere sottoposte a wrapping in un'entità composita. 
 
-Nell'espressione, selezionare il sinonimo, ad esempio `aqua` per "water", quindi selezionare il nome dell'entità elenco nell'elenco a discesa, ad esempio **Bevanda**, e selezionare **Imposta come sinonimo**. A questo punto, selezionare l'elemento sinonimo nell'elenco, ad esempio **water**.
+1. Per eseguire il wrapping di singole entità in una composita, selezionare la **prima** entità con etichetta (la più a sinistra) nell'espressione per l'entità composita. Viene visualizzato un elenco di riepilogo a discesa che mostra le opzioni disponibili per questa selezione.
 
-![Screenshot della pagina dei dettagli delle finalità, con evidenziato il comando Create a new normalized view (Crea una nuova vista normalizzata)](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+1. Selezionare **Wrap in composite entity** (Esegui wrapping nell'entità composita) dall'elenco a discesa. 
 
-## <a name="create-new-item-for-list-entity"></a>Creare un nuovo elemento per l'entità elenco
-Creare un nuovo elemento per un'entità elenco esistente selezionando la parola o la frase nell'espressione. Se si dispone di un elenco di dipendenti e si desidera aggiungere `Bob Smith` come nuovo elemento, seguire questi passaggi:
+    ![Screenshot di selezione "Wrap in composite entity" (Esegui wrapping nell'entità composita)](./media/luis-how-to-add-example-utterances/hr-create-composite-1.png)
 
-Selezionare nell'espressione la parola o frase per il nuovo elemento dell'elenco, ad esempio `Bob Smith`, quindi selezionare il nome dell'entità elenco nell'elenco a discesa, ad esempio **Dipendente**, e poi selezionare **Create a new normalized view** (Crea una nuova vista normalizzata). 
+1. Selezionare l'ultima parola dell'entità composita (la più a destra). Si noti che una linea verde segue l'entità composita.
 
-![Schermata di aggiunta di un nuovo elemento dell'elenco](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
+1. Inserire il nome dell'entità composita nell'elenco a discesa.
 
-La parola è ora evidenziata in blu. Se si passa il mouse sulla parola, viene visualizzato un tag che mostra il nome dell'elemento dell'elenco, ad esempio "tea" (tè).
-
-![Screenshot del tag del nuovo elemento dell'elenco](./media/luis-how-to-add-example-utterances/list-entity-item-name-tag.png)
-
-## <a name="wrap-entities-in-composite-label"></a>Eseguire il wrapping delle entità in un'etichetta composita
-Le entità composite vengono create nella pagina **Entità** e non è possibile crearle nella pagina delle finalità. Una volta creata l'entità composita, è possibile eseguire il wrapping delle entità in un'espressione nella pagina delle finalità. 
-
-Presupponendo l'espressione `book 2 tickets from Seattle to Cairo`, un'espressione composita può restituire informazioni di entità sul conteggio dei biglietti (2), l'origine (Seattle) e la destinazione (Il Cairo) in una singola entità padre. 
-
-Seguire questi [passaggi](luis-how-to-add-entities.md#add-prebuilt-entity) per aggiungere l'entità predefinita **numero**. Dopo aver creato l'entità, `2` nell'espressione è blu, indicando che si tratta di un'entità con etichette. Le entità predefinite sono etichettate da LUIS. È impossibile aggiungere o rimuovere l'etichetta di un'entità predefinita da una singola espressione. È possibile solo aggiungere o rimuovere tutte le etichette predefinite aggiungendo o rimuovendo l'entità predefinita dall'applicazione.
-
-Seguire questi [passaggi](#add-hierarchical-entity-and-label) per creare un'entità gerarchica **Location**. Etichettare l'origine e la destinazione nell'espressione di esempio. 
-
-Prima di eseguire il wrapping delle entità in un'entità composita, assicurarsi che tutte le entità figlie siano evidenziate in blu, ovvero che siano state etichettate nell'espressione.
-
-1. Per eseguire il wrapping di singole entità in una composito, selezionare la prima entità con etichetta nell'espressione per l'entità composita. Nell'espressione di esempio `book 2 tickets from Seattle to Cairo`, la prima entità è il numero 2. Viene visualizzato un elenco di riepilogo a discesa che mostra le opzioni disponibili per questa selezione.
-
-    ![Screenshot del numero selezionato con le opzioni dell'elenco a discesa evidenziate](./media/luis-how-to-add-example-utterances/wrap-1.png)
-
-2. Selezionare **Wrap in composite entity** (Esegui wrapping nell'entità composita) dall'elenco a discesa. 
-
-    ![Schermata delle opzioni dell'elenco a discesa per il wrapping nelle entità composite con l'opzione corrispondente evidenziata](./media/luis-how-to-add-example-utterances/wrap-2.png)
-
-3. Selezionare l'ultima parola dell'entità composita. Nell'espressione di questo esempio, selezionare "Location::Destination" (Ubicazione::Destinazione, ovvero il Cairo). La linea verde si trova ora sotto tutte le parole composite dell'espressione, incluse quelle che non rappresentano entità.
-
-    ![Schermata della pagina della finalità BookFlight con il numero evidenziato](./media/luis-how-to-add-example-utterances/wrap-composite.png)
-
-4. Selezionare il nome dell'entità composita dall'elenco a discesa. In questo esempio si tratta di **TicketOrder**.
-
-    ![Schermata di wrapping delle parole con l'entità composita, con il nome di quest'ultima evidenziato nell'elenco a discesa](./media/luis-how-to-add-example-utterances/wrap-4.png)
+    ![Screenshot di immissione del nome dell'entità](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     Quando si esegue correttamente il wrapping delle entità, una linea verde viene aggiunta sotto l'intera frase.
 
-    ![Screenshot dell'espressione con l'entità composita evidenziata](./media/luis-how-to-add-example-utterances/wrap-5.png)
+1. Convalidare i dettagli dell'entità composita nella finestra popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) quindi selezionare **Done** (Chiudi).
 
-    Per altre informazioni sull'estrazione dell'entità composita dalla risposta alla query JSON sull'endpoint, vedere [Estrazione di dati](luis-concept-data-extraction.md#composite-entity-data). Per altre informazioni sull'uso di un'entità composita, seguire la relativa [esercitazione](luis-tutorial-composite-entity.md).
+    ![Screenshot della finestra popup dei dettagli dell'entità](./media/luis-how-to-add-example-utterances/hr-create-composite-3.png)
 
-## <a name="add-hierarchical-entity-and-label"></a>Aggiungere un'entità e un'etichetta gerarchiche
+1. L'entità composita viene visualizzata con entrambe le evidenziazioni blu per le singole entità e una sottolineatura verde per l'intera entità composita. 
+
+    ![Schermata della pagina dei dettagli delle finalità, con l'entità composita](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
+
+## <a name="add-hierarchical-entity"></a>Aggiungere un'entità gerarchica
+
 Un'entità gerarchica è una categoria di entità con apprendimento su base contestuale e correlate per concetto. Nell'esempio seguente, l'entità contiene ubicazioni di origine e destinazione. 
 
-Nell'emissione `Book 2 tickets from Seattle to Cairo`, Seattle è l'origine, mentre Il Cairo è la destinazione. Ogni ubicazione è diversa a livello di contesto e viene appresa dall'ordine e dalla scelta delle parole nell'espressione.
+Nell'emissione `Move John Smith from Seattle to Cairo`, Seattle è l'origine, mentre Il Cairo è la destinazione. Ogni ubicazione è diversa a livello di contesto e viene appresa dall'ordine e dalla scelta delle parole nell'espressione.
 
-1. Nella pagina delle finalità, selezionare "Seattle" nell'espressione, quindi inserire il nome dell'entità e selezionare **Crea una nuova entità**.
+1. Nella pagina delle finalità selezionare `Seattle` nell'espressione, quindi inserire il nome dell'entità `Location` e premere INVIO sulla tastiera.
 
-    ![Screenshot della finestra di dialogo per la creazione di etichette gerarchiche di un'entità](./media/luis-how-to-add-example-utterances/create-hier-ent-1.png)
+    ![Screenshot della finestra di dialogo per la creazione di etichette gerarchiche di un'entità](./media/luis-how-to-add-example-utterances/hr-hier-1.png)
 
-2. Nella finestra di dialogo popup, selezionare il **tipo di entità** gerarchico, quindi aggiungere `Origin` e `Destination` come elementi figlio e selezionare **Fine**.
+1. Nella finestra popup **What type of entity do you want to create?** (Che tipo di entità vuoi creare?) selezionare il _gerarchico_ per **Tipo di entità**, quindi aggiungere `Origin` e `Destination` come elementi figlio e selezionare **Done** (Chiudi).
 
     ![Screenshot della pagina dei dettagli delle finalità, con l'entità ToLocation evidenziata](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
 
-3. La parola nell'espressione viene etichettata con l'entità gerarchica padre. È necessario assegnare la parola a un'entità figlio. Tornare all'espressione nella pagina delle finalità. Selezionare la parola quindi nell'elenco a discesa scegliere il nome dell'entità creata e seguire il menu a destra per scegliere l'entità figlio corretta.
+1. La parola nell'espressione viene etichettata con l'entità gerarchica padre. È necessario assegnare la parola a un'entità figlio. Tornare all'espressione nella pagina dei dettagli delle finalità. Selezionare la parola quindi nell'elenco a discesa scegliere il nome dell'entità creata e seguire il menu a destra per scegliere l'entità figlio corretta.
 
-    ![Screenshot della pagina dei dettagli delle finalità, con l'entità ToLocation evidenziata](./media/luis-how-to-add-example-utterances/label-tolocation.png)
+    ![Screenshot della pagina dei dettagli delle finalità, con l'entità ToLocation evidenziata](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >I nomi delle entità figlio devono essere univoci per tutte le entità in una singola app. Due diverse entità gerarchiche non possono contenere entità figlio con lo stesso nome. 
-
-    Per altre informazioni sull'estrazione dell'entità gerarchica dalla risposta alla query JSON sull'endpoint, vedere [Estrazione di dati](luis-concept-data-extraction.md#hierarchical-entity-data). Per altre informazioni sull'uso delle entità gerarchiche, seguire la relativa [guida introduttiva](luis-quickstart-intent-and-hier-entity.md).
 
 ## <a name="entity-status-predictions"></a>Previsioni dello stato dell'entità
 
@@ -176,10 +138,10 @@ In caso di discrepanza della previsione la casella dell'entità visualizza un pu
 
 La linea rossa può essere presente nelle circostanze seguenti:
 
-    * Quando un'espressione viene immessa prima che l'entità venga etichettata
-    * Quando l'etichetta viene applicata all'entità
-    * Quando l'etichetta viene rimossa dall'entità
-    * Quando per il testo viene prevista più di un'etichetta di entità 
+   * Quando un'espressione viene immessa prima che l'entità venga etichettata
+   * Quando l'etichetta viene applicata all'entità
+   * Quando l'etichetta viene rimossa dall'entità
+   * Quando per il testo viene prevista più di un'etichetta di entità 
 
 Le soluzioni seguenti consentono di risolvere la discrepanza nella previsione dell'entità:
 
@@ -190,40 +152,38 @@ Le soluzioni seguenti consentono di risolvere la discrepanza nella previsione de
 |Testo correttamente etichettato|entità con evidenziazione blu, sottolineatura rossa|Previsione errata|Fornire più espressioni con l'entità correttamente etichettata in diverse posizioni e ambiti di utilizzo. Le espressioni correnti non sono sufficienti per insegnare a LUIS che questa è l'entità oppure nel contesto sono presenti entità simili. Le entità simili devono essere combinate in un'unica entità in modo da non confondere LUIS. Un'altra soluzione consiste nell'aggiungere un elenco di frasi per migliorare la significatività delle parole. |
 |Testo non correttamente etichettato|entità con evidenziazione blu, sottolineatura rossa|Previsione corretta| Fornire più espressioni con l'entità correttamente etichettata in diverse posizioni e ambiti di utilizzo. 
 
+## <a name="other-actions"></a>Altre azioni
 
-## <a name="remove-entity-labels-from-utterances"></a>Rimuovere le etichette di entità dalle espressioni
+È possibile eseguire azioni su espressioni di esempio come un gruppo selezionato o un singolo elemento. I gruppi di espressioni di esempio selezionati cambiano il menu a comparsa sopra l'elenco. I singoli elementi possono usare sia il menu a comparsa sopra l'elenco sia i singoli puntini di sospensione alla fine di ogni riga di espressione. 
+
+### <a name="remove-entity-labels-from-utterances"></a>Rimuovere le etichette di entità dalle espressioni
+
 È possibile rimuovere le etichette di entità con apprendimento automatico da un'espressione nella pagina delle finalità. Se l'entità non è stata appresa automaticamente, non potrà essere rimossa da un'espressione. Se si desidera rimuovere un'entità non appresa automaticamente dall'espressione, sarà necessario eliminare l'entità dall'intera app. 
 
 Per rimuovere l'etichetta di un'entità appresa automaticamente da un'espressione, selezionare l'entità nell'espressione. Quindi selezionare **Rimuovi etichetta** nella casella di riepilogo a discesa dell'entità che viene visualizzata.
 
 ![Schermata della pagina dei dettagli delle finalità, con l'opzione Rimuovi etichetta evidenziata](./media/luis-how-to-add-example-utterances/remove-label.png) 
 
-## <a name="add-prebuilt-entity-label"></a>Aggiungere un'etichetta di un'entità predefinita
-Se si aggiungono le entità predefinite all'app LUIS, non sarà necessario etichettare le espressioni con tali entità. Per altre informazioni sulle entità predefinite e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-prebuilt-entity).
+### <a name="add-prebuilt-entity-label"></a>Aggiungere un'etichetta di un'entità predefinita
 
-## <a name="add-regular-expression-entity-label"></a>Aggiungere un'etichetta di un'entità di espressione regolare
-Se si aggiungono le entità di un'espressione regolare all'app LUIS, non sarà necessario etichettare le espressioni con tali entità. Per altre informazioni sulle entità di espressioni regolari e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-regular-expression-entities).
+Quando si aggiungono le entità predefinite all'app LUIS, non è necessario taggare le espressioni con tali entità. Per altre informazioni sulle entità predefinite e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-prebuilt-entity).
 
-## <a name="create-a-pattern-from-an-utterance"></a>Creare un criterio a partire da un'espressione
+### <a name="add-regular-expression-entity-label"></a>Aggiungere un'etichetta di un'entità di espressione regolare
+
+Se si aggiungono le entità di un'espressione regolare all'app LUIS, non sarà necessario taggare le espressioni con tali entità. Per altre informazioni sulle entità di espressioni regolari e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-regular-expression-entities).
+
+
+### <a name="create-a-pattern-from-an-utterance"></a>Creare un criterio a partire da un'espressione
+
 Vedi [Aggiungi un criterio da un'espressione esistente nella pagina delle entità o finalità](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
-## <a name="add-patternany-entity-label"></a>Aggiungere l'etichetta di un'entità pattern.any
+
+### <a name="add-patternany-entity"></a>Aggiungere l'entità pattern.any
+
 Se si aggiungono le entità pattern.any all'app LUIS, non sarà possibile etichettare le espressioni con tali entità. Esse sono valide solo nei modelli. Per altre informazioni sulle entità pattern.any e su come aggiungerle, vedere [Aggiungere entità](luis-how-to-add-entities.md#add-patternany-entities).
 
-<!--
-Fix this - moved to luis-how-to-add-intents.md - how ?
-
-## Search in utterances
-## Prediction discrepancy errors
-## Filter by intent prediction discrepancy errors
-## Filter by entity type
-## Switch to token view
-## Delete utterances
-## Edit an utterance
-## Reassign utterances
-
--->
 ## <a name="train-your-app-after-changing-model-with-utterances"></a>Eseguire il training dell'app dopo la modifica del modello con le espressioni
+
 Dopo aver aggiunto, modificato o rimosso le espressioni, [eseguire il training](luis-how-to-train.md) e [pubblicare](luis-how-to-publish-app.md) l'app affinché le modifiche siano attive per le query di endpoint. 
 
 ## <a name="next-steps"></a>Passaggi successivi

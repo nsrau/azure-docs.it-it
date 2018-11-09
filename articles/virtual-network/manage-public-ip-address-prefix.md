@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 71dee9f36a3e8e11cc23f966c9157f6409a3b5e0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 32ad02583f84a84c494dc8300834cd9ff2f0d771
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405734"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094974"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creare, modificare o eliminare un prefisso dell'indirizzo IP pubblico
 
@@ -62,8 +62,8 @@ I prefissi di indirizzi IP pubblici prevedono un addebito. Per informazioni dett
 
 |Strumento|Comando|
 |---|---|
-|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-create)|
-|PowerShell|[New-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/new-azurermpublicipaddressprefix)|
+|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
+|PowerShell|[New-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/new-azurermpublicipprefix)|
 
 ## <a name="create-a-static-public-ip-address-from-a-prefix"></a>Creare un indirizzo IP pubblico statico di un prefisso
 Dopo aver creato un prefisso, è necessario creare gli indirizzi IP statici di un prefisso. A questo scopo, eseguire i seguenti passaggi.
@@ -71,7 +71,7 @@ Dopo aver creato un prefisso, è necessario creare gli indirizzi IP statici di u
 1. Nella casella che contiene il testo *Cerca risorse*, nella parte superiore del portale di Azure, digitare *prefisso di indirizzo ip pubblico*. Selezionare la voce **prefissi di indirizzi IP pubblici** visualizzata nei risultati della ricerca.
 2. Selezionare il prefisso del quale si vogliono creare indirizzi IP pubblici.
 3. Quando viene visualizzato nei risultati della ricerca, selezionarlo e fare clic su **+ Aggiungi indirizzo IP** nella sezione Panoramica. Nel caso in cui ciò non fosse visualizzato, verificare che si stia usando il collegamento corretto per l'anteprima: https://aka.ms/publicipprefixportal
-4. In **Crea indirizzi IP pubblici** immettere o selezionare i valori per le impostazioni seguenti. Poiché un prefisso per lo SKU Standard e IPv4 statico, è sufficiente fornire le informazioni seguenti:
+4. In **Crea indirizzi IP pubblici** immettere o selezionare i valori per le impostazioni seguenti. Poiché un prefisso è per lo SKU Standard, IPv4 e statico, è sufficiente fornire le informazioni seguenti:
 
    |Impostazione|Obbligatorio?|Dettagli|
     |---|---|---|
@@ -91,8 +91,8 @@ Dopo aver creato un prefisso, è necessario creare gli indirizzi IP statici di u
 
 |Strumento|Comando|
 |---|---|
-|CLI|[az network public-ip-list](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-list) per elencare gli indirizzi IP pubblici, [az network public-ip-show](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-show) per visualizzare le impostazioni; [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) per aggiornare; [az network public-ip delete](/cli/azure/network/public-ip/prefix/az-network-public-ip-prefix-delete) per eliminare|
-|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddressprefix) per recuperare un oggetto indirizzo IP pubblico e visualizzarne le impostazioni, [Set-AzureRmPublicIpAddressPrefix](/powershell/module/azurerm.network/set-azurermpublicipaddressprefix) per aggiornare le impostazioni; [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddressprefix) per eliminare|
+|CLI|[az network public-ip-list](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-list) per elencare gli indirizzi IP pubblici, [az network public-ip-show](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-show) per visualizzare le impostazioni; [az network public-ip prefix update](/cli/azure/network/public-ip-prefix#az-network-public-ip-prefix-update) per aggiornare; [az network public-ip delete](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-delete) per eliminare|
+|PowerShell|[Get-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/get-azurermpublicipprefix) per recuperare un oggetto indirizzo IP pubblico e visualizzarne le impostazioni, [Set-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/set-azurermpublicipprefix) per aggiornare le impostazioni; [Remove-AzureRmPublicIpPrefix](/powershell/module/azurerm.network/remove-azurermpublicipprefix) per eliminare|
 
 ## <a name="permissions"></a>Autorizzazioni
 

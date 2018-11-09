@@ -1,27 +1,20 @@
 ---
-title: Eseguire la replica di un'applicazione di SharePoint multilivello con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come eseguire la replica di un'applicazione di SharePoint multilivello usando le funzionalità di Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello usando le funzionalità di Azure Site Recovery.
 author: sujayt
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: eb5801988b6fa966a0326c39be4a267ea08500a8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5e3ebd7d3aa5555fbe5ea77dece6eb3177809de7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916786"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215075"
 ---
-# <a name="replicate-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Eseguire la replica di un'applicazione di SharePoint multilivello per il ripristino di emergenza con Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurare il ripristino di emergenza per un'applicazione di SharePoint multilivello con Azure Site Recovery
 
 Questo articolo descrive dettagliatamente come proteggere un'applicazione di SharePoint usando [Azure Site Recovery](site-recovery-overview.md).
 
@@ -41,7 +34,7 @@ Questo articolo descrive dettagliatamente come proteggere un'applicazione di Sha
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, è necessario comprendere i concetti illustrati di seguito:
 
@@ -69,10 +62,10 @@ Ai fini di questo articolo sono state usate macchine virtuali VMware con Windows
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Sì | Sì
-**VMware** | Sì | Sì
-**Server fisico** | Sì | Sì
-**Azure** | ND | Sì
+**Hyper-V** | Yes | Yes
+**VMware** | Yes | Yes
+**Server fisico** | Yes | Yes
+**Azure** | ND | Yes
 
 ### <a name="sharepoint-versions"></a>Versioni di SharePoint
 Sono supportate le versioni di SharePoint Server seguenti.

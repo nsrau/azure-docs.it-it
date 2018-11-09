@@ -8,16 +8,16 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a65eb029dbf10b194bd28bf7ad82f5aa839338a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990621"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248396"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Informazioni su come usare i manifesti della distribuzione per distribuire moduli e definire route
+# <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Informazioni su come distribuire moduli e definire route in IoT Edge
 
-Ogni dispositivo IoT Edge esegue almeno due moduli: $edgeAgent e $edgeHub, che costituiscono il runtime di IoT Edge. Oltre a questi due moduli standard, qualsiasi dispositivo IoT Edge può eseguire vari moduli per portare a termine qualsiasi numero di processi. Quando si distribuiscono contemporaneamente tutti questi moduli in un dispositivo, è necessario adottare un approccio per dichiarare quali moduli devono essere inclusi e come devono interagire tra loro. 
+Ogni dispositivo IoT Edge esegue almeno due moduli: $edgeAgent e $edgeHub, che costituiscono il runtime di IoT Edge. Oltre a questi moduli, qualsiasi dispositivo IoT Edge può eseguire più moduli per portare a termine un numero qualsiasi di processi. Quando si distribuiscono contemporaneamente tutti questi moduli in un dispositivo, è necessario adottare un approccio per dichiarare quali moduli devono essere inclusi e come devono interagire tra loro. 
 
 Il *manifesto della distribuzione* è un documento JSON che descrive:
 
@@ -27,7 +27,7 @@ Il *manifesto della distribuzione* è un documento JSON che descrive:
 
 Tutti i dispositivi IoT Edge devono essere configurati con un manifesto della distribuzione. Un runtime IoT Edge appena installato segnala un codice di errore finché non verrà configurato con un manifesto valido. 
 
-Nelle esercitazioni di Azure IoT Edge viene creato un manifesto della distribuzione seguendo una procedura guidata nel portale di Azure IoT Edge. È anche possibile applicare un manifesto della distribuzione a livello di codice usando REST o IoT Hub Service SDK. Per altre informazioni, vedere [Informazioni sulle distribuzioni IoT Edge][lnk-deploy].
+Nelle esercitazioni di Azure IoT Edge viene creato un manifesto della distribuzione seguendo una procedura guidata nel portale di Azure IoT Edge. È anche possibile applicare un manifesto della distribuzione a livello di codice usando REST o IoT Hub Service SDK. Per altre informazioni, vedere [Informazioni sulle distribuzioni IoT Edge](module-deployment-monitoring.md).
 
 ## <a name="create-a-deployment-manifest"></a>Creare un manifesto di distribuzione
 
@@ -125,10 +125,10 @@ Le route vengono dichiarate nelle proprietà desiderate di **$edgeHub** con la s
 Per ogni route è necessaria un'origine e un sink, mentre la condizione è un elemento facoltativo che è possibile usare per filtrare i messaggi. 
 
 
-### <a name="source"></a>Sorgente
+### <a name="source"></a>Origine
 L'origine specifica da dove provengono i messaggi. Può essere uno dei valori seguenti:
 
-| Sorgente | DESCRIZIONE |
+| Origine | Descrizione |
 | ------ | ----------- |
 | `/*` | Tutti i messaggi da dispositivo a cloud da qualsiasi dispositivo o modulo |
 | `/messages/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un dispositivo o un modulo con o senza output |
@@ -138,7 +138,7 @@ L'origine specifica da dove provengono i messaggi. Può essere uno dei valori se
 | `/messages/modules/{moduleId}/outputs/{output}` | Qualsiasi messaggio da dispositivo a cloud inviato da {moduleId} con {output} |
 
 ### <a name="condition"></a>Condizione
-La condizione è facoltativa in una dichiarazione di route. Se si intende passare tutti i messaggi dal sink all'origine, escludere interamente la clausola **WHERE**. In alternativa è possibile usare il [linguaggio di query di hub IoT][lnk-iothub-query] per filtrare alcuni messaggi o tipi di messaggio che soddisfano la condizione.
+La condizione è facoltativa in una dichiarazione di route. Se si intende passare tutti i messaggi dal sink all'origine, escludere interamente la clausola **WHERE**. In alternativa è possibile usare il [linguaggio di query di hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md) per filtrare alcuni messaggi o tipi di messaggio che soddisfano la condizione.
 
 I messaggi che passano tra i moduli in IoT Edge sono formattati come i messaggi che passano tra i dispositivi e l'hub IoT di Azure. Tutti i messaggi sono formattati come JSON e hanno i parametri **systemProperties**, **appProperties** e **body**. 
 
@@ -159,7 +159,7 @@ FROM /messages/\* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 ### <a name="sink"></a>Sink
 Il sink definisce dove vengono inviati i messaggi. Può essere uno dei valori seguenti:
 
-| Sink | DESCRIZIONE |
+| Sink | Descrizione |
 | ---- | ----------- |
 | `$upstream` | Inviare il messaggio all'hub IoT |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Inviare il messaggio all'input `{input}` del modulo`{moduleId}` |
@@ -262,10 +262,4 @@ Questo è un esempio di un documento JSON di manifesto della distribuzione.
 
 * Per un elenco completo delle proprietà che possono o devono essere incluse in $edgeAgent e $edgeHub, vedere [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md) (Proprietà dell'agente di Edge e dell'hub di Edge).
 
-* Dopo aver appreso come usare i moduli IoT Edge, passare alla pagina [Understand the requirements and tools for developing IoT Edge modules][lnk-module-dev] (Informazioni sui requisiti e sugli strumenti per sviluppare moduli IoT Edge).
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md
+* Dopo aver appreso come usare i moduli IoT Edge, passare alla pagina [Informazioni sui requisiti e gli strumenti per sviluppare moduli di IoT Edge](module-development.md).

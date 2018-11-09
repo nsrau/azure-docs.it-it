@@ -8,18 +8,18 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0fb2cd79c0ee685ad2000c5444a84d53e462f24
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 287b95b59b0ec2b308d3e455c4f6ffce4baf4ff7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868276"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212880"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gestire le autorizzazioni per database di Esplora dati di Azure
 
 Esplora dati di Azure consente di controllare l'accesso ai database e alle tabelle, usando il modello *controllo degli accessi in base al ruolo*. In questo modello viene eseguito il mapping ai *ruoli* delle*entità di sicurezza* (utenti, gruppi e app). Le entità di sicurezza possono accedere alle risorse in base ai ruoli che vengono loro assegnati.
 
-Questo articolo descrive i ruoli disponibili e come assegnare le entità di sicurezza a tali ruoli.
+Questo articolo descrive i ruoli disponibili e come assegnare le entità di sicurezza a tali ruoli usando i comandi di gestione del portale di Azure e di Esplora dati di Azure.
 
 ## <a name="roles-and-permissions"></a>Ruoli e autorizzazioni
 

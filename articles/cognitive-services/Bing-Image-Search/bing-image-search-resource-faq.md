@@ -1,23 +1,24 @@
 ---
-title: Domande frequenti sull'API Ricerca immagini Bing di Azure | Microsoft Docs
-description: Risposte a domande comuni sull'API Ricerca immagini Bing di Servizi cognitivi Microsoft in Azure.
+title: Domande frequenti - API Ricerca immagini Bing
+titleSuffix: Azure Cognitive Services
+description: Questo articolo offre risposte alle domande frequenti su concetti, codice e scenari correlati all'API Ricerca immagini Bing.
 services: cognitive-services
 author: v-jerkin
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 15d3def94312fbde0bf3443cba54edfacafa7ab3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cdc8d8cad26ce4807c8f7bf8fe1d33f13d5799c1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35372737"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232937"
 ---
-# <a name="frequently-asked-questions-faq-about-bing-image-search-api-cognitive-services"></a>Domande frequenti sull'API Ricerca immagini Bing (Servizi cognitivi)
- 
+# <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Domande frequenti sull'API Ricerca immagini Bing
+
 Questo articolo offre risposte alle domande frequenti sui concetti, il codice e gli scenari correlati all'API Ricerca immagini Bing per Servizi cognitivi Microsoft in Azure.
 
 ## <a name="response-headers-in-javascript"></a>Intestazioni di risposta in JavaScript
@@ -52,9 +53,9 @@ Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. L
 
 ## <a name="response-headers-in-production"></a>Intestazioni di risposta in produzione
 
-L'approccio del proxy CORS descritto nella risposta precedente è appropriato per i contesti di sviluppo, testing e apprendimento. 
+L'approccio del proxy CORS descritto nella risposta precedente è appropriato per i contesti di sviluppo, testing e apprendimento.
 
-In un ambiente di produzione, tuttavia, occorre ospitare uno script lato server nello stesso dominio della pagina Web che usa l'API Ricerca Web Bing. Questo script dovrebbe effettivamente eseguire le chiamate API su richiesta dal codice JavaScript della pagina Web e restituire tutti i risultati, incluse le intestazioni, al client. Poiché le due risorse (pagina e script) condividono un'origine, CORS non entra in gioco e le intestazioni speciali sono accessibili al codice JavaScript nella pagina Web. 
+In un ambiente di produzione, tuttavia, occorre ospitare uno script lato server nello stesso dominio della pagina Web che usa l'API Ricerca Web Bing. Questo script dovrebbe effettivamente eseguire le chiamate API su richiesta dal codice JavaScript della pagina Web e restituire tutti i risultati, incluse le intestazioni, al client. Poiché le due risorse (pagina e script) condividono un'origine, CORS non entra in gioco e le intestazioni speciali sono accessibili al codice JavaScript nella pagina Web.
 
 Questo approccio protegge inoltre la chiave API dall'esposizione al pubblico, in quanto è necessaria solo allo script lato server. Lo script può usare un altro metodo (come il referrer HTTP) per verificare che la richiesta sia autorizzata.
 

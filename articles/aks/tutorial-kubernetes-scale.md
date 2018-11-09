@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5ffe7b4c7830500e5eeeeb61c57730d9a0d9df47
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4e2ba61ada16c922dc89d9d6c9aa6a0fce8b0941
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920088"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414182"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Kubernetes di Azure (AKS)
 
@@ -71,7 +71,13 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Scalare automaticamente i pod
 
-Kubernetes supporta la [scalabilità automatica orizzontale dei pod][kubernetes-hpa] per modificare il numero dei pod in una distribuzione a seconda dell'utilizzo della CPU o delle altre metriche selezionate. Il [server delle metriche][metrics-server] viene usato per fornire l'utilizzo delle risorse a Kubernetes. Per installare il server delle metriche, clonare il repository GitHub `metrics-server` e installare le definizioni di risorsa di esempio. Per visualizzare il contenuto di queste definizioni YAML, vedere [Metrics Server for Kuberenetes 1.8+][metrics-server-github] (Server delle metriche per Kuberenetes 1.8 +).
+Kubernetes supporta la [scalabilità automatica orizzontale dei pod][kubernetes-hpa] per modificare il numero dei pod in una distribuzione a seconda dell'utilizzo della CPU o delle altre metriche selezionate. Il [server delle metriche][metrics-server] viene usato per fornire l'utilizzo delle risorse a Kubernetes e viene automaticamente distribuito nei cluster AKS 1.10 e versioni successive. Per vedere la versione del proprio cluster AKS, usare il comando [az aks show][az-aks-show], come illustrato nell'esempio seguente:
+
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
+```
+
+Se la versione del cluster AKS in uso è inferiore a *1.10*, installare il server delle metriche, in caso contrario ignorare questo passaggio. Clonare il repository GitHub `metrics-server` e installare le definizioni di risorsa di esempio. Per visualizzare il contenuto di queste definizioni YAML, vedere [Metrics Server for Kuberenetes 1.8+][metrics-server-github] (Server delle metriche per Kuberenetes 1.8 +).
 
 ```console
 git clone https://github.com/kubernetes-incubator/metrics-server.git
@@ -112,7 +118,7 @@ Se è stato creato usando i comandi nell'esercitazione precedente, il cluster Ku
 Nell'esempio seguente il numero di nodi viene aumentato a tre nel cluster Kubernetes denominato *myAKSCluster*. Il completamento del comando richiede alcuni minuti.
 
 ```azurecli
-az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
+az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 ```
 
 L'output è simile a:
@@ -160,3 +166,4 @@ Passare all'esercitazione successiva per apprendere come aggiornare l'applicazio
 [aks-tutorial-update-app]: ./tutorial-kubernetes-app-update.md
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-show]: /cli/azure/aks#az-aks-show

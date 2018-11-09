@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 8602f020481249282756a952a46b32bd9e768372
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917981"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241321"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Registrare il dispositivo in un hub IoT usando il client del servizio Device Provisioning in hub IoT di Azure (.NET)
 
@@ -230,7 +230,7 @@ Avviare il dispositivo per consentire all'applicazione client di eseguire la reg
 
 ## <a name="verify-the-device-is-registered"></a>Verificare che il dispositivo sia registrato
 
-In seguito all'avvio del dispositivo dovrebbero verificarsi le azioni seguenti. Vedere l'applicazione di esempio del simulatore TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) per altri dettagli. 
+In seguito all'avvio del dispositivo dovrebbero verificarsi le azioni seguenti. Per maggiori dettagli, vedere [Provisioning Device Client Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device) (Esempio di provisioning dei client dispositivo). 
 
 1. Il dispositivo invia una richiesta di registrazione al servizio Device Provisioning.
 2. Per i dispositivi TPM il servizio Device Provisioning invia di nuovo una richiesta di registrazione a cui risponde il dispositivo. 
@@ -241,7 +241,7 @@ In seguito all'avvio del dispositivo dovrebbero verificarsi le azioni seguenti. 
     ![Successful connection to hub in the portal (Connessione all'hub nel portale riuscita)](./media/tutorial-net-provision-device-to-hub/hub-connect-success.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Registrare il dispositivo

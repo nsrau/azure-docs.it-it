@@ -1,22 +1,20 @@
 ---
-title: Panoramica del supporto multi-tenant per la replica di macchine virtuali VMware in Azure (CSP) tramite Azure Site Recovery | Microsoft Docs
-description: Offre una panoramica del supporto di Azure Site Recovery per le sottoscrizioni tenant in un ambiente multi-tenant tramite il programma CSP.
-services: site-recovery
+title: Panoramica del supporto multi-tenant per il ripristino di emergenza di macchine virtuali VMware in Azure (CSP) con Azure Site Recovery | Microsoft Docs
+description: Offre una panoramica del supporto di Azure Site Recovery per il ripristino di emergenza di VMware in un programma CSP per ambiente multi-tenant.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 89e731d6c255092b087f0615bad49185c7181f1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352872"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210757"
 ---
-# <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Panoramica del supporto multi-tenant per la replica VMware in Azure con CSP
+# <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>Panoramica del supporto multi-tenant per il ripristino di emergenza da VMware ad Azure con CSP
 
 [Azure Site Recovery](site-recovery-overview.md) supporta ambienti multi-tenant per sottoscrizioni tenant. Supporta anche la multi-tenancy per le sottoscrizioni tenant create e gestite tramite il programma Microsoft Cloud Solution Provider (CSP).
 

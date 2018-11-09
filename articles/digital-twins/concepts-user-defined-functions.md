@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: b7561848ffd0158e22e97530774112dcee2a9864
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a45f82b142ee4f4c9c88ea755607b88323feaae5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323787"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210126"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
 
@@ -25,7 +25,7 @@ Quando i dispositivi inviano dati di telemetria a Gemelli digitali, gli sviluppa
 
 ![Flusso di elaborazione dei dati di Gemelli digitali][1]
 
-1. La fase di _convalida_ trasforma il messaggio di telemetria in ingresso in un formato [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) facilmente riconoscibile. Questa fase esegue anche la convalida di dispositivi e sensori.
+1. La fase di _convalida_ trasforma il messaggio di telemetria in ingresso in un formato [**oggetto di trasferimento dati**](https://en.wikipedia.org/wiki/Data_transfer_object) facilmente riconoscibile. Questa fase esegue anche la convalida di dispositivi e sensori.
 1. La fase di _associazione_ trova la o le funzioni definite dall'utente appropriate da eseguire. I matcher predefiniti trovano le funzioni definite dall'utente in base alle informazioni su dispositivi, sensori e spazi dal messaggio di telemetria in ingresso.
 1. La fase di _calcolo_ esegue le funzioni definite dall'utente associate nella fase precedente. Queste funzioni possono leggere e aggiornare i valori calcolati nei nodi del grafico spaziale e possono emettere notifiche personalizzate.
 1. La fase di _invio_ instrada tutte le notifiche personalizzate dalla fase di calcolo agli endpoint definiti nel grafico.
@@ -40,11 +40,11 @@ L'elaborazione dei dati in Gemelli digitali di Azure consiste nella definizione 
 
 I _matcher_ definiscono un set di condizioni che valutano quali azioni verranno eseguite in base alla telemetria dei sensori in ingresso. Queste condizioni per determinare l'associazione possono includere proprietà del sensore, del dispositivo padre del sensore e dello spazio padre del sensore. Le condizioni sono espresse come confronti rispetto a un [percorso JSON](http://jsonpath.com/), come mostrato nell'esempio seguente:
 
-- Tutti i sensori con tipo di dati `Temperature`.
+- Tutti i sensori del tipo di dati **Temperature**.
 - Con `01` nella rispettiva porta.
-- Che appartengono a dispositivi con la chiave di proprietà estesa `Manufacturer` impostata sul valore `GoodCorp`.
-- Che appartengono a spazi di tipo `Venue`.
-- Che sono discendenti dell'elemento `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD` padre.
+- Che appartengono a dispositivi con la chiave di proprietà estesa **Manufacturer** impostata sul valore `"GoodCorp"`.
+- Che appartengono a spazi di tipo `"Venue"`.
+- Che sono discendenti dell'elemento **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD` padre.
 
 ```JSON
 {

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 251d1a187c2a6742c361349274fd1e0bb1e41525
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817150"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248917"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
@@ -59,7 +59,7 @@ Di seguito viene indicato un flusso di dati generale per il riepilogo dei passag
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerazioni sull'uso del runtime di integrazione self-hosted
 
-- Un singolo runtime di integrazione self-hosted può essere usato per più origini dati locali e può essere condiviso con un'altra data factory nello stesso tenant di Azure Active Directory. Per altre informazioni, vedere [Condivisione di un runtime di integrazione self-hosted](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
+- Un singolo runtime di integrazione self-hosted può essere usato per più origini dati locali. e può essere condiviso con un'altra data factory nello stesso tenant di Azure Active Directory. Per altre informazioni, vedere [Condivisione di un runtime di integrazione self-hosted](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
 - In un computer può essere installata una sola istanza di un runtime di integrazione self-hosted. Se sono presenti due data factory che richiedono l'accesso alle origini dati locali, è necessario installare il runtime di integrazione self-hosted nei due computer locali. In altre parole, un runtime di integrazione self-hosted viene associato a una data factory specifica.
 - Il runtime di integrazione self-hosted non deve trovarsi nello stesso computer dell'origine dati. Se tuttavia il runtime di integrazione self-hosted è più vicino all'origine dati, il tempo di connessione a quest'ultima è minore. Si consiglia di installare il runtime di integrazione self-hosted in un computer diverso da quello che ospita l'origine dati locale. Quando il runtime di integrazione self-hosted e l'origine dati si trovano in computer diversi, non competono per accedere alle risorse.
 - È possibile che più runtime di integrazione self-hosted siano presenti in computer diversi che si connettono alla stessa origine dati locale. Potrebbero essere disponibili, ad esempio, due runtime di integrazione self-hosted che servono due data factory per cui è registrata la stessa origine dati locale.
@@ -67,7 +67,7 @@ Di seguito viene indicato un flusso di dati generale per il riepilogo dei passag
 - Il runtime di integrazione self-hosted deve essere usato per supportare l'integrazione dei dati in una rete virtuale di Azure.
 - Considerare l'origine dati come un'origine dati locale protetta da firewall anche quando si usa Azure ExpressRoute. Usare il runtime di integrazione self-hosted per stabilire la connettività tra il servizio e l'origine dati.
 - È necessario usare il runtime di integrazione self-hosted anche se l'archivio dati si trova nel cloud su una macchina virtuale IaaS di Azure.
-- In un runtime di integrazione self-hosted installato in un'istanza di Windows Server in cui è abilitata la crittografia FIPS potrebbero verificarsi errori di esecuzione delle attività. Per risolvere questo problema, disabilitare la crittografia FIPS nel server. Per disabilitare la crittografia FIPS, modificare il valore del Registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
+- In un runtime di integrazione self-hosted installato in un'istanza di Windows Server in cui è abilitata la crittografia FIPS potrebbero verificarsi errori di esecuzione delle attività. Per risolvere questo problema, disabilitare la crittografia FIPS nel server. Per disabilitare la crittografia FIPS compatibile, modificare il valore del Registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -109,7 +109,7 @@ Per installare il runtime di integrazione self-hosted, è possibile scaricare un
 
 
 ## <a name="high-availability-and-scalability"></a>Disponibilità e scalabilità elevate
-Un runtime di integrazione self-hosted può essere associato a più computer locali, definiti nodi. È possibile avere fino a quattro nodi associati a un runtime di integrazione self-hosted. Di seguito vengono indicati i vantaggi della presenza di più nodi (computer locali con un gateway installato) per un gateway logico:
+Un runtime di integrazione self-hosted può essere associato a più computer locali, Questi computer sono chiamati nodi. È possibile avere fino a quattro nodi associati a un runtime di integrazione self-hosted. Di seguito vengono indicati i vantaggi della presenza di più nodi (computer locali con un gateway installato) per un gateway logico:
 * Disponibilità più elevata del runtime di integrazione self-hosted in modo che non sia più il singolo punto di guasto nella soluzione per Big Data o nell'integrazione dei dati cloud con Azure Data Factory, assicurando la continuità fino a quattro nodi.
 * Miglioramento delle prestazioni e della velocità effettiva durante lo spostamento dati tra archivi dati locali e cloud. Ottenere altre informazioni sui [confronti delle prestazioni](copy-activity-performance.md).
 
@@ -147,6 +147,8 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 
 È possibile usare nuovamente un'infrastruttura del runtime di integrazione self-hosted esistente già configurata in una data factory. In questo modo è possibile creare un *runtime di integrazione self-hosted collegato* in una data factory diversa usando come riferimento un runtime di integrazione self-hosted (condiviso) esistente.
 
+Per condividere un runtime di integrazione self-hosted usando PowerShell, vedere [Creare un runtime di integrazione self-hosted condiviso in Azure Data Factory con PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
+
 ### <a name="terminology"></a>Terminologia
 
 - **Runtime di integrazione condiviso**: runtime di integrazione self-hosted originale in esecuzione in un'infrastruttura fisica.  
@@ -172,13 +174,13 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 
 ### <a name="monitoring"></a>Monitoraggio 
 
-- **Runtime di integrazione condiviso**
+- **IR condiviso**
 
   ![Selezioni per la ricerca di un runtime di integrazione condiviso](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
 
   ![Scheda per il monitoraggio](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
 
-- **Runtime di integrazione collegato**
+- **IR collegato**
 
   ![Selezioni per la ricerca di un runtime di integrazione collegato](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
 
@@ -212,7 +214,7 @@ Se si sposta il cursore sul messaggio di notifica o sull'icona nell'area di noti
 
 A livello di *firewall aziendale* è necessario configurare le porte in uscita e i domini seguenti:
 
-Nomi di dominio | Porte | Descrizione
+Nomi di dominio | Porte | DESCRIZIONE
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443 | Usato per la comunicazione con il servizio di spostamento di dati back-end
 *.core.windows.net | 443 | Usato per la copia di gestione temporanea tramite Archiviazione BLOB di Azure (se configurata)

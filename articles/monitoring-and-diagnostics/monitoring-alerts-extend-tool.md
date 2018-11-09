@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990247"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415702"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Estendere avvisi da Log Analytics ad Avvisi di Azure
 La funzionalità degli avvisi in Azure Log Analytics verrà sostituita da avvisi di Azure. Nel quadro della transizione, gli avvisi originariamente configurati in Log Analytics verranno estesi in Azure. Se non si desidera attendere che gli avvisi vengano spostati automaticamente in Azure, è possibile avviare il processo:
@@ -22,31 +22,31 @@ La funzionalità degli avvisi in Azure Log Analytics verrà sostituita da avvisi
 - A livello di codice, tramite l'API AlertsVersion.  
 
 > [!NOTE]
-> Microsoft estenderà automaticamente gli avvisi creati nelle istanze del cloud pubblico in Log Analytics negli Avvisi di Azure a partire dal 14 maggio 2018, in serie ricorrenti fino al completamento. Se si riscontrano problemi con la creazione di [gruppi di azioni](monitoring-action-groups.md), adottare i [passaggi di correzione](monitoring-alerts-extend-tool.md#troubleshooting) seguenti per creare automaticamente i gruppi di azioni. È possibile applicare questi passaggi fino al 5 luglio 2018. *Non applicabile per gli utenti del cloud per il Governo e Soveriegn di Azure di Log Analytics*. 
+> Microsoft estenderà automaticamente gli avvisi creati nelle istanze del cloud pubblico in Log Analytics negli Avvisi di Azure a partire dal 14 maggio 2018, in serie ricorrenti fino al completamento. Se si riscontrano problemi con la creazione di [gruppi di azioni](monitoring-action-groups.md), adottare i [passaggi di correzione](monitoring-alerts-extend-tool.md#troubleshooting) seguenti per creare automaticamente i gruppi di azioni. È possibile applicare questi passaggi fino al 5 luglio 2018. *Non applicabile per gli utenti del cloud sovrano e di Azure per enti pubblici di Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Opzione 1: procedere dal portale di Operations Management Suite
 Nei passaggi seguenti viene descritto come estendere gli avvisi per l'area di lavoro dal portale di Operations Management Suite.  
 
 1. Nel portale di Azure fare clic su **Tutti i servizi**. Nell'elenco delle risorse digitare **Log Analytics**. Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Selezionare **Log Analytics**.
 2. Nel riquadro delle sottoscrizioni di Log Analytics selezionare un'area di lavoro e quindi selezionare il riquadro **Portale di OMS**.
-![Schermata del riquadro di sottoscrizione di Log Analytics, con il riquadro del portale di OMS evidenziato](./media/monitor-alerts-extend/azure-portal-01.png) 
+![Schermata del riquadro di sottoscrizione di Log Analytics, con il riquadro del portale di OMS evidenziato](media/monitoring-alerts-extend-tool/azure-portal-01.png) 
 3. Dopo il reindirizzamento al portale di Operations Management Suite, selezionare l'icona delle **Impostazioni**.
-![Schermata del portale di Operations Management Suite, con l'icona Impostazioni evidenziata](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+![Schermata del portale di Operations Management Suite, con l'icona Impostazioni evidenziata](media/monitoring-alerts-extend-tool/oms-portal-settings-option.png) 
 4. Nella pagina **Impostazioni** selezionare **Avvisi**.  
 5. Selezionare **Estendi in Azure**.
-![Schermata della pagina Impostazioni sul portale di Operations Management Suite, con Estendi in Azure evidenziato](./media/monitor-alerts-extend/ExtendInto.png)
+![Schermata della pagina Impostazioni sul portale di Operations Management Suite, con Estendi in Azure evidenziato](media/monitoring-alerts-extend-tool/ExtendInto.png)
 6. Nel riquadro **Avvisi** verrà visualizzata una procedura guidata in tre passaggi. Leggere la panoramica e selezionare **Avanti**.
-![Schermata del passaggio 1 della procedura guidata](./media/monitor-alerts-extend/ExtendStep1.png)  
+![Schermata del passaggio 1 della procedura guidata](media/monitoring-alerts-extend-tool/ExtendStep1.png)  
 7. Nel secondo passaggio viene visualizzato un riepilogo delle modifiche proposte, che elenca i [gruppi di azioni](monitoring-action-groups.md) appropriati per gli avvisi. Se in più avvisi sono presenti azioni simili, la procedura guidata propone di associare a tutte un singolo gruppo di azioni.  La convenzione di denominazione è la seguente: *WorkspaceName_AG_#Number*. Per continuare, selezionare **Avanti**.
-![Schermata del passaggio 2 della procedura guidata](./media/monitor-alerts-extend/ExtendStep2.png)  
+![Schermata del passaggio 2 della procedura guidata](media/monitoring-alerts-extend-tool/ExtendStep2.png)  
 8. Nell'ultimo passaggio della procedura guidata, selezionare **Fine**e confermare quando viene richiesto di avviare il processo. Facoltativamente, è possibile fornire un indirizzo di posta elettronica, in modo da ricevere una notifica quando il processo è terminato e tutti gli avvisi sono stati spostati in Avvisi di Azure.
-![Schermata del passaggio 3 della procedura guidata](./media/monitor-alerts-extend/ExtendStep3.png)
+![Schermata del passaggio 3 della procedura guidata](media/monitoring-alerts-extend-tool/ExtendStep3.png)
 
 Quando la procedura guidata è terminata, sulla pagina **Impostazioni avvisi** la possibilità di estendere gli avvisi in Azure viene rimossa. In background, gli avvisi vengono spostati in Azure. Tale operazione può richiedere alcuni minuti. Durante l'operazione, è possibile apportare modifiche agli avvisi dal portale di Operations Management Suite. È possibile visualizzare lo stato corrente dallo striscione nella parte superiore del portale. Se è stato specificato un indirizzo di posta elettronica in precedenza, una volta completato il processo verrà visualizzato un messaggio di posta elettronica.  
 
 
 Gli avvisi continueranno a essere elencati nel portale di Operations Management Suite, anche dopo essere stati spostati correttamente in Azure.
-![Schermata della pagina Impostazioni avvisi sul portale di Operations Management Suite](./media/monitor-alerts-extend/PostExtendList.png)
+![Schermata della pagina Impostazioni avvisi sul portale di Operations Management Suite](media/monitoring-alerts-extend-tool/PostExtendList.png)
 
 
 ## <a name="option-2-use-the-alertsversion-api"></a>Opzione 2: usare l'API AlertsVersion
@@ -453,14 +453,14 @@ Lo script è dettagliato e restituisce i passaggi durante l'esecuzione:
 - Se si procede con l'estensione, vengono creati nuovi gruppi di azioni di Azure e tutti gli avvisi esistenti sono associati ad essi. 
 - Lo script viene chiuso visualizzando il messaggio "Estensione completata". In caso di eventuali errori intermedi, lo script visualizza gli errori successivi.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi 
+## <a name="troubleshooting"></a>Risoluzione dei problemi 
 Durante il processo di estensione degli avvisi, alcuni problemi possono impedire al sistema di creare i [gruppi di azioni](monitoring-action-groups.md) necessari. In questi casi, viene visualizzato un messaggio di errore in uno striscione nella sezione **Avviso** del portale di Operations Management Suite o nella chiamata GET effettuata per l'API.
 
 > [!IMPORTANT]
 > Se gli utenti di Log Analyticsbase basato su cloud pubblico non eseguono la procedura di correzione seguente prima del 5 luglio 2018, gli avvisi verranno eseguito in Azure, ma non genereranno alcuna azione o notifica. Per ottenere le notifiche degli avvisi è necessario apportare una modifica manuale aggiungendo [gruppi di azioni](monitoring-action-groups.md), oppure usare il precedente [script PowerShell personalizzato](#option-3---using-custom-powershell-script).
 
 Di seguito viene elencata la procedura di correzione per ogni errore:
-- **Error: Scope Lock is present at subscription/resource group level for write operations** (Errore: a livello di sottoscrizione/gruppo di risorse è presente un blocco dell'ambito per le operazioni di scrittura): ![Schermata della pagina Impostazioni avvisi del portale di Operations Management Suite con messaggio di errore di blocco dell'ambito evidenziato](./media/monitor-alerts-extend/ErrorScopeLock.png)
+- **Error: Scope Lock is present at subscription/resource group level for write operations** (Errore: a livello di sottoscrizione/gruppo di risorse è presente un blocco dell'ambito per le operazioni di scrittura): ![Schermata della pagina Impostazioni avvisi del portale di Operations Management Suite con messaggio di errore di blocco dell'ambito evidenziato](media/monitoring-alerts-extend-tool/ErrorScopeLock.png)
 
     Quando l'ambito del blocco è abilitato, la funzionalità limita qualsiasi nuova modifica alla sottoscrizione o al gruppo di risorse contenenti l'area di lavoro di Log Analytics (Operations Management Suite). Il sistema non è in grado di estendere gli avvisi in Azure e creare i gruppi di azioni necessari.
     
@@ -468,7 +468,7 @@ Di seguito viene elencata la procedura di correzione per ogni errore:
     
     Quando si risolve l'errore tramite la procedura illustrata nell'articolo, gli avvisi in Operations Management Suite vengono estesi ad Azure nel quadro dell'esecuzione pianificata per il giorno successivo. Non è necessario intraprendere alcun'altra azione né avviare alcuna operazione.
 
-- **Error: Policy is present at subscription/resource group level** (Errore: il criterio è presente a livello di sottoscrizione/gruppo di risorse): ![Schermata della pagina Impostazioni avvisi del portale di Operations Management Suite con messaggio di errore di criterio evidenziato](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Error: Policy is present at subscription/resource group level** (Errore: il criterio è presente a livello di sottoscrizione/gruppo di risorse): ![Schermata della pagina Impostazioni avvisi del portale di Operations Management Suite con messaggio di errore di criterio evidenziato](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
     Quando [Criteri di Azure](../azure-policy/azure-policy-introduction.md) è abilitato, la funzionalità limita qualsiasi nuova risorsa in una sottoscrizione o in un gruppo di risorse contenenti l'area di lavoro di Log Analytics (Operations Management Suite). Il sistema non è in grado di estendere gli avvisi in Azure e creare i gruppi di azioni necessari.
     

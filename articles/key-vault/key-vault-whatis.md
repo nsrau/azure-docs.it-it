@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d1a6da5d599296a11678ee58cadc42d61296e8e7
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385858"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230302"
 ---
 # <a name="what-is-azure-key-vault"></a>Cos'è l'insieme di credenziali chiave di Azure?
 
@@ -39,13 +39,16 @@ Esistono 3 modi per eseguire l'autenticazione a Key Vault:
 2. **Tramite l'entità servizio e il certificato**: la seconda opzione consiste nell'usare un'entità servizio e un certificato associato che abbia accesso a Key Vault. L'onere di rotazione del certificato riguarda il proprietario dell'applicazione o lo sviluppatore e non è pertanto consigliato.
 3. **Tramite l'entità servizio e il segreto**: la terza opzione (non consigliata) consiste nell'uso di un'entità servizio e di un segreto per eseguire l'autenticazione in Key Vault.
 
+> [!NOTE]
+> Non usare l'opzione 3 precedente in quanto è difficile ruotare automaticamente il segreto del bootstrap usato per eseguire l'autenticazione in Key Vault.
+
 Di seguito sono riportati alcuni termini chiave:
 - **Tenant**: un tenant è l'organizzazione che possiede e gestisce una specifica istanza dei servizi cloud Microsoft. Il termine viene spesso usato in particolare per fare riferimento al set di servizi di Azure e Office 365 per un'organizzazione.
 - **Proprietario dell'insieme di credenziali**: il proprietario può creare un insieme di credenziali delle chiavi e ottenerne un accesso e controllo completi. Il proprietario dell'insieme di credenziali può anche configurare il controllo per registrare chi accede a segreti e chiavi. Gli amministratori possono controllare il ciclo di vita delle chiavi. Possono passare a una nuova versione della chiave, eseguirne il backup e svolgere attività correlate.
 - **Consumer dell'insieme di credenziali**: quando il proprietario dell'insieme di credenziali gli concede l'accesso, il consumer può eseguire azioni sulle risorse nell'insieme di credenziali delle chiavi. Le azioni disponibili dipendono dalle autorizzazioni concesse.
 - **Risorsa**: una risorsa è un elemento gestibile disponibile tramite Azure. Alcune risorse comuni sono le macchine virtuali, gli account di archiviazione, le app Web, i database e le reti virtuali, ma ne esistono molte altre.
 - **Gruppo di risorse**: un gruppo di risorse è un contenitore con risorse correlate per una soluzione di Azure. Il gruppo di risorse può includere tutte le risorse della soluzione o solo le risorse da gestire come gruppo. L'utente decide come allocare le risorse ai gruppi di risorse nel modo più appropriato per l'organizzazione.
-- **Entità servizio**: per accedere alle risorse protette da un tenant di Azure AD, l'entità che richiede l'accesso deve essere rappresentata da un'entità di sicurezza. Questo vale sia per gli utenti (entità utente) che per le applicazioni (entità servizio). L'entità di sicurezza definisce i criteri di accesso e le autorizzazioni per l'utente/applicazione nel tenant. Ciò abilita le funzionalità di base, ad esempio l'autenticazione dell'utente/applicazione durante l'accesso e l'autorizzazione durante l'accesso alle risorse.
+- **Entità servizio**: un'entità servizio di Azure è un'identità di sicurezza usata da app, servizi e strumenti di automazione creati dall'utente per accedere a risorse di Azure specifiche. Può essere considerata come una "identità utente" (nome utente e password o certificato) con un ruolo specifico e autorizzazioni attentamente controllate. A differenza di un'identità utente generica, un'entità servizio dovrà eseguire solo operazioni specifiche. Se le viene concesso solo il livello minimo di autorizzazioni necessarie per eseguire le attività di gestione, un'entità servizio migliora la sicurezza.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: Azure AD è il servizio Active Directory per un tenant. Ogni directory dispone di uno o più domini. A una directory possono essere associate molte sottoscrizioni, ma un solo tenant. 
 - **ID tenant di Azure**: un ID tenant è un modo univoco per identificare un'istanza di Azure AD all'interno di una sottoscrizione di Azure.
 - **Identità gestita per le risorse di Azure**: Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarli. L'uso di un'identità gestita consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure AD. È possibile usare questa identità per l'autenticazione in Key Vault o in qualsiasi servizio che supporti l'autenticazione di Azure AD, senza dover inserire le credenziali nel codice. Per altre informazioni, vedere l'immagine seguente e la [panoramica delle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).

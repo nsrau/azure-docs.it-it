@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 9/26/2018
 ms.author: victorh
-ms.openlocfilehash: 1527ed9c0a83577da9a231cb91a93ad7f182061c
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 868c20e6f0244794299678214902adf3e6e95f14
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392696"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241413"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -65,7 +65,7 @@ Il Firewall di Azure presenta i problemi noti seguenti:
 |Problema  |DESCRIZIONE  |Mitigazione  |
 |---------|---------|---------|
 |Conflitto con la funzionalità JIT (Just-in-Time) del Centro sicurezza di Azure|Se per accedere a una macchina virtuale che si trova in una subnet con una route definita dall'utente che punta a Firewall di Azure come gateway predefinito viene usata la funzionalità JIT del Centro sicurezza di Azure, questa non funziona. Ciò è dovuto al routing asimmetrico, ovvero un pacchetto viene ricevuto tramite l'indirizzo IP della macchina virtuale (accesso aperto da JIT), ma il percorso di ritorno è tramite il firewall, che elimina il pacchetto perché nel firewall non è stata stabilita alcuna sessione.|Per risolvere questo problema, posizionare le macchine virtuali JIT in una subnet separata che non contenga una route definita dall'utente al firewall.|
-|Il peering globale con hub e spoke non funziona|Il modello hub e spoke, in cui l'hub e il firewall vengono distribuiti in un'unica area di Azure con gli spoke in un'altra area di Azure connessi all'hub tramite il peering reti virtuali globale, non è supportato.|Per altre informazioni, vedere [Creare, modificare o eliminare un peering reti virtuali](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints)|
+|Il peering globale con hub e spoke non è supportato|Uso del modello hub e spoke, in cui l'hub e il firewall vengono distribuiti in un'unica area di Azure, con gli spoke in un'altra area di Azure. Le connessioni all'hub tramite il peering reti virtuali globale non è supportato.|Si tratta di un comportamento previsto da progettazione. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md#azure-firewall-limits).|
 Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non funzionano per il traffico associato a Internet|Le regole di filtro di rete per i protocolli non TCP/UDP non funzionano con SNAT per l'indirizzo IP pubblico. I protocolli non TCP/UDP sono supportati tra le subnet spoke e le reti virtuali.|Firewall di Azure usa Load Balancer Standard, [che attualmente non supporta SNAT per i protocolli IP](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#limitations). Sono in fase di studio opzioni per supportare questo scenario in una versione futura.|
 |Destination NAT (DNAT) non funziona per la porta 80 e 22.|Il campo Porta di destinazione nella raccolta di regole NAT non può includere la porta 80 o la porta 22.|Stiamo lavorando per risolvere questo problema nel prossimo futuro. Nel frattempo, è possibile usare qualsiasi altra porta come porta di destinazione nelle regole NAT. La porta 80 o 22 è ancora utilizzabile come porta convertita (ad esempio, è possibile mappare ip:81 pubblica a ip:80 privata).|
 |Supporto di PowerShell e CLI mancante per ICMP|Azure PowerShell e CLI non supportano ICMP come protocollo valido nelle regole di rete.|È comunque possibile usare ICMP come protocollo tramite il portale e l'API REST. A breve ICMP sarà aggiunto anche in PowerShell e CLI.|

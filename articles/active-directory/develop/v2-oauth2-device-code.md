@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 83c1deb7c767c29046e6c1af4452270e90b391df
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 29cbb96cc6dec4bac601e8795599f77c955c418a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987733"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230830"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 e il flusso del codice del dispositivo OAuth 2.0
 
@@ -113,7 +113,7 @@ Dal momento che il flusso del codice del dispositivo è un protocollo di polling
 | `expired_token`|  Sono trascorsi almeno `expires_in` secondi e l'autenticazione non è più possibile con questo `device_code`. | Arrestare il polling e ripristinare uno stato non autenticato. |
 
 
-### <a name="succesful-authentication-response"></a>Risposta di autenticazione con esito positivo
+### <a name="successful-authentication-response"></a>Risposta di autenticazione con esito positivo
 
 Una risposta token con esito positivo ha un aspetto simile al seguente:
 
@@ -128,9 +128,9 @@ Una risposta token con esito positivo ha un aspetto simile al seguente:
 }
 ```
 
-| Parametro | Format | DESCRIZIONE |
+| Parametro | Formato | Descrizione |
 | --------- | ------ | ----------- |
-|`token_type` | string| Sempre "Bearer". |
+|`token_type` | Stringa| Sempre "Bearer". |
 |`scope` | Stringhe separate da uno spazio | Se è stato restituito un token di accesso, verranno elencati gli ambiti per cui è valido. |
 |`expires_in`| int | Numero di secondi per cui il token di accesso incluso verrà considerato valido. |
 |`access_token`| Stringa opaca | Emessa per gli [ambiti](v2-permissions-and-consent.md) che sono stati richiesti.  |

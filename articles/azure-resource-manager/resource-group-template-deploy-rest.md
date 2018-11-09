@@ -4,22 +4,20 @@ description: Utilizzare Azure Resource Manager e l'API REST di Resource Manager 
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 1d8fbd4c-78b0-425b-ba76-f2b7fd260b45
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 10/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: ae2393d16d2c9c1000b00f5514e63c988303a83c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 058d6d398f6bb54e8569e727f118a325c338049d
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628512"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154743"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Distribuire le risorse con i modelli e l'API REST di Resource Manager
 
@@ -33,15 +31,19 @@ In questo articolo viene illustrato come utilizzare l'API REST di Resource Manag
 > 
 > 
 
-Il modello può essere un file locale oppure un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
+È possibile includere il modello nel corpo della richiesta o come collegamento a un file. Quando si usa un file, può trattarsi di un file locale oppure di un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
 
 ## <a name="deploy-with-the-rest-api"></a>Distribuire con l'API REST
 1. Impostare [parametri e intestazioni comuni](/rest/api/azure/), tra cui i token di autenticazione.
 
-2. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Create a resource group](/rest/api/resources/resourcegroups/createorupdate) (Creare un gruppo di risorse).
+1. Se non è già disponibile un gruppo di risorse, crearne uno. Specificare l'ID sottoscrizione, il nome del nuovo gruppo di risorse e il percorso per la soluzione. Per ulteriori informazioni, vedere [Create a resource group](/rest/api/resources/resourcegroups/createorupdate) (Creare un gruppo di risorse).
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+  ```
+
+  Con un corpo della richiesta del tipo:
+  ```json
   {
     "location": "West US",
     "tags": {
@@ -50,12 +52,17 @@ Il modello può essere un file locale oppure un file esterno disponibile tramite
   }
   ```
 
-3. Convalidare la distribuzione prima dell'esecuzione eseguendo l'operazione di [convalida della distribuzione di un modello](/rest/api/resources/deployments/validate) . Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
+1. Convalidare la distribuzione prima dell'esecuzione eseguendo l'operazione di [convalida della distribuzione di un modello](/rest/api/resources/deployments/validate) . Durante il test della distribuzione, specificare i parametri esattamente come quando si esegue la distribuzione (illustrata nel passaggio successivo).
 
-4. Creare una distribuzione. Fornire l'ID sottoscrizione, il nome del gruppo di risorse, il nome della distribuzione e un collegamento al modello. Per informazioni sul file di modello, vedere [File di parametri](#parameter-file). Per altre informazioni sull'API REST per creare un gruppo di risorse, vedere [Create a template deployment](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate) (Creare la distribuzione di un modello). Si noti che la **modalità** è impostata su **Incrementale**. Per eseguire una distribuzione completa, impostare **mode** su **Complete** (Completo). Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
+1. Creare una distribuzione. Fornire l'ID sottoscrizione, il nome del gruppo di risorse, il nome della distribuzione e un collegamento al modello. Per informazioni sul file di modello, vedere [File di parametri](#parameter-file). Per altre informazioni sull'API REST per creare un gruppo di risorse, vedere [Create a template deployment](/rest/api/resources/deployments/createorupdate) (Creare la distribuzione di un modello). Si noti che la **modalità** è impostata su **Incrementale**. Per eseguire una distribuzione completa, impostare **mode** su **Complete** (Completo). Quando si utilizza la modalità di completamento, fare attenzione a non eliminare inavvertitamente le risorse non presenti nel modello.
 
   ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+  ```
+
+  Con un corpo della richiesta del tipo:
+
+   ```json
   {
     "properties": {
       "templateLink": {
@@ -73,7 +80,7 @@ Il modello può essere un file locale oppure un file esterno disponibile tramite
 
     Per registrare il contenuto della risposta, il contenuto della richiesta o entrambi, includere **debugSetting** nella richiesta.
 
-  ```HTTP
+  ```json
   "debugSetting": {
     "detailLevel": "requestContent, responseContent"
   }
@@ -81,10 +88,73 @@ Il modello può essere un file locale oppure un file esterno disponibile tramite
 
     È possibile impostare l'account di archiviazione per l'utilizzzo di un token di firma di accesso condiviso (SAS). Per altre informazioni, vedere [Delegating Access with a Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature) (Delega dell'accesso con una firma di accesso condiviso).
 
+1. Anziché eseguire il collegamento ai file per il modello e i parametri, è possibile includerli nel corpo della richiesta.
+
+  ```json
+  {
+      "properties": {
+      "mode": "Incremental",
+      "template": {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+          "storageAccountType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+              "Standard_LRS",
+              "Standard_GRS",
+              "Standard_ZRS",
+              "Premium_LRS"
+            ],
+            "metadata": {
+              "description": "Storage Account type"
+            }
+          },
+          "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+              "description": "Location for all resources."
+            }
+          }
+        },
+        "variables": {
+          "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
+        },
+        "resources": [
+          {
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[variables('storageAccountName')]",
+            "apiVersion": "2018-02-01",
+            "location": "[parameters('location')]",
+            "sku": {
+              "name": "[parameters('storageAccountType')]"
+            },
+            "kind": "StorageV2",
+            "properties": {}
+          }
+        ],
+        "outputs": {
+          "storageAccountName": {
+            "type": "string",
+            "value": "[variables('storageAccountName')]"
+          }
+        }
+      },
+      "parameters": {
+        "location": {
+          "value": "eastus2"
+        }
+      }
+    }
+  }
+  ```
+
 5. Ottenere lo stato della distribuzione del modello. Per altre informazioni, vedere [Get information about a template deployment](/rest/api/resources/deployments/get) (Ottenere informazioni sulla distribuzione di un modello).
 
   ```HTTP
-  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
+  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
   ```
 
 ## <a name="redeploy-when-deployment-fails"></a>Eseguire nuovamente la distribuzione se non è riuscita
@@ -93,7 +163,7 @@ Per le distribuzioni che non vengono eseguite in modo corretto, è possibile spe
 
 Per eseguire nuovamente l'ultima distribuzione con esito positivo se la distribuzione corrente non riesce, usare:
 
-```HTTP
+```json
 "onErrorDeployment": {
   "type": "LastSuccessful",
 },
@@ -101,7 +171,7 @@ Per eseguire nuovamente l'ultima distribuzione con esito positivo se la distribu
 
 Per eseguire nuovamente una distribuzione specifica se la distribuzione corrente non riesce, usare:
 
-```HTTP
+```json
 "onErrorDeployment": {
   "type": "SpecificDeployment",
   "deploymentName": "<deploymentname>"

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/18/2018
+ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 16f557d48f8056d438d55fdd066395e7e36ed8a5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 119853df5b5234b65bdade890df1fecb72c326b7
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945485"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157378"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Guida introduttiva: Creare e gestire una condivisione file di Azure con Azure PowerShell 
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con PowerShell. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
@@ -165,6 +165,57 @@ Get-AzureStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "
 ```
 
 Anche se il cmdlet `Start-AzureStorageFileCopy` è utile per gli spostamenti di file ad hoc tra condivisioni file di Azure e contenitori di archiviazione BLOB di Azure, è consigliabile usare AzCopy per gli spostamenti più grandi (in termini di numero o di dimensioni dei file da spostare). Sono disponibili altre informazioni su [AzCopy per Windows](../common/storage-use-azcopy.md) e [AzCopy per Linux](../common/storage-use-azcopy-linux.md). AzCopy deve essere installato in locale, non è disponibile in Cloud Shell. 
+
+## <a name="create-and-manage-share-snapshots"></a>Creare e gestire gli snapshot di condivisione
+Un'altra utile attività da eseguire con una condivisione file di Azure è la creazione degli snapshot di condivisione. Uno snapshot mantiene una copia di una condivisione file di Azure eseguita in un momento specifico. Gli snapshot di condivisione sono simili alle tecnologie del sistema operativo con cui probabilmente si ha già familiarità, ad esempio:
+- [Servizio Copia Shadow del volume](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) per i file system Windows come NTFS e ReFS
+- Snapshot [Logical Volume Manager (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) per i sistemi Linux
+- Snapshot [Apple File System (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) per macOS. 
+ È possibile creare uno snapshot di condivisione usando il metodo `Snapshot` sull'oggetto di PowerShell per una condivisione file, recuperato con il cmdlet [Get-AzureStorageShare](/powershell/module/azure.storage/get-azurestorageshare). 
+
+```azurepowershell-interactive
+$share = Get-AzureStorageShare -Context $storageAcct.Context -Name "myshare"
+$snapshot = $share.Snapshot()
+```
+
+### <a name="browse-share-snapshots"></a>Esplorare gli snapshot di condivisione
+È possibile esplorare il contenuto dello snapshot di condivisione passando il riferimento allo snapshot (`$snapshot`) al parametro `-Share` del cmdlet `Get-AzureStorageFile`.
+
+```azurepowershell-interactive
+Get-AzureStorageFile -Share $snapshot
+```
+
+### <a name="list-share-snapshots"></a>Elencare gli snapshot di condivisione
+È possibile visualizzare l'elenco di snapshot acquisiti per la condivisione con il comando seguente.
+
+```azurepowershell-interactive
+Get-AzureStorageShare -Context $storageAcct.Context | Where-Object { $_.Name -eq "myshare" -and $_.IsSnapshot -eq $true }
+```
+
+### <a name="restore-from-a-share-snapshot"></a>Eseguire il ripristino da snapshot di condivisione
+È possibile ripristinare un file con il comando `Start-AzureStorageFileCopy` usato prima. Ai fini di questa guida introduttiva, si eliminerà prima il file `SampleUpload.txt` caricato in precedenza, così da poterlo ripristinare dallo snapshot.
+
+```azurepowershell-interactive
+# Delete SampleUpload.txt
+Remove-AzureStorageFile `
+    -Context $storageAcct.Context `
+    -ShareName "myshare" `
+    -Path "myDirectory\SampleUpload.txt"
+ # Restore SampleUpload.txt from the share snapshot
+Start-AzureStorageFileCopy `
+    -SrcShare $snapshot `
+    -SrcFilePath "myDirectory\SampleUpload.txt" `
+    -DestContext $storageAcct.Context `
+    -DestShareName "myshare" `
+    -DestFilePath "myDirectory\SampleUpload.txt"
+```
+
+### <a name="delete-a-share-snapshot"></a>Eliminare uno snapshot di condivisione
+È possibile eliminare uno snapshot di condivisione usando il cmdlet [Remove-AzureStorageShare](/powershell/module/azure.storage/remove-azurestorageshare) con la variabile contenente il riferimento `$snapshot` al parametro `-Share`.
+
+```azurepowershell-interactive
+Remove-AzureStorageShare -Share $snapshot
+```
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Al termine è possibile usare il cmdlet [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse correlate. 

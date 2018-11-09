@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 04c68308739f641e892a335832725ba87e36f7af
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003114"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242127"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introduzione a Servizi cloud di Azure e ASP.NET
 
 ## <a name="overview"></a>Panoramica
-Questa esercitazione illustra come creare un'applicazione .NET multilivello con un front-end MVC ASP.NET e come distribuirla in un [servizio cloud di Azure](cloud-services-choose-me.md). L'applicazione usa il [database SQL di Azure](http://msdn.microsoft.com/library/azure/ee336279), il [servizio BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e il [Servizio di accodamento di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). È possibile [scaricare il progetto di Visual Studio](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da MSDN Code Gallery.
+Questa esercitazione illustra come creare un'applicazione .NET multilivello con un front-end MVC ASP.NET e come distribuirla in un [servizio cloud di Azure](cloud-services-choose-me.md). L'applicazione usa il [database SQL di Azure](https://msdn.microsoft.com/library/azure/ee336279), il [servizio BLOB di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) e il [Servizio di accodamento di Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). È possibile [scaricare il progetto di Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) da MSDN Code Gallery.
 
 Questa esercitazione illustra come compilare ed eseguire localmente l'applicazione, come distribuirla in Azure ed eseguirla nel cloud e come creare un'applicazione completamente nuova. È possibile iniziare creando un'applicazione completamente nuova, quindi eseguire i passaggi relativi a test e distribuzione in un secondo momento, se si preferisce.
 
@@ -36,7 +36,7 @@ Questa applicazione è un BBS pubblicitario. Gli utenti creano un'inserzione tra
 L'applicazione usa il [modello di lavoro incentrato sulle code](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) per delegare a un processo back-end il lavoro di creazione delle anteprime, che comporta un utilizzo elevato della CPU.
 
 ## <a name="alternative-architecture-web-apps-and-webjobs"></a>Architettura alternativa: app Web e processi Web
-Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un'[app Web di Azure](/azure/app-service/) e si può usare la funzionalità [Processi Web](http://go.microsoft.com/fwlink/?LinkId=390226) per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](../app-service/choose-web-site-cloud-service-vm.md).
+Questa esercitazione mostra come eseguire front-end e back-end in un servizio cloud di Azure. In alternativa, si può eseguire il front-end in un'[app Web di Azure](/azure/app-service/) e si può usare la funzionalità [Processi Web](https://go.microsoft.com/fwlink/?LinkId=390226) per il back-end. Per un'esercitazione che usa Processi Web, vedere [Introduzione all'uso dell'SDK di Processi Web di Azure](https://github.com/Azure/azure-webjobs-sdk/wiki). Per informazioni su come scegliere i servizi ideali per lo scenario specifico, vedere [Confronto tra Siti Web, Servizi cloud e Macchine virtuali di Azure](../app-service/choose-web-site-cloud-service-vm.md).
 
 ## <a name="what-youll-learn"></a>Contenuto dell'esercitazione
 * Abilitare il sistema per lo sviluppo in Azure installando Azure SDK.
@@ -71,7 +71,7 @@ Quando un utente carica un'immagine, il front-end in esecuzione in un ruolo Web 
 [!INCLUDE [install-sdk](../../includes/install-sdk-2017-2015-2013.md)]
 
 ## <a name="download-and-run-the-completed-solution"></a>Download ed esecuzione della soluzione completata
-1. Scaricare e decomprimere la [soluzione completata](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
+1. Scaricare e decomprimere la [soluzione completata](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4).
 2. Avviare Visual Studio.
 3. Scegliere **Apri progetto** dal menu **File**, passare alla cartella in cui è stata scaricata la soluzione, quindi aprire il file di soluzione.
 4. Premere CTRL+MAIUSC+B per compilare la soluzione.
@@ -81,7 +81,7 @@ Quando un utente carica un'immagine, il front-end in esecuzione in un ruolo Web 
 6. Se si usa Visual Studio 2015 o versione successiva, modificare la stringa di connessione di SQL Server nel file *Web.config* dell'applicazione per il progetto ContosoAdsWeb e nel file *ServiceConfiguration.Local.cscfg* per il progetto ContosoAdsCloudService. In ogni caso, cambiare "(localdb)\v11.0" in "(localdb)\MSSQLLocalDB".
 7. Premere CTRL+F5 per eseguire l'applicazione.
 
-    Quando si esegue localmente un progetto di servizio cloud, Visual Studio richiama automaticamente l'*emulatore di calcolo* di Azure e l'*emulatore di archiviazione* di Azure. L'emulatore di calcolo usa le risorse del computer per simulare gli ambienti del ruolo Web e del ruolo di lavoro. L'emulatore di archiviazione usa un database [LocalDB di SQL Server Express](http://msdn.microsoft.com/library/hh510202.aspx) per simulare la risorsa di archiviazione cloud di Azure.
+    Quando si esegue localmente un progetto di servizio cloud, Visual Studio richiama automaticamente l'*emulatore di calcolo* di Azure e l'*emulatore di archiviazione* di Azure. L'emulatore di calcolo usa le risorse del computer per simulare gli ambienti del ruolo Web e del ruolo di lavoro. L'emulatore di archiviazione usa un database [LocalDB di SQL Server Express](https://msdn.microsoft.com/library/hh510202.aspx) per simulare la risorsa di archiviazione cloud di Azure.
 
     Alla prima esecuzione di un progetto di servizio cloud, per l'avvio degli emulatori sarà necessario circa un minuto. Dopo l'avvio dell'emulatore, nel browser predefinito verrà visualizzata la home page dell'applicazione.
 
@@ -127,7 +127,7 @@ Un servizio cloud in Azure è l'ambiente in cui sarà eseguita l'applicazione.
 5. Scegliere l'area geografica in cui si vuole distribuire l'applicazione.
 
     Questo campo specifica in quale data center viene ospitato il servizio cloud. Per un'applicazione di produzione, scegliere l'area più vicina ai clienti. Per questa esercitazione, scegliere l'area geografica più vicina alla propria ubicazione.
-5. Fare clic su **Crea**.
+5. Fare clic su **Create**(Crea).
 
     L'immagine seguente illustra la creazione di un servizio cloud il cui URL è CSvccontosoads.cloudapp.net.
 
@@ -156,7 +156,7 @@ Quando l'app è in esecuzione nel cloud, userà un database basato sul cloud.
 9. Fare clic su **Seleziona** per il nuovo server.
 
     ![Nuovo server di database SQL](./media/cloud-services-dotnet-get-started/newdbserver.png)
-10. Fare clic su **Crea**.
+10. Fare clic su **Create**(Crea).
 
 ### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 Un account di archiviazione di Azure offre risorse per l'archiviazione di dati di code e BLOB nel cloud.
@@ -179,7 +179,7 @@ In un'applicazione effettiva si creano in genere account separati per i dati del
     Quando il servizio cloud e l'account di archiviazione si trovano in data center diversi (aree diverse), la latenza aumenterà e verrà addebitato il costo relativo alla larghezza di banda esterna al data center. La larghezza di banda nell'ambito di un data center è gratuita.
 
     I gruppi di affinità di Azure offrono un meccanismo per ridurre la distanza tra le risorse in un data center e di conseguenza la latenza. In questa esercitazione non vengono utilizzati gruppi di affinità. Per altre informazioni, vedere [Come creare un gruppo di affinità in Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
-7. Fare clic su **Crea**.
+7. Fare clic su **Create**(Crea).
 
     ![Nuovo account di archiviazione](./media/cloud-services-dotnet-get-started/newstorage.png)
 
@@ -232,7 +232,7 @@ Le stringhe di connessione per l'account di archiviazione di Azure per il proget
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **ContosoAdsWeb** nella sezione **Ruoli** del progetto **ContosoAdsCloudService**, quindi scegliere **Proprietà**.
 
     ![Proprietà del ruolo](./media/cloud-services-dotnet-get-started/roleproperties.png)
-2. Fare clic sulla scheda **Impostazioni** . Nella casella di riepilogo **Configurazione servizio** selezionare **Cloud**.
+2. Fare clic sulla scheda **Impostazioni** . Nella casella di riepilogo Configurazione servizio selezionare **Cloud**.
 
     ![Configurazione del cloud](./media/cloud-services-dotnet-get-started/sccloud.png)
 3. Se si seleziona la voce **StorageConnectionString**, verrà visualizzato un pulsante con puntini di sospensione (**...**) all'estremità destra della riga. Fare clic su tale pulsante per aprire la finestra di dialogo **Crea Stringa di connessione all'account di archiviazione** .
@@ -311,7 +311,7 @@ L'impostazione `<Instances>` specifica il numero di macchine virtuali in cui Azu
 >
 
 ## <a name="create-the-application-from-scratch"></a>Creazione di un'applicazione completamente nuova
-Se non è stata ancora scaricata l' [applicazione completa](http://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), scaricarla ora. I file del progetto scaricato saranno copiati nel nuovo progetto.
+Se non è stata ancora scaricata l' [applicazione completa](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4), scaricarla ora. I file del progetto scaricato saranno copiati nel nuovo progetto.
 
 Per creare l'applicazione Contoso Ads sono necessari i passaggi seguenti:
 
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-La maggior parte del codice del controller è tipica per l'uso di un modello di dati Entity Framework con una classe DbContext. Un'eccezione è costituita dal metodo `Create` HttpPost che carica un file e lo salva nell'archiviazione BLOB. Lo strumento di associazione di modelli fornisce un oggetto [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) al metodo.
+La maggior parte del codice del controller è tipica per l'uso di un modello di dati Entity Framework con una classe DbContext. Un'eccezione è costituita dal metodo `Create` HttpPost che carica un file e lo salva nell'archiviazione BLOB. Lo strumento di associazione di modelli fornisce un oggetto [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) al metodo.
 
 ```csharp
 [HttpPost]
@@ -766,8 +766,8 @@ L'applicazione Contoso Ads è intenzionalmente semplice, in modo da essere idone
 
 Di seguito sono indicate alcune applicazioni di esempio per servizi cloud che illustrano procedure di codifica più simili a quelle del mondo reale, elencate in ordine di complessità crescente:
 
-* [PhluffyFotos](http://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Concettualmente simile a Contoso Ads, implementa però più funzionalità e procedure più simili a quelle del mondo reale.
-* [Applicazione multilivello di Servizi cloud di Azure con tabelle, code e BLOB](http://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduce le tabelle di archiviazione di Azure, nonché i BLOB e le code. Basata su una versione precedente di Azure SDK per .NET, richiederà alcune modifiche per funzionare con la versione corrente.
+* [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Concettualmente simile a Contoso Ads, implementa però più funzionalità e procedure più simili a quelle del mondo reale.
+* [Applicazione multilivello di Servizi cloud di Azure con tabelle, code e BLOB](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introduce le tabelle di archiviazione di Azure, nonché i BLOB e le code. Basata su una versione precedente di Azure SDK per .NET, richiederà alcune modifiche per funzionare con la versione corrente.
 
 Per informazioni generali sullo sviluppo per il cloud, vedere l'articolo relativo alla [creazione di applicazioni cloud funzionanti con Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 

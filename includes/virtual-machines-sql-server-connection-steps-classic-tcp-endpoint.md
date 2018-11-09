@@ -1,8 +1,21 @@
+---
+author: rothja
+ms.service: virtual-machines-sql
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: jroth
+ms.openlocfilehash: d4e8d99cd7c67136f359772664eb017c6207e6e4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254466"
+---
 ### <a name="create-a-tcp-endpoint-for-the-virtual-machine"></a>Creare un endpoint TCP per la macchina virtuale
 Per poter accedere a SQL Server da internet, nella macchina virtuale deve essere presente un endpoint per l'ascolto delle comunicazioni TCP in entrata. In questo passaggio di configurazione di Azure, il traffico della porta TCP in ingresso viene indirizzato a una porta TCP accessibile alla macchina virtuale.
 
 > [!NOTE]
-> Se ci si connette all'interno della stesso servizio cloud o rete virtuale, non è necessario creare un endpoint accessibile pubblicamente. In tal caso, è possibile continuare al passaggio successivo. Per altre informazioni, vedere [Scenari di connessione](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
+> Se ci si connette all'interno della stesso servizio cloud o della stessa rete virtuale, non è necessario creare un endpoint accessibile pubblicamente. In tal caso, è possibile continuare al passaggio successivo. Per altre informazioni, vedere [Scenari di connessione](../articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect.md#connection-scenarios).
 > 
 > 
 

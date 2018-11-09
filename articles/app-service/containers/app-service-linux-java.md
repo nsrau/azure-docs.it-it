@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815172"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418535"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guida dello sviluppatore Java per il servizio app in Linux
 
@@ -147,6 +147,8 @@ Seguire le istruzioni illustrate in [Associare un certificato SSL personalizzato
 >[!NOTE]
 > Se l'applicazione usa Spring Framework o Spring Boot, è possibile impostare le informazioni di connessione di database per Spring Data JPA come variabili di ambiente [nel file delle proprietà dell'applicazione]. Usare quindi le [impostazioni app](/azure/app-service/web-sites-configure#app-settings) per definire questi valori per l'applicazione nell'interfaccia della riga di comando o nel portale di Azure.
 
+I frammenti di codice di configurazione di esempio in questa sezione usano il database MySQL. Per altre informazioni, vedere la documentazione sulla configurazione per [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html), [SQL Server JDBC](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) e [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+
 Per configurare Tomcat per usare le connessioni gestite ai database usando Java Database Connectivity (JDBC) o Java Persistence API (JPA), personalizzare prima la variabile di ambiente CATALINA_OPTS letta da Tomcat all'avvio. Impostare questi valori tramite un'impostazione app nel plug-in Maven del servizio app:
 
 ```xml
@@ -233,7 +235,7 @@ Per le risorse a livello di server condiviso:
 
 ## <a name="docker-containers"></a>Contenitori Docker
 
-Per usare nei contenitori il pacchetto JDK Zulu supportato in Azure, assicurarsi di eseguire il pull delle immagini esistenti elencate nella [pagina di download di Azul](https://www.azul.com/downloads/azure-only/zulu/#docker) e di usare tale immagini oppure usare gli esempi `Dockerfile` nel [repository GitHub Java di Microsoft](https://github.com/Microsoft/java/tree/master/docker).
+Per usare nei contenitori il pacchetto JDK Zulu supportato da Azure, assicurarsi di eseguire il pull e di usare le immagini precompilate, come documentato nella [pagina di download di Azul Zulu Enterprise per Azure supportata](https://www.azul.com/downloads/azure-only/zulu/) o di usare gli esempi `Dockerfile` dal [repository GitHub Java di Microsoft](https://github.com/Microsoft/java/tree/master/docker).
 
 ## <a name="runtime-availability-and-statement-of-support"></a>Disponibilità del runtime e istruzione di supporto
 

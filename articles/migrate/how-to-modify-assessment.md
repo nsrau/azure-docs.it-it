@@ -4,14 +4,14 @@ description: Descrive come configurare ed eseguire una valutazione per la migraz
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/30/2018
 ms.author: raynew
-ms.openlocfilehash: 9ddd6c32388b2e05fd97138414958b67c009f9ee
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d0cfab51b686b5b6eb9617d4424ac3f834de8d6f
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284914"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241073"
 ---
 # <a name="customize-an-assessment"></a>Personalizzare una valutazione
 
@@ -21,13 +21,13 @@ ms.locfileid: "36284914"
 ## <a name="edit-assessment-properties"></a>Modificare le proprietà di valutazione
 
 1. Nella pagina **Valutazioni** del progetto di migrazione selezionare la valutazione e fare clic su **Modifica proprietà**.
-2. Modificare le proprietà in base alla tabella seguente:
+2. Personalizzare le proprietà di valutazione in base ai dettagli seguenti:
 
     **Impostazione** | **Dettagli** | **Default**
     --- | --- | ---
     **Posizione di destinazione** | Area di Azure in cui si vuole eseguire la migrazione.<br/><br/> Azure Migrate supporta attualmente 30 aree, tra cui Asia orientale, Asia sud-orientale, Australia orientale, Australia sud-orientale, Brasile meridionale, Canada centrale, Canada orientale, Cina orientale, Cina settentrionale, Corea del Sud centrale, Corea del Sud meridionale, Europa occidentale, Europa settentrionale, Germania centrale, Germania nordorientale, Giappone occidentale, Giappone orientale, India centrale, India meridionale, India occidentale, Regno Unito meridionale, Regno Unito occidentale, Governo degli Stati Uniti Arizona, Governo degli Stati Uniti Texas, Governo degli Stati Uniti Virginia, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti centro-settentrionali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali e Stati Uniti occidentali 2. |  L'area predefinita è Stati Uniti occidentali 2.
-    **Piano tariffario** | È possibile specificare il [piano tariffario (Basic o Standard)](../virtual-machines/windows/sizes-general.md) per le macchine virtuali di Azure di destinazione. Se, ad esempio, si prevede di eseguire la migrazione di un ambiente di produzione, considerare il livello Standard, che offre macchine virtuali con bassa latenza, anche se a un costo superiore. D'altra parte, se si ha un ambiente di sviluppo e test, può essere preferibile il livello Basic, che ha macchine virtuali con latenza maggiore e costi minori. | Per impostazione predefinita, viene usato il livello [Standard](../virtual-machines/windows/sizes-general.md).
-    **Tipo di archiviazione** | È possibile specificare il tipo di dischi da allocare in Azure. Questa proprietà è applicabile quando il criterio di ridimensionamento è Determinazione della dimensione come in locale. È possibile specificare il tipo di disco di destinazione come dischi gestiti Premium o dischi gestiti Standard. Per il ridimensionamento in base alle prestazioni, la raccomandazione per i dischi avviene automaticamente in base ai dati delle prestazioni delle macchine virtuali. Si noti che Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione. | Il valore predefinito è Managed Disks Premium, con il criterio di dimensionamento *as on-premises sizing* (Determinazione della dimensione come in locale).
+    **Piano tariffario** | È possibile specificare il [piano tariffario (Basic o Standard)](../virtual-machines/windows/sizes-general.md) per le macchine virtuali di Azure di destinazione. Se ad esempio si prevede di eseguire la migrazione di un ambiente di produzione, considerare il livello Standard. D'altra parte, se si ha un ambiente di sviluppo e test, può essere preferibile il livello Basic, che ha macchine virtuali con latenza maggiore e costi minori. | Per impostazione predefinita, viene usato il livello [Standard](../virtual-machines/windows/sizes-general.md).
+    **Tipo di archiviazione** | È possibile usare questa proprietà per specificare il tipo di dischi da allocare in Azure. Per il dimensionamento come in locale, è possibile specificare il tipo di dischi di destinazione come Managed Disks Premium o Managed Disks Standard. Per il dimensionamento basato sulle prestazioni, è possibile specificare il tipo di dischi di destinazione come Automatico, Managed Disks Premium o Managed Disks Standard. Quando si specifica il tipo di archiviazione automatico, la preferenza dei dischi è basata sui dati delle relative prestazioni (numero di operazioni di I/O al secondo e velocità effettiva). Se ad esempio si vuole ottenere un [contratto di servizio per singole istanze di macchina virtuale con tempo di attività pari al 99,9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), può essere opportuno specificare il tipo di archiviazione Managed Disks Premium che garantisce che tutti i dischi nella valutazione vengano raccomandati come Managed Disks Premium. Si noti che Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione. | Il valore predefinito è Managed Disks Premium, con il criterio di dimensionamento *as on-premises sizing* (Determinazione della dimensione come in locale).
     **Istanze riservate** |  È anche possibile specificare se sono presenti [istanze riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure. Azure Migrate stimerà il costo di conseguenza. Le istanze riservate non sono applicabili alle aree sovrane (Azure per enti pubblici, Germania e Cina), ma solo all'offerta con pagamento in base al consumo in Azure Migrate. | Il valore predefinito per questa proprietà corrisponde a istanze riservate per 3 anni.
     **Criterio di dimensionamento** | Criterio che Azure Migrate deve usare per definire correttamente le dimensioni delle macchine virtuali per Azure. È possibile eseguire il dimensionamento *basato sulle prestazioni* o definire le dimensioni delle macchine virtuali *come in locale*, senza considerare la cronologia delle prestazioni. | L'opzione predefinita è il dimensionamento basato sulle prestazioni.
     **Cronologia delle prestazioni** | Durata da considerare per la valutazione delle prestazioni delle macchine virtuali. Questa proprietà è applicabile solo quando il criterio di dimensionamento è *basato sulle prestazioni*. | Il valore predefinito è un giorno.

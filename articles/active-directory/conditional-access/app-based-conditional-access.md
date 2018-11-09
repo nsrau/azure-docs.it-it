@@ -1,6 +1,6 @@
 ---
-title: Accesso condizionale basato su app di Azure Active Directory | Microsoft Docs
-description: Informazioni su come funziona l'accesso condizionale basato su app di Azure Active Directory.
+title: Come richiedere app client approvate per l'accesso alle app cloud con l'accesso condizionale in Azure Active Directory | Microsoft Docs
+description: Informazioni su come richiedere app client approvate per l'accesso alle app cloud con l'accesso condizionale in Azure Active Directory.
 services: active-directory
 keywords: accesso condizionale alle app, accesso condizionale con Azure AD, accesso sicuro alle risorse aziendali, criteri di accesso condizionale
 documentationcenter: ''
@@ -17,18 +17,18 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: f34fc4c41094292db9bed1294ee7b26ec04c96c6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630603"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415390"
 ---
-# <a name="azure-active-directory-app-based-conditional-access"></a>Accesso condizionale basato su app di Azure Active Directory  
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Richiedere app client approvate per l'accesso alle app cloud con l'accesso condizionale 
 
-I dipendenti usano dispositivi mobili sia per le attività personali che per quelle aziendali. È importante assicurarsi che i dipendenti siano produttivi e al contempo evitare la perdita di dati. Con l'accesso condizionale basato su app di Azure Active Directory (Azure AD) è possibile fare in modo che l'accesso alle app cloud sia limitato solo alle app client in grado di proteggere i dati aziendali.  
+I dipendenti usano dispositivi mobili sia per le attività personali che per quelle aziendali. È importante assicurarsi che i dipendenti siano produttivi e al contempo evitare la perdita di dati. Con l'accesso condizionale di Azure Active Directory (Azure AD) è possibile fare in modo che l'accesso alle app cloud sia limitato solo alle app client approvate in grado di proteggere i dati aziendali.  
 
-L'argomento descrive come configurare l'accesso condizionale basato su app di Azure AD.
+Questo argomento illustra come configurare criteri di accesso che richiedono app client approvate.
 
 ## <a name="overview"></a>Panoramica
 
@@ -36,7 +36,7 @@ Con l'[accesso condizionale di Azure AD](overview.md) è possibile regolare la m
 
 È possibile usare i [criteri di protezione app di Intune](https://docs.microsoft.com/intune/app-protection-policy) per proteggere i dati aziendali. I criteri di protezione app di Intune non richiedono una soluzione di gestione dei dispositivi mobili (MDM), che consente di proteggere i dati aziendali con o senza la registrazione dei dispositivi in una soluzione di gestione di dispositivi.
 
-L'accesso condizionale basato su app di Azure Active Directory consente di fare in modo che l'accesso alle app cloud sia limitato solo alle app client che supportano i criteri di protezione app di Intune. È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook.
+L'accesso condizionale di Azure Active Directory consente di fare in modo che l'accesso alle app cloud sia limitato solo alle app client che supportano i criteri di protezione app di Intune. È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook.
 
 Nella terminologia relativa all'accesso condizionale queste app client sono note come **app client approvate**.  
 
@@ -120,9 +120,9 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
     ![Accesso condizionale](./media/app-based-conditional-access/03.png)
 
-    b. Come **App client** selezionare **App per dispositivi mobili e client desktop**.
+    b. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client di autenticazione moderna**.
 
-    ![Accesso condizionale](./media/app-based-conditional-access/04.png)
+    ![Accesso condizionale](./media/app-based-conditional-access/91.png)
 
 5. Come **Controlli di accesso** è necessario che sia selezionata l'opzione **Richiedi app client approvata (anteprima)**.
 
@@ -144,11 +144,11 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
     ![Accesso condizionale](./media/app-based-conditional-access/07.png)
 
-4. **Condizioni**: come **Condizioni** è necessario configurare **App client**. 
+4. **Condizioni**: come **Condizioni** è necessario configurare **App client (anteprima)**. 
 
-    a. Come **App client** selezionare **Exchange Active Sync**.
+    a. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client Exchange ActiveSync**.
 
-    ![Accesso condizionale](./media/app-based-conditional-access/08.png)
+    ![Accesso condizionale](./media/app-based-conditional-access/92.png)
 
     b. Come **Controlli di accesso** è necessario che sia selezionata l'opzione **Richiedi app client approvata (anteprima)**.
 
@@ -201,9 +201,9 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
     ![Accesso condizionale](./media/app-based-conditional-access/03.png)
 
-    b. Come **App client** selezionare **App per dispositivi mobili e client desktop**.
+    b. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client di autenticazione moderna**.
 
-    ![Accesso condizionale](./media/app-based-conditional-access/04.png)
+    ![Accesso condizionale](./media/app-based-conditional-access/91.png)
 
 5. Come **Controlli di accesso** è necessario che sia selezionata l'opzione **Richiedi app client approvata (anteprima)**.
 
@@ -228,9 +228,9 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
 4. **Condizioni**: come **Condizioni** è necessario configurare **App client**:
 
-    a. Come **App client** selezionare **Exchange Active Sync**.
+    a. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client Exchange ActiveSync**.
 
-    ![Accesso condizionale](./media/app-based-conditional-access/08.png)
+    ![Accesso condizionale](./media/app-based-conditional-access/92.png)
 
     b. Come **Controlli di accesso** è necessario che sia selezionata l'opzione **Richiedi app client approvata (anteprima)**.
 
@@ -285,9 +285,9 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
     ![Accesso condizionale](./media/app-based-conditional-access/03.png)
 
-    b. Come **App client** selezionare **App per dispositivi mobili e client desktop**.
+    b. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client di autenticazione moderna**.
 
-    ![Accesso condizionale](./media/app-based-conditional-access/04.png)
+    ![Accesso condizionale](./media/app-based-conditional-access/91.png)
 
 5. Come **Controlli di accesso** è necessario che siano selezionate le opzioni seguenti:
 
@@ -317,9 +317,9 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
 4. **Condizioni**: come **Condizioni** è necessario configurare **App client**. 
 
-    Come **App client* selezionare **Exchange Active Sync**.
+    Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client Exchange ActiveSync**.
 
-    ![Accesso condizionale](./media/app-based-conditional-access/08.png)
+    ![Accesso condizionale](./media/app-based-conditional-access/91.png)
 
 5. Come **Controlli di accesso** è necessario che sia selezionata l'opzione **Richiedi app client approvata (anteprima)**.
  
@@ -381,9 +381,9 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
     ![Accesso condizionale](./media/app-based-conditional-access/03.png)
 
-    b. Come **App client** selezionare **App per dispositivi mobili e client desktop**.
+    b. Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client di autenticazione moderna**.
 
-    ![Accesso condizionale](./media/app-based-conditional-access/04.png)
+    ![Accesso condizionale](./media/app-based-conditional-access/91.png)
 
 5. Come **Controlli di accesso** è necessario che siano selezionate le opzioni seguenti:
 
@@ -411,11 +411,11 @@ Per i criteri di accesso condizionale in questo passaggio, è necessario configu
 
     ![Accesso condizionale](./media/app-based-conditional-access/07.png)
 
-4. **Condizioni**: come **Condizioni** è necessario configurare **App client**. 
+4. **Condizioni**: come **Condizioni** è necessario configurare **App client (anteprima)**. 
 
-    Come **App client** selezionare **Exchange Active Sync**.
+    Come **App client (anteprima)** selezionare **App per dispositivi mobili e client desktop** e **Client Exchange ActiveSync**.
 
-    ![Accesso condizionale](./media/app-based-conditional-access/08.png)
+    ![Accesso condizionale](./media/app-based-conditional-access/92.png)
 
 5. Come **Controlli di accesso** è necessario che siano selezionate le opzioni seguenti:
 

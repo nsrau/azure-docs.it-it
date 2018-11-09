@@ -1,20 +1,20 @@
 ---
-title: Architettura della replica da Hyper-V ad Azure in Azure Site Recovery | Microsoft Docs
-description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante la replica di macchine virtuali Hyper-V locali (senza VMM) in Azure con il servizio Azure Site Recovery.
+title: Architettura del ripristino di emergenza da Hyper-V ad Azure in Azure Site Recovery | Microsoft Docs
+description: Questo articolo fornisce una panoramica dei componenti e dell'architettura usati durante l'implementazione del ripristino di emergenza di macchine virtuali Hyper-V locali (senza VMM) in Azure con il servizio Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 49059415c5f96eeb4dd871e7d2c8ae4ab9b2c12e
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 23b12f5b0423f717e96ec1f59480f0175648c75f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078359"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210653"
 ---
-# <a name="hyper-v-to-azure-replication-architecture"></a>Architettura della replica da Hyper-V ad Azure
+# <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Hyper-V ad Azure
 
 
 Questo articolo descrive l'architettura e i processi usati per la replica, il failover e il ripristino di macchine virtuali (VM) Hyper-V tra host Hyper-V locali e Azure, usando il servizio [Azure Site Recovery](site-recovery-overview.md).

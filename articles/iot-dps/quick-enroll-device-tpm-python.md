@@ -1,6 +1,6 @@
 ---
 title: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con Python | Microsoft Docs
-description: Guida introduttiva di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con Python Provisioning Service SDK
+description: Guida introduttiva di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con Python Provisioning Service SDK. Questa guida introduttiva usa registrazioni singole.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/26/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: ff6200abd88144a530a243b508fd4878126fdb4b
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ea758c377293ae698bdf06638d5b4600b95015e4
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234026"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154965"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Python Provisioning Service SDK
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]

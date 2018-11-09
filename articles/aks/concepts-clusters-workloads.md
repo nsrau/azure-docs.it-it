@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648771"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155984"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Kubernetes di Azure (AKS)
 
@@ -71,6 +71,27 @@ La dimensione della macchina virtuale di Azure per i nodi definisce il numero di
 In AKS l'immagine della macchina virtuale per i nodi del cluster è attualmente basata su Ubuntu Linux. Quando si crea un cluster AKS o si aumenta il numero di nodi, la piattaforma Azure crea il numero richiesto di macchine virtuali e le configura. Non è richiesta alcuna configurazione manuale.
 
 Se è necessario usare un sistema operativo host diverso, un altro runtime del contenitore o includere pacchetti personalizzati, è possibile distribuire il proprio cluster Kubernetes usando [acs-engine][acs-engine]. `acs-engine` upstream rilascia funzionalità e fornisce opzioni di configurazione prima che siano supportate ufficialmente nei cluster AKS. Ad esempio, se si desidera usare contenitori di Windows o un runtime del contenitore diverso da Docker, è possibile utilizzare `acs-engine` per configurare e distribuire un cluster Kubernetes che soddisfi le esigenze correnti.
+
+### <a name="resource-reservations"></a>Prenotazioni di risorse
+
+Non è necessario gestire i componenti principali di Kubernetes in ogni nodo, come il *kubelet*, il *kube-proxy* e il *kube-dns*, ma effettivamente usano parte delle risorse di calcolo disponibili. Per mantenere la funzionalità e le prestazioni del nodo, le seguenti risorse di calcolo sono prenotate in ogni nodo:
+
+- **CPU** - 60 ms
+- **Memoria** - 20% fino a 4 GiB
+
+Queste prenotazioni implicano che la quantità disponibile di CPU e memoria per le applicazioni può risultare inferiore a quanto contenuto dal nodo stesso. Se sono presenti vincoli delle risorse a causa del numero di applicazioni in esecuzione, le prenotazioni assicurano che CPU e memoria rimangano disponibili per i componenti principali di Kubernetes. Le prenotazioni di risorse non possono essere modificate.
+
+Ad esempio: 
+
+- Un nodo di dimensione **DS2 Standard v2** contiene 2 vCPU e 7 GiB di memoria
+    - 20% di 7 GiB di memoria = 1,4 GiB
+    - È disponibile un totale di *(7 - 1,4) = 5,6 GiB* di memoria per il nodo
+    
+- Un nodo di dimensione **E4s Standard v3** contiene 4 vCPU e 32 GiB di memoria
+    - 20% di 32 GiB di memoria = 6,4 GiB, ma AKS riserva solo un massimo di 4 GiB
+    - È disponibile un totale di *(32 - 4) = 28 GiB* di memoria per il nodo
+    
+Il sistema operativo del nodo sottostante richiede anche una certa quantità di risorse di CPU e memoria per completare le proprie funzioni principali.
 
 ### <a name="node-pools"></a>Pool di nodi
 

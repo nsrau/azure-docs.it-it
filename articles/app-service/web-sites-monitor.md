@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: fdc4329806d416811352d0d4dbc8dd3bce25aa0b
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9c58e5c64ea3689634d7afb4c5fef08c9b21798c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29573804"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244373"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Procedura: Eseguire il monitoraggio delle app nel servizio app di Azure
-Il [servizio app](http://go.microsoft.com/fwlink/?LinkId=529714) offre una funzionalità di monitoraggio incorporata nel [portale di Azure](https://portal.azure.com).
+Il [servizio app](https://go.microsoft.com/fwlink/?LinkId=529714) offre una funzionalità di monitoraggio incorporata nel [portale di Azure](https://portal.azure.com).
 Il portale di Azure consente, ad esempio, di esaminare **quote** e **metriche** di un'app e il relativo piano di servizio app, configurare**avvisi** e impostare il **ridimensionamento** automatico in base a tali metriche.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]

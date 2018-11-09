@@ -14,15 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 884432d5604868ad2307a7d7ababa3e5a004a982
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9af0a8cc8e1e0cd57aa3baf79bbe5a552aa2ef12
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854066"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087592"
 ---
 # <a name="support-for-the-marketplace"></a>Supporto per Marketplace  
-Opzioni di supporto per Marketplace.  
+Ecco un elenco delle opzioni di supporto per Marketplace.  
+
+È inoltre possibile ottenere risposta a molte domande nel [canale Marketplace del forum della community dei servizi cloud e intelligenza artificiale](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## <a name="onboarding"></a>Onboarding
 
@@ -30,13 +32,13 @@ Aprire un ticket per il [supporto dell'editor del Marketplace](https://support.m
 
 ## <a name="cloud-partner-portal"></a>Portale per Cloud Partner  
 
-| Canale di supporto | DESCRIZIONE | Disponibilità |  
+| Canale di supporto | Descrizione | Disponibilità |  
 |:--- |:--- |:--- |  
 | Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Supporto per il Portale per Cloud Partner. | I servizi di supporto vengono erogati tra le 6.00 e le 18.00 PST. |  
 
 ## <a name="technical"></a>Tecnici  
 
-| Canale di supporto | DESCRIZIONE |  
+| Canale di supporto | Descrizione |  
 |:--- |:--- |  
 | Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Ambiente Slack per il supporto tecnico dei partner. Attualmente più di 350 partner usano questo ambiente. |  
 | Forum MSDN: Marketplace disponibile all'indirizzo [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Forum di Microsoft Developer Network. |  
@@ -45,7 +47,7 @@ Aprire un ticket per il [supporto dell'editor del Marketplace](https://support.m
 
 ## <a name="marketing-resources"></a>Risorse di marketing  
 
-| Canale di supporto | DESCRIZIONE | Disponibilità |  
+| Canale di supporto | Descrizione | Disponibilità |  
 |:--- |:--- |:--- |  
 | E-mail: [cosell@microsoft.com](mailto:cosell@microsoft.com) | Supporto per i processi di onboarding e per le domande sul programma di co-selling. | Basato sul fuso orario del Pacifico. |  
 | E-mail: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Supporto per informazioni sui vantaggi e sul programma Go-To-Market. | Basato sull'orario di ufficio nel fuso orario del Pacifico. |  

@@ -1,21 +1,21 @@
 ---
-title: Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure | Microsoft Docs
-description: Questo articolo illustra l'analisi del report generato da Azure Site Recovery Deployment Planner per uno scenario da VMware ad Azure.
-services: site-recovery
+title: Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure| Microsoft Docs
+description: Questo articolo descrive come analizzare un report generato da Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: e6aa3a8c788fe06a528a9c363a28faffa0a9ca88
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d709b13aaf6b6ee9a913484ed503da1e76982d17
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094089"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213917"
 ---
-# <a name="azure-site-recovery-deployment-planner-report"></a>Report di Azure Site Recovery Deployment Planner
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
+
 Il report di Microsoft Excel generato contiene i fogli riportati di seguito.
 ## <a name="on-premises-summary"></a>Riepilogo ambiente locale
 Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una panoramica dell'ambiente VMware profilato.

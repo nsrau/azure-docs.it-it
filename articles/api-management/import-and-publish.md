@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4dfd1c50137c0a211aa5ba211a96810b8b9831f1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467396"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417906"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importare e pubblicare la prima API 
 
@@ -38,7 +38,8 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
++ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -55,31 +56,34 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 
     Usare i valori della tabella seguente per creare la prima API.
 
-    |Impostazione|Valore|Descrizione|
-    |---|---|---|
-    |**Specifica OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Fa riferimento al servizio che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste.|
-    |**Nome visualizzato**|*Demo Conference API*|Se si preme TAB dopo avere immesso l'URL del servizio, Gestione API compilerà questo campo in base al contenuto del file JSON. <br/>Questo nome viene visualizzato nel portale per sviluppatori.|
-    |**Nome**|*demo-conference-api*|Fornisce un nome univoco per l'API. <br/>Se si preme TAB dopo avere immesso l'URL del servizio, Gestione API compilerà questo campo in base al contenuto del file JSON.|
-    |**Descrizione**|Fornisce una descrizione facoltativa dell'API.|Se si preme TAB dopo avere immesso l'URL del servizio, Gestione API compilerà questo campo in base al contenuto del file JSON.|
-    |**Schema URL**|*HTTPS*|Determina i protocolli da usare per l'accesso all'API. |
-    |**Suffisso dell'URL dell'API**|*conference*|Il suffisso viene aggiunto all'URL di base del servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ciascuna API di un editore specifico.|
-    |**Prodotti**|*Illimitato*|I prodotti sono associazioni di una o più API. È possibile includere diverse API in un prodotto e offrirle agli sviluppatori tramite il portale per sviluppatori. <br/>Per pubblicare l'API, associarla a un prodotto (in questo esempio, *Unlimited*). Per aggiungere la nuova API a un prodotto, digitare il nome del prodotto. È possibile eseguire questa operazione anche in un secondo momento nella pagina **Impostazioni**. Questo passaggio può essere ripetuto più volte per aggiungere l'API a più prodotti.<br/>Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. <br/> Se si è creata l'istanza di Gestione API, si è già un amministratore ed è quindi già stata effettuata la sottoscrizione di ogni prodotto.<br/> Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Unlimited**. |
-    |Assegnare un numero di versione a questa API?||Per altre informazioni sul controllo delle versioni, vedere [Pubblicare più versioni dell'API](api-management-get-started-publish-versions.md).|
-    
+    | Impostazione                   | Valore                                              | DESCRIZIONE                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+    |---------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Specifica OpenAPI** | http://conferenceapi.azurewebsites.net?format=json | Fa riferimento al servizio che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+    | **Nome visualizzato**          | *Demo Conference API*                              | Se si preme TAB dopo avere immesso l'URL del servizio, Gestione API compilerà questo campo in base al contenuto del file JSON. <br/>Questo nome viene visualizzato nel portale per sviluppatori.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+    | **Nome**                  | *demo-conference-api*                              | Fornisce un nome univoco per l'API. <br/>Se si preme TAB dopo avere immesso l'URL del servizio, Gestione API compilerà questo campo in base al contenuto del file JSON.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+    | **Descrizione**           | Fornisce una descrizione facoltativa dell'API.        | Se si preme TAB dopo avere immesso l'URL del servizio, Gestione API compilerà questo campo in base al contenuto del file JSON.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+    | **Schema URL**            | *HTTPS*                                            | Determina i protocolli da usare per l'accesso all'API.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+    | **Suffisso dell'URL dell'API**        | *conference*                                       | Il suffisso viene aggiunto all'URL di base del servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ciascuna API di un editore specifico.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+    | **Prodotti**              | *Illimitato*                                        | I prodotti sono associazioni di una o più API. È possibile includere diverse API in un prodotto e offrirle agli sviluppatori tramite il portale per sviluppatori. <br/>Per pubblicare l'API, associarla a un prodotto (in questo esempio, *Unlimited*). Per aggiungere la nuova API a un prodotto, digitare il nome del prodotto. È possibile eseguire questa operazione anche in un secondo momento nella pagina **Impostazioni**. Questo passaggio può essere ripetuto più volte per aggiungere l'API a più prodotti.<br/>Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. <br/> Se si è creata l'istanza di Gestione API, si è già un amministratore ed è quindi già stata effettuata la sottoscrizione di ogni prodotto.<br/> Per impostazione predefinita, con ogni istanza di Gestione API vengono forniti due prodotti di esempio: **Starter** e **Unlimited**. |
+    | Assegnare un numero di versione a questa API?         |                                                    | Per altre informazioni sul controllo delle versioni, vedere [Pubblicare più versioni dell'API](api-management-get-started-publish-versions.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
     >[!NOTE]
     > Per pubblicare l'API, è necessario associarla a un prodotto. È possibile eseguire questa operazione nella pagina **Impostazioni**.
-    
+
 3. Selezionare **Create**.
+
+> [!TIP]
+> In caso di problemi nell'importazione della definizione API, [vedere l'elenco delle restrizioni e dei problemi noti](api-management-api-import-restrictions.md).
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Testare la nuova API di Gestione API nel portale di Azure
 
 ![Mappa di test API](./media/api-management-get-started/01-import-first-api-01.png)
 
-È possibile chiamare le operazioni direttamente dal portale di Azure, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.  
+È possibile chiamare le operazioni direttamente dal portale di Azure, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.
+
 1. Selezionare l'API creata nel passaggio precedente nella scheda **API**.
 2. Fare clic sulla scheda **Test**.
-3. Fare clic su **GetSpeakers**.
-    La pagina visualizza i campi per i parametri di query, che in questo caso non esistono, e le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. La chiave viene compilata automaticamente.
+3. Fare clic su **GetSpeakers**. La pagina visualizza i campi per i parametri di query, che in questo caso non esistono, e le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. La chiave viene compilata automaticamente.
 4. Fare clic su **Invia**.
 
     Il back-end risponde con **200 OK** e alcuni dati.
@@ -90,19 +94,20 @@ Questa sezione illustra come importare e pubblicare un'API back-end Specifica Op
 
 1. Passare al **portale per sviluppatori**.
 
- ![Portale per sviluppatori](./media/api-management-get-started/developer-portal.png)
+    ![Portale per sviluppatori](./media/api-management-get-started/developer-portal.png)
 
 2. Selezionare **API**, fare clic su **Demo Conference API** (API Demo Conference) e quindi su **GetSpeakers**.
-    
+
     La pagina visualizza i campi per i parametri di query, che in questo caso non esistono, e le intestazioni. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente.
+
 3. Fare clic su **Prova**.
 4. Fare clic su **Invia**.
-    
+
     Dopo la chiamata di un'operazione, nel portale per sviluppatori vengono visualizzate le risposte.  
 
 ## <a name="next-steps"> </a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Importare la prima API

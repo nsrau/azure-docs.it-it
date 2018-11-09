@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 6695e17ec3dd9bf9ebeeb44b34e9688d3e5a1625
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c02d3483a98c358e53964d3932944b5d2dad9c53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249748"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240274"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Panoramica e confronto dei codificatori multimediali su richiesta di Azure
 ## <a name="encoding-overview"></a>Panoramica della codifica
@@ -51,7 +51,7 @@ In questo articolo è fornita una breve panoramica dei codificatori multimediali
 [Codec e formati](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Impostazioni predefinite
-Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadati di input e output
 I metadati di input dei codificatori sono descritti [qui](media-services-input-metadata-schema.md).

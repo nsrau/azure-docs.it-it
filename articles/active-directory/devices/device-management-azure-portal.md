@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bda1a9df8a58833a544dc065dee0110bccf3ec59
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041426"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138861"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Come gestire i dispositivi usando il portale di Azure
 
@@ -118,12 +118,19 @@ Per alcuni dispositivi iOS, i nomi dei dispositivi contenenti apostrofi possono 
 
 ## <a name="device-management-tasks"></a>Attività di gestione dei dispositivi
 
-L'amministratore può gestire i dispositivi registrati o aggiunti. Questa sezione fornisce informazioni sulle attività comuni di gestione dei dispositivi.
+L'amministratore globale può gestire i dispositivi registrati o aggiunti. Gli amministratori del servizio Intune possono:
+ 
+- Aggiornare i dispositivi: esempi sono operazioni quotidiane, quali abilitazione/disabilitazione di dispositivi
+
+- Eliminare i dispositivi: quando un dispositivo viene ritirato e deve essere eliminato in Azure AD
+
+Questa sezione fornisce informazioni sulle attività comuni di gestione dei dispositivi.
+
 
 
 ### <a name="manage-an-intune-device"></a>Gestire un dispositivo Intune
 
-Un amministratore di Intune può gestire i dispositivi contrassegnati come **Microsoft Intune**. L'amministratore può visualizzare un dispositivo aggiuntivo 
+Un amministratore di Intune può gestire i dispositivi contrassegnati come **Microsoft Intune**. 
 
 ![Gestire un dispositivo Intune](./media/device-management-azure-portal/31.png)
 
@@ -191,7 +198,7 @@ Se un dispositivo è gestito da un'altra autorità di gestione (ad esempio Micro
  
 ![Visualizzare le chiavi BitLocker](./media/device-management-azure-portal/36.png)
 
-Per visualizzare o copiare le chiavi BitLocker, è necessario essere il proprietario del dispositivo o un utente che dispone di almeno uno dei seguenti ruoli assegnati:
+Per visualizzare o copiare le chiavi BitLocker, è necessario essere il proprietario del dispositivo o un utente con almeno uno dei ruoli seguenti assegnati:
 
 - Amministratori globali
 - Amministratori Helpdesk

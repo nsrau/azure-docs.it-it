@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309502"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140977"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure
 
@@ -31,7 +31,8 @@ Funzioni di Azure e Azure Cosmos DB consentono di integrare i database e le app 
 * Associare una funzione di Azure a un contenitore di Azure Cosmos DB usando un'**associazione di output**. Le associazioni di output scrivono i dati in un contenitore al termine di una funzione.
 
 > [!NOTE]
-> Al momento, il trigger e le associazioni di input e output di Azure Cosmos DB funzionano solo con gli account API SQL e API Gremlin.
+> Attualmente, il trigger di Azure Cosmos DB, le associazioni di input e le associazioni di output sono supportati solo per l'uso con l'API SQL. Per tutte le altre API di Azure Cosmos DB è necessario accedere al database dalla funzione usando il client statico per l'API, incluse l'API MongoDB, l'API Cassandra, l'API Gremlin e l'API Tabella.
+
 
 Il diagramma seguente illustra ognuna di questi tre integrazioni: 
 

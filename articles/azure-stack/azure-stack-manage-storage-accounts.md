@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452276"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240716"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gestire gli account di archiviazione in Azure Stack
 Informazioni su come gestire gli account di archiviazione in Azure Stack per trovare, ripristinare e recuperare la capacità di archiviazione in base alle esigenze aziendali.
@@ -136,8 +136,8 @@ Uno degli effetti collaterali di avere un periodo di conservazione è che un acc
 **Per recuperare la capacità usando PowerShell:**   
 
 1. Verificare di avere installato e configurato Azure PowerShell. In caso contrario, seguire le istruzioni seguenti: 
-   * Per installare la versione di Azure PowerShell più recente e associarla alla sottoscrizione di Azure, vedere [come installare e configurare Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   Per altre informazioni sui cmdlet di Azure Resource Manager, vedere [usando Azure PowerShell con Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767)
+   * Per installare la versione di Azure PowerShell più recente e associarla alla sottoscrizione di Azure, vedere [come installare e configurare Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   Per altre informazioni sui cmdlet di Azure Resource Manager, vedere [usando Azure PowerShell con Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767)
 2. Eseguire i cmdlet seguenti:
 
 > [!NOTE]  

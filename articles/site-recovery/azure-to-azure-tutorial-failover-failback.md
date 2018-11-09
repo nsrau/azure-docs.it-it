@@ -1,20 +1,20 @@
 ---
-title: Eseguire il failover e il failback delle macchine virtuali di Azure replicate in un'area di Azure secondaria con Azure Site Recovery
-description: Informazioni su come eseguire il failover e il failback di macchine virtuali di Azure replicate in un'area di Azure secondaria con Azure Site Recovery
+title: Eseguire il failover e il failback di macchine virtuali IaaS di Azure replicate in un'area di Azure secondaria per il ripristino di emergenza con il servizio Azure Site Recovery.
+description: Informazioni su come eseguire il failover e il failback di macchine virtuali di Azure replicate in un'area di Azure secondaria per il ripristino di emergenza con il servizio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9917656a3bc8fd8cfe7d71786dc39d296a2449c1
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456508"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239288"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Eseguire il failover e il failback delle macchine virtuali di Azure tra aree di Azure
 
@@ -34,7 +34,7 @@ Questa esercitazione descrive come eseguire il failover di una singola macchina 
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Assicurarsi di avere completato un'[analisi di ripristino di emergenza](azure-to-azure-tutorial-dr-drill.md) per verificare che tutto funzioni come previsto.
-- Verificare le proprietà della macchina virtuale prima di eseguire il failover di test. La macchina virtuale deve essere conforme ai [requisiti di Azure](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
+- Verificare le proprietà della macchina virtuale prima di eseguire il failover di test. La macchina virtuale deve essere conforme ai [requisiti di Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 ## <a name="run-a-failover-to-the-secondary-region"></a>Eseguire un failover nell'area secondaria
 

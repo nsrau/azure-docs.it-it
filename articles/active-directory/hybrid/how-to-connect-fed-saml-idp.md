@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ce57857ecc5b8e18aecdcc58754e5f9bf5b22a74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a197b3c7aa423323f984a793851a458733391e33
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306120"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243113"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Usare un provider di identità (IdP) SAML 2.0 per l'accesso Single Sign-On
 
@@ -193,7 +193,7 @@ La procedura seguente illustra i passaggi per la conversione di un dominio stand
 Per altre informazioni su "Set-MsolDomainAuthentication", vedere: [http://technet.microsoft.com/library/dn194112.aspx](http://technet.microsoft.com/library/dn194112.aspx).
 
 >[!NOTE]
->È necessario eseguire "$ecpUrl = "https://WS2012R2-0.contoso.com/PAOS"" solo se si configura un'estensione ECP per il provider di identità. I client di Exchange Online, ad eccezione di Outlook Web Application (OWA), usano un endpoint attivo basato su POST. Se il servizio token di sicurezza SAML 2.0 implementa un endpoint attivo simile all'implementazione ECP di Shibboleth di un endpoint attivo, potrebbe essere possibile per questi rich client interagire con il servizio Exchange Online.
+>È necessario eseguire $ecpUrl = "https://WS2012R2-0.contoso.com/PAOS" solo se si configura un'estensione ECP per il provider di identità. I client di Exchange Online, ad eccezione di Outlook Web Application (OWA), usano un endpoint attivo basato su POST. Se il servizio token di sicurezza SAML 2.0 implementa un endpoint attivo simile all'implementazione ECP di Shibboleth di un endpoint attivo, potrebbe essere possibile per questi rich client interagire con il servizio Exchange Online.
 
 Dopo aver configurato la federazione, è possibile tornare alla modalità non federata (o gestita), ma questa modifica richiede fino a due ore, oltre che l'assegnazione di nuove password casuali per l'accesso basato su cloud per ogni utente. La reimpostazione della modalità gestita potrebbe essere necessaria in alcuni scenari per correggere un errore nelle impostazioni. Per altre informazioni sulla conversione dei domini, vedere: [http://msdn.microsoft.com/library/windowsazure/dn194122.aspx](http://msdn.microsoft.com/library/windowsazure/dn194122.aspx).
 

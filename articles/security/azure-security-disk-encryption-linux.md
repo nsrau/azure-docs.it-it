@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 1cebb3dae8fbfd4188487a6ff7fca42ac0505cf0
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 3561c2959283cd1c589414b96724cf0341af5e0a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498488"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215379"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali IaaS Linux 
 
@@ -127,7 +127,7 @@ Usare il cmdlet [Set-AzureRmVMDiskEncryptionExtension](/powershell/module/azurer
 
 La tabella seguente elenca i parametri del modello di Resource Manager per macchine virtuali esistenti o in esecuzione:
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 | --- | --- |
 | vmName | Nome della macchina virtuale per eseguire l'operazione di crittografia. |
 | keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` o il comando dell'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MySecureGroup" |Convertfrom-JSON`|
@@ -252,7 +252,11 @@ Il parametro esamina tutte le partizioni e le crittografa, a patto che soddisfin
 - Non è una partizione di avvio/del sistema operativo/radice
 - Non è già stata crittografata
 - Non è un volume BEK
+- Non è un volume RAID
+- Non è un volume LVM
 - È montata
+
+Crittografare i dischi che compongono il volume RAID o LVM anziché il volume stesso.
 
 ### <a name="bkmk_EFAPSH"> </a> Usare il parametro EncryptFormatAll con l'interfaccia della riga di comando di Azure
 Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable) per abilitare la crittografia in una macchina virtuale IaaS in esecuzione in Azure.
@@ -335,7 +339,7 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Abilitare la crittografia in un disco appena aggiunto con l'interfaccia della riga di comando di Azure
 
- Se la macchina virtuale è stata precedentemente crittografata con "All", il parametro --volume-type deve rimanere All. Tale parametro include il disco del sistema operativo e il disco dati. Se la macchina virtuale è stata precedentemente crittografata con un tipo di volume "OS", impostare il parametro --volume-type su All, in modo che vengano inclusi sia il disco del sistema operativo sia il nuovo disco dati. Se la macchina virtuale è stata crittografata solo con il tipo di volume "Data", è possibile lasciare invariato il parametro "Data", come illustrato di seguito. L'aggiunta e il collegamento di un nuovo disco dati a una macchina virtuale non sono condizioni sufficienti alla preparazione per la crittografia. Il disco appena collegato deve anche essere formattato e montato in modo corretto nella macchina virtuale prima dell'abilitazione della crittografia. In Linux il disco deve essere montato in /etc/fstab con un [nome del dispositivo a blocchi permanente](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-device-names-problems).  
+ Se la macchina virtuale è stata precedentemente crittografata con "All", il parametro --volume-type deve rimanere All. Tale parametro include il disco del sistema operativo e il disco dati. Se la macchina virtuale è stata precedentemente crittografata con il tipo di volume "OS", impostare il parametro --volume-type su All, in modo che vengano inclusi sia il disco del sistema operativo che il nuovo disco dati. Se la macchina virtuale è stata crittografata solo con il tipo di volume "Data", è possibile lasciare invariato il parametro "Data", come illustrato di seguito. L'aggiunta e il collegamento di un nuovo disco dati a una macchina virtuale non sono condizioni sufficienti alla preparazione per la crittografia. Il disco appena collegato deve anche essere formattato e montato in modo corretto nella macchina virtuale prima dell'abilitazione della crittografia. In Linux il disco deve essere montato in /etc/fstab con un [nome del dispositivo a blocchi permanente](https://docs.microsoft.com/azure/virtual-machines/linux/troubleshoot-device-names-problems).  
 
 A differenza della sintassi di PowerShell, l'interfaccia della riga di comando non richiede all'utente di specificare una versione di sequenza univoca quando si abilita la crittografia. L'interfaccia della riga di comando genera e usa automaticamente uno specifico valore di versione di sequenza univoco.
 

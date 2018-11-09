@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 87695e6e7e1f1abce7204ebbbbed2b492297f177
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393299"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247773"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Domande frequenti su Azure Machine Learning: fatturazione, funzionalità, limitazioni e supporto
 Di seguito sono riportate alcune domande frequenti e le corrispondenti risposte su Azure Machine Learning, un servizio cloud che consente di sviluppare modelli predittivi e rendere operative le soluzioni tramite servizi Web. Questo articolo contiene domande sull'uso del servizio, includendo il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
 
 **Non è possibile trovare la risposta a una domanda?**
 
-È disponibile un forum della community di Azure Machine Learning su MSDN in cui i membri che si occupano di analisi scientifica dei dati possono porre domande su Azure Machine Learning. Il forum è monitorato dal team di Azure Machine Learning. Per cercare risposte o pubblicare una nuova domanda, accedere al [Forum di Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+È disponibile un forum della community di Azure Machine Learning su MSDN in cui i membri che si occupano di analisi scientifica dei dati possono porre domande su Azure Machine Learning. Il forum è monitorato dal team di Azure Machine Learning. Per cercare risposte o pubblicare una nuova domanda, accedere al [Forum di Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="general-questions"></a>Domande generali
 **Cos'è Azure Machine Learning?**
@@ -123,7 +123,7 @@ Per informazioni sulla capacità di input dell'immagine, vedere [Import Images][
 ### <a name="modules"></a>Moduli
 **L'algoritmo, l'origine dati, il formato dei dati o l'operazione di trasformazione dei dati che si sta cercando non è presente in Azure Machine Learning Studio. Quali sono le opzioni disponibili?**
 
-È possibile accedere al [forum dei commenti e suggerimenti degli utenti](http://go.microsoft.com/fwlink/?LinkId=404231) per visualizzare le richieste di funzionalità sotto esame. Se una funzionalità cercata è già stata richiesta, aggiungere il proprio voto alla richiesta. Se la funzionalità cercata non esiste, creare una nuova richiesta. In questo forum è anche possibile visualizzare lo stato della richiesta. Questo elenco viene controllato regolarmente e lo stato di disponibilità delle funzionalità viene aggiornato di frequente. È anche possibile usare il supporto predefinito per R e Python per creare trasformazioni personalizzate in base alle proprie esigenze.
+È possibile accedere al [forum dei commenti e suggerimenti degli utenti](https://go.microsoft.com/fwlink/?LinkId=404231) per visualizzare le richieste di funzionalità sotto esame. Se una funzionalità cercata è già stata richiesta, aggiungere il proprio voto alla richiesta. Se la funzionalità cercata non esiste, creare una nuova richiesta. In questo forum è anche possibile visualizzare lo stato della richiesta. Questo elenco viene controllato regolarmente e lo stato di disponibilità delle funzionalità viene aggiornato di frequente. È anche possibile usare il supporto predefinito per R e Python per creare trasformazioni personalizzate in base alle proprie esigenze.
 
 **È possibile trasferire un proprio codice esistente in Machine Learning Studio?**
 
@@ -182,7 +182,7 @@ Attualmente, è possibile usare solo R per creare nuovi moduli personalizzati.
 ### <a name="r-module"></a>Modulo R
 **Quali pacchetti R sono disponibili in Machine Learning Studio?**
 
-Machine Learning Studio attualmente supporta oltre 400 pacchetti CRAN-R. Vedere l'[elenco aggiornato](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) di tutti i pacchetti inclusi. Vedere anche [Estendere l'esperimento con R](extend-your-experiment-with-r.md) per informazioni su come recuperare personalmente tale elenco. Se il pacchetto desiderato non compare nell'elenco, specificare il nome del pacchetto nel [forum dei commenti e suggerimenti degli utenti](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio attualmente supporta oltre 400 pacchetti CRAN-R. Vedere l'[elenco aggiornato](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) di tutti i pacchetti inclusi. Vedere anche [Estendere l'esperimento con R](extend-your-experiment-with-r.md) per informazioni su come recuperare personalmente tale elenco. Se il pacchetto desiderato non compare nell'elenco, specificare il nome del pacchetto nel [forum dei commenti e suggerimenti degli utenti](https://go.microsoft.com/fwlink/?LinkId=404231).
 
 **È possibile compilare un modulo R personalizzato?**
 
@@ -312,7 +312,7 @@ Microsoft aggiunge regolarmente nuovo materiale in Machine Learning Center. Per 
 
 Per ottenere supporto tecnico per Azure Machine Learning, accedere a [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e selezionare **Machine Learning**.
 
-È anche disponibile un forum della community di Azure Machine Learning su MSDN, in cui è possibile porre domande su Azure Machine Learning. Il forum è monitorato dal team di Azure Machine Learning. Accedere al [forum di Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+È anche disponibile un forum della community di Azure Machine Learning su MSDN, in cui è possibile porre domande su Azure Machine Learning. Il forum è monitorato dal team di Azure Machine Learning. Accedere al [forum di Azure](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="billing-questions"></a>Domande sulla fatturazione
 **Come funziona la fatturazione di Machine Learning?**

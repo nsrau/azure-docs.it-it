@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456814"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159010"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Guida introduttiva: Iniziare a usare Azure Machine Learning con il portale di Azure
 
-In questa guida introduttiva si usa il portale di Azure per creare un'area di lavoro di Azure Machine Learning. Questa area di lavoro rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning con il servizio Machine Learning. 
+In questa guida introduttiva si usa il portale di Azure per creare un'area di lavoro di Azure Machine Learning. Questa area di lavoro rappresenta le fondamenta nel cloud per sperimentare, eseguire il training e distribuire modelli di Machine Learning con il servizio Machine Learning. Questa guida introduttiva usa le risorse cloud e non richiede installazione. In alternativa, per configurare un server notebook Jupyter, vedere [Guida introduttiva: Iniziare a usare Azure Machine Learning con Python](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -78,32 +78,9 @@ Insieme a due notebook, viene visualizzato un file `config.json`. Questo file di
 
 Selezionare `01.run-experiment.ipynb` per aprire il notebook.
 
-Per eseguire le celle una alla volta, usare `Shift`+`Enter`. In alternativa, selezionare `Cells` > `Run All` per eseguire l'intero notebook. Quando viene visualizzato un asterisco [*] accanto a una cella, questa è in esecuzione. Al termine dell'esecuzione del codice per la cella, compare un numero.
+Per eseguire le celle una alla volta, usare `Shift`+`Enter`. In alternativa, selezionare `Cells` > `Run All` per eseguire l'intero notebook. Quando viene visualizzato un asterisco [*] accanto a una cella, questa è in esecuzione. Al termine dell'esecuzione del codice per la cella, compare un numero. 
 
-Potrebbe essere necessario effettuare l'accesso. Copiare il codice nel messaggio. Quindi selezionare il collegamento e incollare il codice nella nuova finestra. Assicurarsi di non copiare spazi prima o dopo il codice. Accedere con lo stesso account usato nel portale di Azure.
-
- ![Accesso](./media/quickstart-get-started/login.png)
-
-La seconda cella del notebook legge le informazioni da `config.json` per la connessione all'area di lavoro.
-```
-ws = Workspace.from_config()
-```
-
-La terza cella di codice avvia un esperimento con il nome "my-first-experiment". Usare questo nome per cercare le informazioni sull'esecuzione nell'area di lavoro.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-Nell'ultima cella del notebook sono visibili i valori che vengono scritti nel file di log.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-È possibile visualizzare questi valori nell'area di lavoro dopo l'esecuzione del codice.
+Dopo aver completato l'esecuzione di tutte le celle del notebook, è possibile visualizzare i valori registrati nell'area di lavoro.
 
 ## <a name="view-logged-values"></a>Visualizzare i valori registrati
 
@@ -121,11 +98,11 @@ Visualizzare le informazioni sull'esecuzione appena eseguita. Scorrere la pagina
 
  ![Collegamento della cronologia di esecuzione](./media/quickstart-get-started/report.png)
 
-Vengono visualizzati tracciati dei valori registrati che sono stati creati automaticamente.  
+Vengono visualizzati tracciati dei valori registrati che sono stati creati automaticamente. Ogni volta che si registrano più valori con lo stesso parametro name, viene generato automaticamente un tracciato.
 
    ![Visualizzare la cronologia](./media/quickstart-get-started/plots.png)
 
-Poiché il codice per approssimare PI usa valori casuali, i tracciati dell'utente mostreranno valori diversi.
+Poiché il codice per approssimare PI usa valori casuali, i tracciati dell'utente mostreranno valori diversi.  
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 

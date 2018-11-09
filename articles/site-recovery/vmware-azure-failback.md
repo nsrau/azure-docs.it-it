@@ -1,23 +1,23 @@
 ---
-title: Eseguire il failback da Azure in VMware con Azure Site Recovery | Microsoft Docs
-description: Dopo il failover delle macchine virtuali in Azure, è possibile avviare il failback per riportarle in locale. Informazioni sui passaggi per il failback.
+title: Eseguire il failback da Azure durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery | Microsoft Docs
+description: Informazioni su come eseguire il failback nel sito locale dopo il failover in Azure durante il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure.
 author: nsoneji
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 ms.author: nisoneji
-ms.openlocfilehash: 9d8398582766a27f1457e3a59bdde0c59298ed50
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: becf0b8c9f14d81b0a25fb1727b69452c3ff690c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919836"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215175"
 ---
-# <a name="fail-back-from-azure-to-an-on-premises-site"></a>Eseguire il failback da Azure a un sito locale
+# <a name="fail-back-vmware-vms-and-physical-servers-from-azure-to-an-on-premises-site"></a>Eseguire il failback di macchine virtuali VMware e server fisici da Azure in un sito locale
 
 Questo articolo descrive come eseguire il failback da macchine virtuali di Azure all'ambiente VMware locale. Seguire le istruzioni riportate in questo articolo per eseguire il failback delle macchine virtuali VMware o dei server fisici Windows/Linux dopo avere effettuato il failover dal sito locale ad Azure seguendo l'esercitazione [Failover in Azure Site Recovery](site-recovery-failover.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 - Leggere i dettagli sui [diversi tipi di failback](concepts-types-of-failback.md) e le rispettive avvertenze.
 
 > [!WARNING]

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2018
+ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42144951"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138660"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problemi delle appliance virtuali di rete in Azure
 
@@ -77,13 +77,13 @@ Usare PowerShell
 **Controllare se il traffico può essere indirizzato all'appliance virtuale di rete**
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire **Network Watcher** e quindi selezionare **Hop successivo**.
-2. Specificare una macchina virtuale da usare come hop successivo per l'appliance virtuale di rete e un indirizzo IP di destinazione in corrispondenza del quale visualizzare l'hop successivo. 
+2. Specificare una macchina virtuale configurata per reindirizzare il traffico all'appliance virtuale di rete e un indirizzo IP di destinazione in corrispondenza del quale visualizzare l'hop successivo. 
 3. Se l'appliance virtuale di rete non è incluso nell'elenco come **hop successivo**, controllare e aggiornare le tabelle di route di Azure.
 
 **Controllare se il traffico riesce a raggiungere l'appliance virtuale di rete**
 
 1.  Nel [portale di Azure](https://portal.azure.com) aprire **Network Watcher** e quindi selezionare **Verifica flusso IP**. 
-2.  Specificare una macchina virtuale e l'indirizzo IP dell'appliance virtuale di rete, quindi controllare se il traffico viene bloccato da gruppi di sicurezza di rete.
+2.  Specificare la macchina virtuale e l'indirizzo IP dell'appliance virtuale di rete e quindi controllare se il traffico viene bloccato da gruppi di sicurezza di rete.
 3.  Se è presente una regola del gruppo di sicurezza di rete che blocca il traffico, individuare il gruppo di sicurezza di rete in **Regole di sicurezza effettive** e quindi aggiornarlo in modo da consentire il passaggio del traffico. Eseguire quindi di nuovo **Verifica flusso IP** e usare **Controllo della connettività** per testare le comunicazioni TCP dalla macchina virtuale all'indirizzo IP interno o esterno.
 
 **Controllare se l'appliance virtuale di rete e le macchine virtuali sono in ascolto del traffico previsto**

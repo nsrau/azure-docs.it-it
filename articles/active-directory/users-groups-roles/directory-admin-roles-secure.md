@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346730"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240104"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Protezione dell'accesso con privilegi per le distribuzioni ibride e cloud in Azure AD
 
@@ -159,7 +159,7 @@ Verificare che tutti gli utenti abbiano eseguito l'accesso al proprio account am
 
 #### <a name="turn-on-password-hash-synchronization"></a>Attivare la sincronizzazione dell'hash delle password
 
-La sincronizzazione dell'hash delle password è una funzionalità usata per sincronizzare gli hash delle password utente da un'istanza di Active Directory locale a un'istanza di Azure AD basata sul cloud. Anche se si decide di usare la federazione con Active Directory Federation Services (AD FS) o altri provider di identità, è possibile configurare la sincronizzazione dell'hash delle password come backup in caso di errore o temporanea indisponibilità dell'infrastruttura locale, ad esempio dei server AD o ADFS. In questo modo, gli utenti potranno accedere al servizio usando la stessa password usata per accedere all'istanza di AD locale. Identity Protection può inoltre rilevare le credenziali compromesse confrontando gli hash delle password con password segnalate come compromesse, se un utente ha usato lo stesso indirizzo di posta elettronica e la stessa password in altri servizi non connessi ad Azure AD.  Per altre informazioni, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+La sincronizzazione dell'hash delle password è una funzionalità usata per sincronizzare gli hash delle password utente da un'istanza di Active Directory locale a un'istanza di Azure AD basata sul cloud. Anche se si decide di usare la federazione con Active Directory Federation Services (AD FS) o altri provider di identità, è possibile configurare la sincronizzazione dell'hash delle password come backup in caso di errore o temporanea indisponibilità dell'infrastruttura locale, ad esempio dei server AD o ADFS. In questo modo, gli utenti potranno accedere al servizio usando la stessa password usata per accedere all'istanza di AD locale. Identity Protection può inoltre rilevare le credenziali compromesse confrontando gli hash delle password con password segnalate come compromesse, se un utente ha usato lo stesso indirizzo di posta elettronica e la stessa password in altri servizi non connessi ad Azure AD.  Per altre informazioni, vedere [Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Richiedere Multi-Factor Authentication (MFA) per gli utenti con tutti i ruoli con privilegi e gli utenti esposti
 
@@ -388,7 +388,7 @@ Determinare se è necessario [trasferire la proprietà di una sottoscrizione di 
 
 8. Assicurarsi di salvare i backup dei log rilevanti per potenziali indagini forensi e legali.
 
-Per altre informazioni su come Microsoft Office 365 gestisce gli eventi di sicurezza, vedere [Security Incident Management in Microsoft Office 365](http://aka.ms/Office365SIM) (Gestione degli eventi di sicurezza in Microsoft Office 365).
+Per altre informazioni su come Microsoft Office 365 gestisce gli eventi di sicurezza, vedere [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM) (Gestione degli eventi di sicurezza in Microsoft Office 365).
 
 ## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>Domande frequenti: domande comuni relative alla protezione dell'accesso con privilegi  
 

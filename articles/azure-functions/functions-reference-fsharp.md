@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: bd971b84b907d3fda1bea9922b2fd1881eb369e9
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025430"
+ms.locfileid: "50087237"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#
 
@@ -79,7 +79,7 @@ type TestObject =
     { SenderName : string
       Greeting : string }
 
-let Run(req: TestObject, log: TraceWriter) =
+let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
@@ -96,11 +96,11 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>Registrazione
-Per registrare l'output nei [log in streaming](../app-service/web-sites-enable-diagnostic-log.md) in F#, la funzione deve accettare un argomento di tipo `TraceWriter`. Per coerenza è consigliabile denominare questo argomento `log`. Ad esempio: 
+Per registrare l'output nei [log in streaming](../app-service/web-sites-enable-diagnostic-log.md) in F#, la funzione deve accettare un argomento di tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Per coerenza è consigliabile denominare questo argomento `log`. Ad esempio: 
 
 ```fsharp
-let Run(blob: string, output: byref<string>, log: TraceWriter) =
-    log.Verbose(sprintf "F# Azure Function processed a blob: %s" blob)
+let Run(blob: string, output: byref<string>, log: ILogger) =
+    log.LogInformation(sprintf "F# Azure Function processed a blob: %s" blob)
     output <- input
 ```
 
@@ -132,8 +132,9 @@ Gli spazi dei nomi possono essere aperti nel modo consueto:
 ```fsharp
 open System.Net
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 
-let Run(req: HttpRequestMessage, log: TraceWriter) =
+let Run(req: HttpRequestMessage, log: ILogger) =
     ...
 ```
 
@@ -157,8 +158,9 @@ In maniera analoga, i riferimenti per l'assembly del framework possono essere ag
 open System.Net
 open System.Net.Http
 open System.Threading.Tasks
+open Microsoft.Extensions.Logging
 
-let Run(req: HttpRequestMessage, log: TraceWriter) =
+let Run(req: HttpRequestMessage, log: ILogger) =
     ...
 ```
 
@@ -196,8 +198,9 @@ Un editor che supporta i servizi di compilazione F# non è in grado di riconosce
 
 open System
 open Microsoft.Azure.WebJobs.Host
+open Microsoft.Extensions.Logging
 
-let Run(blob: string, output: byref<string>, log: TraceWriter) =
+let Run(blob: string, output: byref<string>, log: ILogger) =
     ...
 ```
 
@@ -253,10 +256,11 @@ Per ottenere una variabile di ambiente o un valore di impostazione dell'app, usa
 
 ```fsharp
 open System.Environment
+open Microsoft.Extensions.Logging
 
-let Run(timer: TimerInfo, log: TraceWriter) =
-    log.Info("Storage = " + GetEnvironmentVariable("AzureWebJobsStorage"))
-    log.Info("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
+let Run(timer: TimerInfo, log: ILogger) =
+    log.LogInformation("Storage = " + GetEnvironmentVariable("AzureWebJobsStorage"))
+    log.LogInformation("Site = " + GetEnvironmentVariable("WEBSITE_SITE_NAME"))
 ```
 
 ## <a name="reusing-fsx-code"></a>Riutilizzo del codice del file con estensione fsx
@@ -267,15 +271,15 @@ let Run(timer: TimerInfo, log: TraceWriter) =
 ```fsharp
 #load "logger.fsx"
 
-let Run(timer: TimerInfo, log: TraceWriter) =
+let Run(timer: TimerInfo, log: ILogger) =
     mylog log (sprintf "Timer: %s" DateTime.Now.ToString())
 ```
 
 `logger.fsx`
 
 ```fsharp
-let mylog(log: TraceWriter, text: string) =
-    log.Verbose(text);
+let mylog(log: ILogger, text: string) =
+    log.LogInformation(text);
 ```
 
 I percorsi specificati per la direttiva `#load` sono relativi alla posizione del file `.fsx`.

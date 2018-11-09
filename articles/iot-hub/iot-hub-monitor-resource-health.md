@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: d3c32c2258f7542a02549fbc531aa9e8293d0235
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b470ca15163ef1e74ec9795ad0a2581a24c83474
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996299"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250411"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
 
@@ -26,11 +26,11 @@ Monitoraggio di Azure è una singola origine di monitoraggio e registrazione per
 
 Integrità risorse di Azure aiuta a diagnosticare gli eventuali problemi di Azure che possono influire negativamente sulle risorse e a ottenere il supporto necessario. Un dashboard personalizzato fornisce lo stato di integrità corrente e precedente per gli hub IoT. Continuare a leggere questo articolo per informazioni su come [Usare Integrità risorse di Azure](#use-azure-resource-health) con l'hub IoT. 
 
-Oltre all'integrazione con questi due servizi, l'hub IoT fornisce le proprie metriche utilizzabili per comprendere lo stato delle risorse di IoT. Per altre informazioni, vedere [Comprendere le metriche dell'hub IoT][lnk-metrics].
+Hub IoT fornisce inoltre metriche specifiche che è possibile usare per comprendere lo stato delle risorse di IoT. Per altre informazioni, vedere [Comprendere le metriche dell'hub IoT][lnk-metrics].
 
 ## <a name="use-azure-monitor"></a>Usare Monitoraggio di Azure
 
-Monitoraggio di Azure fornisce informazioni di diagnostica a livello di risorsa, il che significa che è possibile monitorare le operazioni che si verificano all'interno dell'hub IoT. 
+Monitoraggio di Azure fornisce informazioni di diagnostica per le risorse di Azure, il che significa che è possibile monitorare le operazioni che si verificano all'interno dell'hub IoT. 
 
 Le impostazioni di diagnostica di Monitoraggio di Azure sostituiscono il monitoraggio delle operazioni dell'hub IoT. Se si usa il monitoraggio delle operazioni, è necessario eseguire la migrazione dei flussi di lavoro. Per altre informazioni, vedere [Migrate from operations monitoring to diagnostics settings (Eseguire la migrazione dalla funzionalità Monitoraggio operazioni a Impostazioni di diagnostica)][lnk-migrate].
 
@@ -42,9 +42,9 @@ Per altre informazioni sulle metriche specifiche e gli eventi che Monitoraggio d
 
 Monitoraggio di Azure tiene traccia delle diverse operazioni che si verificano nell'hub IoT. Ogni categoria dispone di uno schema che definisce la modalità in cui vengono segnalati gli eventi in tale categoria. 
 
-#### <a name="connections"></a>connessioni
+#### <a name="connections"></a>Connessioni
 
-La categoria Connessioni tiene traccia degli eventi di connessione e disconnessione del dispositivo da un hub IoT, nonché degli errori. Il rilevamento di questa categoria è utile per identificare i tentativi di connessione non autorizzati e per rilevare quando una connessione viene persa dai dispositivi in aree di scarsa connettività.
+La categoria Connessioni tiene traccia degli eventi di connessione e disconnessione del dispositivo da un hub IoT, nonché degli errori. Questa categoria è utile per identificare i tentativi di connessione non autorizzati e per inviare avvisi in caso di interruzione della connessione ai dispositivi.
 
 > [!NOTE]
 > Per uno stato di connessione affidabile dei dispositivi, selezionare [Device heartbeat][lnk-devguide-heartbeat] (Heartbeat dispositivo).
@@ -56,26 +56,37 @@ La categoria Connessioni tiene traccia degli eventi di connessione e disconnessi
     "operationName": "deviceConnect",
     "category": "Connections",
     "level": "Information",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}", 
+    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}", 
     "location": "Resource location"
 }
 ```
 
 #### <a name="cloud-to-device-commands"></a>Comandi da cloud a dispositivo
 
-La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di messaggi da cloud a dispositivo. Questa categoria include gli errori che si verificano durante l'invio di messaggi da cloud a dispositivo, ad esempio un mittente non autorizzato, la ricezione di messaggi da cloud a dispositivo, ad esempio il superamento del numero di recapiti, e la ricezione di commenti sui messaggi da cloud a dispositivo, ad esempio commenti scaduti. Questa categoria non intercetta gli errori da un dispositivo che gestisce in modo non corretto un messaggio da cloud a dispositivo, se questo è stato recapitato correttamente.
+La categoria di comandi da cloud a dispositivo tiene traccia degli errori che si verificano nell'hub IoT e sono correlati alla pipeline di messaggi da cloud a dispositivo. Questa categoria include errori che risultano da:
+
+* Invio di messaggi da cloud a dispositivo (ad esempio, errori di mittente non autorizzato)
+* Ricezione di messaggi da cloud a dispositivo (ad esempio, errori di superamento del numero di recapiti)
+* Ricezione di feedback sui messaggi da cloud a dispositivo (ad esempio, errori di feedback scaduto) 
+
+Questa categoria non intercetta gli errori quando il messaggio da cloud a dispositivo viene recapitato correttamente ma viene gestito in modo non corretto dal dispositivo.
 
 ```json
 {
-    "time": " UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "messageExpired",
-    "category": "C2DCommands",
-    "level": "Error",
-    "resultType": "Event status",
-    "resultDescription": "MessageDescription",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddresss\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": " UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "messageExpired",
+            "category": "C2DCommands",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddresss\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -85,31 +96,47 @@ La categoria di operazioni di identità del dispositivo tiene traccia degli erro
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "get",
-    "category": "DeviceIdentityOperations",
-    "level": "Error",    
-    "resultType": "Event status",
-    "resultDescription": "MessageDescription",
-    "properties": "{\"maskedIpAddress\":\"<maskedIpAddress>\",\"deviceId\":\"<deviceId>\", \"statusCode\":\"4XX\"}",
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "get",
+            "category": "DeviceIdentityOperations",
+            "level": "Error",    
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"maskedIpAddress\":\"<maskedIpAddress>\",\"deviceId\":\"<deviceId>\", \"statusCode\":\"4XX\"}",
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
 #### <a name="routes"></a>Route
 
-La categoria del routing dei messaggi tiene traccia degli errori che si verificano durante la valutazione del routing dei messaggi e dell'integrità dell'endpoint percepiti dall'hub IoT. Questa categoria include eventi come ad esempio quando una regola viene valutata come "non definita", quando l'hub IoT contrassegna un endpoint come inattivo ed eventuali altri errori ricevuti da un endpoint. Questa categoria non include errori specifici sui messaggi stessi, ad esempio gli errori di limitazione sui dispositivi, che vengono segnalati nella categoria "telemetria del dispositivo".
+La categoria del routing dei messaggi tiene traccia degli errori che si verificano durante la valutazione del routing dei messaggi e dell'integrità dell'endpoint percepiti dall'hub IoT. Questa categoria include eventi di questo tipo:
+
+* Una regola viene valutata come "non definita"
+* Hub IoT contrassegna un endpoint come inattivo
+* Qualsiasi errore ricevuto da un endpoint 
+
+Questa categoria non include errori specifici sui messaggi stessi, come gli errori di limitazione sui dispositivi, che vengono inclusi nella categoria "Telemetria dei dispositivi".
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "endpointUnhealthy",
-    "category": "Routes",
-    "level": "Error",
-    "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "endpointUnhealthy",
+            "category": "Routes",
+            "level": "Error",
+            "properties": "{\"deviceId\": \"<deviceId>\",\"endpointName\":\"<endpointName>\",\"messageId\":<messageId>,\"details\":\"<errorDetails>\",\"routeName\": \"<routeName>\"}",
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -119,15 +146,20 @@ La categoria di telemetria dei dispositivi tiene traccia degli errori che si ver
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "ingress",
-    "category": "DeviceTelemetry",
-    "level": "Error",
-    "resultType": "Event status",
-    "resultDescription": "MessageDescription",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "ingress",
+            "category": "DeviceTelemetry",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -143,16 +175,21 @@ Questa categoria non può intercettare errori che si verificano direttamente men
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "ingress",
-    "category": "FileUploadOperations",
-    "level": "Error",
-    "resultType": "Event status",
-    "resultDescription": "MessageDescription",
-    "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"blobUri\":\"http//bloburi.com\"}",
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "ingress",
+            "category": "FileUploadOperations",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"blobUri\":\"http//bloburi.com\"}",
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -162,14 +199,19 @@ La categoria relativa alle operazioni da cloud a dispositivo gemello tiene tracc
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "read",
-    "category": "C2DTwinOperations",
-    "level": "Information",
-    "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "read",
+            "category": "C2DTwinOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -179,14 +221,19 @@ La categoria relativa alle operazioni da dispositivo gemello a cloud tiene tracc
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "update",
-    "category": "D2CTwinOperations",
-    "level": "Information",
-    "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "update",
+            "category": "D2CTwinOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -196,14 +243,19 @@ La categoria relativa alle query dei dispositivi gemelli segnala le richieste di
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "query",
-    "category": "TwinQueries",
-    "level": "Information",
-    "durationMs": "1",
-    "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "query",
+            "category": "TwinQueries",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -213,14 +265,19 @@ La categoria relativa alle operazioni dei processi segnala le richieste di proce
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "jobCompleted",
-    "category": "JobsOperations",
-    "level": "Information",
-    "durationMs": "1",
-    "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "jobCompleted",
+            "category": "JobsOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -230,14 +287,19 @@ La categoria relativa ai metodi diretti tiene traccia delle interazioni di richi
 
 ```json
 {
-    "time": "UTC timestamp",
-    "resourceId": "Resource Id",
-    "operationName": "send",
-    "category": "DirectMethods",
-    "level": "Information",
-    "durationMs": "1",
-    "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
-    "location": "Resource location"
+    "records": 
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "send",
+            "category": "DirectMethods",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\", \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}", 
+            "location": "Resource location"
+        }
+    ]
 }
 ```
 
@@ -246,74 +308,74 @@ La categoria relativa ai metodi diretti tiene traccia delle interazioni di richi
 Dopo aver configurato la registrazione degli eventi tramite le impostazioni di diagnostica, è possibile creare applicazioni che leggono i log in modo che sia possibile eseguire azioni sulla base delle informazioni in essi contenuti. Questo codice di esempio recupera i log da un hub eventi:
 
 ```csharp
-class Program 
-{ 
-    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
-    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
-    static EventHubClient eventHubClient; 
-//This is the Diagnostic Settings schema 
-    class AzureMonitorDiagnosticLog 
-    { 
-        string time { get; set; } 
-        string resourceId { get; set; } 
-        string operationName { get; set; } 
-        string category { get; set; } 
-        string level { get; set; } 
-        string resultType { get; set; } 
-        string resultDescription { get; set; } 
-        string durationMs { get; set; } 
-        string callerIpAddress { get; set; } 
-        string correlationId { get; set; } 
-        string identity { get; set; } 
-        string location { get; set; } 
-        Dictionary<string, string> properties { get; set; } 
-    }; 
-    static void Main(string[] args) 
-    { 
-        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
-        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
-        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds; 
-        CancellationTokenSource cts = new CancellationTokenSource(); 
-        var tasks = new List<Task>(); 
-        foreach (string partition in d2cPartitions) 
-        { 
-            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
-        } 
-        Console.ReadLine(); 
-        Console.WriteLine("Exiting..."); 
-        cts.Cancel(); 
-        Task.WaitAll(tasks.ToArray()); 
-    } 
-    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
-    { 
-        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
-        while (true) 
-        { 
-            if (ct.IsCancellationRequested) 
-            { 
-                await eventHubReceiver.CloseAsync(); 
-                break; 
-            } 
-            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
-            if (eventData != null) 
-            { 
-                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
-                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
-                var deserializer = new JavaScriptSerializer(); 
-                //deserialize json data to azure monitor object 
-                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
- 
-            } 
-        } 
-    } 
-} 
+class Program 
+{ 
+    static string connectionString = "{your AMS eventhub endpoint connection string}"; 
+    static string monitoringEndpointName = "{your AMS event hub endpoint name}"; 
+    static EventHubClient eventHubClient; 
+//This is the Diagnostic Settings schema 
+    class AzureMonitorDiagnosticLog 
+    { 
+        string time { get; set; } 
+        string resourceId { get; set; } 
+        string operationName { get; set; } 
+        string category { get; set; } 
+        string level { get; set; } 
+        string resultType { get; set; } 
+        string resultDescription { get; set; } 
+        string durationMs { get; set; } 
+        string callerIpAddress { get; set; } 
+        string correlationId { get; set; } 
+        string identity { get; set; } 
+        string location { get; set; } 
+        Dictionary<string, string> properties { get; set; } 
+    }; 
+    static void Main(string[] args) 
+    { 
+        Console.WriteLine("Monitoring. Press Enter key to exit.\n"); 
+        eventHubClient = EventHubClient.CreateFromConnectionString(connectionString, monitoringEndpointName); 
+        var d2cPartitions = eventHubClient.GetRuntimeInformation().PartitionIds; 
+        CancellationTokenSource cts = new CancellationTokenSource(); 
+        var tasks = new List<Task>(); 
+        foreach (string partition in d2cPartitions) 
+        { 
+            tasks.Add(ReceiveMessagesFromDeviceAsync(partition, cts.Token)); 
+        } 
+        Console.ReadLine(); 
+        Console.WriteLine("Exiting..."); 
+        cts.Cancel(); 
+        Task.WaitAll(tasks.ToArray()); 
+    } 
+    private static async Task ReceiveMessagesFromDeviceAsync(string partition, CancellationToken ct) 
+    { 
+        var eventHubReceiver = eventHubClient.GetDefaultConsumerGroup().CreateReceiver(partition, DateTime.UtcNow); 
+        while (true) 
+        { 
+            if (ct.IsCancellationRequested) 
+            { 
+                await eventHubReceiver.CloseAsync(); 
+                break; 
+            } 
+            EventData eventData = await eventHubReceiver.ReceiveAsync(new TimeSpan(0,0,10)); 
+            if (eventData != null) 
+            { 
+                string data = Encoding.UTF8.GetString(eventData.GetBytes()); 
+                Console.WriteLine("Message received. Partition: {0} Data: '{1}'", partition, data); 
+                var deserializer = new JavaScriptSerializer(); 
+                //deserialize json data to azure monitor object 
+                AzureMonitorDiagnosticLog message = new JavaScriptSerializer().Deserialize<AzureMonitorDiagnosticLog>(result); 
+ 
+            } 
+        } 
+    } 
+} 
 ```
 
 ## <a name="use-azure-resource-health"></a>Usare Integrità risorse di Azure
 
 Usare Integrità risorse di Azure per controllare se l'hub IoT sia operativo. È inoltre possibile capire se un'interruzione dell'alimentazione locale stia influenzando l'integrità dell'hub IoT. Per comprendere i dettagli specifici sullo stato di integrità dell'hub IoT di Azure, è consigliabile [Usare Monitoraggio di Azure](#use-azure-monitor). 
 
-L'hub IoT di Azure indica l'integrità a livello regionale. Se un'interruzione dell'alimentazione locale sta influenzando l'hub IoT, lo stato di integrità appare come **Sconosciuto**. Per altre informazioni sui controlli di integrità specifici che Integrità risorse di Azure esegue, vedere [Tipi di risorse e controlli di integrità in Integrità risorse di Azure][lnk-ARH-checks].
+L'hub IoT di Azure indica l'integrità a livello regionale. Se un'interruzione dell'alimentazione locale ha un impatto sull'hub IoT, lo stato di integrità appare come **Sconosciuto**. Per altre informazioni, vedere [Tipi di risorse e controlli di integrità in Integrità risorse di Azure][lnk-ARH-checks].
 
 Per controllare l'integrità degli hub IoT, seguire questi passaggi:
 

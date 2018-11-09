@@ -7,17 +7,17 @@ ms.component: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
-ms.date: 03/19/2017
-ms.openlocfilehash: 0cc215d6643c86460a1d5471aa1eed8fdf18e028
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 10/30/2018
+ms.openlocfilehash: 2786de150307b21b06b624914d5fea55ded6e3c7
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194734"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249792"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creare un'attività watcher di Automazione di Azure per tenere traccia delle modifiche dei file in un computer locale
 
-Automazione di Azure usa le attività watcher per controllare gli eventi e le azioni di trigger. In questa esercitazione viene descritto come creare un'attività watcher per monitorare quando viene aggiunto un nuovo file in una directory.
+Automazione di Azure usa le attività watcher per controllare gli eventi e le azioni di trigger con runbook PowerShell. In questa esercitazione viene descritto come creare un'attività watcher per monitorare quando viene aggiunto un nuovo file in una directory.
 
 In questa esercitazione si apprenderà come:
 
@@ -29,7 +29,7 @@ In questa esercitazione si apprenderà come:
 > * Attivare un watcher
 > * Esaminare i risultati
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, è necessario quanto segue:
 
@@ -42,15 +42,15 @@ Per completare l'esercitazione, è necessario quanto segue:
 Questa esercitazione usa un runbook watcher denominato **Watch-NewFile** per cercare nuovi file in una directory. Il runbook watcher recupera la data e l'ora dell'ultima scrittura nota nei file di una cartella e cerca qualsiasi file che risulti più recente di quel limite. In questo passaggio, si importa questo runbook nell'account di automazione.
 
 1. Aprire l'account di automazione e fare clic sulla pagina **Runbook**.
-1. Fare clic sul pulsante **Sfoglia raccolta**.
-1. Cercare "Runbook watcher", selezionare **Watcher runbook that looks for new files in a directory** (Runbook watcher che cerca nuovi file in una directory) e selezionare **Importa**.
+2. Fare clic sul pulsante **Sfoglia raccolta**.
+3. Cercare "Runbook watcher", selezionare **Watcher runbook that looks for new files in a directory** (Runbook watcher che cerca nuovi file in una directory) e selezionare **Importa**.
   ![Importare un runbook di automazione dall'interfaccia utente](media/automation-watchers-tutorial/importsourcewatcher.png)
 1. Assegnare al runbook un nome e una descrizione e selezionare **OK** per importarlo nell'account di automazione.
 1. Selezionare **Modifica** e quindi fare clic su **Pubblica**. Al prompt, selezionare **Sì** per pubblicare il runbook.
 
 ## <a name="create-an-automation-variable"></a>Creare una variabile di automazione
 
-Una [variabile di automazione](automation-variables.md) viene usata per archiviare i timestamp che il runbook precedente legge e archivia da ogni file. 
+Una [variabile di automazione](automation-variables.md) viene usata per archiviare i timestamp che il runbook precedente legge e archivia da ogni file.
 
 1. Selezionare **Variabili** in **RISORSE CONDIVISE** e selezionare **+ Aggiungi variabile**.
 1. Immettere "Watch-NewFileTimestamp" nel campo Nome.
@@ -59,7 +59,7 @@ Una [variabile di automazione](automation-variables.md) viene usata per archivia
 
 ## <a name="create-an-action-runbook"></a>Creare un runbook azione
 
-Un runbook azione viene usato in un'attività watcher per agire sui dati passati da un runbook watcher. In questo passaggio si importa un runbook azione predefinito denominato "Process-NewFile".
+Un runbook azione viene usato in un'attività watcher per agire sui dati passati da un runbook watcher. I runbook del flusso di lavoro PowerShell non sono supportati dalle attività watcher, è necessario usare i runbook di PowerShell. In questo passaggio si importa un runbook azione predefinito denominato "Process-NewFile".
 
 1. Passare all'account di automazione e selezionare **Runbook** nella categoria **AUTOMAZIONE PROCESSI**.
 1. Fare clic sul pulsante **Sfoglia raccolta**.
@@ -89,8 +89,8 @@ L'attività watcher contiene due parti. Il watcher e l'azione. Il watcher viene 
 1. Selezionare **Configura azione** e selezionare il runbook "Process-NewFile".
 1. Per i parametri inserire i valori seguenti:
 
-   *    **EVENTDATA** - Lasciare vuoto. I dati vengono passati dal runbook watcher.  
-   *    **Run Settings** (Impostazioni di esecuzione) - Lasciare questo campo impostato su Azure in quanto questo runbook viene eseguito nel servizio Automazione.
+   ***EVENTDATA** - Lasciare vuoto. I dati vengono passati dal runbook watcher.  
+   ***Run Settings** (Impostazioni di esecuzione) - Lasciare questo campo impostato su Azure in quanto questo runbook viene eseguito nel servizio Automazione.
 
 1. Fare clic su **OK** e quindi su Seleziona per tornare alla pagina del watcher.
 1. Fare clic su **OK** per creare l'attività watcher.

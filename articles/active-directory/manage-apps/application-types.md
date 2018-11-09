@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 754a06cc8bb9cc6e660e2ac5f01ef2c40176eb05
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f483be5866715ddf253daefb197ae3dd87e02d99
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355828"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249099"
 ---
 # <a name="unexpected-application-in-my-applications-list"></a>Applicazione non prevista nell'elenco delle applicazioni
 
@@ -59,13 +59,13 @@ Quando si imposta il filtro su **Tutte le applicazioni**, l'**elenco** di **tutt
 
 2.  Quando si effettua l'iscrizione o si esegue l'accesso a un'applicazione di terze parti integrata con Azure Active Directory<sup></sup>, ad esempio [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
 
-3.  Quando si effettua l'iscrizione o si aggiunge una licenza a un utente o un gruppo per un'applicazione proprietaria, come [Microsoft Office 365](http://products.office.com/).
+3.  Quando si effettua l'iscrizione o si aggiunge una licenza a un utente o un gruppo per un'applicazione proprietaria, come [Microsoft Office 365](https://products.office.com/).
 
 4.  Quando si aggiunge una nuova registrazione di applicazione creando un'applicazione personalizzata con il [Registro applicazioni](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
 
 5.  Quando si aggiunge una nuova registrazione di applicazione creando un'applicazione personalizzata con il [portale di registrazione delle applicazioni V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration#visit-the-microsoft-app-registration-portal).
 
-6.  Quando si aggiunge un'applicazione sviluppata con i [metodi di autenticazione ASP.NET](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) o con [Servizi connessi](http://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) di Visual Studio.
+6.  Quando si aggiunge un'applicazione sviluppata con i [metodi di autenticazione ASP.NET](http://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) o con [Servizi connessi](https://blogs.msdn.com/b/visualstudio/archive/2014/11/19/connecting-to-cloud-services.aspx) di Visual Studio.
 
 7.  Quando si crea un oggetto entità servizio usando il [modulo Azure AD PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0).
 

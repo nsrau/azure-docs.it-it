@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 460ef8a3d4436f240793025cbec874c624a2a6f4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039021"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249052"
 ---
 # <a name="azure-database-security-overview"></a>Panoramica della sicurezza del database di Azure
 
@@ -65,6 +65,7 @@ Tutte le connessioni al database SQL di Azure richiedono sempre la crittografia 
 Nella stringa di connessione dell'applicazione è necessario specificare i parametri per crittografare la connessione e non considerare attendibile il certificato del server. Questa operazione viene eseguita automaticamente se si copia la stringa di connessione dal portale di Azure. In caso contrario, la connessione non verificherà l'identità del server e sarà esposta ad attacchi "man-in-the-middle". Per il driver ADO.NET, ad esempio, questi parametri della stringa di connessione sono `Encrypt=True` e `TrustServerCertificate=False`.
 
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
+
 È possibile adottare diverse precauzioni per proteggere il database. Ad esempio, la progettazione di un sistema sicuro, la crittografia di asset riservati e la creazione di un firewall che protegga i server di database. Ma nell'ipotesi del furto dei supporti fisici, come unità o nastri di backup, un malintenzionato potrebbe semplicemente ripristinare o collegare il database e accedere ai dati in esso contenuti.
 
 Una soluzione consiste nel crittografare i dati riservati nel database e proteggere con un certificato le chiavi utilizzate per crittografarli. Con questa soluzione, senza disporre delle chiavi nessuno potrà usare i dati. Tuttavia, questo tipo di protezione deve essere pianificato.
@@ -92,6 +93,7 @@ Always Encrypted consente di separare i proprietari dei dati (che possono visual
 Inoltre, con Always Encrypted la crittografia è trasparente per le applicazioni. Nel computer client viene installato un driver abilitato per Always Encrypted che consente di crittografare e decrittografare automaticamente i dati sensibili nell'applicazione client. Il driver crittografa i dati nelle colonne sensibili prima di passarli al motore di database. Il driver riscrive automaticamente le query in modo da mantenere la semantica per l'applicazione. Analogamente, il driver decrittografa in modo trasparente i dati, archiviati nelle colonne di database crittografate, contenuti nei risultati delle query.
 
 ## <a name="access-control"></a>Controllo di accesso
+
 Per garantire la sicurezza, il database SQL controlla l'accesso tramite:
 
 - Regole del firewall che limitano la connettività in base all'indirizzo IP.
@@ -124,11 +126,13 @@ Per autenticazione si intende il modo in cui viene dimostrata la propria identit
   - Può eliminare l'archiviazione delle password tramite l'abilitazione dell'autenticazione integrata di Windows e di altre forme di autenticazione supportate da Azure AD.
 
 #### <a name="authorization"></a>Authorization
+
 Il termine [autorizzazione](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins) indica le operazioni che un utente è autorizzato a eseguire all'interno di un database SQL di Azure. L'autorizzazione è controllata dalle [appartenenze ai ruoli](https://msdn.microsoft.com/library/ms189121) del database e dalle [autorizzazioni a livello di oggetto](https://msdn.microsoft.com/library/ms191291.aspx) dell'account utente. L'autorizzazione è il processo volto a determinare le risorse a protezione diretta accessibili per un'entità di sicurezza e quali operazioni sono consentite per le risorse.
 
 ### <a name="application-access"></a>Accesso all'applicazione
 
 #### <a name="dynamic-data-masking"></a>Maschera dati dinamica
+
 Un addetto all'assistenza in un call center può identificare i chiamanti tramite alcune cifre del codice fiscale o del numero di carta di credito. Tuttavia, questi elementi di dati non devono essere completamente visibili all'addetto all'assistenza.
 
 È possibile definire una regola di maschera che renda visibili solo le ultime quattro cifre del codice fiscale o del numero di carta di credito nel set di risultati di tutte le query.
@@ -141,11 +145,11 @@ La funzionalità [Maschera dati dinamica del database SQL](https://docs.microsof
 
 La [maschera dati dinamica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking) impedisce l'accesso non autorizzato ai dati sensibili consentendo di definire la quantità di dati sensibili da rivelare, con un impatto minimo sul livello dell'applicazione. Si tratta di una funzionalità di sicurezza basata su criteri che consente di nascondere i dati sensibili nel set di risultati di una query in campi del database designati, senza alcuna modifica dei dati contenuti nel database.
 
-
 > [!Note]
 > Il mascheramento dei dati dinamici può essere configurato dall'amministratore del database di Azure, dall'amministratore del server o dal responsabile della sicurezza.
 
 #### <a name="row-level-security"></a>Sicurezza a livello di riga
+
 Un altro requisito di sicurezza comune per i database multi-tenant è la [sicurezza a livello di riga](https://msdn.microsoft.com/library/dn765131.aspx). È possibile usare questa funzionalità per controllare l'accesso alle righe di una tabella di database in base alle caratteristiche dell'utente che sta eseguendo la query. Esempi di caratteristiche sono l'appartenenza a un gruppo e il contesto di esecuzione.
 
 ![Sicurezza a livello di riga che consente a un utente di accedere alle righe di una tabella tramite un'app client](./media/azure-databse-security-overview/azure-database-fig4.png)
@@ -155,18 +159,20 @@ La logica di restrizione dell'accesso si trova nel livello database e non lontan
 La sicurezza a livello di riga introduce il controllo di accesso basato su predicato. Questa funzionalità offre una valutazione flessibile e centralizzata che può prendere in considerazione i metadati o qualsiasi altro criterio ritenuto appropriato dall'amministratore. Il predicato viene usato come criterio per determinare se l'utente dispone o meno dell'accesso appropriato ai dati in base agli attributi utente. È possibile implementare il controllo di accesso basato su etichetta usando il controllo di accesso basato su predicato.
 
 ## <a name="proactive-monitoring"></a>Monitoraggio proattivo
+
 Il database SQL consente di proteggere i dati con funzionalità di *controllo* e *rilevamento delle minacce*.
 
 ### <a name="auditing"></a>Controllo
+
 Il [servizio di controllo del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) aumenta la possibilità di ottenere informazioni dettagliate su eventi e modifiche all'interno del database, ad esempio aggiornamenti e query sui dati.
 
 Il servizio di controllo del database SQL tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo nell'account di archiviazione di Azure. Il controllo consente di agevolare la conformità alle normative, comprendere l'attività del database e ottenere informazioni dettagliate su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza. Il controllo abilita e facilita il rispetto degli standard di conformità, ma non garantisce la conformità.
 
 È possibile usare il servizio di controllo del database SQL per eseguire le operazioni seguenti:
 
--   **Conservare** un audit trail di eventi selezionati. È possibile definire categorie di azioni di database da controllare.
--   **Creare report** sulle attività del database. È possibile usare i report preconfigurati e un dashboard per iniziare rapidamente a usare l’attività e la segnalazione di eventi.
--   **Analizzare** i report. È possibile individuare eventi sospetti, attività insolite e tendenze.
+- **Conservare** un audit trail di eventi selezionati. È possibile definire categorie di azioni di database da controllare.
+- **Creare report** sulle attività del database. È possibile usare i report preconfigurati e un dashboard per iniziare rapidamente a usare l'attività e la segnalazione di eventi.
+- **Analizzare** i report. È possibile individuare eventi sospetti, attività insolite e tendenze.
 
 Esistono due metodi di controllo:
 
@@ -174,13 +180,26 @@ Esistono due metodi di controllo:
 -   **Controllo tabelle**: i log vengono scritti in Archiviazione tabelle di Azure.
 
 ### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
-La funzionalità di [rilevamento delle minacce del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) rileva attività sospette che indicano potenziali minacce alla sicurezza. È possibile usare la funzionalità di rilevamento delle minacce per rispondere a eventi sospetti nel database, ad esempio attacchi SQL injection, non appena si verificano. La funzionalità offre avvisi e consente di usare il servizio di controllo del database SQL di Azure per esaminare gli eventi sospetti.
+
+[Advanced Threat Protection per il database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-advanced-threat-protection) rileva attività sospette che indicano potenziali minacce alla sicurezza. È possibile usare la funzionalità di rilevamento delle minacce per rispondere a eventi sospetti nel database, ad esempio attacchi SQL injection, non appena si verificano. La funzionalità offre avvisi e consente di usare il servizio di controllo del database SQL di Azure per esaminare gli eventi sospetti.
 
 ![Rilevamento delle minacce per il database SQL e un'app Web con un utente malintenzionato esterno e uno interno](./media/azure-databse-security-overview/azure-database-fig5.jpg)
 
-Ad esempio, l'attacco SQL injection è uno dei problemi di sicurezza comuni per le applicazioni Web. Viene usato per attaccare le applicazioni basate su dati. Gli autori degli attacchi sfruttano le vulnerabilità delle applicazioni per introdurre istruzioni SQL dannose nei campi di immissione dell'applicazione, con lo scopo di violare o modificare i dati del database.
+SQL Advanced Threat Protection (ATP) offre una serie di funzionalità di sicurezza SQL avanzate, tra cui Individuazione dati e classificazione, Valutazione della vulnerabilità e Rilevamento minacce. 
 
-I responsabili della sicurezza o altri amministratori designati possono ricevere una notifica immediata sulle attività di database sospette non appena si verificano. Ogni notifica contiene dettagli sulle attività sospette e consigli su come eseguire ulteriori indagini e mitigare la minaccia.        
+- [Individuazione dati e classificazione](../sql-database/sql-database-data-discovery-and-classification.md)
+- [Valutazione della vulnerabilità](../sql-database/sql-vulnerability-assessment.md)  
+- [Rilevamento delle minacce](../sql-database/sql-database-threat-detection.md)
+
+[Advanced Threat Protection per Database di Azure per PostgreSQL](../postgresql/concepts-data-access-and-security-threat-protection.md) offre un nuovo livello di sicurezza che consente di rilevare e gestire le possibili minacce non appena si manifestano attraverso avvisi di sicurezza sulle attività anomale. Gli utenti ricevono un avviso in caso di attività di database sospette, potenziali vulnerabilità e modelli di query e accesso ai database anomali. Advanced Threat Protection per Database di Azure per PostgreSQL integra gli avvisi con il Centro sicurezza di Azure. I tipi di avvisi includono:
+
+- Accesso da posizione insolita
+- Accesso da data center di Azure insolito 
+- Accesso da entità di sicurezza sconosciuta 
+- Accesso da un'applicazione potenzialmente dannosa 
+- Attacco di forza bruta alle credenziali del database di Azure per PostgreSQL 
+
+[Advanced Threat Protection per Database di Azure per MySQL](/mysql/concepts-data-access-and-security-threat-protection.md) offre una protezione simile alla protezione avanzata per PostgreSQL.  
 
 ## <a name="centralized-security-management"></a>Gestione centralizzata della sicurezza
 
@@ -188,12 +207,20 @@ Il [Centro sicurezza di Azure](https://azure.microsoft.com/documentation/service
 
 Il [Centro sicurezza](https://docs.microsoft.com/azure/security-center/security-center-sql-database) consente di proteggere i dati nel database SQL fornendo visibilità per la sicurezza di tutti i server e database. Con il Centro sicurezza è possibile:
 
--   Definire i criteri per la crittografia e il controllo del database SQL.
--   Monitorare la sicurezza delle risorse del database SQL per tutte le sottoscrizioni.
--   Identificare e correggere rapidamente i problemi di sicurezza.
--   Integrare gli avvisi generati dal [rilevamento delle minacce del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
+- Definire i criteri per la crittografia e il controllo del database SQL.
+- Monitorare la sicurezza delle risorse del database SQL per tutte le sottoscrizioni.
+- Identificare e correggere rapidamente i problemi di sicurezza.
+- Integrare gli avvisi generati dal [rilevamento delle minacce del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 
 Il Centro sicurezza supporta l'accesso in base al ruolo.
+
+## <a name="sql-information-protection"></a>SQL Information Protection
+
+[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md) consente di individuare e classificare automaticamente i dati potenzialmente sensibili, offre un meccanismo di assegnazione delle etichette per contrassegnare in modo permanente i dati sensibili con attributi di classificazione e contiene un dashboard dettagliato che indica lo stato di classificazione del database.  
+
+Inoltre, calcola la riservatezza del set di risultati delle query SQL, in modo che le query che estraggono dati sensibili possano essere controllate in modo esplicito, e i dati protetti. Per altre informazioni su SQL Information Protection, vedere Individuazione e classificazione dei dati nel database SQL di Azure.
+
+È possibile personalizzare i [criteri di SQL Information Protection](/security-center/security-center-info-protection-policy.md) nel Centro sicurezza di Azure.
 
 ## <a name="azure-marketplace"></a>Azure Marketplace
 

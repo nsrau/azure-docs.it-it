@@ -1,25 +1,18 @@
 ---
-title: Aggiungere runbook di Automazione di Azure ai piani di ripristino in Azure Site Recovery| Microsoft Docs
-description: Informazioni su come Azure Site Recovery può essere utile per estendere i piani di ripristino tramite Automazione di Azure. Informazioni su come eseguire attività complesse durante il ripristino in Azure.
-services: site-recovery
-documentationcenter: ''
+title: Aggiungere runbook di Automazione di Azure ai piani di ripristino di Site Recovery| Microsoft Docs
+description: Informazioni su come estendere i piani di ripristino tramite Automazione di Azure per il ripristino di emergenza con Azure Site Recovery.
 author: ruturaj
 manager: gauravd
-editor: ''
-ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
 ms.service: site-recovery
-ms.devlang: powershell
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578766"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211112"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Aggiungere runbook di Automazione di Azure ai piani di ripristino
 Questo articolo descrive come Azure Site Recovery si integra con Automazione di Azure per facilitare l'estensione dei piani di ripristino. I piani di ripristino possono orchestrare il ripristino di macchine virtuali protette con Site Recovery. I piani di ripristino possono essere usati sia per la replica in un cloud secondario che per la replica in Azure e consentono anche di ottenere un ripristino **costantemente accurato**, **ripetibile** e **automatizzato**. Se si esegue il failover delle macchine virtuali in Azure, l'integrazione con Automazione di Azure estende i piani di ripristino. È possibile usare questa funzionalità per eseguire runbook, che offrono attività di automazione dalle grandi potenzialità.

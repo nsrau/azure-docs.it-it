@@ -1,21 +1,20 @@
 ---
-title: Abilitare la riprotezione delle macchine virtuali da Azure a un sito locale | Microsoft Docs
-description: Dopo il failover delle macchine virtuali in Azure, è possibile avviare il failback per riportarle in locale. Informazioni su come abilitare la riprotezione prima di un failback.
-services: site-recovery
+title: Ristabilire la protezione delle macchine virtuali di Azure in un sito locale durante il ripristino di emergenza di macchine virtuali VMware e server fisici | Microsoft Docs
+description: Informazioni su come eseguire il failback nel sito locale dopo il failover in Azure durante il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346680"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213288"
 ---
-# <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Abilitare la riprotezione delle macchine virtuali da Azure a un sito locale
+# <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Ristabilire la protezione ed eseguire il failback su macchine in un sito locale dopo il failover in Azure
 
 Dopo il [failover](site-recovery-failover.md) di macchine virtuali VMware locali o server fisici in Azure, il primo passaggio dell'esecuzione di un failback nel sito locale consiste nel riapplicare la protezione alle macchine virtuali di Azure create durante il failover. Questo articolo illustra come farlo. 
 
@@ -63,7 +62,7 @@ Per distribuire un server di elaborazione in Azure:
 Il server di destinazione master riceve i dati di failback. Per impostazione predefinita, il server di destinazione master viene eseguito nel server di configurazione locale. Tuttavia, a seconda del volume di traffico sottoposto a failback, potrebbe essere necessario creare un server di destinazione master separato per il failback. Di seguito viene illustrata la procedura di creazione:
 
 * [Creare un server di destinazione master Linux](vmware-azure-install-linux-master-target.md) per il failback delle macchine virtuali Linux. È un'operazione obbligatoria.
-* Creare facoltativamente un server di destinazione master separato per il failback della macchina virtuale Windows. A tale scopo, eseguire nuovamente l'installazione unificata e selezionare l'opzione per creare un server di destinazione master. [Altre informazioni](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
+* Creare facoltativamente un server di destinazione master separato per il failback della macchina virtuale Windows. A tale scopo, eseguire nuovamente l'installazione unificata e selezionare l'opzione per creare un server di destinazione master. [Altre informazioni](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers)
 
 Dopo aver creato un server di destinazione master, eseguire le attività seguenti:
 
@@ -123,7 +122,7 @@ Tenere presente quanto segue:
 - Se non è possibile raggiungere il server di configurazione dal server di elaborazione, usare Telnet per verificare la connettività al server di configurazione sulla porta 443. È anche possibile provare a eseguire il ping del server di configurazione dal server di elaborazione. Un server di elaborazione deve avere anche un heartbeat quando è connesso al server di configurazione.
 - Non è possibile eseguire il failback da Azure a un sito locale di un server Windows Server 2008 R2 SP1 protetto come server locale fisico.
 - Non è possibile eseguire il failback nelle circostanze seguenti:
-    - È stata eseguita la migrazione di macchine virtuali ad Azure. [Altre informazioni](migrate-overview.md#what-do-we-mean-by-migration).
+    - È stata eseguita la migrazione di macchine virtuali ad Azure. [Altre informazioni](migrate-overview.md#what-do-we-mean-by-migration)
     - Una macchina virtuale è stata spostata in un altro gruppo di risorse.
     - La macchina virtuale Azure è stata eliminata.
     - È stata disabilitata la protezione della macchina virtuale.

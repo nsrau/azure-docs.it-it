@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 2/05/2018
-ms.openlocfilehash: 82d2316b3f72fbb0c5c3ee1ea9424afcc7661361
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fc19c77e90ffd2d300497fc496da02b2d2234d3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833972"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244390"
 ---
 # <a name="deploy-machine-learning-workspace-using-azure-resource-manager"></a>Distribuire un'area di lavoro di Machine Learning con Azure Resource Manager
 ## <a name="introduction"></a>Introduzione
@@ -138,7 +138,7 @@ Un altro modo per recuperare i token dell'area di lavoro esistente consiste nell
 # List the primary and secondary tokens of all workspaces
 Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}  
 ```
-Dopo il provisioning dell'area di lavoro, è anche possibile automatizzare diverse attività di Azure Machine Learning Studio usando il [modulo PowerShell per Azure Machine Learning](http://aka.ms/amlps).
+Dopo il provisioning dell'area di lavoro, è anche possibile automatizzare diverse attività di Azure Machine Learning Studio usando il [modulo PowerShell per Azure Machine Learning](https://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sulla [Creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md). 

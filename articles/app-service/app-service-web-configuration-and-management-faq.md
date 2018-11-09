@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 7aa5b00d1497e384377ba4423431eac57c1aa4c9
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8cc47fc7ec60027851525b98cdf95e7d534ea556
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630404"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241855"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -99,7 +99,7 @@ I certificati del servizio app sono considerati risorse di Azure. Non sono proge
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>È possibile esportare il certificato del servizio app per utilizzarli con altri servizi cloud di Azure?
 
-Il portale offre un'esperienza di alto livello di distribuzione di un certificato del servizio app tramite Key Vault nelle app del servizio app. Tuttavia, alcuni clienti hanno inviato richieste per utilizzare questi certificati all'esterno della piattaforma del servizio app, ad esempio con macchine virtuali di Azure. Per informazioni su come creare una copia PFX locale del certificato del servizio app per utilizzare il certificato con altre risorse di Azure, vedere [Crea una copia PFX locale di un certificato del servizio app](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+Il portale offre un'esperienza di alto livello di distribuzione di un certificato del servizio app tramite Key Vault nelle app del servizio app. Tuttavia, alcuni clienti hanno inviato richieste per utilizzare questi certificati all'esterno della piattaforma del servizio app, ad esempio con macchine virtuali di Azure. Per informazioni su come creare una copia PFX locale del certificato del servizio app per poter usare il certificato con altre risorse di Azure, vedere [Creating a local PFX copy of an App Service certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/) (Creazione di una copia PFX locale di un certificato del servizio app).
 
 Per altre informazioni, vedere [Domande frequenti per i certificati del servizio app e i domini personalizzati](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
@@ -302,7 +302,7 @@ Se la scalabilità automatica di Azure non riduce né aumenta il numero di istan
 
 La scalabilità automatica si attiva quando le metriche superano i limiti preconfigurati. In alcuni casi, è possibile notare che la capacità viene riempita solo parzialmente rispetto al previsto. Questa situazione può verificarsi quando il numero di istanze desiderato non è disponibile. In questo scenario, la scalabilità automatica utilizza il numero di istanze disponibili per un riempimento parziale. La scalabilità automatica esegue quindi la logica di ribilanciamento per ottenere più capacità. Alloca le istanze rimanenti. Ciò potrebbe richiedere alcuni minuti.
 
-Se il numero previsto di istanze non viene visualizzato dopo pochi minuti, è possibile che il riempimento parziale fosse sufficiente per portare le metriche entro i limiti. In alternativa, è possibile che la scalabilità automatica abbia ridotto le istanze avendo raggiunto il limite inferiore delle metriche.
+Se il numero previsto di istanze non viene visualizzato dopo pochi minuti, è possibile che il riempimento parziale sia stato sufficiente per portare le metriche entro i limiti. In alternativa, è possibile che la scalabilità automatica abbia ridotto le istanze avendo raggiunto il limite inferiore delle metriche.
 
 Se queste condizioni non sono applicabili e il problema persiste, inviare una richiesta di supporto.
 

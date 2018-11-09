@@ -1,22 +1,20 @@
 ---
-title: "Risolvere un problema dell'agente di Azure Site Recovery: stato dell'agente guest non disponibile | Microsoft Docs"
-description: Sintomi, cause e soluzioni per i problemi di Azure Site Recovery correlati all'agente e all'estensione
-services: site-recovery
+title: Risolvere i problemi relativi all'agente di Azure Site Recovery | Microsoft Docs
+description: Questo articolo offre informazioni su sintomi, cause e soluzioni degli errori dell'agente di Azure Site Recovery.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: troubleshooting
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c0429e87f6c58ef2b9c7a268bee596d769e95910
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919805"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215039"
 ---
-# <a name="troubleshoot-azure-site-recovery-extension-failures-issues-with-the-agent-or-extension"></a>Risolvere i problemi dell'estensione di Azure Site Recovery: problemi correlati all'agente e all'estensione
+# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Risolvere i problemi relativi all'agente di Azure Site Recovery
 
 Questo articolo illustra le procedure di risoluzione dei problemi che possono essere utili per risolvere gli errori di Azure Site Recovery correlati all'agente di macchine virtuali e all'estensione.
 

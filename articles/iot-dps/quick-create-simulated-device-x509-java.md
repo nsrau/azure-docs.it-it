@@ -1,6 +1,6 @@
 ---
 title: Effettuare il provisioning di un dispositivo X.509 simulato nell'hub IoT di Azure usando Java | Microsoft Docs
-description: Guida introduttiva di Azure - Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Java per il servizio Device Provisioning in hub IoT
+description: Guida introduttiva di Azure - Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Java per il servizio Device Provisioning in hub IoT. Questa guida introduttiva usa registrazioni singole.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 694c4fe10ec8f738131768d80dd70c5bd18fe223
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1c784aefca19040abb7ab34dd92dddb1ef0f28de
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040738"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418229"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Java per il servizio Device Provisioning in hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -24,9 +24,15 @@ Questi passaggi illustrano come simulare un dispositivo X.509 in un computer di 
 
 Se non si ha familiarità con il processo di provisioning automatico, è necessario vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 
+Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
+- [Gruppi di registrazioni](concepts-service.md#enrollment-group): usato per registrare più dispositivi correlati.
+- [Registrazioni singole](concepts-service.md#individual-enrollment): usato per registrare un singolo dispositivo.
+
+Questo articolo descrive le registrazioni singole.
+
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente 
 
-1. Verificare che [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) sia installato nel computer.
+1. Verificare che [Java SE Development Kit 8](https://aka.ms/azure-jdks) sia installato nel computer.
 
 2. Scaricare e installare [Maven](https://maven.apache.org/install.html).
 
@@ -55,7 +61,7 @@ Se non si ha familiarità con il processo di provisioning automatico, è necessa
 In questa sezione si userà un certificato X.509 autofirmato. È importante tenere presente quanto segue:
 
 * I certificati autofirmati sono destinati solo alle operazioni di testing e non dovrebbero essere usati nell'ambiente di produzione.
-* La data di scadenza predefinita per un certificato autofirmato è 1 anno.
+* La data di scadenza predefinita per un certificato autofirmato è un anno.
 
 Si userà il codice di esempio da [Azure IoT SDK per Java](https://github.com/Azure/azure-iot-sdk-java.git) per creare il certificato da usare con la voce di registrazione singola per il dispositivo simulato.
 

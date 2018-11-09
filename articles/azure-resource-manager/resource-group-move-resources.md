@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783339"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093827"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -28,8 +28,10 @@ Durante lo spostamento di risorse, sia il gruppo di origine che il gruppo di des
 Non è possibile modificare il percorso della risorsa. Lo spostamento di una risorsa comporta solo il suo spostamento in un nuovo gruppo di risorse. Il nuovo gruppo di risorse può avere un percorso diverso, ma ciò non modifica la posizione della risorsa.
 
 > [!NOTE]
-> In questo articolo viene descritto come spostare le risorse nell'offerta di un account di Azure esistente. Se si vuole che modificare l'offerta dell'account di Azure, ad esempio effettuando l'aggiornamento da pagamento in base al consumo a pagamento anticipato, pur continuando a lavorare con le risorse esistenti, vedere [Trasferire la sottoscrizione di Azure a un'altra offerta](../billing/billing-how-to-switch-azure-offer.md).
->
+> In questo articolo viene descritto come spostare le risorse nell'offerta di un account di Azure esistente. Se si desidera effettivamente modificare l'offerta dell'account Azure (ad esempio effettuando l'aggiornamento da gratuito a pagamento a consumo) è necessario convertire la sottoscrizione. 
+> * Per aggiornare una versione di valutazione gratuita, vedere [Aggiornare la versione di valutazione gratuita o la sottoscrizione di Azure per Microsoft Imagine alla sottoscrizione con pagamento in base al consumo](..//billing/billing-upgrade-azure-subscription.md).
+> * Per modificare un account con pagamento in base al consumo, vedere [Modificare la sottoscrizione Azure con pagamento in base al consumo in un'offerta diversa](../billing/billing-how-to-switch-azure-offer.md).
+> * Se non è possibile convertire la sottoscrizione, [creare una richiesta di supporto tecnico di Azure](../azure-supportability/how-to-create-azure-support-request.md). Selezionare **Gestione delle sottoscrizioni** per il tipo di problema.
 >
 
 ## <a name="checklist-before-moving-resources"></a>Controllo prima di spostare le risorse
@@ -110,7 +112,7 @@ Contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure
 
 ## <a name="validate-move"></a>Convalidare lo spostamento
 
-L'[operazione di convalida dello spostamento](/rest/api/resources/resources/validatemoveresources) consente di testare lo scenario di spostamento senza realmente spostare le risorse. Usare questa operazione per determinare se lo spostamento avrà esito positivo. Per eseguire questa operazione, è necessario:
+L'[operazione di convalida dello spostamento](/rest/api/resources/resources/resources_validatemoveresources) consente di testare lo scenario di spostamento senza realmente spostare le risorse. Usare questa operazione per determinare se lo spostamento avrà esito positivo. Per eseguire questa operazione, è necessario:
 
 * il nome del gruppo di risorse di origine
 * l'ID risorsa della risorsa del gruppo di risorse di destinazione
@@ -163,7 +165,7 @@ Mentre l'operazione è ancora in esecuzione, si continua a ricevere il codice di
 
 ## <a name="services-that-can-be-moved"></a>Servizi che possono essere spostati
 
-Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo gruppo di risorse e in una nuova sottoscrizione:
+L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che possono essere spostati in un nuovo gruppo di risorse e sottoscrizione. Per maggiori dettagli vedere [Move operation support for resources](move-support-resources.md) (Spostare il supporto operativo per le risorse).
 
 * Analysis Services
 * Gestione API
@@ -173,6 +175,9 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Automazione
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Database di Azure per MySQL
+* Database di Azure per PostgreSQL
+* Azure DevOps: le organizzazioni di Azure DevOps con gli acquisti di estensione non Microsoft devono [annullare gli acquisti](https://go.microsoft.com/fwlink/?linkid=871160) prima di spostare l'account tra le sottoscrizioni.
 * Mappe di Azure
 * Servizio di inoltro di Azure
 * Azure Stack - registrazioni
@@ -193,6 +198,7 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * DNS
 * Griglia di eventi
 * Hub eventi
+* Frontdoor
 * Cluster HDInsight - vedere [Limitazioni di HDInsight](#hdinsight-limitations)
 * Iot Central
 * Hub IoT
@@ -201,44 +207,41 @@ Di seguito sono elencati i servizi che abilitano lo spostamento in un nuovo grup
 * Log Analytics
 * App per la logica
 * Machine Learning: i servizi Web di Machine Learning Studio possono essere spostati in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non in un'altra sottoscrizione. Altre risorse di Machine Learning possono essere spostate da una sottoscrizione all'altra.
+* Dischi gestiti: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Identità gestita assegnata dall'utente
 * Servizi multimediali
-* Mobile Engagement
 * Hub di notifica
 * Operational Insights
 * Operations Management
 * Dashboard del portale
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * Indirizzo IP pubblico: vedere [Limitazioni dell'indirizzo IP pubblico](#pip-limitations)
-* Cache Redis
+* Cache Redis: se l'istanza di Cache Redis è configurata con una rete virtuale, l'istanza non può essere spostata su una sottoscrizione diversa. Vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations).
 * Utilità di pianificazione
 * Ricerca
 * Bus di servizio
 * Service Fabric
 * Service Fabric Mesh
 * Servizio SignalR
-* Archiviazione
+* Storage: gli account di archiviazione in aree diverse non possono essere spostati nella stessa operazione. Usare invece operazioni separate per ogni area.
 * Archiviazione (classica): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Analisi di flusso: i processi di analisi di flusso non possono essere spostati durante l'esecuzione.
 * Server di database SQL: il database e il server devono trovarsi nello stesso gruppo di risorse. Quando si sposta un server SQL, quindi, vengono spostati anche tutti i relativi database. Questo comportamento si applica al database SQL di Azure e ai database di Azure SQL Data Warehouse.
 * Time Series Insights
 * Gestione traffico
-* Macchine virtuali: non è possibile spostare macchine virtuali con dischi gestiti. Vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
+* Macchine virtuali: per le macchine virtuali con dischi gestiti vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Macchine virtuali (classiche): vedere [Limitazioni della distribuzione classica](#classic-deployment-limitations)
 * Set di scalabilità di macchine virtuali: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Reti virtuali, vedere [Limitazioni delle reti virtuali](#virtual-networks-limitations)
-* Visual Studio Team Services - account di Visual Studio Team Services con gli acquisti di estensione non Microsoft deve [annullare degli acquisti](https://go.microsoft.com/fwlink/?linkid=871160) prima che possa spostare l'account per le sottoscrizioni.
 * Gateway VPN
 
 ## <a name="services-that-cannot-be-moved"></a>Servizi che non possono essere spostati
 
-I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
+L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non possono essere spostati in un nuovo gruppo di risorse e sottoscrizione. Per maggiori dettagli vedere [Move operation support for resources](move-support-resources.md) (Spostare il supporto operativo per le risorse).
 
 * AD Domain Services
 * Servizio ibrido per l'integrità di AD
 * Gateway applicazione
-* Database di Azure per MySQL
-* Database di Azure per PostgreSQL
 * Migrazione del database di Azure
 * Azure Databricks
 * Azure Migrate
@@ -254,7 +257,6 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 * Servizi lab: lo spostamento in un nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento tra sottoscrizioni non lo è.
 * Bilanciamenti del carico: vedere [Limitazioni del servizio di bilanciamento del carico](#lb-limitations)
 * Applicazioni gestite
-* Dischi gestiti: vedere [Limitazioni delle macchine virtuali](#virtual-machines-limitations)
 * Genomica di Microsoft
 * NetApp
 * Indirizzo IP pubblico: vedere [Limitazioni dell'indirizzo IP pubblico](#pip-limitations)
@@ -267,22 +269,62 @@ I servizi che attualmente non abilitano lo spostamento di una risorsa sono:
 
 ## <a name="virtual-machines-limitations"></a>Limitazioni delle macchine virtuali
 
-I dischi gestiti non supportano lo spostamento. A causa di questa restrizione, non è possibile spostare le risorse correlate. Non è possibile spostare:
+I dischi gestiti sono supportati per lo spostamento a partire dal 24 settembre 2018. 
 
-* Dischi gestiti
+1. Nella sottoscrizione di origine, registrare questa funzionalità.
+
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. La richiesta di registrazione inizialmente restituisce uno stato `Registering`. È possibile controllare lo stato corrente con:
+
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. Attendere qualche minuto che lo stato cambi in `Registered`.
+
+1. Dopo la registrazione della funzionalità registrare il provider di risorse `Microsoft.Compute`. Eseguire questo passaggio anche se il provider di risorse è già stato registrato in precedenza.
+
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
+
+Questo supporto consente anche di spostare:
+
 * Macchine virtuali con dischi gestiti
-* Immagini create da dischi gestiti
-* Snapshot creati da dischi gestiti
+* Immagini gestite
+* Snapshot gestiti
 * Set di disponibilità con macchine virtuali con dischi gestiti
 
-Anche se non è possibile spostare un disco gestito, è possibile creare una copia e quindi creare una nuova macchina virtuale dal disco gestito esistente. Per altre informazioni, vedere:
+Di seguito vi sono i vincoli non ancora supportati:
 
-* Copiare dischi gestiti nella stessa sottoscrizione o in una sottoscrizione diversa con [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) o con l'[interfaccia della riga di comando di Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
-* Creare una macchina virtuale usando un disco del sistema operativo gestito esistente con [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) o con l'[interfaccia della riga di comando di Azure](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+* Le macchine virtuali con certificato archiviato in Key Vault possono essere spostate in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non da una sottoscrizione a un'altra.
+* Macchine virtuali configurate con Backup di Azure. Usare la soluzione alternativa seguente per spostare queste macchine virtuali
+  * Individuare la posizione della macchina virtuale.
+  * Individuare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1` ad esempio, AzureBackupRG_westus2_1
+  * Nel portale di Azure selezionare quindi l'opzione "Mostra tipi nascosti"
+  * In PowerShell usare il cmdlet `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
+  * Nella CLI usare il `az resource list -g AzureBackupRG_<location of your VM>_1`
+  * Individuare quindi la risorsa con il tipo `Microsoft.Compute/restorePointCollections` che ha il modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########`
+  * Eliminare questa risorsa
+  * Una volta completata l'eliminazione, sarà possibile spostare la macchina virtuale
+* Il set di scalabilità di macchine virtuali con il servizio di bilanciamento del carico dello SKU Standard o l'indirizzo IP pubblico dello SKU Standard non possono essere spostati
+* Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Sottoporre a deprovisioning le macchine virtuali nella sottoscrizione in cui si trovano e distribuirle di nuovo nella nuova sottoscrizione.
 
-Non è possibile spostare da un gruppo di risorse o una sottoscrizione a un'altra macchine virtuali create a partire da risorse Marketplace con piani assegnati. Sottoporre a deprovisioning le macchine virtuali nella sottoscrizione in cui si trovano e distribuirle di nuovo nella nuova sottoscrizione.
-
-Le macchine virtuali con certificato archiviato in Key Vault possono essere spostate in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non da una sottoscrizione a un'altra.
 
 ## <a name="virtual-networks-limitations"></a>Limitazioni delle reti virtuali
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 13d6ed9feab4654d3574a5aced72efa0345365a6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855273"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215328"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regole di appartenenza dinamica per i gruppi in Azure Active Directory
 
@@ -68,14 +68,14 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 
 ### <a name="properties-of-type-boolean"></a>Proprietà di tipo boolean
 
-| Properties | Valori consentiti | Uso |
+| Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Proprietà di tipo stringa
 
-| Properties | Valori consentiti | Uso |
+| Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
 | city |Qualsiasi valore di stringa o *null* |(user.city -eq "valore") |
 | country |Qualsiasi valore di stringa o *null* |(user.country -eq "valore") |
@@ -106,7 +106,7 @@ Di seguito sono elencate le proprietà utente che è possibile usare per creare 
 
 ### <a name="properties-of-type-string-collection"></a>Proprietà di tipo insieme String
 
-| Properties | Valori consentiti | Uso |
+| Proprietà | Valori consentiti | Uso |
 | --- | --- | --- |
 | otherMails |Qualsiasi valore stringa. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -231,7 +231,7 @@ Una regola di appartenenza può essere costituita da espressioni complesse in cu
 
 Le proprietà multivalore sono raccolte di oggetti dello stesso tipo. Possono essere usate per creare regole di appartenenza tramite gli operatori logici -any e -all.
 
-| Properties | Valori | Uso |
+| Proprietà | Valori | Uso |
 | --- | --- | --- |
 | assignedPlans | Ogni oggetto della raccolta espone le proprietà di stringa seguenti: capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -316,7 +316,7 @@ La regola "Tutti i dispositivi" viene costruita usando una singola espressione c
 device.objectid -ne null
 ```
 
-### <a name="extension-properties-and-custom-extension-properties"></a>Proprietà di estensione e proprietà di estensione personalizzate
+## <a name="extension-properties-and-custom-extension-properties"></a>Proprietà di estensione e proprietà di estensione personalizzate
 
 Gli attributi di estensione e le proprietà di estensione personalizzate sono supportati come proprietà delle stringhe nelle regole di appartenenza dinamica. Gli attributi di estensione vengono sincronizzati dall'istanza locale di Window Server AD e hanno il formato "ExtensionAttributeX", dove X equivale a 1 - 15. Ecco un esempio di regola che usa un attributo di estensione come proprietà:
 
@@ -335,7 +335,7 @@ Ecco un esempio di regola che usa una proprietà di estensione personalizzata:
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-È possibile trovare il nome della proprietà personalizzata nella directory eseguendo una query sulla proprietà dell'utente con Graph explorer e cercando il nome della proprietà.
+È possibile trovare il nome della proprietà personalizzata nella directory eseguendo una query sulla proprietà dell'utente con Graph explorer e cercando il nome della proprietà. È inoltre ora possibile selezionare il collegamento **Ottieni proprietà di estensione personalizzate** nel generatore di regole di assegnazione dinamica dei gruppi utenti per immettere un ID app univoco e ricevere l'elenco completo di proprietà di estensione personalizzate da usare quando si crea una regola di appartenenza dinamica. È anche possibile aggiornare questo elenco per ottenere tutte le nuove proprietà di estensione personalizzate per l'app.
 
 ## <a name="rules-for-devices"></a>Regole per i dispositivi
 

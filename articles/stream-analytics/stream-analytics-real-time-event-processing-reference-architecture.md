@@ -1,6 +1,6 @@
 ---
 title: Elaborazione di eventi in tempo reale con l'elaborazione eventi di Analisi di flusso di Azure
-description: Questo articolo descrive l'architettura di riferimento per ottenere processi di elaborazione e analisi in tempo reale usando Analisi di flusso di Azure.
+description: Questo articolo descrive l'architettura di riferimento per ottenere processi di elaborazione eventi e analisi in tempo reale usando Analisi di flusso di Azure.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: 08ad2d853ab909ea859ffd1230dd651aa6661500
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1195ab125749cd211a35d7ff00c4f418dbd59f62
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987631"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232427"
 ---
 # <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>Architettura di riferimento: elaborazione di eventi in tempo reale con Analisi di flusso di Microsoft Azure
 L'architettura di riferimento per l'elaborazione di eventi in tempo reale con Analisi dei flussi di Azure è destinata a fornire un progetto generico per la distribuzione in tempo reale di una soluzione di elaborazione dei flussi PaaS con Microsoft Azure.

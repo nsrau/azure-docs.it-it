@@ -4,10 +4,6 @@ description: Informazioni su come usare i probe di integrità per monitorare le 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 134c7ab8156f3acb558e8b8a2da343961a6aad4e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695426"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419334"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -126,7 +122,7 @@ Un probe HTTP/HTTPS ha esito negativo quando:
 
 ### <a name="guestagent"></a>Probe dell'agente guest (solo servizi classici)
 
-Per impostazione predefinita, i ruoli del servizio cloud, ovvero i ruoli di lavoro e i ruoli Web, usano un agente guest per il monitoraggio probe.   Questa opzione deve essere presa in considerazione solo come ultima risorsa.  È sempre necessario definire un probe di integrità in modo esplicito con un probe TCP o HTTP. Un probe dell'agente guest non è altrettanto efficace dei probe definiti in modo esplicito per la maggior parte degli scenari di applicazione.  
+Per impostazione predefinita, i ruoli del servizio cloud, ovvero i ruoli di lavoro e i ruoli Web, usano un agente guest per il monitoraggio probe.   Questa opzione deve essere presa in considerazione solo come ultima risorsa.  Con un probe TCP o HTTP è sempre necessario definire un probe di integrità in modo esplicito. Un probe dell'agente guest non è altrettanto efficace dei probe definiti in modo esplicito per la maggior parte degli scenari di applicazione.  
 
 Un probe dell'agente guest è un controllo dell'agente guest all'interno della macchina virtuale. L'agente guest è quindi in ascolto e risponde con HTTP 200 OK solo quando l'istanza è in stato Pronto. Gli altri stati sono Occupato, Riciclo in corso o Arresto.
 
@@ -163,7 +159,7 @@ Una regola di bilanciamento del carico ha un singolo probe di integrità definit
 
 ### <a name="tcp-connections"></a>Connessioni TCP
 
-Le nuove connessioni TCP avranno esito positivo per l'istanza di back-end se questa è integra e dispone di un sistema operativo guest e di un'applicazione in grado di accettare un nuovo flusso.
+Le nuove connessioni TCP avranno esito positivo per l'istanza di back-end se questa è integra e ha un'applicazione e un sistema operativo guest in grado di accettare un nuovo flusso.
 
 Se il probe di integrità dell'istanza di back-end ha esito negativo, le connessioni TCP stabilite a questa istanza di back-end continuano.
 

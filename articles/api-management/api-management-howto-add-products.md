@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0f2b45685d2976c567c16666e2ca89d334914b63
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465951"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417294"
 ---
 # <a name="create-and-publish-a-product"></a>Creare e pubblicare un prodotto  
 
@@ -35,6 +35,7 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
++ Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
 
@@ -47,11 +48,11 @@ In questa esercitazione si apprenderà come:
 
     Quando si aggiunge un prodotto, è necessario fornire le informazioni seguenti: 
 
-    | NOME                     | Descrizione                                                                                                                                                                                                                                                                                                             |
+    | NOME                     | DESCRIZIONE                                                                                                                                                                                                                                                                                                             |
     |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Nome visualizzato             | Nome con cui deve essere visualizzato nel **portale per sviluppatori**.                                                                                                                                                                                                                                                        |
     | NOME                     | Nome descrittivo del prodotto.                                                                                                                                                                                                                                                                                      |
-    | Descrizione              | Il campo **Descrizione** consente di specificare informazioni dettagliate sul prodotto, ad esempio lo scopo, le API a cui fornisce l'accesso e altre informazioni utili.                                                                                                                                               |
+    | DESCRIZIONE              | Il campo **Descrizione** consente di specificare informazioni dettagliate sul prodotto, ad esempio lo scopo, le API a cui fornisce l'accesso e altre informazioni utili.                                                                                                                                               |
     | Stato                    | Fare clic su **Pubblicato** se si vuole pubblicare il prodotto. Per poter chiamare le API in un prodotto, il prodotto deve essere pubblicato. Per impostazione predefinita, i nuovi prodotti non sono pubblicati e sono visibili solo agli utenti nel gruppo **Amministratori**.                                                                                      |
     | Richiede la sottoscrizione    | Selezionare **Richiedi sottoscrizione** se un utente deve eseguire la sottoscrizione per usare il prodotto.                                                                                                                                                                                                                                   |
     | Richiede approvazione        | Selezionare **Richiedi approvazione** se si preferisce che i tentativi di sottoscrizione al prodotto vengano esaminati e quindi accettati o rifiutati da un amministratore. Se la casella è deselezionata, i tentativi di sottoscrizione vengono approvati automaticamente.                                                                                                                         |
@@ -84,9 +85,12 @@ Gli sviluppatori devono prima sottoscrivere un prodotto per avere accesso all'AP
 3. Fare clic su **+ Aggiungi**.
 4. Scegliere un'API e fare clic su **Seleziona**.
 
+> [!TIP]
+> È possibile creare o aggiornare la sottoscrizione dell'utente a un *Prodotto* con chiavi di sottoscrizione personalizzate [tramite l'API REST](https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate) o un comando PowerShell.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come:
+Questa esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare e pubblicare un prodotto

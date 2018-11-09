@@ -1,25 +1,14 @@
 ---
-title: Abilitare la replica di macchine virtuali VMware in Azure con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come configurare la replica delle macchine virtuali VMware in Azure con Azure Site Recovery.
-services: site-recovery
-author: asgang
-ms.service: site-recovery
-ms.date: 07/06/2018
-ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 9a868b196a287b7a5121803136d3c0119f64d9fe
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917024"
----
+titolo: abilitare la replica di macchine virtuali VMware per il ripristino di emergenza di VMware in Azure con Azure Site Recovery | Descrizione Microsoft Docs: questo articolo descrive come abilitare la replica di macchine virtuali VMware per il ripristino di emergenza in Azure usando Azure Site Recovery.
+author: asgang ms.service: site-recovery ms.date: 07/06/2018 ms.topic: conceptual ms.author: asgang
+
+
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Abilitare la replica per le macchine virtuali VMware in Azure
 
 
 Questo articolo descrive come abilitare la replica delle macchine virtuali VMware locali in Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Questo articolo presuppone che l'utente abbia:
 

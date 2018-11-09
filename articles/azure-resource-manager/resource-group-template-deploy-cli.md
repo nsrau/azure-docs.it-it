@@ -10,20 +10,20 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2018
+ms.date: 10/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: c9595b0e6313dc4620b48296fdca6dc2c6ae6413
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 80246114ac839efa0025dfbc29b9bdbbe2b740be
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628138"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084804"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra come usare l'interfaccia della riga di comando di Azure con modelli di Resource Manager per distribuire risorse in Azure. Per comprendere i concetti di distribuzione e gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).  
 
-Il modello di Resource Manager che si distribuisce può essere un file locale nel computer o un file esterno che si trova in un repository come GitHub. Il modello che viene distribuito in questo articolo è disponibile nella sezione [Modello di esempio](#sample-template) o come [modello di account di archiviazione in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
+Il modello di Resource Manager che si distribuisce può essere un file locale nel computer o un file esterno che si trova in un repository come GitHub. Il modello che viene distribuito in questo articolo è disponibile come [modello di account di archiviazione in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -116,9 +116,46 @@ az group deployment create \
 
 La distribuzione specificata deve aver avuto esito positivo.
 
-## <a name="parameter-files"></a>File dei parametri
+## <a name="parameters"></a>Parametri
 
-Invece di passare i parametri come valori inline nello script, può risultare più facile usare un file JSON che contenga i valori dei parametri. Il file dei parametri deve essere nel formato seguente:
+Per passare i valori dei parametri, è possibile usare i parametri inline o un file di parametri. Gli esempi precedenti in questo articolo illustrano i parametri inline.
+
+### <a name="inline-parameters"></a>Parametri inline
+
+Per passare i parametri inline, specificare i valori in `parameters`. Ad esempio, per passare una stringa e una matrice a un modello in una shell Bash, usare:
+
+```azurecli
+az group deployment create \
+  --resource-group testgroup \
+  --template-file demotemplate.json \
+  --parameters exampleString='inline string' exampleArray='("value1", "value2")'
+```
+
+È anche possibile ottenere i contenuti del file e fornire il contenuto come un parametro inline.
+
+```azurecli
+az group deployment create \
+  --resource-group testgroup \
+  --template-file demotemplate.json \
+  --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
+```
+
+Ottenere un valore di parametro da un file è utile quando è necessario fornire i valori di configurazione. Ad esempio, è possibile fornire i valori [cloud-init per una macchina virtuale Linux](../virtual-machines/linux/using-cloud-init.md).
+
+Il formato arrayContent.json è:
+
+```json
+[
+    "value1",
+    "value2"
+]
+```
+
+### <a name="parameter-files"></a>File dei parametri
+
+Invece di passare i parametri come valori inline nello script, può risultare più facile usare un file JSON che contenga i valori dei parametri. Il file dei parametri può essere un file locale o un file esterno con un URI accessibile.
+
+Il file dei parametri deve essere nel formato seguente:
 
 ```json
 {
@@ -132,7 +169,7 @@ Invece di passare i parametri come valori inline nello script, può risultare pi
 }
 ```
 
-Si noti che la sezione dei parametri include un nome di parametro che corrisponde al parametro definito nel modello (storageAccountType). Il file dei parametri contiene un valore per il parametro. Questo valore viene passato automaticamente al modello durante la distribuzione. È possibile creare più file dei parametri per scenari di distribuzione diversi e successivamente passare il file dei parametri appropriato. 
+Si noti che la sezione dei parametri include un nome di parametro che corrisponde al parametro definito nel modello (storageAccountType). Il file dei parametri contiene un valore per il parametro. Questo valore viene passato automaticamente al modello durante la distribuzione. È possibile creare più di un file dei parametri e successivamente passare il file dei parametri appropriato per lo scenario. 
 
 Copiare l'esempio precedente e salvarlo come file denominato `storage.parameters.json`.
 
@@ -145,6 +182,19 @@ az group deployment create \
   --template-file storage.json \
   --parameters @storage.parameters.json
 ```
+
+### <a name="parameter-precedence"></a>Precedenza dei parametri
+
+È possibile usare i parametri inline e un file di parametri locale nella stessa operazione di distribuzione. Ad esempio, è possibile specificare alcuni valori nel file di parametri locale e aggiungere altri valori inline durante la distribuzione. Se si specificano valori per un parametro sia nel file dei parametri locale che inline, il valore inline ha la precedenza.
+
+```azurecli
+az group deployment create \
+  --resource-group testgroup \
+  --template-file demotemplate.json \
+  --parameters @demotemplate.parameters.json \
+  --parameters exampleArray=@arrtest.json
+```
+
 
 ## <a name="test-a-template-deployment"></a>Testare una distribuzione del modello
 
@@ -166,7 +216,7 @@ Se non vengono rilevati errori, il comando restituisce informazioni sulla distri
       ...
 ```
 
-Se viene rilevato un errore, il comando restituisce un messaggio di errore. Il tentativo, ad esempio, di passare un valore non corretto per lo SKU dell'account di archiviazione, restituisce l'errore seguente:
+Se viene rilevato un errore, il comando restituisce un messaggio di errore. Ad esempio, passare un valore non corretto per lo SKU dell'account di archiviazione, restituisce l'errore seguente:
 
 ```azurecli
 {
@@ -197,59 +247,10 @@ Se il modello contiene un errore di sintassi, il comando restituisce un errore c
 }
 ```
 
-## <a name="sample-template"></a>Modello di esempio
-
-Il modello seguente viene usato per gli esempi in questo articolo. Copiarlo e salvarlo come file denominato storage.json. Per informazioni su come creare questo modello, vedere [Creare il primo modello di Azure Resource Manager](resource-manager-create-first-template.md).  
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountType": {
-      "type": "string",
-      "defaultValue": "Standard_LRS",
-      "allowedValues": [
-        "Standard_LRS",
-        "Standard_GRS",
-        "Standard_ZRS",
-        "Premium_LRS"
-      ],
-      "metadata": {
-        "description": "Storage Account type"
-      }
-    }
-  },
-  "variables": {
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
-      "sku": {
-          "name": "[parameters('storageAccountType')]"
-      },
-      "kind": "Storage", 
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "storageAccountName": {
-          "type": "string",
-          "value": "[variables('storageAccountName')]"
-      }
-  }
-}
-```
-
 ## <a name="next-steps"></a>Passaggi successivi
 * Gli esempi inclusi in questo articolo distribuiscono risorse a un gruppo di risorse nella sottoscrizione predefinita. Per usare una sottoscrizione diversa, vedere [Gestire più sottoscrizioni di Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
 * Per specificare la modalità di gestione delle risorse che sono presenti nel gruppo, ma non sono definite nel modello, vedere [Azure Resource Manager deployment modes](deployment-modes.md) (Modalità di distribuzione di Azure Resource Manager).
 * Per informazioni su come definire i parametri nel modello, vedere [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](resource-group-authoring-templates.md).
 * Per suggerimenti su come risolvere i comuni errori di distribuzione, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso, vedere [Distribuire un modello privato con un token di firma di accesso condiviso](resource-manager-cli-sas-token.md).
-* Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
+* Per implementare in modo sicuro il servizio in più di un'area, vedere [Azure Deployment Manager](deployment-manager-overview.md).

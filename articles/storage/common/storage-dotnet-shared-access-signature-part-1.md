@@ -1,19 +1,19 @@
 ---
-title: Uso delle firme di accesso condiviso in Archiviazione di Azure | Documentazione Microsoft
+title: Uso delle firme di accesso condiviso in Archiviazione di Azure | Microsoft Docs
 description: Informazioni su come usare le firme di accesso condiviso per delegare l'accesso alle risorse di Archiviazione di Azure, tra cui BLOB, code, tabelle e file.
 services: storage
-author: craigshoemaker
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: cshoe
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 315c5a88d16206414b6b81a83963cbb1f8b4424a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c7d2c16ef135644c1ff23d7a71c66bec27ac930d
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524755"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241046"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso delle firme di accesso condiviso
 
@@ -222,7 +222,7 @@ Per mitigare questi rischi, è consigliabile attenersi ai consigli seguenti rela
 6. **Indicare in modo specifico la risorsa cui accedere.** Una procedura di sicurezza consigliata consiste nel fornire a un utente i privilegi minimi necessari. Se un utente necessita solo dell'accesso in lettura a una singola entità, concedere solo tale tipo di accesso per tale entità e non l'accesso in lettura/scrittura/eliminazione per tutte le entità. Ciò consente anche di ridurre i danni se una firma di accesso condiviso viene compromessa in quanto la firma è meno potente nelle mani di un utente malintenzionato.
 7. **Comprendere che all'account verrà fatturato qualsiasi tipo di utilizzo, incluso quello effettuato con la firma di accesso condiviso.** Se si fornisce accesso in scrittura a un BLOB, un utente potrebbe scegliere di caricare un BLOB da 200 GB. Se si offre anche l'accesso in lettura, l'utente potrebbe scegliere di scaricarlo 10 volte e ciò potrebbe comportare 2 TB di costi in uscita. Anche in questo caso, fornire autorizzazioni limitate per ridurre l'impatto potenziale delle azioni di utenti malintenzionati. Per ridurre questa minaccia, usare firme di accesso condiviso di breve durata, prestando però attenzione allo sfasamento di orario per la scadenza.
 8. **Convalidare i dati scritti tramite la firma di accesso condiviso.** Quando un'applicazione client scrive i dati nell'account di archiviazione, tenere presente che tali dati potrebbero causare problemi. Se l'applicazione richiede che i dati siano convalidati o autorizzati prima dell'uso, è necessario eseguire la convalida dopo la scrittura dei dati e prima che vengano usati dall'applicazione. Questa procedura consente inoltre di evitare la scrittura di dati danneggiati o dannosi nell'account da parte da un utente che ha acquisito correttamente la firma di accesso condiviso o di un utente che sfrutta una firma diffusa per errore.
-9. **Non usare sempre SAS.** Talvolta i rischi associati a una particolare operazione su un account di archiviazione superano i benefici derivanti dall'uso della firma di accesso condiviso. Per tali operazioni creare un servizio di livello intermedio che effettui operazioni di scrittura nell'account di archiviazione dopo autenticazione, controllo e convalida di regole di business. Talvolta è inoltre più semplice gestire l'accesso in modi diversi. Se ad esempio si desidera rendere pubblicamente leggibili tutti i BLOB di un contenitore, è possibile rendere pubblico il contenitore anziché fornire una firma di accesso condiviso a ogni client per consentire l'accesso.
+9. **Non usare sempre SAS.** Talvolta i rischi associati a una particolare operazione su un account di archiviazione superano i benefici derivanti dall'uso della firma di accesso condiviso. Per tali operazioni creare un servizio di livello intermedio che effettui operazioni di scrittura nell'account di archiviazione dopo autenticazione, controllo e convalida di regole di business. Talvolta è inoltre più semplice gestire l'accesso in modi diversi. Se ad esempio si vogliono rendere pubblicamente leggibili tutti i BLOB di un contenitore, è possibile rendere pubblico il contenitore anziché fornire una firma di accesso condiviso a ogni client per l'accesso.
 10. **Usare Analisi archiviazione per monitorare l'applicazione.** È possibile usare la registrazione e la metrica per osservare eventuali picchi di errori di autenticazione causati da un'interruzione del servizio del provider di firme di accesso condiviso oppure dalla rimozione accidentale di criteri di accesso archiviati. Per altre informazioni, vedere il [blog del team del servizio di archiviazione di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) .
 
 ## <a name="sas-examples"></a>Esempi di firma di accesso condiviso

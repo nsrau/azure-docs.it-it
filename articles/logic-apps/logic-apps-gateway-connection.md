@@ -3,19 +3,18 @@ title: Accesso alle risorse di dati locali per le App per la logica di Azure | M
 description: Creare e configurare il gateway dati locale in modo da poter accedere alle origini dati in locale dalle app per la logica
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 65c7e03b349314ad61fa5f1ea8322f4d1352b8e6
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.date: 10/01/2018
+ms.openlocfilehash: e8e8d85d2c95c1dda7271de72491594562b7d3c1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145690"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413707"
 ---
 # <a name="connect-to-data-sources-on-premises-from-azure-logic-apps-with-on-premises-data-gateway"></a>Connettersi a origini dati in locale da app per la logica di Azure con il gateway dati locale
 
@@ -34,8 +33,7 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 
 * L'installazione del gateway non è già associata a una risorsa per il gateway in Azure. È possibile collegare l'installazione del gateway a una sola risorsa per il gateway. Questa operazione viene eseguita quando si crea la risorsa del gateway e si seleziona l'installazione del gateway. Questo collegamento rende l'installazione del gateway non disponibile per le altre risorse.
 
-* Quando si accede al portale di Azure e si crea la risorsa del gateway, è necessario usare lo stesso account di accesso che è stato usato in precedenza per [installare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md#requirements).
-È anche necessario usare la stessa [sottoscrizione di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) che è stata usata per installare il gateway. Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
+* Quando si accede al portale di Azure e si crea la risorsa per il gateway, servirsi dello stesso account di accesso usato in precedenza per [installare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md#requirements) e della stessa [sottoscrizione di Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) usata per installare il gateway. Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">registrarsi per creare un account Azure gratuito</a>.
 
 * Per creare e gestire la risorsa per il gateway nel portale di Azure, l'[account del servizio di Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) deve avere almeno autorizzazioni di **Collaboratore**. Il gateway dati locale viene eseguito come servizio di Windows ed è configurato per usare `NT SERVICE\PBIEgwService` come credenziali di accesso al servizio di Windows. 
 
@@ -44,8 +42,8 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 
 ## <a name="download-and-install-gateway"></a>Scaricare e installare il gateway
 
-Prima di procedere con la procedura descritta in questo articolo, il gateway deve essere già installato in un computer locale.
-Se questa operazione non è già stata eseguita, seguire la [procedura per scaricare e installare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md). 
+Prima di procedere con la procedura illustrata in questo articolo, verificare che il gateway sia già installato in un computer locale.
+Se questa operazione non è stata ancora eseguita, seguire la procedura per [scaricare e installare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md). 
 
 <a name="create-gateway-resource"></a>
 
@@ -62,7 +60,7 @@ Dopo aver installato il gateway in un computer locale, è possibile creare una r
 
 3. Nella pagina **Crea gateway di connessione** specificare le seguenti informazioni per creare la risorsa per il gateway:
 
-   | Proprietà | DESCRIZIONE | 
+   | Proprietà | Descrizione | 
    |----------|-------------|
    | **Nome** | Nome per la risorsa del gateway. | 
    | **Sottoscrizione** | Nome della sottoscrizione di Azure, che deve essere la stessa sottoscrizione dell'app per la logica. La sottoscrizione predefinita è basata sull'account di Azure usato per l'accesso. | 
@@ -155,7 +153,7 @@ Per creare una risorsa del gateway diversa, associare il gateway a una risorsa d
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

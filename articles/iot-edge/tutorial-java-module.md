@@ -9,16 +9,16 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: e3216674fc5952e06a50c18c4624ea6706952d67
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: ed0605fbab4be0e0eb960b3b840e72f5fba2e8c8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167019"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413775"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Esercitazione: Sviluppare un modulo Java per IoT Edge e distribuirlo in un dispositivo simulato
 
-È possibile usare i moduli di Azure IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. Verrà usato il dispositivo IoT Edge simulato che è stato creato nelle guide introduttive Distribuire Azure IoT Edge in un dispositivo simulato in [Windows][lnk-tutorial1-win] e [Linux][lnk-tutorial1-lin]. In questa esercitazione si apprenderà come:    
+È possibile usare i moduli di Azure IoT Edge per distribuire codice che implementa la logica di business direttamente nei dispositivi di IoT Edge. Questa esercitazione illustra la creazione e distribuzione di un modulo IoT Edge che filtra i dati del sensore. Verrà usato il dispositivo IoT Edge simulato che è stato creato nelle guide introduttive relative alla distribuzione di Azure IoT Edge in un dispositivo simulato in [Windows](quickstart.md) e [Linux](quickstart-linux.md). In questa esercitazione si apprenderà come:    
 
 > [!div class="checklist"]
 > * Usare Visual Studio Code per creare un modulo Java per IoT Edge basato sul pacchetto di modelli Maven per Azure IoT Edge e su Azure IoT SDK per dispositivi Java.
@@ -48,7 +48,7 @@ Risorse per lo sviluppo:
 * [Visual Studio Code](https://code.visualstudio.com/). 
 * [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) per Visual Studio Code.
 * [Estensione Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) per Visual Studio Code. 
-* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html) e [impostare la variabile di ambiente `JAVA_HOME` ](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) in modo che punti all'installazione di JDK.
+* [Java SE Development Kit 10](https://aka.ms/azure-jdks) e [impostare la variabile di ambiente `JAVA_HOME` ](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) in modo che punti all'installazione di JDK.
 * [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
    * Per lo sviluppo in un dispositivo Windows, verificare che Docker sia [configurato per l'uso di contenitori Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
@@ -75,9 +75,7 @@ Creare un modello di soluzione Java da poter personalizzare con il proprio codic
 
 1. In Visual Studio Code selezionare **Visualizza** > **Riquadro comandi** per aprire il riquadro comandi di VS Code. 
 
-2. Nel riquadro comandi immettere ed eseguire il comando **Azure: Sign in** (Azure: Accedi) e seguire le istruzioni per accedere all'account Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
-
-3. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
+2. Nel riquadro comandi immettere ed eseguire il comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: Nuova soluzione IoT Edge). Nel riquadro comandi immettere le informazioni seguenti per creare la soluzione: 
 
    1. Selezionare la cartella in cui si vuole creare la soluzione. 
    2. Specificare un nome per la soluzione o accettare quello predefinito **EdgeSolution**.
@@ -242,19 +240,21 @@ Quando si comunica a Visual Studio Code di compilare la soluzione, prima di tutt
 
 Nell'articolo della guida introduttiva usato per configurare il dispositivo IoT Edge è stato distribuito un modulo usando il portale di Azure. È possibile distribuire i moduli anche usando l'estensione Azure IoT Toolkit per Visual Studio Code. Il manifesto della distribuzione, il file **deployment.json**, è già disponibile per questo scenario. Ora è sufficiente selezionare un dispositivo che riceverà la distribuzione.
 
-1. Nel riquadro comandi di VS Code eseguire **Azure IoT Hub: Select IoT Hub** (Hub IoT di Azure: Seleziona l'hub IoT). 
+1. Nel riquadro comandi di VS Code eseguire il comando **Azure: Sign in** (Azure: Accedi) e seguire le istruzioni per accedere all'account di Azure. Se è stato già effettuato l'accesso, è possibile ignorare questo passaggio.
 
-2. Scegliere la sottoscrizione e l'hub IoT che contiene il dispositivo IoT Edge che si vuole configurare. 
+2. Nel riquadro comandi di VS Code eseguire **Azure IoT Hub: Select IoT Hub** (Hub IoT di Azure: Seleziona l'hub IoT). 
 
-3. Nello strumento di esplorazione di VS Code espandere la sezione **Azure IoT Hub dispositivi** (Dispositivi dell'hub IoT di Azure). 
+3. Scegliere la sottoscrizione e l'hub IoT che contiene il dispositivo IoT Edge che si vuole configurare. 
 
-4. Fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge, quindi selezionare **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo). 
+4. Nello strumento di esplorazione di VS Code espandere la sezione **Azure IoT Hub dispositivi** (Dispositivi dell'hub IoT di Azure). 
+
+5. Fare clic con il pulsante destro del mouse sul nome del dispositivo IoT Edge, quindi selezionare **Create Deployment for Single Device** (Crea la distribuzione per un unico dispositivo). 
 
    ![Create deployment for single device (Crea la distribuzione per un unico dispositivo)](./media/tutorial-java-module/create-deployment.png)
 
-5. Selezionare il file **deployment.json** nella cartella **config** e quindi fare clic su **Select Edge Deployment Manifest** (Seleziona il manifesto della distribuzione di Edge). Non usare il file deployment.template.json. 
+6. Selezionare il file **deployment.json** nella cartella **config** e quindi fare clic su **Select Edge Deployment Manifest** (Seleziona il manifesto della distribuzione di Edge). Non usare il file deployment.template.json. 
 
-6. Fare clic sul pulsante Aggiorna. Dovrebbe essere visualizzato il nuovo **JavaModule** in esecuzione insieme al modulo **TempSensor** e a **$edgeAgent** e **$edgeHub**.  
+7. Fare clic sul pulsante Aggiorna. Dovrebbe essere visualizzato il nuovo **JavaModule** in esecuzione insieme al modulo **TempSensor** e a **$edgeAgent** e **$edgeHub**.  
 
 ## <a name="view-generated-data"></a>Visualizzare i dati generati
 
@@ -292,11 +292,3 @@ In questa esercitazione è stato creato un modulo di IoT Edge con codice per fil
 > [!div class="nextstepaction"]
 > [Archiviare dati sul perimetro con database di SQL Server](tutorial-store-data-sql-server.md)
 
-<!-- Links -->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md
-
-<!-- Images -->
-[1]: ./media/tutorial-csharp-module/programcs.png
-[2]: ./media/tutorial-csharp-module/build-module.png
-[3]: ./media/tutorial-csharp-module/docker-os.png

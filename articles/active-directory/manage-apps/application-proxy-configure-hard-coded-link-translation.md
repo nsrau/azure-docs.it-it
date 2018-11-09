@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982273"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230064"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
 
@@ -97,6 +97,7 @@ Per migliorare prestazioni e sicurezza, alcuni collegamenti non vengono converti
 
 - Collegamenti non interni ai tag di codice. 
 - Collegamenti non inclusi nel codice HTML o CSS. 
+- Collegamenti nel formato con codifica URL.
 - Collegamenti interni aperti da altri programmi. I collegamenti inviati tramite posta elettronica o messaggistica istantanea o inclusi in altri documenti non vengono convertiti. Gli utenti devono sapere di passare all'URL esterno.
 
 Se è necessario supportare uno di questi due scenari, usare gli stessi URL interni ed esterni, al posto della conversione dei collegamenti.  

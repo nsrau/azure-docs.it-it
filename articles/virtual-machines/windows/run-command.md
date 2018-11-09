@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 3ba1f9afda1b4f7f227c996615cc17a8c604d5fb
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267954"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138226"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Linux con Esegui comando
 
@@ -37,6 +37,9 @@ Le seguenti limitazioni si applicano quando si usa Esegui comando
 * Non è possibile annullare l'esecuzione di uno script
 * Il tempo massimo in cui può essere eseguito uno script è 90 minuti, dopo di che si verifica il timeout
 * La connettività in uscita dalla macchina virtuale è necessaria per restituire i risultati dello script.
+
+> [!NOTE]
+> Per funzionare correttamente, Esegui comando richiede la connettività agli indirizzi IP pubblici di Azure (porta 443). Se l'estensione non ha accesso a questi endpoint, gli script possono funzionare correttamente, ma non restituiscono risultati. Se si sta bloccando il traffico nella macchina virtuale, è possibile usare i [tag di servizio](../../virtual-network/security-overview.md#service-tags) per consentire il traffico verso gli indirizzi IP pubblici di Azure tramite il tag `AzureCloud`.
 
 ## <a name="run-a-command"></a>Esegui un comando
 

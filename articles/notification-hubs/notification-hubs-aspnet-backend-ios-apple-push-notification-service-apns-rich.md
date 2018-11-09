@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: 21ed7dd1120958576651703283a0732e3843546d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777458"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232513"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push avanzato degli hub di notifica di Azure
 ## <a name="overview"></a>Panoramica
@@ -136,7 +136,7 @@ Dopo avere modificato il back-end del app per poter inviare solo l' *id* di una 
 2. Fare clic su **Capabilities** (Funzionalità), attivare **Background Modes** (Modalità sfondo), e selezionare la casella di controllo **Remote Notifications** (Notifiche remote).
    
     ![][IOS3]
-3. Passare a **Main.storyboard**e verificare che sia presente un elemento View Controller (in questa esercitazione, Home View Controller) creato nell'esercitazione relativa all’ [invio di notifiche per gli utenti](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+3. Passare a **Main.storyboard** e verificare che sia presente un elemento View Controller (in questa esercitazione, Home View Controller) creato nell'esercitazione relativa all'[invio di notifiche agli utenti](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 4. Aggiungere un elemento **Navigation Controller** allo storyboard e trascinarlo tenendo premuto CTRL sull'elemento Home View Controller per impostarlo come **visualizzazione radice** della navigazione. Assicurarsi che **Is Initial View Controller** in Attributes inspector sia selezionato solo per Navigation Controller.
 5. Aggiungere un elemento **View Controller** allo storyboard e aggiungere un elemento **Image View**. Questa sarà la pagina visualizzata dagli utenti quando faranno clic sulla notifica per avere altre informazioni. L'aspetto dello storyboard dovrebbe essere simile al seguente:
    

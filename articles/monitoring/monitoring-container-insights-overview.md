@@ -1,5 +1,5 @@
 ---
-title: Panoramica di Monitoraggio di Azure per contenitori | Microsoft Docs
+title: Panoramica di Monitoraggio di Azure per contenitori (anteprima) | Microsoft Docs
 description: Questo articolo descrive Monitoraggio di Azure per contenitori, che consente di monitorare la soluzione relativa alle informazioni dettagliate sui contenitori AKS, e il valore che offre attraverso il monitoraggio dell'integrità dei cluster AKS e delle istanze di contenitore in Azure.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 6819cf96eb968e8faad5441cf3f3dd672653f1cd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 13fde8a4ec4ecf43b9997d5d4d181a232505626f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971434"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212999"
 ---
-# <a name="azure-monitor-for-containers-overview"></a>Panoramica di Monitoraggio di Azure per contenitori
+# <a name="azure-monitor-for-containers-preview-overview"></a>Panoramica di Monitoraggio di Azure per contenitori (anteprima)
 
 Monitoraggio di Azure per contenitori è una funzionalità progettata per monitorare le prestazioni dei carichi di lavoro dei contenitori distribuiti nei cluster Kubernetes gestiti ospitati nel servizio Kubernetes di Azure (AKS). Il monitoraggio dei contenitori ha un'importanza critica, soprattutto quando si gestisce un cluster di produzione su larga scala con più applicazioni.
 

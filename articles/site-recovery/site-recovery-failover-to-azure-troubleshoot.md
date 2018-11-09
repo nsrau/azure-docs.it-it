@@ -1,25 +1,18 @@
 ---
 title: Risoluzione dei problemi di failover di Azure | Microsoft Docs
-description: Questo articolo descrive come risolvere gli errori comuni durante l'esecuzione del failover in Azure
-services: site-recovery
-documentationcenter: ''
+description: Questo articolo descrive come risolvere i problemi comuni durante il failover di Azure con Azure Site Recovery.
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
 ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: 6be71424e30c5783a03b157171b3f5acd0160e65
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: de0b3a51ae7c7cca91366b955c5fa74963d95d27
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391011"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211673"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Risolvere gli errori durante il failover di una macchina virtuale in Azure
 

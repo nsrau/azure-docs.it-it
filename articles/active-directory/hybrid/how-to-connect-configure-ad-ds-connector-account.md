@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a12549a52171afc1c95588f9a2b259829e170fcc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f57a5a2413103ddcf7484f3b1fc5b4170b7bdc98
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389956"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412858"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
 
-Un nuovo modulo di PowerShell denominato ADSyncConfig.psm1 è stato introdotto con la build 1.1.880.0 (rilasciata nel mese di agosto 2018) che include una raccolta di cmdlet che consentono di configurare le autorizzazioni di Active Directory corrette per la distribuzione di Azure AD Connect. 
+Un nuovo modulo di PowerShell denominato [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) è stato introdotto con la build 1.1.880.0 (rilasciata nel mese di agosto 2018) che include una raccolta di cmdlet che consentono di configurare le autorizzazioni di Active Directory corrette per la distribuzione di Azure AD Connect. 
 
 ## <a name="overview"></a>Panoramica 
 I cmdlet di PowerShell seguenti possono essere usati per configurare le autorizzazioni di Active Directory dell'account del connettore di AD DS, per ogni funzionalità che si intende abilitare in Azure AD Connect. Per evitare problemi, è consigliabile preparare le autorizzazioni di Active Directory in anticipo ogni volta che si vuole installare Azure AD Connect usando un account di dominio personalizzato per la connessione alla foresta. Questo modulo ADSyncConfig può essere usato anche per configurare le autorizzazioni dopo la distribuzione di Azure AD Connect.
@@ -49,7 +49,8 @@ Install-WindowsFeature RSAT-AD-Tools
 ```
 ![Configurare](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
->![NOTE] È anche possibile copiare il file **C:\Programmi\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** in un controller di dominio in cui sono già installati gli Strumenti di amministrazione remota del server per AD DS e usare questo modulo di PowerShell da tale posizione.
+>[!NOTE]
+>È anche possibile copiare il file **C:\Programmi\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** in un controller di dominio in cui sono già installati gli Strumenti di amministrazione remota del server per AD DS e usare questo modulo di PowerShell da tale posizione.
 
 Per iniziare a usare ADSyncConfig, è necessario caricare il modulo in una finestra di Windows PowerShell: 
 
@@ -269,10 +270,10 @@ Questo script di PowerShell limiterà le autorizzazioni per l'account del connet
 - Disabilitare l'ereditarietà nell'oggetto specificato 
 - Rimuovere tutte le voci ACE per l'oggetto specifico, ad eccezione delle voci ACE specifiche per SELF, perché si vogliono mantenere intatte le autorizzazioni predefinite per SELF. 
  
- Il parametro -ObjectDN è l'account di AD per cui devono essere limitate le autorizzazioni. Si tratta in genere dell'account di dominio MSOL_nnnnnnnnnnnn configurato nel connettore di AD DS (vedere Determinare l'account del connettore di AD DS). Il parametro -Credential è necessario per specificare l'account amministratore con i privilegi necessari per limitare le autorizzazioni di Active Directory per l'oggetto di AD di destinazione. Si tratta in genere dell'amministratore di dominio o dell'organizzazione.  
+ Il parametro -ADConnectorAccountDN è l'account di AD per cui devono essere limitate le autorizzazioni. Si tratta in genere dell'account di dominio MSOL_nnnnnnnnnnnn configurato nel connettore di AD DS (vedere Determinare l'account del connettore di AD DS). Il parametro -Credential è necessario per specificare l'account amministratore con i privilegi necessari per limitare le autorizzazioni di Active Directory per l'oggetto di AD di destinazione. Si tratta in genere dell'amministratore di dominio o dell'organizzazione.  
 
 ``` powershell
-Set-ADSyncRestrictedPermissions [-ObjectDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
 ad esempio: 
@@ -301,3 +302,5 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 - [Azure AD Connect: account e autorizzazioni](reference-connect-accounts-permissions.md)
 - [Installazione rapida](how-to-connect-install-express.md)
 - [Installazione personalizzata](how-to-connect-install-custom.md)
+- [Informazioni di riferimento su ADSyncConfig](reference-connect-adsyncconfig.md)
+

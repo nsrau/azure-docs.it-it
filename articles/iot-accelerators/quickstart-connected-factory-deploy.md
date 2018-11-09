@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144514"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139013"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Guida introduttiva: Provare una soluzione basata sul cloud per gestire dispositivi IoT industriali
 
@@ -32,13 +32,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di distribuire l'acceleratore della soluzione nella sottoscrizione di Azure, è necessario impostare alcune opzioni di configurazione.
 
-Accedere ad [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) usando le credenziali dell'account Azure.
+Passare ad [Acceleratori di soluzioni Microsoft Azure IoT](https://www.azureiotsolutions.com) e accedere usando le credenziali dell'account Azure.
 
-Fare clic su **Prova adesso** nel riquadro **Connected Factory**.
+Fare clic nel riquadro **Connected Factory**. Nella pagina **Connected Factory** fare clic su **Prova adesso**:
 
-![Scegliere Connected Factory](./media/quickstart-connected-factory-deploy/connectedfactory.png)
+![Prova adesso](./media/quickstart-connected-factory-deploy/connectedfactory.png)
 
-Nella pagina **Crea soluzione Connected Factory** immettere un valore univoco per **Nome soluzione** per l'acceleratore di soluzione Connected Factory. Questo nome è il nome del gruppo di risorse di Azure che contiene tutte le risorse dell'acceleratore di soluzione. Per questa guida introduttiva usare il nome **MyDemoConnectedFactory**.
+Nella pagina **Crea soluzione Connected Factory** immettere un valore univoco per **Nome soluzione** per l'acceleratore di soluzione Connected Factory. Questo nome è il nome del gruppo di risorse di Azure che contiene tutte le risorse dell'acceleratore di soluzione. Questa guida introduttiva usa il nome **MyDemoConnectedFactory**.
 
 Selezionare **Sottoscrizione** e **Area** da usare per distribuire l'acceleratore della soluzione. In genere, si sceglie l'area più vicina. Per questa guida introduttiva selezionare **Visual Studio Enterprise** e **Stati Uniti orientali**. È necessario essere [amministratore globale o utente](iot-accelerators-permissions.md) nella sottoscrizione.
 
@@ -66,7 +66,7 @@ La visualizzazione predefinita è il *dashboard*. Per passare ad altre aree del 
 
 [![Dashboard della soluzione](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
-Usare il dashboard per gestire i dispositivi IoT industriali. Connected Factory usa una gerarchia per visualizzare una configurazione globale degli stabilimenti. Al primo livello della gerarchia c'è l'azienda che contiene uno o più stabilimenti, ogni stabilimento contiene linee di produzione e ogni linea di produzione è costituita da stazioni. A ogni livello è possibile visualizzare l'efficienza complessiva delle attrezzature e gli indicatori KPI, pubblicare nuovi nodi per la telemetria e rispondere agli avvisi.
+Usare il dashboard per gestire i dispositivi IoT industriali. Connected Factory usa una gerarchia per visualizzare una configurazione globale degli stabilimenti. Il livello superiore della gerarchia è l'azienda che contiene uno o più stabilimenti. Ogni stabilimento contiene linee di produzione e ogni linea di produzione è costituita da stazioni. A ogni livello è possibile visualizzare l'efficienza complessiva delle attrezzature e gli indicatori KPI, pubblicare nuovi nodi per la telemetria e rispondere agli avvisi.
 
 Nel dashboard è possibile visualizzare:
 
@@ -122,7 +122,7 @@ Se la sottoscrizione ha accesso all'[API di Bing Mappe](iot-accelerators-faq-cf.
 
 ### <a name="alarms"></a>Avvisi
 
-Il pannello **Avvisi** mostra gli avvisi generati quando un valore segnalato o un valore OEE/KPI calcolato è superiore a una soglia configurata. Questo pannello visualizza gli avvisi per ogni livello della gerarchia, dal livello delle stazioni a quello dell'azienda. Ogni avviso include descrizione, data, ora, località e numero di occorrenze:
+Il pannello **Avvisi** mostra gli avvisi generati quando un valore restituito o un valore OEE/KPI calcolato è superiore a una soglia configurata. Questo pannello visualizza gli avvisi per ogni livello della gerarchia, dal livello delle stazioni a quello dell'azienda. Ogni avviso include descrizione, data, ora, località e numero di occorrenze:
 
 [![Avvisi](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
@@ -137,7 +137,7 @@ Fare clic su uno degli avvisi nell'elenco a discesa **Scegliere un'azione**, sce
 
 Per eseguire altre analisi sui dati dell'avviso, fare clic sul grafico nel pannello degli avvisi.
 
-Questi avvisi vengono generati da regole specificate in un file di configurazione nell'acceleratore di soluzioni. Queste regole possono generare avvisi quando i valori di OEE o KPI o del nodo OPC UA superano la soglia configurata.
+Questi avvisi vengono generati da regole specificate in un file di configurazione nell'acceleratore di soluzioni. Queste regole possono generare avvisi quando i valori di OEE o KPI o del nodo OPC UA superano una soglia configurata. È possibile impostare questo valore soglia.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

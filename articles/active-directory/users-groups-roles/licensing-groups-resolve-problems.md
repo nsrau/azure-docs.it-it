@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d64cf71ea3a44b7539835e3616150218e8b3635
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861230"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211537"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificare e risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory
 
@@ -97,6 +97,19 @@ Per risolvere questo problema, rimuovere gli utenti di località non supportate 
 > [!NOTE]
 > Quando Azure AD assegna licenze di gruppo, gli utenti per cui non è specificata una località di utilizzo ereditano la località della directory. È consigliabile che gli amministratori impostino valori corretti per la località di utilizzo degli utenti prima di usare licenze basate sul gruppo, in modo da rispettare le normative e le leggi locali.
 
+## <a name="duplicate-proxy-addresses"></a>Indirizzi proxy duplicati
+
+Se si usa Exchange Online, alcuni utenti nel tenant potrebbero non essere configurati correttamente con lo stesso valore di indirizzo proxy. Quando il sistema di gestione delle licenze basato su gruppo tenta di assegnare una licenza a un utente di questo tipo, l'operazione non riesce e viene visualizzato il messaggio "Indirizzo proxy è già in uso".
+
+> [!TIP]
+> Per verificare se esiste un indirizzo proxy duplicato, eseguire il seguente cmdlet di PowerShell con Exchange Online:
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> Per altre informazioni su questo problema, vedere [Messaggio di errore "indirizzo proxy < indirizzo > è già in uso" in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L'articolo include anche informazioni su [come connettersi a Exchange Online usando PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx). Vedere questo articolo per altre informazioni [su come viene popolato l'attributo proxyAddresses in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
+Dopo aver risolto i problemi di indirizzo proxy per gli utenti interessati, forzare l'elaborazione delle licenze nel gruppo per assicurarsi che ora sia possibile applicarle.
+
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Cosa accade quando un gruppo include più di una licenza del prodotto
 
 È possibile assegnare più di una licenza del prodotto a un gruppo. È ad esempio possibile assegnare Office 365 Enterprise E3 ed Enterprise Mobility + Security a un gruppo per abilitare facilmente tutti i servizi inclusi per gli utenti.
@@ -134,19 +147,7 @@ Da questo momento in poi gli utenti aggiunti a questo gruppo useranno una licenz
 > [!TIP]
 > È possibile creare più gruppi, per ogni piano di servizio dei prerequisiti. Ad esempio, se si usano Office 365 Enterprise E1 e Office 365 Enterprise E3 per gli utenti, è possibile creare due gruppi per la licenza di Microsoft Workplace Analytics; uno che usa E1 come prerequisito e l'altro che usa E3. Ciò consente di distribuire il componente aggiuntivo agli utenti di E1 ed E3 senza usare altre licenze.
 
-## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>L'assegnazione delle licenze non riesce in modo silenzioso per un utente a causa di indirizzi proxy duplicati in Exchange Online
 
-Se si usa Exchange Online, alcuni utenti nel tenant potrebbero non essere configurati correttamente con lo stesso valore di indirizzo proxy. Quando il meccanismo delle licenze basate sui gruppi tenta di assegnare una licenza a questo utente, il tentativo non riesce e non viene registrato un errore. La mancata registrazione dell'errore in questo caso è una limitazione della versione di anteprima di questa funzionalità che sarà risolta prima della *disponibilità generale*.
-
-> [!TIP]
-> Se si nota che alcuni utenti non hanno ricevuto una licenza e non ci sono errori registrati per tali utenti, per prima cosa controllare se hanno un indirizzo proxy duplicato.
-> Per verificare se esiste un indirizzo proxy duplicato, eseguire il seguente cmdlet di PowerShell con Exchange Online:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
-> Per altre informazioni su questo problema, vedere [Messaggio di errore "indirizzo proxy < indirizzo > è già in uso" in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L'articolo include anche informazioni su [come connettersi a Exchange Online usando PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx).
-
-Dopo aver risolto i problemi di indirizzo proxy per gli utenti interessati, forzare l'elaborazione delle licenze nel gruppo per assicurarsi che ora sia possibile applicarle.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Come forzare l'elaborazione delle licenze in un gruppo per risolvere gli errori
 
@@ -154,11 +155,19 @@ A seconda delle azioni intraprese per risolvere gli errori, potrebbe essere nece
 
 Ad esempio, se sono state liberate alcune licenze rimuovendo le assegnazioni di licenza dirette dagli utenti, sarà necessario attivare l'elaborazione dei gruppi che in precedenza è riuscita per poter assegnare licenze complete a tutti i membri utente. Per rielaborare un gruppo, passare al riquadro del gruppo, **Licenze**, quindi selezionare il pulsante **Rielabora** sulla barra degli strumenti.
 
+## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>Come forzare l'elaborazione delle licenze per un utente per risolvere gli errori
+
+A seconda delle azioni intraprese per risolvere gli errori, potrebbe essere necessario attivare manualmente l'elaborazione di un utente per aggiornare lo stato dell'utente.
+
+Ad esempio, dopo aver risolto il problema di indirizzo proxy duplicato per un utente interessato, è necessario attivare l'elaborazione dell'utente. Per rielaborare un utente, passare al riquadro dell'utente, aprire **Licenze** e quindi selezionare il pulsante **Rielabora** sulla barra degli strumenti.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni su altri scenari per la gestione delle licenze tramite i gruppi, vedere:
 
-* [Assegnazione di licenze a un gruppo in Azure Active Directory](licensing-groups-assign.md)
 * [Che cosa sono le licenze basate sui gruppi in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Assegnazione di licenze a un gruppo in Azure Active Directory](licensing-groups-assign.md)
 * [Come eseguire la migrazione di singoli utenti con licenza alle licenze basate sui gruppi in Azure Active Directory](licensing-groups-migrate-users.md)
+* [Come eseguire la migrazione degli utenti tra licenze di prodotti diverse con la gestione delle licenze basate su gruppo in Azure Active Directory](licensing-groups-change-licenses.md)
 * [Scenari aggiuntivi relativi alle licenze basate sui gruppi in Azure Active Directory](licensing-group-advanced.md)
+* [Esempi di PowerShell per le licenze basate sui gruppi in Azure Active Directory](licensing-ps-examples.md)

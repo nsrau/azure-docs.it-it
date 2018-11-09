@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: aa83ba1f428e70cd78cba2af6d39989179d5b30f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 61354803f4fced7cd8fee31f10b5f72401f267da
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146636"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414948"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source
 
@@ -43,7 +43,7 @@ Connettendo i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, 
 
 #### <a name="install-elasticsearch"></a>Installare Elasticsearch
 
-1. Elastic Stack versione 5.0 e successive richiede Java 8. Eseguire il comando `java -version` per controllare la versione in uso. Se Java non è installato, vedere la documentazione sul [sito Web Oracle](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
+1. Elastic Stack versione 5.0 e successive richiede Java 8. Eseguire il comando `java -version` per controllare la versione in uso. Se Java non è installato, vedere la documentazione sui [JDK supportati da Azure](https://aka.ms/azure-jdks).
 2. Scaricare il pacchetto binario corretto per il proprio sistema:
 
    ```bash

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: b51da8c5e5e113cdb7e449206f7137386b278be4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 24b7e03808cb5df9fa4c122ca4c9317f723dac72
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025923"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414642"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usare un indirizzo IP pubblico statico con il bilanciamento del carico del servizio Kubernetes di Azure (AKS)
 
@@ -55,9 +55,9 @@ Viene visualizzato l'indirizzo IP, come illustrato nell'esempio sintetico di out
     "id": "/subscriptions/<SubscriptionID>/resourceGroups/MC_myResourceGroup_myAKSCluster_eastus/providers/Microsoft.Network/publicIPAddresses/myAKSPublicIP",
     "idleTimeoutInMinutes": 4,
     "ipAddress": "40.121.183.52",
-    [..]
+    [...]
   }
-````
+```
 
 È possibile ottenere l'indirizzo IP pubblico in un secondo momento usando il comando [az network public-ip list][az-network-public-ip-list]. Specificare il nome del gruppo di risorse del nodo e l'indirizzo IP creato e quindi eseguire una query per *ipAddress* come illustrato nell'esempio seguente:
 
@@ -89,6 +89,35 @@ Creare il servizio e la distribuzione con il comando `kubectl apply`.
 
 ```console
 kubectl apply -f load-balancer-service.yaml
+```
+
+## <a name="use-a-static-ip-address-outside-of-the-node-resource-group"></a>Usare un indirizzo IP statico all'esterno del gruppo di risorse del nodo
+
+Con Kubernetes 1.10 o versione successiva è possibile usare un indirizzo IP statico che viene creato all'esterno del gruppo di risorse del nodo. L'entità servizio usata dal cluster AKS deve avere autorizzazioni delegate per l'accesso all'altro gruppo di risorse, come illustrato nell'esempio seguente:
+
+```azurecli
+az role assignment create\
+    --assignee <SP Client ID> \
+    --role "Network Contributor" \
+    --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
+```
+
+Per usare un indirizzo IP esterno al gruppo di risorse del nodo, aggiungere un'annotazione alla definizione del servizio. L'esempio seguente imposta l'annotazione sul gruppo di risorse denominato *myResourceGroup*. Specificare il nome del gruppo di risorse:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-resource-group: myResourceGroup
+  name: azure-load-balancer
+spec:
+  loadBalancerIP: 40.121.183.52
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-load-balancer
 ```
 
 ## <a name="troubleshoot"></a>Risolvere problemi

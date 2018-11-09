@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/18/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 552b39c520396942fa81f963c0cfa1c8c7b47db4
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 325071be56935ca02adccf69f99fa1718e3f7b91
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456967"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239424"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Esercitazione: Usare una condizione nei modelli di Azure Resource Manager
 
-Informazioni su come distribuire risorse di Azure in base a condizioni. 
+Informazioni su come distribuire risorse di Azure in base a condizioni.
 
-Lo scenario usato in questa esercitazione è simile a quello usato in [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./resource-manager-tutorial-create-templates-with-dependent-resources.md), in cui si creano una macchina virtuale, una rete virtuale e alcune altre risorse dipendenti, tra cui un account di archiviazione. Invece di creare ogni volta un nuovo account di archiviazione, si consente agli utenti di scegliere tra creare un nuovo account di archiviazione e usarne uno esistente. Per raggiungere questo obiettivo, si definisce un parametro aggiuntivo. Se il valore del parametro è "new", viene creato un nuovo account di archiviazione.
+Nell'esercitazione [Impostare l'ordine di distribuzione delle risorse](./resource-manager-tutorial-create-templates-with-dependent-resources.md) si creano una macchina virtuale, una rete virtuale e alcune altre risorse dipendenti, tra cui un account di archiviazione. Invece di creare ogni volta un nuovo account di archiviazione, si consente agli utenti di scegliere tra creare un nuovo account di archiviazione e usarne uno esistente. Per raggiungere questo obiettivo, si definisce un parametro aggiuntivo. Se il valore del parametro è "new", viene creato un nuovo account di archiviazione.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -40,7 +40,13 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Per completare l'esercitazione di questo articolo, sono necessari gli elementi seguenti:
 
-* [Visual Studio Code](https://code.visualstudio.com/) con l'[estensione Strumenti di Azure Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* [Visual Studio Code](https://code.visualstudio.com/) con l'[estensione Strumenti di Azure Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Di seguito è riportato un esempio della generazione di una password:
+
+    ```azurecli-interactive
+    openssl rand -base64 32
+    ```
+    Azure Key Vault è progettato per proteggere chiavi crittografiche e altri segreti. Per altre informazioni, vedere [Esercitazione: Integrare Azure Key Vault nella distribuzione di modelli di Resource Manager](./resource-manager-tutorial-use-key-vault.md). È consigliabile anche aggiornare la password ogni tre mesi.
 
 ## <a name="open-a-quickstart-template"></a>Aprire un modello di avvio rapido
 
@@ -53,7 +59,16 @@ Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
 3. Selezionare **Apri** per aprire il file.
-4. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
+4. Sono presenti cinque risorse definite dal modello:
+
+    * `Microsoft.Storage/storageAccounts`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+    * `Microsoft.Network/publicIPAddresses`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+    * `Microsoft.Network/virtualNetworks`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+    * `Microsoft.Network/networkInterfaces`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+    * `Microsoft.Compute/virtualMachines`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+
+    Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
+5. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
 
 ## <a name="modify-the-template"></a>Modificare il modello
 
@@ -61,6 +76,8 @@ Apportare due modifiche al modello esistente:
 
 * Aggiungere un parametro per il nome dell'account di archiviazione. Gli utenti potranno specificare il nome di un nuovo account di archiviazione o di uno esistente.
 * Aggiungere un nuovo parametro denominato **newOrExisting**. Questo parametro viene usato nella distribuzione per determinare se creare un nuovo account di archiviazione oppure usarne uno esistente.
+
+Di seguito è riportata la procedura per apportare le modifiche:
 
 1. Aprire **azuredeploy.json** in Visual Studio Code.
 2. Sostituire **variables('storageAccountName')** con **parameters('storageAccountName')** nell'intero modello.  Sono presenti tre occorrenze di **variables('storageAccountName')**.
@@ -74,7 +91,7 @@ Apportare due modifiche al modello esistente:
     ```json
     "storageAccountName": {
       "type": "string"
-    },    
+    },
     "newOrExisting": {
       "type": "string", 
       "allowedValues": [
@@ -112,22 +129,26 @@ Apportare due modifiche al modello esistente:
 
 Per distribuire il modello, seguire le istruzioni riportate in [Distribuire il modello](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template).
 
-Quando si distribuisce il modello con Azure PowerShell, è necessario specificare un parametro aggiuntivo:
+Quando si distribuisce il modello con Azure PowerShell, è necessario specificare un parametro aggiuntivo. Per una maggiore sicurezza, usare una password generata per l'account amministratore della macchina virtuale. Vedere [Prerequisiti](#prerequisites).
 
 ```azurepowershell
+$deploymentName = Read-Host -Prompt "Enter the name for this deployment"
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
 $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
 $location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
 $vmAdmin = Read-Host -Prompt "Enter the admin username"
-$vmPassword = Read-Host -Prompt "Enter the admin password"
+$vmPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
 $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-$vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $resourceGroupName `
-    -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting $newOrExisting `
+New-AzureRmResourceGroupDeployment -Name $deploymentName `
+    -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin `
+    -adminPassword $vmPassword `
+    -dnsLabelPrefix $dnsLabelPrefix `
+    -storageAccountName $storageAccountName `
+    -newOrExisting $newOrExisting `
     -TemplateFile azuredeploy.json
 ```
 
@@ -147,7 +168,7 @@ Quando non sono più necessarie, eseguire la pulizia delle risorse di Azure dist
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si sviluppa un modello che consente agli utenti di scegliere tra creare un nuovo account di archiviazione e usarne uno esistente. La macchina virtuale creata in questa esercitazione richiede un nome utente e una password amministratore. Invece di passare la password durante la distribuzione, è possibile archiviare preventivamente la password con Azure Key Vault e recuperarla durante la distribuzione. Per informazioni su come recuperare segreti da Azure Key Vault e usarli nella distribuzione di modelli, vedere:
+In questa esercitazione è stato sviluppato un modello che consente agli utenti di scegliere tra creare un nuovo account di archiviazione e usarne uno esistente. Per informazioni su come recuperare segreti da Azure Key Vault e usarli come password nella distribuzione di modelli, vedere:
 
 > [!div class="nextstepaction"]
 > [Integrare Key Vault nella distribuzione di modelli](./resource-manager-tutorial-use-key-vault.md)

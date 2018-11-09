@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: f87bc1d8140bea9ebb09e45d42b27e201b474026
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214343"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243421"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importazione di dati in blocco utilizzando le tabelle di partizione SQL
 Questo documento descrive come creare tabelle partizionate per l'importazione in blocco in parallelo di dati in un database di SQL Server. Per il caricamento/trasferimento di Big Data, l'importazione di dati nel database SQL e le query successive possono essere migliorate usando *tabelle e visualizzazioni di partizione*. 
@@ -102,7 +102,7 @@ Per altre informazioni, vedere [Creazione di tabelle e indici partizionati](http
 * [Modificare il database](https://msdn.microsoft.com/library/bb522682.aspx) per modificare lo schema di registrazione delle transazioni in BULK_LOGGED e ridurre il sovraccarico della registrazione, ad esempio:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Per accelerare il caricamento dei dati, avviare le operazioni di importazione in blocco in parallelo. Per suggerimenti su come accelerare l'importazione in blocco di dati di grandi dimensioni nei database di SQL Server, vedere [Caricamento di 1 TB in meno di 1 ora](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Per accelerare il caricamento dei dati, avviare le operazioni di importazione in blocco in parallelo. Per suggerimenti su come accelerare l'importazione in blocco di dati di grandi dimensioni nei database di SQL Server, vedere [Caricamento di 1 TB in meno di 1 ora](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 Il seguente script di PowerShell è un esempio di caricamento dei dati parallelo tramite BCP.
 

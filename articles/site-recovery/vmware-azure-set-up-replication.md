@@ -1,21 +1,20 @@
 ---
-title: Configurare e gestire i criteri per la replica di VMware con Azure Site Recovery | Microsoft Docs
-description: Descrive come configurare le impostazioni per la replica di VMware in Azure con Azure Site Recovery.
-services: site-recovery
+title: Configurare e gestire i criteri per la replica del ripristino di emergenza di VMware con Azure Site Recovery | Microsoft Docs
+description: Descrive come configurare le impostazioni per la replica del ripristino di emergenza di VMware in Azure con Azure Site Recovery.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: sutalasi
-ms.openlocfilehash: 03197d1f42a17d6fc99b85d3fbc3635468b1e6ae
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fd987097c2ca7b1e7509a1a0e63905c36ec8fec8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423607"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212897"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-replication"></a>Configurare e gestire i criteri per la replica di VMware
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurare e gestire i criteri per la replica del ripristino di emergenza di VMware in Azure
 Questo articolo illustra come configurare criteri di replica quando si esegue la replica di macchine virtuali VMware in Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md).
 
 

@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 8ac67f9df0e5baccc668c2aeb70f65d96e574df5
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 9997f27f360f84ff3cd185d7c12c45519513d82b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021286"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233090"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Trovare notizie con Ricerca Bing e App per la logica di Azure 
 
@@ -27,7 +27,7 @@ Ad esempio, è possibile trovare novità in base ai criteri di ricerca e postare
 Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Per informazioni tecniche specifiche del connettore, vedere le <a href="https://docs.microsoft.com/connectors/bingsearch/" target="blank">informazioni di riferimento sul connettore Ricerca Bing</a>.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Un [account Servizi cognitivi](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -43,7 +43,7 @@ In App per la logica di Azure, ogni app per la logica deve essere avviata con un
 
 1. Nel portale di Azure o in Visual Studio creare un'app per la logica vuota, che apre Progettazione app per la logica. Questo esempio usa il portale di Azure.
 
-2. Nella casella di ricerca, digitare "Ricerca Bing" come filtro. Nell'elenco di trigger selezionare il trigger desiderato. 
+2. Nella casella di ricerca digitare "Ricerca Bing" come filtro. Nell'elenco di trigger selezionare il trigger desiderato. 
 
    Nell'esempio viene usato il trigger seguente: **Ricerca Bing - Sul nuovo articolo di notizie**
 
@@ -55,9 +55,9 @@ In App per la logica di Azure, ogni app per la logica deve essere avviata con un
 
    | Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
    |----------|----------|-------|-------------| 
-   | Query di ricerca | Sì | <*termini di ricerca*> | Immettere le parole chiave di ricerca da usare. |
-   | Market | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. | 
-   | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. | 
+   | Query di ricerca | Yes | <*termini di ricerca*> | Immettere le parole chiave di ricerca da usare. |
+   | Market | Yes | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. | 
+   | Ricerca sicura | Yes | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. | 
    | Conteggio | No  | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. | 
    | Offset | No  | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati | 
    ||||| 
@@ -80,7 +80,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 1. Nel portale di Azure o in Visual Studio aprire l'app per la logica in Progettazione app per la logica. Questo esempio usa il portale di Azure.
 
-2. Nel trigger o nell'azione, scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
+2. Nel trigger o nell'azione scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
 
    Nell'esempio viene usato il trigger seguente: **Ricerca Bing - Sul nuovo articolo di notizie**
 
@@ -89,8 +89,8 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
    Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. 
    Fare clic sul segno più (**+**) visualizzato e quindi scegliere **Aggiungi un'azione**.
 
-3. Nella casella di ricerca, digitare "Ricerca Bing" come filtro.
-Nell'elenco delle azioni scegliere l'azione desiderata.
+3. Nella casella di ricerca digitare "Ricerca Bing" come filtro.
+Nell'elenco delle azioni scegliere l'azione desiderata.
 
    In questo esempio viene usata l'azione seguente: **Ricerca Bing - Elenca notizie dalla query**
 
@@ -102,9 +102,9 @@ Nell'elenco delle azioni scegliere l'azione desiderata.
 
    | Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
    |----------|----------|-------|-------------| 
-   | Query di ricerca | Sì | <*espressione di ricerca*> | Immettere un'espressione per l'esecuzione di query tra i risultati del trigger. È possibile eseguire una selezione tra i campi dell'elenco di contenuti dinamici o creare un'espressione con il Generatore di espressioni. |
-   | Market | Sì | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. | 
-   | Ricerca sicura | Sì | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. | 
+   | Query di ricerca | Yes | <*espressione di ricerca*> | Immettere un'espressione per l'esecuzione di query tra i risultati del trigger. È possibile eseguire una selezione tra i campi dell'elenco di contenuti dinamici o creare un'espressione con il Generatore di espressioni. |
+   | Market | Yes | <*impostazioni locali*> | Impostazioni locali di ricerca. Il valore predefinito è "en-US", ma è possibile selezionare un altro valore. | 
+   | Ricerca sicura | Yes | <*livello di ricerca*> | Livello del filtro per escludere contenuti per adulti. Il valore predefinito è "Moderato", ma è possibile selezionare un altro livello. | 
    | Conteggio | No  | <*numero di risultati*> | Restituisce solo il numero di risultati specificato. Il valore predefinito è 20, ma è possibile specificare un altro valore. Il numero effettivo di risultati restituiti potrebbe essere inferiore al numero specificato. | 
    | Offset | No  | <*valore da ignorare*> | Numero di risultati da ignorare prima di restituire i risultati | 
    ||||| 
@@ -149,9 +149,9 @@ Nell'elenco delle azioni scegliere l'azione desiderata.
 
    | Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
    |----------|----------|-------|-------------| 
-   | Connection Name (Nome connessione) | Sì | <*nome connessione*> | Nome creato per la connessione |
-   | Versione dell'API | Sì | <*versione API*> | Per impostazione predefinita, la versione dell'API di Ricerca Bing è impostata sulla versione corrente. È possibile selezionare una versione precedente in base alle esigenze. | 
-   | API key | Sì | <*chiave API*> | Chiave API di Ricerca Bing ottenuta in precedenza. Se non si dispone di una chiave, ottenere una [chiave API](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | Connection Name (Nome connessione) | Yes | <*nome connessione*> | Nome creato per la connessione |
+   | Versione dell'API | Yes | <*versione API*> | Per impostazione predefinita, la versione dell'API di Ricerca Bing è impostata sulla versione corrente. È possibile selezionare una versione precedente in base alle esigenze. | 
+   | API key | Yes | <*chiave API*> | Chiave API di Ricerca Bing ottenuta in precedenza. Se non si dispone di una chiave, ottenere una [chiave API](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Ad esempio: 
@@ -167,7 +167,7 @@ Per informazioni tecniche, ad esempio su trigger, azioni e limiti indicati nel f
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

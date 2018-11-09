@@ -1,23 +1,22 @@
 ---
-title: Matrice di supporto per la replica di macchine virtuali VMware o server fisici in un sito VMware secondario tramite Azure Site Recovery | Microsoft Docs
-description: Viene riepilogato il supporto per la replica di server VMware/fisici in un sito secondario tramite Azure Site Recovery
-services: site-recovery
+title: Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware o server fisici in un sito VMware secondario con Azure Site Recovery | Microsoft Docs
+description: Questo articolo presenta un riepilogo del supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario con Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8406cf2b31b87cdb4f6c9b6ba3d06559cf1d4d41
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021994"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209803"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per la replica di macchine virtuali VMware e server fisici in un sito secondario
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in un sito secondario
 
-Questo articolo contiene un riepilogo di elementi supportati quando si usa il servizio [Azure Site Recovery](site-recovery-overview.md) per eseguire la replica in un sito VMware secondario di macchine virtuali VMware o server fisici Windows/Linux.
+Questo articolo presenta un riepilogo degli elementi supportati quando si usa il servizio [Azure Site Recovery](site-recovery-overview.md) per eseguire il ripristino di emergenza di server fisici Windows/Linux o macchine virtuali VMware in un sito secondario VMware.
 
 - Se si vuole replicare macchine virtuali VMware o server fisici in Azure, fare riferimento a [questa matrice di supporto](vmware-physical-azure-support-matrix.md).
 - Se si vuole replicare macchine virtuali Hyper-V in un sito secondario, fare riferimento a [questa matrice di supporto](hyper-v-azure-support-matrix.md).
@@ -60,10 +59,10 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> CentOs 6.5, 
 Host - Gruppo NIC | Yes 
 Host - VLAN | Yes 
 Host - IPv4 | Yes 
-Host - IPv6 | No  
-VM guest - Gruppo NIC | No 
+Host - IPv6 | No 
+VM guest - Gruppo NIC | No
 VM guest - IPv4 | Yes
-VM guest - IPv6 | No 
+VM guest - IPv6 | No
 VM guest - Windows/Linux - Indirizzo IP statico | Yes
 VM guest - Più NIC | Yes
 
@@ -87,14 +86,14 @@ VMDK | Yes
 VHD/VHDX | N/D 
 VM di seconda generazione | N/D 
 Disco cluster condiviso | Yes 
-Disco crittografato | No  
+Disco crittografato | No 
 UEFI| Yes 
-NFS | No  
-SMB 3.0 | No  
+NFS | No 
+SMB 3.0 | No 
 RDM | Yes 
 Disco superiore a 1 TB | Yes 
 Volume con disco con striping superiore a 1 TB<br/><br/> LVM | Yes 
-Spazi di archiviazione | No  
+Spazi di archiviazione | No 
 Aggiunta/rimozione a caldo disco | Yes 
 Esclusione disco | Yes 
 Percorsi multipli (MPIO) | N/D 
@@ -103,8 +102,8 @@ Percorsi multipli (MPIO) | N/D
 
 **Azione** | **Supportato** 
 --- | --- 
-Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No  
-Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No  
+Spostare gli insiemi di credenziali tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No 
+Spostare le risorse di archiviazione, la rete e le VM di Azure tra i gruppi di risorse: all'interno o tra le sottoscrizioni | No 
 
 ## <a name="mobility-service-and-updates"></a>Servizio Mobility e aggiornamenti
 
@@ -113,7 +112,7 @@ Il servizio Mobility coordina la replica fra server VMware locali/server fisici 
 **Aggiornamento** | **Dettagli** 
 --- | --- 
 Aggiornamenti di Scout | [Informazioni introduttive e su come scaricare](vmware-physical-secondary-disaster-recovery.md#updates) gli aggiornamenti più recenti di Scout | Gli aggiornamenti di Scout sono cumulativi.
-Aggiornamenti dei componenti | Gli aggiornamenti di Scout includono gli aggiornamenti di tutti i componenti, tra cui server RX, server di configurazione, server di destinazione di elaborazione e master, server vContinuum e server di origine che si vuole proteggere.<br/><br/> [Altre informazioni](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
+Aggiornamenti dei componenti | Gli aggiornamenti di Scout includono gli aggiornamenti di tutti i componenti, tra cui server RX, server di configurazione, server di destinazione di elaborazione e master, server vContinuum e server di origine che si vuole proteggere.<br/><br/> [Altre informazioni](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

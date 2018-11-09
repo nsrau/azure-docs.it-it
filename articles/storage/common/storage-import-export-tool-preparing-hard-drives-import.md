@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 0be0d6c9613b4160a6c4c5cc3b63336fcf67d5c2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b16a476f1960c79c378cd3aa18eae789c289eb54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025625"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244033"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 
@@ -309,7 +309,7 @@ Se le dimensioni dei dati sono superiori alla dimensione del disco, lo strumento
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>Dove è reperibile la versione precedente dello strumento WAImportExport?
 
-WAImportExport include tutte le funzionalità dello strumento WAImportExport V1. Consente agli utenti di specificare più origini e scrivere in più unità. È inoltre possibile gestire con facilità più percorsi di origine da cui copiare i dati in un singolo file CSV. Tuttavia, se è necessario il supporto SAS o se si vuole copiare una singola origine in un solo disco, è possibile [scaricare lo strumento WAImportExport V1](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) e vedere [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) (Informazioni di riferimento su WAImportExport V1) per indicazioni sull'uso di questo strumento.
+WAImportExport include tutte le funzionalità dello strumento WAImportExport V1. Consente agli utenti di specificare più origini e scrivere in più unità. È inoltre possibile gestire con facilità più percorsi di origine da cui copiare i dati in un singolo file CSV. Tuttavia, se è necessario il supporto SAS o se si vuole copiare una singola origine in un solo disco, è possibile [scaricare lo strumento WAImportExport V1](https://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) e vedere [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) (Informazioni di riferimento su WAImportExport V1) per indicazioni sull'uso di questo strumento.
 
 #### <a name="what-is-a-session-id"></a>Che cos'è l'ID sessione?
 

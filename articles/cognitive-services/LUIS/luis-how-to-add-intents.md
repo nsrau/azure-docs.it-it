@@ -7,140 +7,113 @@ author: diberry
 manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 9b7207a16a89e48ad64b2dbc48a5293d0cf8aa25
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 495b7e99319126b3ee9e655b2d9aa4af940e1d56
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036083"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139922"
 ---
-# <a name="manage-intents"></a>Gestire le finalità 
-Aggiungi le [finalità](luis-concept-intent.md) all'app LUIS per identificare gruppi di domande o comandi con gli stessi scopi. 
+# <a name="add-intents"></a>Aggiungere finalità 
 
-Le finalità vengono gestite dalla sezione **Build** nella barra degli strumenti in alto. È possibile aggiungere e gestire le finalità dalla pagina **Finalità**, disponibile nel riquadro sinistro. 
+Aggiungi le [finalità](luis-concept-intent.md) all'app LUIS per identificare gruppi di domande o comandi con lo stesso scopo. 
 
-La procedura seguente illustra come aggiungere la finalità "Bookflight" all'app TravelAgent.
+Le finalità sono gestite nella sezione **Compilazione** sulla barra di navigazione superiore nel pannello **Finalità** a sinistra. 
+
+## <a name="create-an-app"></a>Creare un'app
+
+1. Accedere al portale [LUIS](https://www.luis.ai).
+
+1. Selezionare **Create new app** (Crea nuova app). 
+
+1. Assegnare alla nuova app il nome `MyHumanResourcesApp`. Seleziona **Inglese** dalle impostazioni cultura. La descrizione è facoltativa. 
+
+1. Selezionare **Operazione completata**. 
 
 ## <a name="add-intent"></a>Aggiungere le finalità
 
-1. Apri l'app (ad esempio, TravelAgent), facendo clic sul relativo nome nella pagina **Le mie app** e selezionando **Finalità** nel riquadro sinistro. 
-2. Nella pagina **Finalità** seleziona **Crea nuova finalità**.
+1. L'app si apre mostrando l'elenco **Finalità**.
 
-3. Nella finestra di dialogo **Crea nuova finalità**, inserisci il nome delle finalità "BookFlight", quindi fai clic su **Fine**.
+1. Nella pagina **Intents** (Finalità) selezionare **Create new intent** (Crea nuova finalità).
+
+1. Nella finestra di dialogo **Crea nuova finalità**, inserire il nome della finalità, `GetEmployeeInformation`, quindi fare clic su **Fine**.
 
     ![Aggiungere le finalità](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    Nella pagina dei dettagli delle finalità appena aggiunte [aggiungi espressioni](#add-an-utterance-on-intent-page).
+## <a name="add-an-example-utterance"></a>Aggiungere un'espressione di esempio
 
-## <a name="rename-intent"></a>Rinominare le finalità
+Le espressioni di esempio sono campioni di testo con domande o commenti degli utenti. Per l'apprendimento di LUIS (Language Understanding), è necessario aggiungere espressioni di esempio a una finalità.
 
-1. Dalla pagina **Finalità** fai clic sull'icona di ridenominazione ![Rinomina finalità](./media/luis-how-to-add-intents/Rename-Intent-btn.png) accanto al nome della finalità. 
-
-2. Dalla pagina **Finalità** è possibile visualizzare il nome attuale della finalità in una finestra di dialogo. Modifica il nome della finalità e premi Invio. Il nuovo nome viene salvato e visualizzato nella pagina delle finalità.
-
-    ![Modificare la finalità](./media/luis-how-to-add-intents/EditIntent-dialogbox.png)
-
-## <a name="delete-intent"></a>Eliminare le finalità
-Quando si elimina una finalità diversa da Nessuna, è possibile aggiungere tutte le espressioni alla finalità Nessuna, qualora sia necessario spostare le espressioni e non eliminarle.   
-
-1. Nella pagina **Finalità** fai clic sul pulsante **Elimina finalità** alla destra del nome della finalità. 
-
-    ![Pulsante Elimina finalità](./media/luis-how-to-add-intents/DeleteIntent.png)
-
-2. Fai clic sul pulsante "Ok" nella finestra di dialogo di conferma.
-
-<!--
-    TBD: waiting for confirmation about which delete dialog is going to be in //BUILD
-
-    ![Delete Intent Dialog](./media/luis-how-to-add-intents/DeleteIntent-Confirmation.png)
--->
-
-
-## <a name="add-an-utterance-on-intent-page"></a>Aggiungere un'espressione nella pagina delle finalità
-
-Nella pagina delle finalità, inserisci un'espressione pertinente che gli utenti potrebbero usare, ad esempio `book 2 adult business tickets to Paris tomorrow on Air France` nella casella di testo sotto al nome della finalità, quindi premi Invio. 
+1. Nella pagina dei dettagli delle finalità **GetEmployeeInformation**, inserire un'espressione pertinente che gli utenti potrebbero usare, ad esempio `Does John Smith work in Seattle?` nella casella di testo sotto al nome della finalità, quindi premere Invio.
  
->[!NOTE]
->LUIS converte tutte le espressioni in caratteri minuscoli.
+    ![Schermata della pagina dei dettagli delle finalità, con un'espressione evidenziata](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-![Schermata della pagina dei dettagli delle finalità, con un'espressione evidenziata](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+    LUIS converte tutte le espressioni in lettere minuscole e aggiunge spazi prima e dopo i token come i trattini.
 
-Le espressioni vengono aggiunte all'elenco Espressioni per la finalità corrente. Dopo l'aggiunta dell'espressione [assegna un'etichetta a qualsiasi entità](luis-how-to-add-example-utterances.md) all'interno delle espressioni ed [esegui il training](luis-how-to-train.md) dell'app. 
+## <a name="intent-prediction-discrepancy-errors"></a>Errori di discrepanza nella stima delle finalità 
 
-## <a name="create-a-pattern-from-an-utterance"></a>Creare un criterio a partire da un'espressione
-Vedi [Aggiungi un criterio da un'espressione esistente nella pagina delle entità o finalità](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+Un'espressione in una finalità potrebbe presentare una discrepanza nella stima delle finalità tra la finalità selezionata e il punteggio della stima. LUIS indica questa discrepanza con una casella rossa intorno alla **finalità etichettata** sulla riga dell'espressione di esempio. 
 
-## <a name="edit-an-utterance-on-intent-page"></a>Modificare un'espressione nella pagina delle finalità
+![Schermata della pagina dei dettagli delle finalità, con un'espressione evidenziata](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
-Per modificare un'espressione, seleziona l'icona del pulsante dei puntini di sospensione (***...***) all'estremità destra nella riga di tale espressione, quindi seleziona **Modifica**. Modifica il testo, quindi premi Invio sulla tastiera.
+Selezionare **Eseguire il training** nella barra di spostamento superiore. La discrepanza di stima è adesso assente.
 
-![Schermata della pagina dei dettagli delle finalità, con il pulsante dei puntini di sospensione evidenziato](./media/luis-how-to-add-intents/edit-utterance.png) 
+## <a name="add-a-custom-entity"></a>Aggiungere un'entità personalizzata
 
-## <a name="reassign-utterances-on-intent-page"></a>Riassegnare espressioni nella pagina delle finalità
-È possibile modificare la finalità di una o più espressioni riassegnandole a un'altra finalità. 
+Dopo l'aggiunta di un'espressione a una finalità, è possibile selezionare un testo all'interno dell'espressione per creare un'entità personalizzata. Un'entità personalizzata è un modo per assegnare un tag al testo da estrarre, insieme alla finalità corretta. 
 
-Per riassegnare una singola espressione a una diversa finalità, all'estremità destra della riga dell'espressione, seleziona il nome corretto della finalità nella colonna **Finalità etichettata**. L'espressione viene rimossa dall'elenco delle espressioni della finalità corrente. 
+1. Selezionare la parola `Seattle` nell'espressione. Verranno visualizzate alcune parentesi quadre intorno al testo e un menu a discesa. 
 
-![Schermata della pagina delle finalità di BookFlight con la finalità dell'espressione nella colonna Finalità etichettata selezionata](./media/luis-how-to-add-intents/reassign-1-utterance.png)
+    ![Schermata della pagina dei dettagli delle finalità, creazione dell'entità personalizzata](./media/luis-how-to-add-intents/create-custom-entity.png) 
 
-Per modificare la finalità di diverse espressioni, seleziona le caselle di controllo a sinistra dell'espressione, quindi **Riassegna finalità**. Seleziona la finalità corretta dall'elenco.
+    In questo esempio, viene selezionata una singola parola da contrassegnare come entità. È possibile contrassegnare singole parole e le frasi come entità.
 
-![Schermata della pagina delle finalità di BookFlight con l'espressione selezionata e il pulsante Riassegna finalità evidenziato](./media/luis-how-to-add-intents/delete-several-utterances.png) 
+1. Nella casella di testo superiore del menu, immettere `Location`, quindi selezionare **Crea nuova entità**. 
 
-## <a name="delete-utterances-on-intent-page"></a>Eliminare espressioni nella pagina delle finalità
+    ![Schermata della pagina dei dettagli delle finalità, creazione del nome dell'entità personalizzata](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
 
-Per eliminare un'espressione, seleziona l'icona del pulsante dei puntini di sospensione (***...***) all'estremità destra nella riga di tale espressione, quindi seleziona **Elimina**. L'espressione viene rimossa dall'elenco e dall'app LUIS.
+1. Nel finestra popup **Quale tipo di entità si desidera creare?** per la creazione dell'entità, verificare che il **nome dell'entità** sia _Posizione_e il **tipo di entità**  sia _Semplice_. Selezionare **Operazione completata**.
 
-![Schermata della pagina dei dettagli delle finalità, con l'opzione Elimina evidenziata](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
+## <a name="entity-prediction-discrepancy-errors"></a>Errori di discrepanza nella stima delle entità 
 
-Per eliminare diverse espressioni:
+L'entità è sottolineata in rosso per indicare una [discrepanza nella stima dell'entità](luis-how-to-add-example-utterances.md#entity-status-predictions). Poiché questa è la prima occorrenza di un'entità, non ci sono esempi a sufficienza perché LUIS abbia la certezza che questo testo sia contrassegnato con il tag dell'entità corretta. Questa discrepanza viene rimossa quando l'app è sottoposta al training. 
 
-1. Seleziona le caselle di controllo a sinistra dell'espressione, quindi **Elimina le espressioni**. 
+![Schermata della pagina dei dettagli delle finalità, nome dell'entità personalizzata evidenziato in blu](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
 
-    ![Schermata della pagina dei dettagli delle finalità, con le espressioni selezionate e il pulsante Elimina le espressioni evidenziato](./media/luis-how-to-add-intents/delete-several-utterances.png)
+Il testo evidenziato in blu indica un'entità.  
 
-2. Seleziona **Fine** nella finestra di dialogo dell'elemento popup **Elimina espressioni?**.
+## <a name="add-a-prebuilt-entity"></a>Aggiungere un'entità predefinita
 
-## <a name="search-in-utterances-on-intent-page"></a>Eseguire ricerche all'interno delle espressioni nella pagina delle finalità
-È possibile ricercare espressioni che contengono testo (parole o frasi) all'interno dell'elenco di espressioni della finalità. Ad esempio, potresti riscontrare un errore che riguarda una particolare parola e desideri trovare tutti gli esempi che includono tale parola specifica. 
+Per altre informazioni, vedere [Entità predefinita](luis-how-to-add-entities.md#add-prebuilt-entity).
 
-1. Seleziona l'icona della lente di ingrandimento nella barra degli strumenti.
+## <a name="using-the-contextual-toolbar"></a>Usare la barra degli strumenti contestuale
 
-    ![Schermata della pagina delle finalità, con l'icona di ricerca a forma di lente di ingrandimento evidenziata](./media/luis-how-to-add-intents/magnifying-glass.png)
+Quando si seleziona una o più espressioni di esempio nell'elenco selezionando la casella a sinistra di un'espressione, la barra degli strumenti sopra l'elenco delle espressioni consente di eseguire le azioni seguenti:
 
-2. Viene visualizzata una casella di testo di ricerca. Digita la parola o frase nella casella di ricerca nell'angolo in alto a destra dell'elenco delle espressioni. L'elenco delle espressioni si aggiorna per consentire solo la visualizzazione delle espressioni che includono il testo da cercare. 
+* Riassegnare la finalità: spostare le espressioni per assegnare finalità diverse
+* Eliminare espressioni
+* Filtri di entità: mostra solo espressioni contenenti le entità filtrate
+* Mostra tutto/Solo errori: mostra espressioni con errori di stima o tutte le espressioni
+* Visualizzazione di entità/token: mostra le entità con i relativi nomi o il testo non elaborato dell'espressione
+* Lente di ingrandimento: ricerca di espressioni contenenti testo specifico
 
-    ![Schermata della pagina delle finalità, con la casella di testo di ricerca evidenziata](./media/luis-how-to-add-intents/search-textbox.png)
+## <a name="working-with-an-individual-utterance"></a>Lavorare su una singola espressione
 
-    Per annullare la ricerca e ripristinare l'elenco completo delle espressioni, elimina il testo di ricerca digitato. Per chiudere la casella di testo di ricerca, seleziona di nuovo l'icona della lente di ingrandimento nella barra degli strumenti.
+È possibile eseguire le azioni seguenti su una singola espressione dall'icona dei tre punti a destra dell'espressione:
 
-## <a name="prediction-discrepancy-errors-on-intent-page"></a>Errori di discrepanza di previsione nella pagina delle finalità
-Un'espressione in una finalità potrebbe presentare una discrepanza tra la finalità selezionata e il punteggio della previsione. LUIS indica questa discrepanza con una casella rossa intorno al punteggio. 
+* Modifica: cambia il testo dell'espressione
+* Elimina: rimuove l'espressione dalla finalità. Se si desidera ancora l'espressione, una soluzione migliore consiste nel spostarla nella finalità **Nessuna**. 
+* Aggiungi un modello: un modello consente di prendere un'espressione comune e contrassegnare il testo sostituibile e ignorabile, riducendo così la necessità di altre espressioni nella finalità. 
 
-![Schermata della pagina delle finalità di BookFlight, con il punteggio di discrepanza di previsione evidenziato](./media/luis-how-to-add-intents/score-discrepancy.png) 
-
-## <a name="filter-by-intent-prediction-discrepancy-errors-on-intent-page"></a>Filtrare per finalità gli errori di discrepanza di previsione nella pagina delle finalità
-Per filtrare l'elenco delle espressioni in modo tale da ottenere solo espressioni con una discrepanza di previsione di finalità, attiva o disattiva l'opzione passando da **Mostra tutto** a **Solo errori** nella barra degli strumenti. 
-
-## <a name="filter-by-entity-type-on-intent-page"></a>Filtrare in base al tipo di entità nella pagina delle finalità
-Usa l'elenco a discesa **Filtri entità** nella barra degli strumenti per filtrare le espressioni per entità. 
-
-![Schermata della pagina delle finalità, con il filtro del tipo di entità evidenziato](./media/luis-how-to-add-intents/filter-by-entities.png) 
-
-Per rimuovere il filtro, seleziona la casella con il filtro blu con la parola o frase nella barra degli strumenti.  
-<!-- TBD: waiting for ux fix - bug in ux of prebuit entity number -- when filtering by it, it doesn't show the list -->
-
-## <a name="switch-to-token-view-on-intent-page"></a>Passare alla visualizzazione token nella pagina delle finalità
-Attiva/disattiva **Vista token** per visualizzare i token anziché i nomi dei tipi di entità. Sulla tastiera, è inoltre possibile usare **Control+E** per attivare o disattivare la visualizzazione. 
-
-![Schermata della finalità di BookFlight con il pulsante Vista token evidenziato](./media/luis-how-to-add-intents/toggle-tokens-view.png)
+La colonna **Finalità etichettata** consente di modificare la finalità dell'espressione.
 
 ## <a name="train-your-app-after-changing-model-with-intents"></a>Eseguire il training dell'app dopo la modifica del modello con le finalità
-Dopo aver aggiunto, modificato o rimosso le finalità, [esegui il training](luis-how-to-train.md) e [pubblica](luis-how-to-publish-app.md) l'app affinché le modifiche siano attive per le query di endpoint. 
+
+Dopo aver aggiunto, modificato o rimosso le finalità, [eseguire il training](luis-how-to-train.md) e [pubblicare](luis-how-to-publish-app.md) l'app per applicare le modifiche alle query di endpoint. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver aggiunto le finalità all'app, l'operazione successiva consiste nell'iniziare ad aggiungere [Espressioni di esempio](luis-how-to-add-example-utterances.md) per le finalità aggiunte. 
+Altre informazioni sull'aggiunta di [espressioni di esempio](luis-how-to-add-example-utterances.md) con entità. 

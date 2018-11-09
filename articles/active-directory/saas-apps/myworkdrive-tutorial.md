@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 2103c5c8c08a6aebfc1168c8fbdb4181dbe3a997
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7310d300c68399c31d9580f070602aa3adbc75e3
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046079"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Esercitazione: Integrazione di Azure Active Directory con MyWorkDrive
 
@@ -61,19 +61,19 @@ Per configurare l'integrazione di MyWorkDrive in Azure AD, è necessario aggiung
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
-    ![Pulsante Azure Active Directory][1]
+    ![image](./media/myworkdrive-tutorial/selectazuread.png)
 
 2. Passare ad **Applicazioni aziendali**. Andare quindi a **Tutte le applicazioni**.
 
-    ![Pannello Applicazioni aziendali][2]
+    ![image](./media/myworkdrive-tutorial/a_select_app.png)
     
 3. Fare clic sul pulsante **Nuova applicazione** nella parte superiore della finestra di dialogo per aggiungere una nuova applicazione.
 
-    ![Pulsante Nuova applicazione][3]
+    ![image](./media/myworkdrive-tutorial/a_new_app.png)
 
 4. Nella casella di ricerca digitare **MyWorkDrive**, selezionare **MyWorkDrive** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![MyWorkDrive nell'elenco risultati](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
+     ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -95,134 +95,119 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 **Per configurare l'accesso Single Sign-On di Azure AD con MyWorkDrive, seguire questa procedura:**
 
-1. Nella pagina di integrazione dell'applicazione **MyWorkDrive** del portale di Azure fare clic su **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [MyWorkDrive](https://portal.azure.com/) del **portale di Azure** selezionare **Single sign-on**.
 
-    ![Collegamento Configura accesso Single Sign-On][4]
+    ![image](./media/myworkdrive-tutorial/B1_B2_Select_SSO.png)
 
-2. Nella finestra di dialogo **Single Sign-On** selezionare **Accesso basato su SAML** per **Modalità** per abilitare l'accesso Single Sign-On.
- 
-    ![Finestra di dialogo Single Sign-On](./media/myworkdrive-tutorial/tutorial_myworkdrive_samlbase.png)
+2. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare la modalità **SAML** per abilitare l'accesso Single Sign-On.
 
-3. Nella sezione **URL e dominio MyWorkDrive** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IdP**:
+    ![image](./media/myworkdrive-tutorial/b1_b2_saml_sso.png)
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di MyWorkDrive](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+
+    ![image](./media/myworkdrive-tutorial/b1-domains_and_urlsedit.png)
+
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+
+    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
 
     Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<SERVER.DOMAIN.COM>/SAML/AssertionConsumerService.aspx`
 
-4. Selezionare **Mostra impostazioni URL avanzate** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di MyWorkDrive](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
+    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<SERVER.DOMAIN.COM>/Account/Login-saml`
-     
-    > [!NOTE] 
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di MyWorkDrive](mailto:support@myworkdrive.com). 
+    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<SERVER.DOMAIN.COM>/Account/Login-saml` 
 
-5. Nella sezione **Certificato di firma SAML** fare clic su **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
+    > [!NOTE]
+    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi.  Immettere il nome host del Server MyWorkDrive dell'azienda:ad esempio
+    > 
+    > URL di risposta: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
+    > 
+    > URL di accesso:`https://yourserver.yourdomain.com/Account/Login-saml`
+    > 
+    > Se si è incerti di come configurare i propri nome host e certificato SSL per questi valori, contattare il team di supporto clienti di MyWorkDrive.
 
-    ![Collegamento di download del certificato](./media/myworkdrive-tutorial/tutorial_myworkdrive_certificate.png) 
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sull'**icona** Copia per copiare **l'URL dei metadati di federazione dell'app** e fare clic su **Scarica** per scaricare il **Certificato (Base64)** e salvarlo nel computer in uso.
 
-6. Fare clic sul pulsante **Salva** .
+    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_certficate.png) 
 
-    ![Pulsante Salva per la configurazione dell'accesso Single Sign-On](./media/myworkdrive-tutorial/tutorial_general_400.png)
+7. Nella sezione **Configura MyWorkDrive** copiare l'URL appropriato in base alle proprie esigenze.
+
+    La descrizione dell'URL potrebbe essere:
+
+    a. URL di accesso
+
+    b. Identificatore Azure AD
+
+    c. URL di chiusura sessione
+
+    ![image](./media/myworkdrive-tutorial/d1_samlsonfigure.png) 
+
+8. Per configurare l'accesso single sign-on sul lato MyWorkDrive, scaricare il **Certificato (Base64), l'URL di disconnessione, l'ID entità SAML e l'URL del servizio Single Sign-On SAML** e configurarli manualmente sul server MyWorkDrive o copiare e incollare **l'URL dei metadati di federazione dell'app** di Azure nella schermata di configurazione del pannello amministratore SAML Azure AD del server MyWorkDrive. Per ulteriori informazioni contattare il [team di supporto di MyWorkDrive](mailto:support@myworkdrive.com).
+
     
-7. Nella sezione **Configurazione di MyWorkDrive** fare clic su **Configura MyWorkDrive** per aprire la finestra **Configura accesso**. Copiare l'**URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** dalla sezione **Riferimento rapido.**
-
-    ![Configurazione di MyWorkDrive](./media/myworkdrive-tutorial/tutorial_myworkdrive_configure.png) 
-
-8. Per configurare l'accesso Single Sign-On sul lato **MyWorkDrive**, è necessario inviare il **certificato (Base64)** scaricato, **l'URL di disconnessione, l'ID di entità SAML e l'URL del servizio Single Sign-On SAML** al [team di supporto di MyWorkDrive](mailto:support@myworkdrive.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
-
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-   ![Creare un utente test di Azure AD][100]
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+    ![image](./media/myworkdrive-tutorial/d_users_and_groups.png)
 
-1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
+2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Pulsante Azure Active Directory](./media/myworkdrive-tutorial/create_aaduser_01.png)
+    ![image](./media/myworkdrive-tutorial/d_adduser.png)
 
-2. Per visualizzare l'elenco di utenti, passare a **Utenti e gruppi** e quindi fare clic su **Tutti gli utenti**.
+3. In Proprietà utente seguire questa procedura.
 
-    ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](./media/myworkdrive-tutorial/create_aaduser_02.png)
+    ![image](./media/myworkdrive-tutorial/d_userproperties.png)
 
-3. Per aprire la finestra di dialogo **Utente** fare clic su **Aggiungi** nella parte superiore della finestra di dialogo **Tutti gli utenti**.
+    a. Nel campo **Nome** immettere **BrittaSimon**.
+  
+    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    Ad esempio: BrittaSimon@contoso.com
 
-    ![Pulsante Aggiungi](./media/myworkdrive-tutorial/create_aaduser_03.png)
+    c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-4. Nella finestra di dialogo **Utente** seguire questa procedura:
-
-    ![Finestra di dialogo Utente](./media/myworkdrive-tutorial/create_aaduser_04.png)
-
-    a. Nella casella **Nome** digitare **BrittaSimon**.
-
-    b. Nella casella **Nome utente** digitare l'indirizzo di posta elettronica dell'utente Britta Simon.
-
-    c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-
-    d. Fare clic su **Create**(Crea).
+    d. Selezionare **Create**.
  
 ### <a name="create-a-myworkdrive-test-user"></a>Creare un utente test di MyWorkDrive
 
-In questa sezione viene creato un utente di nome Britta Simon in MyWorkDrive. Collaborare con il [team di supporto di MyWorkDrive](mailto:support@myworkdrive.com) per aggiungere gli utenti alla piattaforma MyWorkDrive. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in MyWorkDrive. Collaborare con il  [team di supporto di MyWorkDrive](mailto:support@myworkdrive.com) per aggiungere gli utenti alla piattaforma MyWorkDrive. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a MyWorkDrive.
 
-![Assegnare il ruolo utente][200] 
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
-**Per assegnare Britta Simon a MyWorkDrive, seguire questa procedura:**
-
-1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
-
-    ![Assegna utente][201] 
+    ![image](./media/myworkdrive-tutorial/d_all_applications.png)
 
 2. Nell'elenco delle applicazioni selezionare **MyWorkDrive**.
 
-    ![Collegamento di MyWorkDrive nell'elenco delle applicazioni](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png)  
+    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 
-    ![Collegamento "Utenti e gruppi"][202]
+    ![image](./media/myworkdrive-tutorial/d_leftpaneusers.png)
 
-4. Fare clic sul pulsante **Aggiungi**. Selezionare quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Selezionare il pulsante **Aggiungi** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
 
-    ![Riquadro Aggiungi assegnazione][203]
+    ![image](./media/myworkdrive-tutorial/d_assign_user.png)
 
-5. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti.
+4. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-6. Fare clic sul pulsante **Seleziona** nella finestra di dialogo **Utenti e gruppi**.
-
-7. Fare clic sul pulsante **Assegna** nella finestra di dialogo **Aggiungi assegnazione**.
+5. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
     
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
 Quando si fa clic sul riquadro MyWorkDrive nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione MyWorkDrive.
-Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
+Per ulteriori informazioni sul pannello di accesso, vedere [Introduzione al pannello di accesso](../active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/myworkdrive-tutorial/tutorial_general_01.png
-[2]: ./media/myworkdrive-tutorial/tutorial_general_02.png
-[3]: ./media/myworkdrive-tutorial/tutorial_general_03.png
-[4]: ./media/myworkdrive-tutorial/tutorial_general_04.png
-
-[100]: ./media/myworkdrive-tutorial/tutorial_general_100.png
-
-[200]: ./media/myworkdrive-tutorial/tutorial_general_200.png
-[201]: ./media/myworkdrive-tutorial/tutorial_general_201.png
-[202]: ./media/myworkdrive-tutorial/tutorial_general_202.png
-[203]: ./media/myworkdrive-tutorial/tutorial_general_203.png
-

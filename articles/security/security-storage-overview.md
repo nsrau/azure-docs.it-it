@@ -1,5 +1,5 @@
 ---
-title: Funzionalità di sicurezza per Archiviazione di Azure | Documentazione Microsoft
+title: Funzionalità di sicurezza per Archiviazione di Azure | Microsoft Docs
 description: Questo articolo offre informazioni generali sulle funzionalità di sicurezza principali di Azure che possono essere usate con Archiviazione di Azure.
 services: security
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 4ed4e73348db8cfffb6e79afaa9d196e242d7488
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 759de1c62cb9cb4aa642fa564378b1ed551d7dae
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146496"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239356"
 ---
 # <a name="azure-storage-security-overview"></a>Panoramica della sicurezza di Archiviazione di Azure
 
@@ -33,6 +33,7 @@ Archiviazione di Azure è la soluzione di archiviazione cloud per le applicazion
 * Usare l'analisi per rilevare il metodo di autenticazione usato da un utente durante l'accesso ad Archiviazione di Azure.
 
 Per un'analisi più approfondita della sicurezza in Archiviazione di Azure, vedere la [Guida alla sicurezza di Archiviazione di Azure](../storage/common/storage-security-guide.md). Questa guida fornisce un approfondimento sulle funzionalità di sicurezza dell'Archiviazione di Azure. Queste funzionalità includono chiavi di account di archiviazione, la crittografia dei dati in transito e inattivi e analisi di archiviazione.
+
 
 Questo articolo fornisce informazioni generali sulle funzionalità di sicurezza di Azure che possono essere usate con Archiviazione di Azure. I collegamenti agli articoli forniscono informazioni dettagliate su ogni funzionalità.
 
@@ -91,13 +92,35 @@ Altre informazioni
 
 * [Crittografia dischi di Azure per le macchine virtuali IaaS Windows e Linux](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
-## <a name="azure-storage-firewalls-and-virtual-networks"></a>Firewall e reti virtuali di Archiviazione di Azure
+## <a name="firewalls-and-virtual-networks"></a>Firewall e reti virtuali
 
 Archiviazione di Azure consente di abilitare le regole del firewall per gli account di archiviazione. Una volta abilitate, le regole bloccheranno le richieste in ingresso dei dati, incluse quelle provenienti da altri servizi di Azure. È possibile configurare eccezioni per consentire il traffico. Le regole del firewall possono essere abilitate per gli account di archiviazione esistenti oppure durante la fase di creazione.
 
 È consigliabile usare questa funzionalità per proteggere gli account di archiviazione limitandoli a un set specifico di reti consentite.
 
 Per altre informazioni sui firewall e sulle reti virtuali di Archiviazione di Azure, vedere l'articolo [Configurare i firewall e le reti virtuali di Archiviazione di Azure](../storage/common/storage-network-security.md).
+
+## <a name="azure-data-box"></a>Azure Data Box
+
+I dispositivi Data Box, Data Box Disk e Data Box Heavy consentono di trasferire quantità elevate di dati in Azure quando non è possibile usare la rete. Questi dispositivi per il trasferimento dei dati offline vengono spediti tra l'organizzazione e il data center di Azure. Usano la crittografia AES per la protezione dei dati in transito e vengono sottoposti a un processo completo di bonifica dopo il caricamento per l'eliminazione dei dati.
+
+Data Box Edge e Data Box Gateway sono prodotti per il trasferimento dei dati online che fungono da gateway di archiviazione di rete per gestire i dati tra il sito e Azure. Data Box Edge, un dispositivo di rete locale, trasferisce i dati verso e da Azure e usa risorse di calcolo perimetrali abilitate per intelligenza artificiale per elaborare i dati. Data Box Gateway è un'appliance virtuale con funzionalità di gateway di archiviazione.
+
+Altre informazioni:
+
+* [Azure Data Box](https://azure.microsoft.com/services/storage/databox/)
+* [Azure Data Box Edge](../databox-online/data-box-edge-overview.md)
+* [Azure Data Box Gateway](..//databox-online/data-box-gateway-overview.md)
+
+## <a name="advanced-threat-protection"></a>Advanced Threat Protection
+
+Archiviazione di Azure offre la funzionalità Advanced Threat Protection per un livello aggiuntivo di intelligence di sicurezza in grado di rilevare tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento dell'account di archiviazione. Advanced Threat Protection esegue il monitoraggio dei log di diagnostica di Archiviazione di Azure per determinare la presenza di eventuali richieste di lettura, scrittura o eliminazione alle risorse di archiviazione BLOB. 
+
+Gli avvisi di Advanced Threat Protection possono essere visualizzati dal [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), che offre informazioni dettagliate sulle attività sospette rilevate e consiglia azioni per analizzare e correggere la potenziale minaccia. 
+
+Altre informazioni:
+
+* [Panoramica di Advanced Threat Protection di Archiviazione di Azure](../storage/common/storage-advanced-threat-protection.md)
 
 ## <a name="azure-key-vault"></a>Azure Key Vault
 

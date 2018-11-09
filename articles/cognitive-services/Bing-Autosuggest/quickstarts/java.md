@@ -10,22 +10,22 @@ ms.component: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 6f79416c28631a47209558fd0c415ae79cff93bc
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c19fa95bd5529f18a65ad466e9c6352b1be80657
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831399"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421119"
 ---
 # <a name="quickstart-for-bing-autosuggest-api-with-java"></a>Avvio rapido per l'API Suggerimenti automatici Bing con Java
 
-Questo articolo spiega come usare l'[API Suggerimenti automatici Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) con Java. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale che l'utente immette nella casella di ricerca. In genere si chiama questa API ogni volta che l'utente digita un nuovo carattere nella casella di ricerca e quindi si mostrano i suggerimenti nell'elenco a discesa della casella di ricerca. Questo articolo spiega come inviare una richiesta che restituisce le stringhe di query suggerite per *sail*.
+Questo articolo spiega come usare l'[API Suggerimenti automatici Bing](https://azure.microsoft.com/services/cognitive-services/autosuggest/) con Java. L'API Suggerimenti automatici Bing restituisce un elenco di query suggerite basate sulla stringa di query parziale che l'utente immette nella casella di ricerca. In genere si chiama questa API ogni volta che l'utente digita un nuovo carattere nella casella di ricerca e quindi si mostrano i suggerimenti nell'elenco a discesa della casella di ricerca. Questo articolo spiega come inviare una richiesta che restituisce le stringhe di query suggerite per *sail*.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Se si preferisce, è possibile usare un ambiente di sviluppo Java ma è sufficiente un editor di testo.
+Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](https://aka.ms/azure-jdks). Se si preferisce, è possibile usare un ambiente di sviluppo Java ma è sufficiente un editor di testo.
 
-È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Suggerimenti automatici Bing versione 7**. Per questo Avvio rapido è sufficiente la [versione di prova gratuita](https://azure.microsoft.com/try/cognitive-services/#search). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
+È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Suggerimenti automatici Bing versione 7**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/#search). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 
 ## <a name="get-autosuggest-results"></a>Ottenere risultati di Suggerimenti automatici
 
@@ -188,7 +188,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 > [!div class="nextstepaction"]
 > [Esercitazione per Suggerimenti automatici Bing](../tutorials/autosuggest.md)
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
 - [Informazioni su Suggerimenti automatici Bing](../get-suggested-search-terms.md)
 - [Riferimento sull'API Suggerimenti automatici Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)

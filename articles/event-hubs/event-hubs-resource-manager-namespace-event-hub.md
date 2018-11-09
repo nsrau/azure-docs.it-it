@@ -14,144 +14,164 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 10/16/2018
 ms.author: shvija
-ms.openlocfilehash: 48d41ef4df986f959dfabe04e07552e287fdfcd0
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 584696303bfbaed07f416fb0b3febbcf59d05b35
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457089"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085741"
 ---
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi Hub eventi con hub eventi e gruppo di consumer usando il modello di Azure Resource Manager
+# <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>Guida introduttiva: Creare un hub eventi usando un modello di Azure Resource Manager
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
 
 In questa guida introduttiva si crea un hub eventi usando un modello di Azure Resource Manager. Il modello viene usato per creare uno spazio dei nomi di tipo [Hub eventi](event-hubs-what-is-event-hubs.md), con un hub eventi e un gruppo di consumer. L'articolo descrive come definire le risorse da distribuire e i parametri specificati quando viene eseguita la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates].
 
-Per il modello completo, vedere il [modello di Hub eventi e gruppo di consumer][Event Hub and consumer group template] in GitHub.
 
 > [!NOTE]
-> Per verificare gli ultimi modelli, vedere la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare Hub eventi.
+> Per il modello completo, vedere il [modello di Hub eventi e gruppo di consumer][Event Hub and consumer group template] in GitHub. Questo modello ha creato un gruppo di consumer oltre a uno spazio dei nomi dell'hub eventi e un hub eventi. Per verificare gli ultimi modelli, vedere la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare Hub eventi.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per completare questa guida introduttiva è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione, [creare un account gratuito][] prima di iniziare.
+Per completare questa guida introduttiva è necessaria una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Se si desidera usare **Azure PowerShell** per distribuire il modello di Resource Manager [installare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
-Se si usa **Azure PowerShell** per distribuire il modello di Resource Manager in locale, è necessario eseguire la versione più recente di PowerShell per completare questa guida introduttiva. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+Se si desidera usare l'**interfaccia della riga di comando di Azure** per distribuire il modello di Resource Manager [installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
-Se si sceglie di installare e usare l'**interfaccia della riga di comando di Azure** per distribuire il modello di Resource Manager in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per controllare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
-
-## <a name="what-will-you-deploy"></a>Distribuzione
-
-Questo modello consente di distribuire uno spazio dei nomi di Hub eventi con un hub eventi e un gruppo di consumer.
-
-Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
-
-[![Distribuzione in Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
-
-## <a name="define-parameters"></a>Definire i parametri
-Gestione risorse di Azure permette di definire i parametri per i valori da specificare durante la distribuzione del modello. Il modello include una sezione denominata `Parameters` che contiene tutti i valori dei parametri. È opportuno definire un parametro per i valori che varieranno, in base al progetto che si sta distribuendo o all'ambiente in cui si esegue la distribuzione. Non definire i parametri per i valori che rimangono invariati. Ogni valore di parametro nel modello definisce le risorse distribuite.
-
-Il modello definisce i parametri seguenti:
-
-### <a name="eventhubnamespacename"></a>eventHubNamespaceName
-
-Nome dello spazio dei nomi dell'hub eventi da creare.
+## <a name="create-the-resource-manager-template-json"></a>Creare il modello di Azure Resource Manager JSON
+Creare un file JSON denominato MyEventHub.json con il contenuto seguente e salvarlo in una cartella (ad esempio: C:\EventHubsQuickstarts\ResourceManagerTemplate).
 
 ```json
-"eventHubNamespaceName": {
-"type": "string"
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "eventhub-namespace-name": {
+            "type": "String"
+        },
+        "eventhub_name": {
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.EventHub/namespaces",
+            "sku": {
+                "name": "Standard",
+                "tier": "Standard",
+                "capacity": 1
+            },
+            "name": "[parameters('eventhub-namespace-name')]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "isAutoInflateEnabled": false,
+                "maximumThroughputUnits": 0
+            },
+            "dependsOn": []
+        },
+        {
+            "type": "Microsoft.EventHub/namespaces/eventhubs",
+            "name": "[concat(parameters('eventhub-namespace-name'), '/', parameters('eventhub_name'))]",
+            "apiVersion": "2017-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "messageRetentionInDays": 7,
+                "partitionCount": 1,
+                "status": "Active"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.EventHub/namespaces', parameters('eventhub-namespace-name'))]"
+            ]
+        }
+    ]
 }
 ```
 
-### <a name="eventhubname"></a>eventHubName
-
-Nome dell'hub eventi creato nello spazio dei nomi di Hub eventi.
+## <a name="create-the-parameters-json"></a>Creare i parametri JSON
+Creare un file JSON denominato MyEventHub-Parameters.json contenente i parametri per il modello di Azure Resource Manager. 
 
 ```json
-"eventHubName": {
-"type": "string"
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+        "eventhub-namespace-name": {
+            "value": "<specify a name for the event hub namespace>"
+        },
+        "eventhub_name": {
+            "value": "<Specify a name for the event hub in the namespace>"
+        }
+  }
 }
 ```
 
-### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
 
-Nome del gruppo di consumer creato per l'hub eventi.
 
-```json
-"eventHubConsumerGroupName": {
-"type": "string"
-}
-```
+## <a name="use-azure-powershell-to-deploy-the-template"></a>Usare Azure PowerShell per distribuire il modello
 
-### <a name="apiversion"></a>apiVersion
+### <a name="sign-in-to-azure"></a>Accedere ad Azure
+1. Avviare Azure PowerShell
 
-Versione API del modello.
+2. Eseguire questo comando per accedere ad Azure:
 
-```json
-"apiVersion": {
-"type": "string"
-}
-```
+   ```azurepowershell
+   Login-AzureRmAccount
+   ```
+3. Eseguire i comandi seguenti per impostare il contesto corrente di sottoscrizione:
 
-## <a name="define-resources-to-deploy"></a>Definire le risorse da distribuire
+   ```azurepowershell
+   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   ```
 
-Crea uno spazio dei nomi di tipo **EventHubs**con un hub eventi e un gruppo di consumer:
+### <a name="provision-resources"></a>Effettuare il provisioning delle risorse
+Per distribuire o effettuare il provisioning di risorse con Azure PowerShell, passare alla cartella C:\EventHubsQuickStart\ARM\ ed eseguire i comandi seguenti:
 
-```json
-"resources":[  
-      {  
-         "apiVersion":"[variables('ehVersion')]",
-         "name":"[parameters('namespaceName')]",
-         "type":"Microsoft.EventHub/namespaces",
-         "location":"[variables('location')]",
-         "sku":{  
-            "name":"Standard",
-            "tier":"Standard"
-         },
-         "resources":[  
-            {  
-               "apiVersion":"[variables('ehVersion')]",
-               "name":"[parameters('eventHubName')]",
-               "type":"EventHubs",
-               "dependsOn":[  
-                  "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
-               ],
-               "properties":{  
-                  "path":"[parameters('eventHubName')]"
-               },
-               "resources":[  
-                  {  
-                     "apiVersion":"[variables('ehVersion')]",
-                     "name":"[parameters('consumerGroupName')]",
-                     "type":"ConsumerGroups",
-                     "dependsOn":[  
-                        "[parameters('eventHubName')]"
-                     ],
-                     "properties":{  
-
-                     }
-                  }
-               ]
-            }
-         ]
-      }
-   ],
-```
-
-## <a name="azure-powershell"></a>Azure PowerShell
-Per distribuire le risorse con Azure PowerShell, eseguire il comando seguente:
+> [!IMPORTANT]
+> Specificare un nome per il gruppo di risorse di Azure come valore per $resourceGroupName prima di eseguire i comandi. 
 
 ```azurepowershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
+$resourceGroupName = "<Specify a name for the Azure resource group>"
+
+# Create an Azure resource group
+New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+
+# Deploy the Resource Manager template. Specify the names of deployment itself, resource group, JSON file for the template, JSON file for parameters
+New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
 ```
 
-## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
-Per distribuire le risorse con Azure PowerShell, eseguire il comando seguente:
+## <a name="use-azure-cli-to-deploy-the-template"></a>Usare l'interfaccia della riga di comando di Azure per distribuire il modello
+
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
+
+I passaggi seguenti non sono necessari se si eseguono i comandi in Cloud Shell. Se si esegue l'interfaccia della riga di comando in locale, eseguire la procedura seguente per accedere ad Azure e impostare la sottoscrizione corrente:
+
+Eseguire questo comando per accedere ad Azure:
 
 ```azurecli
-azure config mode arm
+az login
+```
 
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
+Impostare il contesto della sottoscrizione corrente. Sostituire `MyAzureSub` con il nome della sottoscrizione di Azure che si desidera usare:
+
+```azurecli
+az account set --subscription <Name of your Azure subscription>
+``` 
+
+### <a name="provision-resources"></a>Effettuare il provisioning delle risorse
+Per distribuire le risorse con l'interfaccia della riga di comando di Azure, passare alla cartella C:\EventHubsQuickStart\ARM\ ed eseguire i comandi seguenti:
+
+> [!IMPORTANT]
+> Specificare un nome per il gruppo di risorse di Azure nel comando di creazione del gruppo az. .
+
+```azurecli
+# Create an Azure resource group
+az group create --name <YourResourceGroupName> --location eastus
+
+# # Deploy the Resource Manager template. Specify the names of resource group, deployment, JSON file for the template, JSON file for parameters
+az group deployment create --name <Specify a name for the deployment> --resource-group <YourResourceGroupName> --template-file MyEventHub.json --parameters @MyEventHub-Parameters.json
 ```
 
 Congratulazioni! Si è usato il modello di Azure Resource Manager per creare uno spazio dei nomi di Hub eventi e un hub eventi all'interno di questo spazio dei nomi.

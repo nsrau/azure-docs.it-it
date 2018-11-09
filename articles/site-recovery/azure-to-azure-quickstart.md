@@ -1,22 +1,22 @@
 ---
-title: Replicare una macchina virtuale di Azure in un'altra area di Azure
-description: Questa guida introduttiva illustra i passaggi necessari per replicare una macchina virtuale di Azure presente in un'area di Azure in un'area diversa.
+title: Configurare il ripristino di emergenza per una macchina virtuale IaaS di Azure in un'area di Azure secondaria
+description: Questa guida introduttiva fornisce i passaggi necessari per il ripristino di emergenza di una macchina virtuale IaaS di Azure tra le aree di Azure con il servizio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 623c45cbc82139090d893b8501c7d363c4443d67
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: e5f6cbec75a9f652cf05c9608c412e00489288b9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456183"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212931"
 ---
-# <a name="replicate-an-azure-vm-to-another-azure-region"></a>Replicare una macchina virtuale di Azure in un'altra area di Azure
+# <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurare il ripristino di emergenza in un'area di Azure secondaria per una macchina virtuale di Azure 
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo operative le app aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
 
@@ -35,7 +35,7 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
 
 1. Nel portale di Azure fare clic su **Macchine virtuali** e selezionare la macchina virtuale che si vuole replicare.
 2. In **Operazioni** fare clic su **Ripristino di emergenza**.
-3. In **Configura ripristino di emergenza** > **Area di destinazione** selezionare l'area di destinazione in cui si vuole eseguire la replica.
+3. In **Configure disaster recovery** (Configura ripristino di emergenza)  >  **Area di destinazione** selezionare l'area di destinazione in cui si vuole eseguire la replica.
 4. Per questa guida introduttiva, accettare le altre impostazioni predefinite.
 5. Fare clic su **Abilitazione della replica**. Verrà avviato un processo per abilitare la replica per la macchina virtuale.
 

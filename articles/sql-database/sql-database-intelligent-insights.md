@@ -1,5 +1,5 @@
 ---
-title: Monitorare l'utilizzo del database con Intelligent Insights - Database SQL di Azure | Microsoft Docs
+title: Monitorare le prestazioni del database con Intelligent Insights - Database SQL di Azure | Microsoft Docs
 description: Intelligent Insights per il database SQL di Azure usa le funzionalità di intelligence integrata per monitorare in modo continuativo l'utilizzo del database grazie all'intelligenza artificiale e di rilevare gli eventi che possono causare interruzioni del funzionamento e una riduzione delle prestazioni.
 services: sql-database
 ms.service: sql-database
@@ -12,14 +12,14 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: b64c8f5d30f95cccf8a029adfd5c443a81597c4d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e87cd3742a5dcd52c3a447bb66ea9089c18d5aee
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870690"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214682"
 ---
-# <a name="intelligent-insights-using-artificial-intelligence-to-monitor-database-usage"></a>Intelligent Insights con intelligenza artificiale per monitorare l'utilizzo di database
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights con intelligenza artificiale per eseguire il monitoraggio e risolvere i problemi delle prestazioni del database
 
 Intelligent Insights per il database SQL di Azure assicura un maggior controllo sulle prestazioni dei database SQL di Azure e dei database di Istanza gestita.
 

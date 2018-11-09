@@ -1,10 +1,10 @@
 ---
-title: Dimensioni delle macchine virtuali per i servizi cloud di Azure | Documentazione Microsoft
+title: Dimensioni delle macchine virtuali per i servizi cloud di Azure | Microsoft Docs
 description: Elenco delle diverse dimensioni e ID delle macchine virtuali per i ruoli Web e di lavoro del servizio cloud di Azure.
 services: cloud-services
 documentationcenter: ''
 author: jpconnock
-manager: timlt
+manager: jpconnock
 editor: ''
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
 ms.service: cloud-services
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 60ee7c2be29791db91db78472cc002e15390d36b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 78a073ec7ee8432ba7804daef150afcbbca23ef6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004789"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095570"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione dispone di un ID da inserire nel [file di definizione del servizio](cloud-services-model-and-package.md#csdef). I prezzi per ogni dimensione sono disponibili nella pagina relativa ai [prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).

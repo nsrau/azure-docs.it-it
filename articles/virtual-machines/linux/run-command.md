@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 9ba60f770c094f65ee5a4ed6dc21a5e07bac3d27
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267750"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158806"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Eseguire gli script della shell nella macchina virtuale Linux con Esegui comando
 
@@ -38,6 +38,9 @@ Di seguito c'è un elenco di restrizioni che sono presenti quando si usa l'esecu
 * Il tempo massimo in cui può essere eseguito uno script è 90 minuti, dopo di che si verifica il timeout
 * La connettività in uscita dalla macchina virtuale è necessaria per restituire i risultati dello script.
 
+> [!NOTE]
+> Per funzionare correttamente, Esegui comando richiede la connettività agli indirizzi IP pubblici di Azure (porta 443). Se l'estensione non ha accesso a questi endpoint, gli script possono funzionare correttamente, ma non restituiscono risultati. Se si sta bloccando il traffico nella macchina virtuale, è possibile usare i [tag di servizio](../../virtual-network/security-overview.md#service-tags) per consentire il traffico verso gli indirizzi IP pubblici di Azure tramite il tag `AzureCloud`.
+
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 Ecco un esempio usando il comando [az vm run-command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) per eseguire uno script della shell su una macchina virtuale Linux di Azure.
@@ -55,7 +58,7 @@ Passare a una macchina virtuale in [Azure](https://portal.azure.com) e seleziona
 
 ![Eseguire l'elenco comandi](./media/run-command/run-command-list.png)
 
-Seleziona un comando da eseguire Alcuni comandi potrebbero avere parametri di input obbligatori o facoltativi. Per tali comandi vengono presentati i parametri come campi di testo di fornire i valori di input. Per ogni comando è possibile visualizzare lo script che viene eseguito espandendo **Visualizza script**. **RunShellScript** è diverso da altri comandi, in quanto consente di fornire script personalizzati. 
+Seleziona un comando da eseguire Alcuni comandi potrebbero avere parametri di input obbligatori o facoltativi. Per tali comandi vengono presentati i parametri come campi di testo di fornire i valori di input. Per ogni comando è possibile visualizzare lo script che viene eseguito espandendo **Visualizza script**. **RunShellScript** è diverso da altri comandi, in quanto consente di fornire script personalizzati.
 
 > [!NOTE]
 > I comandi incorporati non sono modificabili.

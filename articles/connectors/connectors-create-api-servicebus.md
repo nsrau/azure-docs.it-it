@@ -11,12 +11,12 @@ ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 813df5b4ef37ad1264df48863aa8f0ed5a4d4789
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 68378c87e18df874059579445352b8fd1b2b6c13
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048775"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232716"
 ---
 # <a name="exchange-messages-in-the-cloud-with-azure-service-bus-and-azure-logic-apps"></a>Scambiare messaggi nel cloud con il bus di servizio di Azure e App per la logica di Azure
 
@@ -64,7 +64,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
       ![Copiare la stringa di connessione dello spazio dei nomi del bus di servizio](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Per verificare se la stringa di connessione è associata allo spazio dei nomi del bus di servizio o a un'entità di messaggistica, ad esempio una coda, cercare il parametro `EntityPath` nella stringa di connessione. Se questo parametro è presente, la stringa di connessione è destinata a un'entità specifica e non è la stringa corretta da usare con l'app per la logica.
+   > Per verificare se la stringa di connessione è associata allo spazio dei nomi del bus di servizio o a un'entità di messaggistica, ad esempio una coda, cercare il parametro `EntityPath`  nella stringa di connessione. Se questo parametro è presente, la stringa di connessione è destinata a un'entità specifica e non è la stringa corretta da usare con l'app per la logica.
 
 ## <a name="add-trigger-or-action"></a>Aggiungere il trigger o l'azione
 
@@ -140,7 +140,7 @@ Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizi
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

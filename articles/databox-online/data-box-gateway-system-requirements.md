@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f70cd5de29cc3050142dfff905acae2008dab115
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379123"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157361"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisiti di sistema di Azure Data Box Gateway (anteprima)
 
@@ -56,7 +56,7 @@ Di seguito è riportato l'elenco dei sistemi operativi supportati per i client o
 
 ## <a name="supported-storage-accounts"></a>Account di archiviazione supportati
 
-Di seguito è riportato un elenco dei tipi di archiviazione supportati per Data Box Gateway.
+Ecco un elenco degli account di archiviazione supportati per Data Box Gateway.
 
 | **Account di archiviazione** | **Note** |
 | --- | --- |
@@ -92,7 +92,7 @@ La tabella seguente elenca le porte che devono essere aperte nel firewall per co
 
 | N. porta| In ingresso/In uscita | Ambito porta| Obbligatoria|   Note                                                             |                                                                                     |
 |--------|---------|----------|--------------|----------------------|---------------|
-| TCP 80 (HTTP)|In uscita|WAN |No |La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti. <br>Il proxy Web in uscita è configurabile dall'utente. |                          
+| TCP 80 (HTTP)|In uscita|WAN |No|La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti. <br>Il proxy Web in uscita è configurabile dall'utente. |                          
 | TCP 443 (HTTPS)|In uscita|WAN|Yes|La porta in uscita viene usata per accedere ai dati nel cloud.<br>Il proxy Web in uscita è configurabile dall'utente.|   
 | UDP 53 (DNS)|In uscita|WAN|In alcuni casi<br>Vedere le note|Questa porta è obbligatoria solo se si usa un server DNS basato su Internet.<br>È consigliabile l'uso del server DNS locale. |
 | UDP 123 (NTP)|In uscita|WAN|In alcuni casi<br>Vedere le note|Questa porta è obbligatoria solo se si usa un server NTP basato su Internet.  |

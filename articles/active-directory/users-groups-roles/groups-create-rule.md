@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e418316a74ccf27ec730261957a8b6c64de5d063
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040602"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249669"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creare un gruppo dinamico e controllare lo stato
 
@@ -39,8 +39,9 @@ Questo articolo illustra in modo dettagliato come configurare una regola nel por
 
    ![Aggiungere una regola di appartenenza dinamica](./media/groups-create-rule/add-dynamic-group-rule.png)
 
-5. Dopo avere creato la regola, selezionare **Aggiungi query** nella parte inferiore del pannello.
-6. Selezionare **Crea** on the **Gruppo** per creare il gruppo.
+5. Per visualizzare l'elenco completo delle proprietà di estensione personalizzate che è possibile aggiungere alla query di appartenenza, selezionare **Ottenere le proprietà di estensione personalizzate**, immettere l'ID applicazione, quindi selezionare **Aggiorna le proprietà**. L'elenco completo delle proprietà saranno a questo punto disponibili per la selezione.
+6. Dopo avere creato la regola, selezionare **Aggiungi query** nella parte inferiore del pannello.
+7. Selezionare **Crea** on the **Gruppo** per creare il gruppo.
 
 > [!TIP]
 > La creazione del gruppo non riesce se la regola che è stata immessa è in un formato non corretto o non è valida. Verrà visualizzata una notifica nell'angolo superiore destro del portale, che contiene una spiegazione dei motivi per cui la regola non è stata elaborata. Leggere attentamente per capire come occorre modificare la regola per renderla valida.

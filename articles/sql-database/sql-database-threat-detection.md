@@ -11,19 +11,24 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: ed7a117d4422b3b3feddd7d2fafa5eabea43f9e5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/25/2018
+ms.openlocfilehash: 2882bd782359697cf714214e68166c9f997f52e4
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164938"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093548"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Rilevamento delle minacce per il database SQL di Azure
 
-Il rilevamento delle minacce per il database SQL di Azure rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database.
+La funzionalità di rilevamento delle minacce per il [Database SQL](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rileva le attività anomale che possono indicare tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database.
 
 Rilevamento delle minacce fa parte dell'offerta [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (Protezione avanzata dalle minacce SQL) (ATP), che è un pacchetto unificato per le funzionalità avanzate di sicurezza SQL. È possibile accedere e gestire Rilevamento delle minacce tramite il portale centrale ATP SQL.
+
+
+> [!NOTE] 
+> Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
+
 
 ## <a name="what-is-threat-detection"></a>Introduzione alla funzionalità di rilevamento delle minacce
 
@@ -65,7 +70,7 @@ Si riceverà una notifica tramite posta elettronica al rilevamento di attività 
 
 Rilevamento minacce del database SQL integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Un riquadro sul rilevamento minacce live di SQL all'interno dei pannelli del database e di SQL ATP nel portale di Azure tiene traccia dello stato delle minacce attive.
 
-Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi del Centro sicurezza di Azure e ottenere una panoramica delle minacce SQL attive rilevate nel database.
+Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi del Centro sicurezza di Azure e ottenere una panoramica delle minacce SQL attive rilevate nel database o nel data warehouse.
 
    ![Avviso di rilevamento minacce](./media/sql-database-threat-detection/threat_detection_alert.png)
    

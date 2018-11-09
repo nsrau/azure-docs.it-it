@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2018
+ms.date: 10/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 0ef8fc2ea8b006d49dd54d638183a58bf78a5797
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: b148967af0882993d8ab113bdf0fd3ad3835296f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311955"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092611"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Three
 
@@ -76,7 +76,7 @@ Per configurare l'integrazione di Zscaler Three in Azure AD, è necessario aggiu
 
 4. Nel pannello dei risultati selezionare **Zscaler Three** e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Creazione di un utente test di Azure AD](./media/zscaler-three-tutorial/tutorial_zscalerthree_addfromgallery.png)
+    ![Creazione di un utente di test di Azure AD](./media/zscaler-three-tutorial/tutorial_zscalerthree_addfromgallery.png)
 
 ## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurazione e test dell'accesso Single Sign-On di Azure AD
 
@@ -86,11 +86,11 @@ Per il funzionamento dell'accesso Single Sign-On, Azure AD deve conoscere l'uten
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Zscaler Three, è necessario completare le procedure di base seguenti:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
+1. **[Configurazione dell'accesso Single Sign-On di Azure AD](#configuring-azure-ad-single-sign-on)**: per abilitare gli utenti all'uso di questa funzionalità.
 2. **[Configurazione delle impostazioni proxy](#configuring-proxy-settings)**: per configurare le impostazioni proxy in Internet Explorer
-3. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
+3. **[Creazione di un utente di test di Azure AD](#creating-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Creazione di un utente di test di Zscaler Three](#creating-a-zscaler-three-test-user)**: per avere una controparte di Britta Simon in Zscaler Three collegata alla rappresentazione dell'utente in Azure AD.
-5. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Assegnazione dell'utente di test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 6. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
@@ -111,7 +111,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_general_300.png)
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic su **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
 
     ![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_general_302.png)
 
@@ -119,10 +119,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Configure Single Sign-On](./media/zscaler-three-tutorial/tutorial_zscalerthree_url.png)
 
-    Nella casella di testo URL di risposta immettere l'URL: `https://login.zscalerthree.net/sfc_sso`
-
-    > [!NOTE]
-    > È necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questi valori, contattare il [team di supporto clienti di Zscaler Three](https://www.zscaler.com/company/contact).
+    Nella casella di testo URL di accesso inserire l'URL: `https://login.zscalerthree.net/sfc_sso`
 
 6. Nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare il **Certificato (Base64)** e quindi salvare il file del certificato nel computer.
 
@@ -202,21 +199,21 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 6. Fare clic su **OK** per chiudere la finestra di dialogo **Opzioni Internet**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente test di Azure AD
+### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel portale di Azure, nel riquadro sinistro, selezionare **Azure Active Directory**, selezionare **Utenti** e quindi selezionare **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
     ![Creare un utente di Azure AD][100]
 
 2. Selezionare **Nuovo utente** in alto nella schermata.
 
-    ![Creazione di un utente test di Azure AD](./media/zscaler-three-tutorial/create_aaduser_01.png) 
+    ![Creazione di un utente di test di Azure AD](./media/zscaler-three-tutorial/create_aaduser_01.png) 
 
 3. In Proprietà utente seguire questa procedura.
 
-    ![Creazione di un utente test di Azure AD](./media/zscaler-three-tutorial/create_aaduser_02.png)
+    ![Creazione di un utente di test di Azure AD](./media/zscaler-three-tutorial/create_aaduser_02.png)
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
@@ -258,7 +255,7 @@ Per consentire agli utenti di Azure AD di accedere a Zscaler Three, è necessari
 > [!NOTE]
 > È possibile usare qualsiasi altro strumento o API di creazione di account utente fornita da Zscaler Three per eseguire il provisioning degli account utente Azure AD.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zscaler Three.
 

@@ -5,17 +5,16 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/2/2018
+ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 27221ac4b23f52dd6976a959e6e5529eb0cc89fa
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3c225e6fbfb13c04d650b8e6b72ee18d23139a8e
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856072"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158959"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
-
 
 In questa esercitazione si apprenderà come:
 
@@ -49,6 +48,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
 ## <a name="declare-the-variables"></a>Dichiarare le variabili
+
 L'esempio seguente dichiara le variabili usando i valori per questa esercitazione. Nella maggior parte dei casi è necessario sostituire i valori con quelli personalizzati. È tuttavia possibile usare queste variabili se si esegue la procedura per acquisire familiarità con questo tipo di configurazione. Modificare le variabili se necessario, quindi copiarle e incollarle nella console di PowerShell.
 
 ```azurepowershell
@@ -91,6 +91,7 @@ $SNnameGW = "GatewaySubnet"
 ```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
+
 Creare un gruppo di risorse per contenere tutte le risorse richieste per questa esercitazione:
 
 ```azurepowershell
@@ -112,12 +113,14 @@ Creare ora la rete virtuale dell'hub del firewall:
 $VNetHub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
+
 Richiedere un indirizzo IP pubblico da allocare per il gateway VPN che verrà creato per la rete virtuale. Si noti che *AllocationMethod* è **dinamico**. Non è possibile specificare l'indirizzo IP che si desidera usare. Viene allocato in modo dinamico per il gateway VPN. 
 
   ```azurepowershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
 ```
+
 ## <a name="create-and-configure-the-spoke-vnet"></a>Creare e configurare la rete virtuale spoke
 
 Definire le subnet da includere nella rete virtuale spoke:
@@ -149,6 +152,7 @@ Creare ora la rete virtuale locale:
 $VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
+
 Richiedere un indirizzo IP pubblico da allocare per il gateway che verrà creato per la rete virtuale. Si noti che *AllocationMethod* è **dinamico**. Non è possibile specificare l'indirizzo IP che si desidera usare. Viene allocato in modo dinamico per il gateway. 
 
   ```azurepowershell
@@ -176,32 +180,20 @@ $AzfwPrivateIP
 
 ### <a name="configure-network-rules"></a>Configurare le regole di rete
 
-<!--- $Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
+<!--- $Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowPing" -Protocol ICMP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort *--->
 
 ```azurepowershell
 $Rule1 = New-AzureRmFirewallNetworkRule -Name "AllowWeb" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 80
 
-$Rule3 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
+$Rule2 = New-AzureRmFirewallNetworkRule -Name "AllowRDP" -Protocol TCP -SourceAddress $SNOnpremPrefix `
    -DestinationAddress $VNetSpokePrefix -DestinationPort 3389
 
 $NetRuleCollection = New-AzureRmFirewallNetworkRuleCollection -Name RCNet01 -Priority 100 `
-   -Rule $Rule1,$Rule2,$Rule3 -ActionType "Allow"
+   -Rule $Rule1,$Rule2 -ActionType "Allow"
 $Azfw.NetworkRuleCollections = $NetRuleCollection
 Set-AzureRmFirewall -AzureFirewall $Azfw
-```
-### <a name="configure-an-application-rule"></a>Configurare una regola di applicazione
-
-```azurepowershell
-$Rule4 = New-AzureRmFirewallApplicationRule -Name "AllowBing" -Protocol "Http:80","Https:443" `
-   -SourceAddress $SNOnpremPrefix -TargetFqdn "bing.com"
-
-$AppRuleCollection = New-AzureRmFirewallApplicationRuleCollection -Name RCApp01 -Priority 100 `
-   -Rule $Rule4 -ActionType "Allow"
-$Azfw.ApplicationRuleCollections = $AppRuleCollection
-Set-AzureRmFirewall -AzureFirewall $Azfw
-
 ```
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>Creare e connettere i gateway VPN
@@ -245,10 +237,13 @@ New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
 -Location $Location1 -IpConfigurations $gwipconf2 -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku basic
 ```
+
 ### <a name="create-the-vpn-connections"></a>Creare le connessioni VPN
+
 A questo punto è possibile creare le connessioni VPN tra l'hub e i gateway locali
 
 #### <a name="get-the-vpn-gateways"></a>Ottenere i gateway VPN
+
 ```azurepowershell
 $vnetHubgw = Get-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1
 $vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1
@@ -270,8 +265,9 @@ Creare la connessione dalla rete virtuale locale alla rete virtuale dell'hub. Qu
   -VirtualNetworkGateway1 $vnetOnpremgw -VirtualNetworkGateway2 $vnetHubgw -Location $Location1 `
   -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
   ```
+
 #### <a name="verify-the-connection"></a>Verificare la connessione
- 
+
 Per verificare l'esito positivo della connessione, è possibile usare il cmdlet *Get-AzureRmVirtualNetworkGatewayConnection* con o senza *-Debug*. Per configurare i valori in modo che corrispondano ai propri, usare l'esempio di cmdlet seguente. Quando richiesto, selezionare **A** per eseguire **Tutti**. Il valore *-Name* nell'esempio fa riferimento al nome della connessione che si vuole testare.
 
 ```azurepowershell
@@ -286,8 +282,6 @@ Al termine dell'esecuzione del cmdlet, visualizzare i valori. Nell'esempio segue
 "egressBytesTransferred": 4142431
 ```
 
-
-
 ## <a name="peer-the-hub-and-spoke-vnets"></a>Eseguire il peering tra le reti virtuali dell'hub e spoke
 
 A questo punto è possibile eseguire il peering tra le reti virtuali dell'hub e spoke.
@@ -299,9 +293,11 @@ Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -Remo
 # Peer spoke to hub
 Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
+
 ## <a name="create-routes"></a>Creare route
 
-Creare quindi due route: 
+Creare quindi due route:
+
 - Una route dalla subnet del gateway dell'hub alla subnet spoke attraverso l'indirizzo IP del firewall
 - Una route predefinita dalla subnet spoke attraverso l'indirizzo IP del firewall
 
@@ -364,16 +360,18 @@ Set-AzureRmVirtualNetworkSubnetConfig `
   -RouteTable $routeTableSpokeDG | `
 Set-AzureRmVirtualNetwork
 ```
+
 ## <a name="create-virtual-machines"></a>Creare macchine virtuali
 
 Creare ora le macchine virtuali locali e per il carico di lavoro spoke e posizionarle nelle subnet appropriate.
 
 ### <a name="create-the-workload-virtual-machine"></a>Creare la macchina virtuale per il carico di lavoro
+
 Creare una macchina virtuale nella rete virtuale spoke, con IIS in esecuzione, senza indirizzo IP pubblico e abilitata per il ping.
 Quando richiesto, digitare il nome utente e la password per la macchina virtuale.
 
 ```azurepowershell
-# Create an inbound network security group rule for port 3389
+# Create an inbound network security group rule for ports 3389 and 80
 $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name Allow-RDP  -Protocol Tcp `
   -Direction Inbound -Priority 200 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix $SNSpokePrefix -DestinationPortRange 3389 -Access Allow
 $nsgRuleWeb = New-AzureRmNetworkSecurityRuleConfig -Name Allow-web  -Protocol Tcp `
@@ -417,9 +415,10 @@ Set-AzureRmVMExtension `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
     -Location $Location1--->
 
-
 ### <a name="create-the-onprem-virtual-machine"></a>Creare la macchina virtuale locale
+
 Si tratta di una macchina virtuale semplice a cui è possibile connettersi tramite Desktop remoto con l'indirizzo IP pubblico. Da qui, è quindi possibile connettersi al server locale attraverso il firewall. Quando richiesto, digitare il nome utente e la password per la macchina virtuale.
+
 ```azurepowershell
 New-AzureRmVm `
     -ResourceGroupName $RG1 `
@@ -432,6 +431,7 @@ New-AzureRmVm `
 ```
 
 ## <a name="test-the-firewall"></a>Testare il firewall
+
 Innanzitutto, ottenere e annotare l'indirizzo IP privato per la macchina virtuale **VM-spoke-01**.
 
 ```azurepowershell
@@ -456,23 +456,20 @@ A questo punto si è verificato che le regole del firewall funzionano:
 - È possibile esplorare il Web server nella rete virtuale spoke.
 - È possibile connettersi al server nella rete virtuale spoke tramite RDP.
 
-Modificare quindi l'azione della raccolta di regole di rete del firewall impostandola su **Nega** per verificare che le regole del firewall funzionino come previsto. Eseguire lo script seguente per modificare l'azione delle raccolte di regole impostandola su **Nega**.
+Modificare quindi l'azione della raccolta di regole di rete del firewall impostandola su **Nega** per verificare che le regole del firewall funzionino come previsto. Eseguire lo script seguente per modificare l'azione della raccolta di regole impostandola su **Nega**.
 
 ```azurepowershell
 $rcNet = $azfw.GetNetworkRuleCollectionByName("RCNet01")
 $rcNet.action.type = "Deny"
 
-$rcApp = $azfw.GetApplicationRuleCollectionByName("RCApp01")
-$rcApp.action.type = "Deny"
-
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
+
 A questo punto rieseguire i test, che dovrebbero avere tutti esito negativo. Chiudere eventuali desktop remoti esistenti prima di testare le regole modificate.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 È possibile conservare le risorse del firewall per l'esercitazione successiva oppure, se non è più necessario, eliminare il gruppo di risorse **FW-Hybrid-Test** per eliminare tutte le risorse correlate al firewall.
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

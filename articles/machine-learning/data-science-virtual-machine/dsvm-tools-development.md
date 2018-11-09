@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: b8b0b8934b51080c3583281673183c1498c26417
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408310"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237878"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Strumenti di sviluppo nella macchina virtuali per data science
 
@@ -77,7 +77,7 @@ La macchina virtuale per data science offre un ambiente di produzione per lo svi
 | ------------- | ------------- |
 | Che cos'è?   | IDE client per il linguaggio Python    |
 | Versioni supportate della macchina virtuale per data science      | Linux      |
-| Usi tipici      |  Sviluppo R     |
+| Usi tipici      |  Sviluppo Python     |
 | Come usarla o eseguirla?      | Collegamento sul desktop (`/usr/bin/pycharm`) in Linux      |
 | Strumenti correlati nella macchina virtuale per data science      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 

@@ -1,5 +1,5 @@
 ---
-title: Descrizione di Monitoraggio di Azure per le macchine virtuali | Microsoft Docs
+title: Descrizione di Monitoraggio di Azure per le macchine virtuali (Anteprima) | Microsoft Docs
 description: Monitoraggio di Azure per le macchine virtuali è una funzionalità di Monitoraggio di Azure che combina il monitoraggio dell'integrità e delle prestazioni del sistema operativo delle macchine virtuali di Azure, nonché l'individuazione automatica dei componenti e delle dipendenze delle applicazioni con altre risorse e mappa la comunicazione tra questi elementi. Questo articolo offre una panoramica.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 26fcc3eb78af53360cca57382b4c06b017f36c0e
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e39954f9155419e0dea019203efa22ba0d654f92
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063269"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093684"
 ---
-# <a name="what-is-azure-monitor-for-vms"></a>Descrizione di Monitoraggio di Azure per le macchine virtuali
+# <a name="what-is-azure-monitor-for-vms-preview"></a>Descrizione di Monitoraggio di Azure per le macchine virtuali (Anteprima)
 
 Monitoraggio di Azure per le macchine virtuali monitora le macchine virtuali di Azure su larga scala analizzando le prestazioni e l'integrità delle macchine virtuali Windows e Linux, inclusi i relativi processi e le dipendenze interconnesse ad altre risorse e processi esterni. La soluzione include il supporto per il monitoraggio delle prestazioni e delle dipendenze dell'applicazione per le macchine virtuali ospitate in locale o in un altro provider di servizi cloud.  Include tre funzionalità principali per fornire queste informazioni dettagliate:
 

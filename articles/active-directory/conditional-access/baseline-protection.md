@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958551"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158704"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Che cos'è la protezione di base (anteprima)?  
 
@@ -51,7 +51,7 @@ Gli utenti con accesso ad account con privilegi hanno accesso illimitato all'amb
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Questi criteri di base offrono la possibilità di escludere utenti e gruppi. È possibile escludere un *[account amministrativo di accesso di emergenza](../users-groups-roles/directory-emergency-access.md)* per assicurarsi di non rimanere bloccati fuori dal tenant.
+Questo criterio di base offre la possibilità di escludere gli utenti. È possibile escludere un *[account amministrativo di accesso di emergenza](../users-groups-roles/directory-emergency-access.md)* per assicurarsi di non rimanere bloccati fuori dal tenant.
 
 
 ## <a name="enable-a-baseline-policy"></a>Abilitare un criterio di base 

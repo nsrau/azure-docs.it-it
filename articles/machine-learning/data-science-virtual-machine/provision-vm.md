@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 1b293ee8f0f83d727cd647cdcdcc424b4db7e5d3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782655"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240886"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale data science Windows di Azure
 Data Science Virtual Machine (DSVM) è un'immagine di macchina virtuale (VM) Windows di Azure pre-installata e configurata con diversi strumenti usati per l'analisi dei dati e l'apprendimento automatico. Sono inclusi gli strumenti seguenti:
@@ -40,7 +40,7 @@ Data Science Virtual Machine (DSVM) è un'immagine di macchina virtuale (VM) Win
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Software di apprendimento automatico e data mining visivo in Java.
   * [Apache Drill](https://drill.apache.org/). Motore di query SQL senza schema per Apache Hadoop, NoSQL e Cloud Storage.  Supporta le interfacce ODBC e JDBC per l'esecuzione di query in NoSQL e in file di strumenti di Business Intelligence standard come Power BI, Microsoft Excel e Tableau.
 * Librerie in R e Python da usare in Azure Machine Learning e altri servizi di Azure.
-* Git, che include Git Bash, per lavorare con i repository di codice sorgente che includono GitHub e Visual Studio Team Services. Git fornisce diverse comuni utilità della riga di comando di Linux accessibili sia da Git Bash che da un prompt dei comandi, ad esempio awk, sed, perl, grep, find, wget e curl.
+* Git, che comprende Git Bash, per lavorare con i repository di codice sorgente che includono GitHub e Azure DevOps. Git fornisce diverse comuni utilità della riga di comando di Linux accessibili sia da Git Bash che da un prompt dei comandi, ad esempio awk, sed, perl, grep, find, wget e curl.
 
 La data science comporta l'iterazione di una sequenza di attività quali:
 
@@ -186,7 +186,7 @@ Diversi strumenti di Azure vengono installati nella macchina virtuale:
 * **Microsoft Azure PowerShell** è uno strumento usato per amministrare le risorse di Azure nel linguaggio di scripting di PowerShell. Viene anche installato nella VM. 
 
 ### <a name="power-bi"></a>Power BI
-**Power BI Desktop** viene installato per facilitare la creazione di dashboard e visualizzazioni. Usare questo strumento per estrarre dati da origini diverse, per creare dashboard e report e pubblicarli nel cloud. Per altre informazioni, visitare il sito di [Power BI](http://powerbi.microsoft.com). Power BI Desktop è disponibile nel menu **Start**. 
+**Power BI Desktop** viene installato per facilitare la creazione di dashboard e visualizzazioni. Usare questo strumento per estrarre dati da origini diverse, per creare dashboard e report e pubblicarli nel cloud. Per altre informazioni, visitare il sito di [Power BI](https://powerbi.microsoft.com). Power BI Desktop è disponibile nel menu **Start**. 
 
 > [!NOTE]
 > Per accedere a Power BI, è necessario un account Microsoft Office 365. 
@@ -228,7 +228,7 @@ Ogni utente del workbench deve eseguire un'azione una tantum. Fare doppio clic s
 * Esplorare gli strumenti nella VM di data science selezionando il menu **Start**.
 * Per informazioni su Azure Machine Learning Services e Workbench, visitare la [pagina delle guide introduttive e delle esercitazioni](../service/index.yml) del prodotto. 
 * Per esempi che usano la libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale, passare a **C:\Programmi\Microsoft ML Server\R_SERVER\library\RevoScaleR\demoScripts**.  
-* Leggere l'articolo [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](http://aka.ms/dsvmtenthings).
+* Leggere l'articolo [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](https://aka.ms/dsvmtenthings).
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](../team-data-science-process/index.yml).
 * Per esempi di apprendimento automatico e di analisi dei dati che usano Azure Machine Learning e i servizi dati correlati in Azure, visitare [Azure AI Gallery](http://gallery.cortanaintelligence.com). Per questa raccolta è disponibile anche un'icona nel menu **Start** e sul desktop della macchina virtuale.
 

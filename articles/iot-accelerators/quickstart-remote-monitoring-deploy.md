@@ -7,20 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 50005e38214bf22aa664c2d2b0cc4f86da412818
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144495"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140858"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guida introduttiva: Provare una soluzione di monitoraggio remoto basata sul cloud
 
-Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Monitoraggio remoto di IoT di Azure per eseguire una simulazione del monitoraggio remoto basata sul cloud. Dopo aver distribuito l'acceleratore della soluzione, la pagina **Dashboard** della soluzione viene utilizzata per visualizzare i dispositivi simulati su una mappa e la pagina **Maintenance** (Manutenzione) risponde a un avviso di pressione da un dispositivo refrigeratore simulato. È possibile usare questo acceleratore di soluzione come punto di partenza per un'implementazione personalizzata o come strumento di apprendimento.
+Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Monitoraggio remoto di IoT di Azure. In questa soluzione basata sul cloud viene usata la pagina **Dashboard** per visualizzare i dispositivi simulati su una mappa e la pagina **Maintenance** (Manutenzione) per rispondere a un avviso di pressione da un dispositivo refrigeratore simulato. È possibile usare questo acceleratore di soluzione come punto di partenza per un'implementazione personalizzata o come strumento di apprendimento.
 
-La distribuzione iniziale configura l'acceleratore di soluzione Monitoraggio remoto per una società denominata Contoso. Contoso gestisce una selezione di diversi tipi di dispositivi, ad esempio refrigeratori, distribuiti in ambienti fisici diversi. Un dispositivo refrigeratore invia temperatura, umidità e dati di telemetria sulla pressione all'acceleratore della soluzione di monitoraggio remoto.
+La distribuzione iniziale configura l'acceleratore di soluzione per una società denominata Contoso. Gli operatori di Contoso possono gestire una selezione di diversi tipi di dispositivi, ad esempio refrigeratori, distribuiti in ambienti fisici diversi. Un dispositivo refrigeratore invia temperatura, umidità e dati di telemetria sulla pressione all'acceleratore della soluzione di monitoraggio remoto.
 
 Per completare questa guida introduttiva, è necessaria una sottoscrizione di Azure attiva.
 
@@ -38,13 +38,13 @@ Fare clic su **Try Now** (Prova) nel riquadro **Monitoraggio remoto**.
 
 Nella pagina **Create Remote Monitoring solution** (Creare soluzione di monitoraggio remoto), selezionare una distribuzione **Basic** (Base). Se l'acceleratore della soluzione viene distribuito per esplorarne il funzionamento o eseguire una dimostrazione, scegliere l'opzione **Basic** (Base) per ridurre al minimo i costi.
 
-Scegliere **.NET** come linguaggio. Le implementazioni di Java e .NET hanno caratteristiche identiche.
+Scegliere **.NET** come linguaggio. Le implementazioni di Java e .NET hanno funzionalità identiche.
 
 Immettere un valore univoco in **Solution name** (Nome soluzione) per l'acceleratore della soluzione di monitoraggio remoto. Per questa guida introduttiva usare il nome **contoso-rm2**.
 
 Selezionare **Sottoscrizione** e **Area** da usare per distribuire l'acceleratore della soluzione. In genere, si sceglie l'area più vicina. Per questa guida introduttiva selezionare **Visual Studio Enterprise** ed **Europa occidentale**. È necessario essere [amministratore globale o utente](iot-accelerators-permissions.md) nella sottoscrizione.
 
-Fare clic su **Create Solution** (Crea soluzione) per iniziare la distribuzione. Questo processo richiede almeno cinque minuti:
+Per iniziare la distribuzione, fare clic su **Crea soluzione**. Questo processo richiede almeno cinque minuti:
 
 ![Informazioni sulla soluzione di monitoraggio remoto](./media/quickstart-remote-monitoring-deploy/createform.png)
 
@@ -68,15 +68,15 @@ Fare clic su **Accept** (Accetta) per accettare la richiesta di autorizzazioni; 
 
 Il dashboard della soluzione mostra le informazioni seguenti sui dispositivi simulati di Contoso:
 
-* **Device statistics** (Statistiche dispositivo): mostra le informazioni di riepilogo sugli avvisi e il numero totale di dispositivi. Nella distribuzione predefinita, Contoso dispone di 10 dispositivi simulati di tipi diversi.
+* Il pannello **Device statistics** (Statistiche dispositivo) mostra le informazioni di riepilogo sugli avvisi e il numero totale di dispositivi. Nella distribuzione predefinita, Contoso dispone di 10 dispositivi simulati di tipi diversi.
 
-* **Device locations** (Percorsi dispositivo): mostra dove si trovano fisicamente i dispositivi. Il colore del segnaposto indica quando sono presenti avvisi dal dispositivo.
+* Il pannello **Device locations** (Percorsi dispositivo) mostra dove si trovano fisicamente i dispositivi. Il colore del segnaposto indica quando sono presenti avvisi dal dispositivo.
 
-* **Alerts** (Avvisi): mostra i dettagli degli avvisi dai dispositivi.
+* Il pannello **Alerts** (Avvisi) mostra i dettagli degli avvisi dai dispositivi.
 
-* **Telemetry** (Dati di telemetria): mostra i dati di telemetria dai dispositivi. È possibile visualizzare flussi di telemetria diversi facendo clic sui tipi di dati di telemetria nella parte superiore.
+* Il pannello **Telemetry** (Dati di telemetria) mostra i dati di telemetria dai dispositivi. È possibile visualizzare flussi di telemetria diversi facendo clic sui tipi di dati di telemetria nella parte superiore.
 
-* **Analytics** (Analitica): mostra informazioni combinate sugli avvisi dai dispositivi.
+* Il pannello **Analytics** (Analitica) mostra informazioni combinate sugli avvisi dai dispositivi.
 
 ## <a name="respond-to-an-alert"></a>Rispondere a un avviso
 

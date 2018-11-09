@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9e73a979950e856a7fc2bfa2193ea4ca0d59bac2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841735"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242229"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Office 365
 
@@ -55,9 +55,9 @@ Per altre informazioni sulle autorizzazioni per ripristinare un gruppo eliminato
 
 4. Nel pannello **Scadenza** è possibile:
 
-  * Impostare la durata del gruppo in giorni. È possibile selezionare uno dei valori predefiniti oppure un valore personalizzato (che deve essere di 31 giorni o più). 
-  * Specificare un indirizzo e-mail per l'invio delle notifiche di rinnovo e di scadenza quando un gruppo non ha un proprietario. 
-  * Selezionare i gruppi di Office 365 che scadono. È possibile abilitare la scadenza per **Tutti** i gruppi di Office 365, scegliere di abilitare solo i gruppi di Office 365 **Selezionati** oppure selezionare **Nessuno** per disabilitare la scadenza per tutti i gruppi.
+  * Impostare la durata del gruppo in giorni. È possibile selezionare uno dei valori predefiniti oppure un valore personalizzato (che deve essere di 31 giorni o più). 
+  * Specificare un indirizzo e-mail per l'invio delle notifiche di rinnovo e di scadenza quando un gruppo non ha un proprietario. 
+  * Selezionare i gruppi di Office 365 che scadono. È possibile abilitare la scadenza per **Tutti** i gruppi di Office 365, scegliere di abilitare solo i gruppi di Office 365 **Selezionati** oppure selezionare **Nessuno** per disabilitare la scadenza per tutti i gruppi.
   * Al termine salvare le impostazioni facendo clic su **Salva**.
 
 
@@ -116,19 +116,19 @@ Di seguito sono riportati alcuni esempi di come è possibile usare i cmdlet di P
 4. Aggiornare i criteri esistenti Set-AzureADMSGroupLifecyclePolicy. Questo cmdlet consente di aggiornare un criterio esistente. Nell'esempio seguente la durata del gruppo nei criteri esistenti viene modificata da 365 giorni a 180 giorni. 
   
   ````
-  Set-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”   -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
+  Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
   ````
   
 5. Aggiungere gruppi specifici al criterio Add-AzureADMSLifecyclePolicyGroup. Questo cmdlet aggiunge un gruppo ai criteri del ciclo di vita. Ad esempio: 
   
   ````
-  Add-AzureADMSLifecyclePolicyGroup -Id “26fcc232-d1c3-4375-b68d-15c296f1f077” -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
+  Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
   ````
   
 6. Rimuovere il criterio esistente Remove-AzureADMSGroupLifecyclePolicy. Questo cmdlet elimina le impostazioni di scadenza dei gruppi di Office 365, ma richiede l'ID di tali criteri. Verrà così disabilitata la scadenza per i gruppi di Office 365. 
   
   ````
-  Remove-AzureADMSGroupLifecyclePolicy -Id “26fcc232-d1c3-4375-b68d-15c296f1f077”
+  Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
   ````
   
 I cmdlet seguenti possono essere usati per configurare i criteri in modo più dettagliato. Per altre informazioni, vedere la [documentazione di PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).

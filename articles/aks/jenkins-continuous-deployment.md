@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: iainfou
-ms.openlocfilehash: cdf8c64f20e15074a1f055d2ab7abf4304d62505
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5417e59f15ffcf48cc2af27044355d2bb5c9edaf
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017908"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087696"
 ---
 # <a name="create-a-continuous-deployment-pipeline-with-jenkins-and-azure-kubernetes-service-aks"></a>Creare una pipeline di distribuzione continua con Jenkins e il servizio Kubernetes di Azure (AKS)
 
@@ -34,9 +34,11 @@ Per completare la procedura descritta in questo articolo, è necessario soddisfa
 - Disponibilità di un [cluster AKS][aks-quickstart] e di `kubectl` configurati con le [credenziali del cluster AKS][aks-credentials].
 - Disponibilità di un [Registro contenitori di Azure][acr-quickstart], del nome del server di accesso del registro contenitori di Azure e il cluster AKS configurato per [eseguire l'autenticazione con il Registro contenitori di Azure][acr-authentication].
 
-- Interfaccia della riga di comando di Azure versione 2.0.46 o successiva installata e configurata. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
+- Interfaccia della riga di comando di Azure versione 2.0.46 o successiva installata e configurata. Eseguire  `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure][install-azure-cli].
 - [Docker installato][docker-install] nel sistema di distribuzione in uso.
 - Account GitHub, [token di accesso personale GitHub][git-access-token] e client Git installato nel sistema di distribuzione in uso.
+
+- Se si fornisce la propria istanza di Jenkins piuttosto che questo esempio con script per distribuire Jenkins, l'istanza di Jenkins richiede [l'installazione e la configurazione di Docker][docker-install] e [kubectl][kubectl-install].
 
 ## <a name="prepare-the-application"></a>Preparare l'applicazione
 
@@ -317,6 +319,7 @@ In questo articolo si è appreso come usare Jenkins nell'ambito di una soluzione
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [docker-install]: https://docs.docker.com/install/
+[kubectl-install]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 <!-- LINKS - internal -->
 [az-acr-list]: /cli/azure/acr#az-acr-list

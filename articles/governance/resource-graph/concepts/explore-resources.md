@@ -4,16 +4,16 @@ description: Informazioni su come usare il linguaggio di query di Resource Graph
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f488dfad8a38bbfab3b5b74e5b504463af09c089
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bcd25b95d1369ef98662384945123126ebbbd70f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645933"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086897"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Esplorare le risorse di Azure con Resource Graph
 
@@ -21,7 +21,7 @@ Resource Graph di Azure offre la possibilità di esplorare e individuare rapidam
 
 ## <a name="explore-virtual-machines"></a>Esplorazione delle macchine virtuali
 
-Una risorsa comune in Azure è una macchina virtuale. Come tipo di risorsa, le macchine virtuali hanno numerose proprietà su cui è possibile eseguire query. Ogni proprietà fornisce un'opzione per filtrare o individuare esattamente la risorsa che si sta cercando.
+Una risorsa comune in Azure è una macchina virtuale. Come tipo di risorsa, le macchine virtuali hanno molte proprietà su cui è possibile eseguire query. Ogni proprietà fornisce un'opzione per filtrare o individuare esattamente la risorsa che si sta cercando.
 
 ### <a name="virtual-machine-discovery"></a>Dettagli delle macchine virtuali
 
@@ -240,7 +240,7 @@ Il risultato è un elenco di ID di dischi.
 
 ### <a name="managed-disk-discovery"></a>Individuazione di un disco gestito
 
-Usando il primo record dalla query precedente, verranno esaminate le proprietà che esistono sul disco gestito che è stato collegato alla prima macchina virtuale. La query aggiornata usa l'ID del disco e cambia il tipo.
+Con il primo record dalla query precedente, verranno esaminate le proprietà che esistono sul disco gestito che è stato collegato alla prima macchina virtuale. La query aggiornata usa l'ID del disco e cambia il tipo.
 
 Output di esempio dalla query precedente, ad esempio:
 
@@ -314,7 +314,7 @@ I risultati JSON sono strutturati in modo simile all'esempio seguente:
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Esplorare le macchine virtuali per trovare gli indirizzi IP pubblici
 
-Questo set di più passi di query dell'interfaccia della riga di comando di Azure per prima cosa consente di trovare e archiviare tutte le risorse di interfaccia di rete (NIC) connesse alle macchine virtuali, usa l'elenco di schede di interfaccia di rete per trovare ogni risorsa di indirizzo IP che è un indirizzo IP pubblico, archivia tali valori e infine fornisce un elenco di indirizzi IP pubblici effettivi.
+Questo set di query dell'interfaccia della riga di comando di Azure prima di tutto trova e archivia tutte le risorse delle interfacce di rete (NIC) connesse alle macchine virtuali. Quindi usa l'elenco delle interfacce di rete per trovare ogni risorsa di indirizzo IP che è un indirizzo IP pubblico e archivia tali valori. Infine, fornisce un elenco degli indirizzi IP pubblici.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nic' variable
@@ -324,7 +324,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 cat nics.txt
 ```
 
-Dopo aver ottenuto il file `nics.txt`, lo si userà nella query successiva per ottenere i dettagli delle risorse di interfaccia di rete correlate in cui è presente un indirizzo IP pubblico collegato alla scheda di interfaccia di rete.
+Usa il file `nics.txt` nella query successiva per ottenere i dettagli delle risorse di interfaccia di rete correlate in cui è presente un indirizzo IP pubblico collegato alla scheda di interfaccia di rete.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file

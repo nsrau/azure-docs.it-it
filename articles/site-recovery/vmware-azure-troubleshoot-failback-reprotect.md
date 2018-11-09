@@ -1,22 +1,20 @@
 ---
-title: Risoluzione dei problemi che possono verificarsi durante il failback di macchine virtuali di Azure a un'istanza di VMware locale con Azure Site Recovery | Microsoft Docs
-description: In questo articolo vengono descritte le soluzioni ai più comuni errori di failback e riprotezione che possono verificarsi quando si esegue il failback da Azure a VMware mediante Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Risoluzione dei problemi relativi al failback in un'istanza locale durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive le soluzioni agli errori di failback e riprotezione che possono verificarsi durante il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery.
 author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: c5ba0f1d98f3e4023e767bf3eea7a0b497d47686
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 89484e14d69493c74ed1ff983cf88ec146e0313d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920971"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210364"
 ---
-# <a name="troubleshoot-failback-from-azure-to-vmware"></a>Risoluzione dei problemi di failback da Azure a VM VMware
+# <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Risolvere i problemi di failback da Azure all'ambiente locale
 
 In questo articolo viene illustrato come risolvere i problemi che possono verificarsi durante il failback di macchine virtuali di Azure all'infrastruttura VMware locale, dopo il failover ad Azure mediante [Azure Site Recovery](site-recovery-overview.md).
 

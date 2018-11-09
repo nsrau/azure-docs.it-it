@@ -1,5 +1,5 @@
 ---
-title: Come risolvere i problemi di Monitoraggio di Azure per contenitori | Microsoft Docs
+title: Come risolvere i problemi di Monitoraggio di Azure per contenitori (anteprima) | Microsoft Docs
 description: Questo articolo illustra come individuare e risolvere i problemi con Monitoraggio di Azure per contenitori.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 19d015947e5d2331c50cd64956e8a7650f96616d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 69e5a61d5e66e5904df31456e9311a39058787b2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638325"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212353"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>Risoluzione dei problemi di Monitoraggio di Azure per contenitori
+# <a name="troubleshooting-azure-monitor-for-containers-preview"></a>Come risolvere i problemi di Monitoraggio di Azure per contenitori (anteprima)
 
 Quando si configura il monitoraggio del cluster del servizio Kubernetes di Azure (AKS) con Monitoraggio di Azure per contenitori, è possibile riscontrare un problema che impedisce la raccolta di dati o la segnalazione dello stato. Questo articolo illustra alcuni problemi comuni e i passaggi per la risoluzione dei problemi.
 
@@ -92,11 +92,11 @@ Se Monitoraggio di Azure per contenitori è stato correttamente abilitato e conf
     docker-cimprov 1.0.0.31
     ```
 
-## <a name="error-messages"></a>messaggi di errore
+## <a name="error-messages"></a>Messaggi di errore
 
 La tabella seguente riepiloga gli errori noti che è possibile si verifichino durante l'uso di Monitoraggio di Azure per i contenitori.
 
-| messaggi di errore  | Azione |  
+| Messaggi di errore  | Azione |  
 | ---- | --- |  
 | Messaggio di errore `No data for selected filters`  | L'individuazione del flusso di dati di monitoraggio per i nuovi cluster potrebbe richiedere alcuni minuti. Attendere almeno 10/15 minuti perché vengano visualizzati i dati per il cluster. |   
 | Messaggio di errore `Error retrieving data` | Durante l'installazione del servizio Kubenetes di Azure per il monitoraggio dell'integrità e delle prestazioni, viene stabilita una connessione tra il cluster e l'area di lavoro di Azure Log Analytics. Un'area di lavoro di Log Analytics viene usata per archiviare tutti i dati di monitoraggio per il cluster. Questo errore può verificarsi quando l'area di lavoro di Log Analitycs è stata eliminata o persa. Verificare se l'area di lavoro è disponibile rivedendo le informazioni su come [gestire l'accesso](../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information). Se l'area di lavoro è mancante, è necessario ripetere il caricamento del cluster con Monitoraggio di Azure per i contenitori. Per ripetere il caricamento, è necessario [disabilitare](/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json) il monitoraggio per il cluster e [abilitarlo](monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster) di nuovo in Monitoraggio di Azure per i contenitori. |  

@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a9f76b38139cccedb97c6026f0e0efa14d0dbc8c
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 596a9e4e3e1d24bdcab561a7238548d418ac0581
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246597"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243574"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Esercitazione: Copiare dati da un archivio BLOB al database SQL usando Data Factory
 > [!div class="op_single_selector"]
 > * [Panoramica e prerequisiti](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-> * [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -48,7 +48,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
 ## <a name="prerequisites-for-the-tutorial"></a>Prerequisiti per l'esercitazione
 Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 
-* **Sottoscrizione di Azure**.  Se non è disponibile una sottoscrizione, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere l'articolo [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) .
+* **Sottoscrizione di Azure**.  Se non è disponibile una sottoscrizione, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) .
 * **Account di archiviazione di Azure**. In questa esercitazione l'archivio BLOB viene usato come archivio dati di **origine** . Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
 * **Database SQL di Azure**. In questa esercitazione viene usato un database SQL di Azure come archivio dati di **destinazione** . Se non è disponibile un database SQL di Azure da usare nell'esercitazione, vedere [Come creare e configurare un database SQL di Azure](../../sql-database/sql-database-get-started.md) per crearne uno.
 * **SQL Server 2012/2014 o Visual Studio 2013**. Per creare un database di esempio e per visualizzare i dati risultanti in tale database, viene usato SQL Server Management Studio o Visual Studio.  
@@ -119,7 +119,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL Azure per l'esercitazio
 I passaggi relativi ai prerequisiti sono stati completati. È possibile creare un data factory usando uno dei seguenti metodi. Per eseguire l'esercitazione, fare clic su una delle opzioni nell'elenco a discesa in alto oppure sui collegamenti indicati qui di seguito.     
 
 * [Copia guidata](data-factory-copy-data-wizard-tutorial.md)
-* [portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
+* [Portale di Azure](data-factory-copy-activity-tutorial-using-azure-portal.md)
 * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 * [Modello di Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)

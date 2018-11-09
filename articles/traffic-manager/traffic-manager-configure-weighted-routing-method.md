@@ -4,9 +4,6 @@ description: In questo articolo viene illustrato come bilanciare il carico del t
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 6dca6de1-18f7-4962-bd98-6055771fab22
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: kumud
-ms.openlocfilehash: 6637132481ee33d43ec2b747ba89a56983205ff2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 132cbecdad8303414f15ff3f18caaccd6d430ded
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432444"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50154926"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Configurare il metodo di routing del traffico Ponderato in Gestione traffico
 
-Un modello comune di metodo di routing del traffico consiste nel fornire un set di endpoint identici, che includono servizi cloud e siti Web, e nell'inviare traffico a ciascuno di essi in base a uno schema round robin. I passaggi seguenti illustrano come configurare questo tipo di metodo di routing del traffico.
+Un modello comune di metodo di routing del traffico consiste nel fornire un set di endpoint identici, che includono servizi cloud e siti Web, e nell'inviare traffico a ciascuno di essi in modo equo. I passaggi seguenti illustrano come configurare questo tipo di metodo di routing del traffico.
 
 > [!NOTE]
-> L’Applicazione Web di Azure offre già funzionalità di bilanciamento del carico round robin per i siti Web che si trovano all'interno di un’area di Azure (contente più data center). Gestione traffico consente di specificare il metodo di routing del traffico round-robin per i siti web che si trovano in data center diversi.
+> L'app Web di Azure offre già funzionalità di bilanciamento del carico round robin per i siti Web che si trovano all'interno di un'area di Azure (la quale può contenere più data center). Gestione traffico consente di distribuire il traffico tra i siti Web in diversi data center.
 
 ## <a name="to-configure-the-weighted-traffic-routing-method"></a>Per configurare il metodo di routing del traffico Ponderato
 

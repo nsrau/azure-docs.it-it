@@ -1,19 +1,19 @@
 ---
-title: Installare il servizio Mobility (VMware o fisico in Azure) | Microsoft Docs
-description: Informazioni su come installare l'agente del servizio Mobility per proteggere le VM VMware e i server fisici locali con Azure Site Recovery.
+title: Installare il servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure | Microsoft Docs
+description: Informazioni su come installare l'agente del servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando il servizio Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 145affbcff128e0ec599ad1f97c79260b0dcae5a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526998"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212693"
 ---
-# <a name="install-the-mobility-service"></a>Installare il servizio Mobility 
+# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Installare il servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure | Microsoft Docs
 
 Il servizio Mobility di Azure Site Recovery viene installato nelle VM VMware e nei server fisici di cui si vuole eseguire la replica in Azure. Il servizio acquisisce le scritture dei dati in un computer e le inoltra al server di elaborazione. Distribuire il servizio Mobility in ogni computer, ovvero macchina virtuale VMware o server fisico, di cui si vuole eseguire la replica in Azure. È possibile distribuire il servizio Mobility nei server e nelle VM VMware che si intende proteggere tramite i metodi seguenti:
 

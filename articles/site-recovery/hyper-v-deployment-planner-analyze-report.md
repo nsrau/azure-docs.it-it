@@ -1,19 +1,19 @@
 ---
-title: Azure Site Recovery Deployment Planner per distribuzioni da Hyper-V ad Azure | Microsoft Docs
-description: Questo articolo illustra l'analisi di un report generato da Azure Site Recovery Deployment Planner per uno scenario di distribuzione da Hyper-V ad Azure.
+title: Analizzare il report di Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali Hyper-V in Azure | Microsoft Docs
+description: Questo articolo descrive come analizzare un report generato da Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali Hyper-V in Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 78350f8e0ab86c7c87c321397bd4e4a4849368b6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: ad53b32b9809e8cce459d8317a916a9ddab0e336
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918850"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210931"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analizzare il report di Azure Site Recovery Deployment Planner
 Questo articolo descrive i fogli contenuti nel report Excel generato da Azure Site Recovery Deployment Planner per uno scenario di distribuzione da Hyper-V ad Azure.
@@ -41,7 +41,7 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 
 **Observed typical data churn per day (GB)** (Varianza dei dati giornaliera tipica osservata - GB): varianza media dei dati osservata in tutti i giorni di profilatura.
 
-## <a name="recommendations"></a>Raccomandazioni 
+## <a name="recommendations"></a>Consigli 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da Hyper-V ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato selezionato:
 
 ![Raccomandazioni del report per lo scenario da Hyper-V ad Azure](media/hyper-v-deployment-planner-analyze-report/Recommendations-h2a.png)

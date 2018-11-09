@@ -12,17 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2016
+ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 9b4c87bd0889718fcb8938a9e3bb9207b8fe727a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850155"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420457"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funzionalità del sistema operativo in Servizio app di Azure
-Questo articolo descrive le funzionalità di base del sistema operativo disponibili in tutte le app in esecuzione in [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
+Questo articolo descrive le funzionalità di base comuni del sistema operativo disponibili in tutte le app Windows in esecuzione in [Servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Queste funzionalità includono l'accesso a file, rete e registro, nonché log ed eventi di diagnostica. 
+
+> [!NOTE] 
+> Le [app Linux](containers/app-service-linux-intro.md) in Servizio app vengono eseguite in contenitori propri. Non è consentito l'accesso al sistema operativo host ed è disponibile l'accesso come root al contenitore. Analogamente, per le [app in esecuzione in contenitori Windows](app-service-web-get-started-windows-container.md), è disponibile l'accesso amministrativo al contenitore ma non è consentito l'accesso al sistema operativo host. 
+>
 
 <a id="tiers"></a>
 

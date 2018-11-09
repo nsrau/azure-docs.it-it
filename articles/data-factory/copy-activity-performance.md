@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/31/2018
 ms.author: jingwang
-ms.openlocfilehash: 958d1ea09ce4d85afc59af412e1050efc6290a1a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7dc60c18e105c9be190b5bfede786f61a65feec3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002246"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416937"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -56,7 +56,7 @@ Come riferimento, la tabella sotto mostra la velocità effettiva di copia **in M
 Punti da notare:
 
 * La velocità effettiva viene calcolata con la formula seguente: [dimensione dei dati letti dall'origine]/[durata dell'esecuzione dell'attività di copia].
-* I numeri di riferimento delle prestazioni nella tabella sono stati misurati usando il set di dati [TPC-H](http://www.tpc.org/tpch/) nell'esecuzione di una singola attività di copia.
+* I numeri di riferimento delle prestazioni nella tabella sono stati misurati usando il set di dati [TPC-H](http://www.tpc.org/tpch/) nell'esecuzione di una singola attività di copia. I file di test per gli archivi basati su file sono file multipli di dimensioni pari a 10 GB.
 * Nel caso degli archivi dati di Azure, l'origine e il sink si trovano nella stessa area di Azure.
 * Per la copia ibrida tra archivi dati locali e cloud, ogni nodo del runtime di integrazione self-hosted è in esecuzione su un computer separato dall'archivio dati, con le specifiche indicate di seguito. Durante l'esecuzione di una singola attività, l'operazione di copia ha usato solo una piccola parte della CPU, della memoria o della larghezza di banda di rete del computer di test.
     <table>
@@ -76,7 +76,7 @@ Punti da notare:
 
 
 > [!TIP]
-> È possibile raggiungere una velocità effettiva più elevata usando un numero maggiore di unità di integrazione dati rispetto al numero massimo consentito predefinito, pari a 32 per l'esecuzione di un'attività di copia da cloud a cloud. Ad esempio, con 100 unità di integrazione dati è possibile copiare i dati dal BLOB di Azure in Azure Data Lake Store a **1,0 GB al secondo**. Vedere la sezione [Unità di integrazione dati](#data-integration-units) per informazioni dettagliate su questa funzionalità e sullo scenario supportato. Contattare il [Supporto tecnico di Azure](https://azure.microsoft.com/support/) per richiedere altre unità di integrazione dati.
+> È possibile ottenere una velocità effettiva più elevata usando altre unità di integrazione dati (DIU). Ad esempio, con 100 unità di integrazione dati è possibile copiare i dati dal BLOB di Azure in Azure Data Lake Store a **1,0 GB al secondo**. Vedere la sezione [Unità di integrazione dati](#data-integration-units) per informazioni dettagliate su questa funzionalità e sullo scenario supportato. 
 
 ## <a name="data-integration-units"></a>Unità di integrazione dati
 
@@ -94,7 +94,7 @@ Per ignorare l'impostazione predefinita, è possibile specificare un valore per 
 Quando si monitora un'esecuzione attività, è possibile visualizzare le unità di integrazione dati effettivamente usate per ogni esecuzione della copia nell'output dell'attività di copia. Vedere [Monitoraggio dell'attività di copia](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> Se sono necessarie più unità di integrazione dati per aumentare la velocità effettiva, contattare il [supporto di Azure](https://azure.microsoft.com/support/). Attualmente è possibile impostare la proprietà su valori maggiori o uguali a 8 soltanto per la **copia di più file da Archiviazione BLOB, Data Lake Store, Amazon S3, FTP cloud o SFTP cloud in qualsiasi altro archivio dati cloud**.
+> Attualmente è possibile impostare un numero di unità di integrazione dati **maggiore di 4** solo quando **si copiano più file da archiviazione BLOB/Data Lake Storage/Amazon S3/server FTP cloud/server SFTP cloud in qualsiasi altro archivio dati cloud**.
 >
 
 **Esempio:**

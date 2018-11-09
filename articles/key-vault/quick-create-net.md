@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4f7955c013ce7f45ebe6db8bb23eeec92303876e
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604179"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230932"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault tramite un'app Web .NET
 
@@ -25,7 +25,7 @@ In questa guida introduttiva vengono seguiti i passaggi necessari per ottenere u
 > * Archiviare un segreto nell'insieme di credenziali delle chiavi.
 > * Recuperare un segreto dall'insieme di credenziali delle chiavi.
 > * Creare un'applicazione Web di Azure.
-> * Abilitare un'[identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per l'app Web.
+> * Abilitare un'[identità del servizio gestita](../active-directory/managed-identities-azure-resources/overview.md) per l'app Web.
 > * Concedere le autorizzazioni necessarie per l'applicazione Web per la lettura dei dati dall'insieme di credenziali delle chiavi.
 
 Prima di continuare, leggere i [concetti di base](key-vault-whatis.md#basic-concepts).
@@ -33,7 +33,7 @@ Prima di continuare, leggere i [concetti di base](key-vault-whatis.md#basic-conc
 >[!NOTE]
 >Key Vault è un repository centrale per archiviare i segreti a livello di codice. Per farlo, tuttavia, le applicazioni e gli utenti devono prima autenticarsi in Key Vault, ovvero devono presentare un segreto. Per seguire le procedure consigliate per la sicurezza, questo primo segreto deve essere ruotato periodicamente. 
 >
->Con le [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md), alle applicazioni in esecuzione in Azure viene assegnata un'identità gestita automaticamente da Azure. Ciò aiuta a risolvere il *problema di introduzione del segreto*, in modo tale che gli utenti e le applicazioni possano seguire le procedure consigliate senza doversi preoccupare della rotazione del primo segreto.
+>Con le [identità del servizio gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md), alle applicazioni in esecuzione in Azure viene assegnata un'identità gestita automaticamente da Azure. Ciò aiuta a risolvere il *problema di introduzione del segreto*, in modo tale che gli utenti e le applicazioni possano seguire le procedure consigliate senza doversi preoccupare della rotazione del primo segreto.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

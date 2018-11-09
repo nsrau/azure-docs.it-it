@@ -2,24 +2,22 @@
 title: Visualizzazione in tempo reale dei dati del sensore dall'hub IoT di Azure – App Web | Microsoft Docs
 description: Usare la funzionalità App Web di Azure del Servizio app di Microsoft Azure per visualizzare i dati su temperatura e umidità raccolti tramite il sensore e inviati all'hub IoT di Azure.
 author: rangv
-manager: ''
-keywords: visualizzazione dei dati in tempo reale, visualizzazione dei dati dal vivo, visualizzazione dei dati del sensore
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 445bc4b693c8129c4faf42fee3b2be34d90846ae
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: c43431cd6ddbbbf8f6cb709b8c1783179d6cf760
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44160252"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158721"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>Visualizzare i dati del sensore in tempo reale dall'hub IoT di Azure usando la funzionalità App Web del Servizio App di Azure
 
-![Diagramma end-to-end](media/iot-hub-get-started-e2e-diagram/5.png)
+![Diagramma end-to-end](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -29,46 +27,51 @@ In questa esercitazione si imparerà a visualizzare i dati del sensore in tempo 
 
 ## <a name="what-you-do"></a>Operazioni da fare
 
-- Creare un'app Web nel portale di Azure.
-- Preparare l'hub IoT per l'accesso dei dati mediante l'aggiunta di un gruppo di consumer.
-- Configurare l'app Web per leggere i dati del sensore dall'hub IoT.
-- Caricare un'applicazione Web che deve essere ospitata dall'app Web.
-- Aprire l'app Web per visualizzare i dati di temperatura e umidità in tempo reale dall'hub IoT.
+* Creare un'app Web nel portale di Azure.
+* Preparare l'hub IoT per l'accesso dei dati mediante l'aggiunta di un gruppo di consumer.
+* Configurare l'app Web per leggere i dati del sensore dall'hub IoT.
+* Caricare un'applicazione Web che deve essere ospitata dall'app Web.
+* Aprire l'app Web per visualizzare i dati di temperatura e umidità in tempo reale dall'hub IoT.
 
 ## <a name="what-you-need"></a>Elementi necessari
 
-- [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che presenta i seguenti requisiti:
-  - Una sottoscrizione di Azure attiva
-  - Un hub IoT nella sottoscrizione
-  - Un'applicazione client che invia messaggi all'hub IoT
-- [Scaricare Git](https://www.git-scm.com/downloads)
+* [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) che presenta i seguenti requisiti:
+
+  * Una sottoscrizione di Azure attiva
+  * Un hub IoT nella sottoscrizione
+  * Un'applicazione client che invia messaggi all'hub IoT
+
+* [Scaricare Git](https://www.git-scm.com/downloads)
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
+
 2. Immettere un nome univoco del processo, verificare la sottoscrizione, specificare un gruppo di risorse e il percorso, selezionare **Aggiungi al dashboard**, quindi fare clic su **Crea**.
 
-   È consigliabile selezionare la stessa posizione in cui si trova il gruppo di risorse. In questo modo, si aumenta la velocità di elaborazione e si riducono i costi del trasferimento dati.
-
-   ![Creare un'app Web](media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
+   È consigliabile selezionare la stessa posizione del gruppo di risorse. 
+   
+   ![Creare un'app Web](./media/iot-hub-live-data-visualization-in-web-apps/2_create-web-app-azure.png)
 
 [!INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="configure-the-web-app-to-read-data-from-your-iot-hub"></a>Configurare l'app Web per leggere i dati dall'hub IoT
 
 1. Aprire l'app Web di cui è stato appena effettuato il provisioning.
+
 2. Fare clic su **Impostazioni applicazione**, quindi aggiungere le seguenti coppie chiave/valore in **Impostazioni app**:
 
    | Chiave                                   | Valore                                                        |
    |---------------------------------------|--------------------------------------------------------------|
    | Azure.IoT.IoTHub.ConnectionString     | Ottenuto dall’interfaccia della riga di comando di Azure                                      |
    | Azure.IoT.IoTHub.ConsumerGroup        | Il nome del gruppo di consumer che si aggiunge all'hub IoT  |
+   | WEBSITE_NODE_DEFAULT_VERSION          | 8.9.4                                                        |
 
-   ![Aggiungere impostazioni all'app Web di Azure con coppie chiave/valore](media/iot-hub-live-data-visualization-in-web-apps/4_web-app-settings-key-value-azure.png)
+   ![Aggiungere impostazioni all'app Web di Azure con coppie chiave/valore](./media/iot-hub-live-data-visualization-in-web-apps/3_web-app-settings-key-value-azure.png)
 
 3. Fare clic su **Impostazioni applicazione**, in **Impostazioni generali**, attivare/disattivare l'opzione **Web Socket**, quindi fare clic su **Salva**.
 
-   ![Attivare/disattivare l'opzione Web Socket](media/iot-hub-live-data-visualization-in-web-apps/10_toggle_web_sockets.png)
+   ![Attivare/disattivare l'opzione Web Socket](./media/iot-hub-live-data-visualization-in-web-apps/4_toggle_web_sockets.png)
 
 ## <a name="upload-a-web-application-to-be-hosted-by-the-web-app"></a>Caricare un'applicazione Web che deve essere ospitata dall'app Web
 
@@ -76,13 +79,13 @@ Su GitHub è disponibile un'applicazione Web che consente di visualizzare i dati
 
 1. Nell'app Web fare clic su **Opzioni di distribuzione** > **Scegli origine** > **Repository Git locale**, quindi scegliere **OK**.
 
-   ![Configurare la distribuzione dell'app Web per l'uso del repository Git](media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
+   ![Configurare la distribuzione dell'app Web per l'uso del repository Git](./media/iot-hub-live-data-visualization-in-web-apps/5_configure-web-app-deployment-local-git-repository-azure.png)
 
 2. Fare clic su **Credenziali per la distribuzione**, creare un nome utente e una password da usare per connettersi al repository Git in Azure, quindi scegliere **Salva**.
 
 3. Fare clic su **Panoramica** e prendere nota del valore di **URL clone GIT**.
 
-   ![Ottenere l'URL clone Git dell'app Web](media/iot-hub-live-data-visualization-in-web-apps/7_web-app-git-clone-url-azure.png)
+   ![Ottenere l'URL clone Git dell'app Web](./media/iot-hub-live-data-visualization-in-web-apps/6_web-app-git-clone-url-azure.png)
 
 4. Aprire una finestra del comando o del terminale nel computer locale.
 
@@ -102,16 +105,17 @@ Su GitHub è disponibile un'applicazione Web che consente di visualizzare i dati
 
 Nella pagina **Panoramica** dell'app Web fare clic sull'URL per aprire l'app Web.
 
-![Ottenere l'URL dell'app Web](media/iot-hub-live-data-visualization-in-web-apps/8_web-app-url-azure.png)
+![Ottenere l'URL dell'app Web](./media/iot-hub-live-data-visualization-in-web-apps/7_web-app-url-azure.png)
 
 Vengono visualizzati i dati di temperatura e umidità in tempo reale dall'hub IoT.
 
-![Pagina dell'app Web che mostra temperatura e umidità in tempo reale](media/iot-hub-live-data-visualization-in-web-apps/9_web-app-page-show-real-time-temperature-humidity-azure.png)
+![Pagina dell'app Web che mostra temperatura e umidità in tempo reale](./media/iot-hub-live-data-visualization-in-web-apps/8_web-app-page-show-real-time-temperature-humidity-azure.png)
 
 > [!NOTE]
 > Verificare che l'applicazione di esempio sia in esecuzione nel dispositivo. Se non lo fosse, si otterrà un grafico vuoto, ed è possibile fare riferimento alle esercitazioni descritte in [Configurare il dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 L'app Web è stata usata correttamente per visualizzare i dati del sensore in tempo reale dall'hub IoT.
 
 Per un modo alternativo di visualizzare i dati dall'hub IoT di Azure, vedere [Usare Power BI per visualizzare i dati del sensore in tempo reale dall'hub IoT](iot-hub-live-data-visualization-in-power-bi.md).

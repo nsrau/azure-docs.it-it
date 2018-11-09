@@ -1,27 +1,20 @@
 ---
-title: Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure | Microsoft Docs
-description: Guida dell'utente di Azure Site Recovery Deployment Planner.
-services: site-recovery
-documentationcenter: ''
+title: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali VMware in Azure | Microsoft Docs
+description: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali VMware in Azure.
 author: nsoneji
 manager: garavd
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: a04a372e52c682af428938514eac5d5e0f4274f0
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5aade5a2ad0b0f51c5bd7f53ed0ee191950aa7c4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093715"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213322"
 ---
-# <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure
+# <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da VMware ad Azure.
 
 ## <a name="overview"></a>Panoramica
@@ -72,7 +65,7 @@ Lo strumento indica i dettagli seguenti:
 
 | | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
 --|--|--|--|--|--
-Scenari supportati |Yes|Yes|No |Sì*|No 
+Scenari supportati |Yes|Sì|No |Sì*|No 
 Versione supportata | vCenter 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|ND|Cluster Hyper-V, host Hyper-V|ND|
 Numero di server che è possibile profilare per ogni istanza in esecuzione di Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND

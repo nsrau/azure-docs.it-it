@@ -1,40 +1,34 @@
 ---
-title: Intelligence per le minacce nel Centro sicurezza di Azure | Microsoft Docs
-description: Informazioni su come usare la funzionalità di intelligence per le minacce del Centro sicurezza di Azure per identificare le potenziali minacce nelle VM e nei computer.
+title: Intelligence per le minacce e mappa degli avvisi di sicurezza nel Centro sicurezza di Azure | Microsoft Docs
+description: Informazioni su come usare la mappa degli avvisi di sicurezza e la funzionalità di intelligence per le minacce del Centro sicurezza di Azure per identificare le potenziali minacce nelle VM e nei computer.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: c41cb48e61b4c2bd1dc81e508c8218fad688bbaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434191"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241720"
 ---
-# <a name="threat-intelligence-in-azure-security-center"></a>Intelligence per le minacce nel Centro sicurezza di Azure
-Questo articolo illustra come usare la funzionalità di intelligence per le minacce del Centro sicurezza di Azure per risolvere i problemi relativi alla sicurezza.
+# <a name="security-alerts-map-and-threat-intelligence"></a>Mappa degli avvisi di sicurezza e intelligence per le minacce
+Questo articolo illustra come usare la mappa degli avvisi di sicurezza e la mappa dell'intelligence per le minacce basata su eventi di sicurezza del Centro sicurezza di Azure per risolvere i problemi relativi alla sicurezza.
 
-## <a name="what-is-threat-intelligence"></a>Informazioni sull'intelligence per le minacce
-Usando l'opzione Intelligence per le minacce disponibile nel Centro sicurezza, gli amministratori IT possono identificare le minacce alla sicurezza dell'ambiente, ad esempio determinare se un computer è parte di una botnet. I computer possono diventare nodi di una botnet quando utenti malintenzionati installano illecitamente malware che connette il computer al comando e al controllo all'insaputa dell'utente. La funzionalità Intelligence per le minacce può identificare potenziali minacce provenienti da canali di comunicazione sotterranei, ad esempio il dark web.
+## <a name="how-the-security-alerts-map-works"></a>Funzionamento della mappa degli avvisi di sicurezza
+Il Centro sicurezza offre una mappa che consente di identificare le minacce alla sicurezza per l'ambiente. È ad esempio possibile determinare se un computer è parte di una botnet e qual è la provenienza di una minaccia. I computer possono diventare nodi di una botnet quando utenti malintenzionati installano illecitamente malware che interagisce con il comando e il controllo della botnet all'insaputa dell'utente. 
 
-Per creare l'intelligence per le minacce, il Centro sicurezza usa dati provenienti da più origini nell'ambito di Microsoft e usa questi dati per identificare le potenziali minacce all'ambiente. Il riquadro **Intelligence per le minacce** è composto da tre aree principali:
+Per creare questa mappa, il Centro sicurezza usa dati provenienti da più origini nell'ambito di Microsoft. Questi dati vengono usati per identificare le potenziali minacce all'ambiente. 
 
-- Tipi di minacce rilevate
-- Origine delle minacce
-- Mappa di intelligence per le minacce
-
-
-## <a name="when-should-you-use-threat-intelligence"></a>Quando usare l'intelligence per le minacce
 Uno dei passaggi del [processo di risposta agli eventi imprevisti per la sicurezza](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) consiste nell'identificare la gravità della compromissione dei sistemi. In questa fase è consigliabile eseguire queste attività:
 
 - Determinare la natura dell'attacco.
@@ -43,29 +37,38 @@ Uno dei passaggi del [processo di risposta agli eventi imprevisti per la sicurez
 - Identificare i sistemi che sono stati compromessi.
 - Identificare i file a cui è stato eseguito l'accesso e determinarne il grado di riservatezza.
 
-È possibile usare le informazioni dell'intelligence per le minacce nel Centro sicurezza per semplificare queste attività.
+È possibile usare la mappa degli avvisi di sicurezza del Centro sicurezza per semplificare queste attività.
 
-## <a name="access-the-threat-intelligence"></a>Accedere all'intelligence per le minacce
-Per visualizzare l'intelligence per le minacce corrente per il proprio ambiente, è prima di tutto necessario selezionare l'area di lavoro in cui risiedono le informazioni. Se non sono presenti più aree di lavoro, non viene visualizzato il selettore delle aree di lavoro e si passa direttamente al dashboard **Intelligence per le minacce**. Per accedere al dashboard:
+## <a name="access-the-security-alerts-map"></a>Accesso alla mappa degli avvisi di sicurezza
+Per visualizzare le minacce correnti nell'ambiente, aprire la mappa degli avvisi di sicurezza:
+
+1. Aprire il dashboard **Centro sicurezza**.
+2. Nel riquadro sinistro selezionare **Mappa degli avvisi di sicurezza** in **Protezione dalle minacce**. Si apre la mappa.
+3. Per ottenere altre informazioni sull'avviso e ricevere la procedura di correzione, fare clic sul punto di avviso sulla mappa e seguire le istruzioni. 
+ 
+La mappa degli avvisi di sicurezza è costituita da avvisi. Questi avvisi si basano su attività per le quali le comunicazioni di rete sono state associate a un indirizzo IP risolto, indipendentemente dal fatto che tale indirizzo sia un indirizzo IP notoriamente rischioso (ad esempio, un cryptominer noto) o che non sia riconosciuto in precedenza come rischioso. La mappa fornisce avvisi in tutte le sottoscrizioni selezionate in precedenza in Azure. 
+
+Gli avvisi presenti nella mappa vengono visualizzati in base alla posizione geografica di cui è stata rilevata la provenienza e sono colorati in base alla gravità. 
+    ![Informazioni di intelligence per le minacce](./media/security-center-threat-intel/security-center-alert-map.png)
+
+## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Visualizzazione del dashboard di intelligence per le minacce basata su eventi
+Per visualizzare la mappa dell'intelligence per le minacce basata su eventi di sicurezza non elaborati, è possibile seguire questa procedura. In questa mappa vengono visualizzati solo gli eventi che riguardano un indirizzo IP considerato come rischioso, ad esempio l'indirizzo IP di una botnet nota.
 
 1. Aprire il dashboard **Centro sicurezza**.
 
-1. Nel riquadro sinistro fare clic su **Intelligence per le minacce** in **Protezione dalle minacce**. Si aprirà una mappa.
+1. Nel riquadro sinistro selezionare **Mappa degli avvisi di sicurezza** in **Protezione dalle minacce**. Si apre la mappa.
+2. Nell'angolo in alto a destra fare clic su **Vai alla mappa degli eventi di sicurezza**.
+3. Selezionare l'area di lavoro di cui si vuole visualizzare il dashboard.
+4. Nella parte superiore della mappa, selezionare **Visualizza Intelligence per le minacce classico**. Verrà visualizzato il dashboard **Intelligence per le minacce**.
 
-    ![Mappa di intelligence per le minacce](./media/security-center-threat-intel/security-center-threat-intel.png)
-
-1. Nella parte superiore della mappa, selezionare **Visualizza Intelligence per le minacce classico**. Verrà visualizzato il dashboard **Intelligence per le minacce**.
-
-    ![Dashboard Intelligence per le minacce](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
-
-    > [!NOTE]
-    > Se nella colonna a destra viene visualizzato **PIANO DI AGGIORNAMENTO**, questa area di lavoro usa una sottoscrizione gratuita. Eseguire l'aggiornamento al piano Standard per usare questa funzionalità. Se nella colonna a destra viene visualizzato **RICHIEDE L'AGGIORNAMENTO** aggiornare [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per usare questa funzionalità. Per altre informazioni sul piano tariffario, vedere i prezzi del Centro sicurezza di Azure.
-    >
-1. Se sono presenti più aree di lavoro da analizzare, classificare l'indagine in ordine di priorità in base alla colonna **Indirizzi IP dannosi**. Mostra il numero attuale di indirizzi IP dannosi nell'area di lavoro. Selezionare l'area di lavoro da usare per visualizzare il dashboard **Intelligence per le minacce**.
+   > [!NOTE]
+   > Se nella colonna a destra viene visualizzato **PIANO DI AGGIORNAMENTO**, questa area di lavoro usa una sottoscrizione gratuita. Eseguire l'aggiornamento al piano Standard per usare questa funzionalità. Se nella colonna a destra viene visualizzato **RICHIEDE L'AGGIORNAMENTO** aggiornare [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) per usare questa funzionalità. Per altre informazioni sul piano tariffario, vedere i prezzi del Centro sicurezza di Azure.
+   >
+5. Se sono presenti più aree di lavoro da analizzare, classificare l'indagine in ordine di priorità in base alla colonna **Indirizzi IP dannosi**. Mostra il numero attuale di indirizzi IP dannosi nell'area di lavoro. Selezionare l'area di lavoro da usare per visualizzare il dashboard **Intelligence per le minacce**.
 
     ![Informazioni di intelligence sulle minacce](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-1. Questo dashboard è suddiviso in quattro riquadri:
+6. Questo dashboard è suddiviso in quattro riquadri:
 
     a.  **Tipi di minacce**. Offre un riepilogo dei tipi di minacce rilevati nell'area di lavoro selezionata.
 
@@ -103,4 +106,4 @@ In questo articolo si è appreso come usare la funzionalità di intelligence per
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
 * [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Risposte alle domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.
+* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.

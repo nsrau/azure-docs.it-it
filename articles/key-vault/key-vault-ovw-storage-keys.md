@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: adc8b84f0f22e85de88c4bd80c10a2a35d7b490a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114601"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232223"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chiavi dell'account di archiviazione Key Vault
 
@@ -36,33 +36,40 @@ ms.locfileid: "49114601"
       
 <a name="step-by-step-instructions"></a>Istruzioni dettagliate
 -------------------------
+Nelle istruzioni seguenti si assegna Key Vault come servizio per avere autorizzazioni di operatore per l'account di archiviazione
 
-1. Ottenere l'ID risorsa dell'account di Archiviazione di Azure che si vuole gestire.
-    a. Dopo aver creato un account di archiviazione, eseguire il comando seguente per ottenere l'ID risorsa dell'account di archiviazione da gestire
+1. Dopo aver creato un account di archiviazione, eseguire il comando seguente per ottenere l'ID risorsa dell'account di archiviazione da gestire
+
     ```
     az storage account show -n storageaccountname (Copy ID out of the result of this command)
     ```
+    
 2. Ottenere l'ID applicazione dell'entità servizio di Azure Key Vault 
+
     ```
     az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
     ```
+    
 3. Assegnare il ruolo "Operatore chiave di archiviazione" all'identità di Azure Key Vault
+
     ```
     az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
     ```
+    
 4. Creare un account di archiviazione gestito da Key Vault.     <br /><br />
-   Il comando che segue fa in modo che Key Vault rigeneri periodicamente le chiavi di accesso dell'archiviazione, con un periodo di rigenerazione. Il periodo di rigenerazione impostato di seguito è di 90 giorni. Dopo 90 giorni, Key Vault rigenera 'key1' e passa l'impostazione di chiave attiva da 'key2' a 'key1'.
-   ### <a name="key-regeneration"></a>Rigenerazione delle chiavi
+   Il periodo di rigenerazione impostato di seguito è di 90 giorni. Dopo 90 giorni, Key Vault rigenera 'key1' e passa l'impostazione di chiave attiva da 'key2' a 'key1'.
+   
     ```
-    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-generate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
+    az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key2 --auto-regenerate-key --regeneration-period P90D --resource-id <Resource-id-of-storage-account>
     ```
     Nel caso in cui l'utente non abbia creato l'account di archiviazione e non abbia le autorizzazioni per tale account, la procedura seguente consente di impostare le autorizzazioni per l'account, in modo da garantire la possibilità di gestire tutte le autorizzazioni di archiviazione in Key Vault.
-    [!NOTE] Nel caso in cui l'utente non abbia le autorizzazioni per l'account di archiviazione, prima si ottiene l'ID oggetto dell'utente
+ > [!NOTE] 
+    Nel caso in cui l'utente non abbia le autorizzazioni per l'account di archiviazione, prima si ottiene l'ID oggetto dell'utente
 
     ```
     az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover purge restore set setsas update
+    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
 
 ### <a name="relevant-powershell-cmdlets"></a>Cmdlet PowerShell pertinenti

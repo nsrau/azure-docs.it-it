@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 92422a254bcfd5b31731dda6d1790cc85f467860
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 62eecaba261ac2478ab6d1c7d47067f43a58d976
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094981"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231356"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Creare un ambiente del servizio app usando un modello di Azure Resource Manager
 
@@ -30,7 +30,7 @@ ms.locfileid: "47094981"
 Quando si crea un ambiente del servizio app nel portale di Azure, è possibile creare contemporaneamente la rete virtuale o scegliere una rete virtuale preesistente in cui eseguire la distribuzione. Quando si crea un modello, è necessario iniziare con: 
 
 * Una rete virtuale di Resource Manager.
-* una subnet in tale rete virtuale. È consigliabile una subnet per l'ambiente del servizio app con dimensioni di `/24` e 256 indirizzi per supportare le esigenze di crescita futura e scalabilità. Dopo che l'ambiente del servizio app è stato creato, non è possibile modificarne le dimensioni.
+* Una subnet in tale rete virtuale. Per un ambiente del servizio app è consigliabile una subnet di dimensioni pari a `/24` con 256 indirizzi per supportare le esigenze di crescita futura e scalabilità. Dopo che l'ambiente del servizio app è stato creato, non è possibile modificarne le dimensioni.
 * L'ID risorsa dalla rete virtuale. È possibile ottenere questa informazione dal portale di Azure nelle proprietà della rete virtuale.
 * La sottoscrizione in cui si vuole eseguire la distribuzione.
 * La località in cui si vuole eseguire la distribuzione.

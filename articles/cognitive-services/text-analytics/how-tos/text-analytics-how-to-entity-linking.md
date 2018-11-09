@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645798"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230557"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo (anteprima)
 
@@ -95,7 +95,7 @@ I dettagli sulla definizione della richiesta sono reperibili in [How to call the
 
 + Creare una richiesta **POST**. Esaminare la documentazione dell'API per questa richiesta: [API di collegamento delle entità](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Impostare l'endpoint HTTP per l'estrazione di frasi chiave. È necessario includere la risorsa `/entities`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Impostare l'endpoint HTTP per l'estrazione di entità. È necessario includere la risorsa `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Impostare un'intestazione della richiesta in modo da includere la chiave di accesso per le operazioni di Analisi del testo. Per altre informazioni, vedere [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Come trovare gli endpoint e le chiavi di accesso).
 

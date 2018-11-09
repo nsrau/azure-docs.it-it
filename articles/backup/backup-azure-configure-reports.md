@@ -6,22 +6,29 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c1d7a404ffd9b4da4868f56a5e17300495b57db
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269361"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418280"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 Questo articolo illustra i passaggi da seguire per configurare report per Backup di Azure tramite un insieme di credenziali di Servizi di ripristino. Descrive inoltre come accedere ai report con Power BI. Dopo aver completato questi passaggi, sarà possibile passare direttamente a Power BI per visualizzare, personalizzare e creare report.
 
+> [!IMPORTANT]
+> Dall'1 novembre 2018, alcuni clienti potrebbero riscontrare problemi durante il caricamento dei dati nell'app Backup di Azure in Power BI, con il messaggio "Sono stati rilevati caratteri aggiuntivi alla fine dell'input JSON. L'eccezione è stata generata dall'interfaccia IDataReader".
+Ciò è dovuto a una modifica del formato in cui i dati vengono caricati nell'account di archiviazione.
+Scaricare l'app più recente (versione 1.8) per evitare questo problema.
+>
+>
+
 ## <a name="supported-scenarios"></a>Scenari supportati
 - I report di Backup di Azure sono supportati per il backup di macchine virtuali di Azure e il backup di file e cartelle nel cloud mediante l'agente di Servizi di ripristino di Azure.
-- I report per il database SQL di Azure, Data Protection Manager e il server Backup di Azure non sono attualmente supportati.
+- I report per il database SQL di Azure, le condivisioni di File di Azure, Data Protection Manager e il server Backup di Azure non sono attualmente supportati.
 - È possibile visualizzare i report negli insiemi di credenziali e nelle sottoscrizioni, se per ogni insieme è configurato lo stesso account di archiviazione. L'account di archiviazione selezionato deve trovarsi nella stessa area dell'insieme di credenziali di Servizi di ripristino.
 - La frequenza di aggiornamento pianificato per il report è 24 ore in Power BI. È anche possibile eseguire un aggiornamento ad hoc dei report in Power BI. In questo caso, vengono usati i dati più recenti nell'account di archiviazione del cliente per il rendering dei report.
 
@@ -67,23 +74,24 @@ Usare la procedura seguente per configurare l'account di archiviazione per un in
       ![Visualizzare l'impostazione di diagnostica - Passaggio 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Dopo aver configurato i report con il salvataggio dell'account di archiviazione, *attendere 24 ore* affinché venga completato il push di dati iniziale. Importare il pacchetto di contenuto di Backup di Azure in Power BI solo dopo tale intervallo. Per altre informazioni, vedere la [sezione delle domande frequenti](#frequently-asked-questions). 
+> Dopo aver configurato i report con il salvataggio dell'account di archiviazione, *attendere 24 ore* affinché venga completato il push di dati iniziale. Importare l'app Backup di Azure in Power BI solo dopo tale intervallo. Per altre informazioni, vedere la [sezione delle domande frequenti](#frequently-asked-questions). 
 >
 >
 
 ## <a name="view-reports-in-power-bi"></a>Visualizzare i report in Power BI 
 Dopo aver configurato un account di archiviazione per i report usando un insieme di credenziali di Servizi di ripristino, il trasferimento dei dati dei report inizierà dopo circa 24 ore. Trascorse 24 ore per la configurazione dell'account di archiviazione, seguire questa procedura per visualizzare i report in Power BI.
-1. [Eseguire l'accesso](https://powerbi.microsoft.com/landing/signin/) a Power BI.
-2. Selezionare **Recupera dati**. In **Libreria del pacchetto di contenuto** in **Servizi**, selezionare **Recupera**. Seguire i passaggi nella [documentazione di Power BI per accedere al pacchetto di contenuto](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+Per personalizzare e condividere il report, creare un'area di lavoro e seguire questa procedura
 
-     ![Importare il pacchetto di contenuto](./media/backup-azure-configure-reports/content-pack-import.png)
+1. [Eseguire l'accesso](https://powerbi.microsoft.com/landing/signin/) a Power BI.
+2. Selezionare **Recupera dati**. In **Altri modi per creare contenuto personalizzato** selezionare **Pacchetti di contenuto di servizi**. Seguire i passaggi nella [documentazione di Power BI per connettersi a un servizio](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+
 3. Nella barra di **ricerca** immettere **Backup di Azure** e selezionare **Scarica adesso**.
 
       ![Ottenere il pacchetto di contenuto](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Immettere il nome dell'account di archiviazione configurato nel passaggio 5 precedente e selezionare **Avanti**.
 
     ![Immettere il nome dell'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Immettere la chiave per l'account di archiviazione. Per [visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys), passare al proprio account di archiviazione nel portale di Azure. 
+5. Usando il metodo di autenticazione "Chiave", immettere la chiave per l'account di archiviazione. Per [visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys), passare al proprio account di archiviazione nel portale di Azure. 
 
      ![Immettere l'account di archiviazione](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -95,9 +103,7 @@ Dopo aver configurato un account di archiviazione per i report usando un insieme
     
     ![Importazione riuscita del pacchetto di contenuto](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. Dopo aver importato i dati, il pacchetto di contenuto **Backup di Azure** è visibile nelle **app** nel riquadro di spostamento. In **Dashboard**, **Report** e **Set di dati** l'elenco mostra ora Backup di Azure con una stella gialla a indicare i report appena importati.
-
-     ![Pacchetto di contenuto Backup di Azure](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
+7. Dopo aver importato i dati, il pacchetto di contenuto **Backup di Azure** è visibile nelle **app** nel riquadro di spostamento. In **Dashboard**, **Report** e **Set di dati** l'elenco mostra ora Backup di Azure.
      
 8. In **Dashboard** selezionare **Backup di Azure**, che illustra un set di report con chiavi associate.
 

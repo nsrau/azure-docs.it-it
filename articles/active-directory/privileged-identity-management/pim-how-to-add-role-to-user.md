@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 07/23/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 33bfe28bf612c47c9f42345dabccc017337c3d45
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190157"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249612"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>Assegnare ruoli della directory di Azure AD in PIM
 
-Con Azure Active Directory (Azure AD) un amministratore globale può rendere le assegnazioni di ruoli di directory **permanenti**. Queste assegnazioni di ruolo possono essere create usando il [portale di Azure](../users-groups-roles/directory-assign-admin-roles.md) o i [ comandi di PowerShell](/powershell/module/azuread#directory_roles).
+Con Azure Active Directory (Azure AD) un amministratore globale può rendere le assegnazioni di ruoli di directory **permanenti**. Queste assegnazioni di ruoli possono essere create usando il [portale di Azure](../users-groups-roles/directory-assign-admin-roles.md) o i [ comandi di PowerShell](/powershell/module/azuread#directory_roles).
 
 Il servizio Azure AD Privileged Identity Management (PIM) consente anche agli amministratori di ruoli con privilegi di effettuare assegnazioni di ruoli di directory permanenti. Inoltre, gli amministratori di ruoli con privilegi possono rendere gli utenti **idonei** ai ruoli di directory. Un amministratore idoneo può attivare il ruolo quando serve, con autorizzazioni che scadono al termine delle operazioni. Per informazioni sui ruoli che è possibile gestire usando PIM, vedere [Ruoli della directory di Azure AD che è possibile gestire in PIM](pim-roles.md).
 
@@ -112,6 +112,39 @@ Per rimuovere un utente specifico da un ruolo della directory, eseguire la proce
     ![Rimuovere un ruolo](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     L'assegnazione di ruolo viene rimossa.
+
+## <a name="authorization-error-when-assigning-roles"></a>Errore di autorizzazione durante l'assegnazione di ruoli
+
+Se PIM è stato abilitato di recente per una sottoscrizione e viene visualizzato un errore di autorizzazione quando si prova a rendere idoneo un utente per un ruolo della directory, è possibile che l'entità servizio MS-PIM non disponga ancora delle autorizzazioni appropriate. Per assegnare ruoli ad altri utenti, l'entità servizio MS-PIM deve avere il ruolo [Amministratore Accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator). Anziché attendere l'assegnazione automatica di questo ruolo a MS-PIM, è possibile assegnarlo manualmente.
+
+Per assegnare il ruolo Amministratore Accesso utenti all'entità servizio MS-PIM per una sottoscrizione, seguire questa procedura.
+
+1. Accedere al portale di Azure come amministratore globale.
+
+1. Scegliere **Tutti i servizi** e quindi **Sottoscrizioni**.
+
+1. Scegliere la propria sottoscrizione.
+
+1. Scegliere **Controllo di accesso (IAM)** per visualizzare l'elenco corrente delle assegnazioni di ruoli per l'ambito della sottoscrizione.
+
+   ![Pannello Controllo di accesso (IAM) per una sottoscrizione](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
+
+1. Controllare se all'entità servizio **MS-PIM** è assegnato il ruolo **Amministratore Accesso utenti**.
+
+1. Se non è assegnato, scegliere **Aggiungi** per aprire il riquadro **Aggiungi autorizzazioni**.
+
+1. Nell'elenco a discesa **Ruolo** selezionare **Amministratore Accesso utenti**.
+
+1. Nell'elenco **Seleziona** trovare e selezionare l'entità servizio **MS-PIM**.
+
+   ![Aggiungere le autorizzazioni per MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-add-permissions.png)
+
+1. Scegliere **Salva** per assegnare un ruolo.
+
+   Dopo qualche istante, all'entità servizio MS-PIM viene assegnato il ruolo Amministratore Accesso utenti nell'ambito della sottoscrizione.
+
+   ![Ruolo Amministratore Accesso utenti per MS-PIM](./media/pim-how-to-add-role-to-user/ms-pim-user-access-administrator.png)
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: Creare query per i messaggi B2B in Log Analytics - App per la logica di Azure | Microsoft Docs
-description: Creare query per monitorare i messaggi AS2, X12 ed EDIFACT con Log Analytics per App per la logica di Azure
+title: Creare query di rilevamento per i messaggi B2B in Log Analytics - App per la logica di Azure | Microsoft Docs
+description: Creare query per monitorare i messaggi AS2, X12 ed EDIFACT in Log Analytics di Azure per App per la logica di Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,109 +8,127 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: baccd255fc2812eae0de3a98dfcef3dcbc7e1b46
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.date: 10/19/2018
+ms.openlocfilehash: af1d00e49819f1d69e08c0fa99891690e07b489f
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124271"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233753"
 ---
-# <a name="create-queries-for-tracking-as2-x12-and-edifact-messages-in-log-analytics-for-azure-logic-apps"></a>Creare query per il monitoraggio dei messaggi AS2, X12 ed EDIFACT in Log Analytics per App per la logica di Azure
+# <a name="create-tracking-queries-for-b2b-messages-in-azure-log-analytics-for-azure-logic-apps"></a>Creare query di rilevamento per i messaggi B2B in Log Analytics di Azure per App per la logica di Azure
 
-Per trovare i messaggi AS2, X12 o EDIFACT che si vuole monitorare con [Azure Log Analytics](../log-analytics/log-analytics-overview.md), è possibile creare query per filtrare le azioni in base a criteri specifici. Ad esempio, è possibile trovare i messaggi in base a un numero di controllo interscambio specifico.
+Per trovare i messaggi AS2, X12 o EDIFACT che si vuole monitorare con [Azure Log Analytics](../log-analytics/log-analytics-overview.md) è possibile creare query per filtrare le azioni in base a criteri specifici. Ad esempio, è possibile trovare i messaggi in base a un numero di controllo interscambio specifico.
 
-## <a name="requirements"></a>Requisiti
+> [!NOTE]
+> Questa pagina offriva in precedenza una descrizione dei passaggi per eseguire queste attività con Microsoft Operations Management Suite (OMS), che verrà [ritirato nel gennaio 2019](../log-analytics/log-analytics-oms-portal-transition.md), mentre ora riguarda gli stessi passaggi in Log Analytics di Azure. 
 
-* Un'app per la logica configurata con la registrazione diagnostica. Informazioni su [come creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md) e [come configurare la registrazione per tale app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+## <a name="prerequisites"></a>Prerequisiti
+
+* Un'app per la logica configurata con la registrazione diagnostica. Informazioni su [come creare un'app per la logica](quickstart-create-first-logic-app-workflow.md) e [come configurare la registrazione per tale app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
 * Un account di integrazione configurato con il monitoraggio e la registrazione. Informazioni su [come creare un account di integrazione](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) e [come configurare il monitoraggio e la registrazione per tale account](../logic-apps/logic-apps-monitor-b2b-message.md).
 
 * Se non è già stato fatto, [pubblicare i dati di diagnostica in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) e [configurare la verifica dei messaggi in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
 
-> [!NOTE]
-> Soddisfatti i requisiti precedenti, sarà disponibile un'area di lavoro in Log Analytics. È consigliabile usare la stessa area di lavoro per tenere traccia delle comunicazioni B2B in Log Analytics. 
->  
-> Se non si dispone di un'area di lavoro di Log Analytics, vedere [Creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+## <a name="create-queries-with-filters"></a>Creare query con filtri
 
-## <a name="create-message-queries-with-filters-in-log-analytics"></a>Creare query per i messaggi con i filtri in Log Analytics
+Per trovare i messaggi in base a proprietà o valori specifici, è possibile creare query che usano filtri. 
 
-Questo esempio illustra come trovare i messaggi in base a un numero di controllo interscambio.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutti i servizi**. Nella casella di ricerca cercare "log analytics" e selezionare **Log Analytics**.
 
-> [!TIP] 
-> Se si conosce il nome dell'area di lavoro di Log Analytics, passare alla home page dell'area di lavoro (`https://{your-workspace-name}.portal.mms.microsoft.com`) e iniziare dal passaggio 4. Altrimenti iniziare dal passaggio 1.
+   ![Selezionare Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
-1. Nel [portale di Azure](https://portal.azure.com) scegliere **Tutti i servizi**. Cercare "Log Analytics" e quindi scegliere **Log Analytics**, come illustrato qui:
+1. In **Log Analytics** trovare e selezionare l'area di lavoro di Log Analytics. 
 
-   ![Trovare Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/browseloganalytics.png)
+   ![Selezionare un'area di lavoro di Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
 
-2. In **Log Analytics** trovare e selezionare l'area di lavoro di Log Analytics.
+1. Nel menu dell'area di lavoro in **Generale** selezionare **Log (versione classica)** oppure **Log**. 
 
-   ![Selezionare l'area di lavoro di Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
+   Questo esempio mostra come usare la vista Log nella versione classica. 
+   Se si sceglie **Visualizza log** nella sezione **Ottimizzare l'esperienza di Log Analytics** in **Eseguire ricerche e analisi nei log** viene visualizzato **Log (versione classica)**. 
 
-3. In **Gestione** scegliere **Ricerca log**.
+   ![Visualizza log classici](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/view-classic-logs.png)
 
-   ![Scegliere Ricerca log](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
+1. Nella casella di modifica della query iniziare a digitare il nome del campo da trovare. Quando si inizia a digitare,l'editor di query mostra le possibili corrispondenze e le operazioni che è possibile usare. Dopo aver creato la query scegliere **Esegui** oppure premere il tasto Invio.
 
-4. Nella casella di ricerca inserire il campo che si vuole trovare e premere **Invio**. Quando si inizia a digitare, Log Analytics mostra le corrispondenze e operazioni che è possibile usare. Altre informazioni su [come trovare i dati in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+   Questo esempio cerca le corrispondenze in **LogicAppB2B**. 
+   Altre informazioni su [come trovare i dati in Log Analytics](../log-analytics/log-analytics-log-searches.md).
 
-   Questo esempio cerca gli eventi con **Type=AzureDiagnostics**.
+   ![Iniziare a digitare una stringa di query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/create-query.png)
 
-   ![Iniziare a digitare una stringa di query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
+1. Per modificare l'intervallo di tempo che si desidera visualizzare, nel riquadro sinistro selezionare nell'elenco delle durate oppure trascinare il dispositivo di scorrimento. 
 
-5. Nella barra a sinistra scegliere l'intervallo di tempo che si vuole visualizzare. Per aggiungere un filtro alla query, scegliere **+Aggiungi**.
+   ![Modifica intervallo di tempo](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/change-timeframe.png)
 
-   ![Aggiungere un filtro alla query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
+1. Per aggiungere un filtro alla query, scegliere **Aggiungi**. 
 
-6. In **Aggiungi filtri** immettere il nome del filtro per trovare quello desiderato. Selezionare il filtro e scegliere **+Aggiungi**.
+   ![Aggiungere un filtro alla query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/add-filter.png)
 
-   Per trovare il numero di controllo interscambio, questo esempio cerca la parola "interscambio" e seleziona **event_record_messageProperties_interchangeControlNumber_s** come filtro.
+1. In **Aggiungi filtri** immettere il nome di filtro che si desidera trovare. Se si trova il filtro, selezionarlo. Nel riquadro sinistro selezionare di nuovo **Aggiungi**.
 
-   ![Selezionare il filtro](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
+   Ad esempio, ecco una query diversa che cerca negli eventi **Type=="AzureDiagnostics"** e trova i risultati in base al numero di controllo interscambio selezionando il filtro **event_record_messageProperties_interchangeControlNumber_s**.
 
-7. Nella barra a sinistra selezionare il valore del filtro che si vuole usare e scegliere **Applica**.
+   ![Selezionare il valore del filtro](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/filter-example.png)
 
-   Questo esempio consente di selezionare il numero di controllo interscambio per i messaggi desiderati.
+   Dopo aver scelto **Aggiungi**, la query viene aggiornata con l'evento e il valore del filtro selezionati. 
+   Vengono ora filtrati anche i risultati precedenti. 
 
-   ![Selezionare il valore del filtro](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
+   Ad esempio, la query cerca **Type=="AzureDiagnostics"** e trova i risultati in base al numero controllo interscambio usando il filtro **event_record_messageProperties_interchangeControlNumber_s**.
 
-8. Tornare ora alla query che si sta creando. La query viene aggiornata con l'evento e il valore del filtro selezionati. Vengono ora filtrati anche i risultati precedenti.
-
-    ![Tornare alla query con i risultati filtrati](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
+   ![Risultati filtrati](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/filtered-results.png)
 
 <a name="save-oms-query"></a>
 
-## <a name="save-your-query-for-future-use"></a>Per salvare la query per un uso futuro
+## <a name="save-query"></a>Salvare la query
 
-1. Dalla query nella pagina **Ricerca log** scegliere **Salva**. Assegnare un nome alla query, selezionare una categoria e scegliere **Salva**.
+Per salvare la query nella vista **Log (versione classica)**, seguire questa procedura:
 
-   ![Assegnare un nome e una categoria alla query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-save.png)
+1. Dalla query nella pagina **Log (versione classica)**, scegliere **Analisi**. 
 
-2. Per visualizzare la query, scegliere **Preferiti**.
+   ![Scegliere "Analisi"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-analytics.png)
 
-   ![Scegliere "Preferiti"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-favorites.png)
+1. Nella barra degli strumenti della query scegliere **Salva**.
 
-3. In **Ricerche salvate** selezionare la query per visualizzare i risultati. Per aggiornare la query e trovare risultati diversi, modificare la query.
+   ![Scegliere "Save" (Salva)](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/save-query.png)
 
-   ![Selezionare la query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
+1. Fornire i dettagli sulla query, ad esempio, assegnare un nome alla query, selezionare **Query**e specificare un nome di categoria. Al termine dell'operazione, scegliere **Salva**.
 
-## <a name="find-and-run-saved-queries-in-log-analytics"></a>Trovare ed eseguire le query salvate in Log Analytics
+   ![Scegliere "Save" (Salva)](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query-details.png)
 
-1. Aprire la home page dell'area di lavoro di Log Analytics (`https://{your-workspace-name}.portal.mms.microsoft.com`) e scegliere **Ricerca log**.
+1. Per visualizzare le query salvate, tornare alla pagina di query. Nella barra degli strumenti della query scegliere **Ricerche salvate**.
 
-   ![Nella home page dell'area di lavoro di Log Analytics scegliere "Ricerca log"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
+   ![Scegliere" Ricerche salvate"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
 
-   -oppure-
+1. In **Ricerche salvate** selezionare la query per visualizzare i risultati. 
 
-   ![Dal menu scegliere "Ricerca log"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
+   ![Selezionare la query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/saved-query-results.png)
 
-2. Nella home page **Ricerca log** scegliere **Preferiti**.
+   Per aggiornare la query e trovare risultati diversi, modificare la query.
 
-   ![Scegliere "Preferiti"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-favorites.png)
+## <a name="find-and-run-saved-queries"></a>Trovare ed eseguire le query salvate
 
-3. In **Ricerche salvate** selezionare la query per visualizzare i risultati. Per aggiornare la query e trovare risultati diversi, modificare la query.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutti i servizi**. Nella casella di ricerca cercare "log analytics" e selezionare **Log Analytics**.
 
-   ![Selezionare la query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-log-search-find-favorites.png)
+   ![Selezionare Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
+
+1. In **Log Analytics** trovare e selezionare l'area di lavoro di Log Analytics. 
+
+   ![Selezionare un'area di lavoro di Log Analytics](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/select-log-analytics-workspace.png)
+
+1. Nel menu dell'area di lavoro in **Generale** selezionare **Log (versione classica)** oppure **Log**. 
+
+   Questo esempio mostra come usare la vista Log nella versione classica. 
+
+1. Quando si apre la pagina di query, nella barra degli strumenti della query, scegliere **Ricerche salvate**.
+
+   ![Scegliere" Ricerche salvate"](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/choose-saved-searches.png)
+
+1. In **Ricerche salvate** selezionare la query per visualizzare i risultati. 
+
+   ![Selezionare la query](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/saved-query-results.png) 
+
+   La query viene eseguita automaticamente, ma se non viene eseguita la query per qualsiasi motivo, nell'editor di query scegliere **Esegui**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

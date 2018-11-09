@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 450314dddd49825bae689701b694f9a26758835e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377640"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420524"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usare il portale di Azure per ripristinare macchine virtuali
 È possibile proteggere i dati mediante la creazione di snapshot dei dati a intervalli definiti. Questi snapshot sono noti come punti di ripristino e vengono archiviati negli insiemi di credenziali dei servizi di ripristino. Se è necessario ripristinare o ricreare una macchina virtuale (VM), è possibile ripristinare la macchina virtuale da qualsiasi punto di ripristino salvato. Quando si ripristina un punto di ripristino, è possibile:
@@ -151,7 +151,7 @@ Nel pannello **Configurazione di ripristino** selezionare **OK** per portare a t
 Il **ripristino sul posto** viene eseguito tramite la scheda **Sostituisci esistente**.
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>Sostituire i dischi esistenti da un punto di ripristino
-L'opzione **Sostituisci esistente** consente di sostituire i dischi esistenti nella macchina virtuale corrente con il punto di ripristino selezionato. Questa operazione può essere eseguita solo se la macchina virtuale corrente esiste. Se è stata eliminata per qualsiasi motivo, questa operazione non può essere eseguita. In alternativa, è consigliabile scegliere **Crea nuova** per creare una nuova macchina virtuale o nuovi dischi per continuare le operazioni di ripristino. Come misura precauzionale, prima di iniziare le operazioni di sostituzione dei dischi esistenti viene eseguito il backup dei dati. Se il punto di ripristino ha più o meno dischi della macchina virtuale corrente, nella macchina virtuale verrà riportato solo il numero di dischi nel punto di ripristino. L'opzione Sostituisci esistente è attualmente supportata solo per i dischi gestiti e le macchine virtuali non crittografate.  
+L'opzione **Sostituisci esistente** consente di sostituire i dischi esistenti nella macchina virtuale corrente con il punto di ripristino selezionato. Questa operazione può essere eseguita solo se la macchina virtuale corrente esiste. Se è stata eliminata per qualsiasi motivo, questa operazione non può essere eseguita. In alternativa, è consigliabile scegliere **Crea nuova** per creare una nuova macchina virtuale o nuovi dischi per continuare le operazioni di ripristino. Come misura precauzionale, prima di iniziare le operazioni di sostituzione dei dischi esistenti viene eseguito il backup dei dati. Se il punto di ripristino ha più o meno dischi della macchina virtuale corrente, nella macchina virtuale verrà riportato solo il numero di dischi nel punto di ripristino. L'opzione **Sostituisci esistente** non è attualmente supportata per i dischi non gestiti e le macchine virtuali crittografate. Non è supportata neanche per le [macchine virtuali generalizzate](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) e per le macchine virtuali create con [immagini personalizzate](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).  
 
  L'unico input che deve essere selezionato nel pannello **Configurazione di ripristino**è **Percorso di gestione temporanea**.
 
@@ -170,7 +170,7 @@ Fare clic sul collegamento ipertestuale delle notifiche per passare all'elenco *
 
 Vengono visualizzati il pannello **Processi di backup** e l'elenco dei processi.
 
-![Elenco di VM in un insieme di credenziali](./media/backup-azure-arm-restore-vms/restore-job-completed.png)
+![Elenco di VM in un insieme di credenziali](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
 ## <a name="use-templates-to-customize-a-restored-vm"></a>Usare i modelli per personalizzare una VM ripristinata
 Al termine dell'[operazione di ripristino dei dischi](#Track-the-restore-operation), usare il modello generato nell'ambito dell'operazione di ripristino per creare una nuova VM con una configurazione diversa dalla configurazione di backup. È anche possibile usarlo per personalizzare i nomi delle risorse create durante il processo di creazione di una nuova VM da un punto di ripristino.

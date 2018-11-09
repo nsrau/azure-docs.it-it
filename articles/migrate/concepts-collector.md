@@ -4,15 +4,15 @@ description: L'articolo contiene informazioni sull'appliance Agente di raccolta 
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/30/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986781"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241192"
 ---
 # <a name="about-the-collector-appliance"></a>Informazioni sull'appliance Agente di raccolta
 
@@ -20,6 +20,38 @@ ms.locfileid: "49986781"
 
 Agente di raccolta di Azure Migrate è un'appliance leggera che può essere usata per individuare l'ambiente vCenter locale a scopo di valutazione con il servizio [Azure Migrate](migrate-overview.md), prima della migrazione ad Azure.  
 
+## <a name="discovery-methods"></a>Metodi di individuazione
+
+Per l'appliance Agente di raccolta sono disponibili due opzioni, per l'individuazione una tantum o l'individuazione continua.
+
+### <a name="one-time-discovery"></a>Individuazione una tantum
+
+L'appliance Agente di raccolta comunica una sola volta con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Se viene usato questi metodo, si verificano le condizioni seguenti:
+
+- L'appliance non è connessa in modo continuativo al progetto Azure Migrate.
+- Le modifiche nell'ambiente locale non vengono riflesse in Azure Migrate al termine dell'individuazione. Per riflettere le modifiche, è necessario individuare nuovamente lo stesso ambiente nello stesso progetto.
+- Quando si raccolgono i dati sulle prestazioni per una macchina virtuale, l'appliance si basa sui dati cronologici archiviati nel server vCenter e raccoglie la cronologia delle prestazioni per il mese precedente.
+- Per la raccolta dei dati della cronologia delle prestazioni, è necessario configurare le impostazioni delle statistiche nel server vCenter sul livello tre. Dopo avere impostato il livello tre, è necessario attendere almeno un giorno per consentire a vCenter di raccogliere i dati dei contatori delle prestazioni. È pertanto consigliabile eseguire l'individuazione dopo almeno un giorno. Se si vuole valutare l'ambiente in base ai dati sulle prestazioni di una settimana o un mese, è necessario attendere di conseguenza.
+- In questo metodo di individuazione, Azure Migrate raccoglie i contatori dei valori medi per ogni metrica, anziché i contatori dei valori massimi, e ciò può comportare un sottodimensionamento. Per ottenere risultati di dimensionamento più precisi è consigliabile usare l'opzione di individuazione continua.
+
+### <a name="continuous-discovery"></a>Individuazione continua
+
+L'appliance Agente di raccolta è connessa in modo continuativo al progetto Azure Migrate e raccoglie continuamente i dati sulle prestazioni delle macchine virtuali.
+
+- Agente di raccolta esegue continuamente una profilatura dell'ambiente locale per raccogliere i dati d'uso in tempo reale ogni 20 secondi.
+- L'appliance esegue il rollup dei campioni raccolti ogni 20 secondi e crea un singolo punto dati ogni 15 minuti.
+- Per creare il punto dati, l'appliance seleziona il valore di picco dai campioni raccolti ogni 20 secondi e lo invia ad Azure.
+- Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per raccogliere i dati sulle prestazioni.
+- È possibile arrestare la profilatura continua in qualsiasi momento In Agente di raccolta.
+
+Si noti che l'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se si apporta una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
+
+- Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare l'individuazione dall'appliance e quindi riavviarla. Ciò garantisce che le modifiche vengono aggiornate nel progetto Azure Migrate.
+
+- Eliminazione di macchine virtuali: a causa della modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
+
+> [!NOTE]
+> La funzionalità di individuazione continua è disponibile in anteprima. Si consiglia di usare questo metodo, poiché raccoglie dati granulari sulle prestazioni e consente un dimensionamento preciso.
 
 ## <a name="deploying-the-collector"></a>Distribuzione di Agente di raccolta
 
@@ -163,43 +195,6 @@ Anche se l'appliance Agente di raccolta dispone di licenza di valutazione di 180
 3. Copiare il file ZIP nella macchina virtuale dell'agente di raccolta di Azure Migrate (Agente di raccolta di Azure Migrate).
 4. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare Estrai tutto.
 5. Fare clic con il pulsante destro del mouse sul file Setup.ps1, selezionare Run with PowerShell (Esegui con PowerShell) e quindi seguire le istruzioni visualizzate sullo schermo per installare l'aggiornamento.
-
-
-## <a name="discovery-methods"></a>Metodi di individuazione
-
-Esistono due metodi che l'appliance Agente di raccolta può usare per l'individuazione, ovvero l'individuazione una tantum o l'individuazione continua.
-
-
-### <a name="one-time-discovery"></a>Individuazione una tantum
-
-Agente di raccolta comunica una sola volta con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Se viene usato questi metodo, si verificano le condizioni seguenti:
-
-- L'appliance non è connessa in modo continuativo al progetto Azure Migrate.
-- Le modifiche nell'ambiente locale non vengono riflesse in Azure Migrate al termine dell'individuazione. Per riflettere le modifiche, è necessario individuare nuovamente lo stesso ambiente nello stesso progetto.
-- Per questo metodo di individuazione, è necessario configurare le impostazioni delle statistiche nel server vCenter a livello tre.
-- Dopo aver impostato il livello su tre, la generazione dei contatori delle prestazioni richiede fino a un giorno di tempo. È pertanto consigliabile eseguire l'individuazione dopo un giorno.
-- Quando si raccolgono i dati sulle prestazioni per una macchina virtuale, l'appliance si basa sui dati cronologici archiviati nel server vCenter e raccoglie la cronologia delle prestazioni per il mese precedente.
-- Azure Migrate raccoglie i contatori dei valori medi, anziché i contatori dei valori massimi, per ogni metrica che può comportare un sottodimensionamento.
-
-### <a name="continuous-discovery"></a>Individuazione continua
-
-L'appliance Agente di raccolta è connessa in modo continuativo al progetto Azure Migrate e raccoglie continuamente i dati sulle prestazioni delle macchine virtuali.
-
-- Agente di raccolta esegue continuamente una profilatura dell'ambiente locale per raccogliere i dati d'uso in tempo reale ogni 20 secondi.
-- Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per raccogliere i dati sulle prestazioni.
-- L'appliance esegue il rollup dei campioni raccolti ogni 20 secondi e crea un singolo punto dati ogni 15 minuti.
-- Per creare il punto dati, l'appliance seleziona il valore di picco dai campioni raccolti ogni 20 secondi e lo invia ad Azure.
-- È possibile arrestare la profilatura continua in qualsiasi momento In Agente di raccolta.
-
-Si noti che l'appliance si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se si apporta una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
-
-1. Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare e poi riavviare l'individuazione dall'appliance. Ciò garantisce che le modifiche vengano aggiornate nel progetto Azure Migrate.
-
-2. Eliminazione di macchine virtuali: a causa del modo in cui è progettata l'appliance, l'eliminazione delle macchine virtuali non viene rilevata anche se si arresta e si riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
-
-> [!NOTE]
-> La funzionalità di individuazione continua è disponibile in anteprima. Si consiglia di usare questo metodo, poiché raccoglie dati granulari sulle prestazioni e consente un dimensionamento preciso.
-
 
 ## <a name="discovery-process"></a>Processo di individuazione
 

@@ -8,13 +8,13 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 03/28/2018
-ms.openlocfilehash: 58d0d028c920faa7e86884c85f8fb677ce67c390
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/24/2018
+ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389922"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158687"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -24,19 +24,19 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
 
 ### <a name="azure-machine-learning-sdk-for-python-v0168"></a>Azure Machine Learning SDK per Python v0.1.68
 
-#### <a name="new-features"></a>Nuove funzionalità
- * Supporto di più tenant durante la creazione di una nuova area di lavoro.
++ **Nuove funzionalità**
+  * Supporto di più tenant durante la creazione di una nuova area di lavoro.
 
-#### <a name="breaking-changes"></a>Modifiche di rilievo
- * **Nella prossima versione** *Workspace.compute_targets, datastores, experiments, images, models* e *webservices* diventeranno proprietà invece di metodi. Ad esempio, *Workspace.compute_targets()* dovrà essere sostituito con *Workspace.compute_targets*.
++ **Modifiche di rilievo**
+  * **Nella prossima versione** *Workspace.compute_targets, datastores, experiments, images, models* e *webservices* diventeranno proprietà invece di metodi. Ad esempio, *Workspace.compute_targets()* dovrà essere sostituito con *Workspace.compute_targets*.
 
-#### <a name="bugs-fixed"></a>Bug risolti
- * Non è più necessario bloccare la versione della libreria pynacl durante la distribuzione di un servizio Web.
++ **Bug risolti**
+  * Non è più necessario bloccare la versione della libreria pynacl durante la distribuzione di un servizio Web.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v030"></a>Azure Machine Learning Data Prep SDK v0.3.0
 
-#### <a name="new-features"></a>Nuove funzionalità:
-* È stato aggiunto il metodo transform_partition_with_file(script_path), che consente agli utenti di passare il percorso di un file Python da eseguire
++ **Nuove funzionalità**
+  * È stato aggiunto il metodo transform_partition_with_file(script_path), che consente agli utenti di passare il percorso di un file Python da eseguire
 
 ## <a name="2018-10-01"></a>2018-10-01
 
@@ -45,56 +45,55 @@ La [versione 0.1.65](https://pypi.org/project/azureml-sdk/0.1.65) include nuove 
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
 
-#### <a name="breaking-changes"></a>Modifiche di rilievo
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images e Workspace.web_services restituiscono un dizionario, mentre in precedenza restituivano un elenco. Vedere la documentazione dell'API [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py).
++ **Modifiche di rilievo**
+  * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images e Workspace.web_services restituiscono un dizionario, mentre in precedenza restituivano un elenco. Vedere la documentazione dell'API [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py).
 
- * Le funzionalità automatizzate di Machine Learning hanno rimosso l'errore quadratico medio normalizzato dalle metriche principali.
+  * Le funzionalità automatizzate di Machine Learning hanno rimosso l'errore quadratico medio normalizzato dalle metriche principali.
 
++ **HyperDrive**
+  * Diverse correzioni di bug di HyperDrive per Bayes, miglioramenti alle prestazioni delle chiamate di recupero delle metriche. 
+  * Aggiornamento di Tensorflow da 1.9 a 1.10 
+  * Ottimizzazione dell'immagine Docker per l'avvio a freddo. 
+  * I processi ora segnalano lo stato corretto anche se terminano con un codice di errore diverso da 0. 
+  * Convalida dell'attributo RunConfig in SDK. 
+  * L'oggetto esecuzione HyperDrive supporta l'annullamento in modo analogo a una normale esecuzione, senza bisogno di passare alcun parametro. 
+  * Miglioramenti ai widget per gestire lo stato dei valori degli elenchi a discesa per le esecuzioni distribuite e le esecuzioni di HyperDrive. 
+  * Supporto di TensorBoard e di altri file di log risolto per il server dei parametri. 
+  * Supporto di Intel(R) MPI sul lato servizi. 
+  * Correzione di bug dell'ottimizzazione dei parametri per l'esecuzione distribuita durante la convalida in Batch per intelligenza artificiale. 
+  * Gestione contesto ora identifica l'istanza primaria. 
 
-#### <a name="hyperdrive"></a>HyperDrive
- * Diverse correzioni di bug di HyperDrive per Bayes, miglioramenti alle prestazioni delle chiamate di recupero delle metriche. 
- * Aggiornamento di Tensorflow da 1.9 a 1.10 
- * Ottimizzazione dell'immagine Docker per l'avvio a freddo. 
- * I processi ora segnalano lo stato corretto anche se terminano con un codice di errore diverso da 0. 
- * Convalida dell'attributo RunConfig in SDK. 
- * L'oggetto esecuzione HyperDrive supporta l'annullamento in modo analogo a una normale esecuzione, senza bisogno di passare alcun parametro. 
- * Miglioramenti ai widget per gestire lo stato dei valori degli elenchi a discesa per le esecuzioni distribuite e le esecuzioni di HyperDrive. 
- * Supporto di TensorBoard e di altri file di log risolto per il server dei parametri. 
- * Supporto di Intel(R) MPI sul lato servizi. 
- * Correzione di bug dell'ottimizzazione dei parametri per l'esecuzione distribuita durante la convalida in Batch per intelligenza artificiale. 
- * Gestione contesto ora identifica l'istanza primaria. 
++ **Esperienza del portale di Azure**
+  * log_table() e log_row() sono supportati nei dettagli dell'esecuzione. 
+  * Creazione automatica di grafici per tabelle e righe con 1, 2 o 3 colonne numeriche e una colonna categorica facoltativa.
 
-#### <a name="azure-portal-experience"></a>Esperienza del portale di Azure
- * log_table() e log_row() sono supportati nei dettagli dell'esecuzione. 
- * Creazione automatica di grafici per tabelle e righe con 1, 2 o 3 colonne numeriche e una colonna categorica facoltativa.
++ **Funzionalità automatizzate di Machine Learning**
+  * Miglioramenti alla gestione degli errori e alla relativa documentazione 
+  * Correzione di problemi di prestazioni relativi al recupero delle proprietà di esecuzione. 
+  * Correzione di un problema di esecuzione continua. 
+  * Correzione di problemi di iterazione di insiemi.
+  * Correzione di un bug di blocco del training in MAC OS.
+  * Sottocampionamento della curva di precisione-recupero/ROC media della macro in uno scenario di convalida personalizzata.
+  * Rimozione della logica di indicizzazione eccedente.
+  * Rimozione del filtro dall'API get_output.
 
-#### <a name="automated-machine-learning"></a>Funzionalità automatizzate di Machine Learning
- * Miglioramenti alla gestione degli errori e alla relativa documentazione 
- * Correzione di problemi di prestazioni relativi al recupero delle proprietà di esecuzione. 
- * Correzione di un problema di esecuzione continua. 
- * Correzione di problemi di iterazione di insiemi.
- * Correzione di un bug di blocco del training in MAC OS.
- * Sottocampionamento della curva di precisione-recupero/ROC media della macro in uno scenario di convalida personalizzata.
- * Rimozione della logica di indicizzazione eccedente.
- * Rimozione del filtro dall'API get_output.
++ **Pipeline**
+  * È stato aggiunto un metodo Pipeline.publish() per pubblicare una pipeline direttamente, senza un'esecuzione preventiva.   
+  * È stato aggiunto un metodo PipelineRun.get_pipeline_runs() per recuperare le esecuzioni di pipeline generate da una pipeline pubblicata.
 
-#### <a name="pipelines"></a>Pipeline
- * È stato aggiunto un metodo Pipeline.publish() per pubblicare una pipeline direttamente, senza un'esecuzione preventiva.   
- * È stato aggiunto un metodo PipelineRun.get_pipeline_runs() per recuperare le esecuzioni di pipeline generate da una pipeline pubblicata.
-
-#### <a name="project-brainwave"></a>Project Brainwave
- * Supporto aggiornato per i nuovi modelli di intelligenza artificiale disponibili in FPGA.
++ **Project Brainwave**
+  * Supporto aggiornato per i nuovi modelli di intelligenza artificiale disponibili in FPGA.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v020"></a>Azure Machine Learning Data Prep SDK v0.2.0
 La [versione 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) include le funzionalità e le correzioni di bug seguenti:
 
-**Nuove funzionalità:** 
- * Supporto della codifica one-hot
- * Supporto della trasformazione dei quantili
++ **Nuove funzionalità**
+  * Supporto della codifica one-hot
+  * Supporto della trasformazione dei quantili
    
-**Bug risolto:**
- * Funziona con qualsiasi versione di Tornado, senza bisogno di effettuare il downgrade della versione di Tornado in uso
- * Vengono conteggiati tutti i valori, non solo i primi tre
++ **Bug risolto:**
+  * Funziona con qualsiasi versione di Tornado, senza bisogno di effettuare il downgrade della versione di Tornado in uso
+  * Vengono conteggiati tutti i valori, non solo i primi tre
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (aggiornamento dell'anteprima pubblica)
 

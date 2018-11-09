@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: wesmc
-ms.openlocfilehash: b0f1ba7f0799fb9f8f58370a39758416eab43dc7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c2dffc178a017d8b16ea7a36407d8bbf62c6d642
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195805"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242144"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Esercitazione: Creare una classifica cache-aside in ASP.NET
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare questa esercitazione, sono previsti i prerequisiti seguenti:
 
@@ -150,7 +150,7 @@ Per altre informazioni sul pacchetto, vedere la pagina NuGet relativa a [Entity 
     }
     ```
 
-1. In **Esplora soluzioni** fare doppio clic su **web.config** per aprirlo.
+1. In **Esplora soluzioni** fare doppio clic su **Web.config** per aprirlo.
 
     ![Web.config](./media/cache-web-app-cache-aside-leaderboard/cache-web-config.png)
 
@@ -660,19 +660,19 @@ In questa sezione si effettuerà il provisioning di un nuovo database di SQL Azu
 
 1. Usare le impostazioni seguenti per il nuovo database SQL:
 
-   | Impostazione       | Valore consigliato | DESCRIZIONE |
+   | Impostazione       | Valore consigliato | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Database name** (Nome database) | *ContosoTeamsDatabase* | Per i nomi di database validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database). |
+   | **Nome database** | *ContosoTeamsDatabase* | Per i nomi di database validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Sottoscrizione** | *Sottoscrizione in uso*  | Selezionare la stessa sottoscrizione che è stata usata per creare la cache e ospitare il servizio app. |
    | **Gruppo di risorse**  | *TestResourceGroup* | Fare clic su **Usa esistente** e usare lo stesso gruppo di risorse in cui sono stati inseriti la cache e il servizio app. |
-   | **Select source** (Seleziona origine) | **Database vuoto** | Iniziare con un database vuoto. |
+   | **Seleziona origine** | **Database vuoto** | Iniziare con un database vuoto. |
 
 1. In **Server** fare clic su **Configura le impostazioni obbligatorie** > **Crea un nuovo server** e specificare le informazioni seguenti, quindi fare clic sul pulsante **Seleziona**:
 
-   | Impostazione       | Valore consigliato | DESCRIZIONE |
+   | Impostazione       | Valore consigliato | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Server name** (Nome server) | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Regole di denominazione e restrizioni). |
-   | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificatori di database). |
+   | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Password** | Qualsiasi password valida | La password deve almeno 8 caratteri e contenere caratteri inclusi in tre delle categorie seguenti: caratteri maiuscoli, caratteri minuscoli, numeri e caratteri non alfanumerici. |
    | **Posizione** | *Stati Uniti orientali* | Selezionare la stessa area geografica in cui sono stati creati la cache e il servizio app. |
 
@@ -709,7 +709,7 @@ In questo passaggio dell'esercitazione l'applicazione verrà aggiornata in Azure
 
     La tabella seguente illustra ogni collegamento all'azione dall'applicazione di esempio:
 
-    | Azione | DESCRIZIONE |
+    | Azione | Descrizione |
     | --- | --- |
     | Creazione di un nuovo sito |Crea un nuovo team. |
     | Play Season |Avvia una stagione di partite, aggiorna le statistiche del team e cancella eventuali dati del team obsoleti dalla cache. |

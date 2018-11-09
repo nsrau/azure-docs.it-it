@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 863e465d888774730b9d9269024665a097a1207b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ab238e31ba022427dc55fec842f3e89e72fa530a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429301"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238880"
 ---
 # <a name="manage-database-roles-and-users"></a>Gestire ruoli del database e utenti
 
@@ -43,7 +43,7 @@ Quando si crea un progetto di modello tabulare, si creano ruoli e si aggiungono 
   
 4.  Selezionare una delle seguenti autorizzazioni:  
   
-    |Autorizzazione|DESCRIZIONE|  
+    |Autorizzazione|Descrizione|  
     |----------------|-----------------|  
     |**Nessuno**|I membri non possono modificare lo schema del modello e non possono eseguire query sui dati.|  
     |**Lettura**|I membri possono eseguire query su dati, in base ai filtri di riga, ma non possono modificare lo schema del modello.|  
@@ -70,7 +70,7 @@ Per aggiungere ruoli e utenti a un database modello distribuito, è necessario c
 2. In **Crea ruolo** immettere il nome di un ruolo e una descrizione.
 
 3. Selezionare un'autorizzazione.
-   |Autorizzazione|DESCRIZIONE|  
+   |Autorizzazione|Descrizione|  
    |----------------|-----------------|  
    |**Controllo completo (amministratore)**|I membri possono modificare lo schema del modello, eseguire operazioni di elaborazione e query su tutti i dati.| 
    |**Elabora database**|I membri possono eseguire operazioni Elabora ed Elabora tutto. Non possono modificare lo schema del modello ed eseguire query sui dati.|  
@@ -118,7 +118,7 @@ In questo esempio, un gruppo e un utente esterno B2B vengono aggiunti al ruolo a
 ## <a name="to-add-roles-and-users-by-using-powershell"></a>Per aggiungere ruoli e utenti usando PowerShell
 Il modulo [SqlServer](https://msdn.microsoft.com/library/hh758425.aspx) fornisce cmdlet di gestione database specifici dell'attività, oltre al cmdlet Invoke-ASCmd per utilizzo generico che accetta una query o uno script TMSL (Tabular Model Scripting Language). I cmdlet seguenti vengono usati per la gestione di utenti e ruoli del database.
   
-|Cmdlet|DESCRIZIONE|
+|Cmdlet|Descrizione|
 |------------|-----------------| 
 |[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|Aggiunge un membro a un ruolo del database.| 
 |[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|Rimuove un membro da un ruolo del database.|   

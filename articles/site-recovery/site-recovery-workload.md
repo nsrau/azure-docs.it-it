@@ -1,22 +1,21 @@
 ---
 title: Quali carichi di lavoro è possibile proteggere con Azure Site Recovery? | Microsoft Docs
 description: Illustra i carichi di lavoro che possono essere protetti usando il ripristino di emergenza con il servizio Azure Site Recovery.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 70f19213da9c311e306e09890f54185f6d2834dc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205953"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213243"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quali carichi di lavoro è possibile proteggere con Azure Site Recovery?
 
-Questo articolo illustra i carichi di lavoro e le applicazioni di cui è possibile eseguire la replica con il servizio [Azure Site Recovery](site-recovery-overview.md).
+Questo articolo descrive i carichi di lavoro e applicazioni che è possibile proteggere per il ripristino di emergenza con il servizio [Azure Site Recovery](site-recovery-overview.md).
 
 
 
@@ -105,7 +104,7 @@ Servizi Desktop remoto abilita l'uso di un'infrastruttura VDI (Virtual Desktop I
 |---| --- | --- | --- | --- | --- | --- | --- |
 | **Desktop virtuale in pool (non gestito)** |No |Yes |No  |Yes |No  |Yes |No  |
 | **Desktop virtuale in pool (gestito e senza UPD)** |No |Yes |No  |Yes |No  |Yes |No  |
-| **Applicazioni remote e le sessioni Desktop (senza UPD)** |Yes|Yes |Yes |Yes |Yes |Yes |Yes |
+| **Applicazioni remote e le sessioni Desktop (senza UPD)** |Yes|Sì |Sì |Sì |Sì |Sì |Yes |
 
 [Configurare il ripristino di emergenza per Servizi Desktop remoto con Azure Site Recovery](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

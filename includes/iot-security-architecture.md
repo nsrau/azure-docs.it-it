@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ac51dc8b7cbfa08ebca201c42c0c82356b7d5b6c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070186"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254682"
 ---
 # <a name="internet-of-things-security-architecture"></a>Architettura di sicurezza di Internet delle cose
 
@@ -21,7 +21,7 @@ Quando si progetta un sistema, è importante comprendere le potenziali minacce e
 
 ## <a name="security-starts-with-a-threat-model"></a>La sicurezza inizia con un modello di rischio
 
-Da tempo Microsoft usa modelli di rischio per i suoi prodotti e ha reso disponibile al pubblico il suo processo aziendale di modellazione delle minacce. L'esperienza aziendale dimostra che la modellazione comporta alcuni vantaggi imprevisti oltre l'immediata individuazione delle minacce più preoccupanti. Ad esempio, crea anche un possibile approccio a una discussione aperta con persone esterne al team di sviluppo, che può condurre a nuove idee e a miglioramenti del prodotto.
+Da tempo Microsoft usa modelli di rischio per i suoi prodotti e ha reso disponibile al pubblico il suo processo di modellazione delle minacce. L'esperienza aziendale dimostra che la modellazione comporta alcuni vantaggi imprevisti oltre l'immediata individuazione delle minacce più preoccupanti. Ad esempio, crea anche un possibile approccio a una discussione aperta con persone esterne al team di sviluppo, che può condurre a nuove idee e a miglioramenti del prodotto.
 
 L'obiettivo della modellazione delle minacce consiste nel comprendere in che modo un utente malintenzionato potrebbe compromettere un sistema e, di conseguenza, nell'assicurarsi che vengano attuate le misure appropriate. La modellazione delle minacce obbliga il team di progettazione a valutare misure di prevenzione durante la progettazione di un sistema, anziché durante la sua distribuzione. Questo aspetto è di fondamentale importanza, perché l'adeguamento retroattivo delle difese di sicurezza a una varietà di dispositivi non è fattibile, è soggetto a errori e mette a rischio i clienti.
 

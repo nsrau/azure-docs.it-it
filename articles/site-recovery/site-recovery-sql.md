@@ -1,20 +1,21 @@
 ---
-title: Eseguire la replica di applicazioni con SQL Server e Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come eseguire la replica di SQL Server con Azure Site Recovery per ottenere le funzionalità di ripristino di emergenza di SQL Server.
+title: Configurare il ripristino di emergenza per SQL Server con SQL Server e Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come configurare il ripristino di emergenza per SQL Server tramite SQL Server e Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
-ms.author: raynew
-ms.openlocfilehash: 23cf9430f82be860cb9acbfac42163f9243b2d0f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.author: sutalasi
+ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140731"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210262"
 ---
-# <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>Proteggere SQL Server con il ripristino di emergenza di SQL Server e Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-sql-server"></a>Configurare il ripristino di emergenza per SQL Server 
 
 Questo articolo descrive come proteggere il back-end SQL Server di un'applicazione usando una combinazione di [Azure Site Recovery](site-recovery-overview.md) e tecnologie di continuità aziendale e ripristino di emergenza di SQL Server.
 
@@ -83,7 +84,6 @@ Nella tabella seguente vengono riepilogate le indicazioni per l'integrazione del
 
 * Distribuzione di SQL Server locale che esegue una versione supportata di SQL Server. In genere è necessario anche Active Directory per il server SQL.
 * Requisiti per lo scenario che si vuole distribuire. Per altre informazioni sui requisiti per il supporto, vedere gli articoli relativi alla [replica in Azure](site-recovery-support-matrix-to-azure.md) e [in locale](site-recovery-support-matrix.md) e ai [prerequisiti per la distribuzione](site-recovery-prereq.md).
-* Per configurare il ripristino in Azure, eseguire lo strumento [Azure Virtual Machine Readiness Assessment](http://www.microsoft.com/download/details.aspx?id=40898) nelle macchine virtuali di SQL Server per verificare che siano compatibili con Azure e Site Recovery.
 
 ## <a name="set-up-active-directory"></a>Configurare Active Directory
 

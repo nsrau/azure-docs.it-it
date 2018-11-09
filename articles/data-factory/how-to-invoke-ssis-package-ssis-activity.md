@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b2e0b65f210774f760ce2d0898c601115ab3a94d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cda439973c584a57cadc30de7fb931732682de00
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960159"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092458"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Eseguire un pacchetto SSIS tramite l'attività di esecuzione del pacchetto SSIS in Azure Data Factory
 Questo articolo descrive come eseguire un pacchetto SSIS in una pipeline di Azure Data Factory usando un'attività di esecuzione del pacchetto SSIS. 
@@ -91,9 +91,11 @@ In questo passaggio viene usata l'interfaccia utente di Data Factory per creare 
 
 ### <a name="optionally-parameterize-the-activity"></a>Facoltativamente, parametrizzare l'attività
 
-Facoltativamente, assegnare valori, espressioni o funzioni, che possono fare riferimento a variabili di sistema di Data Factory, ai parametri di progetto o pacchetto in formato JSON usando il pulsante **View Source Code** (Visualizza codice sorgente) nella parte inferiore della casella dell'attività di esecuzione del pacchetto SSIS oppure il pulsante **Code** (Codice) nell'angolo superiore destro dell'area della pipeline. Ad esempio, è possibile assegnare i parametri della pipeline di Data Factory per il progetto SSIS o i parametri del pacchetto come illustrato nella schermata seguente:
+Facoltativamente, assegnare valori, espressioni o funzioni, che possono fare riferimento alle variabili di sistema di Data Factory, ai parametri di progetto o pacchetto in formato JSON usando il pulsante View Source Code (Visualizza codice sorgente) nella parte inferiore della casella dell'attività di esecuzione del pacchetto SSIS oppure il pulsante Code (Codice) nell'angolo superiore destro dell'area della pipeline. Ad esempio, è possibile assegnare i parametri della pipeline di Data Factory per il progetto SSIS o i parametri del pacchetto come illustrato nella schermata seguente:
 
 ![Modificare lo script JSON per l'attività di esecuzione del pacchetto SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters.png)
+
+![Aggiungere parametri per l'attività di esecuzione del pacchetto SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
 ![Aggiungere parametri per l'attività di esecuzione del pacchetto SSIS](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-parameters2.png)
 
@@ -204,9 +206,9 @@ In questo passaggio si crea una pipeline con un'attività di esecuzione del pacc
                     "runtime": "x64",
                     "loggingLevel": "Basic",
                     "packageLocation": {
-                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
+                        "packagePath": "FolderName/ProjectName/PackageName.dtsx"            
                     },
-                    "environmentPath":   "FolderName/EnvironmentName",
+                    "environmentPath":   "FolderName/EnvironmentName",
                     "projectParameters": {
                         "project_param_1": {
                             "value": "123"
@@ -244,7 +246,7 @@ In questo passaggio si crea una pipeline con un'attività di esecuzione del pacc
                         }
                     },
                     "propertyOverrides": {
-                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
+                        "\\PackageName.dtsx\\MaxConcurrentExecutables ": {
                             "value": 8,
                             "isSensitive": false
                         }

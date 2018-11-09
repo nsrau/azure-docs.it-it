@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8f3bd4e62aa85c69a0bfafeacf13bc3e472136d5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a3329c7f08dfabdf1bb8a010ad5bc865fc509f4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964702"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241651"
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsione del carico di lavoro server in terabyte di dati
 
@@ -132,7 +132,7 @@ I tipi di dati previsti sono elencati nella tabella precedente. A causa di probl
 
 I file in questo esempio sono organizzati come indicato di seguito.
 
-| Nome file | type | DESCRIZIONE |
+| Nome file | Tipo | Descrizione |
 |-----------|------|-------------|
 | `Code` | Cartella | La cartella contenente tutto il codice dell'esempio. |
 | `Config` | Cartella | La cartella contenente i file di configurazione. |
@@ -163,7 +163,7 @@ Il codice in [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-Big
 
 Si deve usare un contenitore per la sperimentazione sul set di dati di un mese e un altro per la sperimentazione sul set di dati completo. Poiché i dati e i modelli vengono salvati come file PARQUET, ogni file è in realtà una cartella nel contenitore, che include più BLOB. Il contenitore risultante è simile al seguente:
 
-| Nome di prefisso BLOB | type | DESCRIZIONE |
+| Nome di prefisso BLOB | Tipo | Descrizione |
 |-----------|------|-------------|
 | featureScaleModel | Parquet | Modello di convertitore in scala standard per funzionalità numeriche. |
 | stringIndexModel | Parquet | Modello di indicizzatore di stringa per funzionalità numeriche.|
@@ -189,7 +189,7 @@ Il file [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-BigData/
 
 Il primo argomento, `configFilename`, è un file di configurazione locale in cui si archiviano le informazioni dell'archiviazione BLOB e si specifica dove caricare i dati. Per impostazione predefinita è [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json) e verrà usato per l'esecuzione sui dati di un mese. Si include anche [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json), che deve essere usato per l'esecuzione sul set di dati completo. Il contenuto della configurazione è il seguente: 
 
-| Campo | type | DESCRIZIONE |
+| Campo | Tipo | Descrizione |
 |-----------|------|-------------|
 | storageAccount | string | Nome dell'account di archiviazione di Azure |
 | storageContainer | string | Contenitore nell'account di archiviazione di Azure per archiviare i risultati intermedi |

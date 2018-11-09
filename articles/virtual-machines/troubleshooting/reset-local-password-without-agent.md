@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/25/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a69692d9f50d0362a6b10d3237e1e5448c43baab
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 31e675b101d903af5dd4a07fee3bc56fbc3353d9
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268717"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412789"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Reimpostare una password di Windows locale per una VM di Azure offline
 È possibile reimpostare la password di Windows locale di una VM in Azure tramite il [portale di Azure o Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a condizione che l'agente guest di Azure sia installato. Questo è il metodo principale per reimpostare una password per una VM di Azure. In mancanza di risposta da parte dell'agente guest di Azure, o in caso di errore di installazione dopo il caricamento di un'immagine personalizzata, è possibile reimpostare la password di Windows manualmente. Questo articolo illustra come reimpostare la password di un account locale collegando il disco virtuale del sistema operativo di origine a un'altra VM. I passaggi descritti in questo articolo non si applicano ai controller di dominio Windows. 
@@ -133,7 +133,7 @@ Provare sempre a reimpostare la password usando il [portale di Azure o Azure Pow
      ![Copiare l'URI del disco](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. Creare una VM dal disco del sistema operativo della VM di origine:
    
-   * Usare [questo modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) per creare una VM da un disco rigido virtuale specializzato. Fare clic sul pulsante `Deploy to Azure` per aprire il portale di Azure con i dettagli basati su modelli compilati automaticamente.
+   * Usare [questo modello di Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet) per creare una macchina virtuale da un disco rigido virtuale specializzato. Fare clic sul pulsante `Deploy to Azure` per aprire il portale di Azure con i dettagli basati su modelli compilati automaticamente.
    * Per mantenere tutte le impostazioni precedenti per la VM, selezionare *Modifica modello* per fornire rete virtuale, subnet, scheda di rete o IP pubblico.
    * Nella casella di testo del parametro `OSDISKVHDURI` incollare l'URI del disco rigido virtuale di origine ottenuto nel passaggio precedente:
      

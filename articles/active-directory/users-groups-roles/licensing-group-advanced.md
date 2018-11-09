@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 06/02/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627390"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215413"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenari, limitazioni e problemi noti relativi all'uso dei gruppi per gestire le licenze in Azure Active Directory
 
@@ -213,21 +213,19 @@ Se si usano le licenze basate sui gruppi, è consigliabile acquisire familiarit�
 
 - La gestione delle licenze basate sui gruppi attualmente non supporta i "gruppi annidati", ovvero i gruppi che contengono altri gruppi. Se si applica una licenza a un gruppo annidato, la licenza è applicabile solo ai membri di primo livello del gruppo.
 
-- La funzionalità può essere usata solo con gruppi di sicurezza. I gruppi di Office non sono attualmente supportati e non sarà possibile usarli nel processo di assegnazione delle licenze.
+- La funzionalità è utilizzabile solo con gruppi di sicurezza e gruppi di Office 365 con securityEnabled=TRUE.
 
 - Il [portale di amministrazione di Office 365](https://portal.office.com ) non supporta attualmente le licenze basate sui gruppi. Se un utente eredita una licenza da un gruppo, la licenza viene visualizzata nel portale di amministrazione di Office come una normale licenza utente. Se si tenta di modificare la licenza o di rimuoverla, il portale restituisce un messaggio di errore. Le licenze di gruppo ereditate non possono essere modificate direttamente per un utente.
 
-- Quando un utente viene rimosso da un gruppo e perde la licenza, i piani di servizio di tale licenza, ad esempio SharePoint Online, vengono impostati su **Sospeso**. I piani di servizio non sono impostati su uno stato disabilitato finale. Questa precauzione evita la rimozione accidentale di dati dell'utente se un amministratore commette un errore nella gestione delle appartenenze al gruppo.
-
 - L'assegnazione o la modifica delle licenze di un gruppo di grandi dimensioni (ad esempio 100.000 utenti) potrebbe influire sulle prestazioni. In particolare, il volume delle modifiche generato tramite l'automazione di Azure AD potrebbe compromettere le prestazioni della sincronizzazione della directory tra Azure AD e i sistemi locali.
 
-- In alcune situazioni di carico elevato, l'elaborazione delle licenze può essere ritardata e l'elaborazione di modifiche, quali l'aggiunta/rimozione di una licenza di gruppo o l'aggiunta/rimozione di utenti dal gruppo, potrebbe richiedere molto tempo. Se l'elaborazione delle modifiche impiega più di 24 ore, [aprire un ticket di supporto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) per consentire a Microsoft di analizzare il problema. Le prestazioni di questa funzionalità verranno migliorate prima che raggiunga la *disponibilità generale*.
+- Se si usano i gruppi dinamici per gestire l'appartenenza dell'utente, verificare che l'utente faccia parte del gruppo. Questo è necessario per l'assegnazione delle licenze. Altrimenti [controllare lo stato di elaborazione per la regola di appartenenza](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule) del gruppo dinamico. 
+
+- In determinate situazioni di carico elevato, può essere necessario molto tempo per elaborare le modifiche alle licenze per i gruppi o le modifiche all'appartenenza ai gruppi con licenze esistenti. Se l'elaborazione delle modifiche per gruppi con un massimo di 60.000 utenti impiega più di 24 ore, [aprire un ticket di supporto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/supportRequest) per consentire a Microsoft di analizzare il problema. 
 
 - L'automazione della gestione delle licenze non reagisce automaticamente a tutti i tipi di modifiche nell'ambiente. Ad esempio, se le licenze sono esaurite, alcuni utenti potrebbero riscontrare uno stato di errore. Per liberare il numero di postazioni disponibili è possibile rimuovere alcune licenze assegnate direttamente ad altri utenti. Il sistema tuttavia non reagisce automaticamente a questa modifica correggendo lo stato di errore degli utenti.
 
   Come soluzione alternativa a questi tipi di limitazioni è possibile passare al pannello **Gruppo** in Azure AD e fare clic sul pulsante **Rielabora**. Questo comando elabora tutti gli utenti nel gruppo e risolve gli stati di errore, se possibile.
-
-- Le licenze basate sui gruppi non registrano gli errori quando una licenza non viene assegnata a un utente a causa di una configurazione di indirizzo proxy duplicato di Exchange Online; tali utenti verranno ignorati durante l'assegnazione delle licenze. Per ulteriori informazioni su come identificare e risolvere il problema vedere [questa sezione](licensing-groups-resolve-problems.md#license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -237,3 +235,5 @@ Per informazioni su altri scenari per la gestione delle licenze tramite i gruppi
 * [Assegnazione di licenze a un gruppo in Azure Active Directory](licensing-groups-assign.md)
 * [Identificazione e risoluzione dei problemi relativi alle licenze per un gruppo in Azure Active Directory](licensing-groups-resolve-problems.md)
 * [Come eseguire la migrazione di singoli utenti con licenza alle licenze basate sui gruppi in Azure Active Directory](licensing-groups-migrate-users.md)
+* [Come eseguire la migrazione degli utenti tra licenze di prodotti diverse con la gestione delle licenze basate su gruppo in Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Esempi di PowerShell per le licenze basate sui gruppi in Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

@@ -1,7 +1,7 @@
 ---
 title: API REST (V4) - Java - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Informazioni ed esempi di codice basati su REST per iniziare rapidamente a usare l'API Traduzione testuale Microsoft in Servizi cognitivi Microsoft in Azure.
+description: Informazioni ed esempi di codice Java basati su REST per iniziare rapidamente a usare l'API Traduzione testuale Microsoft in Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: c92addcbb6a4071022474c5c157c498364ebf0f6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 70fa8c5af4f00500c39ce3832e182a5532721799
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647936"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419708"
 ---
 # <a name="qna-maker-rest-api-with-java"></a>API REST QnA Maker con Java 
 <a name="HOLTop"></a>
 
-Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/overview.md) con Java per eseguire le operazioni seguenti.
+Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/overview.md) con Java per eseguire le operazioni seguenti.
 
 - [Creare una nuova knowledge base.](#Create)
 - [Aggiornare una knowledge base esistente.](#Update)
@@ -41,7 +41,7 @@ Questo articolo illustra come usare l'[API QnA Maker Microsoft](../Overview/over
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Se si preferisce, è possibile usare un ambiente IDE Java, ma è sufficiente un editor di testo.
+Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](https://aka.ms/azure-jdks). Se si preferisce, è possibile usare un ambiente IDE Java, ma è sufficiente un editor di testo.
 
 È necessario avere un [account delle API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API QnA Maker Microsoft**. È infine necessaria una chiave di sottoscrizione a pagamento configurata nel [dashboard di Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

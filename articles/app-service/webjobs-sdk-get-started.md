@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577306"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140350"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -102,7 +102,7 @@ L'oggetto `JobHost` è il contenitore di runtime per le funzioni, che resta in a
 
 ## <a name="enable-console-logging"></a>Abilitare la registrazione nella console
 
-Nel progetto WebJobs SDK sono disponibili diverse opzioni per la registrazione. L'opzione consigliata è il [framework di registrazione sviluppato per ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). Questo framework offre prestazioni superiori e maggiore flessibilità a livello di supporti di archiviazione e di filtri. 
+Nel progetto WebJobs SDK sono disponibili diverse opzioni per la registrazione. L'opzione consigliata è il [framework di registrazione sviluppato per ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). Questo framework offre prestazioni superiori e maggiore flessibilità a livello di supporti di archiviazione e di filtri. 
 
 In questa sezione si configura la registrazione nella console con il nuovo framework.
 
@@ -182,7 +182,7 @@ In questa sezione si configura la registrazione nella console con il nuovo frame
 
 L'emulatore di archiviazione di Azure eseguito in locale non include tutte le funzionalità necessarie a WebJobs SDK. In questa sezione si crea quindi un account di archiviazione in Azure e si configura il progetto per l'uso di tale account.
 
-1. Aprire **Esplora server** e accedere ad Azure. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connessione alla sottoscrizione di Microsoft Azure**.
+1. Aprire **Esplora server** in Visual Studio e accedere ad Azure. Fare clic con il pulsante destro del mouse sul nodo **Azure** e quindi scegliere **Connessione alla sottoscrizione di Microsoft Azure**.
 
    ![Accedere ad Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
@@ -245,7 +245,7 @@ In questa sezione si compila e si esegue il progetto in locale e si attiva la fu
 
 1. Chiudere la finestra della console.
 
-1. In **Esplora server** espandere il nodo del nuovo account di archiviazione e quindi fare clic con il pulsante destro del mouse su **Code**. 
+1. In **Esplora server** in Visual Studio, espandere il nodo del nuovo account di archiviazione e quindi fare clic con il pulsante destro del mouse su **Code**. 
 
 1. Scegliere **Crea coda**. 
 
@@ -310,7 +310,7 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
 ### <a name="configure-app-settings"></a>Configurare le impostazioni applicazione 
 
-1. In **Esplora server** espandere il nodo **Servizio app** sotto **Azure**.
+1. In **Esplora server** in Visual Studio, espandere il nodo **Servizio app** sotto **Azure**.
 
 1. Espandere il gruppo di risorse in cui si trova l'app del servizio app e quindi fare clic con il pulsante destro del mouse sull'app del servizio app.
 
@@ -396,7 +396,7 @@ In questa sezione si configura la registrazione in Application Insights prima de
 
 In questa sezione si ripete l'esecuzione in locale per verificare che i dati di registrazione vengano ora inviati sia ad Application Insights che alla console.
 
-1. Usare **Esplora server** per creare un messaggio nella coda così come è stato fatto [in precedenza](#trigger-the-function), immettendo però *Hello App Insights!* come testo del messaggio.
+1. Usare **Esplora server** in Visual Studio per creare un messaggio nella coda così come è stato fatto [in precedenza](#trigger-the-function), immettendo però *Hello App Insights!* come testo del messaggio.
 
 1. Eseguire il progetto.
 
@@ -442,7 +442,6 @@ In questa sezione si distribuisce il progetto come processo Web in un'app del se
 
 1. Assicurarsi che l'esecuzione non sia in locale. Se è ancora aperta, chiudere la finestra della console. In caso contrario, l'istanza locale potrebbe elaborare per prima i messaggi creati nella coda.
 
-1. Usare **Esplora server** per creare un messaggio nella coda così come è stato fatto [in precedenza](#trigger-the-function), immettendo però *Hello Azure!*.
 
 1. Aggiornare la pagina **Coda** in Visual Studio. Il nuovo messaggio non sarà presente perché è stato elaborato dalla funzione eseguita nel servizio app di Azure.
 
@@ -485,7 +484,7 @@ Le associazioni di input semplificano il codice per la lettura di dati. Per ques
 
 1. Creare un contenitore BLOB nell'account di archiviazione.
 
-   a. In **Esplora server** espandere il nodo dell'account di archiviazione, fare clic con il pulsante destro del mouse su **BLOB** e quindi scegliere **Crea contenitore BLOB**.
+   a. In **Esplora server** in Visual Studio, espandere il nodo dell'account di archiviazione, fare clic con il pulsante destro del mouse su **BLOB** e quindi scegliere **Crea contenitore BLOB**.
 
    b. Nella finestra di dialogo **Crea contenitore BLOB** immettere *container* come nome del contenitore e quindi fare clic su **OK**.
 

@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 06/04/2018
+ms.date: 10/24/2018
 ms.author: danlep
-ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090963"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155621"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Eseguire le applicazioni del contenitore in Azure Batch
 
@@ -225,11 +225,15 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ## <a name="container-settings-for-the-task"></a>Impostazioni del contenitore per l'attività
 
-Per eseguire le attività dei contenitori sui nodi di calcolo, è necessario specificare le impostazioni specifiche per il contenitore, ad esempio le opzioni di immagini di esecuzione di attività, le immagini da usare e il registro.
+Per eseguire le attività dei contenitori sui nodi di calcolo, è necessario definire le impostazioni specifiche per il contenitore, ad esempio le opzioni di esecuzione di contenitori, le immagini da usare e il registro.
 
 Usare la proprietà `ContainerSettings` delle classi di attività per configurare le impostazioni specifiche del contenitore. Queste impostazioni vengono definite dalla classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
 
 Se si eseguono attività sulle immagini del contenitore, l'[attività cloud](/dotnet/api/microsoft.azure.batch.cloudtask) e l'[attività di gestione dei processi](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) richiedono le impostazioni del contenitore. Tuttavia, l'[attività di avvio](/dotnet/api/microsoft.azure.batch.starttask), l'[attività di preparazione del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) e l'[attività di rilascio del processo](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) non richiedono le impostazioni dei contenitori, vale a dire che possono essere eseguite in un contesto del contenitore o direttamente nel nodo.
+
+L'elemento [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) facoltativo indica argomenti aggiuntivi al comando `docker create` che esegue l'attività per creare il contenitore.
+
+### <a name="container-task-working-directory"></a>Directory di lavoro dell'attività contenitore
 
 Riga di comando per un'attività contenitore di Azure Batch eseguita in una directory di lavoro nel contenitore, molto simile all'ambiente impostato da Batch per un'attività normale (non contenitore):
 
@@ -237,9 +241,13 @@ Riga di comando per un'attività contenitore di Azure Batch eseguita in una dire
 * Viene eseguito il mapping di tutte le variabili di ambiente delle attività nel contenitore
 * La directory di lavoro dell'applicazione è identica a quella di un'attività regolare, pertanto è possibile usare funzionalità come i pacchetti delle applicazioni e i file di risorse
 
-Poiché Batch modifica la directory di lavoro predefinita nel contenitore, l'attività viene eseguita in un percorso diverso dal tipico punto di ingresso del contenitore (ad esempio `c:\` per impostazione predefinita in un contenitore di Windows o `/` in Linux). Assicurarsi che il punto di ingresso della riga di comando dell'attività o del contenitore specifichi un percorso assoluto, se non è già configurato in questo modo.
+Poiché Batch modifica la directory di lavoro predefinita nel contenitore, l'attività viene eseguita in un percorso diverso dalla tipica directory di lavoro del contenitore (ad esempio `c:\` per impostazione predefinita in un contenitore di Windows o `/` in Linux o un'altra directory, se configurata nell'immagine del contenitore). Per assicurarsi che le applicazioni contenitore vengano eseguite correttamente nel contesto di Batch, eseguire una delle operazioni seguenti: 
 
-Il frammento di codice Python seguente illustra una riga di comando di base in esecuzione in un contenitore di Ubuntu di cui è stato eseguito il pull dall'hub Docker. Le opzioni di esecuzione del contenitore sono argomenti aggiuntivi per il comando `docker create` eseguito dall'attività. L'opzione `--rm` rimuove il contenitore al termine dell'attività.
+* Assicurarsi che la riga di comando dell'attività o la directory di lavoro del contenitore specifichi un percorso assoluto, se non è già configurato in questo modo.
+
+* Nella proprietà ContainerSettings dell'attività, impostare una directory di lavoro nelle opzioni di esecuzione del contenitore. Ad esempio: `--workdir /app`.
+
+Il frammento di codice Python seguente illustra una riga di comando di base in esecuzione in un contenitore di Ubuntu di cui è stato eseguito il pull dall'hub Docker. Di seguito, l'opzione di esecuzione del contenitore `--rm` rimuove il contenitore al termine dell'attività.
 
 ```python
 task_id = 'sampletask'

@@ -6,15 +6,15 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: yshoukry, LADocs
+ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/20/2018
-ms.openlocfilehash: 5fc4ccacaaedfc3fe6c77fa9a0ad693530bdde93
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 10/01/2018
+ms.openlocfilehash: 2934eadce9e3e0d5e0375dff4eec359a33bd4479
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855426"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420099"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -60,11 +60,13 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 * Di seguito sono riportati i requisiti per il computer locale:
 
   **Requisiti minimi**
+
   * .NET Framework 4.5.2
   * Windows 7 versione a 64 bit o Windows Server 2008 R2 (o versione successiva)
 
   **Requisiti consigliati**
-  * 8 CPU core
+
+  * CPU 8 core
   * 8 GB di memoria
   * Versione a 64 bit di Windows Server 2012 R2 (o versione successiva)
 
@@ -75,11 +77,11 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
     > [!TIP]
     > Per ridurre al minimo la latenza, è possibile installare il gateway il più vicino possibile all'origine dati o nello stesso computer, presupponendo che si disponga delle autorizzazioni.
 
-  * Installare il gateway in un computer in che sia connesso a Internet, sempre acceso e che *non* vada in sospensione. In caso contrario, il gateway non funziona. Le prestazioni possono anche diminuire su una rete wireless.
+  * Installare il gateway in un computer in che sia connesso a Internet, sempre acceso e che *non* vada in sospensione. In caso contrario, il gateway non funziona. 
+  Le prestazioni possono anche diminuire su una rete wireless.
 
-  * Durante l'installazione, è possibile accedere solo con un [account aziendale o dell'istituto di istruzione](../active-directory/sign-up-organization.md) gestito da Azure Active Directory (Azure AD) e non con un account Microsoft. 
-  Verificare inoltre che questo account non sia un account Azure B2B (guest). 
-  È anche necessario usare lo stesso account di accesso nel portale di Azure quando si registra l'installazione del gateway tramite la creazione di una risorsa di Azure per il gateway. 
+  * Durante l'installazione è possibile accedere solo con un [account aziendale o dell'istituto di istruzione](../active-directory/sign-up-organization.md) gestito da Azure Active Directory (Azure AD), ad esempio @contoso.onmicrosoft.com, e non con un account (guest) Azure B2B o un account Microsoft personale, ad esempio @hotmail.com o @outlook.com. 
+  Usare lo stesso account di accesso quando si registra l'installazione del gateway nel portale di Azure mediante la creazione di una risorsa per il gateway. 
   È quindi possibile selezionare la risorsa del gateway quando si crea la connessione dall'app per la logica all'origine dati locale. 
   [Perché è necessario usare un account di Azure AD aziendale o dell'istituto di istruzione?](#why-azure-work-school-account)
 
@@ -96,6 +98,19 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
   * Se si dispone già di un gateway impostato con un programma di installazione precedente alla versione 14.16.6317.4, non è possibile modificare la posizione del gateway eseguendo il programma di installazione più recente. È tuttavia possibile usare il programma di installazione più recente per configurare un nuovo gateway con la posizione desiderata.
   
     Se si dispone di un programma di installazione del gateway che è precedente alla versione 14.16.6317.4, ma non è ancora stato installato il gateway, è invece possibile scaricare e usare il programma di installazione più recente.
+
+## <a name="high-availability-support"></a>Supporto per la disponibilità elevata
+
+Il gateway dati locale supporta la disponibilità elevata quando sono presenti più installazioni del gateway configurate come cluster. Se si dispone di un gateway esistente quando si procede alla creazione di un altro gateway, è possibile scegliere di creare cluster a disponibilità elevata. Questi cluster organizzano i gateway in gruppi che consentono di evitare singoli punti di errore. Inoltre, tutti i connettori del gateway dati locale ora supportano la disponibilità elevata.
+
+Per usare il gateway dati locale, rivedere i requisiti e le considerazioni seguenti:
+
+* È necessario disporre già di almeno un'installazione del gateway nella stessa sottoscrizione di Azure del gateway primario e della chiave di ripristino per tale installazione. 
+
+* Il gateway primario deve eseguire l'aggiornamento del gateway di novembre 2017 o versione successiva.
+
+Una volta soddisfatti questi requisiti, al momento della creazione del gateway successivo, selezionare **Add to an existing gateway cluster** (Aggiungi a un cluster di gateway esistente), selezionare il gateway primario per il cluster e fornire la chiave di ripristino per tale gateway primario.
+Per altre informazioni, vedere [Cluster a disponibilità elevata per il gateway dati locale](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
 
 <a name="install-gateway"></a>
 
@@ -161,19 +176,6 @@ Per informazioni su come usare il gateway con altri servizi, vedere i seguenti a
 
 10. A questo punto, registrare il gateway in Azure tramite la [creazione di una risorsa di Azure per l'installazione del gateway](../logic-apps/logic-apps-gateway-connection.md). 
 
-## <a name="enable-high-availability"></a>Abilitare la disponibilità elevata
-
-Il gateway dati locale supporta la disponibilità elevata quando sono presenti più installazioni del gateway configurate come cluster. Se si dispone di un gateway esistente quando si procede alla creazione di un altro gateway, è possibile scegliere di creare cluster a disponibilità elevata. Questi cluster organizzano i gateway in gruppi che consentono di evitare singoli punti di errore. Per usare questa funzionalità, esaminare i requisiti e le considerazioni seguenti:
-
-* Solo alcuni connettori supportano la disponibilità elevata, ad esempio il connettore File System e altri. 
-     
-* È necessario disporre già di almeno un'installazione del gateway nella stessa sottoscrizione di Azure del gateway primario e della chiave di ripristino per tale installazione. 
-
-* Il gateway primario deve eseguire l'aggiornamento del gateway di novembre 2017 o versione successiva.
-
-Una volta soddisfatti questi requisiti, al momento della creazione del gateway successivo, selezionare **Add to an existing gateway cluster** (Aggiungi a un cluster di gateway esistente), selezionare il gateway primario per il cluster e fornire la chiave di ripristino per tale gateway primario.
-Per altre informazioni, vedere [Cluster a disponibilità elevata per il gateway dati locale](https://docs.microsoft.com/power-bi/service-gateway-high-availability-clusters).
-
 <a name="update-gateway-installation"></a>
 
 ## <a name="change-location-migrate-restore-or-take-over-existing-gateway"></a>Modificare la posizione, eseguire la migrazione, ripristinare o sostituire un gateway esistente
@@ -236,7 +238,7 @@ Il gateway crea una connessione in uscita al [Bus di servizio di Azure](https://
 
 Il gateway usa i nomi di dominio completi seguenti:
 
-| Nomi di dominio | Porte in uscita | DESCRIZIONE | 
+| Nomi di dominio | Porte in uscita | Descrizione | 
 | ------------ | -------------- | ----------- | 
 | *. analysis.windows.net | 443 | HTTPS | 
 | *.core.windows.net | 443 | HTTPS | 
@@ -253,7 +255,7 @@ In alcuni casi, le connessioni al Bus di servizio di Azure verranno stabilite co
 
 ### <a name="force-https-communication-with-azure-service-bus"></a>Forzare la comunicazione HTTPS con il bus di servizio di Azure
 
-Alcuni proxy consentono il traffico solo alle porte 80 e 443. Per impostazione predefinita, la comunicazione con il bus di servizio di Azure avviene su porte diverse dalla 443.
+Alcuni proxy consentono il passaggio di traffico solo alle porte 80 e 443. Per impostazione predefinita, la comunicazione con il bus di servizio di Azure avviene su porte diverse dalla 443.
 È possibile forzare il gateway a comunicare con il bus di servizio di Azure usando HTTPS anziché TCP diretto. Questa operazione, tuttavia, può ridurre le prestazioni in misura significativa. Per eseguire questa attività seguire questi passaggi:
 
 1. Passare al percorso per il client del gateway dati locale, che in genere è: ```C:\Program Files\On-premises data gateway\Microsoft.PowerBI.EnterpriseGateway.exe```
@@ -283,7 +285,7 @@ Il gateway dati locale viene eseguito come un servizio Windows denominato "On-pr
 
 ## <a name="restart-gateway"></a>Riavviare il gateway
 
-Il gateway dati viene eseguito come servizio Windows e, come qualsiasi altro servizio di questo tipo, può essere avviato e arrestato in diversi modi. Ad esempio, è possibile aprire un prompt dei comandi con autorizzazioni elevate nel computer in cui è in esecuzione il gateway e quindi eseguire uno dei comandi seguenti:
+Il gateway dati viene eseguito come servizio Windows e, come qualsiasi altro servizio di questo tipo, può essere avviato e arrestato in vari modi. Ad esempio, è possibile aprire un prompt dei comandi con autorizzazioni elevate nel computer in cui è in esecuzione il gateway e quindi eseguire uno dei comandi seguenti:
 
 * Per arrestare il servizio, eseguire questo comando:
   
@@ -370,9 +372,9 @@ I passaggi seguenti descrivono quello che accade quando un utente nel cloud inte
 **D**: Qual è il vantaggio della chiave di ripristino? <br/>
 **R**: La chiave di ripristino consente di eseguire la migrazione o di ripristinare le impostazioni del gateway in caso di emergenza.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-In questa sezione sono descritti alcuni dei problemi comuni che possono verificarsi durante la configurazione e uso del gateway dati locale.
+Questa sezione affronta alcuni dei problemi comuni che possono verificarsi durante la configurazione e l'uso del gateway dati locale.
 
 **D**: Perché l'installazione del gateway non è riuscita? <br/>
 **R**: Questo problema può verificarsi se il software antivirus nel computer di destinazione non è aggiornato. È possibile aggiornare il software antivirus oppure disabilitarlo temporaneamente durante l'installazione del gateway e quindi abilitarlo nuovamente.
@@ -504,7 +506,7 @@ Per determinare la durata di una query, seguire questa procedura:
 
    2. Per trovare una query, cercare un tipo di attività, ad esempio: 
 
-      | Tipo di attività | DESCRIZIONE | 
+      | Tipo di attività | Descrizione | 
       |---------------|-------------| 
       | MGEQ | Query eseguite su ADO.NET. | 
       | MGEO | Query eseguite su OLEDB. | 

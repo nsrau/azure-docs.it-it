@@ -1,5 +1,5 @@
 ---
-title: Ricevere eventi da Hub eventi di Azure usando .NET Framework | Microsoft Docs
+title: Ricevere eventi da Hub eventi di Azure usando .NET Framework | Documentazione Microsoft
 description: Seguire questa esercitazione per ricevere eventi da Hub eventi di Azure usando .NET Framework.
 services: event-hubs
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 9e94357216690438446a738400c979d12f387df6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cb1d26082fe4fbbd14b2b77f54d1bc7697b3538d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471085"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227961"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>Ricevere eventi da Hub eventi di Azure usando .NET Framework
 
@@ -33,7 +33,7 @@ Questa esercitazione illustra come scrivere un'applicazione console .NET Framewo
 
 Per completare questa esercitazione è necessario soddisfare i prerequisiti seguenti:
 
-* [Microsoft Visual Studio 2017 o versione successiva](http://visualstudio.com).
+* [Microsoft Visual Studio 2017 o versione successiva](https://visualstudio.com).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Creare uno spazio dei nomi di Hub eventi e un hub eventi
 Il primo passaggio consiste nell'usare il [portale di Azure](https://portal.azure.com) per creare uno spazio dei nomi di tipo Hub eventi e ottenere le credenziali di gestione necessarie all'applicazione per comunicare con l'hub eventi. Per creare uno spazio dei nomi e un hub eventi, seguire la procedura descritta in [questo articolo](event-hubs-create.md) e quindi procedere con i passaggi seguenti di questa esercitazione.

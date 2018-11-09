@@ -1,6 +1,6 @@
 ---
 title: Effettuare il provisioning di un dispositivo TPM simulato nell'hub IoT di Azure usando Node.js | Microsoft Docs
-description: Guida introduttiva di Azure - Creare ed effettuare il provisioning di un dispositivo simulato TPM usando Node.js Device SDK per il servizio Device Provisioning in hub IoT di Azure
+description: Guida introduttiva di Azure - Creare ed effettuare il provisioning di un dispositivo simulato TPM usando Node.js Device SDK per il servizio Device Provisioning in hub IoT di Azure. Questa guida introduttiva usa registrazioni singole.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 956bdf4770bd2a42a9ede6f59c2aa80d44d9429a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8b2d49d9df2cc8db98004ad9c186511d8d5e2b87
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041592"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156647"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM usando Node.js Device SDK per il servizio Device Provisioning in hub IoT
 
@@ -23,6 +23,12 @@ ms.locfileid: "47041592"
 Questi passaggi illustrano come creare un dispositivo simulato nel computer di sviluppo che esegue un sistema operativo Windows, eseguire il simulatore Windows TPM come [modulo di protezione hardware](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) del dispositivo e usare l'esempio di codice per connettere questo dispositivo simulato con il servizio Device Provisioning e l'hub IoT. 
 
 Se non si ha familiarità con il processo di provisioning automatico, è necessario vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
+
+Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
+- [Gruppi di registrazioni](concepts-service.md#enrollment-group): usato per registrare più dispositivi correlati.
+- [Registrazioni singole](concepts-service.md#individual-enrollment): usato per registrare un singolo dispositivo.
+
+Questo articolo descrive le registrazioni singole.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -132,9 +138,9 @@ Se non si ha familiarità con il processo di provisioning automatico, è necessa
 
 1. Accedere al portale di Azure, fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning.
 
-1. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Manage enrollments** (Gestisci registrazioni). Selezionare la scheda **Individual Enrollments** (Registrazioni singole) e fare clic sul pulsante **Add individual enrollment** (Aggiungi registrazione singola) in alto. 
+1. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Manage enrollments** (Gestisci registrazioni). Selezionare la scheda **Individual Enrollments** (Registrazione singola) e fare clic sul pulsante in alto **Add individual enrollment** (Aggiungi registrazione singola). 
 
-1. Nel riquadro **Add Enrollment**(Aggiungi registrazione) immettere le informazioni seguenti:
+1. Nella sezione **Add Enrollment**(Aggiungi registrazione) immettere le seguenti informazioni:
     - Selezionare **TPM** come *meccanismo* di attestazione dell'identità.
     - Immettere l'*ID registrazione* e la *chiave di verifica dell'autenticità* per il dispositivo TPM.
     - Facoltativamente, è possibile specificare le informazioni seguenti:

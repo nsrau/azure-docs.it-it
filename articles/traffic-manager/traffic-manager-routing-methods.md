@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955219"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139342"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
 
 Gestione traffico di Azure supporta sei metodi di routing del traffico per determinare la modalità di instradamento del traffico di rete ai vari endpoint di servizio. Gestione traffico applica il metodo di routing del traffico associato a qualsiasi profilo a ogni query DNS ricevuta. Il metodo di routing del traffico determina l'endpoint restituito nella risposta DNS.
 
-In Gestione traffico sono disponibili quattro metodi di routing del traffico:
+In Gestione traffico sono disponibili i metodi di routing del traffico seguenti:
 
 * **[Priorità](#priority):** selezionare **Priorità** quando si vuole usare un endpoint di servizio primario per tutto il traffico e prevedere endpoint di backup nel caso in cui l'endpoint primario o gli endpoint di backup non siano disponibili.
 * **[Ponderato](#weighted):** selezionare **Ponderato** quando si vuole distribuire il traffico in un set di endpoint in modo uniforme o in base alle ponderazioni definite.
 * **[Prestazioni](#performance):** selezionare **Prestazioni** quando gli endpoint si trovano in aree geografiche diverse e si vuole che gli utenti finali usino l'endpoint "più vicino" in termini di latenza di rete più bassa.
 * **[Geografico](#geographic):** selezionare **Geografico** in modo che gli utenti vengono indirizzati a endpoint specifici (Azure, Esterno o Annidato) in base alla posizione geografica da cui provengono le query DNS. Questo consente ai clienti di Gestione traffico di abilitare scenari in cui è importante conoscere l'area geografica dell'utente ed eseguirne il routing in base a questa. Ne sono esempi la presenza di determinati requisiti sui dati, la localizzazione del contenuto e dell'esperienza dell'utente e la misurazione del traffico da aree diverse.
 * **[Multivalore](#multivalue):** selezionare **Multivalore** per i profili di Gestione traffico che possono avere come endpoint solo indirizzi IPv4/IPv6. Quando viene ricevuta una query per profili di questo tipo, vengono restituiti tutti gli endpoint integri.
-* **[Subnet](#subnet):** selezionare il metodo di routing del traffico **Subnet** per eseguire il mapping di set di intervalli di indirizzi IP dell'utente finale a uno specifico endpoint all'interno di un profilo di Gestione traffico. Al ricevimento di una richiesta, verrà restituito l'endpoint mappato per l'indirizzo IP di origine della richiesta. 
+* **[Subnet](#subnet):** selezionare il metodo di routing del traffico **Subnet** per eseguire il mapping di set di intervalli di indirizzi IP dell'utente finale a uno specifico endpoint all'interno di un profilo di Gestione traffico. Al ricevimento di una richiesta, verrà restituito l'endpoint mappato per l'indirizzo IP di origine della richiesta. 
 
 
 Tutti i profili di Gestione traffico includono il monitoraggio continuo dell'integrità degli endpoint e il failover automatico degli endpoint. Per altre informazioni, vedere [Informazioni sul monitoraggio di Gestione traffico](traffic-manager-monitoring.md). Un singolo profilo di Gestione traffico può usare un solo metodo di routing del traffico. È possibile selezionare in qualsiasi momento un metodo di routing del traffico diverso per il profilo. Le modifiche vengono applicate entro un minuto e non si verificano periodi di inattività. I metodi di routing del traffico possono essere combinati usando profili nidificati di Gestione traffico. I profili annidati consentono di creare configurazioni di routing del traffico sofisticate e flessibili per soddisfare le esigenze di applicazioni più grandi e più complesse. Per altre informazioni, vedere [nested Traffic Manager profiles](traffic-manager-nested-profiles.md)(Profili nidificati di Gestione traffico).

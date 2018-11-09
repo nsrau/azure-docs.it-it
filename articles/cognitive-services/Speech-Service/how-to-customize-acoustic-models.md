@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466087"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215243"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Esercitazione: Creare un modello acustico personalizzato
 
@@ -35,7 +35,7 @@ Assicurarsi che l'account Servizi cognitivi sia collegato a una sottoscrizione a
 
 Per connettersi a una sottoscrizione del servizio Voce creata nel portale di Azure, selezionare **Connect existing subscription** (Connetti alla sottoscrizione esistente).
 
-Per informazioni sulla creazione di una sottoscrizione al servizio Voce nel portale di Azure, vedere [Provare gratuitamente il servizio Voce](get-started.md).
+Per informazioni sulla creazione di una sottoscrizione al servizio Voce nel portale di Azure, vedere [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md).
 
 ## <a name="prepare-the-data"></a>Preparare i dati
 
@@ -53,7 +53,7 @@ Un set di dati acustico per la personalizzazione del modello acustico si compone
 * Tutti i file audio nel set di dati devono essere archiviati nel formato audio WAV (RIFF).
 * L'audio deve avere una frequenza di campionamento di 8 kilohertz (KHz) o 16 KHz e i valori del campione devono essere archiviati come interi con segno a 16 bit PCM (Pulse Code Modulation) non compressi.
 * Sono supportati solo i file audio a canale singolo (mono).
-* La durata dei file audio devono essere compresa tra 100 millisecondi e 1 minuto. In teoria, ogni file audio deve iniziare e terminare con almeno 100 microsecondi di silenzio. Il valore più comune è compreso tra 500 microsecondi e un secondo.
+* I file audio possono avere una durata compresa tra 100 microsecondi e 1 minuto, anche se idealmente dovrebbero essere di circa 10-12 secondi. In teoria, ogni file audio deve iniziare e terminare con almeno 100 microsecondi di silenzio. Il valore più comune è compreso tra 500 microsecondi e un secondo.
 * Se nei dati è presente rumore di sottofondo nei dati, è consigliabile che siano presenti anche alcuni esempi con segmenti di silenzio più lunghi, ad esempio, di alcuni secondi, prima e/o dopo il contenuto per il riconoscimento vocale.
 * Ogni file audio deve essere costituito da una singola espressione, ad esempio una singola frase per la dettatura, una sola domanda o una sola battuta di un dialogo.
 * A ogni file audio nel set di dati deve essere assegnato un nome file univoco e l'estensione wav.
@@ -69,7 +69,7 @@ Un set di dati acustico per la personalizzazione del modello acustico si compone
 | Frequenza di campionamento | 8.000 Hertz (Hz) o 16.000 Hz |
 | Canali | 1 (mono) |
 | Formato del campione | PCM, interi a 16 bit |
-| Durata del file | 0,1 secondi < durata < 60 secondi |
+| Durata del file | 0,1 secondi < durata < 12 secondi | 
 | Intervallo di silenzio | > 0,1 secondi |
 | Formato di archiviazione | zip |
 | Dimensione massima del file | 2 GB |
@@ -94,7 +94,7 @@ Le trascrizioni di tutti i file WAV devono essere contenute in un unico file di 
 > [!NOTE]
 > La trascrizione deve presentare la codifica UTF-8 BOM (byte order mark).
 
-Alle trascrizioni viene applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune importanti normalizzazioni da effettuare _prima_ di caricare i dati nel servizio Voce personalizzato. Per la lingua appropriata da usare durante la preparazione delle trascrizioni, vedere [Linee guida per la trascrizione per l'utilizzo del servizio Voce](prepare-transcription.md).
+Alle trascrizioni viene applicata la normalizzazione del testo in modo che possano essere elaborate dal sistema. Tuttavia, esistono alcune importanti normalizzazioni da effettuare _prima_ di caricare i dati nel servizio di riconoscimento vocale personalizzato. Per la lingua appropriata da usare durante la preparazione delle trascrizioni, vedere [Linee guida per la trascrizione per l'utilizzo del servizio Voce](prepare-transcription.md).
 
 Per eseguire i passaggi delle sezioni successive, usare il [portale del servizio Voce](https://cris.ai).
 

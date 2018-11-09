@@ -1,5 +1,6 @@
 ---
-title: Creazione di una nuova applicazione con LUIS
+title: Creare una nuova app con Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Creare e gestire le applicazioni nella pagina Web di Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 55af0559c98c9fc63fd6902d80b4e6f2f0a7d2da
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a4dbea40e59ef8fb3a89fefc24f43060c46a91eb
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870116"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214206"
 ---
 # <a name="create-an-app"></a>Creare un'app
 Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel portale [LUIS](https://www.luis.ai) o tramite le [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) di creazione di LUIS.

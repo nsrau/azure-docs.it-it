@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269259"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215260"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -72,11 +72,6 @@ Dall'elenco del riquadro a sinistra è possibile selezionare i computer o i grup
 
 Per impostazione predefinita, Mapping dei servizi mostra le informazioni sulle dipendenze per gli ultimi 30 minuti. Usando i controlli temporali in alto a sinistra, è possibile cercare nelle mappe intervalli di tempo cronologici della durata massima di un'ora per visualizzare l'aspetto delle dipendenze nel passato, ad esempio durante un evento imprevisto o prima di una modifica. I dati di Mapping dei servizi vengono archiviati per 30 giorni nelle aree di lavoro a pagamento e per 7 giorni nelle aree di lavoro gratuite.
 
-
-
-
-
-
 ## <a name="status-badges-and-border-coloring"></a>Notifiche di stato e colorazione del bordo
 Nella parte inferiore di ogni server nella mappa potrebbe essere presente un elenco di notifiche di stato con informazioni relative allo stato del server. Le notifiche indicano che sono presenti alcune informazioni rilevanti per il server da una delle integrazioni della soluzione. Facendo clic su una notifica, vengono visualizzati direttamente i dettagli dello stato nel riquadro di destra. Le notifiche di stato attualmente disponibili includono Avvisi, Service Desk, Modifiche, Sicurezza e Aggiornamenti.
 
@@ -104,7 +99,7 @@ Per creare un gruppo, selezionare il computer o i computer che si desidera aggiu
 ![Assegnare un nome al gruppo](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->I gruppi di computer sono attualmente limitati a 10 server, ma si prevede di aumentare questo limite il prima possibile.
+>I gruppi di computer sono limitati a 10 server.
 
 ### <a name="viewing-a-group"></a>Visualizzazione di un gruppo
 Dopo avere creato i gruppi, è possibile visualizzarli scegliendo la scheda Gruppi.
@@ -148,7 +143,7 @@ Fare clic sui puntini di sospensione accanto al nome del gruppo nell'elenco del 
 ## <a name="role-icons"></a>Icone di ruolo
 Alcuni processi svolgono ruoli particolari nei computer: server Web, server applicazioni, database e così via. Mapping dei servizi annota le caselle relative a processi e computer con icone di ruolo, per consentire di identificare rapidamente il ruolo di un processo o un server.
 
-| Icona del ruolo | DESCRIZIONE |
+| Icona del ruolo | Descrizione |
 |:--|:--|
 | ![Server Web](media/monitoring-service-map/role-web-server.png) | Server Web |
 | ![Server app](media/monitoring-service-map/role-application-server.png) | Server applicazioni |
@@ -303,9 +298,9 @@ I record in queste tabelle vengono generati dai dati segnalati da Dependency Age
 
 Per gestire i costi e la complessità, i record di connessione non rappresentano singole connessioni di rete fisiche. Più connessioni di rete fisiche vengono raggruppate in una connessione logica, che viene quindi riflessa nella rispettiva tabella.  Ciò significa che i record nella tabella *VMConnection* rappresentano un raggruppamento logico e non le singole connessioni fisiche osservate. Le connessioni di rete fisiche che condividono lo stesso valore per gli attributi seguenti durante uno specifico intervallo di un minuto vengono aggregate in un singolo record logico in *VMConnection*. 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
-|Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
+|Direction |Direzione della connessione. Il valore è *inbound* o *outbound* |
 |Machine |FQDN del computer |
 |Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
 |SourceIp |Indirizzo IP dell'origine |
@@ -315,7 +310,7 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 
 Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record seguenti vengono fornite informazioni sul numero di connessioni fisiche raggruppate:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 |LinksEstablished |Numero di connessioni di rete fisiche che sono state stabilite durante l'intervallo di tempo di creazione del report |
 |LinksTerminated |Numero di connessioni di rete fisiche che sono state terminate durante l'intervallo di tempo di creazione del report |
@@ -326,7 +321,7 @@ Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record s
 
 Oltre alle metriche relative al numero di connessioni, nelle proprietà del record seguenti vengono fornite anche informazioni sul volume dei dati inviati e ricevuti in una determinata connessione logica o porta di rete:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 |BytesSent |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
 |BytesReceived |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
@@ -352,7 +347,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 #### <a name="geolocation"></a>Georilevazione
 *VMConnection* include anche informazioni di georilevazione per l'estremità remota di ogni record di connessione nelle proprietà del record seguenti: 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 |RemoteCountry |Nome del paese che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
 |RemoteLatitude |Latitudine della georilevazione.  Ad esempio, *47.68* |
@@ -361,7 +356,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 #### <a name="malicious-ip"></a>Indirizzi IP dannosi
 Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un set di indirizzi IP con attività dannosa nota. Se la proprietà RemoteIp viene identificata come dannosa, le proprietà del record seguenti (vuote quando l'indirizzo IP non è considerato dannoso) vengono popolate:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 |MaliciousIp |Indirizzo RemoteIp |
 |IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
@@ -378,7 +373,7 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 ### <a name="servicemapcomputercl-records"></a>Record ServiceMapComputer_CL
 I record che contengono il tipo *ServiceMapComputer_CL* includono dati di inventario relativi ai server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -403,7 +398,7 @@ I record che contengono il tipo *ServiceMapComputer_CL* includono dati di invent
 ### <a name="servicemapprocesscl-type-records"></a>Record con tipo ServiceMapProcess_CL
 I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi ai processi con connessione TCP eseguiti sui server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |

@@ -5,21 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/09/2018
+ms.date: 10/30/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 7ca8311c97faed980555c46d977a5df85c20353d
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: eb814447705112758b70d0a467489e5973c9c80a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067458"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418144"
 ---
 # <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Instradare eventi personalizzati ad Archiviazione code di Azure con l'interfaccia della riga di comando di Azure e Griglia di eventi
 
 La griglia di eventi di Azure è un servizio di gestione degli eventi per il cloud. Archiviazione code di Azure è uno dei gestori eventi supportati. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un argomento personalizzato, sottoscrivere l'argomento e attivare l'evento per visualizzare il risultato. Gli eventi vengono inviati all'archivio code.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -72,16 +74,17 @@ Lo script seguente ottiene l'ID risorsa dell'account di archiviazione per la cod
 ```azurecli-interactive
 storageid=$(az storage account show --name $storagename --resource-group gridResourceGroup --query id --output tsv)
 queueid="$storageid/queueservices/default/queues/$queuename"
+topicid=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
-  --topic-name <topic_name> \
-  -g gridResourceGroup \
+  --source-resource-id $topicid \
   --name <event_subscription_name> \
   --endpoint-type storagequeue \
-  --endpoint $queueid
+  --endpoint $queueid \
+  --expiration-date "2018-11-30"
 ```
 
-L'account che crea la sottoscrizione dell'evento deve avere accesso in scrittura all'archivio code.
+L'account che crea la sottoscrizione dell'evento deve avere accesso in scrittura all'archivio code. Si noti che per la sottoscrizione è impostata una data di scadenza. La sottoscrizione dell'evento scade automaticamente dopo tale data. Impostare una scadenza per le sottoscrizioni di eventi necessarie solo per un periodo di tempo limitato.
 
 Se si usa l'API REST per creare la sottoscrizione, passare l'ID dell'account di archiviazione e il nome della coda come parametro separato.
 

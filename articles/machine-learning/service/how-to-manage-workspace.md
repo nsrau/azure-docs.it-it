@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: c0bb27dccdaf25da818d5d54a8634556a95da737
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2d62e2688c6c17cc96798cb1a560808f6da9c6a9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238678"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242705"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Creare e gestire aree di lavoro del servizio Azure Machine Learning
 
-In questo articolo si procederà alla creazione, alla visualizzazione e all'eliminazione di [**aree di lavoro del servizio Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace) nel portale di Azure per il [servizio Azure Machine Learning](overview-what-is-azure-ml.md).  È anche possibile creare ed eliminare aree di lavoro [tramite l'interfaccia della riga di comando](reference-azure-machine-learning-cli.md) oppure [tramite codice Python](http://aka.ms/aml-sdk).
+In questo articolo si procederà alla creazione, alla visualizzazione e all'eliminazione di [**aree di lavoro del servizio Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace) nel portale di Azure per il [servizio Azure Machine Learning](overview-what-is-azure-ml.md).  È anche possibile creare ed eliminare aree di lavoro [tramite l'interfaccia della riga di comando](reference-azure-machine-learning-cli.md) oppure [tramite codice Python](https://aka.ms/aml-sdk).
 
 Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

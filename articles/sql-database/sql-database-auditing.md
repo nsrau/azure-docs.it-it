@@ -11,21 +11,26 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 2a0bacaf0405a5223afedcd3897e2a1514f7128b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/25/2018
+ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466682"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092952"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
-Il servizio di controllo del database SQL di Azure tiene traccia degli eventi di database e li registra in un log di controllo nell'account di archiviazione di Azure dell'utente. Inoltre, il servizio di controllo:
+Il controllo del [database SQL di Azure](sql-database-technical-overview.md) e di [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) consente di tenere traccia degli eventi che si verificano nel database e registrarli in un log di controllo nell'account di Archiviazione di Azure, nell'area di lavoro di OMS o in Hub eventi. Inoltre, il servizio di controllo:
 
 - Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che potrebbero indicare problemi aziendali o possibili violazioni della sicurezza.
 
 - Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/).
+
+
+> [!NOTE] 
+> Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
+
 
 ## <a id="subheading-1"></a>Panoramica del servizio di controllo del database SQL di Azure
 
@@ -51,7 +56,7 @@ I criteri di controllo possono essere definiti per un database specifico o come 
 
 - Se *il controllo BLOB del server è abilitato*, *si applica sempre al database*. Il database verrà controllato, indipendentemente dalle impostazioni di controllo del database.
 
-- L'abilitazione del controllo BLOB nel database in aggiunta all'abilitazione nel server *non* sostituisce o modifica le impostazioni del controllo BLOB del server. I due controlli coesisteranno. In altre parole, il database viene controllato due volte in parallelo, una volta con i criteri del server e una volta con i criteri del database.
+- L'abilitazione del controllo BLOB nel database o nel data warehouse in aggiunta all'abilitazione nel server *non* sostituisce né modifica le impostazioni del controllo BLOB del server. I due controlli coesisteranno. In altre parole, il database viene controllato due volte in parallelo, una volta con i criteri del server e una volta con i criteri del database.
 
    > [!NOTE]
    > È consigliabile evitare di abilitare contemporaneamente il controllo BLOB del server e il controllo BLOB del database ad eccezione dei casi seguenti:
@@ -79,7 +84,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
     ![Riquadro di spostamento][3]
 
-5. **Nuovo** -sono ora disponibili più opzioni per la configurazione in cui verranno scritti i log di controllo. È possibile scrivere i log in un account di archiviazione di Azure, a un'area di lavoro Log Analytics affinché vengano usati da Log Analytics o in hub eventi per l'utilizzo con hub eventi. È possibile configurare qualsiasi combinazione di queste opzioni e verranno scritti i log di controllo per ognuno.
+5. **Nuovo** -sono ora disponibili più opzioni per la configurazione in cui verranno scritti i log di controllo. È possibile scrivere i log in un account di archiviazione di Azure, in un'area di lavoro di Log Analytics affinché vengano usati da Log Analytics o in un hub eventi per l'uso con Hub eventi. È possibile configurare qualsiasi combinazione di queste opzioni e verranno scritti i log di controllo per ognuno.
 
     ![opzioni di archiviazione](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -87,7 +92,7 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 
     ![archiviazione di Azure](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. Per configurare la scrittura dei log di controllo in un'area di lavoro Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **dettagli Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
+7. Per configurare la scrittura dei log di controllo in un'area di lavoro di Log Analytics, selezionare **Log Analytics (anteprima)** e aprire **Dettagli di Log Analytics**. Selezionare o creare l'area di lavoro Log Analytics in cui verranno scritti i log e quindi scegliere **OK**.
 
     ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
@@ -98,6 +103,11 @@ Nella sezione seguente è descritta la configurazione del controllo mediante il 
 9. Fare clic su **Save**.
 10. Per personalizzare gli eventi controllati, è possibile usare i [cmdlet PowerShell](#subheading-7) o l'[API REST](#subheading-9).
 11. Dopo aver configurato le impostazioni di controllo, è possibile attivare la nuova funzionalità di rilevamento delle minacce e configurare gli indirizzi di posta elettronica per ricevere gli avvisi di sicurezza. Quando si usa il rilevamento delle minacce, si ricevono avvisi proattivi sulle attività di database anomale che possono indicare potenziali minacce per la sicurezza. Per altre informazioni, vedere [Introduzione al rilevamento delle minacce](sql-database-threat-detection-get-started.md).
+
+
+> [!IMPORTANT]
+>L'abilitazione del controllo su Azure SQL Data Warehouse o su un server che dispone di Azure SQL Data Warehouse **comporta il riavvio del data warehouse**, anche nel caso in cui questo sia stato precedentemente sospeso. **Assicurarsi di sospendere nuovamente il data warehouse dopo l'abilitazione del controllo**.
+
 
 ## <a id="subheading-3"></a>Analizzare i log di controllo e i report
 
@@ -206,6 +216,9 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
     FAILED_DATABASE_AUTHENTICATION_GROUP
 
     È possibile configurare il controllo per diversi tipi di azioni e gruppi di azioni tramite PowerShell, come descritto nella sezione [Gestire il controllo del database SQL usando Azure PowerShell](#subheading-7).
+
+- Quando si usa l'autenticazione di AAD, i record degli accessi non riusciti *non* vengono visualizzati nel log di controllo di SQL. Per visualizzare i record di controllo degli accessi non riusciti, è necessario visitare il [portale di Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), che registra i dettagli di questi eventi.
+
 
 ## <a id="subheading-7"></a>Gestire il controllo del database SQL usando Azure PowerShell
 

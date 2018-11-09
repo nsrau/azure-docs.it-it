@@ -10,20 +10,20 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 0cf1103b37572b43585e4a977dc4d034e7a50e2f
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: fb6eeafd8183d9e0ae3e6822c236344a9ea1f90f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814475"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419045"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-java"></a>Guida introduttiva all'API Ricerca entità Bing con Java 
 
-Questo articolo spiega come usare l'[API Ricerca entità Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) con Java.
+Questo articolo spiega come usare l'[API Ricerca entità Bing](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) con Java.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Se si preferisce, è possibile usare un ambiente di sviluppo Java ma è sufficiente un editor di testo.
+Per compilare ed eseguire questo codice è necessario [JDK 7 o 8](https://aka.ms/azure-jdks). Se si preferisce, è possibile usare un ambiente di sviluppo Java ma è sufficiente un editor di testo.
 
 È necessario disporre di un [account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con l'**API Ricerca entità Bing**. Per questa guida introduttiva è sufficiente la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/?api=bing-entity-search-api). È necessaria la chiave di accesso fornita all'attivazione della versione di valutazione gratuita oppure è possibile usare una chiave di sottoscrizione a pagamento dal dashboard di Azure.
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 92dde19e42c1adb6d83e1708106f844f228e8989
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239351"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247556"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>Guida introduttiva: Creare un'app Web Java nel servizio app in Linux
 
@@ -77,26 +77,7 @@ Quindi aggiungere la definizione di plug-in seguente all'interno dell'elemento `
 
 
 > [!NOTE] 
-> In questo articolo vengono usate solo app Java in pacchetto con file WAR. Il plug-in supporta anche le applicazioni web con estensione JAR. Utilizzare la seguente definizione di plugin alternativa per queste applicazioni. Questa configurazione distribuirà un JAR compilato da Maven in `${project.build.directory}/${project.build.finalName}.jar` sul filesystem locale.
->
->```xml
-><plugin>
->            <groupId>com.microsoft.azure</groupId>
->            <artifactId>azure-webapp-maven-plugin</artifactId>
->            <version>1.4.0</version>
->            <configuration>
->                <deploymentType>jar</deploymentType>
->
->           <!-- Web App information -->
->            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
->            <appName>${WEBAPP_NAME}</appName>
->            <region>${REGION}</region>  
->
->                <!-- Java Runtime Stack for Web App on Linux-->
->                <linuxRuntime>jre8</linuxRuntime>
->            </configuration>
->         </plugin>
->```    
+> In questo articolo vengono usate solo app Java in pacchetto con file WAR. Il plug-in supporta anche le applicazioni Web JAR. Vedere [Distribuire un file JAR Java SE nel servizio app di Azure in Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) per provarlo.
 
 
 Aggiornare i segnaposto seguenti nella configurazione del plug-in:
@@ -127,8 +108,8 @@ Al termine della distribuzione, passare all'applicazione distribuita usando l'UR
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa Guida introduttiva è stato usato Maven per creare un'app Web Java, è stato configurato il [plug-in Maven per le app Web di Azure (anteprima)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), quindi è stata distribuita un'app Web Java inclusa in pacchetti come archivio Web nel servizio app in Linux. Per altre informazioni sull'uso di Java con Azure, visitare il collegamento seguente.
+In questa Guida introduttiva è stato usato Maven per creare un'app Web Java, è stato configurato il [plug-in Maven per le app Web di Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), quindi è stata distribuita un'app Java inclusa in pacchetti come archivio Web nel servizio app in Linux. Per informazioni su come collegare i database, configurare la registrazione e il monitoraggio, configurare la sicurezza e impostare le opzioni di runtime, continuare con la guida dello sviluppatore Java per il servizio app in Linux.
 
 > [!div class="nextstepaction"]
-> [Azure per sviluppatori Java](https://docs.microsoft.com/java/azure/)
+> [Guida dello sviluppatore Java per il servizio app in Linux](app-service-linux-java.md)
 

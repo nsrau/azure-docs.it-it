@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 30a1f2be1917ba6ea404a2862daaf5f51f35ac3f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394885"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215481"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Selezionare e usare una destinazione di calcolo per il training del modello
 
-Con il servizio Azure Machine Learning, è possibile eseguire il training del modello in diversi ambienti. Questi ambienti, denominati __destinazioni di calcolo__, possono essere locali o nel cloud. In questo documento saranno illustrate le destinazioni di calcolo supportate e verrà descritto come usarle.
+Con il servizio Azure Machine Learning è possibile eseguire il training del modello in diversi ambienti. Questi ambienti, denominati __destinazioni di calcolo__, possono essere locali o nel cloud. In questo documento saranno illustrate le destinazioni di calcolo supportate e verrà descritto come usarle.
 
 Una destinazione di calcolo è la risorsa che esegue lo script di training o ospita il modello quando viene distribuito come servizio Web. Le destinazioni di calcolo possono essere create e gestite usando Azure Machine Learning SDK o l'interfaccia della riga di comando. Se si dispone di destinazioni di calcolo che sono state create da un altro processo (ad esempio, il portale di Azure o l'interfaccia della riga di comando di Azure), è possibile usarle associandole all'area di lavoro del servizio Azure Machine Learning.
 
@@ -36,8 +36,13 @@ Il servizio Azure Machine Learning supporta le destinazioni di calcolo seguenti:
 |----|:----:|:----:|:----:|:----:|
 |[Computer locale](#local)| È possibile | &nbsp; | ✓ | &nbsp; |
 |[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch per intelligenza artificiale](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Azure Batch per intelligenza artificiale](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Data Lake Analytics.](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+> [!IMPORTANT]
+> <a id="pipeline-only"></a>* Azure Databricks e Azure Data Lake Analytics possono essere usati __solo__ in una pipeline. Per altre informazioni sulle pipeline, vedere il documento [Pipeline e Azure Machine Learning](concept-ml-pipelines.md).
 
 È anche possibile usare __[Istanze di contenitore di Azure](#aci)__ per il training dei modelli. Si tratta di un'offerta cloud serverless conveniente e facile da creare e usare. Istanze di contenitore di Azure non supporta l'accelerazione GPU, l'ottimizzazione degli iperparametri automatizzata o la selezione del modello automatizzata. Inoltre, non può essere usato in una pipeline.
 
@@ -52,7 +57,7 @@ Di seguito sono riportate le principali differenze tra le destinazioni di calcol
 > [!IMPORTANT]
 > Non è possibile associare un'istanza esistente di Istanza di contenitore di Azure all'area di lavoro. È necessario creare una nuova istanza.
 >
-> Non è possibile creare un cluster Azure HDInsight all'interno di un'area di lavoro. È necessario associare un cluster esistente.
+> Non è possibile creare Azure HDInsight, Azure Databricks e Azure Data Lake Store all'interno di un'area di lavoro. In alternativa è necessario creare la risorsa e quindi allegarla all'area di lavoro.
 
 ## <a name="workflow"></a>Flusso di lavoro
 
@@ -178,6 +183,7 @@ La procedura seguente usa l'SDK per configurare Data Science Virtual Machine (DS
     run_config.environment.docker.enabled = True
 
     # Use CPU base image
+    # If you want to use GPU in DSVM, you must also use GPU base Docker image azureml.core.runconfig.DEFAULT_GPU_IMAGE
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
@@ -295,7 +301,6 @@ run_config.environment.docker.enabled = True
 
 # set Docker base image to the default CPU-based image
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-#run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
 
 # use conda_dependencies.yml to create a conda environment in the Docker image
 run_config.environment.python.user_managed_dependencies = False
@@ -310,6 +315,106 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 La creazione di una destinazione di calcolo Istanza di contenitore di Azure può richiedere da qualche secondo ad alcuni minuti.
 
 Per un Jupyter Notebook che illustri il training in Istanza di contenitore di Azure, vedere [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
+
+## <a id="databricks"></a>Azure Databricks
+
+Azure Databricks è un ambiente basato su Apache Spark nel cloud di Azure. Può essere usato come una destinazione di calcolo durante il training di modelli con una pipeline di Azure Machine Learning.
+
+> [!IMPORTANT]
+> Una destinazione di calcolo di Azure Databricks può essere usata solo in una pipeline di Machine Learning.
+>
+> È necessario creare uno spazio di lavoro Azure Databricks prima di usarla per eseguire il training del modello. Per creare queste risorse vedere il documento [Eseguire un processo Spark in Azure Databricks mediante il portale di Azure](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+
+Per connettere Azure Databricks come destinazione di calcolo è necessario usare Azure Machine Learning SDK e specificare le informazioni seguenti:
+
+* __Nome del calcolo__: il nome da assegnare a questa risorsa di calcolo.
+* __ID risorsa__: l'ID risorsa dell'area di lavoro di Azure Databricks. Il testo seguente riporta un esempio del formato di questo valore:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
+    ```
+
+    > [!TIP]
+    > Per ottenere l'ID risorsa, usare il comando dell'interfaccia della riga di comando di Azure riportato di seguito. Sostituire `<databricks-ws>` con il nome dell'area di lavoro di Databricks:
+    > ```azurecli-interactive
+    > az resource list --name <databricks-ws> --query [].id
+    > ```
+
+* __Token di accesso__: il token di accesso usato per eseguire l'autenticazione ad Azure Databricks. Per generare un token di accesso vedere il documento [Authentication](https://docs.azuredatabricks.net/api/latest/authentication.html) (Autenticazione).
+
+Il codice seguente illustra come connettere Azure Databricks come destinazione di calcolo:
+
+```python
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_access_token {}'.format(databricks_access_token))
+    databricks_compute = DatabricksCompute.attach(
+             workspace=ws,
+             name=databricks_compute_name,
+             resource_id=databricks_resource_id,
+             access_token=databricks_access_token
+         )
+    
+    databricks_compute.wait_for_completion(True)
+```
+
+## <a id="adla"></a>Azure Data Lake Analytics
+
+Azure Data Lake Analytics è una piattaforma di analisi dei Big Data nel cloud di Azure. Può essere usata come una destinazione di calcolo durante il training di modelli con una pipeline di Azure Machine Learning.
+
+> [!IMPORTANT]
+> Una destinazione di calcolo di Azure Data Lake Analytics può essere usata solo in una pipeline di Machine Learning.
+>
+> È necessario creare un account di Azure Data Lake Analytics prima di usarla per addestrare il modello. Per creare questa risorsa vedere il documento [Introduzione ad Azure Data Lake Analytics con il portale di Azure](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
+
+Per connettere Data Lake Analytics come destinazione di calcolo è necessario usare Azure Machine Learning SDK e specificare le informazioni seguenti:
+
+* __Nome del calcolo__: il nome da assegnare a questa risorsa di calcolo.
+* __ID risorsa__: l'ID risorsa dell'account Data Lake Analytics. Il testo seguente riporta un esempio del formato di questo valore:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
+    ```
+
+    > [!TIP]
+    > Per ottenere l'ID risorsa, usare il comando dell'interfaccia della riga di comando di Azure riportato di seguito. Sostituire `<datalakeanalytics>` con il nome dell'account Data Lake Analytics:
+    > ```azurecli-interactive
+    > az resource list --name <datalakeanalytics> --query [].id
+    > ```
+
+Il codice seguente illustra in che modo connettere Data Lake Analytics come destinazione di calcolo:
+
+```python
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_id))
+    adla_compute = AdlaCompute.attach(
+             workspace=ws,
+             name=adla_compute_name,
+             resource_id=adla_resource_id
+         )
+    
+    adla_compute.wait_for_completion(True)
+```
+
+> [!TIP]
+> Le pipeline di Azure Machine Learning possono funzionare solo con i dati archiviati nell'archivio dati predefinito dell'account Data Lake Analytics. Se i dati sui quali è necessario lavorare sono in un archivio non predefinito, è possibile usare [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) per copiare i dati prima del training.
 
 ## <a id="hdinsight"></a>Associare un cluster HDInsight 
 
@@ -351,8 +456,19 @@ run_config.auto_prepare_environment = True
 ```
 
 ## <a name="submit-training-run"></a>Inviare l'esecuzione di training
-    
-Il codice per l'invio di un'esecuzione di training è identico indipendentemente dalla destinazione di calcolo:
+
+Esistono due modi per inviare una sessione di training:
+
+* Invio di un oggetto `ScriptRunConfig`.
+* Invio di un oggetto `Pipeline`.
+
+> [!IMPORTANT]
+> Le destinazioni di calcolo di Azure Databricks, Azure Datalake Analytics e Azure HDInsight sono utilizzabili solo in una pipeline.
+> La destinazione di calcolo locale non può essere usata in una Pipeline.
+
+### <a name="submit-using-scriptrunconfig"></a>Inviare tramite `ScriptRunConfig`
+
+Il criterio di codice per l'invio di una sessione di training tramite `ScriptRunConfig` è identico indipendentemente dalla destinazione di calcolo:
 
 * Creare un oggetto `ScriptRunConfig` usando la configurazione di esecuzione per la destinazione di calcolo.
 * Inviare l'esecuzione.
@@ -360,13 +476,46 @@ Il codice per l'invio di un'esecuzione di training è identico indipendentemente
 
 Nell'esempio seguente viene usata la configurazione per la destinazione di calcolo locale gestita dal sistema creata in precedenza in questo documento:
 
-```pyghon
+```python
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
 Per un Jupyter Notebook che illustri il training con Spark in HDInsight, vedere [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
+### <a name="submit-using-a-pipeline"></a>Inviare tramite una pipeline
+
+Il criterio di codice per l'invio di una sessione di training tramite una pipeline è identico indipendentemente dalla destinazione di calcolo:
+
+* Aggiungere un passaggio alla pipeline per la risorsa di calcolo.
+* Inviare un'esecuzione tramite la pipeline.
+* Attendere il completamento dell'esecuzione.
+
+L'esempio seguente mostra come usare la destinazione di calcolo di Azure Databricks creata in precedenza in questo documento:
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# list of steps to run
+steps = [dbStep]
+pipeline = Pipeline(workspace=ws, steps=steps)
+pipeline_run = Experiment(ws, 'Demo_experiment').submit(pipeline)
+pipeline_run.wait_for_completion()
+```
+
+Per altre informazioni sulle pipeline di apprendimento automatico vedere il documento [Pipeline e Azure Machine Learning](concept-ml-pipelines.md).
+
+Ad esempio i Jupyter Notebook che illustrano il training tramite una pipeline, vedere [https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline).
 
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Visualizzare e configurare le destinazioni di calcolo tramite il portale di Azure
 
@@ -387,6 +536,13 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 1. Immettere un nome per la destinazione di calcolo.
 1. Selezionare il tipo di calcolo da associare per __Training__. 
+
+    > [!IMPORTANT]
+    > Non tutti i tipi di calcolo possono essere creati usando il portale di Azure. Attualmente i tipi che possono essere creati per il training sono:
+    > 
+    > * Macchina virtuale
+    > * Intelligenza artificiale per Batch
+
 1. Selezionare __Crea nuovo__ e compilare il modulo richiesto. 
 1. Selezionare __Crea__
 1. È possibile visualizzare lo stato dell'operazione di creazione selezionando la destinazione di calcolo dall'elenco.
@@ -401,8 +557,16 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 1. Fare clic sul segno **+** per aggiungere una destinazione di calcolo.
 2. Immettere un nome per la destinazione di calcolo.
-3. Selezionare il tipo di calcolo da associare per Training. Batch per intelligenza artificiale e le macchine virtuali sono attualmente supportati nel portale per il training.
-4. Selezionare "Usa esistente".
+3. Selezionare il tipo di calcolo da associare per Training.
+
+    > [!IMPORTANT]
+    > Non tutti i tipi di calcolo possono essere allegati usando il portale.
+    > Attualmente i tipi che possono essere allegati per il training sono:
+    > 
+    > * Macchina virtuale
+    > * Intelligenza artificiale per Batch
+
+1. Selezionare "Usa esistente".
     - Per associare cluster Batch per intelligenza artificiale, selezionare la destinazione di calcolo nel menu a discesa, selezionare l'area di lavoro di Batch per intelligenza artificiale e il cluster di Batch per intelligenza artificiale, quindi fare clic su **Crea**.
     - Per associare una macchina virtuale, immettere l'indirizzo IP, la combinazione di nome utente e password, le chiavi pubblica/privata e la porta, quindi fare clic su Crea.
 
@@ -412,7 +576,7 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
     > * [Create and use SSH keys on Linux or macOS]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) (Creare e usare chiavi SSH in Linux o macOS)
     > * [Create and use SSH keys on Windows]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) (Creare e usare chiavi SSH in Windows)
 
-5. È possibile visualizzare lo stato del provisioning selezionando la destinazione di calcolo nell'elenco delle risorse di calcolo.
+5. È possibile visualizzare lo stato del provisioning selezionando la destinazione di calcolo dall'elenco.
 6. È ora possibile inviare un'esecuzione su queste destinazioni.
 
 ## <a name="examples"></a>Esempi

@@ -1,47 +1,71 @@
 ---
-title: Passaggi successivi per la gestione dell'accesso tramite gruppi | Microsoft Docs
-description: Procedura avanzata per la gestione dei gruppi di sicurezza e l'uso di questi gruppi per gestire l'accesso a una risorsa.
+title: Come aggiungere o rimuovere proprietari dei gruppi di Azure Active Directory | Microsoft Docs
+description: Informazioni su come aggiungere o rimuovere i proprietari dei gruppi usando Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/12/2017
+ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: bdc8754253ce2567d957b4d6240fe52242aea2ea
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448945"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139721"
 ---
-# <a name="managing-owners-for-a-group"></a>Gestione dei proprietari di un gruppo
-Quando il proprietario delle risorse ha assegnato l'accesso a una risorsa a un gruppo di Azure AD, l'appartenenza al gruppo viene gestita dal proprietario del gruppo. Il proprietario della risorsa delega in modo efficace l'autorizzazione ad assegnare agli utenti la loro risorsa al proprietario del gruppo.
+# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Procedura: Aggiungere o rimuovere i proprietari dei gruppi in Azure Active Directory
+I gruppi di Azure Active Directory (Azure AD) sono di proprietà e gestiti dai proprietari del gruppo. I proprietari del gruppo vengono assegnati per gestire un gruppo e i relativi membri da un proprietario della risorsa (amministratore). Non è necessario che il proprietario del gruppo sia un membro del gruppo. Dopo che un proprietario del gruppo è stato assegnato, solo un proprietario della risorsa può aggiungerlo o rimuoverlo.
+
+In alcuni casi, l'amministratore può decidere di non assegnare un proprietario del gruppo. In questo caso, l'amministratore diventa il proprietario del gruppo. I proprietari possono anche assegnare altri proprietari al proprio gruppo, a meno che non siano state impostate limitazioni a questa opzione nelle impostazioni del gruppo.
 
 ## <a name="add-an-owner-to-a-group"></a>Aggiungere un proprietario a un gruppo
+Aggiungere altri proprietari del gruppo a un gruppo usando Azure AD.
 
-1. Nell'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) selezionare **Utenti e gruppi**.
-2. Selezionare la scheda **Tutti i gruppi** e aprire il gruppo a cui si desidera aggiungere proprietari.
-3. Selezionare **Aggiungi proprietari**.
-4. Nella pagina **Aggiungi proprietari** selezionare l'utente che si desidera aggiungere come proprietario del gruppo e verificare che questo nome venga aggiunto al riquadro **Selezionato**.
+### <a name="to-add-a-group-owner"></a>Per aggiungere un proprietario del gruppo
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale per la directory.
+
+2. Selezionare **Azure Active Directory**, **Gruppi** e quindi selezionare il gruppo per il quale si vuole aggiungere un proprietario. In questo esempio *MDM policy - West*.
+
+3. Nella pagina **Panoramica MDM policy - West**  selezionare **Proprietari**.
+
+    ![Pagina Panoramica MDM policy - West con l'opzione Proprietari evidenziata](media/active-directory-accessmanagement-managing-group-owners/add-owners-option-overview-blade.png)
+
+4. Nella pagina **MDM policy - West - Proprietari** selezionare **Aggiungi proprietari**, cercare e selezionare l'utente che sarà il nuovo proprietario del gruppo e quindi scegliere **Seleziona**.
+
+    ![Pagina MDM policy - West - Proprietari con l'opzione Aggiungi proprietari evidenziata](media/active-directory-accessmanagement-managing-group-owners/add-owners-owners-blade.png)
+
+    Dopo aver selezionato il nuovo proprietario, è possibile aggiornare la pagina **Proprietari** e visualizzare il nome aggiunto all'elenco dei proprietari.
 
 ## <a name="remove-an-owner-from-a-group"></a>Per rimuovere un proprietario da un gruppo
+Rimuovere un proprietario da un gruppo con Azure AD.
 
-1. Nell'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) selezionare **Utenti e gruppi**.
-2. Selezionare **Tutti i gruppi** e quindi aprire il gruppo da cui si desidera rimuovere proprietari.
-3. Selezionare la scheda **Proprietari** .
-4. Selezionare il proprietario da rimuovere dal gruppo e quindi scegliere **Rimuovi**.
+### <a name="to-remove-an-owner"></a>Per rimuovere un proprietario
+1. Accedere al [portale di Azure](https://portal.azure.com) con un account amministratore globale per la directory.
 
-## <a name="additional-information"></a>Informazioni aggiuntive
-Questi articoli forniscono informazioni aggiuntive su Azure Active Directory.
+2. Selezionare **Azure Active Directory**, **Gruppi** e quindi il gruppo per il quale si vuole rimuovere un proprietario. In questo esempio, *MDM policy - West*.
 
-* [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
-* [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md)
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
-* [Informazioni su Azure Active Directory](active-directory-whatis.md)
-* [Integrazione delle identità locali con Azure Active Directory](../connect/active-directory-aadconnect.md)
+3. Nella pagina **Panoramica MDM policy - West**  selezionare **Proprietari**.
+
+    ![Pagina Panoramica MDM policy - West con l'opzione Proprietari evidenziata](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
+
+4. Nella pagina **MDM policy - West - Proprietari** selezionare l'utente che si vuole rimuovere come proprietario del gruppo, scegliere **Rimuovi** dalla pagina delle informazioni dell'utente e selezionare **Sì** per confermare.
+
+    ![Pagina delle informazioni dell'utente con l'opzione Rimuovi evidenziata](media/active-directory-accessmanagement-managing-group-owners/remove-owner-info-blade.png)
+
+    Dopo aver rimosso il proprietario, è possibile tornare alla pagina **Proprietari** e verificare che il nome sia stato rimosso dall'elenco dei proprietari.
+
+## <a name="next-steps"></a>Passaggi successivi
+- [Gestione dell'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md)
+
+- [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-cmdlets.md)
+
+- [Usare i gruppi per assegnare l'accesso a un'app SaaS integrata](../users-groups-roles/groups-saasapps.md)
+
+- [Integrazione delle identità locali con Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
+
+- [Cmdlet di Azure Active Directory per la configurazione delle impostazioni di gruppo](../users-groups-roles/groups-settings-v2-cmdlets.md)

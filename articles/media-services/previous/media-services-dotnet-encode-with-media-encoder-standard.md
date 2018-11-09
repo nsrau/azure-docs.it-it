@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 7b0de5e149b8b64252f90a01f66642c15fb25ddc
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247793"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241090"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificare un asset con Media Encoder Standard mediante .NET 
 I processi di codifica sono tra le operazioni di elaborazione più frequenti in Servizi multimediali. Questi processi vengono creati per convertire i file multimediali da una codifica all'altra. Durante la codifica è possibile usare il codificatore multimediale incorporato in Servizi multimediali. È anche possibile usare un codificatore fornito da un partner di Servizi multimediali. I codificatori di terze parti sono disponibili tramite Azure Marketplace. 
 
-Questo articolo illustra come usare .NET per codificare gli asset con Media Encoder Standard (MES). Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Questo articolo illustra come usare .NET per codificare gli asset con Media Encoder Standard (MES). Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 È consigliabile codificare sempre i file di origine con un set MP4 a velocità in bit adattiva e quindi convertire il set nel formato desiderato mediante la [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md). 
 
@@ -39,7 +39,7 @@ Se l'asset di output è protetto con crittografia di archiviazione, è necessari
 [Codec e formati](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>Impostazioni predefinite MES
-Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard viene configurato mediante un set di impostazioni descritto [qui](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadati di input e output
 Quando si codifica un asset di input (o asset) tramite MES, al completamento dell'attività di codifica si ottiene un asset di output. L'asset di output contiene video, audio, anteprime, manifesto e così via a seconda del set di impostazioni di codifica che si usa.

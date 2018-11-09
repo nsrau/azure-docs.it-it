@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: cd7b475dc2bd4dade822a82f285c2e96c8d532d2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138189"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243795"
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
@@ -479,7 +479,7 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 * [Supporto della condivisione risorse tra le origini (CORS) per i servizi di archiviazione di Azure in MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Si tratta della documentazione di riferimento per il supporto di CORS per i servizi di archiviazione di Azure. Include i collegamenti ad articoli applicabili a ogni servizio di archiviazione e illustra un esempio descrivendo ogni elemento nel file CORS.
-* [Archiviazione di Microsoft Azure: Introduzione a CORS](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Archiviazione di Microsoft Azure: Introduzione a CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   Questo è un collegamento all'articolo relativo al blog iniziale che annuncia CORS e illustra come usarlo.
 
@@ -490,7 +490,7 @@ Per altre informazioni su CORS e su come abilitarlo, vedere queste risorse.
 
    Se è possibile utilizzare HTTPS, che fornisce la protezione a livello di trasporto, il controllo MD5 è ridondante e superfluo.
 
-   Per altre informazioni, vedere il blog relativo alla [panoramica di MD5 per i BLOB di Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
+   Per altre informazioni, vedere il blog relativo alla [panoramica di MD5 per i BLOB di Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
 2. **Come viene gestita la conformità FIPS per il Governo degli Stati Uniti?**
 
    I FIPS (Federal Information Processing Standard) degli Stati Uniti definiscono gli algoritmi di crittografia approvati per l'uso nei sistemi informatici del Governo degli Stati Uniti per la protezione dei dati sensibili. L'abilitazione della modalità FIPS su un desktop o un server Windows indica al sistema operativo che devono essere usati solo gli algoritmi di crittografia convalidati per FIPS. Se un'applicazione usa algoritmi non conformi, le applicazioni verranno interrotte. Con .NET Framework 4.5.2 o versione successiva, quando il computer è in modalità FIPS l'applicazione cambia automaticamente gli algoritmi di crittografia in modo che vengano usati di algoritmi conformi a FIPS.

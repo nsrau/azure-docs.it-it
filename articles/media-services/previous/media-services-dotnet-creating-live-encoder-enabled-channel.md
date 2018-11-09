@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 946de42c499182f8785866f362677779b105760d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: aaf9fba7b3a2667577c26ade9cd88bcc87c60f61
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940824"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243846"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ I seguenti passaggi descrivono le attività relative alla creazione di applicazi
 > 
 > 
 
-1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate singolo in uno dei protocolli seguenti: RTMP o Smooth Streaming. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate singolo in uno dei protocolli seguenti: RTMP o Smooth Streaming. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     Questa operazione può essere eseguita anche dopo la creazione del canale.
 
@@ -88,7 +88,7 @@ Questo articolo illustra come eseguire le operazioni seguenti:
 7. Mostrare e nascondere slate. Avviare e arrestare annunci. Vengono usate API con esecuzione prolungata.
 8. Pulire il canale e tutte le risorse associate.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione è necessario quanto segue.
 
 * Un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). sono inclusi crediti da usare per provare i servizi di Azure a pagamento. Una volta esauriti i crediti, è possibile mantenere l'account e usare le funzionalità e i servizi di Azure gratuiti, ad esempio la funzionalità App Web nel servizio app di Azure.

@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 10/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 83ba1b94413990c0eb8dff42c49d46456a658d5a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604336"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417770"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Sezione parameters dei modelli di Azure Resource Manager
-Nella sezione parameters del modello si possono specificare i valori che è possibile immettere durante la distribuzione delle risorse. I valori dei parametri consentono di personalizzare la distribuzione fornendo valori specifici per un determinato ambiente, ad esempio sviluppo, test e produzione. Non è obbligatorio specificare i parametri nel modello, ma senza di essi il modello distribuisce sempre le stesse risorse con lo stesso nome, località e proprietà.
+Nella sezione parameters del modello si possono specificare i valori che è possibile immettere durante la distribuzione delle risorse. I valori dei parametri consentono di personalizzare la distribuzione fornendo valori specifici per un determinato ambiente, ad esempio sviluppo, test e produzione. Non è obbligatorio specificare parametri nel modello, ma senza di essi il modello distribuisce sempre le stesse risorse con lo stesso nome, la stessa posizione e le stesse proprietà.
 
-È previsto un limite di 255 parametri per modello. Il numero di parametri può essere ridotto usando oggetti che contengono più proprietà, come illustrato in questo articolo.
+È previsto un limite di 256 parametri in un modello. Il numero di parametri può essere ridotto usando oggetti che contengono più proprietà, come illustrato in questo articolo.
 
 ## <a name="define-and-use-a-parameter"></a>Definire e usare un parametro
 
@@ -85,8 +85,8 @@ L'esempio precedente mostra solo alcune delle proprietà che è possibile usare 
 
 | Nome dell'elemento | Obbligatoria | DESCRIZIONE |
 |:--- |:--- |:--- |
-| parameterName |Sì |Nome del parametro. Deve essere un identificatore JavaScript valido. |
-| type |Sì |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. |
+| parameterName |Yes |Nome del parametro. Deve essere un identificatore JavaScript valido. |
+| type |Yes |Tipo di valore del parametro. I tipi e i valori consentiti sono **string**, **securestring**, **int**, **bool**, **object**, **secureObject** e **array**. |
 | defaultValue |No  |Valore predefinito per il parametro, se non viene fornito alcun valore per il parametro. |
 | allowedValues |No  |Matrice di valori consentiti per il parametro per assicurare che venga fornito il valore corretto. |
 | minValue |No  |Il valore minimo per i parametri di tipo int, questo valore è inclusivo. |
@@ -97,7 +97,7 @@ L'esempio precedente mostra solo alcune delle proprietà che è possibile usare 
 
 ## <a name="template-functions-with-parameters"></a>Funzioni di modello con parametri
 
-Quando si specifica il valore predefinito per un parametro, è possibile usare la maggior parte delle funzioni di modello. Si può usare il valore di un altro parametro per generare un valore predefinito. Il modello seguente illustra l'uso delle funzioni nel valore predefinito:
+Quando si specifica il valore predefinito per un parametro, è possibile usare la maggior parte delle funzioni del modello. Si può usare il valore di un altro parametro per generare un valore predefinito. Il modello seguente illustra l'uso delle funzioni nel valore predefinito:
 
 ```json
 "parameters": {
@@ -188,7 +188,7 @@ Quindi, fare riferimento alle sottoproprietà del parametro usando l'operatore p
 ]
 ```
 
-## <a name="recommendations"></a>Raccomandazioni
+## <a name="recommendations"></a>Consigli
 Le informazioni seguenti possono essere utili quando si usano parametri:
 
 * Ridurre al minimo l'uso di parametri. Se possibile, usare una variabile o un valore letterale. Specificare parametri solo per questi scenari:
@@ -197,7 +197,7 @@ Le informazioni seguenti possono essere utili quando si usano parametri:
    * Nomi di risorse da specificare per facilitare l'identificazione.
    * Valori usati spesso per completare altre attività (ad esempio nome utente amministratore).
    * Segreti (ad esempio password).
-   * Il numero o la matrice di valori da usare durante la creazione di più istanze di un tipo di risorsa.
+   * Il numero o la matrice di valori da usare durante la creazione di più di un'istanza di un tipo di risorsa.
 * Usare la notazione Camel per i nomi dei parametri.
 * Indicare una descrizione nei metadati per ogni parametro:
 
@@ -212,7 +212,7 @@ Le informazioni seguenti possono essere utili quando si usano parametri:
    }
    ```
 
-* Definire i valori predefiniti per i parametri (ad eccezione delle password e delle chiavi SSH). Fornendo un valore predefinito, il parametro diventa facoltativo durante la distribuzione. Il valore predefinito può essere una stringa vuota. 
+* Definire i valori predefiniti per i parametri (ad eccezione delle password e delle chiavi SSH). Specificando un valore predefinito, il parametro diventa facoltativo durante la distribuzione. Il valore predefinito può essere una stringa vuota. 
    
    ```json
    "parameters": {

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 916d0cf37ab3588091d4ca2d45f43a5669afe4f1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094896"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412741"
 ---
 # <a name="mock-api-responses"></a>Simulare le risposte di un'API
 
@@ -40,11 +40,15 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
++ Comprendere il [concetto di criteri in Gestione API di Azure](api-management-howto-policies.md).
++ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Creare un'API di test 
 
 I passaggi descritti in questa sezione illustrano come creare un'API vuota senza back-end e come aggiungere un'operazione all'API. La chiamata all'operazione al termine dei passaggi descritti in questa sezione genera un errore. Non verranno visualizzati errori dopo avere completato i passaggi descritti nella sezione "Abilitare la simulazione della risposta".
+
+![Creare un'API vuota](./media/mock-api-responses/03-MockAPIResponses-01-CreateTestAPI.png)
 
 1. Nel servizio **Gestione API** selezionare **API**.
 2. Fare clic su **+ Aggiungi API** nel menu a sinistra.
@@ -55,19 +59,20 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 
 ## <a name="add-an-operation-to-the-test-api"></a>Aggiungere un'operazione all'API di test
 
+![Aggiungere un'operazione all'API](./media/mock-api-responses/03-MockAPIResponses-02-AddOperation.png)
+
 1. Selezionare l'API creata nel passaggio precedente.
 2. Fare clic su **+ Aggiungi operazione**.
-    ![Risposta di operazione simulata](./media/mock-api-responses/mock-api-responses-add-operation.png)
 
-    |Impostazione|Valore|DESCRIZIONE|
-    |---|---|---|
-    |**Nome visualizzato**|*Test call*|Nome visualizzato nel **portale per sviluppatori**.|
-    |**URL** (verbo HTTP)|GET|È possibile scegliere tra uno dei verbi HTTP predefiniti.|
-    |**URL** |*/test*|Percorso URL per l'API. |
-    |**Descrizione**||Immettere una descrizione dell'operazione usata per fornire la documentazione necessaria agli sviluppatori che usano questa API nel **portale per sviluppatori**.|
-    |Scheda **Query**||È possibile aggiungere parametri di query. Oltre al nome e alla descrizione, è possibile specificare i valori che possono essere assegnati a questo parametro. Uno dei valori può essere contrassegnato come predefinito (facoltativo).|
-    |Scheda **Richiesta**||È possibile definire schemi, esempi e tipi di contenuto della richiesta. |
-    |Scheda **Risposta**|Vedere i passaggi che seguono questa tabella.|Consente di definire schemi, esempi, tipi di contenuto e codici di stato della risposta.|
+    | Impostazione             | Valore                             | DESCRIZIONE                                                                                                                                                                                   |
+    |---------------------|-----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **Nome visualizzato**    | *Test call*                       | Nome visualizzato nel **portale per sviluppatori**.                                                                                                                                       |
+    | **URL** (verbo HTTP) | GET                               | È possibile scegliere tra uno dei verbi HTTP predefiniti.                                                                                                                                         |
+    | **URL**             | */test*                           | Percorso URL per l'API.                                                                                                                                                                       |
+    | **Descrizione**     |                                   | Immettere una descrizione dell'operazione usata per fornire la documentazione necessaria agli sviluppatori che usano questa API nel **portale per sviluppatori**.                                                    |
+    | Scheda **Query**       |                                   | È possibile aggiungere parametri di query. Oltre al nome e alla descrizione, è possibile specificare i valori che possono essere assegnati a questo parametro. Uno dei valori può essere contrassegnato come predefinito (facoltativo). |
+    | Scheda **Richiesta**     |                                   | È possibile definire schemi, esempi e tipi di contenuto della richiesta.                                                                                                                                  |
+    | Scheda **Risposta**    | Vedere i passaggi che seguono questa tabella. | Consente di definire schemi, esempi, tipi di contenuto e codici di stato della risposta.                                                                                                                           |
 
 3. Selezionare la scheda **Risposta**, sotto i campi URL, Nome visualizzato e Descrizione.
 4. Fare clic su **+ Aggiungi risposta**.
@@ -79,16 +84,25 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 
 ## <a name="enable-response-mocking"></a>Abilitare la simulazione della risposta
 
+![Abilitare la simulazione della risposta](./media/mock-api-responses/03-MockAPIResponses-03-EnableMocking.png)
+
 1. Selezionare l'API creata nel passaggio "Creare un'API di test".
 2. Selezionare l'operazione di test aggiunta.
 3. Nella finestra di destra fare clic sulla scheda **Progettazione**.
-4. Nella finestra **Elaborazione in ingresso** fare clic sull'icona a forma di matita.
-5. Nella scheda **Comportamento fittizio** selezionare **Risposte statiche** per **Comportamento fittizio**.
-6. Nella casella di testo **API Management returns the following response:** (Gestione API restituisce la risposta seguente) digitare **200 OK, application/json**. Questa selezione indica che l'API deve restituire l'esempio di risposta definito nella sezione precedente.
+4. Nella finestra **Elaborazione in ingresso** fare clic su **+ Aggiungi criteri**.
+5. Selezionare il riquadro **Mock responses** (Simula risposte) dalla raccolta.
+
+    ![Riquadro del criterio Mock responses (Simula risposte)](./media/mock-api-responses/mock-responses-policy-tile.png)
+
+6. Nella casella di testo **API Management response** (Risposta di Gestione API) digitare **200 OK, application/json**. Questa selezione indica che l'API deve restituire l'esempio di risposta definito nella sezione precedente.
+
     ![Abilitare la simulazione della risposta](./media/mock-api-responses/mock-api-responses-set-mocking.png)
+
 7. Fare clic su **Save**.
 
 ## <a name="test-the-mocked-api"></a>Testare l'API fittizia
+
+![Testare l'API fittizia](./media/mock-api-responses/03-MockAPIResponses-04-TestMocking.png)
 
 1. Selezionare l'API creata nel passaggio "Creare un'API di test".
 2. Aprire la scheda **Test**.
@@ -99,15 +113,15 @@ I passaggi descritti in questa sezione illustrano come creare un'API vuota senza
 
 4. Selezionare **Invia** per eseguire una chiamata di test.
 5. La **risposta HTTP** visualizza il codice JSON fornito come esempio nella prima sezione dell'esercitazione.
+
     ![Abilitare la simulazione della risposta](./media/mock-api-responses/mock-api-responses-test-response.png)
 
 ## <a name="video"></a>Video
 
 > [!VIDEO https://www.youtube.com/embed/i9PjUAvw7DQ]
-> 
-> 
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Questa esercitazione illustra come:
 
 > [!div class="checklist"]

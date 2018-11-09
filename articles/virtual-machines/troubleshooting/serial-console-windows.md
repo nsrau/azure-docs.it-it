@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 2cde7d2af4dee9e2bd241f0856b8f2d29ccad6ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024418"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210738"
 ---
 # <a name="virtual-machine-serial-console"></a>Console seriale per macchine virtuali
 
@@ -54,20 +54,26 @@ La console seriale per le macchine virtuali è accessibile solo tramite il [port
   4. Scorrere verso il basso fino alla sezione Supporto e risoluzione dei problemi e fare clic sull'opzione "Console seriale". Verrà aperto un nuovo riquadro con la console seriale e verrà avviata la connessione.
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Abilitare la console seriale nelle immagini personalizzate o precedenti
-Per le immagini di Windows Server più recenti in Azure la [console amministrativa speciale](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC, Special Administrative Console) è abilitata per impostazione predefinita. La console SAC è supportata nelle versioni server di Windows, ma non è disponibile nelle versioni client (ad esempio, Windows 10, Windows 8 o Windows 7). Per abilitare la console seriale per le macchine virtuali Windows create prima di febbraio 2018, seguire questa procedura: 
+Per le immagini di Windows Server più recenti in Azure la [console amministrativa speciale](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC, Special Administrative Console) è abilitata per impostazione predefinita. La console SAC è supportata nelle versioni server di Windows, ma non è disponibile nelle versioni client (ad esempio, Windows 10, Windows 8 o Windows 7). 
+
+Per le immagini di Windows Server precedenti, ovvero create prima di febbraio 2018, è possibile abilitare automaticamente la console seriale tramite la funzionalità dei comandi di esecuzione nel portale di Azure. Cercare il comando di esecuzione denominato "EnableEMS" nel portale di Azure.
+
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-runcommand.png)
+
+In alternativa, per abilitare manualmente la console seriale per le macchine virtuali Windows create prima di febbraio 2018, seguire questa procedura: 
 
 1. Connettersi alla macchina virtuale Windows tramite Desktop remoto
-2. Da un prompt dei comandi amministrativo eseguire i comandi seguenti 
-* `bcdedit /ems {current} on`
-* `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
-3. Riavviare il sistema per abilitare la console SAC
+1. Da un prompt dei comandi amministrativo eseguire i comandi seguenti 
+    * `bcdedit /ems {current} on`
+    * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
+1. Riavviare il sistema per abilitare la console SAC
 
-![](/media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+![](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 Se necessario, la console SAC può anche essere abilitata offline:
 
 1. Collegare alla macchina virtuale esistente il disco di Windows per cui si vuole configurare la console SAC come disco dati. 
-2. Da un prompt dei comandi amministrativo eseguire i comandi seguenti 
+1. Da un prompt dei comandi amministrativo eseguire i comandi seguenti 
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 

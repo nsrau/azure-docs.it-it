@@ -1,21 +1,20 @@
 ---
-title: Azure Site Recovery Deployment Planner per distribuzioni da VMware ad Azure | Microsoft Docs
-description: Guida dell'utente di Azure Site Recovery Deployment Planner.
-services: site-recovery
+title: Esaminare il report della stima dei costi in Azure Site Recovery Deployment Planner | Microsoft Docs
+description: Questo articolo descrive come esaminare il report della stima dei costi generato da Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: a946ecb31697591a7490c80496c02c5f907c6f36
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7244aa2c0b665b47d597662b98ec291d6bfeeddd
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182383"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215022"
 ---
-# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Report di stima dei costi di Azure Site Recovery Deployment Planner  
+# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Esaminare il report della stima dei costi in Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 
 Il report di Deployment Planner offre il riepilogo della stima dei costi nei fogli [Recommendations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) (Raccomandazioni) e l'analisi dettagliata dei costi nel foglio Cost Estimation (Stima costi), che contiene l'analisi dettagliata dei costi per VM. 
 
@@ -125,7 +124,7 @@ Per aggiungere manualmente le VM:
 
 **Number of DR-Drills in a year** (N. esercitazioni ripristino di emergenza in un anno): numero di esercitazioni sul ripristino di emergenza eseguite in un anno. Il valore predefinito è 4 volte in un anno. È possibile modificarlo per VM specifiche oppure applicare il nuovo valore a tutte le VM immettendolo nella prima riga e facendo clic sul pulsante "Apply to all" (Applica a tutte). Il costo totale delle esercitazioni sul ripristino di emergenza viene calcolato in base al numero di esercitazioni in un anno e alla durata di ognuna.  
 
-**Each DR-Drill duration (Days)** (Durata di ogni esercitazione sul ripristino di emergenza - giorni): durata di ogni esercitazione sul ripristino di emergenza. Per impostazione predefinita, la durata è 7 giorni ogni 90, come previsto dal [vantaggio Ripristino di emergenza di Software Assurance](https://azure.microsoft.com/en-in/pricing/details/site-recovery). È possibile modificare il periodo per VM specifiche oppure applicare un nuovo valore a tutte le VM immettendolo nella prima riga e facendo clic sul pulsante "Apply to all" (Applica a tutte). Il costo totale delle esercitazioni sul ripristino di emergenza viene calcolato in base al numero di esercitazioni in un anno e alla durata di ognuna.
+**Each DR-Drill duration (Days)** (Durata di ogni esercitazione sul ripristino di emergenza - giorni): durata di ogni esercitazione sul ripristino di emergenza. Per impostazione predefinita, la durata è 7 giorni ogni 90, come previsto dal [vantaggio Ripristino di emergenza di Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). È possibile modificare il periodo per VM specifiche oppure applicare un nuovo valore a tutte le VM immettendolo nella prima riga e facendo clic sul pulsante "Apply to all" (Applica a tutte). Il costo totale delle esercitazioni sul ripristino di emergenza viene calcolato in base al numero di esercitazioni in un anno e alla durata di ognuna.
   
 **OS Type** (Tipo di sistema operativo): tipo di sistema operativo della VM. Può essere Windows o Linux. Se il tipo di sistema operativo è Windows, alla VM può essere applicato il vantaggio Azure Hybrid Use. 
 

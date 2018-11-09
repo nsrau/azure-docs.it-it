@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.openlocfilehash: ae6f7646192b7bee8cbd836f1eff3814c26a6b46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: ed35380e66e6d5d59058552d8e0504220c100b73
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427332"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231390"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Abilitare l'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -26,7 +26,7 @@ Successivamente, è possibile concedere l'accesso alle risorse di File di Azure 
 
 1. Abilitare l'autenticazione di Azure AD tramite SMB per l'account di archiviazione per registrare l'account di archiviazione nella distribuzione di Azure AD Domain Services associata.
 2. Assegnare le autorizzazioni di accesso per una condivisione a un'identità di Azure AD (utente, gruppo o entità servizio).
-3. Configurare le autorizzazioni NTFS tramite SMB per file e directory.
+3. Configurare le autorizzazioni NTFS su SMB per file e directory.
 4. Montare una condivisione file di Azure da una macchina virtuale aggiunta a dominio.
 
 Il diagramma seguente illustra l'intero flusso di lavoro per abilitare l'autenticazione di Azure AD tramite SMB per File di Azure. 
@@ -88,7 +88,11 @@ L'immagine seguente mostra come abilitare l'autenticazione di Azure AD tramite S
   
 ### <a name="powershell"></a>PowerShell  
 
-Per abilitare l'autenticazione di Azure AD tramite SMB da Azure PowerShell, installare prima il modulo `AzureRM.Storage 6.0.0-preview`. Per informazioni sull'installazione di PowerShell, vedere [Installare Azure PowerShell in Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Per abilitare l'autenticazione di Azure AD tramite SMB da Azure PowerShell, installare prima il modulo `AzureRM.Storage`, versione `6.0.0-preview`, come indicato di seguito. Per altre informazioni sull'installazione di PowerShell, vedere [Installare Azure PowerShell in Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps):
+
+```powershell
+Install-Module -Name AzureRM.Storage -RequiredVersion 6.0.0-preview -AllowPrerelease
+```
 
 Creare un nuovo account di archiviazione, quindi chiamare [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) e impostare il parametro **EnableAzureFilesAadIntegrationForSMB** su **true**. Nell'esempio seguente ricordarsi di sostituire i valori segnaposto con i valori personalizzati.
 
@@ -200,7 +204,7 @@ Il comando seguente di PowerShell consente di creare un ruolo personalizzato bas
 New-AzureRmRoleDefinition -InputFile "<custom-role-def-json-path>"
 ```
 
-#### <a name="cli"></a>Interfaccia della riga di comando 
+#### <a name="cli"></a>CLI 
 
 Il comando seguente dell'interfaccia della riga di comando di Azure consente di creare un ruolo personalizzato basato su uno dei modelli di esempio.
 
@@ -228,7 +232,7 @@ $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/provi
 New-AzureRmRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
-#### <a name="cli"></a>Interfaccia della riga di comando
+#### <a name="cli"></a>CLI
   
 Il comando seguente dell'interfaccia della riga di comando 2.0 mostra come visualizzare l'elenco dei ruoli personalizzati disponibili e quindi assegna un il ruolo a un'identità di Azure AD, in base al nome di accesso. Per altre informazioni sull'assegnazione dei ruoli RBAC con l'interfaccia della riga di comando di Azure, vedere [Gestire l'accesso tramite il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure](../../role-based-access-control/role-assignments-cli.md). 
 
@@ -263,14 +267,14 @@ I set di autorizzazioni seguenti sono supportati per la directory radice di una 
 
 ### <a name="mount-a-file-share-from-the-command-prompt"></a>Montare una condivisione file dal prompt dei comandi
 
-Usare il comando di Windows **net use** per montare la condivisione file di Azure. Ricordarsi di sostituire i valori segnaposto nell'esempio con i valori personalizzati. Per altre informazioni sul montaggio delle condivisioni file, vedere [Montare una condivisione file di Azure e accedere alla condivisione in Windows](storage-how-to-use-files-windows.md).
+Usare il comando di Windows **net use** per montare la condivisione file di Azure. Ricordarsi di sostituire i valori segnaposto nell'esempio con valori personalizzati. Per altre informazioni sul montaggio delle condivisioni file, vedere [Montare una condivisione file di Azure e accedere alla condivisione in Windows](storage-how-to-use-files-windows.md).
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
 ```
 
 ### <a name="configure-ntfs-permissions-with-icacls"></a>Configurare le autorizzazioni NTFS con icacls
-Usare il comando seguente di Windows per concedere autorizzazioni complete a tutti i file e le sottodirectory nella condivisione file, inclusa la directory radice. Ricordarsi di sostituire i valori segnaposto nell'esempio con i valori personalizzati.
+Usare il comando seguente di Windows per concedere autorizzazioni complete a tutti i file e le sottodirectory nella condivisione file, inclusa la directory radice. Ricordarsi di sostituire i valori segnaposto nell'esempio con valori personalizzati.
 
 ```
 icacls <mounted-drive-letter> /grant <user-email>:(f)
@@ -284,7 +288,7 @@ A questo punto è possibile verificare di avere completato correttamente i passa
 
 ![Screenshot che mostra la schermata di accesso ad Azure AD per l'autenticazione utente](media/storage-files-active-directory-enable/azure-active-directory-authentication-dialog.png)
 
-Usare poi il comando seguente per montare la condivisione file di Azure. Ricordarsi di sostituire i valori segnaposto con i valori personalizzati. Dato che l'autenticazione è già avvenuta, non è necessario fornire la chiave dell'account di archiviazione o il nome utente e la password di Azure AD. Azure AD tramite SMB supporta un'esperienza Single Sign-On usando le credenziali di Azure AD.
+Usare poi il comando seguente per montare la condivisione file di Azure. Ricordarsi di sostituire i valori segnaposto con valori personalizzati. Dato che l'autenticazione è già avvenuta, non è necessario fornire la chiave dell'account di archiviazione o il nome utente e la password di Azure AD. Azure AD su SMB supporta un'esperienza Single Sign-On usando le credenziali di Azure AD.
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name>

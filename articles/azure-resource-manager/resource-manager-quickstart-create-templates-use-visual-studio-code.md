@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 10/18/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: e8ca232f3c5664f69db800648b46abaf0822d6f1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 092b6f2c3267a2c2cd2cc6304133134825bb7261
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458140"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230149"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code
 
@@ -89,7 +89,7 @@ Per imparare a modificare un modello con Visual Studio Code, aggiungere un altro
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Per distribuire i modelli sono disponibili molti metodi.  In questa guida introduttiva si usa Azure Cloud Shell. Cloud Shell supporta sia l'interfaccia della riga di comando di Azure che Azure PowerShell. 
+Per distribuire i modelli sono disponibili molti metodi.  In questa guida introduttiva si usa Azure Cloud Shell. Cloud Shell supporta sia l'interfaccia della riga di comando di Azure che Azure PowerShell.
 
 1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
 

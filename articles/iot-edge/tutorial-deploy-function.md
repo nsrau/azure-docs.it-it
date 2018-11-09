@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f2b1c394f561b87baf2be261728a1ac39b1f7835
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ff1f03bddbd653cf686fe36b7815d6bb9a7c0e72
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116053"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155644"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Esercitazione: Distribuire Funzioni di Azure come moduli IoT Edge (anteprima)
 
-È possibile usare Funzioni di Azure per distribuire il codice che implementa la logica di business direttamente nei dispositivi Azure IoT Edge. Questa esercitazione illustra la creazione e distribuzione di una funzione di Azure che filtra i dati del sensore nel dispositivo IoT Edge simulato. Viene usato il dispositivo IoT Edge simulato che è stato creato nelle guide introduttive per la distribuzione di Azure IoT Edge in un dispositivo simulato in [Windows][lnk-tutorial1-win] o [Linux][lnk-tutorial1-lin]. In questa esercitazione si apprenderà come:     
+È possibile usare Funzioni di Azure per distribuire il codice che implementa la logica di business direttamente nei dispositivi Azure IoT Edge. Questa esercitazione illustra la creazione e distribuzione di una funzione di Azure che filtra i dati del sensore nel dispositivo IoT Edge simulato. Viene usato il dispositivo IoT Edge simulato che è stato creato nelle guide introduttive per la distribuzione di Azure IoT Edge in un dispositivo simulato in [Windows](quickstart.md) o [Linux](quickstart-linux.md). In questa esercitazione si apprenderà come:     
 
 > [!div class="checklist"]
 > * Usare Visual Studio Code per creare una funzione di Azure.
@@ -256,6 +256,3 @@ Continuare con le esercitazioni successive per ottenere informazioni sugli altri
 > [!div class="nextstepaction"]
 > [Trovare le medie usando una finestra mobile in Analisi di flusso di Azure](tutorial-deploy-stream-analytics.md)
 
-<!--Links-->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4f00268fcf3797697812f3aa8b221817a2794691
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4dd54a4a4985a33bc14022d7f722bdf83224c4aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092542"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240852"
 ---
 # <a name="api-management-access-restriction-policies"></a>Criteri di limitazione dell'accesso di Gestione API
-Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti. Per informazioni sull'aggiunta e sulla configurazione dei criteri, vedere [Criteri di Gestione API](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a> Criteri di limitazione dell'accesso  
   
@@ -71,7 +71,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |ignore-case|Può essere impostato su True o False. Se impostato su True, il maiuscolo viene ignorato quando il valore dell'intestazione viene confrontato con il set di valori accettabili.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound, outbound  
   
@@ -126,7 +126,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
   
@@ -181,7 +181,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
   
@@ -224,7 +224,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |ip-filter action="allow &#124; forbid"|Specifica se le chiamate devono essere consentite o rifiutate per gli indirizzi e gli intervalli di indirizzi IP specificati.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
@@ -279,7 +279,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
 -   **Ambiti del criterio:** prodotto  
@@ -336,7 +336,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |renewal-period|Periodo, in secondi, dopo il quale la quota si reimposta.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  
@@ -506,7 +506,7 @@ Questo argomento fornisce un riferimento per i criteri di Gestione API seguenti.
 |URL|URL dell'endpoint di configurazione Open ID dal quale è possibile ottenere i metadati della configurazione Open ID. La risposta deve essere conforme alle specifiche, come definito nell'URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Per Azure Active Directory, usare il seguente URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` sostituendo il nome del tenant della directory in uso, ad esempio `contoso.onmicrosoft.com`.|Yes|N/D|  
   
 ### <a name="usage"></a>Utilizzo  
- Questo criterio può essere usato nelle [sezioni](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
+ Questo criterio può essere usato nelle [sezioni](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e negli [ambiti](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) del criterio seguenti.  
   
 -   **Sezioni del criterio:** inbound  
 -   **Ambiti del criterio:** globale, prodotto, API, operazione  

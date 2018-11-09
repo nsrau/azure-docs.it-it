@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 7cd2aecf21a86bb58452e48fcdf1d79f1d3a2104
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: d2cf2fec50e3dd803d828537ddd724ee61015c71
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321224"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248287"
 ---
-# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Come arrestare il monitoraggio del servizio Kubernetes di Azure con Monitoraggio di Azure per contenitori
+# <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers-preview"></a>Come arrestare il monitoraggio del servizio Kubernetes di Azure con Monitoraggio di Azure per contenitori (anteprima)
 
 Se, dopo aver abilitato il monitoraggio di un cluster AKS, si decide che il monitoraggio non è più necessario, è possibile *disabilitarlo esplicitamente*.  Questo articolo illustra come eseguire questa operazione usando l'interfaccia della riga di comando di Azure o i modelli di Azure Resource Manager disponibili.  
 
@@ -111,7 +111,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
 
 4. Sostituire i valori di **aksResourceId** e **aksResourceLocation** con i valori del cluster AKS, indicati nella pagina **Proprietà** per il cluster selezionato.
 
-    ![Pagina delle proprietà del contenitore](./media/monitoring-container-health/container-properties-page.png)
+    ![Pagina delle proprietà del contenitore](media/monitoring-container-insights-optout/container-properties-page.png)
 
     Nella pagina **Proprietà** copiare anche l'**ID risorsa dell'area di lavoro**. Questo valore è necessario se si decide di eliminare l'area di lavoro di Log Analytics in un secondo momento. Questa operazione che non viene eseguita nell'ambito di questo processo. 
 

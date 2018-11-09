@@ -1,5 +1,5 @@
 ---
-title: Autenticazione di Azure Active Directory - Azure SQL | Microsoft Docs
+title: Autenticazione di Azure Active Directory - Azure SQL | Documentazione Microsoft
 description: Informazioni su come usare Azure Active Directory per l'autenticazione al database SQL, a Istanza gestita e a SQL Data Warehouse
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 9d4ede9aee5261903a814cc2f29c788a2ba377f3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869770"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244077"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>Usare l'autenticazione di Azure Active Directory per l'autenticazione con SQL
 
@@ -35,7 +35,7 @@ Con l'autenticazione di Azure AD è possibile gestire centralmente le identità 
 - Può eliminare l'archiviazione delle password abilitando l'autenticazione integrata di Windows e altre forme di autenticazione supportate da Azure Active Directory.
 - L'autenticazione di Azure SD usa gli utenti di un database indipendente per autenticare le identità a livello di database.
 - Azure AD supporta l'autenticazione basata su token per le applicazioni che si connettono a database SQL.
-- L'autenticazione di Azure AD supporta la federazione dei domini di AD FS o l'autenticazione utente/password nativa per un'istanza locale di Azure Active Directory senza la sincronizzazione del dominio.  
+- L'autenticazione di Azure AD supporta la federazione dei domini di AD FS o l'autenticazione utente/password nativa per un'istanza locale di Azure Active Directory senza la sincronizzazione del dominio.  
 - Azure AD supporta le connessioni da SQL Server Management Studio che utilizzano l'autenticazione universale di Active Directory, che include l'MFA (Multi-Factor Authentication).  L'MFA include funzionalità avanzate di autenticazione con una serie di semplici opzioni di verifica, tra cui: chiamata telefonica, SMS, smart card con pin o notifica tramite app per dispositivi mobili. Per altre informazioni [Supporto di SQL Server Management Studio (SSMS) per l'autenticazione MFA di Azure AD con il database SQL e SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).  
 
 > [!NOTE]  
@@ -118,10 +118,10 @@ L'autenticazione di Azure Active Directory supporta i metodi seguenti per la con
 - È consigliabile impostare il timeout di connessione su 30 secondi.   
 - SQL Server 2016 Management Studio e SQL Server Data Tools per Visual Studio 2015, versione 14.0.60311.1 di aprile 2016 o successiva, supportano l'autenticazione di Azure Active Directory. L'autenticazione di Azure AD è supportata dal **provider di dati .NET Framework per server SQL** a partire da .NET Framework versione 4.6. Di conseguenza, le versioni più recenti di questi strumenti e applicazioni del livello dati (DAC e BACPAC) possono usare l'autenticazione di Azure AD.   
 - [ODBC versione 13.1](https://www.microsoft.com/download/details.aspx?id=53339) supporta l'autenticazione di Azure Active Directory, tuttavia `bcp.exe` non può connettersi mediante l'autenticazione di Azure Active Directory perché usa un provider ODBC meno recente.   
-- `sqlcmd` supporta l'autenticazione di Azure Active Directory iniziando con la versione 13.1 disponibile in [Download Center](http://go.microsoft.com/fwlink/?LinkID=825643).
-- SQL Server Data Tools per Visual Studio 2015 richiede almeno la versione 14.0.60311.1 di aprile 2016. Gli utenti di Azure AD non sono attualmente visualizzati in Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
+- `sqlcmd` supporta l'autenticazione di Azure Active Directory iniziando con la versione 13.1 disponibile in [Download Center](https://go.microsoft.com/fwlink/?LinkID=825643).
+- SQL Server Data Tools per Visual Studio 2015 richiede almeno la versione 14.0.60311.1 di aprile 2016. Gli utenti di Azure AD non sono attualmente visualizzati in Esplora oggetti di SSDT. Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 - [Microsoft JDBC Driver 6.0 per server SQL](https://www.microsoft.com/download/details.aspx?id=11774) supporta l'autenticazione di Azure AD. Vedere anche l'argomento su come [impostare le proprietà della connessione](https://msdn.microsoft.com/library/ms378988.aspx).   
-- PolyBase non può eseguire l'autenticazione di Azure AD.   
+- PolyBase non può eseguire l'autenticazione di Azure AD.   
 - L'autenticazione di Azure AD è supportata per il database SQL nei pannelli **Importa database** ed **Esporta database** del portale di Azure. L'importazione e l'esportazione tramite l'autenticazione di Azure AD è supportata anche dal comando PowerShell.   
 - L'autenticazione di Azure AD è supportata per il database SQL, per Istanza gestita e per SQL Data Warehouse tramite l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Configurare e gestire l'autenticazione di Azure Active Directory con il database SQL oppure con SQL Data Warehouse](sql-database-aad-authentication-configure.md) e [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 

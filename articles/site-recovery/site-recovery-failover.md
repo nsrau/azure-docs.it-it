@@ -1,21 +1,22 @@
 ---
-title: Failover in Site Recovery | Microsoft Docs
-description: Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali e server fisici. Informazioni sul failover in Azure o in un centro dati secondario.
+title: Failover durante il ripristino di emergenza con Azure Site Recovery | Microsoft Docs
+description: Informazioni su come eseguire il failover di macchine virtuali e server fisici durante il ripristino di emergenza con il servizio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.date: 10/28/2018
+ms.author: raynew
+ms.openlocfilehash: 6e16529740377b9a082fda4f3e4409b57441715e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391318"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215158"
 ---
-# <a name="failover-in-site-recovery"></a>Failover in Site Recovery
+# <a name="fail-over-vms-and-physical-servers"></a>Failover di macchine virtuali e server fisici 
+
 Questo articolo descrive come eseguire il failover di macchine virtuali e server fisici protetti da Site Recovery.
 
 ## <a name="prerequisites"></a>Prerequisiti

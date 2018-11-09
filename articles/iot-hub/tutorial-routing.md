@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 575c8a5bec4c7763c75154835830ba350f009e93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946937"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416886"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Esercitazione: Configurare il routing dei messaggi con l'IoT Hub
 
@@ -268,7 +268,9 @@ Si stanno per inviare messaggi a diverse risorse in base alle proprietà allegat
 
 ### <a name="routing-to-a-storage-account"></a>Routing a un account di archiviazione 
 
-Ora configurare il routing per l'account di archiviazione. Passare al riquadro Routing messaggi e quindi aggiungere una route. Quando si aggiunge la route, definire un nuovo endpoint per la route. Dopo aver completato la configurazione, i messaggi in cui la proprietà **livello** è impostata su **archiviazione** vengono scritti automaticamente in un account di archiviazione.
+Ora configurare il routing per l'account di archiviazione. Passare al riquadro Routing messaggi e quindi aggiungere una route. Quando si aggiunge la route, definire un nuovo endpoint per la route. Dopo aver completato la configurazione, i messaggi in cui la proprietà **livello** è impostata su **archiviazione** vengono scritti automaticamente in un account di archiviazione. 
+
+I dati vengono scritti nell'archiviazione BLOB in formato Avro.
 
 1. Nel [portale di Azure](https://portal.azure.com), fare clic su **Gruppi di risorse**, quindi selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**. 
 
@@ -286,9 +288,19 @@ Ora configurare il routing per l'account di archiviazione. Passare al riquadro R
 
 6. Fare clic su **Selezionare un contenitore**. Verrà visualizzato un elenco degli account di archiviazione. Selezionare quello configurato nei passaggi di preparazione. Questa esercitazione usa **contosostorage**. Mostra un elenco dei contenitori nell'account di archiviazione. Selezionare il contenitore configurato nei passaggi di preparazione. Questa esercitazione usa **contosoresults**. Fare clic su **Seleziona**. Si tornerà al riquadro **Aggiungi endpoint**. 
 
-7. Usare le impostazioni predefinite nei campi rimanenti. Fare clic su **Create** per creare l'endpoint di archiviazione e aggiungerlo alla route. Si tornerà al riquadro **Aggiungi route**.
+7. A fini di questa esercitazione, usare le impostazioni predefinite per i campi rimanenti. 
 
-8.  Completare ora il resto delle informazioni per la query di routing. Questa query specifica i criteri per l'invio di messaggi al contenitore di archiviazione appena aggiunto come endpoint. Compilare i campi sullo schermo. 
+   > [!NOTE]
+   > È possibile impostare il formato in **Formato nome file BLOB**. Il valore predefinito è `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. Il formato deve contenere i campi {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH} e {mm} in qualsiasi ordine. 
+   > 
+   > Ad esempio, se si usa il formato del nome file del BLOB predefinito, il nome dell'hub è ContosoTestHub e la data e l'ora sono 30 ottobre 2018 10:56, il nome del BLOB sarà simile al seguente: `ContosoTestHub/0/2018/10/30/10/56`.
+   > 
+   > I BLOB vengono scritti nel formato Avro.
+   >
+
+8. Fare clic su **Create** per creare l'endpoint di archiviazione e aggiungerlo alla route. Si tornerà al riquadro **Aggiungi route**.
+
+9. Completare ora il resto delle informazioni per la query di routing. Questa query specifica i criteri per l'invio di messaggi al contenitore di archiviazione appena aggiunto come endpoint. Compilare i campi sullo schermo. 
 
    **Nome**: immettere un nome per la query di routing. Questa esercitazione usa **StorageRoute**.
 
@@ -368,17 +380,17 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
 
    Fare clic su **Create**(Crea).
 
-1. Passare ora ad App per la logica. Il modo più semplice per ottenere l'App per la logica è fare clic su **Gruppi di risorse**, selezionare il gruppo di risorse (questa esercitazione usa **ContosoResources**), quindi selezionare l'App per la logica dall'elenco di risorse. Viene visualizzata la pagina della finestra di progettazione dell'App per la logica (potrebbe essere necessario scorrere verso destra per visualizzare l'intera pagina). Nella pagina della finestra di progettazione dell'App per la logica, scorrere verso il basso fino a visualizzare il riquadro **App per la logica vuota +** e farvi clic sopra. 
+2. Passare ora ad App per la logica. Il modo più semplice per ottenere l'App per la logica è fare clic su **Gruppi di risorse**, selezionare il gruppo di risorse (questa esercitazione usa **ContosoResources**), quindi selezionare l'App per la logica dall'elenco di risorse. Viene visualizzata la pagina della finestra di progettazione dell'App per la logica (potrebbe essere necessario scorrere verso destra per visualizzare l'intera pagina). Nella pagina della finestra di progettazione dell'App per la logica, scorrere verso il basso fino a visualizzare il riquadro **App per la logica vuota +** e farvi clic sopra. 
 
-1. Verrà visualizzato un elenco di connettori. Selezionare **Bus di servizio**. 
+3. Verrà visualizzato un elenco di connettori. Selezionare **Bus di servizio**. 
 
    ![Screenshot che mostra l'elenco di connettori.](./media/tutorial-routing/logic-app-connectors.png)
 
-1. Verrà visualizzato un elenco di trigger. Selezionare **Bus di servizio - Quando un messaggio viene ricevuto in una coda (completamento di coda)**. 
+4. Verrà visualizzato un elenco di trigger. Selezionare **Bus di servizio - Quando un messaggio viene ricevuto in una coda (completamento di coda)**. 
 
    ![Screenshot che mostra l'elenco dei trigger per il Bus di servizio.](./media/tutorial-routing/logic-app-triggers.png)
 
-1. Nella schermata successiva, inserire il nome della connessione. Questa esercitazione usa **ContosoConnection**. 
+5. Nella schermata successiva, inserire il nome della connessione. Questa esercitazione usa **ContosoConnection**. 
 
    ![Screenshot che mostra l'impostazione della connessione per la coda del Bus di servizio.](./media/tutorial-routing/logic-app-define-connection.png)
 
@@ -386,21 +398,21 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
    
    ![Screenshot che mostra la fine della configurazione della connessione.](./media/tutorial-routing/logic-app-finish-connection.png)
 
-1. Nella schermata successiva, selezionare il nome della coda (questa esercitazione usata **contososbqueue**) dall'elenco a discesa. È possibile usare le impostazioni predefinite nei campi rimanenti. 
+6. Nella schermata successiva, selezionare il nome della coda (questa esercitazione usata **contososbqueue**) dall'elenco a discesa. È possibile usare le impostazioni predefinite nei campi rimanenti. 
 
    ![Screenshot che mostra le opzioni di coda.](./media/tutorial-routing/logic-app-queue-options.png)
 
-1. Configurare ora l'azione per inviare un messaggio di posta elettronica quando viene ricevuto un messaggio nella coda. In Progettazione app per la logica fare clic su **+Nuovo passaggio** per aggiungere un passaggio, quindi fare clic su **Aggiungi un'azione**. Nel riquadro **Scegliere un'azione**, trovare e fare clic su **Outlook di Office 365**. Nella schermata dei trigger, selezionare **Office 365 Outlook - Inviare un messaggio di posta elettronica**.  
+7. Configurare ora l'azione per inviare un messaggio di posta elettronica quando viene ricevuto un messaggio nella coda. In Progettazione app per la logica fare clic su **+Nuovo passaggio** per aggiungere un passaggio, quindi fare clic su **Aggiungi un'azione**. Nel riquadro **Scegliere un'azione**, trovare e fare clic su **Outlook di Office 365**. Nella schermata dei trigger, selezionare **Office 365 Outlook - Inviare un messaggio di posta elettronica**.  
 
    ![Screenshot che mostra le opzioni di Office 365.](./media/tutorial-routing/logic-app-select-outlook.png)
 
-1. Successivamente, accedere all'account Office 365 dell'utente per configurare la connessione. Specificare gli indirizzi di posta elettronica per i destinatari del messaggio di posta elettronica. Specificare anche l'oggetto e digitare il messaggio che si desidera il destinatario visualizzi nel corpo. Per i test, inserire il proprio indirizzo di posta elettronica come destinatario.
+8. Successivamente, accedere all'account Office 365 dell'utente per configurare la connessione. Specificare gli indirizzi di posta elettronica per i destinatari del messaggio di posta elettronica. Specificare anche l'oggetto e digitare il messaggio che si desidera il destinatario visualizzi nel corpo. Per i test, inserire il proprio indirizzo di posta elettronica come destinatario.
 
    Fare clic su **Aggiungere contenuto dinamico** per visualizzare il contenuto del messaggio che è possibile includere. Selezionare **Contenuto**: includerà il messaggio di posta elettronica. 
 
    ![Screenshot che mostra le opzioni di posta elettronica per l'app per la logica.](./media/tutorial-routing/logic-app-send-email.png)
 
-1. Fare clic su **Save**. Quindi chiudere la finestra di progettazione delle app per la logica
+9. Fare clic su **Save**. Quindi chiudere la finestra di progettazione delle app per la logica
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurare Analisi di flusso di Azure
 
@@ -410,7 +422,7 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
 1. Nel [portale di Azure](https://portal.azure.com) fare clic su **Crea una risorsa** > **Internet delle cose** > **Processo di Analisi di flusso**.
 
-1. Immettere le seguenti informazioni per il processo.
+2. Immettere le seguenti informazioni per il processo.
 
    **Nome processo**: il nome del processo. Il nome deve essere univoco a livello globale. Questa esercitazione usa **contosoJob**.
 
@@ -420,13 +432,13 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    ![Screenshot che mostra come creare il processo di analisi di flusso.](./media/tutorial-routing/stream-analytics-create-job.png)
 
-1. Fare clic su **Crea** per creare il processo. Per tornare al processo, fare clic su **Gruppi di risorse**. Questa esercitazione usa **ContosoResources**. Selezionare il gruppo di risorse, quindi fare clic sul processo di Analisi di flusso nell'elenco di risorse. 
+3. Fare clic su **Crea** per creare il processo. Per tornare al processo, fare clic su **Gruppi di risorse**. Questa esercitazione usa **ContosoResources**. Selezionare il gruppo di risorse, quindi fare clic sul processo di Analisi di flusso nell'elenco di risorse. 
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di Analisi di flusso
 
-1. In **Topologia processo** fare clic su **Input**.
+4. In **Topologia processo** fare clic su **Input**.
 
-1. Nel riquadro **Input**, fare clic su **Aggiungi input del flusso** e selezionare Hub IoT. Nella schermata che viene visualizzata, compilare i campi seguenti:
+5. Nel riquadro **Input**, fare clic su **Aggiungi input del flusso** e selezionare Hub IoT. Nella schermata che viene visualizzata, compilare i campi seguenti:
 
    **Alias di input**: questa esercitazione usa **contosoinputs**.
 
@@ -444,13 +456,13 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    ![Screenshot che mostra come configurare gli input per il processo di analisi del flusso.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-1. Fare clic su **Save**.
+6. Fare clic su **Save**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di Analisi di flusso
 
 1. In **Topologia processo** fare clic su **Output**.
 
-1. Nel riquadro **Output** fare clic su **Aggiungi** e selezionare **Power BI**. Nella schermata che viene visualizzata, compilare i campi seguenti:
+2. Nel riquadro **Output** fare clic su **Aggiungi** e selezionare **Power BI**. Nella schermata che viene visualizzata, compilare i campi seguenti:
 
    **Alias di output**: l'alias univoco per l'output. Questa esercitazione usa **contosooutputs**. 
 
@@ -460,25 +472,25 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
    Accettare le impostazioni predefinite nei campi rimanenti.
 
-1. Fare clic su **Autorizza** e accedere all'account di Power BI.
+3. Fare clic su **Autorizza** e accedere all'account di Power BI.
 
    ![Screenshot che mostra come configurare gli output per il processo di analisi di flusso.](./media/tutorial-routing/stream-analytics-job-outputs.png)
 
-1. Fare clic su **Save**.
+4. Fare clic su **Save**.
 
 ### <a name="configure-the-query-of-the-stream-analytics-job"></a>Configurare la query del processo di Analisi di flusso
 
 1. In **Topologia processo** fare clic su **Query**.
 
-1. Sostituire `[YourInputAlias]` con l'alias di input del processo. Questa esercitazione usa **contosoinputs**.
+2. Sostituire `[YourInputAlias]` con l'alias di input del processo. Questa esercitazione usa **contosoinputs**.
 
-1. Sostituire `[YourOutputAlias]` con l'alias di output del processo. Questa esercitazione usa **contosooutputs**.
+3. Sostituire `[YourOutputAlias]` con l'alias di output del processo. Questa esercitazione usa **contosooutputs**.
 
    ![Screenshot che mostra come configurare le query per il processo di analisi di flusso.](./media/tutorial-routing/stream-analytics-job-query.png)
 
-1. Fare clic su **Save**.
+4. Fare clic su **Save**.
 
-1. Chiudere il riquadro della query. Si tornerà alla visualizzazione delle risorse nel gruppo di risorse. Fare clic sul processo di Analisi di flusso. In questa esercitazione è denominato **contosoJob**.
+5. Chiudere il riquadro della query. Si tornerà alla visualizzazione delle risorse nel gruppo di risorse. Fare clic sul processo di Analisi di flusso. In questa esercitazione è denominato **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Eseguire il processo di Analisi di flusso
 
@@ -520,7 +532,7 @@ Se tutto è configurato correttamente, a questo punto si dovrebbero visualizzare
    * L'app per la logica che recupera il messaggio dalla coda del Bus di servizio funziona correttamente.
    * Il connettore app per la logica per Outlook funziona correttamente. 
 
-1. Nel [portale di Azure](https://portal.azure.com), fare clic su **Gruppi di risorse** e selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**. Selezionare l'account di archiviazione, fare clic su **BLOB**, quindi selezionare il contenitore. Questa esercitazione usa **contosoresults**. Dovrebbe essere visualizzata una cartella ed è possibile eseguire il drill-down nelle directory fino a quando non viene visualizzato uno o più file. Aprire uno di tali file; essi contengono le voci indirizzate all'account di archiviazione. 
+2. Nel [portale di Azure](https://portal.azure.com), fare clic su **Gruppi di risorse** e selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**. Selezionare l'account di archiviazione, fare clic su **BLOB**, quindi selezionare il contenitore. Questa esercitazione usa **contosoresults**. Dovrebbe essere visualizzata una cartella ed è possibile eseguire il drill-down nelle directory fino a quando non viene visualizzato uno o più file. Aprire uno di tali file; essi contengono le voci indirizzate all'account di archiviazione. 
 
    ![Screenshot che mostra i file dei risultati nella risorsa di archiviazione.](./media/tutorial-routing/results-in-storage.png)
 
@@ -534,35 +546,35 @@ Ora con l'applicazione ancora in esecuzione, configurare la visualizzazione di P
 
 1. Accedere all'account [Power BI](https://powerbi.microsoft.com/).
 
-1. Passare all'**area di lavoro** e selezionare l'area di lavoro impostata quando è stato creato l'output del processo di analisi di flusso. In questa esercitazione viene usato **Area di lavoro personale**. 
+2. Passare all'**area di lavoro** e selezionare l'area di lavoro impostata quando è stato creato l'output del processo di analisi di flusso. In questa esercitazione viene usato **Area di lavoro personale**. 
 
-1. Fare clic su **Set di dati**.
+3. Fare clic su **Set di dati**.
 
    Dovrebbero essere elencati i set di dati specificati durante la creazione di output per il processo di analisi di flusso. Questa esercitazione usa **contosodataset**. (La prima volta, potrebbero volerci da 5 a 10 minuti per il set di dati da visualizzare).
 
-1. In **AZIONI**, fare clic sulla prima icona per creare un report.
+4. In **AZIONI**, fare clic sulla prima icona per creare un report.
 
    ![Screenshot che mostra l'area di lavoro di Power BI con le icone del report e delle evidenziate.](./media/tutorial-routing/power-bi-actions.png)
 
-1. Creare un grafico a linee per visualizzare la temperatura in tempo reale nel tempo.
+5. Creare un grafico a linee per visualizzare la temperatura in tempo reale nel tempo.
 
-   a. Nella pagina della creazione del report, aggiungere un grafico a linee scegliendo l'icona del grafico a linee.
+   * Nella pagina della creazione del report, aggiungere un grafico a linee scegliendo l'icona del grafico a linee.
 
    ![Screenshot che mostra le visualizzazioni e i campi.](./media/tutorial-routing/power-bi-visualizations-and-fields.png)
 
-   b. Nel riquadro **Campi** espandere la tabella specificata durante la creazione di output per il processo di analisi di flusso. Questa esercitazione usa **contosotable**.
+   * Nel riquadro **Campi** espandere la tabella specificata durante la creazione di output per il processo di analisi di flusso. Questa esercitazione usa **contosotable**.
 
-   c. Trascinare **EventEnqueuedUtcTime** in **Asse** sul riquadro **Visualizzazioni**.
+   * Trascinare **EventEnqueuedUtcTime** in **Asse** sul riquadro **Visualizzazioni**.
 
-   d. Trascinare la **temperatura** in **Valori**.
+   * Trascinare la **temperatura** in **Valori**.
 
    Viene creato un grafico a linee. L'asse x mostra data e ora per il fuso orario UTC. L'asse y mostra la temperatura dal sensore.
 
-1. Creare un altro grafico a linee in modo da visualizzare in tempo reale l'umidità nel tempo. Per configurare il secondo grafico, attenersi alla stessa procedura precedente e inserire **EventEnqueuedUtcTime** sull'asse x e l'**umidità** sull'asse y.
+6. Creare un altro grafico a linee in modo da visualizzare in tempo reale l'umidità nel tempo. Per configurare il secondo grafico, attenersi alla stessa procedura precedente e inserire **EventEnqueuedUtcTime** sull'asse x e l'**umidità** sull'asse y.
 
    ![Screenshot che mostra il report di Power BI finale con i due grafici.](./media/tutorial-routing/power-bi-report.png)
 
-1. Fare clic su **Salva** per salvare il report.
+7. Fare clic su **Salva** per salvare il report.
 
 Dovrebbe essere possibile visualizzare i dati su entrambi i grafici. Ciò comporta quanto segue:
 
@@ -595,7 +607,6 @@ Per rimuovere il gruppo di risorse, usare il comando [Remove-AzureRmResourceGrou
 Remove-AzureRmResourceGroup -Name $resourceGroup
 ```
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione è stato descritto come usare il routing dei messaggi per indirizzare i messaggi di Hub IoT verso diverse destinazioni eseguendo le attività seguenti.  
@@ -615,5 +626,3 @@ Passare all'esercitazione successiva per imparare a gestire lo stato di un dispo
 
 > [!div class="nextstepaction"]
 [Configurare i dispositivi da un servizio back-end](tutorial-device-twins.md)
-
- <!--  [Manage the state of a device](./tutorial-manage-state.md) -->

@@ -1,25 +1,24 @@
 ---
-title: Preparare la destinazione (da fisico ad Azure) | Documentazione Microsoft
-description: Questo articolo descrive come preparare l'ambiente di Azure per avviare la replica di server fisici che eseguono Windows o Linux in Azure.
-services: site-recovery
+title: Configurare l'ambiente di destinazione per il ripristino di emergenza di server fisici locali in Azure | Microsoft Docs
+description: Questo articolo descrive come configurare l'ambiente di destinazione di Azure per il ripristino di emergenza di server fisici con Azure Site Recovery.
 author: bsiva
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 370d245e39b848acade18d0e73f60a3246737629
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b89d04a6e2fd11a61de8b56690664f6204c208ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915521"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209293"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparare la destinazione (da VMware ad Azure)
 
 Questo articolo descrive come preparare l'ambiente di Azure per avviare la replica di server fisici (x64) che eseguono Windows o Linux in Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 L'articolo presuppone quanto segue:
 - È stato creato un insieme di credenziali dei servizi di ripristino per proteggere i server fisici. È possibile creare un insieme di credenziali di Servizi di ripristino nel [portale di Azure](http://portal.azure.com "portale di Azure").

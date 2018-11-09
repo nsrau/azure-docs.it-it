@@ -12,20 +12,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 2/23/2018
+ms.date: 10/29/2018
 ms.author: ryanwi
-ms.openlocfilehash: b79206b9d456226d14984e8a1c1002c07c4f626a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 78315409c5d83a98321e16913b1090e8996ed8ce
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208472"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230285"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Manifesti delle applicazioni e dei servizi di Service Fabric
-Questo articolo illustra in che modo le applicazioni e i servizi di Service Fabric vengono definiti e sottoposti a controllo delle versioni con i file ApplicationManifest.xml e ServiceManifest.xml.  Lo schema XML di questi file manifesto è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
+Questo articolo illustra in che modo le applicazioni e i servizi di Service Fabric vengono definiti e sottoposti a controllo delle versioni con i file ApplicationManifest.xml e ServiceManifest.xml.  Per esempi più dettagliati, vedere [esempi del manifesto di servizio e dell'applicazione](service-fabric-manifest-examples.md).  Lo schema XML di questi file manifesto è documentato in [Documentazione dello schema ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
 
 ## <a name="describe-a-service-in-servicemanifestxml"></a>Descrivere un servizio in ServiceManifest.xml
-Il manifesto del servizio definisce in modo dichiarativo il tipo di servizio e la versione. Specifica i metadati del servizio, ad esempio il tipo di servizio, le proprietà di integrità, le metriche del bilanciamento del carico, i file binari del servizio e i file di configurazione.  In altri termini, descrive i pacchetti di codice, configurazione e dati che costituiscono un pacchetto servizio per supportare uno o più tipi di servizi. Un manifesto del servizio può contenere più pacchetti di codice, configurazione e dati, sottoposti a controllo indipendente delle versioni. Ecco un manifesto del servizio Web front-end di ASP.NET Core dell'[applicazione di voto di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+Il manifesto del servizio definisce in modo dichiarativo il tipo di servizio e la versione. Specifica i metadati del servizio, ad esempio il tipo di servizio, le proprietà di integrità, le metriche del bilanciamento del carico, i file binari del servizio e i file di configurazione.  In altri termini, descrive i pacchetti di codice, configurazione e dati che costituiscono un pacchetto servizio per supportare uno o più tipi di servizi. Un manifesto del servizio può contenere più pacchetti di codice, configurazione e dati, sottoposti a controllo indipendente delle versioni. Ecco un manifesto del servizio Web front-end di ASP.NET Core dell'[applicazione di voto di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (e qui alcuni [esempi più dettagliati](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -76,7 +76,7 @@ Gli scenari tipici per l'uso di **SetupEntryPoint** sono l'esecuzione di un file
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
 
-Per altre informazioni su come configurare **SetupEntryPoint**, vedere [Configurare i criteri per il punto di ingresso dell'installazione del servizio](service-fabric-application-runas-security.md)
+Per altre informazioni su come configurare SetupEntryPoint, vedere [Configurare i criteri per il punto di ingresso dell'installazione del servizio](service-fabric-application-runas-security.md)
 
 **EnvironmentVariables** (non impostato nell'esempio precedente) offre un elenco di variabili di ambiente impostate per questo pacchetto di codice. Le variabili di ambiente possono essere sostituite in `ApplicationManifest.xml` per specificare valori diversi per diverse istanze del servizio. 
 
@@ -108,7 +108,7 @@ For more information about other features supported by service manifests, refer 
 ## <a name="describe-an-application-in-applicationmanifestxml"></a>Descrivere un'applicazione in ApplicationManifest.xml
 Il manifesto dell'applicazione descrive in modo dichiarativo il tipo di applicazione e la versione. Specifica i metadati di composizione dei servizi, ad esempio i nomi stabili, lo schema di partizionamento, il numero di istanze/fattore di replica, i criteri di sicurezza/isolamento, i vincoli di posizionamento, gli override di configurazione e i tipi di servizi costituenti. Vengono descritti anche i domini di bilanciamento del carico in cui viene posizionata l'applicazione.
 
-Un manifesto dell'applicazione quindi descrive elementi a livello di applicazione e fa riferimento a uno o più manifesti dei servizi per comporre un tipo di applicazione. Ecco il manifesto dell'applicazione per l'[applicazione di voto di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart):
+Un manifesto dell'applicazione quindi descrive elementi a livello di applicazione e fa riferimento a uno o più manifesti dei servizi per comporre un tipo di applicazione. Ecco il manifesto dell'applicazione per l'[applicazione di voto di esempio](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) (e qui alcuni [esempi più dettagliati](service-fabric-manifest-examples.md)):
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

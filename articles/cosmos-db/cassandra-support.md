@@ -9,12 +9,12 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: e3de78bdf38a326498b984dc2a9f8eaa42233d22
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5a12a65e03e7ac104eb7b09b116f7c463bbb5b98
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091284"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240716"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Funzionalità di Apache Cassandra supportate dall'API Cassandra di Azure Cosmos DB 
 
@@ -44,14 +44,14 @@ API Cassandra di Azure Cosmos DB supporta i tipi di dati CQL seguenti:
 
 * ascii  
 * bigint  
-* BLOB  
+* blob  
 * boolean  
 * counter  
 * date  
 * decimal  
-* Double  
+* double  
 * float  
-* bloccato  
+* frozen  
 * inet  
 * int  
 * list  
@@ -87,7 +87,7 @@ API Cassandra di Azure Cosmos DB supporta i tipi di funzioni CQL seguenti:
   * toTimestamp(timeuuid)  
   * toUnixTimestamp(timeuuid)  
   * toDate(timestamp)  
-  * to UnixTimestamp(timestamp)  
+  * toUnixTimestamp(timestamp)  
   * toTimestamp(date)  
   * toUnixTimestamp(date)  
 
@@ -128,14 +128,14 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 Azure Cosmos DB supporta i comandi di database seguenti per tutti gli account API Cassandra.
 
-* CREA KEYSPACE 
-* CREA TABELLA 
-* MODIFICA TABELLA 
-* USA 
+* CREATE KEYSPACE 
+* CREATE TABLE 
+* ALTER TABLE 
+* USE 
 * INSERT 
 * SELECT 
-* AGGIORNAMENTO 
-* BATCH - sono supportati solo i comandi registrati 
+* UPDATE 
+* BATCH - sono supportati solo i comandi non registrati 
 * DELETE
 
 Quando eseguite tramite SDK compatibili con CQLV4, tutte le operazioni crud restituiranno informazioni aggiuntive errore, unità richiesta utilizzate, ID attività. I comandi di cancellazione e aggiornamento devono essere gestiti tenendo in considerazione la governance delle risorse, per evitare un uso eccessivo delle risorse fornite. 
@@ -159,7 +159,7 @@ API Cassandra di Azure Cosmos DB consente di scegliere la coerenza per le operaz
 
 ## <a name="permission-and-role-management"></a>Gestione di ruoli e privilegi
 
-Azure Cosmos DB supporta il controllo degli accessi in base al ruolo e chiavi/password di lettura/scrittura e sola lettura ottenibili tramite il [portale di Azure](https://portal.azure.com. Azure Cosmos DB non supporta ancora utenti e ruoli per attività di piano dati. 
+Azure Cosmos DB supporta il controllo degli accessi in base al ruolo e chiavi/password di lettura/scrittura e sola lettura ottenibili tramite il [portale di Azure](https://portal.azure.com). Azure Cosmos DB non supporta ancora utenti e ruoli per attività di piano dati. 
 
 ## <a name="planned-support"></a>Supporto pianificato 
 * Uso congiunto di timestamp e TTL  

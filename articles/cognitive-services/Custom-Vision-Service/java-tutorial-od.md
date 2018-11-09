@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: d4af3315cfca18da594730cc402236684f81bfc8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 3ffef348467a34f40730c122afa6a7111ebad486
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957336"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416903"
 ---
 # <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Esercitazione: Creare un progetto di rilevamento degli oggetti con Custom Vision SDK per Java
 
@@ -25,7 +25,7 @@ In questo articolo si esplora un'applicazione Java di base che usa l'API Visione
 
 Per usare l'esercitazione, è necessario seguire questa procedura:
 
-- Installare JDK 7 o 8.
+- Installare [JDK 7 o 8](https://aka.ms/azure-jdks).
 - Installare Maven.
 
 ## <a name="install-the-custom-vision-service-sdk"></a>Installare l'SDK del Servizio visione artificiale personalizzato
@@ -36,7 +36,7 @@ Per usare l'esercitazione, è necessario seguire questa procedura:
 
 ## <a name="get-the-training-and-prediction-keys"></a>Ottenere le chiavi di training e di stima
 
-Per ottenere le chiavi usate in questo esempio, visitare il [sito di Visione personalizzata](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Accounts__ (Account) copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
+Per ottenere le chiavi usate in questo esempio, visitare il [sito di Visione personalizzata](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Account__ (Account) copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
 
 ![Immagine dell'interfaccia utente delle chiavi](./media/python-tutorial/training-prediction-keys.png)
 

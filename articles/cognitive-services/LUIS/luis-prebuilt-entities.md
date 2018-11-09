@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2f7c724b14efd569a5993f9a9319c9004874bc43
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647596"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139975"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Entità predefinite per riconoscere tipi di dati comuni
 
@@ -25,7 +25,7 @@ LUIS include un insieme di entità predefinite per il riconoscimento di tipi com
 
 1. Aprire l'app facendo clic sul relativo nome nella pagina **App personali** e selezionare **Entità** nel riquadro sinistro. 
 
-1. Nella pagina **Entità** fare clic su **Manage prebuilt entities** (Gestisci entità predefinite).
+1. Nella pagina **Entità** fare clic su **Aggiungi entità predefinite**.
 
 1. Nella finestra di dialogo **Add prebuilt entities** (Aggiungi entità predefinite) selezionare l'entità predefinita datetimeV2. 
 

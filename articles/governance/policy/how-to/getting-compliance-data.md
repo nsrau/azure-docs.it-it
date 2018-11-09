@@ -4,17 +4,17 @@ description: Le valutazioni e gli effetti di Criteri di Azure determinano la con
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3fa185e741f1b14bf3f2e7413945b70b1ea1baaa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f88e68150aa2708557775df2719409228166520b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970856"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233413"
 ---
 # <a name="getting-compliance-data"></a>Ottenere dati sulla conformità
 
@@ -40,6 +40,44 @@ Le valutazioni delle iniziative e dei criteri assegnati sono il risultato di div
 - Un criterio o un'iniziativa già assegnata a un ambito viene aggiornata. Il ciclo di valutazione e la tempistica per questo scenario sono gli stessi di quelli per una nuova assegnazione a un ambito.
 - Una risorsa viene distribuita a un ambito con un'assegnazione tramite Resource Manager, REST, l'interfaccia della riga di comando di Azure o Azure PowerShell. In questo scenario l'evento di effetto (Append, Audit, Deny, Deploy) e le informazioni sullo stato conforme per la singola risorsa diventano disponibili nel portale e negli SDK dopo circa 15 minuti. Questo evento non causa una valutazione di altre risorse.
 - Ciclo di valutazione della conformità standard. Una volta ogni 24 ore, le assegnazioni vengono automaticamente rivalutate. Un criterio o un'iniziativa estesa valutata rispetto a un ambito di risorse di grandi dimensioni può richiedere tempo, pertanto non è prevedibile quando verrà completato il ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
+- Analisi su richiesta
+
+### <a name="on-demand-evaluation-scan"></a>Analisi di valutazione su richiesta
+
+Un'analisi di valutazione di una sottoscrizione o un gruppo di risorse può essere avviata con una chiamata all'API REST. Questo è un processo asincrono. Di conseguenza, l'endpoint REST per avviare l'analisi non attende finché l'analisi non è stata completata per rispondere. Invece, fornisce un URI per eseguire una query dello stato della valutazione richiesta.
+
+In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
+
+- `{YourRG}`: sostituire con il nome del gruppo di risorse
+- `{subscriptionId}`: sostituire con l'ID sottoscrizione
+
+L'analisi supporta la valutazione delle risorse in una sottoscrizione o in un gruppo di risorse. Avviare un'analisi nell'ambito desiderato con un comando **POST** dell'API REST usando le strutture URI seguenti:
+
+- Sottoscrizione
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- Gruppo di risorse
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+La chiamata restituisce uno stato **202-Accepted**. L'intestazione della risposta include una proprietà **Posizione** con il formato seguente:
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+`{ResourceContainerGUID}` viene generato in modo statico per l'ambito richiesto. Se un ambito sta già eseguendo un'analisi su richiesta, non viene avviata una nuova analisi. Al contrario, alla nuova richiesta viene fornito lo stesso URI `{ResourceContainerGUID}` di **posizione** per lo stato. Un comando **GET** dell'API REST per l'URI di **Posizione** restituisce un **202-accepted** mentre è in corso la valutazione. Quando l'analisi di valutazione è stata completata, restituisce uno stato **200 OK**. Il corpo di un'analisi completata è una risposta JSON con lo stato:
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## <a name="how-compliance-works"></a>Funzionamento della conformità
 

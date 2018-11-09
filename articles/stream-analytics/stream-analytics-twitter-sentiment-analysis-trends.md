@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 0b920d21486fc0003d8b11bef79bd44be4b28adf
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: de0ddbc041d6f177e5bfcd24d593b8d63a8e1e23
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030615"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248728"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
 
@@ -30,7 +30,7 @@ Una società con un sito Web di notizie è interessata a superare la concorrenza
 
 Per identificare in tempo reale gli argomenti di tendenza su Twitter, la società deve eseguire un'analisi in tempo reale sul volume dei tweet e sul sentiment relativo agli argomenti più importanti. In altre parole, ciò che serve è un motore di analisi del sentiment basato su questo feed di social media.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 In questa esercitazione si usa un'applicazione client che si connette a Twitter e cerca i tweet con determinati hashtag, che è possibile impostare. Per eseguire l'applicazione e analizzare i tweet tramite Analisi di flusso di Azure, è necessario quanto segue:
 
 * Una sottoscrizione di Azure.
@@ -64,7 +64,7 @@ In questa procedura si creerà uno spazio dei nomi dell'hub eventi e quindi si a
 
     ![Pannello per creare un nuovo hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub.png)
  
-7. Fare clic su **Crea**.
+7. Fare clic su **Create**(Crea).
 
 
 ### <a name="grant-access-to-the-event-hub"></a>Concedere l'accesso all'hub eventi
@@ -82,7 +82,7 @@ Prima che un processo possa inviare dati a un hub eventi, è necessario che per 
 
     ![Pannello per creare nuovi criteri di accesso all'hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-shared-access-policy-manage.png)
  
-4.  Fare clic su **Crea**.
+4.  Fare clic su **Create**(Crea).
 
 5.  Dopo aver distribuito i criteri, fare clic nell'elenco dei criteri di accesso condiviso.
 
@@ -203,7 +203,7 @@ Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, 
 
     ![Creazione di un nuovo processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/newjob.png)
 
-3. Fare clic su **Crea**.
+3. Fare clic su **Create**(Crea).
 
     Verrà creato il processo e il portale visualizzerà i relativi dettagli.
 
@@ -224,7 +224,7 @@ Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, 
 
     ![Creare un nuovo input per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
-3. Fare clic su **Crea**.
+3. Fare clic su **Create**(Crea).
 
 
 ## <a name="specify-the-job-query"></a>Specificare la query del processo
@@ -235,7 +235,7 @@ Per confrontare il numero di menzioni tra gli argomenti, è possibile usare una 
 
 1. Chiudere il pannello **Input** se non si è già fatto.
 
-2. Nel pannello del processo fare clic sulla casella **Query**. Azure elenca gli input e gli output configurati per il processo e consente di creare una query per trasformare il flusso di input nel momento in cui viene inviato all'output.
+2. Nel pannello **Panoramica** fare clic su **Modifica query** accanto all'angolo in alto a destra della casella Query. Azure elenca gli input e gli output configurati per il processo e consente di creare una query per trasformare il flusso di input nel momento in cui viene inviato all'output.
 
 3. Verificare che l'applicazione TwitterWpfClient sia in esecuzione. 
 
@@ -309,7 +309,7 @@ In questa esercitazione gli eventi tweet aggregati ottenuti dalla query del proc
     
     ![Pannello "Nuovo output" per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
-4. Fare clic su **Crea**. 
+4. Fare clic su **Create**(Crea). 
 
     Azure crea l'account di archiviazione e genera automaticamente una chiave. 
 

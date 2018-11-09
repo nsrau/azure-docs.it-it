@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 823bea9bac8ff270d5b5c02e3b76a2f7236c9c99
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241689"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231798"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modello di soluzione Ethereum Proof-of-Work Consortium
 
@@ -49,7 +49,7 @@ Ogni distribuzione crea anche una nuova istanza di Log Analytics o può aggiunge
 
 ## <a name="deployment-architecture"></a>Architettura di distribuzione
 
-### <a name="description"></a>DESCRIZIONE
+### <a name="description"></a>Descrizione
 
 Questo modello di soluzione consente di distribuire una rete di consorzio Ethereum multi-membro basata su una singola regione o su più regioni. La rete virtuale di ogni regione è collegata a un'altra regione in una topologia a catena utilizzando i gateway VNET e le risorse di connessione. Inoltre, prevede un registrar, che contiene le informazioni necessarie su tutti i nodi di mining e di transazione distribuiti in ogni area geografica.
 
@@ -75,7 +75,7 @@ In **Nozioni di base**, specificare i valori dei parametri standard per qualsias
 
 ![Nozioni di base](./media/ethereum-deployment/sample-deployment.png)
 
-Nome parametro|DESCRIZIONE| Valori consentiti|Valori predefiniti
+Nome parametro|Descrizione| Valori consentiti|Valori predefiniti
 ---|---|---|---
 Creare una nuova rete o eseguire l'aggiunta a una esistente?|Creare una nuova rete o eseguire l'aggiunta a una rete di consorzio preesistente|Creazione nuova rete, aggiunta a rete esistente|Creazione di un nuovo sito
 Distribuire una rete che faccia parte di un consorzio?|Una rete di consorzio permette a distribuzioni future di aggiungersi a questa rete (visibile quando *Crea nuovo* è selezionato sopra)|Consorzio autonomo|Autonoma
@@ -96,7 +96,7 @@ Il pannello di Operations Management Suite (OMS) consente di configurare una ris
 
 ![Creazione di una nuova OMS](./media/ethereum-deployment/new-oms.png)
 
-Nome parametro|DESCRIZIONE| Valori consentiti|Valori predefiniti
+Nome parametro|Descrizione| Valori consentiti|Valori predefiniti
 ---|---|---|---
 Connessione a una OMS esistente|Creare una nuova istanza Log Analytics o aggiunta a un'istanza esistente|Creazione nuova istanza, aggiunta a istanza esistente|Creazione nuovo percorso Log Analytics|L'area in cui verrà distribuito il nuovo Log Analytics (visibile se è selezionato *Crea nuovo*)
 Id dell'area di lavoro OMS esistente|ID dell'area di lavoro dell'istanza esistente (visibile se *Aggiungi a esistente* è selezionato) OMS Service Tier|Scegliere il piano tariffario per la nuova istanza. Ulteriori informazioni all'indirizzo https://azure.microsoft.com/pricing/details/log-analytics/ (visibile se *Aggiungi a esistente* è selezionato)|Autonomo gratuito per ogni nodo|Gratuito
@@ -108,7 +108,7 @@ Quindi, in **Regioni di distribuzione**, specificare gli input per **Numero di r
 
 ![Regioni di distribuzione](./media/ethereum-deployment/deployment-regions.png)
 
-Nome parametro| DESCRIZIONE| Valori consentiti |Valori predefiniti
+Nome parametro| Descrizione| Valori consentiti |Valori predefiniti
 ---|---|---|---
 Numero di regioni| Numero di aree per la distribuzione della rete di consorzio|1, 2, 3, 4, 5| 2
 Prima regione| Prima regione per la distribuzione della rete di consorzio|Tutte le aree di Azure consentite| Stati Uniti occidentali
@@ -119,11 +119,11 @@ Quinta regione| Quinta regione per la distribuzione della rete di consorzio (vis
 
 ### <a name="network-size-and-performance"></a>Dimensioni e prestazioni della rete
 
-Quindi, in **Dimensioni e prestazioni della rete** specificare gli input per la dimensione della rete del consorzio, ad esempio il numero e la dimensione dei nodi di mining e dei nodi di transazione.
+In **Network size and performance** (Dimensioni e prestazioni della rete) specificare gli input per la dimensione della rete del consorzio. Ad esempio, il numero e la dimensione dei nodi di data mining e di transazione.
 
 ![Dimensioni e prestazioni della rete](./media/ethereum-deployment/network-size-performance.png)
 
-Nome parametro |DESCRIZIONE |Valori consentiti| Valori predefiniti
+Nome parametro |Descrizione |Valori consentiti| Valori predefiniti
 ---|---|---|---
 Il numero di nodi di mining|Il numero di nodi di mining distribuiti per regione|2 - 15| 2
 Prestazioni di archiviazione dei nodi di mining|Il tipo di disco gestito che supporta ciascuno dei nodi di mining distribuiti.|Standard o Premium|Standard
@@ -138,7 +138,7 @@ Successivamente, in **Impostazioni Ethereum**, specificare le impostazioni di co
 
 ![Impostazioni Ethereum](./media/ethereum-deployment/standalone-leader-deployment.png)
 
-Nome parametro |DESCRIZIONE |Valori consentiti|Valori predefiniti
+Nome parametro |Descrizione |Valori consentiti|Valori predefiniti
 ---|---|---|---
 ID ConsortiumMember|L'ID associato a ogni membro che partecipa alla rete di consorzio che consente di configurare spazi di indirizzi IP per evitare conflitti. <br /><br />L'ID membro deve essere univoco per tutte le organizzazioni della stessa rete. È necessario un ID membro univoco anche quando la stessa organizzazione esegue la distribuzione in più regioni.<br /><br />Prendere nota del valore di questo parametro in quanto è necessario condividerlo con gli altri membri aggiunti.|0-255
 ID di rete Ethereum|L'ID di rete per la rete di consorzio Ethereum in fase di realizzazione. Ogni rete Ethereum ha il proprio ID di rete, di cui 1 è l'ID della rete pubblica. Sebbene l'accesso alla rete sia limitato per i nodi di mining, si consiglia comunque di utilizzarne un gran numero per evitare collisioni.|5 - 999,999,999| 10101010
@@ -263,8 +263,8 @@ Infine, eseguire la funzione con l'input appropriato:
 
 - **MyGatewayResourceId**: percorso di risorsa del gateway. Questo è il parametro dell'output di distribuzione del modello denominato **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **OtherGatewayResourceId**: percorso di risorsa del gateway del membro aggiunto. Questo è fornito dal membro aggiunto ed è il parametro di output di distribuzione del modello anche denominato **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : un nome per identificare questa connessione al gateway.
-- **Chiave condivisa**: il segreto prestabilito tra i due membri della rete di consorzio che stanno stabilendo una connessione.
+- **ConnectionName** : nome per identificare la specifica connessione al gateway.
+- **Shared Key**: segreto prestabilito tra i due membri della rete del consorzio che stanno stabilendo una connessione.
 
 **CreateConnection** - MyGatewayResourceId <resource path of your Gateway> -OtherGatewayResourceId <percorso di risorsa del gateway del membro aggiunto> -ConnectionName myConnection -SharedKey "MySharedKeyAbc123"
 
@@ -276,9 +276,9 @@ Eseguire lo script con l'input appropriato:
 
 - **MyGatewayResourceId**: percorso di risorsa del gateway. Questo è il parametro dell'output di distribuzione del modello denominato **CONSORTIUM_MEMBER_GATEWAY_ID**.
 - **OtherGatewayResourceId**: percorso di risorsa del gateway del membro aggiunto. Questo è fornito dal membro associato ed è il parametro di distribuzione del modello della loro distribuzione anche chiamato **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : un nome per identificare questa connessione al gateway.
-- **Chiave condivisa**: il segreto prestabilito tra i due membri della rete di consorzio che stanno stabilendo una connessione.
-- **Percorso**: area di Azure in cui la risorsa per il gateway viene distribuita.
+- **ConnectionName** : nome per identificare la specifica connessione al gateway.
+- **Shared Key**: segreto prestabilito tra i due membri della rete del consorzio che stanno stabilendo una connessione.
+- **Location**: area di Azure in cui viene distribuita la risorsa del gateway.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group
@@ -316,7 +316,7 @@ Per installare l'estensione in Chrome, andare su Personalizza e controlla Google
 
 ![Estensione MetaMask](./media/ethereum-deployment/metamask-extension.png)
 
-Una volta installata, aprire MetaMask e creare un nuovo insieme di credenziali. Per impostazione predefinita, l'insieme di credenziali sarà connesso alla rete di test di Morden. È necessario modificare questa opzione per connettersi alla rete per connettersi alla rete di consorzio privata distribuita, in particolare al sistema di bilanciamento del carico davanti ai nodi di transazione. Dall'output del modello, recuperare l'endpoint RPC Ethereum esposto alla porta 8545, denominato `ETHEREUM-RPC-ENDPOINT`, e immetterlo nell'RPC personalizzato come illustrato di seguito.
+Una volta installata, aprire MetaMask e creare un nuovo insieme di credenziali. Per impostazione predefinita, l'insieme di credenziali sarà connesso alla rete di test di Morden. Modificare questa opzione per connettersi alla rete del consorzio privata distribuita, in particolare al sistema di bilanciamento del carico davanti ai nodi di transazione. Dall'output del modello, recuperare l'endpoint RPC Ethereum esposto alla porta 8545, denominato `ETHEREUM-RPC-ENDPOINT`, e immetterlo nell'RPC personalizzato come illustrato di seguito.
 
 ![Impostazioni MetaMask](./media/ethereum-deployment/metamask-settings.png)
 

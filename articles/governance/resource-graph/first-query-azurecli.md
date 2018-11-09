@@ -4,21 +4,21 @@ description: Questo articolo illustra la procedura per abilitare l'estensione Re
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: df01a57cda063e301efbc4d99f3bac8dbb4b2e66
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: a252dd6698a5e4f724fcbbf821b01f63ab4f529b
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054167"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086812"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Eseguire la prima query di Resource Graph usando l'interfaccia della riga di comando di Azure
 
-Il primo passaggio per usare Azure Resource Graph richiede di assicurarsi che l'estensione per l'[interfaccia della riga di comando di Azure](/cli/azure/) sia installata. Questa guida introduttiva illustra il processo di aggiunta dell'estensione all'installazione dell'interfaccia della riga di comando di Azure. È possibile usare l'estensione con l'interfaccia della riga di comando di Azure installata in locale o tramite [Azure Cloud Shell](https://shell.azure.com).
+Il primo passaggio per usare Azure Resource Graph richiede di controllare che l'estensione per l'[interfaccia della riga di comando di Azure](/cli/azure/) sia installata. Questa guida introduttiva illustra il processo di aggiunta dell'estensione all'installazione dell'interfaccia della riga di comando di Azure. È possibile usare l'estensione con l'interfaccia della riga di comando di Azure installata in locale o tramite [Azure Cloud Shell](https://shell.azure.com).
 
 Alla fine di questo processo l'estensione risulterà aggiunta all'installazione dell'interfaccia della riga di comando di Azure scelta e si eseguirà la prima query di Resource Graph.
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Per consentire all'interfaccia della riga di comando di Azure di eseguire query su Azure Resource Graph è necessario che l'estensione sia aggiunta. Questa estensione funziona ovunque sia possibile usare l'interfaccia della riga di comando di Azure, fra cui [bash in Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) sia autonomo che nel portale e l'[immagine Docker di Azure PowerShell](https://hub.docker.com/r/microsoft/azure-cli/), oppure installata in locale.
 
-1. Assicurarsi che sia installata l'interfaccia della riga di comando di Azure più recente, almeno la versione **2.0.45**. Se non è ancora installato, seguire [queste istruzioni](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Controllare che sia installata l'interfaccia della riga di comando di Azure più recente, almeno la versione **2.0.45**. Se non è ancora installato, seguire [queste istruzioni](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 1. Importarla nell'ambiente della riga di comando di Azure scelto usando il comando seguente:
 
@@ -73,14 +73,14 @@ Ora che l'estensione dell'interfaccia della riga di comando di Azure è stata ag
   > [!NOTE]
   > Come nella prima query, se si esegue questa query più volte, è probabile che venga restituito un set di risorse diverso per ogni richiesta. L'ordine dei comandi della query è importante. In questo esempio `order by` segue `limit`. In questo modo i risultati della query verranno prima limitati e poi ordinati.
 
-1. Aggiornare la query applicando prima `order by` alla proprietà **Name** e quindi `limit` ai primi 5 risultati:
+1. Aggiornare la query applicando prima `order by` alla proprietà **Name** e quindi `limit` ai primi cinque risultati:
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
    az graph query -q 'project name, type | order by name asc | limit 5'
    ```
 
-Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e, come previsto, ordinati in base alla proprietà **Name**, ma ancora limitati ai primi 5 risultati.
+Quando la query finale viene eseguita più volte, presupponendo che non vengano apportate modifiche all'ambiente, i risultati restituiti saranno coerenti e, come previsto, ordinati in base alla proprietà **Name**, ma ancora limitati ai primi cinque risultati.
 
 ## <a name="cleanup"></a>Pulizia
 

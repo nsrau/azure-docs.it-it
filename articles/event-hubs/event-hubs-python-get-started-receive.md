@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: sethm
-ms.openlocfilehash: f5388f2de599d94f68a1d24a7d701a2cb4795915
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9707f0cf5a76c0ac4006b53ca8166d3b42fc9af4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703339"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240563"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>Ricevere eventi da Hub eventi tramite Python
 
@@ -108,14 +108,7 @@ start python recv.py
 ```
  
 ## <a name="next-steps"></a>Passaggi successivi
-
-Per inviare eventi vedere [l'articolo corrispondente relativo all'invio](event-hubs-python-get-started-send.md).
-
-Per altre informazioni su Hub eventi, visitare le pagine seguenti:
-
-* [Panoramica di Hub eventi][Event Hubs overview]
-* [Creare un hub eventi](event-hubs-create.md)
-* [Domande frequenti su Hub eventi](event-hubs-faq.md)
+In questa guida introduttiva è stata creata un'applicazione Python che ha ricevuto messaggi da un hub eventi. Per informazioni su come inviare eventi a un hub eventi tramite Python, vedere [Inviare eventi da hub eventi di Azure usando Python](event-hubs-python-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

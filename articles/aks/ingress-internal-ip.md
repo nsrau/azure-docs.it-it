@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: ffa6aa3b9e65577761343e2e09a44ce16a05631f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: bd3009a5abf6bd34be0e5dd45abfac628ae8a4c8
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365595"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093582"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso per una rete interna virtuale del servizio Kubernetes di Azure (AKS)
 
@@ -24,8 +24,8 @@ Questo articolo illustra come distribuire il [controller di ingresso NGINX][ngin
 
 - [Creare un controller di ingresso di base con connettività di rete esterna][aks-ingress-basic]
 - [Abilitare il componente aggiuntivo di routing dell'applicazione HTTP][aks-http-app-routing]
-- [Creare un controller di ingresso con un indirizzo IP pubblico dinamico e configurare Let's Encrypt per generare automaticamente certificati TLS][aks-ingress-tls]
-- [Creare un controller di ingresso con un indirizzo IP pubblico statico e configurare Let's Encrypt per generare automaticamente certificati TLS][aks-ingress-static-tls]
+- [Creare un controller di ingresso che usa i propri certificati TLS][aks-ingress-own-tls]
+- Creare un controller di ingresso che usa Let's Encrypt per generare automaticamente certificati TLS [con un indirizzo IP pubblico dinamico][aks-ingress-tls] o [con un indirizzo IP pubblico statico][aks-ingress-static-tls]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -238,3 +238,4 @@ In questo articolo sono stati inclusi alcuni componenti esterni ad AKS. Per altr
 [aks-ingress-tls]: ingress-tls.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

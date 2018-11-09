@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430020"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140807"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Ottimizzare gli iperparametri per il modello
 
@@ -238,16 +238,18 @@ In questo esempio, i criteri di terminazione anticipata vengono applicati a ogni
 
 ### <a name="no-termination-policy"></a>Criteri senza terminazione
 
-Per eseguire tutte le esecuzioni di training fino al completamento, usare NoTerminationPolicy. In tal modo, non verrà applicato alcun criterio di terminazione anticipata.
+Per eseguire tutte le esecuzioni di training fino al completamento, impostare il criterio su None. In tal modo, non verrà applicato alcun criterio di terminazione anticipata.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### <a name="default-policy"></a>Criteri predefiniti
 
-Se non si specifica alcun criterio, per impostazione predefinita il servizio di ottimizzazione degli iperparametri userà i criteri di arresto con valore mediano, con `evaluation_interval` 1 e `delay_evaluation` 5. Queste sono impostazioni conservative, che possono garantire circa il 25-35% di risparmio senza alcuna perdita sulla metrica primaria (in base ai dati di valutazione).
+Se non viene specificato alcun criterio, il servizio di ottimizzazione degli iperparametri consentirà di eseguire tutte le esecuzioni del training fino al completamento.
+
+>[!NOTE] 
+>Se si sta cercando un criterio conservativo che consenta un risparmio senza terminare i processi promettenti, è possibile usare un criterio di arresto con valore mediano con `evaluation_interval` 1 e `delay_evaluation` 5. Queste sono impostazioni conservative, che possono garantire circa il 25-35% di risparmio senza alcuna perdita sulla metrica primaria (in base ai dati di valutazione).
 
 ## <a name="allocate-resources"></a>Allocare le risorse
 

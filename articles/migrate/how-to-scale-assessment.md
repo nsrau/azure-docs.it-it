@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 32bed3a60c40b93471b75b9d54dccd822ccc3be8
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b5685640a55e2ce52a202c341cb293fe9315ab14
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025875"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240189"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Individuare e valutare un ambiente VMware di grandi dimensioni
 
@@ -122,7 +122,7 @@ In presenza di più progetti, occorre scaricare l'appliance dell'agente di racco
 1. Nel progetto di Azure Migrate fare clic su **Attività iniziali** > **Individua e valuta** > **Individua macchine virtuali**.
 2. In **Individua macchine virtuali** sono disponibili due opzioni per l'appliance: fare clic su **Scarica** per scaricare l'appliance appropriata in base alle proprie preferenze.
 
-    a. **Individuazione una tantum:** l'appliance per questo modello comunica con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Per la raccolta dati sulle prestazioni delle macchine virtuali, si basa sui dati cronologici relativi alle prestazioni archiviati nel server vCenter e raccoglie la cronologia delle prestazioni dell'ultimo mese. In questo modello Azure Migrate raccoglie un contatore relativo al valore medio (anziché un contatore del valore di picco) per ogni metrica. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Poiché si tratta di un'individuazione una tantum, le modifiche nell'ambiente locale non vengono riflesse una volta completata l'individuazione. Per ottenere che le modifiche siano riflesse è necessario eseguire una nuova individuazione dello stesso ambiente nello stesso progetto.
+    a. **Individuazione una tantum:** l'appliance per questo modello comunica con il server vCenter per raccogliere i metadati relativi alle macchine virtuali. Per la raccolta dati sulle prestazioni delle macchine virtuali, si basa sui dati cronologici relativi alle prestazioni archiviati nel server vCenter e raccoglie la cronologia delle prestazioni dell'ultimo mese. In questo modello, Azure Migrate raccoglie un contatore relativo al valore medio (anziché un contatore del valore di picco) per ogni metrica ([ulteriori informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected)). Poiché si tratta di un'individuazione una tantum, le modifiche nell'ambiente locale non vengono riflesse una volta completata l'individuazione. Per ottenere che le modifiche siano riflesse è necessario eseguire una nuova individuazione dello stesso ambiente nello stesso progetto.
 
     b. **Individuazione continua:** l'appliance per questo modello profila in modo continuo l'ambiente locale per raccogliere i dati di utilizzo in tempo reale per ogni macchina virtuale. In questo modello vengono raccolti i contatori di picco per ogni metrica (utilizzo della CPU, utilizzo della memoria e così via). Questo modello non dipende dalle impostazioni delle statistiche del server vCenter per la raccolta dei dati sulle prestazioni. È possibile interrompere la profilatura continua in qualsiasi momento dall'appliance.
 
@@ -148,17 +148,15 @@ Prima di distribuire il file con estensione ova, verificarne la sicurezza:
 
 #### <a name="one-time-discovery"></a>Individuazione una tantum
 
-<<<<<<< HEAD per OVA versione 1.0.9.15 (data di rilascio 23/10/2018)
+Per OVA versione 1.0.9.15 (data di rilascio 23/10/2018)
 
- <a name="algorithm--hash-value"></a>**Algoritmo** | **Valore hash**
-=======
-Per OVA versione 1.0.9.15
+**Algoritmo** | **Valore hash**
+--- | ---
+MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
-**Algoritmo**  |  **Valore hash**
->>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37 --- | --- MD5 | e9ef16b0c837638c506b5fc0ef75ebfa SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864 SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
-
-<<<<<<< HEAD per OVA versione 1.0.9.14 (data di rilascio 24/8/2018) ======= Per OVA versione 1.0.9.14
->>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
+Per OVA versione 1.0.9.14 (data di rilascio 24/08/2018)
 
 **Algoritmo** | **Valore hash**
 --- | ---

@@ -1,6 +1,6 @@
 ---
-title: Monitorare le esecuzioni dell'app per la logica con Azure Log Analytics - App per la logica di Azure | Microsoft Docs
-description: Ottenere informazioni e dati di debug dettagliati sulle esecuzioni dell'app per la logica con Log Analytics per la risoluzione dei problemi e la diagnostica
+title: Monitorare le app per la logica con Log Analytics - App per la logica di Azure | Microsoft Docs
+description: Ottenere informazioni dettagliati e dati di debug per la risoluzione dei problemi e la diagnostica delle esecuzioni di app per la logica con Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,26 +8,26 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: 177c361734a88acab5fc10d6b460645be82bf437
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 10/19/2018
+ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457140"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232377"
 ---
-# <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Monitorare e ottenere informazioni dettagliate sulle esecuzioni dell'app per la logica con Log Analytics
+# <a name="monitor-logic-apps-with-azure-log-analytics"></a>Monitorare le app per la logica con Azure Log Analytics
 
-Per informazioni di monitoraggio e dati di debug più dettagliati, è possibile attivare Log Analytics nel momento in cui si crea un'app per la logica. Log Analytics offre funzionalità di monitoraggio e di registrazione della diagnostica per le esecuzioni dell'app per la logica tramite il portale di Azure. Quando si aggiunge la soluzione di gestione delle app per la logica, si ottengono lo stato aggregato delle esecuzioni dell'app per la logica e dettagli specifici come lo stato, il tempo di esecuzione, lo stato dei nuovi invii e gli ID di correlazione.
+Per monitorare le app per la logica e ottenere dettagli di debug più completi, attivare [Azure Log Analytics](../log-analytics/log-analytics-overview.md) quando si crea l'app per la logica. Log Analytics offre funzionalità di registrazione diagnostica e monitoraggio per le app per la logica quando si installa la soluzione di gestione delle app per la logica nel portale di Azure. Questa soluzione offre anche informazioni aggregate per le esecuzioni dell'app per la logica con dettagli specifici, ad esempio lo stato, il tempo di esecuzione, lo stato di un nuovo invio e gli ID di correlazione. Questo articolo illustra come attivare Log Analytics, in modo da poter visualizzare i dati e gli eventi di runtime per le esecuzioni dell'app per la logica.
 
-Questo articolo illustra come attivare Log Analytics, in modo da poter visualizzare i dati e gli eventi di runtime per l'esecuzione dell'app per la logica.
+Per attivare Azure Log Analytics per le app per la logica esistenti, seguire questa procedura per [attivare la registrazione diagnostica e inviare a Log Analytics i dati di runtime dell'app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
- > [!TIP]
- > Per monitorare le app per la logica esistenti, seguire questa procedura per [attivare la registrazione della diagnostica e inviare a Log Analytics i dati di runtime dell'app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+> [!NOTE]
+> Questa pagina offriva in precedenza una descrizione dei passaggi per eseguire queste attività con Microsoft Operations Management Suite (OMS), che verrà [ritirato nel gennaio 2019](../log-analytics/log-analytics-oms-portal-transition.md), mentre ora riguarda gli stessi passaggi in Azure Log Analytics. 
 
-## <a name="requirements"></a>Requisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Informazioni su [come creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
+Prima di iniziare, è necessaria un'area di lavoro di Log Analytics. Informazioni su [come creare un'area di lavoro di Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>Attivare la registrazione della diagnostica durante la creazione di app per la logica
 
@@ -54,11 +54,11 @@ Prima di iniziare, è necessario avere un'area di lavoro di Log Analytics. Infor
 
 1. Per visualizzare le esecuzioni dell'app per la logica, [proseguire con la procedura](#view-logic-app-runs-oms).
 
-## <a name="install-the-logic-apps-management-solution"></a>Installare la soluzione di gestione delle app per la logica
+## <a name="install-logic-apps-management-solution"></a>Installare la soluzione di gestione delle app per la logica
 
 Se Log Analytics è già stato attivato al momento della creazione dell'app per la logica, ignorare questo passaggio. In questo caso, infatti, la soluzione di gestione delle app per la logica è già installata.
 
-1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutti i servizi**. Nella casella di ricerca immettere "log analytics" come filtro e selezionare **Log Analytics**.
+1. Nel [portale di Azure](https://portal.azure.com) selezionare **Tutti i servizi**. Nella casella di ricerca cercare "log analytics" e selezionare **Log Analytics**.
 
    ![Selezionare "Log Analytics"](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
@@ -66,7 +66,7 @@ Se Log Analytics è già stato attivato al momento della creazione dell'app per 
 
    ![Selezionare l'area di lavoro di Log Analytics](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. In **Configura soluzioni di monitoraggio** scegliere **Visualizza soluzioni**.
+1. In **Introduzione a Log Analytics** > **Configura soluzioni di monitoraggio** scegliere **Visualizza soluzioni**.
 
    ![Scegliere "Visualizza soluzioni"](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 
@@ -76,19 +76,23 @@ Se Log Analytics è già stato attivato al momento della creazione dell'app per 
 
    Se non si riesce a trovare la soluzione, nella parte inferiore dell'elenco scegliere **Carica altro** finché non viene visualizzata la soluzione.
 
-1. Scegliere **Crea** per installare la soluzione.
+1. Scegliere **Crea**, confermare l'area di lavoro di Log Analytics in cui si vuole installare la soluzione e quindi scegliere di nuovo **Crea**.   
 
-   ![Scegliere "Aggiungi" per "Logic Apps Management" ("Gestione delle app per la logica")](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+   ![Scegliere "Crea" per "Gestione app per la logica"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+
+   Se non si vuole usare un'area di lavoro esistente, è anche possibile creare una nuova area di lavoro in questo momento.
+
+   Al termine, la soluzione di gestione delle app per la logica viene visualizzata nella pagina Panoramica. 
 
 <a name="view-logic-app-runs-oms"></a>
 
-## <a name="view-logic-app-runs-in-log-analytics-workspace"></a>Visualizzare le esecuzioni dell'app per la logica nell'area di lavoro di Log Analytics
+## <a name="view-logic-app-run-information"></a>Visualizzare informazioni sull'esecuzione dell'app per la logica
 
-1. Per visualizzare il numero e lo stato delle esecuzioni dell'app per la logica, andare nell'area di lavoro di Log Analytics e aprire la pagina di panoramica. 
+Dopo l'esecuzione dell'app per la logica, è possibile visualizzare lo stato e il numero delle esecuzioni nel riquadro **Gestione app per la logica**. 
 
-   I dettagli sulle esecuzioni dell'app per la logica vengono visualizzati nel riquadro **Gestione app per la logica**. Per visualizzare un riepilogo con dettagli aggiuntivi sulle esecuzioni dell'app per la logica, scegliere il riquadro **Logic Apps Management** (Gestione delle app per la logica). 
+1. Passare all'area di lavoro di Log Analytics e aprire la pagina Panoramica. Scegliere **Gestione app per la logica**. 
 
-   ![Riquadro di panoramica con il numero e lo stato delle esecuzioni dell'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+   ![Stato e numero di esecuzioni dell'app per la logica](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
    In questo riquadro le esecuzioni dell'app per la logica vengono raggruppate in base al nome o allo stato di esecuzione. 
    Questa pagina mostra anche i dettagli sugli errori di azioni o trigger per le esecuzioni delle app per la logica.

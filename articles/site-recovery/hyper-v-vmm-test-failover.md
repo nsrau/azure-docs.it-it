@@ -1,26 +1,25 @@
 ---
-title: Eseguire un'esercitazione sul ripristino di emergenza delle macchine virtuali Hyper-V in un sito secondario con Azure Site Recovery | Microsoft Docs
-description: Informazioni su come eseguire un'esercitazione sul ripristino di emergenza per le macchine virtuali Hyper-V nei cloud VMM in un Data Center secondario usando Azure Site Recovery.
-services: site-recovery
+title: Eseguire un'esercitazione sul ripristino di emergenza di macchine virtuali Hyper-V in un sito secondario con Azure Site Recovery | Microsoft Docs
+description: Informazioni su come eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V di cloud VMM in un data center locale secondario usando Azure Site Recovery.
 author: ponatara
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 03533af27ac6fd406b4639c31c3add0015a76f45
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918799"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211350"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Eseguire un'esercitazione sul ripristino di emergenza per macchine virtuali Hyper-V in un sito secondario
 
 
 Questo articolo illustra come eseguire un esercitazione sul ripristino di emergenza per le macchine virtuali Hyper-V gestite nei cloud di System Center Virtual Machine Manager (VMM) in un sito secondario locale usando [Azure Site Recovery](site-recovery-overview.md).
 
-Viene eseguito un failover di testper convalidare la strategia di replica ed eseguire un'esercitazione sul ripristino di emergenza senza perdita di dati o tempi di inattività. Un failover di test non ha alcun impatto sulla replica in corso o sull'ambiente di produzione. 
+Viene eseguito un failover di test per convalidare la strategia di replica ed eseguire un'esercitazione sul ripristino di emergenza senza perdita di dati o tempi di inattività. Un failover di test non ha alcun impatto sulla replica in corso o sull'ambiente di produzione. 
 
 ## <a name="how-do-test-failovers-work"></a>Come funziona il failover di test?
 

@@ -3,20 +3,20 @@ title: Trigger Griglia di eventi per Funzioni di Azure
 description: Informazioni su come gestire gli eventi di Griglia di eventi in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/23/2018
-ms.author: glenga
-ms.openlocfilehash: 6d15405ef22f47dc8a94c07d9d09d343a743408e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.date: 09/04/2018
+ms.author: cshoe
+ms.openlocfilehash: 9430a2b72e2599f4a64103016fcae940cbc0a417
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094553"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249198"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Griglia di eventi per Funzioni di Azure
 
@@ -53,7 +53,7 @@ Fare riferimento all'esempio di trigger Griglia di eventi specifico per ogni lin
 
 Per un esempio di trigger HTTP, vedere [Come usare un trigger HTTP](#use-an-http-trigger-as-an-event-grid-trigger) più avanti in questo articolo.
 
-### <a name="c-example"></a>Esempio in C#
+### <a name="c-version-1x"></a>C# (versione 1.x)
 
 L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) di Funzioni 1.x associata a `JObject`:
 
@@ -63,19 +63,22 @@ using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTriggerCSharp")]
-        public static void Run([EventGridTrigger]JObject eventGridEvent, TraceWriter log)
+        public static void Run([EventGridTrigger]JObject eventGridEvent, ILogger log)
         {
-            log.Info(eventGridEvent.ToString(Formatting.Indented));
+            log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
         }
     }
 }
 ```
+
+### <a name="c-2x"></a>C# (2.x)
 
 L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) di Funzioni 2.x associata a `EventGridEvent`:
 
@@ -84,15 +87,16 @@ using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTest")]
-        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, TraceWriter log)
+        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
         {
-            log.Info(eventGridEvent.Data.ToString());
+            log.LogInformation(eventGridEvent.Data.ToString());
         }
     }
 }
@@ -119,6 +123,8 @@ Ecco i dati di associazione nel file *function.json*:
 }
 ```
 
+#### <a name="c-script-version-1x"></a>Script C# (versione 1.x)
+
 Ecco il codice script C# di Funzioni 1.x associato a un oggetto `JObject`:
 
 ```cs
@@ -133,15 +139,18 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
+#### <a name="c-script-version-2x"></a>Script C# (versione 2.x)
+
 Ecco il codice script C# di Funzioni 2.x associato a un oggetto `EventGridEvent`:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
 using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Extensions.Logging;
 
-public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
+public static void Run(EventGridEvent eventGridEvent, ILogger log)
 {
-    log.Info(eventGridEvent.Data.ToString());
+    log.LogInformation(eventGridEvent.Data.ToString());
 }
 ```
 
@@ -207,7 +216,7 @@ Ecco il codice Java:
 ```
 
 Nella [libreria di runtime di funzioni Java](/java/api/overview/azure/functions/runtime), usare l'annotazione `EventGridTrigger` per i parametri il cui valore deriva da EventGrid. I parametri con queste annotazioni attivano l'esecuzione della funzione quando viene ricevuto un evento.  Questa annotazione è utilizzabile con i tipi Java nativi, con oggetti POJO o con valori nullable tramite `Optional<T>`. 
-     
+
 ## <a name="attributes"></a>Attributi
 
 Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare l'attributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs).
@@ -216,11 +225,11 @@ Di seguito è mostrato un attributo `EventGridTrigger` in una firma del metodo:
 
 ```csharp
 [FunctionName("EventGridTest")]
-public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, TraceWriter log)
+public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILogger log)
 {
     ...
 }
- ```
+```
 
 Per un esempio completo, vedere l'[esempio in C#](#c-example).
 
@@ -308,23 +317,40 @@ Per altre informazioni su come creare sottoscrizioni tramite il portale di Azure
 
 Per creare una sottoscrizione tramite l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), usare il comando [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create).
 
-Il comando richiede l'URL dell'endpoint che richiama la funzione. L'esempio seguente illustra il modello di URL:
+Il comando richiede l'URL dell'endpoint che richiama la funzione. L'esempio seguente illustra il modello di URL specifico della versione:
 
-```
-https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
-```
+#### <a name="version-2x-runtime"></a>Versione di runtime 2.x
+
+    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+
+#### <a name="version-1x-runtime"></a>Versione di runtime 1.x
+
+    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
 La chiave di sistema è una chiave di autorizzazione che deve essere inclusa nell'URL dell'endpoint di un trigger Griglia di eventi. La sezione seguente spiega come ottenere la chiave di sistema.
 
 Di seguito è riportato un esempio di sottoscrizione a un account di archiviazione BLOB (con un segnaposto per la chiave di sistema):
 
+#### <a name="version-2x-runtime"></a>Versione di runtime 2.x
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
 --provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name glengablobstorage --name myFuncSub  \
+--resource-name myblobstorage12345 --name myFuncSub  \
 --included-event-types Microsoft.Storage.BlobCreated \
 --subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://glengastorageevents.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=LUwlnhIsNtSiUjv/sNtSiUjvsNtSiUjvsNtSiUjvYb7XDonDUr/RUg==
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+#### <a name="version-1x-runtime"></a>Versione di runtime 1.x
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup \
+--provider-namespace Microsoft.Storage --resource-type storageAccounts \
+--resource-name myblobstorage12345 --name myFuncSub  \
+--included-event-types Microsoft.Storage.BlobCreated \
+--subject-begins-with /blobServices/default/containers/images/blobs/ \
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
 Per altre informazioni su come creare una sottoscrizione, vedere la [guida introduttiva all'archiviazione BLOB](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) o le altre guide introduttive a Griglia di eventi.
@@ -334,10 +360,10 @@ Per altre informazioni su come creare una sottoscrizione, vedere la [guida intro
 È possibile ottenere la chiave di sistema tramite l'API seguente (HTTP GET):
 
 ```
-http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Poiché si tratta di un'API di amministrazione, è necessaria la [chiave master](functions-bindings-http-webhook.md#authorization-keys) dell'app per le funzioni. Non confondere la chiave di sistema (per richiamare una funzione trigger Griglia di eventi) con la chiave master (per l'esecuzione di attività amministrative nell'app per le funzioni). Quando si sottoscrive un argomento di Griglia di eventi, usare la chiave di sistema. 
+Poiché si tratta di un'API di amministrazione, è necessaria la [chiave master](functions-bindings-http-webhook.md#authorization-keys) dell'app per le funzioni. Non confondere la chiave di sistema (per richiamare una funzione trigger Griglia di eventi) con la chiave master (per l'esecuzione di attività amministrative nell'app per le funzioni). Quando si sottoscrive un argomento di Griglia di eventi, usare la chiave di sistema.
 
 Di seguito è riportato un esempio di risposta fornita dalla chiave di sistema:
 
@@ -354,7 +380,12 @@ Di seguito è riportato un esempio di risposta fornita dalla chiave di sistema:
 }
 ```
 
-Per altre informazioni, vedere [Chiavi di autorizzazione](functions-bindings-http-webhook.md#authorization-keys) nell'articolo di riferimento relativo al trigger HTTP. 
+È possibile ottenere la chiave master per l'app per le funzioni dalla scheda **Impostazioni dell'app per le funzioni** nel portale.
+
+> [!IMPORTANT]
+> La chiave master consente l'accesso di amministratore all'app per le funzioni. Non condividere questa chiave con terze parti né distribuirla in applicazioni client native.
+
+Per altre informazioni, vedere [Chiavi di autorizzazione](functions-bindings-http-webhook.md#authorization-keys) nell'articolo di riferimento relativo al trigger HTTP.
 
 In alternativa, è possibile inviare una richiesta HTTP PUT per specificare il valore della chiave autonomamente.
 
@@ -410,7 +441,7 @@ Usare uno strumento, ad esempio [Postman](https://www.getpostman.com/) o [curl](
 
 ```
 http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-``` 
+```
 
 Il parametro `functionName` deve corrispondere al nome specificato nell'attributo `FunctionName`.
 
@@ -472,11 +503,11 @@ Creare una sottoscrizione di Griglia di eventi del tipo che si vuole testare e a
 Usare questo modello di endpoint per Funzioni 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-``` 
+```
 Usare questo modello di endpoint per Funzioni 2.x:
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
-``` 
+https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+```
 Il parametro `functionName` deve corrispondere al nome specificato nell'attributo `FunctionName`.
 
 Di seguito è riportato un esempio basato sull'uso dell'interfaccia della riga di comando di Azure:
@@ -514,9 +545,9 @@ Il seguente codice C# di esempio relativo a un trigger HTTP simula il comportame
 [FunctionName("HttpTrigger")]
 public static async Task<HttpResponseMessage> Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequestMessage req,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     var messages = await req.Content.ReadAsAsync<JArray>();
 
@@ -525,7 +556,7 @@ public static async Task<HttpResponseMessage> Run(
         "Microsoft.EventGrid.SubscriptionValidationEvent", 
         System.StringComparison.OrdinalIgnoreCase))
     {
-        log.Info("Validate request received");
+        log.LogInformation("Validate request received");
         return req.CreateResponse<object>(new
         {
             validationResponse = messages[0]["data"]["validationCode"]
@@ -537,9 +568,9 @@ public static async Task<HttpResponseMessage> Run(
     {
         // Handle one event.
         EventGridEvent eventGridEvent = message.ToObject<EventGridEvent>();
-        log.Info($"Subject: {eventGridEvent.Subject}");
-        log.Info($"Time: {eventGridEvent.EventTime}");
-        log.Info($"Event data: {eventGridEvent.Data.ToString()}");
+        log.LogInformation($"Subject: {eventGridEvent.Subject}");
+        log.LogInformation($"Time: {eventGridEvent.EventTime}");
+        log.LogInformation($"Event data: {eventGridEvent.Data.ToString()}");
     }
 
     return req.CreateResponse(HttpStatusCode.OK);
@@ -582,9 +613,9 @@ Il seguente codice C# di esempio relativo a un trigger HTTP simula il comportame
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, ILogger log)
 {
-    log.Info("C# HTTP trigger function processed a request.");
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
     var requestmessage = await req.Content.ReadAsStringAsync();
     var message = JToken.Parse(requestmessage);
@@ -596,7 +627,7 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
         "Microsoft.EventGrid.SubscriptionValidationEvent",
         System.StringComparison.OrdinalIgnoreCase))
         {
-            log.Info("Validate request received");
+            log.LogInformation("Validate request received");
             return req.CreateResponse<object>(new
             {
                 validationResponse = message[0]["data"]["validationCode"]
@@ -607,9 +638,9 @@ public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLeve
     {
         // The request is not for subscription validation, so it's for an event.
         // CloudEvents schema delivers one event at a time.
-        log.Info($"Source: {message["source"]}");
-        log.Info($"Time: {message["eventTime"]}");
-        log.Info($"Event data: {message["data"].ToString()}");
+        log.LogInformation($"Source: {message["source"]}");
+        log.LogInformation($"Time: {message["eventTime"]}");
+        log.LogInformation($"Event data: {message["data"].ToString()}");
     }
 
     return req.CreateResponse(HttpStatusCode.OK);

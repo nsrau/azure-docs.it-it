@@ -1,21 +1,20 @@
 ---
-title: Configurare un server di elaborazione in Azure per il failback di macchine virtuali VMware e server fisici con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come configurare un server di elaborazione in Azure per eseguire il failback di macchine virtuali di Azure in VMware.
-services: site-recovery
+title: Configurare un server di elaborazione in Azure per il failback durante il ripristino di emergenza da macchine virtuali VMware e server fisici con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come configurare un server di elaborazione in Azure per eseguire il failback da Azure a locale durante il ripristino di emergenza di macchine virtuali VMware e server fisici.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 641f671f23dde0bcc32ad1ef8343a5a84227c67f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955381"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212234"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>Configurare server di elaborazione aggiuntivi per ottenere scalabilità
+# <a name="scale-for-failback-with-additional-process-servers"></a>Scalabilità per il failback con server di elaborazione aggiuntivi
 
 Per impostazione predefinita, quando si esegue la replica di server fisici o macchine virtuali VMware in Azure con [Site Recovery](site-recovery-overview.md), nel server di configurazione viene installato un server di elaborazione che è usato per coordinare il trasferimento dei dati tra Site Recovery e l'infrastruttura locale. Per aumentare la capacità e la scalabilità orizzontale della distribuzione della replica, è possibile aggiungere server di elaborazione autonomi aggiuntivi. Questo articolo illustra come farlo.
 

@@ -4,21 +4,21 @@ description: Usare Azure Blueprint per creare, definire e distribuire elementi.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b873ee869b2044977ebefcfd65331567c24e7ec8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 814274f8c858d832debaaa7fdae1a7793bd458f2
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974205"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094387"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definire e assegnare un progetto Azure Blueprint con l'API REST
 
-Acquisendo familiarità con la creazione e l'assegnazione di progetti in Azure, un'organizzazione può definire modelli comuni di coerenza e sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
+Imparare a creare e assegnare progetti consente di definire modelli comuni per sviluppare configurazioni riutilizzabili e rapidamente distribuibili in base a modelli di Resource Manager, criteri, sicurezza e altro ancora. In questa esercitazione viene descritto come usare Azure Blueprint per eseguire alcune della attività comuni di creazione, pubblicazione e assegnazione di un progetto all'interno dell'organizzazione, ad esempio:
 
 > [!div class="checklist"]
 > - Creare un nuovo progetto e aggiungere diversi elementi supportati
@@ -59,7 +59,7 @@ Sostituire `{subscriptionId}` nella variabile **$restUri** precedente per ottene
 
 ## <a name="create-a-blueprint"></a>Creare un progetto
 
-Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. In questo esempio si creerà un progetto denominato 'MyBlueprint' per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione, aggiungere un nuovo gruppo di risorse e creare un modello di Resource Manager e un'assegnazione di ruolo nel gruppo di risorse.
+Il primo passaggio nella definizione di un modello standard per la conformità è la creazione di un progetto dalle risorse disponibili. Verrà creato un progetto denominato 'MyBlueprint' per configurare le assegnazioni di ruolo e di criteri per la sottoscrizione. Verrà quindi aggiunto un nuovo gruppo di risorse, un modello di Resource Manager e un'assegnazione di ruolo nel gruppo di risorse.
 
 > [!NOTE]
 > Quando si usa l'API REST, viene creato per primo l'oggetto _progetto_. Per ogni _elemento_ da aggiungere che include parametri, i parametri devono essere definiti in anticipo nel _progetto_ iniziale.
@@ -69,7 +69,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
 - `{YourMG}`: sostituire con il nome del gruppo di gestione
 - `{subscriptionId}`: sostituire con l'ID sottoscrizione
 
-1. Creare l'oggetto _progetto_ iniziale. Il **corpo della richiesta** include proprietà relative al progetto, tutti i gruppi di risorse da creare e tutti i parametri a livello di progetto che vengono impostati durante l'assegnazione e usati dagli elementi aggiunti nei passaggi successivi.
+1. Creare l'oggetto _progetto_ iniziale. Il **corpo della richiesta** include proprietà relative al progetto, tutti i gruppi di risorse da creare e tutti i parametri a livello di progetto. I parametri vengono impostati durante l'assegnazione e usati dagli elementi aggiunti nei passaggi successivi.
 
    - URI DELL'API REST
 
@@ -148,7 +148,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
      }
      ```
 
-1. Aggiungere un'assegnazione di criteri nella sottoscrizione. Il **corpo della richiesta** definisce il _tipo_ di elemento e le proprietà allineate alla definizione di un'iniziativa o di criteri e configura l'assegnazione di policy per l'uso dei parametri del progetto definiti da configurare durante l'assegnazione del progetto.
+1. Aggiungere un'assegnazione di criteri nella sottoscrizione. Il **corpo della richiesta** definisce il _tipo_ di elemento e le proprietà allineate alla definizione di un'iniziativa o di criteri e configura l'assegnazione di criteri per l'uso dei parametri del progetto definiti da configurare durante l'assegnazione del progetto.
 
    - URI DELL'API REST
 
@@ -176,7 +176,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
      }
      ```
 
-1. Aggiungere un'altra assegnazione di criteri per il tag di archiviazione (riutilizzando il parametro _storageAccountType_) nella sottoscrizione. Questo elemento di assegnazione di criteri aggiuntivo indica che un parametro definito nel progetto può essere usato da più di un elemento. Nell'esempio **storageAccountType** viene usato per impostare un tag nel gruppo di risorse per fornire informazioni sull'account di archiviazione creato nel passaggio successivo.
+1. Aggiungere un'altra assegnazione di criteri per il tag di archiviazione (riutilizzando il parametro _storageAccountType_) nella sottoscrizione. Questo elemento di assegnazione di criteri aggiuntivo indica che un parametro definito nel progetto può essere usato da più di un elemento. Nell'esempio **storageAccountType** viene usato per impostare un tag nel gruppo di risorse. Questo valore fornisce informazioni sull'account di archiviazione che verrà creato nel passaggio successivo.
 
    - URI DELL'API REST
 
@@ -204,7 +204,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
      }
      ```
 
-1. Aggiungere un modello nel gruppo di risorse. Il **corpo della richiesta** per un modello di Resource Manager include il componente JSON normale del modello, definisce il gruppo di risorse di destinazione con **properties.resourceGroup** e riutilizza i parametri di progetto  **storageAccountType**, **tagName** e **tagValue** fornendo ciascun parametro al modello. I parametri del progetto vengono resi disponibili al modello definendo **properties.parameters** e all'interno del modello JSON in cui viene usata questa coppia chiave/valore per inserire il valore. I nomi dei parametri di progetto e di modello potrebbero essere identici, ma sono stati progettati in modo diverso per indicare in che modo ciascuno viene passato dal progetto all'elemento del modello.
+1. Aggiungere un modello nel gruppo di risorse. Il **corpo della richiesta** per un modello di Resource Manager include il componente JSON normale del modello e definisce il gruppo di risorse di destinazione con **properties.resourceGroup**. Il modello riusa inoltre i parametri di progetto **storageAccountType**, **tagName** e **tagValue** passando ciascun parametro al modello. I parametri del progetto sono disponibili nel modello definendo **properties.parameters** e all'interno del modello JSON in cui viene usata questa coppia chiave/valore per inserire il valore. I nomi dei parametri di progetto e di modello potrebbero essere identici, ma sono stati progettati in modo diverso per indicare come ciascuno viene passato dal progetto all'elemento del modello.
 
    - URI DELL'API REST
 
@@ -388,7 +388,7 @@ Dopo aver pubblicato un progetto usando l'API REST, è possibile assegnarlo a un
 
 ## <a name="unassign-a-blueprint"></a>Annullare l'assegnazione di un progetto
 
-I progetti possono essere rimossi da una sottoscrizione se non sono più necessari o se sono stati sostituiti da progetti più recenti con modelli, progettazioni e criteri aggiornati. Quando un progetto viene rimosso, gli elementi assegnati nell'ambito del progetto vengono mantenuti. Per rimuovere un'assegnazione del progetto, usare l'operazione API REST seguente:
+È possibile rimuovere un progetto da una sottoscrizione. La rimozione viene spesso eseguita quando le risorse dell'elemento non sono più necessarie. Quando un progetto viene rimosso, gli elementi assegnati nell'ambito del progetto vengono mantenuti. Per rimuovere un'assegnazione del progetto, usare l'operazione API REST seguente:
 
 - URI DELL'API REST
 
@@ -408,9 +408,9 @@ Per rimuovere il progetto stesso, usare l'operazione API REST seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Acquisire informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md)
-- Comprendere come usare [parametri statici e dinamici](./concepts/parameters.md)
+- Informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md)
+- Informazioni su come usare [parametri statici e dinamici](./concepts/parameters.md)
 - Imparare a personalizzare l'[ordine in sequenza del progetto](./concepts/sequencing-order.md)
-- Identificare come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md)
-- Acquisire informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md)
+- Scoprire come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md)
+- Informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md)
 - Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](./troubleshoot/general.md)

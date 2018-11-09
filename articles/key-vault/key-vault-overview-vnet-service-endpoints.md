@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 9b0600a7afb07600116440461037c7abcb9236de
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6e0029e051e418bc54471284547329a0b0a2e9cd
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404325"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246655"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Endpoint del servizio di rete virtuale per Azure Key Vault
 
@@ -44,7 +44,7 @@ Ecco i passaggi necessari per configurare i firewall e le reti virtuali. Questi 
 Per istruzioni passo per passo dettagliate, vedere [Configurare reti virtuali e firewall di Azure Key Vault](key-vault-network-security.md).
 
 > [!IMPORTANT]
-> Quando le regole del firewall sono operative, tutte le operazioni del [piano dati](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) Key Vault possono essere eseguite SOLO se le richieste del chiamante hanno origine da reti virtuali o intervalli di indirizzi IPv4 consentiti. Questo vale anche per l'accesso all'insieme di credenziali delle chiavi dal portale di Azure. Anche se un utente può accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbe non riuscire a elencare le chiavi/segreti/certificati se il computer client non è presente nell'elenco dei computer consentiti. Ciò influisce inoltre sul "selettore dell'insieme di credenziali delle chiavi" di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero riuscire a visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non riuscire a elencare le chiavi.
+> Quando le regole del firewall sono operative, tutte le operazioni del [piano dati](../key-vault/key-vault-secure-your-key-vault.md#data-plane-access-control) Key Vault possono essere eseguite SOLO se le richieste del chiamante hanno origine da reti virtuali o intervalli di indirizzi IPv4 consentiti. (Per altre informazioni sul confronto tra piano di gestione e piano dati, leggere [qui](../key-vault/key-vault-secure-your-key-vault.md#management-plane-access-control). Questo vale anche per l'accesso all'insieme di credenziali delle chiavi dal portale di Azure. Anche se un utente può accedere a un insieme di credenziali delle chiavi dal portale di Azure, potrebbe non riuscire a elencare le chiavi/segreti/certificati se il computer client non è presente nell'elenco dei computer consentiti. Ciò influisce inoltre sul "selettore dell'insieme di credenziali delle chiavi" di altri servizi di Azure. Se le regole del firewall bloccano i computer client, gli utenti potrebbero riuscire a visualizzare l'elenco degli insiemi di credenziali delle chiavi ma non riuscire a elencare le chiavi.
 
 
 > [!NOTE]

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639028"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093041"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Esercitazione: Monitorare la comunicazione di rete tra due macchine virtuali tramite il portale di Azure
 
@@ -30,6 +30,7 @@ La corretta comunicazione tra una macchina virtuale (VM) e un endpoint, ad esemp
 > [!div class="checklist"]
 > * Creare due VM
 > * Monitorare la comunicazione tra le VM con la funzionalità di monitoraggio della connessione di Network Watcher
+> * Generare avvisi per le metriche del monitoraggio connessione
 > * Diagnosticare un problema di comunicazione tra due VM e informazioni su come risolverlo
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
@@ -50,7 +51,7 @@ Creare due macchine virtuali.
 
     |Impostazione|Valore|
     |---|---|
-    |NOME|myVm1|
+    |Nome|myVm1|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Sottoscrizione| Selezionare la propria sottoscrizione.|
@@ -73,7 +74,7 @@ Completare nuovamente i passaggi descritti in [Creare la prima VM](#create-the-f
 |Passaggio|Impostazione|Valore|
 |---|---|---|
 | 1 | Selezionare **Ubuntu Server 17.10 VM** |                                                                         |
-| 3 | NOME                              | myVM2                                                                   |
+| 3 | Nome                              | myVM2                                                                   |
 | 3 | Tipo di autenticazione               | Incollare la chiave pubblica SSH o selezionare **Password** e immettere una password. |
 | 3 | Gruppo di risorse                    | Selezionare **Usa esistente** e selezionare **myResourceGroup**.                 |
 | 6 | Estensioni                        | **Agente di rete per Linux**                                             |
@@ -92,7 +93,7 @@ Creare un monitoraggio della connessione per monitorare la comunicazione della c
 
     | Impostazione                  | Valore               |
     | ---------                | ---------           |
-    | NOME                     | myVm1-myVm2(22)     |
+    | Nome                     | myVm1-myVm2(22)     |
     | Sorgente                   |                     |
     | Macchina virtuale          | myVm1               |
     | Destination              |                     |
@@ -121,6 +122,19 @@ Creare un monitoraggio della connessione per monitorare la comunicazione della c
     | Hops                     | Il monitoraggio della connessione consente di conoscere gli hop tra i due endpoint. In questo esempio la connessione è compresa tra due VM nella stessa rete virtuale, pertanto c'è solo un hop, all'indirizzo IP 10.0.0.5. Se qualsiasi sistema esistente o route personalizzata, instrada il traffico tra le VM tramite un gateway VPN o appliance virtuale di rete, ad esempio, vengono elencati altri hop.                                                                                                                         |
     | STATO                   | I segni di spunta verde per ogni endpoint consentono di verificare che ogni endpoint sia integro.    ||
 
+## <a name="generate-alerts"></a>Generare avvisi
+
+Gli avvisi vengono creati tramite le regole di avviso in Monitoraggio di Azure e possono eseguire automaticamente query salvate o ricerche personalizzate nei log a intervalli regolari. Un avviso generato può eseguire automaticamente una o più azioni, ad esempio inviare una notifica a un utente o avviare un altro processo. Quando si imposta una regola di avviso, la risorsa di destinazione determina l'elenco delle metriche disponibili che è possibile usare per generare avvisi.
+
+1. Nel portale di Azure selezionare il servizio **Monitoraggio** e quindi selezionare **Avvisi** > **Nuova regola di avviso**.
+2. Fare clic su **Seleziona la destinazione** e quindi selezionare le risorse di destinazione. Selezionare la **sottoscrizione** e impostare **Tipo di risorsa** per filtrare fino al monitoraggio della connessione da usare.
+
+    ![schermata di avviso con destinazione selezionata](./media/connection-monitor/set-alert-rule.png)
+1. Dopo aver selezionato una risorsa di destinazione, selezionare **Aggiungi criteri**. In Network Watcher sono disponibili [metriche in base alle quali è possibile creare avvisi](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Impostare **Segnali disponibili** sulle metriche ProbesFailedPercent e AverageRoundtripMs:
+
+    ![pagina degli avvisi con segnali selezionati](./media/connection-monitor/set-alert-signals.png)
+1. Immettere i dettagli dell'avviso, ad esempio il nome della regola di avviso, la descrizione e la gravità. È anche possibile aggiungere all'avviso un gruppo di azioni per automatizzare e personalizzare la risposta dell'avviso.
+
 ## <a name="view-a-problem"></a>Visualizzare un problema
 
 Per impostazione predefinita, Azure consente la comunicazione su tutte le porte tra le VM nella stessa rete virtuale. Nel tempo, l'utente o un'altra persona nell'organizzazione, potrebbe sostituire le regole predefinite di Azure, provocando inavvertitamente un errore di comunicazione. Completare i passaggi seguenti per creare un problema di comunicazione e visualizzare nuovamente il monitoraggio della connessione:
@@ -138,7 +152,7 @@ Per impostazione predefinita, Azure consente la comunicazione su tutte le porte 
     | Intervalli di porte di destinazione | 22             |
     | Azione                  | Nega           |
     | Priorità                | 100            |
-    | NOME                    | DenySshInbound |
+    | Nome                    | DenySshInbound |
 
 5. Poiché il monitoraggio della connessione esegue il probe a intervalli di 60 secondi, attendere qualche minuto e quindi sul lato sinistro del portale selezionare **Network Watcher**, **Monitoraggio della connessione** e quindi selezionare nuovamente il monitoraggio  **myVm1-myVm2(22)**. I risultati sono diversi a questo punto, come illustrato nell'immagine seguente:
 

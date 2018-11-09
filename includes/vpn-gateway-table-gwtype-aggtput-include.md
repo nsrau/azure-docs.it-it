@@ -5,28 +5,28 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fad9b990b6ff1021efdaf8aadeb1e19d8a55871d
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 03af5efcd4a37203a82db503f8bc602b33de734d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137964"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226601"
 ---
-|**SKU**   | **Tunnel S2S/<br>rete virtuale-rete virtuale** | **Connessioni<br>P2S** | **Benchmark<br>velocità effettiva aggregata** |
-|---       | ---                             | ---                    | ---                         |
-|**VpnGw1**| Max. 30*                         | Max. 128\*\*             | 650 Mbps                    |
-|**VpnGw2**| Max. 30*                         | Max. 128\*\*             | 1 Gbps                      |
-|**VpnGw3**| Max. 30*                         | Max. 128\*\*             | 1,25 Gbps                   |
-|**Basic** | Max. 10                         | Max. 128               | 100 Mbps                    | 
+|**SKU**   | **Tunnel S2S/<br>rete virtuale-rete virtuale** | **P2S<br> Connessioni SSTP** | **P2S<br> Connessioni IKEv2** | **Benchmark<br>velocità effettiva aggregata** |
+|---       | ---        | ---       | ---            | ---       |
+|**VpnGw1**| Max. 30*   | Max. 128  | Max. 250       | 650 Mbps  |
+|**VpnGw2**| Max. 30*   | Max. 128  | Max. 500       | 1 Gbps    |
+|**VpnGw3**| Max. 30*   | Max. 128  | Max. 1000      | 1,25 Gbps |
+|**Basic** | Max. 10    | Max. 128  | Non supportato  | 100 Mbps  | 
 
-* (*) Usare la [WAN virtuale](../articles/virtual-wan/virtual-wan-about.md) se servono più di 30 tunnel VPN S2S.
+(*) Usare la [WAN virtuale](../articles/virtual-wan/virtual-wan-about.md) se servono più di 30 tunnel VPN S2S.
 
-* (\*\*) Contattare l'assistenza se sono necessarie connessioni aggiuntive
+* Il benchmark della velocità effettiva aggregata per un gateway VPN è S2S + P2S combinati. **Se si hanno molte connessioni P2S, si può avere un impatto negativo su una connessione S2S a causa delle limitazioni relative alla velocità effettiva.** Il benchmark della velocità effettiva aggregata si basa sulle misurazioni di più tunnel aggregati tramite un singolo gateway. Non è una velocità effettiva garantita, poiché può variare anche in funzione delle condizioni del traffico Internet e dei comportamenti dell'applicazione.
 
-* Il benchmark della velocità effettiva aggregata si basa sulle misurazioni di più tunnel aggregati tramite un singolo gateway. Non è una velocità effettiva garantita, poiché può variare anche in funzione delle condizioni del traffico Internet e dei comportamenti dell'applicazione.
+* Questi limiti di connessione sono separati. Ad esempio, è possibile avere 128 connessioni SSTP e anche 250 connessioni IKEv2 in uno SKU VpnGw1.
 
 * Le informazioni sui prezzi sono disponibili nella pagina [Prezzi](https://azure.microsoft.com/pricing/details/vpn-gateway) .
 

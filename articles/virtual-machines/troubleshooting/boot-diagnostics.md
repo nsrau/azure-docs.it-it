@@ -8,14 +8,14 @@ editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 64641f8acfe7b58763756e2a0707fa799ee804b2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9341458336e4c95b84590eadbc86073e7dbf09a0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412596"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419555"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Come usare la diagnostica di avvio per risolvere i problemi delle macchine virtuali in Azure
 
@@ -24,6 +24,10 @@ In Azure ora è disponibile il supporto per due funzionalità di debug: il suppo
 Quando si usa l'immagine personale in Azure o anche quando si avvia una delle immagini della piattaforma, una macchina virtuale può passare a uno stato non avviabile per diversi motivi. Queste funzionalità consentono di diagnosticare facilmente gli errori di avvio e di ripristinare le macchine virtuali.
 
 Per le macchine virtuali Linux, è possibile visualizzare facilmente l'output del log della console dal portale. Per le macchine virtuali sia Windows che Linux, Azure consente anche di visualizzare uno screenshot della macchina virtuale dall'hypervisor. Entrambe le funzionalità sono supportate per macchine virtuali di Azure in tutte le aree. Si noti che la visualizzazione degli screenshot e dell'output nell'account di archiviazione può richiedere fino a 10 minuti.
+
+È possibile selezionare l'opzione **Diagnostica di avvio** per visualizzare il log e lo screenshot.
+
+![Gestione risorse](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
 
 ## <a name="common-boot-errors"></a>Errori di avvio comuni
 
@@ -70,7 +74,7 @@ Per le macchine virtuali Linux, è possibile visualizzare facilmente l'output de
             "diagnosticsProfile": {
                 "bootDiagnostics": {
                 "enabled": true,
-                "storageUri": "[concat('http://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
+                "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
                 }
             }
             }

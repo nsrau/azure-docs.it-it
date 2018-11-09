@@ -4,20 +4,24 @@ description: Scopri le informazioni dettagliate su ogni fase del ciclo di vita c
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c09fb26d8375e08281241aaed3f6f6e30acc755b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4adf427727e7244bbde64a673e7353c1f8270c8a
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955453"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094579"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendere la sequenza di distribuzione in Azure Blueprints
 
-Azure Blueprints usa un **ordine di sequenziazione** per determinare l'ordine di creazione di risorse durante l'elaborazione dell'assegnazione di un progetto iniziale. Questo articolo illustra l'ordine sequenziale predefinito che viene utilizzato, come personalizzare l'ordine e come elaborarlo.
+Azure Blueprints usa un **ordine di sequenziazione** per determinare l'ordine di creazione di risorse durante l'elaborazione dell'assegnazione di un progetto iniziale. In questo articolo vengono descritti i concetti seguenti:
+
+- L'ordine di sequenziazione predefinito usato
+- Come personalizzare l'ordine
+- Come viene elaborato l'ordine personalizzato
 
 Sono presenti variabili negli esempi JSON che è necessario sostituire con i propri valori:
 
@@ -32,7 +36,7 @@ Se il progetto non contiene alcuna direttiva per l'ordine di distribuzione degli
 - Livello di abbonamento **modello di Azure Resource Manager** degli elementi ordinati per nome dell'artefatto
 - **Gruppo di risorse** degli elementi (inclusi gli elementi figlio) ordinati per nome segnaposto
 
-All'interno di ciascun **gruppo di risorse** dell'elemento che viene elaborato, l'ordine della sequenza seguente viene usato per gli elementi per essere creata all'interno di tale gruppo di risorse:
+In ciascun artefatto del **gruppo di risorse**, viene usato il seguente ordine di sequenza per creare artefatti all'interno di tale gruppo di risorse:
 
 - Figlio di gruppo di risorse **assegnazione di ruolo** degli elementi ordinati per nome dell'artefatto
 - Figlio di gruppo di risorse **assegnazione del criterio** degli elementi ordinati per nome dell'artefatto
@@ -40,14 +44,13 @@ All'interno di ciascun **gruppo di risorse** dell'elemento che viene elaborato, 
 
 ## <a name="customizing-the-sequencing-order"></a>Personalizzazione dell'ordine di sequenziazione
 
-Durante la composizione di progetti di grandi dimensioni, potrebbe essere necessario che una risorsa venga creata in un ordine specifico in relazione a un'altra risorsa. Il modello di uso più comune di questo oggetto è quando un progetto include più modelli di Azure Resource Manager. I progetti gestiscono ciò consentendo di definire l'ordine di sequenziamento.
+Durante la composizione di progetti di grandi dimensioni, potrebbe essere necessario creare risorse in un ordine specifico. Il modello di uso più comune di questo scenario è quando un progetto include diversi modelli di Azure Resource Manager. I progetti gestiscono questo criterio consentendo di definire l'ordine di sequenziamento.
 
 Questa operazione viene eseguita definendo una proprietà `dependsOn` in JSON. Questa proprietà è supportata solo dal progetto (per i gruppi di risorse) e dagli oggetti dell'elemento. `dependsOn` è una matrice di stringhe di nomi dell'elemento che deve essere creata prima che venga creato l'elemento specifico.
 
 ### <a name="example---blueprint-with-ordered-resource-group"></a>Esempio - progetto gruppo di risorse ordinato
 
-Questo è un esempio di progetto con un gruppo di risorse che ha definito un ordine di sequenziazione personalizzato dichiarando un valore per `dependsOn`, insieme a un gruppo di risorse standard. In questo caso, l'elemento denominato **assignPolicyTags** verrà elaborato prima del gruppo di risorse **ordered-rg**.
-**standard-rg** verranno elaborati secondo l'ordine della sequenziazione predefinita.
+Questo esempio di progetto dispone di un gruppo di risorse che ha definito un ordine di sequenziazione personalizzato dichiarando un valore per `dependsOn`, insieme a un gruppo di risorse standard. In questo caso, l'elemento denominato **assignPolicyTags** verrà elaborato prima del gruppo di risorse **ordered-rg**. **standard-rg** verranno elaborati secondo l'ordine della sequenziazione predefinita.
 
 ```json
 {
@@ -78,7 +81,7 @@ Questo è un esempio di progetto con un gruppo di risorse che ha definito un ord
 
 ### <a name="example---artifact-with-custom-order"></a>Esempio - elemento con ordinamento personalizzato
 
-Si tratta di un artefatto dei criteri di esempio che dipende da un modello Azure Resource Manager. Dall'ordinamento predefinito, verrebbe creato un artefatto dei criteri prima del modello di Azure Resource Manager. Ciò consente all'artefatto di criteri di attendere la creazione del modello di Azure Resource Manager.
+Questo esempio è un artefatto dii criteri che dipende da un modello di Azure Resource Manager. Dall'ordinamento predefinito, verrebbe creato un artefatto dei criteri prima del modello di Azure Resource Manager. Questo ordinamento consente all'artefatto di criteri di attendere la creazione del modello di Azure Resource Manager.
 
 ```json
 {
@@ -99,9 +102,9 @@ Si tratta di un artefatto dei criteri di esempio che dipende da un modello Azure
 
 ## <a name="processing-the-customized-sequence"></a>Elaborazione della sequenza personalizzata
 
-Durante il processo di creazione, un ordinamento topologico viene usato per creare il grafico delle dipendenze del progetto e i relativi artefatti. Ciò garantisce che possano essere supportati più livelli di dipendenze tra i gruppi di risorse e gli artefatti.
+Durante il processo di creazione, un ordinamento topologico viene usato per creare il grafo delle dipendenze degli artefatti dei progetti. Il controllo garantisce il supporto per ogni livello di dipendenza tra gruppi di risorse e artefatti.
 
-Se una dipendenza viene dichiarata su un progetto o su un artefatto che non altera l'ordine predefinito, non viene apportata alcuna modifica all'ordine di sequenziazione. Esempi di questo tipo sono un gruppo di risorse che dipende da un criterio del livello di sottoscrizione o dall'assegnazione di criteri figlio "standard-rg" del gruppo di risorse che dipende dall'assegnazione di ruolo figlio "standard-rg" del gruppo di risorse. In entrambi i casi, il `dependsOn` non avrebbe modificato l'ordine sequenziale predefinito e non sarebbero state apportate modifiche.
+Se si dichiara che la dipendenza di un artefatto non altera l'ordine predefinito, non viene apportata alcuna modifica. Un esempio è un gruppo di risorse che dipende da un criterio a livello di sottoscrizione. Un altro esempio è un'assegnazione di criteri del gruppo di risorse figlio "standard-rg" che dipende da un'assegnazione di ruolo del gruppo di risorse figlio "standard-rg". In entrambi i casi, il `dependsOn` non avrebbe modificato l'ordine sequenziale predefinito e non sarebbero state apportate modifiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

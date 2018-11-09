@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345889"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140824"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gestire account lab in Azure Lab Services 
 In Azure Lab Services, un account lab è un contenitore per lab gestiti, ad esempio, laboratori di classe. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
@@ -34,7 +34,7 @@ In Azure Lab Services, un account lab è un contenitore per lab gestiti, ad esem
     2. Selezionare la **sottoscrizione di Azure** in cui creare l'account lab.
     3. In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.
     4. In **Posizione** selezionare una posizione o un'area in cui si vuole creare l'account lab. 
-    5. Selezionare **Crea**. 
+    5. Selezionare **Create**. 
 
         ![Finestra Create a lab account (Crea un account lab)](../media/how-to-manage-lab-accounts/lab-account-settings.png)
 5. Se non viene visualizzata la pagina dell'account lab, selezionare il pulsante delle **notifiche** e quindi fare clic su **Vai alla risorsa** in Notifiche. 
@@ -90,6 +90,28 @@ Seguire le istruzioni della sezione precedente che visualizza gli account lab in
 2. Selezionare **Elimina** dalla barra degli strumenti. 
 3. Digitare **Sì** per confermare.
 4. Selezionare **Elimina**. 
+
+## <a name="view-and-manage-labs-in-the-lab-account"></a>Visualizzare e gestire i lab nell'account lab
+
+1. Nella pagina **Account lab** selezionare **Lab** nel menu a sinistra.
+
+    ![Lab nell'account](../media/how-to-manage-lab-accounts/labs-in-account.png)
+1. Viene visualizzato un **elenco di lab** nell'account con le informazioni seguenti: 
+    1. Nome del lab.
+    2. Data di creazione del lab. 
+    3. Indirizzo di posta elettronica dell'utente che ha creato il lab. 
+    4. Numero massimo di utenti consentiti nel lab. 
+    5. Stato del lab. 
+
+## <a name="delete-a-lab-in-the-lab-account"></a>Eliminare un lab nell'account lab
+Per visualizzare un elenco dei lab nell'account lab, seguire le istruzioni nella sezione precedente.
+
+1. Selezionare **...** (puntini di sospensione) e quindi **Elimina**. 
+
+    ![Pulsante Elimina un lab](../media/how-to-manage-lab-accounts/delete-lab-button.png)
+2. Selezionare **Sì** nel messaggio di avviso. 
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Introduzione alla configurazione di un lab usando Azure Lab Services:

@@ -3,7 +3,7 @@ title: Associazioni del bus di servizio di Azure per Funzioni di Azure
 description: Informazioni su come usare trigger e associazioni del bus di servizio di Azure in Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: Funzioni di Azure, Funzioni, elaborazione eventi, calcolo dinamico, architettura senza server
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
@@ -11,13 +11,13 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
-ms.author: glenga
-ms.openlocfilehash: 8728533171ec8c8754aabf1a3e32c5ab7630db77
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.author: cshoe
+ms.openlocfilehash: f440e92f62c7c61966145a1e74d3d3be9f6b7825
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637988"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250560"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
@@ -63,16 +63,20 @@ public static void Run(
     Int32 deliveryCount,
     DateTime enqueuedTimeUtc,
     string messageId,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
-    log.Info($"EnqueuedTimeUtc={enqueuedTimeUtc}");
-    log.Info($"DeliveryCount={deliveryCount}");
-    log.Info($"MessageId={messageId}");
+    log.LogInformation($"C# ServiceBus queue trigger function processed message: {myQueueItem}");
+    log.LogInformation($"EnqueuedTimeUtc={enqueuedTimeUtc}");
+    log.LogInformation($"DeliveryCount={deliveryCount}");
+    log.LogInformation($"MessageId={messageId}");
 }
 ```
 
-Questo esempio si riferisce a Funzioni di Azure versione 1.x. Per la versione 2.x [omettere il parametro relativo ai diritti di accesso](#trigger---configuration).
+Questo esempio riguarda Funzioni di Azure versione 1.x. Per correggere questo codice per la versione 2.x:
+
+- [Omettere il parametro dei diritti di accesso](#trigger---configuration)
+- Modificare il tipo del parametro di log da `TraceWriter` a `ILogger`
+- Modificare `log.Info` in `log.LogInformation`
  
 ### <a name="trigger---c-script-example"></a>Trigger - esempio di script C#
 
@@ -138,8 +142,8 @@ Ecco i dati di associazione nel file *function.json*:
 Ecco il codice script F#:
 
 ```fsharp
-let Run(myQueueItem: string, log: TraceWriter) =
-    log.Info(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
+let Run(myQueueItem: string, log: ILogger) =
+    log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
 ### <a name="trigger---javascript-example"></a>Trigger - esempio JavaScript
@@ -223,7 +227,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare gli attri
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
-      [ServiceBusTrigger("myqueue")] string myQueueItem, TraceWriter log)
+      [ServiceBusTrigger("myqueue")] string myQueueItem, ILogger log)
   {
       ...
   }
@@ -235,7 +239,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare gli attri
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
   public static void Run(
       [ServiceBusTrigger("myqueue", Connection = "ServiceBusConnection")] 
-      string myQueueItem, TraceWriter log)
+      string myQueueItem, ILogger log)
   {
       ...
   }
@@ -255,7 +259,7 @@ Nelle [librerie di classi C#](functions-dotnet-class-library.md) usare gli attri
       [FunctionName("ServiceBusQueueTriggerCSharp")]
       public static void Run(
           [ServiceBusTrigger("myqueue", AccessRights.Manage)] 
-          string myQueueItem, TraceWriter log)
+          string myQueueItem, ILogger log)
   {
       ...
   }
@@ -273,7 +277,7 @@ L'account per il bus di servizio da usare è determinato nell'ordine seguente:
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `ServiceBusTrigger`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su "serviceBusTrigger". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Il valore deve essere impostato su "in". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
@@ -313,7 +317,7 @@ Funzioni di Azure 1.x consente di configurare `autoRenewTimeout` in *host.json*,
 
 Il trigger del bus di servizio fornisce diverse [proprietà di metadati](functions-triggers-bindings.md#binding-expressions---trigger-metadata). Queste proprietà possono essere usate come parte delle espressioni di associazione in altre associazioni o come parametri nel codice. Queste sono le proprietà della classe [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
 
-|Proprietà|type|DESCRIZIONE|
+|Proprietà|Tipo|Descrizione|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Il numero di recapiti.|
 |`DeadLetterSource`|`string`|La coda di messaggi non recapitabili.|
@@ -357,9 +361,9 @@ L'esempio seguente mostra una [funzione C#](functions-dotnet-class-library.md) c
 ```cs
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string ServiceBusOutput([HttpTrigger] dynamic input, TraceWriter log)
+public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 {
-    log.Info($"C# function processed: {input.Text}");
+    log.LogInformation($"C# function processed: {input.Text}");
     return input.Text;
 }
 ```
@@ -395,10 +399,10 @@ Ecco i dati di associazione nel file *function.json*:
 Ecco il codice script C# che crea un singolo messaggio:
 
 ```cs
-public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQueue)
+public static void Run(TimerInfo myTimer, ILogger log, out string outputSbQueue)
 {
     string message = $"Service Bus queue message created at: {DateTime.Now}";
-    log.Info(message); 
+    log.LogInformation(message); 
     outputSbQueue = message;
 }
 ```
@@ -406,10 +410,10 @@ public static void Run(TimerInfo myTimer, TraceWriter log, out string outputSbQu
 Ecco il codice script C# che crea più messaggi:
 
 ```cs
-public static void Run(TimerInfo myTimer, TraceWriter log, ICollector<string> outputSbQueue)
+public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> outputSbQueue)
 {
     string message = $"Service Bus queue messages created at: {DateTime.Now}";
-    log.Info(message); 
+    log.LogInformation(message); 
     outputSbQueue.Add("1 " + message);
     outputSbQueue.Add("2 " + message);
 }
@@ -446,9 +450,9 @@ Ecco i dati di associazione nel file *function.json*:
 Ecco il codice script F# che crea un singolo messaggio:
 
 ```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter, outputSbQueue: byref<string>) =
+let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
     let message = sprintf "Service Bus queue message created at: %s" (DateTime.Now.ToString())
-    log.Info(message)
+    log.LogInformation(message)
     outputSbQueue = message
 ```
 
@@ -532,7 +536,7 @@ Il costruttore dell'attributo accetta il nome della coda o l'argomento e la sott
 ```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue")]
-public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+public static string Run([HttpTrigger] dynamic input, ILogger log)
 {
     ...
 }
@@ -543,7 +547,7 @@ public static string Run([HttpTrigger] dynamic input, TraceWriter log)
 ```csharp
 [FunctionName("ServiceBusOutput")]
 [return: ServiceBus("myqueue", Connection = "ServiceBusConnection")]
-public static string Run([HttpTrigger] dynamic input, TraceWriter log)
+public static string Run([HttpTrigger] dynamic input, ILogger log)
 {
     ...
 }
@@ -557,7 +561,7 @@ Per un esempio completo, vedere [Output - esempio in C#](#output---c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `ServiceBus`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type** | n/d | Il valore deve essere impostato su "serviceBus". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure.|
 |**direction** | n/d | Deve essere impostato su "out". Questa proprietà viene impostata automaticamente quando si crea il trigger nel portale di Azure. |
@@ -593,6 +597,38 @@ In JavaScript accedere alla coda o all'argomento usando `context.bindings.<name 
 |---|---|
 | Bus di servizio | [Codici di errore del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
 | Bus di servizio | [Limiti del bus di servizio](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>impostazioni host.json
+
+Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nella versione 2.x. Il file host.json di esempio seguente contiene solo le impostazioni della versione 2.x per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nella versione 2.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure versione 2.x](functions-host-json.md).
+
+> [!NOTE]
+> Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "serviceBus": {
+            "prefetchCount": 100,
+            "messageHandlerOptions": {
+                "autoComplete": false,
+                "maxConcurrentCalls": 32,
+                "maxAutoRenewDuration": "00:55:00"
+        }
+    }
+}
+```
+
+|Proprietà  |Predefinito | Descrizione |
+|---------|---------|---------| 
+|autoRenewTimeout|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.| 
+|autoComplete|false|Indica se il trigger deve contrassegnare immediatamente come completato (completamento automatico) oppure attendere che venga eseguita la chiamata a complete.| 
+|maxConcurrentCalls|16|Il numero massimo di chiamate simultanee al callback che il message pump deve avviare. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente. Per fare in modo che il runtime elabori un solo messaggio della coda o dell'argomento alla volta, impostare `maxConcurrentCalls` su 1. | 
+|prefetchCount|n/d|Il valore predefinito di PrefetchCount che verrà utilizzato per il MessageReceiver sottostante.| 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

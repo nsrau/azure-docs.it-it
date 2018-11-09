@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/30/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 36db41308678f3f1bd713561f9a844288f5db401
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bbf8dc4ccbd16f2157e65773b01fb42587fbfe9d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306300"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417481"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Installare Azure AD Connect usando un database ADSync esistente
 Per archiviare i dati, Azure AD Connect richiede un database di SQL Server. È possibile usare l'istanza predefinita di Local DB di SQL Server 2012 Express installata con Azure AD Connect oppure usare la versione completa di SQL. Con le versioni precedenti, durante l'installazione di Azure AD Connect viene sempre creato un nuovo database denominato ADSync. Con la versione 1.1.613.0 o successiva, è possibile scegliere di installare Azure AD Connect associandolo a un database ADSync esistente.
@@ -86,6 +86,17 @@ Informazioni importanti da tenere presenti prima di procedere:
  
 11. Al termine dell'installazione, sul server di Azure AD Connect viene abilitata automaticamente la modalità di gestione temporanea. Prima di disabilitare questa modalità, è consigliabile esaminare la configurazione del server e le operazioni di esportazione in sospeso per eventuali modifiche impreviste. 
 
+## <a name="post-installation-tasks"></a>Attività successive all'installazione
+Quando si ripristina un backup del database creato da una versione di Azure AD Connect precedente a 1.2.65.0, il server di gestione temporanea selezionerà automaticamente il metodo di accesso **Non configurare**. Poiché le preferenze di sincronizzazione dell'hash delle password e di writeback delle password verranno ripristinate, è necessario di conseguenza modificare il metodo di accesso in modo che corrisponda agli altri criteri in vigore per il server di sincronizzazione attivo.  La mancata esecuzione di questi passaggi può impedire agli utenti di eseguire l'accesso se il server dovesse diventare attivo.  
+
+Usare la tabella seguente per verificare gli eventuali passaggi aggiuntivi necessari.
+
+|Funzionalità|Passaggi|
+|-----|-----|
+|Sincronizzazione hash password| Le impostazioni Sincronizzazione hash password e Writeback password sono completamente ripristinate per Azure AD Connect a partire dalla versione 1.2.65.0.  Se il ripristino viene effettuato con una versione precedente di Azure AD Connect, esaminare le impostazioni delle opzioni di sincronizzazione di queste funzionalità per verificare che abbiano una corrispondenza nel server di sincronizzazione attivo.  Non sono necessari altri passaggi di configurazione.|
+|Federazione tramite AD FS|Le autenticazioni di Azure continueranno a usare i criteri AD FS configurati per il server di sincronizzazione attivo.  Se si usa Azure AD Connect per gestire la farm AD FS, è possibile facoltativamente impostare il metodo di accesso su Federazione tramite AD FS per preparare il server di standby a diventare l'istanza di sincronizzazione attiva.   Se nel server di sincronizzazione attivo sono abilitate le opzioni di dispositivo, configurare queste opzioni eseguendo l'attività Configura le opzioni del dispositivo.|
+|Autenticazione pass-through e Single Sign-On desktop|Aggiornare il metodo di accesso in modo che corrisponda alla configurazione nel server di sincronizzazione attivo.  Se non si esegue questa operazione prima di alzare il server al livello di server primario, l'autenticazione pass-through con Accesso Single Sign-On facile verrà disabilitata e il tenant potrebbe essere bloccato se l'opzione di accesso Sincronizzazione hash password non è stata impostata come backup. Si noti inoltre che quando si abilita l'autenticazione pass-through in modalità di gestione temporanea, un nuovo agente di autenticazione verrà installato, registrato ed eseguito come agente a disponibilità elevata che accetta le richieste di accesso.|
+|Federazione con PingFederate|Le autenticazioni di Azure continueranno a usare i criteri PingFederate configurati per il server di sincronizzazione attivo.  È possibile facoltativamente impostare il metodo di accesso su Federazione con PingFederate per preparare il server di standby a diventare l'istanza di sincronizzazione attiva.  Questo passaggio può essere rinviato fino a quando non è necessario attuare la federazione di domini aggiuntivi con PingFederate.|
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Dopo aver installato Azure AD Connect è possibile [verificare l'installazione e assegnare le licenze](how-to-connect-post-installation.md).

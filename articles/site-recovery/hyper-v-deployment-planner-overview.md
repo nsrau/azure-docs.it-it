@@ -1,22 +1,20 @@
 ---
-title: Azure Site Recovery Deployment Planner per distribuzioni da Hyper-V ad Azure | Microsoft Docs
-description: Guida dell'utente di Azure Site Recovery Deployment Planner per lo scenario da Hyper-V ad Azure.
-services: site-recovery
+title: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza di macchine virtuali Hyper-V in Azure | Microsoft Docs
+description: Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7a91217e35ae7a32714478171dcebc002e384fcb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ae93611bfe5dd11bea8bc0327868c2865b36b713
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093596"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210670"
 ---
-# <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner per distribuzioni da Hyper-V ad Azure
+# <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Informazioni su Azure Site Recovery Deployment Planner per il ripristino di emergenza da Hyper-V ad Azure
 
 Questo articolo contiene la guida dell'utente di Azure Site Recovery Deployment Planner per distribuzioni di produzione da Hyper-V ad Azure.
 
@@ -74,7 +72,7 @@ Lo strumento indica i dettagli seguenti:
 
 | | **Da VMware ad Azure** |**Da Hyper-V ad Azure**|**Da Azure ad Azure**|**Da Hyper-V al sito secondario**|**Da VMware al sito secondario**
 --|--|--|--|--|--
-Scenari supportati |Yes|Yes|No |Sì*|No 
+Scenari supportati |Yes|Sì|No|Sì*|No
 Versione supportata | vCenter 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configurazione supportata|vCenter, ESXi| Cluster Hyper-V, host Hyper-V|ND|Cluster Hyper-V, host Hyper-V|ND|
 Numero di server che è possibile profilare per ogni istanza in esecuzione di Azure Site Recovery Deployment Planner |Singolo (è possibile profilare le VM appartenenti a un solo server vCenter o a un solo server ESXi alla volta)|Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND |Multipli (è possibile profilare contemporaneamente le VM in più host o cluster di host)| ND
@@ -84,7 +82,7 @@ Numero di server che è possibile profilare per ogni istanza in esecuzione di Az
 ## <a name="prerequisites"></a>Prerequisiti
 Lo strumento ha tre fasi principali per Hyper-V: ottenere l'elenco di VM, profilatura e generazione di report. È anche disponibile una quarta opzione per calcolare solo la velocità effettiva. I requisiti per il server in cui devono essere eseguite le diverse fasi sono elencati nella tabella seguente:
 
-| Requisito server | DESCRIZIONE |
+| Requisito server | Descrizione |
 |---|---|
 |Ottenere l'elenco di VM, profilatura e misurazione della velocità effettiva |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configurazione del computer: 8 vCPU, 16 GB di RAM, disco rigido da 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable per Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accesso Internet ad Azure da questo server</li><li>Account di archiviazione di Azure</li><li>Accesso di amministratore al server</li><li>Almeno 100 GB di spazio libero su disco (presumendo 1000 VM con una media di tre dischi ognuna, profilate per 30 giorni)</li><li>La VM da cui si esegue lo strumento Azure Site Recovery Deployment Planner deve essere aggiunta all'elenco TrustedHosts di tutti i server Hyper-V.</li><li>Le VM di tutti i server Hyper-V da profilare devono essere aggiunte all'elenco TrustedHosts della VM client da cui lo strumento viene eseguito. [Altre informazioni per aggiungere i server nell'elenco TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> Lo strumento deve essere eseguito con privilegi amministrativi da PowerShell o dalla console della riga di comando</ul></ul>|
 | Generazione di report | Un PC o server Windows con Microsoft Excel 2013 o versione successiva |

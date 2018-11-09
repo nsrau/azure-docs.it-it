@@ -6,20 +6,20 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: c917fab84448684cf29af162ec0781d764605f71
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c09ee84cda5f0a9747d3ee1f8f1b37d1323f2cc2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323852"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212251"
 ---
 # <a name="egress-and-endpoints"></a>Traffico in uscita ed endpoint
 
 Gemelli digitali di Azure supporta il concetto di _endpoint_, per cui ogni endpoint rappresenta un broker di messaggi/eventi nella sottoscrizione di Azure dell'utente. Eventi e messaggi possono essere inviati a **Hub eventi**, **Griglia di eventi** e ad **argomenti del bus di servizio**.
 
-Gli eventi verranno inviati agli endpoint in base alle preferenze di routing predefinite: l'utente può specificare quale endpoint deve ricevere uno qualsiasi di questi eventi:`TopologyOperation`, `UdfCustom`, `SensorChange`, `SpaceChange` e `DeviceMessage`.
+Gli eventi verranno inviati agli endpoint in base alle preferenze di routing predefinite. L'utente può specificare quale endpoint deve ricevere uno di questi eventi: **TopologyOperation**, **UdfCustom**, **SensorChange**, **SpaceChange**, or **DeviceMessage**.
 
 Per informazioni di base sul routing di eventi e tipi di evento, fare riferimento a [Routing di eventi e messaggi](concepts-events-routing.md).
 
@@ -27,9 +27,9 @@ Per informazioni di base sul routing di eventi e tipi di evento, fare riferiment
 
 Ecco i formati di evento per ognuno dei tipi di evento:
 
-- `TopologyOperation`
+- **TopologyOperation**
 
-  Si applica alle modifiche del grafico. La proprietà `subject` specifica il tipo di oggetto interessato. I tipi di oggetti che possono attivare questo evento sono: `Device, DeviceBlobMetadata`, `DeviceExtendedProperty`, `ExtendedPropertyKey`, `ExtendedType`, `KeyStore`, `Report`, `RoleDefinition`, `Sensor`, `SensorBlobMetadata`, `SensorExtendedProperty`, `Space`, `SpaceBlobMetadata`, `SpaceExtendedProperty`, `SpaceResource`, `SpaceRoleAssignment`, `System`, `User`, `UserBlobMetadata` e `UserExtendedProperty`.
+  Si applica alle modifiche del grafico. La proprietà *subject* specifica il tipo di oggetto interessato. I tipi di oggetto che possono attivare questo evento sono: **Device**, **DeviceBlobMetadata**, **DeviceExtendedProperty**, **ExtendedPropertyKey**, **ExtendedType**, **KeyStore**, **Report**, **RoleDefinition**, **Sensor**, **SensorBlobMetadata**, **SensorExtendedProperty**, **Space**, **SpaceBlobMetadata**, **SpaceExtendedProperty**, **SpaceResource**, **SpaceRoleAssignment**, **System**, **User**, **UserBlobMetadata**, **UserExtendedProperty**.
 
   Esempio:
 
@@ -55,11 +55,14 @@ Ecco i formati di evento per ognuno dei tipi di evento:
 
     | Nome attributo personalizzato | Sostituire con |
     | --- | --- |
-    | `yourTopicName` | Nome dell'argomento personalizzato |
+    | *yourTopicName* | Nome dell'argomento personalizzato |
 
-- `UdfCustom`
+- **UdfCustom**
 
-  Evento inviato da una funzione definita dall'utente. Si noti che questo evento deve essere inviato in modo esplicito dalla funzione definita dall'utente stessa.
+  Evento inviato da una funzione definita dall'utente. 
+  
+  > [!IMPORTANT]
+  > Questo evento deve essere inviato in modo esplicito dalla funzione definita dall'utente stessa.
 
   Esempio:
 
@@ -83,9 +86,9 @@ Ecco i formati di evento per ognuno dei tipi di evento:
 
     | Nome attributo personalizzato | Sostituire con |
     | --- | --- |
-    | `yourTopicName` | Nome dell'argomento personalizzato |
+    | *yourTopicName* | Nome dell'argomento personalizzato |
 
-- `SensorChange`
+- **SensorChange**
 
   Aggiornamento applicato allo stato di un sensore in base alle modifiche dei dati di telemetria.
 
@@ -118,9 +121,9 @@ Ecco i formati di evento per ognuno dei tipi di evento:
 
     | Nome attributo personalizzato | Sostituire con |
     | --- | --- |
-    | `yourTopicName` | Nome dell'argomento personalizzato |
+    | *yourTopicName* | Nome dell'argomento personalizzato |
 
-- `SpaceChange`
+- **SpaceChange**
 
   Aggiornamento applicato allo stato di uno spazio in base alle modifiche dei dati di telemetria.
 
@@ -153,15 +156,15 @@ Ecco i formati di evento per ognuno dei tipi di evento:
 
     | Nome attributo personalizzato | Sostituire con |
     | --- | --- |
-    | `yourTopicName` | Nome dell'argomento personalizzato |
+    | *yourTopicName* | Nome dell'argomento personalizzato |
 
-- `DeviceMessage`
+- **DeviceMessage**
 
-  Permette di specificare una connessione `EventHub` in cui gli eventi di telemetria non elaborati possono anche essere instradati da Gemelli digitali di Azure.
+  Consente di specificare una connessione **EventHub** in cui gli eventi di telemetria non elaborati possono anche essere instradati da Gemelli digitali di Azure.
 
 > [!NOTE]
-> - `DeviceMessage` può essere combinato solo con `EventHub`, mentre non sarà possibile combinare `DeviceMessage` con uno qualsiasi degli altri tipi di evento.
-> - È possibile specificare un solo endpoint della combinazione di tipo `EventHub`/`DeviceMessage`.
+> - **DeviceMessage** può essere combinato solo con **EventHub**, mentre non sarà possibile combinare **DeviceMessage** con uno qualsiasi degli altri tipi di evento.
+> - È possibile specificare un solo endpoint della combinazione di tipo **EventHub** o **DeviceMessage**.
 
 ## <a name="configuring-endpoints"></a>Configurazione degli endpoint
 
@@ -171,7 +174,7 @@ La gestione degli endpoint viene eseguita tramite l'API per gli endpoint. Ecco a
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- Instrada al **bus di servizio** i tipi di evento `SensorChange`, `SpaceChange` e `TopologyOperation`
+- Instrada al **bus di servizio** i tipi di evento **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -189,12 +192,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Nome attributo personalizzato | Sostituire con |
     | --- | --- |
-    | `yourNamespace` | Spazio dei nomi dell'endpoint |
-    | `yourPrimaryKey` | Stringa di connessione primaria usata per l'autenticazione |
-    | `yourSecondaryKey` | Stringa di connessione secondaria usata per l'autenticazione |
-    | `yourTopicName` | Nome dell'argomento personalizzato |
+    | *yourNamespace* | Spazio dei nomi dell'endpoint |
+    | *yourPrimaryKey* | Stringa di connessione primaria usata per l'autenticazione |
+    | *yourSecondaryKey* | Stringa di connessione secondaria usata per l'autenticazione |
+    | *yourTopicName* | Nome dell'argomento personalizzato |
 
-- Instrada a **Griglia di eventi** i tipi di evento `SensorChange`, `SpaceChange` e `TopologyOperation`
+- Instrada a **Griglia di eventi** i tipi di evento **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -212,11 +215,11 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Nome attributo personalizzato | Sostituire con |
     | --- | --- |
-    | `yourPrimaryKey` | Stringa di connessione primaria usata per l'autenticazione|
-    | `yourSecondaryKey` | Stringa di connessione secondaria usata per l'autenticazione |
-    | `yourTopicName` | Nome dell'argomento personalizzato |
+    | *yourPrimaryKey* | Stringa di connessione primaria usata per l'autenticazione|
+    | *yourSecondaryKey* | Stringa di connessione secondaria usata per l'autenticazione |
+    | *yourTopicName* | Nome dell'argomento personalizzato |
 
-- Instrada a **Hub eventi** i tipi di evento `SensorChange`, `SpaceChange` e `TopologyOperation`
+- Instrada a **Hub eventi** i tipi di evento **SensorChange**, **SpaceChange**, **TopologyOperation**
 
   ```JSON
   {
@@ -234,12 +237,12 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Nome attributo personalizzato | Sostituire con |
     | --- | --- |
-    | `yourNamespace` | Spazio dei nomi dell'endpoint |
-    | `yourPrimaryKey` | Stringa di connessione primaria usata per l'autenticazione |
-    | `yourSecondaryKey` | Stringa di connessione secondaria usata per l'autenticazione |
-    | `yourEventHubName` | Nome dell'hub eventi |
+    | *yourNamespace* | Spazio dei nomi dell'endpoint |
+    | *yourPrimaryKey* | Stringa di connessione primaria usata per l'autenticazione |
+    | *yourSecondaryKey* | Stringa di connessione secondaria usata per l'autenticazione |
+    | *yourEventHubName* | Nome dell'**hub eventi** |
 
-- Instrada a **Hub eventi** i tipi di evento `DeviceMessage`. Notare l'inclusione di _EntityPath_ in `connectionString`, che è un'impostazione obbligatoria.
+- Instrada a **Hub eventi** il tipo di evento **DeviceMessage**. È obbligatorio includere `EntityPath` in **connectionString**.
 
   ```JSON
   {
@@ -255,13 +258,13 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
     | Nome attributo personalizzato | Sostituire con |
     | --- | --- |
-    | `yourNamespace` | Spazio dei nomi dell'endpoint |
-    | `yourPrimaryKey` | Stringa di connessione primaria usata per l'autenticazione |
-    | `yourSecondaryKey` | Stringa di connessione secondaria usata per l'autenticazione |
-    | `yourEventHubName` | Nome dell'hub eventi |
+    | *yourNamespace* | Spazio dei nomi dell'endpoint |
+    | *yourPrimaryKey* | Stringa di connessione primaria usata per l'autenticazione |
+    | *yourSecondaryKey* | Stringa di connessione secondaria usata per l'autenticazione |
+    | *yourEventHubName* | Nome dell'**hub eventi** |
 
 > [!NOTE]
-> Al momento della creazione di un nuovo endpoint, potrebbero essere necessari fino a 5-10 minuti prima di iniziare a ricevere eventi nell'endpoint.
+> Dopo la creazione di un nuovo endpoint, possono trascorrere da 5 a 10 minuti prima che si inizi a ricevere eventi nell'endpoint.
 
 ## <a name="primary-and-secondary-connection-keys"></a>Chiavi di connessione primaria e secondaria
 

@@ -1,5 +1,5 @@
 ---
-title: Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure | Microsoft Docs
+title: Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure | Documentazione Microsoft
 description: Informazioni su come gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure.
 services: media-services,cdn
 documentationcenter: .NET
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: dce8d588a78b028223776e3ade737d4abd26094b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ac94370b1c6a8f48ad55f0e277d93cd2f8388cb1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765286"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242604"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Gestire i criteri di memorizzazione nella cache della rete CDN di Azure in Servizi multimediali di Azure
 Servizi multimediali di Azure fornisce lo streaming adattivo e il download progressivo basati su HTTP. Lo streaming basato su HTTP è altamente scalabile con i vantaggi della cache nei livelli proxy e di rete CDN, nonché della cache sul lato client. Gli endpoint di streaming forniscono funzionalità di streaming generale e configurazione per le intestazioni di cache HTTP. Gli endpoint di streaming impostano le intestazioni HTTP Cache-Control: max-age ed Expires. È possibile ottenere ulteriori informazioni per le intestazioni della cache HTTP da [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -40,7 +40,7 @@ Servizi multimediali di Azure fornisce [la rete CDN integrata](https://azure.mic
 
 1. Per configurare le intestazioni delle cache mediante il portale di Azure, vedere la sezione [Come gestire gli endpoint di streaming](../media-services/previous/media-services-portal-manage-streaming-endpoints.md) Configurazione dell'endpoint di streaming.
 2. API REST di Servizi multimediali di Azure, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
-3. SDK .NET di Servizi multimediali di Azure, [Proprietà StreamingEndpointCacheControl](http://go.microsoft.com/fwlink/?LinkId=615302).
+3. SDK .NET di Servizi multimediali di Azure, [Proprietà StreamingEndpointCacheControl](https://go.microsoft.com/fwlink/?LinkId=615302).
 
 ## <a name="cache-configuration-precedence-order"></a>Ordine di precedenza di configurazione della cache
 1. Il valore della cache configurato di Servizi multimediali di Azure sostituisce il valore predefinito.

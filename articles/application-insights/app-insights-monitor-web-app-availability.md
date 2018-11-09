@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/09/2018
-ms.author: sdash ; mbullwin
-ms.openlocfilehash: c97b45616a58035dd5a1d7e832212fb90694ccce
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.date: 10/30/2018
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421255"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
 Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare alcuni test per monitorarne la disponibilità e la velocità di risposta. [Azure Application Insights](app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
@@ -32,11 +34,6 @@ Sono disponibili due tipi di test di disponibilità:
 È possibile creare fino a 100 test di disponibilità per ogni risorsa dell'applicazione.
 
 
-> [!NOTE] 
-> * I test di disponibilità sono stati recentemente trasferiti nei data center di Azure, per consentire di aggiungere posizioni con la rete in espansione di data center di Azure.  
-> * Non è necessario aggiornare i test. Tutti i test vengono trasferiti ed eseguiti dalle nuove posizioni. 
->* Per altre informazioni, vedere l'[aggiornamento del servizio](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/).
-
 ## <a name="create"></a>Aprire una risorsa per i report dei test di disponibilità
 
 **Se si è già configurato Application Insights** per l'app Web, aprire la risorsa di Application Insights nel [portale di Azure](https://portal.azure.com).
@@ -50,18 +47,20 @@ Fare clic su **Tutte le risorse** per aprire il pannello Panoramica per la nuova
 ## <a name="setup"></a>Creare un test di ping URL
 Aprire il pannello Disponibilità e aggiungere un test.
 
-![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **L'URL** può essere qualsiasi pagina Web che si vuole testare, ma deve essere visibile da Internet pubblico. L'URL può includere una stringa di query. In questo modo, ad esempio, è possibile esercitarsi nell'uso del database. Se l'URL comporta un reindirizzamento, l'operazione viene effettuata fino a un numero massimo di 10 reindirizzamenti.
-* **Analizza richieste dipendenti**: se questa opzione è selezionata, il test richiede immagini, script, file di stile e altri file che fanno parte della pagina Web sottoposta a test. Il tempo di risposta registrato include il tempo impiegato per ottenere questi file. Il test avrà esito negativo se non è possibile scaricare tutte queste risorse entro il timeout definito per l'intero test. 
-
-    Se l'opzione non viene selezionata, il test richiede solo il file in corrispondenza dell'URL specificato.
+* **Analizza richieste dipendenti**: se questa opzione è selezionata, il test richiede immagini, script, file di stile e altri file che fanno parte della pagina Web sottoposta a test. Il tempo di risposta registrato include il tempo impiegato per ottenere questi file. Il test avrà esito negativo se non è possibile scaricare tutte queste risorse entro il timeout definito per l'intero test. Se l'opzione non viene selezionata, il test richiede solo il file in corrispondenza dell'URL specificato.
 
 * **Abilita nuovi tentativi**: se questa opzione viene selezionata, quando il test ha esito negativo, viene eseguito un nuovo tentativo dopo un breve intervallo. Un errore viene segnalato solo se tre tentativi successivi non riescono. I test successivi vengono quindi eseguiti in base alla frequenza di test normale. I nuovi tentativi saranno temporaneamente sospesi fino al completamento successivo. Questa regola viene applicata in modo indipendente in ogni località di test. Questa opzione è consigliata. In media, circa l'80% degli errori non si ripresenta al nuovo tentativo.
 
 * **Frequenza test**: impostare la frequenza di esecuzione del test da ogni località di test. Con una frequenza predefinita di cinque minuti e cinque località di test, il sito verrà testato in media ogni minuto.
 
-* **posizioni dei test** sono le ubicazioni da cui i server inviano richieste Web all'URL indicato. Sceglierne più di una, per poter distinguere i problemi del sito Web dai problemi di rete. È possibile selezionare fino a 16 località.
+* **posizioni dei test** sono le ubicazioni da cui i server inviano richieste Web all'URL indicato. Il numero minimo di località di test consigliate è cinque per essere certi di poter distinguere i problemi del sito Web da quelli della rete. È possibile selezionare fino a 16 località.
+
+> [!NOTE]
+> * È consigliabile eseguire test da più località, con un numero minimo pari a cinque. Questo serve a evitare falsi allarmi che possono essere dovuti a problemi temporanei di una località specifica. Inoltre, si è constatato che, per una configurazione ottimale, è necessario che il numero di località di test sia uguale alla soglia località di avviso + 2. 
+> * L'abilitazione dell'opzione "Analizza richieste dipendenti" determina l'esecuzione di un controllo più rigoroso. Il test può avere esito negativo per i casi che possono non essere evidenti quando si esplora manualmente il sito.
 
 * **Criteri di successo**:
 
@@ -70,63 +69,13 @@ Aprire il pannello Disponibilità e aggiungere un test.
     **Risposta HTTP**: codice di stato restituito che viene conteggiato come operazione riuscita. 200 è il codice che indica che è stata restituita una normale pagina Web.
 
     **Il contenuto corrisponde a**: stringa, ad esempio "Benvenuto", Verifichiamo che in ogni risposta ci una corrispondenza esatta di maiuscolo e minuscolo. Deve trattarsi di una stringa di testo normale, senza caratteri jolly. È importante ricordare che, se il contenuto cambia, potrebbe essere necessario aggiornare la stringa.
-* **Avvisi** vengono inviati se si verificano errori in tre posizioni in cinque minuti. Un errore in una posizione può indicare un errore di rete e non un problema con il sito. È comunque possibile modificare la soglia in modo da aumentare la sensibilità del test e modificare i destinatari a cui inviare i messaggi di posta elettronica.
 
-    È possibile configurare un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso. Si noti però che attualmente i parametri di query non vengono passati come proprietà.
-
-### <a name="test-more-urls"></a>Testare più URL
-Aggiungere altri test. Oltre a testare la home page, ad esempio, è possibile verificare che il database sia in esecuzione testando l'URL per una ricerca.
-
-
-## <a name="monitor"></a>Visualizzare i risultati dei test di disponibilità
-
-Dopo pochi minuti, fare clic su **Aggiorna** per visualizzare i risultati del test. 
-
-![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
-
-Il grafico a dispersione mostra alcuni campioni dei risultati del test che includono dettagli diagnostici sui passaggi del test. Il motore di test archivia i dettagli diagnostici per i test che hanno restituito errori. Per i test riusciti, vengono archiviati i dettagli diagnostici per un subset delle esecuzioni. Posizionare il puntatore del mouse su uno dei punti verdi/rossi per visualizzare il timestamp del test, la durata del test, la posizione e il nome del test. Fare clic su qualsiasi punto del grafico a dispersione per visualizzare i dettagli del risultato del test.  
-
-Selezionare una posizione o un test specifico oppure ridurre il periodo di tempo per visualizzare più risultati riguardo all'intervallo desiderato. Usare Esplora ricerche per visualizzare i risultati di tutte le esecuzioni oppure usare query di analisi per eseguire report personalizzati per i dati.
-
-Oltre ai risultati non elaborati, Esplora metriche include due metriche di disponibilità: 
-
-1. Disponibilità: percentuale dei test riusciti rispetto a tutte le esecuzioni di test. 
-2. Durata test: durata media dei test rispetto a tutte le esecuzioni di test.
-
-È possibile applicare filtri per il nome di test e la posizione per analizzare le tendenze per un test e/o una posizione specifici.
-
-## <a name="edit"></a> Esaminare e modificare i test
-
-Nella pagina di riepilogo selezionare uno specifico test. Sarà possibile visualizzarne i risultati specifici e modificarlo o disabilitarlo temporaneamente.
-
-![Modificare o disabilitare un test Web](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
-
-Può essere necessario disabilitare i test di disponibilità o le regole di avviso associate ai test durante le operazioni di manutenzione del servizio. 
-
-## <a name="failures"></a>In caso di errori
-Fare clic su un punto rosso.
-
-![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
-
-
-Dal risultato di un test di disponibilità è possibile eseguire le operazioni seguenti:
-
-* Controllare la risposta ricevuta dal server.
-* Diagnosticare l'errore con i dati di telemetria lato server raccolti durante l'elaborazione dell'istanza di richiesta non riuscita.
-* Registrare un problema o elemento di lavoro in Git o VSTS per tenere traccia del problema. Il bug conterrà un collegamento a questo evento.
-* Aprire il risultato del test Web in Visual Studio.
-
-*Ha un aspetto corretto ma è segnalato come errore?* Vedere le [domande frequenti](#qna) per informazioni su come ridurre i risultati non significativi.
-
-
-> [!TIP]
-> È consigliabile eseguire test da almeno due località per assicurare un monitoraggio affidabile.
->
+* **Soglia località di avviso**: è consigliabile usare un minimo di 3-5 località. Il rapporto ottimale tra la soglia località di avviso e il numero di località di test è dato da **soglia località di avviso** = **numero di località di test** - 2, con un numero minimo pari a cinque località di test.
 
 ## <a name="multi-step-web-tests"></a>Test Web in più passaggi
 È possibile monitorare uno scenario che comporta una sequenza di URL. Ad esempio, se si monitora un sito Web di vendita, si potrebbe testare il corretto funzionamento dell'aggiunta di articoli al carrelli acquisti.
 
-> [!NOTE] 
+> [!NOTE]
 > È prevista una tariffa per i test Web in più passaggi. Vedere lo [schema dei prezzi](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
@@ -176,20 +125,6 @@ Usare Visual Studio Enterprise per registrare una sessione Web.
 
     Impostare le posizioni di test, la frequenza e i parametri di avviso allo stesso modo dei test ping.
 
-#### <a name="3-see-the-results"></a>3. Visualizzare i risultati
-
-Visualizzare i risultati del test e gli eventuali errori nello stesso modo dei test con singolo URL.
-
-È anche possibile scaricare i risultati del test per visualizzarli in Visual Studio.
-
-#### <a name="too-many-failures"></a>Numero di errori elevato
-
-* Un motivo frequente di errore è l'eccessiva durata del test. L'esecuzione non deve superare i due minuti.
-
-* Non dimenticare che, perché il test abbia esito positivo, tutte le risorse di una pagina devono essere caricate correttamente, inclusi script, fogli di stile, immagini e così via.
-
-* Il test Web deve essere interamente contenuto nello script con estensione webtest: non è possibile usare funzioni codificate nel test.
-
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Inserimento di plug-in relativi a tempo e numeri casuali nel test in più passaggi
 Si supponga di voler testare uno strumento che riceva dati dipendenti dal tempo, come ad esempio valori di scorte da un feed esterno. Quando si registra il test Web, è necessario usare tempi specifici impostandoli come parametri del test, StartTime e EndTime.
 
@@ -212,6 +147,87 @@ I plug-in del test Web consentono di impostare questi parametri.
     ![Nel parametro di test usare {{nome plug-in}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
 Caricare quindi il test nel portale. Userà i valori dinamici ogni volta che verrà eseguito.
+
+
+## <a name="monitor"></a>Visualizzare i risultati dei test di disponibilità
+
+Dopo pochi minuti, fare clic su **Aggiorna** per visualizzare i risultati del test. 
+
+![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
+
+Il grafico a dispersione mostra alcuni campioni dei risultati del test che includono dettagli diagnostici sui passaggi del test. Il motore di test archivia i dettagli diagnostici per i test che hanno restituito errori. Per i test riusciti, vengono archiviati i dettagli diagnostici per un subset delle esecuzioni. Posizionare il puntatore del mouse su uno dei punti verdi/rossi per visualizzare il timestamp del test, la durata del test, la posizione e il nome del test. Fare clic su qualsiasi punto del grafico a dispersione per visualizzare i dettagli del risultato del test.  
+
+Selezionare una posizione o un test specifico oppure ridurre il periodo di tempo per visualizzare più risultati riguardo all'intervallo desiderato. Usare Esplora ricerche per visualizzare i risultati di tutte le esecuzioni oppure usare query di analisi per eseguire report personalizzati per i dati.
+
+Oltre ai risultati non elaborati, Esplora metriche include due metriche di disponibilità: 
+
+1. Disponibilità: percentuale dei test riusciti rispetto a tutte le esecuzioni di test. 
+2. Durata test: durata media dei test rispetto a tutte le esecuzioni di test.
+
+È possibile applicare filtri per il nome di test e la posizione per analizzare le tendenze per un test e/o una posizione specifici.
+
+## <a name="edit"></a> Esaminare e modificare i test
+
+Nella pagina di riepilogo selezionare uno specifico test. Sarà possibile visualizzarne i risultati specifici e modificarlo o disabilitarlo temporaneamente.
+
+![Modificare o disabilitare un test Web](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
+
+Può essere necessario disabilitare i test di disponibilità o le regole di avviso associate ai test durante le operazioni di manutenzione del servizio. 
+
+## <a name="failures"></a>In caso di errori
+Fare clic su un punto rosso.
+
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
+
+Dal risultato di un test di disponibilità è possibile visualizzare i dettagli delle transazioni in tutti i componenti. A questo punto è possibile:
+
+* Controllare la risposta ricevuta dal server.
+* Diagnosticare l'errore con i dati di telemetria lato server correlati, raccolti durante l'elaborazione del test di disponibilità non riuscito.
+* Registrare un problema o elemento di lavoro in Git o VSTS per tenere traccia del problema. Il bug conterrà un collegamento a questo evento.
+* Aprire il risultato del test Web in Visual Studio.
+
+Per altre informazioni sull'esperienza di diagnostica delle transazioni end-to-end, fare clic [qui](app-insights-transaction-diagnostics.md).
+
+Fare clic sulla riga dell'eccezione per visualizzare i dettagli dell'eccezione lato server che ha causato l'errore durante il test di disponibilità sintetico. È anche possibile ottenere lo [snapshot di debug](app-insights-snapshot-debugger.md) per una diagnostica più avanzata a livello di codice.
+
+![Diagnostica lato server](./media/app-insights-monitor-web-app-availability/open-instance-4.png)
+
+## <a name="alerts"></a> Avvisi di disponibilità
+Usando l'esperienza degli avvisi classici è possibile avere, per i dati di disponibilità, i tipi di regole di avviso seguenti:
+1. X di Y località con segnalazione di errori in un intervallo di tempo
+2. Percentuale di disponibilità aggregata sotto una determinata soglia
+3. Durata media del test oltre una determinata soglia
+
+### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Inviare avvisi per X di Y località con segnalazione di errori
+Questa regola di avviso è abilitata per impostazione predefinita nell'[esperienza dei nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), quando si crea un nuovo test di disponibilità. È possibile rifiutarla esplicitamente selezionando l'opzione "classica" o scegliendo di disabilitare la regola di avviso.
+
+![Esperienza di creazione](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
+
+**Importante**: con i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), la severità delle regole di avviso e le preferenze di notifica con [gruppi di azioni](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **devono essere** configurate nell'esperienza degli avvisi. Se non si esegue la procedura seguente, non si riceveranno notifiche all'interno del portale. 
+
+1. Dopo aver salvato il test di disponibilità, fare clic sul nome del nuovo test per visualizzare i dettagli. Fare clic su "Modifica avviso" ![Modifica dopo il salvataggio](./media/app-insights-monitor-web-app-availability/editaftersave.png)
+
+2. Impostare il livello di gravità desiderato, la descrizione della regola ed, elemento ancora più importante, il gruppo di azioni con le preferenze di notifica che si vogliono usare per questa regola di avviso.
+![Modifica dopo il salvataggio](./media/app-insights-monitor-web-app-availability/setactiongroup.png)
+
+
+> [!NOTE]
+> * Configurare i gruppi di azioni per ricevere le notifiche quando viene attivato l'avviso seguendo la procedura precedente. Se non si esegue questa procedura, le notifiche all'interno del portale si riceveranno solo quando la regola viene attivata.
+>
+### <a name="alert-on-availability-metrics"></a>Inviare avvisi per le metriche di disponibilità
+Usando i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) è possibile generare avvisi per la disponibilità aggregata segmentata e anche per le metriche di durata dei test:
+
+1. Selezionare una risorsa di Application Insights nell'esperienza delle metriche e quindi selezionare una metrica di disponibilità: ![Selezione delle metriche di disponibilità](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+
+2. L'opzione Configura avvisi disponibile nel menu consentirà di accedere alla nuova esperienza in cui è possibile selezionare test specifici o località per le quali configurare la regola di avviso. In questa schermata è anche possibile configurare i gruppi di azioni per questa regola di avviso.
+    ![Configurazione degli avvisi di disponibilità](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
+
+### <a name="alert-on-custom-analytics-queries"></a>Inviare avvisi per le query di analisi personalizzate
+Usando i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) è possibile inviare avvisi per le [query di log personalizzate](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Con le query personalizzate è possibile inviare avvisi per qualsiasi condizione arbitraria che consenta di ottenere il segnale più affidabile di problemi di disponibilità. Questa opzione si applica in particolare se si inviano risultati di disponibilità personalizzati tramite l'SDK TrackAvailability. 
+
+> [!Tip]
+> * Le metriche sui dati di disponibilità includono tutti i risultati di disponibilità personalizzati che si possono inviare chiamando l'SDK TrackAvailability. È possibile usare gli avvisi per il supporto delle metriche per inviare avvisi sui risultati di disponibilità personalizzati.
+>
 
 ## <a name="dealing-with-sign-in"></a>Gestione degli accessi
 Se gli utenti accedono all'app, è possibile simulare l'accesso in vari modi per testare le pagine usate per l'accesso. L'approccio da preferire dipende dal tipo di sicurezza fornito dall'app.
@@ -249,11 +265,10 @@ Se il test deve eseguire l'accesso con OAuth, procedere come indicato di seguito
 * Impostare i parametri dei token quando questi vengono restituiti dall'autenticatore e usarli per l'esecuzione di query nel sito.
   Visual Studio prova a impostare i parametri del test, ma non imposta correttamente i parametri dei token.
 
-
 ## <a name="performance-tests"></a>Test delle prestazioni
 È possibile eseguire un test di carico nel sito Web. Analogamente al test di disponibilità, è possibile inviare semplici richieste o richieste in più passaggi da diversi punti in tutto il mondo. A differenza dei test di disponibilità, vengono inviate molte richieste, simulando più utenti simultanei.
 
-Dal pannello Panoramica aprire **Impostazioni**, **Test delle prestazioni**. Quando si crea un test, si è invitati a connettersi o a creare un account di Visual Studio Team Services.
+Dal pannello Panoramica aprire **Impostazioni**, **Test delle prestazioni**. Quando si crea un test, si è invitati a connettersi o a creare un account di Azure DevOps.
 
 Al termine del test verranno visualizzati i tempi di risposta e le percentuali di successo.
 
@@ -268,50 +283,68 @@ Al termine del test verranno visualizzati i tempi di risposta e le percentuali d
 * [Usare script di PowerShell per configurare un test di disponibilità](app-insights-powershell.md#add-an-availability-test) automaticamente.
 * Configurare un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) che verrà chiamato quando viene generato un avviso.
 
-## <a name="qna"></a>Domande? Problemi?
+## <a name="qna"></a> Domande frequenti
+
+* *Il sito sembra funzionare correttamente, ma i test segnalano errori. Perché Application Insights invia avvisi?*
+
+    * Se nel test è abilitata l'opzione "Analizza richieste dipendenti", viene eseguito un controllo rigoroso sulle risorse, ad esempio script, immagini e così via. Questi tipi di errori possono non essere evidenti in un browser. Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. In caso di errore in uno di essi, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente. Per eliminare la sensibilità del test a errori delle risorse di questo tipo, è sufficiente deselezionare "Analizza richieste dipendenti" nella configurazione di test. 
+
+    * Per ridurre le probabilità di risultati non significativi causati da problemi di rete temporanei e così via, verificare che sia selezionata l'opzione di configurazione che abilita nuovi tentativi in caso di test non superati. È anche possibile eseguire test da più posizioni e gestire la soglia delle regole di avviso di conseguenza per evitare che problemi specifici della posizione causino avvisi non dovuti.
+
+    * Fare clic su uno qualsiasi dei punti rossi dell'esperienza di disponibilità oppure su qualsiasi errore di disponibilità presente in Esplora ricerche per visualizzare i dettagli del motivo per cui è stato segnalato l'errore. Il risultato del test, insieme ai dati di telemetria lato server correlati (se abilitati), dovrebbe consentire di comprendere perché il test non è riuscito. Le cause più comuni dei problemi temporanei sono problemi di connessione o di rete. 
+
+    * Controllare se si è verificato il timeout del test. I test vengono interrotti dopo 2 minuti. Se il ping o il test in più passaggi richiede più di 2 minuti, verrà segnalato come errore. È consigliabile suddividere il test in più test di durata più breve.
+
+    * Valutare se sono stati segnalati errori in tutte le località e solo in alcune. Se gli errori sono stati segnalati solo in alcune località, potrebbero essere causati da errori di rete/CDN. Anche in questo caso, facendo clic sui puntini rossi dovrebbe essere possibile comprendere perché nella località sono stati segnalati errori.
+
+* *Non si è ricevuto un messaggio di posta elettronica quando l'avviso è stato attivato o risolto o in entrambi i casi?*
+
+    Controllare la configurazione degli avvisi classici per verificare se l'indirizzo di posta elettronica è inserito direttamente nell'elenco o se per la ricezione delle notifiche è configurata una lista di distribuzione che include tale indirizzo. In quest'ultimo caso, controllare la configurazione della lista di distribuzione per verificare che possa ricevere messaggi di posta elettronica esterni. Controllare anche se l'amministratore di posta elettronica ha eventualmente configurato criteri che possono causare questo problema.
+
+* *Non si è ricevuto la notifica webhook?*
+
+    Verificare che l'applicazione che riceve la notifica webhook sia disponibile e che riesca a elaborare le richieste di un webhook. Per altre informazioni, vedere [qui](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook).
+
 * *Esito negativo intermittente dei test con un errore di violazione del protocollo?*
 
     Un errore di tipo "Violazione del protocollo... CR deve essere seguito da LF" indica un problema relativo al server o alle dipendenze. Questa situazione si verifica quando nella risposta vengono impostate intestazioni in formato non valido e può essere causata da servizi di bilanciamento del carico o reti per la distribuzione di contenuti. In particolare, è possibile che alcune intestazioni non usino CRLF per indicare la fine della riga, violando così la specifica HTTP e non superando quindi la convalida a livello di WebRequest .NET. Controllare la risposta per individuare le intestazioni in cui potrebbe trovarsi la violazione.
     
     Nota: l'errore dell'URL potrebbe non verificarsi in browser con una convalida delle intestazioni HTTP meno rigida. Per una spiegazione dettagliata del problema, vedere questo post di blog: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
-* *Il sito sembra funzionare correttamente ma i test risultano non superati?*
-
-    * Controllare tutte le immagini, gli script, i fogli di stile e qualsiasi altro file caricato dalla pagina. In caso di errore in uno di essi, il test verrà segnalato come non superato, anche se la pagina HTML principale viene caricata correttamente. Per eliminare la sensibilità del test a errori delle risorse di questo tipo, è sufficiente deselezionare "Analizza richieste dipendenti" nella configurazione di test. 
-
-    * Per ridurre le probabilità di risultati non significativi causati da problemi di rete temporanei e così via, verificare che sia selezionata l'opzione di configurazione che abilita nuovi tentativi in caso di test non superati. È anche possibile eseguire test da più posizioni e gestire la soglia delle regole di avviso di conseguenza per evitare che problemi specifici della posizione causino avvisi non dovuti.
     
 * *Non vengono visualizzati dati di telemetria lato server correlati per eseguire la diagnosi per i test non superati?*
     
-    Se Application Insights è configurato per l'applicazione lato server, il motivo può essere l'esecuzione del [campionamento](app-insights-sampling.md).
+    Se Application Insights è configurato per l'applicazione lato server, il motivo può essere l'esecuzione del [campionamento](app-insights-sampling.md). Selezionare un risultato di disponibilità diverso.
+
 * *È possibile chiamare codice da un test Web?*
 
-    di serie I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono diversi plug-in che potrebbero risultare utili.
+    No. I passaggi del test devono essere nel file con estensione webtest. Inoltre non è possibile chiamare altri test web o utilizzare cicli. Esistono diversi plug-in che potrebbero risultare utili.
+
 * *HTTPS è supportato?*
 
     Sono supportati TLS 1.1 e TLS 1.2.
 * *Esiste una differenza tra "test Web" e "test di disponibilità"?*
 
     I due termini vengono usati in modo intercambiabile. Test di disponibilità è un termine più generico che include i singoli test di ping URL oltre ai test Web in più passaggi.
+    
 * *È possibile usare test di disponibilità nel server interno protetto da un firewall?*
 
     Le soluzioni possono essere due:
     
     * Configurare il firewall per consentire richieste in ingresso dagli [indirizzi IP degli agenti di test Web](app-insights-ip-addresses.md).
     * Scrivere il proprio codice per testare periodicamente il server interno. Eseguire il codice come processo in background in un server di prova protetto da firewall. Il processo di test può inviare i risultati ad Application Insights tramite l'API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) nel pacchetto SDK di base. In questo modo è necessario testare il server per avere un accesso in uscita per l'endpoint di inserimento di Application Insights, ma questo rappresenta un minore rischio per la sicurezza rispetto all'alternativa di consentire le richieste in ingresso. I risultati non verranno visualizzati nei pannelli dei test Web di disponibilità, ma verranno mostrati come risultati relativi alla disponibilità in Analisi, Ricerca ed Esplorazione metriche.
+
 * *Non è possibile caricare un test Web in più passi*
 
-    È previsto un limite di dimensioni pari a 300 KB.
+    Di seguito sono riportate alcune delle possibili cause:
+    * È previsto un limite di dimensioni pari a 300 KB.
+    * I cicli non sono supportati.
+    * I riferimenti ad altri test Web non sono supportati.
+    * Le origini dati non sono supportate.
 
-    I cicli non sono supportati.
-
-    I riferimenti ad altri test Web non sono supportati.
-
-    Le origini dati non sono supportate.
 * *Il test in più passi non viene completato*
 
-    È previsto un limite di 100 richieste per ogni test.
+    È previsto un limite di 100 richieste per ogni test. Inoltre, il test viene arrestato se la durata dell'esecuzione è superiore a due minuti.
 
-    Il test viene arrestato se la durata dell'esecuzione è superiore a due minuti.
 * *È possibile eseguire un test con certificati client?*
 
     Questa funzionalità non è supportata.

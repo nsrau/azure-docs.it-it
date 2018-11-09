@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b94f6ad4c7c6f3b5e93cdb890e053a3d1678e161
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: eab00663918eadea485aed17a91ce01e5718c36e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094429"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413673"
 ---
 # <a name="transform-and-protect-your-api"></a>Trasformare e proteggere l'API 
 
@@ -39,9 +39,11 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
++ Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
++ Comprendere il [concetto di criteri in Gestione API di Azure](api-management-howto-policies.md).
 + Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
 + Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
- 
+
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
 ## <a name="transform-an-api-to-strip-response-headers"></a>Trasformare un'API per rimuovere le intestazioni di risposta
@@ -57,21 +59,22 @@ Per visualizzare la risposta originale:
 
 1. Nell'istanza del servizio Gestione API selezionare **API** (in **GESTIONE API**).
 2. Fare clic su **Demo Conference API** (API Demo Conference) nell'elenco di API.
-3. Selezionare l'operazione **GetSpeakers**.
-4. Fare clic sulla scheda **Test** nella parte superiore della schermata.
-5. Fare clic sul pulsante **Invia** nella parte inferiore della schermata. 
+3. Fare clic sulla scheda **Test** nella parte superiore della schermata.
+4. Selezionare l'operazione **GetSpeakers**.
+5. Fare clic sul pulsante **Invia** nella parte inferiore della schermata.
 
-    Come si può notare, la risposta originale è simile alla seguente:
+La risposta originale dovrebbe avere l'aspetto seguente:
 
-    ![Criteri](./media/transform-api/original-response.png)
+![Criteri](./media/transform-api/original-response.png)
 
 ### <a name="set-the-transformation-policy"></a>Impostare i criteri di trasformazione
+
+![Impostare i criteri in uscita](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png)
 
 1. Selezionare **Demo Conference API**.
 2. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
 3. Selezionare **Tutte le operazioni**.
-4. Nella finestra **Elaborazione in uscita** fare clic sul triangolo (accanto alla matita) e selezionare **Editor di codice**.
-     ![Modificare i criteri](./media/set-edit-policies/set-edit-policies01.png)
+4. Nella sezione **Elaborazione in uscita** fare clic sull'icona **</>**.
 5. Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;**.
 6. Nella finestra di destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Set HTTP header** (+ Imposta intestazione HTTP) due volte (per inserire due frammenti di criteri).
 
@@ -82,8 +85,8 @@ Per visualizzare la risposta originale:
         <set-header name="X-AspNet-Version" exists-action="delete" />
 
     ![Criteri](./media/transform-api/set-policy.png)
-8. Fare clic sul pulsante **Salva** .
 
+8. Fare clic sul pulsante **Salva** .
 
 ## <a name="replace-original-urls-in-the-body-of-the-api-response-with-apim-gateway-urls"></a>Sostituire gli URL originali nel corpo della risposta dell'API con URL del gateway di Gestione API
 
@@ -94,8 +97,8 @@ Questa sezione illustra come nascondere gli URL originali visualizzati nel corpo
 Per visualizzare la risposta originale:
 
 1. Selezionare **Demo Conference API**.
-2. Selezionare l'operazione **GetSpeakers**.
-3. Fare clic sulla scheda **Test** nella parte superiore della schermata.
+2. Fare clic sulla scheda **Test** nella parte superiore della schermata.
+3. Selezionare l'operazione **GetSpeakers**.
 4. Fare clic sul pulsante **Invia** nella parte inferiore della schermata. 
 
     Come si può notare, la risposta originale è simile alla seguente:
@@ -107,7 +110,7 @@ Per visualizzare la risposta originale:
 1. Selezionare **Demo Conference API**.
 2. Selezionare **Tutte le operazioni**.
 3. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
-4. Nella finestra **Elaborazione in uscita** fare clic sul triangolo (accanto alla matita) e selezionare **Editor di codice**.
+4. Nella sezione **Elaborazione in uscita** fare clic sull'icona **</>**.
 5. Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;**.
 6. Nella finestra a destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Find and replace string in body** (+ Trova e sostituisci la stringa nel corpo).
 7. Modificare il codice **find-and-replace** (nell'elemento **\<in uscita\>**) per sostituire l'URL in modo che corrisponda al gateway di Gestione API. Ad esempio: 
@@ -118,13 +121,14 @@ Per visualizzare la risposta originale:
 
 Questa sezione illustra come aggiungere la protezione per l'API back-end configurando i limiti di frequenza. Potrebbe, ad esempio, essere necessario limitare il numero di chiamate all'API in modo che non venga usata in modo eccessivo dagli sviluppatori. In questo esempio il limite è impostato su 3 chiamate ogni 15 secondi per ogni ID di sottoscrizione. Dopo 15 secondi, uno sviluppatore può ripetere la chiamata all'API.
 
+![Impostare i criteri in ingresso](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
+
 1. Selezionare **Demo Conference API**.
 2. Selezionare **Tutte le operazioni**.
 3. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
-4. Nella finestra **Elaborazione in ingresso** fare clic sul triangolo (accanto alla matita) e selezionare **Editor di codice**.
-5. Posizionare il cursore all'interno dell'elemento **&lt;inbound&gt;**.
-6. Nella finestra a destra, in **Access restriction policies** (Criteri di restrizione dell'accesso) fare clic su **+ Limit call rate per key** (+ Limita frequenza delle chiamate per chiave).
-7. Sostituire il codice **rate-limit-by-key** (nell'elemento **\<in ingresso\>**) con il codice seguente:
+4. Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>**. 5. Posizionare il cursore all'interno dell'elemento **&lt;inbound&gt;**.
+5. Nella finestra a destra, in **Access restriction policies** (Criteri di restrizione dell'accesso) fare clic su **+ Limit call rate per key** (+ Limita frequenza delle chiamate per chiave).
+6. Sostituire il codice **rate-limit-by-key** (nell'elemento **\<in ingresso\>**) con il codice seguente:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
@@ -156,8 +160,8 @@ La parte rimanente della sezione testa le trasformazioni dei criteri impostate i
 ### <a name="test-the-stripped-response-headers"></a>Testare le intestazioni della risposta eliminate
 
 1. Selezionare **Demo Conference API**.
-2. Fare clic sull'operazione **GetSpeakers**.
-3. Selezionare la scheda **Test**.
+2. Selezionare la scheda **Test**.
+3. Fare clic sull'operazione **GetSpeakers**.
 4. Fare clic su **Invia**.
 
     Come si può notare, le intestazioni sono state eliminate:
@@ -167,8 +171,8 @@ La parte rimanente della sezione testa le trasformazioni dei criteri impostate i
 ### <a name="test-the-replaced-url"></a>Testare l'URL sostituito
 
 1. Selezionare **Demo Conference API**.
-2. Fare clic sull'operazione **GetSpeakers**.
-3. Selezionare la scheda **Test**.
+2. Selezionare la scheda **Test**.
+3. Fare clic sull'operazione **GetSpeakers**.
 4. Fare clic su **Invia**.
 
     Come si può notare, l'URL è stato sostituito.
@@ -178,11 +182,12 @@ La parte rimanente della sezione testa le trasformazioni dei criteri impostate i
 ### <a name="test-the-rate-limit-throttling"></a>Testare il limite di frequenza (limitazione delle richieste)
 
 1. Selezionare **Demo Conference API**.
-2. Fare clic sull'operazione **GetSpeakers**.
-3. Selezionare la scheda **Test**.
+2. Selezionare la scheda **Test**.
+3. Fare clic sull'operazione **GetSpeakers**.
 4. Fare clic su **Invia** tre volte in una riga.
 
     Dopo avere inviato la richiesta 3 volte, viene visualizzata la risposta **429 Too many requests**.
+
 5. Attendere circa 15 secondi e fare si nuovo clic su **Invia**. Questa volta verrà visualizzata una risposta **200 OK**.
 
     ![Limitazione](./media/transform-api/test-throttling.png)
@@ -190,8 +195,6 @@ La parte rimanente della sezione testa le trasformazioni dei criteri impostate i
 ## <a name="video"></a>Video
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Rate-Limits-and-Quotas/player]
-> 
-> 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

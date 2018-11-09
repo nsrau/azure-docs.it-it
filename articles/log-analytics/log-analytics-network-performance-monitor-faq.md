@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408881"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415186"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure
 
-![Simbolo di Monitoraggio prestazioni rete](media/log-analytics-network-performance-monitor/npm-symbol.png)
+![Simbolo di Monitoraggio prestazioni rete](media/log-analytics-network-performance-monitor-faq/npm-symbol.png)
 
 Questo articolo presenta le domande frequenti sulla soluzione Monitoraggio prestazioni rete in Azure.
 
@@ -44,7 +44,7 @@ Di seguito sono riportati i requisiti di piattaforma per le varie funzionalità 
 La funzionalità di monitoraggio delle reti tramite nodi basati su Linux è attualmente in anteprima privata. Per altre informazioni, contattare il proprio account manager. Dopo che l'utente ha specificato l'ID dell'area di lavoro, Microsoft procederà ad abilitare la funzionalità. Gli agenti Linux offrono il monitoraggio solo per la funzionalità Performance Monitor di Monitoraggio prestazioni rete e non sono disponibili per le funzionalità Monitoraggio connettività servizio e Monitoraggio di ExpressRoute.
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quali sono i requisiti di dimensione per i nodi da usare per il monitoraggio tramite Monitoraggio prestazioni rete?
-Per eseguire la soluzione Monitoraggio prestazioni rete su macchine virtuali nodo per monitorare le reti, i nodi devono avere almeno 500 MB di memoria e un core. Non è necessario usare nodi separati per eseguire Monitoraggio prestazioni rete. La soluzione può essere eseguita su nodi sui quali sono in esecuzione altri carichi di lavoro. La soluzione ha la possibilità di arrestare il processo di monitoraggio nel caso in cui venga utilizzato più del 5% di CPU.
+Per eseguire la soluzione Monitoraggio prestazioni rete su VM nodo per monitorare le reti, i nodi devono avere almeno 500 MB di memoria e un core. Non è necessario usare nodi separati per eseguire Monitoraggio prestazioni rete. La soluzione può essere eseguita su nodi sui quali sono in esecuzione altri carichi di lavoro. La soluzione ha la possibilità di arrestare il processo di monitoraggio nel caso in cui venga utilizzato più del 5% di CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Per usare Monitoraggio prestazioni rete è necessario connettersi ai nodi come agente diretto o tramite System Center Operations Manager?
 Entrambe le funzionalità Performance Monitor e Monitoraggio connettività servizio supportano i nodi [connessi come agenti diretti](log-analytics-agent-windows.md) e i nodi [connessi tramite Operations Manager](log-analytics-om-agents.md).
@@ -54,7 +54,7 @@ Per la funzionalità Monitoraggio di ExpressRoute, i nodi di Azure devono essere
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Quale protocollo, tra TCP e ICMP, deve essere selezionato per il monitoraggio?
 Se si esegue il monitoraggio della rete usando nodi basati su Windows Server, è consigliabile usare TCP come protocollo di monitoraggio poiché offre un maggiore livello di accuratezza. 
 
-Per i nodi basati su sistema operativo desktop/client Windows, è consigliabile usare ICMP poiché questa piattaforma non supporta l'invio di dati TCP su socket di tipo raw, come richiesto da Monitoraggio prestazioni rete per individuare la topologia di rete.
+Il protocollo ICMP è consigliato per i nodi basati su sistema operativo desktop/client Windows. Questa piattaforma non supporta l'invio di dati TCP su socket di tipo raw, come richiesto da Monitoraggio prestazioni rete per individuare la topologia di rete.
 
 È possibile ottenere [qui](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol) altre informazioni sui vantaggi dei vari protocolli.
 
@@ -134,7 +134,7 @@ Monitoraggio prestazioni rete può monitorare la connettività ai servizi in qua
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>Quali aree sono supportate per la funzionalità Monitoraggio di ExpressRoute di Monitoraggio prestazioni rete?
 Monitoraggio prestazioni rete può monitorare i circuiti ExpressRoute presenti in qualsiasi area di Azure. Per eseguire l'onboarding a Monitoraggio prestazioni rete, è necessaria un'area di lavoro di Log Analytics ospitata in una delle [aree supportate](/azure/expressroute/how-to-npm#regions).
 
-## <a name="troubleshoot"></a>Risoluzione dei problemi
+## <a name="troubleshoot"></a>Risolvere problemi
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>Per quale motivo alcuni hop sono contrassegnati come non identificati nella visualizzazione della topologia di rete?
 Monitoraggio prestazioni rete usa una versione modificata di traceroute per individuare la topologia dall'agente di origine alla destinazione. Un hop non identificato indica che l'hop di rete non ha risposto alla richiesta traceroute dell'agente di origine. Se tre hop di rete consecutivi non rispondono alla richiesta traceroute dell'agente, la soluzione contrassegna gli hop che non rispondono come non identificati e non prova a individuare altri hop.
@@ -149,7 +149,7 @@ Un hop può non rispondere a una richiesta traceroute in almeno uno degli scenar
 Questa situazione può verificarsi se il firewall dell'host o il firewall intermedio (firewall di rete o gruppo di sicurezza di rete di Azure) blocca le comunicazioni tra l'agente di origine e la destinazione attraverso la porta usata da Monitoraggio prestazioni rete per il monitoraggio. Per impostazione predefinita, viene usata la porta 8084, a meno che il cliente non abbia modificato l'impostazione.
 
 * Per verificare che il firewall dell'host non blocchi le comunicazioni sulla porta richiesta, visualizzare lo stato di integrità dei nodi di origine e di destinazione dalla visualizzazione seguente: Monitoraggio prestazioni rete -> Configurazione -> Nodi. 
-  Se i nodi non sono integri, visualizzare le istruzioni e adottare le misure correttive. Se i nodi sono integri, proseguire con il passaggio b seguente.
+  Se i nodi non sono integri, visualizzare le istruzioni e adottare le misure correttive. Se i nodi sono integri, proseguire con il passaggio b desiderato.
 * Per verificare che un firewall di rete intermedio o un gruppo di sicurezza di rete di Azure non blocchi le comunicazioni sulla porta richiesta, eseguire l'utilità PsPing di terze parti usando le istruzioni seguenti:
   * L'utilità PsPing è disponibile [qui](https://technet.microsoft.com/sysinternals/psping.aspx) per il download. 
   * Eseguire il comando seguente dal nodo di origine.
@@ -206,7 +206,7 @@ Questa situazione può verificarsi se almeno una di queste condizioni è vera:
 ### <a name="in-the-service-connectivity-monitor-capability-the-service-response-time-is-na-but-network-loss-as-well-as-latency-are-valid"></a>Per quale motivo, nella funzionalità Monitoraggio connettività servizio, il tempo di risposta del servizio non è disponibile, ma i valori di perdita di rete e latenza sono validi?
 Questa situazione può verificarsi se il servizio di destinazione non è un'applicazione Web, ma il test è configurato come test Web. Modificare la configurazione di test e scegliere il tipo di test Rete invece di Web.
 
-## <a name="miscellaneous"></a>Varie
+## <a name="miscellaneous"></a>Miscellaneous
 
 ### <a name="is-there-a-performance-impact-on-the-node-being-used-for-monitoring"></a>Si può riscontrare un impatto sulle prestazioni del nodo usato per il monitoraggio?
 Monitoraggio prestazioni rete è configurato in modo da arrestare il processo di monitoraggio se utilizza più del 5% delle risorse della CPU dell'host. Ciò consente di assicurarsi di poter usare i nodi per i normali carichi di lavoro senza alcun impatto sulle prestazioni.

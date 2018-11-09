@@ -1,122 +1,151 @@
 ---
-title: 'Guida introduttiva: Convertire uno script di testo, Node.js - API Traduzione testuale'
+title: 'Guida introduttiva: Traslitterare un testo, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale con Node.js.
+description: In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Node.js e l'API REST Traduzione testuale. In questo esempio il giapponese è traslitterato per usare l'alfabeto latino.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 1980adb78a4ba457fd05f532cdd6e30bba7d9132
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6b037da59726a79896b7d9868635a77cc3940327
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646197"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50246807"
 ---
-# <a name="quickstart-transliterate-text-with-the-translator-text-rest-api-nodejs"></a>Guida introduttiva: Traslitterare un testo con l'API REST Traduzione testuale (Node.js)
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per traslitterare un testo con Node.js
 
-In questa guida introduttiva si converte il testo in una lingua da un sistema di scrittura a un altro usando l'API Traduzione testuale.
+In questa guida introduttiva si apprenderà come traslitterare (convertire) un testo da uno script a un altro con Node.js e l'API REST Traduzione testuale. Nell'esempio fornito il giapponese è traslitterato per usare l'alfabeto latino.
+
+Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire il codice è necessario [Node.js 6](https://nodejs.org/en/download/).
+Questa guida introduttiva richiede:
 
-Per usare l'API Traduzione testuale, è necessario avere anche una chiave di sottoscrizione. Per informazioni, vedere [Come registrarsi all'API Traduzione testuale](translator-text-how-to-signup.md).
+* [Node 8.12.x o versione successiva](https://nodejs.org/en/)
+* Una chiave di sottoscrizione di Azure per Traduzione testuale
 
-## <a name="transliterate-request"></a>Richiesta di traslitterazione
+## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
-Il codice seguente converte il testo in una lingua da un sistema di scrittura a un altro tramite il metodo [Transliterate](./reference/v3-0-transliterate.md).
-
-1. Creare un nuovo progetto Node.js nell'editor di codice preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
-4. Eseguire il programma.
+Creare un nuovo progetto tramite l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `transliterate-text.js`.
 
 ```javascript
-'use strict';
-
-let fs = require ('fs');
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the subscriptionKey string value with your valid subscription key.
-let subscriptionKey = 'ENTER KEY HERE';
-
-let host = 'api.cognitive.microsofttranslator.com';
-let path = '/transliterate?api-version=3.0';
-
-// Transliterate text in Japanese from Japanese script (i.e. Hiragana/Katakana/Kanji) to Latin script.
-let params = '&language=ja&fromScript=jpan&toScript=latn';
-
-// Transliterate "good afternoon".
-let text = 'こんにちは';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, 4);
-        console.log(json);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_guid = function () {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-    return v.toString(16);
-  });
-}
-
-let Transliterate = function (content) {
-    let request_params = {
-        method : 'POST',
-        hostname : host,
-        path : path + params,
-        headers : {
-            'Content-Type' : 'application/json',
-            'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            'X-ClientTraceId' : get_guid (),
-        }
-    };
-
-    let req = https.request (request_params, response_handler);
-    req.write (content);
-    req.end ();
-}
-
-let content = JSON.stringify ([{'Text' : text}]);
-
-Transliterate (content);
+const request = require('request');
+const uuidv4 = require('uuid/v4');
 ```
 
-## <a name="transliterate-response"></a>Risposta alla richiesta di traslitterazione
+> [!NOTE]
+> Se non si è mai usato questi moduli, sarà necessario installarli prima di eseguire il programma. Per installare questi pacchetti, eseguire: `npm install request uuidv4`.
 
-Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
+Questi moduli sono necessari per costruire la richiesta HTTP e creare un identificatore univoco per l'intestazione `'X-ClientTraceId'`.
+
+## <a name="set-the-subscription-key"></a>Impostare la chiave di sottoscrizione
+
+Questo codice proverà a leggere la chiave di sottoscrizione di Traduzione testuale dalla variabile di ambiente `TRANSLATOR_TEXT_KEY`. Se non si ha familiarità con le variabili di ambiente, è possibile impostare `subscriptionKey` come stringa e l'istruzione condizionale come commento.
+
+Copiare questo codice nel progetto:
+
+```javascript
+/* Checks to see if the subscription key is available
+as an environment variable. If you are setting your subscription key as a
+string, then comment these lines out.
+
+If you want to set your subscription key as a string, replace the value for
+the Ocp-Apim-Subscription-Key header as a string. */
+const subscriptionKey = process.env.TRANSLATOR_TEXT_KEY;
+if (!subscriptionKey) {
+  throw new Error('Environment variable for your subscription key is not set.')
+};
+```
+
+## <a name="configure-the-request"></a>Configurare la richiesta
+
+Il metodo `request()`, reso disponibile tramite il modulo di richiesta, consente di passare il metodo HTTP, l'URL, i parametri di richiesta, le intestazioni e il corpo JSON come oggetto `options`. In questo frammento di codice verrà configurata la richiesta:
+
+>[!NOTE]
+> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Transliterate](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-transliterate).
+
+```javascript
+let options = {
+    method: 'POST',
+    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    url: 'transliterate',
+    qs: {
+      'api-version': '3.0',
+      'language': 'ja',
+      'fromScript': 'jpan',
+      'toScript': 'latn'
+    },
+    headers: {
+      'Ocp-Apim-Subscription-Key': subscriptionKey,
+      'Content-type': 'application/json',
+      'X-ClientTraceId': uuidv4().toString()
+    },
+    body: [{
+          'text': 'こんにちは'
+    }],
+    json: true,
+};
+```
+
+### <a name="authentication"></a>Authentication
+
+Il modo più semplice per autenticare una richiesta consiste nel passare la chiave di sottoscrizione come intestazione `Ocp-Apim-Subscription-Key`, metodo che viene appunto usato in questo esempio. In alternativa, è possibile sostituire la chiave di sottoscrizione con un token di accesso e passare il token di accesso insieme a un'intestazione `Authorization` per convalidare la richiesta. Per altre informazioni, vedere [Autenticazione](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
+## <a name="make-the-request-and-print-the-response"></a>Eseguire una richiesta e stampare la risposta
+
+A questo punto, verrà creata la richiesta usando il metodo `request()`. Accetta l'oggetto `options` creato nella sezione precedente come primo argomento, quindi stampa la risposta JSON modificata.
+
+```javascript
+request(options, function(err, res, body){
+    console.log(JSON.stringify(body, null, 4));
+});
+```
+
+>[!NOTE]
+> In questo esempio viene definita la richiesta HTTP nell'oggetto `options`. Tuttavia, il modulo di richiesta supporta anche metodi pratici, ad esempio `.post` e `.get`. Per altre informazioni, vedere i [metodi pratici](https://github.com/request/request#convenience-methods).
+
+## <a name="put-it-all-together"></a>Combinare tutti gli elementi
+
+La procedura è completata. È stato realizzato un semplice programma che chiamerà l'API Traduzione testuale e restituirà una risposta JSON. A questo punto, è possibile eseguire il programma:
+
+```console
+node transliterate-text.js
+```
+
+Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio completo è pubblicato su [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
+
+## <a name="sample-response"></a>Risposta di esempio
 
 ```json
 [
-  {
-    "text": "konnnichiha",
-    "script": "latn"
-  }
+    {
+        "script": "latn",
+        "text": "konnnichiha"
+    }
 ]
 ```
 
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, assicurarsi di rimuoverla al termine di questa guida introduttiva.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare il codice di esempio per questa guida introduttiva e per altre, incluse quelle relative alla traduzione e all'identificazione della lingua, e anche altri progetti di esempio di Traduzione testuale su GitHub.
-
 > [!div class="nextstepaction"]
-> [Esaminare gli esempi di codice Node.js su GitHub](https://aka.ms/TranslatorGitHub?type=&language=javascript)
+> [Esaminare gli esempi di codice Node.js su GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+
+## <a name="see-also"></a>Vedere anche 
+
+Oltre al rilevamento della lingua, scopri come usare l'API Traduzione testuale per:
+
+* [Tradurre un testo](quickstart-nodejs-translate.md)
+* [Identificare la lingua da un input](quickstart-nodejs-detect.md)
+* [Ottenere traduzioni alternative](quickstart-nodejs-dictionary.md)
+* [Ottenere un elenco di lingue supportate](quickstart-nodejs-languages.md)
+* [Determinare la lunghezza delle frasi da un input](quickstart-nodejs-sentences.md)

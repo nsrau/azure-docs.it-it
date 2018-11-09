@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 9bcd2ccfc5fb8ddc71d2df178dd214be2a67160d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 46b6b789b2bab7e647e10a61939bd16b5ea8726d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856854"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209700"
 ---
 # <a name="confidence-score"></a>Punteggio di attendibilità
 Quando una query dell'utente viene confrontata con una knowledge base, QnA Maker restituisce le risposte pertinenti insieme a un punteggio di attendibilità. Questo punteggio indica la probabilità che la risposta corrisponda perfettamente alla query dell'utente specificata. 
@@ -69,6 +69,8 @@ Vedere qui come funziona l'operazione di [pubblicazione](../How-To/publish-knowl
 
 ## <a name="no-match-found"></a>Nessuna corrispondenza trovata
 Se lo strumento di classificazione non trova corrispondenze soddisfacenti, viene restituito il punteggio di attendibilità di 0.0 oppure "None" (Nessuno) e la risposta predefinita è "No good match found in the KB" (Nessuna buona corrispondenza trovata nella Knowledge Base). È possibile sovrascrivere questa risposta predefinita nel codice del bot o dell'applicazione che chiama l'endpoint. In alternativa è anche possibile impostare la risposta sostitutiva in Azure, modificando così la risposta predefinita per tutte le Knowledge Base distribuite in un particolare servizio QnA Maker.
+
+### <a name="change-default-answer"></a>Modificare la risposta predefinita
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare al gruppo di risorse che rappresenta il servizio QnA Maker creato.
 

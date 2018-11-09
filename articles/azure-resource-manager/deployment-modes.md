@@ -9,18 +9,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/07/2018
+ms.date: 10/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: c8c6c5499e1cea04bc5bdffbb5c07b53b96182e2
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 4d1b27c9b1694f987ea7461c16899f3e5ecb84d2
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42142358"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140994"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modelli di distribuzione Azure Resource Manager
-Quando si distribuiscono le risorse, specificare se la distribuzione è un aggiornamento incrementale o completo.  La differenza principale tra le due modalità è il modo in cui Resource Manager gestisce le risorse esistenti nel gruppo di risorse che non sono presenti nel modello.
-La modalità predefinita è incrementale.
+Quando si distribuiscono le risorse, specificare se la distribuzione è un aggiornamento incrementale o completo.  La differenza principale tra le due modalità è il modo in cui Resource Manager gestisce le risorse esistenti nel gruppo di risorse che non sono presenti nel modello. La modalità predefinita è incrementale.
 
 ## <a name="incremental-and-complete-deployments"></a>Distribuzioni incrementali e complete
 Durante la distribuzione della risorsa:
@@ -28,19 +27,21 @@ Durante la distribuzione della risorsa:
 * Nella modalità di completamento, Resource Manager **elimina** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello. 
 * Nella modalità incrementale, Resource Manager **lascia invariate** le risorse esistenti nel gruppo di risorse che non sono specificate nel modello.
 
-Per entrambe le modalità, Resource Manager prova a effettuare il provisioning di tutte le risorse specificate nel modello. Se la risorsa esiste già nel gruppo di risorse e le relative impostazioni sono identiche, l'operazione non comporta alcuna modifica. Se si modificano le impostazioni per una risorsa, il provisioning viene effettuato con le nuove impostazioni della risorsa. Se si prova ad aggiornare il percorso o il tipo di una risorsa esistente, la distribuzione ha esito negativo e restituisce un errore. È invece necessario distribuire una nuova risorsa con il percorso o il tipo necessari.
+Per entrambe le modalità, Resource Manager prova a creare tutte le risorse specificate nel modello. Se la risorsa esiste già nel gruppo di risorse e le relative impostazioni sono identiche, l'operazione non comporta alcuna modifica. Se si modificano i valori della proprietà per una risorsa, questa viene aggiornata con i nuovi valori. Se si prova ad aggiornare il percorso o il tipo di una risorsa esistente, la distribuzione ha esito negativo e restituisce un errore. È invece necessario distribuire una nuova risorsa con il percorso o il tipo necessari.
+
+Quando si ridistribuisce una risorsa in modalità incrementale, specificare tutti i valori delle proprietà per la risorsa, non solo quelli che si sta aggiornando. Se non si specificano determinate proprietà, Resource Manager interpreta l'aggiornamento come sovrascrittura di questi valori.
 
 ## <a name="example-result"></a>Risultati di esempio
 
 Per illustrare la differenza tra le modalità incrementale e completa, si consideri lo scenario seguente.
 
-Il **gruppo di risorse esistente** contiene:
+**Il gruppo di risorse** contiene:
 
 * Risorsa A
 * Risorsa B
 * Risorsa C
 
-Il **modello** definisce:
+**Modello** contiene:
 
 * Risorsa A
 * Risorsa B

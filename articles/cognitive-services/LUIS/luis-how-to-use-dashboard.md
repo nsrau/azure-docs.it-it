@@ -1,5 +1,6 @@
 ---
-title: Dashboard dell'applicazione per le app LUIS | Microsoft Docs
+title: Dashboard dell'applicazione per le app di Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Informazioni sulla dashboard dell'applicazione, uno strumento di visualizzazione di report che consente di monitorare le app in un solo momento.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: cab07a994f2bdfb7ef8491adbb482c1902e4d4cb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6a4e8dbee34402f57d3e697e93d10573aaf10998
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031986"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212813"
 ---
 # <a name="application-dashboard"></a>Dashboard dell'applicazione
 La dashboard dell'app consente di monitorare l'applicazione in un solo momento. La **Dashboard** viene visualizzata quando viene aperta un'app tramite la selezione del nome dell'applicazione nella pagina **App personali**, quindi della **Dashboard** nel riquadro superiore. 

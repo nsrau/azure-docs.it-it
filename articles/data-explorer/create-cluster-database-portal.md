@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4b4230397da7d97b613b546f33a0cbb764675720
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394222"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214818"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure
 
@@ -31,11 +31,11 @@ Creare un cluster di Esplora dati di Azure in un gruppo di risorse di Azure, con
 
 1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale.
 
-1. Cercare *Esplora dati di Azure* e quindi selezionare **Esplora dati di Azure**.
+1. Cercare *Esplora dati di Azure*.
 
    ![Cercare risorse](media/create-cluster-database-portal/search-resources.png)
 
-1. Nell'angolo superiore destro selezionare **Crea**.
+1. In **Esplora dati di Azure** selezionare **Crea** nella parte inferiore della schermata.
 
 1. Immettere un nome univoco per il cluster, selezionare la sottoscrizione e creare un gruppo di risorse denominato *test-resource-group*.
 
@@ -51,10 +51,12 @@ Creare un cluster di Esplora dati di Azure in un gruppo di risorse di Azure, con
     | Sottoscrizione | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per il cluster.|
     | Gruppo di risorse | *test-resource-group* | Creare un nuovo gruppo di risorse. |
     | Località | *Stati Uniti occidentali* | Per questa guida introduttiva selezionare *Stati Uniti occidentali*. Per un sistema di produzione, selezionare l'area più appropriata in base alle esigenze.
-    | Compute specification (Specifica di calcolo) | *D13_v2* | Per questa guida introduttiva, selezionare la specifica con il prezzo più basso. Per un sistema di produzione, selezionare la specifica più appropriata in base alle esigenze.
+    | Specifiche dell'ambiente di calcolo | *D13_v2* | Per questa guida introduttiva, selezionare la specifica con il prezzo più basso. Per un sistema di produzione, selezionare la specifica più appropriata in base alle esigenze.
     | | |
 
-1. Selezionare **Crea** per effettuare il provisioning del cluster. Per il provisioning sono in genere necessari circa dieci minuti. Selezionare **Notifiche** sulla barra degli strumenti (icona a forma di campana) per monitorare il processo di provisioning.
+1. Selezionare **Crea** per effettuare il provisioning del cluster. Per il provisioning sono in genere necessari circa dieci minuti. Selezionare **Notifiche** nella barra degli strumenti per monitorare il processo di provisioning.
+
+    ![Notifiche](media/create-cluster-database-portal/notifications.png)
 
 1. Al termine del processo, selezionare **Notifiche** e quindi **Vai alla risorsa**.
 

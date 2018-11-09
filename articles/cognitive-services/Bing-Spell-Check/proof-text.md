@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 48d9dee014d0759bd339c79811bb7b2fddecfe0b
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361712"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214937"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Informazioni sull'API Controllo ortografico Bing
 
@@ -42,7 +42,7 @@ La modalità predefinita è `Proof`. La modalità di controllo ortografico `Proo
 <br /><br/>**NOTA:** se la lunghezza del testo della query è superiore a 4096, il testo verrà troncato a 4096 caratteri e quindi verrà elaborato. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spell - Per scenari di ricerche Web/query
 L'opzione `Spell` è più aggressiva, in modo da restituire risultati della ricerca migliori. La modalità `Spell` individua la maggior parte degli errori di ortografia, ma non trova alcuni errori grammaticali rilevati da `Proof`, ad esempio gli errori relativi a maiuscole e minuscole e alle parole ripetute.
-<br /></br>**NOTA:** la lunghezza massima supportata per le query è indicata più avanti. Se la query supera il limite, il risultato visualizzato indica che la query non è stata modificata.
+<br /></br>**NOTA:** la lunghezza massima supportata per le query è indicata più avanti. Se la query supera la lunghezza massima, la query e i relativi risultati non vengono modificati.
 <ul><li>130 caratteri per le lingue con codice en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. </li>
 <li>65 caratteri per le altre lingue</li></ul>
 

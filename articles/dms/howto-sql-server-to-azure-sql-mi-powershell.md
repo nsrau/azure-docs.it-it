@@ -1,6 +1,6 @@
 ---
-title: Usare il modulo Servizio Migrazione del database di Azure in Microsoft Azure PowerShell per migrare un database SQL Server locale in un'istanza gestita di database SQL di Azure | Microsoft Docs
-description: Informazioni su come migrare da SQL Server locale a un'istanza gestita di database SQL di Azure con Azure PowerShell.
+title: Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure con Servizio Migrazione del database e PowerShell | Microsoft Docs
+description: Informazioni su come eseguire la migrazione da SQL Server locale a Istanza gestita di database SQL di Azure tramite Azure PowerShell.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 64d77a17241c44c9d450b9e7602222cdb89482b7
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364997"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247166"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrare SQL Server locale al database SQL di Azure con Azure PowerShell
-In questo articolo si esegue la migrazione del database **Adventureworks2012** ripristinato a un'istanza locale di SQL Server 2005 o versione successiva verso un database SQL di Azure tramite Microsoft Azure PowerShell. È possibile migrare i database da un'istanza di SQL Server locale al database SQL di Azure tramite il modulo `AzureRM.DataMigration` in Microsoft Azure PowerShell.
+# <a name="migrate-sql-server-on-premises-to-azure-sql-database-managed-instance-using-azure-powershell"></a>Eseguire la migrazione di SQL Server a Istanza gestita di database SQL di Azure con Azure PowerShell
+In questo articolo si esegue la migrazione del database **Adventureworks2012**, ripristinato in un'istanza locale di SQL Server 2005 o versione successiva, verso un'istanza gestita di database SQL di Azure tramite Microsoft Azure PowerShell. Per eseguire la migrazione di database da un'istanza di SQL Server locale a un'istanza gestita di database SQL di Azure è possibile usare il modulo `AzureRM.DataMigration` di Microsoft Azure PowerShell.
 
 In questo articolo viene spiegato come:
 > [!div class="checklist"]

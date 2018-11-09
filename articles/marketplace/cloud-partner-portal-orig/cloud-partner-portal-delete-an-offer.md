@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cc172e35e8964fad3b1a1410d1f1f3240c423ab3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3370767947399b167f4f1c81b57d8f92edfa0c4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807607"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242688"
 ---
 <a name="delete-an-offer-or-sku-from-azure-marketplace"></a>Eliminare un'offerta o una SKU da Azure Marketplace
 ==========================================
 
 Per vari motivi, si potrebbe decidere di rimuovere l'offerta dal Marketplace. Rimozione offerta assicura che i nuovi clienti non possano più acquistare o distribuire l'offerta, ma non ha alcun effetto sui clienti esistenti.
-Risoluzione offerta è il processo di risoluzione del servizio e/o del contratto di licenza tra l'utente e i clienti esistenti. Il materiale sussidiario e i criteri relativi alla rimozione e al termine dell'offerta sono regolati dal [Contratto per la pubblicazione in Microsoft Marketplace](http://go.microsoft.com/fwlink/?LinkID=699560) (vedere la Sezione
+Risoluzione offerta è il processo di risoluzione del servizio e/o del contratto di licenza tra l'utente e i clienti esistenti. Il materiale sussidiario e i criteri relativi alla rimozione e al termine dell'offerta sono regolati dal [Contratto per la pubblicazione in Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) (vedere la Sezione
 7) e i [Criteri di partecipazione](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (vedere la Sezione 6.2). Questo articolo tratta i diversi scenari di eliminazione supportati e le operazioni necessarie da intraprendere.
 
 <a name="delete-a-live-sku-from-azure-marketplace"></a>Eliminare una SKU attiva da Azure Marketplace
@@ -45,7 +45,7 @@ Risoluzione offerta è il processo di risoluzione del servizio e/o del contratto
 
 Dopo che l'offerta è attiva in Azure Marketplace, la SKU verrà eliminata da Azure Marketplace e dal portale di Azure.
 
-<a name="roll-back-to-a-previous-sku-version"></a>Eseguire il rollback di una versione precedente della SKU
+<a name="roll-back-to-a-previous-sku-version"></a>Eseguire il rollback di una versione precedente dello SKU
 ----------------------------------
 
 È possibile eliminare la versione corrente di una SKU attiva da Azure Marketplace seguendo questa procedura. Al termine del processo verrà eseguito il rollback della SKU alla versione precedente.

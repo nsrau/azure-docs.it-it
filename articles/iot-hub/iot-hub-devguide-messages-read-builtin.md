@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: e43d00fde0f76efa4398865757c44d94592b8291
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 02ea4b94f8d1442360bebb36fdbba13d973f8555
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585512"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242416"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leggere messaggi da dispositivo a cloud dall'endpoint predefinito
 
-Per impostazione predefinita, i messaggi vengono instradati all'endpoint per servizi predefinito (**messages/events**) compatibile con l'[hub eventi](http://azure.microsoft.com/documentation/services/event-hubs/
+Per impostazione predefinita, i messaggi vengono instradati all'endpoint per servizi predefinito (**messages/events**) compatibile con l'[hub eventi](https://azure.microsoft.com/documentation/services/event-hubs/
 ). Questo endpoint è attualmente esposto solo con il protocollo [AMQP](https://www.amqp.org/) sulla porta 5671. Un hub IoT espone le proprietà seguenti per consentire il controllo dell'endpoint di messaggistica predefinito **messages/events**, compatibile con Hub eventi.
 
 | Proprietà            | DESCRIZIONE |

@@ -10,12 +10,12 @@ ms.devlang: spark-scala
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ankhanol
-ms.openlocfilehash: 38a972d39b845dca39bcc4dcf921c603301af582
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 165919fa3d456786e926f754dba378be38c12588
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869653"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094245"
 ---
 # <a name="connect-to-azure-cosmos-db-cassandra-api-from-spark"></a>Connettersi all'API Cassandra di Azure Cosmos DB da Spark
 
@@ -29,7 +29,7 @@ Questo articolo è uno di una serie di articoli sull'integrazione dell'API Cassa
 ## <a name="dependencies-for-connectivity"></a>Dipendenze per la connettività
 * **Connettore Spark per Cassandra:** il connettore Spark viene usato per connettersi all'API Cassandra di Azure Cosmos DB.  Identificare e usare la versione del connettore nel [repository Maven]( https://mvnrepository.com/artifact/com.datastax.spark/spark-cassandra-connector) compatibile con le versioni di Spark e Scala dell'ambiente Spark.
 
-* **Libreria helper di Azure Cosmos DB per l'API Cassandra:** oltre al connettore Spark, è necessaria un'altra libreria chiamata [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) da Azure Cosmos DB. Questa libreria contiene una classe factory di connessione e una classe per i criteri di ripetizione personalizzati.
+* **Libreria helper di Azure Cosmos DB per l'API Cassandra:** oltre al connettore Spark, è necessaria un'altra libreria chiamata [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) da Azure Cosmos DB. Questa libreria contiene una classe factory di connessione e una classe per i criteri di ripetizione, entrambe personalizzate.
 
   I criteri di ripetizione in Azure Cosmos DB sono configurati per gestire le eccezioni con codice stato HTTP 429 ("La frequenza delle richieste è troppo elevata"). L'API Cassandra di Azure Cosmos DB converte queste eccezioni in errori di overload per il protocollo nativo Cassandra ed è possibile riprovare con backoff. Dato che Azure Cosmos DB usa il modello di velocità effettiva con provisioning, quando il traffico in ingresso/uscita aumenta si verificano eccezioni di limitazione della frequenza delle richieste. I criteri di ripetizione proteggono i processi Spark da picchi di dati che superano temporaneamente la velocità effettiva allocata per la raccolta.
 

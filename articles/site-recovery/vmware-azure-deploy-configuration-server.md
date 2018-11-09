@@ -1,21 +1,20 @@
 ---
 title: Distribuire il server di configurazione per il ripristino di emergenza di VMware con Azure Site Recovery | Microsoft Docs
-description: Questo articolo descrive come distribuire un server di configurazione per il ripristino di emergenza di VMware con Azure Site Recovery
-services: site-recovery
+description: Questo articolo descrive come distribuire un server di configurazione per il ripristino di emergenza di VMware in Azure con Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 516edd922d6ead9a71f81c3b9b777b15f1fb28ae
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025277"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233158"
 ---
-# <a name="deploy-a-configuration-server"></a>Distribuire un server di configurazione
+# <a name="deploy-a-configuration-server-for-vmware-disaster-recovery-to-azure"></a>Distribuire un server di configurazione per il ripristino di emergenza di VMware in Azure
 
 Si distribuisce un server di configurazione locale quando si usa [Azure Site Recovery](site-recovery-overview.md) per il ripristino di emergenza di server fisici e macchine virtuali VMware in Azure. Il server di configurazione coordina le comunicazioni tra VMware locale e Azure. Gestisce anche la replica dei dati. Questo articolo illustra i passaggi necessari per distribuire il server di configurazione quando si esegue la replica di macchine virtuali VMware in Azure. [Seguire le indicazioni di questo articolo](physical-azure-set-up-source.md) se è necessario configurare un server di configurazione per la replica di server fisici.
 
@@ -117,6 +116,14 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 8. Selezionare **Finalizza configurazione** per completare la registrazione.
 9. Al termine della registrazione, aprire il portale di Azure e verificare che il server di configurazione e il server VMware siano elencati in **Insiemi di credenziali dei servizi di ripristino** > **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**.
 
+## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
+
+Per aggiornare il server di configurazione alla versione più recente, eseguire i seguenti [passaggi](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+
+## <a name="manage-the-configuration-server"></a>Gestire il server di configurazione
+
+Per evitare interruzioni nella replica in corso, verificare che l'indirizzo IP del server di configurazione non cambi dopo aver registrato il server di configurazione per un insieme di credenziali. Atre informazioni sulle attività comuni di gestione del server di configurazione sono disponibili [qui](vmware-azure-manage-configuration-server.md).
+
 ## <a name="faq"></a>Domande frequenti
 
 1. È possibile usare la macchina virtuale, in cui è installato il server di configurazione, per scopi diversi?
@@ -140,14 +147,6 @@ Se si vuole aggiungere un'altra scheda di interfaccia di rete al server di confi
 7. Dove è possibile scaricare le chiavi di registrazione dell'insieme di credenziali?
 
     Nelle **credenziali di Servizi di ripristino**, **Gestisci** > **Infrastruttura di Site Recovery** > **Server di configurazione**. In Server, selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
-
-## <a name="upgrade-the-configuration-server"></a>Aggiornare il server di configurazione
-
-Per aggiornare il server di configurazione alla versione più recente, eseguire i seguenti [passaggi](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-
-## <a name="manage-the-configuration-server"></a>Gestire il server di configurazione
-
-Per evitare interruzioni nella replica in corso, verificare che l'indirizzo IP del server di configurazione non cambi dopo aver registrato il server di configurazione per un insieme di credenziali. Atre informazioni sulle attività comuni di gestione del server di configurazione sono disponibili [qui](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Risolvere i problemi relativi alla distribuzione
 

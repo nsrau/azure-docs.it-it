@@ -7,24 +7,24 @@ ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: tmullaney
-ms.author: thmullan
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: d669e7beb2d0e41ff26408d4f71c3e1648c41e3a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056285"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242569"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 
 Gli [strumenti di database elastici](sql-database-elastic-scale-get-started.md) e la [sicurezza a livello di riga][rls] cooperano per consentire il ridimensionamento del livello dati di un'applicazione multi-tenant con un database SQL di Azure. La combinazione di queste tecnologie consente di creare un'applicazione con un livello dati estremamente scalabile. Il livello dati supporta partizioni multi-tenant e usa **ADO.NET SqlClient** o **Entity Framework**. Per altre informazioni, vedere [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](saas-tenancy-app-design-patterns.md).
 
 - Gli **strumenti di database elastici** consentono agli sviluppatori di scalare il livello dati tramite procedure di partizionamento orizzontale standard usando librerie .NET e modelli di servizio di Azure. La gestione delle partizioni mediante la [libreria client dei database elastici][s-d-elastic-database-client-library] consente di automatizzare e semplificare molte delle attività infrastrutturali generalmente associate al partizionamento orizzontale.
-- La **sicurezza a livello di riga** consente agli sviluppatori di archiviare in modo sicuro i dati di più tenant nello stesso database. I criteri di sicurezza a livello di riga escludono le righe che non appartengono al tenant che esegue una query. La centralizzazione della logica di filtro all'interno del database semplifica inoltre la manutenzione e riduce il rischio di errori di sicurezza. L'alternativa di affidarsi esclusivamente a codice cliente per applicare la sicurezza è troppo rischiosa.
+- La **sicurezza a livello di riga** consente agli sviluppatori di archiviare in modo sicuro i dati di più tenant nello stesso database. I criteri di sicurezza a livello di riga escludono le righe che non appartengono al tenant che esegue una query. La centralizzazione della logica di filtro all'interno del database semplifica inoltre la manutenzione e riduce il rischio di errori di sicurezza. L'alternativa di affidarsi esclusivamente a codice client per applicare la sicurezza è troppo rischiosa.
 
 L'utilizzo combinato di queste funzionalità consente a un'applicazione di memorizzare i dati di più tenant nello stesso database di partizionamento. Se i tenant condividono uno stesso database, inoltre, il costo per tenant è inferiore. La stessa applicazione può anche offrire ai tenant "premium" la possibilità di pagare solo per la partizione a singolo tenant dedicata. L'isolamento dei singoli tenant garantisce inoltre prestazioni più stabili. In un database a singolo tenant, infine, non sono presenti altri tenant con cui competere per l'acquisizione delle risorse.
 
@@ -39,8 +39,8 @@ L'obiettivo consiste nell'usare le API di [routing dipendente dai dati](sql-data
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- Utilizzare Visual Studio (2012 o versione successiva) 
-- Creare tre database SQL di Azure 
+- Utilizzare Visual Studio (2012 o versione successiva)
+- Creare tre database SQL di Azure
 - Scaricare il progetto di esempio: [Strumenti di database elastici per SQL di Azure - Partizioni multi-tenant](http://go.microsoft.com/?linkid=9888163)
   - Immettere le informazioni per i database all'inizio di **Program.cs** 
 
@@ -354,7 +354,7 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 - [Aumento del numero di istanze con il database SQL di Azure](sql-database-elastic-scale-introduction.md)
 - [Schemi progettuali per applicazioni SaaS multi-tenant con il database SQL di Azure](saas-tenancy-app-design-patterns.md)
 - [Authentication in multitenant apps, using Azure AD and OpenID Connect](../guidance/guidance-multitenant-identity-authenticate.md)
-- [Informazioni sull'applicazione Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
+- [Applicazione Tailspin Surveys](../guidance/guidance-multitenant-identity-tailspin.md)
 
 ## <a name="questions-and-feature-requests"></a>Domande e richieste di funzionalità
 

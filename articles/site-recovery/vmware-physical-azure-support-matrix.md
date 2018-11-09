@@ -1,21 +1,20 @@
 ---
-title: Matrice di supporto per la replica di VM VMware e server fisici in Azure con Azure Site Recovery | Microsoft Docs
-description: Riepiloga i sistemi operativi e i componenti supportati per la replica di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
-services: site-recovery
+title: Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure con Azure Site Recovery | Microsoft Docs
+description: Questo articolo presenta un riepilogo dei sistemi operativi e dei componenti supportati per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: f6f1ceb4f9afaaeb0a436879802144bdebc06280
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b472ed1c32e64b8f8ac881c09f22590c49f39c75
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378653"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215362"
 ---
-# <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice di supporto per la replica di VM VMware e server fisici in Azure
+# <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
 Questo articolo riepiloga i componenti supportati e le impostazioni per il ripristino di emergenza di macchine virtuali VMware in Azure tramite [Azure Site Recovery](site-recovery-overview.md).
 

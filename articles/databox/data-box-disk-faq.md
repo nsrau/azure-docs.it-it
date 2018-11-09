@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/28/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 8acb808e4b60926fbe6b3faa3fa6a7174a190884
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: fff1684efda0e7e7b857c668eaa28dc79b7534d7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094242"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416376"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Che cos'è Azure Data Box Disk? (Anteprima)
 
@@ -44,7 +44,7 @@ I dischi vengono crittografati tramite Crittografia unità BitLocker Microsoft e
 R. Quando si ha l'esigenza di trasferire 40 TB di dati (o meno) in Azure, l'uso dei dischi di Data Box può risultare vantaggioso.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>D: Qual è il prezzo dei dischi di Data Box?
-R. Nella versione di anteprima i dischi di Data Box sono disponibili gratuitamente. Anche la spedizione è gratis, ma verranno comunque addebitati i costi per l'archiviazione in Azure.
+R. Per informazioni sul prezzo dei dischi di Data Box Disk, vedere la [pagina dei prezzi per la versione di anteprima](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>D: Come è possibile ottenere i dischi di Data Box? 
 R.  Per ottenere i dischi di Azure Data Box, è prima di tutto necessario registrarsi per l'[anteprima del servizio Data Box Disk](http://aka.ms/AzureDataBox). Successivamente, accedere al portale di Azure e creare un ordine di Data Box per i dischi. Fornire le informazioni di contatto e i dettagli per le notifiche. Quando si effettua un ordine, in base alla disponibilità, i dischi vengono spediti all'utente entro 10 giorni.   

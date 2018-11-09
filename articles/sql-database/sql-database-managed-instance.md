@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: e0a4e069995c1e905834ff541b3562140b6ab01c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/30/2018
+ms.openlocfilehash: e89245a946848e46f3c7c502b6cd0e8017327e07
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379010"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419895"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Usare Istanza gestita di database SQL con le reti virtuali e una compatibilità quasi del 100%
 
@@ -218,7 +218,7 @@ Istanza gestita offre vantaggi derivanti dall'essere sempre aggiornati nel cloud
 
 ### <a name="managed-instance-administration-features"></a>Funzionalità di amministrazione di Istanza gestita
 
-Istanza gestita consente all'amministratore di sistema di concentrarsi sugli aspetti più importanti per l'azienda. Molte attività dell'amministratore di sistema o di database non sono necessarie o sono semplici. Ad esempio, l'installazione del sistema operativo o di RDBMS e l'applicazione di patch, il ridimensionamento dinamico e la configurazione delle istanze, i backup, la [replica di database](replication-with-sql-database-managed-instance.md) (inclusi i database di sistema), la configurazione a elevata disponibilità e la configurazione di flussi di dati di monitoraggio dell'integrità e delle prestazioni.
+Istanza gestita consente all'amministratore di sistema di concentrarsi sugli aspetti più importanti per l'azienda. Molte attività dell'amministratore di sistema o di database non sono necessarie o sono semplici. Ad esempio, l'installazione del sistema operativo o di RDBMS e l'applicazione di patch, il ridimensionamento dinamico e la configurazione delle istanze, i backup, la [replica di database](replication-with-sql-database-managed-instance.md) (inclusi i database di sistema), la configurazione a elevata disponibilità e la configurazione di flussi di dati di [monitoraggio delle prestazioni](../log-analytics/log-analytics-azure-sql.md) e dell'integrità.
 
 > [!IMPORTANT]
 > Per un elenco delle funzionalità supportate, parzialmente supportate e non supportate, vedere [Funzionalità del Database SQL](sql-database-features.md). Per un elenco delle differenze di T-SQL nelle istanze gestite rispetto a SQL Server, vedere [Differenze di T-SQL in Istanza gestita rispetto a SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -241,4 +241,5 @@ La tabella seguente mostra diverse proprietà, accessibili tramite Transact SQL,
 - Per altre informazioni sulla configurazione della rete virtuale, vedere l'articolo relativo alla [configurazione di una rete virtuale per Istanza gestita](sql-database-managed-instance-vnet-configuration.md).
 - Per una guida introduttiva sulla creazione di un'istanza gestita e il ripristino di un database da un file di backup, vedere [Creare un'istanza gestita](sql-database-managed-instance-get-started.md).
 - Per un'esercitazione sull'uso di Servizio Migrazione del database di Azure per la migrazione, vedere l'articolo relativo alla [migrazione a Istanza gestita con Servizio Migrazione del database](../dms/tutorial-sql-server-to-managed-instance.md).
+- Per informazioni sul monitoraggio avanzato delle prestazioni del database di Istanza gestita con intelligence predefinita per la risoluzione dei problemi, vedere [Monitorare il database SQL di Azure usando Analisi SQL di Azure](../log-analytics/log-analytics-azure-sql.md). 
 - Per informazioni sui prezzi, vedere [Prezzi di Istanza gestita di database SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

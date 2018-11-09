@@ -1,6 +1,6 @@
 ---
-title: Esempio di Criteri di Azure - SKU Express Route consentiti
-description: Questo criterio di esempio richiede che gli Express Route usino uno SKU approvato.
+title: 'Esempio di Criteri di Azure: SKU consentiti di ExpressRoute'
+description: Questo criterio di esempio richiede che le istanze di ExpressRoute usino uno SKU approvato.
 services: azure-policy
 author: DCtheGeek
 manager: carmonm
@@ -9,35 +9,35 @@ ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: mvc
-ms.openlocfilehash: 3ba1097583a6d9d7539efcb7e845ef9b3bc58cd0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1c375065a3be79a8bc0f0e9b6a7ae0a7a08526d1
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991879"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248052"
 ---
-# <a name="allowed-express-route-skus"></a>SKU di Express Route consentiti
+# <a name="allowed-expressroute-skus"></a>SKU consentiti di ExpressRoute
 
-Questo criterio richiede che Express Route usi uno SKU approvato. Si specifica una matrice di SKU consentiti.
+Questo criterio richiede che le istanze di ExpressRoute usino uno SKU approvato. Si specifica una matrice di SKU consentiti.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-template"></a>Modello di esempio
 
-[!code-json[main](../../../../policy-templates/samples/Network/express-route-skus/azurepolicy.json "Allowed Express Route SKUs")]
+[!code-json[main](../../../../policy-templates/samples/Network/express-route-skus/azurepolicy.json "Allowed ExpressRoute SKUs")]
 
 È possibile distribuire questo modello usando il [portale di Azure](#deploy-with-the-portal), con [PowerShell](#deploy-with-powershell) o con l'[interfaccia della riga di comando di Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Eseguire la distribuzione con il portale
 
-[![Distribuzione in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fexpress-route-skus%2Fazurepolicy.json)
+[![Distribuzione in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2R-skus%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Distribuire con PowerShell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name "express-route-skus" -DisplayName "Allowed Express Route SKUs" -description "This policy enables you to specify a set of express route SKUs that your organization can deploy." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-skus/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-skus/azurepolicy.parameters.json' -Mode All
+$definition = New-AzureRmPolicyDefinition -Name R-skus" -DisplayName "Allowed ExpressRoute SKUs" -description "This policy enables you to specify a set of ExpressRoute SKUs that your organization can deploy." -Policy 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/NetworkR-skus/azurepolicy.rules.json' -Parameter 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/NetworkR-skus/azurepolicy.parameters.json' -Mode All
 $definition
 $assignment = New-AzureRMPolicyAssignment -Name <assignmentname> -Scope <scope>  -listOfAllowedSKUs <Allowed SKUs> -PolicyDefinition $definition
 $assignment
@@ -56,9 +56,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
 ```azurecli-interactive
-az policy definition create --name 'express-route-skus' --display-name 'Allowed Express Route SKUs' --description 'This policy enables you to specify a set of express route SKUs that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-skus/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/Network/express-route-skus/azurepolicy.parameters.json' --mode All
+az policy definition create --name R-skus' --display-name 'Allowed ExpressRoute SKUs' --description 'This policy enables you to specify a set of ExpressRoute SKUs that your organization can deploy.' --rules 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/NetworkR-skus/azurepolicy.rules.json' --params 'https://raw.githubusercontent.com/Azure/azure-policy/master/samples/NetworkR-skus/azurepolicy.parameters.json' --mode All
 
-az policy assignment create --name <assignmentname> --scope <scope> --policy "express-route-skus"
+az policy assignment create --name <assignmentname> --scope <scope> --policy R-skus"
 ```
 
 ### <a name="clean-up-azure-cli-deployment"></a>Eliminare la distribuzione dell'interfaccia della riga di comando di Azure
@@ -71,4 +71,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Verificare altri esempi in [Esempi di Criteri di Azure](index.md)
+- Vedere altri esempi in [Esempi di Criteri di Azure](index.md)

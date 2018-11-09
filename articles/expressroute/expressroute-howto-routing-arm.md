@@ -1,26 +1,19 @@
 ---
-title: 'Come configurare il routing (peering) per un circuito ExpressRoute: Resource Manager: PowerShell: Azure | Microsoft Docs'
+title: 'Come configurare il routing (peering) per un circuito ExpressRoute: Resource Manager: PowerShell: Azure | Documentazione Microsoft'
 description: Questo articolo descrive come creare ed eseguire il provisioning di un circuito ExpressRoute per il peering privato, il peering pubblico e il peering Microsoft. Questo articolo mostra anche come controllare lo stato e aggiornare o eliminare i peering per un circuito.
 documentationcenter: na
 services: expressroute
-author: osamazia
-manager: jonor
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 0a036d51-77ae-4fee-9ddb-35f040fbdcdf
+author: jaredr80
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/23/2018
-ms.author: osamaz, jaredr80
-ms.openlocfilehash: dc67f4a4e2189a63cfd4adbb5c1b7eace23acad5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: jaredro
+ms.openlocfilehash: 3395c0f7498ab69a08745a7b3222135cb5e7292e
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957531"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249190"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Creare e modificare il peering per un circuito ExpressRoute usando PowerShell
 
@@ -36,11 +29,6 @@ Questo articolo consente di creare e gestire la configurazione di routing per un
 > * [PowerShell (classic)](expressroute-howto-routing-classic.md) (PowerShell (classico))
 > 
 
-## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
-
-* È necessaria la versione più recente dei cmdlet di PowerShell per Azure Resource Manager. Per altre informazioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview). 
-* Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md), ai [requisiti per il routing](expressroute-routing.md) e ai [flussi di lavoro](expressroute-workflows.md).
-* È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti in questo articolo deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
 
 Queste istruzioni si applicano solo ai circuiti creati con provider di servizi che offrono servizi di connettività di livello 2. Se si usa un provider di servizi che offre servizi gestiti di livello 3 (in genere una VPN IP, come MPLS), il provider di connettività configurerà e gestirà il routing per conto dell'utente.
 
@@ -50,6 +38,15 @@ Queste istruzioni si applicano solo ai circuiti creati con provider di servizi c
 > 
 
 Per un circuito ExpressRoute è possibile configurare uno, due o tutti e tre i peering (peering privato di Azure, peering pubblico di Azure e peering Microsoft). È possibile configurare i peering nell'ordine desiderato. assicurandosi, tuttavia, di completare la configurazione di un peering per volta. Per altre informazioni sul routing dei domini e il peering , vedere [Domini di routing ExpressRoute](expressroute-circuit-peerings.md).
+
+## <a name="configuration-prerequisites"></a>Prerequisiti di configurazione
+
+* Prima di iniziare la configurazione, assicurarsi di aver letto le pagine relative ai [prerequisiti](expressroute-prerequisites.md), ai [requisiti per il routing](expressroute-routing.md) e ai [flussi di lavoro](expressroute-workflows.md).
+* È necessario avere un circuito ExpressRoute attivo. Seguire le istruzioni per [creare un circuito ExpressRoute](expressroute-howto-circuit-arm.md) e fare in modo che venga abilitato dal provider di connettività prima di procedere. Per poter eseguire i cmdlet descritti in questo articolo deve essere stato effettuato il provisioning del circuito ExpressRoute e lo stato del circuito deve essere abilitato.
+
+### <a name="working-with-azure-powershell"></a>Uso di Azure PowerShell
+
+[!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="msft"></a>Peering Microsoft
 
@@ -62,37 +59,17 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
 
 ### <a name="to-create-microsoft-peering"></a>Per creare il peering Microsoft
 
-1. Importare il modulo PowerShell per ExpressRoute.
+1. Accedere e selezionare la sottoscrizione.
 
-  È necessario installare da [PowerShell Gallery](http://www.powershellgallery.com/) il programma di installazione di PowerShell più recente e importare i moduli di Gestione risorse di Azure nella sessione di PowerShell per iniziare a usare i cmdlet di ExpressRoute. È necessario eseguire PowerShell come amministratore.
+  Se PowerShell è installato in locale, eseguire l'accesso. Se si usa Azure Cloud Shell, è possibile ignorare questo passaggio.
 
-  ```powershell
-  Install-Module AzureRM
-
-  Install-AzureRM
-  ```
-
-  Importare tutti i moduli AzureRM.* nell'intervallo noto delle versioni semantiche.
-
-  ```powershell
-  Import-AzureRM
-  ```
-
-  È possibile anche importare un solo modulo nell'intervallo noto delle versioni semantiche.
-
-  ```powershell
-  Import-Module AzureRM.Network
-  ```
-
-  Accedere al proprio account.
-
-  ```powershell
+  ```azurepowershell
   Connect-AzureRmAccount
   ```
 
   Selezionare la sottoscrizione desiderata per creare il circuito ExpressRoute.
 
-  ```powershell
+  ```azurepowershell-interactive
 Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Creare un circuito ExpressRoute.
@@ -101,7 +78,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
 3. Controllare che sia stato effettuato il provisioning del circuito ExpressRoute e che il circuito sia abilitato. Usare l'esempio seguente:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
@@ -144,7 +121,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
   Per configurare il peering Microsoft per il circuito, applicare l'esempio seguente:
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "123.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -156,7 +133,7 @@ Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
 
 Per ottenere i dettagli di configurazione, usare l'esempio seguente:
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
@@ -166,7 +143,7 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRou
 
 Per aggiornare qualsiasi parte della configurazione, applicare l'esempio seguente:
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv4 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "124.1.0.0/24" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
 
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt -PeeringType MicrosoftPeering -PeerASN 100 -PeerAddressType IPv6 -PrimaryPeerAddressPrefix "3FFE:FFFF:0:CD30::/126" -SecondaryPeerAddressPrefix "3FFE:FFFF:0:CD30::4/126" -VlanId 300 -MicrosoftConfigAdvertisedPublicPrefixes "3FFE:FFFF:0:CD31::/120" -MicrosoftConfigCustomerAsn 23 -MicrosoftConfigRoutingRegistryName "ARIN"
@@ -178,7 +155,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 Per rimuovere la configurazione di peering, eseguire il cmdlet seguente:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "MicrosoftPeering" -ExpressRouteCircuit $ckt
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -194,32 +171,32 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
   È necessario installare da [PowerShell Gallery](http://www.powershellgallery.com/) il programma di installazione di PowerShell più recente e importare i moduli di Gestione risorse di Azure nella sessione di PowerShell per iniziare a usare i cmdlet di ExpressRoute. È necessario eseguire PowerShell come amministratore.
 
-  ```powershell
+  ```azurepowershell-interactive
   Install-Module AzureRM
   Install-AzureRM
   ```
 
   Importare tutti i moduli AzureRM.* nell'intervallo noto delle versioni semantiche.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-AzureRM
   ```
 
   È possibile anche importare un solo modulo nell'intervallo noto delle versioni semantiche.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-Module AzureRM.Network 
   ```
 
   Accedere al proprio account.
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 
   Selezionare la sottoscrizione desiderata per creare il circuito ExpressRoute.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Creare un circuito ExpressRoute.
@@ -228,7 +205,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 3. Controllare che sia stato effettuato il provisioning del circuito ExpressRoute e che il circuito sia abilitato. Usare l'esempio seguente:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
@@ -268,7 +245,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
   Per configurare il peering privato di Azure per il circuito, usare l'esempio seguente:
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -276,7 +253,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
   Se si sceglie di usare un hash MD5, usare l'esempio seguente:
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200  -SharedKey "A1B2C3D4"
   ```
 
@@ -289,7 +266,7 @@ Questa sezione fornisce le istruzioni per creare, ottenere, aggiornare ed elimin
 
 Per ottenere i dettagli di configurazione, usare l'esempio seguente:
 
-```powershell
+```azurepowershell-interactive
 $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
 Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
@@ -299,7 +276,7 @@ Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -Express
 
 Per aggiornare qualsiasi parte della configurazione, usare l'esempio seguente. In questo esempio il valore dell'ID VLAN del circuito viene aggiornato da 100 a 500.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt -PeeringType AzurePrivatePeering -PeerASN 100 -PrimaryPeerAddressPrefix "10.0.0.0/30" -SecondaryPeerAddressPrefix "10.0.0.4/30" -VlanId 200
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -314,7 +291,7 @@ Per rimuovere la configurazione di peering, eseguire l'esempio seguente:
 > 
 > 
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePrivatePeering" -ExpressRouteCircuit $ckt
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -330,7 +307,7 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
 
   È necessario installare da [PowerShell Gallery](http://www.powershellgallery.com/) il programma di installazione di PowerShell più recente e importare i moduli di Gestione risorse di Azure nella sessione di PowerShell per iniziare a usare i cmdlet di ExpressRoute. È necessario eseguire PowerShell come amministratore.
 
-  ```powershell
+  ```azurepowershell-interactive
   Install-Module AzureRM
 
   Install-AzureRM
@@ -338,25 +315,25 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
 
   Importare tutti i moduli AzureRM.* nell'intervallo noto delle versioni semantiche.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-AzureRM
   ```
 
   È possibile anche importare un solo modulo nell'intervallo noto delle versioni semantiche.
 
-  ```powershell
+  ```azurepowershell-interactive
   Import-Module AzureRM.Network
 ```
 
   Accedere al proprio account.
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 
   Selezionare la sottoscrizione desiderata per creare il circuito ExpressRoute.
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionId "<subscription ID>"
   ```
 2. Creare un circuito ExpressRoute.
@@ -365,7 +342,7 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
 
 3. Controllare che sia stato effettuato il provisioning del circuito ExpressRoute e che il circuito sia abilitato. Usare l'esempio seguente:
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
   ```
 
@@ -405,7 +382,7 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
 
   Per configurare il peering pubblico di Azure per il circuito, applicare l'esempio seguente:
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -413,7 +390,7 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
 
   Se si sceglie di usare un hash MD5, usare l'esempio seguente:
 
-  ```powershell
+  ```azurepowershell-interactive
   Add-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "12.0.0.0/30" -SecondaryPeerAddressPrefix "12.0.0.4/30" -VlanId 100  -SharedKey "A1B2C3D4"
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -428,7 +405,7 @@ Questa sezione consente di creare, ottenere, aggiornare ed eliminare la configur
 
 Per ottenere i dettagli di configurazione, usare il cmdlet seguente:
 
-```powershell
+```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
   Get-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -Circuit $ckt
@@ -438,7 +415,7 @@ Per ottenere i dettagli di configurazione, usare il cmdlet seguente:
 
 Per aggiornare qualsiasi parte della configurazione, usare l'esempio seguente. In questo esempio il valore dell'ID VLAN del circuito viene aggiornato da 200 a 600.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmExpressRouteCircuitPeeringConfig  -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt -PeeringType AzurePublicPeering -PeerASN 100 -PrimaryPeerAddressPrefix "123.0.0.0/30" -SecondaryPeerAddressPrefix "123.0.0.4/30" -VlanId 600
 
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
@@ -448,7 +425,7 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
 Per rimuovere la configurazione di peering, eseguire l'esempio seguente:
 
-```powershell
+```azurepowershell-interactive
 Remove-AzureRmExpressRouteCircuitPeeringConfig -Name "AzurePublicPeering" -ExpressRouteCircuit $ckt
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```

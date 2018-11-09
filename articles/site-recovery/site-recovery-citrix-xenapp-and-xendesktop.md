@@ -1,29 +1,22 @@
 ---
-title: Eseguire la replica di una distribuzione Citrix XenDesktop e XenApp con Azure Site Recovery | Microsoft Docs
-description: Questo articolo illustra come proteggere e ripristinare le distribuzioni Citrix XenDesktop e XenApp con Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Configurare il ripristino di emergenza di una distribuzione Citrix XenDesktop e XenApp con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come configurare il ripristino di emergenza delle distribuzioni Citrix XenDesktop e XenApp con Azure Site Recovery.
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213634"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210313"
 ---
-# <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Eseguire la replica di una distribuzione Citrix XenApp e XenDesktop multilivello con Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configurare il ripristino di emergenza di una distribuzione Citrix XenApp e XenDesktop multilivello
 
-## <a name="overview"></a>Panoramica
+
 
 Citrix XenDesktop è una soluzione di virtualizzazione del desktop che fornisce desktop e applicazioni come servizi su richiesta a qualsiasi utente, ovunque si trovi. Con la tecnologia di distribuzione FlexCast, XenDesktop può distribuire in modo rapido e sicuro applicazioni e desktop agli utenti.
 Citrix XenApp non fornisce attualmente funzionalità di ripristino di emergenza.
@@ -75,7 +68,7 @@ Poiché XenApp 7.7 è supportato in Azure, è possibile eseguire il failover in 
 
 1. Sono supportati la protezione e il ripristino delle distribuzioni locali con computer con sistema operativo Server per fornire app XenApp pubblicate e desktop XenApp pubblicati.
 
-2. Non sono supportati la protezione e il ripristino di distribuzioni locali con computer con sistema operativo Desktop per fornire VDI desktop per desktop virtuali client, incluso Windows 10. Azure Site Recovery non supporta infatti il ripristino di computer con sistemi operativi Desktop.  Alcuni sistemi operativi di desktop virtuale client, ad esempio Windows 7, non sono inoltre ancora supportati per le licenze in Azure. [Altre informazioni](https://azure.microsoft.com/pricing/licensing-faq/) sulle licenze per computer desktop client/server in Azure.
+2. Non sono supportati la protezione e il ripristino di distribuzioni locali con computer con sistema operativo Desktop per fornire VDI desktop per desktop virtuali client, incluso Windows 10. Site Recovery non supporta infatti il ripristino di computer con sistemi operativi Desktop.  Alcuni sistemi operativi di desktop virtuale client, ad esempio Windows 7, non sono inoltre ancora supportati per le licenze in Azure. [Altre informazioni](https://azure.microsoft.com/pricing/licensing-faq/) sulle licenze per computer desktop client/server in Azure.
 
 3.  Azure Site Recovery non può replicare e proteggere cloni MCS o PVS locali esistenti.
 È necessario ricreare questi cloni usando il provisioning di Azure RM dal controller di distribuzione.
@@ -163,20 +156,20 @@ Il piano di ripristino personalizzato ha un aspetto simile al seguente:
    >[!NOTE]     
    >I passaggi 4, 6 e 7 contenenti le azioni manuali o di script sono applicabili solo a un ambiente XenApp locale con cataloghi MCS/PVS.
 
-4. Gruppo 3 - Azione manuale o di script: arresto della VM VDA master. Quando viene eseguito il failover della VM VDA master in Azure, lo stato della VM sarà In esecuzione. Per creare nuovi cataloghi MCS usando l'hosting di Azure ARM, è necessario che lo stato della VM VDA master sia Arrestato (deallocato). Arrestare la VM dal portale di Azure.
+4. Gruppo 3 - Azione manuale o di script: arresto della VM VDA master. Quando viene eseguito il failover dalla VM VDA master in Azure, lo stato della VM sarà In esecuzione. Per creare nuovi cataloghi MCS usando l'hosting di Azure, è necessario che lo stato della VM VDA master sia Arrestato (deallocato). Arrestare la VM dal portale di Azure.
 
 5. Gruppo di failover 4: controller di distribuzione e VM del server StoreFront
 6. Gruppo 3 - Azione manuale o di script 1:
 
     ***Aggiungere una connessione host di Azure RM***
 
-    Creare una connessione host di Azure ARM nel computer del controller di distribuzione per effettuare il provisioning di nuovi cataloghi MCS in Azure. Seguire la procedura illustrata in questo [articolo](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
+    Creare una connessione host di Azure nel computer del controller di distribuzione per effettuare il provisioning di nuovi cataloghi MCS in Azure. Seguire la procedura illustrata in questo [articolo](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
 
 7. Gruppo 3 - Azione manuale o di script 2:
 
     ***Ricreare i cataloghi MCS in Azure***
 
-    I cloni MCS o PVS esistenti nel sito primario non verranno replicati in Azure. È necessario ricreare questi cloni usando VDA master sottoposto a replica e il provisioning di Azure ARM dal controller di distribuzione. Seguire la procedura illustrata in questo [articolo](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) per creare cataloghi MCS in Azure.
+    I cloni MCS o PVS esistenti nel sito primario non verranno replicati in Azure. È necessario ricreare questi cloni usando la VM VDA master replicata e il provisioning di Azure dal controller di distribuzione. Per creare cataloghi MCS in Azure, seguire la procedura illustrata in questo [articolo](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/).
 
 ![Piano di ripristino per i componenti XenApp](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 

@@ -1,21 +1,20 @@
 ---
-title: Eseguire la replica di un'applicazione Web multilivello basata su IIS usando Azure Site Recovery | Microsoft Docs
+title: Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello con Azure Site Recovery | Microsoft Docs
 description: Informazioni su come eseguire la replica di macchine virtuali Web farm IIS usando Azure Site Recovery.
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920849"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211826"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Eseguire la replica di un'applicazione Web multilivello basata su IIS
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurare il ripristino di emergenza per un'applicazione Web basata su IIS multilivello
 
 Il software applicativo è il motore della produttività aziendale di un'organizzazione. Le diverse applicazioni Web possono essere usate per scopi diversi in un'organizzazione. Alcune applicazioni, ad esempio quelle usate per l'elaborazione delle retribuzioni, le applicazioni finanziarie e i siti Web orientati ai clienti, possono avere un ruolo critico in un'organizzazione. Per evitare perdite di produttività, è importante per l'organizzazione che queste applicazioni siano costantemente operative. La costante disponibilità di queste applicazioni deve soprattutto aiutare a evitare danni al marchio o all'immagine o dell'organizzazione.
 
@@ -27,7 +26,7 @@ Una buona soluzione di ripristino di emergenza supporta la modellazione di piani
 
 Questo articolo descrive come proteggere un'applicazione Web basata su Internet Information Services (IIS) usando [Azure Site Recovery](site-recovery-overview.md). L'articolo illustra le procedure consigliate per la replica di un'applicazione Web a tre livelli basata su IIS in Azure. Spiega anche come eseguire un'analisi di ripristino di emergenza e come effettuare il failover dell'applicazione in Azure.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di conoscere le procedure per eseguire le attività seguenti:
 
@@ -61,10 +60,10 @@ Ai fini di questo articolo sono state usate macchine virtuali VMware con IIS 7.5
 
 Scenario | In un sito secondario | In Azure
 --- | --- | ---
-Hyper-V | Sì | Sì
-VMware | Sì | Sì
-Server fisico | No  | Sì
-Azure|ND|Sì
+Hyper-V | Yes | Yes
+VMware | Yes | Yes
+Server fisico | No  | Yes
+Azure|ND|Yes
 
 ## <a name="replicate-virtual-machines"></a>Replicare le macchine virtuali
 

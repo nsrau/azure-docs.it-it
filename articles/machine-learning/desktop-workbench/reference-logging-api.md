@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7084251102984445e7c2341b78b44f85811ebea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f7dac645ef0b732b7f3087a06c74385871d5b1c9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958221"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238337"
 ---
 # <a name="logging-api-reference"></a>Informazioni di riferimento sulle API di registrazione
 
@@ -89,5 +89,5 @@ $ az ml history info -r <runid> -a <artifact/path>
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
 ## <a name="next-steps"></a>Passaggi successivi
-- Scorrere le [esercitazioni di diaframma di classificazione, parte 2](tutorial-classifying-iris-part-2.md) per visualizzare la registrazione API in azione.
+- Eseguire la procedura dettagliata descritta nell'[esercitazione Classificare i dati Iris, parte 2](tutorial-classifying-iris-part-2.md) per vedere l'API di registrazione in azione.
 - Rivedere [Come usare Cronologia di esecuzione e le metriche del modello in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) per comprendere più approfonditamente come le API di registrazione possano essere usate nella cronologia di esecuzione.

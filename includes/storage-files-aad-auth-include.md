@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/22/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: b7682b83ca415ebff2be1c9dbb5581e8da1bb7fb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 64751e0fcbf9a2255964d0de673e2cc2020ceb9a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49805104"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50254548"
 ---
 [File di Azure](../articles/storage/files/storage-files-introduction.md) supporta l'autenticazione basata su identità tramite SMB (Server Message Block) (anteprima) per File di Azure con [Azure Active Directory (Azure AD) Domain Services.](../articles/active-directory-domain-services/active-directory-ds-overview.md) Le macchine virtuali di Windows aggiunte a un dominio possono così accedere a condivisioni file di Azure tramite credenziali di [Azure AD](../articles/active-directory/fundamentals/active-directory-whatis.md). 
 
@@ -25,3 +25,4 @@ Nell'ambito dell'anteprima, File di Azure supporta anche la conservazione, l'ere
 > - L'autenticazione di Azure AD tramite SMB non è supportata per le macchine virtuali Linux nella versione di anteprima. Sono supportate solo le macchine virtuali Windows Server.
 > - L'autenticazione di Azure AD tramite SMB non è supportata per le macchine locali che accedono a File di Azure.
 > - L'autenticazione di Azure AD è disponibile solo per gli account di archiviazione creati dopo il 24 settembre 2018.
+> - L'autenticazione di Azure AD tramite SMB e ACL NTFS persistenti non è supportata nelle condivisioni file di Azure gestite dal servizio Sincronizzazione file di Azure. 

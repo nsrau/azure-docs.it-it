@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 10/29/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: fbc40d0768a7cf1cb83a3e78dd524fac26254bea
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141601"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238798"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Come pianificare l'implementazione dell'aggiunta all'identità ibrida di Azure Active Directory
 
@@ -95,13 +95,13 @@ Se si intende usare l'Utilità preparazione sistema (Sysprep), creare immagini d
 
 Se ci si basa sullo snapshot di una macchina virtuale (VM) per creare altre VM, assicurarsi di usare lo snapshot di una VM che non è stato configurato per l'aggiunta di Azure AD ibrido.
 
-La registrazione dei dispositivi Windows di livello inferiore non è supportata per i dispositivi configurati per il roaming dei profili utente o per il roaming delle credenziali. In caso di roaming delle impostazioni o dei profili, usare Windows 10.
+L'aggiunta di dispositivi Windows di livello inferiore all'identità ibrida di Azure AD:
 
-- La registrazione dei dispositivi legacy di Windows **è** supportata in ambienti non federati tramite l'accesso Seamless Single Sign On [Azure Active Directory Seamless Single Sign-On](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
- 
-- Le registrazione di dispositivi Windows di livello inferiore **non è** supportata quando si usa l'autenticazione pass-through di Azure AD senza accesso ininterrotto Single Sign-On.
+- **È** supportata in ambienti non federati tramite [Accesso Single Sign-On facile di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
 
-- Le registrazione di dispositivi legacy di Windows **non è** supportata per i dispositivi che utilizzano profili di roaming. In caso di roaming delle impostazioni o dei profili, usare Windows 10.
+- **Non è** supportata quando si usa l'autenticazione pass-through di Azure AD senza accesso Single Sign-On facile.
+
+- **Non è** supportata quando si usa il roaming delle credenziali o il roaming dei profili utente o quando si usa VDI (Virtual Desktop Infrastructure).
 
 
 La registrazione di Windows Server che esegue il ruolo controller di dominio non è supportata.
@@ -128,9 +128,10 @@ Se l'ambiente include domini gestiti, l'aggiunta ad Azure AD ibrido supporta:
 
 - Sincronizzazione dell'hash delle password con accesso Single Sign-On (SSO) facile 
 
-A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido. che semplifica in modo significativo il processo di configurazione. Per altre informazioni, vedere:
+A partire dalla versione 1.1.819.0, in Azure AD Connect è presente una procedura guidata per configurare l'aggiunta ad Azure AD ibrido che semplifica in modo significativo il processo di configurazione. Per altre informazioni, vedere:
 
 - [Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini federati](hybrid-azuread-join-federated-domains.md)
+
 
 - [Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti](hybrid-azuread-join-managed-domains.md)
 

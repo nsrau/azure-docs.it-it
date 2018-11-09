@@ -1,6 +1,6 @@
 ---
-title: Trovare un percorso con Mappe di Azure | Microsoft Docs
-description: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
+title: Trovare un itinerario con Mappe di Azure | Microsoft Docs
+description: Trovare l'itinerario per raggiungere un punto di interesse usando Mappe di Azure
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/22/2018
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fda234b882cbf4a155881895bbf8401fe3ff3aca
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b6ce89d141af434d4f40e9079b39e4d7eed114df
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645080"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420915"
 ---
-# <a name="route-to-a-point-of-interest-using-azure-maps"></a>Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
+# <a name="route-to-a-point-of-interest-using-azure-maps"></a>Trovare l'itinerario per raggiungere un punto di interesse usando Mappe di Azure
 
-Questa esercitazione illustra come usare l'account Mappe di Azure e l'SDK del servizio di pianificazione percorso per trovare il percorso per raggiungere un determinato punto di interesse. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come usare l'account Mappe di Azure e l'SDK del servizio di pianificazione percorso per trovare l'itinerario per raggiungere un determinato punto di interesse. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare una nuova pagina Web usando l'API del controllo mappa
@@ -40,15 +40,26 @@ La procedura seguente illustra come creare una pagina HTML statica incorporata u
 
     ```HTML
     <!DOCTYPE html>
-    <html lang="en">
-
+    <html>
     <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Route</title>
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css"/>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        
+        <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script>
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script>
+
+        <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
+        
+        <script>
+            var map, datasource, client;
+
+            function GetMap() {
+                //Add Map Control JavaScript code here.
+            }
+        </script>
         <style>
             html,
             body {
@@ -64,77 +75,101 @@ La procedura seguente illustra come creare una pagina HTML statica incorporata u
             }
         </style>
     </head>
-
-    <body>
-        <div id="map"></div>
-        <script>
-            // Embed Map Control JavaScript code here
-        </script>
+    <body onload="GetMap()">
+        <div id="myMap"></div>
     </body>
-
     </html>
     ```
-    L'intestazione HTML incorpora le posizioni delle risorse per i file CSS e JavaScript relative alla libreria di Mappe di Azure. Il segmento *script* nel corpo del file HTML deve contenere il codice JavaScript inline per l'accesso alle API di Mappe di Azure.
+    
+    Si noti che l'intestazione HTML include i file di risorse CSS e JavaScript ospitati dalla libreria del controllo mappa di Azure. Notare l'evento `onload` nel corpo della pagina, che chiamerà la funzione `GetMap` dopo il caricamento del corpo della pagina. Questa funzione deve contenere il codice JavaScript inline per l'accesso alle API di Mappe di Azure. 
 
-3. Aggiungere il codice JavaScript seguente al blocco *script* del file HTML. Sostituire la stringa **\<your account key\>** con la chiave primaria copiata dall'account Mappe.
+3. Aggiungere il codice JavaScript seguente alla funzione `GetMap`. Sostituire la stringa **\<Your Azure Maps Key\>** con la chiave primaria copiata dall'account Mappe.
 
     ```JavaScript
-    // Instantiate map to the div with id "map"
-    atlas.setSubscriptionKey("<your account key>");
-    var map = new atlas.Map("map");
+    //Add your Azure Maps subscription key to the map SDK. 
+    atlas.setSubscriptionKey('<Your Azure Maps Key>');
+
+    //Initialize a map instance.
+    map = new atlas.Map('myMap');
     ```
 
-    **atlas.Map** fornisce il controllo per una mappa Web visiva e interattiva ed è un componente dell'API del controllo mappa di Azure.
+    `atlas.Map` fornisce il controllo per una mappa Web visiva e interattiva ed è un componente dell'API del controllo mappa di Azure.
 
 4. Salvare il file e aprirlo nel browser. A questo punto si ha una mappa di base che è possibile sviluppare ulteriormente.
 
    ![Visualizzare la mappa di base](./media/tutorial-route-location/basic-map.png)
 
-## <a name="set-start-and-end-points"></a>Impostare i punti di partenza e di arrivo
+## <a name="define-how-the-route-will-be-rendered"></a>Definire il rendering dell'itinerario
 
-Per questa esercitazione, impostare Microsoft come punto di partenza e un distributore a Seattle come punto di destinazione.
+In questa esercitazione verrà eseguito il rendering di un itinerario semplice usando un'icona di simbolo per l'inizio e la fine dell'itinerario e una linea per il percorso dell'itinerario.
 
-1. Nello stesso blocco di *script* del file **MapRoute.html** aggiungere il codice JavaScript seguente per creare i punti di partenza e di arrivo:
-
-    ```JavaScript
-    // Create the GeoJSON objects which represent the start and end point of the route
-    var startPoint = new atlas.data.Point([-122.130137, 47.644702]);
-    var startPin = new atlas.data.Feature(startPoint, {
-        title: "Microsoft",
-        icon: "pin-round-blue"
-    });
-
-    var destinationPoint = new atlas.data.Point([-122.3352, 47.61397]);
-    var destinationPin = new atlas.data.Feature(destinationPoint, {
-        title: "Contoso Oil & Gas",
-        icon: "pin-blue"
-    });
-    ```
-    Questo codice crea due [oggetti GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti iniziale e finale del percorso.
-
-2. Aggiungere il codice JavaScript seguente per includere nella mappa i segnaposto per i punti iniziale e finale:
+1. Dopo aver inizializzato la mappa, aggiungere il codice JavaScript seguente nella funzione GetMap.
 
     ```JavaScript
-    // Fit the map window to the bounding box defined by the start and destination points
-    var swLon = Math.min(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-    var swLat = Math.min(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-    var neLon = Math.max(startPoint.coordinates[0], destinationPoint.coordinates[0]);
-    var neLat = Math.max(startPoint.coordinates[1], destinationPoint.coordinates[1]);
-    map.setCameraBounds({
-        bounds: [swLon, swLat, neLon, neLat],
-        padding: 50
-    });
+    //Wait until the map resources have fully loaded.
+    map.events.add('load', function () {
 
-    map.events.add("load", function () { 
-        // Add pins to the map for the start and end point of the route
-        map.addPins([startPin, destinationPin], {
-            name: "route-pins",
-            textFont: "SegoeUi-Regular",
-            textOffset: [0, -20]
-        });
+        //Create a data source and add it to the map.
+        datasource = new atlas.source.DataSource();
+        map.sources.add(datasource);
+
+        //Add a layer for rendering the route lines and have it render under the map labels.
+        map.layers.add(new atlas.layer.LineLayer(datasource, null, {
+            strokeColor: '#2272B9',
+            strokeWidth: 5,
+            lineJoin: 'round',
+            lineCap: 'round',
+            filter: ['==', '$type', 'LineString']
+        }), 'labels');
+
+        //Add a layer for rendering point data.
+        map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+            iconOptions: {
+                image: ['get', 'icon'],
+                allowOverlap: true
+           },
+            textOptions: {
+                textField: ['get', 'title'],
+                offset: [0, 1.2]
+            },
+            filter: ['==', '$type', 'Point']
+        }));
     });
     ```
-    La funzione **map.setCameraBounds** regola la finestra della mappa in base alle coordinate dei punti di partenza e di arrivo. La funzione **map.events.add** assicura che tutte le funzioni di mappa aggiunte alla mappa vengano caricate dopo che la mappa è stata caricata completamente. La funzione **map.addPins** dell'API nel listener di eventi aggiunge i punti al controllo mappa come componenti visivi.
+    
+    Alla mappa viene aggiunto un evento di caricamento che verrà attivato dopo che le risorse della mappa sono state caricate completamente. Nel gestore dell'evento di caricamento della mappa viene creata un'origine dati per archiviare la riga relativa all'itinerario e i punti di partenza e di arrivo. Viene creato un livello linea che viene allegato all'origine dati per definire il rendering della linea dell'itinerario. Il rendering del livello linea sarà caratterizzato da una sfumatura blu di larghezza pari a 5 pixel e giunzioni di linee ed estremità arrotondate. Viene aggiunto un filtro per garantire che questo livello esegua il rendering dei soli dati LineString GeoJSON. Quando si aggiunge il livello alla mappa, viene passato un secondo parametro con valore `'labels'`, per indicare che il rendering di questo livello deve essere eseguito sotto le etichette della mappa. In questo modo la linea dell'itinerario non coprirà le etichette delle strade. Viene creato un livello simboli che viene allegato all'origine dati. Questo livello consente di specificare in che modo verrà eseguito il rendering dei punti di partenza e di arrivo. In questo caso sono state aggiunte espressioni per recuperare le informazioni sull'icona dell'immagine e il testo dell'etichetta dalle proprietà di ogni oggetto punto. 
+    
+2. Per questa esercitazione impostare Microsoft come punto di partenza e una stazione di rifornimento a Seattle come punto di destinazione. Nel gestore dell'evento di caricamento della mappa aggiungere il codice seguente.
+
+    ```JavaScript
+    //Create the GeoJSON objects which represent the start and end point of the route.
+    var startPoint = new atlas.data.Feature(new atlas.data.Point([-122.130137, 47.644702]), {
+        title: 'Microsoft',
+        icon: 'pin-round-blue'
+    });
+
+    var endPoint = new atlas.data.Feature(new atlas.data.Point([-122.3352, 47.61397]), {
+        title: 'Contoso Oil & Gas',
+        icon: 'pin-blue'
+    });    
+    ```
+
+    Questo codice crea due [oggetti punto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti di partenza e di arrivo dell'itinerario. A ogni punto vengono aggiunge le proprietà `title` e `icon`.
+    
+3. Aggiungere quindi il codice JavaScript seguente per includere nella mappa i segnaposto per i punti di partenza e di arrivo:
+
+    ```JavaScript
+    //Add the data to the data source.
+    datasource.add([startPoint, endPoint]);
+    
+    //Fit the map window to the bounding box defined by the start and end positions.
+    map.setCamera({
+        bounds: atlas.data.BoundingBox.fromData([startPoint, endPoint]),
+        padding: 100
+    });
+    ```
+    
+    I punti di partenza e di arrivo vengono aggiunti all'origine dati. Per il calcolo del rettangolo di selezione viene usata la funzione `atlas.data.BoundingBox.fromData`. Questo rettangolo di selezione viene usato per impostare la visualizzazione delle videocamere della mappa sui punti di partenza e di arrivo con la funzione **map.setCamera**. Per compensare le dimensioni in pixel delle icone di simbolo, viene aggiunta una spaziatura interna.
 
 3. Salvare il file **MapRoute.html** e aggiornare il browser. Ora la mappa è centrata su Seattle ed è possibile vedere il segnaposto blu rotondo che indica il punto di partenza e il segnaposto blu che indica il punto di arrivo.
 
@@ -144,52 +179,39 @@ Per questa esercitazione, impostare Microsoft come punto di partenza e un distri
 
 ## <a name="get-directions"></a>Ottenere le indicazioni stradali
 
-Questa sezione illustra come usare l'API del servizio di pianificazione percorso di Mappe per trovare il percorso per raggiungere una destinazione da un determinato punto di partenza. Il servizio di pianificazione percorso fornisce le API per pianificare il percorso *più veloce*, *più breve*, *più ecologico* o *più interessante* tra due posizioni. Consente inoltre agli utenti di pianificare percorsi per il futuro usando il database dei dati storici sul traffico di Azure e fornendo stime della durata dei percorsi per qualsiasi giorno e ora. Per altre informazioni, vedere [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Ottenere le indicazioni stradali). Tutte le funzionalità seguenti devono essere aggiunte **all'interno del listener di eventi del caricamento mappa** per garantire che vengano caricate dopo che la mappa è stata caricata completamente.
+Questa sezione illustra come usare l'API del servizio di pianificazione percorso di Mappe per trovare l'itinerario per raggiungere una destinazione da un determinato punto di partenza. Il servizio di pianificazione percorso fornisce le API per pianificare l'itinerario *più veloce*, *più breve*, *più ecologico* o *più interessante* tra due posizioni. Consente inoltre agli utenti di pianificare percorsi per il futuro usando il database dei dati storici sul traffico di Azure e fornendo stime della durata dei percorsi per qualsiasi giorno e ora. Per altre informazioni, vedere [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Ottenere le indicazioni stradali). Tutte le funzionalità seguenti devono essere aggiunte **all'interno del listener di eventi del caricamento mappa** per garantire che vengano caricate dopo che la mappa è stata caricata completamente.
 
-1. Aggiungere prima un nuovo livello sulla mappa per visualizzare l'itinerario, ovvero l'elemento *linestring*. Aggiungere il codice JavaScript seguente al blocco *script*.
+1. Per creare un'istanza del servizio client, aggiungere il codice Javascript seguente nel gestore dell'evento di caricamento della mappa.
 
     ```JavaScript
-    // Initialize the linestring layer for routes on the map
-    var routeLinesLayerName = "routes";
-    map.addLinestrings([], {
-        name: routeLinesLayerName,
-        color: "#2272B9",
-        width: 5,
-        cap: "round",
-        join: "round",
-        before: "labels"
-    });
+    //If the service client hasn't already been created, create an instance.
+    if (!client) {
+        client = new atlas.service.Client(atlas.getSubscriptionKey());
+    }
     ```
 
-2. Creare un'istanza del servizio client, aggiungendo il codice Javascript seguente al blocco di script.
+2. Aggiungere il blocco di codice seguente per creare una stringa di query per l'itinerario.
     ```JavaScript
-    var client = new atlas.service.Client(MapsAccountKey);
+    //Create the route request with the query being the start and end point in the format 'startLongitude,startLatitude:endLongitude,endLatitude'.
+    var routeQuery = startPoint.geometry.coordinates[1] +
+        ',' +
+        startPoint.geometry.coordinates[0] +
+        ':' +
+        endPoint.geometry.coordinates[1] +
+        ',' +
+        endPoint.geometry.coordinates[0];
     ```
 
-3. Aggiungere il blocco di codice seguente per creare una stringa di query di route.
-    ```JavaScript
-    // Construct the route query string
-    var routeQuery = startPoint.coordinates[1] +
-        "," +
-        startPoint.coordinates[0] +
-        ":" +
-        destinationPoint.coordinates[1] +
-        "," +
-        destinationPoint.coordinates[0];
-    ```
-
-4. Per ottenere la route, aggiungere allo script il blocco di codice seguente. Viene eseguita una query al servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) e viene quindi analizzata la risposta in formato GeoJSON usando [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). Vengono aggiunte tutte le righe di risposta sulla mappa per eseguire il rendering della route. Per altre informazioni, è possibile vedere [Aggiungere una linea sulla mappa](./map-add-shape.md#addALine).
+3. Per ottenere l'itinerario, aggiungere allo script il blocco di codice seguente. Viene eseguita una query al servizio di routing di Mappe di Azure tramite il metodo [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) e viene quindi analizzata la risposta in formato GeoJSON usando [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes). Nella risposta all'origine dati viene quindi aggiunta la riga dell'itinerario, per eseguirne automaticamente il rendering nella mappa.
 
     ```JavaScript
-    // Execute the query then add the route to the map once a response is received  
-    client.route.getRouteDirections(routeQuery).then(response => {
-         // Parse the response into GeoJSON
-         var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
+    //Execute the car route query then add the route to the map once a response is received.
+    client.route.getRouteDirections(routeQuery).then(function (response) {
+        // Parse the response into GeoJSON
+        var geoJsonResponse = new atlas.service.geojson.GeoJsonRouteDirectionsResponse(response);
 
-         // Get the first in the array of routes and add it to the map
-         map.addLinestrings([geoJsonResponse.getGeoJsonRoutes().features[0]], {
-             name: routeLinesLayerName
-         });
+        //Add the route line to the data source.
+        datasource.add(geoJsonResponse.getGeoJsonRoutes().features[0]);
     });
     ```
 
@@ -208,9 +230,11 @@ In questa esercitazione si è appreso come:
 
 È possibile accedere all'esempio di codice per questa esercitazione qui:
 
-> [Trovare un itinerario con Mappe di Azure](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
+> [Trovare un itinerario con Mappe di Azure](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
 
-L'esercitazione successiva illustra come creare una query del percorso con restrizioni, ad esempio la modalità di trasporto o il tipo di carico, e come visualizzare più percorsi sulla mappa stessa.
+[Vedere qui l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+
+L'esercitazione successiva illustra come creare una query dell'itinerario con restrizioni, ad esempio la modalità di trasporto o il tipo di carico, e come visualizzare più percorsi sulla mappa stessa.
 
 > [!div class="nextstepaction"]
-> [Find routes for different modes of travel (Trovare i percorsi per diverse modalità di trasporto)](./tutorial-prioritized-routes.md)
+> [Trovare gli itinerari per diverse modalità di trasporto](./tutorial-prioritized-routes.md)

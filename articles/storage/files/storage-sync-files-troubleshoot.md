@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a135b0e17889c544a99ad677e9fa42ad6de994c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389276"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231883"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -74,9 +74,9 @@ Questo errore si verifica se la condivisione file di Azure è già in uso da par
 Se viene visualizzato questo messaggio e la condivisione file di Azure non è attualmente in uso da alcun endpoint cloud, attenersi ai passaggi seguenti per cancellare i metadati di Sincronizzazione file di Azure nella condivisone file di Azure:
 
 > [!Warning]  
-> L'eliminazione dei metadati nella condivisione file di Azure attualmente in uso da un endpoint cloud impedisce il corretto funzionamento di Sincronizzazione file di Azure. 
+> L'eliminazione dei metadati nella condivisione file di Azure attualmente in uso da un endpoint cloud impedisce il corretto funzionamento di Sincronizzazione file di Azure. 
 
-1. Nel portale di Azure passare alla condivisione file di Azure.  
+1. Nel portale di Azure passare alla condivisione file di Azure.  
 2. Fare clic con il pulsante destro del mouse sulla condivisione file di Azure e scegliere **Modifica metadati**.
 3. Fare clic con il pulsante destro del mouse su **SyncService** e quindi fare clic su **Elimina**.
 
@@ -258,9 +258,9 @@ La tabella seguente contiene tutti i caratteri unicode che Sincronizzazione file
 | Set di caratteri | Conteggio di caratteri |
 |---------------|-----------------|
 | <ul><li>0x0000009D (osc operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
-| 0x0000FDD0 - 0x0000FDEF (Arabic presentation forms-a) | 32 |
+| 0x0000FDD0 - 0x0000FDEF (Forme di presentazione arabo di tipo A) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (caso speciale) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (non carattere)</li><li>0x0002FFFE - 0x0002FFFF = 2 (non carattere)</li><li>0x0003FFFE - 0x0003FFFF = 2 (non carattere)</li><li>0x0004FFFE - 0x0004FFFF = 2 (non carattere)</li><li>0x0005FFFE - 0x0005FFFF = 2 (non carattere)</li><li>0x0006FFFE - 0x0006FFFF = 2 (non carattere)</li><li>0x0007FFFE - 0x0007FFFF = 2 (non carattere)</li><li>0x0008FFFE - 0x0008FFFF = 2 (non carattere)</li><li>0x0009FFFE - 0x0009FFFF = 2 (non carattere)</li><li>0x000AFFFE - 0x000AFFFF = 2 (non carattere)</li><li>0x000BFFFE - 0x000BFFFF = 2 (non carattere)</li><li>0x000CFFFE - 0x000CFFFF = 2 (non carattere)</li><li>0x000DFFFE - 0x000DFFFF = 2 (non carattere)</li><li>0x000EFFFE - 0x000EFFFF = 2 (non definito)</li><li>0x000FFFFE - 0x000FFFFF = 2 (supplementary private use area)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (non carattere)</li><li>0x0002FFFE - 0x0002FFFF = 2 (non carattere)</li><li>0x0003FFFE - 0x0003FFFF = 2 (non carattere)</li><li>0x0004FFFE - 0x0004FFFF = 2 (non carattere)</li><li>0x0005FFFE - 0x0005FFFF = 2 (non carattere)</li><li>0x0006FFFE - 0x0006FFFF = 2 (non carattere)</li><li>0x0007FFFE - 0x0007FFFF = 2 (non carattere)</li><li>0x0008FFFE - 0x0008FFFF = 2 (non carattere)</li><li>0x0009FFFE - 0x0009FFFF = 2 (non carattere)</li><li>0x000AFFFE - 0x000AFFFF = 2 (non carattere)</li><li>0x000BFFFE - 0x000BFFFF = 2 (non carattere)</li><li>0x000CFFFE - 0x000CFFFF = 2 (non carattere)</li><li>0x000DFFFE - 0x000DFFFF = 2 (non carattere)</li><li>0x000EFFFE - 0x000EFFFF = 2 (non definito)</li><li>0x000FFFFE - 0x000FFFFF = 2 (area supplementare per uso privato)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>Errori di sincronizzazione comuni
@@ -519,7 +519,7 @@ Questo errore si verifica perché sono state apportate modifiche nella condivisi
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimale)** | -2134375908 |
-| **Stringa di errore** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Stringa di errore** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Rimedio necessario** | Yes |
 | | |
 | **HRESULT** | 0x80c80253 |

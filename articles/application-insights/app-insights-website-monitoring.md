@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/15/2018
+ms.date: 10/29/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f4de10c29364ab96f54e5d07e9c416a2beb038f6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8e764bfc4481343a1e1fb710df7d09f7a38f4f78
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380183"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420357"
 ---
 # <a name="start-monitoring-your-website"></a>Avviare il monitoraggio del sito Web
 
 Con Application Insights di Monitoraggio di Azure è possibile monitorare facilmente la disponibilità, le prestazioni e l'utilizzo di un sito Web. È anche possibile identificare e diagnosticare rapidamente gli errori nell'applicazione senza attendere che vengano segnalati da un utente. Application Insights offre sia funzionalità di monitoraggio sul lato server, che funzionalità di monitoraggio sul lato client/browser.
 
-Questa guida introduttiva include istruzioni per l'aggiunta di [Application Insight JavaScript SDK open source](https://github.com/Microsoft/ApplicationInsights-JS), che consente di comprendere l'esperienza sul lato client/browser per i visitatori del sito Web.
+Questa guida introduttiva include istruzioni per l'aggiunta di [Application Insights JavaScript SDK open source](https://github.com/Microsoft/ApplicationInsights-JS), che consente di comprendere l'esperienza sul lato client/browser per i visitatori del sito Web.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -74,7 +74,7 @@ Application Insights può raccogliere dati di telemetria da qualsiasi applicazio
 
 1. Selezionare **Panoramica** > **Informazioni di base** > copiare la **chiave di strumentazione** dell'applicazione.
 
-   ![Modulo per una nuova risorsa di Application Insights](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
+   ![Modulo per una nuova risorsa di Application Insights](media/app-insights-website-monitoring/instrumentation-key-001.png)
 
 2. Aggiungere lo script seguente al file ``hello_world.html`` prima del tag ``</head>`` di chiusura:
 
@@ -98,7 +98,7 @@ Application Insights può raccogliere dati di telemetria da qualsiasi applicazio
 
 1. È ora possibile riaprire la pagina **Panoramica** di Application Insights nel portale di Azure, dove è stata recuperata la chiave di strumentazione, per visualizzare informazioni dettagliate sull'applicazione attualmente in esecuzione. I quattro grafici predefiniti nella pagina di panoramica hanno come ambiti i dati dell'applicazione lato server. Dato che si stanno instrumentando le interazioni sul lato client/browser con JavaScript SDK, questa particolare visualizzazione non è applicabile a meno che non sia installato anche un SDK lato server.
 
-2. Fare clic su ![icona della Mappa delle applicazioni](./media/app-insights-nodejs-quick-start/006.png) **Analisi**.  Verrà aperta la finestra **Analisi**, che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. Per visualizzare i dati relativi alle richieste del browser sul lato client, eseguire la query seguente:
+2. Fare clic su ![icona della Mappa delle applicazioni](media/app-insights-website-monitoring/006.png) **Analisi**.  Verrà aperta la finestra **Analisi**, che fornisce un linguaggio di query avanzato per l'analisi di tutti i dati raccolti da Application Insights. Per visualizzare i dati relativi alle richieste del browser sul lato client, eseguire la query seguente:
 
     ```kusto
     // average pageView duration by name

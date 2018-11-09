@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7e8afc02c738a2bba445b1d84b7cb899dfbb93a0
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc724f57a25e2ca12d334192d2171899345e72de
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301555"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247382"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastruttura di sicurezza: sicurezza della comunicazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
 | **Hub eventi di Azure** | <ul><li>[Proteggere la comunicazione con l'hub eventi con SSL/TLS](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[Verificare i privilegi dell'account del servizio e controllare che le pagine ASP.NET o i servizi personalizzati rispettino la sicurezza di CRM](#priv-aspnet)</li></ul> |
-| **Azure Data Factory** | <ul><li>[Usare il gateway di gestione dati nella connessione dell'istanza locale di SQL Server ad Azure Data Factory](#sqlserver-factory)</li></ul> |
+| **Data factory di Azure** | <ul><li>[Usare il gateway di gestione dati nella connessione dell'istanza locale di SQL Server ad Azure Data Factory](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Verificare che tutto il traffico verso Identity Server venga gestito su connessione HTTPS](#identity-https)</li></ul> |
 | **Applicazione Web** | <ul><li>[Verificare i certificati X.509 usati per autenticare le connessioni SSL, TLS e DTLS](#x509-ssltls)</li><li>[Configurare il certificato SSL per un dominio personalizzato nel servizio app di Azure](#ssl-appservice)</li><li>[Forzare tutto il traffico verso il servizio app di Azure su una connessione HTTPS](#appservice-https)</li><li>[Abilitare HTTP Strict Transport Security (HSTS)](#http-hsts)</li></ul> |
 | **Database** | <ul><li>[Verificare la crittografia della connessione e la convalida dei certificati di SQL Server](#sqlserver-validation)</li><li>[Forzare la comunicazione crittografata con SQL Server](#encrypted-sqlserver)</li></ul> |
@@ -113,7 +113,7 @@ ms.locfileid: "43301555"
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | Tipo di ambiente: Azure |
 | **Riferimenti**              | [Imporre HTTPS nel servizio app di Azure](../app-service/app-service-web-tutorial-custom-ssl.md#enforce-https) |
-| **Passaggi** | <p>Nonostante Azure abiliti già HTTPS per i servizi app di Azure con un certificato con caratteri jolly per il dominio *.azurewebsites.net, non impone HTTPS. I visitatori possono comunque accedere all'app usando HTTP e questo potrebbe compromettere la sicurezza dell'app. È quindi necessario imporre HTTPS in modo esplicito. Le applicazioni ASP.NET MVC dovranno usare il [filtro RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) che forza il nuovo invio di una richiesta HTTP non protetta su HTTPS.</p><p>In alternativa, per imporre HTTPS è possibile usare il modulo URL Rewrite incluso con Servizio app di Azure. Il modulo URL Rewrite consente agli sviluppatori di definire le regole applicate alle richieste in ingresso prima che queste vengano passate all'applicazione. Le regole di URL Rewrite sono definite in un file web.config archiviato nella radice dell'applicazione.</p>|
+| **Passaggi** | <p>Nonostante Azure abiliti già HTTPS per i servizi app di Azure con un certificato con caratteri jolly per il dominio *.azurewebsites.net, non impone HTTPS. I visitatori possono comunque accedere all'app usando HTTP e questo potrebbe compromettere la sicurezza dell'app. È quindi necessario imporre HTTPS in modo esplicito. Le applicazioni ASP.NET MVC dovranno usare il [filtro RequireHttps](https://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) che forza il nuovo invio di una richiesta HTTP non protetta su HTTPS.</p><p>In alternativa, per imporre HTTPS è possibile usare il modulo URL Rewrite incluso con Servizio app di Azure. Il modulo URL Rewrite consente agli sviluppatori di definire le regole applicate alle richieste in ingresso prima che queste vengano passate all'applicazione. Le regole di URL Rewrite sono definite in un file web.config archiviato nella radice dell'applicazione.</p>|
 
 ### <a name="example"></a>Esempio
 L'esempio seguente contiene una regola di base di URL Rewrite che forza l'uso di HTTPS per tutto il traffico in ingresso.
@@ -156,7 +156,7 @@ Il funzionamento di questa regola prevede la restituzione di un codice di stato 
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | SQL Azure  |
 | **Attributes (Attributi) (Attributi)**              | Versione SQL: 12 |
-| **Riferimenti**              | [Best Practices on Writing Secure Connection Strings for SQL Database](http://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) (Procedure consigliate per la scrittura di stringhe di connessione sicure per il database SQL) |
+| **Riferimenti**              | [Best Practices on Writing Secure Connection Strings for SQL Database](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) (Procedure consigliate per la scrittura di stringhe di connessione sicure per il database SQL) |
 | **Passaggi** | <p>Tutte le comunicazioni tra il database SQL e un'applicazione client vengono crittografate usando sempre Secure Sockets Layer (SSL). Il database SQL non supporta connessioni non crittografate. Per convalidare i certificati con gli strumenti o il codice dell'applicazione, richiedere una connessione crittografata in modo esplicito e non considerare attendibili i certificati del server. Se il codice dell'applicazione o gli strumenti non richiedono una connessione crittografata, riceveranno comunque connessioni crittografate.</p><p>Tuttavia, potrebbero non convalidare i certificati del server e pertanto saranno soggetti ad attacchi "man in the middle". Per convalidare i certificati con il codice dell'applicazione ADO.NET, impostare `Encrypt=True` e `TrustServerCertificate=False` nella stringa di connessione del database. Per convalidare i certificati tramite SQL Server Management Studio, aprire la finestra di dialogo Connetti al server. Fare clic su Crittografa connessione nella scheda Proprietà connessione.</p>|
 
 ## <a id="encrypted-sqlserver"></a>Forzare la comunicazione crittografata con SQL Server

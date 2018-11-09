@@ -7,16 +7,17 @@ manager: douge
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: dd1d6ca6d43a7c1054b822336d23b4b6be392788
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: c708c396911badb7c7ce5df2497aaba47cb7defe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39212977"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243761"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Introduzione all'Archiviazione di Azure (progetti Azure WebJob)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -144,5 +145,5 @@ Per altre informazioni su come usare l'oggetto **CloudTable** , vedere [Introduz
 Per informazioni su come gestire l'elaborazione di tabelle attivata da un messaggio di coda o per scenari di WebJobs SDK non legati all'elaborazione di tabelle, vedere [Introduzione all'archiviazione di accodamento di Azure e ai servizi relativi a Visual Studio (progetti WebJob)](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare Processi Web di Azure e WebJobs SDK, vedere le [risorse di documentazione di Processi Web di Azure](http://go.microsoft.com/fwlink/?linkid=390226).
+Questo articolo ha fornito esempi di codice che illustrano come gestire scenari comuni per l'uso di tabelle di Azure. Per altre informazioni su come usare Processi Web di Azure e WebJobs SDK, vedere le [risorse di documentazione di Processi Web di Azure](https://go.microsoft.com/fwlink/?linkid=390226).
 

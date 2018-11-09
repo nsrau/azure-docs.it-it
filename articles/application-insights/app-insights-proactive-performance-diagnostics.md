@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 8c34696f81e40b4db13e6868f6bdaa1b2a8e7a2a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095464"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419725"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Rilevamento intelligente - anomalie nelle prestazioni
 
@@ -47,7 +47,7 @@ Una notifica non significa che l'app ha sicuramente un problema. Invita semplice
 Le notifiche includono informazioni di diagnostica. Ad esempio:
 
 
-![Di seguito è riportato un esempio di rilevamento della riduzione del tempo di risposta del server](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![Di seguito è riportato un esempio di rilevamento della riduzione del tempo di risposta del server](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **Valutazione**. La notifica mostra il numero di utenti o il numero di operazioni interessati. Ciò consente di assegnare una priorità al problema.
 2. **Ambito**. Il problema interessa solo alcune pagine o tutto il traffico? È limitato a browser o percorsi specifici? Queste informazioni si possono ricavare dalla notifica.
@@ -61,7 +61,7 @@ Le notifiche includono informazioni di diagnostica. Ad esempio:
 
 Le notifiche di rilevamento intelligente sono abilitate per impostazione predefinita e inviate a coloro i quali hanno l'accesso di [proprietari, collaboratori e lettori alla risorsa Application Insights](app-insights-resources-roles-access-control.md). Per modificare questa impostazione, fare clic su **Configura** nella notifica tramite posta elettronica o aprire le impostazioni di rilevamento intelligente in Application Insights. 
   
-  ![Impostazioni di rilevamento intelligente](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![Impostazioni di rilevamento intelligente](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * È possibile usare il collegamento **Annulla sottoscrizione** nel messaggio di posta elettronica di Rilevamento intelligente per interrompere la ricezione delle notifiche di posta elettronica.
 
@@ -143,7 +143,7 @@ L'applicazione moderna adotta con sempre maggiore frequenza l'approccio di proge
 
 Esempio di notifica di riduzione delle dipendenze:
 
-![Di seguito è riportato un esempio di rilevamento della riduzione della durata delle dipendenze](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![Di seguito è riportato un esempio di rilevamento della riduzione della durata delle dipendenze](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 Le informazioni fornite includono:
 
@@ -161,7 +161,7 @@ Le informazioni fornite includono:
 
 Application Insights rileva i problemi di prestazioni che potrebbero riguardare solo alcuni utenti o che riguardano gli utenti solo in alcuni casi. Ad esempio, le notifiche relative al caricamento più lento delle pagine su un tipo di browser rispetto ad altri o se le richieste vengono eseguite più lentamente da un server specifico. È anche possibile rilevare problemi legati alle combinazioni di proprietà, ad esempio caricamenti lenti della pagine in un'area geografica per clienti che usano un particolare sistema operativo.  
 
-Anomalie come queste sono molto difficili da rilevare semplicemente esaminando i dati, ma sono più comuni di quanto si pensi. Spesso emergono solo quando i clienti si lamentano. A quel punto è troppo tardi: gli utenti interessati sono già passati alla concorrenza.
+Anomalie come queste sono molto difficili da rilevare semplicemente esaminando i dati, ma sono più comuni di quanto si pensi. Spesso emergono solo quando i clienti si lamentano. A quel punto è troppo tardi. Gli utenti interessati sono già in procinto di passare alla concorrenza.
 
 Attualmente, gli algoritmi esaminano i tempi di caricamento delle pagine, i tempi di risposta richiesti al server e i tempi di risposta delle dipendenze.  
 

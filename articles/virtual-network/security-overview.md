@@ -4,9 +4,6 @@ description: Informazioni sui gruppi di sicurezza di rete e delle applicazioni. 
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: get-started-article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 79ea839a5b57a2b64b80feba8324764a23c05697
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9a4aa1606e99057565891dc10d17ba9abf15d9c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987017"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159078"
 ---
 # <a name="security-groups"></a>Gruppi di sicurezza
 <a name="network-security-groups"></a>
@@ -34,7 +31,7 @@ Un gruppo di sicurezza di rete può contenere zero regole o il numero di regole 
 
 |Proprietà  |Spiegazione  |
 |---------|---------|
-|NOME|Nome univoco all'interno del gruppo di sicurezza di rete.|
+|Nome|Nome univoco all'interno del gruppo di sicurezza di rete.|
 |Priorità | Numero compreso tra 100 e 4096. Le regole vengono elaborate in ordine di priorità. I numeri più bassi vengono elaborati prima di quelli più elevati perché hanno priorità più alta. Quando il traffico corrisponde a una regola, l'elaborazione viene interrotta. Di conseguenza, le regole con priorità più bassa (numeri più elevati) che hanno gli stessi attributi di regole con priorità più elevata non vengono elaborate.|
 |Origine o destinazione| Qualsiasi indirizzo IP, blocco CIDR (Classless Inter-Domain Routing), ad esempio 10.0.0.0/24, [tag di servizio](#service-tags) o [gruppo di sicurezza delle applicazioni](#application-security-groups). Se si specifica un indirizzo per una risorsa di Azure, specificare l'indirizzo IP privato assegnato alla risorsa. I gruppi di sicurezza della rete vengono elaborati dopo che Azure ha convertito un indirizzo IP pubblico in un indirizzo IP privato per il traffico in ingresso e prima che Azure converta un indirizzo IP privato in un indirizzo IP pubblico per il traffico in uscita. Vedere altre informazioni sugli [indirizzi IP](virtual-network-ip-addresses-overview-arm.md) di Azure. Specificando un intervallo, un tag di servizio o un gruppo di sicurezza delle applicazioni è possibile creare un minor numero di regole di sicurezza. La possibilità di specificare più intervalli e indirizzi IP singoli in una regola è detta [regola di sicurezza ottimizzata](#augmented-security-rules). Non si possono specificare più tag di servizio o gruppi di applicazioni. È possibile creare regole di sicurezza ottimizzate solo in gruppi di sicurezza di rete creati tramite il modello di distribuzione Resource Manager. Non si possono specificare più indirizzi IP e intervalli di indirizzi IP nei gruppi di sicurezza di rete creati tramite il modello di distribuzione classica. Vedere altre informazioni sui [modelli di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) di Azure.|
 |Protocollo     | TCP, UDP o Qualsiasi, che include TCP, UDP e ICMP. Non è possibile specificare solo ICMP. Se è necessario ICMP, usare Qualsiasi. |
@@ -60,9 +57,9 @@ Le regole di sicurezza ottimizzate semplificano la definizione della sicurezza p
  Nella definizione delle regole di sicurezza possono essere usati i tag di servizio seguenti. I nomi variano leggermente a seconda del [modello di distribuzione di Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** per la distribuzione classica): questo tag include lo spazio indirizzi della rete virtuale (tutti gli intervalli CIDR definiti per la rete virtuale), tutti gli spazi indirizzi locali connessi e le reti virtuali [con peering](virtual-network-peering-overview.md) o una rete virtuale connessa a un [gateway di rete virtuale](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) o **AZURE_LOADBALANCER** (distribuzione classica): questo tag identifica il servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito in un [indirizzo IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653) da cui hanno origine i probe di integrità di Azure. Se non si usa Azure Load Balancer, è possibile eseguire l'override di questa regola.
+* **AzureLoadBalancer** (Resource Manager) o **AZURE_LOADBALANCER** (distribuzione classica): questo tag identifica il servizio di bilanciamento del carico dell'infrastruttura di Azure. Viene convertito nell'[indirizzo IP virtuale dell'host](security-overview.md##azure-platform-considerations) (168.63.129.16) da cui hanno origine i probe di integrità di Azure. Se non si usa Azure Load Balancer, è possibile eseguire l'override di questa regola.
 * **Internet** (Resource Manager) o **INTERNET** (distribuzione classica): questo tag identifica lo spazio indirizzi IP esterno alla rete virtuale e raggiungibile tramite Internet pubblico. L'intervallo degli indirizzi include lo [spazio degli IP pubblici appartenenti ad Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureCloud** (solo Resource Manager): questo tag identifica lo spazio indirizzi IP per Azure che include gli indirizzi IP pubblici di tutti i Data Center. Se si specifica *AzureCloud* come valore, verrà consentito o impedito il traffico verso gli indirizzi pubblici di Azure. Se si vuole consentire l'accesso ad AzureCloud solo in una determinata [area](https://azure.microsoft.com/regions), è possibile specificare tale area. Se ad esempio si vuole consentire l'accesso ad AzureCloud di Azure solo nell'area Stati Uniti orientali, è possibile specificare *Azurecloud.EastUS* come tag di servizio. 
+* **AzureCloud** (solo Resource Manager): questo tag identifica lo spazio indirizzi IP per Azure che include tutti gli [indirizzi IP pubblici dei data center](https://www.microsoft.com/download/details.aspx?id=41653). Se si specifica *AzureCloud* come valore, verrà consentito o impedito il traffico verso gli indirizzi pubblici di Azure. Se si vuole consentire l'accesso ad AzureCloud solo in una determinata [area](https://azure.microsoft.com/regions), è possibile specificare tale area. Se ad esempio si vuole consentire l'accesso ad AzureCloud di Azure solo nell'area Stati Uniti orientali, è possibile specificare *Azurecloud.EastUS* come tag di servizio. 
 * **AzureTrafficManager** (solo Resource Manager): questo tag identifica lo spazio indirizzi IP per gli indirizzi IP probe di Gestione traffico di Azure. Per altre informazioni sugli IP probe di Gestione traffico, consultare [Domande frequenti su Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
 * **Storage** (solo Resource Manager): questo tag identifica lo spazio indirizzi IP per il servizio Archiviazione di Azure. Se si specifica *Storage* come valore, verrà consentito o impedito il traffico verso il servizio di archiviazione. Se si vuole consentire l'accesso al servizio di archiviazione solo in una determinata [area](https://azure.microsoft.com/regions), è possibile specificare tale area. Se ad esempio si vuole consentire l'accesso ad Archiviazione di Azure solo nell'area Stati Uniti orientali, è possibile specificare *Storage.EastUS* come tag di servizio. Il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Archiviazione di Azure, ma non uno specifico account di archiviazione di Azure. Tutti i prefissi di indirizzo rappresentati da questo tag sono rappresentati anche dal tag **Internet**. 
 * **Sql** (solo Resource Manager): questo tag identifica i prefissi di indirizzo dei servizi Database SQL di Azure e Azure SQL Data Warehouse. Se si specifica *Sql* come valore, verrà consentito o impedito il traffico verso SQL. Se si vuole consentire l'accesso a SQL solo in una determinata [area](https://azure.microsoft.com/regions), è possibile specificare tale area. Se ad esempio si vuole consentire l'accesso a Database SQL di Azure solo nell'area Stati Uniti orientali, è possibile specificare *Sql.EastUS* come tag di servizio. Il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. Tutti i prefissi di indirizzo rappresentati da questo tag sono rappresentati anche dal tag **Internet**. 
@@ -79,7 +76,6 @@ Le regole di sicurezza ottimizzate semplificano la definizione della sicurezza p
 * **GateawayManager** (solo Resource Manager): questo tag identifica i prefissi di indirizzo del servizio Azure Gateway Manager. Se si specifica *GatewayManager* come valore, verrà consentito o impedito il traffico verso GatewayManager. Se si vuole solo consentire l'accesso a GatewayManager in un'[area](https://azure.microsoft.com/regions) specifica, è possibile specificare l'area nel formato seguente GatewayManager.[nome dell'area]. 
 * **Azure Data Lake** (solo Resource Manager): questo tag identifica i prefissi di indirizzo del servizio Azure Data Lake. Se si specifica *AzureDataLake* come valore, verrà consentito o impedito il traffico verso AzureDataLake. 
 * **AzureActiveDirectory** (solo Resource Manager): questo tag identifica i prefissi di indirizzo del servizio AzureActiveDirectory. Se si specifica *AzureActiveDirectory* come valore, verrà consentito o impedito il traffico verso AzureActiveDirectory.  
-* **CorpNetSAW** (solo Resource Manager): questo tag identifica i prefissi di indirizzo dei [dispositivi CorpNetSAW](../security/azure-security-iaas.md) gestiti da Azure. In alcuni casi, i servizi di Azure possono usare questo tag di servizio per richiedere l'accesso alle istanze gestite dal cliente per migliorare il supporto. Se si specifica *CorpNetSAW* come valore, verrà consentito o impedito il traffico verso CorpNetSAW. 
 
 > [!NOTE]
 > I tag di servizio per i servizi Azure identificano i prefissi di indirizzo dal cloud specifico in uso. I tag di servizio di area non sono supportati nei cloud nazionali, ma solo in formato globale, ad esempio *Archiviazione* e *Sql*.
