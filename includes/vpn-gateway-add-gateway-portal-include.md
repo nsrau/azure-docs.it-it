@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 10/24/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c1680f5b5aead08a927bac4b3234f57a78527248
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 6d8a86dd881b1a411bea4ec4469753268692982a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30921564"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035504"
 ---
 1. Nel lato sinistro della pagina del portale fare clic su **+** e digitare 'Gateway di rete virtuale' nella casella di ricerca. In **Risultati** individuare e selezionare **Gateway di rete virtuale**.
 2. Nella parte inferiore della pagina "Gateway di rete virtuale" fare clic su **Crea**. Verrà visualizzata la pagina **Crea gateway di rete virtuale**.
@@ -25,17 +25,19 @@ ms.locfileid: "30921564"
   - **Tipo di gateway**: selezionare **VPN**. I gateway VPN usano il gateway di rete virtuale di tipo **VPN**. 
   - **Tipo VPN**: selezionare il tipo di VPN specificato per la configurazione. La maggior parte delle configurazioni richiede un tipo di VPN basato su route.
   - **SKU**: selezionare lo SKU del gateway dall'elenco a discesa. Gli SKU disponibili nell'elenco a discesa dipendono dal tipo di VPN selezionato. Per informazioni sugli SKU del gateway, vedere [SKU del gateway](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
-  - **Posizione**: potrebbe essere necessario scorrere la schermata per trovare la posizione. Modificare il campo **Località** in modo che faccia riferimento alla località in cui si trova la rete virtuale. Se la località non fa riferimento all'area in cui si trova la rete virtuale, quest'ultima non verrà visualizzata nell'elenco a discesa quando si seleziona una rete virtuale nel passaggio successivo.
+
+    Selezionare **Abilita modalità attiva-attiva** solo se si sta creando una configurazione gateway attiva-attiva, altrimenti lasciare l'impostazione non selezionata.
+  - **Posizione**: potrebbe essere necessario scorrere la schermata per trovare la posizione. Modificare il campo **Località** in modo che faccia riferimento alla località in cui si trova la rete virtuale. Ad esempio, Stati Uniti occidentali. Se la località non fa riferimento all'area in cui si trova la rete virtuale, quest'ultima non verrà visualizzata nell'elenco a discesa quando si seleziona una rete virtuale nel passaggio successivo.
   - **Rete virtuale**: scegliere la rete virtuale a cui si vuole aggiungere il gateway. Fare clic su **Rete virtuale** per aprire la pagina "Scegliere una rete virtuale". Selezionare la rete virtuale. Se la rete virtuale non viene visualizzata, verificare che il campo Località faccia riferimento all'area in cui si trova la rete virtuale.
   - **Intervallo di indirizzi subnet del gateway**: questa impostazione verrà visualizzata solo se in precedenza non è stata creata una subnet del gateway per la rete virtuale. Se in precedenza si è creata una subnet del gateway valida, questa impostazione non verrà visualizzata.
-  - **Prima configurazione IP**: la pagina "Scegli indirizzo IP pubblico" crea un oggetto indirizzo IP pubblico che viene associato al gateway VPN. L'indirizzo IP pubblico viene assegnato dinamicamente a questo oggetto durante la creazione del gateway VPN. Il gateway VPN supporta attualmente solo l'allocazione degli indirizzi IP pubblici *dinamici*. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP pubblico viene modificato solo quando il gateway viene eliminato e ricreato. Non viene modificato in caso di ridimensionamento, reimpostazione o altre manutenzioni/aggiornamenti del gateway VPN.
+  - **Indirizzo IP pubblico**: questa impostazione specifica l'oggetto indirizzo IP pubblico che viene associato al gateway VPN. L'indirizzo IP pubblico viene assegnato dinamicamente a questo oggetto durante la creazione del gateway VPN. Il gateway VPN supporta attualmente solo l'allocazione degli indirizzi IP pubblici *dinamici*. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP pubblico viene modificato solo quando il gateway viene eliminato e ricreato. Non viene modificato in caso di ridimensionamento, reimpostazione o altre manutenzioni/aggiornamenti del gateway VPN.
 
-    - Per prima cosa fare clic su **Crea configurazione IP gateway** per aprire la pagina "Scegli indirizzo IP pubblico", quindi fare clic su **+Crea nuovo** per aprire la pagina "Crea indirizzo IP pubblico".
-    - Immettere quindi un **nome** per l'indirizzo IP pubblico. Lasciare lo SKU impostato su **Basic** a meno che non esista un motivo specifico per modificarlo, quindi fare clic su **OK** nella parte inferiore della pagina per salvare le modifiche.
+    - Lasciare **Crea nuovo** selezionato.
+    - Nella casella di testo digitare un **nome** per l'indirizzo IP pubblico.
 
-      ![Creare un indirizzo IP pubblico](./media/vpn-gateway-add-gateway-portal-include/public-ip-address-name.png "Creare un indirizzo IP")
-
-4. Verificare le impostazioni. Se si vuole che il gateway venga visualizzato nel dashboard, è possibile selezionare **Aggiungi al dashboard** nella parte inferiore della pagina. 
-5. Fare clic su **Crea** per iniziare a creare il gateway VPN. Le impostazioni verranno convalidate e nel dashboard verrà visualizzato il riquadro relativo alla distribuzione del gateway di rete virtuale. La creazione di un gateway può richiedere fino a 45 minuti. Potrebbe essere necessario aggiornare la pagina del portale per visualizzare lo stato di completamento.
+4. Lasciare **Configura ASN BGP** deselezionata, a meno che la configurazione non richieda specificamente questa impostazione. Se è un'impostazione necessaria, il numero ASN predefinito è 65515, anche se può essere modificato.
+5. Verificare le impostazioni. Se si vuole che il gateway venga visualizzato nel dashboard, è possibile selezionare **Aggiungi al dashboard** nella parte inferiore della pagina. 
+6. Fare clic su **Crea** per iniziare a creare il gateway VPN. Le impostazioni verranno convalidate e nel dashboard verrà visualizzato il riquadro relativo alla distribuzione del gateway di rete virtuale. La creazione di un gateway può richiedere fino a 45 minuti. Può essere necessario aggiornare la pagina del portale per visualizzare lo stato completato
+dell'operazione.
 
 Dopo la creazione del gateway, è possibile visualizzare l'indirizzo IP assegnato esaminando la rete virtuale nel portale. Il gateway viene visualizzato come un dispositivo connesso. È possibile fare clic sul dispositivo connesso, ovvero il gateway di rete virtuale, per visualizzare altre informazioni.

@@ -4,16 +4,16 @@ description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ecac0fb21a6691874d5e8db49eadd7114d41845f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2c9f660e54da50e32ce1d0dc43b0efeacd643c57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956201"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093786"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -25,7 +25,7 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 ## <a name="updating-assignments"></a>Aggiornamento delle assegnazioni
 
-1. Avviare il servizio Azure Blueprint nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri** nel riquadro a sinistra. Nella pagina **Criteri** fare clic su **Progetti**.
+1. Fare clic su **Tutti i servizi** e quindi cercare e selezionare **Criteri** nel riquadro sinistro. Nella pagina **Criteri** fare clic su **Progetti**.
 
 1. Selezionare **Progetti assegnati** nella pagina a sinistra.
 
@@ -45,26 +45,30 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 ## <a name="rules-for-updating-assignments"></a>Regole per l'aggiornamento delle assegnazioni
 
-La distribuzione delle assegnazioni aggiornate segue alcune regole importanti. Queste regole determinano cosa accade a una risorsa esistente a seconda della modifica richiesta e il tipo di risorsa artefatto da distribuire o aggiornare.
+La distribuzione delle assegnazioni aggiornate segue alcune regole importanti. Queste regole definiscono che cosa accade alle risorse già distribuite. La modifica richiesta e il tipo di risorsa dell'artefatto distribuito o aggiornato determinano le azioni che vengono eseguite.
 
 - Assegnazioni di ruoli
-  - Se cambia il ruolo o l'assegnatario del ruolo (utente, gruppo o app), viene creata una nuova assegnazione di ruolo. L'assegnazione di ruolo distribuita in precedenza viene mantenuta.
+  - Se cambia il ruolo o l'assegnatario del ruolo (utente, gruppo o app), viene creata una nuova assegnazione di ruolo. Le assegnazioni di ruolo distribuite in precedenza vengono mantenute.
 - Assegnazioni di criteri
   - Se vengono modificati i parametri dell'assegnazione dei criteri, l'assegnazione esistente viene aggiornata.
-  - Se viene modificata la definizione dell'assegnazione dei criteri, viene creata una nuova assegnazione di criteri. L'assegnazione di criteri distribuita in precedenza viene mantenuta.
-  - Se l'artefatto dell'assegnazione dei criteri viene rimosso dal progetto, l'assegnazione di criteri distribuita in precedenza viene mantenuta.
+  - Se viene modificata la definizione dell'assegnazione dei criteri, viene creata una nuova assegnazione di criteri. Le assegnazioni di criteri distribuite in precedenza vengono mantenute.
+  - Se l'artefatto dell'assegnazione dei criteri viene rimosso dal progetto, l'assegnazione di criteri distribuita viene mantenuta.
 - Modelli di Gestione risorse di Azure
-  - Il modello viene elaborato tramite Resource Manager come **PUT**. Dato che ogni tipo di risorsa gestisce questo tipo di operazione in modo diverso, vedere la documentazione per ogni risorsa inclusa per determinare l'impatto di questa azione quando viene eseguita dai progetti.
+  - Il modello viene elaborato tramite Resource Manager come **PUT**. Dato che ogni tipo di risorsa gestisce questo tipo di azione in modo diverso, vedere la documentazione per ogni risorsa inclusa per determinare l'impatto di questa azione quando viene eseguita dai progetti.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Possibili errori per l'aggiornamento delle assegnazioni
 
 Quando si aggiornano le assegnazioni, è possibile apportare modifiche che causano errori durante l'esecuzione. Un esempio è la modifica della posizione di un gruppo di risorse dopo che è già stato distribuito. È possibile apportare qualsiasi modifica supportata da [Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md), ma qualsiasi modifica che causerebbe un errore in Azure Resource Manager comporterà anche l'esito negativo dell'assegnazione.
 
-Non è previsto alcun limite al numero di volte che è possibile aggiornare un'assegnazione. Di conseguenza, se si verifica un errore, a causa di un parametro non valido, di un oggetto già esistente o di una modifica non consentita da Azure Resource Manager, determinare l'errore e aggiornare di nuovo l'assegnazione.
+Non è previsto alcun limite al numero di volte che è possibile aggiornare un'assegnazione. Se si verifica un errore, determinare l'errore ed eseguire un altro aggiornamento per l'assegnazione.  Esempi di scenari di errore:
+
+- Un parametro non valido
+- Un oggetto già esistente
+- Una modifica non supportata da Azure Resource Manager
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Acquisire informazioni sul [ciclo di vita del progetto](../concepts/lifecycle.md)
+- Informazioni sul [ciclo di vita del progetto](../concepts/lifecycle.md)
 - Informazioni su come usare [parametri statici e dinamici](../concepts/parameters.md)
 - Imparare a personalizzare l'[ordine in sequenza del progetto](../concepts/sequencing-order.md)
 - Scoprire come usare il [blocco delle risorse del progetto](../concepts/resource-locking.md)

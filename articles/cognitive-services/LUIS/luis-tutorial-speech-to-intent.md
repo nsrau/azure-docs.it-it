@@ -1,7 +1,7 @@
 ---
 title: Usare l'SDK di riconoscimento vocale C# con LUIS
 titleSuffix: Azure Cognitive Services
-description: Il Servizio di riconoscimento vocale consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS. Il progetto usa il pacchetto Speech NuGet già incluso come riferimento.
+description: Il servizio Voce consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS. Il progetto usa il pacchetto Speech NuGet già incluso come riferimento.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883925"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139092"
 ---
-# <a name="integrate-speech-service"></a>Integrare il Servizio di riconoscimento vocale
-Il [Servizio di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS. Il progetto usa il pacchetto Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) già incluso come riferimento. 
+# <a name="integrate-speech-service"></a>Integrare il servizio Voce
+Il [servizio Voce](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) consente di usare una singola richiesta per ricevere l'audio e restituire gli oggetti JSON di stima LUIS. In questo articolo viene scaricato e usato un progetto C# in Visual Studio per pronunciare un'espressione in un microfono e ricevere le informazioni di stima LUIS. Il progetto usa il pacchetto Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) già incluso come riferimento. 
 
 Per questo articolo è necessario un account del sito Web [LUIS][LUIS] gratuito per importare l'applicazione.
 
@@ -39,7 +39,7 @@ Questa app include le finalità, le entità e le espressioni correlate al domini
 
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Aggiungere l'entità predefinita KeyPhrase
-Dopo aver importato l'app, selezionare **Entities** (Entità) e quindi **Manage prebuilt entities** (Gestisci entità predefinite). Aggiungere l'entità **KeyPhrase**. L'entità KeyPhrase estrae l'oggetto principale dall'espressione.
+Dopo aver importato l'app, selezionare **Entities** (Entità) e quindi **Add prebuilt entity** (Aggiungi entità predefinita). Aggiungere l'entità **KeyPhrase**. L'entità KeyPhrase estrae l'oggetto principale dall'espressione.
 
 ## <a name="train-and-publish-the-app"></a>Eseguire il training e pubblicare l'app
 1. Nella barra di spostamento superiore destra selezionare il pulsante **Train** (Training) per eseguire il training dell'app LUIS.

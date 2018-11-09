@@ -1,6 +1,6 @@
 ---
 title: Spostare macchine virtuali AWS Windows in Azure | Microsoft Docs
-description: Spostare un'istanza Windows di Amazon Web Services (AWS) EC2 in Macchine virtuali di Azure usando Azure PowerShell.
+description: Spostare un'istanza Windows di Amazon Web Services (AWS) EC2 in una macchina virtuale di Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: cb5b68e7bd0a1b247327e7147fe38eae19395f50
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3fa890b02c791f26f3f25bf2418b105d1116ca75
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726534"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094427"
 ---
-# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Spostare una VM Windows da Amazon Web Services (AWS) ad Azure usando PowerShell
+# <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>Spostare una VM Windows da Amazon Web Services (AWS) a una macchina virtuale di Azure
 
 Se si stanno valutando le macchine virtuali di Azure per l'hosting dei carichi di lavoro, è possibile esportare un'istanza di VM Windows di Amazon Web Services (AWS) EC2 esistente e quindi caricare il disco rigido virtuale in Azure. Dopo il caricamento del disco rigido virtuale è possibile creare una nuova VM in Azure dal disco rigido virtuale. 
 

@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Distribuire processi ASA in dispositivi Azure IoT Edge | Microsoft Docs
+title: 'Esercitazione: Distribuire processi ASA in dispositivi Azure IoT Edge | Microsoft Docs'
 description: In questa esercitazione Analisi di flusso di Azure viene distribuito come modulo in un dispositivo Iot Edge
 author: kgremban
 manager: timlt
@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2d22e995f489a6379a2f134b461b8bb17160919e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: b85fe520bf29d10bb3dac1246349abbdadaf6df3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113836"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158738"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge (anteprima)
 
-Molte soluzioni IoT usano servizi di analisi per ottenere informazioni sui dati quando arrivano nel cloud dai dispositivi IoT. Con Azure IoT Edge, è possibile spostare direttamente nel dispositivo la logica di [Analisi di flusso di Azure][azure-stream]. Elaborando i flussi di telemetria sul perimetro, è possibile ridurre la quantità di dati caricati e ridurre il tempo necessario per reagire a informazioni dettagliate di utilità pratica.
+Molte soluzioni IoT usano servizi di analisi per ottenere informazioni sui dati quando arrivano nel cloud dai dispositivi IoT. Con Azure IoT Edge, è possibile spostare direttamente nel dispositivo la logica di [Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/). Elaborando i flussi di telemetria sul perimetro, è possibile ridurre la quantità di dati caricati e ridurre il tempo necessario per reagire a informazioni dettagliate di utilità pratica.
 
 Azure IoT Edge e Analisi di flusso di Azure sono integrati in modo tale che è possibile creare un processo di Analisi di flusso di Azure nel portale di Azure e quindi distribuirlo come modulo di IoT Edge senza codice aggiuntivo.  
 
@@ -67,7 +67,7 @@ Quando si crea un processo di Analisi di flusso di Azure da eseguire in un dispo
 
    | Campo | Valore |
    | ----- | ----- |
-   | NOME | Immettere un nome univoco per l'account di archiviazione. | 
+   | Nome | Immettere un nome univoco per l'account di archiviazione. | 
    | Località | Scegliere una località vicina. |
    | Sottoscrizione | Scegliere la stessa sottoscrizione dell'hub IoT. |
    | Gruppo di risorse | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
@@ -207,7 +207,7 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **tempSensor
 
     Dovrebbe essere visualizzato il nuovo modulo di Analisi di flusso in esecuzione insieme al modulo dell'agente IoT Edge e all'hub IoT Edge.
 
-    ![Output del modulo][7]
+    ![Output del modulo](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Visualizzare i dati
 
@@ -219,7 +219,7 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **tempSensor
    iotedge list  
    ```
 <!--
-   ![Docker output][8]
+   ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
 -->
 1. Visualizzare tutti i registri di sistema e i dati di metrica. Usare il nome del modulo di Analisi di flusso:
 
@@ -229,7 +229,7 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **tempSensor
 
 Dovrebbe essere possibile osservare un progressivo aumento della temperatura del computer fino a raggiungere i 70 gradi per 30 secondi. Il modulo di Analisi di flusso attiva quindi la reimpostazione e la temperatura del computer ritorna a 21. 
 
-   ![Log di Docker][9]
+   ![Log di Docker](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 
@@ -247,29 +247,4 @@ In caso contrario, è possibile eliminare le risorse di Azure e le configurazion
 In questa esercitazione è stato configurato un processo Analisi di flusso di Azure per analizzare i dati del dispositivo IoT Edge. Questo modulo di Analisi di flusso di Azure è stato quindi caricato nel dispositivo IoT Edge per elaborare e reagire all'aumento di temperatura in locale, nonché per inviare il flusso dei dati aggregati al cloud. È possibile continuare con le altre esercitazioni per scoprire in che modo Azure IoT Edge può creare altre soluzioni per il business.
 
 > [!div class="nextstepaction"] 
-> [Distribuire un modello di Azure Machine Learning come modulo][lnk-ml-tutorial]
-
-<!-- Images. -->
-[4]: ./media/tutorial-deploy-stream-analytics/add_device.png
-[5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
-[6]: ./media/tutorial-deploy-stream-analytics/set_module.png
-[7]: ./media/tutorial-deploy-stream-analytics/module_output2.png
-[8]: ./media/tutorial-deploy-stream-analytics/docker_output.png
-[9]: ./media/tutorial-deploy-stream-analytics/docker_log.png
-[10]: ./media/tutorial-deploy-stream-analytics/storage_settings.png
-[11]: ./media/tutorial-deploy-stream-analytics/temp_module.png
-
-
-<!-- Links -->
-[lnk-what-is-iot-edge]: what-is-iot-edge.md
-[lnk-module-dev]: module-development.md
-[iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
-[azure-iot]: https://docs.microsoft.com/azure/iot-hub/
-[azure-storage]: https://docs.microsoft.com/azure/storage/
-[azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-quickstart-win]: quickstart.md
-[lnk-quickstart-lin]: quickstart-linux.md
-[lnk-module-tutorial]: tutorial-csharp-module.md
-[lnk-ml-tutorial]: tutorial-deploy-machine-learning.md
-
+> [Distribuire un modello di Azure Machine Learning come modulo](tutorial-deploy-machine-learning.md)

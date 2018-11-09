@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: cabc4f2212e18d774066efad70d9654bb70020d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 997aa1a85068c403f1b6fa209c97413a881b1cb9
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831501"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156307"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
@@ -31,17 +31,29 @@ Questa guida introduttiva descrive come un'app Web ASP.NET può consentire l'acc
 ![Funzionamento dell'app di esempio generata da questa guida introduttiva](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Registrare l'applicazione e scaricare l'app della guida introduttiva
+> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
+> Per avviare l'applicazione della guida introduttiva sono disponibili due opzioni:
+> * [Rapida] [Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manuale] [Opzione 2: Registrare e configurare manualmente l'applicazione e il codice di esempio](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Registrare e configurare l'applicazione e il codice di esempio
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice
+>
+> 1. Passare alla [registrazione delle applicazioni (anteprima) nel portale di Azure](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+> 1. Immettere un nome per l'applicazione e fare clic su **Registra**.
+> 1. Seguire le istruzioni per scaricare e configurare automaticamente la nuova applicazione con un clic.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opzione 2: Registrare e configurare manualmente l'applicazione e il codice di esempio
+>
 > #### <a name="step-1-register-your-application"></a>Passaggio 1: Registrare l'applicazione
-> 
-> 1. Passare al [portale di registrazione delle applicazioni Microsoft](https://apps.dev.microsoft.com/portal/register-app).
-> 1. Specificare un nome per l'applicazione, assicurarsi che l'opzione **Installazione guidata** sia deselezionata e fare clic su **Crea**.
-> 1. Fare clic su `Add Platform` e quindi selezionare `Web`.
-> 1. Assicurarsi che l'opzione **Consenti il flusso implicito** sia *selezionata*.
-> 1. In **URL di reindirizzamento** immettere `https://localhost:44368/`.
-> 1. Scorrere in basso fino alla fine della pagina e fare clic su **Salva**.
+> Per registrare l'applicazione e aggiungere manualmente le informazioni di registrazione dell'app alla soluzione, seguire questa procedura:
+>
+> 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
+> 1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
+> 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima)** > **Nuova registrazione**.
+> 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione:
+>      - Nella sezione **Nome** immettere un nome di applicazione significativo che verrà visualizzato agli utenti dell'app, ad esempio `ASPNET-Quickstart`.
+>      - Aggiungere `https://localhost:44368/` in **URL di risposta** e fare clic su **Registra**.
+Selezionare il menu **Autenticazione**, impostare **Token ID** in **Concessione implicita** e quindi selezionare **Salva**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
@@ -60,15 +72,23 @@ Questa guida introduttiva descrive come un'app Web ASP.NET può consentire l'acc
 
 1. Estrarre il file con estensione zip in una cartella locale vicina alla cartella radice, ad esempio **C:\Azure-Samples**
 1. Aprire la soluzione in Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. Modificare il file **Web.config** e sostituire `Enter_the_Application_Id_here` con l'ID dell'applicazione già registrata:
+1. Modificare **Web.config** e sostituire i parametri `ClientId` e `Tenant` con le righe seguenti:
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
+    <add key="Tenant" value="TenantId" />
     ```
-    
-> [!div class="sxs-lookup" renderon="portal"]
-> [!IMPORTANT]
-> Se l'applicazione è un'*applicazione a tenant singolo* (rivolta solo agli account in questa directory), nel file **Web.config** individuare il valore per `Tenant` e sostituire `common` con l'**ID tenant** o il **nome tenant** (ad esempio contoso.microsoft.com). È possibile ottenere il nome del tenant nella **pagina Panoramica**.
+
+> [!div renderon="docs"]
+> Dove:
+> - `Enter_the_Application_Id_here` è l'ID applicazione dell'applicazione registrata.
+> - `TenantId` è una delle opzioni riportate di seguito.
+>   - Se l'applicazione supporta **Solo l'organizzazione personale**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
+>   - Se l'applicazione supporta **Account in qualsiasi directory organizzativa**, sostituire questo valore con `organizations`
+>   - Se l'applicazione supporta **Tutti gli utenti di account Microsoft**, sostituire questo valore con `common`
+>
+> > [!TIP]
+> > Per trovare i valori di *ID applicazione*, *ID della directory (tenant)* e *Tipi di account supportati*, passare alla pagina **Panoramica**.
 
 ## <a name="more-information"></a>Altre informazioni
 

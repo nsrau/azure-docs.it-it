@@ -1,6 +1,6 @@
 ---
 title: Integrazione aziendale con App per la logica di Azure | Microsoft Docs
-description: Questa panoramica descrive come creare soluzioni di integrazione aziendale automatizzando attività, flussi di lavoro e processi aziendali che integrano app, dati, servizi e sistemi tra aziende e organizzazioni. Creare soluzioni per scenari di integrazione dei dati, integrazione di sistemi, Enterprise Application Integration (EAI) e di orchestrazione.
+description: Questa panoramica descrive come creare soluzioni di integrazione aziendale automatizzando attività, flussi di lavoro e processi aziendali che integrano app, dati, servizi e sistemi tra aziende e organizzazioni. nonché su come creare soluzioni per scenari di integrazione dei dati, integrazione di sistemi, Enterprise Application Integration (EAI) e di orchestrazione.
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 6/29/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: f9a59187b8de994e9ebfcab01ae2f3046f8f7971
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f5b39b428b894fcf5dddc0a7435353d174d83b78
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42022681"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231203"
 ---
 # <a name="what-is-azure-logic-apps"></a>Informazioni su App per la logica di Azure
 
@@ -139,7 +139,7 @@ Se si ha una sottoscrizione di Azure, provare questa [guida rapida per creare la
 ## <a name="support-and-feedback"></a>Supporto, commenti e suggerimenti
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

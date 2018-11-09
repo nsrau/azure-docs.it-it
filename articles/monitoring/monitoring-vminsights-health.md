@@ -1,5 +1,5 @@
 ---
-title: Monitorare l'integrità della macchina virtuale con Monitoraggio di Azure per le macchine virtuali | Microsoft Docs
+title: Monitorare l'integrità della macchina virtuale con Monitoraggio di Azure per le macchine virtuali (anteprima) | Microsoft Docs
 description: Questo articolo descrive come comprendere l'integrità della macchina virtuale e del sistema operativo sottostante con Monitoraggio di Azure per le macchine virtuali.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387822"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094228"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Comprendere l'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali
+# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Comprendere l'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali (anteprima)
 Azure include più servizi che singolarmente eseguono un'attività o un ruolo specifico nello spazio di monitoraggio, ma la possibilità di avere una prospettiva approfondita sull'integrità del sistema operativo ospitato nelle macchine virtuali di Azure non era disponibile.  Anche se è possibile monitorare diverse condizioni utilizzando Log Analytics o Monitoraggio di Azure, queste applicazioni non sono progettate per modellare e rappresentare l'integrità dei componenti di base o quella globale della macchina virtuale.  Con la funzionalità dell'integrità di Monitoraggio di Azure per macchine virtuali, è possibile monitorare in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux con un modello che rappresenta i componenti principali e le relative relazioni, criteri che specificano come misurare l'integrità di tali componenti e avvisi che segnalano quando viene rilevata una condizione di non integrità.  
 
 Lo stato di integrità globale della macchina virtuale di Azure e del sistema operativo sottostante può essere visualizzato da due prospettive con Monitoraggio di Azure per le macchine virtuali, direttamente dalla macchina virtuale o per tutte le macchine virtuali in un gruppo di risorse da Monitoraggio di Azure.
@@ -35,7 +35,7 @@ Questa sezione descrive i criteri di integrità predefiniti per monitorare le ma
 
 ### <a name="windows-vms"></a>Macchine virtuali di Windows
 
-- Megabyte disponibili per la memoria 
+- Megabyte disponibili per la memoria 
 - Media scritture disco/secondi (disco logico)
 - Media scritture disco/secondi (disco)
 - Media lettura disco logico/secondi

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650112"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085863"
 ---
 # <a name="entities-in-luis"></a>Entità in LUIS
 
@@ -68,7 +68,7 @@ Per altre informazioni, vedere la sezione sulle [previsioni relative allo stato 
 ## <a name="types-of-entities"></a>Tipi di entità
 LUIS offre molti tipi di entità: entità predefinite, entità basate su Machine Learning personalizzate ed entità elenco.
 
-| Nome | Possibilità di etichetta | Descrizione |
+| NOME | Possibilità di etichetta | DESCRIZIONE |
 | -- |--|--|
 | **Predefinita** <br/>[Impostazione personalizzata](#prebuilt)| |  **Definizione**<br>Tipi predefiniti che rappresentano concetti comuni. <br><br>**Elenco**<br/>key phrase number, ordinal, temperature, dimension, money, age, percentage, email, URL, phone number e key phrase. <br><br>I nomi delle entità predefinite sono riservati. <br><br>Tutte le entità predefinite che vengono aggiunte all'applicazione vengono restituite nella query [endpoint](luis-glossary.md#endpoint). Per altre informazioni, vedere [Entità predefinite](./luis-prebuilt-entities.md). <br/><br/>[Risposta di esempio per l'entità](luis-concept-data-extraction.md#prebuilt-entity-data)|
 |<!-- added week of 3/21/08 -->**Espressione regolare**<br/>[RegEx](#regex)||**Definizione**<br>Espressione regolare personalizzata per il testo dell'espressione non elaborata formattato. Maiuscole e minuscole vengono ignorate così come la variante relativa alla lingua.  <br><br>Questa entità è valida per le parole o le frasi che sono formattate in modo coerente con qualsiasi variazione altrettanto coerente.<br><br>La corrispondenza tramite le espressioni regolari viene applicata dopo le modifiche del controllo ortografico. <br><br>Se l'espressione regolare è troppo complessa, ad esempio con molte parentesi, non è possibile aggiungere l'espressione al modello. <br><br>**Esempio**<br>`kb[0-9]{6,}` corrisponde a kb123456.<br/><br/>[Guida introduttiva](luis-quickstart-intents-regex-entity.md)<br>[Risposta di esempio per l'entità](luis-concept-data-extraction.md)|
@@ -96,8 +96,9 @@ Le entità <a name="mixed"></a>
 ## <a name="entity-limits"></a>Limiti delle entità
 Esaminare i [limiti](luis-boundaries.md#model-boundaries) per comprendere il numero di entità di ciascun tipo che è possibile aggiungere a un modello.
 
-## <a name="entity-roles"></a>Ruoli entità
-I [ruoli](luis-concept-roles.md) entità si applicano alle entità personalizzate e predefinite e vengono usati solo nei criteri. 
+## <a name="roles-versus-hierarchical-entities"></a>Ruoli ed entità gerarchiche
+
+Per ulteriori informazioni, vedere [Ruoli ed entità gerarchiche](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="composite-vs-hierarchical-entities"></a>Entità composite e gerarchiche
 Sia le entità composite che le entità gerarchiche hanno relazioni padre-figlio e sono basate su Machine Learning. L'apprendimento basato su Machine Learning consente a LUIS di comprendere le entità in base ai diversi contesti (disposizione delle parole). Le entità composite sono più flessibili perché consentono tipi di entità diversi come figli. I figli delle entità gerarchiche sono solo entità semplici. 

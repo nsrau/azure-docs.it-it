@@ -9,14 +9,14 @@ keywords: Funzioni di Azure, Funzioni, elaborazione eventi, webhook, calcolo din
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 12/12/2017
+ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9f538b48918bdde923c6dbf3999302e45b955035
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: bdae72f5ed4ebed87842ade05ec7a6bc21d349dc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092411"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086642"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
 
@@ -36,10 +36,24 @@ Questo articolo presuppone che l'utente abbia già letto gli articoli seguenti:
 In Visual Studio il modello di progetto **Funzioni di Azure** crea un progetto di libreria di classi C# contenente i file seguenti:
 
 * [host.json](functions-host-json.md): archivia le impostazioni di configurazione che interessano tutte le funzioni del progetto quando vengono eseguite nell'ambiente locale o in Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file): archivia le impostazioni dell'app e le stringhe di connessione usate per l'esecuzione nell'ambiente locale.
+* [local.settings.json](functions-run-local.md#local-settings-file): archivia le impostazioni dell'app e le stringhe di connessione usate per l'esecuzione nell'ambiente locale. Questo file contiene segreti e non viene pubblicato nell'app per le funzioni in Azure. È invece necessario [aggiungere le impostazioni dell'app all'app per le funzioni](functions-develop-vs.md#function-app-settings).
+
+Quando si compila il progetto viene generata una struttura di cartelle simile alla seguente nella directory di output di compilazione:
+
+```
+<framework.version>
+ | - bin
+ | - MyFirstFunction
+ | | - function.json
+ | - MySecondFunction
+ | | - function.json
+ | - host.json
+```
+
+Questa directory viene distribuita all'app per le funzioni in Azure. Le estensioni di associazione necessarie nella [versione 2.x](functions-versions.md) del runtime di Funzioni vengono [aggiunte al progetto come pacchetti NuGet](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
-> Il processo di compilazione crea un file *function.json* per ogni funzione. Il file *function.json* non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. Per disabilitare una funzione, usare l'attributo il [Disable](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs). Aggiungere ad esempio all'app l'impostazione booleana MY_TIMER_DISABLED e applicare `[Disable("MY_TIMER_DISABLED")]` alla funzione. Sarà quindi possibile abilitarla e disabilitarla modificando l'impostazione dell'app.
+> Il processo di compilazione crea un file *function.json* per ogni funzione. Il file *function.json* non viene modificato direttamente. Non è possibile modificare la configurazione di associazione o disabilitare la funzione modificando il file. Per informazioni su come disabilitare una funzione, vedere [Come disabilitare le funzioni](disable-function.md#functions-2x---c-class-libraries).
 
 ## <a name="methods-recognized-as-functions"></a>Metodi riconosciuti come funzioni
 
@@ -51,9 +65,9 @@ public static class SimpleExample
     [FunctionName("QueueTrigger")]
     public static void Run(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 } 
 ```
@@ -84,9 +98,9 @@ public static class SimpleExampleWithOutput
     public static void Run(
         [QueueTrigger("myqueue-items-source")] string myQueueItem, 
         [Queue("myqueue-items-destination")] out string myQueueItemCopy,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+        log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
         myQueueItemCopy = myQueueItem;
     }
 }
@@ -105,10 +119,10 @@ public static class BindingExpressionsExample
     public static void Run(
         [QueueTrigger("%queueappsetting%")] string myQueueItem,
         DateTimeOffset insertionTime,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"Message content: {myQueueItem}");
-        log.Info($"Created at: {insertionTime}");
+        log.LogInformation($"Message content: {myQueueItem}");
+        log.LogInformation($"Created at: {insertionTime}");
     }
 }
 ```
@@ -208,9 +222,9 @@ public static class ICollectorExample
     public static void Run(
         [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
         [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
         myDestinationQueue.Add($"Copy 1: {myQueueItem}");
         myDestinationQueue.Add($"Copy 2: {myQueueItem}");
     }
@@ -219,9 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Registrazione
 
-Per registrare l'output nei log in streaming in C#, includere un argomento di tipo `TraceWriter`. È consigliabile denominarlo `log`. Evitare di usare `Console.Write` in Funzioni di Azure. 
-
-`TraceWriter` è definito in [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). Il livello di registrazione per `TraceWriter` può essere configurato in [host.json](functions-host-json.md).
+Per registrare l'output nei log in streaming in C#, includere un argomento di tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). È consigliabile denominarlo `log`. Evitare di usare `Console.Write` in Funzioni di Azure.
 
 ```csharp
 public static class SimpleExample
@@ -229,9 +241,9 @@ public static class SimpleExample
     [FunctionName("QueueTrigger")]
     public static void Run(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 } 
 ```
@@ -251,9 +263,9 @@ public static class AsyncExample
         [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
         [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
         CancellationToken token,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"BlobCopy function processed.");
+        log.LogInformation($"BlobCopy function processed.");
         await blobInput.CopyToAsync(blobOutput, 4096, token);
     }
 }
@@ -297,11 +309,11 @@ Per ottenere una variabile di ambiente o un valore di impostazione dell'app, usa
 public static class EnvironmentVariablesExample
 {
     [FunctionName("GetEnvironmentVariables")]
-    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
     {
-        log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-        log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
-        log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+        log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+        log.LogInformation(GetEnvironmentVariable("AzureWebJobsStorage"));
+        log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
     public static string GetEnvironmentVariable(string name)
@@ -346,9 +358,9 @@ public static class IBinderExample
     public static void Run(
         [QueueTrigger("myqueue-items-source-4")] string myQueueItem,
         IBinder binder,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"CreateBlobUsingBinder function processed: {myQueueItem}");
+        log.LogInformation($"CreateBlobUsingBinder function processed: {myQueueItem}");
         using (var writer = binder.Bind<TextWriter>(new BlobAttribute(
                     $"samples-output/{myQueueItem}", FileAccess.Write)))
         {
@@ -371,9 +383,9 @@ public static class IBinderExampleMultipleAttributes
     public async static Task RunAsync(
             [QueueTrigger("myqueue-items-source-binder2")] string myQueueItem,
             Binder binder,
-            TraceWriter log)
+            ILogger log)
     {
-        log.Info($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
+        log.LogInformation($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
         var attributes = new Attribute[]
         {
         new BlobAttribute($"samples-output/{myQueueItem}", FileAccess.Write),

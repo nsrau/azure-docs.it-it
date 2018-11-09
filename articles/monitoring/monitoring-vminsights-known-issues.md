@@ -1,5 +1,5 @@
 ---
-title: Problemi noti di Monitoraggio di Azure per le macchine virtuali | Microsoft Docs
+title: Problemi noti di Monitoraggio di Azure per le macchine virtuali (Anteprima) | Microsoft Docs
 description: Monitoraggio di Azure per le macchine virtuali è una soluzione di Azure che combina il monitoraggio dell'integrità e delle prestazioni del sistema operativo delle macchine virtuali di Azure, nonché l'individuazione automatica dei componenti e delle dipendenze delle applicazioni con altre risorse e mappa la comunicazione tra questi elementi. Questo articolo illustra i problemi noti.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: eba9e26f12fd9e1862727adec4f8c8f594e8f659
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385092"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091675"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms"></a>Problemi noti relativi a Monitoraggio di Azure per le macchine virtuali
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemi noti relativi a Monitoraggio di Azure per le macchine virtuali (Anteprima)
 
 Di seguito vengono descritti i problemi noti relativi alla funzionalità di integrità di Monitoraggio di Azure per le macchine virtuali:
 

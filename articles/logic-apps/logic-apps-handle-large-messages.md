@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041646"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085800"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gestire messaggi di grandi dimensioni con la suddivisione in blocchi in App per la logica di Azure
 
 Per la gestione di messaggi, App per la logica di Azure impone delle dimensioni massime per il contenuto dei messaggi. Tale limite consente di ridurre il sovraccarico creato archiviando ed elaborando messaggi di grandi dimensioni. Per gestire messaggi superiori a questo limite, App per la logica di Azure può *suddividere in blocchi* un messaggio di grandi dimensioni in messaggi più piccoli. In questo modo è comunque possibile trasferire file di grandi dimensioni tramite App per la logica di Azure in condizioni specifiche. Quando si comunica con altri servizi tramite connettori o HTTP, App per la logica di Azure è in grado di usare messaggi di grandi dimensioni, ma *solo* in blocchi. Questa condizione indica che i connettori devono supportare anche la suddivisione in blocchi, oppure che lo scambio di messaggi HTTP sottostante tra App per la logica di Azure e questi servizi deve usare la suddivisione in blocchi.
 
-Questo articolo illustra la procedura di configurazione del supporto della suddivisione in blocchi per messaggi di dimensioni maggiori del limite.
+Questo articolo illustra la procedura di configurazione della suddivisione in blocchi per azioni relative alla gestione di messaggi di dimensioni maggiori del limite. I trigger dell'app per la logica non supportano la suddivisione in blocchi a causa dell'aumento del sovraccarico dovuto allo scambio di più messaggi. 
 
 ## <a name="what-makes-messages-large"></a>Che cosa rende un messaggio "di grandi dimensioni"?
 

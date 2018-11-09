@@ -1,20 +1,17 @@
 ---
-title: Creare e personalizzare piani di ripristino per il failover e il ripristino in Azure Site Recovery | Microsoft Docs
-description: Informazioni su come creare e personalizzare piani di ripristino in Azure Site Recovery. Questo articolo illustra come effettuare il failover e il ripristino di macchine virtuali e server fisici.
-services: site-recovery
-documentationcenter: ''
-author: rayne-wiselman
+title: Creare e personalizzare piani per il ripristino di emergenza con Azure Site Recovery | Microsoft Docs
+description: Informazioni su come creare e personalizzare piani per il ripristino di emergenza usando il servizio Azure Site Recovery.
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 145b23aa7b8e48a0301676595c8d59a64bebdd0b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 5253b5743216fdb7cea9e3d387f64fdba8f56d8a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226669"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212336"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Creare e personalizzare piani di ripristino
 
@@ -56,7 +53,7 @@ Questo articolo illustra come creare e personalizzare un piano di ripristino in 
 
 È possibile personalizzare un piano di ripristino tramite l'aggiunta di uno script o di un'azione manuale. Si noti che:
 
-- Se si esegue la replica in Azure è possibile integrare i runbook di automazione di Azure nel piano di ripristino. [Altre informazioni](site-recovery-runbook-automation.md).
+- Se si esegue la replica in Azure è possibile integrare i runbook di automazione di Azure nel piano di ripristino. [Altre informazioni](site-recovery-runbook-automation.md)
 - Se si esegue la replica di macchine virtuali Hyper-V gestite da System Center VMM, è possibile creare uno script nel server VMM locale e includerlo nel piano di ripristino.
 - Quando si aggiunge uno script, viene aggiunto un nuovo set di azioni per il gruppo. Viene ad esempio, creato un set di passaggi preliminari per il Gruppo 1 denominato *Gruppo 1: passaggi preliminari*. Tutti i passaggi preliminari vengono elencati in questo set. È possibile aggiungere uno script nel sito primario solo se è stato distribuito un server VMM.
 - Se si aggiunge un'azione manuale, quando viene eseguito il piano di ripristino, questo si interrompe in corrispondenza del punto in cui è stata inserita l'azione manuale. Una finestra di dialogo richiede all'utente di specificare che l'azione manuale è stata completata.

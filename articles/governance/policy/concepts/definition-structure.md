@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427400"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212778"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -228,8 +228,8 @@ Sono supportati i seguenti campi:
 
 Il criterio supporta i tipi di effetto seguenti:
 
-- **Deny**: genera un evento nel log di controllo e nega la richiesta
-- **Audit**: genera un evento di avviso nel log di controllo, ma non nega la richiesta
+- **Deny**: genera un evento nel log attività e nega la richiesta
+- **Audit**: genera un evento di avviso nel log attività, ma non nega la richiesta
 - **Append**: aggiunge il set di campi definiti alla richiesta
 - **AuditIfNotExists**: abilita il controllo se una risorsa non esiste
 - **DeployIfNotExists**: distribuisce una risorsa se non esiste già.

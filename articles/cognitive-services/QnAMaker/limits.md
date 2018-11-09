@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53fadc0e3ea21b94ca656774baf077192c0394b4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384950"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137294"
 ---
 # <a name="qna-maker-limits"></a>Limiti di QnA Maker
 Elenco completo dei limiti di QnA Maker.
@@ -37,11 +37,11 @@ Elenco completo dei limiti di QnA Maker.
 
 |**Livello di ricerca di Azure** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Numero massimo di campi di metadati per ogni servizio QnA Maker (attraverso tutte le knowledge base)|1000|100*|1000|1000|1000|1000|
+|Numero massimo di campi di metadati per ogni servizio QnA Maker (attraverso tutte le knowledge base)|1.000|100*|1.000|1.000|1.000|1.000|
 
 ## <a name="knowledge-base-content-limits"></a>Limiti di contenuto della Knowledge Base
 Limiti complessivi sul contenuto nella knowledge base:
-* Lunghezza del testo di risposta: 250000
+* Lunghezza del testo della risposta: 25.000
 * Lunghezza del testo della domanda: 1000
 * Lunghezza del testo di chiave/valore: 100
 * Caratteri supportati per il nome dei metadati: caratteri alfabetici, cifre e _  

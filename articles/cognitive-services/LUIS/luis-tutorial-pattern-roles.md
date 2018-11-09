@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3274c25227637d3b23ccd7fd21df01dc05400c11
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886161"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086438"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Esercitazione 4: estrarre criteri correlati in base al contesto
 
@@ -36,7 +36,7 @@ Poiché l'espressione di esempio `Move new employee Robert Williams from Sacrame
 
 Se si hanno difficoltà con il rilevamento di entità semplici perché l'entità è un nome, ad esempio una città, prendere in considerazione l'aggiunta di un elenco di frasi con valori simili. In questo modo il rilevamento del nome della città viene semplificato perché si indica a LUIS un'informazione aggiuntiva sul tipo di parola o frase specifica. Gli elenchi di frasi sono utili al criterio solo perché facilitano il rilevamento di entità, operazione necessaria per la corrispondenza del criterio. 
 
-**In questa esercitazione si imparerà come:**
+**In questa esercitazione si apprenderà come:**
 
 > [!div class="checklist"]
 > * Usare l'app di esercitazione esistente
@@ -380,6 +380,8 @@ In questa esercitazione, l'app relativa alle risorse umane rileva espressioni su
 |--|--|--|
 |[Entità gerarchiche (senza ruoli)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |Questa esercitazione (con i ruoli)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
+
+Per altre informazioni, vedere [Ruoli ed entità gerarchiche](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

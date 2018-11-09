@@ -4,9 +4,6 @@ description: In questo articolo viene riportata la gerarchia di paesi/aree geogr
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1609daa4edbc3db9384941d575c141faaa799fb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28201497"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138243"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Gerarchia di paesi/aree geografiche usata da Gestione traffico di Azure per il metodo di routing del traffico Geografico
 
-In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo di routing del traffico **Geografico** in Gestione traffico di Azure. È possibile ottenere queste informazioni anche in modo programmatico effettuando una chiamata all'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
+In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo di routing del traffico **Geografico** in Gestione traffico di Azure. È possibile ottenere queste informazioni anche a livello di codice effettuando una chiamata all'[API REST di Gestione traffico di Azure](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD (mondo)
 
@@ -61,7 +58,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - FI (Finlandia)
 
-        - FO (Fær Øer)
+        - FO (Isole Fær Øer)
 
         - FR (Francia)
 
@@ -101,7 +98,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - ME (Montenegro)
 
-        - MK (Repubblica di Macedonia)
+        - MK (F.Y.R.O. Macedonia)
 
         - MT (Malta)
 
@@ -409,7 +406,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - GE (Georgia)
 
-        - HK (RAS di Hong Kong)
+        - HK (Hong Kong - R.A.S.)
 
         - ID (Indonesia)
 
@@ -437,7 +434,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - MN (Mongolia)
 
-        - MO (Macao - R.A.S.)
+        - MO (RAS di Macao)
 
         - MV (Maldive)
 
@@ -485,7 +482,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - CG (Congo)
 
-        - CI (Côte d'Ivoire (Costa d'Avorio))
+        - CI (Costa d'Avorio)
 
         - CM (Camerun)
 
@@ -623,7 +620,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
     - GEO-AP (Australia/Pacifico)
 
-        - AS (Isole Samoa americane)
+        - AS (Samoa americane)
 
         - AU (Australia)
 
@@ -689,7 +686,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
 
         - WF (Wallis e Futuna)
 
-        - WS (Isole Samoa)
+        - WS (Samoa)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

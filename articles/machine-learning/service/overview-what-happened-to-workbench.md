@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 88e7dad15a7080c4132a6983d949f9451ad5ce69
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: d90f1791a05d575caedfdd5c696bb1e6d6c29376
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239261"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091917"
 ---
 # <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Che cosa è successo a Workbench in Azure Machine Learning (anteprima)?
 
@@ -47,8 +47,7 @@ La maggior parte degli artefatti creati nella versione precedente del servizio A
 |Fase|Dettagli relativi al supporto per le funzionalità precedenti|
 |:---:|----------------|
 |1|Non sarà più possibile creare un _account Sperimentazione di Azure Machine Learning_ e un _account Gestione modelli_ nel portale di Azure e dall'interfaccia della riga di comando, né creare ambienti di calcolo di Machine Learning dall'interfaccia della riga di comando. Se si ha già un account, in questa fase l'interfaccia della riga di comando e l'applicazione desktop Workbench continueranno a funzionare.|
-|2|Le API sottostanti per la creazione di aree di lavoro e progetti precedenti nell'applicazione desktop Workbench e nell'interfaccia della riga di comando non saranno più disponibili. In questa fase sarà ancora possibile aprire i progetti esistenti, aggiungervi altri script, eseguire script nei progetti esistenti e distribuire servizi Web in ambienti di calcolo di Machine Learning esistenti.|
-|3|In questa fase termina il supporto per tutto il resto, incluse le API rimanenti e l'applicazione desktop Workbench.|
+|2|In questa fase termina il supporto per tutto il resto, incluse le API rimanenti e l'applicazione desktop Workbench.|
 
 Consigliamo di [iniziare la migrazione](how-to-migrate.md) oggi stesso. Tutte le funzionalità più recenti sono disponibili tramite il nuovo <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a>, la nuova [interfaccia della riga di comando](reference-azure-machine-learning-cli.md) e il nuovo [portale](quickstart-get-started.md).
 

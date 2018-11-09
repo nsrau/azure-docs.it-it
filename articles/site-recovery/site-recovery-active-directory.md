@@ -1,6 +1,6 @@
 ---
-title: Proteggere Active Directory e DNS con Azure Site Recovery | Documentazione Microsoft
-description: Questo articolo descrive come implementare una soluzione di ripristino di emergenza per Active Directory usando Azure Site Recovery.
+title: Configurare il ripristino di emergenza per Active Directory e DNS con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come implementare una soluzione di ripristino di emergenza per Active Directory e DNS con Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
 author: mayurigupta13
@@ -9,14 +9,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1072c903e9bd9ccb3d63cae426283a677d10077e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354292"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211894"
 ---
-# <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Usare Azure Site Recovery per proteggere Active Directory e DNS
+# <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>Configurare il ripristino di emergenza per Active Directory e DNS
 
 Le applicazioni aziendali, ad esempio SharePoint, Dynamics AX e SAP, dipendono dall'infrastruttura di Active Directory e DNS per funzionare correttamente. Quando si configura il ripristino di emergenza per le applicazioni, spesso è necessario ripristinare Active Directory e DNS prima di ripristinare altri componenti dell'applicazione in modo da garantirne il corretto funzionamento.
 

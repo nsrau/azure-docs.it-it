@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6ad38d2dc1c5c41dc10685d680f70c59e7983cd2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400404"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035155"
 ---
 Raccolta di immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini di VM personalizzate. Raccolta di immagini condivise fornisce tre principali proposte di valore
 - Gestione semplificata
@@ -26,7 +26,7 @@ Se si dispone di un numero elevato di immagini gestite da mantenere e si desider
 
 La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
-| Risorsa | DESCRIZIONE|
+| Risorsa | Descrizione|
 |----------|------------|
 | **Immagine gestita** | Si tratta di un'immagine di base che può essere usata da sola o per creare più **versioni di immagini condivise** in una raccolta di immagini.|
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
@@ -77,9 +77,9 @@ Poiché la raccolta di immagini condivise, l'immagine condivisa e la versione de
 
 | Condivisi con l'utente     | Raccolta di immagini condivise | Immagine condivisa | Versione di immagini condivise |
 |----------------------|----------------------|--------------|----------------------|
-| Raccolta di immagini condivise | Yes                  | Yes          | Yes                  |
-| Immagine condivisa         | No                    | Yes          | Yes                  |
-| Versione di immagini condivise | No                    | No            | Yes                  |
+| Raccolta di immagini condivise | Sì                  | Sì          | Sì                  |
+| Immagine condivisa         | No                   | Sì          | Sì                  |
+| Versione di immagini condivise | No                   | No           | Sì                  |
 
 
 
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **D.** È possibile creare una versione di immagine da un disco specializzato?
 
- R. No, attualmente non sono supportati dischi specializzati come immagini. Se si dispone di un disco specializzato, è necessario [creare una macchina virtuale dal disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) collegando il disco specializzato a una nuova macchina virtuale. Una volta che si dispone di una macchina virtuale in esecuzione, è necessario seguire le istruzioni per creare un'immagine gestita dalla [macchina virtuale Windows] (https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) oppure dalla [macchina virtuale Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Una volta che si dispone di un'immagine gestita generalizzata, è possibile avviare il processo per creare una descrizione di immagine condivisa e una versione dell'immagine.
+ R. No, attualmente non sono supportati dischi specializzati come immagini. Se si dispone di un disco specializzato, è necessario [creare una macchina virtuale dal disco rigido virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) collegando il disco specializzato a una nuova macchina virtuale. Una volta che si dispone di una macchina virtuale in esecuzione, è necessario seguire le istruzioni per creare un'immagine gestita dalla [macchina virtuale Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) oppure dalla [macchina virtuale Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Una volta che si dispone di un'immagine gestita generalizzata, è possibile avviare il processo per creare una descrizione di immagine condivisa e una versione dell'immagine.
 
 
 **D.** È possibile creare una raccolta di immagini condivise, una definizione di immagine e una versione dell'immagine tramite il portale di Azure?
@@ -159,12 +159,12 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
  R. I dettagli che possono essere aggiornati in ogni risorsa sono indicati di seguito:
  
 Raccolta di immagini condivise:
-- DESCRIZIONE
+- Descrizione
 
 Definizione delle immagini:
 - VCPU consigliati
 - Memoria
-- DESCRIZIONE
+- Descrizione
 - Data di scadenza
 
 Versione immagine:

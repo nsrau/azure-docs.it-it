@@ -1,23 +1,22 @@
 ---
-title: Domande frequenti - Replica da VMware ad Azure con Azure Site Recovery | Microsoft Docs
-description: Questo articolo riepiloga le domande frequenti relative alla replica di macchine virtuali VMware locali in Azure mediante Azure Site Recovery.
-services: site-recovery
+title: Domande frequenti - Ripristino di emergenza da VMware ad Azure con Azure Site Recovery | Microsoft Docs
+description: Questo articolo presenta un riepilogo delle domande frequenti relative alla configurazione del ripristino di emergenza per le macchine virtuali VMware locali in Azure tramite Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/19/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 487e0c763ca4b247f1818b2beaf3282734fc4e27
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 086acdd74932836627c600b5545bc4353052ad6f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388443"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215447"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
-Questo articolo fornisce le risposte alle domande frequenti relative alla replica di macchine virtuali VMware locali in Azure. Eventuali domande successive alla lettura di questo articolo possono essere pubblicate nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+Questo articolo fornisce le risposte alle domande frequenti relative all'implementazione del ripristino di emergenza di macchine virtuali VMware locali in Azure. Eventuali domande successive alla lettura di questo articolo possono essere pubblicate nel [forum relativo ai Servizi di ripristino di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="general"></a>Generale

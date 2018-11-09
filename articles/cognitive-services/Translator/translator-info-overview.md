@@ -10,26 +10,28 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: erhopf
-ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 6d47c4dc2ec3f58eca336211486112b9cdf993aa
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645045"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156358"
 ---
 # <a name="what-is-translator-text-api"></a>Informazioni sull'API Traduzione testuale
 
-L'API Traduzione testuale può essere facilmente integrata in applicazioni, siti Web, strumenti o altre soluzioni per assicurare esperienze utente multilingue in [oltre 60 lingue](languages.md). Può essere usata in qualsiasi piattaforma hardware e con qualsiasi sistema operativo per eseguire la traduzione da testo a testo in una lingua.
+L'API Traduzione testuale è facile da integrare in applicazioni, siti Web, strumenti e soluzioni. Consente di aggiungere esperienze utente multilingue in [oltre 60 lingue](languages.md) e può essere usata in qualsiasi piattaforma hardware con qualsiasi sistema operativo per la traduzione da testo a testo in una lingua.
 
-L'API Traduzione testuale fa parte della raccolta delle [API dei Servizi cognitivi di Azure](https://docs.microsoft.com/azure/#pivot=products&panel=ai) di algoritmi di apprendimento automatico e algoritmi AI nel cloud, facilmente utilizzabile nei progetti di sviluppo.
+L'API Traduzione testuale fa parte della raccolta [API Servizi cognitivi](https://docs.microsoft.com/azure/#pivot=products&panel=ai) di Azure di algoritmi di apprendimento automatico e algoritmi AI nel cloud ed è facilmente utilizzabile nei progetti di sviluppo.
 
 ## <a name="about-microsoft-translator"></a>Informazioni su Microsoft Translator
 
-Microsoft Translator è un servizio di traduzione automatica basato sul cloud. Al centro di questo servizio vi sono l'API Traduzione testuale e l'[API Traduzione vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation) che sono alla base di vari prodotti e servizi Microsoft e vengono usate da migliaia di aziende in tutto il mondo nelle applicazioni e nei flussi di lavoro, consentendo ai loro contenuti di raggiungere un pubblico mondiale.
+Microsoft Translator è un servizio di traduzione automatica basato sul cloud. Il servizio di base è l'API Traduzione testuale che supporta vari prodotti e servizi Microsoft e viene usato da migliaia di aziende in tutto il mondo nelle applicazioni e nei flussi di lavoro, consentendo ai loro contenuti di raggiungere un pubblico globale.
 
-La traduzione vocale è disponibile anche tramite l'[anteprima di Riconoscimento vocale di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/speech-service/), che combina l'API Traduzione vocale, l'API Riconoscimento vocale Bing e il Servizio di riconoscimento vocale personalizzato (anteprima) in un servizio unificato e completamente personalizzabile.  
+Traduzione vocale, basato sull'API Traduzione testuale, è disponibile anche tramite il [servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina le funzionalità dell'API Traduzione vocale, dell'API Riconoscimento vocale Bing e del Servizio di riconoscimento vocale personalizzato (anteprima) in un servizio unificato e completamente personalizzabile. Il servizio Voce sta sostituendo l'API Traduzione vocale, che verrà ritirato il 15 ottobre 2019.
 
-Per altre informazioni, vedere il [servizio Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx)
+## <a name="language-support"></a>Supporto per le lingue
+
+Microsoft Translator fornisce supporto multilingue per la traduzione, la traslitterazione, il rilevamento delle lingue e i dizionari. Per un elenco completo, vedere il [supporto per le lingue](language-support.md) o accedere all'elenco a livello di codice con l'[API REST](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-languages).  
 
 ## <a name="language-customization"></a>Personalizzazione della lingua
 

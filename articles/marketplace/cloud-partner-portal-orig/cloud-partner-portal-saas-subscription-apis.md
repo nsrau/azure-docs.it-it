@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c9ed3f3511def085f5e0658bbcbd7978e3a7ce20
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 9ffb67a2d3d07e75df29070ca198bac1661f95cc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079317"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212965"
 ---
 <a name="saas-sell-through-azure---apis"></a>Vendita SaaS tramite Azure - API
 ==============================
 
-Questo articolo illustra come creare un'offerta SaaS con le API. Le API sono necessarie per garantire le sottoscrizioni all'offerta SaaS se è stato selezionato Vendita tramite Azure. Se si desidera compilare un elenco di SaaS regolare non è abilitato per la commercializzazione, consultare [Guida alla pubblicazione tecnica dell'applicazione SaaS]./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
+Questo articolo illustra come creare un'offerta SaaS con le API. Le API sono necessarie per garantire le sottoscrizioni all'offerta SaaS se è stato selezionato Vendita tramite Azure. Se si desidera compilare un elenco di SaaS regolare non abilitato per la commercializzazione, consultare [Guida alla pubblicazione tecnica dell'applicazione SaaS](./cloud-partner-portal-saas-offers-tech-publishing-guide.md).
 
 Questo articolo è diviso in due sezioni:
 
@@ -204,7 +204,7 @@ L'azione POST nel risolvere endpoint consente agli utenti di risolvere un token 
 | 400                  | `BadRequest`         | Mancano le intestazioni necessari oppure la versione dell'API specificata non è valida. Non è stato possibile risolvere il token in quanto non valido o scaduto. |
 | 403                  | `Forbidden`          | Il chiamante non è autorizzato a eseguire questa operazione.                                 |
 | 429                  | `RequestThrottleId`  | Il servizio sta eseguendo l'elaborazione delle richieste, riprovare più tardi.                                |
-| 503                  | `ServiceUnavailable` | Il servizio è temporaneamente interrotto, riprovare più tardi.                                        |
+| 503                  | `ServiceUnavailable` | Il servizio è temporaneamente non disponibile, riprovare più tardi.                                        |
 |  |  |  |
 
 
@@ -268,7 +268,7 @@ L'endpoint di sottoscrizione consente agli utenti di avviare una sottoscrizione 
 | 404                  | `NotFound`           | Sottoscrizione non trovata con l'ID specificato                                  |
 | 409                  | `Conflict`           | Nella sottoscrione è in corso un'altra operazione.                     |
 | 429                  | `RequestThrottleId`  | Il servizio sta eseguendo l’elaborazione delle richieste, riprovare più tardi.                  |
-| 503                  | `ServiceUnavailable` | Il servizio è temporaneamente non disposnibile, riprovare più tardi.                          |
+| 503                  | `ServiceUnavailable` | Il servizio è temporaneamente non disponibile, riprovare più tardi.                          |
 |  |  |  |
 
 In caso di risposta 202, seguire lo stato dell'operazione richiesta nell'intestazione "Operation-location". L'autenticazione è la stessa usata per le altre API Marketplace.
@@ -280,7 +280,7 @@ In caso di risposta 202, seguire lo stato dell'operazione richiesta nell'intesta
 | x-ms-requestid     | Yes          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Yes          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
 | x-ms-activityid    | Yes          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Questo valore viene usato per eventuali riconciliazioni. |
-| Retry-After        | Yes          | Intervallo col cui client è possibile controllare lo stato.                                                       |
+| Retry-After        | Yes          | Intervallo per cui il client può controllare lo stato.                                                       |
 | Operation-Location | Yes          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
 |  |  |  |
 

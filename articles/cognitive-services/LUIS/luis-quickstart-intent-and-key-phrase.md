@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8fa183c22b9b6830c57b0a16b7f5d20ca38e3ef3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 126e081bae08d220b0e3921cdfec7d7f58eacea8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166521"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138294"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>Esercitazione 8: estrarre frasi chiave di espressione
 In questa esercitazione viene usata l'entità KeyPhrase predefinita per estrarre domini chiave da espressioni. Non è necessario etichettare ogni espressione con entità predefinite. L'entità viene rilevata automaticamente.
@@ -43,7 +43,7 @@ L'applicazione client può usare questi valori, insieme ad altre entità estratt
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
 
-Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
 Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
@@ -51,7 +51,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 2. Importare il file JSON in una nuova app.
 
-3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `keyphrase`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL.
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `keyphrase`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
 ## <a name="add-keyphrase-entity"></a>Aggiungere entità KeyPhrase 
 Aggiungere entità KeyPhrase predefinite per estrarre domini da espressioni.
@@ -60,7 +60,7 @@ Aggiungere entità KeyPhrase predefinite per estrarre domini da espressioni.
 
 2. Selezionare **Entità** nel menu a sinistra.
 
-3. Selezionare **Manage prebuilt entities** (Gestisci entità predefinite).
+3. Selezionare **Add prebuilt entity** (Aggiungi entità predefinite).
 
 4. Nella finestra di dialogo popup, selezionare **KeyPhrase**, quindi selezionare **Operazione completata**. 
 

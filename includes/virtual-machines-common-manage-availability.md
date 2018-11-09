@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: dc54c232b972c25e6b21dbbb8a91a0218f17d584
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e6c5f4623f3483dcfb0dde0f55b77161eee2c562
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670208"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035127"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informazioni sui riavvii delle VM: manutenzione e tempo di inattività
 Sono tre gli scenari che possono interessare la macchina virtuale in Azure: manutenzione dell'hardware non pianificata, tempo di inattività imprevisto e manutenzione pianificata.
@@ -32,7 +32,7 @@ Per ridurre le conseguenze dei tempi di inattività causati da uno o più di que
 
 * [Configurare più macchine virtuali in un set di disponibilità per la ridondanza]
 * [Usare Managed Disks per le macchine virtuali nel set di disponibilità]
-* [Usare eventi pianificati per rispondere in modo proattivo agli eventi che hanno impatto sulle macchine virtuali] (https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
+* [Usare Eventi pianificati per rispondere in modo proattivo agli eventi che hanno impatto sulle macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Configurare ogni livello dell'applicazione in set di disponibilità separati]
 * [Combinare il bilanciamento del carico con set di disponibilità]
 * [Usare le zone di disponibilità per la protezione dagli errori a livello di data center]
@@ -47,8 +47,7 @@ A ciascuna macchina virtuale nel set di disponibilità viene assegnato un **domi
 
 I domini di errore definiscono il gruppo di macchine virtuali che condividono una fonte di alimentazione e uno switch di rete comuni. Per impostazione predefinita, le macchine virtuali configurate in un set di disponibilità vengono suddivise tra un massimo di tre domini di errore per le distribuzioni di Resource Manager e in due domini di errore per la distribuzione classica. Il raggruppamento di più macchine virtuali in un set di disponibilità non garantisce la protezione dell'applicazione da eventuali errori del sistema operativo o di singole applicazioni, ma limita le conseguenze prodotte da potenziali guasti dell'hardware fisico e interruzioni di rete o di alimentazione.
 
-<!--Image reference-->
-   ![Rappresentazione concettuale della configurazione di domini di aggiornamento e di errore](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+<!--Image reference--> ![Rappresentazione concettuale della configurazione di domini di aggiornamento e di errore](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>Usare Managed Disks per le macchine virtuali nel set di disponibilità
 Se si usano macchine virtuali con dischi non gestiti, è fortemente consigliabile [convertire le macchine virtuali nel set di disponibilità per l'uso di Managed Disks](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md).
@@ -72,8 +71,7 @@ Se le macchine virtuali sono quasi identiche e svolgono tutte la stessa funzione
 
 Ad esempio, è possibile inserire in un unico set di disponibilità tutte le macchine virtuali che si trovano nel front-end dell'applicazione che esegue IIS, Apache e Nginx. Accertarsi che in uno stesso set di disponibilità siano inserite solo le macchine virtuali del front-end e, analogamente, che in uno specifico set di disponibilità siano inserite solo le macchine virtuali livello dati, ad esempio le macchine virtuali di SQL Server replicate o MySQL.
 
-<!--Image reference-->
-   ![Livelli di applicazione](./media/virtual-machines-common-manage-availability/application-tiers.png)
+<!--Image reference--> ![Livelli di applicazione](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-sets"></a>Combinare il bilanciamento del carico con set di disponibilità
 Per ottenere una resilienza elevata dell'applicazione, è possibile combinare [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) con un set di disponibilità. Il servizio di bilanciamento del carico distribuisce il traffico tra più macchine virtuali ed è incluso nelle macchine virtuali di livello Standard. Non tutti i livelli delle macchine virtuali includono Azure Load Balancer. Per altre informazioni sul bilanciamento del carico delle macchine virtuali, vedere [Load Balancing virtual machines](../articles/virtual-machines/virtual-machines-linux-load-balance.md) (Bilanciamento del carico delle macchine virtuali).

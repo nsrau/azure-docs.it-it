@@ -1,17 +1,17 @@
 ---
-title: Escludere dischi dalla protezione tramite Azure Site Recovery | Microsoft Docs
-description: Descrive perché e come escludere dalla replica dischi di macchine virtuali per scenari da Hyper-V ad Azure.
+title: Escludere dischi dalla replica quando si configura il ripristino di emergenza con il servizio Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come escludere dalla replica dischi di macchine virtuali durante il ripristino di emergenza in Azure.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 14b825b7b7f14efc0bf35a1e61e40e6248a4d3d1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 851da02ebd7486c0e96451a14086eb95d81968b4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920621"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213203"
 ---
 # <a name="exclude-disks-from-replication"></a>Escludere dischi dalla replica
 Questo articolo descrive come escludere dischi dalla replica, in modo da ottimizzare la larghezza di banda di replica usata o le risorse lato destinazione usate dai dischi.
@@ -19,7 +19,7 @@ Questo articolo descrive come escludere dischi dalla replica, in modo da ottimiz
 ## <a name="supported-scenarios"></a>Scenari supportati
 **Funzionalità** | **Da VMware ad Azure** | **Da Hyper-V ad Azure** | **Da Azure ad Azure**| **Da Hyper-V a Hyper-V** 
 --|--|--|--|--
-Esclusione disco | Sì | Sì | No  | No 
+Esclusione disco | Yes | Sì | No  | No 
 
 ## <a name="why-exclude-disks-from-replication"></a>Perché escludere dischi dalla replica
 Spesso è necessario escludere dischi dalla replica per i motivi riportati di seguito:

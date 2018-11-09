@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: 62f71f29f813cd30c7d8e3c7f37f41677cf07364
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7e1f2411db828917d7a3c5e21348b553a5a5a3bb
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956375"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087509"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteggere le chiamate alle API personalizzate da App per la logica di Azure
 
@@ -96,11 +96,11 @@ L'app per la logica usa questa identità di applicazione di Azure AD per l'auten
 
 È possibile eseguire questa attività usando Azure Resource Manager con PowerShell. In PowerShell eseguire questi comandi:
 
-1. `Switch-AzureMode AzureResourceManager`
+1. `Add-AzureRmAccount`
 
-2. `Add-AzureAccount`
+2. `$SecurePassword = Read-Host -AsSecureString` (Immettere una password e premere INVIO)
 
-3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password "identity-password"`
+3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Assicurarsi di copiare l'**ID tenant** (GUID per il tenant di Azure AD), l'**ID applicazione** e la password usati.
 
@@ -186,7 +186,7 @@ Aprire la definizione dell'app per la logica nella visualizzazione Codice, passa
 
 `{"tenant": "{tenant-ID}", "audience": "{client-ID-from-Part-2-web-app-or-API app}", "clientId": "{client-ID-from-Part-1-logic-app}", "secret": "{key-from-Part-1-logic-app}", "type": "ActiveDirectoryOAuth" }`
 
-| Elemento | Obbligatoria | DESCRIZIONE | 
+| Elemento | Obbligatoria | Descrizione | 
 | ------- | -------- | ----------- | 
 | tenant | Yes | Il GUID per il tenant di Azure AD | 
 | audience | Yes | GUID per la risorsa di destinazione cui si vuole accedere, che è l'ID client dall'identità di applicazione per l'app Web o l'app per le API | 
@@ -232,7 +232,7 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 `{"type": "clientcertificate", "password": "password", "pfx": "long-pfx-key"}`
 
-| Elemento | Obbligatoria | DESCRIZIONE | 
+| Elemento | Obbligatoria | Descrizione | 
 | ------- | -------- | ----------- | 
 | type | Yes | Il tipo di autenticazione. Per i certificati client SSL, il valore deve essere `ClientCertificate`. | 
 | password | Yes | La password per accedere al certificato client (file PFX) | 
@@ -249,7 +249,7 @@ Includere questa riga nella sezione dell'**autorizzazione**:
 
 `{"type": "basic", "username": "username", "password": "password"}`.
 
-| Elemento | Obbligatoria | DESCRIZIONE | 
+| Elemento | Obbligatoria | Descrizione | 
 | ------- | -------- | ----------- | 
 | type | Yes | Tipo di autenticazione che si vuole usare. Per l'autenticazione di base il valore deve essere `Basic`. | 
 | username | Yes | Nome utente che si vuole usare per l'autenticazione | 

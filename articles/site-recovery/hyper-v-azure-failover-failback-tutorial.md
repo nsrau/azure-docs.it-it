@@ -1,29 +1,29 @@
 ---
-title: Failover e failback di macchine virtuali Hyper-V replicate in Azure con Site Recovery | Microsoft Docs
-description: Informazioni su come eseguire il failover di macchine virtuali Hyper-V in Azure e il failback nel sito locale con Azure Site Recovery
+title: Failover e failback di macchine virtuali Hyper-V durante il ripristino di emergenza in Azure con Azure Site Recovery | Microsoft Docs
+description: Informazioni su come eseguire il failover e failback di macchine virtuali Hyper-V durante il ripristino di emergenza in Azure con il servizio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31de654e6746cecf5aedabbfe481ab99b2aa3510
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6dde345e360dc304578b626ee2678dd51fe56dc6
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076984"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210517"
 ---
-# <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>Failover e failback di macchine virtuali Hyper-V replicate in Azure
+# <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Failover e failback di macchine virtuali Hyper-V replicate in Azure
 
-Questa esercitazione descrive come eseguire il failover di una macchina virtuale Hyper-V in Azure. Al termine del failover, è possibile eseguire il failback nel sito locale quando è disponibile. In questa esercitazione si apprenderà come:
+Questa esercitazione descrive come eseguire il failover di una macchina virtuale Hyper-V in Azure. Dopo il failover è possibile eseguire il failback nel sito locale quando disponibile. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Controllare le proprietà della macchina virtuale Hyper-V per verificare la conformità ai requisiti di Azure
 > * Eseguire un failover in Azure
-> * Failback da Azure a locale
+> * Eseguire il failback da Azure nel sito locale
 > * Eseguire la replica inversa delle macchine virtuali locali per avviare nuovamente la replica in Azure
 
 Questa è la quinta esercitazione di una serie. Si presuppone che siano già state completate le attività delle esercitazioni precedenti.    

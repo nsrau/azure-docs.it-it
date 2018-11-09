@@ -1,22 +1,19 @@
 ---
-title: Mantenere gli indirizzi IP per le macchine virtuali di Azure dopo il failover in un'altra area di Azure | Microsoft Docs
-description: Descrive come mantenere gli indirizzi IP per gli scenari di failover da Azure ad Azure con Azure Site Recovery
+title: Mantenere gli indirizzi IP per il failover delle macchine virtuali di Azure | Microsoft Docs
+description: Viene descritto come mantenere gli indirizzi IP quando si effettua il failover di macchine virtuali di Azure per il ripristino di emergenza in un'area secondaria con Azure Site Recovery
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4260a4487480c42b518374965d8deda1e7803e62
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 86adaa21a069c168b512231ba231940bfa2ef9e8
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353323"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213033"
 ---
-# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Mantenimento degli indirizzi IP per il failover delle macchine virtuali di Azure
+# <a name="ip-address-retention-for-azure-vm-failover"></a>Mantenimento degli indirizzi IP per il failover delle macchine virtuali di Azure
 
 Azure Site Recovery consente il ripristino di emergenza per le macchine virtuali di Azure. Durante il failover da un'area di Azure a un'altra, spesso i clienti richiedono di mantenere le loro configurazioni IP. Per impostazione predefinita, Site Recovery simula la struttura della subnet e della rete virtuale di origine durante la creazione di queste risorse nell'area di destinazione. Per le macchine virtuali di Azure configurate con indirizzi IP privati statici, Site Recovery tenta inoltre di eseguire il provisioning dello stesso IP privato nella macchina virtuale di destinazione, se tale IP non è già bloccato da una risorsa di Azure o da una VM replicata.
 

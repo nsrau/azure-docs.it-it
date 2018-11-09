@@ -1,25 +1,26 @@
 ---
-title: Architettura della replica da VMware ad Azure in Azure Site Recovery | Microsoft Docs
-description: Questo articolo offre una panoramica dell'architettura e dei componenti usati per la replica di macchine virtuali VMware locali in Azure con Azure Site Recovery
+title: Architettura del ripristino di emergenza da VMware ad Azure in Azure Site Recovery | Microsoft Docs
+description: Questo articolo offre una panoramica dell'architettura e dei componenti usati per configurare il ripristino di emergenza di macchine virtuali VMware locali in Azure con Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 08/29/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 58129ece0fb1b7f446e5f8d738b5d1135aa0256e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288142"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212387"
 ---
-# <a name="vmware-to-azure-replication-architecture"></a>Architettura della replica da VMware ad Azure
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da VMware ad Azure
 
-Questo articolo descrive l'architettura e i processi usati per la replica, il failover e il ripristino di macchine virtuali (VM) VMware tra un sito VMware locale e Azure usando [Azure Site Recovery](site-recovery-overview.md).
+Questo articolo descrive l'architettura e i processi usati per implementare il ripristino di emergenza con replica, failover e ripristino di macchine virtuali (VM) VMware tra un sito VMware locale e Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Componenti dell'architettura
 
-La tabella e il grafico seguenti offrono una visualizzazione generale dei componenti usati per la replica VMware in Azure.
+La tabella e l'immagine seguenti offrono una visualizzazione generale dei componenti usati per il ripristino di emergenza da VMware ad Azure.
 
 **Componente** | **Requisito** | **Dettagli**
 --- | --- | ---
@@ -36,16 +37,23 @@ La tabella e il grafico seguenti offrono una visualizzazione generale dei compon
 
 ## <a name="replication-process"></a>Processo di replica
 
-1. Quando si abilita la replica per una macchina virtuale, la replica viene avviata in conformità ai criteri di replica. 
+1. Quando si abilita la replica per una macchina virtuale, viene avviata la replica iniziale nell'archiviazione di Azure con i criteri di replica specificati. Tenere presente quanto segue:
+    - Per le macchine virtuali VMware, la replica è a livello di blocco, quasi continua, e usa l'agente del servizio Mobility in esecuzione nella macchina virtuale.
+    - Vengono applicate tutte le impostazioni dei criteri di replica:
+        - **Soglia RPO**. Questa impostazione non influisce sulla replica. È utile con il monitoraggio. Viene generato un evento e, facoltativamente, viene inviato un messaggio di posta elettronica, se l'obiettivo RPO corrente supera la soglia specificata.
+        - **Conservazione del punto di ripristino**. Questa impostazione specifica quanto indietro nel tempo si vuole andare quando si verifica un'interruzione. Il periodo massimo di conservazione per l'archiviazione Premium è di 24 ore. Per l'archiviazione standard è 72 ore. 
+        - **Snapshot coerenti con l'app**. È possibile acquisire snapshot coerenti con l'app a intervalli compresi tra 1 e 12 ore, a seconda delle esigenze dell'app. Si tratta di snapshot BLOB di Azure standard. L'agente di mobilità in esecuzione in una macchina virtuale richiede uno snapshot VSS conforme a questa impostazione e fa riferimento a quel momento come punto coerente con l'applicazione nel flusso di replica.
+
 2. Il traffico viene replicato negli endpoint pubblici di archiviazione di Azure, tramite Internet. In alternativa, è possibile usare Azure ExpressRoute con il [peering pubblico](../expressroute/expressroute-circuit-peerings.md#azure-public-peering). La replica del traffico tramite una VPN da sito a sito da un sito locale ad Azure non è supportata.
-3. Una copia iniziale dei dati della macchina virtuale viene replicata in Archiviazione di Azure.
-4. Al termine della replica iniziale, viene avviata la replica differenziale in Azure. Le modifiche rilevate vengono salvate in un file HRL.
-5. Le comunicazioni avvengono nel modo seguente:
+3. Al termine della replica iniziale, viene avviata la replica differenziale in Azure. Le modifiche rilevate per un computer vengono inviate al server di elaborazione.
+4. Le comunicazioni avvengono nel modo seguente:
 
     - Le macchine virtuali comunicano con il server di configurazione locale sulla porta HTTPS 443 in ingresso, per la gestione della replica.
     - Il server di configurazione orchestra la replica con Azure attraverso la porta HTTPS 443 in uscita.
     - Le macchine virtuali inviano i dati della replica al server di elaborazione (in esecuzione sul computer del server di configurazione) sulla porta HTTPS 9443 in ingresso. La porta può essere modificata.
     - Il server di elaborazione riceve i dati della replica, li ottimizza e li crittografa, quindi li invia ad Archiviazione di Azure attraverso la porta 443 in uscita.
+
+
 
 
 **Processo di replica da VMware ad Azure**

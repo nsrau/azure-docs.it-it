@@ -1,5 +1,5 @@
 ---
-title: Monitorare le prestazioni del cluster AKS con Monitoraggio di Azure per contenitori | Microsoft Docs
+title: Monitorare le prestazioni del cluster AKS con Monitoraggio di Azure per contenitori (anteprima) | Microsoft Docs
 description: Questo articolo descrive come è possibile visualizzare e analizzare i dati di log e prestazioni con Monitoraggio di Azure per contenitori.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: daec3d6e6cd8e4df3fdfe45fbb8ee98966c8a38e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637999"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214155"
 ---
-# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Conoscere le prestazioni del cluster AKS con Monitoraggio di Azure per contenitori
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers-preview"></a>Conoscere le prestazioni del cluster AKS con Monitoraggio di Azure per contenitori (anteprima)
 La visualizzazione delle prestazioni del cluster del servizio Kubernetes di Azure (AKS) può essere osservata da due prospettive con Monitoraggio di Azure per contenitori, direttamente da un cluster di AKS o visualizzando tutti i cluster di AKS in una sottoscrizione da Monitoraggio di Azure. 
 
 Questo articolo illustra l'esperienza tra le due prospettive e spiega come valutare, analizzare e risolvere rapidamente i problemi rilevati.

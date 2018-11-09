@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 08/26/2018
 ms.author: shvija
-ms.openlocfilehash: ee1339d02fb23282d3589a80385f982eae2865fe
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: dce7c4067ba6d96bf14f4e3300d951b594afe930
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128167"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240633"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-java"></a>Ricevere eventi da Hub eventi di Azure usando Java
 
@@ -50,11 +50,11 @@ Per usare EventProcessorHost, è necessario un [account di archiviazione di Azur
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    Copiare il valore di key1 in una posizione temporanea per usarlo più avanti in questa esercitazione.
+    Copiare il valore key1 in una posizione temporanea. perché sarà usato più avanti in questa esercitazione.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Creare un progetto Java usando EventProcessorHost
 
-La libreria client Java per Hub eventi è disponibile per l'uso nei progetti Maven dal [repository centrale di Maven][Maven Package] ed è possibile farvi riferimento usando la seguente dichiarazione di dipendenza all'interno del file di progetto Maven. La versione corrente per l'artefatto azure-eventhubs-eph è 2.0.1 e la versione corrente per l'artefatto azure-eventhubs è la 1.0.2:    
+La libreria client Java per Hub eventi è disponibile per l'uso nei progetti Maven dal [repository centrale di Maven][Maven Package] ed è possibile farvi riferimento usando la seguente dichiarazione di dipendenza all'interno del file di progetto Maven. La versione corrente per l'artefatto azure-eventhubs-eph è 2.0.1 e la versione corrente per l'artefatto azure-eventhubs è 1.0.2:    
 
 ```xml
 <dependency>
@@ -249,7 +249,7 @@ Prima che i messaggi vengano recuperati da parte dei consumatori, dovranno esser
 
 Quando viene specificata una stringa che rappresenta la chiave di partizione, la chiave viene sottoposta a hashing per determinare a quale partizione inviare l'evento.
 
-Quando la chiave di partizione non è impostata, i messaggi verranno distribuiti come round robin a tutte le partizioni disponibili
+Quando la chiave di partizione non è impostata, i messaggi vengono distribuiti come round robin a tutte le partizioni disponibili
 
 ```java
 // Serialize the event into bytes
@@ -273,7 +273,7 @@ L'API fornisce un meccanismo per implementare la gestione del checkpoint persona
 
 La gestione del checkpoint predefinito sfrutta l'archiviazione dei blob, ma se si esegue l'override di gestione di checkpoint utilizzata dall'EPH con la propria implementazione, è possibile usare qualsiasi archivio che si desidera per sostenere la realizzazione dell'implementazione del gestore del checkpoint.
 
-È necessario creare una classe che implementi l'interfaccia com.microsoft.azure.eventprocessorhost.ICheckpointManager
+Creare una classe che implementi l'interfaccia com.microsoft.azure.eventprocessorhost.ICheckpointManager
 
 Usare l'implementazione personalizzata di gestione del checkpoint (com.microsoft.azure.eventprocessorhost.ICheckpointManager)
 
@@ -284,12 +284,7 @@ All'interno dell'implementazione, è possibile sostituire il meccanismo di check
 La classe com.microsoft.azure.eventprocessorhost.EventProcessorHost offre 2 costruttori che consentono di eseguire l'override di gestione del checkpoint per EventProcessorHost.
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
-
-* [Panoramica di Hub eventi](event-hubs-what-is-event-hubs.md)
-* [Create an Event Hub](event-hubs-create.md) (Creare un Hub eventi)
-* [Domande frequenti su Hub eventi](event-hubs-faq.md)
+In questa guida introduttiva è stata creata un'applicazione Java che ha ricevuto messaggi da un hub eventi. Per informazioni su come inviare eventi a un hub eventi tramite Java, vedere la [Inviare eventi a Hub eventi di Azure usando Java](event-hubs-java-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md

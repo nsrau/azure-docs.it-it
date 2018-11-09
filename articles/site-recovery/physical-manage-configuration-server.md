@@ -1,24 +1,24 @@
 ---
-title: " Gestire il server di configurazione per il ripristino di emergenza di server fisici con Azure Site Recovery | Microsoft Docs"
-description: Questo articolo descrive come gestire un server di configurazione esistente per il ripristino di emergenza di server fisici in Azure, con il servizio Azure Site Recovery.
+title: Gestire il server di configurazione per il ripristino di emergenza di server fisici locali in Azure con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come gestire il server di configurazione di Azure Site Recovery per il ripristino di emergenza di server fisici in Azure.
 services: site-recovery
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951177"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213254"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
 Si configura un server di configurazione locale quando si usa il servizio [Azure Site Recovery](site-recovery-overview.md) per il ripristino di emergenza dei server fisici in Azure. Il server di configurazione coordina le comunicazioni tra i computer locali e Azure e gestisce la replica dei dati. Questo articolo riepiloga le attività comuni per la gestione del server di configurazione dopo che è stato distribuito.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 La tabella riepiloga i prerequisiti per la distribuzione del server di configurazione locale.
 
@@ -69,7 +69,7 @@ L'ultima versione del file di installazione del server di configurazione è disp
      ![Firewall](./media/physical-manage-configuration-server/combined-wiz4.png)
 6. In **Controllo dei prerequisiti** il programma di installazione esegue un controllo per assicurarsi che sia possibile eseguire l'installazione. Se viene visualizzato un avviso relativo al **Global time sync check** (Controllo della sincronizzazione ora globale), verificare che l'ora del clock di sistema, nelle impostazioni di **Data e ora**, corrisponda al fuso orario.
 
-    ![prerequisiti](./media/physical-manage-configuration-server/combined-wiz5.png)
+    ![Prerequisiti](./media/physical-manage-configuration-server/combined-wiz5.png)
 7. In **MySQL Configuration** (Configurazione MySQL) creare le credenziali per l'accesso all'istanza del server MySQL che viene installata.
 
     ![MySQL](./media/physical-manage-configuration-server/combined-wiz6.png)

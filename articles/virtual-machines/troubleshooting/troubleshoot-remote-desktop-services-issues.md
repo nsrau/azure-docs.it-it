@@ -13,53 +13,69 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 39b793e2722766f3f28829b4dc48534054abd97e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a9967aec61aaab5bc6b4517407f36e2a6c7342c8
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49989024"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238863"
 ---
-# <a name="remote-desktop-services-is-not-starting-on-an-azure-vm"></a>Servizi Desktop remoto non si avvia in una macchina virtuale di Azure
+# <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Servizi Desktop remoto non si avvia in una macchina virtuale di Azure
 
-Questo articolo descrive come risolvere i problemi di connessione a una macchina virtuale (VM) di Azure quando Servizi Desktop remoto (TermService) non si avvia oppure se si verifica un errore di avvio.
+Questo articolo descrive come risolvere i problemi di connessione a una macchina virtuale (VM) di Azure quando Servizi Desktop remoto (TermService) non si avvia o restituisce un errore di avvio.
 
 >[!NOTE]
->Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Resource Manager e la distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione Resource Manager. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
+>Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione Resource Manager. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
 
 ## <a name="symptoms"></a>Sintomi
 
 Quando si prova a connettersi a una macchina virtuale, si verificano gli scenari seguenti:
 
 - Lo screenshot della macchina virtuale indica che il sistema operativo è completamente caricato ed è in attesa delle credenziali.
-- Tutte le applicazioni nella macchina virtuale funzionano come previsto e sono accessibili.
-- La macchina virtuale sta rispondendo alle richieste di connettività TCP sulla porta Microsoft RDP (Remote Desktop Protocol) (impostazione predefinita 3389).
-- Non vengono chieste le credenziali quando si prova a stabilire una connessione RDP.
+
+    ![Screenshot dello stato della macchina virtuale](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
+
+- Visualizzando in modalità remota i registri eventi nella macchina virtuale con il Visualizzatore eventi, si nota che Servizi Desktop remoto (TermServ) non si avvia o restituisce un errore di avvio. Di seguito è riportato un registro eventi di esempio:
+
+    **Nome log**:      System </br>
+    **Origine**:        Service Control Manager </br>
+    **Data**:          12/16/2017 11:19:36 AM</br>
+    **ID evento**:      7022</br>
+    **Categoria attività**: Nessuna</br>
+    **Livello**:         Errore</br>
+    **Parole chiave**:      Classic</br>
+    **Utente**:          N/A</br>
+    **Computer**:      vm.contoso.com</br>
+    **Descrizione**: Servizi Desktop remoto non si avvia. 
+
+    È anche possibile usare la funzionalità della console di accesso seriale per individuare questi errori usando la query seguente: 
+
+        wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
 
 ## <a name="cause"></a>Causa
+ 
+Questo problema si verifica perché Servizi Desktop remoto non è in esecuzione sulla macchina virtuale. La causa dipende dagli scenari seguenti: 
 
-Questo problema si verifica perché Servizi Desktop remoto non è in esecuzione nella macchina virtuale. La causa dipende dagli scenari seguenti:
-
-- Il servizio TermService è stato impostato su **Disattivato**.
-- Il servizio TermService si arresta in modo anomalo o si blocca.
+- Il servizio TermService è **disabilitato**. 
+- Il servizio TermService si arresta in modo anomalo o si blocca. 
 
 ## <a name="solution"></a>Soluzione
 
-Per risolvere questo problema, usare una delle soluzioni seguenti o provare le soluzioni a una a una:
+Per risolvere questo problema, usare la console seriale o [riparare la macchina virtuale in modalità offline](#repair-the-vm-offline) collegando il disco del sistema operativo della macchina virtuale a una macchina virtuale di ripristino.
 
-### <a name="solution-1-using-the-serial-console"></a>Soluzione 1: uso della console seriale
+### <a name="use-serial-console"></a>Usare la console seriale
 
-1. Accedere alla [console seriale](serial-console-windows.md) selezionando **Supporto e risoluzione dei problemi** > **Console seriale (anteprima)**. Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
+1. Accedere alla [console seriale](serial-console-windows.md) selezionando **Supporto e risoluzione dei problemi** > **Console seriale**. Se la funzionalità è abilitata nella macchina virtuale, è possibile connettere correttamente la macchina virtuale.
 
 2. Creare un nuovo canale per un'istanza CMD. Digitare **CMD** per avviare il canale per ottenere il relativo nome.
 
-3. Passare al canale che esegue l'istanza CMD, in questo caso il canale 1.
+3. Passare al canale che esegue l'istanza di CMD. In questo caso, dovrebbe essere il canale 1.
 
    ```
    ch -si 1
    ```
 
-4. Premere **INVIO** di nuovo e digitare un nome utente valido e una password (ID locale o di dominio) per la macchina virtuale.
+4. Premere di nuovo **INVIO** e digitare un nome utente e una password validi (ID locale o di dominio) per la macchina virtuale.
 
 5. Eseguire una query sullo stato del servizio TermService.
 
@@ -69,58 +85,87 @@ Per risolvere questo problema, usare una delle soluzioni seguenti o provare le s
 
 6. Se lo stato del servizio è indicato come **Arrestato**, provare ad avviare il servizio.
 
-   ```
-   sc start TermService
-   ```
+    ```
+    sc start TermService
+     ``` 
 
 7. Eseguire di nuovo una query sul servizio per assicurarsi che il servizio sia stato avviato correttamente.
 
    ```
    sc query TermService
    ```
+    Se il servizio non si avvia, seguire la soluzione in base all'errore ricevuto:
 
-### <a name="solution-2-using-a-recovery-vm-to-enable-the-service"></a>Soluzione 2: uso di una macchina virtuale di ripristino per abilitare il servizio
+    |  Errore |  Suggerimento |
+    |---|---|
+    |5- ACCESS DENIED |Vedere [Il servizio TermService viene arrestato a causa di un errore di accesso negato](#termService-service-is-stopped-because-of-access-denied-error) |
+    |1058 - ERROR_SERVICE_DISABLED  |Vedere [Il servizio TermService è disabilitato](#termService-service-is-disabled)  |
+    |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema|
+    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema|
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema    |
+    |1070 - ERROR_SERVICE_START_HANG   | [Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema  |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | Vedere [Il servizio TermService è disabilitato](#termService-service-is-disabled)  |
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema |
+    |1753   |[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema   |
 
-[Eseguire il backup del disco del sistema operativo](../windows/snapshot-copy-managed-disk.md) e [collegare il disco del sistema operativo a una macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md). Aprire quindi un'istanza di CMD con privilegi elevati ed eseguire gli script seguenti nella macchina virtuale di ripristino:
+#### <a name="termservice-service-is-stopped-because-of-access-denied-error"></a>Il servizio TermService viene arrestato a causa di un errore di accesso negato
 
->[!NOTE]
->Si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la macchina virtuale in uso. Dopo avere eseguito questa operazione, scollegare il disco dalla macchina virtuale di ripristino e [ricreare la macchina virtuale](../windows/create-vm-specialized.md). Per altre operazioni di risoluzione dei problemi, è possibile usare la **soluzione 1**, perché la console seriale è stata abilitata.
+1. Connettersi alla [console seriale](serial-console-windows.md#) e aprire un'istanza di PowerShell.
+2. Scaricare lo strumento di monitoraggio del processo eseguendo lo script seguente:
 
-```
-reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
+        remove-module psreadline  
+        $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
+        $destination = "c:\temp\ProcessMonitor.zip" 
+        $wc = New-Object System.Net.WebClient 
+        $wc.DownloadFile($source,$destination) 
+3. Avviare una traccia procmon:
 
-REM Enable Serial Console
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} displaybootmenu yes
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} timeout 10
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} bootems yes
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /ems {<Boot Loader Identifier>} ON
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+        procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+4. Riprodurre il problema avviando il servizio che restituisce l'errore di accesso negato: 
 
-REM Get the current ControlSet from where the OS is booting
-for /f "tokens=3" %x in ('REG QUERY HKLM\BROKENSYSTEM\Select /v Current') do set ControlSet=%x
-set ControlSet=%ControlSet:~2,1%
+        sc start TermService 
+        
+    Quando si verifica l'errore, proseguire e terminare la traccia di monitoraggio del processo:
 
-REM Suggested configuration to enable OS Dump
-set key=HKLM\BROKENSYSTEM\ControlSet00%ControlSet%\Control\CrashControl
-REG ADD %key% /v CrashDumpEnabled /t REG_DWORD /d 2 /f
-REG ADD %key% /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-REG ADD %key% /v NMICrashDump /t REG_DWORD /d 1 /f
+        procmon /Terminate 
+5. Raccogliere il file  **c:\temp\ProcMonTrace.PML**, aprirlo con procmon e quindi filtrare in base alla condizione  **Result is ACCESS DENIED** (Risultato è Accesso negato), come mostrato nello screenshot seguente:
 
-REM Set default values back on the broken service
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v ImagePath /t REG_EXPAND_SZ /d "<Image Path>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v ObjectName /t REG_SZ /d "<Startup Account>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v type /t REG_DWORD /d 16 /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v ImagePath /t REG_EXPAND_SZ /d "<Startup Account>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v ObjectName /t REG_SZ /d "<Startup Account>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v type /t REG_DWORD /d 16 /f
+    ![Filtrare in base al risultato nello strumento di monitoraggio del processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
-REM Enable default dependencies from the broken service
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Driver/Service Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Driver/Service Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg unload HKLM\BROKENSYSTEM
-```
+ 
+6. Correggere le chiavi del Registro di sistema, le cartelle o i file che sono riportati nell'output. In genere, questo problema è dovuto al fatto che l'account di accesso usato per il servizio non dispone dell'autorizzazione ACL per accedere a questi oggetti. Per conoscere l'autorizzazione ACL corretta per l'account di accesso, è possibile controllarla in una macchina virtuale integra. 
+
+#### <a name="termservice-service-is-disabled"></a>Il servizio TermService è disabilitato
+
+1.  Ripristinare il valore di avvio predefinito per il servizio:
+
+        sc config TermService start= demand 
+        
+2.  Avviare il servizio:
+
+        sc start TermService 
+3.  Eseguire di nuovo una query sullo stato per verificare che il servizio sia in esecuzione:     sc query TermService 
+4.  Provare a connettersi alla macchina virtuale tramite Desktop remoto.
+
+
+### <a name="repair-the-vm-offline"></a>Riparare la macchina virtuale in modalità offline
+
+#### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Collegare il disco del sistema operativo alla macchina virtuale di ripristino
+
+1. [Collegare il disco del sistema operativo alla macchina virtuale di ripristino](../windows/troubleshoot-recovery-disks-portal.md).
+2. Avviare una connessione Desktop remoto alla macchina virtuale di ripristino. Verificare che il disco collegato sia contrassegnato come **Online** nella console di Gestione disco. Prendere nota della lettera di unità assegnata al disco del sistema operativo collegato.
+3.  Aprire un'istanza del prompt dei comandi con privilegi elevati (**Esegui come amministratore**) e quindi eseguire lo script seguente. Si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la macchina virtuale in uso. 
+
+        reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+        
+        REM Set default values back on the broken service 
+        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v start /t REG_DWORD /d 3 /f
+        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService“ /f
+        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v type /t REG_DWORD /d 16 /f
+        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v start /t REG_DWORD /d 3 /f
+        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService" /f
+        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
+4. [Scollegare il disco del sistema operativo e ricreare la macchina virtuale](../windows/troubleshoot-recovery-disks-portal.md), quindi controllare se il problema è risolto.
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

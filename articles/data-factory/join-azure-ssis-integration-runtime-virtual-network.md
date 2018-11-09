@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 633717a9f5f74648f7418970dd8047079efe18b9
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649092"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094596"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 Aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale di Azure negli scenari seguenti: 
@@ -28,6 +28,9 @@ Aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale di Azure ne
 - Si ospita il database del catalogo SSIS (SQL Server Integration Services) nel database SQL di Azure con endpoint di servizio di rete virtuale/Istanza gestita. 
 
  Azure Data Factory consente di aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale creata con il modello di distribuzione classico o con il modello di distribuzione Azure Resource Manager. 
+
+> [!IMPORTANT]
+> La rete virtuale classica è attualmente deprecata, rendendo quindi necessario l'uso della rete virtuale di Azure Resource Manager.  Se si usa già la rete virtuale classica, passare alla rete virtuale di Azure Resource Manager appena possibile.
 
 ## <a name="access-to-on-premises-data-stores"></a>Accesso agli archivi dati locali
 Se i pacchetti SSIS consentono di accedere solo ad archivi dati cloud pubblici, non è necessario aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale. Se i pacchetti SSIS consentono di accedere ad archivi dati locali, è necessario aggiungere il runtime di integrazione Azure-SSIS a una rete virtuale connessa alla rete locale. 
@@ -46,11 +49,13 @@ Ecco alcuni elementi importanti da considerare:
 Se il catalogo SSIS è ospitato nel database SQL di Azure con endpoint di servizio di rete virtuale o Istanza gestita, è possibile aggiungere Azure-SSIS IR a quanto indicato di seguito: 
 
 - La stessa rete virtuale 
-- Un'altra rete virtuale che abbia una connessione di tipo network-to-network alla rete usata per il database SQL di Azure con endpoint di servizio di rete virtuale/Istanza gestita 
+- Un'altra rete virtuale che dispone di una connessione di tipo network-to-network con la rete usata per l'istanza gestita 
 
-Unendo il runtime di integrazione Azure-SSIS alla stessa rete virtuale di Istanza gestita, assicurarsi che il runtime di integrazione Azure-SSIS si trovi in una subnet diversa rispetto a Istanza gestita. Unendo il runtime di integrazione Azure-SSIS a una rete virtuale diversa da quella di Istanza gestita, è consigliabile effettuare un peering di rete virtuale (limitato alla stessa area) o stabilire una connessione tra reti virtuali. Vedere [Connettere un'applicazione a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-connect-app.md).
+Se si ospita il catalogo SSIS nel Database SQL di Azure con gli endpoint di servizio della rete virtuale, assicurarsi di aggiungere il runtime di integrazione Azure-SSIS alla stessa rete virtuale e subnet.
 
-La rete virtuale può essere distribuita con il modello di distribuzione classico o con il modello di distribuzione Azure Resource Manager.
+Unendo il runtime di integrazione Azure-SSIS alla stessa rete virtuale dell'istanza gestita, assicurarsi che il runtime di integrazione Azure-SSIS si trovi in una subnet diversa rispetto all'istanza gestita. Unendo il runtime di integrazione Azure-SSIS a una rete virtuale diversa da quella dell'istanza gestita, è consigliabile effettuare un peering di rete virtuale (limitato alla stessa area) o stabilire una connessione tra reti virtuali. Vedere [Connettere un'applicazione a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-connect-app.md).
+
+In ogni caso, la rete virtuale può essere distribuita solo con il modello di distribuzione Azure Resource Manager.
 
 Per altre informazioni, vedere le sezioni seguenti. 
 
@@ -73,13 +78,13 @@ Per altre informazioni, vedere le sezioni seguenti.
 
 L'utente che crea il runtime di integrazione Azure-SSIS deve avere le autorizzazioni seguenti:
 
-- Se si sta aggiungendo il runtime di integrazione SSIS a una rete virtuale di Azure della versione corrente, sono disponibili due opzioni:
+- Se si sta aggiungendo il runtime di integrazione SSIS a una rete virtuale di Azure Resource Manager, sono disponibili due opzioni:
 
-  - Usare il ruolo predefinito *Collaboratore di rete*. Questo ruolo richiede tuttavia l'autorizzazione *Microsoft.Network/\**  che ha un ambito molto maggiore.
+  - Usare il ruolo predefinito *Collaboratore di rete*. Questo ruolo richiede l'autorizzazione *Microsoft.Network/\**, la quale ha un ambito molto maggiore del necessario.
 
-  - Creare un ruolo personalizzato che include l'autorizzazione *Microsoft.Network/virtualNetworks/\*/join/action*. 
+  - Creare un ruolo personalizzato che include solo l'autorizzazione *Microsoft.Network/virtualNetworks/\*/join/action* necessaria. 
 
-- Se si sta aggiungendo il runtime di integrazione SSIS a una rete virtuale di Azure classica, è consigliabile usare il ruolo predefinito *Collaboratore Macchina virtuale classica*. In caso contrario, è necessario definire un ruolo personalizzato che include l'autorizzazione per accedere alla rete virtuale.
+- Se si sta aggiungendo il runtime di integrazione SSIS a una rete virtuale classica, è consigliabile usare il ruolo predefinito *Collaboratore Macchina virtuale classica*. In caso contrario, è necessario definire un ruolo personalizzato che include l'autorizzazione per accedere alla rete virtuale.
 
 ### <a name="subnet"></a> Selezionare la subnet
 -   Non selezionare GatewaySubnet per distribuire un runtime di integrazione Azure-SSIS perché è una subnet dedicata per i gateway di rete virtuale. 

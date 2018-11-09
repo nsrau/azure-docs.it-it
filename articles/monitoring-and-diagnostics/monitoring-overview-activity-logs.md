@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 5288dc508c35c72f3c1996ce665ccf83a84a4ea3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948965"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094364"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorare l'attività di sottoscrizione con il log attività di Azure
 
@@ -33,7 +33,7 @@ Il log attività è diverso dal [log di diagnostica](monitoring-overview-of-diag
 Per recuperare eventi dal log attività è possibile usare il portale di Azure, l'interfaccia della riga di comando, i cmdlet di PowerShell e l'API REST di Monitoraggio di Azure.
 
 > [!NOTE]
->  [I nuovi avvisi](monitoring-overview-unified-alerts.md) offrono un'esperienza ottimizzata per la creazione e la gestione delle regole degli avvisi del log attività.  [Altre informazioni](monitoring-activity-log-alerts-new-experience.md).
+>  [I nuovi avvisi](monitoring-overview-unified-alerts.md) offrono un'esperienza ottimizzata per la creazione e la gestione delle regole degli avvisi del log attività.  [Altre informazioni](monitoring-activity-log-alerts-new-experience.md)
 
 Guardare il video seguente di introduzione al log attività.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]

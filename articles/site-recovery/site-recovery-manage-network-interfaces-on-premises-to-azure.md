@@ -1,22 +1,20 @@
 ---
-title: Gestire le interfacce di rete in Azure Site Recovery per la replica dall'ambiente locale ad Azure | Microsoft Docs
-description: Descrive come gestire le interfacce di rete per la replica dall'ambiente locale ad Azure con Azure Site Recovery.
-services: site-recovery
-author: mayanknayar
+title: Gestire le interfacce di rete in Azure Site Recovery per il ripristino di emergenza dall'ambiente locale ad Azure | Microsoft Docs
+description: Questo articolo descrive come gestire le interfacce di rete per il ripristino di emergenza dall'ambiente locale ad Azure con Azure Site Recovery
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 75220d964f3e1208c85d34c1da97fab32044e62b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: afa8dfc39177e3f15db0092691d910b6b2cd3764
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917109"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212455"
 ---
-# <a name="manage-virtual-machine-network-interfaces-for-on-premises-to-azure-replication"></a>Gestire le interfacce di rete delle macchine virtuali per la replica dall'ambiente locale ad Azure
-
+# <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gestire le interfacce di rete delle macchine virtuali per il ripristino di emergenza dall'ambiente locale ad Azure
 Una macchina virtuale (VM) in Azure deve avere almeno un'interfaccia di rete collegata, fino al numero massimo supportato dalle dimensioni della macchina virtuale stessa.
 
 Per impostazione predefinita, la prima interfaccia di rete collegata a una macchina virtuale di Azure è definita interfaccia di rete primaria. Tutte le altre interfacce di rete nella macchina virtuale sono interfacce di rete secondarie. Sempre per impostazione predefinita, tutto il traffico in uscita dalla macchina virtuale viene inviato all'indirizzo IP assegnato alla configurazione IP primaria dell'interfaccia di rete primaria.

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
-ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237977"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210687"
 ---
-# <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Architettura e concetti: informazioni sul funzionamento del servizio Azure Machine Learning 
+# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Informazioni sul funzionamento del servizio Azure Machine Learning: architettura e concetti
 
 In questo documento vengono descritti l'architettura e i concetti del servizio di Azure Machine Learning. Il diagramma seguente illustra i componenti principali del servizio e il flusso di lavoro generale durante il suo uso: 
 
@@ -156,16 +156,28 @@ Un esperimento è un raggruppamento di più esecuzioni da uno script specifico. 
 
 Per un esempio d'uso di un esperimento, vedere il documento [Guida introduttiva: introduzione al servizio di Azure Machine Learning](quickstart-get-started.md).
 
+## <a name="pipelines"></a>Pipeline
+
+Le pipeline consentono di creare e gestire i flussi di lavoro in cui sono unite le varie fasi dell'apprendimento automatico. Ad esempio, una pipeline può includere le fasi di preparazione dei dati, training del modello, distribuzione del modello e inferenza. Ogni fase può includere più passaggi, ciascuno dei quali può essere eseguito in modo automatico in varie destinazioni di calcolo.
+
+Per altre informazioni sulle pipeline di apprendimento automatico, vedere l'articolo [Pipeline e Azure Machine Learning](concept-ml-pipelines.md).
+
 ## <a name="compute-target"></a>Destinazione del calcolo
 
-Una destinazione di calcolo è la risorsa di calcolo usata per eseguire lo script di training o per ospitare la distribuzione del servizio Web. Le destinazioni di calcolo supportate sono: 
+Una destinazione di calcolo è la risorsa di calcolo usata per eseguire lo script di training o per ospitare la distribuzione del servizio. Le destinazioni di calcolo supportate sono: 
 
-* Il computer locale
-* Una macchina virtuale Linux in Azure (come ad esempio Data Science Virtual Machine)
-* Il cluster Batch per intelligenza artificiale
-* Apache Spark per HDInsight
-* Istanza di contenitore di Azure
-* Azure Kubernetes Service
+| Destinazione del calcolo | Formazione | Distribuzione |
+| ---- |:----:|:----:|
+| Il computer locale | ✓ | &nbsp; |
+| Una VM Linux in Azure</br>(ad esempio, Data Science Virtual Machine) | ✓ | &nbsp; |
+| Il cluster Batch per intelligenza artificiale | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Data Lake Analytics. | ✓ | &nbsp; |
+| Apache Spark per HDInsight | ✓ | &nbsp; |
+| Istanza di contenitore di Azure | ✓ | ✓ |
+| Azure Kubernetes Service | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Project Brainwave</br>(Field-programmable Gate Array) | &nbsp; | ✓ |
 
 Le destinazioni di calcolo sono allegate a un'area di lavoro. Le destinazioni di calcolo diverse dal computer locale vengono condivise dagli utenti dell'area di lavoro.
 
@@ -187,7 +199,7 @@ Per degli esempi di configurazioni di esecuzione, vedere il documento [Seleziona
 
 Per eseguire il training di un modello si specifica la directory che contiene lo script di training e i file associati. Si specifica inoltre un nome per l'esperimento, che viene usato per archiviare le informazioni raccolte durante il training. Durante il training l'intera directory viene copiata nell'ambiente di training (destinazione di calcolo) e lo script specificato per la configurazione di esecuzione viene avviato. Uno snapshot della directory viene archiviato anche nell'esperimento nell'area di lavoro.
 
-Per un esempio di utilizzo degli script per eseguire il training di un modello, vedere [Creare un'area di lavoro con Python](quickstart-get-started.md)
+Per un esempio, vedere [Creare un'area di lavoro con Python](quickstart-get-started.md).
 
 ## <a name="logging"></a>Registrazione
 

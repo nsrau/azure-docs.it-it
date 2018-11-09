@@ -1,10 +1,27 @@
+---
+title: File di inclusione
+description: File di inclusione
+services: batch
+author: dlepow
+ms.service: batch
+ms.topic: include
+ms.date: 10/11/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: c98a2146a019817152be9fae76638dbaa4d9de3d
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49458858"
+---
 | **Risorsa** | **Limite predefinito** | **Limite massimo** |
 | --- | --- | --- |
 | Account Batch per area per sottoscrizione | 1 - 3 |50 |
 | Core dedicati per account Batch | 10 - 100 | N/D<sup>1</sup> |
 | Core a bassa priorità per account Batch | 10 - 100 | N/A<sup>2</sup> |
-| I processi attivi e le pianificazioni dei processi<sup>3</sup> per account Batch | 100 - 300 | 2500<sup>4</sup> |
-| Pool per account Batch | 20 - 100 | 500 |
+| I processi attivi e le pianificazioni dei processi<sup>3</sup> per account Batch | 100 - 300 | 1000<sup>4</sup> |
+| Pool per account Batch | 20 - 100 | 500<sup>4</sup> |
 
 > [!NOTE]
 > I limiti predefiniti variano a seconda del tipo di sottoscrizione usata per creare un account Batch. Le quote di core indicate sono per gli account in modalità servizio Batch. [Visualizzare le quote nell'account Batch](../articles/batch/batch-quota-limit.md#view-batch-quotas). 

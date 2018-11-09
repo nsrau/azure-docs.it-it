@@ -13,16 +13,16 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 09/26/2018
 ms.author: victorh
-ms.openlocfilehash: ab1c9405042de02183b8742fa940a3a5a482923a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8fb3dce108b59b8df0d330ec642365d2487eae35
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165230"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085462"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)
 
-Il gateway applicazione e Web application firewall sono ora disponibili in anteprima pubblica in una nuova SKU che offre miglioramenti alle prestazioni e aggiunge il supporto per nuove importanti funzionalità quali scalabilità automatica, ridondanza della zona e supporto per gli indirizzi VIP. Le funzionalità esistenti nella SKU disponibile a livello generale continuano a essere supportate nella nuova SKU, con alcune eccezioni elencate nella sezione delle limitazioni note. Le nuove SKU includono i miglioramenti seguenti:
+Il gateway applicazione e Web application firewall sono ora disponibili in anteprima pubblica in una nuova SKU versione 2 che offre miglioramenti alle prestazioni e aggiunge il supporto per nuove importanti funzionalità quali scalabilità automatica, ridondanza della zona e supporto per gli indirizzi VIP statici. Le funzionalità esistenti nella SKU disponibile a livello generale continuano a essere supportate nella nuova SKU versione 2, con alcune eccezioni elencate nella sezione delle limitazioni note. Le nuove SKU versione 2 includono i miglioramenti seguenti:
 
 - **Scalabilità automatica**: le distribuzioni del gateway applicazione o WAF nella SKU con scalabilità automatica possono passare a un piano superiore o inferiore in base alle modifiche dei modelli di carico del traffico. La scalabilità automatica elimina anche la necessità di scegliere un numero di istanze o le dimensioni della distribuzione durante il provisioning. Di conseguenza, la SKU offre una reale elasticità. Nella nuova SKU il gateway applicazione può operare sia in modalità di capacità fissa (scalabilità automatica disabilitata) che di scalabilità automatica abilitata. La modalità di capacità fissa è utile per gli scenari con carichi di lavoro coerenti e prevedibili. La modalità di scalabilità automatica è vantaggiosa nelle applicazioni con traffico delle applicazioni soggetto a numerose varianze.
    
@@ -48,6 +48,11 @@ Durante l'anteprima, non è previsto alcun addebito. Viene fatturato l'uso di ri
 
 |Problema|Dettagli|
 |--|--|
+|Autenticazione del certificato|Non supportata.<br>Per altre informazioni, vedere [Panoramica di SSL end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
+|Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Non supportata.<br>Inoltre, se è abilitata la scalabilità automatica, una subnet può avere solo un gateway applicazione.|
+|Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Non supportata.|
+|Gruppo di sicurezza di rete per intervallo di porte in ingresso| - Da 65200 a 65535 per SKU versione 2 Standard<br>- Da 65503 a 65534 per SKU Standard.<br>Per altre informazioni, vedere la sezione [Domande frequenti](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
+|Contatori delle prestazioni in Diagnostica di Azure|Non supportati.<br>Usare le metriche di Azure.|
 |Fatturazione|Nessun addebito attualmente.|
 |Modalità FIPS, WebSocket|Attualmente non supportati.|
 |Modalità solo bilanciamento del carico interno|Non supportato attualmente. Le modalità pubblica e con bilanciamento del carico interno insieme non sono supportate.|

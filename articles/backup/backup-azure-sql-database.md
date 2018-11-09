@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 72d48bd1716e1b62ae92f8317f3f9611ac463453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433566"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211503"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Eseguire un backup dei database SQL Server in Azure
 
@@ -658,23 +658,23 @@ Backup di Azure usa le API native di SQL per tutte le operazioni di backup. Con 
 L'esempio seguente è una query per recuperare tutti i processi di backup per un database denominato **DB1**. Personalizzare la query per eseguire un monitoraggio avanzato.
 
 ```
-select CAST (
+select CAST (
 Case type
-                when 'D' 
-                                 then 'Full'
-                when  'I'
-                               then 'Differential' 
-                ELSE 'Log'
-                END         
-                AS varchar ) AS 'BackupType',
-database_name, 
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
 server_name,
 machine_name,
 backup_start_date,
 backup_finish_date,
-DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
-backup_size AS BackupSizeInBytes
-  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
  
 ```
 
@@ -703,7 +703,7 @@ Se si interrompe la protezione per un database di SQL Server, Backup di Azure ri
 * Interrompere tutti i processi di backup futuri ed eliminare tutti i punti di recupero.
 * Interrompere tutti i processi di backup futuri mantenendo però i punti di recupero.
 
-È previsto un costo per mantenere i punti di recupero. I punti di recupero per SQL implicano un addebito per l'esecuzione dell'istanza SQL protetta, oltre alla memoria usata. Per altre informazioni sui prezzi di Backup di Azure per SQL, vedere la [pagina dei prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/). 
+Se si sceglie di interrompere il backup con conservazione dei dati, verranno eliminati i punti di ripristino in base ai criteri di backup. Ciò implica un addebito per l'esecuzione dell'istanza SQL protetta, oltre allo spazio di archiviazione utilizzato fino all'eliminazione di tutti i punti di ripristino. Per altre informazioni sui prezzi di Backup di Azure per SQL, vedere la [pagina dei prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/). 
 
 Per interrompere la protezione per un database:
 
@@ -823,6 +823,10 @@ Attivare un backup completo. I backup del log iniziano come previsto.
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>È possibile proteggere i gruppi di disponibilità AlwaysOn SQL in cui la replica primaria si trova in sede
 
 No. Backup di Azure protegge gli SQL Server in esecuzione in Azure. Se un gruppo di disponibilità (AG) è sparso tra le macchine Azure e in locale, l'AG può essere protetto solo se la replica primaria è in esecuzione in Azure. Inoltre, Backup di Azure protegge solo i nodi in esecuzione nella stessa area di Azure come l'insieme di credenziali di Servizi di ripristino.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>È possibile proteggere i gruppi di disponibilità AlwaysOn SQL distribuiti nelle aree di Azure?
+I servizi di ripristino di Backup di Azure possono rilevare e proteggere tutti i nodi che sono nella stessa area dell'insieme di credenziali di Servizi di ripristino. Se si dispone di un gruppo di disponibilità Always On SQL che si estende su più aree di Azure, è necessario configurare il backup dall'area che contiene il nodo primario. Backup di Azure sarà in grado di rilevare e proteggere tutti i database nel gruppo di disponibilità in base alle preferenze di backup. Se le preferenze di backup non vengono soddisfatte, i backup avranno esito negativo e verrà visualizzato l'avviso di errore.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

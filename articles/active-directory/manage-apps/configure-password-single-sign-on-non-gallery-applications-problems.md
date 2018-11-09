@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 3675889e583fbe2bf949891c3d6b4d5f731e6ac1
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0d069490f2e5b495b417b5a4d511f02fa7891ea9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355844"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240104"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema nella configurazione dell'accesso Single Sign-On basato su password per un'applicazione non inclusa nella raccolta
 
@@ -141,7 +141,7 @@ Se si verifica uno di questi problemi, verificare quanto segue:
 
 -   Provare di nuovo il processo di acquisizione manuale, assicurarsi che gli indicatori rossi si trovino sui campi corretti.
 
--   Se il processo di acquisizione manuale sembra bloccarsi o nella pagina di accesso non esegue alcuna operazione (caso 3 precedente), provare a eseguirlo nuovamente. Questa volta, tuttavia, al termine del processo, premere il tasto **F12** per aprire la console per sviluppatori del browser. Aprire la **console** e digitare **window.location="&lt;immettere l'URL di accesso specificato durante la configurazione dell'app&gt;"** e quindi premere **INVIO**. Questa operazione forza il reindirizzamento della pagina, che termina il processo di acquisizione e archivia i campi acquisiti.
+-   Se il processo di acquisizione manuale sembra bloccarsi o nella pagina di accesso non esegue alcuna operazione (caso 3 precedente), provare a eseguirlo nuovamente. Questa volta, tuttavia, al termine del processo, premere il tasto **F12** per aprire la console per sviluppatori del browser. A questo punto, aprire la **console** e digitare **window.location="&lt;immettere l'URL di accesso specificato durante la configurazione dell'app&gt;"** e quindi premere **INVIO**. Questa operazione forza il reindirizzamento della pagina, che termina il processo di acquisizione e archivia i campi acquisiti.
 
 Se nessuno di questi approcci risolve il problema, rivolgersi al supporto Microsoft. Aprire una richiesta di assistenza con i dettagli delle azioni tentate, nonché le informazioni raccolte nelle sezioni [Come visualizzare i dettagli di una notifica del portale](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Come ottenere assistenza inviando i dettagli di notifica a un tecnico del supporto](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (se applicabile).
 

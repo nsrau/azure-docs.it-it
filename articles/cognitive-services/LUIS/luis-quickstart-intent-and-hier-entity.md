@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: d3adb6c27d3550777f0a5b34b3e7e329f42432ab
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831025"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138464"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>Esercitazione 5: estrarre dati correlati in base al contesto
 Questa esercitazione illustra come trovare informazioni correlate di dati basati sul contesto. Ad esempio, spostare una località di origine e destinazione di un computer fisico da un edificio e un ufficio a un altro edificio e ufficio sono informazioni correlate. Per generare un ordine di lavoro potrebbero essere necessarie entrambi i dati, i quali sono correlati tra loro.  
@@ -119,7 +119,7 @@ Aggiungere di nuovo l'entità numero predefinita nell'applicazione.
 
 1. Scegliere **Entities** (Entità) dal menu di spostamento a sinistra.
 
-2. Fare clic sul pulsante **Manage prebuilt entities** (Gestisci entità predefinite).
+2. Selezionare il pulsante **Add prebuilt entity** (Aggiungi entità predefinite).
 
 3. Selezionare **number** nell'elenco di entità predefinite e quindi **Done** (Fine).
 
@@ -248,6 +248,10 @@ Le posizioni in questo esempio, ad esempio `a-1234`, seguono un formato specific
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="hierarchical-entities-versus-roles"></a>Ruoli ed entità gerarchiche
+
+Per altre informazioni, vedere [Ruoli ed entità gerarchiche](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione è stata creata una nuova finalità e sono state aggiunte espressioni di esempio per i dati acquisiti in base al contesto relativi alla posizione di origine e di destinazione. Una volta eseguiti il training e la pubblicazione dell'app, un'applicazione client può usare tali informazioni per creare un ticket di spostamento con le informazioni pertinenti.

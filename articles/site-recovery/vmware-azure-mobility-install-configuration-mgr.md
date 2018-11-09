@@ -1,17 +1,17 @@
 ---
-title: Automatizzare l'installazione del servizio Mobility per Azure Site Recovery tramite System Center Configuration Manager | Microsoft Docs
-description: Questo articolo consente di automatizzare l'installazione del servizio Mobility tramite System Center Configuration Manager.
+title: Automatizzare l'installazione del servizio Mobility di Azure Site Recovery per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure tramite System Center Configuration Manager | Microsoft Docs
+description: Questo articolo consente di automatizzare l'installazione del servizio Mobility con System Center Configuration Manager per eseguire il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 6aff17908d220557720776a2d7884adc28b5deee
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: f14c02404dae5a923aabcd2df8279a6150c42f57
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37917170"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215294"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatizzare l'installazione del servizio Mobility tramite System Center Configuration Manager
 
@@ -26,7 +26,7 @@ In questo articolo si usa System Center Configuration Manager 2012 R2 per illust
 
 In alternativa è possibile automatizzare l'installazione del servizio Mobility tramite [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 1. Uno strumento di distribuzione software come Configuration Manager già distribuito nell'ambiente.
 2. Creare due [raccolte di dispositivi](https://technet.microsoft.com/library/gg682169.aspx), una per tutti i **server Windows** e una per tutti i **server Linux** da proteggere con Site Recovery.
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   | **Nome parametro** | **Valore** |
   |--|--|
-  | NOME | Installare il servizio Mobility di Microsoft Azure (Windows) |
+  | Nome | Installare il servizio Mobility di Microsoft Azure (Windows) |
   | Riga di comando | install.bat |
   | Il programma può essere eseguito | anche se non ci sono utenti connessi |
 
@@ -397,7 +397,7 @@ cd /tmp
 
     | **Nome parametro** | **Valore** |
   |--|--|
-  | NOME | Installare il servizio Mobility di Microsoft Azure (Linux) |
+  | Nome | Installare il servizio Mobility di Microsoft Azure (Linux) |
   | Riga di comando | ./install_linux.sh |
   | Il programma può essere eseguito | anche se non ci sono utenti connessi |
 

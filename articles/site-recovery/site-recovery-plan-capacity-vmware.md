@@ -1,23 +1,22 @@
 ---
-title: Pianificare la capacità e la scalabilità per la replica VMware con Azure Site Recovery | Microsoft Docs
-description: Consultare questo articolo per pianificare la capacità e la scalabilità quando si esegue la replica delle macchine virtuali VMware in Azure con Azure Site Recovery
-services: site-recovery
+title: Pianificare la capacità e la scalabilità per il ripristino di emergenza da VMware ad Azure con Azure Site Recovery | Microsoft Docs
+description: Questo articolo presenta informazioni per pianificare la capacità e la scalabilità quando si configura il ripristino di emergenza di macchine virtuali VMware in Azure con Azure Site Recovery
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.topic: conceptual
 ms.author: rayne
-ms.openlocfilehash: 833000cb09d315a996ebc9e2d66210c805160f2a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 9bc0d5976cf01eb61c2a09a35ccd3a834313ca00
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067554"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210500"
 ---
-# <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Pianificare la capacità e la scalabilità per la replica VMware con Azure Site Recovery
+# <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-auzre"></a>Pianificare la capacità e la scalabilità per il ripristino di emergenza da VMware ad Azure
 
-Consultare questo articolo per scoprire come pianificare la capacità e la scalabilità durante la replica locale delle macchine virtuali VMware e dei server fisici in Azure, con [Azure Site Recovery](site-recovery-overview.md).
+Questo articolo illustra come pianificare la capacità e la scalabilità quando si esegue la replica di server fisici e VM VMware locali in Azure con [Azure Site Recovery](site-recovery-overview.md).
 
 ## <a name="how-do-i-start-capacity-planning"></a>Come si inizia per pianificare la capacità?
 

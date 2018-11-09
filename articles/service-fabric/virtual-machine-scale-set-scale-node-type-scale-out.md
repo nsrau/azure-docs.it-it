@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e1c194ea2ebc0e06918c8389c9ee6f72afb3e86
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8f460b41cd2ce62b7a3e0138caa25f68e2fd22ad
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887789"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156494"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Ridimensionare un cluster di Service Fabric aggiungendo un set di scalabilità di macchine virtuali
 Questo articolo descrive come ridimensionare un cluster di Azure Service Fabric aggiungendo un nuovo set di scalabilità di macchine virtuali a un cluster esistente. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente. Dopo aver creato un cluster di Service Fabric, è possibile ridimensionare un tipo di nodo del cluster in verticale (ovvero modificare le risorse dei nodi), aggiornare il sistema operativo delle macchine virtuali del tipo di nodo o aggiungere un nuovo set di scalabilità di macchine virtuali al cluster esistente.  È possibile ridimensionare il cluster in qualsiasi momento, anche quando sono in esecuzione carichi di lavoro nel cluster.  Quando si ridimensiona il cluster, vengono automaticamente ridimensionate anche le applicazioni.
@@ -34,7 +34,7 @@ Questo articolo descrive come ridimensionare un cluster di Azure Service Fabric 
 Di seguito è illustrato il processo per l'aggiornamento delle dimensioni e del sistema operativo delle macchine virtuali del tipo di nodo primario.  Dopo l'aggiornamento, le macchine virtuali del tipo di nodo primario sono di dimensioni D4_V2 standard ed eseguono Windows Server 2016 Data Center con contenitori.
 
 > [!WARNING]
-> Prima di provare a eseguire questa procedura su un cluster di produzione, è consigliabile esaminare i modelli di esempio e verificare il processo su un cluster di test. Il cluster inoltre risulterà non disponibile per un certo tempo.
+> Prima di provare a eseguire questa procedura su un cluster di produzione, è consigliabile esaminare i modelli di esempio e verificare il processo su un cluster di test. Il cluster inoltre risulterà non disponibile per un certo tempo. NON è possibile apportare modifiche apportate a più set di scalabilità di macchine virtuali dichiarate come lo stesso NodeType in parallelo; sarà necessario eseguire operazioni di distribuzione separate per applicare individualmente le modifiche a ogni set di scalabilità di macchine virtuali NodeType.
 
 1. Distribuire il cluster iniziale con due tipi di nodo e due set di scalabilità (un set di scalabilità per ogni tipo di nodo) usando questi file di esempio di [modelli](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) e [parametri](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json).  Entrambi i set di scalabilità sono dimensioni D2_V2 standard ed eseguono Windows Server 2012 R2 Datacenter.  Attendere che il cluster completi l'aggiornamento della baseline.   
 2. Distribuire un esempio con stato nel cluster (facoltativo).

@@ -4,17 +4,17 @@ description: Usare Azure Resource Graph per eseguire alcune query di base.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: ba3df8f0f7fa0443e64972647b6f146f756e62d6
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646629"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50084531"
 ---
 # <a name="starter-resource-graph-queries"></a>Query di base di Resource Graph
 
@@ -58,7 +58,7 @@ Search-AzureRmGraph -Query "summarize count()"
 
 ## <a name="list-resources"></a>Elencare le risorse ordinate per nome
 
-Senza limitazioni a particolari tipi di risorsa o a determinate proprietà, questa query restituisce solo il **nome**, il **tipo** e il **percorso** delle risorse di Azure, ma usa `order by` per ordinarle in base alla proprietà **name** in ordine crescente (`asc`).
+Questa query restituisce qualsiasi tipo di risorsa, ma solo le proprietà **name**, **type** e **location**. Usa `order by` per ordinare le proprietà in base alla proprietà **name** in ordine crescente (`asc`).
 
 ```Query
 project name, type, location
@@ -75,8 +75,7 @@ Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 
 ## <a name="show-vms"></a>Mostrare tutte le macchine virtuali ordinate per nome in ordine decrescente
 
-Anziché ottenere tutte le risorse di Azure, se si vuole solo un elenco di macchine virtuali, il cui tipo è `Microsoft.Compute/virtualMachines`, è possibile cercare le corrispondenze della proprietà **type** nei risultati.
-Analogamente alla query precedente, `desc` cambia `order by` in decrescente. Nella ricerca di corrispondenze per tipo, `=~` induce Resource Graph a non distinguere fra maiuscole e minuscole.
+Per elencare solo le macchine virtuali (che sono di tipo `Microsoft.Compute/virtualMachines`), è possibile cercare le corrispondenze della proprietà **type** nei risultati. Analogamente alla query precedente, `desc` cambia `order by` in decrescente. Nella ricerca di corrispondenze per tipo, `=~` induce Resource Graph a non distinguere fra maiuscole e minuscole.
 
 ```Query
 project name, location, type
@@ -165,7 +164,8 @@ Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 
 ## <a name="list-publicip"></a>Elencare tutti gli indirizzi IP pubblici
 
-Analogamente alla query precedente, trovare gli elementi in cui il tipo contenga la parola **publicIPAddresses**. Questa query si basa su tale modello per escludere i risultati in cui **properties.ipAddress** è null, in modo da restituire solo **properties.ipAddress** e limitare (`limit`) i risultati ai primi 100. Potrebbe essere necessario eseguire l'escape delle virgolette a seconda della shell in uso.
+Analogamente alla query precedente, trovare gli elementi in cui il tipo contenga la parola **publicIPAddresses**.
+Questa query si basa su tale modello per escludere i risultati in cui **properties.ipAddress** è null, in modo da restituire solo **properties.ipAddress** e limitare (`limit`) i risultati ai primi 100. Potrebbe essere necessario eseguire l'escape delle virgolette a seconda della shell in uso.
 
 ```Query
 where type contains 'publicIPAddresses' and properties.ipAddress != ''
@@ -215,7 +215,7 @@ az graph query -q "where tags.environment=~'internal' | project name"
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
-Se fosse necessario specificare anche i tag di quelle risorse e i relativi valori, questo esempio potrebbe essere espanso aggiungendo la proprietà **tag** alla parola chiave `project`.
+Per fornire anche i tag della risorsa e i relativi valori, aggiungere la proprietà **tags** per alla parola chiave `project`.
 
 ```Query
 where tags.environment=~'internal'
@@ -232,7 +232,7 @@ Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, t
 
 ## <a name="list-specific-tag"></a>Elencare tutti gli account di archiviazione con un valore di tag specifico
 
-Combinando la capacità di filtro dell'esempio precedente con l'applicazione di filtri basati sul tipo di risorsa di Azure mediante la proprietà **type**, è possibile limitare la ricerca per tipi specifici di risorse di Azure con un nome di tag e un valore specifici.
+Combinare la funzionalità di filtro dell'esempio precedente e filtrare il tipo di risorsa di Azure per la proprietà **type**. Questa query limita anche la ricerca di tipi specifici di risorse di Azure con un nome di tag e un valore specifici.
 
 ```Query
 where type =~ 'Microsoft.Storage/storageAccounts'

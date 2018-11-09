@@ -1,22 +1,21 @@
 ---
-title: Configurazione dell'indirizzo IP per la connessione dopo il failover su Azure con Azure Site Recovery | Microsoft Docs
-description: Descrive come configurare l'indirizzo IP per la connessione alle macchine virtuali di Azure dopo il failover da un sito locale con Azure Site Recovery
+title: Configurare l'indirizzamento IP per la connessione dopo il ripristino di emergenza e il failover in Azure con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come configurare l'indirizzamento IP per la connessione alle macchine virtuali di Azure dopo il ripristino di emergenza e il failover da un sito locale con Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 99b8287b79a7cf9802ab3b71ce4c90032706bc63
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: ce7e5fde60503a969b88892be890173861fb15be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919244"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215226"
 ---
-# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurazione dell'indirizzo IP per la connessione dopo il failover in Azure
+# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurare l'indirizzamento IP per la connessione alle macchine virtuali di Azure dopo il failover
 
 Questo articolo presenta i requisiti di rete per la connessione alle macchine virtuali di Azure dopo aver usato il servizio [Azure Site Recovery](site-recovery-overview.md) per la replica e il failover in Azure.
 

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8240cf5beb50ef16aa2bd03415e6bbff9a2f4250
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628777"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158143"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,7 +25,7 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Informazioni su Azure IoT Central
 
-Microsoft Azure IoT Central è una soluzione SaaS (Software-as-a-Service) IoT completamente gestita che semplifica la creazione di prodotti che si connettono ai mondi fisico e digitale. Per realizzare prodotti connessi, è possibile:
+Azure IoT Central è una soluzione SaaS (Software-as-a-Service) IoT completamente gestita che semplifica la creazione di prodotti che si connettono ai mondi fisico e digitale. Per realizzare prodotti connessi, è possibile:
 
 - Derivare nuove informazioni dettagliate dai dispositivi connessi allo scopo di migliorare prodotti ed esperienze per i clienti.
 - Creare nuove opportunità di business per l'organizzazione.
@@ -65,7 +65,7 @@ I generatori usano Azure IoT Central per creare una soluzione IoT ospitata nel c
 - Un'applicazione basata sul cloud che riceve i dati di telemetria dai dispositivi e consente di gestire tali dispositivi.
 - Più dispositivi che eseguono codice personalizzato connessi all'applicazione basata sul cloud.
 
-È possibile distribuire rapidamente una nuova applicazione Azure IoT Central e quindi personalizzarla in base a requisiti specifici direttamente nel browser. I generatori di Azure IoT Central possono usare gli strumenti basati sul Web per creare un _modello di dispositivo_ per i dispositivi che si connettono all'applicazione. Per modello di dispositivo si intende il progetto di un modello di dispositivo condiviso tra tutti i dispositivi creati dal modello. Un modello di dispositivo consente di definire le caratteristiche e il comportamento di un tipo di dispositivo, ad esempio:
+È possibile distribuire rapidamente una nuova applicazione Azure IoT Central e quindi personalizzarla in base a requisiti specifici direttamente nel browser. I generatori di Azure IoT Central possono usare gli strumenti basati sul Web per creare un _modello di dispositivo_ per i dispositivi che si connettono all'applicazione. Per modello di dispositivo si intende il progetto di un modello di dispositivo condiviso tra tutti i dispositivi creati dallo stesso modello. Un modello di dispositivo consente di definire le caratteristiche e il comportamento di un tipo di dispositivo, ad esempio:
 
 - I dati di telemetrica che invia.
 - Le proprietà di business modificabili da un operatore.

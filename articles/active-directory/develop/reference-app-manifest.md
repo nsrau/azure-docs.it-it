@@ -13,20 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115111"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086778"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto dell'app Azure Active Directory
 
-Le app che si integrano con Azure Active Directory (Azure AD) devono essere registrate con un tenant di Azure AD. È possibile configurare l'app nel [portale di Azure](https://portal.azure.com) selezionando **Registrazioni per l'app** in **Azure Active Directory**, scegliendo l'app che si vuole configurare e quindi selezionando **Manifesto**.
+Il manifesto dell'applicazione contiene una definizione di tutti gli attributi di un oggetto applicazione in Microsoft Identity Platform. Funge inoltre da meccanismo per laggiornamento dell'oggetto applicazione. Per altre informazioni sull'entità applicazione e il relativo schema, vedere la [documentazione sull'entità applicazione dell'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity),
+
+È possibile configurare gli attributi di un'applicazione tramite il portale di Azure o in modo programmatico usando Microsoft Graph. Tuttavia, esistono alcuni scenari in cui è necessario modificare il manifesto dell'applicazione per configurare l'attributo di un'applicazione. Tali scenari includono:
+
+* Se l'applicazione è stata registrata come multi-tenant di Azure AD e per account Microsoft personali, non è possibile modificare gli account Microsoft supportati nell'interfaccia utente. Per modificare i tipi di account supportati è necessario usare l'editor del manifesto dell'applicazione.
+* Se è necessario definire le autorizzazioni e i ruoli supportati dall'applicazione, è necessario modificare il manifesto dell'applicazione.
+
+## <a name="configure-the-app-manifest"></a>Configurare il manifesto dell'applicazione
+
+Per configurare il manifesto dell'applicazione:
+
+1. Accedere al [Portale di Azure](https://portal.azure.com).
+1. Selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app** o **Registrazioni app (anteprima)**.
+1. Selezionare l'applicazione da configurare.
+1. Nella pagina **Panoramica** dell'app selezionare la sezione **Manifesto**. Si apre un editor di manifesto basato sul Web che consente di modificare il manifesto all'interno del portale. Facoltativamente è possibile selezionare **Scarica**, modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione.
 
 ## <a name="manifest-reference"></a>Riferimento del manifesto
 

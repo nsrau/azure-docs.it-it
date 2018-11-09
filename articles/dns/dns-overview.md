@@ -7,41 +7,41 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: f68281f71ed525798410fb80b0d0175d38050c40
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 9535ad73300406408a94a6f38f001e45ba7409a2
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829920"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093096"
 ---
 # <a name="what-is-azure-dns"></a>Che cos'è DNS di Azure?
 
-DNS di Azure è un servizio di hosting per i domini DNS, che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Ospitando i domini in Azure, è possibile gestire i record DNS usando le stesse credenziali, API, strumenti e fatturazione come per gli altri servizi Azure.
+DNS di Azure è un servizio di hosting per i domini DNS che offre la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. L'hosting dei domini in Azure consente di gestire i record DNS usando gli stessi strumenti, credenziali, API e fatturazione usati per altri servizi Azure.
 
-Non è possibile usare DNS di Azure per acquistare un nome di dominio. Per una tariffa annuale, è possibile acquistare un nome di dominio usando [App Web di Azure](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) o un registrar di nomi di dominio di terze parti. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record. Per informazioni dettagliate, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md) .
+Non è possibile usare DNS di Azure per acquistare un nome di dominio. Per una tariffa annuale, è possibile acquistare un nome di dominio usando [App Web di Azure](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app#buy-the-domain) o un registrar di nomi di dominio di terze parti. I domini possono quindi essere ospitati in DNS di Azure per la gestione dei record. Per altre informazioni, vedere [Delegare un dominio a DNS di Azure](dns-domain-delegation.md).
 
-DNS di Azure offre le funzionalità seguenti:
+DNS di Azure offre le funzionalità seguenti.
 
 ## <a name="reliability-and-performance"></a>Affidabilità e prestazioni
 
-I domini DNS nel servizio DNS di Azure sono ospitati nella rete globale di Azure dei server dei nomi DNS. DNS di Azure usa le reti Anycast, in modo che ogni query DNS riceva una risposta dal server DNS disponibile più vicino, per assicurare prestazioni e disponibilità elevate per il dominio.
+I domini DNS nel servizio DNS di Azure sono ospitati nella rete globale di Azure dei server dei nomi DNS. DNS di Azure usa le reti Anycast. Ogni query DNS riceve una risposta dal server DNS disponibile più vicino, per assicurare prestazioni e disponibilità elevate per il dominio.
 
 ## <a name="security"></a>Sicurezza
 
-Il servizio DNS di Azure si basa su Azure Resource Manager, che offre funzionalità quali:
+ DNS di Azure si basa su Azure Resource Manager, che offre funzionalità quali:
 
-* [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control): per controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione.
+* [Controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) per controllare gli utenti autorizzati ad accedere ad azioni specifiche per l'organizzazione.
 
-* [Log attività](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs): per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa o per trovare un errore durante la risoluzione dei problemi.
+* [Log attività](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs) per monitorare il modo in cui un utente dell'organizzazione ha modificato una risorsa o per trovare un errore durante la risoluzione dei problemi.
 
-* [Blocco delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources): per bloccare una sottoscrizione, una risorsa o un gruppo di risorse in modo da impedire che altri utenti nell'organizzazione modifichino o eliminino accidentalmente risorse strategiche.
+* [Blocco delle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) per bloccare una sottoscrizione, un gruppo di risorse o una risorsa. I blocchi impediscono ad altri utenti dell'organizzazione di modificare o eliminare accidentalmente risorse di importanza fondamentale.
 
 Per altre informazioni, vedere [Come proteggere le zone e i record DNS](dns-protect-zones-recordsets.md). 
 
 
 ## <a name="ease-of-use"></a>Semplicità d'uso
 
-Il servizio DNS di Azure consente di gestire i record DNS per i servizi di Azure, nonché di garantire il servizio DNS alle risorse esterne. DNS di Azure è integrato nel portale di Azure e usa le stesse credenziali, lo stesso contratto di supporto e gli stessi metodi di fatturazione di altri servizi di Azure. 
+ DNS di Azure consente di gestire i record DNS per i servizi di Azure, nonché di garantire il servizio DNS alle risorse esterne. DNS di Azure è integrato nel portale di Azure e usa le stesse credenziali, lo stesso contratto di supporto e gli stessi metodi di fatturazione di altri servizi di Azure. 
 
 La fatturazione di DNS è basata sul numero di zone DNS ospitate in Azure e sul numero di query DNS ricevute. Per altre informazioni sui prezzi, vedere [Prezzi di DNS di Azure](https://azure.microsoft.com/pricing/details/dns/).
 
@@ -49,15 +49,15 @@ I domini e i record possono essere gestiti tramite il portale di Azure, i cmdlet
 
 ## <a name="customizable-virtual-networks-with-private-domains"></a>Reti virtuali personalizzabili con domini privati
 
-DNS di Azure supporta anche i domini DNS privati, attualmente disponibili in anteprima pubblica. Questo consente di usare nomi di dominio personalizzati nelle reti private virtuali, anziché i nomi forniti da Azure attualmente disponibili.
+DNS di Azure supporta anche i domini DNS privati con una funzionalità che attualmente è disponibile in anteprima pubblica. Questa funzionalità consente di usare nomi di dominio personalizzati nelle reti private virtuali, anziché i nomi forniti da Azure attualmente disponibili.
 
-Per altre informazioni, vedere [Uso di DNS di Azure per i domini privati](private-dns-overview.md).
+Per altre informazioni, vedere [Usare DNS di Azure per i domini privati](private-dns-overview.md).
 
 ## <a name="alias-records"></a>Record alias
 
-DNS di Azure supporta i set di record alias. È possibile usare un set di record alias per fare riferimento a una risorsa di Azure, come ad esempio un indirizzo IP pubblico di Azure o un profilo di Gestione traffico. Se l'indirizzo IP della risorsa sottostante viene modificato, il set di record alias si aggiorna automaticamente durante la risoluzione DNS. Il set di record alias fa riferimento all'istanza del servizio e l'istanza del servizio è associata a un indirizzo IP. 
+DNS di Azure supporta i set di record alias. È possibile usare un set di record alias per fare riferimento a una risorsa di Azure, come ad esempio un indirizzo IP pubblico di Azure o un profilo di Gestione traffico di Azure. Se l'indirizzo IP della risorsa sottostante viene modificato, il set di record alias si aggiorna automaticamente durante la risoluzione DNS. Il set di record alias fa riferimento all'istanza del servizio e l'istanza del servizio è associata a un indirizzo IP. 
 
-Inoltre, ora è possibile indirizzare il dominio radice o di tipo naked (ad esempio, contoso.com) a un profilo di Gestione traffico usando un record alias.
+Inoltre, ora è possibile indirizzare il dominio radice o di tipo naked a un profilo di Gestione traffico usando un record alias. Un esempio è contoso.com.
 
 Per altre informazioni, vedere la [panoramica dei record alias DNS di Azure](dns-alias.md).
 

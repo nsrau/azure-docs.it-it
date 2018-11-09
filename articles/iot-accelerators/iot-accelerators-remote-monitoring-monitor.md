@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 10/26/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1f9e5885e79e184b621ba2be7e2a8f329e31a6b1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 563c7a74d307a2c842680a031cf74b4a05ba800f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284490"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138559"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Esercitazione: monitorare i dispositivi IoT
 
@@ -41,7 +41,7 @@ Per selezionare i dispositivi connessi da visualizzare nella pagina **Dashboard*
 
 [![Applicare un filtro per visualizzare solo i veicoli nel dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-Quando si applica un filtro, nella mappa e nel pannello di telemetria della pagina **Dashboard** vengono visualizzati solo i dispositivi che soddisfano le condizioni di filtro. Come si può vedere, ci sono due veicoli collegati all'acceleratore di soluzioni, tra cui truck-02:
+Quando si applica un filtro, nella mappa e nel pannello di telemetria vengono visualizzati solo i dispositivi che soddisfano le condizioni di filtro. Come si può vedere, ci sono due veicoli collegati all'acceleratore di soluzioni, tra cui truck-02:
 
 [![Sulla mappa sono visualizzati solo i veicoli](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 

@@ -1,19 +1,19 @@
 ---
-title: Installare un server di destinazione master Linux per il failover da Azure a locale | Microsoft Docs
-description: Prima di eseguire la riprotezione di una macchina virtuale Linux, è necessario dotarsi di un server di destinazione master Linux. Di seguito viene descritto come installarlo.
+title: Installare un server di destinazione master Linux per il failback in un sito di Azure locale | Microsoft Docs
+description: Informazioni su come configurare un server di destinazione master Linux per eseguire il failback in un sito locale durante il ripristino di emergenza di macchine virtuali VMware in Azure tramite Azure Site Recovery.
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 470d4547a63105e319f072461a4d8f24ebe3dbe8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094123"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212370"
 ---
-# <a name="install-a-linux-master-target-server"></a>Installare un server di destinazione master Linux
+# <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
 
 Se quella protetta è una macchina virtuale Windows, è necessario un server di destinazione master Windows. Per una macchina virtuale Linux è necessario un server di destinazione master Linux. Per informazioni su come creare e installare server di destinazione master Linux, vedere la procedura riportata di seguito.

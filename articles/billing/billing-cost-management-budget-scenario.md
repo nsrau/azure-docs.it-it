@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 7/25/2018
 ms.author: erikre
-ms.openlocfilehash: 19d8fbf82410136fd6a50a2088dd9b774dd6cb27
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 08cdce23fe298bdac932d1ca8abb8166f4d7bbbd
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259212"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094814"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gestire i costi con i budget di Azure
 
@@ -139,7 +139,7 @@ Ogni app per la logica deve essere avviata con un trigger, che viene attivato qu
 4.  Nella casella di ricerca di **Progettazione app per la logica** specificare "analizza JSON" per trovare e selezionare l'[azione](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts) **Operazioni dati - Analizza JSON**. 
     
     ![Azure - App per la logica - Aggiungere l'azione Analizza JSON](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png) 
-5.  Immettere "Payload" come **Contenuto** per il payload di Analizza JSON.
+5.  Inserire "Payload" come nome del **Contenuto** per il payload Analizza JSON o usare il tag "Body" dal contenuto dinamico.
 6.  Selezionare l'opzione **Usare il payload di esempio per generare lo schema** nella casella **Analizza JSON**.
     
     ![Azure - App per la logica - Usare i dati JSON di esempio per generare lo schema](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png) 
@@ -148,7 +148,7 @@ Ogni app per la logica deve essere avviata con un trigger, che viene attivato qu
     Verrà visualizzata la casella di testo come indicato di seguito:
         
     ![Azure - App per la logica - Payload JSON di esempio](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-08.png) 
-8.  Fare clic su **Fine**.
+8.  Fare clic su **Done**.
 
 ### <a name="add-the-first-conditional-action"></a>Aggiungere la prima azione condizionale
 
@@ -310,7 +310,7 @@ Per i budget non è attualmente disponibile un'esperienza del portale in Azure. 
 
 ### <a name="create-the-budget"></a>Creare il budget
 
-In questa procedura si configurerà **Postman** per creare un budget chiamando le API REST per l'utilizzo di Azure. Postman è un ambiente per lo sviluppo di API. Si importeranno i file dell'ambiente e della raccolta in Postman. La raccolta contiene definizioni raggruppate delle richieste HTTP che chiamano le API REST per l'utilizzo di Azure. Il file dell'ambiente contiene le variabili usate dalla raccolta.
+In questa procedura si configurerà **Postman** per creare un budget chiamando le API REST per l'utilizzo di Azure. Postman è un ambiente per lo sviluppo di API. Si importeranno i file dell'ambiente e della raccolta in Postman. La raccolta contiene definizioni raggruppate delle richieste HTTP che chiamano le API REST per l'utilizzo di Azure. Il file di ambiente contiene le variabili usate dalla raccolta.
 
 1.  Scaricare e aprire il [client REST di Postman](https://www.getpostman.com/) per eseguire le API REST.
 2.  In Postman creare una nuova richiesta.
@@ -374,7 +374,7 @@ A questo punto sono state completate tutte le operazioni necessarie per chiamare
     - **filters**: i filtri consentono di limitare il budget a un set specifico di risorse all'interno dell'ambito selezionato. Un filtro può ad esempio essere costituito da una raccolta di gruppi di risorse per un budget definito a livello di sottoscrizione.
     - **notifications**: determina i dettagli e le soglie di notifica. È possibile impostare più soglie e specificare un indirizzo di posta elettronica o un gruppo di azioni per ricevere una notifica.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 In questa esercitazione si è appreso come:
 - Creare un runbook di Automazione di Azure per arrestare le macchine virtuali.

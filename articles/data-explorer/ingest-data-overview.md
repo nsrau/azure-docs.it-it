@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 94f96d949f2a05f71e9565fdcbc7b48ed2c2a5c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1df22c505bffdfaf60bf9c6eec3ad4e698fff02
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972660"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139527"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
 
@@ -58,11 +58,17 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 * [.NET SDK](https://docs.microsoft.com/azure/kusto/api/netfx/about-the-sdk)
 
-* [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
+* [SDK per Java](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
+
+* [Node SDK]
 
 * [API REST](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Tecniche di inserimento a livello di codice**:
+
+* Inserimento di dati tramite il servizio di gestione dati Esplora dati di Azure (velocità effettiva elevata e inserimento affidabile)
+
+  * [**Inserimento in batch**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fornito dall'SDK): il client carica i dati in Archiviazione BLOB di Azure (designato dal servizio di gestione dati Esplora dati di Azure) e invia una notifica a una coda di Azure. Si tratta della tecnica consigliata per inserire grandi volumi di dati in modo affidabile ed economico.
 
 * Inserimento dei dati direttamente nel motore Esplora dati di Azure (il più appropriato per l'esplorazione e la creazione di prototipi):
 
@@ -71,10 +77,6 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
   * **Inserimento da query**: il comando di controllo (.set, .set-or-append, .set-or-replace) che fa riferimento ai risultati della query viene usato per la generazione di report o di tabelle temporanee di piccole dimensioni.
 
   * **Inserimento da risorsa di archiviazione**: il comando di controllo (.ingest into) con i dati archiviati esternamente (ad esempio in Archiviazione BLOB di Azure) consente un inserimento in blocco efficiente dei dati.
-
-* Inserimento di dati tramite il servizio di gestione dati Esplora dati di Azure (velocità effettiva elevata e inserimento affidabile)
-
-  * [**Inserimento in batch**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fornito dall'SDK): il client carica i dati in Archiviazione BLOB di Azure (designato dal servizio di gestione dati Esplora dati di Azure) e invia una notifica a una coda di Azure. Si tratta della tecnica consigliata per inserire grandi volumi di dati in modo affidabile ed economico.
 
 **Latenza dei diversi metodi**:
 
@@ -125,7 +127,7 @@ Il mapping dello schema consente di associare in modo deterministico i campi dat
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Quickstart: Ingest data from Event Hub into Azure Data Explorer (Guida introduttiva: Inserire dati dall'hub eventi a Esplora dati di Azure)](ingest-data-event-hub.md)
+[Guida introduttiva: Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
 
 [Guida introduttiva: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
 

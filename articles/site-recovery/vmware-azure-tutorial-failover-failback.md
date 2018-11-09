@@ -1,20 +1,19 @@
 ---
-title: Failover e failback di macchine virtuali VMware e server fisici replicati in Azure con Site Recovery | Microsoft Docs
-description: Informazioni su come eseguire il failover di macchine virtuali VMware e server fisici in Azure e il failback nel sito locale con Azure Site Recovery
-services: site-recovery
+title: Failover e failback di macchine virtuali VMware e server fisici durante il ripristino di emergenza in Azure con Site Recovery | Microsoft Docs
+description: Informazioni su come eseguire il failover di macchine virtuali VMware e server fisici in Azure e il failback nel sito locale durante il ripristino di emergenza in Azure con Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/11/2018
+ms.date: 10/29/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: a574c28cae449526ddc8fe0fbb9323fb14b7b6f1
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457067"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215345"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Failover e failback di macchine virtuali VMware e server fisici replicati in Azure
 
@@ -74,7 +73,7 @@ Verificare le proprietà della macchina virtuale e assicurarsi che sia conforme 
 
 3. Selezionare **Arrestare la macchina virtuale prima di iniziare il failover** per provare ad arrestare le macchine virtuali di origine prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Nella pagina **Processi** è possibile seguire lo stato del failover.
 
-In alcuni scenari il failover richiede un'ulteriore elaborazione il cui completamento richiede da 8 a 10 minuti. Si potrebbero notare **tempi più lunghi per il failover di test** per le macchine virtuali VMware che usano il servizio Mobility di una versione precedente alla 9.8, i server fisici, le macchine virtuali VMware Linux, le macchine virtuali Hyper-V protette come server fisici, le macchine virtuali VMware che non hanno il servizio DHCP abilitato e le macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
+In alcuni scenari il failover richiede un'altra elaborazione il cui completamento richiede da 8 a 10 minuti. Si potrebbero notare **tempi più lunghi per il failover di test** per le macchine virtuali VMware che usano il servizio Mobility di una versione precedente alla 9.8, i server fisici, le macchine virtuali VMware Linux, le macchine virtuali Hyper-V protette come server fisici, le macchine virtuali VMware che non hanno il servizio DHCP abilitato e le macchine virtuali VMware che non hanno i driver di avvio seguenti: storvsc, vmbus, storflt, intelide, atapi.
 
 > [!WARNING]
 > **Non annullare un failover in corso**: prima dell'avvio del failover, la replica della macchina virtuale viene arrestata.
@@ -128,7 +127,7 @@ La riprotezione della macchina virtuale di Azure comporta la replica dei dati ne
 3. Specificare il server di destinazione master locale e il server di elaborazione.
 4. In **Archivio dati** selezionare l'archivio dati del server di destinazione master in cui ripristinare i dischi in locale. Se la macchina virtuale è stata eliminata, vengono creati nuovi dischi in questo archivio dati. Questa impostazione viene ignorata se i dischi esistono già, ma è necessario specificare un valore.
 5. Selezionare l'unità di conservazione del server di destinazione master. I criteri di failback vengono selezionati automaticamente.
-6. Fare clic su **OK** per avviare la riprotezione. Avrà inizio un processo di replica della macchina virtuale da Azure al sito locale. È possibile monitorare l'avanzamento nella scheda **Processi**.
+6. Fare clic su **OK** per avviare la riprotezione. Avrà inizio un processo di replica della macchina virtuale da Azure al sito locale. È possibile monitorare l'avanzamento nella scheda **Processi** .
 7. Quando lo stato della macchina virtuale in **Elementi replicati** cambia in **Protetto**, la macchina è pronta per il failover in locale.
 
 > [!NOTE]

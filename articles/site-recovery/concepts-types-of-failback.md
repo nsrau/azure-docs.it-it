@@ -1,6 +1,6 @@
 ---
-title: Failback in Azure Site Recovery | Microsoft Docs
-description: In questo articolo viene fornita una panoramica dei diversi tipi di failback e avvertenze da tenere in considerazione durante l'esecuzione locale del failback con il servizio di Azure Site Recovery.
+title: Failback durante il ripristino di emergenza con Azure Site Recovery | Microsoft Docs
+description: Questo articolo fornisce una panoramica dei diversi tipi di failback e delle avvertenze da tenere in considerazione quando si esegue il failback in locale durante il ripristino di emergenza con il servizio Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: guaravd
@@ -8,16 +8,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanki
-ms.openlocfilehash: 2a9ee380fc16c4088d98875dd465509c4023d037
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e97d736e7e117e0ccce6dc021a9de2ea15ac5484
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920390"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210143"
 ---
 # <a name="overview-of-failback"></a>Panoramica del failback
 
-Dopo aver eseguito il failover in Azure, è possibile eseguire il failback nel sito locale. Esistono due diversi tipi di failback con Azure Site Recovery: 
+Dopo aver effettuato il failover in Azure, nell'ambito della procedura di ripristino di emergenza, è possibile eseguire il failback nel sito locale. Esistono due diversi tipi di failback con Azure Site Recovery: 
 
 - Failback nella posizione originaria 
 - Failback in una posizione alternativa

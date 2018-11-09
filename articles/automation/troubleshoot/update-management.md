@@ -4,20 +4,22 @@ description: Informazioni su come risolvere i problemi con Gestione aggiornament
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405228"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092628"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Risoluzione dei problemi con Gestione aggiornamenti
 
 Questo articolo illustra alcune procedure per la risoluzione dei problemi che si possono riscontrare quando si usa Gestione aggiornamenti.
+
+È disponibile uno strumento di risoluzione dei problemi dell'agente che consente all'agente del ruolo di lavoro ibrido di determinare il problema sottostante. Per altre informazioni sullo strumento di risoluzione dei problemi, vedere [Risolvere i problemi dell'agente di aggiornamento](update-agent-issues.md). Per tutti gli altri problemi, vedere le informazioni dettagliate seguenti sui possibili problemi.
 
 ## <a name="general"></a>Generale
 
@@ -110,6 +112,20 @@ Il ruolo di lavoro ibrido per runbook non è stato in grado di generare un certi
 #### <a name="resolution"></a>Risoluzione
 
 Verificare che l'account di sistema abbia accesso in lettura alla cartella **C:\ProgramData\Microsoft\Crypto\RSA** e riprovare.
+
+### <a name="nologs"></a>Scenario: i dati di Gestione aggiornamenti non vengono visualizzati in Log Analytics per un computer
+
+#### <a name="issue"></a>Problema
+
+Sono presenti computer che vengono visualizzati come **Non valutati** in **Conformità**. Tuttavia, si possono vedere i dati di heartbeat in Log Analytics per il ruolo di lavoro ibrido per runbook ma non per Gestione aggiornamenti.
+
+#### <a name="cause"></a>Causa
+
+È possibile che il ruolo di lavoro ibrido per runbook debba essere registrato nuovamente e reinstallato.
+
+#### <a name="resolution"></a>Risoluzione
+
+Seguire i passaggi descritti in [Distribuire un ruolo di lavoro ibrido per runbook di Windows](../automation-windows-hrw-install.md) per reinstallare il ruolo di lavoro ibrido.
 
 ### <a name="hresult"></a>Scenario: il computer viene indicato come non valutato e genera a un'eccezione HResult.
 

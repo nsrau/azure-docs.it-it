@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801931"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086948"
 ---
 # <a name="how-to-configure-password-writeback"></a>Procedura: Configurare il writeback delle password
 
@@ -72,13 +72,14 @@ Per impostare le autorizzazioni appropriate per l'esecuzione del writeback delle
 3. Nel riquadro sinistro fare clic con il pulsante destro del mouse sull'oggetto che rappresenta la radice del dominio e selezionare **Proprietà** > **Sicurezza** > **Avanzate**.
 4. Nella scheda **Autorizzazioni** selezionare **Aggiungi**.
 5. Selezionare l'account a cui applicare le autorizzazioni, dalla configurazione di Azure AD Connect.
-6. Nell'elenco a discesa **Applica a** selezionare gli oggetti **Descendent User** (Utente discendente).
+6. Nell'elenco a discesa **Applica a** selezionare gli oggetti **Utente discendente**.
 7. In **Autorizzazioni** selezionare le caselle per le opzioni seguenti:
-    * **Reimpostazione della password**
     * **Cambia password**
+    * **Reimpostazione della password**
+8. In **Proprietà** selezionare le caselle per le opzioni seguenti:
     * **Scrittura di lockoutTime**
     * **Scrittura di pwdLastSet**
-8. Selezionare **Applica/OK** per applicare le modifiche e chiudere le finestre di dialogo aperte.
+9. Selezionare **Applica/OK** per applicare le modifiche e chiudere le finestre di dialogo aperte.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

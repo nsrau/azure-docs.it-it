@@ -1,6 +1,6 @@
 ---
-title: Eliminare un insieme di credenziali di Site Recovery
-description: Informazioni su come eliminare un insieme di credenziali di Azure Site Recovery, in base allo scenario di Site Recovery.
+title: Eliminare un insieme di credenziali di Servizi di ripristino configurato per il servizio Azure Site Recovery
+description: Informazioni su come eliminare un insieme di credenziali di Servizi di ripristino configurato per il servizio Azure Site Recovery
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 9c4a88d8a3d63555a57bd5553b721cfbcd77df2c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971189"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212421"
 ---
-# <a name="delete-a-site-recovery-vault"></a>Eliminare un insieme di credenziali di Site Recovery
+# <a name="delete-a-site-recovery-recovery-services-vault"></a>Eliminare un insieme di credenziali di Servizi di ripristino per Site Recovery
 
 Le dipendenze possono impedire l'eliminazione di un insieme di credenziali di Azure Site Recovery. Le azioni da eseguire variano a seconda dello scenario di ripristino del sito. Per eliminare un insieme di credenziali usato in Backup di Azure, vedere [Delete a Backup vault in Azure](../backup/backup-azure-delete-vault.md) (Eliminare un insieme di credenziali di Backup in Azure).
 

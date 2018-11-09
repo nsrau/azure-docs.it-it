@@ -1,20 +1,20 @@
 ---
-title: Configurare l'ambiente di origine (server fisici in Azure) | Documentazione Microsoft
-description: Questo articolo descrive come configurare l'ambiente locale per avviare la replica in Azure di server fisici che eseguono Windows o Linux.
+title: Configurare il server di configurazione per il ripristino di emergenza da server fisici ad Azure con Azure Site Recovery | Microsoft Docs
+description: Questo articolo descrive come configurare il server di configurazione locale per il ripristino di emergenza da server fisici locali ad Azure.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/21/2018
+ms.topic: conceptual
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 739129045fab72a9b535be25b853c902c7dbd251
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213487"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209548"
 ---
-# <a name="set-up-the-source-environment-physical-server-to-azure"></a>Configurare l'ambiente di origine (server fisico in Azure)
+# <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurare il server di configurazione per il ripristino di emergenza da server fisici ad Azure
 
 Questo articolo descrive come configurare l'ambiente locale per avviare la replica in Azure di server fisici che eseguono Windows o Linux.
 
@@ -23,7 +23,7 @@ Questo articolo descrive come configurare l'ambiente locale per avviare la repli
 Nell'articolo si presuppone che l'utente disponga di quanto segue:
 - Un insieme di credenziali di Servizi di ripristino nel [portale di Azure](http://portal.azure.com "portale di Azure").
 - Un computer fisico in cui installare il server di configurazione.
-- Se TLS 1.0 è stato disabilitato nel computer in cui si sta installando il server di configurazione, verificare che TLs 1.2 sia abilitato e che .NET Framework versione 4.6 o versione successiva sia installato nel computer (con crittografia avanzata disabilitata). [Altre informazioni](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- Se TLS 1.0 è stato disabilitato nel computer in cui si sta installando il server di configurazione, verificare che TLs 1.2 sia abilitato e che .NET Framework versione 4.6 o versione successiva sia installato nel computer (con crittografia avanzata disabilitata). [Altre informazioni](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisiti minimi per il server di configurazione
 La tabella seguente elenca i requisiti minimi hardware, software e di rete per un server di configurazione.
@@ -62,7 +62,7 @@ La tabella seguente elenca i requisiti minimi hardware, software e di rete per u
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> Il server di configurazione può essere installato tramite una riga di comando. [Altre informazioni](physical-manage-configuration-server.md#install-from-the-command-line).
+> Il server di configurazione può essere installato tramite una riga di comando. [Altre informazioni](physical-manage-configuration-server.md#install-from-the-command-line)
 
 
 ## <a name="common-issues"></a>Problemi comuni

@@ -1,6 +1,6 @@
 ---
-title: Eseguire il failback su un sito locale per macchine virtuali Hyper-V | Microsoft Docs
-description: Azure Site Recovery coordina la replica, il failover e il ripristino di macchine virtuali e server fisici. Informazioni su come eseguire il failback da Azure al data center locale.
+title: Eseguire un failback durante un'emergenza delle macchine virtuali Hyper-v da Azure a locale | Microsoft Docs
+description: Informazioni su come eseguire il failback di macchine virtuali Hyper-V durante il ripristino di emergenza in Azure con il servizio Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: fd171251ef465a28e4844901a529e0a3eaaf8f9d
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b841dee766399f1e3c7325d2ab67e342dfa8657a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920873"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211860"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Eseguire il failback per le macchine virtuali Hyper-V
 
 Questo articolo descrive come eseguire il failback di macchine virtuali Hyper-V protette da Site Recovery.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 1. Leggere i dettagli sui [diversi tipi di failback](concepts-types-of-failback.md) e le rispettive avvertenze.
 1. Assicurarsi che il server host VMM o Hyper-V del sito primario sia connesso ad Azure.
 2. È necessario aver completato il **commit** nella macchina virtuale.
@@ -40,10 +40,10 @@ Dopo il failover dalla posizione primaria alla posizione secondaria, le macchine
 
 4. Se la crittografia dei dati è abilitata per il cloud, in **Chiave di crittografia** selezionare il certificato emesso quando è stata abilitata la crittografia dei dati durante l'installazione del provider nel server VMM.
 5. Avviare il failover. Nella scheda **Processi** è possibile monitorare l’avanzamento del failover.
-6. Se è stata selezionata l'opzione per sincronizzare i dati prima del failover, dopo la sincronizzazione dati iniziale, quando si è pronti ad arrestare le macchine virtuali in Azure, fare clic su **Processi** nome processo failover pianificato **Failover completo**. La macchina Azure viene arrestata e le modifiche più recenti vengono trasferite alla macchina virtuale locale, che viene avviata in locale.
+6. Se è stata selezionata l'opzione per sincronizzare i dati prima del failover, dopo la sincronizzazione dati iniziale, quando si è pronti ad arrestare le macchine virtuali in Azure, fare clic su **Processi** > nome processo > **Failover completo**. La macchina Azure viene arrestata e le modifiche più recenti vengono trasferite alla macchina virtuale locale, che viene avviata in locale.
 7. A questo punto è possibile accedere alla macchina virtuale per verificare che sia disponibile come previsto.
 8. La macchina virtuale è in uno stato di attesa di commit. Fare clic su **Commit** per eseguire il commit del failover.
-9. Per completare il failback fare clic su **Replica inversa** per iniziare a proteggere la macchina virtuale nel sito primario.
+9. Per completare il failback, fare clic su **Replica inversa** per iniziare a proteggere la macchina virtuale nel sito primario.
 
 
 Utilizzare queste procedure per eseguire il failback al sito primario originale. Questa procedura descrive come eseguire un failover pianificato per un piano di ripristino. In alternativa è possibile eseguire il failover per una singola macchina nella scheda **Macchine virtuali** .
@@ -57,14 +57,14 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 3. Selezionare **Elementi protetti** -> **Gruppo protezione dati** -> <ProtectionGroupName> -> <VirtualMachineName>di cui si vuole eseguire il failback e selezionare **Failover pianificato**.
 4. Fare clic su **Conferma failover pianificato** select **Crea macchina virtuale locale, se non esiste**.
 5. In Nome host selezionare il nuovo server host Hyper-V in cui si vuole collocare la macchina virtuale.
-6. In Sincronizzazione dati è consigliabile selezionare l'opzione **Sincronizza i dati prima del failover**. Questa opzione riduce al minimo i tempi di inattività per le macchine virtuali senza arrestarle. Effettua le seguenti operazioni:
+6. In Sincronizzazione dati, è consigliabile selezionare l'opzione Sincronizza i dati prima del failover. Questa opzione riduce al minimo i tempi di inattività per le macchine virtuali senza arrestarle. Effettua le seguenti operazioni:
 
     - Fase 1: Crea uno snapshot della macchina virtuale in Azure e lo copia negli host Hyper-V in locale. La macchina continua l'esecuzione in Azure.
     - Fase 2: Arresta la macchina virtuale in Azure in modo che non vengano apportate nuove modifiche. Il set finale di modifiche viene trasferito al server locale e viene avviata la macchina virtuale locale.
     
 7. Fare clic sul segno di spunta per iniziare il failover (failback).
 8. Quando è stata completata la sincronizzazione iniziale e si è pronti per arrestare la macchina virtuale in Azure, fare clic su **Processi** > <planned failover job> > **Failover completo**. La macchina Azure viene arrestata e le modifiche più recenti vengono trasferite alla macchina virtuale locale, che viene avviata.
-9. È possibile accedere alla macchina virtuale locale per verificare che tutto funzioni come previsto. Fare clic su **Commit** per completare il failover. Il commit elimina la macchina virtuale di Azure e i relativi dischi e prepara la VM a essere protetta di nuovo.
+9. È possibile accedere alla macchina virtuale locale per verificare il funzionamento corretto atteso. Fare clic su **Commit** per completare il failover. Il commit elimina la macchina virtuale di Azure e i relativi dischi e prepara la VM a essere protetta di nuovo.
 10. Fare clic su **Replica inversa** per iniziare a proteggere la macchina virtuale in locale.
 
     > [!NOTE]

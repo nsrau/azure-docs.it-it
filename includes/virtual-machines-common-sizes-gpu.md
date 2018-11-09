@@ -5,15 +5,15 @@ services: virtual-machines-windows, virtual-machines-linux
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: danlep;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: e9f88a018ba0f40d41bf7ad17a74850a9edf8ae6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 4fde34338d5606a1f431ff4b7f7074d9cd472e90
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47043854"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035499"
 ---
 Le dimensioni delle macchine virtuali ottimizzate per la GPU sono macchine virtuali specializzate disponibili con una o più GPU NVIDIA. Queste dimensioni sono progettate per carichi di lavoro di visualizzazione oppure a elevato utilizzo di calcolo o di grafica. Questo articolo fornisce informazioni relative a numero e tipo di GPU, vCPU, dischi dati e schede di rete. Anche velocità effettiva di archiviazione e larghezza di banda della rete sono incluse per ogni dimensione di questo raggruppamento. 
 
@@ -30,12 +30,12 @@ Memorizzazione nella cache Archiviazione Premium: non supportata
 Le macchine virtuali serie NC sono basate sulla scheda [NVIDIA Tesla K80](http://images.nvidia.com/content/pdf/kepler/Tesla-K80-BoardSpec-07317-001-v05.pdf). Gli utenti possono elaborare i dati più velocemente sfruttando i core CUDA per eseguire l'analisi del consumo delle applicazioni, simulazioni di arresto anomalo, rendering con ray tracing, Deep Learning e altro ancora. La configurazione NC24r offre un'interfaccia di rete ad alta velocità effettiva e a bassa latenza, ottimizzata per carichi di lavoro di calcolo paralleli strettamente associati.
 
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Valore massimo per dischi di dati | Schede di interfaccia di rete max |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6 |6 |56 | 340 | 1 | 24 | 1 |
-| Standard_NC12 |12 |112 | 680 | 2 | 48 | 2 |
-| Standard_NC24 |24 |224 | 1.440 | 4 | 64 | 4 |
-| Standard_NC24r* |24 |224 | 1.440 | 4 | 64 | 4 |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Valore massimo per dischi di dati | Schede di interfaccia di rete max |
+| --- | --- | --- | --- | --- | --- | --- | ---- |
+| Standard_NC6 |6 |56 | 340 | 1 | 8 | 24 | 1 |
+| Standard_NC12 |12 |112 | 680 | 2 | 16 | 48 | 2 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 32 | 64 | 4 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 32 | 64 | 4 |
 
 1 GPU = Pari a metà scheda K80.
 
@@ -53,12 +53,12 @@ Le macchine virtuali serie NCv2 sono basate sulle GPU [NVIDIA Tesla P100](http:/
 > Per questa famiglia di dimensioni la quota di vCPU (core) nella sottoscrizione è impostata inizialmente su 0 in ogni area. [Richiedere un aumento della quota di vCPU ](../articles/azure-supportability/resource-manager-core-quotas-request.md) per questa famiglia in un'[area disponibile](https://azure.microsoft.com/regions/services/).
 >
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Valore massimo per dischi di dati | Schede di interfaccia di rete max |
-| --- | --- | --- | --- | --- | --- | ---  |
-| Standard_NC6s_v2 |6 |112 | 736 | 1 | 12 | 4 |
-| Standard_NC12s_v2 |12 |224 | 1474 | 2 | 24 | 8 |
-| Standard_NC24s_v2 |24 |448 | 2948 | 4 | 32 | 8 |
-| Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 32 | 8 |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Valore massimo per dischi di dati | Schede di interfaccia di rete max |
+| --- | --- | --- | --- | --- | --- | ---  | --- |
+| Standard_NC6s_v2 |6 |112 | 736 | 1 | 16 | 12 | 4 |
+| Standard_NC12s_v2 |12 |224 | 1474 | 2 | 32 | 24 | 8 |
+| Standard_NC24s_v2 |24 |448 | 2948 | 4 | 64 | 32 | 8 |
+| Standard_NC24rs_v2* |24 |448 | 2948 | 4 | 64 | 32 | 8 |
 
 1 GPU = Pari a una scheda P100.
 
@@ -76,12 +76,12 @@ Le macchine virtuali serie NCv3 sono basate sulle GPU [NVIDIA Tesla V100](http:/
 > Per questa famiglia di dimensioni la quota di vCPU (core) nella sottoscrizione è impostata inizialmente su 0 in ogni area. [Richiedere un aumento della quota di vCPU ](../articles/azure-supportability/resource-manager-core-quotas-request.md) per questa famiglia in un'[area disponibile](https://azure.microsoft.com/regions/services/).
 >
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Valore massimo per dischi di dati | Schede di interfaccia di rete max |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_NC6s_v3 |6 |112 | 736 | 1 | 12 | 4 |
-| Standard_NC12s_v3 |12 |224 | 1474 | 2 | 24 | 8 |
-| Standard_NC24s_v3 |24 |448 | 2948 | 4 | 32 | 8 | 
-| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 32 | 8 |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Valore massimo per dischi di dati | Schede di interfaccia di rete max |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NC6s_v3 |6 |112 | 736 | 1 | 16 | 12 | 4 |
+| Standard_NC12s_v3 |12 |224 | 1474 | 2 | 32 | 24 | 8 |
+| Standard_NC24s_v3 |24 |448 | 2948 | 4 | 64 | 32 | 8 | 
+| Standard_NC24rs_v3* |24 |448 | 2948 | 4 | 64 | 32 | 8 |
 
 1 GPU = Pari a una scheda V100.
 
@@ -99,12 +99,12 @@ Le macchine virtuali della serie ND sono una novità della famiglia di GPU proge
 > Per questa famiglia di dimensioni la quota di vCPU (core) per area nella sottoscrizione è impostata inizialmente su 0. [Richiedere un aumento della quota di vCPU ](../articles/azure-supportability/resource-manager-core-quotas-request.md) per questa famiglia in un'[area disponibile](https://azure.microsoft.com/regions/services/).
 >
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Valore massimo per dischi di dati | Schede di interfaccia di rete max |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_ND6s |6 |112 | 736 | 1 | 12 | 4 |
-| Standard_ND12s |12 |224 | 1474 | 2 | 24 | 8 | 
-| Standard_ND24s |24 |448 | 2948 | 4 | 32 | 8 |
-| Standard_ND24rs* |24 |448 | 2948 | 4 | 32 | 8 |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Valore massimo per dischi di dati | Schede di interfaccia di rete max |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_ND6s |6 |112 | 736 | 1 | 24 | 12 | 4 |
+| Standard_ND12s |12 |224 | 1474 | 2 | 48 | 24 | 8 | 
+| Standard_ND24s |24 |448 | 2948 | 4 | 96 | 32 | 8 |
+| Standard_ND24rs* |24 |448 | 2948 | 4 | 96 | 32 | 8 |
 
 1 GPU = Pari a una scheda P40.
 
@@ -120,11 +120,11 @@ Le macchine virtuali delle serie NV sono basate su GPU [NVIDIA Tesla M60](http:/
 
 Ogni GPU di istanze NV viene fornita con una licenza GRID. Questa licenza consente di usare un'istanza NV come workstation virtuale per un singolo utente oppure consente a 25 utenti simultanei di connettersi a una macchina virtuale per uno scenario di applicazione virtuale.
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Valore massimo per dischi di dati | Schede di interfaccia di rete max | Workstation virtuali | Applicazioni virtuali | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6 |6 |56 |340 | 1 | 24 | 1 | 1 | 25 |
-| Standard_NV12 |12 |112 |680 | 2 | 48 | 2 | 2 | 50 |
-| Standard_NV24 |24 |224 |1.440 | 4 | 64 | 4 | 4 | 100 |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Valore massimo per dischi di dati | Schede di interfaccia di rete max | Workstation virtuali | Applicazioni virtuali | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | 
+| Standard_NV6 |6 |56 |340 | 1 | 8 | 24 | 1 | 1 | 25 |
+| Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
+| Standard_NV24 |24 |224 |1440 | 4 | 32 | 64 | 4 | 4 | 100 |
 
 1 GPU = Pari a metà scheda M60.
 
@@ -138,11 +138,11 @@ Le macchine virtuali serie NVv2 sono basate su GPU [NVIDIA Tesla M60](http://ima
 
 Ogni GPU nelle istanze NVv2 viene fornita con una licenza GRID. Questa licenza consente di usare un'istanza NV come workstation virtuale per un singolo utente oppure consente a 25 utenti simultanei di connettersi a una macchina virtuale per uno scenario di applicazione virtuale.
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Valore massimo per dischi di dati | Schede di interfaccia di rete max | Workstation virtuali | Applicazioni virtuali | 
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_NV6s_v2 |6 |112 |320 | 1 | 12 | 4 | 1 | 25 |
-| Standard_NV12s_v2 |12 |224 |640 | 2 | 24 | 8 | 2 | 50 |
-| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 8 | 4 | 100 |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | GPU | Memoria GPU: GiB | Valore massimo per dischi di dati | Schede di interfaccia di rete max | Workstation virtuali | Applicazioni virtuali | 
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_NV6s_v2 |6 |112 |320 | 1 | 8 | 12 | 4 | 1 | 25 |
+| Standard_NV12s_v2 |12 |224 |640 | 2 | 16 | 24 | 8 | 2 | 50 |
+| Standard_NV24s_v2 |24 |448 |1280 | 4 | 32 | 32 | 8 | 4 | 100 |
 
 1 GPU = Pari a metà scheda M60.
 

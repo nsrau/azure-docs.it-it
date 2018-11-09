@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 1c2068af510cb3733ce99a6ae7b40487a8c1a015
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: c1d66e0b58567244f8c1406ee258c9311994ff20
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323805"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215107"
 ---
 # <a name="understanding-digital-twins-object-models-and-spatial-intelligence-graph"></a>Informazioni sui modelli a oggetti di Gemelli digitali e sul grafico di intelligenza spaziale
 
@@ -25,7 +25,7 @@ Predisponendo _modelli a oggetti di Gemelli digitali_ e _ontologie_, è possibil
 
 ![Creazione di un grafico spaziale di Gemelli digitali][1]
 
-<a id="model" />
+<a id="model"></a>
 
 Il grafico spaziale riunisce spazi, dispositivi, sensori e utenti. Ognuno è collegato in modo da modellare il mondo reale: l'ambiente 43 ha quattro piani, ognuno con diverse aree. Gli utenti sono associati alla propria workstation e hanno accesso a parti del grafico.  Ad esempio, un amministratore avrà i diritti per apportare modifiche al grafico spaziale, mentre un visitatore avrà solo i diritti per visualizzare determinati dati dell'edificio.
 
@@ -52,19 +52,19 @@ Altre categorie di oggetti:
 - I **matcher** sono oggetti che determinano quali funzioni definite dall'utente verranno eseguite per un messaggio di telemetria specificato.
 - Gli **endpoint** sono le posizioni in cui possono essere instradati i messaggi di telemetria e gli eventi di Gemelli digitali, ad esempio `Event Hub`, `Service Bus` o `Event Grid`.
 
-<a id="graph" />
+<a id="graph"></a>
 
 ## <a name="spatial-intelligence-graph"></a>Grafico di intelligenza spaziale
 
 Il **grafico spaziale** è il grafico gerarchico di spazi, dispositivi e utenti definiti nel **modello a oggetti di Gemelli digitali**. Il grafico spaziale supporta _ereditarietà_, _filtri_, _attraversamento_, _scalabilità_ ed _estendibilità_. Gli utenti possono interagire con il grafico spaziale e gestirlo con una raccolta di API REST (vedere di seguito).
 
-L'utente che distribuisce un servizio Gemelli digitali nella propria sottoscrizione diventa l'amministratore globale del nodo radice, concedendo automaticamente l'accesso completo all'intera struttura. Questo utente può quindi effettuare il provisioning di spazi nel grafico tramite l'API `Space`. È possibile effettuare il provisioning dei dispositivi tramite l'API `Device`, dei sensori tramite l'API `Sensor` e così via. Sono disponibili anche [strumenti open source](https://github.com/Azure-Samples/digital-twins-samples-csharp) per effettuare il provisioning in blocco del grafico.
+L'utente che distribuisce un servizio Gemelli digitali nella propria sottoscrizione diventa l'amministratore globale del nodo radice, concedendo automaticamente l'accesso completo all'intera struttura. Questo utente può quindi effettuare il provisioning di spazi nel grafico tramite l'API Space. Il provisioning dei dispositivi può essere effettuato tramite l'API Device, quello dei sensori tramite l'API Sensor e così via. Sono disponibili anche [strumenti open source](https://github.com/Azure-Samples/digital-twins-samples-csharp) per effettuare il provisioning in blocco del grafico.
 
 L'_ereditarietà_ del grafico si applica alle autorizzazioni e alle proprietà che derivano da un nodo padre a tutti i nodi al suo interno. Ad esempio, quando un ruolo viene assegnato a un utente in un determinato nodo, l'utente avrà le autorizzazioni del ruolo per il nodo specificato e tutti i nodi al suo interno. Inoltre, ogni chiave di proprietà e tipo esteso definiti per un determinato nodo verranno ereditati da tutti i nodi all'interno di tale nodo.
 
-L'_applicazione di filtri_ al grafico permette agli utenti di limitare i risultati della richiesta in base a ID, nome, tipi, sottotipi, spazio padre, spazi associati, tipi di dati del sensore, chiavi e valori di proprietà, attraversamento, livello minimo, livello massimo e altri parametri di filtro OData.
+L'_applicazione di filtri_ al grafico consente agli utenti di limitare i risultati della richiesta in base a ID, nome, tipi, sottotipi, spazio padre, spazi associati, tipi di dati del sensore, chiavi e valori di proprietà, *traverse*, *minLevel*, *maxLevel*, e altri parametri di filtro OData.
 
-L'_attraversamento_ del grafico permette agli utenti di spostarsi nel grafico spaziale in profondità e ampiezza. Per la profondità, il grafico può essere attraversato dall'alto in basso o dal basso in alto tramite i parametri di spostamento `traverse`, `minLevel` e `maxLevel`. Per l'ampiezza, il grafico può essere esplorato per ottenere nodi di pari livello direttamente associati a uno spazio padre o a uno dei suoi discendenti. Quando si esegue una query su un oggetto, è possibile ottenere tutti gli oggetti correlati che presentano relazioni con l'oggetto usando il parametro `includes` delle API GET.
+L'_attraversamento_ del grafico permette agli utenti di spostarsi nel grafico spaziale in profondità e ampiezza. Per la profondità, il grafico può essere attraversato dall'alto in basso o dal basso in alto tramite i parametri di spostamento *traverse*, *minLevel* e *maxLevel*. Per l'ampiezza, il grafico può essere esplorato per ottenere nodi di pari livello direttamente associati a uno spazio padre o a uno dei suoi discendenti. Quando si esegue una query su un oggetto, è possibile ottenere tutti gli oggetti correlati che presentano relazioni con l'oggetto usando il parametro *includes* delle API GET.
 
 Gemelli digitali di Azure garantisce la _scalabilità_ del grafico, per poter gestire i carichi di lavoro reali. È possibile usare Gemelli digitali per rappresentare grandi portfolio di proprietà immobiliari, infrastrutture, dispositivi, sensori, telemetria e altro ancora.
 
@@ -80,8 +80,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Nome attributo personalizzato | Sostituire con |
 | --- | --- |
-| `yourInstanceName` | Nome dell'istanza di Gemelli digitali di Azure |
-| `yourLocation` | Area del server in cui è ospitata l'istanza |
+| *yourInstanceName* | Nome dell'istanza di Gemelli digitali di Azure |
+| *yourLocation* | Area del server in cui è ospitata l'istanza |
 
  L'immagine di seguito mostra il formato dell'URL completo in uso:
 

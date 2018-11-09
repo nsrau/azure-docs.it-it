@@ -4,22 +4,22 @@ description: Descrive il funzionamento del linguaggio di query di Azure Resource
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 6fcf3087feb7f208ea46d0e08824e965160a61d4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 09bcedc5250755f06ba23b84a0ae90b4d43a23db
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236451"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086166"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
 Il linguaggio di query di Azure Resource Graph supporta un certo numero di operatori e funzioni, ognuno dei quali opera in base ad [Esplora dati di Azure](../../../data-explorer/data-explorer-overview.md).
 
-Il modo migliore per apprendere il linguaggio di query usato da Resource Graph è quello di iniziare con la documentazione relativa al [linguaggio di query](/azure/kusto/query/index) di Esplora dati di Azure, che spiega come è strutturato il linguaggio e in che modo interagiscono i vari operatori e le funzioni supportati.
+Il modo migliore per apprendere il linguaggio di query usato da Resource Graph è quello di iniziare con la documentazione relativa al [linguaggio di query](/azure/kusto/query/index) di Esplora dati di Azure, Illustra come è strutturato il linguaggio e in che modo interagiscono i vari operatori e le funzioni supportati.
 
 ## <a name="supported-tabular-operators"></a>Operatori tabulari supportati
 
