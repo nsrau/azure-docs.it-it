@@ -8,12 +8,12 @@ ms.date: 09/21/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e1825bcdd8dbb06ef027919416b2d0532a7df9c2
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 71fce04eb4f21065184d86301689039294da8b61
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422831"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741913"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Come usare un dispositivo Azure IoT Edge come gateway
 
@@ -21,18 +21,18 @@ Nelle soluzioni IoT i gateway vengono usati per uno scopo specifico della soluzi
 
 ## <a name="patterns"></a>Modelli
 Esistono tre modelli per l'uso di un dispositivo IoT Edge come gateway: trasparente, conversione di protocollo e conversione di identità:
-* **Trasparente**: i dispositivi che in teoria possono connettersi all'hub IoT supportano anche la connessione a un dispositivo gateway. Ciò implica che i dispositivi downstream abbiano specifiche identità nell'hub IoT e usino uno dei protocolli MQTT, AMQP e HTTP. Il gateway passa semplicemente le comunicazioni tra i dispositivi e l'hub IoT. I dispositivi non sono consapevoli di comunicare con il cloud tramite un gateway e gli utenti che interagiscono con i dispositivi nell'hub IoT non sono a conoscenza del dispositivo gateway intermedio. Il gateway è quindi trasparente. Vedere la procedura [Creare un gateway trasparente] [ lnk-iot-edge-as-transparent-gateway] per informazioni specifiche sull'uso di un dispositivo IoT Edge come gateway trasparente.
-* **Conversione di protocollo**: nota anche come modello di gateway opaco. I dispositivi che non supportano MQTT, AMQP o HTTP usano un dispositivo gateway per inviare dati all'hub IoT. Il gateway è abbastanza intelligente da identificare il protocollo usato dai dispositivi downstream, ma è l'unico dispositivo con un'identità nell'hub IoT. Tutte le informazioni sembrano provenire da un unico dispositivo, il gateway. I dispositivi downstream devono pertanto incorporare informazioni di identificazione aggiuntive nei messaggi se le applicazioni cloud prevedono di elaborare i dati per singolo dispositivo. Inoltre, le primitive dell'hub IoT, come i dispositivi gemelli e i metodi, sono disponibili solo per il dispositivo gateway e non per i dispositivi downstream.
-* **Conversione di identità**: i dispositivi che non possono connettersi all'hub IoT si connettono a un dispositivo gateway che fornisce la conversione di protocollo e identità dell'hub IoT per conto dei dispositivi downstream. Il gateway è abbastanza intelligente da identificare il protocollo usato dai dispositivi downstream, fornire loro l'identità e convertire le primitive dell'hub IoT. I dispositivi downstream appaiono nell'hub IoT come dispositivi di prima classe con dispositivi gemelli e metodi. Un utente può interagire con i dispositivi nell'hub IoT senza essere a conoscenza del dispositivo gateway intermedio.
+* **Trasparente**: i dispositivi che in teoria possono connettersi all'hub IoT supportano anche la connessione a un dispositivo gateway. I dispositivi downstream hanno specifiche identità nell'hub IoT e usano uno dei protocolli MQTT, AMQP e HTTP. Il gateway passa semplicemente le comunicazioni tra i dispositivi e l'hub IoT. I dispositivi non sono consapevoli di comunicare con il cloud tramite un gateway e gli utenti che interagiscono con i dispositivi nell'hub IoT non sono a conoscenza del dispositivo gateway intermedio. Il gateway è quindi trasparente. Vedere la procedura [Creare un gateway trasparente] [ lnk-iot-edge-as-transparent-gateway] per informazioni specifiche sull'uso di un dispositivo IoT Edge come gateway trasparente.
+* **Conversione di protocollo**: nota anche come modello di gateway opaco. I dispositivi che non supportano MQTT, AMQP o HTTP usano un dispositivo gateway per inviare dati all'hub IoT. Il gateway è abbastanza intelligente da identificare il protocollo usato dai dispositivi downstream, ma è l'unico dispositivo con un'identità nell'hub IoT. Tutte le informazioni sembrano provenire da un unico dispositivo, il gateway. I dispositivi downstream devono incorporare informazioni di identificazione aggiuntive nei messaggi se le applicazioni cloud prevedono di elaborare i dati per singolo dispositivo. Inoltre, le primitive dell'hub IoT, come i dispositivi gemelli e i metodi, sono disponibili solo per il dispositivo gateway e non per i dispositivi downstream.
+* **Conversione di identità**: i dispositivi che non possono connettersi all'hub IoT si connettono invece a un dispositivo gateway. Il gateway fornisce la conversione di protocollo e identità dell'hub IoT per conto dei dispositivi downstream. Il gateway è abbastanza intelligente da identificare il protocollo usato dai dispositivi downstream, fornire loro l'identità e convertire le primitive dell'hub IoT. I dispositivi downstream appaiono nell'hub IoT come dispositivi di prima classe con dispositivi gemelli e metodi. Un utente può interagire con i dispositivi nell'hub IoT senza essere a conoscenza del dispositivo gateway intermedio.
 
-![Diagrammi dei modelli di gateway][1]
+![Diagrammi dei modelli di gateway](./media/iot-edge-as-gateway/edge-as-gateway.png)
 
 ## <a name="use-cases"></a>Casi d'uso
 Tutti i modelli di gateway offrono i vantaggi seguenti:
 * **Analisi perimetrale**: usare i servizi di intelligenza artificiale in locale per elaborare i dati provenienti dai dispositivi downstream senza inviare al cloud i dati di telemetria completi. Trovare e gestire le informazioni dettagliate in locale e inviare solo un subset di dati all'hub IoT. 
 * **Isolamento dei dispositivi downstream**: il dispositivo gateway può proteggere tutti i dispositivi downstream dall'esposizione a Internet. Può essere posizionato tra una rete OT priva di connettività e una rete IT con accesso al Web. 
 * **Multiplexing delle connessioni**: tutti i dispositivi connessi all'hub IoT tramite un dispositivo IoT Edge usano la stessa connessione sottostante.
-* **Smorzamento del traffico**: il dispositivo IoT Edge esegue automaticamente il backoff esponenziale in caso di limitazione dell'hub IoT, salvando al contempo i messaggi in locale. Ciò rende la soluzione resiliente ai picchi di traffico.
+* **Smorzamento del traffico**: il dispositivo IoT Edge esegue automaticamente il backoff esponenziale se l'hub IoT limita il traffico, salvando al contempo i messaggi in locale. Questo vantaggio rende la soluzione resiliente ai picchi di traffico.
 * **Supporto offline limitato**: il dispositivo gateway archivia in locale i messaggi che non possono essere recapitati all'hub IoT.
 
 Un gateway che esegue la conversione di protocollo può anche fornire l'analisi perimetrale, l'isolamento dei dispositivi, lo smorzamento del traffico e il supporto offline a dispositivi nuovi ed esistenti con vincoli di risorse. Molti dispositivi esistenti generano dati che consentono di ottenere una visione più approfondita dei dati aziendali, ma non sono stati progettati tenendo presente la connettività cloud. I gateway opachi consentono di individuare e sfruttare questi dati in una soluzione IoT end-to-end.
@@ -47,7 +47,7 @@ Questa tabella di riepilogo mette a confronto le primitive dell'hub IoT quando v
 | Identità archiviate nel registro delle identità dell'hub IoT | Identità di tutti i dispositivi connessi | Solo l'identità del dispositivo gateway | Identità di tutti i dispositivi connessi |
 | Dispositivo gemello | Ogni dispositivo connesso ha il proprio dispositivo gemello | Solo il gateway ha dispositivi e moduli gemelli | Ogni dispositivo connesso ha il proprio dispositivo gemello |
 | Metodi diretti e messaggi da cloud a dispositivo | Il cloud può indirizzare ogni singolo dispositivo connesso | Il cloud può indirizzare solo il dispositivo gateway | Il cloud può indirizzare ogni singolo dispositivo connesso |
-| [Quote e limitazioni dell'hub IoT][lnk-iothub-throttles-quotas] | Si applicano a ogni dispositivo | Si applicano al dispositivo gateway | Si applicano a ogni dispositivo |
+| [Quote e limitazioni dell'hub IoT](../iot-hub/iot-hub-devguide-quotas-throttling.md) | Si applicano a ogni dispositivo | Si applicano al dispositivo gateway | Si applicano a ogni dispositivo |
 
 Quando si usa un modello di gateway opaco (conversione di protocollo), tutti i dispositivi connessi tramite tale gateway condividono la stessa coda da cloud a dispositivo, che può contenere al massimo 50 messaggi. Ne consegue che il modello di gateway opaco va usato solo quando i dispositivi che si connettono tramite ogni gateway sul campo sono pochi e il relativo traffico da cloud a dispositivo è limitato.
 
@@ -55,6 +55,3 @@ Quando si usa un modello di gateway opaco (conversione di protocollo), tutti i d
 Usare un dispositivo IoT Edge come [gateway trasparente][lnk-iot-edge-as-transparent-gateway] 
 
 [lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
-[lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
-
-[1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

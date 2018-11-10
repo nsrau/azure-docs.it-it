@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/17/2015
 ms.author: mbullwin
-ms.openlocfilehash: 0a95da39b73201ea15bd6d3be64de9a12571028d
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e2ec165d0183510487744bc98e31688eb5de0f8c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095186"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959257"
 ---
 # <a name="using-powershell-to-set-up-application-insights-for-an-azure-web-app"></a>Uso di PowerShell per la configurazione di Application Insights per un'app Web di Azure
-[Microsoft Azure](https://azure.com) può essere [configurato per l'invio dei dati del servizio Diagnostica di Azure](app-insights-azure-diagnostics.md) ad [Azure Application Insights](app-insights-overview.md). I dati della diagnostica sono correlati ai Servizi cloud di Azure e alle macchine virtuali di Azure. Completano i dati di telemetria inviati dall'interno dell'app con Application Insights SDK. Nell'ambito dell'automatizzazione del processo di creazione di nuove risorse in Azure, è possibile configurare la diagnostica usando PowerShell.
+[Microsoft Azure](https://azure.com) può essere [configurato per l'invio dei dati del servizio Diagnostica di Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) ad [Azure Application Insights](app-insights-overview.md). I dati della diagnostica sono correlati ai Servizi cloud di Azure e alle macchine virtuali di Azure. Completano i dati di telemetria inviati dall'interno dell'app con Application Insights SDK. Nell'ambito dell'automatizzazione del processo di creazione di nuove risorse in Azure, è possibile configurare la diagnostica usando PowerShell.
 
 ## <a name="azure-template"></a>Modello di Azure
 Se l'app Web è in Azure e si creano le risorse usando un modello di Azure Resource Manager, è possibile configurare Application Insights aggiungendo quanto segue al nodo risorse:
@@ -136,6 +136,6 @@ Per rimuovere l'estensione della diagnostica da ogni singolo ruolo:
 
 ## <a name="see-also"></a>Vedere anche 
 * [Monitorare le app dei Servizi cloud di Azure con Application Insights](app-insights-cloudservices.md)
-* [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](app-insights-azure-diagnostics.md)
+* [Inviare i dati del servizio Diagnostica di Azure ad Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Automatizzare la configurazione degli avvisi](app-insights-powershell-alerts.md)
 

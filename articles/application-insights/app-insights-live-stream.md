@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a7953781776fa4d7c9ae47901bb5f0c28a87ff2b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9105b7f44a9677b2b843305c30fec30c74dd8be5
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091192"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958492"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
 
@@ -203,7 +203,7 @@ Dati non visualizzati Se l'applicazione si trova in una rete protetta: Live Metr
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Monitoraggio dell'utilizzo con Application Insights](app-insights-web-track-usage.md)
+* [Monitoraggio dell'utilizzo con Application Insights](app-insights-usage-overview.md)
 * [Uso di Ricerca diagnostica](app-insights-diagnostic-search.md)
 * [Profiler](app-insights-profiler.md)
 * [Debugger di snapshot](app-insights-snapshot-debugger.md)

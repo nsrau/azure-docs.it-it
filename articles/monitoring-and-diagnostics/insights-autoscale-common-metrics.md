@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 48c53b1b0c037e6bcfea3be49fdd2110e1e694b3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c2a231de3eaa67a656fb90d6498d36a226ff8622
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970703"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963065"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Metriche comuni per la scalabilità automatica di Monitoraggio di Azure
 La scalabilità automatica di Monitoraggio di Azure consente di aumentare o ridurre il numero delle istanze in esecuzione in base ai dati di telemetria (metriche). Questo documento descrive le metriche comuni che è possibile usare. Nel portale di Azure è possibile scegliere la metrica della risorsa in base alla quale eseguire il ridimensionamento. È tuttavia possibile scegliere metriche da risorse diverse.
@@ -29,7 +29,7 @@ Se si usano set di scalabilità di macchine virtuali e una metrica specifica non
 
 Se una metrica specifica non viene campionata o trasferita con la frequenza prevista, è possibile aggiornare la configurazione della diagnostica.
 
-Se si verificano entrambe le condizioni precedenti, vedere [Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows](../virtual-machines/windows/ps-extensions-diagnostics.md) per informazioni su come usare PowerShell per configurare e aggiornare l'estensione Diagnostica delle VM di Azure per abilitare la metrica. Questo articolo include anche un file di configurazione della diagnostica di esempio.
+Se si verificano entrambe le condizioni precedenti, vedere [Usare PowerShell per abilitare la Diagnostica di Azure in una macchina virtuale che esegue Windows](../virtual-machines/extensions/diagnostics-windows.md) per informazioni su come usare PowerShell per configurare e aggiornare l'estensione Diagnostica delle VM di Azure per abilitare la metrica. Questo articolo include anche un file di configurazione della diagnostica di esempio.
 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Metriche host per le VM Windows e Linux basate su Resource Manager
 Le metriche a livello di host seguenti vengono generate per impostazione predefinita per le VM di Azure e VMSS nelle istanze di Windows e Linux. Queste metriche descrivono la VM di Azure, ma vengono raccolte dall'host della VM di Azure anziché tramite l'agente installato nella VM guest. Queste metriche possono essere usate nelle regole di scalabilità automatica.

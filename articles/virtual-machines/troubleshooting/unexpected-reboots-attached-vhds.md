@@ -8,16 +8,16 @@ manager: cshepard
 tags: top-support-issue,azure-service-management,azure-resource-manager
 ms.service: virtual-machines
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: cffc6166ab7d0864646421b35fbecafdd80eb27e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 6273087e28be8b784168d5808918d04d0e4cf303
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412713"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748154"
 ---
-# <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Risolvere i problemi relativi ai riavvii imprevisti delle macchine virtuali con dischi rigidi virtuali collegati
+# <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>Risolvere i problemi relativi a riavvii imprevisti di VM con dischi rigidi virtuali collegati
 
 Se una macchina virtuale di Azure contiene numerosi dischi rigidi virtuali (VHD, Virtual Hard Disk) collegati nello stesso account di archiviazione, è possibile che vengano superati gli obiettivi di scalabilità dell'account di archiviazione determinando un riavvio imprevisto della macchina virtuale. Controllare le metriche al minuto per l'account di archiviazione (**TotalRequests**/**TotalIngress**/**TotalEgress**) per verificare se esistono picchi che superano gli obiettivi di scalabilità per un account di archiviazione. Vedere [Le metriche indicano un aumento di PercentThrottlingError](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#metrics-show-an-increase-in-PercentThrottlingError) per sapere come si stabilisce se si è verificata una limitazione nell'account di archiviazione.
 

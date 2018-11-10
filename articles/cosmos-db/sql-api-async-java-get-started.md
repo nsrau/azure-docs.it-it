@@ -1,5 +1,5 @@
 ---
-title: Creare un'applicazione Java tramite Azure Cosmos DB Async Java SDK | Microsoft Docs
+title: Compilare un'app Java con Async Java SDK per gestire i dati API SQL di Azure Cosmos DB | Microsoft Docs
 description: Questa esercitazione illustra come usare gli account API SQL di Azure Cosmos DB per archiviare e accedere ai dati tramite un'applicazione Async Java.
 keywords: esercitazione su nosql, database online, applicazione console java
 services: cosmos-db
@@ -11,44 +11,44 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: aa2613f7cb73c2c338189aaaa48587c49a3093f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 66e937e92528e2f0a1fca9d9aac78f7265eef4f7
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962205"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741233"
 ---
-# <a name="build-a-java-application-by-using-azure-cosmos-db-async-java-sdk"></a>Creare un'applicazione Java tramite Azure Cosmos DB Async Java SDK 
+# <a name="tutorial-build-a-java-app-with-async-java-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Esercitazione: Compilare un'app Java con Async Java SDK per gestire i dati API SQL di Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [Async Java](sql-api-async-java-get-started.md)
-> * [Node.JS](sql-api-nodejs-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-Azure Cosmos DB è un database multimodello distribuito a livello globale. Questa esercitazione illustra come usare gli account API SQL di Azure Cosmos DB per archiviare e accedere ai dati tramite un'applicazione Async Java. 
+Questa esercitazione illustra come compilare un'applicazione Java con Async Java SDK per archiviare e accedere ai dati API SQL di Azure Cosmos DB.
 
-Argomenti trattati:
+Questa esercitazione illustra le attività seguenti:
 
-* Creazione e connessione a un account Azure Cosmos DB
-* Configurazione della soluzione
-* Creare una raccolta
-* Creazione di documenti JSON
-* Esecuzione di query sulla raccolta
-
-Ecco come procedere.
+> [!div class="checklist"]
+> * Creazione e connessione a un account Azure Cosmos DB
+> * Configurazione della soluzione
+> * Creare una raccolta
+> * Creazione di documenti JSON
+> * Esecuzione di query sulla raccolta
 
 ## <a name="prerequisites"></a>Prerequisiti
-Assicurarsi che sia disponibile quanto segue:
+
+Assicurarsi di disporre delle risorse seguenti:
 
 * Un account Azure attivo. Se non si ha un account, è possibile iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/). 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Git](https://git-scm.com/downloads).
-* [Java Development Kit (JDK) 8+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [Java Development Kit (JDK) 8+](https://aka.ms/azure-jdks).
 * [Maven](http://maven.apache.org/download.cgi).
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>Passaggio 1: Creare un account di Azure Cosmos DB
@@ -56,7 +56,8 @@ Creare prima di tutto un account Azure Cosmos DB. Se è già disponibile un acco
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="GitClone"></a>Passaggio 2: Clonare il progetto GitHub
+## <a id="GitClone"></a>Passaggio 2: Clonare il repository GitHub
+
 Per iniziare, è possibile clonare il repository GitHub per l'[introduzione ad Azure Cosmos DB e Java](https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started). Eseguire questo comando da una directory locale per recuperare il progetto di esempio in locale.
 
 ```bash
@@ -64,9 +65,9 @@ git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-ge
 
 cd azure-cosmos-db-sql-api-async-java-getting-started
 cd azure-cosmosdb-get-started
-
 ```
-La directory contiene un oggetto `pom.xml` per il progetto e una cartella `src/main/java/com/microsoft/azure/cosmosdb/sample` che contiene il codice sorgente Java incluso `Main.java`, che mostra come eseguire semplici operazioni con Azure Cosmos DB, come la creazione di documenti e l'esecuzione di query sui dati all'interno di una raccolta. L'oggetto `pom.xml` include una dipendenza per [Azure Cosmos DB Java SDK su Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+
+La directory contiene un file `pom.xml` e una cartella `src/main/java/com/microsoft/azure/cosmosdb/sample` contenente il codice sorgente Java, incluso `Main.java`. Il progetto contiene il codice necessario per eseguire operazioni con Azure Cosmos DB, ad esempio la creazione di documenti e le query sui dati all'interno di una raccolta. L'oggetto `pom.xml` include una dipendenza per [Azure Cosmos DB Java SDK su Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
 ```xml
 <dependency>
@@ -77,6 +78,7 @@ La directory contiene un oggetto `pom.xml` per il progetto e una cartella `src/m
 ```
 
 ## <a id="Connect"></a>Passaggio 3: Connettersi a un account Azure Cosmos DB
+
 Tornare al [portale di Azure](https://portal.azure.com) per recuperare l'endpoint e la chiave master primaria. L'endpoint e la chiave primaria di Azure Cosmos DB sono necessari all'applicazione per conoscere la destinazione della connessione e ad Azure Cosmos DB per considerare attendibile la connessione dell'applicazione. Il file `AccountSettings.java` contiene i valori relativi a chiave primaria e URI. 
 
 Nel portale di Azure passare all'account Azure Cosmos DB e quindi fare clic su **Chiavi**. Copiare l'URI e la CHIAVE PRIMARIA dal portale e incollarli nel file `AccountSettings.java`. 
@@ -97,9 +99,10 @@ public class AccountSettings
 }
 ```
 
-![Screenshot del portale di Azure usato nell'esercitazione su NoSQL per creare un'applicazione console Java. Mostra un account Azure Cosmos DB, con l'hub ACTIVE evidenziato, il pulsante CHIAVI evidenziato nel pannello dell'account Azure Cosmos DB e i valori di URI, CHIAVE PRIMARIA e CHIAVE SECONDARIA evidenziati nel pannello Chiavi][keys]
+![Screenshot di acquisizione delle chiavi dal portale][keys]
 
 ## <a name="step-4-initialize-the-client-object"></a>Passaggio 4: Inizializzare l'oggetto client
+
 Inizializzare l'oggetto client tramite i valori relativi a chiave primaria e URI host definiti nel file "AccountSettings.java"
 
 ```java
@@ -252,7 +255,8 @@ private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch 
 }
 ```
 
-## <a id="Run"></a>Passaggio 9: Eseguire l'intera applicazione console Java
+## <a id="Run"></a>Passaggio 9: Eseguire l'applicazione console Java
+
 Per eseguire l'applicazione dalla console, passare alla cartella del progetto e compilare usando Maven:
 
 ```bash
@@ -264,11 +268,14 @@ L'esecuzione di `mvn package` scarica la libreria di Azure Cosmos DB più recent
 ```bash
 mvn exec:java -DACCOUNT_HOST=<YOUR_COSMOS_DB_HOSTNAME> -DACCOUNT_KEY= <YOUR_COSMOS_DB_MASTER_KEY>
 ```
+
 Congratulazioni! L'esercitazione su NoSQL è stata completata ed è stata creata un'applicazione console Java funzionante.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per un'esercitazione su app Web Java, vedere [Creazione di un'applicazione Web Java con Azure Cosmos DB](sql-api-java-application.md).
-* Informazioni su come [monitorare un account Azure Cosmos DB](monitor-accounts.md).
-* Eseguire query sul set di dati di esempio illustrato nella pagina [Query Playground](https://www.documentdb.com/sql/demo).
+
+In questa esercitazione si è appreso come compilare un'app Java con Async Java SDK per gestire i dati API SQL di Azure Cosmos DB. È possibile passare all'articolo successivo:
+
+> [!div class="nextstepaction"]
+> [Compilare un'app console Node.js con JavaScript SDK e Azure Cosmos DB](sql-api-nodejs-get-started.md)
 
 [keys]: media/sql-api-get-started/nosql-tutorial-keys.png
