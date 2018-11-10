@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7d11d238b921c63d1d2317371da07d8e49e8ac9d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 41bbc2fd57617bb4bafb121f9c766b1f673dd075
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301973"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228624"
 ---
 # <a name="azure-ad-connect-upgrade-from-dirsync"></a>Azure AD Connect: aggiornamento da DirSync
 Azure AD Connect è il successore di DirSync. Questo argomento illustra come eseguire l'aggiornamento da DirSync. Questi passaggi non si applicano all'aggiornamento da un'altra versione di Azure AD Connect o da Azure AD Sync.
 
-Prima di avviare l'installazione di Azure AD Connect, assicurarsi di [scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) e completare i passaggi obbligatori illustrati in [Azure AD Connect: hardware e prerequisiti](how-to-connect-install-prerequisites.md). In particolare, è consigliabile leggere i punti seguenti, perché queste aree sono diverse rispetto a DirSync:
+Prima di avviare l'installazione di Azure AD Connect, assicurarsi di [scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) e completare i passaggi obbligatori illustrati in [Azure AD Connect: hardware e prerequisiti](how-to-connect-install-prerequisites.md). In particolare, è consigliabile leggere i punti seguenti, perché queste aree sono diverse rispetto a DirSync:
 
 * Versioni di .NET e PowerShell richieste. Le versioni disponibili nel server devono essere più recenti di quelle richieste per DirSync.
 * Configurazione del server proxy. Se si usa un server proxy per accedere a Internet, è necessario configurare questa impostazione prima dell'aggiornamento. In DirSync viene sempre usato il server proxy configurato per l'utente che ne esegue l'installazione, mentre Azure AD Connect usa le impostazioni del computer.

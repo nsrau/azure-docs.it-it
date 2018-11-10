@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5fe85d74b247e890790ec577d813d42f15290cde
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140909"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228403"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Usare Terraform per creare un set di scalabilità di macchine virtuali di Azure
 
@@ -569,6 +569,6 @@ Il processo di eliminazione può richiedere alcuni minuti.
 In questo articolo si è appreso come usare Terraform per creare un set di scalabilità di macchine virtuali di Azure. Di seguito sono segnalate altre risorse di approfondimento su Terraform di Azure: 
 
  [Hub Terraform in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure provider documentation (Documentazione sul provider Terraform in Azure)](http://aka.ms/terraform)  
- [Terraform Azure provider source (Codice sorgente del provider Terraform in Azure)](http://aka.ms/tfgit)  
- [Terraform Azure modules (Moduli del provider Terraform in Azure)](http://aka.ms/tfmodules)
+ [Terraform Azure provider documentation (Documentazione sul provider Terraform in Azure)](https://aka.ms/terraform)  
+ [Terraform Azure provider source (Codice sorgente del provider Terraform in Azure)](https://aka.ms/tfgit)  
+ [Terraform Azure modules (Moduli del provider Terraform in Azure)](https://aka.ms/tfmodules)

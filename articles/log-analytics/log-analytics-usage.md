@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415257"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006499"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analizzare l'utilizzo dei dati in Log Analytics
 
@@ -58,7 +58,7 @@ Il dashboard **Utilizzo di Log Analytics** visualizza le informazioni seguenti:
 3. Nell'elenco di aree di lavoro di Log Analytics selezionare un'area di lavoro.
 4. Selezionare **Utilizzo e costi stimati** dall'elenco nel riquadro a sinistra.
 5. Nel dashboard **Utilizzo e costi stimati** è possibile modificare l'intervallo di tempo selezionando **Ora: Ultime 24 ore** e modificando l'intervallo stesso.<br><br> ![Intervallo di tempo](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Visualizzare i pannelli delle categorie di utilizzo che mostrano le aree a cui si è interessati. Scegliere un pannello e quindi fare clic su un elemento per visualizzare altri dettagli in [Ricerca log](log-analytics-log-searches.md).<br><br> ![KPI di esempio di utilizzo dei dati](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. Visualizzare i pannelli delle categorie di utilizzo che mostrano le aree a cui si è interessati. Scegliere un pannello e quindi fare clic su un elemento per visualizzare altri dettagli in [Ricerca log](log-analytics-queries.md).<br><br> ![KPI di esempio di utilizzo dei dati](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. Nel dashboard Ricerca log esaminare i risultati restituiti dalla ricerca.<br><br> ![Ricerca log sull'utilizzo dei dati di esempio](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Creare un avviso quando la raccolta dati supera le dimensioni previste
@@ -78,7 +78,7 @@ La query seguente usa una semplice formula per prevedere quando verranno inviati
 
 Per generare un avviso su un volume di dati diverso, sostituire il numero 100 nelle query con il numero di GB da segnalare.
 
-Per ricevere una notifica quando la raccolta dati supera le dimensioni previste, seguire la procedura descritta in [Creare un nuovo avviso del log](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+Per ricevere una notifica quando la raccolta dati supera le dimensioni previste, seguire la procedura descritta in [Creare un nuovo avviso del log](../monitoring-and-diagnostics/alert-metric.md).
 
 Quando si crea l'avviso per la prima query e la quantità di dati supera i 100 GB in 24 ore, impostare:  
 
@@ -163,19 +163,19 @@ Per ridurre il volume dei log raccolti, seguire questa procedura:
 | Log eventi                 | Modificare la [configurazione del log eventi](log-analytics-data-sources-windows-events.md) per: <br> - Ridurre il numero di log eventi raccolti <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* |
 | syslog                     | Modificare la [configurazione di Syslog](log-analytics-data-sources-syslog.md) per: <br> - Ridurre il numero di strutture raccolte <br> - Raccogliere solo i livelli di eventi richiesti, ad esempio non raccogliendo gli eventi di livello *informazioni* e *debug* |
 | AzureDiagnostics           | Modificare la raccolta dei log delle risorse per: <br> - Ridurre il numero di risorse che inviano log a Log Analytics <br> - Raccogliere solo i log necessari |
-| Dati della soluzione da computer che non richiedono la soluzione | Usare il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari |
+| Dati della soluzione da computer che non richiedono la soluzione | Usare il [targeting della soluzione](../monitoring/monitoring-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Verificare se sono presenti più nodi del previsto
 Con il piano tariffario *Per nodo (Log Analytics)*, l'importo addebitato dipende dal numero di nodi e soluzioni usati. È possibile visualizzare il numero di nodi in uso per ogni offerta nella sezione *offerte* del dashboard di uso.<br><br> ![Dashboard di utilizzo](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Fare clic su **Visualizza tutto...** per visualizzare l'elenco completo dei computer che inviano dati per l'offerta selezionata.
 
-Usare il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari
+Usare il [targeting della soluzione](../monitoring/monitoring-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni su come usare il linguaggio di ricerca, vedere [Ricerche nei log in Log Analytics](log-analytics-log-searches.md). È possibile usare le query di ricerca per eseguire ulteriori analisi sui dati di utilizzo.
-* Per ricevere una notifica quando vengono soddisfatti determinati criteri di ricerca, seguire la procedura descritta in [Creare un nuovo avviso del log](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
-* Usare il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari
+* Per informazioni su come usare il linguaggio di ricerca, vedere [Ricerche nei log in Log Analytics](log-analytics-queries.md). È possibile usare le query di ricerca per eseguire ulteriori analisi sui dati di utilizzo.
+* Per ricevere una notifica quando vengono soddisfatti determinati criteri di ricerca, seguire la procedura descritta in [Creare un nuovo avviso del log](../monitoring-and-diagnostics/alert-metric.md).
+* Usare il [targeting della soluzione](../monitoring/monitoring-solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari
 * Per configurare un criterio efficace per la raccolta degli eventi di sicurezza, vedere [Criteri per i filtri del Centro sicurezza di Azure](../security-center/security-center-enable-data-collection.md).
 * Modificare la [configurazione del contatore delle prestazioni](log-analytics-data-sources-performance-counters.md).
 * Per modificare le impostazioni di raccolta degli eventi, vedere la [configurazione del registro eventi](log-analytics-data-sources-windows-events.md).

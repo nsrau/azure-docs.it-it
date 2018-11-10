@@ -1,5 +1,5 @@
 ---
-title: Soluzione Monitoraggio VMware in Log Analytics | Microsoft Docs
+title: Soluzione Monitoraggio VMware in Log Analytics | Documentazione Microsoft
 description: Informazioni su come la soluzione di monitoraggio VMware è in grado di gestire i log e monitorare gli host ESXi.
 services: log-analytics
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 38537f3e2884160a99d333f1414d3f45755cd4f9
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404614"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005224"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Soluzione di monitoraggio VMware (anteprima) in Log Analytics
 
@@ -42,7 +42,7 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 vSphere ESXi Host 5.5, 6.0 e 6.5
 
 #### <a name="prepare-a-linux-server"></a>Preparazione di un server Linux
-Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog dagli host ESXi. L'[agente di Log Analytics per Linux](log-analytics-linux-agents.md) è il punto di raccolta di tutti i dati di Syslog dell'host ESXi. È possibile usare più host ESXi per inoltrare i log a un singolo server Linux, come nell'esempio seguente.
+Creare una VM del sistema operativo Linux per ricevere tutti i dati di Syslog dagli host ESXi. L'[agente di Log Analytics per Linux](log-analytics-quick-collect-linux-computer.md) è il punto di raccolta di tutti i dati di Syslog dell'host ESXi. È possibile usare più host ESXi per inoltrare i log a un singolo server Linux, come nell'esempio seguente.
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]  
 
@@ -90,9 +90,9 @@ La tabella seguente mostra i metodi di raccolta di dati e altre informazioni det
 
 Nella tabella seguente sono riportati esempi di campi di dati raccolti dalla soluzione di monitoraggio VMware:
 
-| nome campo | descrizione |
+| nome campo | Descrizione |
 | --- | --- |
-| Device_s |dispositivi di archiviazione VMware |
+| Device_s |Dispositivi di archiviazione VMware |
 | ESXIFailure_s |tipi di errore |
 | EventTime_t |quando si è verificato l'evento |
 | HostName_s |nome dell'host ESXi |
@@ -105,7 +105,7 @@ Nella tabella seguente sono riportati esempi di campi di dati raccolti dalla sol
 | SCSIStatus_s |stato SCSI VMware |
 | SyslogMessage_s |dati Syslog |
 | UserName_s |utente che ha creato o eliminato la VM |
-| VMName_s |nome della VM |
+| VMName_s |Nome della VM. |
 | Computer |computer host |
 | TimeGenerated |quando sono stati generati i dati |
 | DataCenter_s |data center di VMware |
@@ -131,7 +131,7 @@ Nella vista dashboard di **VMware** i pannelli sono organizzati in base a questi
 
 Fare clic su qualsiasi pannello per aprire il riquadro di ricerca di Log Analytics che mostra informazioni dettagliate specifiche per il pannello.
 
-A questo punto, è possibile modificare la query di ricerca in qualcosa di specifico. Per informazioni dettagliate sulla creazione di ricerche nei log, vedere [Trovare dati con ricerche nei log in Log Analytics](log-analytics-log-searches.md).
+A questo punto, è possibile modificare la query di ricerca in qualcosa di specifico. Per informazioni dettagliate sulla creazione di ricerche nei log, vedere [Trovare dati con ricerche nei log in Log Analytics](log-analytics-queries.md).
 
 #### <a name="find-esxi-host-events"></a>Individuazione degli eventi host ESXi
 Un singolo host ESXi genera più log, in base ai loro processi. La soluzione di monitoraggio VMware li centralizza e riepiloga il conteggio degli eventi. Questa vista centralizzata aiuta a comprendere quale host ESXi ha un volume elevato di eventi e quali eventi si verificano più di frequente nell'ambiente.
@@ -165,7 +165,7 @@ Il salvataggio delle query di ricerca è una funzionalità standard di Log Analy
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Creazione di avvisi da query
-Dopo aver creato le query, è possibile usarle come avvisi nel caso in cui si verifichino eventi specifici. Per informazioni su come creare avvisi, vedere [Avvisi in Log Analytics](log-analytics-alerts.md). Per esempi di query di avviso e di altro tipo, vedere il post di blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Monitoraggio di VMware con Log Analytics).
+Dopo aver creato le query, è possibile usarle come avvisi nel caso in cui si verifichino eventi specifici. Per informazioni su come creare avvisi, vedere [Avvisi in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md). Per esempi di query di avviso e di altro tipo, vedere il post di blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Monitoraggio di VMware con Log Analytics).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Cosa bisogna fare con l'impostazione esistente dell'host ESXi? Quali saranno le conseguenze per l'ambiente esistente?
@@ -206,6 +206,6 @@ Possono esserci diversi motivi:
     d. Se il file non esiste o l'impostazione di utente e gruppo non è corretta, provvedere all'azione correttiva come descritto in [Preparazione di un server Linux](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare le [ricerche nei log in Log Analytics](log-analytics-log-searches.md) per visualizzare i dati dettagliati di VMware.
+* Usare le [ricerche nei log in Log Analytics](log-analytics-queries.md) per visualizzare i dati dettagliati di VMware.
 * [Creare dashboard personalizzati](log-analytics-dashboards.md) che mostrino i dati dell'host VMware.
-* [Creare avvisi](log-analytics-alerts.md) quando si verificano eventi specifici relativi all'host VMware.
+* [Creare avvisi](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) quando si verificano eventi specifici relativi all'host VMware.

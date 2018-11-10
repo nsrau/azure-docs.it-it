@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 297b3f4c9ef110f8adc9dcb5cd9eac9e30729a5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180126"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006533"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Raccolta di log e metriche per i servizi di Azure da usare in Log Analytics
 
@@ -51,7 +51,7 @@ Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Az
 | Insiemi di credenziali di ripristino         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (Anteprima)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Servizi di ricerca         | Microsoft.Search/searchServices         | Diagnostica | Diagnostica | |
 | Spazio dei nomi del bus di servizio   | Microsoft.ServiceBus/namespaces         | Diagnostica | Diagnostica | [Service Bus Analytics (Anteprima)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Archiviazione     |             | [Service Fabric Analytics (anteprima)](log-analytics-service-fabric.md) |
+| Service Fabric          |                                         | Archiviazione     |             | [Service Fabric Analytics (anteprima)](../service-fabric/service-fabric-diagnostics-oms-setup.md) |
 | SQL (versione 12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostica | [Azure SQL Analytics (Anteprima)](log-analytics-azure-sql.md) |
 | Archiviazione                 |                                         |             | Script      | [Azure Storage Analytics (Anteprima)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Macchine virtuali        | Microsoft.Compute/virtualMachines       | Estensione   | Estensione <br> Diagnostica  | |
@@ -61,14 +61,14 @@ Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Az
 
 
 > [!NOTE]
-> Per monitorare le macchine virtuali di Azure (sia Linux che Windows), è consigliabile installare l'[estensione macchina virtuale di Log Analytics](log-analytics-azure-vm-extension.md). L'agente fornisce informazioni dettagliate raccolte all'interno delle macchine virtuali. È anche possibile usare l'estensione per i set di scalabilità di macchine virtuali.
+> Per monitorare le macchine virtuali di Azure (sia Linux che Windows), è consigliabile installare l'[estensione macchina virtuale di Log Analytics](log-analytics-quick-collect-azurevm.md). L'agente fornisce informazioni dettagliate raccolte all'interno delle macchine virtuali. È anche possibile usare l'estensione per i set di scalabilità di macchine virtuali.
 >
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Da Diagnostica di Azure direttamente a Log Analytics
 Molte risorse di Azure sono in grado di scrivere i log di diagnostica e le metriche direttamente in Log Analytics e questo è il modo migliore per raccogliere i dati per l'analisi. Quando si usa Diagnostica di Azure, i dati vengono scritti immediatamente in Log Analytics e non occorre scriverli prima nell'archiviazione.
 
-Le risorse di Azure che supportano [Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview.md) possono inviare i log e le metriche direttamente a Log Analytics.
+Le risorse di Azure che supportano [Monitoraggio di Azure](../azure-monitor/overview.md) possono inviare i log e le metriche direttamente a Log Analytics.
 
 > [!NOTE]
 > L'invio delle metriche multidimensionali a Log Analytics tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
@@ -158,5 +158,5 @@ La raccolta di modelli di Azure include [esempi dell'uso di Automazione di Azure
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Usare l'archiviazione BLOB per IIS e l'archiviazione tabelle per gli eventi](log-analytics-azure-storage-iis-table.md) per leggere i log dei servizi di Azure che scrivono dati di diagnostica in un archivio tabelle o i log IIS scritti in un archivio BLOB.
-* [Abilitare soluzioni](log-analytics-add-solutions.md) per fornire informazioni dettagliate sui dati.
-* [Usare query di ricerca](log-analytics-log-searches.md) per analizzare i dati.
+* [Abilitare soluzioni](../monitoring/monitoring-solutions.md) per fornire informazioni dettagliate sui dati.
+* [Usare query di ricerca](log-analytics-queries.md) per analizzare i dati.

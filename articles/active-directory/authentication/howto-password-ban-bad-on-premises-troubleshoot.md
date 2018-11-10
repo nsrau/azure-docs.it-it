@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 1eea6380d4276644db0c7681f23a4b0c5e79ff09
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187350"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741182"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Anteprima: monitoraggio, creazione di report e risoluzione dei problemi nella protezione password di Azure AD
 
 |     |
 | --- |
-| La protezione password e l'elenco personalizzato di password escluse di Azure AD sono funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni supplementari per l'Utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| La protezione password di Azure AD è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 Dopo la distribuzione della protezione password di Azure AD, il monitoraggio e la creazione di report sono attività essenziali. Questo articolo esplora dettagliatamente questi argomenti per aiutare a identificare i percorsi in cui ogni servizio registra le informazioni e come creare report sull'uso della protezione password di Azure AD.
@@ -66,7 +66,7 @@ Gli eventi principali relativi alla convalida delle password sono i seguenti:
 
 La password modificata per l'utente specificato è stata convalidata come conforme ai criteri password di Azure correnti.
 
- Nome utente: BPL_02885102771 FullName:
+ Nome utente: BPL_02885102771 Nome completo:
 
 #### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Messaggio del log eventi di esempio per l'impostazione delle password non riuscita con ID evento 10017 e 30003
 
@@ -74,13 +74,13 @@ La password modificata per l'utente specificato è stata convalidata come confor
 
 La password reimpostata per l'utente specificato è stata rifiutata perché non è conforme ai criteri password di Azure correnti. Per altre informazioni, vedere il messaggio del log eventi correlato.
 
- Nome utente: BPL_03283841185 FullName:
+ Nome utente: BPL_03283841185 Nome completo:
 
 30003:
 
 La password reimpostata per l'utente specificato è stata rifiutata perché corrisponde ad almeno uno dei token presenti nell'elenco di password per tenant dei criteri password di Azure correnti.
 
- Nome utente: BPL_03283841185 FullName:
+ Nome utente: BPL_03283841185 Nome completo:
 
 Altri messaggi importanti del log eventi di cui tenere conto:
 
@@ -88,7 +88,7 @@ Altri messaggi importanti del log eventi di cui tenere conto:
 
 La password per l'utente specificato è stata accettata perché non sono ancora disponibili criteri password di Azure
 
-Nome utente: <user> FullName: <user>
+Nome utente: NomeUtente Nome completo: Nome utente
 
 Questa condizione può essere dovuta a uno o più dei motivi seguenti:%n
 
@@ -195,8 +195,8 @@ Se si decide di disinstallare il software in versione di anteprima pubblica e di
 2. Disinstallare il software dell'agente del controller di dominio da tutti i controller di dominio. Questo passaggio **richiede** un riavvio.
 3. Rimuovere manualmente tutti i punti di connessione del servizio proxy in ogni contesto dei nomi di dominio. Il percorso di questi oggetti può essere individuato con il comando di PowerShell per Active Directory seguente:
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -207,8 +207,8 @@ Se si decide di disinstallare il software in versione di anteprima pubblica e di
 4. Rimuovere manualmente tutti i punti di connessione dell'agente del controller di dominio in ogni contesto dei nomi di dominio. Potrebbe essere presente uno di questi oggetti per ogni controller di dominio nella foresta, a seconda dell'ampiezza della distribuzione del software in versione di anteprima pubblica. Il percorso dell'oggetto può essere individuato con il comando di PowerShell per Active Directory seguente:
 
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 

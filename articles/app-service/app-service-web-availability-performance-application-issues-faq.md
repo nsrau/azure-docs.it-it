@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 00563b93a3601ba6299c479c49375fd252841f79
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307909"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748120"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
@@ -34,11 +34,11 @@ Più fattori possono contribuire a rallentare le prestazioni delle app. Per la p
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Come si risolvono i problemi di uno scenario con utilizzo elevato di CPU?
 
-In alcuni scenari di utilizzo elevato di CPU, l'app può richiedere realmente più risorse di calcolo. In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un utilizzo elevato di CPU può essere causato da un ciclo non valido o da una procedura di codifica. La procedura che consente di ottenere informazioni su cosa provochi un maggiore utilizzo di CPU prevede due parti. Creare prima un dump dei processi e analizzarlo. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato di CPU per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+In alcuni scenari di utilizzo elevato di CPU, l'app può richiedere realmente più risorse di calcolo. In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un utilizzo elevato di CPU può essere causato da un ciclo non valido o da una procedura di codifica. La procedura che consente di ottenere informazioni su cosa provochi un maggiore utilizzo di CPU prevede due parti. Creare prima un dump dei processi e analizzarlo. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato di CPU per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Come si risolvono i problemi di uno scenario con utilizzo elevato di memoria?
 
-In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realmente più risorse di calcolo. In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un bug nel codice può causare una perdita di memoria. Anche una procedura di codifica può provocare un maggiore utilizzo di memoria. La procedura che consente di ottenere informazioni su cosa provochi un utilizzo elevato di memoria prevede due parti. Creare prima un dump dei processi e analizzarlo. Crash Diagnoser della raccolta di estensioni sito di Azure può eseguire in modo efficiente entrambi questi passaggi. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato intermittente di memoria per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realmente più risorse di calcolo. In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un bug nel codice può causare una perdita di memoria. Anche una procedura di codifica può provocare un maggiore utilizzo di memoria. La procedura che consente di ottenere informazioni su cosa provochi un utilizzo elevato di memoria prevede due parti. Creare prima un dump dei processi e analizzarlo. Crash Diagnoser della raccolta di estensioni sito di Azure può eseguire in modo efficiente entrambi questi passaggi. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato intermittente di memoria per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Come si automatizzano le app Web del servizio app usando PowerShell?
 

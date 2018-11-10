@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 1c6e0521f37e85bcb3395de0ad1e9d463125e17f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469799"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218900"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Avvio rapido: riconoscimento vocale in un'applicazione piattaforma UWP con Speech SDK
 
@@ -28,7 +28,7 @@ In questo articolo verrà creata un'applicazione piattaforma UWP (Universal Wind
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessaria una chiave di sottoscrizione del servizio Voce per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Consultare [Provare gratuitamente il servizio Voce](get-started.md) per informazioni dettagliate.
+È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Consultare [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md) per informazioni dettagliate.
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
@@ -70,7 +70,7 @@ In questo articolo verrà creata un'applicazione piattaforma UWP (Universal Wind
 1. Nella console di Gestione pacchetti viene visualizzata la riga di output seguente.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
    ```
 
 1. Poiché l'applicazione usa il microfono per l'input vocale, aggiungere la funzionalità **Microfono** al progetto. In Esplora soluzioni, fare doppio clic su **Package.appxmanifest** per modificare il manifesto dell'applicazione. Passare quindi alla scheda **Funzionalità**, selezionare la casella di controllo per la funzionalità **Microfono** e salvare le modifiche.
@@ -100,15 +100,15 @@ In questo articolo verrà creata un'applicazione piattaforma UWP (Universal Wind
 
     ![Screenshot dell'applicazione Visual Studio, con l'opzione Compila soluzione evidenziata](media/sdk/qs-csharp-uwp-08-build.png "Compilazione completata")
 
-1. Avviare l'applicazione. Nella barra dei menu, selezionare **Debug** > **Avvia debug** o premere **F5**.
+1. Avviare l’applicazione. Nella barra dei menu, selezionare **Debug** > **Avvia debug** o premere **F5**.
 
-    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug evidenziata](media/sdk/qs-csharp-uwp-09-start-debugging.png "Avviare l'applicazione per eseguire il debug")
+    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug evidenziata](media/sdk/qs-csharp-uwp-09-start-debugging.png "Avviare l’applicazione per eseguire il debug")
 
 1. Viene visualizzata una finestra. Selezionare **Attiva microfono** e confermare la richiesta di autorizzazione che viene visualizzata.
 
     ![Screenshot della richiesta di autorizzazione](media/sdk/qs-csharp-uwp-10-access-prompt.png "Avviare l'applicazione per eseguire il debug")
 
-1. Selezionare **Speech recognition with microphone input** (Riconoscimento vocale con l'input del microfono) e pronunciare una frase o espressione nel microfono del dispositivo. Il riconoscimento vocale viene trasmesso al servizio Voce e trascritto in formato testo, che appare nella finestra.
+1. Selezionare **Speech recognition with microphone input** (Riconoscimento vocale con l'input del microfono) e pronunciare una frase o espressione nel microfono del dispositivo. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale e trascritto in formato testo, che appare nella finestra.
 
     ![Screenshot dell'interfaccia utente di riconoscimento vocale](media/sdk/qs-csharp-uwp-11-ui-result.png)
 

@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: e3b8d6bfaa54991e0e521a0c42eba8ca3f995c92
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945961"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741166"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Informazioni sul servizio Azure Machine Learning (anteprima)
 
@@ -59,7 +59,7 @@ Oppure, usando l'<a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> di Azur
 
 Dopo la creazione, il modello può essere usato per creare un contenitore (ad esempio Docker) che può essere distribuito in locale per il test e quindi usato come ambiente di produzione del servizio Web in [Istanze di contenitore di Azure](how-to-deploy-to-aci.md) o nel [servizio Kubernetes di Azure](how-to-deploy-to-aks.md).
 
-È quindi possibile gestire i modelli distribuiti tramite il [portale di Azure](https://portal.azure.com/) o l'[estensione della riga di comando di Azure Machine Learning](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
+È quindi possibile gestire i modelli distribuiti tramite il [portale di Azure](https://portal.azure.com/) o l'[estensione della riga di comando di Azure Machine Learning](reference-azure-machine-learning-cli.md).
 È possibile valutare le metriche del modello, ripetere il training e ridistribuire le nuove versioni del modello, tenendo al contempo traccia degli esperimenti del modello.
 
 Per iniziare a usare il servizio Azure Machine Learning, vedere la sezione [Passaggi successivi](#next-steps) più avanti.
@@ -85,6 +85,8 @@ Se non si è abbonati, è possibile [aprire un account Azure gratuitamente](http
 - Completare l'esercitazione [Eseguire il training di un modello di classificazione delle immagini con Azure Machine Learning](tutorial-train-models-with-aml.md) per informazioni su come eseguire il training e distribuire modelli con il servizio Azure Machine Learning.
 
 - Per informazioni su come consentire ad Azure Machine Learning di generare e ottimizzare automaticamente il modello, vedere [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Esercitazione: Eseguire il training automatico di un modello di classificazione con Azure Automated Machine Learning.)
+
+- Vedere le [pipeline di apprendimento automatico](/azure/machine-learning/service/concept-ml-pipelines) per compilare, ottimizzare e gestire gli scenari di Machine Learning.
 
 - Per un'approfondita presentazione tecnica del servizio, vedere [Azure Machine Learning service architecture and concepts ](concept-azure-machine-learning-architecture.md)(Nozioni di base e architettura del servizio Azure Machine Learning).
 

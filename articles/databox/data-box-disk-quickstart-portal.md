@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: eb5cf5c6eb210e8bd26c7c074ef6f499e5d4c83d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365235"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740749"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Guida introduttiva: Distribuire Azure Data Box Disk tramite il portale di Azure (anteprima)
 
@@ -70,11 +70,11 @@ Questo passaggio richiede circa 5 minuti.
     3. Eseguire lo strumento per sbloccare i dischi di Data Box e fornire la passkey. Per ogni reinserimento del disco, eseguire nuovamente lo strumento di sblocco e fornire la passkey. **Non usare la finestra di dialogo BitLocker o la chiave BitLocker per sbloccare il disco.** Per altre informazioni su come sbloccare i dischi, vedere [Sbloccare i dischi in un client Windows]() oppure [Sbloccare i dischi in un client Linux]().
     4. La lettera di unità assegnata al disco viene visualizzata dallo strumento. Prendere nota della lettera di unità del disco. Verrà usata nei passaggi successivi.
 
-## <a name="copy-data-and-verify"></a>Copiare i dati e verificare
+## <a name="copy-data-and-validate"></a>Copiare i dati e convalidarli
 
 Il tempo per completare questa operazione dipende dalla dimensione dei dati. 
 
-1. L'unità contiene le cartelle *PageBlob*, *BlockBlob* e *AzureImportExport*. Copiare i dati da importare come BLOB in blocchi tramite trascinamento della selezione nella cartella *BlockBlob*. Analogamente, trascinare e rilasciare i dati come VHD/VHDX nella cartella *PageBlob*.
+1. L'unità contiene le cartelle *PageBlob*, *BlockBlob* e *DataBoxDiskImport*. Copiare i dati da importare come BLOB in blocchi tramite trascinamento della selezione nella cartella *BlockBlob*. Analogamente, trascinare e rilasciare i dati come VHD/VHDX nella cartella *PageBlob*.
 
     Viene creato un contenitore nell'account di archiviazione di Azure per ogni sottocartella nelle cartelle *BlockBlob* e *PageBlob*. Tutti i file nelle cartelle *BlockBlob* e *PageBlob* vengono copiati in un contenitore predefinito `$root` per l'account di archiviazione di Azure.
 
@@ -82,7 +82,7 @@ Il tempo per completare questa operazione dipende dalla dimensione dei dati.
     > - Tutti i contenitori e i BLOB devono essere conformi alle [convenzioni di denominazione di Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Se queste regole non vengono rispettate, il caricamento di dati in Azure avrà esito negativo.
     > - Assicurarsi che i file non superino circa 4,75 TiB per i BLOB in blocchi e circa 8 TiB per i BLOB di pagine.
 
-2. (Facoltativo) Al termine della copia, è consigliabile eseguire il file `DataBoxDiskValidation.cmd` disponibile nella cartella *AzureImportExport* per generare i checksum per la convalida. A seconda delle dimensioni dei dati, questo passaggio può richiedere tempo. 
+2. (Facoltativo) Al termine della copia, è consigliabile eseguire il file `DataBoxDiskValidation.cmd` disponibile nella cartella *DataBoxDiskImport* per generare i checksum per la convalida. A seconda delle dimensioni dei dati, questo passaggio può richiedere tempo. 
 3. Scollegare l'unità. 
 
 

@@ -4,20 +4,20 @@ description: Usare un TPM simulato in una VM Linux per testare il provisioning d
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9609aab6c70bc0c2755de142023bd26e7417987a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347704"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739669"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Creare ed effettuare il provisioning di un dispositivo Edge in una macchina virtuale Linux
 
-È possibile effettuare il provisioning di dispositivi Azure IoT Edge tramite il [servizio Device Provisioning](../iot-dps/index.yml) esattamente come per i dispositivi non abilitati per Edge. Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare. 
+È possibile effettuare il provisioning automatico di dispositivi Azure IoT Edge tramite il [servizio Device Provisioning](../iot-dps/index.yml) esattamente come per i dispositivi non abilitati per Edge. Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare. 
 
 Questo articolo illustra come testare il provisioning automatico in un dispositivo Edge simulato con i passaggi seguenti: 
 
@@ -47,7 +47,7 @@ Un commutatore virtuale consente alla macchina virtuale di connettersi a una ret
 
 3. Scegliere un commutatore virtuale **esterno**, quindi selezionare **Crea commutatore virtuale**. 
 
-4. Assegnare un nome al nuovo commutatore virtuale, ad esempio **EdgeSwitch**. Verificare che Tipo di connessione sia impostato su **Rete esterna**, quindi selezionare **Ok**.
+4. Assegnare un nome al nuovo commutatore virtuale, ad esempio **EdgeSwitch**. Verificare che il tipo di connessione sia impostato su **Rete esterna**, quindi selezionare **Ok**.
 
 5. Un elemento pop-up avvisa l'utente che la connettività di rete potrebbe essere interrotta. Selezionare **Yes** (Sì) per continuare. 
 
@@ -59,11 +59,11 @@ Se si verificano errori in fase di creazione del nuovo commutatore virtuale, ass
 
 2. Aprire di nuovo Hyper-V. Nel menu **Azioni** selezionare **Nuovo** > **Macchina virtuale**.
 
-3. Completare la **procedura guidata per la creazione della nuova macchina virtuale** con le configurazioni specifiche seguenti:
+3. Completare la **Creazione guidata macchina virtuale** con le configurazioni specifiche seguenti:
 
-   1. **Specifica generazione**: selezionare **Generazione 2**.
+   1. **Impostazione generazione**: selezionare **Generazione 2**.
    2. **Configura rete**: impostare il valore di **Connessione** sul commutatore virtuale creato nella sezione precedente. 
-   3. **Opzioni di installazione**: selezionare **Install an operating system from a bootable image file** (Installa sistema operativo da un file di immagine di avvio) e individuare il file di immagine del disco che è stato salvato in locale.
+   3. **Opzioni di installazione**: selezionare **Installa un sistema operativo da un file immagine di avvio** e individuare il file di immagine del disco che è stato salvato in locale.
 
 La creazione della nuova macchina virtuale può richiedere alcuni minuti. 
 
@@ -72,7 +72,7 @@ La creazione della nuova macchina virtuale può richiedere alcuni minuti.
 1. Dopo avere creato la macchina virtuale, aprire le relative impostazioni. 
 2. Passare a **Sicurezza**. 
 3. Deselezionare l'opzione **Abilita avvio protetto**.
-4. Selezionare **Enable Trusted Platform Module** (Abilita Trusted Platform Module). 
+4. Selezionare **Abilita Trusted Platform Module**. 
 5. Fare clic su **OK**.  
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>Avviare la macchina virtuale e raccogliere i dati del modulo TPM
@@ -180,7 +180,7 @@ Usare la procedura seguente per concedere l'accesso al TPM. In alternativa, è p
    L'output dell'operazione riuscita è simile al seguente:
 
    ```output
-   crw------- 1 root root 10, 224 Jun 28 22:34 /dev/tpm0
+   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
 8. Aprire il file di override del runtime IoT Edge. 

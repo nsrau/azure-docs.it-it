@@ -4,11 +4,7 @@ description: Come distribuire il supporto IPv6 per Azure Load Balancer e le macc
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 keywords: ipv6, azure load balancer, dual stack, ip pubblico, ipv6 nativo, mobili, iot
-ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -16,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 431b43979ac364d943c58c40b4199b7f30f9acf6
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 14a28fb341692c309ff4f965628b38a767c56633
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263079"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740743"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuire una soluzione di bilanciamento del carico con connessione Internet con IPv6 usando un modello
 
@@ -115,8 +111,8 @@ Il modello di esempio usato in questo articolo include le variabili e i parametr
 | --- | --- |
 | adminUsername |Specificare il nome dell'account amministratore usato per accedere alle macchine virtuali. |
 | adminPassword |Specificare la password dell'account amministratore usato per accedere alle macchine virtuali. |
-| dnsNameforIPv4LbIP |Specificare il nome host DNS che si vuole assegnare come nome pubblico del servizio di bilanciamento del carico. Questo nome si risolve nell'indirizzo IPv4 pubblico del servizio bilanciamento del carico. Il nome deve essere in minuscolo e corrispondere al regex: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. |
-| dnsNameforIPv6LbIP |Specificare il nome host DNS che si vuole assegnare come nome pubblico del servizio di bilanciamento del carico. Questo nome si risolve nell'indirizzo IPv6 pubblico del servizio bilanciamento del carico. Il nome deve essere in minuscolo e corrispondere al regex: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. Può essere lo stesso nome dell'indirizzo IPv4. Quando un client invia una query DNS per questo nome, Azure restituirà i record A e AAAA quando il nome è condiviso. |
+| dnsNameforIPv4LbIP |Specificare il nome host DNS che si vuole assegnare come nome pubblico del servizio di bilanciamento del carico. Questo nome si risolve nell'indirizzo IPv4 pubblico del servizio bilanciamento del carico. Il nome deve essere in minuscolo e corrispondere all'espressione regex: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. |
+| dnsNameforIPv6LbIP |Specificare il nome host DNS che si vuole assegnare come nome pubblico del servizio di bilanciamento del carico. Questo nome si risolve nell'indirizzo IPv6 pubblico del servizio bilanciamento del carico. Il nome deve essere in minuscolo e corrispondere all'espressione regex: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. Può essere lo stesso nome dell'indirizzo IPv4. Quando un client invia una query DNS per questo nome, Azure restituirà i record A e AAAA quando il nome è condiviso. |
 | vmNamePrefix |Specificare il prefisso del nome della macchina virtuale. Il modello accoda un numero (0, 1 e così via) al nome quando vengono create le macchine virtuali. |
 | nicNamePrefix |Specificare il prefisso del nome dell'interfaccia di rete. Il modello accoda un numero (0, 1 e così via) al nome quando vengono create le interfacce di rete. |
 | storageAccountName |Immettere il nome di un account di archiviazione esistente o specificare il nome di un nuovo account che dovrà essere creato dal modello. |

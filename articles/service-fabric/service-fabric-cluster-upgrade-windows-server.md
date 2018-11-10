@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9c2534644a0627bac9765621691cbba6ffccfe35
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2190978b2583b2f5d8a1b10431c65fd24fe6842d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391312"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228148"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Aggiornare il cluster autonomo di Azure Service Fabric in Windows Server 
 > [!div class="op_single_selector"]
@@ -43,9 +43,9 @@ Per impostare il cluster per il download di aggiornamenti di Service Fabric quan
 Due flussi di lavoro distinti possono aggiornare il cluster alla versione di Service Fabric più recente o a una versione supportata. Un flusso di lavoro è per i cluster con connettività che scaricano automaticamente la versione più recente. L'altro flusso di lavoro è per i cluster senza connettività che quindi non scaricano la versione più recente di Service Fabric.
 
 ### <a name="upgrade-clusters-that-have-connectivity-to-download-the-latest-code-and-configuration"></a>Aggiornare i cluster con la connettività per scaricare il codice e la configurazione più recenti
-Seguire questa procedura per aggiornare il cluster a una versione supportata, se i nodi del cluster hanno la connettività Internet all'[Area download Microsoft](http://download.microsoft.com).
+Seguire questa procedura per aggiornare il cluster a una versione supportata, se i nodi del cluster hanno la connettività Internet all'[Area download Microsoft](https://download.microsoft.com).
 
-Per i cluster che hanno la connettività all'[Area download Microsoft](http://download.microsoft.com), viene periodicamente verificata la disponibilità di nuove versioni di Service Fabric.
+Per i cluster che hanno la connettività all'[Area download Microsoft](https://download.microsoft.com), viene periodicamente verificata la disponibilità di nuove versioni di Service Fabric.
 
 Quando è disponibile una nuova versione di Service Fabric, il pacchetto viene scaricato localmente nel cluster e ne viene eseguito il provisioning per l'aggiornamento. Inoltre, per informare il cliente di questa nuova versione, il sistema visualizza un avviso esplicito di integrità del cluster simile al seguente:
 
@@ -106,7 +106,7 @@ Quando viene visualizzato l'avviso di integrità del cluster, seguire questa pro
     Dopo aver risolto i problemi che hanno determinato il ripristino dello stato precedente, avviare di nuovo l'aggiornamento ripetendo la procedura descritta prima.
 
 ### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>Aggiornare i cluster *senza la connettività* per scaricare il codice e la configurazione più recenti
-Seguire questa procedura per aggiornare il cluster a una versione supportata, se i nodi del cluster non hanno la connettività Internet all'[Area download Microsoft](http://download.microsoft.com).
+Seguire questa procedura per aggiornare il cluster a una versione supportata, se i nodi del cluster non hanno la connettività Internet all'[Area download Microsoft](https://download.microsoft.com).
 
 > [!NOTE]
 > Se si esegue un cluster non connesso a Internet, è necessario monitorare il blog del team di Service Fabric per informazioni sulla nuova versione. Il sistema non visualizza alcun avviso di integrità del cluster per informare l'utente di una nuova versione.  
@@ -162,7 +162,7 @@ Per informazioni dettagliate sull'uso, vedere il comando di PowerShell [Start-Se
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
 6. Avviare un aggiornamento del cluster a una versione disponibile.

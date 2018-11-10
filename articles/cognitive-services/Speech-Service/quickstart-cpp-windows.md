@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: ddac12c6414365f8d20c42d324695be9855774dc
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469868"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218737"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscimento vocale in C++ su Windows Desktop con Speech SDK
 
@@ -25,7 +25,7 @@ In questo articolo, viene creata un'applicazione console C++ per Windows. Utiliz
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessaria una chiave di sottoscrizione del servizio Voce per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Consultare [Provare gratuitamente il servizio Voce](get-started.md) per informazioni dettagliate.
+È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Consultare [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md) per informazioni dettagliate.
 
 ## <a name="create-a-visual-studio-project"></a>Creare un progetto di Visual Studio
 
@@ -60,7 +60,7 @@ In questo articolo, viene creata un'applicazione console C++ per Windows. Utiliz
     ![Screenshot della finestra di dialogo Gestisci pacchetti per la soluzione](media/sdk/qs-cpp-windows-04-nuget-install-1.0.0.png)
 
     > [!NOTE]
-    > La versione corrente di Speech SDK di Servizi cognitivi è `1.0.1`.
+    > La versione corrente di Speech SDK di Servizi cognitivi è `1.1.0`.
 
 1. Accettare la licenza visualizzata per iniziare l'installazione del pacchetto NuGet.
 
@@ -86,11 +86,11 @@ Dopo aver installato il pacchetto, un messaggio di conferma viene visualizzato n
 
    ![Screenshot dell'applicazione Visual Studio, con l'opzione Compila soluzione selezionata](media/sdk/qs-cpp-windows-06-build.png)
 
-1. Avviare l'applicazione. Nella barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
+1. Avviare l’applicazione. Nella barra dei menu scegliere **Debug** > **Avvia debug** o premere **F5**.
 
    ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug selezionata](media/sdk/qs-cpp-windows-07-start-debugging.png)
 
-1. Si apre una finestra della console che chiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. I contenuti vocali vengono trasmessi al servizio Voce e trascritti in un testo che viene visualizzato nella stessa finestra.
+1. Si apre una finestra della console che chiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. I contenuti vocali vengono trasmessi al Servizio di riconoscimento vocale e trascritti in un testo che viene visualizzato nella stessa finestra.
 
    ![Screenshot della console dopo il riconoscimento corretto](media/sdk/qs-cpp-windows-08-console-output-release.png)
 

@@ -2,19 +2,19 @@
 title: Usare Pig di Hadoop con SSH in un cluster HDInsight - Azure
 description: Informazioni su come connettersi a un cluster Hadoop basato su Linux con SSH e quindi usare il comando Pig per eseguire istruzioni Pig Latin in modo interattivo o come processo batch.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: c521f5781c1fb8bae1e036649ee31744d0742796
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: 1deb44fecad6c120dd1e8f82cec36bff6353fc0b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590297"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51003881"
 ---
 # <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Eseguire processi Pig in un cluster basato su Linux con il comando Pig (SSH)
 

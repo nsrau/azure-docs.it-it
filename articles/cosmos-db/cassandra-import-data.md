@@ -9,14 +9,14 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 56fc07c6d775ee8015ce244acb7782607bda802a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247851"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739788"
 ---
-# <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Eseguire la migrazione dei dati nell'account dell'API Cassandra di Azure Cosmos DB
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Esercitazione: Eseguire la migrazione dei dati nell'account dell'API Cassandra di Azure Cosmos DB
 
 Questa esercitazione fornisce istruzioni su come eseguire la migrazione dei dati Apache Cassandra nell'API Cassandra di Azure Cosmos DB. 
 
@@ -101,7 +101,7 @@ Usare la procedura seguente per eseguire la migrazione dei dati nell'API Cassand
 
 - Spostare i dati nell'endpoint API Cassandra di destinazione usando l'[operazione di copia di tabella](cassandra-spark-table-copy-ops.md) 
 
-La migrazione dei dati usando i processi spark è un'opzione consigliata se i dati risiedono in un cluster esistente nelle macchine virtuali di Azure o in qualsiasi altro cloud. Per questa operazione è necessario impostare spark come intermediario per l'inserimento una sola volta o su base regolare. È possibile accelerare la migrazione usando la connettività ExpressRoute tra locale e Azure. 
+La migrazione dei dati usando i processi spark è un'opzione consigliata se i dati risiedono in un cluster esistente nelle macchine virtuali di Azure o in qualsiasi altro cloud. Per questa opzione è necessario impostare spark come intermediario per l'inserimento una sola volta o su base regolare. È possibile accelerare la migrazione usando la connettività ExpressRoute tra locale e Azure. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

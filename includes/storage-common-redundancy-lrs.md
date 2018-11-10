@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/26/2018
+ms.date: 10/24/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 58d81bd4c1ce4b3af91a335039f62df08b340576
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: a948a40e638b5f6e042c62ab58c2b7b65a49cd4e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399992"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741981"
 ---
-L'archiviazione con ridondanza locale è progettata per garantire almeno il 99,999999999% (11 9) di durabilità degli oggetti nell'arco di un anno specifico tramite la replica dei dati all'interno di un'unità di scala di archiviazione. Un'unità di scala di archiviazione è ospitata in un data center nell'area in cui è stato creato l'account di archiviazione. Una richiesta di scrittura in un account di archiviazione con ridondanza locale viene restituita correttamente solo dopo che i dati sono stati scritti in tutte le repliche. Queste repliche risiedono ognuna in domini di errore e domini di aggiornamento distinti all'interno di una singola unità di scala di archiviazione.
+L'archiviazione con ridondanza locale garantisce almeno il 99,999999999% (11 nove) di durabilità degli oggetti nell'arco di un anno specifico. L'archiviazione con ridondanza locale assicura questa durabilità degli oggetti tramite la replica dei dati in un'unità di scala di archiviazione. L'unità di scala di archiviazione è ospitata in un data center nell'area in cui è stato creato l'account di archiviazione. Una richiesta di scrittura in un account di archiviazione con ridondanza locale viene restituita correttamente solo dopo che i dati sono stati scritti in tutte le repliche. Ogni replica risiede in domini di errore e domini di aggiornamento distinti all'interno di un'unità di scala di archiviazione.
 
-Un'unità di scala di archiviazione è una raccolta di rack di nodi di archiviazione. Un dominio di errore è un gruppo di nodi che rappresentano un'unità di errore fisica e possono essere considerati come nodi appartenenti allo stesso rack fisico. Un dominio di aggiornamento è un gruppo di nodi che vengono aggiornati contemporaneamente durante il processo di aggiornamento del servizio (implementazione). Le repliche vengono distribuite tra domini di aggiornamento e domini di errore all'interno di un'unità di scala di archiviazione. Questa architettura assicura che i dati siano disponibili se un errore hardware interessa un singolo rack o quando i nodi vengono aggiornati durante un'implementazione.
+Un'unità di scala di archiviazione è una raccolta di rack di nodi di archiviazione. Un dominio di errore è un gruppo di nodi che rappresentano un'unità fisica di errore. Un dominio di errore può essere descritto come un insieme di nodi appartenenti allo stesso rack fisico. Un dominio di aggiornamento è un gruppo di nodi che vengono aggiornati contemporaneamente durante il processo di aggiornamento del servizio (implementazione). Le repliche vengono distribuite tra domini di aggiornamento e domini di errore all'interno di un'unità di scala di archiviazione. Questa architettura assicura che i dati siano disponibili se un errore hardware interessa un singolo rack o quando i nodi vengono aggiornati durante un aggiornamento del servizio.
 
 L'archiviazione con ridondanza locale è l'opzione di replica più economica e offre una durabilità inferiore rispetto alle altre opzioni. Se si verifica un'emergenza a livello di data center (ad esempio un incendio o un allagamento), tutte le repliche possono andare perse o non essere più recuperabili. Per attenuare questo rischio, è consigliabile usare l'archiviazione con ridondanza della zona (ZRS, Zone-Redundant Storage) o l'archiviazione con ridondanza geografica (GRS, Geo-Redundant Storage).
 

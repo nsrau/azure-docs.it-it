@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6eba50fbe7c2a7a40b08e37a96adac66583b8251
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 112b9bac5d99556201b2038cf150293c9f2ed86d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781861"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005802"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Eseguire il ripristino di Azure SQL Data Warehouse 
 Questo articolo illustra come effettuare le operazioni seguenti nel portale di Azure e in PowerShell:
@@ -25,10 +25,6 @@ Questo articolo illustra come effettuare le operazioni seguenti nel portale di A
 - Eseguire il ripristino da un database eliminato
 - Eseguire il ripristino da un backup geografico
 - Creare una copia del data warehouse da un punto di ripristino definito dall'utente
-
-> [!NOTE]
-> A partire dal 27/8, il ripristino tra server è stato disabilitato a causa di una regressione nota. Microsoft sta lavorando attivamente a una correzione con priorità massima. Ci scusiamo per l'inconveniente. Nel frattempo, è possibile sfruttare il [backup con ridondanza geografica](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) per il ripristino tra server.  
->
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 **Verificare la capacità in DTU.** Ogni SQL Data Warehouse è ospitato in un server SQL (ad esempio mioserver.database.windows.net), che ha una quota DTU predefinita.  Per poter ripristinare un database SQL, verificare che la quota DTU rimanente nell'istanza del server SQL sia sufficiente per il database da ripristinare. Per informazioni su come calcolare la DTU necessaria o per richiedere altre DTU, vedere come [richiedere una modifica della quota DTU][Request a DTU quota change].

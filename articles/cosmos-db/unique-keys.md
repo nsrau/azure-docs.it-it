@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: 5811cb1e08ed5d02038da2a4460ae4b63580833b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ff432de59e5a5fdfeaad4c3a5361554ee32e21b0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696140"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740009"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Chiavi univoche in Azure Cosmos DB
 
@@ -130,7 +130,7 @@ Documento JSON di esempio.
 L'esempio di comando seguente illustra come creare un indice univoco in base ai campi firstName, lastName e email della raccolta users per l'API MongoDB. In questo modo si ha la certezza che la combinazione dei tre campi sia univoca in tutti i documenti della raccolta. Per le raccolte dell'API MongoDB, l'indice univoco viene creato dopo che la raccolta è stata creata, ma prima che venga popolata.
 
 > [!NOTE]
-> Il formato della chiave univoca per gli account API MongoDB è diverso da quello degli account API SQL, in cui non è necessario specificare il carattere barra rovesciata (/) prima del nome del campo. 
+> Il formato della chiave univoca per gli account API MongoDB è diverso da quello degli account API SQL, in cui non è necessario specificare il carattere barra (/) prima del nome del campo. 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

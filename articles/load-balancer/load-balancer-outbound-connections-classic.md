@@ -4,9 +4,6 @@ description: Questo articolo spiega in che modo Azure consente ai servizi cloud 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: bd446923f84d22537b7a49a8ef6124f343141d73
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 5cb0647148d2cd90ad4cce6e16de30b72fff8429
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069911"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219665"
 ---
 # <a name="outbound-connections-classic"></a>Connessioni in uscita (versione classica)
 
@@ -40,9 +37,9 @@ Azure offre tre metodi diversi per ottenere distribuzioni classiche con connetti
 
 | Scenario | Metodo | Protocolli IP | DESCRIZIONE | Ruolo di lavoro Web | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1. Macchina virtuale con un indirizzo IP pubblico a livello di istanza](#ilpip) | SNAT, il mascheramento delle porte non viene usato | TCP, UDP, ICMP, ESP | Azure usa la macchina virtuale con l'IP pubblico assegnato. L'istanza ha tutte le porte temporanee disponibili. | No  | sì |
-| [2. Endpoint pubblico con carico bilanciato](#publiclbendpoint) | SNAT con mascheramento delle porte (PAT) per l'endpoint pubblico | TCP, UDP | Azure condivide l'endpoint pubblico con indirizzo IP pubblico con più endpoint privati. Azure usa le porte temporanee dell'endpoint pubblico per il mascheramento delle porte. | sì | sì |
-| [3. Macchina virtuale autonoma ](#defaultsnat) | SNAT con mascheramento delle porte (PAT) | TCP, UDP | Azure designa automaticamente un indirizzo IP pubblico per SNAT, condivide questo indirizzo IP pubblico con l'intera distribuzione e usa le porte temporanee dell'indirizzo IP dell'endpoint pubblico per il mascheramento delle porte. Si tratta di uno scenario di fallback per gli scenari precedenti. Non è consigliato se sono necessari visibilità e controllo. | sì | sì |
+| [1. Macchina virtuale con un indirizzo IP pubblico a livello di istanza](#ilpip) | SNAT, il mascheramento delle porte non viene usato | TCP, UDP, ICMP, ESP | Azure usa la macchina virtuale con l'IP pubblico assegnato. L'istanza ha tutte le porte temporanee disponibili. | No  | Yes |
+| [2. Endpoint pubblico con carico bilanciato](#publiclbendpoint) | SNAT con mascheramento delle porte (PAT) per l'endpoint pubblico | TCP, UDP | Azure condivide l'endpoint pubblico con indirizzo IP pubblico con più endpoint privati. Azure usa le porte temporanee dell'endpoint pubblico per il mascheramento delle porte. | Yes | Yes |
+| [3. Macchina virtuale autonoma ](#defaultsnat) | SNAT con mascheramento delle porte (PAT) | TCP, UDP | Azure designa automaticamente un indirizzo IP pubblico per SNAT, condivide questo indirizzo IP pubblico con l'intera distribuzione e usa le porte temporanee dell'indirizzo IP dell'endpoint pubblico per il mascheramento delle porte. Si tratta di uno scenario di fallback per gli scenari precedenti. Non è consigliato se sono necessari visibilità e controllo. | Yes | Yes |
 
 Si tratta di un subset di funzionalità di connessione in uscita disponibile per le distribuzioni di Resource Manager in Azure.  
 

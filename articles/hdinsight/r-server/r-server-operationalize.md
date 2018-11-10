@@ -3,18 +3,18 @@ title: Rendere operativo ML Services in HDInsight - Azure
 description: Informazioni su come rendere operativo ML Services in Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: aef34fea2252cdc875fa1ea1c73a8df14fdf1b9c
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3f93f96c6c9fc551b8b66167eab58861b0ac0b52
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622304"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005955"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Rendere operativo un cluster ML Services in Azure HDInsight
 
@@ -24,7 +24,7 @@ Dopo avere usato il cluster ML Services in HDInsight per completare la modellazi
 
 * **Un cluster ML Services in HDInsight**: per istruzioni, vedere [Introduzione all'uso di ML Services in HDInsight](r-server-get-started.md).
 
-* **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight ed eseguire i comandi direttamente nel cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Rendere operativo un cluster ML Services con una configurazione One-box
 

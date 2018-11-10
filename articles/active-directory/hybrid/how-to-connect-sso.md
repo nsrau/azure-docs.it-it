@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e9292b5932c36d55069ff300bf7c0a99b280fc5
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 8b74cf533c0fe59a0967b7063791df2cfc9a7a77
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054185"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913932"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Accesso Single Sign-On facile di Azure Active Directory
 
@@ -58,15 +58,15 @@ L'accesso SSO facile può essere combinato con i metodi di accesso che usano la 
 - I client Office 365 Win32 (Outlook, Word, Excel e altri) con le versioni 16.0.8730.xxxx e successive sono supportati tramite un flusso non interattivo. Per OneDrive, è necessario attivare la [funzionalità di configurazione automatica di OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) per un'esperienza di accesso automatico.
 - Può essere abilitata da Azure AD Connect.
 - È una funzionalità gratuita e non serve alcuna delle edizioni a pagamento di Azure AD per utilizzarla.
-- Può essere usata per i client basati su Web browser e i client di Office che supportano l'[autenticazione moderna](https://aka.ms/modernauthga) nelle piattaforme e nei browser idonei per l'autenticazione Kerberos:
+- Può essere usata per i client basati su Web browser e i client di Office che supportano l'[autenticazione moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) nelle piattaforme e nei browser idonei per l'autenticazione Kerberos:
 
 | SO\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sì\*|No |Sì|Sì\*\*\*|N/D
-|Windows 8.1|Sì\*|N/D|Sì|Sì\*\*\*|N/D
-|Windows 8|Sì\*|N/D|Sì|Sì\*\*\*|N/D
-|Windows 7|Sì\*|N/D|Sì|Sì\*\*\*|N/D
-|Windows Server 2012 R2 o versione successiva|Sì\*\*|N/D|Sì|Sì\*\*\*|N/D
+|Windows 10|Sì\*|No |Yes|Sì\*\*\*|N/D
+|Windows 8.1|Sì\*|N/D|Yes|Sì\*\*\*|N/D
+|Windows 8|Sì\*|N/D|Yes|Sì\*\*\*|N/D
+|Windows 7|Sì\*|N/D|Yes|Sì\*\*\*|N/D
+|Windows Server 2012 R2 o versione successiva|Sì\*\*|N/D|Yes|Sì\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sì\*\*\*|Sì\*\*\*|Sì\*\*\*
 
 

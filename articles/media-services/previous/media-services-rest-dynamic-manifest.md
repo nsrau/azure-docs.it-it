@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako;cenkdin
-ms.openlocfilehash: 396abe0801d76af3820d302d40d2fc076754741b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 50becbe517e98802c9a3af91b86f845df05378a7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785730"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227519"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Creazione di filtri con l'API REST di Servizi multimediali di Azure
 > [!div class="op_single_selector"]
@@ -195,7 +195,7 @@ Per elencare i filtri, usare le richieste HTTP seguenti:
 
 
 ## <a name="update-filters"></a>Aggiornare i filtri
-Usare PATCH, PUT o MERGE per aggiornare un filtro con i nuovi valori di proprietà.  Per altre informazioni su queste operazioni, vedere [PATCH, PUT, MERGE](http://msdn.microsoft.com/library/dd541276.aspx).
+Usare PATCH, PUT o MERGE per aggiornare un filtro con i nuovi valori di proprietà.  Per altre informazioni su queste operazioni, vedere [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
 
 Se si aggiorna un filtro, l'endpoint di streaming può impiegare fino a due minuti per aggiornare le regole. Se il contenuto è stato trasmesso usando dei filtri (e memorizzato nelle cache dei proxy e delle reti CDN), l'aggiornamento del filtro può determinare un errore del lettore. Cancellare la cache dopo aver aggiornato il filtro. Se questa operazione non è consentita, prendere in considerazione la possibilità di usare un filtro diverso.  
 

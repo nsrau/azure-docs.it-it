@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: df48e0dbf5a6c010f659e1019e56b7670c264234
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: bd2b28a7f8d0a765e10ffa58b5a72b4bd5bc47b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319694"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228182"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Indirizzi IP riservati (distribuzione classica)
 
@@ -43,7 +43,7 @@ Per altre informazioni sugli indirizzi IP in Azure, leggere l'articolo sugli [in
 - Di quanti indirizzi IP riservati è possibile disporre?
     Per informazioni dettagliate, vedere l'articolo [Limiti di Azure](../azure-subscription-service-limits.md#networking-limits).
 - È previsto un addebito per gli indirizzi IP riservati?
-    In alcuni casi sì. Per informazioni dettagliate sui prezzi, consultare la pagina [Prezzi per gli indirizzi IP riservati](http://go.microsoft.com/fwlink/?LinkID=398482).
+    In alcuni casi sì. Per informazioni dettagliate sui prezzi, consultare la pagina [Prezzi per gli indirizzi IP riservati](https://go.microsoft.com/fwlink/?LinkID=398482).
 - Come è possibile riservare un indirizzo IP?
     È possibile usare PowerShell, l'[API REST di gestione di Azure](https://msdn.microsoft.com/library/azure/dn722420.aspx) o il [portale di Azure](https://portal.azure.com) per riservare un indirizzo IP di una determinata area di Azure. Un indirizzo IP riservato è associato alla sottoscrizione.
 - È possibile usare gli indirizzi IP riservati con reti virtuali basate su gruppi di affinità?
@@ -83,7 +83,7 @@ Output previsto:
     OperationStatus      : Succeeded
 
 >[!NOTE]
->Quando si crea un indirizzo IP riservato con PowerShell, non è possibile specificare un gruppo di risorse in cui creare l'indirizzo IP riservato. Azure lo posiziona automaticamente in un gruppo di risorse denominato *Default-Networking*. Se si crea l'indirizzo IP riservato usando il [portale Azure](http://portal.azure.com), è possibile specificare qualsiasi gruppo di risorse desiderato. Tuttavia, se si crea l'indirizzo IP riservato in un gruppo di risorse diverso da *Default-Networking*, quando si fa riferimento all'indirizzo IP riservato con comandi quali `Get-AzureReservedIP` e `Remove-AzureReservedIP`, è necessario fare riferimento al nome *Group resource-group-name reserved-ip-name*.  Ad esempio, se si crea un indirizzo IP riservato denominato *myReservedIP* in un gruppo di risorse denominato *myResourceGroup*, è necessario fare riferimento al nome di un IP riservato come ad esempio *Group myResourceGroup myReservedIP*.   
+>Quando si crea un indirizzo IP riservato con PowerShell, non è possibile specificare un gruppo di risorse in cui creare l'indirizzo IP riservato. Azure lo posiziona automaticamente in un gruppo di risorse denominato *Default-Networking*. Se si crea l'indirizzo IP riservato usando il [portale Azure](http://portal.azure.com), è possibile specificare qualsiasi gruppo di risorse desiderato. Tuttavia, se si crea l'indirizzo IP riservato in un gruppo di risorse diverso da *Default-Networking*, quando si fa riferimento all'indirizzo IP riservato con comandi quali `Get-AzureReservedIP` e `Remove-AzureReservedIP`, è necessario fare riferimento al nome *Group resource-group-name reserved-ip-name*.  Ad esempio, se si crea un indirizzo IP riservato denominato *myReservedIP* in un gruppo di risorse denominato *myResourceGroup*, è necessario fare riferimento al nome di un IP riservato come ad esempio *Group myResourceGroup myReservedIP*.   
 
 
 Dopo essere stato riservato, un indirizzo IP rimane associato alla sottoscrizione finché non viene eliminato. Eliminare un IP riservato con il comando seguente:

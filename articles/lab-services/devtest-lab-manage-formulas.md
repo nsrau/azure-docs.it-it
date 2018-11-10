@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b7a68f545f60829e5da83f0734c57a4d210cb843
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 47699925f057aab25fe6f7c1c7d0b0620e7e4dbe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001482"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227995"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gestire le formule di Azure DevTest Labs
 
@@ -38,7 +38,7 @@ Per altre informazioni sull'aggiunta di utenti e autorizzazioni, vedere [Aggiung
 ### <a name="create-a-formula-from-a-base"></a>Creare una formula di base
 Nella procedura seguente sono descritti i passaggi per creare una formula da un'immagine personalizzata, un'immagine Marketplace o un'altra formula.
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 
@@ -86,7 +86,7 @@ La procedura seguente consente di creare una formula basata su una macchina virt
 > 
 > 
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
 4. Nel pannello **Panoramica** del lab selezionare la VM dalla quale creare la formula.
@@ -103,7 +103,7 @@ La procedura seguente consente di creare una formula basata su una macchina virt
 ## <a name="modify-a-formula"></a>Modificare una formula
 Per modificare una formula, seguire questa procedura:
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
 4. Nel pannello del lab selezionare **Formule (basi riutilizzabili)**.
@@ -115,7 +115,7 @@ Per modificare una formula, seguire questa procedura:
 ## <a name="delete-a-formula"></a>Eliminare una formula
 Per eliminare una formula, seguire questa procedura:
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.  
 4. Nel pannello **Settings** (Impostazioni) del lab selezionare **Formulas** (Formule).

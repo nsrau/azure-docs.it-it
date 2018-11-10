@@ -4,8 +4,6 @@ description: Panoramica dell'uso di indirizzi VIP multipli e delle modalità di 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: b6b7b0b2d7a7f33facaf72bbd2d7937364770673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03ecb44f3d561ff720939d0605d342b299194ef2
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23020846"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218798"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configurare più indirizzi VIP per un servizio cloud
 

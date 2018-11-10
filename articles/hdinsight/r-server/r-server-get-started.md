@@ -1,35 +1,29 @@
 ---
-title: Introduzione all'uso di ML Services in HDInsight - Azure | Microsoft Docs
+title: Introduzione a ML Services in HDInsight - Azure
 description: Informazioni sulla creazione di un cluster Apache Spark in HDInsight che include ML Services e sull'invio di uno script R nel cluster.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: b5e111f3-c029-436c-ba22-c54a4a3016e3
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: R
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: efc7ada12f722b0447712594de496e933bde3d36
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0811f0e115545a37b6c570c436900a8548adae61
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053433"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006363"
 ---
 # <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Introduzione all'uso di ML Services in HDInsight
 
 Azure HDInsight permette di creare un cluster ML Services. Con questa opzione, gli script R possono usare Spark e MapReduce per eseguire i calcoli distribuiti. In questo articolo si apprenderà come creare un cluster ML Service in HDInsight e come eseguire uno script R che illustra l'uso di Spark per i calcoli R distribuiti.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * **Una sottoscrizione di Azure**: prima di iniziare questa esercitazione è necessario avere una sottoscrizione di Azure. Per altre informazioni, vedere il video su come [ottenere una versione di valutazione gratuita di Microsoft Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight ed eseguire i comandi direttamente nel cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* **Un client Secure Shell (SSH)**: il client SSH viene usato per connettersi da remoto al cluster HDInsight e per eseguire i comandi direttamente sul cluster. Per altre informazioni, vedere [Usare SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 
 <a name="create-hdi-custer-with-aure-portal"></a>
@@ -237,4 +231,4 @@ In questo articolo è stato illustrato come creare un nuovo cluster ML Services 
 * [Gestire cluster ML Services in Azure HDInsight](r-server-hdinsight-manage.md)
 * [Rendere operativo un cluster ML Services in Azure HDInsight](r-server-operationalize.md)
 * [Opzioni del contesto di calcolo per un cluster ML Services su HDInsight](r-server-compute-contexts.md)
-* [Opzioni di Archiviazione di Azure per un cluster ML Services su Azure HDInsight](r-server-storage.md)
+* [Opzioni di Archiviazione di Azure per un cluster ML Services su HDInsight](r-server-storage.md)

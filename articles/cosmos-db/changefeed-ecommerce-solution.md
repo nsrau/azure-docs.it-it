@@ -9,18 +9,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 21f63ebcca4b766f8df8c7b2390c4f44ff4dc7b1
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099715"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740978"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Usare il feed di modifiche di Azure Cosmos DB per visualizzare l'analisi dei dati in tempo reale
 
 Il feed di modifiche di Azure Cosmos DB è un meccanismo per ottenere un feed continuo e incrementale di record da un contenitore di Azure Cosmos DB mentre i record vengono creati o modificati. Il supporto del feed di modifiche rimane in ascolto del contenitore per qualsiasi modifica. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Per altre informazioni sul feed di modifiche, vedere l'articolo sull'[uso di feed di modifiche](change-feed.md). 
 
-Questo articolo descrive come il feed di modifiche può essere usato da una società di vendita al dettaglio per comprendere i criteri definiti dall'utente, eseguire la visualizzazione e l'analisi dei dati in tempo reale. Verranno analizzati eventi, ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento. Quando si verifica uno di questi eventi, viene creato un nuovo record e il feed di modifiche registra quel record. Il feed di modifiche quindi attiva una serie di passaggi che consentono la visualizzazione delle metriche che analizzano le prestazioni aziendali e l'attività risultante. Le metriche di esempio che è possibile visualizzare includono i ricavi, i visitatori univoci del sito, gli elementi più diffusi e il prezzo medio degli elementi che vengono visualizzati rispetto a quelli aggiunti al carrello e a quelli acquistati. Queste metriche di esempio consentono a una società di e-commerce di valutare la popolarità del sito, sviluppare le strategie relative a pubblicità e prezzi e prendere decisioni riguardanti gli inventari in cui investire.
+Questo articolo descrive come il feed di modifiche può essere usato da una società di e-commerce al dettaglio per comprendere i criteri definiti dall'utente ed eseguire la visualizzazione e l'analisi dei dati in tempo reale. Verranno analizzati eventi, ad esempio un utente che visualizza un elemento, aggiunge un elemento al carrello o acquista un elemento. Quando si verifica uno di questi eventi, viene creato un nuovo record e il feed di modifiche registra quel record. Il feed di modifiche quindi attiva una serie di passaggi che consentono la visualizzazione delle metriche che analizzano le prestazioni aziendali e l'attività risultante. Le metriche di esempio che è possibile visualizzare includono i ricavi, i visitatori univoci del sito, gli elementi più diffusi e il prezzo medio degli elementi che vengono visualizzati rispetto a quelli aggiunti al carrello e a quelli acquistati. Queste metriche di esempio consentono a una società di e-commerce di valutare la popolarità del sito, sviluppare le strategie relative a pubblicità e prezzi e prendere decisioni riguardanti gli inventari in cui investire.
 
 Se l'utente è interessato a guardare un video che illustra la soluzione prima di iniziare, vedere il video seguente:
 
@@ -104,7 +104,7 @@ Ora sarà possibile creare una raccolta per memorizzare gli eventi del sito di e
    * Per **Capacità di archiviazione**, selezionare **Illimitata**.  
    * Per la **chiave di partizione** inserire **/elemento**. Si tratta di un campo con distinzione tra maiuscole/minuscole, pertanto assicurarsi di compilarlo correttamente.  
    * Per **Velocità effettiva** inserire **10000**.  
-   * Fare clic sul pulsante **OK**.  
+   * Selezionare il pulsante **OK**.  
 
 3. Creare quindi un'altra raccolta denominata **lease** per l'elaborazione del feed di modifiche. La raccolta di lease coordina l'elaborazione del feed di modifiche in più processi di lavoro. Una raccolta separata viene usata per archiviare i lease con un lease per partizione.  
 
@@ -114,7 +114,7 @@ Ora sarà possibile creare una raccolta per memorizzare gli eventi del sito di e
    * Per il campo **id raccolta**, inserire **lease**.  
    * Per **Capacità di archiviazione**, selezionare **Fissa**.  
    * Lasciare il campo della **velocità effettiva** impostato sul valore predefinito.  
-   * Fare clic sul pulsante **OK**.
+   * Selezionare il pulsante **OK**.
 
 ## <a name="get-the-connection-string-and-keys"></a>Ottiene la stringa di connessione e le chiavi
 
@@ -207,7 +207,7 @@ Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elab
    * Lasciare **Formato di serializzazione eventi** su **JSON**.  
    * Lasciare il **campo Codifica** impostato su **UTF-8**.  
    * Lasciare il campo **Tipo di compressione eventi** impostato su **Nessuno**.  
-   * Fare clic sul pulsante **Salva** .
+   * Fare clic sul pulsante **Salva**.
 
 5. Tornare alla pagina del processo di analisi del flusso e selezionare **Output**.  
 
@@ -220,9 +220,9 @@ Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elab
    * Nel campo **Nome del set di dati** inserire **averagePrice**.  
    * Nel campo **Nome della tabella** inserire **averagePrice**.  
    * Selezionare il pulsante **Autorizza** e quindi seguire le istruzioni per autorizzare la connessione a Power BI.  
-   * Fare clic sul pulsante **Salva** .  
+   * Fare clic sul pulsante **Salva**.  
 
-8. Tornare quindi a **streamjob1** e fare clic su **Modifica query**.
+8. Tornare quindi a **streamjob1** e selezionare **Modifica query**.
 
    ![Edit query](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -235,9 +235,9 @@ Analisi di flusso di Azure è un servizio cloud completamente gestito per l'elab
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. Quindi fare clic su **Salva** nell'angolo superiore sinistro.  
+10. Selezionare quindi **Salva** nell'angolo superiore sinistro.  
 
-11. Tornare ora a **streamjob1** e fare clic sul pulsante **Avvio** nella parte superiore della pagina. Analisi di flusso di Azure può richiedere alcuni minuti per l'avvio, ma alla fine si visualizzerà una modifica da "Iniziale" a "In corso".
+11. Tornare ora a **streamjob1** e selezionare il pulsante **Avvio** nella parte superiore della pagina. Analisi di flusso di Azure può richiedere alcuni minuti per l'avvio, ma alla fine si visualizzerà una modifica da "Iniziale" a "In corso".
 
 ## <a name="connect-to-power-bi"></a>Connettersi a Power BI
 
@@ -249,9 +249,9 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
 
 3. Selezionare **+ Aggiungi riquadro** nell'angolo superiore destro.  
 
-4. Selezionare **Dati in streaming personalizzati**, quindi fare clic sul pulsante **Avanti**.  
+4. Selezionare **Dati in streaming personalizzati** e quindi selezionare il pulsante **Avanti**.  
  
-5. Selezionare **averagePrice** da **SET DI DATI**, quindi fare clic su **Avanti**.  
+5. Selezionare **averagePrice** da **SET DI DATI** e quindi selezionare **Avanti**.  
 
 6. Nel campo **Tipo di visualizzazione**, scegliere **Grafico a barre raggruppate** dal menu a discesa. In **Asse**, aggiungere un'azione. Lasciare in sospeso **Legenda** senza aggiungere alcun dato. Quindi, nella sezione successiva chiamata **Valore**, aggiungere **avg**. Selezionare **Avanti**, quindi dare un titolo al grafico e selezionare **Applica**. Dovrebbe essere possibile visualizzare un nuovo grafico nella dashboard!  
 
@@ -261,7 +261,7 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
    b. **Alias di output:** top5Output, nome del set di dati: top5, nome della tabella: top5  
    c. **Alias di output:** uniqueVisitorCountOutput, nome del set di dati: uniqueVisitorCount, nome della tabella: uniqueVisitorCount
 
-   Quindi fare clic su **Modifica query** e incollare la query seguente **sopra** ciò che è già stato scritto.
+   Selezionare quindi **Modifica query** e incollare le query seguenti **sopra** quella già scritta.
 
    ```sql
     /*TOP 5*/
@@ -315,7 +315,7 @@ Power BI è una suite di strumenti di analisi business che consente di analizzar
    * Per i ricavi, è opportuno creare un grafico a linee con il tempo a rappresentare l'asse e la somma dei prezzi come valore. L'intervallo di tempo per la visualizzazione deve essere il più ampio possibile al fine di fornire quante più informazioni possibili.  
    * Per i visitatori univoci, è opportuno eseguire una visualizzazione della scheda con il numero di visitatori univoci come valore.
 
-   Questo è l'aspetto della dashboard con questi grafici:
+   Ecco come appare un dashboard di esempio con questi grafici:
 
    ![visualizzazioni](./media/changefeed-ecommerce-solution/visualizations.png)
 
@@ -329,7 +329,7 @@ A questo punto, sarà possibile osservare come è possibile usare il nuovo strum
 
    Aggiungere un'altra raccolta in **changefeedlabdatabase** chiamata **topItems** con capacità di archiviazione **Illimitata**. Scrivere **/elemento** come chiave di partizione.
 
-2. Fare clic sulla raccolta **topItems** e in **Scalabilità e Impostazioni** impostare la **Durata (TTL)** a **30 secondi** in modo tale che topItems si aggiorni ogni 30 secondi.
+2. Selezionare la raccolta **topItems** e in **Scalabilità e Impostazioni** impostare la **Durata (TTL)** su **30 secondi** in modo tale che topItems si aggiorni ogni 30 secondi.
 
    ![Durata (TTL)](./media/changefeed-ecommerce-solution/time-to-live.png)
 

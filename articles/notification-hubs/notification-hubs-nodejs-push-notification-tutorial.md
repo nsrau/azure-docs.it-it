@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 49ee6b7fabe78c2328a2a772347c612ad38cfe7a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8e4c97a710cc9e6d3af4ebdd7dc97bda9f8d02ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091730"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228437"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Invio di notifiche push con Hub di notifica di Azure e Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -43,7 +43,7 @@ Gli scenari presentati includono l'invio di notifiche push ad applicazioni nelle
 Per ulteriori informazioni sugli hub di notifica, vedere la sezione [Passaggi successivi](#next) .
 
 ## <a name="what-are-notification-hubs"></a>Informazioni su Hub di notifica
-Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e di semplice utilizzo per l'invio di notifiche push ai dispositivi mobili. Per informazioni dettagliate sull'infrastruttura del servizio, vedere la pagina [Hub di notifica di Azure](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
+Hub di notifica di Azure offre un'infrastruttura scalabile, multipiattaforma e di semplice utilizzo per l'invio di notifiche push ai dispositivi mobili. Per informazioni dettagliate sull'infrastruttura del servizio, vedere la pagina [Hub di notifica di Azure](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
 
 ## <a name="create-a-nodejs-application"></a>Creazione di un'applicazione Node.js
 Il primo passaggio in questa esercitazione consiste nel creare una nuova applicazione Node.js vuota. Per istruzioni sulla creazione di un'applicazione Node.js, vedere [Creazione e distribuzione di un'applicazione Node.js in un sito Web di Azure][nodejswebsite] e il [servizio cloud Node.js][Node.js Cloud Service] mediante Windows PowerShell oppure il [sito Web con WebMatrix][webmatrix].
@@ -141,11 +141,11 @@ L'oggetto **MpnsService** specifica un metodo **send** che è possibile usare pe
 * **Tags** : l'identificatore tag. Se non viene specificato alcun tag, la notifica viene inviata a tutti i client.
 * **Payload** : il payload XML del messaggio.
 * **TargetName** - `toast` per le notifiche di tipo avviso popup. `token` per le notifiche di tipo riquadro.
-* **NotificationClass** : la priorità della notifica. Per i valori validi, vedere la sezione relativa agli **elementi dell'intestazione HTTP** nel documento sul [push di notifiche da un server](http://msdn.microsoft.com/library/hh221551.aspx) .
+* **NotificationClass** : la priorità della notifica. Per i valori validi, vedere la sezione relativa agli **elementi dell'intestazione HTTP** nel documento sul [push di notifiche da un server](https://msdn.microsoft.com/library/hh221551.aspx) .
 * **Options** : intestazioni delle richieste facoltative.
 * **Callback** : la funzione di richiamata.
 
-Per un elenco dei valori validi per **TargetName**, **NotificationClass** e le opzioni di intestazione, vedere la pagina [Pushing Notifications from a Server](http://msdn.microsoft.com/library/hh221551.aspx) (Notifiche push da server).
+Per un elenco dei valori validi per **TargetName**, **NotificationClass** e le opzioni di intestazione, vedere la pagina [Pushing Notifications from a Server](https://msdn.microsoft.com/library/hh221551.aspx) (Notifiche push da server).
 
 Nel codice di esempio seguente viene usata l'istanza **MpnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push di tipo avviso popup:
 
@@ -165,7 +165,7 @@ L'oggetto **WnsService** specifica un metodo **send** che è possibile usare per
 * **Options** : intestazioni delle richieste facoltative.
 * **Callback** : la funzione di richiamata.
 
-Per un elenco dei valori validi per i tipi e le intestazioni delle richieste, vedere [Intestazioni delle richieste e delle risposte per il servizio di notifica push](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+Per un elenco dei valori validi per i tipi e le intestazioni delle richieste, vedere [Intestazioni delle richieste e delle risposte per il servizio di notifica push](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
 Nel codice seguente viene usata l'istanza **WnsService** esposta dall'oggetto **NotificationHubService** per inviare una notifica push di tipo avviso popup a un'app UWP:
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e1c85b345acdce6f50cfa169977c513ba0ae2a3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989636"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740426"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Esercitazione: Gestire i costi usando Cloudyn
 
@@ -33,10 +33,10 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario disporre di un account Azure.
-- È necessario disporre di una registrazione prova o di un abbonamento a pagamento per Cloudyn.
+- È necessario disporre di una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
 - [È necessario attivare gli account non attivati](activate-subs-accounts.md) nel portale di Cloudyn.
 - Il [Monitoraggio a livello di guest](azure-vm-extended-metrics.md) deve essere abilitato nelle macchine virtuali.
 
@@ -61,7 +61,7 @@ Nella pagina **Cost Allocation 360°** (Allocazione costi a 360°) scegliere **A
 
 
 
-L'esempio mostra che un importo pari a 14.444 USD è senza categoria, ovvero senza tag.
+L'esempio mostra che un importo pari a $ 19.680 è senza categoria, ovvero senza tag.
 
 Selezionare **Uncategorized Resources** (Risorse senza categoria) e specificare i servizi per cui sono presenti costi non allocati. Definire quindi le regole per allocare i costi.
 
@@ -109,7 +109,7 @@ I dati dei tag visualizzati nei report di Cloudyn hanno origine in tre posti:
     - Tag di entità Cloudyn: metadati definiti dall’utente applicati alle entità Cloudyn
     - Gestione delle categorie: uno strumento di pulizia dati che crea nuovi tag in base alle regole applicate ai tag esistenti
 
-Per visualizzare i tag del provider di servizi cloud nei report di costo di Cloudyn, è necessario creare un modello personalizzato di allocazione dei costi usando Cost Allocation 360. A tale scopo, apire **Costi** > **Gestione costi** > **Allocazione dei costi a 360**, selezionare i tag desiderati, quindi definire le regole per la gestione dei costi senza tag. Quindi, creare un nuovo modello di costo. In seguito, è possibile visualizzare report nell'analisi di allocazione dei costi per vedere, filtrare e ordinare i tag delle risorse di Azure.
+Per visualizzare i tag del provider di servizi cloud nei report di costo di Cloudyn, è necessario creare un modello personalizzato di allocazione dei costi usando Cost Allocation 360. A tale scopo, aprire **Costi** > **Gestione costi** > **Allocazione dei costi a 360**, selezionare i tag desiderati, quindi definire le regole per la gestione dei costi senza tag. Quindi, creare un nuovo modello di costo. In seguito, è possibile visualizzare report nell'analisi di allocazione dei costi per vedere, filtrare e ordinare i tag delle risorse di Azure.
 
 I tag delle risorse di Azure vengono visualizzati solo nei report sui **Costi** > **Analisi dell'allocazione dei costi**.
 
@@ -133,7 +133,7 @@ Per visualizzare i risultati dell'allocazione dei costi, aprire il report di ana
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Usare tag personalizzati per allocare i costi.

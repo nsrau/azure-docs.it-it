@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2017
+ms.date: 10/13/2018
 ms.author: yurid
-ms.openlocfilehash: 6ab3611d47b32eddd41736df69a3e7382c2b220d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9c13bd671efee5bc07885320cbaa0bd090cc1390
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298762"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226361"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>Connessione di Azure Active Directory Identity Protection al Centro sicurezza di Azure
 Questo documento consente di configurare l'integrazione tra Azure Active Directory (AD) Identity Protection e il Centro sicurezza di Azure.
@@ -55,6 +55,6 @@ In questo documento si è appreso come connettere Azure AD Identity Protection a
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
 - [Sicurezza dei dati nel Centro sicurezza di Azure](security-center-data-security.md): informazioni sulla gestione e la protezione dei dati nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md) : domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/) : informazioni e notizie aggiornate sulla sicurezza di Azure.
+* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : informazioni e notizie aggiornate sulla sicurezza di Azure.
 
 

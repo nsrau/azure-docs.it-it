@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 72eaa6f085581f34b696a946e2168eceaa21a849
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 56e6a26803ed5257f1cc303b293615a5ea85a866
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987714"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740043"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -24,7 +24,7 @@ ms.locfileid: "46987714"
 
 Cloudyn mostra l'utilizzo e i costi consentendo di tenere traccia delle tendenze, rilevare le inefficienze e creare avvisi. Tutti i dati di utilizzo e i dati sui costi sono visualizzati nei dashboard e nei report di Cloudyn. Gli esempi di questa esercitazione illustrano come esaminare l'utilizzo e i costi tramite i dashboard e i report.
 
-Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione costi di Azure è una soluzione di gestione costi nativa di Azure. È un modo per analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare gli elementi consigliati per l'ottimizzazione e di conseguenza risparmiare. Per ulteriori informazioni, vedere [Gestione costi di Azure](overview-cost-mgt.md).
+Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione costi di Azure è una soluzione di gestione costi nativa di Azure. È un modo per analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare gli elementi consigliati per l'ottimizzazione e di conseguenza risparmiare. Per altre informazioni, vedere [Gestione costi di Azure](overview-cost-mgt.md).
 
 In questa esercitazione si apprenderà come:
 
@@ -36,7 +36,7 @@ In questa esercitazione si apprenderà come:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario disporre di un account Azure.
 - È necessario disporre di una registrazione di valutazione o una sottoscrizione a pagamento per Cloudyn.
@@ -57,11 +57,11 @@ Il report visualizza tutte le spese degli ultimi 30 giorni. Per visualizzare sol
 
 ![servizi filtrati](./media/tutorial-review-usage/actual-cost02.png)
 
-Nell'esempio precedente è stato speso meno denaro a partire dal 31-08-2017 rispetto al periodo precedente. La tendenza del costo continua per i diversi servizi per circa nove giorni. Successivamente, le spese aggiuntive continuano come nel periodo precedente. Un numero eccessivo di colonne, tuttavia, può oscurare una tendenza chiara. È possibile modificare la visualizzazione del report in un grafico a linee o ad area per visualizzare i dati visibili in altre visualizzazioni. La figura seguente illustra la tendenza più chiaramente.
+Nell'esempio precedente a partire dal 29-10-2018 la spesa è stata inferiore rispetto al periodo precedente. Un numero eccessivo di colonne può però rendere meno evidente una tendenza ovvia. È possibile modificare la visualizzazione del report in un grafico a linee o ad area per visualizzare i dati visibili in altre visualizzazioni. La figura seguente illustra la tendenza più chiaramente.
 
 ![tendenza nel report](./media/tutorial-review-usage/actual-cost03.png)
 
-Nell'esempio è chiaramente visibile che il costo di Archiviazione di Azure è calato a partire dal 31-08-2017 mentre la spesa per gli altri servizi di Azure si è mantenuta costante. Che cosa ha causato il calo della spesa? In questo esempio alcuni dipendenti erano in vacanza e non hanno usato il servizio Archiviazione.
+Continuando con l'esempio, è possibile vedere che il costo per macchina virtuale di Azure è diminuito. Anche i costi relativi ad altri servizi di Azure hanno iniziato a diminuire nello stesso giorno. Che cosa ha causato il calo della spesa? In questo esempio è stato completato un progetto di lavoro di grandi dimensioni, di conseguenza è diminuito il consumo di numerosi servizi di Azure.
 
 Per guardare un video di esercitazione su come tenere traccia delle tendenze di utilizzo e dei costi, vedere [Analyzing your cloud billing data vs. time with Cloudyn](https://youtu.be/7LsVPHglM0g) (Analisi del rapporto fatturazione/tempo per il cloud con Cloudyn).
 
@@ -75,11 +75,11 @@ Il problema è che l'infrastruttura esistente è già stata pagata. Gli utenti p
 
 Il report Cost Effective Sizing Recommendations (Consigli di ridimensionamento per la riduzione dei costi) identifica i risparmi annuali potenziali confrontando la capacità dei tipi di istanza delle macchine virtuali con i dati cronologici di utilizzo della CPU e della memoria.  
 
-Nel menu nella parte superiore del portale fare clic su **Optimizer** (Utilità di ottimizzazione)  > **Pricing Optimization** (Ottimizzazione dimensioni)  > **Cost Effective Sizing Recommendations** (Consigli di ridimensionamento per la riduzione dei costi). Applicare un filtro del provider impostandolo su Azure per visualizzare solo le macchine virtuali di Azure. Di seguito è riportata una figura di esempio.
+Nel menu nella parte superiore del portale fare clic su **Optimizer** (Utilità di ottimizzazione)  > **Pricing Optimization** (Ottimizzazione dimensioni)  > **Cost Effective Sizing Recommendations** (Consigli di ridimensionamento per la riduzione dei costi). Se utile, applicare un filtro per ridurre il numero di risultati. Di seguito è riportata una figura di esempio.
 
 ![Macchine virtuali di Azure](./media/tutorial-review-usage/sizing01.png)
 
-In questo esempio è stato possibile risparmiare $ 3.114 seguendo i consigli per modificare i tipi di istanza di macchina virtuale. Fare clic sul segno più (+) in **Details** (Dettagli) per il primo consiglio. Di seguito sono illustrati i dettagli del primo consiglio.
+In questo esempio è stato possibile risparmiare $ 2.382 seguendo i consigli per modificare i tipi di istanza di macchina virtuale. Fare clic sul segno più (+) in **Details** (Dettagli) per il primo consiglio. Di seguito sono illustrati i dettagli del primo consiglio.
 
 ![dettagli del consiglio](./media/tutorial-review-usage/sizing02.png)
 
@@ -89,13 +89,15 @@ Fare clic sul segno più accanto a **List of Candidates** (Elenco dei candidati)
 
 Per guardare un video di esercitazione per il rilevamento delle inefficienze di utilizzo, vedere [Optimizing VM Size in Cloudyn](https://youtu.be/1xaZBNmV704) (Ottimizzazione delle dimensioni delle macchine virtuali in Cloudyn).
 
+Gestione costi di Azure fornisce anche gli elementi consigliati di ottimizzazione dei costi per i servizi di Azure. Per altre informazioni, vedere [Esercitazione: Ottimizzare i costi grazie agli elementi consigliati](tutorial-acm-opt-recommendations.md).
+
 ## <a name="create-alerts-for-unusual-spending"></a>Creare avvisi per spese inusuali
 
 È possibile inviare automaticamente avvisi agli stakeholder relativi ad anomalie nelle spese e rischi di spese eccessive. È possibile creare avvisi in modo semplice e rapido usando report che supportano gli avvisi basati su soglie di budget e costo.
 
 È possibile creare un avviso per qualsiasi spesa utilizzando un report Cost (Costo). In questo esempio usare il report Actual Cost Over Time (Costo effettivo nel tempo) per ricevere un avviso quando la spesa della macchina virtuale di Azure si avvicina al budget totale. Tutti i passaggi seguenti sono necessari per la creazione dell'avviso. Nel menu nella parte superiore del portale fare clic su **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). Impostare **Groups** (Gruppi) su **Service** (Servizio) e impostare **Filter on the service** (Filtro sul servizio) su **Azure/VM** (Azure/macchina virtuale). Nella parte superiore destra del report fare clic su **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report).
 
-Nella casella Save or Schedule this report (Salva o pianifica report), usare la scheda **Scheduling** (Pianificazione) per inviare a se stessi un messaggio di posta elettronica con il report con la frequenza desiderata. Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. Fare clic sulla scheda **Threshold** (Soglia) e selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). Se si ha a disposizione un budget totale di $ 500.000 e si vuole ricevere una notifica quando il costo si avvicina alla metà del budget, creare un **Red alert** (Avviso rosso) a $ 250.000 e un **Yellow alert** (Avviso giallo) a $ 240.000. Non includere le virgole nei valori immessi. Scegliere quindi il numero di avvisi consecutivi. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. Salvare il report pianificato.
+Nella casella Save or Schedule this report (Salva o pianifica report), usare la scheda **Scheduling** (Pianificazione) per inviare a se stessi un messaggio di posta elettronica con il report con la frequenza desiderata. Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. Fare clic sulla scheda **Threshold** (Soglia) e selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). Se si ha a disposizione un budget totale di $ 20.000 e si vuole ricevere una notifica quando il costo si avvicina alla metà del budget, creare un **Red alert** (Avviso rosso) a $ 10.000 e un **Yellow alert** (Avviso giallo) a $ 9.000. Non includere le virgole nei valori immessi. Scegliere quindi il numero di avvisi consecutivi. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. Salvare il report pianificato.
 
 ![report di esempio](./media/tutorial-review-usage/schedule-alert01.png)
 
@@ -107,7 +109,7 @@ Analogamente al modo in cui si creano gli avvisi per i report, è possibile espo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione illustra come:
+In questa esercitazione si è appreso come:
 
 > [!div class="checklist"]
 > * Tenere traccia delle tendenze di utilizzo e dei costi

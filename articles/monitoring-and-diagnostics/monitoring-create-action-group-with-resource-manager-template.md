@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 9b49d21dad9bb1e48194cc31940c5cd53c909dc0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 583a84fd943f6dab63f94e2811e21853e6e5f6a1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263100"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959172"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Creare un gruppo di azione con un modello di Resource Manager
 L'articolo illustra come usare un [modello di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) per configurare gruppi di azione. Tramite i modelli è possibile configurare automaticamente i gruppi di azione che possono essere riusati in determinati tipi di avvisi. Questi gruppi di azione assicurano che tutte le parti corrette vengano notificate all'attivazione di un avviso.
@@ -166,4 +166,4 @@ Per creare un gruppo di azioni usando un modello di Resource Manager, si crea un
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sui [gruppi di azione](monitoring-action-groups.md).
 * [Altre informazioni sugli avvisi](monitoring-overview-alerts.md).
-* Informazioni su come aggiungere [avvisi usando un modello di Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* Informazioni su come aggiungere [avvisi usando un modello di Resource Manager](alert-activity-log.md).

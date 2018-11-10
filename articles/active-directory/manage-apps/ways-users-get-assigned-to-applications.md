@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 2301c2eee2853617251053713b50f9915962027b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d34671d4197735ea2c30aafc8fd01a5893427ff3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355449"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226846"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Come assegnare gli utenti alle applicazioni
 
@@ -51,9 +51,9 @@ Un utente deve prima essere assegnato a un'applicazione per potervi accedere. L'
 
 6.  Un amministratore abilita la [Gestione gruppi self-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) per consentire a un utente di partecipare a un gruppo assegnato a un'applicazione, ma solo **con l'approvazione previa di una serie di responsabili approvazione aziendali selezionati**
 
-7.  Un amministratore assegna una licenza direttamente a un utente per un'applicazione prodotta per esempio da [Microsoft Office 365](http://products.office.com/)
+7.  Un amministratore assegna una licenza direttamente a un utente per un'applicazione prodotta per esempio da [Microsoft Office 365](https://products.office.com/)
 
-8.  Un amministratore assegna una licenza a un gruppo del quale l'utente è membro a un'applicazione prodotta per esempio da [Microsoft Office 365](http://products.office.com/)
+8.  Un amministratore assegna una licenza a un gruppo del quale l'utente è membro a un'applicazione prodotta per esempio da [Microsoft Office 365](https://products.office.com/)
 
 9.  Un [amministratore dà il consenso a un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) per essere usata da tutti gli utenti e quindi un utente effettua l'accesso all'applicazione
 

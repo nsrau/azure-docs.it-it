@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: 75b1edf80f1dad5f0db48c11329effe080760820
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 533fbfc42939299f99699a13513cd3b55c89cabc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413146"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957285"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorare i servizi di Azure in Grafana
 Ora è possibile monitorare i servizi e le applicazioni di Azure da [Grafana](https://grafana.com/) usando il [plug-in dell'origine dati di Monitoraggio di Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). Il plug-in raccoglie i dati sulle prestazioni dell'applicazione raccolti da Application Insights SDK, nonché i dati di infrastruttura forniti da Monitoraggio di Azure. È quindi possibile visualizzare questi dati nel dashboard di Grafana.
@@ -128,4 +128,4 @@ L'addebito si verifica quando le VM sono in esecuzione, sia che vengano usate o 
 2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare **Grafana** nella casella di testo e quindi fare clic su **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica delle metriche di Monitoraggio di Azure](monitoring-overview-metrics.md)
+* [Panoramica delle metriche di Monitoraggio di Azure](../monitoring/monitoring-data-collection.md)

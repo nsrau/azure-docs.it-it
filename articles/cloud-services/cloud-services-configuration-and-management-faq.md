@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 30a23010f326189ffd5886407d70e357abb9c53e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038204"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979200"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemi di configurazione e gestione per Servizi cloud di Azure: domande frequenti
 
@@ -142,7 +142,7 @@ Per altre informazioni, vedere i documenti seguenti:
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Come si abilita la registrazione di Diagnostica di Microsoft Azure per Servizi cloud?
 È possibile abilitare la registrazione di Diagnostica di Microsoft Azure tramite le opzioni seguenti:
-1. [Abilitare da Visual Studio](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+1. [Abilitare da Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 2. [Abilitare tramite codice .NET](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics)
 3. [Abilitare tramite PowerShell](https://docs.microsoft.com/azure/cloud-services/cloud-services-diagnostics-powershell)
 
@@ -248,7 +248,7 @@ Per altre informazioni su come integrare Diagnostica di Azure con Application In
 
 Per altre informazioni su come abilitare Application Insights per i servizi cloud, vedere [Application Insights per Servizi cloud di Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 
-Per altre informazioni su come abilitare la registrazione diagnostica di Azure per i servizi cloud, vedere [Configurare la diagnostica per i servizi cloud e le macchine virtuali di Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
+Per altre informazioni su come abilitare la registrazione diagnostica di Azure per i servizi cloud, vedere [Configurare la diagnostica per i servizi cloud e le macchine virtuali di Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#turn-on-diagnostics-in-cloud-service-projects-before-you-deploy-them)
 
 ## <a name="generic"></a>Generico
 

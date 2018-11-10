@@ -3,7 +3,7 @@ title: Guida introduttiva per il Centro sicurezza di Azure - Connettere soluzion
 description: Guida introduttiva per il Centro sicurezza di Azure - Connettere soluzioni di sicurezza
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3263bb3d-befc-428c-9f80-53de65761697
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2018
-ms.author: yurid
-ms.openlocfilehash: afc72f5b18460578b0cfcd085fe601184a2f898b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: rkarlin
+ms.openlocfilehash: d02c71865f900c2b75da60bd2e989e04a6823d11
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561298"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005241"
 ---
 # <a name="quickstart-connect-security-solutions-to-security-center"></a>Guida introduttiva: Connettere soluzioni di sicurezza al Centro sicurezza
 
@@ -30,7 +30,7 @@ Questa guida introduttiva illustra come effettuare le operazioni seguenti:
 - Connettere una soluzione di sicurezza al Centro sicurezza usando i log di CEF
 - Convalidare la connessione alla soluzione di sicurezza
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per iniziare a usare Centro sicurezza, è necessario avere una sottoscrizione di Microsoft Azure. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
 
 Per usare questa guida introduttiva è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare gratuitamente il livello Standard del Centro sicurezza per i primi 60 giorni. La [Guida introduttiva per il Centro sicurezza di Azure ](security-center-get-started.md) illustra come eseguire l'aggiornamento al livello Standard.

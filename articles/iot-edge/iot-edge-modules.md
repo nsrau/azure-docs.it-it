@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 80679d6efd44598fbe403707ad2e757010eb8d91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423392"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741675"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informazioni sui moduli Azure IoT Edge
 
@@ -31,7 +31,7 @@ Le immagini si trovano nel cloud e possono essere aggiornate, modificate e distr
 
 Ogni volta che un'immagine del modulo viene distribuita in un dispositivo e avviata dal runtime di IoT Edge, viene creata una nuova istanza del modulo. Due dispositivi in diverse parti del mondo possono usare la stessa immagine del modulo; tuttavia ognuno di essi ha la propria istanza del modulo quando il modulo viene avviato sul dispositivo. 
 
-![Immagini del modulo nel cloud: istanze del modulo nei dispositivi][1]
+![Immagini del modulo nel cloud: istanze del modulo nei dispositivi](./media/iot-edge-modules/image_instance.png)
 
 Nell'implementazione, le immagini dei moduli esistono come immagini del contenitore in un repository e le istanze del modulo sono contenitori nei dispositivi. 
 
@@ -46,23 +46,23 @@ L'identità associata all'istanza del modulo dipende dall'identità del disposit
 
 Chiaramente, negli scenari in cui è necessario distribuire un'immagine del modulo più volte sullo stesso dispositivo, è possibile distribuire la stessa immagine più volte con nomi diversi.
 
-![Le identità del modulo sono univoche][2]
+![Le identità del modulo sono univoche](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Moduli gemelli
 
 Ogni istanza del modulo ha anche un modulo gemello corrispondente che è possibile usare per configurare l'istanza del modulo. L'istanza e il gemello sono associati tra loro tramite l'identità del modulo. 
 
-Un modulo gemello è un documento JSON che archivia le proprietà di configurazione e le informazioni del modulo. Questo concetto è parallelo a quello di [dispositivo gemello][lnk-device-twin] dell'hub IoT. La struttura di un modulo gemello è esattamente lo stessa di quella di un dispositivo gemello. Anche le API usate per interagire con entrambi i tipi di gemelli sono le stesse. L'unica differenza tra i due è l'identità usata per creare un'istanza dell'SDK client. 
+Un modulo gemello è un documento JSON che archivia le proprietà di configurazione e le informazioni del modulo. Questo concetto è parallelo a quello di [dispositivo gemello](../iot-hub/iot-hub-devguide-device-twins.md) dell'hub IoT. La struttura di un modulo gemello è esattamente lo stessa di quella di un dispositivo gemello. Anche le API usate per interagire con entrambi i tipi di gemelli sono le stesse. L'unica differenza tra i due è l'identità usata per creare un'istanza dell'SDK client. 
 
 ```csharp
-// Create a ModuleClient object. This ModuleClient will act on behalf of a 
-// module since it is created with a module’s connection string instead 
-// of a device connection string. 
-ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
-await client.OpenAsync(); 
- 
-// Get the module twin 
-Twin twin = await client.GetTwinAsync(); 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
+// module since it is created with a module’s connection string instead 
+// of a device connection string. 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
+await client.OpenAsync(); 
+ 
+// Get the module twin 
+Twin twin = await client.GetTwinAsync(); 
 ```
 
 ## <a name="offline-capabilities"></a>Funzionalità offline
@@ -79,15 +79,8 @@ I moduli IoT Edge possono essere offline per periodi prolungati purché siano so
 Altre funzionalità offline sono disponibili in anteprima pubblica. Per altre informazioni, vedere [Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
- - [Informazioni sui requisiti e sugli strumenti per lo sviluppo di moduli IoT Edge][lnk-mod-dev]
- - [Informazioni sul runtime di Azure IoT Edge e la relativa architettura][lnk-runtime]
+ - [Informazioni sui requisiti e sugli strumenti per lo sviluppo di moduli IoT Edge](module-development.md)
+ - [Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura](iot-edge-runtime.md)
 
 <!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
 [2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

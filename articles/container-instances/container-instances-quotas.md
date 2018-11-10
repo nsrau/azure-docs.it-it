@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: danlep
-ms.openlocfilehash: 427dd8bd4abb72e2750752d828e189921401e9e0
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 2694e8cdc4f1918aab36794804ff48f5a70b44be
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902353"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739686"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Quote e aree disponibili per Istanze di contenitore di Azure
 
@@ -30,9 +30,9 @@ Istanze di contenitore di Azure è disponibile nelle aree seguenti con i limiti 
 | -------- | -- | :---: | :-----------: |
 | Stati Uniti orientali, Europa settentrionale, Europa occidentale, Stati Uniti occidentali, Stati Uniti occidentali 2 | Linux | 4 | 14 |
 | Australia orientale, Stati Uniti orientali 2, Asia sud-orientale | Linux | 2 | 7 |
-| India centrale, Stati Uniti centro-meridionali | Linux | 2 | 3,5 |
+| Canada centrale, India centrale, Stati Uniti centro-meridionali | Linux | 2 | 3,5 |
 | Stati Uniti orientali, Europa occidentale, Stati Uniti occidentali | Windows | 4 | 14 |
-| Australia orientale, India centrale, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Stati Uniti occidentali 2 | Windows | 2 | 3,5 |
+| Australia orientale, Canada centrale, India centrale, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sud-orientale, Stati Uniti occidentali 2 | Windows | 2 | 3,5 |
 
 La disponibilità di Istanze di contenitore con questi limiti di risorse dipende dell'area di distribuzione. Quando un'area ha un carico elevato, può verificarsi un errore durante la distribuzione delle istanze. Per mitigare tale errore di distribuzione, provare a distribuire le istanze con impostazioni di memoria e CPU inferiori oppure provare a eseguire la distribuzione in un secondo momento.
 

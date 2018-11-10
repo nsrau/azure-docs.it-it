@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
 ms.date: 04/09/2018
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: f58d72fe2a14b24272c9f03bbba6a33ed0f18ae7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413758"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977996"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
 
@@ -27,7 +27,7 @@ Analisi di flusso richiama Funzioni tramite trigger HTTP. L'adattatore di output
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare un processo di Analisi di flusso
+> * Creare un processo di Analisi di flusso.
 > * Creare una funzione di Azure
 > * Configurare una funzione di Azure come output per il processo
 
@@ -189,7 +189,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
 1. Accedere al portale di Azure e individuare Cache Redis di Azure. Selezionare **Console**.  
 
-2. Usare i [comandi di Cache Redis](https://redis.io/commands) per verificare che i dati si trovino al suo interno. Il comando assume il formato Get {chiave}. Ad esempio:
+2. Usare i [comandi di Cache Redis](https://redis.io/commands) per verificare che i dati si trovino al suo interno. Il comando assume il formato Get {chiave}. Ad esempio: 
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 

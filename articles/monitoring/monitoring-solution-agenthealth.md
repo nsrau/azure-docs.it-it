@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404036"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914159"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Soluzione Integrità agente in Azure
 La soluzione Integrità agente in Azure consente di individuare gli agenti che non rispondono e quelli che inviano dati operativi tra tutti gli agenti che inviano report direttamente all'area di lavoro di Log Analytics o a un gruppo di gestione di System Center Operations Manager connesso a Log Analytics.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
@@ -39,7 +39,7 @@ Se il gruppo di gestione di System Center Operations Manager è connesso all'are
 Per maggiori informazioni sulla modalità di aggiornamento dei Management Pack, vedere [Connettere Operations Manager a Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ## <a name="configuration"></a>Configurazione
-Aggiungere la soluzione Integrità agente all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](../log-analytics/log-analytics-add-solutions.md). Non è richiesta alcuna ulteriore configurazione.
+Aggiungere la soluzione Integrità agente all'area di lavoro di Log Analytics usando la procedura descritta in [Aggiungere soluzioni](monitoring-solutions.md). Non è richiesta alcuna ulteriore configurazione.
 
 
 ## <a name="data-collection"></a>Raccolta dei dati
@@ -118,4 +118,4 @@ La tabella seguente contiene esempi di ricerche nei log per i record raccolti da
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Leggere l'articolo [Avvisi in Log Analytics](../log-analytics/log-analytics-alerts.md) per informazioni dettagliate sulla generazione di avvisi di Log Analytics.
+* Leggere l'articolo [Avvisi in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) per informazioni dettagliate sulla generazione di avvisi di Log Analytics.

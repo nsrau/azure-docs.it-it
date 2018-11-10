@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3b1724853b4c874a1482a13c4de0ccb179f52f98
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 132935371a1b4f52892ae2fb956407079906e79a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041104"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004903"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Origini dati Syslog in Log Analytics
 Syslog è un protocollo di registrazione di eventi comunemente usato in Linux.  Le applicazioni inviano messaggi che possono essere archiviati nel computer locale o recapitati a un agente di raccolta di Syslog.  Quando viene installato, l'agente OMS per Linux configura il daemon Syslog locale in modo da inoltrare i messaggi all'agente.  Quest'ultimo invia quindi il messaggio a Log Analytics, dove viene creato un record corrispondente nel repository OMS.  
@@ -45,7 +45,7 @@ Configurare Syslog usando il [menu Dati in Impostazioni avanzate di Log Analytic
 Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti.  Per configurare Syslog manualmente su ogni agente Linux, deselezionare la casella *Apply below configuration to my Linux machines*(Applica la configurazione seguente ai computer Linux in uso).
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurare Syslog sull'agente Linux
-Durante l' [installazione dell'agente OMS in un client Linux](log-analytics-linux-agents.md), viene installato un file di configurazione syslog predefinito che definisce la funzionalità e il livello di gravità dei messaggi raccolti.  È possibile modificare questo file per cambiare la configurazione.  Il file di configurazione è diverso a seconda del daemon Syslog installato nel client.
+Durante l' [installazione dell'agente OMS in un client Linux](log-analytics-quick-collect-linux-computer.md), viene installato un file di configurazione syslog predefinito che definisce la funzionalità e il livello di gravità dei messaggi raccolti.  È possibile modificare questo file per cambiare la configurazione.  Il file di configurazione è diverso a seconda del daemon Syslog installato nel client.
 
 > [!NOTE]
 > Se si modifica la configurazione di SysLog, è necessario riavviare il daemon SysLog per rendere effettive le modifiche.
@@ -207,6 +207,6 @@ La tabella seguente mostra alcuni esempi di query di log che recuperano i record
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Numero di record Syslog per funzionalità. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
+* Altre informazioni sulle [ricerche nei log](log-analytics-queries.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.
 * Usare [campi personalizzati](log-analytics-custom-fields.md) per analizzare i dati dei record Syslog nei singoli campi.
-* [Configurare agenti Linux](log-analytics-linux-agents.md) per raccogliere altri tipi di dati.
+* [Configurare agenti Linux](log-analytics-quick-collect-linux-computer.md) per raccogliere altri tipi di dati.

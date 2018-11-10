@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/18/2018
 ms.author: alkohli
-ms.openlocfilehash: e10bd04f37951f93db8af083692b7a2fe25ac9b7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 9d1229084410b6fe7c500a22f8e1e1aed1b8107d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347955"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227349"
 ---
 # <a name="install-update-11-on-your-storsimple-virtual-array"></a>Installare l'aggiornamento 1.1 nell'array virtuale StorSimple
 
@@ -66,7 +66,7 @@ Eseguire i passaggi seguenti per scaricare l'aggiornamento 1.1 da Microsoft Upda
 
 #### <a name="to-download-the-update-or-the-hotfix"></a>Per scaricare l'aggiornamento o l'hotfix
 
-1. Avviare Internet Explorer e passare a [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Avviare Internet Explorer e passare a [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 
 2. Se si usa Microsoft Update Catalog nel computer per la prima volta, fare clic su **Installa** quando viene richiesto di installare il componente aggiuntivo Microsoft Update Catalog.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b32e9628b80705a99a2a8cf77534ed37a47515c8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669097"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228573"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteggere un cluster autonomo in Windows usando i certificati X.509
 Questo articolo descrive come proteggere la comunicazione tra i vari nodi del cluster di Windows autonomo. Descrive inoltre come autenticare i client che si connettono a questo cluster usando i certificati X.509. Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere abilitata nel cluster durante la creazione del cluster.  
@@ -88,7 +88,7 @@ Per iniziare, [scaricare il pacchetto Service Fabric per Windows Server](service
         "ClientCertificateCommonNames": [
             {
                 "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint": "[Thumbprint]",
+                "CertificateIssuerThumbprint": "[Thumbprint1,Thumbprint2,Thumbprint3,...]",
                 "IsAdmin": true
             }
         ],
@@ -257,7 +257,7 @@ Se si usano archivi dell'autorità di certificazione, non deve essere eseguito a
 ## <a name="acquire-the-x509-certificates"></a>Acquisire i certificati X.509
 Per proteggere la comunicazione nel cluster, è prima necessario ottenere i certificati X.509 per i nodi del cluster. Per limitare inoltre la connessione al cluster a computer o utenti autorizzati, è necessario ottenere e installare i certificati per i computer client.
 
-Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necessario usare un certificato X.509 firmato da un' [Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Per altre informazioni su come ottenere questi certificati, vedere [Procedura: ottenere un certificato (WCF)](http://msdn.microsoft.com/library/aa702761.aspx).
+Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necessario usare un certificato X.509 firmato da un' [Autorità di certificazione (CA)](https://en.wikipedia.org/wiki/Certificate_authority). Per altre informazioni su come ottenere questi certificati, vedere [Procedura: ottenere un certificato (WCF)](https://msdn.microsoft.com/library/aa702761.aspx).
 
 Per i cluster usati solo a scopo di test, si può scegliere di usare un certificato autofirmato.
 

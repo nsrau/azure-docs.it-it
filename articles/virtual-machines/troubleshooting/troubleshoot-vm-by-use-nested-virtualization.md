@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 36c42830738f160b24f65e86576ba93aac1ea737
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412737"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005599"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Risolvere i problemi relativi a una macchina virtuale di Azure usando la virtualizzazione annidata in Azure
 
@@ -101,7 +101,7 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 11. Selezionare **Connetti un disco rigido virtuale successivamente**.
 
-    ![immagine relativa all'opzione Connetti un disco rigido virtuale successivamente](/media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![immagine relativa all'opzione Connetti un disco rigido virtuale successivamente](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Dopo aver completato la creazione della macchina virtuale, scegliere **Fine**.
 
@@ -109,11 +109,11 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 14. Selezionare **Controller IDE 0**, quindi **Disco rigido** e infine fare clic su **Aggiungi**.
 
-    ![immagine relativa all'aggiunta del nuovo disco rigido](/media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![immagine relativa all'aggiunta del nuovo disco rigido](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. In **Disco rigido fisico** selezionare il disco della macchina virtuale con problemi che è stato collegato alla macchina virtuale di Azure. Se nell'elenco non sono presenti dischi, controllare se il disco è impostato su offline usando Gestione disco.
 
-    ![immagine relativa al montaggio del disco](/media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![immagine relativa al montaggio del disco](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. Selezionare **Apply** (Applica) e quindi **OK**.
@@ -130,11 +130,11 @@ Per montare la macchina virtuale con problemi, la macchina virtuale di ripristin
 
 3.  Passare a **Tutte le risorse**, cercare il nome del disco e quindi selezionare il disco.
 
-     ![immagine relativa alla ricerca del disco](/media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![immagine relativa alla ricerca del disco](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Fare clic su **Crea macchina virtuale**.
 
-     ![immagine relativa alla creazione della macchina virtuale dal disco](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![immagine relativa alla creazione della macchina virtuale dal disco](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 Per creare la macchina virtuale dal disco è anche possibile usare Azure PowerShell. Per altre informazioni, vedere [Creare la nuova macchina virtuale da un disco esistente usando PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
 

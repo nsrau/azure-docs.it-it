@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7bc8b3ba415f8fe701098a9fa7e51d60ffb9df4e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ade409760e3946e9d574a304afc5b48ec4279157
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092457"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740264"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Esercitazione: Copiare i dati in Azure Data Box Disk ed eseguire la verifica
 
@@ -38,7 +38,7 @@ Prima di iniziare, verificare che:
 
 Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul Data Box Disk.
 
-1. Visualizzare il contenuto dell'unità sbloccata. 
+1. Visualizzare il contenuto dell'unità sbloccata.
 
     ![Visualizzare il contenuto dell'unità](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
@@ -66,7 +66,7 @@ Eseguire la procedura seguente per connettersi e copiare i dati dal computer sul
     
     I parametri e le opzioni del comando sono riportati nella tabella seguente:
     
-    |Parametri/opzioni  |DESCRIZIONE |
+    |Parametri/opzioni  |Descrizione |
     |--------------------|------------|
     |Sorgente            | Specifica il percorso della directory di origine.        |
     |Destination       | Specifica il percorso della directory di destinazione.        |
@@ -229,7 +229,7 @@ Dopo aver completato la copia dei dati, il passaggio successivo consiste nel con
 
 Seguire questa procedura per verificare i dati.
 
-1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *AzureImportExport* dell'unità. 
+1. Eseguire `DataBoxDiskValidation.cmd` per la convalida dei checksum nella cartella *DataBoxDiskImport* dell'unità. 
     
     ![Output dello strumento di convalida di Data Box Disk](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

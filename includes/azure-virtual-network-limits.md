@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: d1c5c9a8709467c9f9ca87c841cffcf77a5b5f0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133121"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219890"
 ---
 <a name="virtual-networking-limits-classic"></a>I limiti seguenti si applicano solo per le risorse di rete gestite tramite il modello di distribuzione classica per sottoscrizione. Informazioni su come [visualizzare l'utilizzo delle risorse corrente rispetto ai limiti della sottoscrizione](../articles/networking/check-usage-against-limits.md).
 
@@ -21,7 +21,7 @@ ms.locfileid: "40133121"
 | --- | --- | --- |
 | Reti virtuali |50 |100 |
 | Siti di rete locale |20 |contattare il supporto tecnico |
-| Server DNS per rete virtuale |20 |100 |
+| Server DNS per rete virtuale |20 |20 |
 | Indirizzi IP privati per rete virtuale |4096 |4096 |
 | Flussi TCP o UDP simultanei per ogni scheda di interfaccia di rete di un'istanza del ruolo o di una macchina virtuale |500K |500K |
 | Gruppi di sicurezza di rete (NGS) |100 |200 |
@@ -60,6 +60,8 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Tabelle di route definite dall’utente |200 |
 | Le route definite dall’utente per ogni tabella di route |400 |
 | Certificati radice Point-to-Site per ogni gateway VPN |20 |
+| TAP di rete virtuale |100 |
+| Configurazioni TAP di interfaccia di rete per TAP di rete virtuale |100 |
 
 #### <a name="publicip-address"></a>Limiti per gli indirizzi IP pubblici
 
@@ -75,17 +77,17 @@ I seguenti limiti si applicano solo per le risorse di rete gestite tramite Azure
 | Risorsa | Limite predefinito | Limite massimo |
 | --- | --- | --- |
 | Servizi di bilanciamento del carico | 100 | 1000 |
-| Regole per risorsa, Basic | 150 | 250 |
-| Regole per risorsa, Standard | 1250 | 1500 |
+| Regole per risorsa, Basic | 250 | 250 |
+| Regole per risorsa, Standard | 1500 | 1500 |
 | Regole per configurazione IP | 299 |299 |
 | Configurazioni IP front-end, Basic | 10 | 200 |
 | Configurazioni IP front-end, Standard | 10 | 600 |
 | Pool back-end, Basic | 100, singolo set di disponibilità | 100, singolo set di disponibilità |
 | Pool back-end, Standard | 1000, singola rete virtuale | 1000, singola rete virtuale |
-| Risorse di back-end per Load Balancer, Standard &ast; | 50 | 150 |
+| Risorse di back-end per Load Balancer, Standard* | 150 | 150 |
 | Porte a disponibilità elevata, Standard | 1 per front-end interno | 1 per front-end interno |
 
-&ast; Fino a 150 risorse, qualsiasi combinazione di macchine virtuali autonome, set di disponibilità e set di scalabilità di macchine virtuali.
+**Fino a 150 risorse, qualsiasi combinazione di macchine virtuali, set di disponibilità e set di scalabilità di macchine virtuali autonomi.
 
 Se è necessario aumentare i limiti rispetto all'impostazione predefinita, [contattare il supporto tecnico](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

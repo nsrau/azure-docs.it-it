@@ -4,37 +4,37 @@ description: Operazioni e reporting post-distribuzione di Protezione password di
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.topic: article
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 14aa52b6d424423f4863efa63f3e2e66b84dac70
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6a61fdeaf1a751ab4001257335abdcbd6fac9cbf
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163561"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739465"
 ---
-# <a name="preview-azure-ad-password-protection-post-deployment"></a>Anteprima: Post-distribuzione di Protezione password di Azure AD
+# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Anteprima: procedure operative per la protezione password di Azure AD
 
 |     |
 | --- |
-| La password di protezione e l'elenco personalizzato di password escluse di Azure AD sono le funzioni in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| La protezione password di Azure AD è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
-Dopo aver completato l'[installazione di Protezione password di Azure AD](howto-password-ban-bad-on-premises.md) in locale, è necessario configurare alcuni componenti nel portale di Azure.
+Dopo aver completato l'[installazione di Protezione password di Azure AD](howto-password-ban-bad-on-premises-deploy.md) in locale, è necessario configurare alcuni componenti nel portale di Azure.
 
 ## <a name="configure-the-custom-banned-password-list"></a>Configurare l'elenco personalizzato password escluse
 
-Seguire le indicazioni fornite nell'articolo [Configurazione dell'elenco personalizzato password escluse](howto-password-ban-bad.md) per la procedura di personalizzazione dell'elenco di password escluse per la propria organizzazione.
+Seguire le indicazioni fornite nell'articolo [Configurazione dell'elenco personalizzato password escluse](howto-password-ban-bad-configure.md) per la procedura di personalizzazione dell'elenco di password escluse per la propria organizzazione.
 
 ## <a name="enable-password-protection"></a>Abilitare la protezione con password
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare ad **Azure Active Directory**, **Metodi di autenticazione** e quindi **Password di protezione (anteprima)**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Azure Active Directory**, **Metodi di autenticazione** e quindi **Password protection (Preview)** (Protezione password - Anteprima).
 1. Impostare **Abilita la password di protezione in Windows Server Active Directory** su **Sì**
-1. Come indicato nella [Guida alla distribuzione](howto-password-ban-bad-on-premises.md#deployment-strategy), è consigliabile impostare inizialmente **Modalità** su **Controllo**
+1. Come indicato nella [Guida alla distribuzione](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), è consigliabile impostare inizialmente **Modalità** su **Controllo**
    * Dopo avere familiarizzato con la funzione, è possibile impostare **Modalità** su **Applicato**
 1. Fare clic su **Save**
 
@@ -51,13 +51,17 @@ La modalità di controllo è concepita come un modo per eseguire il software in 
 
 La modalità di imposizione è concepita come configurazione finale. Come nella modalità di controllo riportata sopra, ogni servizio agente del controller di dominio valuta le password in ingresso in base ai criteri attualmente attivi. Se è abilitata la modalità di imposizione, tuttavia, la password considerata non sicura in base ai criteri viene rifiutata.
 
-Quando una password viene rifiutata in modalità di imposizione dall'agente del controller di dominio di Protezione password di Azure AD, l'impatto visibile ricevuto dall'utente finale è identico a quello che riceverebbe se la password fosse stata rifiutata dall'applicazione tradizionale che gestisce la complessità delle password in locale. Ad esempio, un utente potrebbe ricevere il seguente messaggio di errore tradizionale alla schermata di accesso/modifica password:
+Quando una password viene rifiutata in modalità di imposizione dall'agente del controller di dominio di Protezione password di Azure AD, l'impatto visibile ricevuto dall'utente finale è identico a quello che riceverebbe se la password fosse stata rifiutata dall'applicazione tradizionale che gestisce la complessità delle password in locale. Ad esempio, un utente potrebbe ricevere il seguente messaggio di errore tradizionale nella schermata di accesso/modifica password di Windows:
 
-"Impossibile aggiornare la password. Il valore fornito per la nuova password non soddisfa i requisiti di lunghezza, complessità o cronologia del dominio".
+`Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.`
 
 Questo messaggio è solo un esempio dei possibili risultati. Il messaggio di errore specifico può variare a seconda del software o dello scenario effettivo che sta tentando di impostare una password non sicura.
 
 Gli utenti finali interessati potrebbero avere bisogno di collaborare con il proprio personale IT per comprendere i nuovi requisiti e scegliere password sicure.
+
+## <a name="enable-mode"></a>Modalità di abilitazione
+
+Questa impostazione deve essere lasciata in genere nello stato predefinito abilitato (Sì). Se si configura questa impostazione sullo stato disabilitato (No) tutti gli agenti del controller di dominio di protezione password di Azure AD passeranno a una modalità inattiva in cui tutte le password vengono accettate così come sono, senza alcuna attività di convalida (ad esempio, non verranno generati nemmeno gli eventi di controllo).
 
 ## <a name="usage-reporting"></a>Report sull'utilizzo
 
@@ -79,8 +83,11 @@ PasswordSetErrors               : 1
 È possibile influire sull'ambito del reporting del cmdlet usando uno dei parametri –Forest, -Domain o –DomainController. Se non si specifica un parametro, viene usato il parametro –Forest.
 
 > [!NOTE]
+> Questo cmdlet funziona aprendo una sessione di PowerShell per ogni controller di dominio. Per il corretto funzionamento, il supporto di sessioni remote di PowerShell deve essere abilitato in ogni controller di dominio e il client deve avere privilegi sufficienti. Per altre informazioni sui requisiti per le sessioni remote di PowerShell, eseguire 'Get-Help about_Remote_Troubleshooting' in una finestra di PowerShell.
+
+> [!NOTE]
 > Questo cmdlet funziona eseguendo query in modalità remota sul log eventi di amministrazione di ogni servizio agente del controller di dominio. Se i log eventi contengono un numero elevato di eventi, il completamento del cmdlet potrebbe richiedere molto tempo. Inoltre, le query di rete in blocco di grandi set di dati possono influire sulle prestazioni dei controller di dominio. Di conseguenza, questo cmdlet deve essere usato con cautela negli ambienti di produzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Risoluzione dei problemi e informazioni di registrazione per Protezione password di Azure AD](howto-password-ban-bad-on-premises-troubleshoot.md)
+[Monitoraggio, creazione di report e risoluzione dei problemi nella protezione password di Azure AD](howto-password-ban-bad-on-premises-troubleshoot.md)

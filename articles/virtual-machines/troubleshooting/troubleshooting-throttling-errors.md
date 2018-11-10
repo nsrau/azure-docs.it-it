@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: b951d0b8d91729340cf382e70f72511fb009053e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 15a4ff73476ce54f0617a88e040ac64d7288e9a8
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386553"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741114"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Risoluzione degli errori di limitazione delle richieste delle API 
 
@@ -76,6 +76,18 @@ Content-Type: application/json; charset=utf-8
 Il criterio con un conteggio delle chiamate rimanenti pari a 0 è quello che determina la restituzione dell'errore di limitazione delle richieste. In questo caso, si tratta di `HighCostGet30Min`. Il formato complessivo del corpo della risposta è il formato di errore generale dell'API di Azure Resource Manager (conforme a OData). Il codice di errore principale, `OperationNotAllowed`, è quello usato dal provider di risorse di calcolo per segnalare gli errori di limitazione delle richieste (tra gli altri tipi di errori client). La proprietà `message` degli errori interni contiene una struttura JSON serializzata con i dettagli della violazione relativa alla limitazione delle richieste.
 
 Come illustrato in precedenza, tutti gli errori di limitazione delle richieste includono l'intestazione `Retry-After`, che fornisce il numero minimo di secondi che il client deve attendere prima di ritentare la richiesta. 
+
+## <a name="api-call-rate-and-throttling-error-analyzer"></a>Analizzatore della frequenza delle chiamate API e degli errori di limitazione
+È disponibile una versione di anteprima di una funzionalità di risoluzione dei problemi per l'API del provider di risorse di calcolo. Questi cmdlet di PowerShell forniscono statistiche sulla frequenza delle richieste API per ogni intervallo di tempo per ogni operazione e sulle violazioni delle limitazioni per ogni gruppo di operazioni (criteri):
+-   [Export-AzureRmLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticrequestratebyinterval)
+-   [Export-AzureRmLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/azurerm.compute/export-azurermloganalyticthrottledrequests)
+
+Le statistiche sulle chiamate dell'API possono offrire informazioni dettagliate molto utili in merito al comportamento dei client di una sottoscrizione e facilitare l'identificazione dei modelli di chiamata che causano la limitazione.
+
+Al momento, un limite dell'analizzatore è il fatto che non includa le richieste per i tipi di risorse disco e snapshot (a supporto dei dischi gestiti). Dato che raccoglie dati dai dati di telemetria del provider di risorse di calcolo, non è inoltre utile per identificare gli errori di limitazione da ARM. Tuttavia, questi errori possono essere identificati facilmente in base alle intestazioni di risposta ARM distintive, come illustrato in precedenza.
+
+I cmdlet di PowerShell usano un'API del servizio REST, che può essere facilmente chiamata direttamente dai client (anche se ancora senza supporto formale). Per visualizzare il formato della richiesta HTTP, eseguire i cmdlet con l'opzione -Debug o esaminare l'esecuzione con Fiddler.
+
 
 ## <a name="best-practices"></a>Procedure consigliate 
 

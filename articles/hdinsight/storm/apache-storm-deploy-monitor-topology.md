@@ -3,18 +3,18 @@ title: Distribuire e gestire le topologie Apache Storm in Azure HDInsight
 description: Informazioni su come distribuire, monitorare e gestire le topologie Apache Storm usando Storm Dashboard in HDInsight basato su Windows. Utilizzare gli strumenti Hadoop per Visual Studio
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b71dd51547365503ac4ce76f07d6c783d26acd50
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 53f729e23ced00bd0acb5674308f8c610bff8868
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142764"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005377"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Distribuire e gestire topologie Apache Storm in HDInsight basato su Windows
 

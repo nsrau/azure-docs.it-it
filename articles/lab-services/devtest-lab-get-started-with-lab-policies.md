@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 40b8fb360be7b08540e25886aaebe7f911607b6d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8cc529fbf9b24335be1bec07f81c732ced7a2b72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781830"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227009"
 ---
 # <a name="manage-basic-policies-for-a-lab-in-azure-devtest-labs"></a>Gestire i criteri di base di un lab in Azure DevTest Labs
 
@@ -30,7 +30,7 @@ I passaggi seguenti consentono di impostare i criteri per un lab in Azure DevTes
 
 Per visualizzare e modificare i criteri per un lab, seguire questi passaggi:
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
 

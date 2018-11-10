@@ -3,18 +3,18 @@ title: Usare Grafana in Azure HDInsight
 description: Informazioni su come accedere a Grafana in Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: ae8e676e9a6d6590398d6ccbb759aa29d33e108e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 973913e81157d2158074e50a61be0d73e5606ec3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598144"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006142"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Accedere a Grafana in Azure HDInsight
 

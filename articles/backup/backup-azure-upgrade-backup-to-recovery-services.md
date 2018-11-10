@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2018
 ms.author: sogup
-ms.openlocfilehash: 551bc2aa4ff80feb3f28b5698e25dfd1b03dc870
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 431ca75a653b93342b61a9b39dc42a93270519f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607338"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228522"
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Aggiornare un insieme di credenziali di Backup a un insieme di credenziali di Servizi di ripristino
 
@@ -80,7 +80,7 @@ Lo script di PowerShell richiede di immettere le credenziali. Immettere le crede
 ### <a name="pre-requisites-checking"></a>Verifica dei prerequisiti
 Dopo averne immesso le credenziali, Azure verifica che l'ambiente soddisfi i prerequisiti seguenti:
 
-- **Versione minima dell'agente**: l'aggiornamento degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino richiede almeno la versione 2.0.9083.0 per l'agente MARS. Se si dispone di elementi registrati in un insieme di credenziali di Backup con un agente precedente alla versione 2.0.9083.0, il controllo dei prerequisiti ha esito negativo. Se il controllo dei prerequisiti non riesce, aggiornare l'agente e provare ad aggiornare nuovamente l'insieme di credenziali. È possibile scaricare la versione più recente dell'agente all'indirizzo [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
+- **Versione minima dell'agente**: l'aggiornamento degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino richiede almeno la versione 2.0.9083.0 per l'agente MARS. Se si dispone di elementi registrati in un insieme di credenziali di Backup con un agente precedente alla versione 2.0.9083.0, il controllo dei prerequisiti ha esito negativo. Se il controllo dei prerequisiti non riesce, aggiornare l'agente e provare ad aggiornare nuovamente l'insieme di credenziali. È possibile scaricare la versione più recente dell'agente all'indirizzo [http://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe](https://download.microsoft.com/download/F/4/B/F4B06356-150F-4DB0-8AD8-95B4DB4BBF7C/MARSAgentInstaller.exe).
 - **Processi di configurazione in corso**: se durante la verifica un utente esegue la configurazione di un processo per un insieme di credenziali di Backup impostato per l'aggiornamento o registra un elemento, il controllo dei prerequisiti ha esito negativo. Completare la configurazione o terminare la registrazione dell'elemento e quindi avviare il processo di aggiornamento dell'insieme di credenziali.
 - **Modello di fatturazione basato sull'archiviazione**: gli insiemi di credenziali del servizio di ripristino supportano il modello di fatturazione basato su istanza. Se si esegue l'aggiornamento dell'insieme di credenziali in un insieme di credenziali di Backup che usa il modello di fatturazione basato sull'archiviazione, viene chiesto di aggiornare il modello di fatturazione con l'insieme di credenziali. Altrimenti, è possibile aggiornare prima il modello di fatturazione e quindi eseguire l'aggiornamento dell'insieme di credenziali.
 - Identificare un gruppo di risorse per l'insieme di credenziali di Servizi di ripristino. Per poter sfruttare le funzionalità di distribuzione di Resource Manager, è necessario inserire un insieme di credenziali di Servizi di ripristino in un gruppo di risorse. Se non si sa quale gruppo di risorse usare, specificare un nome in modo che il processo di aggiornamento crei il gruppo di risorse per l'utente. Il processo di aggiornamento associa anche l'insieme di credenziali con il nuovo gruppo di risorse.
@@ -113,7 +113,7 @@ Dopo avere eseguito l'aggiornamento a un insieme di credenziali di Servizi di ri
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 **Il piano di aggiornamento influenza il backup in corso?**</br>
-di serie I backup in corso proseguono senza interruzioni durante e dopo l'aggiornamento.
+No. I backup in corso proseguono senza interruzioni durante e dopo l'aggiornamento.
 
 **Se non si prevede un aggiornamento a breve, cosa succede agli insiemi di credenziali?**</br>
 Poiché tutte le nuove funzionalità sono applicabili solo agli insiemi di credenziali di Servizi di ripristino, è consigliabile eseguire l'aggiornamento degli insiemi di credenziali. A partire dall'1 settembre 2017, Microsoft inizierà a eseguire l'aggiornamento automatico degli insiemi di credenziali di Backup agli insiemi di credenziali di Servizi di ripristino. Dopo il 30 novembre 2017 non sarà più possibile creare insiemi di credenziali di backup usando PowerShell. L'insieme di credenziali può essere aggiornato automaticamente in qualsiasi momento prima di tale data. Microsoft consiglia di aggiornare l'insieme di credenziali il prima possibile.
@@ -125,16 +125,16 @@ Aggiornare gli strumenti al modello di distribuzione Resource Manager. Gli insie
 Dipende dal numero di risorse sottoposte ad aggiornamento. Per distribuzioni di piccole dimensioni, ovvero poche decine di istanze protette, l'intero aggiornamento dovrebbe richiedere meno di 20 minuti. Per distribuzioni di grandi dimensioni, dovrebbe richiedere al massimo un'ora.
 
 **È possibile eseguire il ripristino dello stato precedente dopo l'aggiornamento?**</br>
-di serie Il ripristino dello stato precedente non è supportato dopo il completamento dell'aggiornamento delle risorse.
+No. Il ripristino dello stato precedente non è supportato dopo il completamento dell'aggiornamento delle risorse.
 
 **È possibile convalidare la sottoscrizione o le risorse per verificare che siano in grado di eseguire l'aggiornamento?**</br>
 Sì. Il primo passaggio del processo di aggiornamento verifica che le risorse siano in grado di eseguire l'aggiornamento. In caso di esito negativo della convalida dei prerequisiti, si ricevono messaggi per tutti i motivi che impediscono il completamento dell'aggiornamento.
 
 **È possibile aggiornare l'insieme di credenziali di Backup basato su CSP?**</br>
-di serie Non è attualmente possibile aggiornare gli insiemi di credenziali di Backup basati su CSP. Il supporto per l'aggiornamento degli insiemi di credenziali di Backup basati su CSP verrà aggiunto nelle prossime versioni.
+No. Non è attualmente possibile aggiornare gli insiemi di credenziali di Backup basati su CSP. Il supporto per l'aggiornamento degli insiemi di credenziali di Backup basati su CSP verrà aggiunto nelle prossime versioni.
 
 **È possibile visualizzare l'insieme di credenziali classico in seguito all'aggiornamento?**</br>
-di serie Non è possibile visualizzare o gestire l'insieme di credenziali classico in seguito all'aggiornamento. L'utente potrà usare il nuovo portale di Azure solo per tutte le operazioni di gestione nell'insieme di credenziali.
+No. Non è possibile visualizzare o gestire l'insieme di credenziali classico in seguito all'aggiornamento. L'utente potrà usare il nuovo portale di Azure solo per tutte le operazioni di gestione nell'insieme di credenziali.
 
 **L'aggiornamento non è riuscito, ma il computer che include l'agente che necessita dell'aggiornamento non esiste più. Quali sono le operazioni da eseguire in questo caso?**</br>
 Se è necessario usare l'archivio di backup del computer per la conservazione a lungo termine, l'utente non sarà in grado di aggiornare l'insieme di credenziali. Il supporto per l'aggiornamento di questo tipo di insieme di credenziali verrà aggiunto nelle versioni future.
