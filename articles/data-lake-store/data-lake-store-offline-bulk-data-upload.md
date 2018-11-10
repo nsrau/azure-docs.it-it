@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6430bf524ac81af242bf7afb4c2c8196309806ab
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: fc70089517bbc1aa90f95f1e0231f2c67f930090
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391678"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242195"
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Usare il servizio Importazione/Esportazione di Microsoft Azure per la copia offline dei dati in Azure Data Lake Storage Gen1
 Questo articolo contiene informazioni su come copiare set di dati di grandi dimensioni (> 200 GB) in Azure Data Lake Storage Gen1 usando metodi di copia offline, ad esempio il [servizio Importazione/Esportazione di Azure](../storage/common/storage-import-export-service.md). In particolare, il file usato come esempio in questo articolo ha una dimensione di 339.420.860.416 byte, vale a dire circa 319 GB sul disco. Chiameremo questo file 319GB.tsv.
@@ -29,7 +29,7 @@ Per eseguire le procedure descritte è necessario:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account di archiviazione di Azure**.
-* **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, consultare [Introduzione ad Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="preparing-the-data"></a>Preparazione dei dati
 
@@ -52,7 +52,7 @@ Per preparare le unità disco rigido, seguire le istruzioni in [Usare il servizi
 
 1. Procurarsi un disco rigido che soddisfi i requisiti per l'uso con il servizio di Importazione/Esportazione di Azure.
 2. Identificare un account di archiviazione di Azure in cui verranno copiati i dati dopo la spedizione al data center di Azure.
-3. Usare lo [strumento di importazione/esportazione di Azure](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), un'utilità della riga di comando. Di seguito è riportato un frammento di codice di esempio che indica come usare lo strumento.
+3. Usare lo [strumento di importazione/esportazione di Azure](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), un'utilità della riga di comando. Di seguito è riportato un frammento di codice di esempio che indica come usare lo strumento.
 
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/

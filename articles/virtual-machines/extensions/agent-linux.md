@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73e5e54e40223f7cd972e2bd2752add9ca82ff2b
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452344"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243880"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
 
@@ -73,7 +73,7 @@ Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canal
 I sistemi seguenti sono stati testati e funzionano con l'agente Linux di Azure:
 
 > [!NOTE]
-> È possibile che questo elenco sia diverso da quello ufficiale dei sistemi supportati sulla piattaforma Microsoft Azure, come descritto di seguito: [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> È possibile che questo elenco sia diverso da quello ufficiale dei sistemi supportati sulla piattaforma Microsoft Azure, come descritto di seguito: [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -344,6 +344,6 @@ Le immagini di Ubuntu Cloud utilizzano [cloud-init](https://launchpad.net/ubuntu
 
 * Per altre informazioni, vedere le risorse seguenti per configurare il punto di montaggio del disco di risorsa e scambiare spazio nelle immagini di Ubuntu Cloud durante il provisioning:
   
-  * [Ubuntu Wiki: Configurare partizioni di scambio](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: Configurare partizioni di scambio](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Inserimento di dati personalizzati in una macchina virtuale di Azure](../windows/classic/inject-custom-data.md)
 

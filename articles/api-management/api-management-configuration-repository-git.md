@@ -1,5 +1,5 @@
 ---
-title: Configurare il servizio Gestione API tramite Git - Azure | Documentazione Microsoft
+title: Configurare il servizio Gestione API tramite Git - Azure | Microsoft Docs
 description: Informazioni su come salvare e configurare la configurazione del servizio Gestione API tramite Git
 services: api-management
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: d359ad0e619e4d7784d763e70599ce784aa852cd
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 97ca4f69f4bf2aa814d51cc17970c1aead8399e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945814"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414404"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -147,7 +147,7 @@ Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere
 
 I file e cartelle nel repository Git locale contengono le informazioni di configurazione dell'istanza del servizio.
 
-| Elemento | DESCRIZIONE |
+| Elemento | Descrizione |
 | --- | --- |
 | Cartella api-management radice |Contiene la configurazione di livello superiore per l'istanza del servizio |
 | Cartella apis |Contiene la configurazione per le API nell'istanza del servizio |
@@ -190,7 +190,8 @@ La cartella `api-management` radice contiene un file `configuration.json` che a 
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -200,10 +201,11 @@ Le prime quattro impostazioni (`RegistrationEnabled`, `UserRegistrationTerms`, `
 
 | Impostazione | Mapping a |
 | --- | --- |
-| RegistrationEnabled |**Redirect anonymous users to**  |
+| RegistrationEnabled |Presenza del provider di identità per **nome utente e password** |
 | UserRegistrationTerms |**Terms of use on user signup**  |
 | UserRegistrationTermsEnabled |**Show terms of use on signup page** |
 | UserRegistrationTermsConsentRequired |**Richiedi consenso**  |
+| RequireUserSigninEnabled |**Redirect anonymous users to**  |
 
 Le quattro impostazioni successive (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled` e `DelegationValidationKey`) sono mappate alle impostazioni seguenti della scheda **Delegation** (Delega) della sezione **Security** (Sicurezza).
 

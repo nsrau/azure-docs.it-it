@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 02/05/2018
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: c7611628918cf40800d173dc9404b0948b9a68a4
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: f0bcc88b60e0a9b93856aa32a10b9c0ad898ce95
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236568"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240699"
 ---
 # <a name="quickstart-build-an-app-to-recognize-emotions-on-faces-in-an-image"></a>Guida introduttiva: Creare un'app per il riconoscimento delle emozioni espresse dai visi in un'immagine.
 

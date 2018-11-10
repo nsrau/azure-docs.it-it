@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: bb1c59fa7df9cf466ce1fd7f32f08d255fe656bd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2af93d149948071f78d0c684b812e84fa68db341
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097064"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251125"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guida alla progettazione della tabella di archiviazione di Azure: Progettazione scalabile e Tabelle ad alte prestazioni 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -312,7 +312,7 @@ Le relazioni uno a molti tra gli oggetti del dominio aziendale sono frequenti: a
 
 Considerare l'esempio di una grande multinazionale con decine di migliaia di reparti ed entità dipendente, dove ogni reparto ha più dipendenti e ogni dipendente è associato a uno specifico reparto. Un approccio prevede l'archiviazione di entità reparto e dipendente separate, come queste:  
 
-![][1]
+![Entità reparto e dipendente][1]
 
 Questo esempio illustra una relazione uno a molti implicita tra i tipi basata sui valori **PartitionKey** . Ogni reparto può avere più dipendenti.  
 
@@ -418,7 +418,7 @@ Archivia più copie di ogni entità usando valori **RowKey** diversi (nella stes
 #### <a name="context-and-problem"></a>Contesto e problema
 Il servizio tabelle indicizza automaticamente le entità usando i valori **PartitionKey** e **RowKey**. Questo consente a un'applicazione client di recuperare un'entità in modo efficiente mediante questi valori. Ad esempio, usando la struttura della tabella riportata di seguito, un'applicazione client può usare una query di tipo punto per recuperare una singola entità dipendente attraverso il nome del reparto e l'ID del dipendente (i valori **PartitionKey** e **RowKey**). Un client può anche recuperare entità ordinate per ID dipendente in ogni reparto.
 
-![][6]
+![Entità dipendente][6]
 
 Se si desidera poter trovare un'entità dipendente anche in base al valore di un'altra proprietà, ad esempio l'indirizzo di posta elettronica, è necessario usare un'analisi della partizione meno efficiente per trovare una corrispondenza. Il motivo è che il servizio tabelle non fornisce indici secondari. Inoltre, non esiste un'opzione per richiedere un elenco di dipendenti ordinato in modo diverso rispetto all'ordine **RowKey** .  
 
@@ -437,7 +437,7 @@ Se si esegue una query su un intervallo di entità dipendente, è possibile spec
 * Per trovare tutti i dipendenti nel reparto vendite con un id dipendente in uso nell'intervallo che va da 000100 a 000199 utilizzare: $filter = (PartitionKey eq "Sales") e (RowKey ge'empid_000100') e (RowKey le 'empid_000199')  
 * Per trovare tutti i dipendenti del reparto vendite con un indirizzo di posta elettronica che inizia con la lettera "a" utilizzare: $filter = (PartitionKey eq "Sales") e (RowKey ge 'email_a') e (RowKey It'email_b')  
   
-  Si noti che la sintassi di filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) (Query su entità).  
+  La sintassi di filtro usata negli esempi precedenti proviene dall'API REST del servizio tabelle. Per altre informazioni, vedere [Query Entities](http://msdn.microsoft.com/library/azure/dd179421.aspx) (Query su entità).  
 
 #### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
@@ -451,7 +451,7 @@ Prima di decidere come implementare questo modello, considerare quanto segue:
 
 ![][8]
 
-* In genere è preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usando una query per individuare un'entità e una seconda per cercare i dati richiesti.  
+* È in genere preferibile archiviare dati duplicati e assicurarsi che sia possibile recuperare tutti i dati necessari con una singola query anziché usando una query per individuare un'entità e una seconda per cercare i dati richiesti.  
 
 #### <a name="when-to-use-this-pattern"></a>Quando usare questo modello
 Usare questo modello quando l'applicazione client deve recuperare le entità usando una serie di chiavi diverse, quando il client deve recuperare entità con criteri di ordinamento diversi e nei casi in cui è possibile identificare ogni entità attraverso una varietà di valori univoci. È però necessario assicurarsi che durante l'esecuzione di ricerche di entità con valori **RowKey** diversi non vengano superati i limiti di scalabilità della partizione.  
@@ -754,7 +754,7 @@ Per l'implementazione di questo modello possono risultare utili i modelli e le i
 Abilitare l'eliminazione di un volume elevato di entità mediante l'archiviazione di tutte le entità per l'eliminazione simultanea nella relativa tabella separata; per eliminare le entità, eliminare la tabella.  
 
 #### <a name="context-and-problem"></a>Contesto e problema
-Molte applicazioni eliminano vecchi dati non più necessari a un'applicazione client o che l'applicazione ha archiviato in un altro supporto di archiviazione. In genere questi dati vengono identificati da una data. Può essere ad esempio richiesta l'eliminazione dei record di tutte le richieste di accesso risalenti a oltre 60 giorni prima.  
+Molte applicazioni eliminano vecchi dati non più necessari a un'applicazione client o che l'applicazione ha archiviato in un altro supporto di archiviazione. Questi dati sono in genere identificati da una data. Può ad esempio essere richiesta l'eliminazione dei record di tutte le richieste di accesso risalenti a oltre 60 giorni prima.  
 
 Una possibile progettazione prevede l'uso della data e dell'ora della richiesta di accesso in **RowKey**:  
 
@@ -1289,7 +1289,7 @@ Ogni entità deve comunque avere i valori **PartitionKey**, **RowKey** e **Times
 
 La prima opzione che precede l'entità per il valore **RowKey**è utile se sussiste la possibilità che due entità di tipi diversi abbiano lo stesso valore di chiave. Inoltre, raggruppa entità dello stesso tipo insieme nella partizione.  
 
-Le tecniche descritte in questa sezione sono particolarmente rilevanti per la discussione [Relazioni di ereditarietà](#inheritance-relationships) trattata all'inizio di questa Guida nella sezione [Modellazione di relazioni](#modelling-relationships).  
+Le tecniche descritte in questa sezione sono particolarmente rilevanti per l'argomento [Relazioni di ereditarietà](#inheritance-relationships) trattato all'inizio di questa guida nella sezione [Modellazione di relazioni](#modelling-relationships).  
 
 > [!NOTE]
 > È necessario considerare l'inclusione di un numero di versione nel valore del tipo di entità per consentire alle applicazioni client di sviluppare oggetti POCO e usare versioni diverse.  

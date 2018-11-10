@@ -3,22 +3,22 @@ title: Mostrare il traffico con Mappe di Azure | Microsoft Docs
 description: Come visualizzare i dati relativi al traffico su una mappa di Javascript
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 6ff7a0270509c244fc97bd04d8ba648fd262dc58
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 532001a0cda22903d0bdf807ee868aef211336e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600120"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240087"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrare il traffico sulla mappa
 
-In questo articolo viene illustrato come visualizzare le informazioni riguardanti il traffico e gli eventi imprevisti sulla mappa. 
+In questo articolo viene illustrato come visualizzare le informazioni riguardanti il traffico e gli eventi imprevisti sulla mappa.
 
 ## <a name="understand-the-code"></a>Informazioni sul codice
 
@@ -27,16 +27,24 @@ In questo articolo viene illustrato come visualizzare le informazioni riguardant
 
 Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Per le istruzioni è possibile vedere [Creare una mappa](map-create.md).
 
-Il secondo blocco di codice usa la funzione [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic) della classe della mappa per eseguire il rendering dei flussi di traffico e gli eventi imprevisti sulla mappa.
+Il secondo blocco di codice usa la funzione [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic) della classe della mappa per eseguire il rendering dei flussi di traffico e gli eventi imprevisti sulla mappa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere: 
-* [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#settraffic)
+Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
-Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti: 
-* [Interazione con la mappa - eventi del mouse](./map-events.md)
-* [Compilazione di una mappa accessibile](./map-accessibility.md)
+> [!div class="nextstepaction"]
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Per altri scenari di mapping, vedere la [pagina dell'esempio di codice](http://aka.ms/AzureMapsSamples).
+Per esempi di codice completi, vedere gli articoli seguenti:
+
+> [!div class="nextstepaction"]
+> [Pagina dell'esempio di codice](https://aka.ms/AzureMapsSamples)
+
+Migliorare le esperienze utente:
+
+> [!div class="nextstepaction"]
+> [Interazione della mappa con gli eventi del mouse](./map-events.md)
+
+> [!div class="nextstepaction"]
+> [Compilazione di una mappa accessibile](./map-accessibility.md)

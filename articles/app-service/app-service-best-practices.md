@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: 7c5eb6190d4a4cdfa47779d2c4d7aadac5a2fb80
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: ff79680c00a394790ba56db9ab4b237f06c677e5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2018
-ms.locfileid: "27868319"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240631"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedure consigliate per il servizio app di Azure
-Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 
+Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
 
 ## <a name="colocation"></a>Condivisione dell'area
 Quando le risorse di Azure che costituiscono una soluzione, ad esempio un'app Web e un database, si trovano in aree diverse, possono verificarsi le situazioni seguenti:

@@ -3,18 +3,18 @@ title: Eseguire gli esempi di Hadoop in HDInsight - Azure
 description: Informazioni su come iniziare a usare il servizio Azure HDInsight con gli esempi forniti. Usare script PowerShell che eseguono programmi MapReduce su cluster di dati.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: ef88e1d3e165e3ae21b235a33b295b51b574ff67
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 84c28eebc2bcf1bfdfcb0995f1caa05ed19629e2
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593285"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250836"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Eseguire esempi di Hadoop MapReduce in HDInsight basato su Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -211,7 +211,6 @@ In questo articolo e negli articoli relativi ai singoli esempi, si è appreso co
 * [Usare Pig con Hadoop in HDInsight][hdinsight-use-pig]
 * [Usare Hive con Hadoop in HDInsight][hdinsight-use-hive]
 * [Inviare processi Hadoop in HDInsight][hdinsight-submit-jobs]
-* [Documentazione di Azure HDInsight SDK][hdinsight-sdk-documentation]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Appendice A: Codice sorgente per il conteggio delle parole
 
@@ -977,8 +976,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7565c536b5d24c859b164a960f74bd1e2ce97b63
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f044cf7e0b614d338ec9b294dfbf02c26c4351b1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960635"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413861"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Panoramica degli avvisi in Microsoft Azure 
 
@@ -23,7 +23,7 @@ Questo articolo descrive cosa sono gli avvisi, quali vantaggi offrono e come ini
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi in Microsoft Azure?
 Gli avvisi notificano in modo proattivo quando vengono riscontrate importanti condizioni nei dati di monitoraggio. Consentono di identificare e risolvere i problemi prima che si palesino agli utenti. 
 
-Questo articolo illustra l'esperienza degli avvisi unificata in Monitoraggio di Azure, che ora include Log Analytics e Application Insights. L'[esperienza degli avvisi precedente](monitoring-overview-alerts.md) e i tipi di avvisi sono definiti **avvisi classici**. È possibile visualizzare questa esperienza precedente e il tipo di avviso precedente facendo clic su **Visualizza avvisi classici** nella parte superiore della pagina degli avvisi. 
+Questo articolo illustra l'esperienza degli avvisi unificata in Monitoraggio di Azure, che ora include Log Analytics e Application Insights. L'[esperienza degli avvisi precedente](monitoring-overview-alerts.md) e i tipi di avviso sono definiti **avvisi classici**. È possibile visualizzare questa esperienza precedente e il tipo di avviso precedente facendo clic su **Visualizza avvisi classici** nella parte superiore della pagina degli avvisi.
 
 
 ## <a name="overview"></a>Panoramica
@@ -62,7 +62,7 @@ Le regole di avviso sono separate dagli avvisi e dalle azioni che vengono intrap
 
 Sono supportati i tipi di avviso seguenti.
 
-| Stato | DESCRIZIONE |
+| Stato | Descrizione |
 |:---|:---|
 | Nuovo | Il problema è appena stato rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato l'avviso e ha iniziato a lavorare a esso. |
@@ -85,7 +85,7 @@ Non vengono visualizzati o monitorati gli [avvisi classici](#classic-alerts) del
 
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 
-| Colonna | DESCRIZIONE |
+| Colonna | Descrizione |
 |:---|:---|
 | Sottoscrizione | Selezionare fino a cinque sottoscrizioni di Azure. Sono inclusi nella visualizzazione solo gli avvisi delle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
@@ -93,7 +93,7 @@ Non vengono visualizzati o monitorati gli [avvisi classici](#classic-alerts) del
 
 Selezionare i valori seguenti nella parte superiore della pagina Avvisi per aprire un'altra pagina.
 
-| Valore | DESCRIZIONE |
+| Valore | Descrizione |
 |:---|:---|
 | Totale avvisi | Numero totale di avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire la visualizzazione Tutti gli avvisi senza filtri. |
 | Gruppi intelligenti | Numero totale di gruppi intelligenti creati dagli avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire l'elenco dei gruppi intelligenti nella visualizzazione Tutti gli avvisi.
@@ -135,7 +135,7 @@ Fare clic su Totale avvisi per visualizzare la pagina Tutti gli avvisi. In quest
 
 È possibile filtrare la visualizzazione selezionando i valori seguenti nei menu a discesa nella parte superiore della pagina.
 
-| Colonna | DESCRIZIONE |
+| Colonna | Descrizione |
 |:---|:---|
 | Sottoscrizione | Selezionare fino a cinque sottoscrizioni di Azure. Sono inclusi nella visualizzazione solo gli avvisi delle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
@@ -156,7 +156,7 @@ La pagina dei dettagli dell'avviso viene visualizzata quando si seleziona un avv
 
 La pagina dei dettagli dell'avviso include le sezioni seguenti.
 
-| Sezione | DESCRIZIONE |
+| Sezione | Descrizione |
 |:---|:---|
 | Informazioni di base | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |

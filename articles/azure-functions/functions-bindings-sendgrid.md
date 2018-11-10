@@ -3,19 +3,19 @@ title: Associazioni di SendGrid di Funzioni di Azure
 description: Riferimento per le associazioni di SendGrid di Funzioni di Azure.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
-ms.author: glenga
-ms.openlocfilehash: 212f8b0dacf5fa56e48df99fb10b11da54df57ac
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.author: cshoe
+ms.openlocfilehash: 23ec5cd6eee3333922b5371a0ece631ebbc20939
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091221"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248032"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associazioni di SendGrid di Funzioni di Azure
 
@@ -101,8 +101,9 @@ Ecco il codice script C#:
 #r "SendGrid"
 using System;
 using SendGrid.Helpers.Mail;
+using Microsoft.Extensions.Logging;
 
-public static void Run(TraceWriter log, string input, out Mail message)
+public static void Run(ILogger log, string input, out Mail message)
 {
      message = new Mail
     {        
@@ -151,7 +152,7 @@ Ecco il codice JavaScript:
 ```javascript
 module.exports = function (context, input) {    
     var message = {
-         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
+         "personalizations": [ { "to": [ { "email": "sample@sample.com" } ] } ],
         from: { email: "sender@contoso.com" },        
         subject: "Azure news",
         content: [{
@@ -186,7 +187,7 @@ Per un esempio completo, vedere l'[esempio in C#](#c-example).
 
 Nella tabella seguente sono illustrate le proprietà di configurazione dell'associazione impostate nel file *function.json* e nell'attributo `SendGrid`.
 
-|Proprietà di function.json | Proprietà dell'attributo |DESCRIZIONE|
+|Proprietà di function.json | Proprietà dell'attributo |Descrizione|
 |---------|---------|----------------------|
 |**type**|| Obbligatoria. Deve essere impostata su `sendGrid`.|
 |**direction**|| Obbligatoria. Deve essere impostata su `out`.|
@@ -198,6 +199,31 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**text**|**Text**| Contenuto del messaggio di posta elettronica. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+<a name="host-json"></a>  
+
+## <a name="hostjson-settings"></a>impostazioni host.json
+
+Questa sezione descrive le impostazioni di configurazione globali disponibili per questa associazione nella versione 2.x. Il file host.json di esempio seguente contiene solo le impostazioni della versione 2.x per questa associazione. Per altre informazioni sulle impostazioni di configurazione globali nella versione 2.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure versione 2.x](functions-host-json.md).
+
+> [!NOTE]
+> Per informazioni di riferimento su host.json in Funzioni 1.x, vedere [Informazioni di riferimento su host.json per Funzioni di Azure 1.x](functions-host-json-v1.md).
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        }
+    }
+}
+```  
+
+|Proprietà  |Predefinito | Descrizione |
+|---------|---------|---------| 
+|from|n/d|Indirizzo di posta elettronica del mittente in tutte le funzioni.| 
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

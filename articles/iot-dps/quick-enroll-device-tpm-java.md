@@ -1,6 +1,6 @@
 ---
 title: Registrare un dispositivo TPM nel servizio Azure Device Provisioning con Java | Microsoft Docs
-description: Guida introduttiva di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con Java Service SDK
+description: Guida introduttiva di Azure - Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT di Azure con Java Service SDK. Questa guida introduttiva usa registrazioni singole.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 12/20/2017
@@ -10,19 +10,19 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 68f8125ddc0691346813bb31124fa3abd4976296
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b0068bc912de13590cd9bc7418ea6fcdb01189f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234045"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420490"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Java Service SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 
-Questi passaggi illustrano come registrare a livello di codice un dispositivo TPM simulato nei servizi Device Provisioning in hub IoT di Azure, usando [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) con l'aiuto di un'applicazione Java di esempio. Anche se Java Service SDK funziona su computer sia Windows che Linux, questo articolo usa un computer di sviluppo Windows per illustrare il processo di registrazione.
+Questi passaggi illustrano come creare una registrazione singola a livello di codice per un dispositivo TPM simulato nel servizio Device Provisioning in hub IoT di Azure usando [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/) e un'applicazione Java di esempio. Anche se Java Service SDK funziona su computer sia Windows che Linux, questo articolo usa un computer di sviluppo Windows per illustrare il processo di registrazione.
 
 Assicurarsi di [configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) e di [simulare un dispositivo TPM](quick-create-simulated-device.md#simulatetpm) prima di continuare.
 
@@ -30,9 +30,9 @@ Assicurarsi di [configurare il servizio Device Provisioning in hub IoT con il po
 
 ## <a name="prepare-the-development-environment"></a>Preparare l'ambiente di sviluppo 
 
-1. Verificare che [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) sia installato nel computer. 
+1. Verificare che [Java SE Development Kit 8](https://aka.ms/azure-jdks) sia installato nel computer. 
 
-2. Configurare le variabili di ambiente per l'installazione Java. La variabile `PATH` deve includere il percorso completo della directory *jdk1.8.x\bin*. Se si tratta della prima installazione Java del computer, creare una nuova variabile di ambiente denominata `JAVA_HOME` e fare in modo che punti al percorso completo della directory *jdk1.8.x*. Nel computer Windows questa directory si trova in genere nella cartella *C:\\Programmi\\Java\\* ed è possibile creare o modificare le variabili di ambiente cercando **Modifica le variabili di ambiente relative al sistema** nel **Pannello di controllo** del computer Windows. 
+2. Configurare le variabili di ambiente per l'installazione Java. La variabile `PATH` deve includere il percorso completo della directory *jdk1.8.x\bin*. Se si tratta della prima installazione Java del computer, creare una nuova variabile di ambiente denominata `JAVA_HOME` e fare in modo che punti al percorso completo della directory *jdk1.8.x*. Nel computer Windows questa directory si trova nella cartella *C:\\Programmi\\Java\\* ed è possibile creare o modificare le variabili di ambiente cercando **Modifica le variabili di ambiente relative al sistema** nel **Pannello di controllo** del computer Windows. 
 
   Per controllare se Java è installato correttamente nel computer, eseguire il comando seguente nella finestra di comando:
 

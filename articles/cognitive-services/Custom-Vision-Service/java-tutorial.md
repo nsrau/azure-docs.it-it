@@ -10,12 +10,12 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: e302fc580d9c83d269f0deedd051a3ea23bd274e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d02dced071594732978f961c1b9d8effcd2e35ab
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957214"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415620"
 ---
 # <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Esercitazione: Creare un progetto di classificazione immagini con Custom Vision SDK per Java
 
@@ -23,12 +23,12 @@ Informazioni su come creare un progetto di classificazione immagini con il Servi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- JDK 7 o 8 installato.
+- [JDK 7 o 8](https://aka.ms/azure-jdks) installato.
 - Maven installato.
 
 ## <a name="get-the-training-and-prediction-keys"></a>Ottenere le chiavi di training e di stima
 
-Per ottenere le chiavi usate in questo esempio, visitare la [pagina Web di Servizio visione artificiale personalizzato](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Accounts__ (Account) copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
+Per ottenere le chiavi usate in questo esempio, visitare la [pagina Web di Servizio visione artificiale personalizzato](https://customvision.ai) e selezionare l'__icona a forma di ingranaggio__ in alto a destra. Nella sezione __Account__ copiare i valori dei campi __Training Key__ (Chiave di training) e __Prediction Key__ (Chiave di stima).
 
 ![Immagine dell'interfaccia utente delle chiavi](./media/python-tutorial/training-prediction-keys.png)
 

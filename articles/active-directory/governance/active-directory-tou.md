@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944144"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249804"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare con Condizioni per l'utilizzo.
@@ -46,6 +46,7 @@ Condizioni per l'utilizzo di Azure AD consente di eseguire le operazioni seguent
 - Contribuire a rispettare le normative sulla privacy.
 - Elencare gli utenti hanno accettato o rifiutato le condizioni per l'utilizzo.
 - Visualizzare un log dell'attività di Condizioni per l'utilizzo per conformità e controllo.
+- Creare e gestire Condizioni per l'utilizzo con [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (attualmente in anteprima).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare e configurare Condizioni per l'utilizzo di Azure AD, è necessario disporre di:

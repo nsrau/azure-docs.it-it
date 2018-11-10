@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e8ecdf1fffb51c0b8e9ce996307595a5444a64ee
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: eeecf37a6cc7a0f86662f002b6f0efab5ef8c35c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412617"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417464"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Risolvere i problemi di attivazione della macchina virtuale Windows di Azure
 
@@ -45,7 +45,7 @@ Si verificano in genere problemi di attivazione della VM di Azure se la VM Windo
 ## <a name="solution"></a>Soluzione
 
 >[!NOTE]
->Se si usano una VPN da sito a sito e il tunneling forzato, vedere [Use Azure custom routes to enable KMS activation with forced tunneling](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) (Usare le route personalizzate di Azure per abilitare l'attivazione del Servizio di gestione delle chiavi con il tunneling forzato). 
+>Se si usano una VPN da sito a sito e il tunneling forzato, vedere [Use Azure custom routes to enable KMS activation with forced tunneling](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) (Usare le route personalizzate di Azure per abilitare l'attivazione del Server di gestione delle chiavi con il tunneling forzato). 
 >
 >Se si usa ExpressRoute ed è stata pubblicata una route predefinita, vedere [Azure VM may fail to activate over ExpressRoute](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx) (Potrebbe non essere possibile attivare la VM di Azure tramite ExpressRoute).
 
@@ -82,7 +82,7 @@ Questo passaggio non si applica a Windows 2012 o Windows 2008 R2. Usa la funzion
 2. Andare a Start, cercare Windows PowerShell, fare clic con il pulsante destro del mouse su Windows PowerShell e scegliere Esegui come amministratore.
 
 3. Verificare che la VM sia configurata per usare il server di gestione delle chiavi di Azure corretto. A tale scopo, usare il comando seguente:
-  
+  
     ```
     iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
     kms.core.windows.net:1688
@@ -90,11 +90,11 @@ Questo passaggio non si applica a Windows 2012 o Windows 2008 R2. Usa la funzion
     Il comando restituirà: nome del computer del Servizio di gestione delle chiavi impostato su kms.core.windows.net:1688.
 
 4. Usando Psping verificare di avere la connettività al server di gestione delle chiavi. Passare alla cartella in cui si è estratto il download Pstools.zip e quindi eseguire quanto segue:
-  
+  
     ```
     \psping.exe kms.core.windows.net:1688
     ```
-  
+  
   Nelle righe dalla seconda all'ultima dell'output verificare che sia visualizzato: Sent = 4, Received = 4, Lost = 0 (0% loss).
 
   Se Lost è maggiore di 0 (zero), la VM non ha la connettività al server di gestione delle chiavi. In questo caso, se la VM è in una rete virtuale ed è specificato un server DNS personalizzato, è necessario verificare che il server DNS possa risolvere kms.core.windows.net. In alternativa, sostituire il server DNS con uno che risolve kms.core.windows.net.
@@ -103,7 +103,7 @@ Questo passaggio non si applica a Windows 2012 o Windows 2008 R2. Usa la funzion
   
 Verificare anche che il firewall guest non sia stato configurato in modo tale da bloccare i tentativi di attivazione.
 
-5. Dopo avere verificato la corretta connettività a kms.core.windows.net, usare il comando seguente in tale prompt di Windows PowerShell con privilegi elevati. Questo comando tenta l'attivazione più volte.
+5. Dopo aver verificato la corretta connettività a kms.core.windows.net, usare il comando seguente in tale prompt di Windows PowerShell con privilegi elevati. Questo comando tenta l'attivazione più volte.
 
     ```
     1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }

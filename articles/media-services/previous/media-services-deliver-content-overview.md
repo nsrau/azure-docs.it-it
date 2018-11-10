@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: juliako
-ms.openlocfilehash: 1d1506e26beec3cc48a904ddeb9bbb4e7656a08e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ae0ff36c7e83120a9571e0f87788c25193027616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783750"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240138"
 ---
 # <a name="deliver-content-to-customers"></a>Distribuire contenuti ai clienti
 Quando si distribuiscono contenuti in streaming o video on demand ai clienti, l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete.
@@ -70,9 +70,9 @@ Per i localizzatori vengono definite date di scadenza. Il portale di Azure impos
 > 
 > 
 
-Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](http://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
+Per aggiornare la data di scadenza di un localizzatore, è possibile usare le API [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o [.NET](https://go.microsoft.com/fwlink/?LinkID=533259). Si noti che quando si aggiorna la data di scadenza di un localizzatore di firma di accesso condiviso, l'URL viene modificato.
 
-I localizzatori non sono progettati per gestire il controllo dell'accesso per utente. È possibile assegnare a singoli utenti diritti di accesso diversi usando soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [Protezione dei file multimediali](http://msdn.microsoft.com/library/azure/dn282272.aspx).
+I localizzatori non sono progettati per gestire il controllo dell'accesso per utente. È possibile assegnare a singoli utenti diritti di accesso diversi usando soluzioni DRM (Digital Rights Management). Per altre informazioni, vedere [Protezione dei file multimediali](https://msdn.microsoft.com/library/azure/dn282272.aspx).
 
 Quando si crea un localizzatore, è possibile che si verifichi un ritardo di 30 secondi a causa dei processi di archiviazione e propagazione necessari in Archiviazione di Azure.
 

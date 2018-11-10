@@ -8,44 +8,46 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: f3076054eb6e18eb5143a34ba558c1f9e43ea4a5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f8945ee49ff41a65548da5a3a3c374279bdcc435
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345187"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413588"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Resource Manager per una macchina virtuale Windows
 
-L'[estensione Diagnostica di Azure per Windows](azure-diagnostics.md) (WAD) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di un cluster di macchine virtuali, di un servizio cloud o di Service Fabric.  L'estensione può inviare i dati di telemetria a molti percorsi diversi elencati nell'articolo indicato in precedenza.  
+L'[estensione Diagnostica](azure-diagnostics.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di una macchina virtuale, di un servizio cloud o di un cluster di Service Fabric. L'estensione può inviare dati di telemetria a [molte posizioni diverse](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-In questo articolo viene descritto il processo per inviare le metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows all'archivio dati di Monitoraggio di Azure. A partire dalla versione 1.11 di WAD, è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. L'archiviazione in questo percorso consente di accedere alle stesse azioni disponibili per le metriche della piattaforma.  Le azioni includono quasi in tempo reale gli avvisi, i grafici, il routing, l'accesso dall'API REST e altro ancora.  Le versioni precedenti dell'estensione WAD scrivono in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.   
+Questo articolo illustra il processo da eseguire per inviare le metriche delle prestazioni del sistema operativo guest per una macchina virtuale Windows all'archivio dati di Monitoraggio di Azure. A partire dalla versione 1.11 di Diagnostica è possibile scrivere le metriche direttamente nell'archivio delle metriche di Monitoraggio di Azure in cui sono già state raccolte le metriche standard della piattaforma. 
+
+L'archiviazione in questa posizione consente di accedere alle stesse azioni disponibili per le metriche della piattaforma. Le azioni includono la creazione di avvisi in tempo quasi reale, la creazione di grafici, il routing, l'accesso da un'API REST e altro ancora. Le versioni precedenti dell'estensione Diagnostica eseguono operazioni di scrittura in Archiviazione di Azure, ma non nell'archivio dati di Monitoraggio di Azure.   
 
 Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribuzioni dei modelli](../azure-resource-manager/resource-group-overview.md) e la struttura e la sintassi correlate.  
 
-## <a name="pre-requisites"></a>Prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
-- La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1). 
+- La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
-- È necessario aver installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) oppure è possibile usare [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md). 
+- È necessario avere installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
  
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurare Monitoraggio di Azure come sink dei dati 
-L'estensione di Diagnostica di Azure usa una funzionalità denominata "sink di dati" per effettuare il routing delle metriche e dei log in percorsi diversi.  I passaggi seguenti illustrano come usare un modello di Resource Manager e PowerShell per distribuire una macchina virtuale usando il nuovo sink di dati "Monitoraggio di Azure". 
+L'estensione di Diagnostica di Azure usa una funzionalità denominata "sink di dati" per effettuare il routing delle metriche e dei log in percorsi diversi. Le procedure seguenti illustrano come usare un modello di Resource Manager e PowerShell per distribuire una VM usando il nuovo sink di dati "Monitoraggio di Azure". 
 
 ## <a name="author-resource-manager-template"></a>Creare un modello di Resource Manager 
-Per questo esempio è possibile usare un modello di esempio disponibile pubblicamente. I modelli iniziali sono disponibili in https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows 
+Per questo esempio è possibile usare un modello di esempio disponibile pubblicamente. I modelli iniziali sono disponibili all'indirizzo https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows. 
 
 - **Azuredeploy.json** è un modello di Resource Manager preconfigurato per la distribuzione di una macchina virtuale. 
 
-- **Azuredeploy.parameters.json** è un file di parametri in cui sono archiviate informazioni quali il nome utente e la password che si desidera impostare per la macchina virtuale. Durante la distribuzione, il modello di Resource Manager usa i parametri impostati in questo file. 
+- **Azuredeploy.parameters.json** è un file di parametri in cui sono archiviate alcune informazioni, ad esempio il nome utente e la password che si vogliono impostare per la VM. Durante la distribuzione, il modello di Resource Manager usa i parametri impostati in questo file. 
 
 Scaricare e salvare entrambi i file in locale. 
 
 ###  <a name="modify-azuredeployparametersjson"></a>Modificare azuredeploy.parameters.json
 Aprire il file *azuredeploy.parameters.json* 
 
-1. Immettere i valori relativi a *adminUsername* e *adminPassword* per la macchina virtuale. Questi parametri vengono usati per l'accesso remoto alla macchina virtuale. NON usare i parametri presenti in questo modello per evitare che la macchina virtuale sia soggetta a hijack. I bot eseguono la ricerca in Internet dei nomi utente e delle password archiviati nei repository Github pubblici. È probabile che stiano testando le macchine virtuali con queste impostazioni predefinite.  
+1. Immettere i valori relativi a **adminUsername** e **adminPassword** per la macchina virtuale. Questi parametri vengono usati per l'accesso remoto alla macchina virtuale. Per evitare che la VM sia sottoposta a hijack, NON usare i valori specificati in questo modello. I bot eseguono la ricerca in Internet dei nomi utente e delle password archiviati nei repository Github pubblici. È probabile che stiano testando le macchine virtuali con queste impostazioni predefinite.  
 
 1. Creare un nome DNS univoco per la VM.  
 
@@ -53,10 +55,10 @@ Aprire il file *azuredeploy.parameters.json*
 
 Aprire il file *azuredeploy.json* 
 
-Aggiungere un ID account di archiviazione alla sezione **variables** del modello dopo la voce relativa a **storageAccountName**.  
+Aggiungere l'ID di un account di archiviazione alla sezione **variables** del modello dopo l'immissione di un valore per **storageAccountName**.  
 
 ```json
-// Find these lines 
+// Find these lines. 
 "variables": { 
     "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]", 
 
@@ -64,12 +66,12 @@ Aggiungere un ID account di archiviazione alla sezione **variables** del modello
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-Aggiungere l'estensione relativa alle identità gestite per le risorse di Azure al modello nella parte superiore della sezione "resources".  L'estensione garantisce che Monitoraggio di Azure accetti le metriche generate.  
+Aggiungere questa estensione identità del servizio gestita al modello nella parte superiore della sezione **resources**. L'estensione assicura l'accettazione da parte di Monitoraggio di Azure delle metriche inviate.  
 
 ```json
-//Find this code 
+//Find this code. 
 "resources": [
-// Add this code directly below
+// Add this code directly below.
     { 
         "type": "Microsoft.Compute/virtualMachines/extensions", 
         "name": "WADExtensionSetup", 
@@ -89,7 +91,7 @@ Aggiungere l'estensione relativa alle identità gestite per le risorse di Azure 
     }, 
 ```
 
-Aggiungere la configurazione "identity" alla risorsa della VM per assicurarsi che Azure assegni all'estensione dell'identità del servizio gestita un'identità di sistema. Con questo passaggio, la VM può generare metriche guest su se stessa in Monitoraggio di Azure 
+Aggiungere la configurazione di **identity** alla risorsa VM per garantire che Azure assegni all'estensione identità del servizio gestita un'identità di sistema. Questo passaggio garantisce che la VM possa inviare metriche guest su se stessa a Monitoraggio di Azure. 
 
 ```json
 // Find this section
@@ -120,7 +122,7 @@ Aggiungere la configurazione "identity" alla risorsa della VM per assicurarsi ch
     ...
 ```
 
-Aggiungere la configurazione seguente per abilitare l'estensione di diagnostica in una macchina virtuale Windows.  Per una semplice macchina virtuale basata su Resource Manager, è possibile aggiungere la configurazione dell'estensione alla matrice di risorse per la macchina virtuale. La riga "sink": "AzMonSink" e il corrispondente "SinksConfig" più avanti nella sezione consentono all'estensione di generare le metriche direttamente in Monitoraggio di Azure. È possibile aggiungere o rimuovere i contatori delle prestazioni in base alle esigenze.  
+Aggiungere la configurazione seguente per abilitare l'estensione Diagnostica in una macchina virtuale Windows.  Per una macchina virtuale semplice basata su Resource Manager è possibile aggiungere la configurazione dell'estensione alla matrice di risorse per la macchina virtuale. La riga sinks (AzMonSink e il corrispondente SinksConfig più avanti nella sezione) consentono all'estensione di inviare le metriche direttamente a Monitoraggio di Azure. È possibile aggiungere o rimuovere i contatori delle prestazioni in base alle esigenze.  
 
 
 ```json
@@ -223,26 +225,26 @@ Aggiungere la configurazione seguente per abilitare l'estensione di diagnostica 
 ```
 
 
-Salvare e chiudere entrambi i file 
+Salvare e chiudere entrambi i file. 
  
 
 ## <a name="deploy-the-resource-manager-template"></a>Distribuire il modello di Resource Manager 
 
 > [!NOTE]
-> È necessario eseguire la versione 1.5 o successiva dell'estensione di Diagnostica di Azure E la proprietà "autoUpgradeMinorVersion" deve essere impostata su 'true' nel modello di Resource Manager.  Azure carica quindi l'estensione corretta all'avvio della macchina virtuale. Se il modello non dispone di queste impostazioni, modificarle e ridistribuire il modello. 
+> È necessario eseguire la versione 1.5 o successiva dell'estensione Diagnostica di Azure E impostare la proprietà **autoUpgradeMinorVersion** su true nel modello di Resource Manager.  Azure carica quindi l'estensione corretta all'avvio della macchina virtuale. Se nel modello sono specificate impostazioni diverse, modificarle e ridistribuire il modello. 
 
 
 Per la distribuzione del modello di Resource Manager verrà usato Azure PowerShell.  
 
-1. Avviare PowerShell 
-1. Accedere ad Azure con `Login-AzureRmAccount`
-1. Ottenere l'elenco delle sottoscrizioni usando `Get-AzureRmSubscription`
-1. Impostare la sottoscrizione in cui verrà creata/aggiornata la macchina virtuale 
+1. Avviare PowerShell. 
+1. Accedere ad Azure usando `Login-AzureRmAccount`.
+1. Ottenere l'elenco delle sottoscrizioni usando `Get-AzureRmSubscription`.
+1. Impostare la sottoscrizione che si usa per creare o aggiornare la macchina virtuale nella sezione seguente: 
 
    ```PowerShell
    Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. Creare un nuovo gruppo di risorse per la macchina virtuale in fase di distribuzione, eseguire il comando seguente 
+1. Per creare un nuovo gruppo di risorse per la VM che viene distribuita, eseguire il comando seguente: 
 
    ```PowerShell
     New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>" 
@@ -250,7 +252,7 @@ Per la distribuzione del modello di Resource Manager verrà usato Azure PowerShe
    > [!NOTE] 
    > Ricordarsi di [usare un'area di Azure abilitata per le metriche personalizzate](metrics-custom-overview.md). 
  
-1. Eseguire questi comandi per distribuire la macchina virtuale con  
+1. Eseguire i comandi seguenti per distribuire la VM usando il modello di Resource Manager.
    > [!NOTE] 
    > Se si desidera aggiornare una VM esistente, aggiungere semplicemente *-Mode Incremental* alla fine del comando seguente. 
  
@@ -258,28 +260,28 @@ Per la distribuzione del modello di Resource Manager verrà usato Azure PowerShe
    New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>" 
    ```
   
-1. Una volta completata la distribuzione, la VM dovrebbe trovarsi nel portale di Azure e generare le metriche in Monitoraggio di Azure. 
+1. Al termine della distribuzione, la VM deve essere disponibile nel portale di Azure per inviare metriche a Monitoraggio di Azure. 
 
    > [!NOTE] 
-   > È possibile riscontrare errori in relazione al parametro vmSkuSize selezionato. In questo caso, tornare al file azuredeploy.json e aggiornare il valore predefinito del parametro vmSkuSize. In questo caso è consigliabile provare "Standard_DS1_v2"). 
+   > È possibile che si verifichino errori in relazione al valore selezionato per vmSkuSize. In questo caso, tornare al file azuredeploy.json e aggiornare il valore predefinito del parametro vmSkuSize. In questo caso è consigliabile provare "Standard_DS1_v2"). 
 
 ## <a name="chart-your-metrics"></a>Tracciare il grafico delle metriche 
 
-1. Accedere al portale di Azure 
+1. Accedere al portale di Azure. 
 
-1. Fare clic su **Monitoraggio** nel menu a sinistra 
+2. Nel menu a sinistra selezionare **Monitoraggio**. 
 
-1. Nella pagina Monitoraggio fare clic su **Metriche**. 
+3. Nella pagina Monitoraggio selezionare **Metrica**. 
 
-   ![Pagina delle metriche](./media/metrics-store-custom-rest-api/metrics.png) 
+   ![Pagina delle metriche](media/metrics-store-custom-guestos-resource-manager-vm/metrics.png) 
 
-1. Modificare il periodo di aggregazione in **Ultimi 30 minuti**.  
+4. Modificare il periodo di aggregazione in **Ultimi 30 minuti**.  
 
-1. Nell'elenco a discesa della risorsa selezionare la macchina virtuale appena creata. Se non si è modificato il nome nel modello, deve essere *SimpleWinVM2*.  
+5. Nell'elenco a discesa delle risorse selezionare la VM creata. Se non si è modificato il nome nel modello, deve essere *SimpleWinVM2*.  
 
-1. Nell'elenco a discesa degli spazi dei nomi selezionare **azure.vm.windows.guest** 
+6. Nell'elenco a discesa degli spazi dei nomi selezionare **azure.vm.windows.guest**. 
 
-1. Nell'elenco a discesa delle metriche selezionare **Memoria\%Committed Bytes in Use** (Memoria\Byte di cui è stato eseguito il commit).  
+7. Nell'elenco a discesa delle metriche selezionare **Memory\%Committed Bytes in Use** (Memoria\Byte in uso di cui è stato eseguito il commit).  
  
 
 ## <a name="next-steps"></a>Passaggi successivi

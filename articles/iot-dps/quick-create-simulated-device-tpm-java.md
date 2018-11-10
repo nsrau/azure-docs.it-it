@@ -1,6 +1,6 @@
 ---
 title: Effettuare il provisioning di un dispositivo TPM simulato nell'hub IoT di Azure usando Java | Microsoft Docs
-description: "Guida introduttiva di Azure: creare ed effettuare il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi Java per il servizio Device Provisioning in hub IoT di Azure"
+description: "Guida introduttiva di Azure: creare ed effettuare il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi Java per il servizio Device Provisioning in hub IoT di Azure. Questa guida introduttiva usa registrazioni singole."
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: b6c6e407e0bd54c4713056fdee12f7a4c355af97
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c1426ebb5a64a1e0552cc35a736186fda60a5af1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030909"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415152"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi Java per il servizio Device Provisioning in hub IoT di Azure
 
@@ -25,11 +25,17 @@ Questi passaggi illustrano come creare un dispositivo simulato nel computer di s
 
 Se non si ha familiarità con il processo di provisioning automatico, è necessario vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 
+Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
+- [Gruppi di registrazioni](concepts-service.md#enrollment-group): usato per registrare più dispositivi correlati.
+- [Registrazioni singole](concepts-service.md#individual-enrollment): usato per registrare un singolo dispositivo.
+
+Questo articolo descrive le registrazioni singole.
+
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
 ## <a name="prepare-the-environment"></a>Preparare l'ambiente 
 
-1. Verificare che [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) sia installato nel computer.
+1. Verificare che [Java SE Development Kit 8](https://aka.ms/azure-jdks) sia installato nel computer.
 
 1. Scaricare e installare [Maven](https://maven.apache.org/install.html).
 
@@ -91,9 +97,9 @@ Se non si ha familiarità con il processo di provisioning automatico, è necessa
 
 1. Accedere al portale di Azure, fare clic sul pulsante **Tutte le risorse** nel menu a sinistra e aprire il servizio Device Provisioning.
 
-1. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Manage enrollments** (Gestisci registrazioni). Selezionare la scheda **Individual Enrollments** (Registrazioni singole) e fare clic sul pulsante **Add individual enrollment**(Aggiungi registrazione singola) in alto. 
+1. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Manage enrollments** (Gestisci registrazioni). Selezionare la scheda **Individual Enrollments** (Registrazione singola) e fare clic sul pulsante in alto **Add individual enrollment** (Aggiungi registrazione singola). 
 
-1. Nella sezione **Add Enrollment**(Aggiungi registrazione) immettere le informazioni seguenti:
+1. Nella sezione **Add Enrollment**(Aggiungi registrazione) immettere le seguenti informazioni:
     - Selezionare **TPM** come *meccanismo* di attestazione dell'identità.
     - Immettere l'*ID registrazione* e la *chiave di verifica dell'autenticità* per il dispositivo TPM annotati in precedenza. 
     - Selezionare un hub IoT collegato al servizio di provisioning.

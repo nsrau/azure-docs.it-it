@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: dca9d7900ce229b1cddbef8d0dee44bc0061dc42
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29a2335a3a4077866b71e4303c240ad8352371ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611307"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243778"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuire Azure Cosmos DB e app Web del servizio app di Azure tramite un modello di Azure Resource Manager
-Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), un'app Web del [servizio app di Azure](http://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
+Questa esercitazione illustra come usare un modello di Azure Resource Manager per distribuire e integrare [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), un'app Web del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) e un'applicazione Web di esempio.
 
 Con il modello di Azure Resource Manager è possibile automatizzare facilmente la distribuzione e la configurazione delle risorse di Azure.  Questa esercitazione illustra come distribuire un'applicazione Web e configurare automaticamente le informazioni relative alla connessione dell'account Azure Cosmos DB.
 
@@ -29,7 +29,7 @@ Dopo aver completato questa esercitazione, si potrà rispondere alle domande seg
 
 <a id="Prerequisites"></a>
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 > [!TIP]
 > Anche se questa esercitazione non presuppone alcuna esperienza nell'uso di JSON o dei modelli di Azure Resource Manager, se si vogliono modificare i modelli o le opzioni di distribuzione cui viene fatto riferimento, è necessario conoscere ciascuna di queste aree.
 > 
@@ -114,7 +114,7 @@ Si procederà ora alla distribuzione del secondo modello.  Questo modello è uti
 9. Si noti la presenza di impostazioni dell'applicazione per l'endpoint di Azure Cosmos DB e per ognuna delle relative chiavi master.
 
     ![Screenshot delle impostazioni dell'applicazione](./media/create-website/TemplateDeployment10.png)  
-10. È possibile continuare a esplorare il portale di Azure o seguire uno degli [esempi](http://go.microsoft.com/fwlink/?LinkID=402386) di Azure Cosmos DB per creare la propria applicazione Azure Cosmos DB.
+10. È possibile continuare a esplorare il portale di Azure o seguire uno degli [esempi](https://go.microsoft.com/fwlink/?LinkID=402386) di Azure Cosmos DB per creare la propria applicazione Azure Cosmos DB.
 
 <a name="NextSteps"></a>
 
@@ -122,14 +122,14 @@ Si procederà ora alla distribuzione del secondo modello.  Questo modello è uti
 Congratulazioni! È stata completata la distribuzione di Azure Cosmos DB, di un'app Web del servizio app e di un'applicazione Web di esempio usando i modelli di Azure Resource Manager.
 
 * Per altre informazioni su Azure Cosmos DB, fare clic [qui](http://azure.com/docdb).
-* Per altre informazioni sulle app Web del servizio app di Azure, vedere [qui](http://go.microsoft.com/fwlink/?LinkId=325362).
+* Per altre informazioni sulle app Web del servizio app di Azure, vedere [qui](https://go.microsoft.com/fwlink/?LinkId=325362).
 * Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [qui](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>Modifiche apportate
-* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Per una Guida per la modifica di siti Web al servizio App vedere: [servizio App Azure e il relativo impatto sui servizi di Azure esistente](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](http://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
+> Per iniziare a usare Servizio app di Azure prima di registrarsi per ottenere un account Azure, andare a [Prova il servizio app](https://go.microsoft.com/fwlink/?LinkId=523751), dove è possibile creare un'app Web iniziale temporanea nel servizio app. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
 > 
 > 
 

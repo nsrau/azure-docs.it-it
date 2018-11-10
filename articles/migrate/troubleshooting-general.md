@@ -4,20 +4,30 @@ description: Questo articolo offre una panoramica dei problemi noti relativi al 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/31/2018
 ms.author: raynew
-ms.openlocfilehash: a41a27f2a87a67ea51bcbe110ac77f7908c44e7a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945519"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413334"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
 ## <a name="troubleshoot-common-errors"></a>Risoluzione dei problemi comuni
 
 [Azure Migrate](migrate-overview.md) valuta i carichi di lavoro locali per la migrazione ad Azure. Attenersi a questo articolo per risolvere i problemi che possono verificarsi durante la distribuzione e l'utilizzo di Azure Migrate.
+
+### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Sto usando un OVA di individuazione continua, ma le macchine virtuali eliminate dal mio ambiente locale vengono ancora visualizzate nel portale.
+
+L'appliance per l'individuazione continua si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se si esegue una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
+
+- Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare l'individuazione dall'appliance e quindi riavviarla. Ciò garantisce che le modifiche vengono aggiornate nel progetto Azure Migrate.
+
+   ![Arresta individuazione](./media/troubleshooting-general/stop-discovery.png)
+
+- Eliminazione di macchine virtuali: a causa della modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
 
 ### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>La creazione del progetto di migrazione non è riuscita con errore *Requests must contain user identity headers* (Le richieste devono contenere le intestazioni di identità dell'utente)
 
@@ -41,19 +51,18 @@ Per abilitare la raccolta dei dati sulle prestazioni di dischi e reti, impostare
 
    ![Posizione del progetto](./media/troubleshooting-general/geography-location.png)
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>Sto usando un OVA di individuazione continua, ma le macchine virtuali eliminate dal mio ambiente locale vengono ancora visualizzate nel portale.
-
-L'appliance per l'individuazione continua si limita a raccogliere i dati sulle prestazioni in modo continuo, non rileva eventuali modifiche alla configurazione nell'ambiente locale (ad esempio, aggiunta ed eliminazione di macchine virtuali, aggiunta di dischi e così via). Se si esegue una modifica della configurazione nell'ambiente locale, è possibile procedere come segue per riflettere le modifiche nel portale:
-
-1. Aggiunta di elementi (macchine virtuali, dischi, core e così via): per riflettere tali modifiche nel portale di Azure, è possibile arrestare l'individuazione dall'appliance e quindi riavviarla. Ciò garantisce che le modifiche vengono aggiornate nel progetto Azure Migrate.
-
-2. Eliminazione di macchine virtuali: a causa della modo in cui è progettata l'appliance, l'eliminazione di macchine virtuali non viene rilevata anche se si arresta e riavvia l'individuazione. I dati acquisiti dalle individuazioni successive vengono infatti aggiunti alle individuazioni precedenti e non sostituiti. In questo caso è possibile semplicemente ignorare la macchina virtuale nel portale, rimuovendola dal gruppo e ricalcolando la valutazione.
-
 ## <a name="collector-errors"></a>Errori dell'agente di raccolta
 
-### <a name="deployment-of-collector-ova-failed"></a>La distribuzione dell'agente di raccolta OVA non è riuscita
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>La distribuzione del servizio Agente di raccolta di Azure Migrate non è riuscita con l'errore: The provided manifest file is invalid: Invalid OVF manifest entry. (Il file manifesto specificato non è valido: voce del manifesto OVF non valida.)
 
-Questo problema può verificarsi se OVA viene scaricato parzialmente, o a causa del browser, se si usa il client vSphere per distribuire OVA. Verificare che il download è stato completato, provare a distribuire OVA con un altro browser.
+1. Verificare se il file OVA del servizio Agente di raccolta di Azure Migrate viene scaricato correttamente controllando il relativo valore hash. Per verificare il valore hash, vedere questo [articolo](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance). Se il valore hash non corrisponde, scaricare nuovamente il file OVA e ripetere il tentativo di distribuzione.
+2. Se ancora non riesce e si usa VMware vSphere Client per distribuire il file OVF, provare a eseguire la distribuzione con vSphere Web Client. Se il problema persiste, provare a usare un Web browser diverso.
+3. Se si usa vSphere Web Client e si prova a distribuirlo in vCenter Server 6.5, provare a distribuire il file OVA direttamente nell'host ESXi seguendo questi passaggi:
+  - Connettersi direttamente all'host ESXi (anziché vCenter Server) usando il client Web (https://<*indirizzo IP dell'host*>/ui)
+  - Passare a Home > Inventory (Pagina iniziale > Inventario)
+  - Fare clic sul File > Deploy OVF template (Distribuisci modello OVF) > individuare il file OVA e completare la distribuzione
+4. Se l'errore di distribuzione persiste, contattare il supporto di Azure Migrate.
+
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>L'agente di raccolta non è in grado di connettersi a Internet
 
@@ -212,9 +221,8 @@ Per raccogliere Event Trace for Windows, seguire questa procedura:
 
 ## <a name="collector-error-codes-and-recommended-actions"></a>Codici di errore dell'agente di raccolta e azioni consigliate
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Codice di errore | Nome errore                      | Message                                                                       | Possibili cause                                                                                        | Azione consigliata                                                                                                                          |
+| Codice di errore | Nome errore   | Message   | Possibili cause | Azione consigliata  |
+| --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | L'agente di raccolta è scaduto.                                                        | Agente di raccolta scaduto.                                                                                    | Scaricare una nuova versione dell'agente di raccolta e riprovare.                                                                                      |
 | 751       | UnableToConnectToServer        | Non è possibile connettersi al server vCenter "%Name;" a causa dell'errore: %ErrorMessage;     | Per altre informazioni, controllare il messaggio di errore.                                                             | Risolvere il problema e riprovare.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | Il server "%Name;" non è un server vCenter.                                  | Specificare i dettagli del server vCenter.                                                                       | Ritentare l'operazione con i dettagli del server vCenter corretti.                                                                                   |

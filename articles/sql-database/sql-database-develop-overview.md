@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 06/20/2018
-ms.openlocfilehash: 58f902edcd417809d1bb47a231cb1c2ac2f579d1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 707e10f77bf00ed12f09a23e490105f52ceed4ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063592"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241600"
 ---
 # <a name="sql-database-application-development-overview"></a>Panoramica dello sviluppo di applicazioni del database SQL
 Questo articolo esamina le considerazioni di base di cui uno sviluppatore deve tenere conto quando scrive il codice per collegarsi al database SQL di Azure.
@@ -61,7 +61,7 @@ Quando si verifica un errore temporaneo durante la connessione al database SQL, 
 
 ## <a name="managing-connections"></a>Gestione delle connessioni
 * Nella logica di connessione client sostituire il timeout predefinito affinché sia pari a 30 secondi.  Il valore predefinito di 15 secondi è troppo breve per connessioni che dipendono da Internet.
-* Se si usa un [pool di connessioni](http://msdn.microsoft.com/library/8xx3tyca.aspx), assicurarsi di chiudere la connessione nel momento in cui il programma non la usa attivamente, né si prepara a riusarla.
+* Se si usa un [pool di connessioni](https://msdn.microsoft.com/library/8xx3tyca.aspx), assicurarsi di chiudere la connessione nel momento in cui il programma non la usa attivamente, né si prepara a riusarla.
 
 ## <a name="network-considerations"></a>Considerazioni sulla rete
 * Nel computer che ospita il programma client, verificare che il firewall consenta le comunicazioni TCP in uscita sulla porta 1433.  Altre informazioni: [Configurazione del firewall di un database SQL di Azure](sql-database-configure-firewall-settings.md).

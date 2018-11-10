@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: 507d9e12a37d7bf187a3e56b04cb47ac0104773d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d8e469289f72fe892ea7c3da99972e6326c75eb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982042"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242537"
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-classic-cli"></a>Come creare una macchina virtuale classica Linux con l'interfaccia della riga di comando classica di Azure
 > [!IMPORTANT] 
@@ -35,7 +35,7 @@ Questo argomento descrive come creare una macchina virtuale (VM) Linux con l'int
 * Aggiunta della macchina virtuale a un set di disponibilità o a un percorso
 
 > [!IMPORTANT]
-> Se si desidera che la macchina virtuale utilizzi una rete virtuale in modo da poter effettuare la connessione direttamente tramite il nome host o configurare connessioni cross-premise, assicurarsi di specificare la rete virtuale quando viene creata la macchina virtuale. Una macchina virtuale può essere configurata per accedere a una rete virtuale solo quando viene creata la macchina virtuale. Per informazioni dettagliate sulle reti virtuali, vedere [Panoramica di Rete virtuale](http://go.microsoft.com/fwlink/p/?LinkID=294063).
+> Se si desidera che la macchina virtuale utilizzi una rete virtuale in modo da poter effettuare la connessione direttamente tramite il nome host o configurare connessioni cross-premise, assicurarsi di specificare la rete virtuale quando viene creata la macchina virtuale. Una macchina virtuale può essere configurata per accedere a una rete virtuale solo quando viene creata la macchina virtuale. Per informazioni dettagliate sulle reti virtuali, vedere [Panoramica di Rete virtuale](https://go.microsoft.com/fwlink/p/?LinkID=294063).
 > 
 > 
 
