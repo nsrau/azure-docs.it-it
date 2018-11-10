@@ -10,12 +10,12 @@ ms.component: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 9/24/2018
-ms.openlocfilehash: f221d160685dd12fb18a611432911baa60ebc6f7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4d25e147044053aa76afe2da482b71c24efc2325
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888115"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242875"
 ---
 # <a name="development-environment-for-azure-machine-learning"></a>Ambiente di sviluppo per Azure Machine Learning 
 
@@ -59,7 +59,7 @@ Vi sono molti IDE ed editor di codice che funzionano con Azure Machine Learning.
 
 ## <a name="data-science-virtual-machine"></a>Macchina virtuale di data science
 
-Data Science Virtual Machine (DSVM) è una combinazione degli ambienti precedenti. È una macchina virtuale nella piattaforma Azure dove sono preinstallati Jupyter Notebook, Visual Studio Code e l'SDK di Azure Machine Learning. La creazione della macchina virtuale è più complessa rispetto all'uso di Azure Notebooks, ma meno complessa rispetto alla configurazione di un computer da zero. Poiché il software necessario è preinstallato nell'immagine della VM, è possibile iniziare a sperimentare con Azure Machine Learning subito dopo aver creato la macchina virtuale.
+Data Science Virtual Machine (DSVM) è una combinazione degli ambienti precedenti. È una macchina virtuale nella piattaforma Azure dove sono preinstallati Jupyter Notebook, Visual Studio Code e l'SDK di Azure Machine Learning. Poiché il software necessario è preinstallato nell'immagine della VM, è possibile iniziare a sperimentare con Azure Machine Learning subito dopo aver creato la macchina virtuale.
 
 DSVM consente di selezionare le risorse di calcolo necessarie, come CPU, GPU e memoria. Vi sono anche preinstallati altri editor, come PyCharm, nonché software di apprendimento automatico di uso diffuso, come TensorFlow, Keras e PyTorch. Se il software di cui si ha necessità non è installato, è possibile installarlo autonomamente.
 

@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: bryanr
+ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026161"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240172"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Multi-tenancy in Azure Stack
 
@@ -26,9 +27,9 @@ ms.locfileid: "50026161"
 
 È possibile configurare Azure Stack per supportare gli utenti da più tenant di Azure Active Directory (Azure AD) per usare i servizi in Azure Stack. Ad esempio, si consideri lo scenario seguente:
 
- - Sei l'amministratore del servizio di contoso.onmicrosoft.com, in cui è installato Azure Stack.
- - Mary è l'amministratore di Directory di fabrikam.onmicrosoft.com, in cui si trovano gli utenti guest. 
- - La società di utente di Mary riceve servizi IaaS e PaaS dall'azienda e deve consentire agli utenti dalla directory guest (fabrikam.onmicrosoft.com) accedere e usare le risorse di Azure Stack in contoso.onmicrosoft.com.
+- Si è amministratore del servizio di contoso.onmicrosoft.com, in cui è installato Azure Stack.
+- Mary è l'amministratore di Directory di fabrikam.onmicrosoft.com, in cui si trovano gli utenti guest.
+- La società di utente di Mary riceve servizi IaaS e PaaS dall'azienda e deve consentire agli utenti dalla directory guest (fabrikam.onmicrosoft.com) accedere e usare le risorse di Azure Stack in contoso.onmicrosoft.com.
 
 Questa guida fornisce i passaggi necessari per configurare multi-tenancy in Azure Stack nel contesto di questo scenario. In questo scenario, è necessario completare i passaggi per abilitare gli utenti da Fabrikam per accedere e utilizzare i servizi dalla distribuzione con Azure Stack in Contoso si e Mary.  
 
@@ -50,6 +51,8 @@ Esistono alcuni prerequisiti per tenere conto prima di configurare multi-tenancy
 In questa sezione si configura Azure Stack per consentire gli accessi dal tenant di directory Fabrikam di Azure AD.
 
 Eseguire l'onboarding nel Tenant di Directory Guest (Fabrikam) per Azure Stack tramite la configurazione di Azure Resource Manager per accettare gli utenti ed entità dal tenant di directory guest servizio.
+
+L'amministratore del servizio di contoso.onmicrosoft.com esegue i comandi seguenti.
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -76,11 +79,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>Configurare la directory guest
 
-Dopo aver completato i passaggi nella directory di Azure Stack, Mary è necessario fornire il consenso ad accedere alla directory guest di Azure Stack e registrare Azure Stack con la directory guest. 
+Una volta l'amministratore di Azure Stack / operatore ha abilitato la directory di Fabrikam da usare con Azure Stack, Mary è necessario registrare Azure Stack con il tenant di directory di Fabrikam.
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>La registrazione di Azure Stack con la directory guest
 
-Una volta che l'amministratore di directory guest ha fornito il consenso per Azure Stack accedere alla directory di Fabrikam, Mary è necessario registrare Azure Stack con il tenant di directory di Fabrikam.
+L'amministratore di Directory di Fabrikam Mary esegue i comandi seguenti in fabrikam.onmicrosoft.com la directory guest.
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -99,14 +102,14 @@ Register-AzSWithMyDirectoryTenant `
 > Se l'amministratore di Azure Stack consente di installare nuovi servizi o aggiornamenti in futuro, si potrebbe essere necessario eseguire nuovamente lo script.
 >
 > Eseguire questo script in qualsiasi momento per verificare lo stato delle applicazioni nella directory di Azure Stack.
-> 
+>
 > Se si sono notato i problemi con la creazione di macchine virtuali in Managed Disks (introdotto nell'aggiornamento 1808), una nuova **Provider di risorse disco** è stato aggiunto, richiedere questo script per eseguirlo di nuovo.
 
 ### <a name="direct-users-to-sign-in"></a>Indirizzare gli utenti per l'accesso
 
 Ora che si e Mary stati completati i passaggi per la directory di utente di Mary l'onboarding, Mary può indirizzare Fabrikam agli utenti di accedere.  Gli utenti di Fabrikam (vale a dire, gli utenti con il suffisso fabrikam.onmicrosoft.com) accedere visitando https://portal.local.azurestack.external.  
 
-Mary indirizzerà eventuali [entità esterne](../role-based-access-control/rbac-and-directory-admin-roles.md) nella directory di Fabrikam (vale a dire, gli utenti nella directory di Fabrikam senza il suffisso di fabrikam.onmicrosoft.com) di accedere usando https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se non usano questo URL, essi vengono inviati alla directory predefinita (Fabrikam) e visualizzato un errore indicante che l'amministratore non ha acconsentito.
+Mary indirizzerà eventuali [entità esterne](../role-based-access-control/rbac-and-directory-admin-roles.md) nella directory di Fabrikam (vale a dire, gli utenti nella directory di Fabrikam senza il suffisso di fabrikam.onmicrosoft.com) di accedere usando https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.  Se non usano questo URL, si viene reindirizzati al loro directory predefinita (Fabrikam) e visualizzato un errore indicante che l'amministratore non ha fornito il consenso.
 
 ## <a name="disable-multi-tenancy"></a>Disabilitare multi-tenancy
 

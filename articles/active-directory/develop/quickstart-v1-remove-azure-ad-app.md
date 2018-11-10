@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 2cd77ee6df52940a800733209b7e384d72d98103
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962131"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245359"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Guida introduttiva: Rimuovere un'applicazione da Azure Active Directory
 
@@ -69,7 +69,7 @@ Un sottoinsieme delle applicazioni visualizzate con il filtro **Tutte le app** (
 
 In termini tecnici, queste applicazioni multi-tenant provengono da un altro tenant e sono state registrate nel tenant durante il processo di consenso. Più precisamente, sono rappresentate solo da un oggetto entità servizio nel tenant, senza oggetto applicazione corrispondente. Per altre informazioni sulle differenze tra oggetti applicazione e oggetti entità servizio, vedere [Oggetti applicazione e oggetti entità servizio in Azure AD](app-objects-and-service-principals.md).
 
-Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo avere concesso il consenso), l'amministratore della società deve rimuovere l'entità servizio dell'applicazione. L'amministratore deve avere l'accesso di amministratore globale e può rimuoverlo tramite il portale di Azure o usando i [cmdlet di Azure AD PowerShell](http://go.microsoft.com/fwlink/?LinkId=294151).
+Per rimuovere l'accesso di un'applicazione multi-tenant alla directory (dopo avere concesso il consenso), l'amministratore della società deve rimuovere l'entità servizio dell'applicazione. L'amministratore deve avere l'accesso di amministratore globale e può rimuoverlo tramite il portale di Azure o usando i [cmdlet di Azure AD PowerShell](https://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

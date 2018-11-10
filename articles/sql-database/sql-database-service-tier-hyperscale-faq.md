@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 31f61a1d6dee19ada60a1024a235f6329d7d5ca0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377815"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242161"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -100,7 +100,7 @@ Il database SQL Hyperscale offre scalabilità rapida in base alle esigenze dei c
 
 ### <a name="can-i-mix-hyperscale-and-single-databases-a-my-logical-server"></a>È possibile combinare database singoli e Hyperscale nel server logico
 
-Sì.
+Sì,
 
 ### <a name="does-hyperscale-require-my-application-programming-model-to-change"></a>Il livello Hyperscale richiede la modifica del modello di programmazione dell'applicazione
 
@@ -198,7 +198,7 @@ No
 
 ### <a name="is-database-compression-supported"></a>È supportata la compressione del database
 
-Sì
+Yes
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>In presenza di una tabella di grandi dimensioni, i dati della tabella vengono distribuiti in più file di dati
 
@@ -253,11 +253,11 @@ Sì. Per origini dati diverse da SQL Server è necessaria la migrazione logica. 
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>Quali contratti di servizio vengono forniti per un database Hyperscale
 
-In generale, non viene fornito un contratto di servizio durante l'anteprima pubblica. Il livello Hyperscale fornisce tuttavia lo stesso livello di disponibilità elevata delle offerte di database SQL correnti. Vedere [Contratti di servizio](http://azure.microsoft.com/support/legal/sla/).
+In generale, non viene fornito un contratto di servizio durante l'anteprima pubblica. Il livello Hyperscale fornisce tuttavia lo stesso livello di disponibilità elevata delle offerte di database SQL correnti. Vedere [Contratti di servizio](https://azure.microsoft.com/support/legal/sla/).
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>I backup dei database vengono gestiti automaticamente dal servizio di database SQL di Azure
 
-Sì
+Yes
 
 ### <a name="how-often-are-the-database-backups-taken"></a>Con che frequenza vengono eseguiti i backup dei database
 
@@ -265,7 +265,7 @@ Per i database SQL Hyperscale non sono previsti i tradizionali backup completi, 
 
 ### <a name="does-sql-database-hyperscale-support-point-in-time-restore"></a>Il database SQL Hyperscale supporta il ripristino temporizzato
 
-Sì
+Yes
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-with-backuprestore-in-sql-database-hyperscale"></a>Quali sono l'obiettivo del punto di ripristino (RPO) e l'obiettivo del tempo di ripristino (RTO) per le operazioni di backup/ripristino nel database SQL Hyperscale
 

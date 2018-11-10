@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 052ef249f3367a562e5598b90533c0e52ed75df4
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e23ff60a0a2ea10ace09130ba115e72b4e1c9ad7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171385"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249813"
 ---
 # <a name="demo-pizza-order"></a>Demo: Ordinazione pizza
 Questa demo illustra un bot per l'ordinazione di pizza. Supporta l'ordine di una singola pizza con queste funzionalità:
@@ -26,7 +26,7 @@ Questa demo illustra un bot per l'ordinazione di pizza. Supporta l'ordine di una
 
 ## <a name="video"></a>Video
 
-[![Anteprima Demo Pizza](http://aka.ms/cl-demo-pizza-preview)](http://aka.ms/blis-demo-pizza)
+[![Anteprima Demo Pizza](https://aka.ms/cl-demo-pizza-preview)](https://aka.ms/blis-demo-pizza)
 
 ## <a name="requirements"></a>Requisiti
 Per questa esercitazione è necessario che il bot per l'ordinazione di pizza sia in esecuzione.

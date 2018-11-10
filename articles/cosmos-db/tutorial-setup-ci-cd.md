@@ -1,6 +1,6 @@
 ---
 title: Configurare una pipeline di integrazione continua/distribuzione continua con l'attività di compilazione dell'emulatore di Azure Cosmos DB
-description: Esercitazione su come configurare la compilazione e rilasciare il flusso di lavoro in Visual Studio Team Services (VSTS) usando l'attività di compilazione dell'emulatore di Cosmos DB
+description: Esercitazione su come configurare il flusso di lavoro di compilazione e rilascio in Azure DevOps usando l'attività di compilazione dell'emulatore di Cosmos DB
 services: cosmos-db
 keywords: Emulatore di Azure Cosmos DB
 author: deborahc
@@ -8,41 +8,41 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 8/28/2018
+ms.date: 08/28/2018
 ms.author: dech
-ms.openlocfilehash: 37bb43435c34f14145b3642aa12c5cb0f16d780c
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4f4cc18bb8423a20358476142488c94361d6b72d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783774"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419215"
 ---
-# <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-visual-studio-team-services"></a>Configurare una pipeline di integrazione continua/distribuzione continua con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Visual Studio Team Services
+# <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Azure DevOps
 
 L'emulatore di Azure Cosmos DB fornisce un ambiente locale che emula il servizio Azure Cosmos DB a scopo di sviluppo. L'emulatore consente di sviluppare e testare l'applicazione in locale, senza creare una sottoscrizione di Azure né sostenere costi. 
 
-L'attività di compilazione dell'emulatore di Azure Cosmos DB per Visual Studio Team Services (VSTS) consente di eseguire la stessa operazione in un ambiente di integrazione continua. Con l'attività di compilazione, è possibile eseguire i test nell'emulatore come parte della compilazione e rilasciare dei flussi di lavoro. L'attività avvia un contenitore Docker con l'emulatore già in esecuzione e fornisce un endpoint che può essere usato dalla definizione di compilazione restante. È possibile creare e avviare le istanze dell'emulatore necessarie, ognuna in esecuzione in un contenitore separato. 
+L'attività di compilazione dell'emulatore di Azure Cosmos DB per Azure DevOps consente di eseguire la stessa operazione in un ambiente di integrazione continua. Con l'attività di compilazione, è possibile eseguire i test nell'emulatore come parte della compilazione e rilasciare dei flussi di lavoro. L'attività avvia un contenitore Docker con l'emulatore già in esecuzione e fornisce un endpoint che può essere usato dalla definizione di compilazione restante. È possibile creare e avviare le istanze dell'emulatore necessarie, ognuna in esecuzione in un contenitore separato. 
 
-Questo articolo illustra come configurare una pipeline di integrazione continua in VSTS per un'applicazione ASP.NET che usa l'attività di compilazione dell'emulatore di Cosmos DB per eseguire i test. 
+Questo articolo illustra come configurare una pipeline di integrazione continua in Azure DevOps per un'applicazione ASP.NET che usa l'attività di compilazione dell'emulatore di Cosmos DB per eseguire i test. 
 
 ## <a name="install-the-emulator-build-task"></a>Installare l'attività di compilazione dell'emulatore
 
-Per usare l'attività di compilazione, è innanzitutto necessario installarla nell'organizzazione di VSTS. Trovare l'estensione **Emulatore di Azure Cosmos DB** nel [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) e fare clic su **Scarica gratuitamente**.
+Per usare l'attività di compilazione, è innanzitutto necessario installarla nell'organizzazione di Azure DevOps. Trovare l'estensione **Emulatore di Azure Cosmos DB** nel [Marketplace](https://marketplace.visualstudio.com/items?itemName=azure-cosmosdb.emulator-public-preview) e fare clic su **Scarica gratuitamente**.
 
-![Trovare e installare l'attività di compilazione dell'emulatore di Azure Cosmos DB nel Marketplace di VSTS](./media/tutorial-setup-ci-cd/addExtension_1.png)
+![Trovare e installare l'attività di compilazione dell'emulatore di Azure Cosmos DB nel Marketplace di Azure DevOps](./media/tutorial-setup-ci-cd/addExtension_1.png)
 
 Successivamente, scegliere l'organizzazione in cui installare l'estensione. 
 
 > [!NOTE]
-> Per installare un'estensione in un'organizzazione di VSTS, è necessario essere proprietario dell'account o amministratore della raccolta di progetti. Se non si dispone di autorizzazioni, ma si è membri dell'account, in alternativa è possibile richiedere delle estensioni. [Altre informazioni.](https://docs.microsoft.com/vsts/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions) 
+> Per installare un'estensione in un'organizzazione di Azure DevOps, è necessario essere proprietario dell'account o amministratore della raccolta di progetti. Se non si dispone di autorizzazioni, ma si è membri dell'account, in alternativa è possibile richiedere delle estensioni. [Altre informazioni.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
-![Scegliere un'organizzazione di VSTS in cui installare un'estensione](./media/tutorial-setup-ci-cd/addExtension_2.png)
+![Scegliere un'organizzazione di Azure DevOps in cui installare un'estensione](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
 ## <a name="create-a-build-definition"></a>Creare una definizione di compilazione
 
-Dopo l'installazione, è necessario aggiungere l'estensione a una [definizione di compilazione](https://docs.microsoft.com/vsts/pipelines/get-started-designer?view=vsts&tabs=new-nav). È possibile modificare una definizione di compilazione esistente oppure crearne una nuova. Se si ha già una definizione di compilazione, è possibile passare direttamente alla sezione [Aggiungere l'attività di compilazione dell'emulatore a una definizione di compilazione](#addEmulatorBuildTaskToBuildDefinition).
+Dopo l'installazione, è necessario aggiungere l'estensione a una [definizione di compilazione](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). È possibile modificare una definizione di compilazione esistente oppure crearne una nuova. Se si ha già una definizione di compilazione, è possibile passare direttamente alla sezione [Aggiungere l'attività di compilazione dell'emulatore a una definizione di compilazione](#addEmulatorBuildTaskToBuildDefinition).
 
-Per creare una nuova definizione di compilazione, passare alla scheda **Compilazione e versione** in VSTS. Selezionare **+ Nuovo**.
+Per creare una nuova definizione di compilazione, passare alla scheda **Compilazione e versione** in Azure DevOps. Selezionare **+ Nuovo**.
 
 ![Creare una nuova definizione di compilazione](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png) Selezionare il progetto team, il repository e il ramo desiderati per abilitare le compilazioni. 
 
@@ -68,7 +68,7 @@ La definizione di compilazione completata è simile alla seguente.
 ## <a name="configure-tests-to-use-the-emulator"></a>Configurare i test per usare l'emulatore
 A questo punto, è possibile configurare i test per usare l'emulatore. L'attività di compilazione dell'emulatore esporta una variabile di ambiente, "CosmosDbEmulator.Endpoint", a cui qualsiasi attività nella pipeline di compilazione può inviare richieste. 
 
-In questa esercitazione si userà l'[attività di test di Visual Studio](https://github.com/Microsoft/vsts-tasks/blob/master/Tasks/VsTestV2/README.md) per eseguire unit test configurati tramite un file con estensione **runsettings**. Per altre informazioni sulla configurazione di unit test, vedere la [documentazione](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
+In questa esercitazione si userà l'[attività di test di Visual Studio](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) per eseguire unit test configurati tramite un file con estensione **runsettings**. Per altre informazioni sulla configurazione di unit test, vedere la [documentazione](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
 
 Di seguito è riportato un esempio di un file con estensione **runsettings** che definisce i parametri da passare agli unit test di un'applicazione. Si noti che la variabile `authKey` usata è la [chiave nota](https://docs.microsoft.com/azure/cosmos-db/local-emulator#authenticating-requests) per l'emulatore. `authKey` è la chiave prevista dall'attività di compilazione dell'emulatore e deve essere definita nel file con estensione **runsettings**.
 
@@ -82,7 +82,8 @@ Di seguito è riportato un esempio di un file con estensione **runsettings** che
   </TestRunParameters>
 </RunSettings>
 ```
-Ai parametri `TestRunParameters` viene fatto riferimento tramite una proprietà `TestContext` nel progetto di test dell'applicazione. Di seguito è riportato un esempio di un test in esecuzione in Cosmos DB. 
+
+Ai parametri `TestRunParameters` viene fatto riferimento tramite una proprietà `TestContext` nel progetto di test dell'applicazione. Di seguito è riportato un esempio di un test in esecuzione in Cosmos DB.
 
 ```csharp
 namespace todo.Tests

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: a5300f3b998e22cca56001bd52f761bb0a366cbe
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9af5ebe9f37127656c7f61357240d4e69a28812b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231458"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243130"
 ---
 # <a name="using-azure-media-packager-to-accomplish-static-packaging-tasks"></a>Utilizzare Azure Media Packager per eseguire attività di creazione statica dei pacchetti
 > [!NOTE]
@@ -48,7 +48,7 @@ Tuttavia, esistono alcuni scenari che richiedono la pacchetti di creazione stati
 * Utilizzare la crittografia statica per proteggere i pacchetti HLSv3 con PlayReady
 
 ## <a name="validating-adaptive-bitrate-mp4s-encoded-with-external-encoders"></a>Convalida della velocità in bit adattiva di MP4 codificata con codificatori esterni
-Se si desidera utilizzare un set di file MP4 a velocità in bit adattiva (più velocità in bit) che non siano stati codificati con codificatori di Servizi multimediali, è necessario convalidare i file prima di un'ulteriore elaborazione. Media Services Packager può convalidare un asset che contiene un set di file MP4 e verificare se l'asset può essere inserito in Smooth Streaming o HLS. Se l'attività di convalida non riesce, il processo di elaborazione dell'attività viene completato con un errore. Il codice XML che definisce il set di impostazioni per l'attività di convalida è disponibile nell'articolo [Set di impostazioni per Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
+Se si desidera utilizzare un set di file MP4 a velocità in bit adattiva (più velocità in bit) che non siano stati codificati con codificatori di Servizi multimediali, è necessario convalidare i file prima di un'ulteriore elaborazione. Media Services Packager può convalidare un asset che contiene un set di file MP4 e verificare se l'asset può essere inserito in Smooth Streaming o HLS. Se l'attività di convalida non riesce, il processo di elaborazione dell'attività viene completato con un errore. Il codice XML che definisce il set di impostazioni per l'attività di convalida è disponibile nell'articolo [Set di impostazioni per Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx).
 
 > [!NOTE]
 > Per evitare problemi di runtime, utilizzare Media Services Encoder Standard per generare o Media Services Packager per convalidare il contenuto. Se il server di streaming on demand non è in grado di analizzare i file di origine in fase di esecuzione, si riceve l'errore HTTP 1.1 "415 Unsupported Media Type". Impedisce ripetutamente al server di eseguire l'analisi dei file di origine sulle prestazioni del server Streaming on demand e può ridurre la larghezza di banda disponibile per l'elaborazione di altre richieste. Servizi multimediali di Azure offre un Contratto di servizio (SLA) dei suoi servizi di streaming on demand; tuttavia, questo contratto di servizio non può essere rispettato se il server non viene correttamente utilizzato nel modo descritto in precedenza.
@@ -82,7 +82,7 @@ Per convalidare i file MP4 con Media Services Packager, è necessario creare un 
 
 Dopo avere creato la serie MP4 con velocità in bit adattiva, è possibile sfruttare i pacchetti di creazione dinamici. I pacchetti di creazione dinamici consentono di distribuire flussi nel protocollo specificato senza creare ulteriori pacchetti. Per altre informazioni, vedere [pacchetti di creazione dinamici](media-services-dynamic-packaging-overview.md).
 
-L’esempio di codice seguente utilizza le estensioni di Azure Media Services .NET SDK.  Assicurarsi di aggiornare il codice in modo che punti alla cartella dove si trovano i file MP4 di input e un file con estensione .ism. E inoltre a dove si trova il file Mediapackager_validatetask. Questo file XML è definito nell'articolo [Set di impostazioni per Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
+L’esempio di codice seguente utilizza le estensioni di Azure Media Services .NET SDK.  Assicurarsi di aggiornare il codice in modo che punti alla cartella dove si trovano i file MP4 di input e un file con estensione .ism. E inoltre a dove si trova il file Mediapackager_validatetask. Questo file XML è definito nell'articolo [Set di impostazioni per Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx).
 
 ```csharp
     using Microsoft.WindowsAzure.MediaServices.Client;
@@ -258,13 +258,13 @@ L'esempio riportato in questa sezione consente di codificare un file in formato 
 Servizi multimediali offre un servizio per la distribuzione di licenze Microsoft PlayReady. Nell'esempio riportato in questo articolo viene illustrato come configurare il servizio di recapito licenze PlayReady di servizi multimediali (vedere il metodo ConfigureLicenseDeliveryService definito nel codice riportato di seguito). Per ulteriori informazioni sul servizio di recapito licenza PlayReady per servizi multimediali, vedere [Uso della crittografia dinamica PlayReady e del server di distribuzione di licenze](media-services-protect-with-playready-widevine.md).
 
 > [!NOTE]
-> Per distribuire il contenuto crittografato MPEG DASH con PlayReady, assicurarsi di usare le opzioni CENC impostando su true le proprietà useSencBox e adjustSubSamples, descritte nell'articolo [Set di impostazioni di attività per Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx).  
+> Per distribuire il contenuto crittografato MPEG DASH con PlayReady, assicurarsi di usare le opzioni CENC impostando su true le proprietà useSencBox e adjustSubSamples, descritte nell'articolo [Set di impostazioni di attività per Azure Media Encryptor](https://msdn.microsoft.com/library/azure/hh973610.aspx).  
 > 
 > 
 
 Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in cui si trova il file MP4 di input.
 
-E anche a dove si trovano i file Mediapackager_mp4tosmooth e MediaEncryptor_PlayReadyProtection.xml. MediaPackager_MP4ToSmooth.xml è definito in [Set di impostazioni per Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) e MediaEncryptor_PlayReadyProtection.xml è definito nell'articolo [Set di impostazioni di attività per Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx). 
+E anche a dove si trovano i file Mediapackager_mp4tosmooth e MediaEncryptor_PlayReadyProtection.xml. MediaPackager_MP4ToSmooth.xml è definito in [Set di impostazioni per Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) e MediaEncryptor_PlayReadyProtection.xml è definito nell'articolo [Set di impostazioni di attività per Azure Media Encryptor](https://msdn.microsoft.com/library/azure/hh973610.aspx). 
 
 Nell'esempio viene definito il metodo UpdatePlayReadyConfigurationXMLFile che è possibile utilizzare per aggiornare dinamicamente il file MediaEncryptor_PlayReadyProtection.xml. Se si ha il seme chiave disponibile, è possibile utilizzare il metodo CommonEncryption.GeneratePlayReadyContentKey per generare la chiave simmetrica sulla base dei valori keySeedValue e KeyId.
 
@@ -712,7 +712,7 @@ Se si desidera crittografare il contenuto HLS con AES-128, è possibile sceglier
 > 
 > 
 
-L'esempio riportato in questa sezione codifica un file in formato intermedio (in questo caso MP4) in file MP4 a velocità multipla e poi i pacchetti MP4s in Smooth Streaming. Viene poi inserito Smooth Streaming in HTTP Live Streaming (HLS) crittografato con crittografia Advanced Encryption Standard (AES) 128-bit. Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in cui si trova il file MP4 di input. E inoltre a dove si trovano i file di configurazione Mediapackager_mp4tosmooth e MediaPackager_SmoothToHLS.xml. È possibile trovare la definizione di questi file nell'articolo [Set di impostazioni per Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx).
+L'esempio riportato in questa sezione codifica un file in formato intermedio (in questo caso MP4) in file MP4 a velocità multipla e poi i pacchetti MP4s in Smooth Streaming. Viene poi inserito Smooth Streaming in HTTP Live Streaming (HLS) crittografato con crittografia Advanced Encryption Standard (AES) 128-bit. Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in cui si trova il file MP4 di input. E inoltre a dove si trovano i file di configurazione Mediapackager_mp4tosmooth e MediaPackager_SmoothToHLS.xml. È possibile trovare la definizione di questi file nell'articolo [Set di impostazioni per Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx).
 
 ```csharp
     using System;
@@ -997,7 +997,7 @@ L'esempio riportato in questa sezione codifica un file in formato intermedio (in
 
 Servizi multimediali offre un servizio per la distribuzione di licenze Microsoft PlayReady. Nell'esempio riportato in questo articolo viene illustrato come configurare il servizio di recapito licenze PlayReady di servizi multimediali (vedere il metodo **ConfigureLicenseDeliveryService** definito nel codice riportato di seguito). 
 
-Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in cui si trova il file MP4 di input. E inoltre a dovei si trovano i file Mediapackager_mp4tosmooth, MediaPackager_SmoothToHLS.xml e MediaEncryptor_PlayReadyProtection.xml. MediaPackager_MP4ToSmooth.xml e MediaPackager_SmoothToHLS.xml sono definiti in [Set di impostazioni per Azure Media Packager](http://msdn.microsoft.com/library/azure/hh973635.aspx) e MediaEncryptor_PlayReadyProtection.xml è definito nell'articolo [Set di impostazioni di attività per Azure Media Encryptor](http://msdn.microsoft.com/library/azure/hh973610.aspx).
+Assicurarsi di aggiornare il codice seguente in modo che punti alla cartella in cui si trova il file MP4 di input. E inoltre a dovei si trovano i file Mediapackager_mp4tosmooth, MediaPackager_SmoothToHLS.xml e MediaEncryptor_PlayReadyProtection.xml. MediaPackager_MP4ToSmooth.xml e MediaPackager_SmoothToHLS.xml sono definiti in [Set di impostazioni per Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) e MediaEncryptor_PlayReadyProtection.xml è definito nell'articolo [Set di impostazioni di attività per Azure Media Encryptor](https://msdn.microsoft.com/library/azure/hh973610.aspx).
 
 ```csharp
     using System;
