@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301484"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228981"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Come gestire un'app per le funzioni nel portale di Azure 
 
@@ -50,7 +50,7 @@ In alcuni casi può essere difficile trovare le risorse nel [portale di Azure]. 
 
 Nella scheda **Impostazioni** è possibile aggiornare la versione di runtime di Funzioni usata dall'app per le funzioni. È anche possibile gestire le chiavi host usate per limitare l'accesso HTTP a tutte le funzioni ospitate dall'app per le funzioni.
 
-Funzioni supporta sia i piani di hosting a consumo che i piani di hosting del servizio app. Per altre informazioni vedere [Scegliere il piano di servizio corretto per Funzioni di Azure](functions-scale.md). Per una migliore prevedibilità nel piano di consumo, Funzioni consente di limitare l'uso della piattaforma impostando una quota di uso giornaliera, in secondi di gigabyte. Quando la quota di uso giornaliera viene raggiunta, l'app per le funzioni viene arrestata. In questo caso può essere riattivata dallo stesso contesto dell'impostazione della quota di spesa giornaliera. Vedere la [pagina prezzi di Funzioni di Azure](http://azure.microsoft.com/pricing/details/functions/) per altre informazioni sulla fatturazione.   
+Funzioni supporta sia i piani di hosting a consumo che i piani di hosting del servizio app. Per altre informazioni vedere [Scegliere il piano di servizio corretto per Funzioni di Azure](functions-scale.md). Per una migliore prevedibilità nel piano di consumo, Funzioni consente di limitare l'uso della piattaforma impostando una quota di uso giornaliera, in secondi di gigabyte. Quando la quota di uso giornaliera viene raggiunta, l'app per le funzioni viene arrestata. In questo caso può essere riattivata dallo stesso contesto dell'impostazione della quota di spesa giornaliera. Vedere la [pagina prezzi di Funzioni di Azure](https://azure.microsoft.com/pricing/details/functions/) per altre informazioni sulla fatturazione.   
 
 ## <a name="platform-features-tab"></a>Scheda delle funzionalità della piattaforma
 
@@ -69,7 +69,7 @@ La restante parte di questo argomento illustra le seguenti funzionalità di serv
 + [Strumenti avanzati (Kudu)](#kudu)
 + [Opzioni di distribuzione](#deployment)
 + [CORS](#cors)
-+ [Autenticazione](#auth)
++ [autenticazione](#auth)
 + [Definizione dell'API](#swagger)
 
 Per altre informazioni su come usare le impostazioni del servizio app, vedere [Configurare le impostazioni di del servizio app di Azure](../app-service/web-sites-configure.md).

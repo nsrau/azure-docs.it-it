@@ -13,12 +13,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
 ms.author: rogarana
-ms.openlocfilehash: 970315c5d597d691454f9dea0a76f2c0dc4a40ec
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 58e2275398216f29764d54d1a230959e86eda0b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "29360718"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253262"
 ---
 # <a name="migrate-blobs-across-storage-accounts-using-azcopy-on-windows"></a>Eseguire la migrazione di oggetti BLOB tra account di archiviazione tramite AzCopy in Windows
 
@@ -30,7 +30,7 @@ Per questo esempio è necessario disporre del modulo di archiviazione di Azure P
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-Questo esempio richiede inoltre la versione più recente di[AzCopy in Windows](http://aka.ms/downloadazcopy). La directory di installazione predefinita è `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`.
+Questo esempio richiede inoltre la versione più recente di[AzCopy in Windows](https://aka.ms/downloadazcopy). La directory di installazione predefinita è `C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\`.
 
 Questo esempio usa un nome e una chiave dell'account di archiviazione di origine, un nome e una chiave dell'account di archiviazione di destinazione e il percorso intero di AzCopy.exe (se non è installato nella directory predefinita).
 

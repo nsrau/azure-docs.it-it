@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 86fc1c3542bea1be840041bb73df15631c066c7e
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a91daf08a56470e4d1e112e37b51150c2c5f00ef
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294973"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230319"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorare, ricevere e inviare eventi con Hub eventi di Azure e App per la logica di Azure 
 
@@ -25,7 +25,7 @@ Questo articolo illustra come monitorare e gestire gli eventi inviati ad [Hub ev
 Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 Per informazioni tecniche specifiche per il connettore, vedere le <a href="https://docs.microsoft.com/connectors/eventhubs/" target="blank">informazioni di riferimento sul connettore di Hub eventi di Azure</a>.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Uno [spazio dei nomi di Hub eventi di Azure e Hub eventi](../event-hubs/event-hubs-create.md)
 
@@ -52,7 +52,7 @@ Affinché l'app per la logica possa accedere a Hub eventi, verificare le autoriz
       ![Copiare la stringa di connessione dello spazio dei nomi di Hub eventi](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
       > [!TIP]
-      > Per verificare se la stringa di connessione è associata allo spazio dei nomi di Hub eventi o a un hub eventi specifico, assicurarsi che nella stringa non sia presente il parametro `EntityPath`. Se questo parametro è presente, la stringa di connessione è per un'entità hub eventi specifica e non è la stringa corretta da usare con l'app per la logica.
+      > Per verificare se la stringa di connessione è associata allo spazio dei nomi di Hub eventi o a un hub eventi specifico, assicurarsi che nella stringa non sia presente il parametro `EntityPath` . Se questo parametro è presente, la stringa di connessione è per un'entità hub eventi specifica e non è la stringa corretta da usare con l'app per la logica.
 
 4. Procedere quindi ad [aggiungere un trigger per hub eventi](#add-trigger) o [aggiungere un'azione per hub eventi](#add-action).
 
@@ -66,9 +66,10 @@ Nell'esempio viene illustrato come avviare un flusso di lavoro di app per la log
 
 1. Nel portale di Azure o in Visual Studio creare un'app per la logica vuota, che apre Progettazione app per la logica. Questo esempio usa il portale di Azure.
 
-2. Nella casella di ricerca immettere "hub eventi" come filtro. Nell'elenco di trigger selezionare il trigger desiderato. 
+2. Nella casella di ricerca, immettere "hub eventi" come filtro. Nell'elenco di trigger selezionare il trigger desiderato. 
 
-   Nell'esempio viene usato il trigger **Event Hubs - When events are available in Event Hub** (Hub eventi - Quando sono disponibili eventi nell'hub eventi)
+   Nell'esempio viene usato il trigger:  
+   **Hub eventi - Quando sono disponibili eventi nell'hub eventi**
 
    ![Selezionare il trigger](./media/connectors-create-api-azure-event-hubs/find-event-hubs-trigger.png)
 
@@ -111,13 +112,13 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
 
 1. Nel portale di Azure o in Visual Studio aprire l'app per la logica in Progettazione app per la logica. Questo esempio usa il portale di Azure.
 
-2. Nel trigger o nell'azione, scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
+2. Nel trigger o nell'azione scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
 
    Per aggiungere un'azione tra due passaggi esistenti, posizionare il puntatore del mouse sulla freccia di connessione. 
    Fare clic sul segno più (**+**) visualizzato e quindi scegliere **Aggiungi un'azione**.
 
-3. Nella casella di ricerca immettere "hub eventi" come filtro.
-Nell'elenco delle azioni scegliere l'azione desiderata. 
+3. Nella casella di ricerca, immettere "hub eventi" come filtro.
+Nell'elenco delle azioni, scegliere l'azione desiderata. 
 
    Nell'esempio, selezionare l'azione **Hub eventi - Invia evento**
 
@@ -127,7 +128,7 @@ Nell'elenco delle azioni scegliere l'azione desiderata.
 
    | Proprietà | Obbligatoria | DESCRIZIONE | 
    |----------|----------|-------------|
-   | Nome dell'hub eventi | Sì | Selezionare l'hub eventi a cui inviare l'evento | 
+   | Nome dell'hub eventi | Yes | Selezionare l'hub eventi a cui inviare l'evento | 
    | Contenuto dell'evento | No  | Contenuto dell'evento da inviare | 
    | Properties | No  | Proprietà dell'app e valori da inviare | 
    |||| 
@@ -148,8 +149,8 @@ Nell'elenco delle azioni scegliere l'azione desiderata.
 
    | Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
    |----------|----------|-------|-------------|
-   | Connection Name (Nome connessione) | Sì | <*nome connessione*> | Nome creato per la connessione |
-   | Spazio dei nomi di Hub eventi | Sì | <*spazio dei nomi di hub eventi*> | Selezionare lo spazio dei nomi di Hub eventi da usare. | 
+   | Connection Name (Nome connessione) | Yes | <*nome connessione*> | Nome creato per la connessione |
+   | Spazio dei nomi di Hub eventi | Yes | <*spazio dei nomi di hub eventi*> | Selezionare lo spazio dei nomi di Hub eventi da usare. | 
    |||||  
 
    Ad esempio: 
@@ -172,7 +173,7 @@ Per informazioni tecniche, ad esempio su trigger, azioni e limiti indicati nel f
 ## <a name="get-support"></a>Supporto
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](http://aka.ms/logicapps-wish).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
