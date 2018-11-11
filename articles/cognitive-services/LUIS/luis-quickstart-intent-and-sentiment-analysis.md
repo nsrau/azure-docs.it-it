@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ff5a47f977f34535c5ad1fde7e6cac5995e7f7dd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031459"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277478"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Esercitazione 9: estrazione della valutazione dell'intera espressione
 Questa esercitazione mostra come creare un'app che illustra come estrarre una valutazione positiva, negativa e neutra da espressioni. La valutazione è determinata dall'intera espressione.
@@ -47,7 +47,7 @@ Poiché si tratta di un'impostazione di pubblicazione, non è presente nelle pag
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
 
-Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
 Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
@@ -55,12 +55,12 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 2. Importare il file JSON in una nuova app.
 
-3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `sentiment`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL.
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `sentiment`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL.
 
 ## <a name="employeefeedback-intent"></a>Finalità EmployeeFeedback 
 Aggiungere una nuova finalità per acquisire il feedback dei dipendenti dai membri dell'azienda. 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Create new intent** (Crea nuova finalità).
 

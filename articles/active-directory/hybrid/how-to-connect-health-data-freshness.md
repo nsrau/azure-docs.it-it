@@ -3,7 +3,7 @@ title: Azure AD Connect Health - Avviso "I dati del Servizio integrità non sono
 description: In questo documento vengono descritte la causa dell'avviso "I dati del Servizio integrità non sono aggiornati" e la modalità di risoluzione di questo problema.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: maheshu
 editor: ''
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: zhiweiw
-ms.openlocfilehash: ca9f23703315424fcf08350ae3111a20dd94c160
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 93f0d31f5daa13d0598367e2a4ddab67ff3dbc66
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233226"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279716"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>I dati del Servizio integrità non sono aggiornati
 
@@ -39,7 +39,7 @@ ms.locfileid: "50233226"
 
 | Elementi dati | Passaggi per la risoluzione dei problemi |
 | --- | --- | 
-| PerfCounter | - [Connettività in uscita agli endpoint di servizio di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [L'analisi SSL per il traffico in uscita è filtrata o disabilitata](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Porte del firewall nel server che esegue l'agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+| PerfCounter | - [Connettività in uscita agli endpoint di servizio di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [L'analisi SSL per il traffico in uscita è filtrata o disabilitata](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Porte del firewall nel server che esegue l'agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
 | AadSyncService-SynchronizationRules, <br /> AadSyncService-Connectors, <br /> AadSyncService-GlobalConfigurations, <br /> AadSyncService-RunProfileResults, <br /> AadSyncService-ServiceConfigurations, <br /> AadSyncService-ServiceStatus | - Per altre informazioni sulla connettività in uscita in base agli indirizzi IP, vedere [Azure IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli IP di Azure) <br /> - [Connettività in uscita agli endpoint di servizio di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Porte del firewall nel server che esegue l'agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
 
 ### <a name="connect-health-for-adfs"></a>Connect Health per file system distribuito di Azure
@@ -48,14 +48,14 @@ Passaggi aggiuntivi per la convalida in AD FS e per seguire il flusso di lavoro 
 
 | Elementi dati | Passaggi per la risoluzione dei problemi |
 | --- | --- | 
-| PerfCounter, TestResult | - [Connettività in uscita agli endpoint di servizio di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [L'analisi SSL per il traffico in uscita è filtrata o disabilitata](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Porte del firewall nel server che esegue l'agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+| PerfCounter, TestResult | - [Connettività in uscita agli endpoint di servizio di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [L'analisi SSL per il traffico in uscita è filtrata o disabilitata](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Porte del firewall nel server che esegue l'agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
 |  Adfs-UsageMetrics | Per altre informazioni sulla connettività in uscita in base agli indirizzi IP, vedere [Azure IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli IP di Azure) | 
 
 ### <a name="connect-health-for-adds"></a>Connect Health per ADDS
 
 | Elementi dati | Passaggi per la risoluzione dei problemi |
 | --- | --- | 
-| PerfCounter, Adds-TopologyInfo-Json, Common-TestData-Json | - [Connettività in uscita agli endpoint di servizio di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [L'analisi SSL per il traffico in uscita è filtrata o disabilitata](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Porte del firewall nel server che esegue l'agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) <br />  - Per altre informazioni sulla connettività in uscita in base agli indirizzi IP, vedere [Azure IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli IP di Azure)  |
+| PerfCounter, Adds-TopologyInfo-Json, Common-TestData-Json | - [Connettività in uscita agli endpoint di servizio di Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [L'analisi SSL per il traffico in uscita è filtrata o disabilitata](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Porte del firewall nel server che esegue l'agente](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE](https://technet.microsoft.com/windows/ms537180(v=vs.60)) <br />  - Per altre informazioni sulla connettività in uscita in base agli indirizzi IP, vedere [Azure IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Intervalli IP di Azure)  |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -7,32 +7,24 @@ items:
     href: iot-introduction.md
   - name: Servizi e tecnologie di Azure IoT
     href: iot-services-and-technologies.md
-- name: Soluzioni
-  items:
-  - name: Acceleratori di soluzioni IoT
-    href: /azure/iot-suite
-  - name: IoT Central
-    href: https://docs.microsoft.com/microsoft-iot-central/
-- name: Servizi della piattaforma
+- name: Services
   items:
   - name: Hub IoT
     href: /azure/iot-hub
   - name: Servizio Device Provisioning in hub IoT
     href: /azure/iot-dps
+  - name: Acceleratori di soluzioni IoT
+    href: /azure/iot-suite
+  - name: IoT Central
+    href: /azure/iot-central
+  - name: IoT Edge
+    href: /azure/iot-edge
   - name: Gemelli digitali di Azure
     href: /azure/digital-twins
   - name: Mappe di Azure
     href: /azure/azure-maps
   - name: Time Series Insights
     href: /azure/time-series-insights
-  - name: SDK per servizi
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-- name: Microsoft Edge
-  items:
-  - name: IoT Edge
-    href: /azure/iot-edge
-  - name: IoT SDK per dispositivi
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Sicurezza
   items:
   - name: Architettura di sicurezza
@@ -43,9 +35,15 @@ items:
     href: iot-security-deployment.md
   - name: Sicurezza sin dall'inizio
     href: iot-security-ground-up.md
-ms.openlocfilehash: df43416b0d1e72e152a2917846ba0407c861421b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+- name: SDK
+  items:
+  - name: SDK per servizi
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+  - name: IoT SDK per dispositivi
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+ms.openlocfilehash: 82b04e5f6db3142180b1a10264342862793740eb
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321369"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287167"

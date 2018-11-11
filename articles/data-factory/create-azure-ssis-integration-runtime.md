@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 5284b31ddf2ace3c1b9ed587e8f09301c17a54a7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 75b5246b83106b7d331ad3d467de2005e8d1f854
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211765"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279100"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare il runtime di integrazione SSIS di Azure in Azure Data Factory
 Questo articolo illustra la procedura di provisioning di un runtime di integrazione SSIS di Azure in Azure Data Factory. È quindi possibile usare SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) per distribuire ed eseguire pacchetti SQL Server Integration Services (SSIS) in questo runtime in Azure. 
@@ -27,7 +27,7 @@ L'esercitazione [Distribuire pacchetti SQL Server Integration Services in Azure]
 
 - Facoltativamente usare il database SQL di Azure con gli endpoint di servizio di rete virtuale/Istanza gestita come server di database per ospitare il catalogo SSIS (database SSISDB). Per informazioni sulla scelta del tipo di server di database per ospitare SSISDB, vedere [Confrontare il server logico del database SQL e Istanza gestita di database SQL](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Come prerequisito, è necessario aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale e configurare le autorizzazioni della rete virtuale e le impostazioni come necessario. Vedere [Aggiungere il runtime di integrazione SSIS di Azure a una rete virtuale](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
-- Facoltativamente, usare l'autenticazione di Azure Active Directory (AAD) con l'identità gestita per Azure Data Factory per collegarsi al server di database. Come prerequisito, sarà necessario aggiungere l'identità gestita per Azure Data Factory in un gruppo AAD con autorizzazioni di accesso al server di database, vedere [Abilitare l'autenticazione AAD per Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
+- Facoltativamente, usare l'autenticazione di Azure Active Directory (AAD) con l'identità gestita per Azure Data Factory per collegarsi al server di database. Come prerequisito, sarà necessario aggiungere l'identità gestita per Azure Data Factory in un gruppo AAD con autorizzazioni di accesso al server di database, vedere [Abilitare l'autenticazione AAD per Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
 ## <a name="overview"></a>Panoramica
 Questo articolo illustra vari metodi per effettuare il provisioning di un runtime di integrazione Azure-SSIS: 
@@ -41,7 +41,7 @@ Quando si crea un Azure-SSIS IR, il servizio Data Factory si connette al databas
 Quando si effettua il provisioning di un'istanza del runtime di integrazione SSIS di Azure, vengono installati anche il Feature Pack di Azure per SSIS e Access Redistributable. Questi componenti forniscono la connettività ai file di Excel e di Access e a diverse origini dati di Azure, oltre che alle origini dati supportate dai componenti predefiniti. È anche possibile installare componenti aggiuntivi. Per altre informazioni, vedere [Installazione personalizzata per il runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md). 
 
 ## <a name="prerequisites"></a>Prerequisiti 
-- **Sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile creare un account di [valutazione gratuito](http://azure.microsoft.com/pricing/free-trial/). 
+- **Sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile creare un account di [valutazione gratuito](https://azure.microsoft.com/pricing/free-trial/). 
 
 - **Server logico del database SQL di Azure o Istanza gestita di database SQL**. Se non si ha ancora un server di database, crearne uno nel portale di Azure prima di iniziare. Questo server ospita il database del catalogo SSIS (SSISDB). È consigliabile creare il server di database nella stessa area di Azure del runtime di integrazione. Questa configurazione consente al runtime di integrazione di scrivere i log di esecuzione in SSISDB senza attraversare aree di Azure. In base al server di database selezionato, il database SSISDB può essere creato per conto dell'utente come database singolo, parte di un pool elastico o in un'istanza gestita e reso accessibile in una rete pubblica o mediante l'aggiunta a una rete virtuale. Per un elenco di piani tariffari supportati per il database SQL di Azure, vedere [Limiti delle risorse del database SQL](../sql-database/sql-database-resource-limits.md). 
 
@@ -62,7 +62,7 @@ Nella tabella seguente vengono confrontate alcune funzionalità del server logic
 
 | Funzionalità | Server logico del database SQL| Istanza gestita di database SQL |
 |---------|--------------|------------------|
-| **Pianificazione** | SQL Server Agent non è disponibile.<br/><br/>Vedere [Pianificare un pacchetto come parte di una pipeline di Azure Data Factory](https://docs.microsoft.com/en-us/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| L’agente di istanza gestita è disponibile. |
+| **Pianificazione** | SQL Server Agent non è disponibile.<br/><br/>Vedere [Pianificare un pacchetto come parte di una pipeline di Azure Data Factory](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| L’agente di istanza gestita è disponibile. |
 | **autenticazione** | È possibile creare un database con un account utente di database indipendente che rappresenta tutti gli utenti di Azure Active Directory per il ruolo **dbmanager**.<br/><br/>Vedere [Abilitare Azure Active Directory nel database SQL di Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Non è possibile creare un database con un account utente di database indipendente che rappresenta tutti gli utenti di Azure Active Directory diverso da un amministratore di Azure Active Directory. <br/><br/>Vedere [Abilitare Azure AD in Istanza gestita di database SQL di Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Livello di servizio** | Quando si crea il runtime di integrazione SSIS di Azure nel Database SQL, è possibile selezionare il livello di servizio per SSISDB. Sono disponibili più livelli di servizi. | Quando si crea il runtime di integrazione SSIS di Azure in un'istanza gestita, non è possibile selezionare il livello di servizio per SSISDB. Tutti i database nella stessa istanza gestita condividono la stessa risorsa allocata a quell'istanza. |
 | **Rete virtuale** | Supporta sia Azure Resource Manager sia le reti virtuali classiche per Azure-SSIS IR se si usa il database SQL di Azure con endpoint del servizio rete virtuale o si richiede l'accesso a dati in locale. | Supporta solo una rete virtuale di Azure Resource Manager per aggungere Azure-SSIS IR. La rete virtuale è obbligatoria.<br/><br/>Unendo il runtime di integrazione Azure-SSIS alla stessa rete virtuale di Istanza gestita, assicurarsi che il runtime di integrazione Azure-SSIS si trovi in una subnet diversa rispetto a Istanza gestita. Unendo il runtime di integrazione Azure-SSIS a una rete virtuale diversa da quella di Istanza gestita, è consigliabile effettuare un peering di rete virtuale (limitato alla stessa area) o stabilire una connessione tra reti virtuali. Vedere [Connettere un'applicazione a Istanza gestita di database SQL di Azure](../sql-database/sql-database-managed-instance-connect-app.md). |
@@ -144,7 +144,7 @@ In questa sezione si userà il portale di Azure, e in particolare l'interfaccia 
 
     c. Per **Catalog Database Server Endpoint** (Endpoint server di database del catalogo), selezionare l'endpoint del server di database che ospiterà SSISDB. In base al server di database selezionato, il database SSISDB può essere creato per conto dell'utente come database singolo, parte di un pool elastico o in un'istanza gestita e reso accessibile in una rete pubblica o mediante l'aggiunta a una rete virtuale. 
 
-    d. Nella casella di controllo **Use AAD authentication** (Usa autenticazione AAD) selezionare il metodo di autenticazione per il server di database che ospiterà SSISDB, ovvero SQL o Azure Active Directory (AAD) con l'identità gestita per Azure Data Factory. Se si seleziona la casella di controllo, è necessario aggiungere l'identità gestita per ADF in un gruppo AAD con autorizzazioni di accesso al server di database. Vedere [Abilitare l'autenticazione AAD per Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
+    d. Nella casella di controllo **Use AAD authentication** (Usa autenticazione AAD) selezionare il metodo di autenticazione per il server di database che ospiterà SSISDB, ovvero SQL o Azure Active Directory (AAD) con l'identità gestita per Azure Data Factory. Se si seleziona la casella di controllo, è necessario aggiungere l'identità gestita per ADF in un gruppo AAD con autorizzazioni di accesso al server di database. Vedere [Abilitare l'autenticazione AAD per Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
     e. Per **Nome utente amministratore**, immettere il nome utente di autenticazione SQL per il server di database che ospiterà SSISDB. 
 
@@ -333,7 +333,7 @@ Se non si usa il database SQL di Azure con gli endpoint di servizio di rete virt
 
 Se si usa Istanza gestita per ospitare SSISDB, è possibile omettere il parametro CatalogPricingTier o passare al suo posto un valore vuoto. In caso contrario, non è possibile ometterlo ed è necessario passare un valore valido dall'elenco dei livelli di prezzo supportati per il Database SQL di Azure, vedere [Limiti delle risorse del Database SQL](../sql-database/sql-database-resource-limits.md). 
 
-Se si usa l'autenticazione di Azure Active Directory (AAD) con l'identità gestita per consentire ad Azure Data Factory di connettersi al server di database, è possibile omettere il parametro CatalogAdminCredential, ma è necessario aggiungere l'identità gestita di ADF in un gruppo AAD con autorizzazioni di accesso al server di database. Vedere [Abilitare l'autenticazione AAD per Azure-SSIS IR](https://docs.microsoft.com/en-us/azure/data-factory/enable-aad-authentication-azure-ssis-ir). In caso contrario, non sarà possibile ometterlo e si dovrà passare un oggetto valido formato dal nome utente e dalla password dell'amministratore server per l'autenticazione SQL.
+Se si usa l'autenticazione di Azure Active Directory (AAD) con l'identità gestita per consentire ad Azure Data Factory di connettersi al server di database, è possibile omettere il parametro CatalogAdminCredential, ma è necessario aggiungere l'identità gestita di ADF in un gruppo AAD con autorizzazioni di accesso al server di database. Vedere [Abilitare l'autenticazione AAD per Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). In caso contrario, non sarà possibile ometterlo e si dovrà passare un oggetto valido formato dal nome utente e dalla password dell'amministratore server per l'autenticazione SQL.
 
 ```powershell               
 Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

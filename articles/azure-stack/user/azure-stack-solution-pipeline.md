@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: a9e601d0bd9a4d7879ecd205488c6a901a464021
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419836"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280742"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Esercitazione: Distribuire le App in Azure e Azure Stack
 
@@ -292,7 +292,7 @@ Ora che le informazioni sull'endpoint esistente, i servizi di DevOps di Azure al
 | Nome della sottoscrizione | name@contoso.com | Nome della sottoscrizione utente da Azure Stack. |
 | ID client dell'entità servizio | FF74AACF-XXXX-4776-FC 93-C63E6E021D59 | L'ID dell'entità da [ciò](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sezione in questo articolo. |
 | Chiave dell'entità servizio | THESCRETGOESHERE = | La chiave da stesso articolo (o la password se si usa lo script). |
-| ID tenant | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | L'ID tenant è recuperare segue l'istruzione a ottenere il tenant ID. L'ID tenant è recuperare in seguito con l'istruzione [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| ID tenant | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | L'ID tenant è recuperare in seguito con l'istruzione [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
 | Connessione: | Non verificato | Convalidare le impostazioni di connessione per l'entità servizio. |
 
 Ora che l'endpoint viene creato, è pronto per l'uso di DevOps alla connessione di Azure Stack. L'agente di compilazione in Azure Stack Ottiene le istruzioni dalla metodologia DevOps, e quindi l'agente fornisce informazioni sull'endpoint per la comunicazione con Azure Stack.
@@ -317,7 +317,7 @@ L'aggiornamento più recente a DevOps di Azure consente di creare una connession
 | Nome della sottoscrizione | name@contoso.com | Nome della sottoscrizione utente da Azure Stack. |
 | ID client dell'entità servizio | FF74AACF-XXXX-4776-FC 93-C63E6E021D59 | L'ID client dall'entità servizio creata per AD FS. |
 | Certificate | `<certificate>` |  Convertire il file di certificato da PFX PEM. Incollare il contenuto di file di certificato con estensione PEM in questo campo. <br> Conversione di file PFX in PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
-| ID tenant | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | L'ID tenant è recuperare segue l'istruzione a ottenere il tenant ID. L'ID tenant è recuperare in seguito con l'istruzione [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| ID tenant | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | L'ID tenant è recuperare in seguito con l'istruzione [ottenere l'ID tenant](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
 | Connessione: | Non verificato | Convalidare le impostazioni di connessione per l'entità servizio. |
 
 Ora che l'endpoint viene creato, è pronto per l'uso di DevOps di Azure alla connessione di Azure Stack. L'agente di compilazione in Azure Stack Ottiene le istruzioni dalla metodologia DevOps di Azure e l'agente comunica quindi informazioni sull'endpoint per la comunicazione con Azure Stack.

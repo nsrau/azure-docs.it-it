@@ -10,12 +10,12 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 83373f5d6e4a2227bcafdbc4b25b686b0b8d651d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a315394ab394e7f4dfe528cf765c9ac5a65c80c4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867188"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277002"
 ---
 # <a name="prepare-data-for-modeling-with-azure-machine-learning"></a>Preparare i dati per la modellazione con Azure Machine Learning
  
@@ -34,4 +34,4 @@ I passaggi di preparazione dei dati principali sono:
 ![Preparazione dei dati](./media/concept-data-preparation/data-prep-process.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-Consultare un [notebook di esempio](https://github.com/Microsoft/MSDataPrepDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb) sulla preparazione dei dati con il Software Development Kit Azure Machine Learning Data Prep.
+Consultare un [notebook di esempio](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) sulla preparazione dei dati con il Software Development Kit Azure Machine Learning Data Prep.

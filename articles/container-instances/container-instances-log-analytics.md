@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
 ms.author: danlep
-ms.openlocfilehash: dc6aab03ec3e0ec47026c7d435ea538612c7bffb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5d3ba4ac4a86b6051ea5dafbff8c038c9198108c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405600"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279552"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Registrazione di istanze di contenitore con Azure Log Analytics
 
@@ -134,7 +134,7 @@ ContainerInstanceLog_CL
 
 Per altre informazioni sull'esecuzione di query nei log e la configurazione di avvisi in Azure Log Analytics, vedere:
 
-* [Informazioni sulle ricerche log in Log Analytics](../log-analytics/log-analytics-log-search.md)
+* [Informazioni sulle ricerche log in Log Analytics](../log-analytics/log-analytics-queries.md)
 * [Avvisi unificati in Monitoraggio di Azure](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
 
 ### <a name="monitor-container-cpu-and-memory"></a>Monitorare CPU e memoria del contenitore

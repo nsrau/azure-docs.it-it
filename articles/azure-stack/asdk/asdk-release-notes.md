@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 8e8518cdf95e1b97bd4b641322c1b2a3fdc3bf9e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282459"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515761"
 ---
 # <a name="asdk-release-notes"></a>Note sulla versione ASDK  
 Questo articolo fornisce informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit (ASDK). Se non si conosce quale versione in esecuzione, è possibile [usare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,7 +46,7 @@ Per altre informazioni, vedere [l'inoltro di syslog di Azure Stack](../azure-sta
 <!-- TBD - IS ASDK --> 
 - Risolto un problema in cui sono create macchine virtuali nel portale utenti Azure Stack e il portale è visualizzato un numero errato di dischi dati che è possibile collegare a una VM serie DS. Le VM serie DS può supportare tutti i dischi dati come la configurazione di Azure.
 
-- I seguenti problemi di disco gestito sono stati risolti in 1809 e sono stati inoltre corretti nel 1808 [Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/): 
+- I seguenti problemi di disco gestito sono stati risolti in 1809 e sono stati inoltre corretti nel 1808 [Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/): 
 
    <!--  2966665 – IS, ASDK --> 
    - Risolto il problema in cui collegamento SSD i dischi dati premium di dimensioni delle macchine virtuali disco gestito (DS, DSv2, Fs, Fs_V2) non è riuscite con errore: *non è stato possibile aggiornare i dischi della macchina virtuale 'vmname' errore: non è possibile eseguire l'operazione perché richiesta tipo di account di archiviazione "Premium_LRS" non è supportata per dimensioni della macchina virtuale ' Standard_DS/Ds_V2/ADFS/Fs_v2)*. 
@@ -59,6 +59,16 @@ Per altre informazioni, vedere [l'inoltro di syslog di Azure Stack](../azure-sta
 - <!-- 2702741 -  IS, ASDK --> Risolto un problema in cui gli indirizzi IP pubblici che sono stati distribuiti usando l'allocazione dinamica (metodo) non sono garantiti deve rimanere invariato dopo l'esecuzione di un arresto-deallocazione. Vengono ora mantenuti.
 
 - <!-- 3078022 - IS, ASDK --> Se una macchina virtuale è stato di arresto-deallocazione prima 1808 causa potrebbe non essere riallocata dopo l'aggiornamento 1808.  Questo problema viene risolto in 1809. Le istanze che erano in questo stato e non è stato possibile avviare possono essere avviate in 1809 con questa correzione. La correzione impedisce inoltre il problema ricorrente.
+
+<!-- 3090289 – IS, ASDK --> 
+- Risolto un problema in cui dopo aver applicato l'aggiornamento 1808, si possono verificarsi i seguenti problemi quando si distribuiscono le macchine virtuali con Managed Disks:
+
+   1. Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
+      1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
+      2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
+   2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
+      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992).
+      2. Seguire i passaggi descritti in [questo articolo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
 
 - **Varie correzioni di** per le prestazioni, stabilità, sicurezza e il sistema operativo che viene usato da Azure Stack
 
@@ -100,7 +110,7 @@ Per altre informazioni, vedere [l'inoltro di syslog di Azure Stack](../azure-sta
 
 #### <a name="compute"></a>Calcolo 
 
-<!-- TBD – IS, ASDK -->
+<!-- 3164607 – IS, ASDK -->
 - Ricollegare un disco scollegato alla stessa macchina virtuale (VM) con lo stesso nome e il numero di unità LOGICA ha esito negativo con un errore, ad esempio **non è possibile collegare un disco dati 'datadisk' alla macchina virtuale 'vm1'**. L'errore si verifica perché il disco è attualmente in fase di scollegamento o l'ultima operazione non riuscita di scollegamento. Attendere che il disco sia completamente scollegato e quindi riprovare o eliminare/scollegare il disco in modo esplicito anche in questo caso. La soluzione alternativa consiste nel ricollegarlo con un nome diverso o in un LUN diversi. 
 
 <!-- 3235634 – IS, ASDK -->
@@ -108,16 +118,6 @@ Per altre informazioni, vedere [l'inoltro di syslog di Azure Stack](../azure-sta
 
 <!-- 3099544 – IS, ASDK --> 
 - Quando si crea una nuova macchina virtuale (VM) tramite il portale di Azure Stack, e si seleziona la dimensione di macchina virtuale, la colonna dollari/mese viene visualizzata con un **disponibile** messaggio. Questa colonna non deve essere visualizzato; visualizzare la macchina virtuale dei prezzi di colonna non è supportato in Azure Stack.
-
-<!-- 3090289 – IS, ASDK --> 
-- Dopo aver applicato la 1808 aggiornamento, si potrebbero verificare i problemi seguenti durante la distribuzione di macchine virtuali con Managed Disks:
-
-   1. Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
-      1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
-      2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
-   2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
-      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920).
-      2. Seguire i passaggi descritti in [questo articolo](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
 
 <!-- 2869209 – IS, ASDK --> 
 - Quando si usa la [ **Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), è necessario usare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. Se si usa il percorso locale del disco, il cmdlet non riesce con l'errore seguente: *operazione a esecuzione prolungata non è riuscita con stato 'Non riuscita'*. 

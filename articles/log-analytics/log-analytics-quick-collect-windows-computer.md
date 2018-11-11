@@ -16,15 +16,15 @@ ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 87d1aef0ffbf1a6b371947d804aa48503b507284
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e3d1ad02c8d5df7e9dac7437f2e442c2dc9dfcb9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417056"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279178"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurare l'agente di Log Analytics per computer Windows in un ambiente ibrido
-[Azure Log Analytics](log-analytics-overview.md) può raccogliere dati direttamente dai computer Windows fisici o virtuali nel data center o in altri ambienti cloud in un unico repository per l'esecuzione di analisi dettagliate e della correlazione.  Questa guida introduttiva mostra come configurare e raccogliere dati dal computer Windows in pochi semplici passaggi.  Per le macchine virtuali Windows di Azure, vedere l'argomento seguente [Raccogliere dati sulle macchine virtuali di Azure](log-analytics-quick-collect-azurevm.md).  
+[Azure Log Analytics](log-analytics-agent-windows.md) può raccogliere dati direttamente dai computer Windows fisici o virtuali nel data center o in altri ambienti cloud in un unico repository per l'esecuzione di analisi dettagliate e della correlazione.  Questa guida introduttiva mostra come configurare e raccogliere dati dal computer Windows in pochi semplici passaggi.  Per le macchine virtuali Windows di Azure, vedere l'argomento seguente [Raccogliere dati sulle macchine virtuali di Azure](log-analytics-quick-collect-azurevm.md).  
 
 Per comprendere la configurazione supportata, vedere i [sistemi operativi Windows supportati](log-analytics-concept-hybrid.md#supported-windows-operating-systems) e la [configurazione del firewall di rete](log-analytics-concept-hybrid.md#network-firewall-requirements).
  

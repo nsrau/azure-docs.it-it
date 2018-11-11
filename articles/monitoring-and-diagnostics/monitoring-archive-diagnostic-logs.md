@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: caa8f1a10652c16e181c47fbbe4f9f0c815cfd67
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6efcb7bccfdfab18a57e709d9fdfa8492b159b34
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983685"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278090"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiviare i log di diagnostica di Azure
 
@@ -26,7 +26,7 @@ Questo articolo illustra come è possibile usare il portale di Azure, i cmdlet d
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, è necessario [creare un account di archiviazione](../storage/storage-create-storage-account.md) in cui archiviare i log di diagnostica. È consigliabile non usare un account di archiviazione esistente in cui sono archiviati altri dati non di monitoraggio, per poter controllare meglio l'accesso ai dati di monitoraggio. Se tuttavia in un account di archiviazione si archiviano anche il log attività e le metriche di diagnostica, può avere senso usare tale account di archiviazione anche per i log di diagnostica per tenere tutti i dati di monitoraggio in una posizione centrale.
+Prima di iniziare, è necessario [creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) in cui archiviare i log di diagnostica. È consigliabile non usare un account di archiviazione esistente in cui sono archiviati altri dati non di monitoraggio, per poter controllare meglio l'accesso ai dati di monitoraggio. Se tuttavia in un account di archiviazione si archiviano anche il log attività e le metriche di diagnostica, può avere senso usare tale account di archiviazione anche per i log di diagnostica per tenere tutti i dati di monitoraggio in una posizione centrale.
 
 > [!NOTE]
 >  Non è al momento possibile archiviare i dati in un account di archiviazione che risiede dietro una rete virtuale protetta.
@@ -161,7 +161,7 @@ Nel file PT1H.json ogni evento viene archiviato nella matrice "records", con que
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Introduzione all'archivio BLOB di Azure con .NET](../storage/storage-dotnet-how-to-use-blobs.md)
+* [Introduzione all'archivio BLOB di Azure con .NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Trasmettere log di diagnostica di Azure a uno spazio di nomi di Hub eventi](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Archiviare i log di Azure Active Directory tramite Monitoraggio di Azure](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Altre informazioni sui log di diagnostica](monitoring-overview-of-diagnostic-logs.md)

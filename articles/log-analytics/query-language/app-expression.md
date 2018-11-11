@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: d91e148320c4c59bb888975499aa1de16ffbf134
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dda137ecba91e3ac59be635eed22d18e5bcadcce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955062"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277308"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>espressione app() nelle query di Log Analytics
 
@@ -80,4 +80,4 @@ union
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere l'[espressione area di lavoro](workspace-expression.md) per fare riferimento all'area di lavoro di Log Analytics.
-- Altre informazioni sulla modalità di archiviazione dei [dati di Log Analytics](../../log-analytics/log-analytics-log-search.md).
+- Altre informazioni sulla modalità di archiviazione dei [dati di Log Analytics](../../log-analytics/log-analytics-queries.md).

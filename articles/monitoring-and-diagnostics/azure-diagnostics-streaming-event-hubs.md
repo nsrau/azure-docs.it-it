@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d21b6235c91a7d2f14b8b39c07891efe967ef572
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341236"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278243"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Trasmettere i dati di Diagnostica di Azure nel percorso critico tramite Hub eventi
 Diagnostica di Azure fornisce metodi flessibili per raccogliere le metriche e i log delle macchine virtuali (VM) di servizi cloud e trasferire i risultati in Archiviazione di Azure. A partire da marzo 2016 (SDK 2.9), è possibile eseguire inviare la diagnostica a origini dati completamente personalizzate e trasferire i dati del percorso critico in pochi secondi tramite [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -34,15 +34,15 @@ Questo articolo illustra le modalità di configurazione di Diagnostica di Azure 
 * Come visualizzare i dati di flusso di Hub eventi
 * Come risolvere i problemi di connessione  
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 La ricezione di dati di Diagnostica di Azure in Hub eventi è supportata in Servizi cloud, macchine virtuali, set di scalabilità di macchine virtuali e Service Fabric a partire da Azure SDK 2.9 e dalla versione corrispondente di Strumenti di Azure per Visual Studio.
 
 * Estensione di Diagnostica Azure 1.6 ([SDK di Azure per .NET 2.9 o versione successiva](https://azure.microsoft.com/downloads/) ha questa destinazione per impostazione predefinita)
 * [Visual Studio 2013 o versione successiva](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Configurazioni esistenti di Diagnostica di Azure in un'applicazione usando un file *.wadcfgx* e uno dei metodi seguenti:
-  * Visual Studio: [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Visual Studio: [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell: [Abilitare la diagnostica nei servizi Cloud di Azure tramite PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Provisioning dello spazio dei nomi dell'Hub eventi eseguito in base all'articolo [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* Provisioning dello spazio dei nomi dell'Hub eventi eseguito in base all'articolo [Introduzione all'Hub eventi](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Collegare Diagnostica di Azure al sink dell'Hub eventi
 Per impostazione predefinita, Diagnostica di Azure invia sempre log e metriche a un account di archiviazione di Azure. Un'applicazione può anche inviare dati agli Hub eventi aggiungendo una nuova sezione **Sinks** nell'elemento **PublicConfig** / **WadCfg** del file *.wadcfgx*. In Visual Studio il file *.wadcfgx* viene archiviato nel percorso di destinazione seguente: **Progetto servizio cloud** > **Ruoli** > **(NomeRuolo)** > **file diagnostics.wadcfgx**.
@@ -70,7 +70,7 @@ Per impostazione predefinita, Diagnostica di Azure invia sempre log e metriche a
 
 In questo esempio l'URL dell'Hub eventi è impostato sullo spazio dei nomi completo dell'Hub eventi: spazio dei nomi di Hub eventi + "/" + nome Hub eventi.  
 
-L'URL dell'Hub eventi viene visualizzato nel [Portale di Azure](http://go.microsoft.com/fwlink/?LinkID=213885) sul dashboard di Hub eventi.  
+L'URL dell'Hub eventi viene visualizzato nel [Portale di Azure](https://go.microsoft.com/fwlink/?LinkID=213885) sul dashboard di Hub eventi.  
 
 Il nome del **Sink** può essere impostato su qualsiasi stringa valida, purché lo stesso valore venga usato in modo coerente in tutto il file di configurazione.
 
@@ -220,7 +220,7 @@ Nella figura seguente, il dashboard Hub eventi mostra l'invio integro dei dati d
 ## <a name="view-hot-path-data"></a>Visualizzare i dati del percorso critico
 Come illustrato in precedenza, esistono molti casi d'uso per l'ascolto e l'elaborazione dei dati dell'Hub eventi.
 
-Un approccio semplice consiste nel creare una piccola applicazione console di verifica per l'ascolto dell'Hub eventi e per la stampa del flusso di output. È possibile inserire il seguente codice (descritto dettagliatamente nell'articolo [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)) in un'applicazione console.  
+Un approccio semplice consiste nel creare una piccola applicazione console di verifica per l'ascolto dell'Hub eventi e per la stampa del flusso di output. È possibile inserire il seguente codice (descritto dettagliatamente nell'articolo [Introduzione all'Hub eventi](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)) in un'applicazione console.  
 
 L'applicazione console deve includere il [pacchetto Event Processor Host NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
@@ -508,7 +508,7 @@ Impostazioni protette:
 ## <a name="next-steps"></a>Passaggi successivi
 Per ulteriori informazioni su Hub eventi visitare i collegamenti seguenti:
 
-* [Panoramica di Hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Panoramica di Hub eventi](../event-hubs/event-hubs-about.md)
 * [Creare un hub eventi](../event-hubs/event-hubs-create.md)
 * [Domande frequenti su Hub eventi](../event-hubs/event-hubs-faq.md)
 

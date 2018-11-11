@@ -16,15 +16,15 @@ ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 01ada4e0bcd266d99071988532221611711e2f1b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6e090fe7e79de7b08e77fe7bb08d5f2bf53c9d5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418382"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282765"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurare l'agente di Log Analytics per computer Linux in un ambiente ibrido
-[Azure Log Analytics](log-analytics-overview.md) può raccogliere dati direttamente dai computer Linux fisici o virtuali nel data center o in altri ambienti cloud in un unico repository per l'esecuzione di analisi dettagliate e della correlazione.  Questo avvio rapido illustra come configurare e raccogliere dati dal computer Linux in pochi semplici passaggi.  Per le macchine virtuali Linux di Azure vedere l'argomento seguente [Raccogliere dati sulle macchine virtuali di Azure](log-analytics-quick-collect-azurevm.md).  
+[Azure Log Analytics](log-analytics-agent-windows.md) può raccogliere dati direttamente dai computer Linux fisici o virtuali nel data center o in altri ambienti cloud in un unico repository per l'esecuzione di analisi dettagliate e della correlazione.  Questo avvio rapido illustra come configurare e raccogliere dati dal computer Linux in pochi semplici passaggi.  Per le macchine virtuali Linux di Azure vedere l'argomento seguente [Raccogliere dati sulle macchine virtuali di Azure](log-analytics-quick-collect-azurevm.md).  
 
 Per comprendere la configurazione supportata, vedere i [sistemi operativi Linux supportati](log-analytics-concept-hybrid.md#supported-linux-operating-systems) e la [configurazione del firewall di rete](log-analytics-concept-hybrid.md#network-firewall-requirements).
 

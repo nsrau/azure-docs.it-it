@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419368"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279104"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure  
 
@@ -57,7 +57,7 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
    > [!NOTE]
 
-   > Avvisi può importare query di Analytics come tipo di segnale **Log (query salvata)**, come illustrato nella figura precedente. Gli utenti possono quindi perfezionare la query in Analytics e salvarla per uso futuri in Avvisi. Altri dettagli sull'uso del salvataggio di query sono disponibili in [Usare la ricerca log in Log Analytics](../log-analytics/log-analytics-log-searches.md) o in [Query condivisa in Analytics in Application Insights](../log-analytics/log-analytics-overview.md). 
+   > Avvisi può importare query di Analytics come tipo di segnale **Log (query salvata)**, come illustrato nella figura precedente. Gli utenti possono quindi perfezionare la query in Analytics e salvarla per uso futuri in Avvisi. Altri dettagli sull'uso del salvataggio di query sono disponibili in [Usare la ricerca log in Log Analytics](../log-analytics/log-analytics-queries.md) o in [Query condivisa in Analytics in Application Insights](../log-analytics/log-analytics-queries.md). 
 
 1.  *Avvisi del log*: una volta selezionata, la query per gli avvisi può essere immessa nel campo **Query di ricerca**. Se la sintassi della query non è corretta, nel campo viene visualizzato un errore in ROSSO. Se la sintassi della query è corretta, i dati cronologici della query specificata vengono visualizzati sotto forma di grafico come riferimento con un'opzione per modificare l'intervallo di tempo dalle ultime sei ore alla settimana precedente.
 
@@ -132,7 +132,7 @@ Pertanto, la sezione seguente fornisce dettagli sull'uso del modello di risorsa 
 ### <a name="azure-resource-template-for-log-analytics"></a>Modello di risorsa di Azure per Log Analytics
 Gli avvisi del log di Log Analytics vengono creati da regole di avviso che eseguono una ricerca salvata a intervalli regolari. Se i risultati della query corrispondono ai criteri specificati, viene creato un record di avviso e vengono eseguite una o più azioni. 
 
-Il modello di risorsa per la ricerca salvata di Log Analytics e gli avvisi di Log Analytics sono disponibili nella sezione Log Analytics della documentazione. Per altre informazioni, vedere [Aggiunta di avvisi e di ricerche salvate di Log Analytics](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md) che include esempi illustrativi e dettagli sullo schema.
+Il modello di risorsa per la ricerca salvata di Log Analytics e gli avvisi di Log Analytics sono disponibili nella sezione Log Analytics della documentazione. Per altre informazioni, vedere [Aggiunta di avvisi e di ricerche salvate di Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md) che include esempi illustrativi e dettagli sullo schema.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Modello di risorse di Azure per Application Insights
 L'avviso del log per le risorse di Application Insights ha il tipo `Microsoft.Insights/scheduledQueryRules/`. Per altre informazioni su questo tipo di risorsa, vedere il [riferimento all'API per regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -246,5 +246,5 @@ Se l'operazione è stata eseguita correttamente, sarà restituito il valore 201 
 * Informazioni sugli [avvisi del log in Avvisi di Azure](monitor-alerts-unified-log.md)
 * Comprendere le [azioni webhook per gli avvisi del log](monitor-alerts-unified-log-webhook.md)
 * Altre informazioni su [Application Insights](../application-insights/app-insights-analytics.md)
-* Altre informazioni su [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Altre informazioni su [Log Analytics](../log-analytics/log-analytics-queries.md). 
 

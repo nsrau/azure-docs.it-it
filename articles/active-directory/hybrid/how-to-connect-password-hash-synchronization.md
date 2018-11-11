@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d289dee6770b0fc70edb0ed5fecf8a39402c6fa
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3579a17ab28bd39ddad5008e1d0f8f7834237807
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305940"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282000"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -136,7 +136,7 @@ La sincronizzazione di una password non ha alcun impatto sull'utente di Azure co
 ## <a name="enable-password-hash-synchronization"></a>Abilitare la sincronizzazione dell'hash delle password
 
 >[!IMPORTANT]
->Se si esegue la migrazione da AD FS (o da altre tecnologia federative) per la sincronizzazione dell'hash delle password, si consiglia vivamente di seguire la guida per la distribuzione dettagliata pubblicata [qui](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx).
+>Se si esegue la migrazione da AD FS (o da altre tecnologia federative) per la sincronizzazione dell'hash delle password, si consiglia vivamente di seguire la guida per la distribuzione dettagliata pubblicata [qui](https://aka.ms/adfstophsdpdownload).
 
 Quando si installa Azure AD Connect usando l'opzione **Impostazioni rapide**, la sincronizzazione dell'hash delle password viene abilitata automaticamente. Per altre informazioni dettagliate, vedere [Introduzione alle impostazioni rapide per Azure AD Connect](how-to-connect-install-express.md).
 

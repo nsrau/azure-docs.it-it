@@ -4,23 +4,23 @@ description: Piattaforme supportate da Azure IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b8b4664540d07b76d0cebe5df99ba2cc67dd47e6
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: adf017c57cf7c895a0da8fec70e89dda0a314693
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248556"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277920"
 ---
 # <a name="azure-iot-edge-support"></a>Supporto di Azure IoT Edge
 È possibile cercare il supporto per il prodotto Azure IoT Edge in svariati modi.
 
 **Segnalazione di bug**: la maggior parte delle attività di sviluppo per il prodotto Azure IoT Edge viene eseguita nel progetto open source di IoT Edge. I bug possono essere segnalati nella [pagina dei problemi](https://github.com/azure/iotedge/issues) del progetto. Le correzioni passano rapidamente dal progetto agli aggiornamenti del prodotto.
 
-**Team di supporto tecnico Microsoft**: gli utenti con un [piano di supporto](https://azure.microsoft.com/support/plans/) possono rivolgersi al team di supporto tecnico Microsoft creando un ticket di supporto dal [portale di Azure]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
+**Team di supporto tecnico Microsoft**: gli utenti con un [piano di supporto](https://azure.microsoft.com/support/plans/) possono rivolgersi al team di supporto tecnico Microsoft creando un ticket di supporto dal [portale di Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
 **Richieste di funzionalità**: il prodotto Azure IoT Edge tiene traccia delle richieste di funzionalità tramite la [pagina UserVoice](https://feedback.azure.com/forums/907045-azure-iot-edge) del prodotto.
 

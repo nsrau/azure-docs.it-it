@@ -10,32 +10,32 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: e560aeffecf63f63966a49053e0f79d012b4a0a3
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8fe39a2876d37e4897c03a5654e500e2e2d3cb9f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038273"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51276951"
 ---
 # <a name="quickstart-get-intent-using-python"></a>Guida introduttiva: ottenere la finalità usando Python
 In questa guida introduttiva si passano le espressioni a un endpoint LUIS per ottenere la restituzione di finalità ed entità.
 
-[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Python 3.6](https://www.python.org/downloads/) o versione successiva.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## <a name="get-luis-key"></a>Ottenere la chiave di LUIS
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## <a name="get-intent-with-browser"></a>Ottenere la finalità tramite browser
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
 
 ## <a name="get-intent--programmatically"></a>Ottenere la finalità a livello di codice
 
@@ -55,7 +55,7 @@ In questa guida introduttiva si passano le espressioni a un endpoint LUIS per ot
 
 ## <a name="luis-keys"></a>Chiavi di LUIS
 
-[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 Eliminare il file Python. 

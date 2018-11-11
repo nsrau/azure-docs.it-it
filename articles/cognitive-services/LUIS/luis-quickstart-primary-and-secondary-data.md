@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 4647e663f4a2734451835f90d2687bb6aaf91712
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867545"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277801"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Esercitazione 7: estrarre nomi con entità semplice ed elenco di frasi
 
@@ -86,7 +86,7 @@ Questa app LUIS include nomi di mansioni per diverse finalità. Assegnando etich
 
 Dopo che le entità sono contrassegnate nelle espressioni di esempio, è importante aggiungere un elenco di frasi per migliorare il segnale dell'entità semplice. Un elenco di frasi **non** viene usato come una corrispondenza esatta e non dovrà corrispondere a ogni possibile valore previsto. 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Nella pagina **Intents** (Finalità) selezionare la finalità **ApplyForJob**. 
 

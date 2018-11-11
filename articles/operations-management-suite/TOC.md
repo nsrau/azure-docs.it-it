@@ -3,7 +3,7 @@
 
 # Attività iniziali
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
-## [Automazione](../automation/automation-offering-get-started.md)
+## [Automazione](/azure/automation/)
 ## [Backup](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
@@ -11,7 +11,7 @@
 # Procedure
 
 ## Analizzare
-### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Log Analytics](../log-analytics/log-analytics-queries.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automatizzare
 ### [Panoramica di Automazione di Azure](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -43,7 +43,7 @@
 #### [Analisi di Service Fabric](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### Elenco dei servizi
 ##### [Uso](../monitoring/monitoring-service-map.md)
-##### [Configura](../monitoring/monitoring-service-map-configure.md)
+##### [Configurare](../monitoring/monitoring-service-map-configure.md)
 ##### [Integrazione con Operations Manager](../monitoring/monitoring-service-map-scom.md)
 #### [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

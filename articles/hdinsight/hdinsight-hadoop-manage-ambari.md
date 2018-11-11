@@ -2,19 +2,19 @@
 title: Gestire i cluster HDInsight con l'interfaccia utente Web Ambari
 description: Informazioni sull'uso di Ambari per monitorare e gestire cluster HDInsight basati su Linux. Questo documento spiega come usare l'interfaccia utente Web di Ambari inclusa nei cluster HDInsight.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/23/2018
-ms.author: jasonh
-ms.openlocfilehash: e0efab2caa4f214d407cf8c4f09bfa5f4f619e8d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 1e17412636a904508352370bc7292a7d64bac6bc
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591838"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280437"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gestire i cluster HDInsight mediante l'utilizzo dell'interfaccia utente Web Ambari
 
