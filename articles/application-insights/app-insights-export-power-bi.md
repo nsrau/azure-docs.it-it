@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246618"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963116"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](http://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](app-insights-overview.md).
@@ -41,7 +41,7 @@ Per importare la query di Application Insights, usare la versione desktop di Pow
 Installare [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Esportare una query di Analisi
-1. [Aprire Analisi e scrivere la query](app-insights-analytics-tour.md).
+1. [Aprire Analisi e scrivere la query](../log-analytics/query-language/get-started-analytics-portal.md).
 2. Testare e affinare la query fino a quando non si è soddisfatti dei risultati. Verificare che la query venga eseguita correttamente in Analisi prima di esportarla.
 3. Nel menu **Esporta** scegliere **Power BI (M)**. Salvare il file di testo.
    
@@ -109,7 +109,7 @@ Se la riduzione del set di dati risultante dalla query di Analisi non è una sol
    * Sostituire **https://management.azure.com/subscriptions/...**
    * con **https://api.applicationinsights.io/beta/apps/...**
 3. Aggiornare infine le credenziali in credenziali di base e usare la chiave API.
-  
+ �
 
 **Script esistente**
  ```
@@ -155,5 +155,5 @@ Dopo l'importazione iniziale, il dashboard e i report continuano a essere aggior
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Power BI - Informazioni](http://www.powerbi.com/learning/)
-* [Esercitazione su Analisi](app-insights-analytics-tour.md)
+* [Esercitazione su Analisi](../log-analytics/query-language/get-started-analytics-portal.md)
 

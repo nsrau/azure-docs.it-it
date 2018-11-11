@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 73bb1e3d06066c422614bc9d6d3431b49be9c6de
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 498633d9f73c4a9b669ddd3469b62c01d2a19397
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992368"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958713"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Installare Application Insights per un sito Web ASP.NET
 
@@ -105,7 +105,7 @@ Per visualizzare altri dettagli nel portale, fare clic su qualsiasi riquadro o g
 ## <a name="step-4-publish-your-app"></a>Passaggio 4: Pubblicare l'app
 Pubblicare l'app nel server IIS o in Azure. Verificare in [Flusso metriche attive](app-insights-metrics-explorer.md#live-metrics-stream) che tutto funzioni correttamente.
 
-La telemetria viene creata nel portale di Application Insights, in cui è possibile monitorare le metriche, eseguire ricerche sui dati di telemetria e configurare i [dashboard](app-insights-dashboards.md), nonché usare l'avanzato [linguaggio di query di Log Analytics](https://docs.loganalytics.io/) per analizzare l'utilizzo e le prestazioni o trovare eventi specifici.
+La telemetria viene creata nel portale di Application Insights, in cui è possibile monitorare le metriche, eseguire ricerche sui dati di telemetria e configurare i [dashboard](app-insights-dashboards.md), nonché usare l'avanzato [linguaggio di query di Log Analytics](https://aka.ms/LogAnalyticsLanguage) per analizzare l'utilizzo e le prestazioni o trovare eventi specifici.
 
 È anche possibile continuare ad analizzare i dati di telemetria in [Visual Studio](app-insights-visual-studio.md) con strumenti come la ricerca diagnostica e le [tendenze](app-insights-visual-studio-trends.md).
 
@@ -150,7 +150,7 @@ Se si è interessati, vedere gli argomenti alternativi seguenti:
 
 * **[Uso di Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Include informazioni su debug con telemetria, ricerca diagnostica e drill-through nel codice.
 * **[Uso del portale Application Insights](app-insights-dashboards.md)**<br/> Include informazioni su dashboard, strumenti avanzati di diagnostica e di analisi, avvisi, mappa attiva delle dipendenze dell'applicazione ed esportazione dei dati di telemetria.
-* **[Analytics](app-insights-analytics-tour.md)**: linguaggio di query avanzato.
+* **[Analytics](../log-analytics/query-language/get-started-analytics-portal.md)**: linguaggio di query avanzato.
 
 ### <a name="alerts"></a>Avvisi
 

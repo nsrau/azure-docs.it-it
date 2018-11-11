@@ -9,14 +9,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: b5e3d87e026b65a602b7bdf2e52365d13b21f62f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1220bcc8445f13a4573f1a6d3181c172799638fb
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166832"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741786"
 ---
-# <a name="create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Creare un account API Cassandra in Azure Cosmos DB, un database e una tabella usando un'applicazione Java
+# <a name="tutorial-create-an-azure-cosmos-db-cassandra-api-account-database-and-a-table-by-using-a-java-application"></a>Esercitazione: Creare un account, un database e una tabella dell'API Cassandra in Azure Cosmos DB usando un'applicazione Java
 
 Questa esercitazione descrive come usare un'applicazione Java per creare un account API Cassandra in Azure Cosmos DB, come aggiungere un database (noto anche come keyspace) e aggiungere una tabella. L’applicazione Java usa il [driver Java](https://github.com/datastax/java-driver) per creare un database utente che contiene dettagli come ID utente, nome utente, città utente.  
 
@@ -33,7 +33,7 @@ Questa esercitazione illustra le attività seguenti:
 
 * Se non si ha una sottoscrizione di Azure, creare un  [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)  prima di iniziare. In alternativa è possibile [provare Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione Azure, gratuitamente e senza impegno. 
 
-* Ottenere la versione più recente di [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+* Ottenere la versione più recente di [Java Development Kit (JDK)](https://aka.ms/azure-jdks) 
 
 * [Scaricare](http://maven.apache.org/download.cgi) e [installare](http://maven.apache.org/install.html) un archivio binario [Maven](http://maven.apache.org/) 
   - In Ubuntu è possibile eseguire `apt-get install maven` per installare Maven. 
@@ -60,7 +60,7 @@ Questa esercitazione illustra le attività seguenti:
 
 ## <a name="get-the-connection-details-of-your-account"></a>Ottenere i dettagli della connessione dell'account  
 
-Ottenere le informazioni sulla stringa di connessione dal portale di Azure e copiarlo nel file di configurazione di Java. Questo consente all'app di comunicare con il database ospitato. 
+Ottenere le informazioni sulla stringa di connessione dal portale di Azure e copiarlo nel file di configurazione di Java. La stringa di connessione consente all'app di comunicare con il database ospitato. 
 
 1. Nel  [portale di Azure](http://portal.azure.com/), passare all'account Azure Cosmos DB. 
 

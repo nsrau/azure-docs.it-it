@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: c8cff54c67ab2c9c3d09f9261617b6312cc4434a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 1f94e297e784d000c829a50c077e7fa6d303333f
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025343"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962215"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizzare i report personalizzati con i dati di Azure Application Insights
 
@@ -116,7 +116,7 @@ availabilityResults
     * SendGridAPI =SendGrid API Key
 
     > [!NOTE]
-    > Se non si dispone già di un account SendGrid, crearne uno. La documentazione di SendGrid per Funzioni di Azure è disponibile [qui ](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-sendgrid). Per una spiegazione di base su come impostare SendGrid e generare una chiave API, leggere le informazioni in fondo a questo articolo. 
+    > Se non si dispone già di un account SendGrid, crearne uno. La documentazione di SendGrid per Funzioni di Azure è disponibile [qui ](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid). Per una spiegazione di base su come impostare SendGrid e generare una chiave API, leggere le informazioni in fondo a questo articolo. 
 
 9. Selezionare **Integra** e in Output fare clic su **SendGrid ($return)**.
 
@@ -160,7 +160,7 @@ Questi passaggi sono validi solo se non è già stato configurato un account Sen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulla creazione di [query di Analisi](app-insights-analytics-using.md).
+* Altre informazioni sulla creazione di [query di Analisi](../log-analytics/query-language/get-started-queries.md).
 * Altre informazioni sull'[esecuzione di query a livello di codice sui dati di Application Insights](https://dev.applicationinsights.io/)
 * Altre informazioni su [App per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 * Altre informazioni su [Microsoft Flow](https://ms.flow.microsoft.com).

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 75faceb641382df29a93c44803af48dcfed142d4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421170"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964153"
 ---
 # <a name="manage-workspaces"></a>Gestire le aree di lavoro
 
@@ -52,7 +52,7 @@ Dal punto di vista del consumo, è consigliabile creare meno aree di lavoro poss
 * Si opera come provider di servizi gestiti e per ogni cliente gestito è necessario mantenere i dati di Log Analytics isolati da altri dati del cliente.
 * Si gestiscono più clienti e si vuole che ogni cliente, reparto o gruppo aziendale visualizzi i propri dati, ma non quelli di altri.
 
-Quando si usano agenti Windows per la raccolta dei dati, è possibile [configurare ogni agente in modo che faccia riferimento a una o più aree di lavoro](log-analytics-windows-agents.md).
+Quando si usano agenti Windows per la raccolta dei dati, è possibile [configurare ogni agente in modo che faccia riferimento a una o più aree di lavoro](log-analytics-agent-windows.md).
 
 Se si usa System Center Operations Manager, ogni gruppo di gestione di Operations Manager può essere connesso con una sola area di lavoro. È possibile installare Microsoft Monitoring Agent nei computer gestiti da Operations Manager e fare sì che l’agente faccia riferimento sia a Operations Manager che a un'altra area di lavoro di Log Analytics.
 
@@ -73,7 +73,7 @@ Se si usa System Center Operations Manager, ogni gruppo di gestione di Operation
     ![Dettagli dell'area di lavoro](./media/log-analytics-manage-access/workspace-overview-page.png)  
 
 ## <a name="manage-accounts-and-users"></a>Gestire utenti e account
-A ogni area di lavoro possono essere associati più account, ognuno dei quali può avere accesso a diverse aree di lavoro. L'accesso viene gestito tramite [accesso basato sui ruoli Azure](../active-directory/role-based-access-control-configure.md). Questi diritti di accesso si applicano sia nel portale di Azure sia sull'accesso all'API.
+A ogni area di lavoro possono essere associati più account, ognuno dei quali può avere accesso a diverse aree di lavoro. L'accesso viene gestito tramite [accesso basato sui ruoli Azure](../role-based-access-control/role-assignments-portal.md). Questi diritti di accesso si applicano sia nel portale di Azure sia sull'accesso all'API.
 
 
 Le attività seguenti richiedono anche le autorizzazioni di Azure:
@@ -87,7 +87,7 @@ Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gestione dell'accesso a Log Analytics con le autorizzazioni di Azure
-Per concedere l'accesso all'area di lavoro di Log Analytics usando le autorizzazioni di Azure, seguire i passaggi indicati in [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../active-directory/role-based-access-control-configure.md).
+Per concedere l'accesso all'area di lavoro di Log Analytics usando le autorizzazioni di Azure, seguire i passaggi indicati in [Usare le assegnazioni di ruolo per gestire l'accesso alle risorse della sottoscrizione di Azure](../role-based-access-control/role-assignments-portal.md).
 
 Azure offre due ruoli utente predefiniti per Log Analytics:
 - Lettore di Log Analytics
@@ -146,7 +146,7 @@ Usare questi ruoli per concedere agli utenti l'accesso ad ambiti diversi:
 - Gruppo di risorse: accesso a tutte le aree di lavoro nel gruppo di risorse
 - Risorsa: accesso alla sola area di lavoro specificata
 
-È consigliabile eseguire le assegnazioni solo a livello di risorsa (area di lavoro) per assicurare un controllo di accesso accurato.  Usare i [ruoli personalizzati](../active-directory/role-based-access-control-custom-roles.md) per creare ruoli con le autorizzazioni specifiche necessarie.
+È consigliabile eseguire le assegnazioni solo a livello di risorsa (area di lavoro) per assicurare un controllo di accesso accurato.  Usare i [ruoli personalizzati](../role-based-access-control/custom-roles.md) per creare ruoli con le autorizzazioni specifiche necessarie.
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Collegare un'area di lavoro esistente a una sottoscrizione di Azure
 Tutte le aree di lavoro create dopo il 26 settembre 2016 devono essere collegate a una sottoscrizione di Azure al momento della creazione. All'accesso, le aree di lavoro create prima di tale data devono essere collegate a un'area di lavoro. Quando si crea l'area di lavoro dal portale di Azure o si collega l'area di lavoro a una sottoscrizione di Azure, Azure Active Directory viene collegato come account aziendale.
@@ -241,5 +241,5 @@ Il nuovo piano dati viene visualizzato nella barra multifunzione del portale di 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [Raccogliere dati dai computer nell'ambiente con Log Analytics](log-analytics-concept-hybrid.md) per raccogliere dati dai computer nel data center o in un altro ambiente cloud.
 * Vedere [Raccogliere dati sulle macchine virtuali di Azure](log-analytics-quick-collect-azurevm.md) per configurare la raccolta di dati dalle macchine virtuali di Azure.  
-* [Aggiungere soluzioni di Log Analytics dalla raccolta soluzioni](log-analytics-add-solutions.md) per aggiungere funzionalità e raccogliere i dati.
+* [Aggiungere soluzioni di Log Analytics dalla raccolta soluzioni](../monitoring/monitoring-solutions.md) per aggiungere funzionalità e raccogliere i dati.
 

@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3de17375670d7697a298023dc79ffc2418cb7e42
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836875"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963765"
 ---
 # <a name="retrain-a-classic-web-service"></a>Ripetere il training di un servizio Web classico
 Il servizio Web predittivo distribuito è l'endpoint dei punteggi predefinito. Gli endpoint predefiniti vengono mantenuti sincronizzati con gli esperimenti di training e di assegnazione dei punteggi di origine, quindi il modello con training per l'endpoint predefinito non può essere sostituito. Per ripetere il training del servizio Web è necessario aggiungere un nuovo endpoint al servizio Web. 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 È necessario impostare un esperimento di training e un esperimento predittivo come illustrato in [Ripetere il training dei modelli di Machine Learning in modo programmatico](retrain-models-programmatically.md). 
 
 > [!IMPORTANT]
@@ -51,7 +51,7 @@ Esistono due modi per aggiungere un nuovo endpoint a un servizio Web:
 2. Usare il portale dei servizi Web di Microsoft Azure
 
 ### <a name="programmatically-add-an-endpoint"></a>Aggiungere un endpoint a livello di codice
-È possibile aggiungere endpoint di assegnazione dei punteggi usando il codice di esempio disponibile in questo [repository GitHub](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
+È possibile aggiungere endpoint di assegnazione dei punteggi usando il codice di esempio disponibile in questo [repository GitHub](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### <a name="use-the-microsoft-azure-web-services-portal-to-add-an-endpoint"></a>Usare il portale dei servizi Web di Microsoft Azure per aggiungere un endpoint
 1. In Machine Learning Studio fare clic su Web Services (Servizi Web) nella colonna di spostamento a sinistra.
