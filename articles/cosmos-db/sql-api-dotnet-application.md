@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 110f787866296ec08b9937d56461d37574270a43
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 22856b6e9b543504db66bce074d32d9ad70f5238
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980924"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247671"
 ---
 # <a name="_Toc395809351"></a>Esercitazione su ASP.NET MVC: Sviluppo di applicazioni Web con Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
-> * [Node.JS](sql-api-nodejs-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
@@ -488,7 +488,7 @@ Vi è un'ultima operazione da eseguire ovvero l'aggiunta della possibilità di m
             return View(item);
         }
    
-    Il primo metodo gestisce Http GET che si verifica quando l'utente fa clic sul collegamento **Edit** dalla visualizzazione **Index**. Questo metodo recupera un [**documento**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) da Azure Cosmos DB e lo passa alla visualizzazione **Edit**.
+    Il primo metodo gestisce Http GET che si verifica quando l'utente fa clic sul collegamento **Edit** dalla visualizzazione **Index**. Questo metodo recupera un [**documento**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) da Azure Cosmos DB e lo passa alla visualizzazione **Edit**.
    
     La visualizzazione **Edit** esegue quindi un'operazione Http POST in **IndexController**. 
    

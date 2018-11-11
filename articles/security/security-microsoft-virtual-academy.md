@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dfcd248be48109203e91c93231d89d1d650a4b96
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 21f5aba3acfebdcd2e93825ea34226adee5455d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540049"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248079"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Corsi sulla sicurezza di Azure in Microsoft Virtual Academy
 Microsoft Virtual Academy offre corsi online gratuiti per aiutare gli sviluppatori, i professionisti IT e dati e gli studenti a ottenere informazioni sulle tecnologie più recenti, acquisire competenze e contribuire al loro avanzamento professionale.
@@ -48,7 +48,7 @@ In questa sessione viene illustrato il modo in cui Azure Active Directory e Micr
 
 [Security in a Cloud-Enabled World](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474) (Sicurezza in un ambiente abilitato per il cloud)
 
-Gli esperti illustrano la guida di orientamento relativa alle responsabilità dei clienti nel poster [Microsoft Cloud Security for Enterprise Architects](http://www.microsoft.com/download/48121) (Sicurezza cloud Microsoft per architetti aziendali). Gli esperti offriranno indicazioni per la modernizzazione di tutti gli aspetti del comportamento di sicurezza, inclusi governance, strategie di contenimento, operazioni di sicurezza, protezione di asset di valore elevato, protezione delle informazioni e sicurezza di utenti e dispositivi, con particolare attenzione alla protezione del controllo amministrativo. Le informazioni provengono dallo stesso framework usato dal team Microsoft per la sicurezza informatica per valutare la sicurezza del cloud per i clienti e per creare una guida di orientamento alla sicurezza.
+Gli esperti illustrano la guida di orientamento relativa alle responsabilità dei clienti nel poster [Microsoft Cloud Security for Enterprise Architects](https://www.microsoft.com/download/48121) (Sicurezza cloud Microsoft per architetti aziendali). Gli esperti offriranno indicazioni per la modernizzazione di tutti gli aspetti del comportamento di sicurezza, inclusi governance, strategie di contenimento, operazioni di sicurezza, protezione di asset di valore elevato, protezione delle informazioni e sicurezza di utenti e dispositivi, con particolare attenzione alla protezione del controllo amministrativo. Le informazioni provengono dallo stesso framework usato dal team Microsoft per la sicurezza informatica per valutare la sicurezza del cloud per i clienti e per creare una guida di orientamento alla sicurezza.
 
 [Microsoft Azure IaaS Deep Dive](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888) (Approfondimento su IaaS di Microsoft Azure)
 

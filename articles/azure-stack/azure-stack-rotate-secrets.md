@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 418b23f0783341ff7e5aaf7e2bbb2e869eb7dc45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 5d2f4fc77d5849dc2be80ada9610098c9a381f92
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466155"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244101"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotazione dei segreti in Azure Stack
 
@@ -92,7 +92,7 @@ Esecuzione di rotazione segreta usando le istruzioni seguenti verranno corregger
 5.  Store backup i certificati usati per la rotazione in un percorso di backup sicura. Se la rotazione viene eseguita e quindi si verifica un errore, sostituire i certificati nella condivisione file con le copie di backup prima di rieseguire la rotazione. Si noti, mantenere copie di backup nel percorso di backup sicuro.
 6.  Creare una condivisione file che è possibile accedere da macchine virtuali ERCS. La condivisione file deve essere leggibile e scrivibile per il **CloudAdmin** identità.
 7.  Aprire una console di PowerShell ISE da un computer in cui si ha accesso alla condivisione file. Passare alla condivisione di file. 
-8.  Eseguire **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** per creare le directory necessarie per i certificati esterni.
+8.  Eseguire **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** per creare le directory necessarie per i certificati esterni.
 
 ## <a name="rotating-external-and-internal-secrets"></a>La rotazione dei segreti interni ed esterni
 

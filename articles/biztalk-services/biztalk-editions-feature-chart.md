@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22706649"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240512"
 ---
 # <a name="biztalk-services-editions-chart"></a>Servizi BizTalk: Grafico edizioni
 
@@ -63,7 +63,7 @@ Nella tabella seguente sono elencate le differenze tra le varie edizioni.
 
 <tr>
 <td><strong>Prezzo iniziale</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Prezzi di Servizi BizTalk di Azure</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Calcolatore dei prezzi di Azure</a></td>
+<td colspan="5"><a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011"> Prezzi di Servizi BizTalk di Azure</a> <br/><br/> <a HREF="https://azure.microsoft.com/pricing/calculator/?scenario=full">Calcolatore dei prezzi di Azure</a></td>
 </tr>
 <tr>
 <td><strong>Configurazione minima predefinita</strong></td>
@@ -153,7 +153,7 @@ Include contratti TPM</td>
 <tr>
 <td><strong>Disponibilità elevata</strong>
 <br/><br/>
-Per il contratto di servizio, vedere i <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">prezzi dei servizi BizTalk</a>.
+Per il contratto di servizio, vedere i <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011">prezzi dei servizi BizTalk</a>.
 </td>
 <td>Non incluso</td>
 <td>Non incluso</td>
@@ -242,10 +242,10 @@ Non è possibile eseguire la migrazione dell'edizione gratuita o "scalarla" a un
 Per le altre edizioni, usare il backup e ripristino per eseguire la migrazione degli elementi da un livello a un altro. Ad esempio, eseguire il backup degli elementi nel livello Standard e quindi ripristinarli nel livello Premium. [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md) descrive i percorsi di migrazione supportati ed elenca gli elementi di cui viene eseguito il backup. Si noti che il backup delle connessioni ibride non viene eseguito. Dopo il backup e ripristino in un nuovo livello, si ricreano le connessioni ibride.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Il servizio Adapter BizTalk è incluso nel servizio? Come è possibile ricevere il software?
-Sì, il servizio Adapter BizTalk e BizTalk Adapter Pack sono inclusi in nel [download](http://www.microsoft.com/download/details.aspx?id=39087)dell'SDK di Servizi BizTalk di Azure.
+Sì, il servizio Adapter BizTalk e BizTalk Adapter Pack sono inclusi in nel [download](https://www.microsoft.com/download/details.aspx?id=39087)dell'SDK di Servizi BizTalk di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per creare Servizi BizTalk di Azure nel portale di Azure, vedere [Servizi BizTalk: Provisioning mediante il portale di Azure](biztalk-provision-services.md). Per iniziare a creare applicazioni, vedere [Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Per creare Servizi BizTalk di Azure nel portale di Azure, vedere [Servizi BizTalk: Provisioning mediante il portale di Azure](biztalk-provision-services.md). Per iniziare a creare applicazioni, vedere [Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Servizi BizTalk: Provisioning mediante il portale di Azure](biztalk-provision-services.md)<br/>
@@ -254,5 +254,5 @@ Per creare Servizi BizTalk di Azure nel portale di Azure, vedere [Servizi BizTal
 * [BizTalk Services: Backup and restore](biztalk-backup-restore.md)<br/>
 * [Servizi BizTalk: limitazione](biztalk-throttling-thresholds.md)<br/>
 * [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)<br/>
-* [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b09279e61ad60abcbda8b5bf576f5145ea8b9602
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173085"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239254"
 ---
 # <a name="wait-and-non-wait-actions"></a>Azioni con attesa e senza attesa
 
@@ -23,7 +23,7 @@ Questa esercitazione illustra la differenza tra azioni con attesa e senza attesa
 
 ## <a name="video"></a>Video
 
-[![Anteprima esercitazione 2](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
+[![Anteprima esercitazione 2](https://aka.ms/cl-tutorial-02-preview)](https://aka.ms/blis-tutorial-02)
 
 ## <a name="requirements"></a>Requisiti
 Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
@@ -54,14 +54,14 @@ Per questa esercitazione è necessario che il bot di esercitazione generale sia 
 1. Fare clic su New Action (Nuova azione).
 2. In Response (Risposta) digitare "Cows say moo".
 3. Deselezionare la casella di controllo Wait for Response (Attendi risposta).
-4. Click Create
+4. Fare clic su Crea
 
 ### <a name="create-a-second-non-wait-action"></a>Creare una seconda azione senza attesa
 
 1. Fare clic su New Action (Nuova azione).
 2. In Response (Risposta) digitare "Ducks say quack".
 3. Deselezionare la casella di controllo Wait for Response (Attendi risposta).
-4. Click Create
+4. Fare clic su Crea
 
 ![](../media/tutorial2_actions.PNG)
 

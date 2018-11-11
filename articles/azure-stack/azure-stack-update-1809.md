@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 00ce57dbff749d4ee906e0e7dae1d828ef85326f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f44b267a28abd64acdd6bc74a43f1c5be8daf0ab
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962062"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515608"
 ---
 # <a name="azure-stack-1809-update"></a>Aggiornamento di Azure Stack 1809
 
@@ -39,7 +39,7 @@ Questo articolo descrive il contenuto del pacchetto di aggiornamento 1809. Il pa
 
 Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
 
-- Con questa versione, Azure Stack integrati configurazioni supporta i sistemi di 4-16 nodi. È possibile usare la [Capacity Planner di Azure Stack](http://aka.ms/azstackcapacityplanner) per agevolare la pianificazione della capacità di Azure Stack e la configurazione.
+- Con questa versione, Azure Stack integrati configurazioni supporta i sistemi di 4-16 nodi. È possibile usare la [Capacity Planner di Azure Stack](https://aka.ms/azstackcapacityplanner) per agevolare la pianificazione della capacità di Azure Stack e la configurazione.
 
 - <!--  2712869   | IS  ASDK -->  **Syslog client di Azure Stack (disponibilità generale)** questa consente l'inoltro di controlli, avvisi e i log di sicurezza relativi all'infrastruttura di Azure Stack a un syslog server o della sicurezza le informazioni ed eventi (SIEM) software di gestione esterni ad Azure Stack. Il client di syslog supporta ora specificando la porta su cui è in ascolto il server syslog.
 
@@ -70,6 +70,17 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Risolto un problema in cui gli indirizzi IP pubblici che sono stati distribuiti usando l'allocazione dinamica (metodo) non sono garantiti deve rimanere invariato dopo l'esecuzione di un arresto-deallocazione. Vengono ora mantenuti.
 
 - <!-- 3078022 - IS, ASDK --> Se una macchina virtuale è stato di arresto-deallocazione prima 1808 causa potrebbe non essere riallocata dopo l'aggiornamento 1808.  Questo problema viene risolto in 1809. Le istanze che erano in questo stato e non è stato possibile avviare possono essere avviate in 1809 con questa correzione. La correzione impedisce inoltre il problema ricorrente.
+
+<!-- 3090289 – IS, ASDK --> 
+- Risolto il problema in cui dopo aver applicato l'aggiornamento 1808, si possono verificarsi i seguenti problemi quando si distribuiscono le macchine virtuali con Managed Disks:
+
+   1. Se la sottoscrizione è stata creata prima dell'aggiornamento 1808, distribuzione di VM con Managed Disks potrei avere esito negativo con un messaggio di errore interno. Per risolvere l'errore, seguire questi passaggi per ogni sottoscrizione:
+      1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
+      2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
+   2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
+      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992).
+      2. Seguire i passaggi descritti in [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
+
 
 ### <a name="changes"></a>Modifiche
 
@@ -128,7 +139,7 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- Installare l'Hotfix di Stack più recente di Azure per 1808 prima di applicare 1809. Per altre informazioni, vedere [KB 4468920 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920).
+- Installare l'Hotfix di Stack più recente di Azure per 1808 prima di applicare 1809. Per altre informazioni, vedere [KB 4471992 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/).
 
   > [!TIP]  
   > Sottoscrivere seguenti *RRS* oppure *Atom* i feed di stare al passo con gli aggiornamenti rapidi di Azure Stack:
@@ -157,9 +168,8 @@ Per altre informazioni su questi problemi di protezione, fare clic su collegamen
 > [!Important]  
 > Preparare la distribuzione di Azure Stack per l'host dell'estensione abilitata per il pacchetto di aggiornamento successivo. Preparare il sistema le seguenti linee guida [prepararsi host dell'estensione per Azure Stack](azure-stack-extension-host-prepare.md).
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+Dopo l'installazione di questo aggiornamento, installare eventuali hotfix applicabili. Per altre informazioni, visualizzare i seguenti articoli della knowledge base, nonché nostri [criteri per la manutenzione](azure-stack-servicing-policy.md).  
+- [KB 4471993 – Azure Stack hotfix per Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
 
 ## <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
 

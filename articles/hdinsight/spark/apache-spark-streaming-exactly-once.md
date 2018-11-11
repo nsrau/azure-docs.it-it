@@ -3,17 +3,17 @@ title: Creare processi di Spark Streaming con elaborazione di eventi di tipo exa
 description: Come configurare Spark Streaming per elaborare un evento esattamente una sola volta.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: ae170e90cede26bd6a43fcc10b93fcd7490d838f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618822"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241317"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Creare processi di Spark Streaming con elaborazione di eventi di tipo exactly-once
 
@@ -61,13 +61,21 @@ I checkpoint vengono abilitati in Spark Streaming Spark in due passaggi.
 
 1. Nell'oggetto StreamingContext, configurare il percorso di archiviazione per i checkpoint:
 
-    val ssc = new StreamingContext(spark, Seconds(1))  ssc.checkpoint("/percorso/dei/checkpoint")
+    ```Scala
+    val ssc = new StreamingContext(spark, Seconds(1))
+    ssc.checkpoint("/path/to/checkpoints")
+    ```
 
     In HDInsight questi checkpoint devono essere salvati nell'archivio predefinito collegato al cluster, ovvero Archiviazione di Azure oppure Azure Data Lake Store.
 
 2. Specificare quindi un intervallo di checkpoint (in secondi) in DStream. A ogni intervallo, i dati relativi allo stato derivati dall'evento di input vengono salvati in modo permanente nell'archivio. I dati relativi allo stato salvati in modo permanente possono ridurre le attività di calcolo necessarie quando si ricrea lo stato dall'evento di origine.
 
-    val lines = ssc.socketTextStream("hostname", 9999)  lines.checkpoint(30)  ssc.start()  ssc.awaitTermination()
+    ```Scala
+    val lines = ssc.socketTextStream("hostname", 9999)
+    lines.checkpoint(30)
+    ssc.start()
+    ssc.awaitTermination()
+    ```
 
 ### <a name="use-idempotent-sinks"></a>Usare sink idempotenti
 

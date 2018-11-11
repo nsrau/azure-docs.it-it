@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408609"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239798"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Eseguire il provisioning di una macchina virtuale con intelligenza artificiale geografica in Azure 
 
-La macchina virtuale di data science con intelligenza artificiale geografica (Geo-DSVM) è una speciale estensione della diffusa [macchina virtuale di data science di Azure](http://aka.ms/dsvm) configurata per combinare intelligenza artificiale e analisi geospaziale. L'analisi geospaziale nella macchina virtuale è basata sulla tecnologia [ArcGIS Pro](https://www.arcgis.com/features/index.html). La macchina virtuale di data science rende possibile il training rapido dei modelli di apprendimento automatico e dei modelli di apprendimento avanzato sulla base di dati arricchiti con informazioni geografiche. È supportata solo su DSVM Windows 2016. 
+La macchina virtuale di data science con intelligenza artificiale geografica (Geo-DSVM) è una speciale estensione della diffusa [macchina virtuale di data science di Azure](https://aka.ms/dsvm) configurata per combinare intelligenza artificiale e analisi geospaziale. L'analisi geospaziale nella macchina virtuale è basata sulla tecnologia [ArcGIS Pro](https://www.arcgis.com/features/index.html). La macchina virtuale di data science rende possibile il training rapido dei modelli di apprendimento automatico e dei modelli di apprendimento avanzato sulla base di dati arricchiti con informazioni geografiche. È supportata solo su DSVM Windows 2016. 
 
 La macchina virtuale Geo-DSVM contiene diversi strumenti per l'intelligenza artificiale, tra cui:
 

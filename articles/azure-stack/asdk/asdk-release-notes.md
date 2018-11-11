@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 284a964162a2374287b42698b9a2021be36590dd
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: MT
+ms.openlocfilehash: 8e8518cdf95e1b97bd4b641322c1b2a3fdc3bf9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158160"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282459"
 ---
 # <a name="asdk-release-notes"></a>Note sulla versione ASDK  
 Questo articolo fornisce informazioni sui miglioramenti e correzioni di problemi noti in Azure Stack Development Kit (ASDK). Se non si conosce quale versione in esecuzione, è possibile [usare il portale per controllare](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -99,6 +99,9 @@ Per altre informazioni, vedere [l'inoltro di syslog di Azure Stack](../azure-sta
 
 
 #### <a name="compute"></a>Calcolo 
+
+<!-- TBD – IS, ASDK -->
+- Ricollegare un disco scollegato alla stessa macchina virtuale (VM) con lo stesso nome e il numero di unità LOGICA ha esito negativo con un errore, ad esempio **non è possibile collegare un disco dati 'datadisk' alla macchina virtuale 'vm1'**. L'errore si verifica perché il disco è attualmente in fase di scollegamento o l'ultima operazione non riuscita di scollegamento. Attendere che il disco sia completamente scollegato e quindi riprovare o eliminare/scollegare il disco in modo esplicito anche in questo caso. La soluzione alternativa consiste nel ricollegarlo con un nome diverso o in un LUN diversi. 
 
 <!-- 3235634 – IS, ASDK -->
 - Per distribuire le macchine virtuali con dimensioni che contiene un **v2** suffisso; ad esempio, **Standard_A2_v2**, specificare il suffisso come **Standard_A2_v2** (v lettere minuscole). Non utilizzare **Standard_A2_V2** (lettere maiuscole V). Ciò funziona in Azure globale ed è un'incoerenza nello Stack di Azure.

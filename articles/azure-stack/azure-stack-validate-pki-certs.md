@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 51c76c552ef3a79f48637598a12f7a7be1823996
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f3a83352e5aa7591d3f7b325adb542ba89e57fe5
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961127"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515829"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Convalidare i certificati di infrastruttura a chiave pubblica di Azure Stack
 
@@ -244,6 +244,22 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
         Key Usage: OK
         Key Size: OK
     ```
+
+## <a name="certificates"></a>Certificati
+
+| Directory | Certificate |
+| ---    | ----        |
+| acsBlob | wildcard_blob_\< regione >\< externalFQDN > |
+| ACSQueue  |  wildcard_queue\< regione >\< externalFQDN > |
+| ACSTable  |  wildcard_table\< regione >\< externalFQDN > |
+| Host dell'estensione di amministrazione  |  wildcard_adminhosting\< regione >\< externalFQDN > |
+| Portale di amministrazione  |  adminportal\< regione >\< externalFQDN > |
+| Amministratore ARM  |  adminmanagement\< regione >\< externalFQDN > |
+| Pubblico ARM  |  gestione\< regione >\< externalFQDN > |
+| Insieme di credenziali delle chiavi  |  wildcard_vault\< regione >\< externalFQDN > |
+| KeyVaultInternal  |  wildcard_adminvault\< regione >\< externalFQDN > |
+| Host dell'estensione pubblica  |  wildcard_hosting\< regione >\< externalFQDN > |
+| Portale pubblico  |  portale\< regione > _\< externalFQDN > |
 
 ## <a name="using-validated-certificates"></a>Utilizzo di certificati convalidati
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0e5de93f8a10d27c28b3f07567f9b6fa7e41d482
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 42f3378196b4e3e1dfe1234e801e87875f9c61fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781840"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247654"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Abilitare un'immagine concessa in licenza nel lab in Azure DevTest Labs
 
@@ -28,7 +28,7 @@ In Azure DevTest Labs, un'immagine con licenza include le condizioni, in genere 
 ## <a name="determining-whether-a-licensed-image-is-available-to-users"></a>Determinare se rendere disponibile agli utenti un'immagine concessa in licenza
 Il primo passaggio per consentire agli utenti di creare macchine virtuali da un'immagine concessa in licenza è assicurarsi che siano state accettate le condizioni per tale immagine. I passaggi seguenti illustrano come visualizzare lo stato dell'offerta di un'immagine concessa in licenza e, se necessario, accettare le condizioni dell'immagine.
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
 
@@ -54,7 +54,7 @@ Per assicurarsi che un'immagine concessa in licenza sia disponibile per gli uten
 
 È possibile abilitare la distribuzione a livello di codice per un'immagine concessa in licenza seguendo questa procedura:
 
-1. Nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) passare all'elenco di **immagini del Marketplace**.
+1. Nel [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040) passare all'elenco di **immagini del Marketplace**.
 
 1. Identificare l'immagine con licenza che si vuole rendere accessibile agli utenti ma per la quale non sono stati ancora accettati i termini e le condizioni. Può essere ad esempio presente una macchina virtuale di data science con lo stato **Terms accepted** (Condizioni accettate) o **Terms review needed** (Esame condizioni necessario).
 
@@ -96,4 +96,4 @@ Per assicurarsi che un'immagine concessa in licenza sia disponibile per gli uten
 
 - [Creare un'immagine personalizzata da una VM](devtest-lab-create-custom-image-from-vm-using-portal.md)
 - [Creare un'immagine personalizzata da un file VHD](devtest-lab-create-template.md)
-- [Aggiungere una macchina virtuale all'ambiente lab](devtest-lab-add-vm.md)
+- [Aggiungere una macchina virtuale al lab](devtest-lab-add-vm.md)

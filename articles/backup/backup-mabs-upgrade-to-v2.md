@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: a458a46f3775a593f369d5acb967fc90d61efde8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4f1e0c14d3a835b9f6d739511186bdcc19917a7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628342"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230991"
 ---
 # <a name="install-azure-backup-server-v2"></a>Installare il server di Backup di Azure v2
 
@@ -103,7 +103,7 @@ Per aggiungere un volume nella Console di amministrazione:
 
   Se si desidera aggiungere un disco, il disco deve appartenere a un gruppo di protezione dati che abbia spazio di archiviazione legacy. I dischi possono essere usati solo per questi gruppi protezione dati. Se il server di backup non dispone di origini con protezione legacy, il disco non è elencato.
 
-  Per altre informazioni sull'aggiunta di dischi, vedere [Aggiungere dischi per aumentare lo spazio di archiviazione legacy](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). È possibile assegnare un nome descrittivo al disco.
+  Per altre informazioni sull'aggiunta di dischi, vedere [Aggiungere dischi per aumentare lo spazio di archiviazione legacy](https://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). È possibile assegnare un nome descrittivo al disco.
 
 
 ### <a name="assign-workloads-to-volumes"></a>Assegnare carichi di lavoro ai volumi
@@ -175,13 +175,13 @@ L'aggiornamento dei gruppi protezione dati per l'uso di Modern Backup Storage è
 
 1. Nella Console amministrazione DPM di System Center 2016 selezionare la funzione **Protezione**. Nell'elenco **Membro del gruppo protezione dati** fare clic con il pulsante destro del mouse sul membro e quindi scegliere **Arresta protezione dati del membro**.
 
-  ![Arresto della protezione del membro](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+  ![Arresto della protezione del membro](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. Nella finestra di dialogo **Rimuovi da gruppo** esaminare lo spazio su disco utilizzato e lo spazio disponibile per il pool di archiviazione. L'impostazione predefinita è lasciare i punti di recupero sul disco e consentire che scadano in base ai criteri di conservazione associati. Selezionare **OK**.
 
   Se si desidera restituire immediatamente lo spazio su disco utilizzato al pool di archiviazione disponibile, selezionare la casella di controllo **Elimina replica su disco** per eliminare i dati di backup (e i punti di recupero) associati a tale membro.
 
-  ![Rimozione dalla finestra di dialogo del gruppo](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![Rimozione dalla finestra di dialogo del gruppo](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Creare un gruppo protezione dati che usa Modern Backup Storage. Includere le origini dati non protette.
 
@@ -194,7 +194,7 @@ Per aggiungere spazio di archiviazione su disco:
 
 1. Nella Console amministrazione DPM di System Center 2016 selezionare **Gestione** > **Spazio di archiviazione su disco** > **Aggiungi**.
 
-  ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+  ![Finestra di dialogo Aggiungi spazio di archiviazione su disco](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. Nella finestra di dialogo **Aggiungi spazio di archiviazione su disco** selezionare **Aggiungi dischi**.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1414fd7b559a1bf12cc26d218f4577bbdc986916
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a28168291c79dc54feb5ff572c609cdfb09a187f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964119"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515591"
 ---
 # <a name="azure-stack-1808-update"></a>Aggiornamento di Azure Stack 1808
 
@@ -64,12 +64,13 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack.
 - **Elemento del marketplace Kubernetes**. È ora possibile distribuire cluster Kubernetes usando il [elemento del Marketplace di Kubernetes](azure-stack-solution-template-kubernetes-cluster-add.md). Gli utenti possono selezionare l'elemento di Kubernetes e inserire alcuni parametri per distribuire un cluster Kubernetes in Azure Stack. Lo scopo dei modelli è per agevolare agli utenti di configurare le distribuzioni di Kubernetes sviluppo/test in pochi passaggi.
 
 <!-- | IS ASDK--> 
-- **I modelli di Blockchain**. È ora possibile eseguire [distribuzioni consortium Ethereum](azure-stack-ethereum.md) in Azure Stack. È possibile trovare tre nuovi modelli nel [i modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates). Consentono all'utente di distribuire e configurare una rete Ethereum multimembro consorzio con una minima conoscenza di Azure ed Ethereum. Lo scopo dei modelli è per agevolare agli utenti di configurare le distribuzioni di Blockchain di sviluppo/test in pochi passaggi.
+- **I modelli di Blockchain**. È ora possibile eseguire [distribuzioni consortium Ethereum](user/azure-stack-ethereum.md) in Azure Stack. È possibile trovare tre nuovi modelli nel [modelli di avvio rapido di Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates). Consentono all'utente di distribuire e configurare una rete Ethereum multimembro consorzio con una minima conoscenza di Azure ed Ethereum. Lo scopo dei modelli è per agevolare agli utenti di configurare le distribuzioni di Blockchain di sviluppo/test in pochi passaggi.
 
 <!-- | IS ASDK--> 
 - **L'API versione 2017-03-09-profilo è stato aggiornato a 2018-03-01-hybrid**. I profili delle API specificano il provider di risorse di Azure e la versione dell'API per gli endpoint REST di Azure. Per altre informazioni sui profili, vedere [profili della versione di gestione API in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
- ### <a name="fixed-issues"></a>Problemi risolti
+### <a name="fixed-issues"></a>Problemi risolti
+
 <!-- IS ASDK--> 
 - È stato risolto il problema per la creazione di un set di disponibilità nel portale e ciò ha provocato il set che presenta un dominio di errore e dominio di aggiornamento 1. 
 
@@ -162,7 +163,7 @@ Questo aggiornamento contiene anche la mitigazione dei rischi per la vulnerabili
 > Preparare la distribuzione di Azure Stack per l'host dell'estensione. Preparare il sistema le seguenti linee guida [prepararsi host dell'estensione per Azure Stack](azure-stack-extension-host-prepare.md).
 
 Dopo l'installazione di questo aggiornamento, installare eventuali hotfix applicabili. Per altre informazioni, visualizzare i seguenti articoli della knowledge base, nonché nostri [criteri per la manutenzione](azure-stack-servicing-policy.md). 
-- [KB 4468920 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
+- [KB 4468920 – Azure Stack hotfix per Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## <a name="known-issues-post-installation"></a>Problemi noti (post-installazione)
@@ -253,8 +254,11 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
 
 ### <a name="compute"></a>Calcolo
 
+<!-- 3164607 – IS, ASDK -->
+- Ricollegare un disco scollegato alla stessa macchina virtuale (VM) con lo stesso nome e il numero di unità LOGICA ha esito negativo con un errore, ad esempio **non è possibile collegare un disco dati 'datadisk' alla macchina virtuale 'vm1'**. L'errore si verifica perché il disco è attualmente in fase di scollegamento o l'ultima operazione non riuscita di scollegamento. Attendere che il disco sia completamente scollegato e quindi riprovare o eliminare/scollegare il disco in modo esplicito anche in questo caso. La soluzione alternativa consiste nel ricollegarlo con un nome diverso o in un LUN diversi. 
+
 <!-- 3099544 – IS, ASDK --> 
-- Quando si crea una nuova macchina virtuale (VM) tramite il portale di Azure Stack, e si seleziona la dimensione di macchina virtuale, la colonna dollari/mese viene visualizzata con un **disponibile** messaggio. Questa colonna non deve essere visualizzato; visualizzare la macchina virtuale dei prezzi di colonna non è supportato in Azure Stack.
+- Quando si crea una nuova macchina virtuale usando il portale di Azure Stack, e si seleziona la dimensione di macchina virtuale, la colonna dollari/mese viene visualizzata con un **disponibile** messaggio. Questa colonna non deve essere visualizzato; visualizzare la macchina virtuale dei prezzi di colonna non è supportato in Azure Stack.
 
 <!-- 3090289 – IS, ASDK --> 
 - Dopo aver applicato la 1808 aggiornamento, si potrebbero verificare i problemi seguenti durante la distribuzione di macchine virtuali con Managed Disks:
@@ -263,7 +267,7 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
       1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.
       2. Nella stessa sottoscrizione, passare a **controllo di accesso (IAM)** e verificare che **Azure Stack-Managed Disks** sia elencato.
    2. Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura:
-      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920/).
+      1. Si applicano i [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992/).
       2. Seguire i passaggi descritti in [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
       
 <!-- 3179561 - IS --> 

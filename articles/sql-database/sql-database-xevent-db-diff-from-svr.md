@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8852fc75658298a2c6887d8fef154d5a0b59affd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 482faaea7089e095da13a2bae5f5937e20d50616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159908"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246753"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventi estesi nel database SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -32,15 +32,15 @@ In questo argomento viene illustrato come l'implementazione di eventi estesi nel
 
 Per altre informazioni sugli eventi estesi, per il database SQL di Azure e Microsoft SQL Server, vedere l'articolo:
 
-- [Quick Start: Extended events in SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
-- [Eventi estesi](http://msdn.microsoft.com/library/bb630282.aspx)
+- [Quick Start: Extended events in SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Eventi estesi](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 In questo argomento si presuppone che si dispone già di una conoscenza di:
 
 - [Servizio Azure SQL Database](https://azure.microsoft.com/services/sql-database/)
-- [Eventi estesi](http://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
+- [Eventi estesi](https://msdn.microsoft.com/library/bb630282.aspx) in Microsoft SQL Server.
 
 - La maggior parte della nostra documentazione sugli eventi estesi si applica sia a SQL Server che al database SQL.
 
@@ -69,10 +69,10 @@ Gli argomenti correlati forniscono due esempi di codice:
 ## <a name="transact-sql-differences"></a>Differenze di Transact-SQL
 
 
-- Quando si esegue il comando [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) su SQL Server, si utilizza la clausola **ON SERVER** . Ma nel database SQL si utilizza invece la clausola **ON DATABASE** .
+- Quando si esegue il comando [CREATE EVENT SESSION](https://msdn.microsoft.com/library/bb677289.aspx) su SQL Server, si utilizza la clausola **ON SERVER** . Ma nel database SQL si utilizza invece la clausola **ON DATABASE** .
 
 
-- La clausola **ON DATABASE** riguarda anche i comandi Transact-SQL [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) e [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx).
+- La clausola **ON DATABASE** riguarda anche i comandi Transact-SQL [ALTER EVENT SESSION](https://msdn.microsoft.com/library/bb630368.aspx) e [DROP EVENT SESSION](https://msdn.microsoft.com/library/bb630257.aspx).
 
 
 - Una procedura consigliata consiste nell'includere l'opzione della sessione eventi di **STARTUP_STATE = ON** nelle istruzioni **CREATE EVENT SESSION** o **ALTER EVENT SESSION**.
@@ -80,7 +80,7 @@ Gli argomenti correlati forniscono due esempi di codice:
 
 ## <a name="new-catalog-views"></a>Nuove viste del catalogo
 
-La funzionalità degli eventi estesi è supportata da diverse [viste del catalogo](http://msdn.microsoft.com/library/ms174365.aspx). Le viste del catalogo indicano i *metadati o le definizioni* di sessioni di eventi create dall'utente nel database corrente. Le viste non restituiscono informazioni sulle istanze delle sessioni di eventi attivi.
+La funzionalità degli eventi estesi è supportata da diverse [viste del catalogo](https://msdn.microsoft.com/library/ms174365.aspx). Le viste del catalogo indicano i *metadati o le definizioni* di sessioni di eventi create dall'utente nel database corrente. Le viste non restituiscono informazioni sulle istanze delle sessioni di eventi attivi.
 
 | Nome della<br/>vista del catalogo | DESCRIZIONE |
 |:--- |:--- |
@@ -92,9 +92,9 @@ La funzionalità degli eventi estesi è supportata da diverse [viste del catalog
 
 In Microsoft SQL Server le viste del catalogo simili hanno nomi che includono *.server\_* anziché *.database\_*. Il modello del nome è simile a **sys.server_event_%**.
 
-## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>[DMV](http://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>[DMV](https://msdn.microsoft.com/library/ms188754.aspx)
 
-Il database SQL di Azure include [viste a gestione dinamica (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive* .
+Il database SQL di Azure include [viste a gestione dinamica (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) che supportano gli eventi estesi. Le DMV indicano le sessioni di eventi *attive* .
 
 | Nome della DMV | DESCRIZIONE |
 |:--- |:--- |
@@ -149,11 +149,11 @@ SELECT
 
 Di seguito si trovano le destinazioni che possono acquisire i risultati dalle sessioni di eventi nel database SQL:
 
-- [Destinazione buffer circolare](http://msdn.microsoft.com/library/ff878182.aspx) : contiene per un tempo breve i dati degli eventi nella memoria.
-- [Destinazione contatore eventi](http://msdn.microsoft.com/library/ff878025.aspx) : conta tutti gli eventi che si verificano durante una sessione di eventi estesi.
-- [Destinazione file evento](http://msdn.microsoft.com/library/ff878115.aspx) : scrive buffer completi in un contenitore di Archiviazione di Azure.
+- [Destinazione buffer circolare](https://msdn.microsoft.com/library/ff878182.aspx) : contiene per un tempo breve i dati degli eventi nella memoria.
+- [Destinazione contatore eventi](https://msdn.microsoft.com/library/ff878025.aspx) : conta tutti gli eventi che si verificano durante una sessione di eventi estesi.
+- [Destinazione file evento](https://msdn.microsoft.com/library/ff878115.aspx) : scrive buffer completi in un contenitore di Archiviazione di Azure.
 
-L’API [Tracciamento eventi per Windows (ETW)](http://msdn.microsoft.com/library/ms751538.aspx) non è disponibile per gli eventi estesi nel database SQL.
+L’API [Tracciamento eventi per Windows (ETW)](https://msdn.microsoft.com/library/ms751538.aspx) non è disponibile per gli eventi estesi nel database SQL.
 
 ## <a name="restrictions"></a>Restrizioni
 
@@ -195,8 +195,8 @@ La destinazione del **file evento** potrebbe subire una latenza di rete o errori
 - [Cmdlet di Archiviazione di Azure](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Utilizzo di Azure PowerShell con Archiviazione di Azure](../storage/common/storage-powershell-guide-full.md) : fornisce informazioni complete su PowerShell e il servizio Archiviazione di Azure.
 - [Come usare l'archiviazione BLOB da .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [CREARE CREDENZIALI (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREARE LA SESSIONE DI EVENTI (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREARE CREDENZIALI (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
+- [CREARE LA SESSIONE DI EVENTI (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Post del blog di Jonathan Kehayias sugli eventi estesi in Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
@@ -209,6 +209,6 @@ Altri argomenti con esempi di codice per gli eventi estesi sono disponibili ai c
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

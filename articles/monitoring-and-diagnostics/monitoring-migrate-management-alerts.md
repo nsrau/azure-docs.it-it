@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 9e4302b780d0c08afbc791a0aec6bfd806aba161
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: fe854c6a33a950f9f937118b6048d547f1a2fe37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263705"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245767"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Eseguire la migrazione di avvisi di Azure su eventi di gestione in avvisi del log attività
 
@@ -28,7 +28,7 @@ ms.locfileid: "35263705"
 Monitoraggio di Azure (in precedenza Azure Insights) offriva una funzionalità per la creazione di un avviso che attivasse eventi di gestione e generasse notifiche all'URL di un webhook o a un indirizzo di posta elettronica. È possibile aver creato uno di questi avvisi in uno dei modi seguenti:
 * Nel portale di Azure per determinati tipi di risorsa, in Monitoraggio -> Avvisi -> Aggiungi avviso, impostando "Avviso per" su "Eventi"
 * Eseguendo il cmdlet di PowerShell Add-AzureRmLogAlertRule
-* Usando direttamente l'[API REST per gli avvisi](http://docs.microsoft.com/rest/api/monitor/alertrules) con odata.type = "ManagementEventRuleCondition" e dataSource.odata.type = "RuleManagementEventDataSource"
+* Usando direttamente l'[API REST per gli avvisi](https://docs.microsoft.com/rest/api/monitor/alertrules) con odata.type = "ManagementEventRuleCondition" e dataSource.odata.type = "RuleManagementEventDataSource"
  
 Lo script di PowerShell seguente restituisce un elenco di tutti gli avvisi relativi ad eventi di gestione presenti nella sottoscrizione personale, oltre alle condizioni impostate su ogni avviso.
 
@@ -95,7 +95,7 @@ Gli avvisi sono separati tra loro da una linea tratteggiata e includono una seri
 Questa funzionalità è stata integrata negli [avvisi del log attività di Monitoraggio di Azure](monitoring-activity-log-alerts.md). Questi nuovi avvisi consentono di impostare una condizione sugli eventi del log attività e di ricevere una notifica nel momento in cui un nuovo evento soddisfa la condizione definita. Gli avvisi sugli eventi di gestione presentano anche una serie di miglioramenti:
 * È possibile riusare il gruppo di destinatari di una notifica ("azioni") anche in altri avvisi tramite [Gruppi di azioni](monitoring-action-groups.md), in modo da ridurre la necessità di definire ogni volta gli utenti che devono ricevere un avviso.
 * È possibile ricevere una notifica direttamente sul telefono tramite SMS con la funzionalità Gruppi di azioni.
-* È possibile [creare avvisi del log attività con i modelli di Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md).
+* È possibile [creare avvisi del log attività con i modelli di Resource Manager](alert-activity-log.md).
 * È possibile creare condizioni più flessibili e complesse per soddisfare esigenze specifiche.
 * Le notifiche vengono recapitate più rapidamente.
  
@@ -103,7 +103,7 @@ Questa funzionalità è stata integrata negli [avvisi del log attività di Monit
  
 Per creare un nuovo avviso del log attività, è possibile:
 * Seguire le [istruzioni su come creare un avviso nel portale di Azure](monitoring-activity-log-alerts.md)
-* Imparare a [creare un avviso usando un modello di Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Imparare a [creare un avviso usando un modello di Resource Manager](alert-activity-log.md)
  
 Gli avvisi di eventi di gestione creati in precedenza non verranno automaticamente migrati in avvisi del log attività. Usando lo script di PowerShell precedente, è necessario invece elencare gli avvisi di eventi di gestione attualmente configurati e ricrearli manualmente come avvisi del log attività. Questa operazione deve essere eseguita entro il 1° ottobre. A partire da quella data, infatti, gli avvisi di eventi di gestione non saranno più visibili nella sottoscrizione di Azure. Altri tipi di avvisi di Azure, tra cui gli avvisi metrica di Monitoraggio di Azure, gli avvisi di Application Insights e gli avvisi di Log Analytics, non sono interessati da questa modifica. Per eventuali domande, aggiungerle ai commenti al termine dell'articolo.
 
@@ -112,7 +112,7 @@ Gli avvisi di eventi di gestione creati in precedenza non verranno automaticamen
 
 * Altre informazioni sul [log attività](monitoring-overview-activity-logs.md)
 * Configurare [gli avvisi del log attività tramite il portale di Azure](monitoring-activity-log-alerts.md)
-* Configurare [gli avvisi del log attività tramite Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Configurare [gli avvisi del log attività tramite Resource Manager](alert-activity-log.md)
 * Esaminare lo [schema webhook degli avvisi del log attività](monitoring-activity-log-alerts-webhook.md)
 * Altre informazioni sulle [notifiche del servizio](monitoring-service-notifications.md)
 * Altre informazioni sui [gruppi di azione](monitoring-action-groups.md)

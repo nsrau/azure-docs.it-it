@@ -14,12 +14,12 @@ ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: c4600eda74fbc0ae53f30dac00e0127a984a4fff
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 657eefcd5b7793f2f181d074084a272e65943681
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093416"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246447"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Usare i profili delle versioni API con Python in Azure Stack
 
@@ -154,4 +154,4 @@ os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 - [Centro per sviluppatori Python Azure](https://azure.microsoft.com/develop/python/)
 - [Documentazione di macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/)
 - [Percorso di apprendimento per macchine virtuali](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- Se non hai una sottoscrizione di Microsoft Azure, è possibile ottenere un account di valutazione gratuita [qui](http://go.microsoft.com/fwlink/?LinkId=330212).
+- Se non hai una sottoscrizione di Microsoft Azure, è possibile ottenere un account di valutazione gratuita [qui](https://go.microsoft.com/fwlink/?LinkId=330212).

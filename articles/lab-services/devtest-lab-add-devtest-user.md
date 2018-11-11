@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573401"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243710"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -40,20 +40,20 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 | **Azioni che gli utenti in questo ruolo possono eseguire** | **Utente DevTest Labs** | **Proprietario** | **Collaboratore** |
 | --- | --- | --- | --- |
 | **Attività lab** | | | |
-| Aggiungere utenti a un lab |No  |Sì |No  |
-| Aggiornare le impostazioni dei costi |No  |Sì |Sì |
+| Aggiungere utenti a un lab |No  |Yes |No  |
+| Aggiornare le impostazioni dei costi |No  |Yes |Yes |
 | **Attività di base delle VM** | | | |
-| Aggiungere e rimuovere immagini personalizzate |No  |Sì |Sì |
-| Aggiungere, aggiornare ed eliminare formule |Sì |Sì |Sì |
-| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No  |Sì |Sì |
+| Aggiungere e rimuovere immagini personalizzate |No  |Yes |Yes |
+| Aggiungere, aggiornare ed eliminare formule |Yes |Sì |Yes |
+| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No  |Yes |Yes |
 | **Attività della macchina virtuale** | | | |
-| Creare VM |Sì |Sì |Sì |
-| Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |Sì |Sì |
-| Aggiornare i criteri delle VM |No  |Sì |Sì |
-| Aggiungere/Rimuovere dischi dati nelle VM |Solo VM create dall'utente |Sì |Sì |
+| Creare VM |Yes |Sì |Yes |
+| Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |Yes |Yes |
+| Aggiornare i criteri delle VM |No  |Yes |Yes |
+| Aggiungere/Rimuovere dischi dati nelle VM |Solo VM create dall'utente |Yes |Yes |
 | **Attività degli elementi** | | | |
-| Aggiungere e rimuovere repository di elementi |No  |Sì |Sì |
-| Applicare elementi |Sì |Sì |Sì |
+| Aggiungere e rimuovere repository di elementi |No  |Yes |Yes |
+| Applicare elementi |Yes |Sì |Yes |
 
 > [!NOTE]
 > Quando un utente crea una VM, tale utente viene automaticamente assegnato al ruolo **Proprietario** della VM creata.
@@ -64,7 +64,7 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 Proprietari e utenti possono essere aggiunti a livello di lab tramite il portale di Azure. Un utente può essere un utente esterne con un [account Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account)valido.
 Il processo di aggiunta di un proprietario o di un utente a un lab in Azure DevTest Labs prevede i passaggi seguenti:
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **DevTest Labs** dall'elenco.
 3. Nell'elenco dei lab selezionare il lab desiderato.
 4. Nel pannello del lab selezionare **Configurazione e criteri**. 
@@ -116,11 +116,11 @@ Oltre ad aggiungere gli utenti nel portale di Azure, è possibile aggiungere un 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Aggiungere un utente o un proprietario a livello di sottoscrizione
 Le autorizzazioni di Azure vengono propagate dall'ambito padre all'ambito figlio in Azure. Quindi i proprietari di una sottoscrizione di Azure contenente lab sono automaticamente proprietari di tali lab. Sono proprietari anche delle VM e delle altre risorse create dagli utenti del lab e dal servizio Azure DevTest Labs. 
 
-È possibile aggiungere altri proprietari a un lab tramite il pannello del lab nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040). L'ambito di amministrazione del proprietario aggiunto è tuttavia più limitato dell'ambito del proprietario della sottoscrizione. I proprietari aggiunti, ad esempio, non hanno accesso completo ad alcune delle risorse create nella sottoscrizione dal servizio DevTest Labs. 
+È possibile aggiungere altri proprietari a un lab tramite il pannello del lab nel [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040). L'ambito di amministrazione del proprietario aggiunto è tuttavia più limitato dell'ambito del proprietario della sottoscrizione. I proprietari aggiunti, ad esempio, non hanno accesso completo ad alcune delle risorse create nella sottoscrizione dal servizio DevTest Labs. 
 
 Per aggiungere un proprietario a una sottoscrizione di Azure, seguire questi passaggi:
 
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Selezionare **Tutti i servizi** e quindi **Sottoscrizioni** dall'elenco.
 3. Selezionare la sottoscrizione da usare.
 4. Selezionare l'icona **Accesso** . 

@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/11/18
+ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d0d07e235c33877ede7f47a6095482b2acec18d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302278"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239840"
 ---
 # <a name="what-is-the-myapps-portal"></a>Che cos'è il portale App personali?
 
@@ -109,16 +109,6 @@ Il team di Azure Active Directory pubblica l'app per dispositivi mobili App pers
 
 > [!NOTE]
 > È possibile accedere alle applicazioni che supportano la federazione con Azure AD (tra cui Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 e più di 70 altre applicazioni) praticamente in qualsiasi Web browser, su qualsiasi dispositivo, senza necessità di un plug-in o di un'app per dispositivi mobili. Tutte le altre [esperienze del portale delle app personali](https://myapps.microsoft.com/) non richiedono l'uso dell'app per dispositivi mobili App personali in un dispositivo mobile.
->
->
-
-### <a name="my-apps-for-android"></a>App personali per Android
-
-App personali per Android è supportata in qualsiasi dispositivo Android che esegue Android 4.1 o versioni successive.  
-
-È disponibile in [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
-
-![App personali per Android][3]   
 
 ### <a name="my-apps-for-iphone-and-ipad"></a>App personali per iPhone e iPad
 
@@ -129,13 +119,13 @@ App personali per iOS è supportata in qualsiasi iPhone o iPad che esegue iOS 7 
 ![App personali per iOS][4]    
 
 
-## <a name="managed-browser-for-my-apps"></a>Managed browser per App personali
+## <a name="intune-managed-browser-for-my-apps"></a>Intune Managed Browser per App personali
 
-App personali si integra anche in Intune Managed Browser. Intune Managed Browser per dispositivi iOS e Android svolge un ruolo fondamentale nel garantire la sicurezza dei dati nei dispositivi mobili. Il browser consente di visualizzare ed esplorare in tutta sicurezza pagine Web che potrebbero contenere informazioni aziendali e garantisce un'esperienza di esplorazione Web sicura.  
+App personali si integra anche in Intune Managed Browser. Intune Managed Browser per dispositivi iOS e Android consente di visualizzare e spostarsi tra le pagine Web che potrebbero contenere informazioni aziendali in modo più sicuro, offrendo una maggiore sicurezza dell'esperienza di esplorazione del Web.  
 
-È possibile accedere rapidamente ad App personali nella home page di Managed Browser e dai segnalibri, per poter aprire qualsiasi applicazione desiderata con un numero minore di clic.
+È possibile accedere ad App personali sia dall'home page di Intune Managed Browser che dai segnalibri, ovvero sono necessari meno clic per raggiungere le proprie app.
 
-Intune Managed Browser è disponibile nell'[App Store di Apple](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e in [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
+Intune Managed Browser è disponibile nell'[App Store di Apple](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) e in [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
 ![Managed browser per App personali][5]    
 
@@ -147,7 +137,7 @@ Gli amministratori di Azure che hanno eseguito l'accesso al portale di Azure usa
 Per eseguire il test con un account utente *diverso*, eseguire le operazioni seguenti:
 
 1. Nell'angolo superiore sinistro del portale di Azure o del portale delle app personali selezionare **Esci**. 
-2. Accedere al [portale delle app personali](http://myapps.microsoft.com).
+2. Accedere al [portale delle app personali](https://myapps.microsoft.com).
 3. Nella pagina di accesso immettere il nome utente e la password dell'account nella directory da testare.
 
 
@@ -210,17 +200,16 @@ Se, ad esempio, un'applicazione è configurata per l'autenticazione degli utenti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per visualizzare un elenco di tutti gli argomenti relativi alla gestione delle applicazioni, vedere [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md).
+- Per altre informazioni sulla gestione delle applicazioni, vedere [Gestione di applicazioni con Azure Active Directory](../manage-apps/what-is-application-management.md).
  
 - Per informazioni su come integrare un'app SaaS con Azure AD, vedere l'[elenco di esercitazioni sull'integrazione di app SaaS](../saas-apps/tutorial-list.md).
  
 - Per altre informazioni sulla gestione di app con Azure AD, vedere l'[introduzione a Single Sign-On e alla gestione dell'accesso alle app con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
  
-- Per altre informazioni sul provisioning degli utenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
+- Per altre informazioni sul provisioning degli utenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png
 [2]: ./media/active-directory-saas-access-panel-introduction/02.png
-[3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png

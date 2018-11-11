@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140349"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233678"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creazione grafica in Automazione di Azure
 
@@ -48,7 +48,7 @@ Il controllo Library consente di selezionare [attività](#activities) da aggiung
 |:--- |:--- |
 | Cmdlets |Include tutti i cmdlet che possono essere usati nel Runbook. I cmdlet sono organizzati per modulo. Saranno disponibili tutti i moduli installati nell'account di Automazione. |
 | Runbook |Include i runbook dell'account di Automazione. Questi runbook possono essere aggiunti al canvas per essere usati come runbook figlio. Vengono visualizzati solo i runbook dello stesso tipo di memoria centrale come il runbook in corso di modifica; per i runbook grafici vengono visualizzati solo i runbook basati su PowerShell, mentre per i runbook grafici del flusso di lavoro PowerShell vengono visualizzati solo i runbook basati sul flusso di lavoro PowerShell. |
-| Asset |Include gli [asset di automazione](http://msdn.microsoft.com/library/dn939988.aspx) dell'account di automazione che è possibile usare nel Runbook. Quando si aggiunge un asset a un runbook, viene aggiunta un'attività flusso di lavoro che ottiene l'asset selezionato. Nel caso di attività di variabile, è possibile selezionare se aggiungere un'attività per ottenere la variabile o per impostarla. |
+| Asset |Include gli [asset di automazione](https://msdn.microsoft.com/library/dn939988.aspx) dell'account di automazione che è possibile usare nel Runbook. Quando si aggiunge un asset a un runbook, viene aggiunta un'attività flusso di lavoro che ottiene l'asset selezionato. Nel caso di attività di variabile, è possibile selezionare se aggiungere un'attività per ottenere la variabile o per impostarla. |
 | Runbook Control |Include attività di controllo di Runbook che è possibile usare nel Runbook corrente. Una *giunzione* accetta più input e attende che vengano completati tutti prima di continuare il flusso di lavoro. Un'attività *codice* esegue una o più righe del codice PowerShell o del flusso di lavoro PowerShell a seconda del tipo di runbook grafico. È possibile usare questa attività per il codice personalizzato o per funzionalità difficili da ottenere con altre attività. |
 
 ### <a name="configuration-control"></a>Controllo Configuration
@@ -336,7 +336,7 @@ I dati creati da un'attività che non dispone di un collegamento in uscita verra
 
 ## <a name="powershell-expressions"></a>Espressioni PowerShell
 
-Uno dei vantaggi della creazione grafica è la possibilità di creare un runbook con una minima conoscenza di PowerShell. Attualmente, è necessario avere una discreta conoscenza di PowerShell per la compilazione di determinati [valori dei parametri](#activities) e per l'impostazione di [condizioni di collegamento](#links-and-workflow). Questa sezione fornisce una rapida introduzione alle espressioni di PowerShell per quegli utenti che potrebbero non avere familiarità con esso. I dettagli completi di PowerShell sono disponibili all'indirizzo [Scripting con Windows PowerShell](http://technet.microsoft.com/library/bb978526.aspx).
+Uno dei vantaggi della creazione grafica è la possibilità di creare un runbook con una minima conoscenza di PowerShell. Attualmente, è necessario avere una discreta conoscenza di PowerShell per la compilazione di determinati [valori dei parametri](#activities) e per l'impostazione di [condizioni di collegamento](#links-and-workflow). Questa sezione fornisce una rapida introduzione alle espressioni di PowerShell per quegli utenti che potrebbero non avere familiarità con esso. I dettagli completi di PowerShell sono disponibili all'indirizzo [Scripting con Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
 
 ### <a name="powershell-expression-data-source"></a>Origine dati delle espressioni PowerShell
 È possibile utilizzare un'espressione di PowerShell come origine dati per popolare il valore di un [parametro attività](#activities) con i risultati di un codice PowerShell. Potrebbe trattarsi di una singola riga di codice che esegue una funzione semplice o più righe che eseguono una logica complessa. L'output di un comando che non è assegnato a una variabile è l'output per il valore del parametro.
@@ -414,7 +414,7 @@ $ActivityOutput["Get-AzureVM"].PowerState –ne "Stopped"
 
 ### <a name="hashtables"></a>Tabelle hash
 
-[Tabelle hash](http://technet.microsoft.com/library/hh847780.aspx) sono coppie nome/valore utili per la restituzione di un set di valori. Le proprietà per determinate attività potrebbero prevedere una tabella hash anziché un valore semplice. È inoltre possibile visualizzare come utilizzare la tabella hash come dizionario.
+[Tabelle hash](https://technet.microsoft.com/library/hh847780.aspx) sono coppie nome/valore utili per la restituzione di un set di valori. Le proprietà per determinate attività potrebbero prevedere una tabella hash anziché un valore semplice. È inoltre possibile visualizzare come utilizzare la tabella hash come dizionario.
 
 Creare una tabella hash con la sintassi seguente. Una tabella hash può contenere qualsiasi numero di voci, ma ciascuna è definita da un nome e valore.
 

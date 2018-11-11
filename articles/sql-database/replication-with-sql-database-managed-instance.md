@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869313"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240393"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replica con Istanza gestita di database SQL
 
@@ -77,7 +77,7 @@ Supporta:
 ## <a name="configure-publishing-and-distribution-example"></a>Esempio di configurazione dei database di pubblicazione e distribuzione
 
 1. [Creare un'istanza gestita di database SQL di Azure](sql-database-managed-instance-create-tutorial-portal.md) nel portale.
-2. [Creare un account di archiviazione di Azure](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro.
+2. [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro.
 
    Assicurarsi di copiare le chiavi di archiviazione. Vedere [Visualizzare e copiare le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys
 ).
@@ -85,11 +85,11 @@ Supporta:
 
    Negli script di esempio seguenti sostituire `<Publishing_DB>` con il nome del database.
 
-4. Creare un utente del database con autenticazione SQL per il database di distribuzione. Vedere [Creazione degli utenti del database](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Usare una password di protezione.
+4. Creare un utente del database con autenticazione SQL per il database di distribuzione. Vedere [Creazione degli utenti del database](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Usare una password di protezione.
 
    Negli script di esempio seguenti usare `<SQL_USER>` e `<PASSWORD>` per l'utente del database e la password dell'account di SQL Server.
 
-5. [Connettersi all'Istanza gestita di database SQL di Azure](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Connettersi all'Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
 6. Eseguire la query seguente per aggiungere il server di distribuzione e il database di distribuzione.
 
@@ -197,4 +197,4 @@ Le funzionalità seguenti non sono supportate:
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Informazioni su Istanza gestita](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Informazioni su Istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

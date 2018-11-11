@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: 783522997a752c4eac575316983bc6ef853c3f43
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526913"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237775"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Progettare tabelle scalabili ad alte prestazioni
 
@@ -121,7 +121,7 @@ L'esempio seguente mostra la progettazione di una semplice tabella in cui archiv
 </table>
 
 
-Per il momento, i dati sembrano simili a una tabella di un database relazionale. Le principali differenze sono le colonne obbligatorie e la possibilità di archiviare più tipi di entità nella stessa tabella. Inoltre ogni proprietà definita dall'utente, come **FirstName** o **Age** ha un tipo di dati, ad esempio un valore intero o una stringa, proprio come una colonna in un database relazionale. Anche se diversamente da un database relazionale, essendo il servizio tabelle privo di schema, una proprietà non deve avere lo stesso tipo di dati in ogni entità. Per archiviare tipi di dati complessi in una sola proprietà, è necessario usare un formato serializzato come JSON o XML. Per altre informazioni sul servizio tabelle, ad esempio sui tipi di dati supportati, sugli intervalli di date supportate, sulle regole di denominazione e sui limiti di dimensioni, vedere [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx) (Informazioni sul modello di dati del servizio tabelle).
+Per il momento, i dati sembrano simili a una tabella di un database relazionale. Le principali differenze sono le colonne obbligatorie e la possibilità di archiviare più tipi di entità nella stessa tabella. Inoltre ogni proprietà definita dall'utente, come **FirstName** o **Age** ha un tipo di dati, ad esempio un valore intero o una stringa, proprio come una colonna in un database relazionale. Anche se diversamente da un database relazionale, essendo il servizio tabelle privo di schema, una proprietà non deve avere lo stesso tipo di dati in ogni entità. Per archiviare tipi di dati complessi in una sola proprietà, è necessario usare un formato serializzato come JSON o XML. Per altre informazioni sul servizio tabelle, ad esempio sui tipi di dati supportati, sugli intervalli di date supportate, sulle regole di denominazione e sui limiti di dimensioni, vedere [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx) (Informazioni sul modello di dati del servizio tabelle).
 
 La scelta di **PartitionKey** e **RowKey** è fondamentale per la progettazione ottimale di una tabella. Ogni entità archiviata in una tabella deve avere una combinazione univoca di **PartitionKey** e **RowKey**. Come con le chiavi in una tabella di database relazionale, i valori di **PartitionKey** e **RowKey** vengono indicizzati per creare un indice cluster che consenta le ricerche veloci. Tuttavia, il servizio tabelle non crea indici secondari, quindi **PartitionKey** e **RowKey** sono le uniche proprietà indicizzate. Alcuni dei modelli descritti in [Modelli di progettazione tabella](table-storage-design-patterns.md) illustrano come è possibile aggirare questa apparente limitazione.  
 
@@ -132,7 +132,7 @@ Il nome account, il nome tabella e **PartitionKey** insieme identificano la part
 
 Nel servizio tabelle un solo nodo gestisce una o più partizioni complete e il servizio è scalabile grazie al bilanciamento dinamico del carico delle partizioni tra i nodi. Se un nodo è in condizioni di carico, il servizio tabelle può *dividere* in più nodi l'intervallo di partizioni gestite da quel nodo. Quando il traffico diminuisce, il servizio può *unire* nuovamente in un solo nodo gli intervalli di partizioni dai nodi inattivi.  
 
-Per altre informazioni sui dettagli interni del servizio tabelle, in particolare sulla gestione delle partizioni con il servizio tabelle, vedere il documento relativo all’ [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
+Per altre informazioni sui dettagli interni del servizio tabelle, in particolare sulla gestione delle partizioni con il servizio tabelle, vedere il documento relativo all’ [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a elevata disponibilità con coerenza assoluta](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)  
 
 ## <a name="entity-group-transactions"></a>Transazioni dei gruppi di entità
 Nel servizio tabelle, le transazioni di gruppi di entità (EGT, Entity Group Transaction) sono il solo meccanismo predefinito per eseguire aggiornamenti atomici tra più entità. Le transazioni EGT sono chiamate anche *transazioni batch*. Tali transazioni possono essere usate solo con le entità archiviate nella stessa partizione (ovvero che condividono la stessa chiave di partizione in una tabella specifica). Ogni volta che è necessario un comportamento transazionale atomico tra più entità, è quindi necessario assicurarsi che le entità siano nella stessa partizione. Per questo motivo spesso si tengono tipi diversi di entità nella stessa tabella (e partizione) e non si usa una tabella per ogni tipo di entità. Una sola EGT può agire al massimo su 100 entità.  Se si inviano più transazioni EGT simultanee per l'elaborazione, è importante garantire che tali transazioni non vengano applicate a entità che sono comuni tra le transazioni EGT, altrimenti l'elaborazione potrebbe subire ritardi.
@@ -152,7 +152,7 @@ La tabella seguente descrive alcuni valori chiave da tenere presenti quando si p
 | Dimensioni di **RowKey** |Stringa con dimensioni fino a 1 KB. |
 | Dimensioni di una transazione di gruppi di entità |Una transazione può includere al massimo 100 entità e le dimensioni del payload devono essere inferiori a 4 MB. Una transazione EGT può aggiornare una sola entità per volta. |
 
-Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](http://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ## <a name="cost-considerations"></a>Considerazioni sul costo
 Anche se l'archiviazione tabelle è relativamente poco costosa, è consigliabile includere le stime dei costi sia per l'utilizzo della capacità che per la quantità di transazioni nella valutazione di una soluzione di servizio tabelle. In molti scenari, tuttavia, l'archiviazione di dati denormalizzati o duplicati per migliorare le prestazioni o la scalabilità della soluzione costituisce un approccio valido. Per altre informazioni sui prezzi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).  

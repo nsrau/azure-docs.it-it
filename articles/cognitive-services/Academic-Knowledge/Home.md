@@ -10,12 +10,12 @@ ms.component: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 02675b8cdc8c509764b20893bde54b50bec74a50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240359"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242146"
 ---
 # <a name="academic-knowledge-api"></a>API Academic Knowledge
 
@@ -23,7 +23,7 @@ Il servizio API Academic Knowledge consente di interpretare le query utente con 
 
 I dati MAG vengono estratti tramite data mining dall'indice Web di Bing, nonché da una Knowledge Base interna da Bing. Grazie alla continua indicizzazione gestita da Bing, questa API conterrà informazioni aggiornate dal Web in base alle operazioni di individuazione e indicizzazione eseguite da Bing. Sulla base di questo set di dati, l'API Academic Knowledge consente un dialogo interattivo basato su Knowledge Base che combina in modo trasparente esperienze di ricerca reattiva e di suggerimento proattivo, risultati di ricerca avanzati nel grafo delle pubblicazioni di ricerca e distribuzioni su istogramma dei valori di attributo per un set di pubblicazioni e le entità correlate.
 
-Per altre informazioni su Microsoft Academic Graph, vedere [http://aka.ms/academicgraph](http://aka.ms/academicgraph).
+Per altre informazioni su Microsoft Academic Graph, vedere [http://aka.ms/academicgraph](https://aka.ms/academicgraph).
 
 L'API Academic Knowledge è stata spostata dalla versione di anteprima di Servizi cognitivi a Lab di Servizi cognitivi. La nuova home page per il progetto è: [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). La chiave API esistente continuerà a funzionare fino al 24 maggio 2018. Dopo questa data, generare una nuova chiave API. Si noti che la versione di anteprima a pagamento non sarà più disponibile dopo la scadenza della chiave esistente. Se il livello gratuito dell'API non è sufficiente per gli scopi desiderati, contattare il team Microsoft. 
 

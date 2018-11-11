@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 216cebe74b7661e0ca336480774a56ea953ddc75
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 1079b83411fd76b4b9115ee80e385f1f2c63ba85
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069472"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247093"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Introduzione ad Application Insights in un progetto Web Java
 
@@ -342,7 +342,7 @@ A questo punto è possibile pubblicare l'applicazione nel server, permettere agl
 
 * Nei server Windows installare:
 
-  * [Microsoft Visual C++ Redistributable Package](http://www.microsoft.com/download/details.aspx?id=40784)
+  * [Microsoft Visual C++ Redistributable Package](https://www.microsoft.com/download/details.aspx?id=40784)
 
     Questo componente abilita i contatori delle prestazioni.
 

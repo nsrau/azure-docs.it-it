@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f2e0c7b335b09a0d2b8b8399e807a354ec8e4282
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 41f3fd55be02364b4028642db9db1d3f47043afa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807528"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245087"
 ---
 # <a name="how-to-create-dynamics-365-for-operations-offer-via-cloud-partner-portal"></a>Come creare un'offerta Dynamics 365 tramite il portale Cloud Partner
 
 Il portale di pubblicazione offre l'accesso in base al ruolo al portale, per consentire a più utenti di collaborare alla pubblicazione di un'offerta. Per altre informazioni, vedere [Gestione utenti nel portale Cloud Partner](./cloud-partner-portal-manage-users.md).
 
-Prima di poter pubblicare un'offerta per conto di un account server di pubblicazione, uno degli utenti con ruolo \"proprietario\" deve accettare di essere conforme a: [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Informativa sulla privacy di Microsoft](http://www.microsoft.com/privacystatement/default.aspx) e [Contratto relativo al programma Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Prima di poter pubblicare un'offerta per conto di un account server di pubblicazione, uno degli utenti con ruolo \"proprietario\" deve accettare di essere conforme a: [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Informativa sulla privacy di Microsoft](https://www.microsoft.com/privacystatement/default.aspx) e [Contratto relativo al programma Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="how-to-create-a-new-dynamics-365-for-operations-offer"></a>Come creare una nuova offerta Dynamics 365 for Operations
 
@@ -61,7 +61,7 @@ NOME
 
 Nome visualizzato dell'offerta. Nome che viene visualizzato in [AppSource](https://appsource.microsoft.com). Può contenere massimo 50 caratteri.
 
-Fare clic su \"Salva\" per salvare le voci immesse. Il passaggio successivo consiste nell'aggiungere le informazioni tecniche dell'offerta.
+Fare clic su \"Save\" (Salva) per salvare le voci immesse. Il passaggio successivo consiste nell'aggiungere le informazioni tecniche dell'offerta.
 
 ## <a name="how-to-fill-out-the-technical-info-form"></a>Come compilare il modulo delle informazioni tecniche
 

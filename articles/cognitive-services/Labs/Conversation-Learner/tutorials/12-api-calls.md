@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1d4013d736d8cfcb75874bc0c86d20b86ab4dd62
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 815d1e9f6d1e4b9937647d55b67665e1b27f501e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215840"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240767"
 ---
 # <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Come aggiungere le chiamate API a un modello di Conversation Learner
 
@@ -23,7 +23,7 @@ Questa esercitazione illustra come aggiungere chiamate API al modello. Le chiama
 
 ## <a name="video"></a>Video
 
-[![Anteprima esercitazione 12](http://aka.ms/cl-tutorial-12-preview)](http://aka.ms/blis-tutorial-12)
+[![Anteprima esercitazione 12](https://aka.ms/cl-tutorial-12-preview)](https://aka.ms/blis-tutorial-12)
 
 ## <a name="requirements"></a>Requisiti
 Per questa esercitazione è necessario che il bot "tutorialAPICalls.ts" sia in esecuzione.

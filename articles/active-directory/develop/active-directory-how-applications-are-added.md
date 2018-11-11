@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577231"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241498"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Come vengono aggiunte le applicazioni in Azure AD e perché
 
@@ -69,7 +69,7 @@ Come gli oggetti applicazione, anche gli oggetti entità servizio possono essere
 
 * Quando gli utenti accedono a un'applicazione di terze parti integrata con Azure AD
   * Durante la procedura di accesso, agli utenti viene chiesto di concedere all'applicazione l'autorizzazione ad accedere al proprio profilo e altri tipi di autorizzazioni. Quando viene dato il primo consenso da un utente, l'entità servizio che rappresenta l'applicazione viene aggiunta alla directory.
-* Quando un utente accede ai Microsoft Online Services, ad esempio [Office 365](http://products.office.com/)
+* Quando un utente accede ai Microsoft Online Services, ad esempio [Office 365](https://products.office.com/)
   * Quando si effettua l'abbonamento a Office 365 o si avvia una versione di valutazione, vengono create una o più entità servizio nella directory che rappresentano i vari servizi usati per fornire tutte le funzionalità associate a Office 365.
   * Alcuni servizi di Office 365 come SharePoint creano entità servizio in modo continuativo, per consentire la comunicazione sicura tra i componenti, inclusi i flussi di lavoro.
 * Quando un amministratore aggiunge un'applicazione dalla raccolta di app (in questo caso viene creato anche un oggetto app sottostante)

@@ -1,25 +1,20 @@
 ---
-title: 'Esercitazione: Compilare applicazioni di Machine Learning Spark in HDInsight | Microsoft Docs'
+title: "Esercitazione: Creare un'applicazione di apprendimento automatico in Azure HDInsight"
 description: Istruzioni dettagliate su come compilare applicazioni di Machine Learning Apache Spark nei cluster HDInsight Spark usando Jupyter notebook.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: f584ca5e-abee-4b7c-ae58-2e45dfc56bf4
 ms.service: hdinsight
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: 70876196eb6b37065a663afa56ed496a0e9755db
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: eac44d3b8daae27afec8aa24f4767bdb5dbf991a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770906"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239560"
 ---
 # <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>Esercitazione: Compilare applicazioni di Machine Learning Spark in HDInsight 
 
@@ -85,7 +80,7 @@ In questa applicazione si usa una [pipeline ML](https://spark.apache.org/docs/2.
         return LabeledDocument((values[6]), textValue, hot)
 
     # Load the raw HVAC.csv file, parse it using the function
-    data = sc.textFile("wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    data = sc.textFile("/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
 
     documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
     training = documents.toDF()

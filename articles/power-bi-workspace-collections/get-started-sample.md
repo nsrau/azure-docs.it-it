@@ -2,26 +2,20 @@
 title: Esempio introduttivo
 description: In questo articolo verrà presentato l'esempio introduttivo delle raccolte di aree di lavoro di Power BI.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: 4daa675092bed1788025e7e3f7e7e11d02ef1671
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414882"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246685"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Esempio introduttivo delle raccolte di aree di lavoro di Power BI
 
@@ -32,9 +26,9 @@ Le **raccolte di aree di lavoro di Power BI** consentono di integrare i report d
 
 Prima di continuare, è consigliabile salvare le risorse seguenti in quanto semplificano l'integrazione dei report di Power BI nell'app di esempio e nelle app personalizzate.
 
-* [App Web di esempio per l'area di lavoro](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [App Web di esempio per l'area di lavoro](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Informazioni di riferimento sull'API delle raccolte di aree di lavoro di Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Power BI .NET SDK ](http://go.microsoft.com/fwlink/?LinkId=746472) (disponibile tramite NuGet)
+* [Power BI .NET SDK ](https://go.microsoft.com/fwlink/?LinkId=746472) (disponibile tramite NuGet)
 * [Esempio per incorporare il report di JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -44,7 +38,7 @@ Prima di continuare, è consigliabile salvare le risorse seguenti in quanto semp
 
 La procedura dettagliata seguente illustra la configurazione dell'ambiente di sviluppo di Visual Studio per l'accesso ai componenti necessari per eseguire l'app di esempio.
 
-1. Scaricare e decomprimere l'esempio [Power BI Workspace Collections - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) su GitHub.
+1. Scaricare e decomprimere l'esempio [Power BI Workspace Collections - Integrate a report into a web app](https://go.microsoft.com/fwlink/?LinkId=761493) su GitHub.
 2. Aprire il file **PowerBI embedded.sln** in Visual Studio. Potrebbe essere necessario eseguire il comando **Update-Package** nella Console di gestione pacchetti NuGet per aggiornare i pacchetti usati in questa soluzione.
 3. Compilare la soluzione.
 4. Eseguire l'applicazione console **ProvisionSample** . Nell'applicazione console di esempio, effettuare il provisioning di un'area di lavoro e importare un file PBIX.
@@ -57,7 +51,7 @@ La procedura dettagliata seguente illustra la configurazione dell'ambiente di sv
 8. Copiare e salvare l' **ID area di lavoro** appena creato per poterlo usare successivamente. Dopo aver creato l'**ID area di lavoro**, è possibile trovarlo nel **portale di Azure**.
 
     ![ID dell'area di lavoro nel portale di Azure](media/get-started-sample/workspace-id.png)
-9. Per importare un file PBIX nell'**area di lavoro**, selezionare l'opzione **6. Import PBIX Desktop file into an existing workspace**. In mancanza di un file PBIX adatto, è possibile scaricare l'esempio [Retail Analysis PBIX](http://go.microsoft.com/fwlink/?LinkID=780547).
+9. Per importare un file PBIX nell'**area di lavoro**, selezionare l'opzione **6. Import PBIX Desktop file into an existing workspace**. In mancanza di un file PBIX adatto, è possibile scaricare l'esempio [Retail Analysis PBIX](https://go.microsoft.com/fwlink/?LinkID=780547).
 10. Se richiesto, immettere un nome descrittivo per il **set di dati**.
 
 Verrà visualizzata una risposta simile alla seguente:
@@ -89,7 +83,7 @@ L'app Web di esempio è un'applicazione di esempio che esegue il rendering dei r
     ```
 3. Eseguire l'applicazione Web **EmbedSample**.
 
-Dopo aver eseguito l'applicazione Web **EmbedSample**, il pannello di spostamento a sinistra conterrà un menu **Reports** (Report). Per visualizzare il report che è stato importato, espandere il menu **Reports** (Report) e fare clic su un report. Se è stato importato l'[esempio Analyzing Sales Data PBIX](http://go.microsoft.com/fwlink/?LinkID=780547), l'applicazione Web sarà simile alla seguente:
+Dopo aver eseguito l'applicazione Web **EmbedSample**, il pannello di spostamento a sinistra conterrà un menu **Reports** (Report). Per visualizzare il report che è stato importato, espandere il menu **Reports** (Report) e fare clic su un report. Se è stato importato l'[esempio Analyzing Sales Data PBIX](https://go.microsoft.com/fwlink/?LinkID=780547), l'applicazione Web sarà simile alla seguente:
 
 ![Esempio di pannello di spostamento a sinistra all'interno dell'applicazione di esempio](media/get-started-sample/sample-left-nav.png)
 

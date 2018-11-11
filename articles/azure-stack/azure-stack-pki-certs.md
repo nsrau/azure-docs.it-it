@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093970"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299861"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisiti dei certificati di infrastruttura a chiave pubblica Azure Stack
 
@@ -42,7 +42,7 @@ L'elenco seguente descrive i requisiti dei certificati necessari per distribuire
 - Per la distribuzione e la rotazione è possibile utilizzare un solo certificato che coprono tutti spazi dei nomi nei campi nome soggetto e nome alternativo soggetto (SAN) del certificato oppure è possibile usare singoli certificati per ogni spazio dei nomi seguente che Azure Stack si prevede di utilizzare i servizi richiedono. Entrambi gli approcci richiedono l'uso di caratteri jolly per gli endpoint in cui sono necessarie, ad esempio **KeyVault** e **KeyVaultInternal**. 
 - Crittografia PFX del certificato deve essere 3DES. 
 - L'algoritmo di firma del certificato non deve essere SHA1. 
-- Il formato del certificato deve essere PFX, perché entrambe le chiavi pubbliche e private sono necessarie per l'installazione di Azure Stack. 
+- Il formato del certificato deve essere PFX, perché entrambe le chiavi pubbliche e private sono necessarie per l'installazione di Azure Stack. La chiave privata è necessario impostare l'attributo chiave computer locale.
 - La crittografia del file PFX deve essere 3DES (questa è predefinita quando si esporta da un client Windows 10 o l'archivio certificati di Windows Server 2016).
 - Il file pfx del certificato devono avere un valore "Firma digitale" e "KeyEncipherment" nel campo relativo al "Key Usage".
 - Il file pfx del certificato devono avere i valori "Autenticazione Server (1.3.6.1.5.5.7.3.1)" e "Autenticazione Client (1.3.6.1.5.5.7.3.2)" nel campo "Enhanced Key Usage".

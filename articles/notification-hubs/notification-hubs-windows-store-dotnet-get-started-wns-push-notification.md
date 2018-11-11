@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c3bb170800508d5a546573850f445b2a8991ea8c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 37d9f433f39b60609870913a13f23e5a6e419476
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597745"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246498"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>Esercitazione: inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure
 
@@ -40,7 +40,7 @@ In questa esercitazione vengono completati i passaggi seguenti:
 > * Inviare notifiche di prova
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 - **Sottoscrizione di Azure**. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 - [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) o versione successiva.
 - [Strumenti per lo sviluppo di app UWP installati](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
@@ -57,7 +57,7 @@ Per inviare notifiche push ad app UWP, associare l'app a Windows Store. Configur
 1. Digitare un nome per l'app e quindi selezionare **Reserve product name** (Riserva nome del prodotto). Verrà così creata una nuova registrazione a Windows Store per l'app.
 
     ![Archiviare il nome app](./media/notification-hubs-windows-store-dotnet-get-started/store-app-name.png)
-1. Espandere **App Management** (Gestione app), selezionare **WNS/MPNS**, selezionare **WNS/MPNS**, quindi selezionare il **sito Live Services**. Effettuare l'accesso all'account Microsoft. L'**Application Registration Portal** (Portale di registrazione delle applicazioni) si apre in una nuova scheda. In alternativa è possibile passare direttamente all'[Application Registration Portal](http://apps.dev.microsoft.com) (Portale di registrazione delle applicazioni) e selezionare il nome dell'applicazione per accedere a questa pagina.
+1. Espandere **App Management** (Gestione app), selezionare **WNS/MPNS**, selezionare **WNS/MPNS**, quindi selezionare il **sito Live Services**. Effettuare l'accesso all'account Microsoft. L'**Application Registration Portal** (Portale di registrazione delle applicazioni) si apre in una nuova scheda. In alternativa è possibile passare direttamente all'[Application Registration Portal](https://apps.dev.microsoft.com) (Portale di registrazione delle applicazioni) e selezionare il nome dell'applicazione per accedere a questa pagina.
 
     ![Pagina WNS MPNS](./media/notification-hubs-windows-store-dotnet-get-started/wns-mpns-page.png)
 1.   Prendere nota della password dell'**Application Secret** (Segreto dell'applicazione) e del **Package security identifier (SID)** (ID di sicurezza (SID) del pacchetto).

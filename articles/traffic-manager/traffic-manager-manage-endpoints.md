@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 35c3027f2b592f6b24075005829ae9376a7fca82
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 28ea626adf87ad9f115b5acc5452dfc91ad833c5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987036"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245008"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Aggiungere, disabilitare, abilitare o eliminare gli endpoint
 
-La funzionalità App Web nel servizio app di Azure offre già funzionalità di routing del traffico failover e round robin per i siti Web che si trovano all'interno di un data center, indipendentemente dalla modalità del sito Web. Gestione traffico di Azure consente di specificare il routing del traffico failover e round robin per i siti Web e i servizi cloud che si trovano in data center diversi. Il primo passaggio necessario a fornire tale funzionalità consiste nell'aggiungere l'endpoint del servizio cloud o del sito Web a Gestione traffico.
+La funzionalità App Web nell’Azure App Service offre già funzionalità di routing del traffico failover e round robin per i siti Web che si trovano all'interno di un data center, indipendentemente dalla modalità del sito Web. Gestione traffico di Azure consente di specificare il routing del traffico failover e round robin per i siti Web e i servizi cloud che si trovano in data center diversi. Il primo passaggio necessario a fornire tale funzionalità consiste nell'aggiungere l'endpoint del servizio cloud o del sito Web a Gestione traffico.
 
 È anche possibile disabilitare singoli endpoint che appartengono a un profilo di Gestione traffico. Quando si disabilita un endpoint questo continua a far parte del profilo, sebbene quest'ultimo si comporti come se non fosse incluso. Questa azione è utile per rimuovere temporaneamente un endpoint che si trova in modalità di manutenzione o è in corso di ridistribuzione. Quando l'endpoint è di nuovo attivo e in esecuzione, è possibile abilitarlo.
 
@@ -61,7 +61,7 @@ La funzionalità App Web nel servizio app di Azure offre già funzionalità di r
 1. Da un browser accedere al [portale di Azure](http://portal.azure.com).
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
 3. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**. 
-4. Fare clic sull'endpoint da disabilitare e quindi su **Modifica** nel pannello **Endpoint** visualizzato.
+4. Fare clic sull'endpoint da abilitare e quindi su **Modifica** nel pannello **Endpoint** visualizzato.
 5. Nel pannello **Endpoint** modificare lo stato dell'endpoint impostandolo su **Abilitato** e quindi fare clic su **Salva**.
 6. I client continuano a inviare traffico all'endpoint per la durata (TTL). È possibile modificare la durata (TTL) nella pagina di configurazione del profilo di Gestione traffico.
 
@@ -70,7 +70,7 @@ La funzionalità App Web nel servizio app di Azure offre già funzionalità di r
 1. Da un browser accedere al [portale di Azure](http://portal.azure.com).
 2. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** che si vuole modificare e quindi fare clic su tale profilo nei risultati visualizzati.
 3. Nel pannello **Profilo di Gestione traffico** fare clic su **Endpoint** nella sezione **Impostazioni**. 
-4. Fare clic sull'endpoint da disabilitare e quindi su **Modifica** nel pannello **Endpoint** visualizzato.
+4. Fare clic sull'endpoint da abilitare e quindi su **Modifica** nel pannello **Endpoint** visualizzato.
 5. Nel pannello **Endpoint** modificare lo stato dell'endpoint impostandolo su **Abilitato** e quindi fare clic su **Salva**.
 
 
@@ -80,5 +80,5 @@ La funzionalità App Web nel servizio app di Azure offre già funzionalità di r
 * [Configure routing methods](traffic-manager-configure-routing-method.md) (Configurare metodi di routing)
 * [Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico](traffic-manager-troubleshooting-degraded.md)
 * [Considerazioni sulle prestazioni di gestione traffico](traffic-manager-performance-considerations.md)
-* [Operazioni per Gestione traffico (informazioni di riferimento API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+* [Operazioni per Gestione traffico (informazioni di riferimento API REST)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
 
