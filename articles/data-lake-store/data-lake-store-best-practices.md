@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: ef2b5fe6c9b70eaea5ab4db2d4a0ca59ff82dbb9
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 2c7e624344605b24e78962ac2b6d23278c06c0cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391896"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255149"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen1
 
@@ -27,7 +27,7 @@ Questo articolo illustra le procedure consigliate e alcune considerazioni sul fu
 
 Azure Data Lake Storage Gen1 offre controlli di accesso POSIX e controlli dettagliati per utenti, gruppi ed entità servizio di Azure Active Directory (Azure AD). Questi controlli di accesso possono essere impostati su file e cartelle esistenti. I controlli di accesso possono essere usati anche per creare valori predefiniti che possono essere applicati a nuovi file o cartelle. Quando vengono impostate le autorizzazioni sulle cartelle esistenti e sugli oggetti figlio, è necessario propagarle in modo ricorsivo a ogni oggetto. Se il numero di file è elevato, la propagazione delle autorizzazioni può richiedere molto tempo. Il tempo necessario può variare tra i 30 e i 50 oggetti elaborati al secondo. Pianificare quindi in modo appropriato la struttura di cartelle e i gruppi di utenti. In caso contrario, possono verificarsi problemi e ritardi imprevisti quando si lavora con i dati. 
 
-Si supponga di avere una cartella con 100.000 oggetti figlio. Presupponendo il limite inferiore di 30 oggetti elaborati al secondo, per aggiornare l'autorizzazione per l'intera cartella può essere necessaria un'ora. Altri dettagli sugli elenchi di controllo di accesso di Data Lake Storage Gen1 disponibili in [Controllo di accesso di Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Per migliorare le prestazioni per l'assegnazione ricorsiva di elenchi di controllo di accesso, è possibile usare lo strumento da riga di comando di Azure Data Lake. Lo strumento crea più thread e logica di navigazione ricorsiva per applicare rapidamente gli elenchi di controllo di accesso a milioni di file. Lo strumento è disponibile per Linux e Windows e la [documentazione](https://github.com/Azure/data-lake-adlstool) e i [download](http://aka.ms/adlstool-download) per questo strumento sono disponibili in GitHub. È possibile abilitare gli stessi miglioramenti delle prestazioni con gli strumenti scritti con Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) e gli SDK[Java](data-lake-store-get-started-java-sdk.md).
+Si supponga di avere una cartella con 100.000 oggetti figlio. Presupponendo il limite inferiore di 30 oggetti elaborati al secondo, per aggiornare l'autorizzazione per l'intera cartella può essere necessaria un'ora. Altri dettagli sugli elenchi di controllo di accesso di Data Lake Storage Gen1 disponibili in [Controllo di accesso di Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Per migliorare le prestazioni per l'assegnazione ricorsiva di elenchi di controllo di accesso, è possibile usare lo strumento da riga di comando di Azure Data Lake. Lo strumento crea più thread e logica di navigazione ricorsiva per applicare rapidamente gli elenchi di controllo di accesso a milioni di file. Lo strumento è disponibile per Linux e Windows e la [documentazione](https://github.com/Azure/data-lake-adlstool) e i [download](https://aka.ms/adlstool-download) per questo strumento sono disponibili in GitHub. È possibile abilitare gli stessi miglioramenti delle prestazioni con gli strumenti scritti con Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) e gli SDK[Java](data-lake-store-get-started-java-sdk.md).
 
 ### <a name="use-security-groups-versus-individual-users"></a>Confronto tra l'uso di gruppi di sicurezza e di singoli utenti 
 

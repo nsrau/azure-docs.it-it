@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 8591e723cad1c44e9cc8d00008485e6b304fc4d3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092775"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283368"
 ---
 # <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Come eseguire l'onboarding di Monitoraggio di Azure per le macchine virtuali (anteprima)
 Questo articolo descrive come configurare Monitoraggio di Azure per le macchine virtuali per monitorare l'integrità del sistema operativo delle macchine virtuali di Azure e individuare e mappare le dipendenze delle applicazioni ospitate in tali macchine.  
@@ -151,11 +151,11 @@ La tabella seguente elenca le versioni dei sistemi operativi Windows e Linux sup
 ### <a name="hybrid-environment-connected-sources"></a>Origini connesse dell'ambiente ibrido
 La mappa di Monitoraggio di Azure per le macchine virtuali ottiene i dati da Microsoft Dependency Agent. Dependency Agent usa l'agente di Log Analytics per la connessione a Log Analytics e quindi in un sistema deve essere installato e configurato l'agente di Log Analytics con Dependency Agent. La tabella seguente descrive le origini connesse supportate dalla funzionalità di mappa in un ambiente ibrido.
 
-| Origine connessa | Supportato | Descrizione |
+| Origine connessa | Supportato | DESCRIZIONE |
 |:--|:--|:--|
 | Agenti di Windows | Yes | Oltre all'[agente di Log Analytics per Windows](../log-analytics/log-analytics-concept-hybrid.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
 | Agenti Linux | Yes | Oltre all'[agente di Log Analytics per Linux](../log-analytics/log-analytics-concept-hybrid.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](#supported-operating-systems). |
-| Gruppo di gestione di System Center Operations Manager | No | |  
+| Gruppo di gestione di System Center Operations Manager | No  | |  
 
 In Windows, Microsoft Monitoring Agent (MMA) viene usato sia da System Center Operations Manager che da Log Analytics per raccogliere e inviare dati di monitoraggio. System Center Operations Manager e Log Analytics offrono versioni diverse dell'agente pronte all'uso. Ognuna di queste versioni può inviare segnalazioni a System Center Operations Manager, Log Analytics o entrambi.  
 
@@ -337,7 +337,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
     ```
 
 ### <a name="enable-using-azure-policy"></a>Eseguire l'abilitazione con Criteri di Azure
-Per abilitare Monitoraggio di Azure per le macchine virtuali su larga scala in modo da garantire conformità coerente e abilitazione automatica per le nuove macchine virtuali di cui viene effettuato il provisioning, è consigliabile usare [Criteri di Azure](../azure-policy/azure-policy-introduction.md). Questi criteri:
+Per abilitare Monitoraggio di Azure per le macchine virtuali su larga scala in modo da garantire conformità coerente e abilitazione automatica per le nuove macchine virtuali di cui viene effettuato il provisioning, è consigliabile usare [Criteri di Azure](../governance/policy/overview.md). Questi criteri:
 
 * Distribuiscono l'agente di Log Analytics e Dependency Agent 
 * Creare report con i risultati relativi alla conformità 
@@ -352,7 +352,7 @@ Per altre informazioni sull'assegnazione di Criteri di Azure, vedere [Panoramica
 
 La tabella seguente elenca le definizioni dei criteri disponibili.  
 
-|NOME |Descrizione |type |  
+|NOME |DESCRIZIONE |type |  
 |-----|------------|-----|  
 |[Anteprima]: Abilita Monitoraggio di Azure per le macchine virtuali |Abilita Monitoraggio di Azure per le macchine virtuali nell'ambito specificato (gruppo di gestione, sottoscrizione o gruppo di risorse). Accetta l'area di lavoro di Log Analytics come parametro. |Iniziativa |  
 |[Anteprima]: Controlla la distribuzione di Dependency Agent - Immagine macchina virtuale (sistema operativo) non in elenco |Segnala le macchine virtuali come non conformi se l'immagine della macchina virtuale (sistema operativo) non è nell'elenco definito e l'agente non è installato. |Criterio |  
@@ -364,7 +364,7 @@ La tabella seguente elenca le definizioni dei criteri disponibili.
 
 Criterio autonomo (non incluso nell'iniziativa) 
 
-|NOME |Descrizione |type |  
+|NOME |DESCRIZIONE |type |  
 |-----|------------|-----|  
 |[Anteprima]: Controlla area di lavoro di Log Analytics per la macchina virtuale - Segnala mancata corrispondenza |Segnala le macchine virtuali come non conformi se non si connettono all'area di lavoro di Log Analytics specificata nell'assegnazione dei criteri o dell'iniziativa. |Criterio |
 
@@ -592,7 +592,7 @@ Dependency Agent può essere installato manualmente nei computer Windows eseguen
 
 La tabella seguente illustra i parametri specifici supportati dal programma di installazione per l'agente dalla riga di comando.  
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 |:--|:--|
 | /? | Restituisce un elenco delle opzioni della riga di comando. |
 | /S | Esegue un'installazione invisibile all'utente, senza interazione da parte dell'utente. |
@@ -608,7 +608,7 @@ Dependency Agent viene installato nei server Linux tramite `InstallDependencyAge
 > Per installare o configurare l'agente è necessario l'accesso alla radice.
 > 
 
-| Parametro | Descrizione |
+| Parametro | DESCRIZIONE |
 |:--|:--|
 | -help | Ottenere un elenco delle opzioni della riga di comando. |
 | -s | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |

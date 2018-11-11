@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: d0368584dfa461427fe1bad4273c993f0ece894a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c8ab4836274506cbfdd10b21182bffaccdfbfa06
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413802"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014704"
 ---
 # <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
 
@@ -139,4 +139,4 @@ Monitoraggio prestazioni rete consente di diagnosticare diversi tipi di problemi
  
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Effettuare una ricerca nei log](log-analytics-log-searches.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.
+[Effettuare una ricerca nei log](log-analytics-queries.md) per visualizzare i record dettagliati dei dati delle prestazioni di rete.

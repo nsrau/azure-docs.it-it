@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 40ecb474b4faa4031cb364dfc1151c6fe6f09dd6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c07e1282a755962b6fe6bc980207a510bd3287a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856450"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253772"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Creare e pubblicare un elemento del Marketplace
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 ## <a name="create-a-marketplace-item"></a>Creare un elemento del Marketplace
-1. [Scaricare](http://www.aka.ms/azurestackmarketplaceitem) lo strumento Packager di raccolta di Azure e l'elemento del Marketplace Azure Stack di esempio.
+1. [Scaricare](https://www.aka.ms/azurestackmarketplaceitem) lo strumento Packager di raccolta di Azure e l'elemento del Marketplace Azure Stack di esempio.
 2. Aprire l'elemento del Marketplace di esempio e rinominare il **SimpleVMTemplate** cartella. (Usare lo stesso nome come l'elemento del Marketplace, ad esempio, **Contoso.TodoList**.) Questa cartella contiene:
    
    ```shell

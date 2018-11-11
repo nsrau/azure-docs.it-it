@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 9b61362525962c5e01d7fef6d317cf9861dfd0a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 565a484d2eae0879b625e79ef7ffbdd8eb5e4455
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977894"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251037"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Aggiunta di Azure Active Directory mediante servizi connessi in Visual Studio
 
@@ -64,7 +64,7 @@ Al momento, il servizio connesso di Active Directory non supporta applicazioni A
     - [Introduzione ai progetti MVC .NET](vs-active-directory-dotnet-getting-started.md)
     - [Introduzione ai progetti WebAPI](vs-active-directory-webapi-getting-started.md)
 
-1. È anche possibile visualizzare il dominio di Active Directory nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. È anche possibile visualizzare il dominio di Active Directory nel [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 ## <a name="how-your-project-is-modified"></a>Come viene modificato il progetto
 

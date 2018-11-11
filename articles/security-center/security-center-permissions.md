@@ -4,7 +4,7 @@ description: Questo articolo illustra come Centro sicurezza di Azure usa il cont
 services: security-center
 cloud: na
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 ms.assetid: ''
 ms.service: security-center
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2017
-ms.author: terrylan
-ms.openlocfilehash: b93b57d50ccf5d5dfb092bdb71820da77f345878
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295463"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007859"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
@@ -44,7 +44,7 @@ La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza.
 | Ruolo | Modificare i criteri di sicurezza | Applicare i suggerimenti per la sicurezza per una risorsa | Ignorare gli avvisi e le raccomandazioni | Visualizzare gli avvisi e le raccomandazioni |
 |:--- |:---:|:---:|:---:|:---:|
 | Proprietario della sottoscrizione | X | X | X | X |
-| Collaboratore alla sottoscrizione | X | X | X | X |
+| Collaboratore alla sottoscrizione | -- | X | X | X |
 | Proprietario del gruppo di risorse | -- | X | -- | X |
 | Collaboratore del gruppo di risorse | -- | X | -- | X |
 | Reader | -- | -- | -- | X |

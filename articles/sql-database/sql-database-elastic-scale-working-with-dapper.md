@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 1b0200413fe40acac997570fdccc970a78cf6ece
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 3a25d68b0f0bdd97b204906af87fac8013ad3cff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162231"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253024"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Utilizzo della libreria client dei database elastici con Dapper
 Questo documento è rivolto agli sviluppatori che si basano su Dapper per creare applicazioni, ma desiderano avvalersi degli [strumenti dei database elastici](sql-database-elastic-scale-introduction.md) per creare applicazioni che implementano il partizionamento per la scalabilità orizzontale del livello dati.  Questo documento illustra le modifiche da apportare nelle applicazioni basate su Dapper per l'integrazione con gli strumenti dei database elastici. L'obiettivo è comporre la gestione delle partizioni dei database elastici e il routing dipendente dai dati con Dapper. 
 
 **Codice di esempio**: [Strumenti dei database elastici per il database SQL di Azure - Integrazione con Dapper](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
-L'integrazione di **Dapper** e **DapperExtensions** con la libreria client dei database elastici per il database SQL di Azure è semplice. Le applicazioni possono usare il routing dipendente dai dati modificando la creazione e l'apertura di nuovi oggetti [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) per usare la chiamata a [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) dalla [libreria client](http://msdn.microsoft.com/library/azure/dn765902.aspx). Questo limita le modifiche nell'applicazione solo ai punti in cui vengono create e aperte nuove connessioni. 
+L'integrazione di **Dapper** e **DapperExtensions** con la libreria client dei database elastici per il database SQL di Azure è semplice. Le applicazioni possono usare il routing dipendente dai dati modificando la creazione e l'apertura di nuovi oggetti [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) per usare la chiamata a [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) dalla [libreria client](https://msdn.microsoft.com/library/azure/dn765902.aspx). Questo limita le modifiche nell'applicazione solo ai punti in cui vengono create e aperte nuove connessioni. 
 
 ## <a name="dapper-overview"></a>Informazioni generali su Dapper
 **Dapper** è un mapper object-relational. Esegue il mapping degli oggetti .NET dell'applicazione con un database relazionale e viceversa. La prima parte del codice di esempio illustra come integrare la libreria client dei database elastici con applicazioni basate su Dapper. La seconda parte del codice di esempio illustra come eseguire l’integrazione quando si usano Dapper e DapperExtensions.  
@@ -44,7 +44,7 @@ Con libreria client dei database elastici è possibile definire partizioni di da
 
 Il gestore mappe partizioni protegge gli utenti da visualizzazioni non coerenti in dati di shardlet che possono verificarsi quando vengono eseguite operazioni di gestione shardlet simultanee nei database. A tale scopo, le mappe partizioni gestiscono le connessioni al database per un'applicazione compilata con la libreria. Se esiste il rischio che le operazioni di gestione delle partizioni abbiano impatto sullo shardlet, in questo modo la funzionalità delle mappe di partizioni può terminare automaticamente una connessione al database. 
 
-Anziché usare il sistema tradizionale per creare connessioni per Dapper, è necessario usare il [metodo OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn824099.aspx). Ciò garantisce che vengano eseguite tutte le convalide e vengano gestite correttamente le connessioni durante lo spostamento di dati tra le partizioni.
+Anziché usare il sistema tradizionale per creare connessioni per Dapper, è necessario usare il [metodo OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn824099.aspx). Ciò garantisce che vengano eseguite tutte le convalide e vengano gestite correttamente le connessioni durante lo spostamento di dati tra le partizioni.
 
 ### <a name="requirements-for-dapper-integration"></a>Requisiti per l'integrazione con Dapper
 Quando si usano sia la libreria client dei database elastici che le API di Dapper, si desidera mantenere le seguenti proprietà:
@@ -57,7 +57,7 @@ La seguente sezione fornisce indicazioni per tali requisiti per le applicazioni 
 
 ## <a name="technical-guidance"></a>Indicazioni tecniche
 ### <a name="data-dependent-routing-with-dapper"></a>Routing dipendente dai dati con Dapper
-Con Dapper l'applicazione è in genere responsabile della creazione e l'apertura delle connessioni al database sottostante. Sulla base di un tipo T fornito dall'applicazione, Dapper restituisce risultati di query come raccolte .NET di tipo T. Dapper esegue il mapping tra le righe di risultati di T-SQL e gli oggetti di tipo T. Analogamente, Dapper esegue il mapping tra oggetti .NET e parametri o valori SQL per istruzioni Data Manipulation Language (DML). Dapper offre questa funzionalità tramite i metodi di estensione nel normale oggetto [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) delle librerie client SQL ADO.NET. Anche la connessione SQL restituita dalle API di scalabilità elastica per record dei dati di individuazione sono normali oggetti [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx). In questo modo è possibile usare direttamente le estensioni Dapper sul tipo restituito dall'API di record dei dati della libreria client, perché anche in questo caso si tratta di una semplice connessione client SQL.
+Con Dapper l'applicazione è in genere responsabile della creazione e l'apertura delle connessioni al database sottostante. Sulla base di un tipo T fornito dall'applicazione, Dapper restituisce risultati di query come raccolte .NET di tipo T. Dapper esegue il mapping tra le righe di risultati di T-SQL e gli oggetti di tipo T. Analogamente, Dapper esegue il mapping tra oggetti .NET e parametri o valori SQL per istruzioni Data Manipulation Language (DML). Dapper offre questa funzionalità tramite i metodi di estensione nel normale oggetto [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) delle librerie client SQL ADO.NET. Anche la connessione SQL restituita dalle API di scalabilità elastica per record dei dati di individuazione sono normali oggetti [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx). In questo modo è possibile usare direttamente le estensioni Dapper sul tipo restituito dall'API di record dei dati della libreria client, perché anche in questo caso si tratta di una semplice connessione client SQL.
 
 Queste osservazioni semplificano l'utilizzo delle connessioni negoziate dalla libreria client dei database elastici per Dapper.
 
@@ -76,15 +76,15 @@ Questo esempio di codice (dall'esempio di accompagnamento) illustra il metodo in
                         );
     }
 
-La chiamata all'API [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) sostituisce la creazione predefinita e l'apertura di una connessione client SQL. La chiamata a [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) accetta gli argomenti necessari per il routing dipendente dai dati: 
+La chiamata all'API [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) sostituisce la creazione predefinita e l'apertura di una connessione client SQL. La chiamata a [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) accetta gli argomenti necessari per il routing dipendente dai dati: 
 
 * La mappa partizioni per l'accesso alle interfacce di routing dipendente dai dati
 * La chiave di partizionamento orizzontale per l'identificazione dello shardlet
 * Le credenziali (nome utente e password) per la connessione alla partizione
 
-L'oggetto mappa partizioni crea una connessione alla partizione che contiene lo shardlet per la chiave di partizionamento orizzontale specificata. Le API della libreria client dei database elastici aggiungono inoltre un tag alla connessione per implementare le garanzie di coerenza. Poiché la chiamata a [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) restituisce un normale oggetto di connessione client SQL, la chiamata successiva al metodo di estensione **Execute** da Dapper segue la procedura Dapper standard.
+L'oggetto mappa partizioni crea una connessione alla partizione che contiene lo shardlet per la chiave di partizionamento orizzontale specificata. Le API della libreria client dei database elastici aggiungono inoltre un tag alla connessione per implementare le garanzie di coerenza. Poiché la chiamata a [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) restituisce un normale oggetto di connessione client SQL, la chiamata successiva al metodo di estensione **Execute** da Dapper segue la procedura Dapper standard.
 
-Le query funzionano in modo molto simile: si apre innanzitutto la connessione usando [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) dall'API client. Si usano quindi i normali metodi di estensione Dapper per il mapping tra i risultati della query SQL negli oggetti .NET:
+Le query funzionano in modo molto simile: si apre innanzitutto la connessione usando [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) dall'API client. Si usano quindi i normali metodi di estensione Dapper per il mapping tra i risultati della query SQL negli oggetti .NET:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId1, 
@@ -109,7 +109,7 @@ Si noti che il blocco **using** con la connessione di record di dati di individu
 ## <a name="data-dependent-routing-with-dapper-and-dapperextensions"></a>Routing dipendente dai dati con Dapper e DapperExtensions
 Dapper viene fornito con un ecosistema di estensioni aggiuntive che garantiscono praticità e astrazione dal database durante lo sviluppo di applicazioni di database. Un esempio è rappresentato da DapperExtensions. 
 
-L'uso di DapperExtensions nell'applicazione non comporta la modifica della modalità di creazione e gestione delle connessioni di database. È comunque responsabilità dell'applicazione aprire le connessioni e sono previsti normali oggetti di connessione client SQL dai metodi di estensione. È possibile basarsi sul metodo [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) come illustrato in precedenza. Come mostrato nei seguenti esempi di codice, come unica differenza non è necessario scrivere le istruzioni T-SQL:
+L'uso di DapperExtensions nell'applicazione non comporta la modifica della modalità di creazione e gestione delle connessioni di database. È comunque responsabilità dell'applicazione aprire le connessioni e sono previsti normali oggetti di connessione client SQL dai metodi di estensione. È possibile basarsi sul metodo [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) come illustrato in precedenza. Come mostrato nei seguenti esempi di codice, come unica differenza non è necessario scrivere le istruzioni T-SQL:
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
                     key: tenantId2, 
@@ -137,7 +137,7 @@ Questo è l'esempio di codice per la query:
     }
 
 ### <a name="handling-transient-faults"></a>Gestione degli errori temporanei
-Il team Microsoft Patterns & Practices ha pubblicato un articolo relativo al [blocco di applicazioni per la gestione degli errori temporanei](http://msdn.microsoft.com/library/hh680934.aspx) per consentire agli sviluppatori di applicazioni di attenuare le comuni condizioni di errori temporanei rilevate durante l'esecuzione nel cloud. Per ulteriori informazioni, vedere [Perseveranza, il segreto di tutti i successi: uso del Blocco di applicazioni per la gestione degli errori temporanei](http://msdn.microsoft.com/library/dn440719.aspx).
+Il team Microsoft Patterns & Practices ha pubblicato un articolo relativo al [blocco di applicazioni per la gestione degli errori temporanei](https://msdn.microsoft.com/library/hh680934.aspx) per consentire agli sviluppatori di applicazioni di attenuare le comuni condizioni di errori temporanei rilevate durante l'esecuzione nel cloud. Per ulteriori informazioni, vedere [Perseveranza, il segreto di tutti i successi: uso del Blocco di applicazioni per la gestione degli errori temporanei](https://msdn.microsoft.com/library/dn440719.aspx).
 
 L'esempio di codice si basa sulla libreria di errori temporanei per proteggersi da questo tipo di errori. 
 
@@ -157,10 +157,10 @@ L'esempio di codice si basa sulla libreria di errori temporanei per proteggersi 
 Gli approcci descritti in questo documento implicano due limitazioni:
 
 * Il codice di esempio per questo documento non illustra come gestire lo schema tra partizioni.
-* Data una richiesta, si presuppone che tutta la relativa elaborazione di database sia contenuta in una singola partizione identificata dalla chiave di partizionamento orizzontale fornita dalla richiesta. Tuttavia, questo presupposto non ha sempre valore, ad esempio quando non è possibile rendere disponibile una chiave di partizionamento orizzontale. Per risolvere questo problema, la libreria client dei database elastici include la [classe MultiShardQuery](http://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). Questa classe implementa un'astrazione di connessione per l'esecuzione di query su più partizioni. L'uso di MultiShardQuery in combinazione con Dapper esula dall'ambito di questo documento.
+* Data una richiesta, si presuppone che tutta la relativa elaborazione di database sia contenuta in una singola partizione identificata dalla chiave di partizionamento orizzontale fornita dalla richiesta. Tuttavia, questo presupposto non ha sempre valore, ad esempio quando non è possibile rendere disponibile una chiave di partizionamento orizzontale. Per risolvere questo problema, la libreria client dei database elastici include la [classe MultiShardQuery](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx). Questa classe implementa un'astrazione di connessione per l'esecuzione di query su più partizioni. L'uso di MultiShardQuery in combinazione con Dapper esula dall'ambito di questo documento.
 
 ## <a name="conclusion"></a>Conclusioni
-Le applicazioni che usano Dapper e DapperExtensions possono trarre vantaggio facilmente dagli strumenti dei database elastici del database SQL di Azure. Tramite le procedure descritte in questo documento, tali applicazioni possono usare la funzionalità dello strumento per il routing dipendente dai dati modificando la creazione e l'apertura di nuovi oggetti [SqlConnection](http://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) per usare la chiamata a [OpenConnectionForKey](http://msdn.microsoft.com/library/azure/dn807226.aspx) della libreria client dei database elastici. In questo modo si limitano le modifiche dell'applicazione ai punti in cui vengono create e aperte nuove connessioni. 
+Le applicazioni che usano Dapper e DapperExtensions possono trarre vantaggio facilmente dagli strumenti dei database elastici del database SQL di Azure. Tramite le procedure descritte in questo documento, tali applicazioni possono usare la funzionalità dello strumento per il routing dipendente dai dati modificando la creazione e l'apertura di nuovi oggetti [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) per usare la chiamata a [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) della libreria client dei database elastici. In questo modo si limitano le modifiche dell'applicazione ai punti in cui vengono create e aperte nuove connessioni. 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

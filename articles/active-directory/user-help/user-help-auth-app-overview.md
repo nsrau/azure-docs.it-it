@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 6de1f6dfac028255a1cb49931e959c79b5fc4f40
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: e0fe2ade2e50ff549cb18f84a3c15830255ca0fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42024061"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249592"
 ---
 # <a name="microsoft-authenticator-app"></a>App Microsoft Authenticator
 
@@ -27,6 +27,6 @@ L'app Microsoft Authenticator consente di proteggere gli account eseguendo la ve
 
 |Articolo |DESCRIZIONE |
 |------|------------|
-|[Introduzione all'app Microsoft Authenticator](microsoft-authenticator-app-how-to.md)|Descrive dove e come ottenere e installare l'app Microsoft Authenticator, disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).|
+|[Introduzione all'app Microsoft Authenticator](microsoft-authenticator-app-how-to.md)|Descrive dove e come ottenere e installare l'app Microsoft Authenticator, disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).|
 |[Eseguire il backup e il ripristino delle credenziali dell'account con l'app Microsoft Authenticator](microsoft-authenticator-app-backup-and-recovery.md)| Fornisce informazioni su come eseguire il backup e il ripristino delle credenziali dell'account usando l'app Microsoft Authenticator.|
 |[Domande frequenti sull'app Microsoft Authenticator](microsoft-authenticator-app-faq.md)|Offre risposte a domande frequenti relative all'app.|

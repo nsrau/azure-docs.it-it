@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 5e665cd0bcfdea436c2f493187c5bbea756f8f09
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382740"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248308"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Configurare un servizio di bilanciamento del carico interno per un gruppo di disponibilità Always On in Azure
 In questo articolo viene illustrato come creare un servizio di bilanciamento del carico per un gruppo di disponibilità SQL Server Always On nelle macchine virtuali in esecuzione con Azure Resource Manager. Un gruppo di disponibilità richiede un servizio di bilanciamento del carico quando le istanze di SQL Server sono in macchine virtuali di Azure. Il servizio di bilanciamento del carico archivia l'indirizzo IP per il listener del gruppo di disponibilità. Se un gruppo di disponibilità si estende su più aree, è necessario un servizio di bilanciamento del carico per ogni area.
@@ -120,7 +120,7 @@ Il probe definisce come Azure deve verificare quali istanze di SQL Server sono a
 4.  Fare clic su **OK**. 
 
 > [!NOTE]
-> Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambe le istanze è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](http://technet.microsoft.com/library/cc753558.aspx). 
+> Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambe le istanze è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](https://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 
@@ -276,7 +276,7 @@ Dopo avere configurato il gruppo di disponibilità per usare il nuovo indirizzo 
 Se un gruppo di disponibilità fa parte di un gruppo di disponibilità distribuito, è necessaria una regola aggiuntiva per il bilanciamento del carico. Questa regola consente di memorizzare la porta usata dal listener del gruppo di disponibilità distribuito.
 
 >[!IMPORTANT]
->Questo passaggio si applica solo se il gruppo di disponibilità fa parte di un [gruppo di disponibilità distribuito](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
+>Questo passaggio si applica solo se il gruppo di disponibilità fa parte di un [gruppo di disponibilità distribuito](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups). 
 
 1. In ogni server che fa parte del gruppo di disponibilità distribuito, creare una regola in ingresso sulla porta TCP del listener del gruppo di disponibilità distribuito. In molti esempi della documentazione, viene usato 5022. 
 
@@ -289,7 +289,7 @@ Se un gruppo di disponibilità fa parte di un gruppo di disponibilità distribui
    |**Nome** |Aggiungere il nome per identificare la regola di bilanciamento del carico per il gruppo di disponibilità distribuito. 
    |**Indirizzo IP front-end IP** |Usare lo stesso indirizzo IP front-end del gruppo di disponibilità.
    |**Protocollo** |TCP
-   |**Porta** |5022: la porta per il [listener endpoint del gruppo di disponibilità distribuito](http://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Può essere qualsiasi porta disponibile.  
+   |**Porta** |5022: la porta per il [listener endpoint del gruppo di disponibilità distribuito](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/configure-distributed-availability-groups).</br> Può essere qualsiasi porta disponibile.  
    |**Porta back-end** | 5022: usare lo stesso valore di **Porta**.
    |**Pool back-end** |Il pool che contiene le macchine virtuali con le istanze di SQL Server. 
    |**Probe di integrità** |Scegliere il probe che è stato creato.

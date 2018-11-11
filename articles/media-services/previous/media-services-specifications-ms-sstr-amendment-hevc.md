@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: 78ec0e3ee4304e820bf64afa26440380887630a1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6330de2aa67fd83a5d4762c2c13d4916f642743d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786060"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250935"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Rettifica del protocollo Smooth Streaming (MS-SSTR) per HEVC
 
@@ -30,7 +30,7 @@ Questo articolo fornisce le modifiche dettagliate da applicare alla specifica de
 L'articolo include i requisiti di implementazione tecnica per la segnalazione del codec video HEVC in un manifesto Smooth Streaming e sono stati aggiornati i riferimenti normativi per fare riferimento agli standard MPEG correnti che includono HEVC, Common Encryption di HEVC, e sono stati aggiornati i nomi dei riquadri per ISO Base Media File Format in modo da essere coerenti con le ultime specifiche. 
 
 La specifica del protocollo Smooth Streaming di riferimento [MS-SSTR] descrive il formato di trasmissione usato per offrire contenuto multimediale live e on-demand come audio e video nei modi seguenti: da un codificatore a un server Web, da un server a un altro server e da un server a un client HTTP.
-L'utilizzo di una distribuzione della struttura dei dati basata su MPEG-4 ([[MPEG-4-RA])](http://go.microsoft.com/fwlink/?LinkId=327787) tramite HTTP consente il passaggio senza interruzioni quasi in tempo reale tra diversi livelli di qualità di contenuto multimediale compresso. Il risultato è un'esperienza di riproduzione costante per l'utente finale del client HTTP, anche se le condizioni di rete e rendering video cambiano per il computer client o il dispositivo.
+L'utilizzo di una distribuzione della struttura dei dati basata su MPEG-4 ([[MPEG-4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) tramite HTTP consente il passaggio senza interruzioni quasi in tempo reale tra diversi livelli di qualità di contenuto multimediale compresso. Il risultato è un'esperienza di riproduzione costante per l'utente finale del client HTTP, anche se le condizioni di rete e rendering video cambiano per il computer client o il dispositivo.
 
 ## <a name="11-glossary"></a>1.1 Glossario 
 
@@ -40,11 +40,11 @@ I termini seguenti sono definiti in *[MS-GLOS]*:
 
 I termini seguenti sono specifici di questo documento:
 
->  **ora di composizione:** ora in cui un campione viene presentato al client, come definito in [[ISO/IEC-14496-12].](http://go.microsoft.com/fwlink/?LinkId=183695)
+>  **ora di composizione:** ora in cui un campione viene presentato al client, come definito in [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 >   **CENC**: Common Encryption, come definito in [ISO/IEC 23001-7] Second Edition.
 
->   **tempo di decodifica:** tempo necessario per la decodifica di un campione nel client, come definito in [[ISO/IEChttp://go.microsoft.com/fwlink/?LinkId=18369514496-12].](http://go.microsoft.com/fwlink/?LinkId=183695)
+>   **tempo di decodifica:** tempo necessario per la decodifica di un campione nel client, come definito in [[ISO/IEC http://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 **frammento:** unità di **contenuto multimediale** scaricabile in modo indipendente che include uno o più **campioni**.
 
@@ -52,11 +52,11 @@ I termini seguenti sono specifici di questo documento:
 
 >   **manifesto:** metadati sulla **presentazione** che consentono a un client di effettuare richieste di **contenuto multimediale**. **contenuto multimediale:** dati audio, video e di testo compressi usati dal client per riprodurre una **presentazione**. **formato multimediale:** formato ben definito per la rappresentazione di audio o video come un **campione** compresso.
 
->   **presentazione:** set di tutti i **flussi** e metadati correlati necessari per riprodurre un singolo filmato. **richiesta:** messaggio HTTP inviato dal client al server, come definito in [[RFC2616].](http://go.microsoft.com/fwlink/?LinkId=90372) **risposta:** messaggio HTTP inviato dal server al client, come definito in [[RFC2616].](http://go.microsoft.com/fwlink/?LinkId=90372)
+>   **presentazione:** set di tutti i **flussi** e metadati correlati necessari per riprodurre un singolo filmato. **richiesta:** messaggio HTTP inviato dal client al server, come definito in [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **risposta:** messaggio HTTP inviato dal server al client, come definito in [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
 
 >   **campione:** l'unità fondamentale più piccola (ad esempio un fotogramma) in cui viene archiviato ed elaborato il **contenuto multimediale**.
 
->   **MAY, SHOULD, MUST, SHOULD NOT, MUST NOT:** questi termini (tutti in maiuscolo) vengono usati come descritto in [[RFC2119].](http://go.microsoft.com/fwlink/?LinkId=90317) Tutte le istruzioni di comportamento facoltativo usano MAY, SHOULD, o SHOULD NOT.
+>   **MAY, SHOULD, MUST, SHOULD NOT, MUST NOT:** questi termini (tutti in maiuscolo) vengono usati come descritto in [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) Tutte le istruzioni di comportamento facoltativo usano MAY, SHOULD, o SHOULD NOT.
 
 ## <a name="12-references"></a>1.2 Riferimenti 
 -----------
@@ -65,7 +65,7 @@ I termini seguenti sono specifici di questo documento:
 
  ### <a name="121-normative-references"></a>1.2.1 Riferimenti normativi 
 
->  [MS-SSTR] Smooth Streaming Protocol *v20140502* [http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/[MS-SSTR].pdf](http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+>  [MS-SSTR] Smooth Streaming Protocol *v20140502* [http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/[MS-SSTR].pdf](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
 >   [ISO/IEC 14496-12] International Organization for Standardization, "Information technology -- Coding of audio-visual objects -- Part 12: ISO Base Media File Format", ISO/IEC 14496-12:2014, Edition 4, Plus Corrigendum 1, Amendments 1 & 2.
 >   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -79,17 +79,17 @@ I termini seguenti sono specifici di questo documento:
 
 >   [RFC-6381] IETF RFC-6381, “The 'Codecs' and 'Profiles' Parameters for   "Bucket" Media Types” <http://tools.ietf.org/html/rfc6381>
 
->   [MPEG4-RA] The MP4 Registration Authority, "MP4REG", [http://www.mp4ra.org   ](http://go.microsoft.com/fwlink/?LinkId=327787)
+>   [MPEG4-RA] The MP4 Registration Authority, "MP4REG", [http://www.mp4ra.org   ](https://go.microsoft.com/fwlink/?LinkId=327787)
 
->   [RFC2119] Bradner, S., "Key words for use in RFCs to Indicate Requirement   Levels", BCP 14, RFC 2119, marzo 1997,   [http://www.rfc-editor.org/rfc/rfc2119.txt   ](http://go.microsoft.com/fwlink/?LinkId=90317)
+>   [RFC2119] Bradner, S., "Key words for use in RFCs to Indicate Requirement   Levels", BCP 14, RFC 2119, marzo 1997,   [http://www.rfc-editor.org/rfc/rfc2119.txt   ](https://go.microsoft.com/fwlink/?LinkId=90317)
 
 ### <a name="122-informative-references"></a>1.2.2 Riferimenti informativi 
 
 >   [MS-GLOS] Microsoft Corporation, "*Windows Protocols Master Glossary*."
 
->   [RFC3548] Josefsson, S., Ed., "The Base16, Base32, and Base64 Data   Encodings", RFC 3548, luglio 2003, [http://www.ietf.org/rfc/rfc3548.txt   ](http://go.microsoft.com/fwlink/?LinkId=90432)
+>   [RFC3548] Josefsson, S., Ed., "The Base16, Base32, and Base64 Data   Encodings", RFC 3548, luglio 2003, [http://www.ietf.org/rfc/rfc3548.txt   ](https://go.microsoft.com/fwlink/?LinkId=90432)
 
->   [RFC5234] Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax   Specifications: ABNF", STD 68, RFC 5234, gennaio 2008,   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](http://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., Ed., and Overell, P., "Augmented BNF for Syntax   Specifications: ABNF", STD 68, RFC 5234, gennaio 2008,   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3 Panoramica 
@@ -115,7 +115,7 @@ I termini seguenti sono specifici di questo documento:
 >   Per identificare i flussi che adottano il formato video HEVC, è necessario usare il metodo seguente:
 
 >   * **Codici descrittivi personalizzati per formati multimediali:** questa funzionalità viene fornita dal campo **FourCC**, come specificato nella sezione *2.2.2.5*.
->   I responsabili dell'implementazione possono garantire che le estensioni non siano in conflitto registrando i codici delle estensioni con MPEG-4-RA, come specificato in [[ISO/IEC-14496-12] ](http://go.microsoft.com/fwlink/?LinkId=183695)
+>   I responsabili dell'implementazione possono garantire che le estensioni non siano in conflitto registrando i codici delle estensioni con MPEG-4-RA, come specificato in [[ISO/IEC-14496-12] ](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 ## <a name="19-standards-assignments"></a>1.9 Assegnazioni degli standard 
 ----------------------
@@ -163,7 +163,7 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 
 >   * Quando TrackElement descrive un video HEVC, il campo **FourCC** deve essere uguale a **"hev1"** e;
 
->   Il campo **CodecPrivateData** deve contenere una rappresentazione di stringa con codifica esadecimale della sequenza di byte seguente, specificata in ABNF [[RFC5234]:](http://go.microsoft.com/fwlink/?LinkId=123096) (nessuna modifica da MS-SSTR)
+>   Il campo **CodecPrivateData** deve contenere una rappresentazione di stringa con codifica esadecimale della sequenza di byte seguente, specificata in ABNF [[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096) (nessuna modifica da MS-SSTR)
 
 >   * %x00 %x00 %x00 %x01 SPSField %x00 %x00 %x00 %x01 PPSField
 
@@ -209,21 +209,21 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 
 #### <a name="2246-tfhdbox"></a>2.2.4.6 TfhdBox 
 
->   **TfhdBox** e i campi correlati incapsulano i valori predefiniti per i metadati campione presenti nel frammento. La sintassi del campo **TfhdBox** è un subset limitato della sintassi di Track Fragment Header Box definita in [[ISO/IEC-14496-12]](http://go.microsoft.com/fwlink/?LinkId=183695) sezione 8.8.7.
+>   **TfhdBox** e i campi correlati incapsulano i valori predefiniti per i metadati campione presenti nel frammento. La sintassi del campo **TfhdBox** è un subset limitato della sintassi di Track Fragment Header Box definita in [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) sezione 8.8.7.
 
 >   **BaseDataOffset (8 byte):** offset, in byte, dall'inizio del campo **MdatBox** al campo campione nel campo **MdatBox**. Per segnalare questa limitazione, è necessario impostare il flag default-base-is-moof (0x020000).
 
 #### <a name="2247-trunbox"></a>2.2.4.7 TrunBox 
 
->   **TrunBox** e i campi correlati incapsulano i valori per i metadati campione del frammento richiesto. La sintassi di **TrunBox** è un subset limitato di Version 1 Track Fragment Run Box definito in [[ISO/IEC-14496-](http://go.microsoft.com/fwlink/?LinkId=183695)*12]* sezione 8.8.8.
+>   **TrunBox** e i campi correlati incapsulano i valori per i metadati campione del frammento richiesto. La sintassi di **TrunBox** è un subset limitato di Version 1 Track Fragment Run Box definito in [[ISO/IEC-14496-](https://go.microsoft.com/fwlink/?LinkId=183695)*12]* sezione 8.8.8.
 
 >   **SampleCompositionTimeOffset (4 byte):** offset dell'ora di composizione di ogni campione regolato in modo che l'ora di presentazione del primo campione presentato nel frammento sia uguale all'ora di decodifica del primo campione decodificato. Devono essere usati offset di composizione campioni video negativi,
 
->   come definito in [[ISO/IEC-14496-12].](http://go.microsoft.com/fwlink/?LinkId=183695)
+>   come definito in [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
 
 >   Nota: in questo modo si evita un errore di sincronizzazione video causato dal ritardo audio uguale al ritardo di rimozione massimo del buffer delle immagini decodificate e gestisce i tempi di presentazione tra i frammenti alternativi che possono avere ritardi di rimozione diversi.
 
->   La sintassi dei campi definiti in questa sezione, specificata in ABNF [[RFC5234]](http://go.microsoft.com/fwlink/?LinkId=123096) rimane invariata, ad eccezione di quanto segue:
+>   La sintassi dei campi definiti in questa sezione, specificata in ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) rimane invariata, ad eccezione di quanto segue:
 
 >   SampleCompositionTimeOffset = SIGNED_INT32
 
@@ -239,7 +239,7 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 
 #### <a name="2271-filetype"></a>2.2.7.1 FileType 
 
->   **FileType (variabile):** specifica il sottotipo e l'utilizzo previsto del file MPEG-4 ([[MPEG-4-RA])](http://go.microsoft.com/fwlink/?LinkId=327787) e degli attributi di alto livello.
+>   **FileType (variabile):** specifica il sottotipo e l'utilizzo previsto del file MPEG-4 ([[MPEG-4-RA])](https://go.microsoft.com/fwlink/?LinkId=327787) e degli attributi di alto livello.
 
 >   **MajorBrand (variabile):** marchio principale del file multimediale. Deve essere impostato su "isml".
 
@@ -248,7 +248,7 @@ ProtectionElement deve essere presente quando CENC (Common Encryption) viene app
 >   **CompatibleBrands (variabile):** specifica i marchi supportati di MPEG-4.
 >   Deve includere "ccff" e "iso8".
 
->   La sintassi dei campi definiti in questa sezione, specificata in ABNF [[RFC5234]](http://go.microsoft.com/fwlink/?LinkId=123096) è la seguente:
+>   La sintassi dei campi definiti in questa sezione, specificata in ABNF [[RFC5234]](https://go.microsoft.com/fwlink/?LinkId=123096) è la seguente:
 
     FileType = MajorBrand MinorVersion CompatibleBrands
     MajorBrand = STRING_UINT32

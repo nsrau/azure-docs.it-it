@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: d9ff0387a1d02eb5f4684048aeed8ad0079b28ef
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 06a0f2416ecff9e2f9a21877e26487b56452d0a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434416"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251322"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>Usare Ansible per gestire una macchina virtuale Linux in Azure
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire le macchine virtuali in Azure, allo stesso modo di qualsiasi altra risorsa. Questo articolo descrive come usare un playbook Ansible per avviare e arrestare una macchina virtuale di Linux. 
@@ -27,7 +27,7 @@ Ansible consente di automatizzare la distribuzione e la configurazione delle ris
 ## <a name="use-ansible-to-deallocate-stop-an-azure-virtual-machine"></a>Usare Ansible per deallocare (arrestare) una macchina virtuale di Azure
 Questa sezione descrive come usare Ansible per deallocare (arrestare) una macchina virtuale di Azure
 
-1.  Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1.  Aprire [Cloud Shell](/azure/cloud-shell/overview).
 
@@ -85,7 +85,7 @@ Questa sezione descrive come usare Ansible per deallocare (arrestare) una macchi
 ## <a name="use-ansible-to-start-a-deallocated-stopped-azure-virtual-machine"></a>Usare Ansible per avviare una macchina virtuale di Azure deallocata (arrestata)
 Questa sezione descrive come usare Ansible per avviare una macchina virtuale di Azure deallocata (arrestata)
 
-1.  Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1.  Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1.  Aprire [Cloud Shell](/azure/cloud-shell/overview).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: eee9183321f21676271c8a9c7e023c80c4daf554
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7d42c026975a18c7574e4bc64ec28ab3ed0082bc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915108"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248453"
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Aggiungere nodi "burst" su richiesta in un cluster HPC Pack in Azure
 Se si configura un cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) in Azure, è possibile aumentarne o ridurne la capacità senza mantenere un set di VM preconfigurate del nodo di calcolo. In questo articolo viene illustrato come aggiungere nodi "burst" su richiesta (istanze del ruolo di lavoro in esecuzione in un servizio cloud) come risorse di calcolo in un nodo head in Azure. 
@@ -33,7 +33,7 @@ Se si configura un cluster [Microsoft HPC Pack](https://technet.microsoft.com/li
 
 I passaggi descritti in questo articolo consentono di aggiungere rapidamente nodi di Azure a una VM del nodo head HPC Pack basato sul cloud per una distribuzione di test o con modello di verifica. La procedura di livello elevato è identica a quella per il "potenziamento in Azure" per aggiungere capacità di calcolo del cloud a un cluster HPC Pack locale. Per un'esercitazione, vedere [Configurazione di un cluster di calcolo ibrido con Microsoft HPC Pack](../../../cloud-services/cloud-services-setup-hybrid-hpcpack-cluster.md). Per istruzioni dettagliate e considerazioni per le distribuzioni di produzione, vedere [Potenziamento in Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481749.aspx).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Distribuzione di un nodo head HPC Pack in una VM Azure** : è possibile utilizzare una VM del nodo head autonoma oppure una che fa parte di un cluster più esteso. Per creare un nodo head autonomo, vedere l'argomento su come [distribuire un nodo head HPC Pack in una VM Azure](../../virtual-machines-windows-hpcpack-cluster-headnode.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Per conoscere le opzioni di distribuzione di un cluster HPC Pack, vedere [Opzioni per creare e gestire un cluster high performance computing (HPC) Windows in Azure con Microsoft HPC Pack](../../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
   > [!TIP]
@@ -68,7 +68,7 @@ Per questo scenario, è possibile scegliere il **certificato di gestione di Azur
 
 2. Fare clic su **Certificati di gestione** > **Carica**.
 
-Per altre opzioni per configurare il certificato di gestione, vedere gli [scenari per configurare il certificato di gestione di Azure per distribuzioni di potenziamento di Azure](http://technet.microsoft.com/library/gg481759.aspx).
+Per altre opzioni per configurare il certificato di gestione, vedere gli [scenari per configurare il certificato di gestione di Azure per distribuzioni di potenziamento di Azure](https://technet.microsoft.com/library/gg481759.aspx).
 
 ## <a name="step-3-deploy-azure-nodes-to-the-cluster"></a>Passaggio 3: Distribuire nodi di Azure nel cluster
 I passaggi per aggiungere e avviare i nodi di Azure in questo scenario sono in genere identici a quelli usati per un nodo head locale. Per altre informazioni, vedere le sezioni seguenti nella [procedura per distribuire nodi di Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/gg481758.aspx):
@@ -79,7 +79,7 @@ I passaggi per aggiungere e avviare i nodi di Azure in questo scenario sono in g
 
 Dopo aver aggiunto e avviato i nodi, questi saranno pronti per l'uso per l'esecuzione dei processi del cluster.
 
-Se si verificano problemi durante la distribuzione di nodi di Azure, vedere [Risoluzione dei problemi delle distribuzioni di nodi di Azure con Microsoft HPC Pack](http://technet.microsoft.com/library/jj159097.aspx).
+Se si verificano problemi durante la distribuzione di nodi di Azure, vedere [Risoluzione dei problemi delle distribuzioni di nodi di Azure con Microsoft HPC Pack](https://technet.microsoft.com/library/jj159097.aspx).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per usare dimensioni di istanza a elevato uso di calcolo per i nodi burst, vedere le considerazioni discusse in [Dimensioni delle VM High Performance Computing (HPC)](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

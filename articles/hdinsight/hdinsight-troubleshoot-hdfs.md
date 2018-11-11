@@ -2,17 +2,17 @@
 title: Risolvere i problemi di HDFS in Azure HDInsight
 description: Risposte alle domande frequenti sull'uso di HDFS e Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: f458a1b7156b2cc00a4b088ef98d12526378d827
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2eddf1da9f797f4646d6e3fc3380580d9923d963
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600830"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013786"
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Risolvere i problemi di HDFS tramite Azure HDInsight
 

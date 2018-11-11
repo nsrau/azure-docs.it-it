@@ -4,22 +4,21 @@ description: Informazioni su come usare Strumenti Azure Data Lake per Visual Stu
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 1dbcf9b88af7777a1103876a429ccc26450e2f58
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7a4aae87cd704cf94c89c308c0c056ae5b9a8b4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623411"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251003"
 ---
 # <a name="export-a-u-sql-database"></a>Esportare un database U-SQL
 
-Questo documento spiega come usare [Strumenti Azure Data Lake per Visual Studio](http://aka.ms/adltoolsvs) per esportare un database U-SQL come singolo script U-SQL e le risorse scaricate. Durante lo stesso processo, è possibile importare il database esportato in un account locale.
+Questo documento spiega come usare [Strumenti Azure Data Lake per Visual Studio](https://aka.ms/adltoolsvs) per esportare un database U-SQL come singolo script U-SQL e le risorse scaricate. Durante lo stesso processo, è possibile importare il database esportato in un account locale.
 
 I clienti usano in genere più ambienti per sviluppo, test e produzione. Questi ambienti sono ospitati sia in un account locale, nel computer locale di uno sviluppatore, che in un account di Azure Data Lake Analytics in Azure. 
 
@@ -36,7 +35,7 @@ Tutti gli account di Data Lake Analytics per cui si dispone di autorizzazioni so
    
     ![Esplora server - Esportare un database](./media/data-lake-analytics-data-lake-tools-export-database/export-database.png)
 
-     Se l'opzione di menu **Esporta** non è disponibile, è necessario [aggiornare lo strumento alla versione più recente](http://aka.ms/adltoolsvs).
+     Se l'opzione di menu **Esporta** non è disponibile, è necessario [aggiornare lo strumento alla versione più recente](https://aka.ms/adltoolsvs).
 
 ### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Passaggio 2: Configurare gli oggetti da esportare
 
