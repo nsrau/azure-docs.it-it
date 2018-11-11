@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: 65585e6c09def23101d9735c8b9c719d213938ac
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 1aaa753c91a324621dc66fab23e5fed3a9d11d01
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887401"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912766"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>Targeting delle soluzioni di gestione in Azure (anteprima)
 Quando viene aggiunta una soluzione di gestione alla sottoscrizione, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics.  Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti.  Questo articolo descrive come usare il **targeting della soluzione**, una funzionalità che consente di applicare un ambito alle soluzioni.
@@ -74,5 +74,5 @@ Il targeting della soluzione non può essere usato con le soluzioni seguenti anc
 - Valutazione dell'integrità dell'agente
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Altre informazioni sulle soluzioni di gestione, tra cui le soluzioni disponibili per l'installazione nell'ambiente, sono riportate in [Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro](../log-analytics/log-analytics-add-solutions.md).
+- Altre informazioni sulle soluzioni di gestione, tra cui le soluzioni disponibili per l'installazione nell'ambiente, sono riportate in [Aggiungere soluzioni di gestione di Log Analytics di Azure all'area di lavoro](monitoring-solutions.md).
 - Altre informazioni sulla creazione di gruppi di computer sono riportate in [Gruppi di computer nelle ricerche log in Log Analytics](../log-analytics/log-analytics-computer-groups.md).

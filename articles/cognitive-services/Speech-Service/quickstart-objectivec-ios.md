@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 8d6ecf251bb816eb0f41352af7c9d086c4aad751
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7d1e05e13e55b8b7bc07eda71d63f96f12c81ff9
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469776"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219189"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Guida introduttiva: Riconoscimento vocale in Objective-C su iOS con l'SDK del servizio Voce
 
@@ -25,14 +25,14 @@ Questo articolo spiega come creare un'applicazione iOS in Objective-C usando Spe
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una chiave di sottoscrizione per il servizio Voce. Vedere [Provare gratuitamente il servizio Voce](get-started.md).
+* Una chiave di sottoscrizione per il servizio di riconoscimento vocale. Vedere [Provare gratuitamente il servizio Voce](get-started.md).
 * Un Mac con Xcode 9.4.1 installato come ambiente di sviluppo iOS. Questa esercitazione è destinata alle versioni iOS 11.4. Se non si dispone di Xcode, è possibile installarlo dall'[App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Ottenere Speech SDK per iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versione corrente di Speech SDK di Servizi cognitivi è `1.0.1`.
+La versione corrente di Speech SDK di Servizi cognitivi è `1.1.0`.
 
 Speech SDK di Servizi cognitivi per Mac e iOS viene attualmente distribuito come un Framework di Cocoa.
 È possibile scaricarlo da https://aka.ms/csspeech/iosbinary. Scaricare il file nella home directory.
@@ -69,7 +69,7 @@ Sostituire il XML generato automaticamente con questo:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
 
-## <a name="add-the-sample-code"></a>Aggiungere codice di esempio
+## <a name="add-the-sample-code"></a>Aggiungere il codice di esempio
 
 1. Scaricare l'[esempio di file wav](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) facendo clic con il pulsante destro sul collegamento e scegliendo **Salva come...** . Aggiungere il file wav al progetto come risorsa trascinandolo da una finestra del Finder al livello radice della visualizzazione del progetto.
 Fare clic su **Fine** nella finestra di dialogo seguente senza modificare le impostazioni.

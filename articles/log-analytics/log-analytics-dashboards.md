@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: bf5b37bfa2cb103ef8151203359041fa4bd10f0b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d906515214e042a09d434f02be1778c275f214a8
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043329"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958135"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Creare un dashboard personalizzato da usare in Log Analytics
 
@@ -88,4 +88,4 @@ Per rimuovere un riquadro, passare alla visualizzazione Dashboard e fare clic su
 ![Rimozione di un riquadro](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Creare [avvisi](log-analytics-alerts.md) in Log Analytics per generare notifiche e risolvere i problemi.
+* Creare [avvisi](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) in Log Analytics per generare notifiche e risolvere i problemi.

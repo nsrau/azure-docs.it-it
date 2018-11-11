@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 997aa1a85068c403f1b6fa209c97413a881b1cb9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4035e93b8eed0a7bc1dd0cddbc42f41e9c26f333
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156307"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218866"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
@@ -76,13 +76,13 @@ Selezionare il menu **Autenticazione**, impostare **Token ID** in **Concessione 
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
-    <add key="Tenant" value="TenantId" />
+    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
 
 > [!div renderon="docs"]
 > Dove:
 > - `Enter_the_Application_Id_here` è l'ID applicazione dell'applicazione registrata.
-> - `TenantId` è una delle opzioni riportate di seguito.
+> - `Enter_the_Tenant_Info_Here` è una delle opzioni riportate di seguito.
 >   - Se l'applicazione supporta **Solo l'organizzazione personale**, sostituire questo valore con l'**ID tenant** o il **nome del tenant** (ad esempio, contoso.microsoft.com)
 >   - Se l'applicazione supporta **Account in qualsiasi directory organizzativa**, sostituire questo valore con `organizations`
 >   - Se l'applicazione supporta **Tutti gli utenti di account Microsoft**, sostituire questo valore con `common`

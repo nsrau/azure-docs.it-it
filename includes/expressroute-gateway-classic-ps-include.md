@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 03/22/2018
+ms.date: 11/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0bf55d2353d3524e65602c7e67b7adbf80432043
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fab00e5281bb91bce10228b3bc2e9cfd503d5d5b
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30198078"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219818"
 ---
 Prima di eseguire le attività seguenti è necessario creare una rete virtuale e una subnet del gateway.
 
@@ -26,7 +26,7 @@ Prima di eseguire le attività seguenti è necessario creare una rete virtuale e
 Usare il comando seguente per creare un gateway. Sostituire i valori presenti con i valori desiderati.
 
 ```powershell
-New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
+New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayType DynamicRouting -GatewaySKU  Standard
 ```
 
 ## <a name="verify-the-gateway-was-created"></a>Verificare che il gateway sia stato creato

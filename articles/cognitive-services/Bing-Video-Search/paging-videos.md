@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 9b030312c562d1c0a6cbacfc7f424289dee2e8de
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: cd5d6ef6a75088d02bc34558f66ed520c230e06b
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225566"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741891"
 ---
 # <a name="paging-videos"></a>Sfogliare i video
 
@@ -65,3 +65,6 @@ Se ad esempio si vuole restituire una pagina di 30 video per volta, impostare `c
 
 > [!NOTE]
 > Il paging si applica solo alla ricerca di video (/videos/search) e non alle informazioni dettagliate sui video (/videos/details) o ai video di tendenza (/videos/trending).
+
+> [!NOTE]
+> Il campo `TotalEstimatedAnswers` è una stima del numero totale di risultati della ricerca che è possibile recuperare per la query corrente.  Quando si impostano i parametri `count` e `offset`, il numero di `TotalEstimatedAnswers` può cambiare. 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: mamit
 ms.component: alerts
-ms.openlocfilehash: c4c8279a1d4638a1c5d889b53e2d9e89e458cc37
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 30b2d60868702c6113612668b8e4cf9975aa2c40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117171"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962198"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Avvisi unificati in Monitoraggio di Azure
 
@@ -61,7 +61,7 @@ L'esperienza degli avvisi unificati si basa sui concetti seguenti per separare l
 ## <a name="alert-pages"></a>Pagine di avviso
 Gli avvisi unificati offrono un'unica posizione in cui visualizzare e gestire tutti gli avvisi di Azure. Le sezioni seguenti descrivono le funzioni di ogni singola pagina dell'esperienza unificata.
 
-### <a name="alerts-overview-page"></a>Pagina di panoramica Avvisi
+### <a name="alerts-overview-page"></a>Pagina Panoramica avvisi
 La pagina di panoramica **Avvisi** mostra un riepilogo aggregato di tutti gli avvisi attivati e del numero totale delle regole di avviso abilitate. Se si cambiano le sottoscrizioni o i parametri di filtro, i dati aggregati e l'elenco degli avvisi attivati vengono aggiornati di conseguenza.
 
  ![Panoramica avvisi](./media/monitoring-overview-unified-alerts/alerts-preview-overview2.png) 
@@ -82,9 +82,9 @@ Per creare una nuova regola di avviso è necessario eseguire i tre passaggi segu
  
 Per eseguire questa procedura semplificata, l'utente non deve più conoscere l'origine di monitoraggio o i segnali supportati prima di selezionare una risorsa di Azure. L'elenco dei segnali disponibili è filtrato automaticamente in base alla risorsa di destinazione selezionata e serve da guida nella definizione della logica della regola di avviso.
 
-Altre informazioni su come creare regole di avviso sono disponibili in [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](monitor-alerts-unified-usage.md).
+Altre informazioni su come creare regole di avviso sono disponibili in [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](alert-metric.md).
 
-Gli avvisi sono disponibili in vari servizi di monitoraggio di Azure. Per informazioni su come e quando usare ognuno di questi servizi, vedere [Monitoraggio di applicazioni e risorse di Azure](./monitoring-overview.md). La tabella seguente fornisce un elenco dei tipi di regole di avviso disponibili in Azure. La tabella elenca anche gli avvisi attualmente supportati dall'esperienza degli avvisi unificati.
+Gli avvisi sono disponibili in vari servizi di monitoraggio di Azure. Per informazioni su come e quando usare ognuno di questi servizi, vedere [Monitoraggio di applicazioni e risorse di Azure](../azure-monitor/overview.md). La tabella seguente fornisce un elenco dei tipi di regole di avviso disponibili in Azure. La tabella elenca anche gli avvisi attualmente supportati dall'esperienza degli avvisi unificati.
 
 | **Origine di monitoraggio** | **Tipo di segnale**  | **Descrizione** | 
 |-------------|----------------|-------------|
@@ -127,15 +127,15 @@ I gruppi intelligenti vengono creati automaticamente tramite l'apprendimento aut
 
 Attualmente, l'algoritmo considera solo gli avvisi dello stesso servizio di monitoraggio all'interno di una sottoscrizione. I gruppi intelligenti possono ridurre fino al 99% il rumore degli avvisi mediante questo consolidamento. È possibile visualizzare il motivo per cui gli avvisi sono stati inclusi in un gruppo nella pagina dei dettagli del gruppo intelligente.
 
-Il nome di un gruppo intelligente è il nome del suo primo avviso. Non è possibile creare o rinominare un gruppo intelligente.
+Il nome di un gruppo intelligenti è il nome del suo primo avviso. Non è possibile creare o rinominare un gruppo intelligente.
 
 
 ### <a name="alert-states"></a>Stati dell'avviso
-Gli avvisi unificati avanzati introducono il concetto di stato dell'avviso. È possibile impostare lo stato di un avviso per specificare dove si trova nel processo di risoluzione. Quando viene creato un avviso, il suo stato è *Nuovo*. È possibile modificare lo stato dell'avviso dopo averlo confermato e chiuso. Tutte le modifiche apportate allo stato vengono archiviate nella cronologia dell'avviso.
+Gli avvisi unificati avanzati introducono il concetto di stato dell'avviso. È possibile impostare lo stato di un avviso per specificare dove i trova nel processo di risoluzione. Quando viene creato un avviso, il suo stato è *Nuovo*. È possibile modificare lo stato dell'avviso dopo averlo confermato e chiuso. Tutte le modifiche apportate allo stato vengono archiviate nella cronologia dell'avviso.
 
 Sono supportati i tipi di avviso seguenti.
 
-| Stato | Descrizione |
+| Stato | DESCRIZIONE |
 |:---|:---|
 | Nuovo | Il problema è appena stato rilevato e non è ancora stato esaminato. |
 | Confermato | Un amministratore ha esaminato l'avviso e ha iniziato a lavorare a esso. |
@@ -159,7 +159,7 @@ La pagina degli avvisi predefinita fornisce un riepilogo degli avvisi che vengon
 
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 |:---|:---|
 | Sottoscrizione | Selezionare fino a cinque sottoscrizioni di Azure. Sono inclusi nella visualizzazione solo gli avvisi delle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
@@ -167,7 +167,7 @@ La pagina degli avvisi predefinita fornisce un riepilogo degli avvisi che vengon
 
 Selezionare i valori seguenti nella parte superiore della pagina Avvisi per aprire un'altra pagina.
 
-| Valore | Descrizione |
+| Valore | DESCRIZIONE |
 |:---|:---|
 | Totale avvisi | Numero totale di avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire la visualizzazione Tutti gli avvisi senza filtri. |
 | Gruppi intelligenti | Numero totale di gruppi intelligenti creati dagli avvisi che corrispondono ai criteri selezionati. Selezionare questo valore per aprire l'elenco dei gruppi intelligenti nella visualizzazione Tutti gli avvisi.
@@ -181,7 +181,7 @@ La pagina Tutti gli avvisi consente di visualizzare un elenco degli avvisi creat
 
 È possibile filtrare la visualizzazione selezionando i valori seguenti nei menu a discesa nella parte superiore della pagina.
 
-| Colonna | Descrizione |
+| Colonna | DESCRIZIONE |
 |:---|:---|
 | Sottoscrizione | Selezionare fino a cinque sottoscrizioni di Azure. Sono inclusi nella visualizzazione solo gli avvisi delle sottoscrizioni selezionate. |
 | Gruppo di risorse | Selezionare un singolo gruppo di risorse. Sono inclusi nella visualizzazione solo gli avvisi con destinazioni nel gruppo di risorse selezionato. |
@@ -195,14 +195,14 @@ La pagina Tutti gli avvisi consente di visualizzare un elenco degli avvisi creat
 
 Fare clic su **Colonne** nella parte superiore della pagina per selezionare le colonne da visualizzare. 
 
-### <a name="alert-detail-page"></a>Pagina dei dettagli dell'avviso
+### <a name="alert-detail-page"></a>Pagina Dettagli avviso
 La pagina dei dettagli dell'avviso viene visualizzata quando si seleziona un avviso. Fornisce i dettagli dell'avviso e consente di cambiarne lo stato.
 
 ![Dettagli dell'avviso](media/monitoring-overview-unified-alerts/alert-detail.png)
 
 La pagina dei dettagli dell'avviso include le sezioni seguenti.
 
-| Sezione | Descrizione |
+| Sezione | DESCRIZIONE |
 |:---|:---|
 | Informazioni di base | Mostra le proprietà e altre informazioni significative sull'avviso. |
 | Cronologia | Elenca tutte le azioni eseguite dall'avviso e tutte le modifiche apportate all'avviso. Questa opzione è attualmente limitata alle modifiche di stato. |
@@ -218,13 +218,13 @@ La pagina dei dettagli del gruppo intelligente viene visualizzata quando si sele
 
 La pagina dei dettagli del gruppo intelligente include le sezioni seguenti.
 
-| Sezione | Descrizione |
+| Sezione | DESCRIZIONE |
 |:---|:---|
 | Avvisi | Elenca i singoli avvisi inclusi nel gruppo intelligente. Selezionare un avviso per aprire la pagina dei dettagli corrispondente. |
 | Cronologia | Elenca tutte le azioni eseguite dal gruppo intelligente e le modifiche apportate a quest'ultimo. Questa opzione è attualmente limitata alle modifiche di stato e a quelle di appartenenza degli avvisi. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Informazioni su come usare la nuova esperienza Avvisi per creare, visualizzare e gestire gli avvisi](monitor-alerts-unified-usage.md)
+- [Informazioni su come usare la nuova esperienza Avvisi per creare, visualizzare e gestire gli avvisi](alert-metric.md)
 - [Informazioni sugli avvisi di log nell'esperienza Avvisi](monitor-alerts-unified-log.md)
 - [Informazioni sugli avvisi di metrica nell'esperienza Avvisi](monitoring-near-real-time-metric-alerts.md)
-- [Informazioni sugli avvisi del log attività nell'esperienza Avvisi](monitoring-activity-log-alerts-new-experience.md)
+- [Informazioni sugli avvisi del log attività nell'esperienza Avvisi](alert-activity-log.md)

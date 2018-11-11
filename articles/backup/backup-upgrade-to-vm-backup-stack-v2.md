@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406535"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962538"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Eseguire l'aggiornamento alla versione 2 dello stack di macchine virtuali di Azure
 
@@ -28,8 +28,8 @@ Il modello di distribuzione Resource Manager per l'aggiornamento allo stack di b
 
 * Possibilità di usare gli account di archiviazione originali quando si esegue il ripristino di una macchina virtuale non gestita. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali vengono velocizzate.
     > [!NOTE]
-    > Questa possibilità non corrisponde alla sostituzione dei dischi della macchina virtuale con i dati del punto di ripristino. 
-    
+    > Questa possibilità non corrisponde alla sostituzione dei dischi della macchina virtuale con i dati del punto di ripristino.
+
 
 ## <a name="whats-changing-in-the-new-stack"></a>Modifiche nel nuovo stack
 Il processo di backup è attualmente costituito da due fasi:
@@ -55,7 +55,7 @@ Per impostazione predefinita, gli snapshot vengono conservati per sette giorni. 
 * Per gli account di archiviazione Premium, gli snapshot creati per i punti di ripristino istantaneo vengono inclusi nel conteggio relativo al limite di 10 TB di spazio allocato.
 
 > [!NOTE]
-> Passare allo stack V2 del backup di VM di Azure per ottenere il supporto di Backup di Azure per [dischi gestiti SDD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/) e macchine virtuali con un massimo di 32 dischi di dati.
+> Passare allo stack V2 del backup di VM di Azure per ottenere il supporto di Backup di Azure per [dischi gestiti SDD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ## <a name="upgrade"></a>Aggiornamento
 ### <a name="the-azure-portal"></a>Portale di Azure
@@ -119,4 +119,4 @@ Ogni giorno viene creato un nuovo snapshot. Sono presenti sette singoli snapshot
 Gli snapshot incrementali vengono usati per i dischi non gestiti. Per i dischi gestiti, la raccolta del punto di ripristino creata da Backup di Azure usa gli snapshot dei BLOB e di conseguenza questi sono incrementali.
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Come ottenere il supporto Managed Disks - SSD Standard per una macchina virtuale?
-Passare allo stack V2 del backup di VM di Azure per ottenere il supporto di Backup di Azure per [dischi gestiti SDD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Una volta eseguito l'aggiornamento, sarà anche possibile eseguire il backup delle macchine virtuali con un massimo di 32 dischi di dati.
+Passare allo stack V2 del backup di VM di Azure per ottenere il supporto di Backup di Azure per [dischi gestiti SDD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).

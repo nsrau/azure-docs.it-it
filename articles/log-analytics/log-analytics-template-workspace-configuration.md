@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: a715c300cc5490eef9dbe7971dabe1733fd47f49
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 833bb6838733395d83468be3d2960c7c237aa3fc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402218"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957676"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gestire Log Analytics usando i modelli di Azure Resource Manager
 È possibile usare i [modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analytics. Ecco alcuni esempi di attività eseguibili con i modelli:
@@ -521,6 +521,6 @@ La raccolta dei modelli di avvio rapido di Azure include alcuni modelli di Log A
 * [Aggiungere un account di archiviazione esistente a Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Distribuire l'agente di Windows nelle macchine virtuali di Azure usando un modello di Resource Manager](../virtual-machines/windows/extensions-oms.md).
-* [Distribuire l'agente Linux nelle macchine virtuali di Azure usando un modello di Resource Manager](../virtual-machines/linux/extensions-oms.md).
+* [Distribuire l'agente di Windows nelle macchine virtuali di Azure usando un modello di Resource Manager](../virtual-machines/extensions/oms-windows.md).
+* [Distribuire l'agente Linux nelle macchine virtuali di Azure usando un modello di Resource Manager](../virtual-machines/extensions/oms-linux.md).
 

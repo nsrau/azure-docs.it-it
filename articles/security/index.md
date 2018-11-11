@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
 ms.author: angrobe
-ms.openlocfilehash: 803f87b1e764d4c3704a5260b8fbe46eaef34e24
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 98cb089baa759b6569d1e1e06c90022eb75f5355
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840367"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228115"
 ---
 # <a name="azure-security-documentation"></a>Documentazione sulla sicurezza di Azure
 
@@ -57,7 +57,7 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="http://aka.ms/sharedresponsibility">
+        <a href="https://aka.ms/sharedresponsibility">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -172,7 +172,7 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
                         <h3>White paper</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
-                                <a class="barLink" href="http://aka.ms/SecurityResponsepaper">Azure security response in the cloud</a>
+                                <a class="barLink" href="https://aka.ms/SecurityResponsepaper">Azure security response in the cloud</a>
                              (Risposta della sicurezza di Azure sul cloud)</li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-threat-detection">Rilevamento delle minacce avanzato in Azure</a>
@@ -197,6 +197,9 @@ La sicurezza è integrata in ogni aspetto di Azure. Azure offre vantaggi esclusi
                         <div class="ico64Link"><img src="https://docs.microsoft.com/media/common/i_guidelines.svg" alt="" /></div>
                         <h3>Procedure consigliate</h3>
                         <ul class="noBullet">
+                            <li style="list-style: none;">
+                                <a class="barLink" href="https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions/">Procedure consigliate per la sicurezza per Azure</a>
+                            </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-security-network-security-best-practices">Sicurezza di rete</a>
                             </li>

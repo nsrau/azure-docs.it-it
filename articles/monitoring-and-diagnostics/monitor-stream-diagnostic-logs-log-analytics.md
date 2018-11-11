@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 057ce4b93be27c27e27d49e61a89a7c2b9e46dc8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e9f082b795325349001b5231304588e5297a1443
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421068"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960719"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Trasmettere i log di diagnostica di Azure a Log Analytics
 
@@ -96,7 +96,7 @@ L'argomento `--resource-group` è obbligatorio solo se `--workspace` non è un I
 
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>Come eseguire query sui dati in Log Analytics
 
-Nel pannello Ricerca log del portale o nell'esperienza Analisi avanzata come parte di Log Analytics, è possibile eseguire query sui log di diagnostica come parte della soluzione di gestione dei log sotto la tabella AzureDiagnostics. Sono anche disponibili [diverse soluzioni per le risorse di Azure](../log-analytics/log-analytics-add-solutions.md) che è possibile installare per ottenere informazioni dettagliate e immediate per i dati di log inviati in Log Analytics.
+Nel pannello Ricerca log del portale o nell'esperienza Analisi avanzata come parte di Log Analytics, è possibile eseguire query sui log di diagnostica come parte della soluzione di gestione dei log sotto la tabella AzureDiagnostics. Sono anche disponibili [diverse soluzioni per le risorse di Azure](../monitoring/monitoring-solutions.md) che è possibile installare per ottenere informazioni dettagliate e immediate per i dati di log inviati in Log Analytics.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
