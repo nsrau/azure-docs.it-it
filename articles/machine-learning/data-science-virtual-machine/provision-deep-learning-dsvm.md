@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169942"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229663"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Effettuare il provisioning di una macchina virtuale per l'apprendimento avanzato in Azure 
 
-La macchina virtuale per l'apprendimento avanzato (DLVM, Deep Learning Virtual Machine) è una variante configurata in modo particolare della più diffusa [macchina virtuale per data science](http://aka.ms/dsvm) (DSVM, Data Science Virtual Machine). Tale variante semplifica l'uso delle istanze di VM basate su GPU per il training rapido dei modelli di apprendimento avanzato. Supportata dalla DSVM Windows 2016 o Ubuntu, la DLVM condivide le stesse immagini di macchina virtuale di base e quindi tutti i set di strumenti avanzati disponibili nella DSVM. 
+La macchina virtuale per l'apprendimento avanzato (DLVM, Deep Learning Virtual Machine) è una variante configurata in modo particolare della più diffusa [macchina virtuale per data science](https://aka.ms/dsvm) (DSVM, Data Science Virtual Machine). Tale variante semplifica l'uso delle istanze di VM basate su GPU per il training rapido dei modelli di apprendimento avanzato. Supportata dalla DSVM Windows 2016 o Ubuntu, la DLVM condivide le stesse immagini di macchina virtuale di base e quindi tutti i set di strumenti avanzati disponibili nella DSVM. 
 
 La DLVM contiene diversi strumenti per intelligenza artificiale, incluse le edizioni GPU dei framework di apprendimento avanzato più diffusi, ad esempio Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2, Chainer, nonché strumenti per l'acquisizione e la pre-elaborazione di immagini e dati testuali, strumenti per attività di modellazione e sviluppo di data science, ad esempio Microsoft R Server Developer Edition, Python Anaconda, Jupyter Notebook per Python e R, IDE per Python e R, database SQL e molti altri strumenti di data science e Machine Learning. 
 

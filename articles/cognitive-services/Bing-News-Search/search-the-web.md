@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 4ed816b117d11dd38e6a8ea5191171b812db0f1c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 7a5df20358198e7ccb44ccc60be3ab7716f71ba6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023203"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227859"
 ---
 # <a name="what-is-bing-news-search"></a>Informazioni su Ricerca notizie Bing
 
@@ -45,7 +45,7 @@ Host: api.cognitive.microsoft.com
 
 Se è la prima volta che si chiama un'API Bing, non includere l'intestazione dell'ID client. Includere l'ID client solo se in precedenza è già stata chiamata un'API Bing e Bing ha restituito un ID client per la combinazione utente e dispositivo.
 
-Per ottenere notizie da un dominio specifico, usare l'operatore di query del [sito:](http://msdn.microsoft.com/library/ff795613.aspx).
+Per ottenere notizie da un dominio specifico, usare l'operatore di query del [sito:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -137,7 +137,7 @@ Host: api.cognitive.microsoft.com
 
 Usare la [categoria](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#category) parametro di query per specificare la categoria degli articoli. Per un elenco delle categorie di notizie specificabili, consultare [Categorie notizie in base al mercato](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news-categories-by-market).
 
-La risposta per ottenere notizie principali per categoria è quasi uguale a quella per le notizie generali. Tuttavia, gli articoli appartengono tutti alla categoria specificata.
+La risposta per ottenere notizie principali è quasi uguale a quella per le notizie generali. Tuttavia, gli articoli appartengono tutti alla categoria specificata.
 
 ## <a name="getting-headline-news"></a>Ottenere le notizie in prima pagina
 
@@ -263,10 +263,10 @@ Se sono presenti altri articoli correlati a un articolo di notizie, la notizia p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare rapidamente con la prima richiesta, vedere [Eseguire la prima richiesta con Ricerca entità Bing](./quickstart.md).
+Per iniziare rapidamente con la prima richiesta, vedere [Making your first entities request](./quickstart.md) (Come effettuare la prima richiesta di entità).
 
 Acquisire familiarità con la documentazione di riferimento sull'[API Ricerca notizie Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference). La documentazione di riferimento contiene l'elenco di endpoint, intestazioni e parametri di query da usare per richiedere i risultati della ricerca. Include anche le definizioni degli oggetti della risposta.
 
 Per migliorare l'esperienza utente con la casella di ricerca, vedere [API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md). Quando l'utente immette i termini della query, è possibile chiamare questa API per ottenere i termini della query pertinenti usati da altri utenti.
 
-Per non violare alcuna regola relativa all'uso dei risultati della ricerca, vedere [Requisiti per l'uso e la visualizzazione delle API di ricerca Bing](./useanddisplayrequirements.md).
+Per non violare alcuna regola relativa all'uso dei risultati della ricerca, vedere [Bing Use and Display Requirements](./useanddisplayrequirements.md) (Requisiti per l'uso e la visualizzazione di Bing).

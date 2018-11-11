@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443529"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228879"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure
 Questa specifica descrive il protocollo e il formato per l'inserimento di streaming live basato sul formato MP4 frammentato per Servizi multimediali di Azure. Servizi multimediali fornisce un servizio di streaming live che può essere usato dai clienti per lo streaming di eventi live e la trasmissione di contenuti in tempo reale usando Azure come piattaforma cloud. Questo documento contiene anche le procedure consigliate per creare meccanismi di inserimento live solidi e altamente ridondanti.
@@ -38,7 +38,7 @@ Il diagramma seguente mostra l'architettura di alto livello del servizio di stre
 ![Flusso di inserimento][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Formato del flusso di bit: MP4 frammentato ISO 14496-12
-Il formato di trasmissione per l'inserimento di streaming live descritto in questo documento si basa sullo standard [ISO 14496-12]. Per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili per i file video on demand e l'inserimento di streaming live, vedere [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+Il formato di trasmissione per l'inserimento di streaming live descritto in questo documento si basa sullo standard [ISO 14496-12]. Per una spiegazione dettagliata del formato MP4 frammentato e delle estensioni disponibili per i file video on demand e l'inserimento di streaming live, vedere [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### <a name="live-ingest-format-definitions"></a>Definizioni del formato di inserimento live
 L'elenco seguente descrive le definizioni di formato speciali applicabili all'inserimento live in Servizi multimediali di Azure:

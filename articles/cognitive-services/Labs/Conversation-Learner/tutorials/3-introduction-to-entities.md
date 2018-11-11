@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f851d43d69999a848dea01c9457a379adb63353b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4b1c2d9390890618a9aa61eb425fbd132917f414
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172382"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229049"
 ---
 # <a name="introduction-to-entities"></a>Introduzione alle entità
 
@@ -23,7 +23,7 @@ Questa esercitazione illustra le entità e come usare i campi "Disqualifying ent
 
 ## <a name="video"></a>Video
 
-[![Anteprima esercitazione 3](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
+[![Anteprima esercitazione 3](https://aka.ms/cl-tutorial-03-preview)](https://aka.ms/blis-tutorial-03)
 
 ## <a name="requirements"></a>Requisiti
 
@@ -50,7 +50,7 @@ Altri aspetti delle entità, come le entità predefinite, le entità negabili e 
 
 1. Fare clic su Entities (Entità) e quindi su New Entity (Nuova entità).
 2. In Entity Name (Nome entità) immettere "city".
-3. Click Create
+3. Fare clic su Crea
 
 > [!NOTE]
 > Si tratta di un'entità di tipo "custom" (personalizzato) ed è quindi possibile eseguirne il training.  Sono disponibili anche entità predefinite il cui comportamento non può essere modificato. Queste entità sono illustrate in un'altra esercitazione.

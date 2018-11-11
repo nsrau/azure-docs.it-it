@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d73040f11549741643d96913c42df49594b8d41
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807268"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228896"
 ---
 <a name="saas-application-technical-publishing-guide"></a>Guida tecnica alla pubblicazione di applicazioni SaaS
 ===========================================
@@ -34,7 +34,7 @@ Per una panoramica di tutte le altre offerte in Marketplace, fare riferimento al
 
 Il portale di pubblicazione offre l'accesso in base al ruolo al portale, per consentire a più agli utenti di collaborare alla pubblicazione di un'offerta. Per altre informazioni, vedere [Manage Users](./cloud-partner-portal-manage-users.md) (Gestire gli utenti). 
 
-Prima di poter pubblicare un'offerta per conto dell'account di un editore, uno degli utenti con ruolo *Proprietario* deve accettare di essere conforme alle [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/), all'[Informativa sulla privacy di Microsoft](http://www.microsoft.com/privacystatement/default.aspx) e al [Contratto del programma Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Prima di poter pubblicare un'offerta per conto dell'account di un editore, uno degli utenti con ruolo *Proprietario* deve accettare di essere conforme alle [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/), all'[Informativa sulla privacy di Microsoft](https://www.microsoft.com/privacystatement/default.aspx) e al [Contratto del programma Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 
 <a name="creating-an-offer"></a>Creazione di un'offerta
@@ -75,7 +75,7 @@ La tabella seguente descrive i campi dell'offerta:
 | NOME             | Nome visualizzato dell'offerta. Nome che verrà visualizzato in Azure Marketplace e nel portale di Azure. Può contenere massimo 50 caratteri. Le linee guida prevedono qui l'inclusione di un nome di marchio riconoscibile per il prodotto. Non includere il nome della società, a meno che non corrisponda al nome con cui viene commercializzato. Se si sta proponendo questa offerta sul proprio sito Web, assicurarsi che il nome corrisponda esattamente a quello con cui viene visualizzato nel sito Web.             |
 |  |  |
 
-Fare clic su **Salva** per salvare le voci immesse. La sezione seguente descrive come aggiungere i piani all'offerta.
+Fare clic su **Salva** per salvare le informazioni immesse. La sezione seguente descrive come aggiungere i piani all'offerta.
 
 
 ### <a name="technical-information"></a>Informazioni tecniche

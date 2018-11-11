@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 46939e15100468eab0d5575546eb6bd58df4aacd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167053"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961076"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 Scoprire le prestazioni e l'utilizzo della pagina Web o dell'app. Se si aggiunge [Application Insights](app-insights-overview.md) allo script di pagina, si ottengono gli intervalli di tempo di caricamento delle pagine e delle chiamate AJAX, i conteggi e i dettagli delle eccezioni del browser e degli errori AJAX, nonché i conteggi relativi a utenti e sessioni. Tutti questi elementi possono essere segmentati per pagina, sistema operativo client e versione del browser, posizione geografica e altre dimensioni. È possibile impostare avvisi relativi al numero di errori o rallentare il caricamento delle pagine. Inoltre, inserendo le chiamate di traccia nel codice JavaScript, è possibile rilevare come vengono usate le diverse funzionalità dell'applicazione della pagina Web.
@@ -230,7 +230,7 @@ Il nome della pagina può contenere gli stessi caratteri di un URL, ma i caratte
 ## <a name="usage-tracking"></a>Monitoraggio dell'utilizzo
 Per sapere in che modo gli utenti usano l'app,
 
-* [Informazioni sugli strumenti di analitica del comportamento utente](app-insights-web-track-usage.md)
+* [Informazioni sugli strumenti di analitica del comportamento utente](app-insights-usage-overview.md)
 * [Altre informazioni sull'API per gli eventi e le metriche personalizzati](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
@@ -241,7 +241,7 @@ Per sapere in che modo gli utenti usano l'app,
 
 
 ## <a name="next"></a> Passaggi successivi
-* [Tenere traccia dell'utilizzo](app-insights-web-track-usage.md)
+* [Tenere traccia dell'utilizzo](app-insights-usage-overview.md)
 * [Metriche ed eventi personalizzati](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-web-track-usage.md)
+* [Build-measure-learn](app-insights-usage-overview.md)
 

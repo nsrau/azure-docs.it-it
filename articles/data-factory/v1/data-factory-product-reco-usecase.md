@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3328a7c80a05a48b3c04ad5492a7eafe62059681
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a940b1d2184961d907f72ad072270dad3571e844
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622466"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229254"
 ---
 # <a name="use-case---product-recommendations"></a>Caso d'uso - Consigli sui prodotti
-Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per i dettagli sulla suite, vedere la pagina [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) . Questo documento descrive un caso d'uso comune risolto e implementato da alcuni utenti di Azure usando Azure Data Factory e altri servizi del componente Cortana Intelligence.
+Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per i dettagli sulla suite, vedere la pagina [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) . Questo documento descrive un caso d'uso comune risolto e implementato da alcuni utenti di Azure usando Azure Data Factory e altri servizi del componente Cortana Intelligence.
 
 ## <a name="scenario"></a>Scenario
 I rivenditori online, in genere, cercano di indurre i clienti ad effettuare acquisti mostrando loro prodotti a cui probabilmente sono interessati e che quindi sono propensi ad acquistare. A tale scopo, è necessario che i rivenditori online personalizzino l'esperienza degli utenti mediante consigli personalizzati sui prodotti in base all'utente specifico. Questi consigli personalizzati devono essere fatti in base ai dati sugli acquisti attuali e passati, alle informazioni sui prodotti, ai marchi introdotti da poco e ai dati sulla segmentazione di clienti e prodotti.  I rivenditori possono fornire consigli sui prodotti anche in base all'analisi del comportamento di uso complessivo da parte di tutti gli utenti.

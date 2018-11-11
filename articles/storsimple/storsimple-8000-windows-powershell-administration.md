@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 9408531a9e24af93359b562ed022b3d8253851e8
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 449c65d0ed746664b75bf8775dda695f569b3eb0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665685"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228386"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utilizzo di Windows PowerShell per StorSimple per amministrare il dispositivo
 
@@ -159,7 +159,7 @@ La tabella seguente illustra un riepilogo di tutte le attività di gestione comu
 
 In Windows PowerShell per StorSimple è disponibile la guida per i cmdlet. È inoltre disponibile una versione aggiornata in linea di questa guida, che è possibile utilizzare per aggiornare la guida del sistema.
 
-La guida in questa interfaccia si ottiene in modo simile a quella in Windows PowerShell e la maggior parte dei cmdlet correlati alla guida funzionerà. È possibile trovare la guida in linea per Windows PowerShell in linea nella libreria TechNet: [Utilizzo degli script con Windows PowerShell](http://go.microsoft.com/fwlink/?LinkID=108518).
+La guida in questa interfaccia si ottiene in modo simile a quella in Windows PowerShell e la maggior parte dei cmdlet correlati alla guida funzionerà. È possibile trovare la guida in linea per Windows PowerShell in linea nella libreria TechNet: [Utilizzo degli script con Windows PowerShell](https://go.microsoft.com/fwlink/?LinkID=108518).
 
 Di seguito viene riportata una breve descrizione dei tipi di guida per l'interfaccia di Windows PowerShell, tra cui come aggiornare la guida.
 

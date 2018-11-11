@@ -15,12 +15,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: ccf27748699a49c569a43f041cbc5e3625055852
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a39eebda5abb41e02ce7254e2084541e86ecee30
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503418"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229510"
 ---
 # <a name="what-is-azure-notification-hubs"></a>Informazioni su Hub di notifica
 Hub di notifica di Azure offre un motore di push di facile uso e con scalabilità orizzontale che consente di inviare notifiche a qualsiasi piattaforma (iOS, Android, Windows, Kindle, Baidu e così via) da qualsiasi back-end (cloud o locale). Hub di notifica funziona perfettamente per scenari aziendali e di consumo. Di seguito vengono forniti alcuni scenari di esempio:
@@ -40,7 +40,7 @@ Le notifiche push sono fondamentali per le app di consumo perché aumentano l'in
 Per altre informazioni sulle notifiche push per alcune piattaforme più comuni, vedere gli argomenti seguenti: 
 * [iOS](https://developer.apple.com/notifications/)
 * [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
-* [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
+* [Windows](https://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## <a name="how-push-notifications-work"></a>Funzionamento delle notifiche push
 Le notifiche push vengono recapitate attraverso infrastrutture specifiche della piattaforma denominate *Platform Notification System* (PNS). Offrono funzionalità push essenziali per il recapito di un messaggio a un dispositivo con handle e non hanno un'interfaccia comune. Per inviare una notifica a tutti i clienti delle versioni di un'app per Windows, iOS e Android, lo sviluppatore deve usare il servizio APNS (Apple Push Notification Service), il servizio FCM (Firebase Cloud Messaging) e con il servizio WNS (Servizio di notifica di Windows Notification).
