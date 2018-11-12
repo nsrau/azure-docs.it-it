@@ -1,5 +1,5 @@
 ---
-title: Ottimizzare l'ambiente SQL Server con Log Analytics di Azure|Microsoft Docs
+title: Ottimizzare l'ambiente SQL Server con Log Analytics di Azure|Documentazione Microsoft
 description: Con Azure Log Analytics, è possibile usare la soluzione Controllo integrità SQL per valutare i rischi e l'integrità degli ambienti a intervalli regolari.
 services: log-analytics
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 96163188fad464bc4b94457f7061a78b3f4997a9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407725"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014500"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Ottimizzare l'ambiente SQL Server con la soluzione Controllo integrità SQL Server in Log Analytics
 
@@ -53,7 +53,7 @@ Dopo aver aggiunto la soluzione e completato una valutazione, nel dashboard di *
 
 Per eseguire il controllo integrità dei server SQL Server, sono necessari un agente e la connettività a Log Analytics tramite uno dei metodi supportati seguenti:
 
-1. Installare [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) se il server non è già monitorato da System Center 2016 Operations Manager o Operations Manager 2012 R2.
+1. Installare [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) se il server non è già monitorato da System Center 2016 Operations Manager o Operations Manager 2012 R2.
 2. Se si esegue il monitoraggio con System Center 2016 Operations Manager o Operations Manager 2012 R2 e il gruppo di gestione non è integrato con il servizio Log Analytics, è possibile usare una configurazione multihomed del server con Log Analytics per raccogliere i dati e inoltrarli al servizio, mantenendo il monitoraggio di Operations Manager.  
 3. In caso contrario, se il gruppo di gestione di Operations Manager è integrato con il servizio, è necessario aggiungere i controller di dominio per la raccolta dati da parte del servizio seguendo i passaggi descritti in [Aggiungere computer gestiti dagli agenti](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) dopo aver abilitato la soluzione nell'area di lavoro.  
 
@@ -184,7 +184,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     ```
 
     >[!NOTE]
-    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
+    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-queries.md), la query precedente verrà sostituita dalla seguente.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
     ```
 
     >[!NOTE]
-    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-log-search-upgrade.md), la query precedente verrà sostituita dalla seguente.
+    > Se l'area di lavoro è stata aggiornata al [nuovo linguaggio di query di Log Analytics](log-analytics-queries.md), la query precedente verrà sostituita dalla seguente.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
 * Sì, vedere la sezione [Ignorare le raccomandazioni](#ignore-recommendations) sopra.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Vedere [Ricerche nei log](log-analytics-log-searches.md) per informazioni su come analizzare le raccomandazioni e i dati dettagliati di Controllo integrità SQL.
+* Vedere [Ricerche nei log](log-analytics-queries.md) per informazioni su come analizzare le raccomandazioni e i dati dettagliati di Controllo integrità SQL.

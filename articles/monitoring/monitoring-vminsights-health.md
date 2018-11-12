@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 0f149d09b310553ecd5b03e94601408f279d9c0c
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094228"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914312"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Comprendere l'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali (anteprima)
 Azure include più servizi che singolarmente eseguono un'attività o un ruolo specifico nello spazio di monitoraggio, ma la possibilità di avere una prospettiva approfondita sull'integrità del sistema operativo ospitato nelle macchine virtuali di Azure non era disponibile.  Anche se è possibile monitorare diverse condizioni utilizzando Log Analytics o Monitoraggio di Azure, queste applicazioni non sono progettate per modellare e rappresentare l'integrità dei componenti di base o quella globale della macchina virtuale.  Con la funzionalità dell'integrità di Monitoraggio di Azure per macchine virtuali, è possibile monitorare in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux con un modello che rappresenta i componenti principali e le relative relazioni, criteri che specificano come misurare l'integrità di tali componenti e avvisi che segnalano quando viene rilevata una condizione di non integrità.  
@@ -271,7 +271,7 @@ In questa visualizzazione non sono inclusi gli avvisi provenienti da altri tipi 
 |Servizio di monitoraggio |Selezionare un servizio oppure *Tutti* per includere tutti i servizi. Per questa funzionalità sono supportati solo gli avvisi generati da *Informazioni dettagliate macchina virtuale*.| 
 |Intervallo di tempo| Nella visualizzazione vengono inclusi solo gli avvisi attivati nell'intervallo di tempo selezionato. I valori supportati sono l'ultima ora, le ultime 24 ore, gli ultimi 7 giorni e gli ultimi 30 giorni. | 
 
-La pagina **Dettagli avviso** viene visualizzata quando si seleziona un avviso, fornendo i dettagli dell'avviso e consentendo di modificarne lo stato. Per altre informazioni sulla gestione degli avvisi, vedere [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+La pagina **Dettagli avviso** viene visualizzata quando si seleziona un avviso, fornendo i dettagli dell'avviso e consentendo di modificarne lo stato. Per altre informazioni sulla gestione degli avvisi, vedere [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](../monitoring-and-diagnostics/alert-metric.md).  
 
 >[!NOTE]
 >Attualmente non è supportata la creazione di nuovi avvisi in base ai criteri di integrità o la modifica di regole di avvisi di integrità esistenti in Monitoraggio di Azure direttamente dal portale.  

@@ -1,5 +1,5 @@
 ---
-title: Configurare Apache Tomcat su una macchina virtuale Linux | Documentazione Microsoft
+title: Configurare Apache Tomcat su una macchina virtuale Linux | Microsoft Docs
 description: Informazioni su come configurare Apache Tomcat7 usando macchine virtuali di Azure che eseguono Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: ningk
-ms.openlocfilehash: 161a56a019f8c2c8ce5e3890e73ad5c5710e7b82
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8c04c9fffbb85bb4db7a369b0dbbad6279f5d6f6
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841616"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420082"
 ---
 # <a name="set-up-tomcat7-on-a-linux-virtual-machine-with-azure"></a>Configurare Tomcat7 in una macchina virtuale Linux con Azure
 Apache Tomcat (o semplicemente Tomcat, precedentemente chiamato anche Jakarta Tomcat) è un server Web e contenitore di servlet open source sviluppato da Apache Software Foundation (ASF). Tomcat implementa le specifiche Java Servlet e Java Server Pages (JSP) di Sun Microsystems. Tomcat fornisce un ambiente server Web HTTP Java puro in cui eseguire codice Java. Nella configurazione più semplice, Tomcat viene eseguito in un singolo processo del sistema operativo. Questo processo esegue una macchina virtuale Java (JVM). Ogni richiesta HTTP da un browser a Tomcat viene elaborata nel processo di Tomcat come un thread separato.  
@@ -91,7 +91,7 @@ La porta TCP 8080 è la porta predefinita su cui Tomcat è in ascolto. Se si apr
 
    1. In **Endpoint** digitare un nome per l'endpoint, quindi digitare 80 nel campo **Porta pubblica**.  
 
-      Se la porta viene impostata su 80, non occorre includere il numero di porta nell'URL che si usa per accedere a Tomcat. Ad esempio, http://tomcatdemo.cloudapp.net.    
+      Se la porta viene impostata su 80, non occorre includere il numero di porta nell'URL che si usa per accedere a Tomcat. Ad esempio: http://tomcatdemo.cloudapp.net.    
 
       Se si imposta la porta su un altro valore, come 81, è necessario aggiungere il numero di porta all'URL per accedere a Tomcat. Ad esempio, http://tomcatdemo.cloudapp.net:81/.
    2. Digitare 8080 in **Porta privata**. Per impostazione predefinita Tomcat è in ascolto sulla porta TCP 8080. Se è stata modificata la porta di ascolto predefinita di Tomcat, è necessario aggiornare la **porta privata** in modo che corrisponda alla porta di ascolto di Tomcat.  
@@ -130,52 +130,19 @@ La porta TCP 8080 è la porta predefinita su cui Tomcat è in ascolto. Se si apr
 In questa fase saranno installati l'ambiente di runtime Java, Tomcat7 e altri componenti di Tomcat7.  
 
 ### <a name="java-runtime-environment"></a>Ambiente di runtime Java
-Tomcat è scritto in Java. Esistono due tipi di Java Development Kit (JDK): OpenJDK e Oracle JDK. È possibile scegliere quello preferito.  
-
-> [!NOTE]
-> Il codice contenuto dai due JDK per le classi nell'API Java è praticamente identico, mentre il codice per la macchina virtuale è diverso. OpenJDK tende a usare librerie aperte mentre Oracle JDK tende a usare librerie chiuse. Oracle JDK dispone di più classi e include alcuni bug corretti, inoltre è più stabile di OpenJDK.
-
-#### <a name="install-openjdk"></a>Installare OpenJDK  
-
-Usare il comando seguente per scaricare OpenJDK.   
-
-    sudo apt-get update  
-    sudo apt-get install openjdk-7-jre  
+Tomcat è scritto in Java. Per informazioni su come ottenere runtime Java completamente supportati, vedere i [JDK supportati da Azure](https://aka.ms/azure-jdks). È anche possibile visualizzare JDK personali, ma nel resto dell'articolo verranno usate le versioni supportate da Azure.
 
 
-* Per creare una directory in cui includere i file di JDK:  
+#### <a name="install-azure-supported-jdk"></a>Installare JDK supportati da Azure
 
-        sudo mkdir /usr/lib/jvm  
-* Per estrarre i file di JDK nella directory /usr/lib/jvm/:  
-
-        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/
-
-#### <a name="install-oracle-jdk"></a>Installare Oracle JDK
-
-
-Usare il comando seguente per scaricare Oracle JDK dal sito Web di Oracle.  
-
-     wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
-* Per creare una directory in cui includere i file di JDK:  
-
-        sudo mkdir /usr/lib/jvm  
-* Per estrarre i file di JDK nella directory /usr/lib/jvm/:  
-
-        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
-* Per impostare Oracle JDK come macchina virtuale Java predefinita:  
-
-        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
-
-        sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
+Seguire le istruzioni di installazione di `apt-get` riportate nel sito Web [Azul Zulu Enterprise for Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo).
 
 #### <a name="confirm-that-java-installation-is-successful"></a>Verificare che l'installazione di Java sia riuscita
 Per verificare se l'ambiente di runtime Java è stato installato correttamente, è possibile usare un comando simile al seguente:  
-
     java -version  
 
-Se è stato installato OpenJDK, si dovrebbe vedere un messaggio simile al seguente: ![installazione di OpenJDK riuscita][14]
+Si dovrebbe vedere un messaggio simile al seguente: ![Messaggio di installazione di OpenJDK riuscita][14]
 
-Se è stato installato Oracle JDK, si dovrebbe vedere un messaggio simile al seguente: ![installazione di Oracle JDK riuscita][15]
 
 ### <a name="install-tomcat7"></a>Installare Tomcat7
 Usare il seguente comando per installare Tomcat7.  

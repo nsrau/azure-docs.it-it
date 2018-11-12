@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957422"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415702"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Estendere avvisi da Log Analytics ad Avvisi di Azure
 La funzionalità degli avvisi in Azure Log Analytics verrà sostituita da avvisi di Azure. Nel quadro della transizione, gli avvisi originariamente configurati in Log Analytics verranno estesi in Azure. Se non si desidera attendere che gli avvisi vengano spostati automaticamente in Azure, è possibile avviare il processo:
@@ -453,7 +453,7 @@ Lo script è dettagliato e restituisce i passaggi durante l'esecuzione:
 - Se si procede con l'estensione, vengono creati nuovi gruppi di azioni di Azure e tutti gli avvisi esistenti sono associati ad essi. 
 - Lo script viene chiuso visualizzando il messaggio "Estensione completata". In caso di eventuali errori intermedi, lo script visualizza gli errori successivi.
 
-## <a name="troubleshooting"></a>risoluzione dei problemi 
+## <a name="troubleshooting"></a>Risoluzione dei problemi 
 Durante il processo di estensione degli avvisi, alcuni problemi possono impedire al sistema di creare i [gruppi di azioni](monitoring-action-groups.md) necessari. In questi casi, viene visualizzato un messaggio di errore in uno striscione nella sezione **Avviso** del portale di Operations Management Suite o nella chiamata GET effettuata per l'API.
 
 > [!IMPORTANT]
@@ -470,7 +470,7 @@ Di seguito viene elencata la procedura di correzione per ogni errore:
 
 - **Error: Policy is present at subscription/resource group level** (Errore: il criterio è presente a livello di sottoscrizione/gruppo di risorse): ![Schermata della pagina Impostazioni avvisi del portale di Operations Management Suite con messaggio di errore di criterio evidenziato](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    Quando [Criteri di Azure](../governance/policy/overview.md) è abilitato, la funzionalità limita qualsiasi nuova risorsa in una sottoscrizione o in un gruppo di risorse contenenti l'area di lavoro di Log Analytics (Operations Management Suite). Il sistema non è in grado di estendere gli avvisi in Azure e creare i gruppi di azioni necessari.
+    Quando [Criteri di Azure](../azure-policy/azure-policy-introduction.md) è abilitato, la funzionalità limita qualsiasi nuova risorsa in una sottoscrizione o in un gruppo di risorse contenenti l'area di lavoro di Log Analytics (Operations Management Suite). Il sistema non è in grado di estendere gli avvisi in Azure e creare i gruppi di azioni necessari.
     
     Per risolvere questo problema, modificare il criterio che causa l'errore *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*  che impedisce la creazione di nuove risorse nella sottoscrizione o nel gruppo di risorse che contiene l'area di lavoro. Questa operazione può essere eseguita nel portale di Azure oppure tramite PowerShell, l'interfaccia della riga di comando di Azure o l'API. È possibile controllare le azioni per trovare i criteri che causano l'errore. Per altre informazioni, vedere la [visualizzazione dei log attività per il controllo delle azioni](../azure-resource-manager/resource-group-audit.md). 
     

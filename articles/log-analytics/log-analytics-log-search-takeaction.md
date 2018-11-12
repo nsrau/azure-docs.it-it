@@ -15,24 +15,24 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 297967f165e921fedbc7e7e952366a399fedc642
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: c6206d4aa98ab3c9744f1f82840817b4bdb000ef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043941"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016336"
 ---
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Eseguire operazioni con un runbook di automazione dai risultati della ricerca log di Log Analytics
 
 Dai risultati della ricerca log di Azure Log Analytics è ora possibile selezionare **Take action** (Intervieni) per eseguire un runbook di automazione.  Il runbook consente di risolvere il problema o eseguire altre operazioni, come raccogliere informazioni sulla risoluzione del problema, inviare un messaggio di posta elettronica o creare una richiesta di servizio. 
 
 ## <a name="components-and-features-used"></a>Componenti e le funzionalità usati
-* [Account di automazione di Azure](../automation/automation-offering-get-started.md)
-* [Area di lavoro di Log Analytics](../log-analytics/log-analytics-overview.md)
+* [Account di automazione di Azure](../automation/automation-quickstart-create-account.md)
+* [Area di lavoro di Log Analytics](log-analytics-queries.md)
 
 ## <a name="to-initiate-runbook-from-log-search"></a>Per avviare il runbook dalla ricerca log
 
-Per intervenire su un evento e avviare un runbook dai risultati della ricerca log, è necessario prima creare una ricerca log, dai cui risultati è possibile richiamare un runbook on demand.  A questo scopo, è possibile usare la funzionalità di ricerca log disponibile nel [portale di Azure](../log-analytics/log-analytics-log-search-new.md).  In questo esempio si eseguirà una ricerca log dal portale di Azure con una dimostrazione di base di questa funzionalità.
+Per intervenire su un evento e avviare un runbook dai risultati della ricerca log, è necessario prima creare una ricerca log, dai cui risultati è possibile richiamare un runbook on demand.  A questo scopo, è possibile usare la funzionalità di ricerca log disponibile nel [portale di Azure](log-analytics-queries.md).  In questo esempio si eseguirà una ricerca log dal portale di Azure con una dimostrazione di base di questa funzionalità.
 
 1. Nel portale di Azure fare clic su **Tutti i servizi** e selezionare **Log Analytics**.  
 2. Selezionare l'area di lavoro di Log Analytics.
@@ -47,9 +47,9 @@ Per intervenire su un evento e avviare un runbook dai risultati della ricerca lo
 
 6. Dopo aver fatto clic su **Esegui** viene visualizzata la pagina del processo di runbook, in cui è possibile esaminare lo stato del processo.   
 
-Se si seleziona un runbook configurato per essere [chiamato da un avviso di Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md), presenta un parametro di input denominato **WebhookData** di tipo **Oggetto**.  Se il parametro di input è obbligatorio, è necessario passare i risultati della ricerca al runbook, in modo che possa convertire la stringa in formato JSON in un tipo di oggetto che consenta di filtrare in base a elementi specifici a cui si farà riferimento nelle attività del runbook.  A questo scopo, è necessario scegliere **Search result (Object)** (Risultati ricerca (Oggetto)) dall'elenco a discesa.<br><br> ![Selezionare l'oggetto dati Webhook per il parametro del runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
+Se si seleziona un runbook configurato per essere [chiamato da un avviso di Log Analytics](../automation/automation-create-alert-triggered-runbook.md), presenta un parametro di input denominato **WebhookData** di tipo **Oggetto**.  Se il parametro di input è obbligatorio, è necessario passare i risultati della ricerca al runbook, in modo che possa convertire la stringa in formato JSON in un tipo di oggetto che consenta di filtrare in base a elementi specifici a cui si farà riferimento nelle attività del runbook.  A questo scopo, è necessario scegliere **Search result (Object)** (Risultati ricerca (Oggetto)) dall'elenco a discesa.<br><br> ![Selezionare l'oggetto dati Webhook per il parametro del runbook](media/log-analytics-log-search-takeaction/select-runbook-and-properties.png)   
     
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere il [riferimento alla ricerca nei log di Log Analytics](log-analytics-search-reference.md) per visualizzare tutti i campi di ricerca e i facet disponibili in Log Analytics.
-* Per informazioni su come richiamare automaticamente un runbook di Automazione, vedere [Chiamare un runbook di Automazione di Azure da un avviso di Log Analytics](../automation/automation-invoke-runbook-from-omsla-alert.md).  
+* Vedere il [riferimento alla ricerca nei log di Log Analytics](log-analytics-queries.md) per visualizzare tutti i campi di ricerca e i facet disponibili in Log Analytics.
+* Per informazioni su come richiamare automaticamente un runbook di Automazione, vedere [Chiamare un runbook di Automazione di Azure da un avviso di Log Analytics](../automation/automation-create-alert-triggered-runbook.md).  

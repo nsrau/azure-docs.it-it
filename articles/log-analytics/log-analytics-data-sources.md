@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b8c3a2cc67c47753957963fc04b52f934b10ddfc
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041714"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014024"
 ---
 # <a name="data-sources-in-log-analytics"></a>Origini dati in Log Analytics
 Log Analytics raccoglie i dati dalle origini connesse e li archivia nell'area di lavoro di Log Analytics.  I dati raccolti da ogni origine sono definiti dalle origini dati configurate.  In Log Analytics i dati vengono archiviati come un set di record.  Ogni origine dati crea record di un tipo specifico in cui ogni tipo ha un proprio set di proprietà.
 
 ![Raccolta dei dati di Log Analytics](./media/log-analytics-data-sources/overview.png)
 
-Le origini dati sono diverse rispetto alle [soluzioni di gestione](log-analytics-add-solutions.md) che raccolgono anche dati da origini connesse e creano record in Log Analytics.  Oltre a raccogliere i dati, le soluzioni in genere includono le ricerche log e le viste che consentono di analizzare il funzionamento di un determinato servizio o di un'applicazione.
+Le origini dati sono diverse rispetto alle [soluzioni di gestione](../monitoring/monitoring-solutions.md) che raccolgono anche dati da origini connesse e creano record in Log Analytics.  Oltre a raccogliere i dati, le soluzioni in genere includono le ricerche log e le viste che consentono di analizzare il funzionamento di un determinato servizio o di un'applicazione.
 
 
 ## <a name="summary-of-data-sources"></a>Riepilogo delle origini dati
@@ -68,5 +68,5 @@ Tutti i dati raccolti da Log Analytics vengono archiviati nell'area di lavoro co
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Informazioni sulle [soluzioni](../monitoring/monitoring-solutions.md) che aggiungono funzionalità a Log Analytics e raccolgono dati nell'area di lavoro.
-* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
-* Configurare gli [avvisi](log-analytics-alerts.md) per inviare notifiche immediate sui dati critici raccolti da origini dati e soluzioni.
+* Altre informazioni sulle [ricerche nei log](log-analytics-queries.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
+* Configurare gli [avvisi](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) per inviare notifiche immediate sui dati critici raccolti da origini dati e soluzioni.
