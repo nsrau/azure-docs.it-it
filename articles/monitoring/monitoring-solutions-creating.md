@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528028"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282051"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Progettare e creare una soluzione di gestione in Azure (anteprima)
 > [!NOTE]
@@ -30,7 +30,7 @@ Le [soluzioni di gestione]( monitoring-solutions.md) includono scenari di gestio
 
 ## <a name="what-is-a-management-solution"></a>Che cos'è una soluzione di gestione?
 
-Le soluzioni di gestione contengono risorse Azure che interagiscono per raggiungere un determinato scenario di gestione.  Vengono implementate come [modelli di gestione delle risorse](../azure-resource-manager/resource-manager-template-walkthrough.md) conteneneti informazioni dettagliate su come installare e configurare le risorse contenute quando si installa la soluzione.
+Le soluzioni di gestione contengono risorse Azure che interagiscono per raggiungere un determinato scenario di gestione.  Vengono implementate come [modelli di gestione delle risorse](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) conteneneti informazioni dettagliate su come installare e configurare le risorse contenute quando si installa la soluzione.
 
 La strategia di base consiste nell'avviare la soluzione di gestione compilando i singoli componenti nell'ambiente Azure.  Dopo che la funzionalità opera correttamente, è possibile avviare la creazione del pacchetto in un [file di soluzione di gestione]( monitoring-solutions-solution-file.md). 
 
@@ -49,16 +49,16 @@ Esistono diversi modi per raccogliere le origini dati nel repository di Log Anal
 Se si richiedono dati non accessibili tramite una delle origini dati disponibili, è possibile usare l'[API dell'agente di raccolta dati HTTP](../log-analytics/log-analytics-data-collector-api.md) che consente di scrivere dati nell'archivio di Log Analytics da qualsiasi client in grado di chiamare un'API REST.  Il mezzo più comune di raccolta dati personalizzati in una soluzione di gestione è creare un [runbook in Automazione di Azure](../automation/automation-runbook-types.md) che raccoglie i dati richiesti dalle risorse di Azure o da origini esterne e usa l'API dell'agente di raccolta dati per scrivere nel repository.  
 
 ### <a name="log-searches"></a>Ricerche log
-Le [ricerche nei log](../log-analytics/log-analytics-log-searches.md) vengono usate per estrarre e analizzare i dati nel repository di Log Analytics.  Vengono usate da visualizzazioni e avvisi, oltre a consentire all'utente di eseguire analisi ad hoc dei dati nel repository.  
+Le [ricerche nei log](../log-analytics/log-analytics-queries.md) vengono usate per estrarre e analizzare i dati nel repository di Log Analytics.  Vengono usate da visualizzazioni e avvisi, oltre a consentire all'utente di eseguire analisi ad hoc dei dati nel repository.  
 
 È necessario definire le query che si ritiene risulteranno utili all'utente, anche se non vengono usate da tutte le visualizzazioni o gli avvisi.  Queste saranno disponibili come ricerche salvate nel portale ed è possibile anche includerle in una [parte della visualizzazione Elenco di query](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) nella visualizzazione personalizzata.
 
 ### <a name="alerts"></a>Avvisi
-[Gli avvisi in Log Analytics](../log-analytics/log-analytics-alerts.md) identificano i problemi tramite le [ricerche nei log](#log-searches) a fronte dei dati nel repository.  Inviano una notifica all'utente o eseguono automaticamente un'azione in risposta. Occorre identificare le diverse condizioni di avviso per l'applicazione e includere le regole di avviso corrispondenti nel file della soluzione.
+[Gli avvisi in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identificano i problemi tramite le [ricerche nei log](#log-searches) a fronte dei dati nel repository.  Inviano una notifica all'utente o eseguono automaticamente un'azione in risposta. Occorre identificare le diverse condizioni di avviso per l'applicazione e includere le regole di avviso corrispondenti nel file della soluzione.
 
 Se il problema può essere risolto potenzialmente con un processo automatizzato, si creerà in genere un runbook in Automazione di Azure per eseguire la correzione.  La maggior parte dei servizi di Azure può essere gestita con [cmdlet](/powershell/azure/overview) che il runbook sfrutta per eseguire queste funzionalità.
 
-Se la soluzione richiede funzionalità esterne in risposta a un avviso, è possibile usare una [risposta di webhook](../log-analytics/log-analytics-alerts-actions.md).  Ciò consente di chiamare un servizio Web esterno che invia informazioni dall'avviso.
+Se la soluzione richiede funzionalità esterne in risposta a un avviso, è possibile usare una [risposta di webhook](../monitoring-and-diagnostics/alert-metric.md).  Ciò consente di chiamare un servizio Web esterno che invia informazioni dall'avviso.
 
 ### <a name="views"></a>Visualizzazioni
 Le visualizzazioni in Log Analytics vengono usate per visualizzare i dati dal repository di Log Analytics.  Ogni soluzione conterrà in genere una singola visualizzazione con un [riquadro](../log-analytics/log-analytics-view-designer-tiles.md) che viene visualizzato nel dashboard principale dell'utente.  La visualizzazione può contenere un numero qualsiasi di [parti di visualizzazione](../log-analytics/log-analytics-view-designer-parts.md) per fornire visualizzazioni differenti dei dati raccolti per l'utente.

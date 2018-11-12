@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0240bbdf2055ac44f8836adfaad3bf6c44893b77
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 93ce9feaf52282b9477d49eaf270d6d89dca7811
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781820"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232529"
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Creare la prima macchina virtuale in Azure DevTest Labs
 
@@ -28,7 +28,7 @@ Quando si accede inizialmente a DevTest Labs e si intende creare la prima macchi
 Questa esercitazione illustra l'uso del portale di Azure per aggiungere la prima macchina virtuale in un lab in DevTest Labs.
 
 ## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Passaggi per aggiungere la prima macchina virtuale a un lab in Azure DevTest Labs
-1. Accedere al [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Selezionare **Tutti i servizi** e quindi **DevTest Labs** nell'elenco.
 1. Nell'elenco di lab selezionare il lab in cui si vuole creare la nuova VM.  
 1. Nel pannello **Panoramica** del lab selezionare **+ Aggiungi**.  

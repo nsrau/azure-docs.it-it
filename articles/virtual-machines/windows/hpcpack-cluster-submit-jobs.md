@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ce8e2457c1d575e890174de3b9cf7faf6e16a7cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421135"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258817"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Inviare i processi HPC da un computer locale a un cluster HPC Pack distribuito in Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +37,7 @@ Configurare un computer client locale per l'invio di processi a un cluster [Micr
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Passaggio 1: installare e configurare i componenti Web nel nodo head
 Per consentire a un'interfaccia REST di inviare processi al cluster tramite HTTPS, assicurarsi che i componenti Web di HPC Pack siano configurati nel nodo head HPC Pack. Se non sono ancora installati, per prima cosa procedere all'installazione dei componenti Web eseguendo il file di installazione HpcWebComponents.msi. Configurare quindi i componenti eseguendo lo script di HPC PowerShell **Set-HPCWebComponents.ps1**.
 
-Per le procedure dettagliate, vedere [Installare i componenti Web di Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
+Per le procedure dettagliate, vedere [Installare i componenti Web di Microsoft HPC Pack](https://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
 > Alcuni modelli di avvio rapido di Azure per cluster HPC Pack installano e configurano i componenti Web automaticamente.
@@ -169,7 +169,7 @@ Per verificare la configurazione, provare a eseguire processi nel cluster in Azu
 1. Per visualizzare i risultati del processo inviato, fare clic sull'ID del processo e scegliere **Visualizza attività** per visualizzare l'output del comando (in **Output**).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per inviare processi al cluster Azure, è anche possibile usare l' [API REST HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* Per inviare processi al cluster Azure, è anche possibile usare l' [API REST HPC Pack](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 * Per inviare processi cluster da un client Linux, vedere l'esempio Python in [HPC Pack 2012 R2 SDK e codice di esempio](https://www.microsoft.com/download/details.aspx?id=41633).
 
 <!--Image references-->

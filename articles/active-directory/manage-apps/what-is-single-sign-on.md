@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494126"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236007"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory
 Single Sign-On indica la possibilità di accedere a tutte le applicazioni e risorse necessarie per svolgere attività commerciali, effettuando l'accesso solo una volta con un singolo account utente. Dopo aver effettuato l'accesso, è possibile accedere a tutte le applicazioni necessarie senza dover ripetere una seconda volta l'autenticazione (ad esempio, digitando una password).
@@ -46,7 +46,7 @@ Azure AD supporta tre modi diversi per accedere alle applicazioni:
 
 * **Single Sign-On federato** consente alle applicazioni di reindirizzare ad Azure AD per l'autenticazione dell’utente anziché richiedere la propria password. L'accesso Single Sign-On federato è supportato per le applicazioni che supportano protocolli quali SAML 2.0, WS-Federation oppure OpenID Connect ed è la modalità più ricca di Single Sign-On.
 * **Single Sign-On basato su password** consente l’archiviazione e la riproduzione delle password delle applicazioni protette utilizzando un'estensione del browser Web o un’app mobile. L'accesso Single Sign-On basato su password sfrutta il processo di accesso esistente fornito dall'applicazione, ma consente a un amministratore di gestire le password e non richiede all'utente di conoscerla.
-* **Single Sign-On esistente** consente ad Azure AD di sfruttare qualunque Single Sign-On esistente configurato per l'applicazione, ma consente a queste applicazioni di essere collegate ai portali del pannello di accesso di Office 365 o di Azure AD e abilita il reporting aggiuntivo in Azure AD quando le applicazioni vengono avviate da questa posizione.
+* **Single Sign-On collegato** consente ad Azure AD di sfruttare qualunque procedura Single Sign-On esistente configurata per l'applicazione. Consente tuttavia il collegamento delle applicazioni ai portali del pannello di accesso di Office 365 o di Azure AD, oltre alla creazione di report aggiuntivi in Azure AD quando le applicazioni vengono avviate da questa posizione.
 
 Una volta che un utente è stato autenticato con un'applicazione, deve disporre anche di un record di account con provisioning all'applicazione che indica all'applicazione dove si trovano le autorizzazioni e il livello di accesso all'interno dell'applicazione. Il provisioning di questo record di account può verificarsi automaticamente o può essere effettuato manualmente da un amministratore prima che all'utente venga fornito l'accesso Single Sign-On.
 
@@ -79,17 +79,17 @@ Per l'accesso Single Sign-On basato su password il browser dell'utente finale pu
 * Chrome in Windows 7 o versione successiva e MacOS X o versione successiva
 * Firefox 26.0 o versione successiva in Windows XP SP2 o versione successiva e in Mac OS X 10.6 o versione successiva
 
-### <a name="existing-single-sign-on"></a>Single Sign-On esistente
-Quando si configura Single Sign-On per un'applicazione, il portale di Azure fornisce una terza opzione di "Single Sign-On esistente". Questa opzione consente semplicemente all'amministratore di creare un collegamento a un'applicazione e di posizionarlo nel pannello di accesso per gli utenti selezionati.
+### <a name="linked-single-sign-on"></a>Single Sign-On collegato
+Quando si configura Single Sign-On per un'applicazione, il portale di Azure rende disponibile una terza opzione, "Linked Single Sign-On" (Single Sign-On collegato). Questa opzione consente semplicemente all'amministratore di creare un collegamento a un'applicazione e di posizionarlo nel pannello di accesso per gli utenti selezionati.
 
-Ad esempio, se è presente un'applicazione configurata per l'autenticazione degli utenti tramite Active Directory Federation Services 2.0, un amministratore può utilizzare l'opzione "Single Sign-On esistente" per creare un collegamento al pannello di accesso. Quando gli utenti accedono al collegamento, vengono autenticati utilizzando Active Directory Federation Services 2.0 o qualunque soluzione Single Sign-On esistente fornita dall'applicazione.
+Se ad esempio è presente un'applicazione configurata per l'autenticazione degli utenti tramite Active Directory Federation Services 2.0, un amministratore può usare l'opzione "Linked Single Sign-On" (Single Sign-On collegato) per creare un collegamento all'applicazione nel pannello di accesso. Quando gli utenti accedono al collegamento, vengono autenticati utilizzando Active Directory Federation Services 2.0 o qualunque soluzione Single Sign-On esistente fornita dall'applicazione.
 
 ### <a name="user-provisioning"></a>Provisioning utenti
 Per selezionare le applicazioni, Azure AD abilita il provisioning e il deprovisioning automatizzato degli utenti degli account nelle applicazioni SaaS di terze parti dal portale di Azure, utilizzando le informazioni dell'identità di Windows Server Active Directory o Azure AD. Quando a un utente vengono concesse le autorizzazioni in Azure AD per una di queste applicazioni, un account può essere creato automaticamente (provisioning) nell'applicazione SaaS di destinazione.
 
 Quando un utente viene eliminato o le relative informazioni cambiano in Azure AD, tali modifiche si riflettono anche nell'applicazione SaaS. Ciò significa che la configurazione della gestione automatizzata del ciclo di vita dell’identità consente agli amministratori di controllare e fornire provisioning e deprovisioning automatizzato dalle applicazioni SaaS. In Azure AD questa automazione della gestione del ciclo di vita dell’identità è abilitata dal provisioning dell'utente.
 
-Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md)
+Per altre informazioni, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](user-provisioning.md)
 
 ## <a name="get-started-with-the-azure-ad-application-gallery"></a>Iniziare a utilizzare la raccolta di applicazioni di Azure AD
 Informazioni introduttive Per distribuire il servizio Single Sign-On tra Azure AD e le applicazioni SaaS utilizzate dall'organizzazione, seguire queste linee guida.
@@ -102,14 +102,14 @@ La [raccolta delle applicazioni di Azure Active Directory](https://azure.microso
 Di seguito sono riportati alcuni suggerimenti per la ricerca delle applicazioni in base alle funzionalità che supportano:
 
 * Azure AD supporta il provisioning e deprovisioning automatico per tutte le applicazioni “In primo piano” nella [raccolta di applicazioni di Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/all/).
-* Un elenco di applicazioni federate che supportano in particolare il Single Sign-On federato tramite un protocollo, ad esempio SAML, WS-Federation oppure OpenID Connect, è disponibile [qui](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+* Un elenco di applicazioni federate che supportano in particolare il Single Sign-On federato tramite un protocollo, ad esempio SAML, WS-Federation oppure OpenID Connect, è disponibile [qui](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 Dopo aver trovato l'applicazione, è possibile iniziare seguendo le istruzioni dettagliate nella raccolta delle applicazioni e nel portale di Azure per abilitare Single Sign-On.
 
 ### <a name="application-not-in-the-gallery"></a>L’applicazione non è presente nella raccolta?
 Se l'applicazione non è presente nella raccolta di applicazioni Azure AD, sono disponibili queste opzioni:
 
-* **Aggiungere un'app non pubblicata attualmente in uso**: per connettere un'applicazione non in elenco usata dall'organizzazione, usare la categoria personalizzata nella raccolta di app del portale di Azure. È possibile aggiungere qualunque applicazione che supporta SAML 2.0 come applicazione federata o qualunque applicazione che dispone di una pagina di accesso basata su HTML come applicazione Single Sign-On con password. Per altre informazioni, vedere il blog sull' [aggiunta di un'applicazione personalizzata](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
+* **Aggiungere un'app non pubblicata attualmente in uso**: per connettere un'applicazione non in elenco usata dall'organizzazione, usare la categoria personalizzata nella raccolta di app del portale di Azure. È possibile aggiungere qualunque applicazione che supporta SAML 2.0 come applicazione federata o qualunque applicazione che dispone di una pagina di accesso basata su HTML come applicazione Single Sign-On con password. Per altre informazioni, vedere il blog sull' [aggiunta di un'applicazione personalizzata](configure-federated-single-sign-on-non-gallery-applications.md).
 * **Aggiungere l'app personalizzata che si sta sviluppando** : se l'applicazione è stata sviluppata personalmente, per implementare il Single Sign-On federato o il provisioning con l'API Graph di Azure AD, seguire le linee guida nella documentazione per sviluppatori di Azure AD. Per ulteriori informazioni, vedere le risorse:
   
   * [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md)
@@ -172,7 +172,7 @@ La maggior parte delle applicazioni federate che supportano OpenID Connect, WS-F
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Collegamenti diretti di accesso per le applicazioni federate, basate su password o esistenti
-Azure AD supporta anche collegamenti diretti Single Sign-On alle singole applicazioni che supportano Single Sign-On basato su password, Single Sign-On esistente e qualunque forma di Single Sign-On federato.
+Azure AD supporta anche collegamenti diretti Single Sign-On alle singole applicazioni che supportano Single Sign-On basato su password, Single Sign-On collegato e qualunque forma di Single Sign-On federato.
 
 Questi collegamenti sono URL realizzati appositamente che inviano un utente attraverso la procedura di accesso di Azure AD per un'applicazione specifica senza richiedere che la avvii dal pannello di accesso di Azure AD o Office 365. Questi URL Single Sign-On sono disponibili nella scheda Dashboard di qualunque applicazione già integrata nella sezione Active Directory del portale di Azure, come illustrato nella schermata riportata di seguito.
 
@@ -191,7 +191,6 @@ Quando un utente autorizzato fa clic su uno di questi collegamenti specifici del
 Questi collegamenti utilizzano gli stessi meccanismi di controllo dell'accesso come il pannello di accesso e Office 365 e solo gli utenti o i gruppi che sono stati assegnati all'applicazione nel portale di Azure potranno eseguire l'autenticazione. Tuttavia, gli utenti non autorizzati vedranno un messaggio che indica che non sono autorizzati all’accesso e verrà fornito loro un collegamento per caricare il pannello di accesso per visualizzare le applicazioni disponibili per cui dispongono dell’accesso.
 
 ## <a name="related-articles"></a>Articoli correlati
-* [Indice di articoli per la gestione di applicazioni in Azure Active Directory](../active-directory-apps-index.md)
 * [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Configurare Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
 * [Introduzione alla gestione dell'accesso alle app](what-is-access-management.md)

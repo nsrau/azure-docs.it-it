@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 9a5be85b917682afeaecd67a4176edb7040d5b4b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215430"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261707"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestire i controller del dispositivo StorSimple
 
@@ -117,7 +117,7 @@ Per ripristinare le impostazioni predefinite di fabbrica del dispositivo StorSim
    
     `Reset-HcsFactoryDefault`
    
-    Per ripristinare invece un singolo controller, usare il cmdlet [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) con il parametro `-scope`.
+    Per ripristinare invece un singolo controller, usare il cmdlet [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) con il parametro `-scope`.
    
     Il sistema verrà riavviato più volte. Verrà ricevuta una notifica al termine del processo di ripristino. A seconda del modello di sistema, per completare questo processo possono essere necessari 45-60 minuti per un dispositivo 8100 e 60-90 minuti per un dispositivo 8600.
    

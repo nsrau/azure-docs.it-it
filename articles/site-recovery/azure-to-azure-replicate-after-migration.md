@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 3e26e40c26a27fdab1ec565dd4112b40acdd17d2
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ae212bebf5a34e9a80f49a750735137d7a8814be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213368"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232665"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure dopo la migrazione ad Azure 
 
@@ -32,7 +32,7 @@ Prima di configurare il ripristino di emergenza assicurarsi che la migrazione si
 L'[agente di macchine virtuali](../virtual-machines/extensions/agent-windows.md) di Azure deve essere installato nella macchina virtuale per consentire a Site Recovery di eseguire la replica.
 
 
-1. Per installare l'agente di macchine virtuali in macchine virtuali che eseguono Windows, scaricare ed eseguire il [programma di installazione dell'agente](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione, sono necessari i privilegi di amministratore.
+1. Per installare l'agente di macchine virtuali in macchine virtuali che eseguono Windows, scaricare ed eseguire il [programma di installazione dell'agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Per completare l'installazione, sono necessari i privilegi di amministratore.
 2. Per installare l'agente di macchine virtuali in macchine virtuali che eseguono Linux, installare l'ultima versione dell'[agente Linux](../virtual-machines/extensions/agent-linux.md). Per completare l'installazione è necessario disporre dei privilegi di amministratore. È consigliabile eseguire l'installazione dal repository di distribuzione. Non è consigliabile installare l'agente di macchine virtuali Linux direttamente da GitHub. 
 
 

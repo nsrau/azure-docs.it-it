@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d42aed76ecdbc2bd840e17517db2ca0b6ba11aa0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d73284ecf40b2dfcd4954c1ddee82bf92a8931b9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034434"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281796"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>Esercitazione 2: identificare finalità ed entità comuni
 Questa esercitazione illustra come modificare l'app delle risorse umane. Aggiungere finalità ed entità predefinite all'app dell'esercitazione relativa alle risorse umane per ottenere rapidamente le previsioni delle finalità e l'estrazione dei dati. Non è necessario etichettare ogni espressione con entità predefinite perché l'entità viene rilevata automaticamente.
@@ -25,7 +25,7 @@ I modelli predefiniti di tipi di domini soggetto e di dati comuni aiutano a crea
 **Questa esercitazione apprenderà come:**
 
 > [!div class="checklist"]
-> * Usare l'app dell'esercitazione esistente
+> * Usare l'app di esercitazione esistente
 > * Aggiungere finalità predefinite 
 > * Aggiungere entità predefinite 
 > * Eseguire il training 
@@ -35,7 +35,7 @@ I modelli predefiniti di tipi di domini soggetto e di dati comuni aiutano a crea
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
-Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
 Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
@@ -43,12 +43,12 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 2. Importare il file JSON in una nuova app.
 
-3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `prebuilts`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL. 
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `prebuilts`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL. 
 
 ## <a name="add-prebuilt-intents"></a>Aggiungere finalità predefinite
 LUIS fornisce diverse finalità predefinite per le intenzioni comuni degli utenti.  
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Add prebuilt intent** (Aggiungere finalità predefinita). 
 

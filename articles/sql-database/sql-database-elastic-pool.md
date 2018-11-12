@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6721b260960cd38b68173a5d973a5716b99a26c0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241209"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283564"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL
 
@@ -113,10 +113,10 @@ Nei casi in cui non è possibile utilizzare gli strumenti, le seguenti istruzion
 
 1. Stimare le eDTU o i vCore necessari per il pool come segue:
 
-   Per il modello di acquisto basato su DTU: MAX(<*numero totale di database* X *utilizzo medio di DTU per database*>,<br>
+   Per il modello di acquisto basato su DTU: MAX(<*numero totale di database* X *utilizzo medio di DTU per database*>,<br>  
    <*numero di database in picco contemporaneamente* X *picco di utilizzo di DTU per DB*)
 
-   Per il modello di acquisto basato su vCore: MAX(<*numero totale di database* X *utilizzo medio di vCore per database*>,<br>
+   Per il modello di acquisto basato su vCore: MAX(< *numero totale di database* X *utilizzo medio di vCore per database* >,<br>  
    <*numero di database in picco contemporaneamente* X *picco di utilizzo di vCore per database*)
 
 2. Stimare lo spazio di archiviazione necessario per il pool aggiungendo il numero di byte necessari per tutti i database nel pool. Determinare quindi la dimensione del pool in eDTU che fornisce la quantità di spazio di archiviazione.

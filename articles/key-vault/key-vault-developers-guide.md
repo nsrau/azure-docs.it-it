@@ -5,16 +5,16 @@ services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 9ab399ae50f9b04acad411b225797f89547a2824
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141344"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237537"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -48,16 +48,14 @@ Questo video mostra come creare il proprio insieme di credenziali delle chiavi e
 
 Risorse citate nel video precedente:
 
-- [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Codice di esempio dell'insieme di credenziali delle chiavi di Azure](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+- [Codice di esempio dell'insieme di credenziali delle chiavi di Azure](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>Creazione e gestione di insiemi di credenziali delle chiavi
 
-Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarle. Identità del servizio gestito consente di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory, ovvero Azure AD. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice. 
+Azure Key Vault consente di archiviare in modo sicuro le credenziali e altre chiavi e segreti, ma è necessario autenticare il codice in Key Vault per recuperarle. Le identità gestite per le risorse di Azure consentono di risolvere il problema in maniera più semplice, assegnando ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire le credenziali nel codice. 
 
-Per altre informazioni sull'identità del servizio gestito, vedere [Identità del servizio gestito per le risorse di Azure](https://docs.microsoft.com/azure/active-directory/msi-overview).
-
-Per altre informazioni sull'uso di AAD, vedere [Integrazione di applicazioni con Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+Per altre informazioni sulle identità gestite per le risorse di Azure, vedere [la panoramica delle identità gestite](../active-directory/managed-identities-azure-resources/overview.md). Per altre informazioni sull'uso di AAD, vedere [Integrazione di applicazioni con Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Prima di usare chiavi, segreti o certificati nell'insieme di credenziali delle chiavi, l'insieme deve essere creato e gestito tramite l'interfaccia della riga di comando, PowerShell, modelli di Resource Manager o REST, come descritto negli articoli seguenti:
 
@@ -110,14 +108,14 @@ In Node.js l'API di gestione e l'API degli oggetti di Key Vault sono separate. L
 ### <a name="quick-start-guides"></a>Guide introduttive
 
 - [Creare un insieme di credenziali delle chiavi](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Introduzione a Key Vault in Node.js](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
+- [Introduzione a Key Vault in Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
 ### <a name="code-examples"></a>Esempi di codice
 
 Per esempi completi che usano l'insieme di credenziali delle chiavi con le applicazioni, vedere:
 
-- [Esempi di codice di Azure Key Vault](http://www.microsoft.com/download/details.aspx?id=45343): applicazione .NET di esempio *HelloKeyVault* ed esempio di servizio Web di Azure. 
-- [Usare Azure Key Vault da un'applicazione Web](key-vault-use-from-web-application.md): esercitazione sull'uso di Azure Key Vault da un'applicazione Web in Azure. 
+- [Esempi di codice di Azure Key Vault](https://azure.microsoft.com/resources/samples/?service=key-vault): esempi di codice per Azure Key Vault. 
+- [Usare Azure Key Vault da un'applicazione Web](quick-create-net.md): esercitazione sull'uso di Azure Key Vault da un'applicazione Web in Azure. 
 
 ## <a name="how-tos"></a>Procedure
 
@@ -131,7 +129,7 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare
 - [Come distribuire certificati a macchine virtuali dall'insieme di credenziali delle chiavi](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) : un'applicazione cloud in esecuzione su una VM in Azure necessita di un certificato. Come ottenere oggi il certificato per questa VM?
 - [Come configurare l'insieme di credenziali delle chiavi con rotazione e controllo delle chiavi end-to-end](key-vault-key-rotation-log-monitoring.md): illustra come configurare la rotazione e il controllo delle chiavi con l'insieme di credenziali delle chiavi di Azure.
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Distribuzione del certificato dell'app Web di Azure tramite l'insieme di credenziali delle chiavi) offre istruzioni dettagliate per la distribuzione dei certificati archiviati nell'insieme di credenziali delle chiavi come parte dell'offerta del [certificato del servizio app](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
-- [Concedere a molte applicazioni l'autorizzazione per accedere a Key Vault](key-vault-group-permissions-for-apps.md): i criteri di controllo di accesso dell'insieme di credenziali delle chiavi supportano solo 16 voci. È tuttavia possibile creare un gruppo di sicurezza di Azure Active Directory. Aggiungere tutte le entità servizio associate a questo gruppo di sicurezza e quindi concedere a tale gruppo di accedere a Key Vault.
+- [Concedere a molte applicazioni l'autorizzazione per accedere a un insieme di credenziali delle chiavi](key-vault-group-permissions-for-apps.md): i criteri di controllo di accesso di Key Vault supportano fino a 1024 voci. È tuttavia possibile creare un gruppo di sicurezza di Azure Active Directory. Aggiungere tutte le entità servizio associate a questo gruppo di sicurezza e quindi concedere a tale gruppo di accedere a Key Vault.
 - Per indicazioni specifiche sulle attività relative all'integrazione e all'uso dell'insieme di credenziali delle chiavi con Azure, vedere gli [esempi di modelli di Azure Resource Manager di Ryan Jones per l'insieme di credenziali delle chiavi](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](key-vault-soft-delete-cli.md) descrive l'utilizzo e il ciclo di vita di un insieme di credenziali delle chiavi e di vari oggetti dell'insieme di credenziali delle chiavi con l'eliminazione temporanea abilitata.
 - [Come usare l'eliminazione temporanea di Key Vault con PowerShell](key-vault-soft-delete-powershell.md) descrive l'utilizzo e il ciclo di vita di un insieme di credenziali delle chiavi e di vari oggetti dell'insieme di credenziali delle chiavi con l'eliminazione temporanea abilitata.
@@ -153,8 +151,8 @@ Questi articoli illustrano altri scenari e servizi che usano o si integrano con 
 
 ## <a name="social"></a>Social media
 
-- [Blog sull'insieme di credenziali delle chiavi](http://aka.ms/kvblog)
-- [Forum sull'insieme di credenziali delle chiavi](http://aka.ms/kvforum)
+- [Blog sull'insieme di credenziali delle chiavi](https://aka.ms/kvblog)
+- [Forum sull'insieme di credenziali delle chiavi](https://aka.ms/kvforum)
 
 ## <a name="supporting-libraries"></a>Supporto di librerie
 

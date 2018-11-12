@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959207"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262302"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Come scegliere gli algoritmi di Azure Machine Learning Studio
 
@@ -121,7 +121,7 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 | [foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [giungla delle decisioni](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Footprint della memoria ridotto |
 | [albero delle decisioni con boosting scalabile](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Footprint della memoria di grandi dimensioni |
-| [rete neurale](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [rete neurale](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [percezione media](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [macchina a vettori di supporto](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Particolarmente valido per set di funzioni di grandi dimensioni |
 | [macchina a vettori di supporto localmente approfondito](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Particolarmente valido per set di funzioni di grandi dimensioni |
@@ -130,7 +130,7 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 | [regressione logistica](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [giungla delle decisioni ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Footprint della memoria ridotto |
-| [rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [rete neurale](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Visualizzare le proprietà del metodo a due classi selezionato |
 | **Regressionee** | | | | | |
 | [lineare](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -138,7 +138,7 @@ Alcuni algoritmi di apprendimento fanno ipotesi particolari sulla struttura dei 
 | [foresta delle decisioni](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [albero delle decisioni con boosting scalabile](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Footprint della memoria di grandi dimensioni |
 | [Quantile della foresta rapida](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distribuzioni invece di previsioni punti |
-| [rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [rete neurale](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[È possibile un’ulteriore personalizzazione](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Tecnicamente logaritmica-lineare. Per la previsione di conteggi. |
 | [Ordinale](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Per la previsione dell'ordinamento delle classificazioni |
 | **Rilevamento anomalie** | | | | | |
@@ -190,7 +190,7 @@ Gli alberi delle decisioni con boosting consentono di evitare il sovradattamento
 Le reti neurali sono algoritmi di apprendimento ispirati al cervello che coprono problemi [multiclasse](https://msdn.microsoft.com/library/azure/dn906030.aspx), [a due classi](https://msdn.microsoft.com/library/azure/dn905947.aspx) e di [regressione](https://msdn.microsoft.com/library/azure/dn905924.aspx). Sono disponibili per un'ampia varietà, ma le reti neurali all'interno di Azure Machine Learning sono tutte sotto forma di grafici aciclici diretti. Ciò significa che le caratteristiche di input vengono passate in avanti (mai indietro) tramite una sequenza di livelli prima di essere convertiti in output. In ogni livello, gli input vengono ponderati in varie combinazioni, sommati e passati al livello successivo. Questa combinazione di calcoli semplici comporta la possibilità di apprendere limiti di classi e tendenze dei dati sofisticati, apparentemente per magia. Reti con molti livelli di questo tipo eseguono l’"apprendimento approfondito" che fornisce il fondamento di molti rapporti tecnici e fantascienza.
 
 Queste alte prestazioni non sono però possibili senza un costo. Le reti neurali possono richiedere molto tempo per l’addestramento, in particolare per grandi set di dati con molte caratteristiche. Dispongono anche di più parametri rispetto alla maggior parte degli algoritmi, il che significa che lo sweep dei parametri dilata notevolmente il tempo di addestramento.
-Per le persone ambiziose che desiderano [specificare la propria struttura di rete](http://go.microsoft.com/fwlink/?LinkId=402867), le possibilità sono infinite.
+Per le persone ambiziose che desiderano [specificare la propria struttura di rete](https://go.microsoft.com/fwlink/?LinkId=402867), le possibilità sono infinite.
 
 ![Limiti appresi dalle reti neurali][6]
 ***I limiti appresi dalle reti neurali possono essere complessi e irregolari***

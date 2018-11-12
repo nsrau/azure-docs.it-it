@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: cf37db9bffa8b2a54a6327c29ec806e0eefc8c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225413"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261860"
 ---
 # <a name="what-is-bing-video-search"></a>Informazioni su Ricerca video Bing
 
@@ -47,7 +47,7 @@ Tutte le richieste devono essere eseguite da un server.
 
 Se è la prima volta che si chiama un'API Bing, non includere l'intestazione dell'ID client. Includere l'ID client solo se in precedenza è già stata chiamata un'API Bing e Bing ha restituito un ID client per la combinazione utente e dispositivo.
 
-Per ottenere video da un dominio specifico, usare il [sito:](http://msdn.microsoft.com/library/ff795613.aspx) operatore query.
+Per ottenere video da un dominio specifico, usare il [sito:](https://msdn.microsoft.com/library/ff795613.aspx) operatore query.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -131,7 +131,7 @@ Per impostazione predefinita, l'API Ricerca video riporta tutti i video pertinen
 - [lunghezzavideo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;Filtra i video in base alla lunghezza (ad esempio, video che durano meno di 5 minuti)
 - [aggiornamento](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;Filtra i video in base alla data della ricerca (ad esempio, video individuati da Bing la scorsa settimana)
 
-Per ottenere risultati di ricerca da un dominio specifico, includere il [sito:](http://msdn.microsoft.com/library/ff795613.aspx) dell'operatore query, nella stringa di query.
+Per ottenere risultati di ricerca da un dominio specifico, includere il [sito:](https://msdn.microsoft.com/library/ff795613.aspx) dell'operatore query, nella stringa di query.
 
 > [!NOTE]
 > A seconda della query, se si usa `site:`l'operatore query è possibile che i risultati contengano contenuti per adulti, indipendentemente dall'impostazione [Ricerca sicura](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch). È consigliabile usare `site:` solo se si conosce il contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.

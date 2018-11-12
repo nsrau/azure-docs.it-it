@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: b4f54358f4bc1db973d6fe7163411e3a313c3cf4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a0d543ebe435b616306690bfb5e3de63ecc1ff6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887431"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259123"
 ---
 # <a name="views-in-management-solutions-preview"></a>Viste nelle soluzioni di gestione (anteprima)
 > [!NOTE]
@@ -33,7 +33,7 @@ Le [soluzioni di gestione](monitoring-solutions.md) includono in genere una o pi
 >
 >
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che si abbia già familiarità con le modalità di [creazione di una soluzione di gestione](monitoring-solutions-creating.md) e la struttura di un file di soluzione.
 
 ## <a name="overview"></a>Panoramica
@@ -90,7 +90,7 @@ Si noti che è possibile copiare l'intera risorsa vista dal file della vista esp
 * Le variabili devono essere definite nella soluzione e usate nelle proprietà appropriate.
 
 ### <a name="log-analytics-api-version"></a>Versione API di Log Analytics
-Tutte le risorse di Log Analytics definite in un modello di Resource Manager hanno una proprietà **apiVersion** che definisce la versione dell'API che la risorsa deve usare.  Questa versione è diversa per le viste con query che usano il [linguaggio di query legacy e quello aggiornato](../log-analytics/log-analytics-log-search-upgrade.md).  
+Tutte le risorse di Log Analytics definite in un modello di Resource Manager hanno una proprietà **apiVersion** che definisce la versione dell'API che la risorsa deve usare.  Questa versione è diversa per le viste con query che usano il [linguaggio di query legacy e quello aggiornato](../log-analytics/log-analytics-queries.md).  
 
  La tabella seguente illustra le versioni dell'API di Log Analytics relative alle viste nelle aree di lavoro legacy e aggiornate: 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109059"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259939"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple per Cloud Solutions Provider Program: domande frequenti
 
@@ -50,7 +50,7 @@ Sì. Si tratta di un modello di sconto per la vendita all'ingrosso proprio gli a
 Gli stessi SKU disponibili con i servizi autonomi di StorSimple. 
 
 ### <a name="is-there-any-difference-between-the-storsimple-directly-purchased-from-microsoft-under-ea-and-storsimple-as-a-part-of-csp"></a>Esiste una differenza tra l'acquistare StorSimple direttamente da Microsoft sotto EA e l'acquistare StorSimple come parte di CSP?
-di serie In CSP, i clienti possono anche acquistare altri servizi offerti dal partner CSP insieme all'array virtuale StorSimple, in un'unica fattura. Si noti che per acquistare il dispositivo StorSimple serie 8000 fisico, i clienti devono comunque usare il modello di acquisto EA. 
+No. In CSP, i clienti possono anche acquistare altri servizi offerti dal partner CSP insieme all'array virtuale StorSimple, in un'unica fattura. Si noti che per acquistare il dispositivo StorSimple serie 8000 fisico, i clienti devono comunque usare il modello di acquisto EA. 
 
 ### <a name="in-which-markets-is-storsimple-available-for-csp-at-launch"></a>In cui mercati è disponibile al lancio StorSimple per i CSP?
 L'array virtuale StorSimple per CSP è disponibile in tutti i mercati in cui StorSimple è disponibile attualmente. Per altre informazioni, vedere l'[elenco di aree in cui è disponibile StorSimple](https://azure.microsoft.com/regions/services/).
@@ -72,10 +72,10 @@ Per informazioni sugli incentivi, vedere gli [incentivi del programma CSP](https
 È possibile aggiungere sottoscrizioni di array virtuale StorSimple all'account dei clienti tramite il Centro per i partner. Inoltre, è possibile usare il portale di Azure per aggiungere utenti alle sottoscrizioni.
 
 ### <a name="is-the-azure-portal-approach-the-same-as-other-services-for-csp"></a>L'approccio del portale di Azure è identico a quello per gli altri servizi di CSP? 
-Sì. Con l'array virtuale StorSimple per CSP, il modo migliore in cui i partner possono accedere al portale di Azure è attraverso il [Centro per i partner](http://partnercenter.microsoft.com/), dove possono gestire clienti e sottoscrizioni. Per gestire le sottoscrizioni a StorSimple, il partner o cliente (a seconda delle autorizzazioni concesse) deve accedere al portale di Azure. 
+Sì. Con l'array virtuale StorSimple per CSP, il modo migliore in cui i partner possono accedere al portale di Azure è attraverso il [Centro per i partner](https://partnercenter.microsoft.com/), dove possono gestire clienti e sottoscrizioni. Per gestire le sottoscrizioni a StorSimple, il partner o cliente (a seconda delle autorizzazioni concesse) deve accedere al portale di Azure. 
 
 ### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>Microsoft distribuirà un nuovo portale per StorSimple per CSP? 
-di serie Gli utenti potranno amministrare l'array virtuale StorSimple in CSP tramite il portale di Azure.
+No. Gli utenti potranno amministrare l'array virtuale StorSimple in CSP tramite il portale di Azure.
 
 ### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>È stato eseguito il provisioning di una sottoscrizione StorSimple autonoma per il cliente. È necessario usare il portale di Azure per amministrare il dispositivo? 
 Sì. 
@@ -94,7 +94,7 @@ Il modello di supporto di StorSimple per CSP è identico a quello di altri servi
 Per altre informazioni su StorSimple per CSP, visitare:
 
 - [Programma Microsoft Cloud Solution Provider](https://partner.microsoft.com/Membership)
-- [Centro per i partner](http://partnercenter.microsoft.com/) 
+- [Centro per i partner](https://partnercenter.microsoft.com/) 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -5,17 +5,16 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: conceptual
 ms.date: 05/03/2018
-ms.openlocfilehash: c520c437212c23cc9dc8327c95b9f2a77b08e1ac
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3269d38b691ec4dd9573a241c89dadc285787143
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246628"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254027"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Installare Data Lake Tools per Visual Studio
 
@@ -27,7 +26,7 @@ Informazioni su come usare Visual Studio per creare account Azure Data Lake Anal
     * Visual Studio 2017
     * Visual Studio 2015
     * Visual Studio 2013
-* **Microsoft Azure SDK per .NET** versione 2.7.1 o successiva.  Eseguire l'installazione usando [Installazione guidata piattaforma Web](http://www.microsoft.com/web/downloads/platform.aspx).
+* **Microsoft Azure SDK per .NET** versione 2.7.1 o successiva.  Eseguire l'installazione usando [Installazione guidata piattaforma Web](https://www.microsoft.com/web/downloads/platform.aspx).
 * Un account **Data Lake Analytics**. Per creare un account, vedere [Introduzione ad Azure Data Lake Analytics con il portale di Azure](data-lake-analytics-get-started-portal.md).
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2017"></a>Installare Strumenti Azure Data Lake per Visual Studio 2017
@@ -40,7 +39,7 @@ Abilitare il carico di lavoro **Sviluppo di Azure** come illustrato: ![Abilitare
 
 ## <a name="install-azure-data-lake-tools-for-visual-studio-2013-and-2015"></a>Installare Strumenti Azure Data Lake per Visual Studio 2013 e 2015
 
-Scaricare e installare Strumenti Azure Data Lake per Visual Studio dall'[Area download](http://aka.ms/adltoolsvs). Dopo l'installazione si noti che:
+Scaricare e installare Strumenti Azure Data Lake per Visual Studio dall'[Area download](https://aka.ms/adltoolsvs). Dopo l'installazione si noti che:
 * Il nodo **Esplora server** > **Azure** contiene un nodo **Data Lake Analytics**. 
 * Il menu **Strumenti** include una voce **Data Lake**.
 

@@ -1,25 +1,21 @@
 ---
-title: 'Guida di avvio rapido: Iniziare a usare Hadoop e Hive in Azure HDInsight mediante il portale di Azure | Microsoft Docs'
+title: 'Guida introduttiva: Iniziare a usare Hadoop e Hive in Azure HDInsight tramite il portale di Azure '
 description: Informazioni su come creare cluster HDInsight mediante il portale di Azure ed eseguire query sui dati con Hive.
 keywords: introduzione a Hadoop, Hadoop basato su Linux, guida introduttiva a Hadoop, introduzione a Hive, guida introduttiva a Hive
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/07/2018
-ms.author: nitinme
-ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 07f9f774e3d133a2a39aad16b06ed77938ad74c8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097897"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281645"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Guida di avvio rapido: Iniziare a usare Hadoop e Hive in Azure HDInsight mediante il portale di Azure
 

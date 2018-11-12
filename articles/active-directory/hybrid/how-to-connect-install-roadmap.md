@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318640"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253194"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Roadmap di installazione di Azure AD Connect e Azure AD Connect Health
 
@@ -26,7 +26,7 @@ ms.locfileid: "49318640"
 > [!IMPORTANT]
 > Microsoft non supporta la modifica o l'uso del servizio di sincronizzazione Azure AD Connect al di fuori delle azioni descritte in modo formale. Ognuna di queste azioni potrebbe provocare uno stato incoerente o non supportato del sevizio di sincronizzazione Azure AD Connect. Microsoft pertanto non offre il supporto tecnico per distribuzioni di questo tipo.
 
-Il download per Azure AD Connect è disponibile nell' [Area download Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
+Il download per Azure AD Connect è disponibile nell' [Area download Microsoft](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 | Soluzione | Scenario |
 | --- | --- |
@@ -41,7 +41,7 @@ Il download per Azure AD Connect è disponibile nell' [Area download Microsoft](
 ### <a name="next-steps-to-install-azure-ad-connect"></a>Installare Azure AD Connect - Passaggi successivi
 |Argomento |Collegamento|  
 | --- | --- |
-|Scaricare Azure AD Connect | [Scaricare Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Scaricare Azure AD Connect | [Scaricare Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Eseguire l'installazione con le Impostazioni rapide | [Installazione rapida di Azure AD Connect](./how-to-connect-install-express.md)|
 |Eseguire l'installazione mediante le impostazioni personalizzate | [Installazione personalizzata di Azure AD Connect](./how-to-connect-install-custom.md)|
 |Aggiornamento da DirSync | [Aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](./how-to-dirsync-upgrade-get-started.md)|
@@ -141,12 +141,12 @@ Per iniziare a usare Azure AD Connect Health sono molto semplici, seguire questa
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>Scaricare e installare l'agente di Azure AD Connect Health
 * Verificare che siano [soddisfatti i requisiti](how-to-connect-health-agent-install.md#requirements) per Azure AD Connect Health.
 * Introduzione ad Azure AD Connect Health per AD FS
-    * [Scaricare l'agente di Azure AD Connect Health per AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Scaricare l'agente di Azure AD Connect Health per AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [Vedere le istruzioni per l'installazione](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Introduzione ad Azure AD Connect Health per la sincronizzazione
-    * [Scaricare e installare la versione più recente di Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). L'agente di integrità per la sincronizzazione verrà installato come parte dell'installazione di Azure AD Connect (versione 1.0.9125.0 o versione successiva).
+    * [Scaricare e installare la versione più recente di Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). L'agente di integrità per la sincronizzazione verrà installato come parte dell'installazione di Azure AD Connect (versione 1.0.9125.0 o versione successiva).
 * Introduzione ad Azure AD Connect Health per Active Directory Domain Services
-    * [Scaricare l'agente di Azure AD Connect Health per Active Directory Domain Services](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Scaricare l'agente di Azure AD Connect Health per Active Directory Domain Services](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [Vedere le istruzioni per l'installazione](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 
@@ -172,7 +172,7 @@ Il portale di Azure AD Connect Health visualizza gli avvisi, il monitoraggio del
 - [Hardware e prerequisiti](how-to-connect-install-prerequisites.md) 
 - [Impostazioni rapide](how-to-connect-install-express.md)
 - [Impostazioni personalizzate](how-to-connect-install-custom.md)
-- [Sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md)|
+- [Sincronizzazione degli hash delle password](how-to-connect-password-hash-synchronization.md)|
 - [Autenticazione pass-through](how-to-connect-pta.md)
 - [Azure AD Connect e federazione](how-to-connect-fed-whatis.md)
 - [Installare gli agenti di Azure AD Connect Health](how-to-connect-health-agent-install.md) 

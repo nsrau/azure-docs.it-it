@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8efb629575f94c8970dd68113eeb27a9dd36e643
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ddf9c5e30a27a829a74ccf0985dce30a68f9bbb7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158756"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256649"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlli delle applicazioni adattivi nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il controllo delle applicazioni nel Centro sicurezza di Azure.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Cosa sono i controlli delle applicazioni adattivi nel Centro sicurezza?
-I controlli delle applicazioni adattivi consentono di controllare quali applicazioni possono essere eseguite nelle macchine virtuali in Azure e, tra gli altri vantaggi, garantiscono la protezione avanzata delle macchine virtuali contro i malware. Il Centro sicurezza usa Machine Learning per analizzare le applicazioni in esecuzione nella macchina virtuale e, grazie a questa funzionalità intelligente, consente di applicare regole di inserimento nell'elenco elementi consentiti. Questa funzionalità semplifica notevolmente il processo di configurazione e gestione degli elenchi elementi consentiti, permettendo di:
+Controlli delle applicazioni adattivi è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata del Centro sicurezza di Azure. Consente di controllare quali applicazioni possono essere eseguite nelle macchine virtuali in Azure e, tra gli altri vantaggi, garantisce la protezione avanzata delle macchine virtuali contro i malware. Il Centro sicurezza usa la funzione Machine Learning per analizzare le applicazioni in esecuzione nelle macchine virtuali e, grazie a questa funzionalità intelligente, consente di applicare specifiche regole di inserimento nell'elenco elementi consentiti. Questa funzionalità semplifica notevolmente il processo di configurazione e gestione dei criteri di inserimento delle applicazioni negli elenchi elementi consentiti, permettendo di:
 
 - Bloccare i tentativi di esecuzione di applicazioni dannose, inclusi quelli che potrebbero altrimenti non venire rilevati dalle soluzioni antimalware oppure inviare un avviso per tali tentativi.
 - Rispettare i criteri di sicurezza dell'organizzazione che impongono l'uso solo di software concesso in licenza.
@@ -35,7 +35,7 @@ I controlli delle applicazioni adattivi consentono di controllare quali applicaz
 - Consentire al personale IT di controllare l'accesso ai dati sensibili tramite l'utilizzo delle app.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Come si abilitano i controlli delle applicazioni adattivi?
-I controlli delle applicazioni adattivi consentono di definire un set di applicazioni che è possibile eseguire in gruppi configurati. Questa funzionalità è disponibile solo per computer Windows (tutte le versioni, versione classica o Azure Resource Manager). La procedura seguente può essere usata per configurare l'inserimento delle applicazioni nell'elenco elementi consentiti nel Centro sicurezza:
+I controlli delle applicazioni adattivi consentono di definire un set di applicazioni che è possibile eseguire in gruppi configurati di VM. Questa funzionalità è disponibile solo per computer Windows (tutte le versioni, versione classica o Azure Resource Manager). La procedura seguente può essere usata per configurare l'inserimento delle applicazioni nell'elenco elementi consentiti nel Centro sicurezza:
 
 1. Aprire il dashboard **Centro sicurezza**.
 2. Nel riquadro a sinistra selezionare **Controlli applicazione adattivi** in **Difesa cloud avanzata**.
@@ -66,48 +66,49 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
 
   - **NOME**: nome della sottoscrizione e del gruppo
   - **MACCHINE VIRTUALI**: numero di macchine virtuali nel gruppo
-  - **STATO**: stato delle raccomandazioni, che nella maggior parte dei casi è aperto
+  - **STATO**: stato attuale delle raccomandazioni
   - **GRAVITÀ**: livello di gravità delle raccomandazioni
 
-2. Selezionare un gruppo per accedere all'opzione **Crea le regole di controllo delle applicazioni**.
+2. Fare clic su un gruppo per accedere all'opzione **Crea le regole di controllo delle applicazioni**.
 
   ![Regole di controllo applicazioni](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-3. In **Seleziona macchine virtuali** esaminare l'elenco di macchine virtuali consigliate e deselezionare quelle a cui non si vuole applicare il controllo delle applicazioni. Verranno visualizzati due elenchi:
+3. In **Seleziona macchine virtuali** esaminare l'elenco di macchine virtuali consigliate e deselezionare quelle a cui non si vogliono applicare i criteri di inserimento nell'elenco elementi consentiti. Verranno visualizzati due elenchi:
 
-  - **Applicazioni consigliate**: elenco di applicazioni frequenti nelle macchine virtuali all'interno del gruppo e per le quali il Centro sicurezza consiglia quindi regole di controllo delle applicazioni.
-  - **Altre applicazioni**: elenco di applicazioni meno frequenti nelle macchine virtuali all'interno del gruppo oppure note come sfruttabili (vedere più avanti) e per le quali è consigliato l'esame prima di applicare le regole.
+  - **Applicazioni consigliate**: elenco di applicazioni frequenti nelle macchine virtuali all'interno del gruppo e la cui esecuzione è consigliata.
+  - **Altre applicazioni**: elenco di applicazioni meno frequenti nelle macchine virtuali all'interno del gruppo oppure note come sfruttabili (vedere più avanti) e per le quali è consigliato l'esame.
 
 4. Esaminare le applicazioni in ognuno degli elenchi e deselezionare quelle a cui non si vuole applicare il controllo delle applicazioni. Ogni elenco include:
 
-  - **NOME**: informazioni sul certificato di un'applicazione o percorso completo dell'applicazione
-  - **TIPI DI FILE**: tipo di file dell'applicazione. Può trattarsi di file EXE, Script o MSI.
-  - **SFRUTTABILE**: un'icona di avviso indica se le applicazioni possono essere usate da un utente malintenzionato per aggirare l'inserimento nell'elenco elementi consentiti. È consigliabile esaminare queste applicazioni prima di approvarle.
+  - **NOME**: informazioni sul certificato o il percorso completo di un'applicazione
+  - **TIPI DI FILE**: tipo di file dell'applicazione. Può trattarsi di file EXE, Script, file MSI o qualsiasi permutazione di questi tipi.
+  - **SFRUTTABILE**: un'icona di avviso indica se un'applicazione specifica può essere usata da un utente malintenzionato per aggirare una soluzione di inserimento delle applicazioni nell'elenco elementi consentiti. È consigliabile esaminare queste applicazioni prima di approvarle.
   - **UTENTI**: utenti ai quali è consigliabile consentire l'esecuzione di un'applicazione
 
-5. Dopo avere selezionato le opzioni desiderate, scegliere **Crea**.
+5. Dopo avere selezionato le opzioni desiderate, scegliere **Crea**. <br>
+Dopo aver selezionato Crea, il Centro sicurezza di Azure crea automaticamente le regole appropriate sopra la soluzione predefinita di inserimento delle applicazioni nell'elenco elementi consentiti disponibile nei server Windows (AppLocker).
 
 
 > [!NOTE]
 > - Il Centro sicurezza si basa su almeno due settimane di dati per creare una baseline e popolare le raccomandazioni univoche per ogni gruppo di VM. In base al comportamento previsto per i nuovi clienti del livello Standard del Centro sicurezza, i gruppi di VM vengono prima visualizzati nella scheda *Nessuna raccomandazione*.
 > - Controlli delle applicazioni adattivi di Centro sicurezza non supporta le macchine virtuali per cui i criteri di AppLocker sono già abilitati da un oggetto Criteri di gruppo o un criterio di sicurezza locale.
-> -  Come procedura consigliata per la sicurezza, il Centro sicurezza cerca sempre di creare una regola relativa all'editore per le applicazioni che devono essere inserite nell'elenco elementi consentiti e, solo se un'applicazione non ha informazioni relative all'editore (ovvero non è firmata), viene creata una regola di percorso per il percorso completo del file EXE specifico.
+> -  Come procedura consigliata per la sicurezza, il Centro sicurezza cerca sempre di creare una regola relativa all'editore per le applicazioni indicate come consentite e, solo se un'applicazione non ha informazioni relative all'editore, ovvero non è firmata, viene creata una regola di percorso per il percorso completo dell'applicazione specifica.
 >   
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Modifica e monitoraggio di un gruppo configurato con il controllo delle applicazioni
 
-1. Per modificare e monitorare un gruppo configurato con il controllo delle applicazioni, tornare alla pagina **Controlli applicazione adattivi** e selezionare **CONFIGURATO** in **Groups of VMs** (Gruppi di macchine virtuali):
+1. Per modificare e monitorare un gruppo configurato con i criteri di inserimento delle applicazioni nell'elenco elementi consentiti, tornare alla pagina **Controlli applicazione adattivi** e selezionare **CONFIGURATO** in **Gruppi di macchine virtuali**:
 
   ![Gruppi](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
   L'elenco include:
 
-  - **NOME**: nome della sottoscrizione e del gruppo
+  - **Nome**: nome della sottoscrizione e del gruppo
   - **MACCHINE VIRTUALI**: numero di macchine virtuali nel gruppo
-  - **MODALITÀ**: la modalità di controllo registra i tentativi di eseguire applicazioni non inserite nell'elenco elementi consentiti, mentre la modalità di imposizione impedisce l'esecuzione delle applicazioni non inserite nell'elenco elementi consentiti
-  - **PROBLEMI**: qualsiasi violazione corrente
+  - **Modalità**: la modalità di controllo registra i tentativi di eseguire applicazioni non inserite nell'elenco elementi consentiti, mentre la modalità di imposizione impedisce l'esecuzione delle applicazioni non inserite nell'elenco elementi consentiti
+  - **Avvisi**: qualsiasi violazione corrente
 
-2. Selezionare un gruppo per apportare le modifiche nella pagina **Modifica il criterio del controllo applicazione**.
+2. Fare clic su un gruppo per apportare le modifiche nella pagina **Modifica il criterio del controllo applicazione**.
 
   ![Protezione](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
@@ -116,61 +117,40 @@ La sezione **Groups of VMs** (Gruppi di macchine virtuali) contiene tre schede:
   - **Controllo**: in questa modalità, la soluzione di controllo delle applicazioni non applica le regole, ma controlla solo l'attività nelle macchine virtuali protette. Si tratta dell'opzione consigliata per scenari in cui si vuole osservare il comportamento generale prima di bloccare l'esecuzione di un'app nella macchina virtuale di destinazione.
   - **Applica**: in questa modalità la soluzione di controllo delle applicazioni applica le regole e garantisce il blocco delle applicazioni la cui esecuzione non è consentita.
 
-  Come indicato in precedenza, per impostazione predefinita i nuovi criteri di controllo delle applicazioni vengono sempre configurati in modalità *Controllo*. In **Policy extension** (Estensione criteri) è possibile aggiungere i percorsi delle applicazioni da inserire nell'elenco elementi consentiti. Dopo l'aggiunta di questi percorsi, il Centro sicurezza crea le regole appropriate per queste applicazioni, oltre a quelle già presenti.
+   > [!NOTE]
+   > Come indicato in precedenza, per impostazione predefinita i nuovi criteri di controllo delle applicazioni vengono sempre configurati in modalità *Controllo*. 
+   >
 
-  Nella sezione **Problemi recenti** sono elencate tutte le violazioni correnti.
+4. In **Estensione dei criteri** è possibile aggiungere il percorso di qualsiasi applicazione da consentire. Dopo aver aggiunto tali percorsi, il Centro sicurezza aggiorna i criteri di inserimento nell'elenco elementi consentiti nelle macchine virtuali all'interno del gruppo selezionato e crea le regole appropriate per queste applicazioni, oltre a quelle già presenti.
 
-  ![Problemi](./media/security-center-adaptive-application/security-center-adaptive-application-fig7.png)
+5. Esaminare le violazioni correnti elencate nella sezione **Avvisi recenti**. Fare clic su ogni riga da reindirizzare alla pagina **Avvisi** all'interno di Centro sicurezza di Azure e visualizzare tutti gli avvisi che sono stati rilevati dal Centro sicurezza di Azure nelle macchine virtuali associate.
+  - **Avvisi**: eventuali violazioni registrate.
+  - **N. di VM**: numero di macchine virtuali con questo tipo di avviso.
 
-  inclusi i seguenti:
-  - **PROBLEMI**: le violazioni che sono state registrate e che possono includere quanto segue:
+6. In **Regole di inserimento delle entità di pubblicazione nell'elenco elementi consentiti** e **Regole di inserimento dei percorsi nell'elenco elementi consentiti** e **Regole di inserimento degli hash nell'elenco elementi consentiti** è possibile visualizzare quali regole di inserimento delle applicazioni nell'elenco elementi consentiti sono attualmente configurate nelle macchine virtuali all'interno di un gruppo, in base al tipo di raccolta di regole. Per ogni regola è possibile visualizzare:
 
-      - **ViolationsBlocked**: quando la soluzione è attivata in modalità Applica e un'applicazione non inserita nell'elenco elementi consentiti prova ad avviare l'esecuzione.
-      - **ViolationsAudited**: quando la soluzione è attivata in modalità Controllo e un'applicazione non inserita nell'elenco elementi consentiti viene eseguita.
+  - **Regola**: i parametri specifici in base ai quali un'applicazione viene esaminata da AppLocker per determinare se può essere eseguita.
+  - **Tipo di file**: tipi di file coperti da una specifica regola. Può trattarsi di uno dei seguenti: EXE, Script, file MSI o qualsiasi permutazione di questi tipi di file.
+  - **Utenti**: nome o numero di utenti autorizzati a eseguire un'applicazione che è coperta da una regola di inserimento delle applicazioni nell'elenco elementi consentiti.
 
- - **N. DI VM**: numero di macchine virtuali con questo tipo di problema.
+   ![Regole di inserimento nell'elenco elementi consentiti](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 
-  Se si fa clic su ogni riga, si viene reindirizzati alla pagina [Log attività di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), in cui è possibile visualizzare le informazioni su tutte le macchine virtuali con questo tipo di violazione. Se si fa clic sui tre punti alla fine di ogni riga, è possibile eliminare la voce specifica. La sezione **Configured virtual machines** (Macchine virtuali configurate) elenca le macchine virtuali a cui applicano queste regole.
+7. Fare clic sui tre punti alla fine di ogni riga per eliminare la regola specifica o modificare gli utenti autorizzati.
 
-  ![Macchine virtuali configurate](./media/security-center-adaptive-application/security-center-adaptive-application-fig8.png)
-
-  In **Regole di inserimento delle entità di pubblicazione nell'elenco elementi consentiti** l'elenco contiene gli elementi seguenti:
-
-  - **REGOLA**: applicazioni per cui è stata creata una regola relativa all'editore in base alle informazioni sul certificato trovate per ogni applicazione
-  - **TIPO di FILE**: tipi di file coperti da una specifica regola relativa all'editore. Può trattarsi di file EXE, Script o MSI.
-  - **UTENTI**: numero di utenti autorizzati a eseguire ogni applicazione
-
-  Per altre informazioni, vedere [Understanding Publisher Rules in Applocker](https://docs.microsoft.com/windows/device-security/applocker/understanding-the-publisher-rule-condition-in-applocker) (Informazioni sulle regole per gli editori in Applocker).
-
-  ![Regole di inserimento nell'elenco elementi consentiti](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
-
-  Se si fa clic sui tre punti alla fine di ogni riga, è possibile eliminare la regola specifica o modificare gli utenti autorizzati.
-
-  La sezione **Regole di inserimento dei percorsi nell'elenco elementi consentiti** elenca il percorso completo (incluso il tipo di file specifico) delle applicazioni che non sono firmate con un certificato digitale, ma sono comunque presenti nelle regole di inserimento nell'elenco elementi consentiti.
-
-  > [!NOTE]
-  > Per impostazione predefinita, come procedura consigliata per la sicurezza, il Centro sicurezza cerca sempre di creare una regola relativa all'editore per i file EXE che devono essere inseriti nell'elenco elementi consentiti e, solo se un file EXE non ha informazioni relative all'editore (ovvero non è firmato), viene creata una regola di percorso per il percorso completo del file EXE specifico.
-
-  ![Regole di inserimento dei percorsi nell'elenco elementi consentiti](./media/security-center-adaptive-application/security-center-adaptive-application-fig10.png)
-
-  L'elenco contiene:
-  - **NOME**: percorso completo del file eseguibile.
-  - **TIPO di FILE**: tipi di file coperti da una specifica regola di percorso. Può trattarsi di file EXE, Script o MSI.
-  - **UTENTI**: numero di utenti autorizzati a eseguire ogni applicazione
-
-  Se si fa clic sui tre punti alla fine di ogni riga, è possibile eliminare la regola specifica o modificare gli utenti autorizzati.
-
-4. Dopo avere apportato le modifiche nella pagina **Controlli applicazione adattivi** fare clic sul pulsante **Salva**. Se si decide di non applicare le modifiche, fare clic su **Rimuovi**.
+8. Dopo aver modificato un criterio **Controlli applicazione adattivi**, fare clic su **Salva**.
 
 ### <a name="not-recommended-list"></a>Elenco elementi senza raccomandazioni
 
-Il Centro sicurezza propone l'inserimento delle applicazioni nell'elenco elementi consentiti solo per le macchine virtuali che eseguono un set stabile di applicazioni. Non vengono create raccomandazioni se le applicazioni nelle macchine virtuali associate continuano a cambiare.
+Il Centro sicurezza propone i criteri di inserimento delle applicazioni nell'elenco elementi consentiti solo per le macchine virtuali che eseguono un set stabile di applicazioni. Non vengono create raccomandazioni se le applicazioni nelle macchine virtuali associate continuano a cambiare.
 
 ![Raccomandazione](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 L'elenco contiene:
 - **NOME**: nome della sottoscrizione e del gruppo
 - **MACCHINE VIRTUALI**: numero di macchine virtuali nel gruppo
+
+Centro sicurezza di Azure consente di definire criteri di inserimento delle applicazioni nell'elenco elementi consentiti anche per gruppi non consigliati di macchine virtuali. Per configurare i criteri di inserimento delle applicazioni nell'elenco elementi consentiti anche per tali gruppi, seguire gli stessi principi delineati in precedenza.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come usare il controllo delle applicazioni adattivo nel Centro sicurezza di Azure per inserire nell'elenco elementi consentiti le applicazioni in esecuzione nelle macchine virtuali di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
@@ -180,4 +160,4 @@ In questo documento si è appreso come usare il controllo delle applicazioni ada
 * [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Informazioni sui diversi tipi di avvisi di sicurezza.
 * [Guida alla risoluzione dei problemi del Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Informazioni su come risolvere i problemi comuni nel Centro sicurezza.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.
+* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/). Post di blog sulla sicurezza e sulla conformità di Azure.

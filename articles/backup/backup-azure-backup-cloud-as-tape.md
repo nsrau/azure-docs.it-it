@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff30dd0e4c7cadabddbeddc38c28a773db68d8ff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606495"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259605"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Spostare lo spazio di archiviazione a lungo termine su nastro nel cloud di Azure
 I clienti di Backup di Azure e System Center Data Protection Manager possono eseguire le attività seguenti:
@@ -23,7 +23,7 @@ I clienti di Backup di Azure e System Center Data Protection Manager possono ese
 * Mantenere i dati di backup per periodi più lunghi
 * Includere Azure nelle strategie di conservazione dei dati a lungo termine, in alternativa al backup su nastro.
 
-Questo articolo illustra come abilitare i criteri di backup e di conservazione. I clienti che usano i nastri per soddisfare le esigenze di conservazione a lungo termine dispongono ora di un'alternativa efficace e affidabile. Questa funzionalità è abilitata nella versione più recente di Backup di Azure, disponibile [in questa pagina](http://aka.ms/azurebackup_agent). I clienti di System Center DPM devono effettuare l'aggiornamento a DPM 2012 R2 UR5 almeno, prima di poter usare DPM con il servizio Backup di Azure.
+Questo articolo illustra come abilitare i criteri di backup e di conservazione. I clienti che usano i nastri per soddisfare le esigenze di conservazione a lungo termine dispongono ora di un'alternativa efficace e affidabile. Questa funzionalità è abilitata nella versione più recente di Backup di Azure, disponibile [in questa pagina](https://aka.ms/azurebackup_agent). I clienti di System Center DPM devono effettuare l'aggiornamento a DPM 2012 R2 UR5 almeno, prima di poter usare DPM con il servizio Backup di Azure.
 
 ## <a name="what-is-the-backup-schedule"></a>Che cos'è la pianificazione di backup?
 La pianificazione del backup indica la frequenza dell'operazione di backup. Ad esempio, le impostazioni nella schermata di seguito indicano che i backup vengono eseguiti ogni giorno alle ore 18.00 e a mezzanotte.

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: 49d1a228132cc220b30091481bb542623b1e222d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d201d8848891038355fad01f610070259ad1e42a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835866"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259191"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Gestione del ciclo di vita dell'applicazione in Azure Machine Learning Studio
 Azure Machine Learning Studio è uno strumento per lo sviluppo di esperimenti di Machine Learning che siano operativi nel cloud di Azure. Si tratta di una specie di fusione del servizio cloud scalabile e dell'IDE di Visual Studio in un'unica piattaforma. È possibile incorporare le procedure ALM (Application Lifecycle Management) standard dal controllo delle versioni delle varie risorse all'esecuzione e distribuzione automatica in Azure Machine Learning Studio. Questo articolo descrive alcune opzioni e approcci.
@@ -43,7 +43,7 @@ Dopo averlo aperto, è possibile salvare l'esperimento dello snapshot come nuovo
 Se si elimina l'esperimento, vengono eliminati tutti i relativi snapshot.
 
 ### <a name="exportimport-experiment-in-json-format"></a>Esportare/importare un esperimento in formato JSON
-Gli snapshot della cronologia di esecuzione mantengono una versione non modificabile dell'esperimento in Azure Machine Learning Studio ogni volta che vengono inviati per l'esecuzione. È anche possibile salvare una copia locale dell'esperimento e archiviarla nel sistema di controllo di origine preferito, come Team Foundation Server, e successivamente ricreare un esperimento da tale file locale. A questo scopo possono essere utilizzati i commandlet di [Azure Machine Learning PowerShell](http://aka.ms/amlps) [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) e [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph).
+Gli snapshot della cronologia di esecuzione mantengono una versione non modificabile dell'esperimento in Azure Machine Learning Studio ogni volta che vengono inviati per l'esecuzione. È anche possibile salvare una copia locale dell'esperimento e archiviarla nel sistema di controllo di origine preferito, come Team Foundation Server, e successivamente ricreare un esperimento da tale file locale. A questo scopo possono essere utilizzati i commandlet di [Azure Machine Learning PowerShell](https://aka.ms/amlps) [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) e [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph).
 
 Il file JSON è una rappresentazione testuale del grafico dell'esperimento contenente il riferimento agli asset nell'area di lavoro, ad esempio set di dati o modelli sottoposti a training. Non contiene una versione serializzata dell'asset. Se si tenta di importare nuovamente il documento JSON nell'area di lavoro, gli asset referenziati devono già esistere e avere gli stessi ID asset referenziati nell'esperimento. In caso contrario non sarà possibile accedere all'esperimento importato.
 
@@ -80,12 +80,12 @@ Nel tempo potrebbero essere creati molti endpoint nello stesso servizio Web. Cia
 È anche possibile creare numerosi endpoint del servizio Web identici e quindi riempire diverse versioni del file iLearner nell'endpoint per ottenere un effetto simile. [Questo articolo](create-models-and-endpoints-with-powershell.md) illustra in modo più dettagliato come eseguire questa operazione.
 
 ### <a name="new-web-service"></a>Nuovo servizio Web
-Se si crea un nuovo servizio Web basato su Azure Resource Manager, il costrutto dell'endpoint non è più disponibile. In alternativa è possibile generare il file WSD (definizione del servizio Web) in formato JSON dall'esperimento predittivo tramite il commandlet di PowerShell [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) o [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) da un servizio Web distribuito basato su Resource Manager.
+Se si crea un nuovo servizio Web basato su Azure Resource Manager, il costrutto dell'endpoint non è più disponibile. In alternativa è possibile generare il file WSD (definizione del servizio Web) in formato JSON dall'esperimento predittivo tramite il commandlet di PowerShell [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) o [*Export-AzureRmMlWebservice*](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice?view=azurermps-6.6.0) da un servizio Web distribuito basato su Resource Manager.
 
 Dopo aver esportato il file WSD e aver eseguito il relativo controllo della versione, è anche possibile distribuire il file WSD come nuovo servizio Web in un diverso piano di servizio Web di un'altra area di Azure. Assicurarsi semplicemente di specificare la configurazione appropriata per l'account di archiviazione, nonché l'ID del nuovo piano di servizio Web. Per riempire diversi file iLearner, è possibile modificare il file WSD, aggiornare il riferimento al percorso del modello con training e distribuirlo come nuovo servizio Web.
 
 ## <a name="automate-experiment-execution-and-deployment"></a>Automatizzare la distribuzione e l'esecuzione dell'esperimento
-Un aspetto importante di ALM è la possibilità di automatizzare il processo di distribuzione ed esecuzione dell'applicazione. In Azure Machine Learning è possibile eseguire questa operazione tramite il [modulo di PowerShell](http://aka.ms/amlps). Di seguito è riportato un esempio di procedure complete riguardanti un processo automatizzato di esecuzione/distribuzione standard di ALM tramite il [modulo PowerShell di Azure Machine Learning Studio](http://aka.ms/amlps). Ogni passaggio è collegato a uno o più commandlet di PowerShell che possono essere usati per portare a termine questa operazione.
+Un aspetto importante di ALM è la possibilità di automatizzare il processo di distribuzione ed esecuzione dell'applicazione. In Azure Machine Learning è possibile eseguire questa operazione tramite il [modulo di PowerShell](https://aka.ms/amlps). Di seguito è riportato un esempio di procedure complete riguardanti un processo automatizzato di esecuzione/distribuzione standard di ALM tramite il [modulo PowerShell di Azure Machine Learning Studio](https://aka.ms/amlps). Ogni passaggio è collegato a uno o più commandlet di PowerShell che possono essere usati per portare a termine questa operazione.
 
 1. [Caricare un set di dati](https://github.com/hning86/azuremlps#upload-amldataset).
 2. Copiare un esperimento di training nell'area di lavoro da un'[area di lavoro](https://github.com/hning86/azuremlps#copy-amlexperiment) o dalla [raccolta](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery), oppure [importare](https://github.com/hning86/azuremlps#import-amlexperimentgraph) un esperimento [esportato](https://github.com/hning86/azuremlps#export-amlexperimentgraph) dal disco locale.
@@ -99,6 +99,6 @@ Un aspetto importante di ALM è la possibilità di automatizzare il processo di 
 10. Testare l'endpoint [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) o [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) del servizio Web.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Scaricare il modulo [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) e avviare l'automazione delle attività ALM.
+* Scaricare il modulo [Azure Machine Learning Studio PowerShell](https://aka.ms/amlps) e avviare l'automazione delle attività ALM.
 * Informazioni su come [creare e gestire un numero elevato di modelli ML usando un singolo esperimento](create-models-and-endpoints-with-powershell.md) tramite PowerShell e l'API di ripetizione del training.
 * Altre informazioni sulla [distribuzione di servizi Web di Azure Machine Learning](publish-a-machine-learning-web-service.md).

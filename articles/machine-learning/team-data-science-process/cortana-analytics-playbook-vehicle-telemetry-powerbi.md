@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421050"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262278"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Istruzioni di configurazione del dashboard di Power BI per il modello di soluzione per l'analisi dei dati di telemetria del veicolo
 Questo menu contiene i collegamenti alle sezioni dello studio: 
@@ -30,7 +30,7 @@ La soluzione per l'analisi dei dati di telemetria del veicolo illustra come le c
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Distribuire la soluzione per l'[analisi dei dati di telemetria del veicolo](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
-* [Installare Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+* [Installare Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
 * Ottenere una [sottoscrizione di Azure](https://azure.microsoft.com/pricing/free-trial/). Se non si dispone di una sottoscrizione di Azure, iniziare con la sottoscrizione gratuita di Azure.
 * Aprire un account di Power BI.
 
@@ -348,7 +348,7 @@ Il dashboard in tempo reale è stato creato correttamente. Continuando a eseguir
 
 ### <a name="configure-power-bi-reports"></a>Configurare i report di Power BI
 
-1. Aprire il file di progettazione **ConnectedCarsPbiReport.pbix** tramite Power BI Desktop. Se non lo si è ancora fatto, installare Power BI Desktop dal sito Web per l'[installazione di Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+1. Aprire il file di progettazione **ConnectedCarsPbiReport.pbix** tramite Power BI Desktop. Se non lo si è ancora fatto, installare Power BI Desktop dal sito Web per l'[installazione di Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
 
 1. Selezionare **Modifica query**.
 

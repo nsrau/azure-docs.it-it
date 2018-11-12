@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 32eba23202eca1c71c4f3b01dcb364281cb2eb60
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 62b2744494fcd4d98bf75892dc95d86130dd04bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246697"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261741"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare questi attacchi, Backup di Azure offre ora una serie di funzionalità di sicurezza per la protezione dei backup ibridi. Questo articolo descrive come abilitare e usare queste funzionalità tramite un agente di Servizi di ripristino di Azure e il server di Backup di Azure. Queste funzionalità includono:
@@ -114,6 +114,6 @@ Le funzionalità di sicurezza descritte in questo articolo offrono meccanismi di
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) (Introduzione all'insieme di credenziali di Servizi di ripristino di Azure) per abilitare queste funzionalità.
-* Vedere [Download the latest Azure Recovery Services agent](http://aka.ms/azurebackup_agent) (Download dell'agente di Servizi di ripristino di Azure più recente) per proteggere i computer Windows e i dati di backup dagli attacchi.
+* Vedere [Download the latest Azure Recovery Services agent](https://aka.ms/azurebackup_agent) (Download dell'agente di Servizi di ripristino di Azure più recente) per proteggere i computer Windows e i dati di backup dagli attacchi.
 * Vedere [Download the latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) (Download del server di Backup di Azure più recente) per proteggere i carichi di lavoro e i dati di backup dagli attacchi.
 * Vedere [Download UR12 for System Center 2012 R2 Data Protection Manager](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) (Download della versione UR2 per System Center 2012 R2 Data Protection Manager) o [Download UR2 for System Center 2016 Data Protection Manager](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager) (Download della versione UR2 per System Center 2016 Data Protection Manager) per proteggere i carichi di lavoro e i dati di backup dagli attacchi.

@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
-ms.openlocfilehash: dc516aa64399447973cefa47e913193adce2f8f5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.author: cwatson
+ms.openlocfilehash: 3e7af4039ca5cd8aaadc36d3f87900e2127af7ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528266"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255660"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evitare addebiti imprevisti con la gestione dei costi e della fatturazione di Azure
 
@@ -31,6 +31,9 @@ Quando si effettua l'iscrizione ad Azure, è consigliabile eseguire alcune opera
 - Se la sottoscrizione è una versione di valutazione gratuita, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO) o BizSpark, viene automaticamente disabilitata quando sono stati usati tutti i crediti. Informazioni sui [limiti di spesa](#spending-limit) per evitare che la sottoscrizione venga disabilitata all'improvviso.
 
 - Se è stata eseguita l'iscrizione a un [account gratuito di Azure](https://azure.microsoft.com/free/), [è possibile usare gratuitamente alcuni dei servizi Azure più richiesti per 12 mesi](billing-create-free-services-included-free-account.md). Oltre ai consigli elencati di seguito, vedere l'argomento su come [evitare di pagare l'account gratuito](billing-avoid-charges-free-account.md).
+
+> [!div class="nextstepaction"]
+> [Contribuire al miglioramento della documentazione sulla fatturazione di Azure](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Ottenere una stima dei costi prima di aggiungere servizi di Azure
 
@@ -51,17 +54,6 @@ Per altre informazioni sui prezzi, vedere queste [domande frequenti](https://azu
 Quando si aggiunge un servizio nel portale di Azure, in genere una visualizzazione mostra un costo mensile stimato simile. Quando si scelgono le dimensioni di una VM Windows, ad esempio, viene visualizzato il costo mensile stimato per le ore di calcolo:
 
 ![Esempio: il costo stimato di una VM Windows A1 è 66,96 USD al mese](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>Impostare avvisi di fatturazione per le sottoscrizioni Microsoft Azure
-
-Configurare avvisi di fatturazione per ricevere messaggi di posta elettronica quando i costi di utilizzo superano un importo specificato. In caso di crediti mensili, configurare avvisi per il raggiungimento di un importo specificato. Per altre informazioni, vedere [Configurare avvisi di fatturazione per le sottoscrizioni di Microsoft Azure](billing-set-up-alerts.md).
-
-![Schermata di un messaggio di posta elettronica relativo a un avviso di fatturazione](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> Dato che questa funzionalità è ancora in anteprima, è consigliabile controllare regolarmente l'utilizzo.
-
-Può essere opportuno usare la stima dei costi del calcolatore dei prezzi come indicazione per il primo avviso.
 
 ### <a name="spending-limit"></a> Controllare se è attivo un limite di spesa
 
@@ -150,7 +142,7 @@ Per iniziare, rivolgersi all'account manager o al partner di Azure.
 | Provider di soluzioni cloud (CSP) | Rivolgersi al provider |
 | Azure Sponsorship | [Portale Sponsorship](https://www.microsoftazuresponsorships.com/) |
 
-Se si è responsabili della gestione IT per un'organizzazione di grandi dimensioni, è consigliabile leggere l'articolo relativo allo [scaffolding aziendale Azure](/azure/architecture/cloud-adoption-guide/subscription-governance) e il [white paper per l'IT aziendale](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (download file PDF, solo in lingua inglese).
+Se si è responsabili della gestione IT per un'organizzazione di grandi dimensioni, è consigliabile leggere l'articolo relativo allo [scaffolding aziendale Azure](/azure/architecture/cloud-adoption-guide/subscription-governance) e il [white paper per l'IT aziendale](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (download file PDF, solo in lingua inglese).
 
 #### <a name="EA"></a> Anteprima delle visualizzazioni dei costi per i contratti Enterprise Agreement nel portale di Azure 
 
@@ -163,7 +155,7 @@ Le visualizzazioni dei costi aziendali sono attualmente disponibili in versione 
     - Si è un amministratore di reparto e l'amministratore delle registrazioni ha disabilitato l'impostazione di visualizzazione dei costi per gli amministratori di reparto.  Contattare l'amministratore delle registrazioni per ottenere l'accesso. 
     - Azure è stato acquistato tramite un partner di canale, il quale non ha rilasciato informazioni sui prezzi.  
 - Quando in Enterprise Portal vengono aggiornate le impostazioni relative all'accesso ai costi, si verifica un ritardo di qualche minuto prima che le modifiche siano visibili anche nel portale di Azure.
-- Limite di spesa, avvisi di fatturazione e linee guida per la fatturazione non riguardano le sottoscrizioni EA.
+- Limite di spesa e materiale sussidiario di fatturazione non si applicano alle sottoscrizioni con contratto Enterprise.
 
 ### <a name="check-your-subscription-and-access"></a>Controllare la sottoscrizione e l'accesso
 

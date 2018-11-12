@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109579"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238931"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Distribuire un array virtuale StorSimple per il Cloud Solution Provider Program
 
@@ -29,18 +29,18 @@ I partner Cloud Solution Provider (CSP) possono distribuire un array virtuale St
 
 In questo articolo viene descritto come un partner CSP può aggiungere un cliente o una nuova sottoscrizione a un cliente esistente e quindi creare un servizio per distribuire un array virtuale StorSimple in CSP.
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di:
 
 - Essere iscritti al programma CSP.
-- Disporre di credenziali di accesso valide per il [Centro per i partner](http://partnercenter.microsoft.com/). Le credenziali consentono di accedere al portale per i partner per aggiungere nuovi clienti, cercare i clienti o passare a un account cliente dal dashboard dei partner. Il CSP può fungere da amministratore di StorSimple per conto del cliente nel portale di Azure.
+- Disporre di credenziali di accesso valide per il [Centro per i partner](https://partnercenter.microsoft.com/). Le credenziali consentono di accedere al portale per i partner per aggiungere nuovi clienti, cercare i clienti o passare a un account cliente dal dashboard dei partner. Il CSP può fungere da amministratore di StorSimple per conto del cliente nel portale di Azure.
                              
 ## <a name="add-a-customer"></a>Aggiungere un cliente
 
 Se si aggiunge un cliente, viene automaticamente creata una sottoscrizione. Per aggiungere un cliente e creare automaticamente una sottoscrizione, eseguire i passaggi seguenti nel portale per i partner.
 
-1. Andare al [Centro per i partner](http://partnercenter.microsoft.com/) e accedere usando le credenziali di CSP. Fare clic su **Dashboard**.
+1. Andare al [Centro per i partner](https://partnercenter.microsoft.com/) e accedere usando le credenziali di CSP. Fare clic su **Dashboard**.
 
      ![Dashboard nel Centro per i partner](./media/storsimple-partner-csp-deploy/image1.png)
                               
@@ -77,7 +77,7 @@ Se si aggiunge un cliente, viene automaticamente creata una sottoscrizione. Per 
 
 In alcuni casi, si potrebbe disporre di un cliente esistente e potrebbe essere necessario aggiungere una sottoscrizione. Per aggiungere una sottoscrizione a un cliente esistente, eseguire i passaggi seguenti nel portale per i partner.
 
-1. Andare al [Centro per i partner](http://partnercenter.microsoft.com/) e accedere usando le credenziali di CSP. Fare clic su **Dashboard**.
+1. Andare al [Centro per i partner](https://partnercenter.microsoft.com/) e accedere usando le credenziali di CSP. Fare clic su **Dashboard**.
 
      ![Dashboard nel Centro per i partner](./media/storsimple-partner-csp-deploy/image1.png)
                               

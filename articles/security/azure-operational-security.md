@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2ae2ea14bc712563867f32b83eddbd9d4129ac1d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409493"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256222"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
 ## <a name="introduction"></a>Introduzione
@@ -74,7 +74,7 @@ Le funzionalità principali di Log Analytics vengono fornite da un set di serviz
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) offre servizi di monitoraggio raccogliendo i dati delle risorse gestite in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) offre servizi di monitoraggio raccogliendo i dati delle risorse gestite in un repository centrale. Questi dati possono includere eventi, dati sulle prestazioni o dati personalizzati forniti tramite l'API. Dopo essere stati raccolti, i dati sono disponibili per generare avvisi, per l'analisi e per l'esportazione.
 
 
 Questo metodo consente di consolidare i dati provenienti da diverse origini, per poter combinare i dati dei servizi di Azure con l'ambiente locale esistente. Separa anche nettamente la raccolta dei dati dall'azione eseguita su tali dati in modo che tutte le azioni siano disponibili per tutti i tipi di dati.
@@ -92,7 +92,7 @@ Il servizio Log Analytics gestisce i dati basati sul cloud in modo sicuro usando
 
 ### <a name="azure-backup"></a>Backup di Azure
 
-[Backup di Azure](http://azure.microsoft.com/documentation/services/backup) offre un servizio di backup e ripristino dei dati ed è incluso nella suite di prodotti e servizi di Log Analytics.
+[Backup di Azure](https://azure.microsoft.com/documentation/services/backup) offre un servizio di backup e ripristino dei dati ed è incluso nella suite di prodotti e servizi di Log Analytics.
 Protegge i dati delle applicazioni e li conserva per anni, senza investimenti di capitali e con costi operativi minimi. Consente di eseguire il backup dei dati da server Windows fisici e virtuali, oltre che dei carichi di lavoro di applicazioni come SQL Server e SharePoint. Può inoltre essere usato da [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) per replicare i dati protetti in Azure per la ridondanza e l'archiviazione a lungo termine.
 
 

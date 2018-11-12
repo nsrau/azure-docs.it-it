@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362654"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258545"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Gestione dei lead per il marketplace cloud
 
@@ -54,7 +54,7 @@ Una volta configurate correttamente la destinazione dei lead e aver premuto Pubb
 
 ### <a name="what-are-the-next-steps"></a>Passaggi successivi
 
-Una volta eseguita la configurazione tecnica, è necessario incorporare i lead nelle vendite attuali, nella strategia di marketing e nei processi operativi. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dati sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Invitiamo a fornire feedback e suggerimenti per consentire al team delle vendite di sviluppare i lead del Marketplace in modo ottimale.
+Una eseguita la configurazione tecnica, è necessario incorporare i lead nelle vendite attuali, nella strategia di marketing e nei processi operativi. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dati sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Invitiamo a fornire feedback e suggerimenti per consentire al team delle vendite di sviluppare i lead del Marketplace in modo ottimale.
 
 
 
@@ -97,7 +97,7 @@ Una volta eseguita la configurazione tecnica, è necessario incorporare i lead n
 
 **Che cosa sono i lead e perché sono importanti per chi pubblica sul Marketplace?** 
 
-I lead sono i clienti che distribuiscono i prodotti dal Marketplace. Sia che il prodotto sia presentato in [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) o in [AppSource](http://appsource.microsoft.com/), si potranno ricevere i lead dei clienti interessati al prodotto se la destinazione dei lead è stata configurata nell'offerta.  
+I lead sono i clienti che distribuiscono i prodotti dal Marketplace. Sia che il prodotto sia presentato in [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) o in [AppSource](https://appsource.microsoft.com/), si potranno ricevere i lead dei clienti interessati al prodotto se la destinazione dei lead è stata configurata nell'offerta.  
 
 
 **Dove è possibile ottenere assistenza per configurare la destinazione dei lead?** 

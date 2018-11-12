@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 91a2b112000e970b73420abaa26efc7de1caa626
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140970"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261455"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Come ridimensionare Cache Redis di Azure
 Cache Redis di Azure dispone di diverse offerte di cache che offrono flessibilità nella scelta delle funzionalità e delle dimensioni della cache. Se i requisiti dell'applicazione cambiano dopo la creazione di una cache, è possibile aumentare o ridurre le dimensioni e il piano tariffario della cache. Questo articolo illustra come ridimensionare la cache usando il portale di Azure e strumenti come Azure PowerShell e l'interfaccia della riga di comando di Azure.
@@ -81,7 +81,7 @@ Per ridimensionare le istanze di Cache Redis di Azure con l'interfaccia della ri
 Per altre informazioni sul ridimensionamento tramite l'interfaccia della riga di comando di Azure, vedere [Modificare le impostazioni di una Cache Redis esistente](cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a>Ridimensionare la cache tramite le librerie di gestione di Microsoft Azure
-Per ridimensionare le istanze di Cache Redis di Azure usando le [librerie di gestione di Microsoft Azure](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), chiamare il metodo `IRedisOperations.CreateOrUpdate` e passare la nuova dimensione di `RedisProperties.SKU.Capacity`.
+Per ridimensionare le istanze di Cache Redis di Azure usando le [librerie di gestione di Microsoft Azure](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), chiamare il metodo `IRedisOperations.CreateOrUpdate` e passare la nuova dimensione di `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {

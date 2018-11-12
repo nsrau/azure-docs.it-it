@@ -3,18 +3,18 @@ title: Usare Apache Kafka in HDInsight con l'hub IoT
 description: Informazioni su come usare Apache Kafka in HDInsight con l'hub IoT. Il progetto Kafka Connect Azure IoT Hub specifica un connettore di origine e un connettore sink per Kafka. Il connettore di origine può leggere i dati dall'hub IoT mentre il connettore sink scrive nell'hub IoT.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/15/2018
-ms.openlocfilehash: c540e110a12e981aee992348445cd1032ba0ba77
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 8941a7332c19b1a9d5c04abb0e4b03ae83e98016
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618334"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260483"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Usare Apache Kafka in HDInsight con l'hub IoT
 
@@ -176,7 +176,7 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
 
             * __Nome compatibile con l'hub eventi__
             * __Endpoint compatibile con l'hub eventi__
-            * __Partizioni__
+            * __Partitions__
 
         > [!IMPORTANT]
         > Il valore dell'endpoint del portale può contenere testo aggiuntivo che non è necessario in questo esempio. Estrarre il testo che corrisponde al criterio `sb://<randomnamespace>.servicebus.windows.net/`.

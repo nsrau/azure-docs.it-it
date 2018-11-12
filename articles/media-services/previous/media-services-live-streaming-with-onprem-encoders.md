@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098818"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262234"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming live con codificatori locali che creano flussi a bitrate multipli
 
@@ -54,7 +54,7 @@ Il diagramma seguente rappresenta un flusso di lavoro di streaming live che usa 
 ## <a id="scenario"></a>Scenario comune di streaming live
 La procedura seguente illustra le attività relative alla creazione di applicazioni comuni di streaming live.
 
-1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che genera un flusso in formato RTMP o MP4 frammentato (Smooth Streaming) a bitrate multipli come output. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che genera un flusso in formato RTMP o MP4 frammentato (Smooth Streaming) a bitrate multipli come output. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     È anche possibile eseguire questo passaggio dopo la creazione del canale.
 2. Creare e avviare un canale.
@@ -105,7 +105,7 @@ Usare l'URL secondario se si vuole migliorare la durabilità e la tolleranza di 
 
     In questo scenario entrambi codificatori effettuano il push dei dati agli URL primario e secondario. Questo garantisce affidabilità e tolleranza di errore ottimali, nonché la ridondanza dei dati. Questo scenario può tollerare i guasti di entrambi i codificatori e si disconnette se un solo codificatore smette di funzionare. Presume che l'ora dei codificatori sia sincronizzata e fornisce esattamente gli stessi dati.  
 
-Per informazioni sui codificatori RTMP live, vedere [Codificatori live e supporto RTMP di Servizi multimediali di Azure](http://go.microsoft.com/fwlink/?LinkId=532824).
+Per informazioni sui codificatori RTMP live, vedere [Codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824).
 
 #### <a name="ingest-urls-endpoints"></a>URL di inserimento (endpoint)
 Un canale fornisce un endpoint di input (URL di inserimento) specificato dall'utente nel codificatore live, in modo che il codificatore possa eseguire il push dei flussi nei canali.   
@@ -187,7 +187,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturato? |
 | --- | --- | --- | --- |
 | **Avvio** |**Avvio** |No (stato temporaneo) |
-| **Running** |**Pronto** (nessun programma in esecuzione)<p><p>oppure<p>**Streaming** (almeno un programma in esecuzione) |Sì |
+| **Running** |**Pronto** (nessun programma in esecuzione)<p><p>oppure<p>**Streaming** (almeno un programma in esecuzione) |Yes |
 | **Arresto** |**Arresto** |No (stato temporaneo) |
 | **Stopped** |**Stopped** |No  |
 

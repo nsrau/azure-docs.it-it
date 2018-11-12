@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 43ce94653197933a13830003dd07e5b21be2a585
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0a1ad6d50c624115bab7ad09ff0e30a36e7df500
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895007"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256613"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatico per macchine virtuali SQL Server 2014 (Resource Manager)
 
@@ -31,7 +31,7 @@ Backup automatico Configura automaticamente il [backup gestito in Microsoft Azur
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 Per usare il backup automatico, tenere in considerazione i seguenti prerequisiti:
 
 **Sistema operativo**:
@@ -101,7 +101,7 @@ Se si intende abilitare il backup automatico per la prima volta, Azure configura
 
 È possibile usare PowerShell per configurare Backup automatico. Prima di iniziare, è necessario eseguire queste operazioni:
 
-- [Scaricare e installare la versione di Azure PowerShell più recente](http://aka.ms/webpi-azps).
+- [Scaricare e installare la versione di Azure PowerShell più recente](https://aka.ms/webpi-azps).
 - Aprire Windows PowerShell e associarlo con il proprio account con il comando **Connect-AzureRmAccount**.
 
 ### <a name="install-the-sql-iaas-extension"></a>Installare l'estensione di SQL IaaS
@@ -272,7 +272,7 @@ In primo luogo, è possibile eseguire il polling dello stato chiamando [msdb.sma
 
 1. Chiamare la stored precedure [msdb.smart_admin.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) per assegnare un indirizzo di posta elettronica al parametro **SSMBackup2WANotificationEmailIds**. 
 1. Abilitare [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) per inviare i messaggi di posta elettronica dalla macchina virtuale di Azure.
-1. Usare il nome utente e il server SMTP per configurare la posta elettronica database. È possibile configurare la posta elettronica database in SQL Server Management Studio o con i comandi Transact-SQL. Per altre informazioni, vedere l'articolo sulla [posta elettronica database](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
+1. Usare il nome utente e il server SMTP per configurare la posta elettronica database. È possibile configurare la posta elettronica database in SQL Server Management Studio o con i comandi Transact-SQL. Per altre informazioni, vedere [Posta elettronica database](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail).
 1. [Configurare SQL Server Agent per usare la posta elettronica database](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Verificare che la porta SMTP sia consentita sia attraverso il firewall della macchina virtuale locale sia nel gruppo di sicurezza di rete per la macchina virtuale.
 
@@ -280,7 +280,7 @@ In primo luogo, è possibile eseguire il polling dello stato chiamando [msdb.sma
 
 Backup automatico configura backup gestito in Macchine virtuali di Azure. Pertanto è importante [esaminare la documentazione per il backup gestito in SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
 
-È possibile trovare maggiori informazioni sul backup e sul ripristino per SQL Server in macchine virtuali di Azure nell'articolo seguente: [Backup e ripristino per SQL Server in macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md).
+È possibile trovare maggiori informazioni sul backup e sul ripristino per SQL Server in macchine virtuali di Azure nell'articolo seguente: [Backup e ripristino per SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-backup-recovery.md).
 
 Per informazioni sulle altre attività di automazione disponibili, vedere [Estensione Agente IaaS di SQL Server](virtual-machines-windows-sql-server-agent-extension.md).
 

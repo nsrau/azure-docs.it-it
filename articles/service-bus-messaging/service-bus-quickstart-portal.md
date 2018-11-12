@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: ffb7af5cd772f663d71f8641ed79839c3ff9ac6a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: be08be43269dfb332dca1d5f62ce661940d311cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407791"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259378"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>Guida introduttiva: Inviare e ricevere messaggi usando il portale di Azure e .NET
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, è possibile creare un [account gratui
 
 Per completare questa esercitazione, accertarsi di avere installato:
 
-- [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](http://www.visualstudio.com/vs) o versioni successive.
+- [Visual Studio 2017 Update 3 (versione 15.3, 26730.01)](https://www.visualstudio.com/vs) o versioni successive.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) versione 2.0 o successiva.
 
 ## <a name="log-on-to-the-azure-portal"></a>Accedere al portale di Azure

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: dfa3bac95b9827789950b4931e3198237de4a1fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6068f054a2ce695a889351b1f959319c64eb73fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608563"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235599"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Criteri relativi al supporto e al ritiro del sistema operativo guest di Azure
 Le informazioni di questa pagina si riferiscono al sistema operativo guest di Azure ([sistema operativo guest](cloud-services-guestos-update-matrix.md)) per i ruoli di lavoro e Web di Servizi cloud (PaaS). Non si applica alle macchine virtuali (IaaS).
 
-Microsoft ha pubblicato i [criteri di supporto per il sistema operativo guest](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). Questa pagina contiene informazioni dettagliate sul modo in cui i criteri sono implementati.
+Microsoft ha pubblicato i [criteri di supporto per il sistema operativo guest](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). Questa pagina contiene informazioni dettagliate sul modo in cui i criteri sono implementati.
 
 I criteri sono i seguenti:
 

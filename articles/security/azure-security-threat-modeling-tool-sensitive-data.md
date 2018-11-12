@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301462"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262370"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastruttura di sicurezza: dati sensibili - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi) (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN: autocomplete attribute](http://msdn.microsoft.com/library/ms533486(VS.85).aspx) (Attributo autocomplete), [Using AutoComplete in HTML Forms](http://msdn.microsoft.com/library/ms533032.aspx) (Uso di AutoComplete nei form HTML), [Vulnerabilità legata alla disinfezione del contenuto HTML](http://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete...again?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) (Ancora autocomplete?) |
+| **Riferimenti**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx) (Attributo autocomplete), [Using AutoComplete in HTML Forms](https://msdn.microsoft.com/library/ms533032.aspx) (Uso di AutoComplete nei form HTML), [Vulnerabilità legata alla disinfezione del contenuto HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete...again?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) (Ancora autocomplete?) |
 | **Passaggi** | L'attributo autocomplete specifica se la funzionalità di completamento automatico di un modulo debba essere abilitata o disabilitata. Quando il completamento automatico è abilitato, il browser completa automaticamente i valori in base a valori immessi in precedenza dall'utente. Ad esempio, quando si immette un nuovo nome e una password in un modulo, che poi viene inviato, il browser chiede se si vuole salvare la password. Quando il modulo viene visualizzato successivamente, il nome e la password vengono popolati automaticamente o vengono compilati immettendo il nome. Un utente malintenzionato con accesso in locale può ottenere la password non crittografata dalla cache del browser. Il completamento automatico è abilitato per impostazione predefinita e deve essere disabilitato in modo esplicito. |
 
 ### <a name="example"></a>Esempio

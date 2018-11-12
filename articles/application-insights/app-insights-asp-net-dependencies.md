@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c54d8b870d6d8c187dcf145b56e3cbae257889a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999702"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259293"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Impostare Application Insights: tenere traccia delle dipendenze
 Una *dipendenza* è un componente esterno chiamato dall'app. In genere è un servizio chiamato con il protocollo HTTP, oppure un database o un file system. [Application Insights](app-insights-overview.md) misura per quanto tempo l'applicazione attende le dipendenze e la frequenza con la quale una chiamata alle dipendenze non riesce. È possibile esaminare chiamate specifiche e correlarle a richieste ed eccezioni.
@@ -44,7 +44,7 @@ Informazioni sulle dipendenze parziali vengono raccolte automaticamente da [Appl
 
 | Piattaforma | Installa |
 | --- | --- |
-| Server IIS |[Installare Status Monitor nel server](app-insights-monitor-performance-live-website-now.md) oppure [aggiornare l'applicazione a .NET Framework 4.6 o versione successiva](http://go.microsoft.com/fwlink/?LinkId=528259) e installare [Application Insights SDK](app-insights-asp-net.md) nell'app. |
+| Server IIS |[Installare Status Monitor nel server](app-insights-monitor-performance-live-website-now.md) oppure [aggiornare l'applicazione a .NET Framework 4.6 o versione successiva](https://go.microsoft.com/fwlink/?LinkId=528259) e installare [Application Insights SDK](app-insights-asp-net.md) nell'app. |
 | App Web di Azure |[Aprire il pannello Application Insights nel pannello di controllo dell'app Web](app-insights-azure-web-apps.md) e scegliere Installa, se richiesto. |
 | Servizio cloud di Azure |[Usare l'attività di avvio](app-insights-cloudservices.md) oppure [installare .NET Framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 
@@ -63,7 +63,7 @@ La mappa delle applicazioni funge da strumento visivo per individuare le dipende
 * **Passare dalle caselle** alla dipendenza pertinente e ad altri grafici.
 * **Aggiungere la mappa** al [dashboard](app-insights-dashboards.md), dove sarà completamente funzionale.
 
-[Altre informazioni](app-insights-app-map.md).
+[Altre informazioni](app-insights-app-map.md)
 
 ## <a name="performance-and-failure-blades"></a>Pannelli Prestazioni ed Errori
 Il pannello Prestazioni visualizza la durata delle chiamate alle dipendenze effettuate dall'app server. Sono presenti un grafico di riepilogo e una tabella segmentata per chiamata.
@@ -207,7 +207,7 @@ Consultare la tabella seguente e assicurarsi di aver scelto la configurazione co
 
 | Piattaforma | Installa |
 | --- | --- |
-| Server IIS |O [installare Status Monitor nel server](app-insights-monitor-performance-live-website-now.md). Oppure [Aggiornare l'applicazione a .NET Framework 4.6 o versione successiva](http://go.microsoft.com/fwlink/?LinkId=528259) e installare [Application Insights SDK](app-insights-asp-net.md) nell'app. |
+| Server IIS |O [installare Status Monitor nel server](app-insights-monitor-performance-live-website-now.md). Oppure [Aggiornare l'applicazione a .NET Framework 4.6 o versione successiva](https://go.microsoft.com/fwlink/?LinkId=528259) e installare [Application Insights SDK](app-insights-asp-net.md) nell'app. |
 | App Web di Azure |[Aprire il pannello Application Insights nel pannello di controllo dell'app Web](app-insights-azure-web-apps.md) e scegliere Installa, se richiesto. |
 | Servizio cloud di Azure |[Usare l'attività di avvio](app-insights-cloudservices.md) oppure [installare .NET Framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md). |
 

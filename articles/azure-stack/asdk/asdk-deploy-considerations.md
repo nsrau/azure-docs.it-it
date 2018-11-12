@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719444"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238627"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Distribuzione di Azure Stack considerazioni sulla pianificazione
 Prima di distribuire Azure Stack Development Kit (ASDK), assicurarsi che il computer host kit di sviluppo soddisfi i requisiti descritti in questo articolo.
@@ -82,7 +82,7 @@ Se esegue la distribuzione usando l'opzione di ADFS, è necessario ridistribuire
 ### <a name="azure-active-directory-accounts"></a>Account di Azure Active Directory
 Per distribuire Azure Stack usando un account Azure AD, è necessario preparare un account Azure AD prima di eseguire lo script di PowerShell di distribuzione. Questo account diventa l'amministratore globale per il tenant di Azure AD. Viene utilizzato per eseguire il provisioning e il delegato applicazioni ed entità servizio per tutti i servizi di Azure Stack che interagiscono con Azure Active Directory e l'API Graph. Viene anche utilizzato come proprietario della sottoscrizione del provider predefinito (che non è possibile modificarla). È possibile accedere al portale dell'amministratore del sistema Azure Stack usando questo account.
 
-1. Creare un account Azure AD che è l'amministratore di directory per Azure AD almeno una. Se hai già uno, è possibile utilizzarlo. In caso contrario, è possibile crearne uno gratuitamente al [ https://azure.microsoft.com/free/ ](http://azure.microsoft.com/pricing/free/) (in Cina, visitare <http://go.microsoft.com/fwlink/?LinkID=717821> invece). Se si prevede di in un secondo momento [registrazione in Azure Stack Azure](asdk-register.md), è anche necessario avere una sottoscrizione in questo account appena creato.
+1. Creare un account Azure AD che è l'amministratore di directory per Azure AD almeno una. Se hai già uno, è possibile utilizzarlo. In caso contrario, è possibile crearne uno gratuitamente al [ https://azure.microsoft.com/free/ ](https://azure.microsoft.com/pricing/free/) (in Cina, visitare <http://go.microsoft.com/fwlink/?LinkID=717821> invece). Se si prevede di in un secondo momento [registrazione in Azure Stack Azure](asdk-register.md), è anche necessario avere una sottoscrizione in questo account appena creato.
    
     Salvare le credenziali per usarle come amministratore del servizio. Questo account può configurare e gestire risorse cloud, gli account utente, i piani di tenant, quote e prezzi. Nel portale l'amministratore può creare piani, cloud di siti Web e cloud privati di macchine virtuali, nonché gestire le sottoscrizioni utente.
 1. Creare almeno un account utente test in Azure AD in modo che è possibile accedere al kit di sviluppo come tenant.

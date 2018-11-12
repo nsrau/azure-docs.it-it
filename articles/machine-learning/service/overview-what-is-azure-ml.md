@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: e3b8d6bfaa54991e0e521a0c42eba8ca3f995c92
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1dac11b8ad71a936b33742b52c95ac998176baf7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741166"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244943"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Informazioni sul servizio Azure Machine Learning (anteprima)
 
@@ -48,7 +48,7 @@ Dopo aver ottenuto il modello più idoneo, è possibile distribuirlo in un conte
 Azure Machine Learning può generare e ottimizzare automaticamente un modello per l'utente.
 Per un esempio, vedere [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Esercitazione: Eseguire il training automatico di un modello di classificazione con Azure Automated Machine Learning).
 
-Oppure, usando l'<a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> di Azure Machine Learning per Python insieme ai pacchetti Python open source, è possibile compilare ed eseguire autonomamente il training di modelli di apprendimento automatico estremamente precisi e avanzati in un'area di lavoro del servizio Azure Machine Learning.
+Oppure, usando l'<a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> di Azure Machine Learning per Python insieme ai pacchetti Python open source, è possibile compilare ed eseguire autonomamente il training di modelli di apprendimento automatico estremamente precisi e avanzati in un'area di lavoro del servizio Azure Machine Learning.
 È possibile scegliere tra i numerosi componenti di apprendimento automatico disponibili come pacchetti Python open source, ad esempio:
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>

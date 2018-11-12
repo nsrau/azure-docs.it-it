@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi
-ms.openlocfilehash: f084433efa2476a75714da6eaef674911006bb76
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 297184a2623a6a7cfa3894a51f5de0e3bd3db622
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344767"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232777"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Quali sono i vantaggi di Azure Multi-Factor Authentication?
 È stato ricevuto un messaggio di posta elettronica dal reparto IT o dal capo con la comunicazione dell’aggiunta di un’altra verifica di sicurezza all’account.  Che cosa significa?
@@ -44,4 +44,4 @@ Per iniziare, selezionare uno degli argomenti seguenti.
 | [Esperienza d’accesso](multi-factor-authentication-end-user-signin.md) |Illustra i passaggi dell'accesso tramite i diversi metodi, come telefono o app. |
 | [Modifica delle impostazioni](multi-factor-authentication-end-user-manage-settings.md) |Descrive come modificare le impostazioni quali il numero di telefono o il metodo di registrazione preferito. |
 | [Guida alle password per le app](multi-factor-authentication-end-user-app-passwords.md) |Informazioni sulla creazione e sull’utilizzo delle password per le app. |
-| [Usare un'app per dispositivi mobili](microsoft-authenticator-app-how-to.md) |L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
+| [Usare un'app per dispositivi mobili](microsoft-authenticator-app-how-to.md) |L'app Microsoft Authenticator è disponibile per [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) e [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |
