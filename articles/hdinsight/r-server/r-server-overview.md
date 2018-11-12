@@ -3,18 +3,18 @@ title: Introduzione a ML Services in Azure HDInsight
 description: Informazioni su come usare ML Services in HDInsight per creare applicazioni per l'analisi di Big Data.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: af7a0d01fcf9df42da79a6529c8d4b0e31d73aa1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 74d8629eb8fc29f3cb572be0b1ccb8b6149ab971
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985489"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016285"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>Introduzione a ML Services e alle funzionalità R open source in HDInsight
 
@@ -61,7 +61,7 @@ ML Services in HDInsight offre i vantaggi seguenti:
 
 Le funzionalità seguenti sono incluse in ML Services su HDInsight.
 
-| Categoria funzionalità | Descrizione |
+| Categoria funzionalità | DESCRIZIONE |
 |------------------|-------------|
 | Abilitazione per R | [Pacchetti R](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference) per soluzioni scritte in R, con una distribuzione open source di R e un'infrastruttura di runtime per l'esecuzione di script. |
 | Abilitazione per Python | [Moduli Python](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference) per soluzioni scritte in Python, con una distribuzione open source di Python e un'infrastruttura di runtime per l'esecuzione di script.

@@ -3,18 +3,18 @@ title: Creare processi di Spark Streaming a disponibilità elevata in YARN - Azu
 description: Come configurare Spark Streaming per uno scenario a disponibilità elevata.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: c49be5cdacdeee66b6eeadb3627c481c0ea517cd
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8f680b60a8f457e1a8619ac044798ff02df15694
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618294"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013650"
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>Creare processi di Spark Streaming a disponibilità elevata con YARN
 

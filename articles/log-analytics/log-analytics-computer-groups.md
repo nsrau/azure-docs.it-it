@@ -1,5 +1,5 @@
 ---
-title: Gruppi di computer nelle ricerche nei log in Azure Log Analytics | Microsoft Docs
+title: Gruppi di computer nelle ricerche nei log in Azure Log Analytics | Documentazione Microsoft
 description: I gruppi di computer in Log Analytics consentono di limitare l'ambito delle ricerche nei log a uno specifico set di computer.  Questo articolo descrive i diversi metodi disponibili per creare gruppi di computer e come usare tali gruppi in una ricerca nei log.
 services: log-analytics
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f96d18c2e1a00008f2e391302a41d145d6b47efd
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408541"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016606"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Gruppi di computer nelle ricerche nei log in Log Analytics
 
-I gruppi di computer in Log Analytics consentono di limitare l'ambito delle [ricerche nei log](log-analytics-log-search-new.md) a uno specifico set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una ricerca nei log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
+I gruppi di computer in Log Analytics consentono di limitare l'ambito delle [ricerche nei log](log-analytics-queries.md) a uno specifico set di computer.  Ogni gruppo viene popolato con i computer usando una query definita dall'utente oppure importando gruppi da diverse origini.  Quando il gruppo viene incluso in una ricerca nei log, i risultati sono limitati ai record corrispondenti ai computer del gruppo.
 
 ## <a name="creating-a-computer-group"></a>Creazione di un gruppo di computer
 È possibile creare un gruppo di computer in Log Analytics usando uno dei metodi riportati nella tabella seguente.  Informazioni dettagliate su ogni metodo sono disponibili nelle sezioni successive. 
@@ -136,5 +136,5 @@ Per ogni appartenenza a gruppi di computer creata da Active Directory o WSUS vie
 | TimeGenerated |Data e ora in cui il gruppo di computer è stato creato o aggiornato. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
+* Altre informazioni sulle [ricerche nei log](log-analytics-queries.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni.  
 

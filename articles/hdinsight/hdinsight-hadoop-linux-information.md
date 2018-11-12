@@ -3,18 +3,18 @@ title: Suggerimenti per l'uso di Hadoop su HDInsight basato su Linux - Azure
 description: Ottenere suggerimenti di implementazione per l’uso di cluster HDInsight (Hadoop) basati su Linux in un ambiente Linux familiare, in esecuzione nel cloud di Azure.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 85741e91ab074ca45fef79e7e946a74824a1734f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 89f2178af3f1a1a6ede9b97d79568798a25985b1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038246"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015690"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informazioni sull'uso di HDInsight in Linux
 
@@ -29,7 +29,7 @@ In molti passaggi di questo documento vengono usate le utilità seguenti che dev
 
 * [cURL](https://curl.haxx.se/) : consente di comunicare con servizi basati su Web
 * [jq](https://stedolan.github.io/jq/) : consente di analizzare i documenti JSON
-* [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): consente di gestire in remoto i servizi di Azure
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) : consente di gestire in remoto i servizi di Azure
 
 ## <a name="users"></a>Utenti
 
@@ -176,7 +176,7 @@ Esistono vari modi per accedere ai dati dall'esterno del cluster HDInsight. Di s
 
 Se si usa __Archiviazione di Azure__, vedere i collegamenti seguenti per informazioni sulle modalità di accesso ai dati:
 
-* [Interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): comandi dell'interfaccia della riga di comando per l'uso con Azure. Dopo l'installazione, usare il comando `az storage` per informazioni sull'uso dell'archiviazione o `az storage blob` per i comandi specifici dei BLOB.
+* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): comandi dell'interfaccia della riga di comando per l'uso con Azure. Dopo l'installazione, usare il comando `az storage` per informazioni sull'uso dell'archiviazione o `az storage blob` per i comandi specifici dei BLOB.
 * [blobxfer.py](https://github.com/Azure/azure-batch-samples/tree/master/Python/Storage): uno script Python per l'uso con i BLOB in Archiviazione di Azure.
 * Vari SDK:
 
@@ -192,7 +192,7 @@ Se si usa __Azure Data Lake Store__, vedere i collegamenti seguenti per informaz
 
 * [Web browser](../data-lake-store/data-lake-store-get-started-portal.md)
 * [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
-* [Interfaccia della riga di comando di Azure 2.0](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
+* [Interfaccia della riga di comando di Azure](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [API REST WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Strumenti di Data Lake per Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
 * [.NET](../data-lake-store/data-lake-store-get-started-net-sdk.md)

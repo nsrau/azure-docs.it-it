@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d8f2701ca62eee261beaa49fe2a0719be7423a5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 087e11f906fe7f5c2fe67c43a597de8551dfc951
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408490"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013055"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Soluzione Monitoraggio contenitori in Log Analytics
 
@@ -36,7 +36,7 @@ La soluzione indica quali contenitori sono in esecuzione, quale immagine del con
 - Service Fabric
 - Red Hat OpenShift
 
-Se si è interessati al monitoraggio delle prestazioni dei carichi di lavoro distribuiti in ambienti Kubernetes ospitati in Azure Kubernetes Service (AKS), vedere [Monitoraggio di Azure Kubernetes Service (AKS)](../monitoring/monitoring-container-health.md). La soluzione di monitoraggio contenitori non include il supporto per il monitoraggio di tale piattaforma.  
+Se si è interessati al monitoraggio delle prestazioni dei carichi di lavoro distribuiti in ambienti Kubernetes ospitati in Azure Kubernetes Service (AKS), vedere [Monitoraggio di Azure Kubernetes Service (AKS)](../monitoring/monitoring-container-insights-overview.md). La soluzione di monitoraggio contenitori non include il supporto per il monitoraggio di tale piattaforma.  
 
 Il diagramma seguente mostra le relazioni tra vari host del contenitore e agenti con Log Analytics.
 
@@ -97,11 +97,11 @@ La tabella seguente descrive il supporto del monitoraggio dell'orchestrazione di
 ## <a name="installing-and-configuring-the-solution"></a>Installazione e configurazione della soluzione
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
-1. Aggiungere la soluzione Monitoraggio contenitori all'area di lavoro Log Analytics da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](log-analytics-add-solutions.md).
+1. Aggiungere la soluzione Monitoraggio contenitori all'area di lavoro Log Analytics da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../monitoring/monitoring-solutions.md).
 
 2. Installare e usare Docker con un agente di Log Analytics. In base al sistema operativo e all'agente di orchestrazione Docker, è possibile usare i metodi seguenti per configurare l'agente.
   - Per gli host autonomi:
-    - Nei sistemi operativi Linux supportati installare ed eseguire Docker, quindi installare e configurare l'[agente di Log Analytics per Linux](log-analytics-agent-linux.md).  
+    - Nei sistemi operativi Linux supportati installare ed eseguire Docker, quindi installare e configurare l'[agente di Log Analytics per Linux](log-analytics-quick-collect-linux-computer.md).  
     - Non è possibile eseguire l'agente di Log Analytics per Linux in CoreOS, ma è possibile eseguire una versione con contenitori dell'agente di Log Analytics per Linux. Vedere la sezione [Per tutti gli host del contenitore Linux inclusi CoreOS](#for-all-linux-container-hosts-including-coreos) o [Per tutti gli host del contenitore Linux Azure per enti pubblici incluso CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos) se si usano contenitori nel cloud di Azure per enti pubblici.
     - In Windows Server 2016 e Windows 10, installare il motore e il client Docker, quindi connettere un agente per raccogliere informazioni da inviare a Log Analytics. Se si dispone di un ambiente Windows, consultare [Install and configure Windows container hosts](#install-and-configure-windows-container-hosts) (installare e configurare gli host contenitore di Windows).
   - Per l'orchestrazione di multi-host Docker:
@@ -117,7 +117,7 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 Consultare l'articolo sul [motore Docker in Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon) per altre informazioni su come installare e configurare i motori di Docker sui computer che eseguono Windows.
 
 > [!IMPORTANT]
-> Docker deve essere in esecuzione **prima** di installare l'[agente di Log Analytics per Linux](log-analytics-agent-linux.md) negli host di contenitori. Se l'agente era già stato installato prima di installare Docker, è necessario reinstallare l'agente di Log Analytics per Linux. Per altre informazioni su Docker, vedere il [sito Web di Docker](https://www.docker.com).
+> Docker deve essere in esecuzione **prima** di installare l'[agente di Log Analytics per Linux](log-analytics-quick-collect-linux-computer.md) negli host di contenitori. Se l'agente era già stato installato prima di installare Docker, è necessario reinstallare l'agente di Log Analytics per Linux. Per altre informazioni su Docker, vedere il [sito Web di Docker](https://www.docker.com).
 
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installare e configurare gli host del contenitore Linux
@@ -146,7 +146,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Passaggio dall'uso di un agente Linux installato a un agente in un contenitore**
 
-Se in precedenza veniva usato l'agente installato direttamente e si vuole usare invece un agente in esecuzione in un contenitore, prima è necessario rimuovere l'agente di Log Analytics per Linux. Vedere [Disinstallazione dell'agente di Log Analytics per Linux](log-analytics-agent-linux.md) per comprendere come disinstallare correttamente l'agente.  
+Se in precedenza veniva usato l'agente installato direttamente e si vuole usare invece un agente in esecuzione in un contenitore, prima è necessario rimuovere l'agente di Log Analytics per Linux. Vedere [Disinstallazione dell'agente di Log Analytics per Linux](log-analytics-quick-collect-linux-computer.md) per comprendere come disinstallare correttamente l'agente.  
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>Configurare un agente di Log Analytics per Docker Swarm
 
@@ -190,8 +190,8 @@ Per Docker Swarm, una volta creato il segreto per l'ID area di lavoro e la chiav
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>Configurare un agente di Log Analytics per Red Hat OpenShift
 Sono disponibili tre modi per aggiungere l'agente di Log Analytics a Red Hat OpenShift e avviare la raccolta dei dati di monitoraggio del contenitore.
 
-* [Installare l'agente di Log Analytics per Linux](log-analytics-agent-linux.md) direttamente in ogni nodo OpenShift  
-* [Abilitare l'estensione della macchina virtuale di Log Analytics](log-analytics-azure-vm-extension.md) in ogni nodo OpenShift che risiede in Azure  
+* [Installare l'agente di Log Analytics per Linux](log-analytics-quick-collect-linux-computer.md) direttamente in ogni nodo OpenShift  
+* [Abilitare l'estensione della macchina virtuale di Log Analytics](log-analytics-quick-collect-azurevm.md) in ogni nodo OpenShift che risiede in Azure  
 * Installare l'agente di Log Analytics come un DaemonSet OpenShift  
 
 In questa sezione viene illustrata la procedura necessaria per installare l'agente di Log Analytics come un DaemonSet OpenShift.  
@@ -476,15 +476,15 @@ Per usare Helm al fine di distribuire l'agente di Log Analytics in ambiente Kube
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
- 
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
+ 
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
 Per altre informazioni, visitare il [grafico Helm della soluzione contenitore](https://aka.ms/omscontainerhelm).
 
@@ -524,9 +524,9 @@ Per altre informazioni sulla configurazione del daemon Docker usata con contenit
 
 #### <a name="install-windows-agents"></a>Installare gli agenti Windows
 
-Per abilitare il monitoraggio dei contenitori Windows e Hyper-V, installare Microsoft Monitoring Agent (MMA) nei computer Windows che sono host del contenitore. Per i computer che eseguono Windows nell'ambiente locale, vedere [Collegare i computer di Windows a Log Analytics](log-analytics-windows-agent.md). Per le macchine virtuali eseguite in Azure, collegarle a Log Analytics usando l'[estensione macchina virtuale](log-analytics-azure-vm-extension.md).
+Per abilitare il monitoraggio dei contenitori Windows e Hyper-V, installare Microsoft Monitoring Agent (MMA) nei computer Windows che sono host del contenitore. Per i computer che eseguono Windows nell'ambiente locale, vedere [Collegare i computer di Windows a Log Analytics](log-analytics-agent-windows.md). Per le macchine virtuali eseguite in Azure, collegarle a Log Analytics usando l'[estensione macchina virtuale](log-analytics-quick-collect-azurevm.md).
 
-È possibile monitorare i contenitori Windows in esecuzione in Service Fabric. Solo le [macchine virtuali in esecuzione in Azure](log-analytics-azure-vm-extension.md) e i [computer che eseguono Windows nell'ambiente locale](log-analytics-windows-agent.md), tuttavia, sono attualmente supportati da Service Fabric.
+È possibile monitorare i contenitori Windows in esecuzione in Service Fabric. Solo le [macchine virtuali in esecuzione in Azure](log-analytics-quick-collect-azurevm.md) e i [computer che eseguono Windows nell'ambiente locale](log-analytics-agent-windows.md), tuttavia, sono attualmente supportati da Service Fabric.
 
 È possibile verificare che la soluzione Monitoraggio contenitori sia impostata correttamente per Windows. Per verificare che il Management Pack sia stato scaricato correttamente, cercare *ContainerManagement.xxx*. Il file dovrebbe trovarsi nella cartella C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
@@ -542,9 +542,9 @@ La soluzione Monitoraggio contenitori raccoglie le varie metriche delle prestazi
 
 I dati vengono raccolti ogni tre minuti dai tipi di agenti seguenti.
 
-- [Agente di Log Analytics per Linux](log-analytics-linux-agents.md)
-- [Agente Windows](log-analytics-windows-agent.md)
-- [Estensione macchina virtuale di Log Analytics](log-analytics-azure-vm-extension.md)
+- [Agente di Log Analytics per Linux](log-analytics-quick-collect-linux-computer.md)
+- [Agente Windows](log-analytics-agent-windows.md)
+- [Estensione macchina virtuale di Log Analytics](log-analytics-quick-collect-azurevm.md)
 
 
 ### <a name="container-records"></a>Record dei contenitori
@@ -604,7 +604,7 @@ Si aprirà Ricerca log con informazioni sugli host e sullo stato del contenitore
 
 ![Ricerca log per i contenitori](./media/log-analytics-containers/containers-log-search.png)
 
-A questo punto è possibile modificare la query di ricerca per trovare specifiche informazioni di interesse. Per altre informazioni sulle ricerche log, vedere [Ricerche nei log in Log Analytics](log-analytics-log-searches.md).
+A questo punto è possibile modificare la query di ricerca per trovare specifiche informazioni di interesse. Per altre informazioni sulle ricerche log, vedere [Ricerche nei log in Log Analytics](log-analytics-queries.md).
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Risolvere i problemi cercando un contenitore con errori
 
@@ -672,4 +672,4 @@ Il salvataggio di query è una funzionalità standard di Log Analytics. Le query
 Dopo aver creato una query che si ritiene utile, salvarla facendo clic su **Preferiti** nella parte superiore della pagina Ricerca log. Sarà possibile accedere facilmente alla query in seguito dalla pagina **Dashboard**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Eseguire ricerche nei log](log-analytics-log-searches.md) per visualizzare i record di dati dettagliati per i contenitori.
+* [Eseguire ricerche nei log](log-analytics-queries.md) per visualizzare i record di dati dettagliati per i contenitori.
