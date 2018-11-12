@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: e15f440fd1818e2d5ce1e72881b8a0f769dec8fc
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 2fbf3c902416935f0b1fff0bc423a2535f3ba077
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829903"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012997"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Rispondere agli eventi con gli avvisi di Monitoraggio di Azure
 Gli avvisi in Monitoraggio di Azure possono identificare informazioni importanti nel repository di Log Analytics. Vengono creati da regole di avviso che eseguono automaticamente ricerche nei log a intervalli regolari e, se i risultati della ricerca corrispondono a determinati criteri, viene creato un record di avviso che può essere configurato per eseguire una risposta automatica.  Questa esercitazione è la continuazione dell'esercitazione [Creare e condividere i dashboard dei dati di Log Analytics](log-analytics-tutorial-dashboards.md).   
