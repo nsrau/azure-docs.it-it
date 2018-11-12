@@ -3,25 +3,25 @@ title: Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure | Mic
 description: " Informazioni su come abilitare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2018
-ms.author: terrylan
-ms.openlocfilehash: 722a4fd11f35f04ed22d73638f07d15c49ea3c26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 09/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0376f09d4d7d6c952cbef40751a2729045f68061
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161834"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255837"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure (anteprima)
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
 
 ## <a name="what-is-fim-in-security-center"></a>Cos'è il monitoraggio dell'integrità dei file nel Centro sicurezza?
@@ -183,6 +183,14 @@ In **Modifica Registro di sistema di Windows per Rilevamento modifiche** è poss
 
 6. Selezionare **Salva**.
 
+## <a name="folder-and-path-monitoring-using-wildcards"></a>Monitoraggio di cartelle e percorsi con l'uso di caratteri jolly
+
+Usare i caratteri jolly per semplificare le attività di rilevamento nelle directory. Quando viene configurato il monitoraggio delle cartelle con l'uso di caratteri jolly, si applicano le regole seguenti:
+-   I caratteri jolly sono necessari per il rilevamento di più file.
+-   I caratteri jolly possono essere usati solo nell'ultimo segmento di un percorso, as esempio C:\cartella\file o /etc/*.conf
+-   Se una variabile di ambiente include un percorso non valido, la convalida avrà esito positivo ma il percorso avrà esito negativo quando si esegue l'inventario.
+-   Quando si imposta il percorso, evitare di specificare percorsi generici, ad esempio c:\*.*, poiché sarà individuato un numero eccessivo di cartelle.
+
 ## <a name="disable-fim"></a>Disabilitare il monitoraggio dell'integrità dei file
 È possibile disabilitare il monitoraggio dell'integrità dei file. Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. La disabilitazione rimuove la soluzione Rilevamento modifiche dall'area di lavoro selezionata.
 
@@ -203,7 +211,7 @@ In questo articolo è stato descritto come usare il monitoraggio dell'integrità
 * [Gestione e risposta agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md): informazioni su come gestire gli avvisi di sicurezza e rispondervi.
 * [Monitoraggio delle soluzioni dei partner](security-center-partner-solutions.md): informazioni su come monitorare lo stato di integrità delle soluzioni dei partner.
 * [Domande frequenti sul Centro sicurezza](security-center-faq.md): leggere le domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
+* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): informazioni e notizie aggiornate sulla sicurezza di Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

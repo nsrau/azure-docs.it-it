@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c5677dc07326fa16960e0d748f88e26f259c0485
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138997"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262275"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Informazioni su chiavi, segreti e certificati
 
@@ -398,7 +398,7 @@ Prima della creazione di un'autorità di certificazione in Key Vault, è necessa
 
     -   Fornisce la configurazione da utilizzare per creare un oggetto dell'autorità di certificazione del provider nell'insieme di credenziali delle chiavi  
 
-Per ulteriori informazioni sulla creazione di oggetti di autorità di certificazione dal portale di certificati, vedere il [blog dei certificati Key Vault](http://aka.ms/kvcertsblog)  
+Per ulteriori informazioni sulla creazione di oggetti di autorità di certificazione dal portale di certificati, vedere il [blog dei certificati Key Vault](https://aka.ms/kvcertsblog)  
 
 Key Vault consente di creare più oggetti di autorità di certificazione con una differente configurazione del provider dell'autorità di certificazione. Dopo che è stato creato un oggetto di autorità di certificazione, è possibile fare riferimento al suo nome in uno o più criteri del certificato KV. Fare riferimento all'oggetto dell'autorità di certificazione indica a Key Vault di usare la configurazione come specificato nell'oggetto dell'autorità di certificazione quando si richiede il certificato x509 dal provider di autorità di certificazione durante la creazione e il rinnovo di certificati.  
 

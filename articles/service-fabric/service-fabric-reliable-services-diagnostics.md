@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2018
+ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 51895731efd466a314877e963a5fd2c6d868ec02
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 38df214cad01062100c9ae5c045f9d2589b0041a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110873"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234834"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funzionalità di diagnostica per i servizi Reliable con stato
 La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fabric genera eventi [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) che possono essere usati per eseguire il debug del servizio, ottenere informazioni dettagliate sul funzionamento del runtime e ottenere assistenza per la risoluzione dei problemi.
@@ -27,7 +27,7 @@ La classe StatefulServiceBase dei servizi Reliable con stato in Azure Service Fa
 ## <a name="eventsource-events"></a>Eventi EventSource
 Il nome EventSource per la classe StatefulServiceBase dei servizi Reliable con stato è "Microsoft-ServiceFabric-Services". Gli eventi provenienti da questa origine eventi vengono visualizzati nella finestra [Diagnostics Events](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) (Eventi di diagnostica) quando si esegue il [debug del servizio in Visual Studio](service-fabric-debugging-your-application.md).
 
-Esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) e la [libreria TraceEvent di Microsoft](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Esempi di strumenti e tecnologie che consentono di raccogliere e/o visualizzare eventi EventSource sono [PerfView](https://www.microsoft.com/download/details.aspx?id=28567), [Diagnostica di Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) e la [libreria TraceEvent di Microsoft](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Eventi
 | Nome evento | ID evento | Level | Descrizione evento |
@@ -50,7 +50,7 @@ L'evento StatefulRunAsyncSlowCancellation viene emesso ogni volta che una richie
 ## <a name="performance-counters"></a>Contatori delle prestazioni
 Il runtime di Reliable Services definisce le categorie di contatori delle prestazioni seguenti:
 
-| Categoria | Descrizione |
+| Categoria | DESCRIZIONE |
 | --- | --- |
 | Replicatore transazionale di Service Fabric |Contatori specifici di Replicatore transazionale di Service Fabric di Azure |
 | Service Fabric TStore |Contatori specifici di Azure Service Fabric TStore |
@@ -102,7 +102,7 @@ Nell'esempio precedente, `00d0126d-3e36-4d68-98da-cc4f7195d85e` è la rappresent
 
 Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Service Fabric Transactional Replicator`
 
- Nome contatore | Descrizione |
+ Nome contatore | DESCRIZIONE |
 | --- | --- |
 | Operazioni di inizio transazione/sec | Numero di nuove transazioni di scrittura create al secondo.|
 | Operazioni di transazione/sec | Numero di operazioni di aggiunta/aggiornamento/eliminazione eseguite su raccolte Reliable Collections al secondo.|
@@ -115,9 +115,12 @@ Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Serv
 
 Il runtime di Reliable Services genera gli eventi seguenti nella categoria `Service Fabric TStore`
 
- Nome contatore | Descrizione |
+ Nome contatore | DESCRIZIONE |
 | --- | --- |
-| Item Count | Numero di chiavi nell'archivio.|
+| Item Count | Il numero di elementi nell'archivio.|
+| Dimensione disco | Le dimensioni totali del disco, in byte, dei file di checkpoint per l'archivio.|
+| Byte scritti/sec per il file di checkpoint | Il numero di byte scritti al secondo per il file di checkpoint più recente.|
+| Byte trasferiti su disco/sec per la copia | Il numero di byte letti (nella replica primaria) o scritti (in una replica secondaria) al secondo durante la copia nell'archivio.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Provider di EventSource in PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

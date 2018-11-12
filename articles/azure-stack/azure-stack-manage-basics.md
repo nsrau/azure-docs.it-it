@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339951"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254520"
 ---
 # <a name="azure-stack-administration-basics"></a>Nozioni fondamentali sull'amministrazione di Azure Stack
 Esistono diversi aspetti da sapere se si ha familiarità con amministrazione di Azure Stack. Questa guida fornisce una panoramica del ruolo operatore di Azure Stack e cosa occorre per informare gli utenti per loro diventare rapidamente produttivi.
@@ -65,7 +65,7 @@ Questi servizi richiedono un'ulteriore configurazione prima di renderli disponib
 
 Azure Stack continuerà aggiungere il supporto per servizi di Azure. Per la Guida di orientamento previsto, vedere la [Azure Stack: un'estensione di Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) white paper. È anche possibile monitorare il [post di blog di Azure Stack](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) per gli annunci di nuove.
 
-## <a name="what-account-should-i-use"></a>Quale account usare?
+## <a name="what-account-should-i-use"></a>Quale account si deve usare?
 Esistono alcune considerazioni sull'account che è necessario tenere presenti durante la gestione di Azure Stack. In particolare nelle distribuzioni usando Windows Server Active Directory Federation Services (ADFS) come provider di identità anziché Azure Active Directory (Azure AD). Le considerazioni sull'account seguente si applicano a entrambi i sistemi integrati di Azure Stack e ASDK distribuzioni:
 
 
@@ -81,7 +81,7 @@ Esistono alcune considerazioni sull'account che è necessario tenere presenti du
  
 È possibile usare la [portale di amministrazione](azure-stack-manage-portals.md) o Azure PowerShell per gestire Azure Stack. Il modo più semplice per apprendere i concetti di base è tramite il portale. Se si vuole usare PowerShell, sono disponibili passaggi di preparazione. È necessario [installare](azure-stack-powershell-install.md) PowerShell [scaricare](azure-stack-powershell-download.md) altri moduli, e [configurare](azure-stack-powershell-configure-admin.md) PowerShell.
 
-Stack di Azure Usa Azure Resource Manager come relativo meccanismo di distribuzione, gestione e organizzazione sottostante. Se si intende gestire Azure Stack e consentire agli utenti del supporto, è consigliabile informazioni su Resource Manager. Vedere le [Introduzione ad Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) white paper.
+Stack di Azure Usa Azure Resource Manager come relativo meccanismo di distribuzione, gestione e organizzazione sottostante. Se si intende gestire Azure Stack e consentire agli utenti del supporto, è consigliabile informazioni su Resource Manager. Vedere le [Introduzione ad Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) white paper.
 
 ## <a name="your-typical-responsibilities"></a>Le responsabilità tipiche del cliente
 

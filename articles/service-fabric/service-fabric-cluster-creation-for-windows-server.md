@@ -1,5 +1,5 @@
 ---
-title: Creare un cluster autonomo di Azure Service Fabric | Microsoft Docs
+title: Creare un cluster autonomo di Azure Service Fabric | Documentazione Microsoft
 description: Creare un cluster di Azure Service Fabric su qualsiasi macchina (fisica o virtuale) che esegue Windows Server, sia locale che nel cloud.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: 3ce47d631e8a2ec7daf96ef95200001e5d4f8327
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f91a6b305a3d531aa1c733685f6d896ed07054ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818582"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257606"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Creare un cluster autonomo in esecuzione su Windows Server
 Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macchina virtuale o computer che esegue Windows Server. In questo modo è possibile distribuire ed eseguire applicazioni di Service Fabric in qualsiasi ambiente che contenga un set di computer Windows Server interconnessi, in locale o con qualsiasi provider di cloud. Service Fabric offre un pacchetto di installazione per la creazione di cluster di Service Fabric, denominato pacchetto autonomo per Windows Server.
@@ -27,7 +27,7 @@ Azure Service Fabric consente di creare cluster Service Fabric su qualsiasi macc
 Questo articolo illustra la procedura di creazione di un cluster autonomo di Service Fabric.
 
 > [!NOTE]
-> Questo pacchetto autonomo di Windows Server è disponibile in commercio e può essere usato per distribuzioni di produzione. Il pacchetto può contenere nuove funzionalità di Service Fabric in "Anteprima". Scorrere verso il basso fino alla sezione "[Funzionalità di anteprima incluse in questo pacchetto](#previewfeatures_anchor)". per visualizzare l'elenco delle funzionalità in anteprima. È possibile [scaricare una copia del contratto di licenza](http://go.microsoft.com/fwlink/?LinkID=733084) ora.
+> Questo pacchetto autonomo di Windows Server è disponibile in commercio e può essere usato per distribuzioni di produzione. Il pacchetto può contenere nuove funzionalità di Service Fabric in "Anteprima". Scorrere verso il basso fino alla sezione "[Funzionalità di anteprima incluse in questo pacchetto](#previewfeatures_anchor)". per visualizzare l'elenco delle funzionalità in anteprima. È possibile [scaricare una copia del contratto di licenza](https://go.microsoft.com/fwlink/?LinkID=733084) ora.
 > 
 > 
 
@@ -35,7 +35,7 @@ Questo articolo illustra la procedura di creazione di un cluster autonomo di Ser
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Ottenere supporto per il pacchetto Service Fabric per Windows Server
 * Porre domande alla community sul pacchetto autonomo Service Fabric per Windows Server nel [forum di Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
-* Aprire un ticket per ottenere il [supporto professionale per Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Altre informazioni sul supporto professionale Microsoft sono disponibili [qui](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* Aprire un ticket per ottenere il [supporto professionale per Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Altre informazioni sul supporto professionale Microsoft sono disponibili [qui](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * È possibile anche ottenere supporto per questo pacchetto come parte del [Supporto tecnico Microsoft Premier](https://support.microsoft.com/en-us/premier).
 * Per altre informazioni vedere [Opzioni di supporto di Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * Per raccogliere log a scopo di supporto, eseguire l'[agente di raccolta log autonomo di Service Fabric](service-fabric-cluster-standalone-package-contents.md).
@@ -44,7 +44,7 @@ Questo articolo illustra la procedura di creazione di un cluster autonomo di Ser
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>Scaricare il pacchetto Service Fabric per Windows Server
 Per creare il cluster usare il pacchetto Service Fabric per Windows Server (Windows Server 2012 R2 e versioni successive) disponibile qui: <br>
-[Collegamento per il download - Pacchetto autonomo di Service Fabric - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[Collegamento per il download - Pacchetto autonomo di Service Fabric - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)
 
 Informazioni dettagliate sul contenuto del pacchetto sono disponibili [qui](service-fabric-cluster-standalone-package-contents.md).
 

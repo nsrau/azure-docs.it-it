@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388166"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258460"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 Prima di caricare una macchina virtuale di Windows dall'ambiente locale a Microsoft Azure, è necessario preparare il disco rigido virtuale, VHD o VHDX. Azure supporta **solo macchine virtuali di prima generazione** nel formato di file VHD e con un disco a dimensione fissa. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. È possibile convertire una VM di prima generazione dal file system VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) (Creare una macchina virtuale di prima o seconda generazione in Hyper-V).
@@ -48,7 +48,7 @@ Dopo avere convertito il disco, creare una macchina virtuale che utilizzi il dis
 >I comandi riportati in questo articolo devono essere eseguiti in una sessione di PowerShell con privilegi elevati.
 
 ### <a name="convert-disk-by-using-powershell"></a>Convertire il disco tramite PowerShell
-È possibile convertire un disco virtuale usando il comando [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) di Windows PowerShell. Selezionare **Esegui come amministratore** quando si avvia PowerShell. 
+È possibile convertire un disco virtuale usando il comando [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) di Windows PowerShell. Selezionare **Esegui come amministratore** quando si avvia PowerShell. 
 
 Nell'esempio seguente viene eseguita la conversione da VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa:
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 In questo comando sostituire il valore di "-Path" con il percorso del disco rigido virtuale che si vuole convertire e il valore di "-DestinationPath" con il nuovo percorso e il nome del disco convertito.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>Conversione dal formato VMware VMDK
-Se si ha un'immagine di VM Windows in [formato di file VMDK](https://en.wikipedia.org/wiki/VMDK), convertirla in formato VHD usando [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Per altre informazioni, vedere l'articolo del blog [How to Convert a VMware VMDK to Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (Come convertire un file VMDK VMWare in un file VHD Hyper-V).
+Se si ha un'immagine di VM Windows in [formato di file VMDK](https://en.wikipedia.org/wiki/VMDK), convertirla in formato VHD usando [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497). Per altre informazioni, vedere l'articolo del blog [How to Convert a VMware VMDK to Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) (Come convertire un file VMDK VMWare in un file VHD Hyper-V).
 
 ## <a name="set-windows-configurations-for-azure"></a>Impostare le configurazioni di Windows per Azure
 
@@ -377,7 +377,7 @@ Per altre informazioni sulla creazione di una VM da un disco specializzato, vede
 - [Creare una macchina virtuale da un disco specializzato](create-vm-specialized.md)
 - [Creare una macchina virtuale da un disco rigido virtuale specializzato](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Se si vuole creare un'immagine generalizzata, è necessario eseguire sysprep. Per altre informazioni su Sysprep, vedere [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx) (Introduzione all'uso di Sysprep). 
+Se si vuole creare un'immagine generalizzata, è necessario eseguire sysprep. Per altre informazioni su Sysprep, vedere [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Introduzione all'uso di Sysprep). 
 
 Non tutti i ruoli o le applicazioni installate in un computer basato su Windows supportano questa generalizzazione. Prima di eseguire questa procedura, vedere l'articolo seguente per verificare che il ruolo del computer sia supportato da Sysprep. Per altre informazioni, vedere [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) (Supporto Sysprep per i ruoli server).
 
@@ -401,7 +401,7 @@ Non tutti i ruoli o le applicazioni installate in un computer basato su Windows 
 ## <a name="complete-recommended-configurations"></a>Completare le configurazioni consigliate
 Le seguenti impostazioni non influenzano il caricamento del disco rigido virtuale. È tuttavia fortemente consigliabile configurarle.
 
-* Installare l'[agente di macchine virtuali di Azure](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sarà quindi possibile abilitare le estensioni delle VM. Le estensioni delle VM implementano la maggior parte delle funzionalità critiche da usare con le macchine virtuali, come la reimpostazione delle password, la configurazione di RDP e così via. Per altre informazioni, vedere:
+* Installare l'[agente di macchine virtuali di Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sarà quindi possibile abilitare le estensioni delle VM. Le estensioni delle VM implementano la maggior parte delle funzionalità critiche da usare con le macchine virtuali, come la reimpostazione delle password, la configurazione di RDP e così via. Per altre informazioni, vedere:
 
     - [Agente ed estensioni delle VM - Parte 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [Agente ed estensioni delle VM - Parte 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)

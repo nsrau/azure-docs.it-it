@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f12a15a0d739ae6e98be3871fa8bb4104f49565c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808553"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257208"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Pubblicare un'offerta Cortana Intelligence tramite il portale Cloud Partner
 
@@ -29,7 +29,7 @@ Questo articolo descrive come pubblicare un'offerta Cortana Intelligence tramite
 
 Il portale Cloud Partner supporta l'accesso al portale in base al ruolo, il che consente ai collaboratori di collaborare alla pubblicazione di un'offerta. Per altre informazioni, consultare [Gestione utenti nel portale Cloud Partner](./cloud-partner-portal-manage-users.md).
 
-Prima di poter pubblicare un'offerta per conto di un account server di pubblicazione, uno degli utenti con ruolo \"proprietario\" deve accettare di essere conforme a: [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Informativa sulla privacy di Microsoft](http://www.microsoft.com/privacystatement/default.aspx) e [Contratto relativo al programma Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Prima di poter pubblicare un'offerta per conto di un account server di pubblicazione, uno degli utenti con ruolo \"proprietario\" deve accettare di essere conforme a: [Condizioni per l'utilizzo](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Informativa sulla privacy di Microsoft](https://www.microsoft.com/privacystatement/default.aspx) e [Contratto relativo al programma Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Per iniziare a creare un'offerta Cortana Inteligence
 
@@ -53,7 +53,7 @@ Le Impostazioni dell'offerta forniscono informazioni di base sull'offerta, ad es
 ### <a name="offer-id"></a>Offer ID (ID offerta)
 
 Identificatore univoco dell'offerta in un profilo di pubblicazione.
-Questo ID è visibile negli URL dei prodotti. Può essere composto solo da caratteri alfanumerici minuscoli o trattini (-). L'ID non può terminare con un trattino e può contenere massimo 50 caratteri. 
+Questo ID è visibile negli URL dei prodotti. Può essere composto solo da caratteri alfanumerici minuscoli o trattini (-). L'ID non può terminare con un trattino e può contenere al massimo 50 caratteri. 
 >[!Note]
 >Questo campo è bloccato dopo la pubblicazione dell'offerta.
 
@@ -70,7 +70,7 @@ Un elenco a discesa dei profili di pubblicazione. Consente di scegliere il profi
 
 ### <a name="name"></a>NOME
 
-Nome visualizzato dell'offerta. Questo nome viene visualizzato in [AppSource](https://appsource.microsoft.com). Può contenere massimo 50 caratteri.
+Il nome visualizzato dell'offerta. Questo nome viene visualizzato in [AppSource](https://appsource.microsoft.com). Può contenere massimo 50 caratteri.
 
 Una volta fornite le informazioni necessarie per Impostazioni dell'offerta, selezionare **Salva** per passare alla sezione Informazioni tecniche dell'offerta. opzione.
 
@@ -164,7 +164,7 @@ Una volta fornite le informazioni necessarie per Informazioni tecniche, selezion
 
 ### <a name="offer-summary"></a>Riepilogo offerta
 
-Il riepilogo della proposta di valore dell'offerta. Verrà visualizzato nella pagina di ricerca dell'offerta. La lunghezza massima del riepilogo è di 100 caratteri.
+Il riepilogo della proposta di valore dell'offerta, Verrà visualizzato nella pagina di ricerca dell'offerta. La lunghezza massima del riepilogo è di 100 caratteri.
 
 ### <a name="offer-description"></a>Descrizione dell'offerta
 
@@ -216,7 +216,7 @@ I partner possono offrire due tipi di versione di valutazione in AppSource.
 
         - [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) (Ottimizzazione dell'inventario in Neal Analytics)
 
-- Scegliendo l'opzione **Richiesta per la versione di valutazione** (**Partner Led Trials/PLT**), ai clienti viene richiesto di compilare un modulo di informazioni di contatto per il follow-up del partner. Il partner si occupa del follow-up e offre una dimostrazione o prova dell'app. Per altre informazioni, guardare il video che illustra la [procedura dettagliata dell'esperienza di valutazione in AppSource](http://aka.ms/trialexperienceforwebapps) per una panoramica generale.
+- Scegliendo l'opzione **Richiesta per la versione di valutazione** (**Partner Led Trials/PLT**), ai clienti viene richiesto di compilare un modulo di informazioni di contatto per il follow-up del partner. Il partner si occupa del follow-up e offre una dimostrazione o prova dell'app. Per altre informazioni, guardare il video che illustra la [procedura dettagliata dell'esperienza di valutazione in AppSource](https://aka.ms/trialexperienceforwebapps) per una panoramica generale.
 
 >[!Note]
 >I dati mostrano che la capacità di **Customer Led Trials** di generare clienti potenziali è maggiore rispetto a **Partner Led Trials**.
@@ -230,7 +230,7 @@ Specificare un URL alla pagina che contiene le informazioni della Guida per l'ap
 
 Questo campo specifica i paesi/le aree in cui sarà disponibile la versione di valutazione dell'offerta.
 
-![Paesi/aree supportati](./media/cloud-partner-portal-publish-cortana-intelligence-app/CISScreenshot3.png)
+![Supported countries/regions (Paesi supportati)](./media/cloud-partner-portal-publish-cortana-intelligence-app/CISScreenshot3.png)
 
 ### <a name="supported-languages"></a>Lingue supportate
 

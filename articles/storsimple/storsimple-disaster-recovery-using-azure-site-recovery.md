@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: d6b8341f16cca29fe5bedca34749f47053a14ebb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c88df7ba1a9a60ffcda9a5235197037088abca4e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666939"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249269"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
 ## <a name="overview"></a>Panoramica
@@ -43,7 +43,7 @@ I prerequisiti di implementazione di una soluzione di ripristino di emergenza in
    - Condivisioni file ospitate nei volumi configurati sul dispositivo di archiviazione StorSimple
    - [insieme di credenziali dei servizi di Azure Site Recovery](../site-recovery/site-recovery-vmm-to-vmm.md) creato in una sottoscrizione di Microsoft Azure
 
-Inoltre, se Azure è il sito di ripristino, eseguire lo strumento [Azure Virtual Machine Readiness Assessment](http://azure.microsoft.com/downloads/vm-readiness-assessment/) nelle VM per assicurarsi che siano compatibili con le VM di Azure e i Servizi di Azure Site Recovery.
+Inoltre, se Azure è il sito di ripristino, eseguire lo strumento [Azure Virtual Machine Readiness Assessment](https://azure.microsoft.com/downloads/vm-readiness-assessment/) nelle VM per assicurarsi che siano compatibili con le VM di Azure e i Servizi di Azure Site Recovery.
 
 Per evitare problemi di latenza (che potrebbero causare un aumento dei costi), assicurarsi di creare l'appliance cloud StorSimple, l'account di automazione e gli account di archiviazione nella stessa area.
 
@@ -81,7 +81,7 @@ Questo passaggio richiede la preparazione dell'ambiente di file server locale, l
 
 1. Installare l'agente VM su ciascuna delle VM del file server. Questa operazione è necessaria per poter eseguire gli script di automazione di Azure sulle VM sottoposte a failover.
    
-   1. [Scaricare l'agente](http://aka.ms/vmagentwin) in `C:\\Users\\<username>\\Downloads`.
+   1. [Scaricare l'agente](https://aka.ms/vmagentwin) in `C:\\Users\\<username>\\Downloads`.
    1. Aprire Windows PowerShell in modalità amministratore (Esegui come amministratore) e quindi immettere il comando seguente per passare al percorso di download:  
          `cd C:\\Users\\<username>\\Downloads\\WindowsAzureVmAgent.2.6.1198.718.rd\_art\_stable.150415-1739.fre.msi`
          
@@ -321,10 +321,10 @@ Durante il failback, i contenitori di volumi StorSimple vengono sottoposti a fai
 ## <a name="best-practices"></a>Procedure consigliate
 ### <a name="capacity-planning-and-readiness-assessment"></a>Pianificazione della capacità e valutazione della conformità
 #### <a name="hyper-v-site"></a>Sito di Hyper-V
-Usare lo [strumento Capacity Planner](http://www.microsoft.com/download/details.aspx?id=39057) per progettare l'infrastruttura di server, archiviazione e rete per l'ambiente di replica Hyper-V.
+Usare lo [strumento Capacity Planner](https://www.microsoft.com/download/details.aspx?id=39057) per progettare l'infrastruttura di server, archiviazione e rete per l'ambiente di replica Hyper-V.
 
 #### <a name="azure"></a>Azure
-È possibile eseguire lo strumento [Azure Virtual Machine Readiness Assessment](http://azure.microsoft.com/downloads/vm-readiness-assessment/) nelle VM per assicurarsi che siano compatibili con le VM di Azure e i Servizi di Azure Site Recovery. Lo strumento Readiness Assessment controlla le configurazioni delle macchine virtuali e visualizza un avviso quando le configurazioni non sono compatibili con Azure. Ad esempio, genera un avviso se un'unità C: è maggiore di 127 GB.
+È possibile eseguire lo strumento [Azure Virtual Machine Readiness Assessment](https://azure.microsoft.com/downloads/vm-readiness-assessment/) nelle VM per assicurarsi che siano compatibili con le VM di Azure e i Servizi di Azure Site Recovery. Lo strumento Readiness Assessment controlla le configurazioni delle macchine virtuali e visualizza un avviso quando le configurazioni non sono compatibili con Azure. Ad esempio, genera un avviso se un'unità C: è maggiore di 127 GB.
 
 La pianificazione della capacità prevede almeno due processi importanti:
 

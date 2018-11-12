@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 447532452a848c88fd927f42e4263cef4742dd89
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0ba85e82824bc257869d9801f342bd6dbb0402d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841504"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247450"
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>Ottimizzare le prestazioni di MySQL in macchine virtuali Linux di Azure
 Esistono molti fattori che influiscono sulle prestazioni di MySQL in Azure, sia nella selezione dell'hardware virtuale sia nella configurazione software. Questo articolo è incentrato sull'ottimizzazione delle prestazioni tramite la configurazione dell'archiviazione, del sistema e del database.
@@ -38,7 +38,7 @@ Oltre all'I/O del disco, aumentando il livello RAID migliorano anche le prestazi
 
 Può inoltre essere utile prendere in considerazione le dimensioni del blocco. In generale, con blocchi di dimensioni maggiori si ha un sovraccarico ridotto, soprattutto per le scritture di grandi dimensioni. Tuttavia, blocchi di dimensioni troppo grandi potrebbero far aumentare il sovraccarico, rendendo impossibile l'uso del RAID. La dimensione predefinita corrente, dimostratasi ottimale per la maggior parte degli ambienti di produzione, è pari a 512 KB. Per informazioni dettagliate, vedere [Appendice C](#AppendixC) .   
 
-Esistono limiti al numero di dischi che è possibile aggiungere per i diversi tipi di macchine virtuali. Questi limiti sono descritti in dettaglio in [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). Per l'esempio RAID proposto in questo articolo si dovrà disporre di quattro dischi dati collegati, anche se è possibile scegliere di configurare RAID con un numero di dischi inferiore.  
+Esistono limiti al numero di dischi che è possibile aggiungere per i diversi tipi di macchine virtuali. Questi limiti sono descritti in dettaglio in [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx). Per l'esempio RAID proposto in questo articolo si dovrà disporre di quattro dischi dati collegati, anche se è possibile scegliere di configurare RAID con un numero di dischi inferiore.  
 
 In questo articolo si presuppone che l'utente abbia già creato una macchina virtuale Linux e che MYSQL sia già stato installato e configurato. Per altre informazioni, vedere la documentazione sulle modalità di installazione di MySQL in Azure.  
 

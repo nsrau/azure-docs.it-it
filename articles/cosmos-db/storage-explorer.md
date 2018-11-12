@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345108"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261161"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gestire Azure Cosmos DB in Azure Storage Explorer
 
 L'uso di Azure Cosmos DB in Azure Storage Explorer consente agli utenti di gestire le entità di Azure Cosmos DB, modificare i dati, aggiornare le stored procedure e attivarle assieme ad altre entità come code e BLOB di archiviazione di Azure. È ora possibile usare lo stesso strumento per gestire le diverse entità di Azure in un'unica posizione. Attualmente Azure Storage Explorer supporta account SQL, MongoDB, Graph e di tabella.
 
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Un account Azure Cosmos DB per l'API SQL<!--or MongoDB API-->. Se non si ha un account, è possibile crearne uno nel portale di Azure, come descritto in [Azure Cosmos DB: Creare un'app Web per l'API con .NET e il portale di Azure](create-sql-api-dotnet.md).
 
@@ -130,7 +130,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 
 2. Selezionare **Unlimited** (Illimitata) per essere in grado di specificare la chiave di partizione e quindi fare clic su **OK** per terminare.
 
-    Se durante la creazione di una raccolta viene usata una chiave di partizione, una volta completata la creazione il valore della chiave di partizione non è modificabile dalla raccolta. Per informazioni sulle impostazioni della chiave di partizione, vedere [Progettazione del partizionamento](partition-data.md#designing-for-partitioning).
+    Se durante la creazione di una raccolta viene usata una chiave di partizione, una volta completata la creazione il valore della chiave di partizione non è modificabile dalla raccolta.
 
     ![Chiave di partizione](./media/storage-explorer/partitionkey.png)
 

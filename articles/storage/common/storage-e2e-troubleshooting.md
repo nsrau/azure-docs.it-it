@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 41e7f5b4c36ad0bfed0ef5a9a31565474cf4d823
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038227"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262319"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -37,7 +37,7 @@ Per risolvere i problemi relativi alle applicazioni client mediante Archiviazion
   
     Per informazioni sulla configurazione del monitoraggio nel portale di Azure, vedere [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md).
 * **AzCopy**. I log di Archiviazione di Azure vengono memorizzati come BLOB, quindi è possibile usare AzCopy per copiare i BLOB di log in una directory locale per l'analisi mediante Microsoft Message Analyzer. Per altre informazioni su AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) .
-* **Microsoft Message Analyzer**. Message Analyzer è uno strumento che utilizza i file di log e visualizza i dati di log in un formato visivo che ne semplifica il filtraggio, la ricerca e il raggruppamento in set utili da usare per analizzare gli errori e i problemi di prestazioni. Per altre informazioni su Message Analyzer, vedere [la guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx) .
+* **Microsoft Message Analyzer**. Message Analyzer è uno strumento che utilizza i file di log e visualizza i dati di log in un formato visivo che ne semplifica il filtraggio, la ricerca e il raggruppamento in set utili da usare per analizzare gli errori e i problemi di prestazioni. Per altre informazioni su Message Analyzer, vedere [la guida operativa di Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) .
 
 ## <a name="about-the-sample-scenario"></a>Informazioni sullo scenario di esempio
 In questa esercitazione verrà esaminato uno scenario in cui le metriche di Archiviazione di Azure indicano una bassa percentuale di operazioni riuscite per un'applicazione che chiama Archiviazione di Azure. La metrica relativa alla bassa percentuale di operazioni riuscite (visualizzata come **PercentSuccess** nel [portale di Azure](https://portal.azure.com) e nelle tabelle di metriche) tiene traccia delle operazioni che hanno esito positivo ma restituiscono un codice di stato HTTP maggiore di 299. Nei file di log dell'archiviazione sul lato server, queste operazioni vengono registrate con stato della transazione **ClientOtherErrors**. Per maggiori dettagli sulla metrica relativa alla bassa percentuale di operazioni riuscite, vedere [Le metriche indicano un valore PercentSuccess basso o le voci del log contengono operazioni con stato della transazione ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
@@ -51,7 +51,7 @@ Nello scenario di esempio, dopo avere stabilito che la metrica della percentuale
 ### <a name="some-causes-of-400-range-errors"></a>Alcune cause degli errori della fascia 400
 Gli esempi seguenti presentano un campione di errori della serie 400 per le richieste nell'archivio BLOB di Azure e le possibili cause. Tutti questi errori, così come quelli nella fascia 300 e 500, possono contribuire a una bassa percentuale di operazioni riuscite.
 
-Tenere presente che gli elenchi riportati sotto sono tutt'altro che completi. Per informazioni dettagliate sugli errori generali di Archiviazione di Azure e sugli errori specifici dei singoli servizi di archiviazione, vedere [Codici di stato e di errore](http://msdn.microsoft.com/library/azure/dd179382.aspx) su MSDN.
+Tenere presente che gli elenchi riportati sotto sono tutt'altro che completi. Per informazioni dettagliate sugli errori generali di Archiviazione di Azure e sugli errori specifici dei singoli servizi di archiviazione, vedere [Codici di stato e di errore](https://msdn.microsoft.com/library/azure/dd179382.aspx) su MSDN.
 
 **Esempi di codice di stato 404 (Non trovato)**
 
@@ -79,7 +79,7 @@ In questa esercitazione viene usato Message Analyzer per utilizzare tre diversi 
 * Il **log di traccia di rete HTTP**, che raccoglie i dati relativi alle richieste e risposte HTTP/HTTPS, anche per le operazioni in Archiviazione di Azure. In questa esercitazione, la traccia di rete verrà generata mediante Message Analyzer.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurare le metriche e la registrazione sul lato server
-In primo luogo è necessario configurare la registrazione e le metriche di Archiviazione di Azure, in modo da disporre di dati dell'applicazione client per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure](https://portal.azure.com), con PowerShell o a livello di codice. Per informazioni dettagliate sulla registrazione e sulle metriche, vedere [Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica](http://msdn.microsoft.com/library/azure/dn782843.aspx) e [Abilitazione di Registrazione archiviazione e accesso ai dati di log](http://msdn.microsoft.com/library/azure/dn782840.aspx) su MSDN.
+In primo luogo è necessario configurare la registrazione e le metriche di Archiviazione di Azure, in modo da disporre di dati dell'applicazione client per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure](https://portal.azure.com), con PowerShell o a livello di codice. Per informazioni dettagliate sulla registrazione e sulle metriche, vedere [Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica](https://msdn.microsoft.com/library/azure/dn782843.aspx) e [Abilitazione di Registrazione archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/azure/dn782840.aspx) su MSDN.
 
 **Tramite il portale di Azure**
 
@@ -124,7 +124,7 @@ Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e
     ```
 
 ### <a name="configure-net-client-side-logging"></a>Configurare la registrazione sul lato client .NET
-Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione .NET](http://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](http://msdn.microsoft.com/library/azure/dn782844.aspx) su MSDN.
+Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) su MSDN.
 
 Il log lato client include informazioni dettagliate sul modo in cui il client prepara la richiesta e riceve ed elabora la risposta.
 
@@ -160,7 +160,7 @@ Per l'esercitazione, raccogliere e salvare una traccia di rete in Message Analyz
 > 
 > 
 
-Per informazioni dettagliate, vedere [l'argomento relativo all'uso delle funzionalità di traccia di rete](http://technet.microsoft.com/library/jj674819.aspx) su Technet.
+Per informazioni dettagliate, vedere [l'argomento relativo all'uso delle funzionalità di traccia di rete](https://technet.microsoft.com/library/jj674819.aspx) su Technet.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Esaminare i dati delle metriche nel portale di Azure
 Dopo un certo periodo di esecuzione dell'applicazione, è possibile esaminare i grafici delle metriche visualizzati nel [portale di Azure](https://portal.azure.com) per verificare le prestazioni del servizio.
@@ -186,15 +186,15 @@ AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest
 ```
 AzCopy è disponibile per il download nella pagina [Download di Azure](https://azure.microsoft.com/downloads/) . Per informazioni dettagliate sull'uso di AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md).
 
-Per altre informazioni sul download dei log sul lato server, vedere [Download dei dati di log di Registrazione archiviazione](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
+Per altre informazioni sul download dei log sul lato server, vedere [Download dei dati di log di Registrazione archiviazione](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Usare Microsoft Message Analyzer per analizzare i dati di log
-Microsoft Message Analyzer è uno strumento per l'acquisizione, la visualizzazione e l'analisi del traffico di messaggistica del protocollo, degli eventi e di altri messaggi del sistema o dell'applicazione in scenari di diagnostica e risoluzione dei problemi. Message Analyzer consente anche di caricare, aggregare e analizzare i dati da log e file di traccia salvati. Per altre informazioni su Message Analyzer, vedere la [guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx).
+Microsoft Message Analyzer è uno strumento per l'acquisizione, la visualizzazione e l'analisi del traffico di messaggistica del protocollo, degli eventi e di altri messaggi del sistema o dell'applicazione in scenari di diagnostica e risoluzione dei problemi. Message Analyzer consente anche di caricare, aggregare e analizzare i dati da log e file di traccia salvati. Per altre informazioni su Message Analyzer, vedere la [guida operativa di Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx).
 
 Message Analyzer include risorse per Archiviazione di Azure che consentono di analizzare i log di rete, client e server. In questa sezione viene spiegato come usare questi strumenti per risolvere il problema della bassa percentuale di operazioni riuscite nel log di archiviazione.
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Scaricare e installare Message Analyzer e le risorse per Archiviazione di Azure
-1. Scaricare [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) dall'Area download Microsoft ed eseguire il programma di installazione.
+1. Scaricare [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) dall'Area download Microsoft ed eseguire il programma di installazione.
 2. Avviare Message Analyzer.
 3. Selezionare **Gestione asset** dal menu **Strumenti**. Nella finestra di dialogo **Gestione asset** selezionare **Download** e filtrare in base ad **Archiviazione di Azure**. Verranno visualizzate le risorse per Archiviazione di Azure, come mostrato nell'immagine seguente.
 4. Fare clic su **Sincronizza tutti gli elementi visualizzati** per installare le risorse per Archiviazione di Azure. Le risorse disponibili includono:
@@ -231,7 +231,7 @@ Determinare innanzitutto l'intervallo di tempo da esaminare e ridurlo al minimo.
 
 Se la quantità di dati di log è comunque considerevole, è possibile specificare un filtro di sessione per filtrare i dati prima di caricarli. Nel riquadro **Filtro sessione** fare clic sul pulsante **Libreria** e selezionare un filtro predefinito. Ad esempio, scegliere **Global Time Filter I** (Filtro Tempo di esecuzione globale I) nei filtri di Archiviazione di Azure per filtrare in base a un intervallo di tempo. È quindi possibile modificare i criteri di filtro per specificare il timestamp di inizio e fine per l'intervallo che si vuole visualizzare. È anche possibile filtrare in base a un codice di stato specifico, ad esempio caricando solo le voci di log il cui codice di stato è 404.
 
-Per altre informazioni sull'importazione dei dati di log in Microsoft Message Analyzer, vedere [l'argomento relativo al recupero dei dati dei messaggi su](http://technet.microsoft.com/library/dn772437.aspx) TechNet.
+Per altre informazioni sull'importazione dei dati di log in Microsoft Message Analyzer, vedere [l'argomento relativo al recupero dei dati dei messaggi su](https://technet.microsoft.com/library/dn772437.aspx) TechNet.
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Usare l'ID richiesta client per correlare i dati dei file di log
 La libreria client di archiviazione di Azure genera automaticamente un ID richiesta client univoco per ogni richiesta. Questo valore viene scritto nel log del client, nel log del server e nella traccia di rete e può quindi essere usato per correlare i dati nei tre log all'interno di Message Analyzer. Per altre informazioni sull'ID richiesta client, vedere [ID richiesta client](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) .
@@ -337,7 +337,7 @@ Mediante i dati presenti nei layout di visualizzazione in queste due schede è p
 Quando si conosce l'indirizzo del BLOB che ha restituito l'errore 404, è possibile effettuare ulteriori approfondimenti. Se esegue una ricerca nelle voci di log per individuare altri messaggi associati alle operazioni nello stesso BLOB, è possibile verificare se l'entità è stata eliminata in precedenza dal client.
 
 ## <a name="analyze-other-types-of-storage-errors"></a>Analizzare altri tipi di errori di archiviazione
-Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i dati di log, è possibile analizzare altri tipi di errori usando i layout di visualizzazione, le regole colore e le funzionalità di ricerca/filtro. Nelle tabelle seguenti sono elencati alcuni problemi che possono verificarsi e i criteri di filtro che è possibile usare per individuarli. Per altre informazioni sulla creazione di filtri e sul linguaggio di filtro di Message Analyzer, vedere [l'argomento relativo al filtraggio dei dati dei messaggi](http://technet.microsoft.com/library/jj819365.aspx).
+Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i dati di log, è possibile analizzare altri tipi di errori usando i layout di visualizzazione, le regole colore e le funzionalità di ricerca/filtro. Nelle tabelle seguenti sono elencati alcuni problemi che possono verificarsi e i criteri di filtro che è possibile usare per individuarli. Per altre informazioni sulla creazione di filtri e sul linguaggio di filtro di Message Analyzer, vedere [l'argomento relativo al filtraggio dei dati dei messaggi](https://technet.microsoft.com/library/jj819365.aspx).
 
 | Per esaminare... | Usare l'espressione di filtro... | Log a cui è applicabile l'espressione (client, server, rete, tutti) |
 | --- | --- | --- |
@@ -361,7 +361,7 @@ Dopo avere acquisito familiarità con l'uso di Message Analyzer per analizzare i
 Per altre informazioni sugli scenari end-to-end di risoluzione dei problemi di archiviazione di Azure, vedere le risorse seguenti:
 
 * [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)
-* [Analisi archiviazione](http://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Analisi archiviazione](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
 * [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md)
-* [Guida operativa di Microsoft Message Analyzer](http://technet.microsoft.com/library/jj649776.aspx)
+* [Guida operativa di Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)

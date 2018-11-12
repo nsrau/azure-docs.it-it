@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 63a45aa02eadd0b5739c1624af524883171a7055
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8dc6b7da77988a789de04578d6653b192f58afa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211197"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261724"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure in un'area di Azure secondaria
 
@@ -81,9 +81,9 @@ Se si usa un proxy firewall basato su URL per controllare la connettività in us
 
 Se si vuole controllare la connettività in uscita usando indirizzi IP invece di URL, inserire nell'elenco elementi consentiti gli intervalli di data center appropriati, gli indirizzi di Office 365 e gli indirizzi degli endpoint di servizio per firewall basati su IP, proxy o regole dei gruppi di sicurezza di rete.
 
-  - [Intervalli IP del data center di Microsoft Azure](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Intervalli IP del data center di Microsoft Azure in Germania](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Intervalli IP del data center di Microsoft Azure in Cina](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Intervalli IP del data center di Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
+  - [Intervalli IP del data center di Microsoft Azure in Germania](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
+  - [Intervalli IP del data center di Microsoft Azure in Cina](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
   - [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Indirizzi IP dell'endpoint di servizio di Site Recovery](https://aka.ms/site-recovery-public-ips)
 

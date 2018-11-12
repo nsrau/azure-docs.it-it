@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 21817b09440fc98a54dc45c9129d104b01fa387d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 040eea1efd3abdbbfa65c24b2950ebece9d4acbc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986156"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258392"
 ---
 # <a name="azure-sdk-for-net-26-release-notes"></a>Note sulla versione di Azure SDK per .NET 2.6
 Questo documento contiene le note sulla versione per Azure SDK per .NET 2.6. 
 
-Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che fanno riferimento a .NET 4.5.2 o .NET 4.6, purché si installi manualmente la versione di .NET Framework di destinazione nel Ruolo servizio cloud. Vedere [Installare .NET in un ruolo del servizio cloud](http://go.microsoft.com/fwlink/?LinkID=309796).
+Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che fanno riferimento a .NET 4.5.2 o .NET 4.6, purché si installi manualmente la versione di .NET Framework di destinazione nel Ruolo servizio cloud. Vedere [Installare .NET in un ruolo del servizio cloud](https://go.microsoft.com/fwlink/?LinkID=309796).
 
 ## <a name="service-bus-updates"></a>Aggiornamenti al bus di servizio
 * Hub eventi: 
@@ -40,7 +40,7 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
   
     HDInsight Tools per Visual Studio supporta ora la connessione all'emulatore di HDInsight. È quindi possibile sviluppare localmente gli script Hive, senza incremento dei costi, quindi eseguire gli script nei cluster HDInsight. 
   
-    Per altre informazioni, fare riferimento a [questo manuale](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
+    Per altre informazioni, fare riferimento a [questo manuale](https://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 * **Supporto di HDInsight Tools per Visual Studio per i cluster Hadoop generici** (anteprima)
   
     HDInsight Tools per Visual Studio supporta ora i cluster Hadoop generici. È quindi possibile usare HDInsight Tools per Visual Studio per eseguire le operazioni seguenti:
@@ -49,14 +49,14 @@ Azure SDK 2.6 permette di sviluppare applicazioni dei servizi cloud (PaaS) che f
   * Scrivere una query Hive con supporto migliorato per IntelliSense/completamento automatico 
   * Visualizzare tutti i processi del cluster con un'interfaccia utente intuitiva 
     
-    Per altre informazioni, fare riferimento a [questo manuale](http://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
+    Per altre informazioni, fare riferimento a [questo manuale](https://go.microsoft.com/fwlink/?LinkID=529540&clcid=0x409).
 
 ## <a name="in-role-cache-updates"></a>Aggiornamenti alla Cache nel ruolo 
 * La **Cache nel ruolo** è stata aggiornata per usare l'**SDK di Archiviazione di Microsoft Azure** versione 4.3. Fino ad ora, la **Cache nel ruolo** ha usato Azure Storage SDK versione 1.7.
   
     I clienti che usano Azure SDK 2.5 o versioni precedenti devono effettuare l'aggiornamento ad Azure SDK 2.6 e passare alla nuova versione di Azure Storage SDK. 
   
-    In questo momento Archiviazione di Azure versione 2011-08-18 è pianificato per essere rimosso il 1 agosto 2016. Le migrazioni di Cache nel ruolo da Azure SDK 2.5 o versioni precedenti alla versione 2.6 devono essere complete a questo punto. Per ulteriori informazioni sul ritiro di Azure Storage versione 2011-08-18, vedere [Aggiornamento della rimozione della versione del servizio di archiviazione di Microsoft Azure: estensione al 2016](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
+    In questo momento Archiviazione di Azure versione 2011-08-18 è pianificato per essere rimosso il 1 agosto 2016. Le migrazioni di Cache nel ruolo da Azure SDK 2.5 o versioni precedenti alla versione 2.6 devono essere complete a questo punto. Per ulteriori informazioni sul ritiro di Azure Storage versione 2011-08-18, vedere [Aggiornamento della rimozione della versione del servizio di archiviazione di Microsoft Azure: estensione al 2016](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/10/19/microsoft-azure-storage-service-version-removal-update-extension-to-2016.aspx).
 
 > [!IMPORTANT]
 > Microsoft annuncia per il 30 novembre 2016 il ritiro del Servizio cache gestita di Azure e di Cache nel ruolo di Azure. Si consiglia di eseguire la migrazione a Cache Redis di Azure in preparazione a tale ritiro. Per altre informazioni sulle date e indicazioni per la migrazione, vedere [Qual è l'offerta di Cache di Azure più adatta alle mie esigenze?](../redis-cache/cache-faq.md#which-azure-cache-offering-is-right-for-me)
@@ -78,12 +78,12 @@ Gli strumenti di Gestione risorse di Azure sono stati aggiornati per includere i
 ## <a name="diagnostics-improvements-for-cloud-services"></a>Miglioramenti alla diagnostica per Servizi cloud
 Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di diagnostica nell'emulatore di calcolo di Azure e per il trasferimento dei log nell'archiviazione per lo sviluppo. Eventuali log di diagnostica (inclusi i log di traccia dell'applicazione, i log ETW (Event Tracing for Windows), i contatori delle prestazioni, i log di infrastruttura e i registri eventi di Windows) generati durante l'esecuzione dell'applicazione nell'emulatore possono essere trasferiti all'archiviazione per lo sviluppo per verificare il funzionamento corretto della registrazione di diagnostica nella macchina locale. 
 
-È ora possibile specificare l'account di archiviazione della diagnostica nel file di configurazione del servizio (con estensione cscfg), semplificando l'uso di diversi account di archiviazione della diagnostica per diversi ambienti. Il funzionamento della stringa di connessione presenta alcune differenze sostanziali tra Azure SDK 2.4 e Azure SDK 2.6. Per altre informazioni su come usare la stringa di connessione dell'archiviazione di Diagnostica e sul relativo impatto sui progetti, vedere [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure](http://go.microsoft.com/fwlink/?LinkID=532784).
+È ora possibile specificare l'account di archiviazione della diagnostica nel file di configurazione del servizio (con estensione cscfg), semplificando l'uso di diversi account di archiviazione della diagnostica per diversi ambienti. Il funzionamento della stringa di connessione presenta alcune differenze sostanziali tra Azure SDK 2.4 e Azure SDK 2.6. Per altre informazioni su come usare la stringa di connessione dell'archiviazione di Diagnostica e sul relativo impatto sui progetti, vedere [Configurazione della diagnostica per i servizi cloud e le macchine virtuali di Azure](https://go.microsoft.com/fwlink/?LinkID=532784).
 
 ## <a name="breaking-changes"></a>Modifiche di rilievo
 ### <a name="azure-resource-manager-tools"></a>Strumenti di Gestione risorse di Azure
 * Il tipo di progetto **Progetti distribuzione cloud** disponibile in Azure SDK 2.5 è stato rinominato in **Gruppo di risorse di Azure**.
-* **Progetti distribuzione cloud** di progetti creati in Azure SDK 2.5 può essere usato in 2.6 ma la distribuzione del modello da Visual Studio avrà esito negativo. La distribuzione con lo script di PowerShell, tuttavia, funziona ancora correttamente.  Per informazioni su come usare **Progetti distribuzione cloud** in 2.6, leggere questo [post](http://go.microsoft.com/fwlink/?LinkID=534086).
+* **Progetti distribuzione cloud** di progetti creati in Azure SDK 2.5 può essere usato in 2.6 ma la distribuzione del modello da Visual Studio avrà esito negativo. La distribuzione con lo script di PowerShell, tuttavia, funziona ancora correttamente.  Per informazioni su come usare **Progetti distribuzione cloud** in 2.6, leggere questo [post](https://go.microsoft.com/fwlink/?LinkID=534086).
 
 ## <a name="known-issues"></a>Problemi noti
 * Per la raccolta di log di diagnostica nell'emulatore è necessario un sistema operativo a 64 bit. I log di diagnostica non verranno raccolti se si usa un sistema operativo a 32 bit. Ciò non influisce su altre funzionalità dell'emulatore. 
@@ -94,7 +94,7 @@ Azure SDK 2.6 rende di nuovo disponibile il supporto per la raccolta di log di d
     
     Il 18/05/2015 è stato rilasciato un aggiornamento di Azure SDK 2.6. La versione aggiornata è la 2.6.30508.1601 e contiene correzioni per i due problemi descritti in precedenza. È possibile identificare la build dell'SDK tramite Pannello di controllo -> Programmi e funzionalità -> Strumenti di Microsoft Azure per Microsoft Visual Studio 2013 – v 2.6. Nella colonna relativa alla versione verrà visualizzato il numero di build.
     
-    Se i problemi illustrati persistono, installare la versione più recente di Azure SDK 2.6 per [VS 2012](http://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o [VS 2015](http://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
+    Se i problemi illustrati persistono, installare la versione più recente di Azure SDK 2.6 per [VS 2012](https://go.microsoft.com/fwlink/p/?linkid=323511&clcid=0x409), [VS 2013](https://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) o [VS 2015](https://go.microsoft.com/fwlink/?linkid=518003&clcid=0x409).
 
 ## <a name="see-also"></a>Vedere anche
 [Informazioni sul Supporto e il Ritiro di Azure SDK per .NET e API](https://msdn.microsoft.com/library/azure/dn479282.aspx/)

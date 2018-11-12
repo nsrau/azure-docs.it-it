@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: c83cf9fb319c21881f0db8bd94dc9a94a3b811bc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1f38cd62a1394d45716e7224cc03a059fcaf9e13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211724"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247756"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurare il ripristino di emergenza per una distribuzione di applicazioni SAP NetWeaver multilivello
 
@@ -167,5 +167,5 @@ Per altre informazioni, vedere [Failover di test in Azure in Site Recovery](site
 Per altre informazioni, vedere [Failover in Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per altre informazioni sulla creazione di una soluzione di ripristino di emergenza per le distribuzioni SAP NetWeaver con Site Recovery, vedere il white paper scaricabile [SAP NetWeaver - Creazione di una soluzione di ripristino di emergenza con Azure Site Recovery](http://aka.ms/asr-sap). Il white paper include consigli per diverse architetture SAP, elenca le applicazioni e i tipi di VM supportati per SAP in Azure e descrive le opzioni dei piani di test per la soluzione di ripristino di emergenza.
+* Per altre informazioni sulla creazione di una soluzione di ripristino di emergenza per le distribuzioni SAP NetWeaver con Site Recovery, vedere il white paper scaricabile [SAP NetWeaver - Creazione di una soluzione di ripristino di emergenza con Azure Site Recovery](https://aka.ms/asr-sap). Il white paper include consigli per diverse architetture SAP, elenca le applicazioni e i tipi di VM supportati per SAP in Azure e descrive le opzioni dei piani di test per la soluzione di ripristino di emergenza.
 * Sono disponibili altre informazioni sulla [replica di altri carichi di lavoro](site-recovery-workload.md) con Site Recovery.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 212afbd605e3a16da7be2c04492ec41875ff5b75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666840"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255178"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gestire tutti i criteri per un lab in Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Azure DevTest Labs consente di gestire i criteri (impostazioni) in ogni lab, in 
 ## <a name="set-allowed-virtual-machine-sizes"></a>Impostazione delle dimensioni consentite per le macchine virtuali
 I criteri per l'impostazione delle dimensioni consentite per le macchine virtuali permettono di ridurre al minimo gli sprechi specificando le dimensioni consentite per le macchine virtuali nel lab. Se questi criteri sono attivati, per la creazione di macchine virtuali è possibile utilizzare solo le dimensioni selezionate da questo elenco.
 
-1. Nel [portale di Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selezionare un lab e quindi **Configurazione e criteri**.
+1. Nel [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), selezionare un lab e quindi **Configurazione e criteri**.
 
     ![Accedere alla configurazione e ai criteri del lab](./media/devtest-lab-set-lab-policy/policies-menu.png)
 

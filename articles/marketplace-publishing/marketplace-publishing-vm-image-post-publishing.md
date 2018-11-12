@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d4c7dce1876e9838fe986aebb7e38a09e8a82baf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715016"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252973"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>Guida di post-produzione per le offerte di macchine virtuali in Azure Marketplace
 Questo articolo spiega come aggiornare un'offerta di macchine virtuali attiva in Azure Marketplace. L'articolo illustra il processo di aggiunta di uno o più nuovi SKU a un'offerta esistente. Illustra anche il processo di rimozione dell'offerta attiva di una macchina virtuale o di una SKU dal Marketplace.
@@ -30,7 +30,7 @@ Dopo che un'offerta/uno SKU è passato al [Portale di Azure](http://portal.azure
 * **SKU Identifier** (Identificatore SKU): nel portale di pubblicazione, passare a **Macchine virtuali** e selezionare l'offerta. Quindi fare clic su **SKU** > **Aggiungere uno SKU**.
 * **Publisher Namespace** (Spazio dei nomi dell'entità di pubblicazione): nel portale di pubblicazione, passare a **macchine virtuali** > **Procedura dettagliata** > **Informazioni sull'azienda**, (disponibile in "Step 2 Register Your Company" (Passaggio 2 Registrazione dell'azienda)) > **Publisher Namespace** (Spazio dei nomi dell'entità di pubblicazione)  > **Spazio dei nomi**.
 
-Dopo che un'offerta/uno SKU è elencato nel [Marketplace](http://azure.microsoft.com/marketplace), non è possibile modificare le seguenti caselle di testo:
+Dopo che un'offerta/uno SKU è elencato nel [Marketplace](https://azure.microsoft.com/marketplace), non è possibile modificare le seguenti caselle di testo:
 
 * **Offer Identifier** (Identificatore offerta): nel portale di pubblicazione, passare a **Macchine virtuali** e selezionare l'offerta. Quindi fare clic su **Immagini VM** > **Offer Identifier** (Identificatore offerta).
 * **SKU Identifier** (Identificatore SKU): nel portale di pubblicazione, passare a **Macchine virtuali** e selezionare l'offerta. Quindi fare clic su **SKU** > **Aggiungere uno SKU**.
@@ -70,7 +70,7 @@ Per aggiornare i dettagli dell'offerta e ripubblicare l'offerta, seguire la proc
 2. Passare alla scheda **Macchine virtuali** e selezionare l'offerta.
 3. Nel menu a sinistra fare clic sulla scheda **MARKETING**.
 4. Fare clic su **English (US)**.
-5. Fare clic sulla scheda **DETTAGLI**. Nella sezione **Descrizione** aggiornare l'offerta **TITOLO**, **RIEPILOGO**, e **LONG SUMMARY** (RIEPILOGO LUNGO) e salvare le modifiche.
+5. Fare clic sulla scheda **DETTAGLI**. Nella sezione Descrizione aggiornare l'offerta **TITOLO**, **RIEPILOGO**, e **LONG SUMMARY** (RIEPILOGO LUNGO) e salvare le modifiche.
 
    > [!NOTE]
    > Quando si aggiornano i dettagli dello SKU, tenere presente queste restrizioni: 
@@ -99,7 +99,7 @@ Per aggiornare i dettagli dello SKU e ripubblicare l'offerta, seguire la procedu
 2. Passare alla scheda **Macchine virtuali** e selezionare l'offerta.
 3. Nel menu a sinistra fare clic sulla scheda **MARKETING**.
 4. Fare clic su **English (US)**.
-5. Fare clic sulla scheda **PIANI**. Nella sezione **SKU** aggiornare il **TITOLO**, il **RIEPILOGO** e la **DESCRIZIONE** dello SKU e salvare le modifiche.
+5. Fare clic sulla scheda **PIANI**. Nella sezione SKU aggiornare il **TITOLO**, il **RIEPILOGO** e la **DESCRIZIONE** dello SKU e salvare le modifiche.
 
    > [!NOTE]
    > Quando si aggiornano i dettagli dello SKU, tenere presente queste restrizioni: 

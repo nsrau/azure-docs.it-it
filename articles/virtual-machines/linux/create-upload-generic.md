@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 67796cc3cbb925bb18a917d17b8abb7c085de370
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638203"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235973"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informazioni per le distribuzioni non approvate
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -76,7 +76,7 @@ Le dimensioni virtuali delle immagini VHD su Azure devono essere allineate a 1 M
 
 * La dimensione virtuale del VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd di 21475270656 byte non è valida. La dimensione deve essere un numero intero (in MB).
 
-In questo caso, ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) di PowerShell.  Se l'ambiente di esecuzione non è Windows, è consigliabile usare `qemu-img` per convertire (se necessario) e ridimensionare il disco rigido virtuale.
+In questo caso, ridimensionare la macchina virtuale usando la console di gestione di Hyper-V o il cmdlet [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) di PowerShell.  Se l'ambiente di esecuzione non è Windows, è consigliabile usare `qemu-img` per convertire (se necessario) e ridimensionare il disco rigido virtuale.
 
 > [!NOTE]
 > Esiste un [bug noto nelle versioni di qemu-img](https://bugs.launchpad.net/qemu/+bug/1490611) >= 2.2.1 che produce un disco rigido virtuale non formattato correttamente. Il problema è stato risolto in QEMU 2.6. È consigliabile usare `qemu-img` 2.2.0 o versione precedente o 2.6 o versione successiva.
@@ -125,7 +125,7 @@ In questo caso, ridimensionare la macchina virtuale usando la console di gestion
 
 I driver di Linux Integration Services (LIS) per Hyper-V e Azure vengono forniti direttamente nel kernel Linux upstream. Per molte distribuzioni che includono una versione recente del kernel Linux (ad esempio, 3.x) questi driver sono già disponibili o, in alternativa, forniscono versioni backport dei driver con i rispettivi kernel.  Poiché questi driver vengono costantemente aggiornati nel kernel upstream con nuove correzioni e funzionalità, se possibile è consigliabile eseguire una [distribuzione approvata](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) che includa questi aggiornamenti e correzioni.
 
-Se si esegue una variante di Red Hat Enterprise Linux versioni dalla 6.0 alla 6.3, è necessario installare i [driver LIS più recenti per Hyper-V](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). A partire da RHEL 6.4 e versioni successive (e distribuzioni derivate) i driver LIS sono già inclusi nel kernel e di conseguenza non sono necessari pacchetti di installazione aggiuntivi.
+Se si esegue una variante di Red Hat Enterprise Linux versioni dalla 6.0 alla 6.3, è necessario installare i [driver LIS più recenti per Hyper-V](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409). A partire da RHEL 6.4 e versioni successive (e distribuzioni derivate) i driver LIS sono già inclusi nel kernel e di conseguenza non sono necessari pacchetti di installazione aggiuntivi.
 
 Se è necessario un kernel personalizzato, è consigliabile usare una versione più recente del kernel, ad esempio la versione 3.8 e successive. Per le distribuzioni o i fornitori che gestiscono il proprio kernel, è consigliabile eseguire regolarmente il backport ai driver LIS dal kernel upstream al kernel personalizzato.  Anche se si esegue già una versione relativamente recente del kernel, è in genere consigliabile tenere traccia di eventuali correzioni upstream nei driver LIS ed eseguirne il backport in base alle esigenze. I file di origine dei driver LIS si trovano nel file [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) nell'albero di origine del kernel Linux:
 ```

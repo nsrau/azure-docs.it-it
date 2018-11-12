@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d7dbb808205c78b53277c6d916f5166a41c7e93d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 227ef61ee4809d376c6ac5e8e8c1a7f9c364b7fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638427"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255763"
 ---
 # <a name="azure-storage-account-overview"></a>Panoramica dell'account di archiviazione di Azure
 
@@ -107,7 +107,7 @@ Archiviazione di Azure offre diverse opzioni per l'accesso ai dati BLOB in blocc
 I livelli di accesso disponibili sono i seguenti:
 
 > [!NOTE]
-> Il [livello di accesso Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) è disponibile in anteprima limitata come un account di archiviazione con ridondanza locale nelle aree Europa settentrionale, Stati Uniti orientali 2, Stati Uniti centrali e Stati Uniti occidentali. Per informazioni su come registrarsi per l'anteprima, vedere [Introducing Azure Premium Blob Storage](http://aka.ms/premiumblob) (Presentazione dell'archiviazione BLOB Premium di Azure).
+> Il [livello di accesso Premium](../blobs/storage-blob-storage-tiers.md#premium-access-tier) è disponibile in anteprima limitata come un account di archiviazione con ridondanza locale nelle aree Europa settentrionale, Stati Uniti orientali 2, Stati Uniti centrali e Stati Uniti occidentali. Per informazioni su come registrarsi per l'anteprima, vedere [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob) (Presentazione dell'archiviazione BLOB Premium di Azure).
 
 * Il livello ad **accesso frequente**, che è ottimizzato per l'accesso frequente degli oggetti nell'account di archiviazione. L'accesso ai dati nel livello ad accesso frequente è il più conveniente, mentre i costi di archiviazione sono leggermente superiori. I nuovi account di archiviazione vengono creati nel livello ad accesso frequente per impostazione predefinita.
 * Il livello ad **accesso sporadico**, che è ottimizzato per l'archiviazione di grandi quantità di dati a cui si accede poco frequentemente e che vengono archiviati per almeno 30 giorni. L'archiviazione dei dati nel livello ad accesso sporadico è più conveniente, ma l'accesso ai dati può risultare leggermente più costoso rispetto al livello ad accesso frequente.

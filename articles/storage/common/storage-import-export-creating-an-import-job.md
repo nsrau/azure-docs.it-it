@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d7a9da4ac3560e67a6f7bc8b79a7c2dd37995d4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021847"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258011"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creazione di un processo di importazione per Importazione/Esportazione di Azure
 
@@ -35,7 +35,7 @@ La creazione di un processo di importazione per il servizio di Importazione/Espo
 
 I passaggi per preparare le unità per un processo di importazione sono uguali se si crea il processo tramite il portale o l'API REST.
 
-Di seguito è riportata una breve panoramica della preparazione dell'unità. Per istruzioni complete, vedere il [Riferimento dello strumento di importazione/esportazione di Azure](storage-import-export-tool-how-to-v1.md). È possibile scaricare lo strumento Importazione/Esportazione di Azure [qui](http://go.microsoft.com/fwlink/?LinkID=301900).
+Di seguito è riportata una breve panoramica della preparazione dell'unità. Per istruzioni complete, vedere il [Riferimento dello strumento di importazione/esportazione di Azure](storage-import-export-tool-how-to-v1.md). È possibile scaricare lo strumento Importazione/Esportazione di Azure [qui](https://go.microsoft.com/fwlink/?LinkID=301900).
 
 La preparazione dell'unità comporta:
 

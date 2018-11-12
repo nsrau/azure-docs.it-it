@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 693fd7b80d69c20971315d8636f27daeb0cacaee
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 28be219c35d382cbd141bb050b35893da02ab775
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240886"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256450"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Domande frequenti sui concorsi Microsoft Cortana Intelligence
 **Informazioni sui concorsi Cortana Intelligence**
 
-I concorsi Microsoft Cortana Intelligence riuniscono una community globale di appassionati per risolvere insieme alcuni dei problemi di analisi scientifica dei dati più complessi del mondo. I concorsi Cortana Intelligence consentono agli appassionati di tutto il mondo di competere e compilare modelli di analisi scientifica dei dati estremamente accurati e intelligenti. I concorsi ospitati si basano su set di dati univoci che vengono messi a disposizione del pubblico per la prima volta. I partecipanti possono vincere premi o il riconoscimento nella classifica pubblica dei migliori 10. È possibile accedere alla home page dei concorsi all'indirizzo [aka.ms/CIComp](http://aka.ms/CIComp).
+I concorsi Microsoft Cortana Intelligence riuniscono una community globale di appassionati per risolvere insieme alcuni dei problemi di analisi scientifica dei dati più complessi del mondo. I concorsi Cortana Intelligence consentono agli appassionati di tutto il mondo di competere e compilare modelli di analisi scientifica dei dati estremamente accurati e intelligenti. I concorsi ospitati si basano su set di dati univoci che vengono messi a disposizione del pubblico per la prima volta. I partecipanti possono vincere premi o il riconoscimento nella classifica pubblica dei migliori 10. È possibile accedere alla home page dei concorsi all'indirizzo [aka.ms/CIComp](https://aka.ms/CIComp).
 
 **Con quale frequenza Microsoft lancerà nuovi concorsi?**
 
@@ -37,7 +37,7 @@ Per domande di carattere generale, è possibile usare il [forum di Microsoft Azu
 
 **Come si partecipa a una competizione?**
 
-Accedere alla home page dei [concorsi](https://gallery.cortanaintelligence.com/competitions) di [Azure AI Gallery](https://gallery.cortanaintelligence.com/) o andare all'indirizzo [http://aka.ms/CIComp](http://aka.ms/CIComp). La home page elenca tutti i concorsi attualmente aperti. Nella pagina di iscrizione di ogni concorso sono riportate istruzioni dettagliate, le modalità di partecipazione, i premi e la durata.
+Accedere alla home page dei [concorsi](https://gallery.cortanaintelligence.com/competitions) di [Azure AI Gallery](https://gallery.cortanaintelligence.com/) o andare all'indirizzo [http://aka.ms/CIComp](https://aka.ms/CIComp). La home page elenca tutti i concorsi attualmente aperti. Nella pagina di iscrizione di ogni concorso sono riportate istruzioni dettagliate, le modalità di partecipazione, i premi e la durata.
 
 1. Individuare il concorso a cui si vuole partecipare, leggere tutte le istruzioni e guardare il video di esercitazione. Quindi fare clic sul pulsante **Enter Competition** (Partecipa al concorso) e copiare l'esperimento Starter nell'area di lavoro di Azure Machine Learning esistente. Creare prima di tutto un accesso a un'area di lavoro, se non è già disponibile. Eseguire l'esperimento iniziale, osservare le metriche delle prestazioni e usare la propria creatività per migliorare le prestazioni del modello. È probabile che la maggior parte del tempo verrà dedicata a questo passaggio.   
 
@@ -98,7 +98,7 @@ Microsoft verificherà i risultati della classifica privata e contatterà i vinc
 
 **Come viene consegnato ai vincitori il denaro del premio?**
 
-I vincitori della competizione devono firmare una dichiarazione di idoneità, autorizzazione e liberatoria. Questo modulo riporta le regole della competizione. I vincitori devono compilare il modulo fiscale W-9 se sono contribuenti degli Stati Uniti o il modulo W-8BEN se non sono contribuenti degli Stati Uniti. Nell'ambito del processo di pagamento dei premi tutti i vincitori verranno contattati all'indirizzo di posta elettronica usato per la registrazione. Per altre informazioni, vedere le [condizioni](http://aka.ms/comptermsandconditions) dei concorsi.
+I vincitori della competizione devono firmare una dichiarazione di idoneità, autorizzazione e liberatoria. Questo modulo riporta le regole della competizione. I vincitori devono compilare il modulo fiscale W-9 se sono contribuenti degli Stati Uniti o il modulo W-8BEN se non sono contribuenti degli Stati Uniti. Nell'ambito del processo di pagamento dei premi tutti i vincitori verranno contattati all'indirizzo di posta elettronica usato per la registrazione. Per altre informazioni, vedere le [condizioni](https://aka.ms/comptermsandconditions) dei concorsi.
 
 **Cosa accade se più contributi ricevono lo stesso punteggio?**
 
@@ -114,5 +114,5 @@ Attualmente la piattaforma del concorso supporta soltanto contributi inviati da 
 
 **Le soluzioni e i contributi ai concorsi degli utenti vengono conservati?**
 
-I contributi degli utenti vengono conservati unicamente a scopo di valutazione, per identificare le soluzioni vincenti. Per informazioni specifiche, vedere le [condizioni](http://aka.ms/comptermsandconditions) dei concorsi.
+I contributi degli utenti vengono conservati unicamente a scopo di valutazione, per identificare le soluzioni vincenti. Per informazioni specifiche, vedere le [condizioni](https://aka.ms/comptermsandconditions) dei concorsi.
 

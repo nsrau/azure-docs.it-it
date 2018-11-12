@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345272"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260585"
 ---
 # <a name="azure-stack-1807-update"></a>Aggiornamento di Azure Stack 1807
 
@@ -94,7 +94,7 @@ Questo aggiornamento include i miglioramenti seguenti per Azure Stack.
 - **Migliorata l'ora di creazione della macchina virtuale** per le macchine virtuali che vengono create con immagini Scarica dal marketplace di Azure.
 
 <!-- TBD | IS, ASDK -->  
-- **Miglioramenti all'usabilità di Azure Stack Capacity Planner**. Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) offre ora un'esperienza semplificata per l'immissione di cache S2D e la capacità di S2D durante la definizione di soluzione gli SKU. È stato rimosso il limite di 1000 macchine Virtuali.
+- **Miglioramenti all'usabilità di Azure Stack Capacity Planner**. Azure Stack [Capacity Planner](https://aka.ms/azstackcapacityplanner) offre ora un'esperienza semplificata per l'immissione di cache S2D e la capacità di S2D durante la definizione di soluzione gli SKU. È stato rimosso il limite di 1000 macchine Virtuali.
 
 
 ### <a name="fixed-issues"></a>Problemi risolti

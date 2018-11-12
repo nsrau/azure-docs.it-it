@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 6bfb3092d6b4776499f957183613c951174b1a50
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 9ccf7d85b52759a3f2cd64facc6ee8d7255f0fac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754197"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253177"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -58,7 +58,7 @@ Questo articolo descrive diversi modelli di applicazione che possono essere idon
 * È necessario disporre di una piena compatibilità con SQL Server installato in locale e si desidera spostare le applicazioni esistenti in Azure senza doverle convertire.
 * Si desidera sfruttare le funzionalità dell'ambiente Azure, ma il database SQL di Azure non supporta tutte le funzionalità richieste dall'applicazione. Queste funzionalità possono includere gli elementi seguenti:
   
-  * **Dimensioni del database**: alla data di aggiornamento del presente articolo, il database SQL supporta un database con dimensioni massime pari a 1 TB di dati. Se l'applicazione in uso richiede oltre 1 TB di dati e non si desidera implementare soluzioni di partizionamento orizzontale personalizzate, si consiglia di usare SQL Server in una macchina virtuale di Azure. Per le informazioni più aggiornate, vedere [Scalabilità orizzontale dei database SQL di Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx), il [modello di acquisto basato su DTU](../../../sql-database/sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore](../../../sql-database/sql-database-service-tiers-vcore.md).
+  * **Dimensioni del database**: alla data di aggiornamento del presente articolo, il database SQL supporta un database con dimensioni massime pari a 1 TB di dati. Se l'applicazione in uso richiede oltre 1 TB di dati e non si desidera implementare soluzioni di partizionamento orizzontale personalizzate, si consiglia di usare SQL Server in una macchina virtuale di Azure. Per le informazioni più aggiornate, vedere [Scalabilità orizzontale dei database SQL di Azure](https://msdn.microsoft.com/library/azure/dn495641.aspx), il [modello di acquisto basato su DTU](../../../sql-database/sql-database-service-tiers-dtu.md) e il [modello di acquisto basato su vCore](../../../sql-database/sql-database-service-tiers-vcore.md) (anteprima).
   * **Conformità HIPAA**: si consiglia ai clienti che operano nel settore sanitario e ai fornitori di software indipendenti (ISV) di scegliere [SQL Server in Macchine virtuali di Azure](virtual-machines-windows-sql-server-iaas-overview.md) invece del [database SQL di Azure](../../../sql-database/sql-database-technical-overview.md) in quanto SQL Server in una macchina virtuale di Azure è protetto dal Contratto di società in affari HIPAA (BAA). Per informazioni sulla conformità, vedere [Centro protezione di Microsoft Azure: conformità](https://azure.microsoft.com/support/trust-center/compliance/).
   * **Funzionalità a livello di istanza**: al momento il database SQL non supporta funzionalità esterne al database, ad esempio i server collegati, i processi di SQL Agent, FileStream, Service Broker e così via. Per altre informazioni, vedere [Linee guida e limitazioni per il database SQL di Azure](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 
@@ -236,7 +236,7 @@ In Azure è possibile usare Active Directory come directory cloud autonoma dell'
 
 Nel modello di applicazione ibrido a più livelli è possibile implementare il seguente flusso di lavoro nell'ordine specificato:
 
-1. Identificare le applicazioni di database aziendali che devono essere spostate nel cloud usando [Microsoft Assessment and Planning (MAP) Toolkit](http://microsoft.com/map). MAP Toolkit raccoglie i dati di inventario e di prestazioni dai computer che si desidera destinare alla virtualizzazione e fornisce consigli sulla capacità e sulla pianificazione.
+1. Identificare le applicazioni di database aziendali che devono essere spostate nel cloud usando [Microsoft Assessment and Planning (MAP) Toolkit](https://microsoft.com/map). MAP Toolkit raccoglie i dati di inventario e di prestazioni dai computer che si desidera destinare alla virtualizzazione e fornisce consigli sulla capacità e sulla pianificazione.
 2. Pianificare le risorse e la configurazione necessarie nella piattaforma Azure, ad esempio gli account di archiviazione e le macchine virtuali.
 3. Configurare la connettività tra la rete aziendale locale e la [Rete virtuale di Azure](../../../virtual-network/virtual-networks-overview.md). Per configurare la connessione tra la rete aziendale locale e una macchina virtuale in Azure, usare uno dei due metodi seguenti:
    

@@ -9,19 +9,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 0187bf51d36f16001f0f7f67f4f72f5f3df2e05d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a41ffdb31cb54e1488c0f114632c605b92d4c444
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974137"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255286"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Creare applicazioni per dispositivi mobili con Xamarin e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Java](sql-api-java-application.md)
-> * [Node.JS](sql-api-nodejs-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
@@ -85,7 +85,7 @@ Seguire questa procedura per modificare l'app dell'elenco attività e trasformar
 
   4. Modificare l'app per l'autenticazione in Resource Token Broker con Facebook e richiedere i token di risorsa per l'utente di Facebook. È quindi possibile accedere ai propri dati nella raccolta UserItems.  
 
-È possibile trovare un esempio di codice completo di questo modello in [Resource Token Broker su Github](http://aka.ms/documentdb-xamarin-todouser). Questo diagramma illustra la soluzione:
+È possibile trovare un esempio di codice completo di questo modello in [Resource Token Broker su Github](https://aka.ms/documentdb-xamarin-todouser). Questo diagramma illustra la soluzione:
 
 ![Utenti di Azure Cosmos DB e broker delle autorizzazioni](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 

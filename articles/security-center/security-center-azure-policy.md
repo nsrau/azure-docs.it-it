@@ -1,6 +1,6 @@
 ---
-title: Integrazione dei criteri di sicurezza del Centro sicurezza di Azure con Criteri di Azure | Microsoft Docs
-description: Questo documento illustra come configurare l'integrazione dei criteri di sicurezza del Centro sicurezza di Azure con Criteri di Azure.
+title: I criteri di sicurezza del Centro sicurezza di Azure possono essere impostati singolarmente o come parte dei criteri di Azure | Microsoft Docs
+description: Questo documento descrive come impostare i criteri nel Centro sicurezza di Azure o nei Criteri di Azure.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,20 +9,27 @@ editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 09/5/2018
 ms.author: terrylan
-ms.openlocfilehash: b3d6d15d41fece613290deb2c77e980caa5dcfef
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 0b38c6895421b43d6f80e0c34cc23b379a673559
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018564"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261945"
 ---
-# <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrare i criteri di sicurezza del Centro sicurezza con Criteri di Azure
-Questo articolo illustra la configurazione dei criteri di sicurezza del Centro sicurezza di Azure, basati sulla tecnologia di [Criteri di Azure](../azure-policy/azure-policy-introduction.md).
+# <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Impostazione dei criteri di sicurezza nel Centro sicurezza o nei Criteri di Azure
+
+Questo articolo illustra come configurare i criteri di sicurezza nel Centro sicurezza di Azure. I criteri del Centro sicurezza di Azure si integrano con i criteri di Azure, in modo da poterli impostare nel Centro sicurezza in una sottoscrizione specifica o nei [Criteri di Azure](../azure-policy/azure-policy-introduction.md), che consentono di impostare criteri per gruppi di gestione e in più sottoscrizioni.
+
+## <a name="what-are-security-policies"></a>Informazioni sui criteri di sicurezza
+Un criterio di sicurezza definisce la configurazione specifica dei carichi di lavoro e contribuisce ad assicurare la conformità ai requisiti aziendali o normativi per la sicurezza. Nel Centro sicurezza di Azure è possibile definire criteri per le sottoscrizioni di Azure e adattarli al tipo di carico di lavoro o alla riservatezza dei dati. Ad esempio, le applicazioni che usano dati regolamentati come le informazioni personali possono richiedere un livello di sicurezza maggiore di quello degli altri carichi di lavoro. Per impostare un criterio nelle sottoscrizioni o nei gruppi di gestione, impostarle nei [Criteri di Azure](../azure-policy/azure-policy-introduction.md).
+
+> [!NOTE]
+> Se sono stati configurati in precedenza i criteri di sicurezza su una sottoscrizione che fa parte di un gruppo di gestione o ha più assegnazioni di criteri, questi criteri vengono visualizzati in grigio nel Centro sicurezza, in modo da poter gestire i criteri a livello di gruppo di gestione tramite la pagina Criteri di Azure. 
 
 ## <a name="how-security-policies-work"></a>Funzionamento dei criteri di sicurezza
 Il Centro sicurezza crea automaticamente un criterio di sicurezza predefinito per ogni sottoscrizione di Azure. È possibile modificare i criteri nel Centro sicurezza o usare Criteri di Azure per eseguire le operazioni seguenti:
@@ -40,8 +47,17 @@ Un criterio di Azure è costituito dai componenti seguenti:
 
 Una risorsa viene valutata in base ai criteri ad essa assegnati e riceve un rapporto di conformità in base al numero di criteri a cui la risorsa è conforme.
 
+## <a name="who-can-edit-security-policies"></a>Utenti che possono modificare i criteri di sicurezza
+Il Centro sicurezza usa il controllo degli accessi in base al ruolo, che fornisce ruoli predefiniti assegnabili a utenti, gruppi e servizi in Azure. Quando un utente apre il Centro sicurezza, visualizza solo informazioni correlate alle risorse a cui ha accesso. All'utente viene infatti assegnato il ruolo Proprietario, Collaboratore o Lettore per la sottoscrizione o il gruppo di risorse a cui appartiene la risorsa. Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
+
+- Ruolo con autorizzazioni di lettura per la sicurezza: l'utente con questo ruolo dispone dei diritti di visualizzazione per il Centro sicurezza, inclusi avvisi, criteri, raccomandazioni e integrità, ma non può apportare modifiche.
+- Amministratore della sicurezza: l'utente con questo ruolo dispone degli stessi diritti di visualizzazione del ruolo con autorizzazioni di lettura per la sicurezza, ma può anche aggiornare i criteri di sicurezza e ignorare raccomandazioni e avvisi.
+
 ## <a name="edit-security-policies"></a>Modificare i criteri di sicurezza
 È possibile modificare i criteri di sicurezza predefiniti per ogni sottoscrizione e gruppo di gestione di Azure nel Centro sicurezza. Per modificare i criteri di sicurezza, è necessario essere un proprietario, un collaboratore o un amministratore della sicurezza della sottoscrizione o del gruppo di gestione che la include. Per visualizzare i criteri di sicurezza nel Centro sicurezza:
+
+> [!NOTE]
+> Eventuali criteri impostati su una sottoscrizione che fa parte di un gruppo di gestione o ha più assegnazioni di criteri, verranno visualizzati come disattivati nel Centro sicurezza. È possibile modificare questi criteri in [Criteri di Azure](../azure-policy/azure-policy-introduction.md). 
 
 1. Nel dashboard **Centro sicurezza** in **CRITERI E CONFORMITÀ** selezionare **Criteri di sicurezza**. Verrà visualizzato **Gestione dei criteri**.
 
@@ -95,7 +111,7 @@ Per informazioni sulle definizioni dei criteri disponibili nel criterio di sicur
 Se l'organizzazione dispone di molte sottoscrizioni, potrebbe essere necessario gestire in modo efficace l'accesso, i criteri e la conformità per tali sottoscrizioni. I gruppi di gestione di Azure forniscono un livello di ambito oltre le sottoscrizioni. Le sottoscrizioni sono organizzate in contenitori chiamati "gruppi di gestione" a cui vengono applicati i criteri di governance. Tutte le sottoscrizioni all'interno di un gruppo di gestione ereditano automaticamente i criteri applicati al gruppo di gestione. A ogni directory viene assegnato un gruppo di gestione principale denominato gruppo di gestione "radice". Questo gruppo di gestione radice è integrato nella gerarchia in modo da ricondurre al suo interno tutti i gruppi di gestione e le sottoscrizioni. Il gruppo di gestione radice permette l'applicazione di criteri globali e assegnazioni di Controllo degli accessi in base al ruolo a livello di directory. Per configurare i gruppi di gestione per l'uso con Centro sicurezza di Azure, seguire le istruzioni nell'articolo [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md) (Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure). 
 
 > [!NOTE]
-> È importante comprendere la gerarchia dei gruppi di gestione e delle sottoscrizioni. Vedere [Organizzare le risorse con i gruppi di gestione di Azure](../azure-resource-manager/management-groups-overview.md#root-management-group-for-each-directory) per altre informazioni sui gruppi di gestione, la gestione radice e l'accesso ai gruppi di gestione.
+> È importante comprendere la gerarchia dei gruppi di gestione e delle sottoscrizioni. Vedere [Organizzare le risorse con i gruppi di gestione di Azure](../governance/management-groups/index.md#root-management-group-for-each-directory) per altre informazioni sui gruppi di gestione, la gestione radice e l'accesso ai gruppi di gestione.
 >
 >
 
@@ -109,6 +125,6 @@ In questo articolo si è appreso come configurare i criteri di sicurezza nel Cen
 * [Monitorare le soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
 * [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md) (Ottenere visibilità a livello di tenant per il Centro sicurezza di Azure): informazioni su come configurare i gruppi di gestione per il Centro sicurezza di Azure. 
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md): risposte alle domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](http://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
+* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): post di blog sulla sicurezza e sulla conformità di Azure.
 
 Per altre informazioni su Criteri di Azure, vedere [Informazioni su Criteri di Azure](../azure-policy/azure-policy-introduction.md).
