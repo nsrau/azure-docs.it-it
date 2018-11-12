@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252922"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215260"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso del Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Il Mapping dei servizi consente di visualizzare i server nel modo in cui si pensa a essi, ovvero come sistemi interconnessi che forniscono servizi critici. Il Mapping dei servizi visualizza le connessioni fra i server, i processi, la latenza di connessione in ingresso e in uscita e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -143,7 +143,7 @@ Fare clic sui puntini di sospensione accanto al nome del gruppo nell'elenco del 
 ## <a name="role-icons"></a>Icone di ruolo
 Alcuni processi svolgono ruoli particolari nei computer: server Web, server applicazioni, database e così via. Mapping dei servizi annota le caselle relative a processi e computer con icone di ruolo, per consentire di identificare rapidamente il ruolo di un processo o un server.
 
-| Icona del ruolo | DESCRIZIONE |
+| Icona del ruolo | Descrizione |
 |:--|:--|
 | ![Server Web](media/monitoring-service-map/role-web-server.png) | Server Web |
 | ![Server app](media/monitoring-service-map/role-application-server.png) | Server applicazioni |
@@ -277,7 +277,7 @@ Il pannello relativo agli **aggiornamenti del computer** mostra i dati provenien
 ![Riquadro di rilevamento modifiche del computer](media/monitoring-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Record di Log Analytics
-I dati di inventario di computer e processi di Mapping dei servizi sono disponibili per la [ricerca](../log-analytics/log-analytics-queries.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
+I dati di inventario di computer e processi di Mapping dei servizi sono disponibili per la [ricerca](../log-analytics/log-analytics-log-searches.md) in Log Analytics. Questi dati possono essere applicati a diversi scenari, tra cui la pianificazione della migrazione, l'analisi della capacità, l'individuazione e la risoluzione dei problemi di prestazioni on demand.
 
 Ogni ora viene generato un record per ogni computer e processo univoco che si aggiunge ai record generati quando un processo o computer viene avviato o caricato in Mapping dei servizi. I record hanno le proprietà descritte nelle tabelle seguenti. I campi e i valori negli eventi ServiceMapComputer_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. I campi e i valori negli eventi ServiceMapProcess_CL eseguono il mapping ai campi della risorsa del computer nell'API ServiceMap di Azure Resource Manager. Il campo ResourceName_s coincide con il campo del nome nella risorsa di Resource Manager corrispondente. 
 
@@ -298,9 +298,9 @@ I record in queste tabelle vengono generati dai dati segnalati da Dependency Age
 
 Per gestire i costi e la complessità, i record di connessione non rappresentano singole connessioni di rete fisiche. Più connessioni di rete fisiche vengono raggruppate in una connessione logica, che viene quindi riflessa nella rispettiva tabella.  Ciò significa che i record nella tabella *VMConnection* rappresentano un raggruppamento logico e non le singole connessioni fisiche osservate. Le connessioni di rete fisiche che condividono lo stesso valore per gli attributi seguenti durante uno specifico intervallo di un minuto vengono aggregate in un singolo record logico in *VMConnection*. 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
-|Direzione |Direzione della connessione. Il valore è *inbound* o *outbound* |
+|Direction |Direzione della connessione. Il valore è *inbound* o *outbound* |
 |Machine |FQDN del computer |
 |Process |Identità del processo o dei gruppi di processi che avviano/accettano la connessione |
 |SourceIp |Indirizzo IP dell'origine |
@@ -310,7 +310,7 @@ Per gestire i costi e la complessità, i record di connessione non rappresentano
 
 Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record seguenti vengono fornite informazioni sul numero di connessioni fisiche raggruppate:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 |LinksEstablished |Numero di connessioni di rete fisiche che sono state stabilite durante l'intervallo di tempo di creazione del report |
 |LinksTerminated |Numero di connessioni di rete fisiche che sono state terminate durante l'intervallo di tempo di creazione del report |
@@ -321,7 +321,7 @@ Per rendere conto dell'impatto del raggruppamento, nelle proprietà del record s
 
 Oltre alle metriche relative al numero di connessioni, nelle proprietà del record seguenti vengono fornite anche informazioni sul volume dei dati inviati e ricevuti in una determinata connessione logica o porta di rete:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 |BytesSent |Numero totale di byte che sono stati inviati durante l'intervallo di tempo di creazione del report |
 |BytesReceived |Numero totale di byte che sono stati ricevuti durante l'intervallo di tempo di creazione del report |
@@ -347,7 +347,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 #### <a name="geolocation"></a>Georilevazione
 *VMConnection* include anche informazioni di georilevazione per l'estremità remota di ogni record di connessione nelle proprietà del record seguenti: 
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 |RemoteCountry |Nome del paese che ospita RemoteIp.  Ad esempio, *Stati Uniti* |
 |RemoteLatitude |Latitudine della georilevazione.  Ad esempio, *47.68* |
@@ -356,7 +356,7 @@ Per praticità, l'indirizzo IP dell'estremità remota di una connessione è incl
 #### <a name="malicious-ip"></a>Indirizzi IP dannosi
 Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un set di indirizzi IP con attività dannosa nota. Se la proprietà RemoteIp viene identificata come dannosa, le proprietà del record seguenti (vuote quando l'indirizzo IP non è considerato dannoso) vengono popolate:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 |MaliciousIp |Indirizzo RemoteIp |
 |IndicatorThreadType |L'indicatore di minaccia rilevato è uno dei valori seguenti, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
@@ -373,7 +373,7 @@ Ogni proprietà RemoteIp nella tabella *VMConnection* viene confrontata con un s
 ### <a name="servicemapcomputercl-records"></a>Record ServiceMapComputer_CL
 I record che contengono il tipo *ServiceMapComputer_CL* includono dati di inventario relativi ai server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
@@ -398,7 +398,7 @@ I record che contengono il tipo *ServiceMapComputer_CL* includono dati di invent
 ### <a name="servicemapprocesscl-type-records"></a>Record con tipo ServiceMapProcess_CL
 I record con tipo *ServiceMapProcess_CL* includono dati di inventario relativi ai processi con connessione TCP eseguiti sui server con agenti del modello dei servizi. Questi record includono le proprietà elencate nella tabella seguente:
 
-| Proprietà | DESCRIZIONE |
+| Proprietà | Descrizione |
 |:--|:--|
 | type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
@@ -504,7 +504,7 @@ Per altre informazioni sulla raccolta e sull'uso dei dati , vedere l'[Informativ
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sulle [ricerche nei log](../log-analytics/log-analytics-queries.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
+Altre informazioni sulle [ricerche nei log](../log-analytics/log-analytics-log-searches.md) in Log Analytics per recuperare i dati raccolti da Mapping dei servizi.
 
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
