@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1bf915bf702cdf9492cce1f32886c0049fbf9867
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b221697b7450ad1c6dac87b7a08c7db8b11810bf
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242841"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240461"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Spostare dati tra origini locali e il cloud con Gateway di gestione dati
 > [!NOTE]
@@ -47,7 +47,7 @@ In questa procedura dettagliata si eseguiranno i passaggi seguenti:
 ## <a name="prerequisites-for-the-tutorial"></a>Prerequisiti per l'esercitazione
 Prima di iniziare questa procedura dettagliata, sono necessari i prerequisiti seguenti:
 
-* **Sottoscrizione di Azure**.  Se non è disponibile una sottoscrizione, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere l'articolo [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/) .
+* **Sottoscrizione di Azure**.  Se non è disponibile una sottoscrizione, è possibile creare un account di valutazione gratuita in pochi minuti. Per informazioni dettagliate, vedere l'articolo [Versione di valutazione gratuita](http://azure.microsoft.com/pricing/free-trial/) .
 * **Account di archiviazione di Azure**. In questa esercitazione l'archiviazione BLOB viene usata come archivio dati di **destinazione/sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
 * **SQL Server**. Usare un database di SQL Server locale come archivio dati di **origine** in questa esercitazione. 
 

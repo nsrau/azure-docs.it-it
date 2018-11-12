@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: cc7bcefe43eed524f50fcad09d7fb31a80d22b83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e06b9ff2134c0bd1fb1ee8515827e9e8c06a3108
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025804"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008471"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Eseguire ricerche nei log di più risorse con Log Analytics  
 
@@ -38,7 +38,7 @@ Esistono vari modi per identificare un'area di lavoro:
 
 * Nome risorsa - Un nome dell'area di lavoro leggibile dall'utente, spesso definito genericamente *nome del componente*. 
 
-    `workspace("contosoretail").Update | count`
+    `workspace("contosoretail-it").Update | count`
  
     >[!NOTE]
     >L'identificazione di un'area di lavoro in base al nome presuppone che il nome sia univoco in tutte le sottoscrizioni accessibili. Se sono presenti più applicazioni con il nome specificato, la query avrà esito negativo a causa dell'ambiguità. In questo caso è necessario usare uno degli altri identificatori.
@@ -59,7 +59,7 @@ Esistono vari modi per identificare un'area di lavoro:
 
     Ad esempio: 
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>Identificazione di un'applicazione

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 06e212ef756fda9224b38b41c69c7c4eccfb9796
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 82d7e5ab57d9cf12c6917386282182faacb07725
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159857"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282391"
 ---
 # <a name="tutorial-3-extract-well-formatted-data"></a>Esercitazione 3: estrarre dati con formattazione corretta
 Questa esercitazione illustra come modificare l'app Human Resources per estrarre dati formattati in modo coerente da un'espressione usando l'entità **Espressione regolare**.
@@ -48,10 +48,10 @@ Un'espressione regolare è una scelta appropriata per questo tipo di dati quando
 > * Pubblica
 > * Ottenere finalità ed entità dall'endpoint
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Usare l'app esistente
-Continuare con l'app creata nell'ultima esercitazione, denominata **HumanResources**. 
+Continuare con l'app creata nell'ultima esercitazione denominata **HumanResources**. 
 
 Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare la procedura seguente:
 
@@ -59,11 +59,11 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
 2. Importare il file JSON in una nuova app.
 
-3. Dalla sezione **Gestisci**, nella scheda **Versioni**, clonare la versione e denominarla `regex`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché il nome della versione viene usato come parte della route dell'URL, il nome non può contenere caratteri non validi per un URL. 
+3. Nella scheda **Versioni** della sezione **Gestisci**, clonare la versione e denominarla `regex`. La clonazione è un ottimo modo per provare le diverse funzionalità di LUIS senza modificare la versione originale. Poiché viene usato come parte della route dell'URL, il nome della versione non può contenere caratteri non validi per un URL. 
 
 ## <a name="findform-intent"></a>Finalità FindForm
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selezionare **Create new intent** (Crea nuova finalità). 
 
@@ -90,7 +90,7 @@ Se non si dispone dell'app HumanResources dell'esercitazione precedente, usare l
 
     L'applicazione ha un'entità numero predefinita aggiunta con l'esercitazione precedente, quindi ogni numero di modulo è contrassegnato. Ciò può essere sufficiente per l'applicazione client, ma il numero non sarà etichettato con il tipo di numero. La creazione di una nuova entità con un nome appropriato consente all'applicazione client di elaborare correttamente l'entità quando viene restituita da Language Understanding.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="regular-expression-entity"></a>Entità di espressione regolare 
 L'entità di espressione regolare per individuare il numero di modulo è `hrf-[0-9]{6}`. Questa espressione regolare individua i caratteri letterali `hrf-` ma ignora le varianti di maiuscole/minuscole e di cultura. Individua le cifre 0-9, esattamente per 6 cifre.

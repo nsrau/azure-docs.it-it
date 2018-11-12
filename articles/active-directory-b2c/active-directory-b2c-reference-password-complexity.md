@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4b027f6cd57dfa48ba2e230371ffcad97b1f8ec4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445110"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014721"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Configurare i requisiti di complessità delle password
 
@@ -38,11 +38,10 @@ Di seguito sono elencati i tipi di criteri in cui è possibile configurare la co
 
 ## <a name="how-to-configure-password-complexity"></a>Come configurare la complessità delle password
 
-1. Seguire questa procedura per [passare alle impostazioni di Azure AD B2C](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 1. Aprire **Sign-up or sign-in polices** (Criteri di registrazione o accesso).
-1. Selezionare i criteri e fare clic su **Modifica**.
-1. Aprire **Complessità password**.
-1. Impostare la complessità delle password per questi criteri su **Semplice**, **Alta** o **Personalizzata**.
+2. Selezionare i criteri e fare clic su **Modifica**.
+3. Aprire **Complessità password**.
+4. Impostare la complessità delle password per questi criteri su **Semplice**, **Alta** o **Personalizzata**.
 
 ### <a name="comparison-chart"></a>Grafico di confronto
 

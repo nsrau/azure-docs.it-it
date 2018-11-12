@@ -2,19 +2,19 @@
 title: Usare l'azione di script per installare Solr in HDInsight basati su Linux - Azure
 description: Informazioni su come installare Solr nei cluster HDInsight Hadoop basati su Linux utilizzando azioni di Script.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 35a7410a5a30e248069ba31ad4213eff58680dcc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: 1c8c63e10e62af60e09af729b115cc675dae7205
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597770"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009403"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Installare e usare Solr nei cluster Hadoop di HDInsight
 
@@ -59,7 +59,7 @@ Per creare un cluster con Solr installato, usare la procedura nel documento [Cre
    * **HEAD**: selezionare questa opzione
    * **RUOLO DI LAVORO**: selezionare questa opzione
    * **ZOOKEEPER**: selezionare questa opzione per l'installazione nel nodo Zookeeper
-   * **PARAMETRI**: lasciare questo campo vuoto
+   * **PARAMETRI**: lasciare questo campo vuoto.
 
 2. Nella parte inferiore della sezione **Azioni script** usare il pulsante **Seleziona** per salvare la configurazione. Infine, usare il pulsante **Avanti** per tornare al __Riepilogo cluster__
 

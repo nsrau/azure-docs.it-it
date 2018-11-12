@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 5922f608510628097e5ffe33bd22d20dacd5c6f8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 191afcdfb7a401755fffc028ce4119526f1e693d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249646"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035629"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-with-nodejs"></a>Guida introduttiva: Usare l'API Traduzione testuale per ottenere traduzioni alternative con Node.js
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 Il metodo `request()`, reso disponibile tramite il modulo di richiesta, consente di passare il metodo HTTP, l'URL, i parametri di richiesta, le intestazioni e il corpo JSON come oggetto `options`. In questo frammento di codice verrà configurata la richiesta:
 
 >[!NOTE]
-> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Dictionary Lookup](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Per altre informazioni sugli endpoint, le route e i parametri della richiesta, vedere [API Traduzione testuale 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```javascript
 let options = {

@@ -2,19 +2,19 @@
 title: Installare e usare Giraph nei cluster Hadoop in HDInsight - Azure
 description: Informazioni su come personalizzare un cluster HDInsight con Giraph e su come usare Giraph.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 18469b5e2294a689df166f04b99bf83be122ff2f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 6138cc337c35924405fa3f6489e7e40bfc5779c9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594288"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007009"
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>Installare e usare Giraph nei cluster HDInsight basati su Windows
 
@@ -73,7 +73,7 @@ L'esempio SimpleShortestPathsComputation viene usato per illustrare l'implementa
 
     Caricare il file tiny_graph.txt nella risorsa di archiviazione primaria per il cluster HDInsight. Per istruzioni su come caricare i dati, vedere [Caricare dati per processi Hadoop in HDInsight](hdinsight-upload-data.md).
 
-    Questi dati descrivono una relazione tra gli oggetti in un grafico diretto, usando il formato [source\_id, source\_value,[[dest\_id], [edge\_value],...]]. Ogni riga rappresenta una relazione tra un oggetto **source\_id** e uno o più oggetti **dest\_id**. Il valore **edge\_value** (o peso) costituisce la potenza o la distanza della connessione tra **source_id** e **dest\_id**.
+    Questi dati descrivono una relazione tra gli oggetti in un grafico diretto, usando il formato [source\_id, source\_value,[[dest\_id], [edge\_value],...]]. Ogni riga rappresenta una relazione tra un oggetto sourceid** e uno o più oggetti **dest\_id**. Il valore **edge\_value** (o peso) costituisce la potenza o la distanza della connessione tra **source_id** e **dest\_id**.
 
     I dati disegnati usando il valore (o peso) come distanza tra gli oggetti sono simili a quelli raffigurati di seguito:
 
@@ -154,7 +154,7 @@ L'esempio SimpleShortestPathsComputation viene usato per illustrare l'implementa
     ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-aure-powershell"></a>Installare Giraph tramite Aure PowerShell
-Vedere [Personalizzare cluster HDInsight usando l'azione script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  L'esempio illustra come installare Spark tramite Azure PowerShell. È necessario personalizzare lo script in modo da usare [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
+Vedere [Personalizzare cluster HDInsight mediante Azione di script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell).  L'esempio illustra come installare Spark tramite Azure PowerShell. È necessario personalizzare lo script in modo da usare [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).
 
 ## <a name="install-giraph-using-net-sdk"></a>Installare Giraph tramite .NET SDK
 Vedere [Personalizzare cluster HDInsight usando l'azione script](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell). L'esempio illustra come installare Spark tramite .NET SDK. È necessario personalizzare lo script in modo da usare [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1).

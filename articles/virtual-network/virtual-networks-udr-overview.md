@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9efb08922f3e6f78266baaf8ae623dd241c09522
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978917"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037618"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -167,7 +167,7 @@ Quando si esegue l'override del prefisso degli indirizzi 0.0.0.0/0, oltre all'in
         - Poter convertire l'indirizzo di rete, inoltrare il traffico alla risorsa di destinazione nella subnet e restituire il traffico a Internet. 
     - **Gateway di rete virtuale**: se il gateway è un gateway di rete virtuale ExpressRoute, un dispositivo connesso a Internet in locale può convertire l'indirizzo di rete e inoltrare il traffico alla risorsa di destinazione nella subnet tramite [peering privato](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering) di ExpressRoute. 
 
-Se la rete virtuale è connessa a un gateway VPN di Azure, non associare una tabella di route alla [subnet del gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) che include una route con una destinazione 0.0.0.0/0. Ciò potrebbe impedire il corretto funzionamento del gateway. Per informazioni dettagliate, vedere la domanda *Perché determinate porte sono aperte nella mia gateway VPN?* nelle [Domande frequenti sul gateway VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#why-are-certain-ports-opened-on-my-vpn-gateway).
+Se la rete virtuale è connessa a un gateway VPN di Azure, non associare una tabella di route alla [subnet del gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) che include una route con una destinazione 0.0.0.0/0. Ciò potrebbe impedire il corretto funzionamento del gateway. Per informazioni dettagliate, vedere la domanda *Perché determinate porte sono aperte nella mia gateway VPN?* nelle [Domande frequenti sul gateway VPN](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports).
 
 Vedere [Rete perimetrale tra Azure e il data center locale](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Rete perimetrale tra Azure e Internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json) per i dettagli di implementazione quando si usano i gateway di rete virtuale e le appliance virtuali tra Internet e Azure.
 

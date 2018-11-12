@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6e587f79f0f77446ea5a61cbb989f3f1c3655e0a
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741760"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005054"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analizzare i dati di Log Analytics in Monitoraggio di Azure
 
@@ -32,7 +32,7 @@ I dati del log raccolti da Monitoraggio di Azure vengono archiviati in un'area d
 
 ## <a name="log-queries"></a>Query di log
 
-È necessaria una query dei log per recuperare dati da Log Analytics.  Indipendentemente dal fatto che l'esigenza sia quella di [analizzare i dati nel portale](log-analytics-log-search-portals.md), [configurare una regola di avviso](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) per ricevere una notifica di una determinata condizione o di recuperare dati tramite l'[API di Log Analytics](https://dev.loganalytics.io/), per specificare i dati necessari si userà una query.  Questo articolo descrive come vengono usate le query di log in Log Analytics e illustra i concetti con cui occorre avere familiarità prima di crearne una.
+È necessaria una query dei log per recuperare dati da Log Analytics.  Indipendentemente dal fatto che l'esigenza sia quella di [analizzare i dati nel portale](log-analytics-log-search-portals.md), [configurare una regola di avviso](../monitoring-and-diagnostics/alert-metric.md) per ricevere una notifica di una determinata condizione o di recuperare dati tramite l'[API di Log Analytics](https://dev.loganalytics.io/), per specificare i dati necessari si userà una query.  Questo articolo descrive come vengono usate le query di log in Log Analytics e illustra i concetti con cui occorre avere familiarità prima di crearne una.
 
 
 
@@ -41,12 +41,12 @@ I dati del log raccolti da Monitoraggio di Azure vengono archiviati in un'area d
 Di seguito sono indicati alcuni dei vari modi in cui verranno usate le query in Log Analytics:
 
 - **Portali.** È possibile eseguire un'analisi interattiva dei dati di log nel [portale di Azure](log-analytics-log-search-portals.md).  In questo modo è possibile modificare le query e analizzare i risultati in una vasta gamma di formati e visualizzazioni.  
-- **Regole di avviso.** Le [regole di avviso](log-analytics-alerts.md) consentono di identificare in modo proattivo i problemi dai dati nell'area di lavoro.  Ogni regola di avviso è basata su una ricerca log che viene eseguita automaticamente a intervalli regolari.  I risultati vengono esaminati per determinare se è necessario creare un avviso.
+- **Regole di avviso.** Le [regole di avviso](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) consentono di identificare in modo proattivo i problemi dai dati nell'area di lavoro.  Ogni regola di avviso è basata su una ricerca log che viene eseguita automaticamente a intervalli regolari.  I risultati vengono esaminati per determinare se è necessario creare un avviso.
 - **Dashboard.** È possibile aggiungere i risultati di qualsiasi query in un [dashboard Azure]() che consente di visualizzare i dati di metriche e log insieme ed eventualmente condividerli con altri utenti di Azure. 
 - **Visualizzazioni.**  È possibile creare visualizzazioni dei dati da includere nei dashboard degli utenti con [Progettazione viste](log-analytics-view-designer.md).  Le query di log forniscono i dati usati da [riquadri](log-analytics-view-designer-tiles.md) e [parti della visualizzazione](log-analytics-view-designer-parts.md) in ogni vista.  
 - **Esportazione.**  Quando si importano dati dall'area di lavoro di Log Analytics in Excel o [Power BI](log-analytics-powerbi.md), si crea una query di log per definire i dati da esportare.
 - **PowerShell.** È possibile eseguire uno script di PowerShell da una riga di comando o un runbook di Automazione di Azure che usa [Get AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) per recuperare dati da Log Analytics.  Questo cmdlet richiede una query per determinare i dati da recuperare.
-- **API di Log Analytics.**  L'[API di ricerca log di Log Analytics](log-analytics-log-search-api.md) consente a qualsiasi client API REST di recuperare dati di log da un'area di lavoro.  La richiesta dell'API include una query eseguita su Log Analytics per determinare i dati da recuperare.
+- **API di Log Analytics.**  L'[API di ricerca log di Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) consente a qualsiasi client API REST di recuperare dati di log da un'area di lavoro.  La richiesta dell'API include una query eseguita su Log Analytics per determinare i dati da recuperare.
 
 ![Ricerche log](media/log-analytics-queries/queries-overview.png)
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 704f6341573fd49cba57a319956ccc5f502bae77
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269565"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038553"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Informazioni di riferimento sulle funzioni per il linguaggio di definizione del flusso di lavoro in App per la logica di Azure
 
@@ -535,7 +535,7 @@ addHours('<timestamp>', <hours>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
 | <*hours*> | Yes | Integer | Numero positivo o negativo di ore da aggiungere | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -577,7 +577,7 @@ addMinutes('<timestamp>', <minutes>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
 | <*minutes*> | Yes | Integer | Numero positivo o negativo di minuti da aggiungere | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -649,7 +649,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
 | <*seconds*> | Yes | Integer | Numero positivo o negativo di secondi da aggiungere | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -692,7 +692,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
 | <*interval*> | Yes | Integer | Numero di unità di tempo specificate da aggiungere | 
 | <*timeUnit*> | Yes | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -1129,7 +1129,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
 | <*destinationTimeZone*> | Yes | string | Nome del fuso orario di destinazione. Per altre informazioni, vedere [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)) (ID dei fusi orari). | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -1172,7 +1172,7 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
 | <*sourceTimeZone*> | Yes | string | Nome del fuso orario di origine. Per altre informazioni, vedere [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)) (ID dei fusi orari). | 
 | <*destinationTimeZone*> | Yes | string | Nome del fuso orario di destinazione. Per altre informazioni, vedere [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)) (ID dei fusi orari). | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -1214,7 +1214,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
 | <*sourceTimeZone*> | Yes | string | Nome del fuso orario di origine. Per altre informazioni, vedere [Time Zone IDs](https://docs.microsoft.com/previous-versions/windows/embedded/gg154758(v=winembedded.80)) (ID dei fusi orari). | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -1751,7 +1751,7 @@ Questi esempi trovano il primo elemento in queste raccolte:
 
 ```
 first('hello')
-first([0, 1, 2])
+first(createArray(0, 1, 2))
 ```
 
 E vengono restituiti questi risultati: 
@@ -1802,7 +1802,7 @@ formatDateTime('<timestamp>', '<format>'?)
 | Parametro | Obbligatoria | type | DESCRIZIONE | 
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -1896,7 +1896,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- | 
 | <*interval*> | Yes | Integer | Numero di unità di tempo specificate da sottrarre | 
 | <*timeUnit*> | Yes | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. | 
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. | 
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -1938,7 +1938,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | --------- | -------- | ---- | ----------- | 
 | <*interval*> | Yes | Integer | Numero di unità di tempo specificate da sottrarre | 
 | <*timeUnit*> | Yes | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. | 
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. | 
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -2312,7 +2312,7 @@ intersection('<collection1>', '<collection2>', ...)
 Questo esempio trova gli elementi comuni tra queste matrici:  
 
 ```
-intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
+intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
 E restituisce una matrice con *solo* questi elementi: `[1, 2]`
@@ -2343,7 +2343,7 @@ join([<collection>], '<delimiter>')
 Questo esempio crea una stringa da tutti gli elementi in questa matrice usando il carattere specificato come delimitatore:
 
 ```
-join([a, b, c], '.')
+join(createArray('a', 'b', 'c'), '.')
 ```
 
 E viene restituito questo risultato: `"a.b.c"`
@@ -2375,7 +2375,7 @@ Questi esempi trovano l'ultimo elemento in queste raccolte:
 
 ```
 last('abcd')
-last([0, 1, 2, 3])
+last(createArray(0, 1, 2, 3))
 ```
 
 E vengono restituiti questi risultati: 
@@ -2441,7 +2441,7 @@ Questi esempi contano il numero di elementi in queste raccolte:
 
 ```
 length('abcd')
-length([0, 1, 2, 3])
+length(createArray(0, 1, 2, 3))
 ```
 
 E viene restituito questo risultato: `4`
@@ -2569,7 +2569,7 @@ Questi esempi ottengono il valore più alto dal set di numeri e dalla matrice:
 
 ```
 max(1, 2, 3)
-max([1, 2, 3])
+max(createArray(1, 2, 3))
 ```
 
 E viene restituito questo risultato: `3`
@@ -2602,7 +2602,7 @@ Questi esempi ottengono il valore più basso nel set di numeri e nella matrice:
 
 ```
 min(1, 2, 3)
-min([1, 2, 3])
+min(createArray(1, 2, 3))
 ```
 
 E viene restituito questo risultato: `1`
@@ -3007,7 +3007,7 @@ skip([<collection>], <count>)
 Questo esempio rimuove un elemento, il numero 0, dall'inizio della matrice specificata: 
 
 ```
-skip([0, 1, 2, 3], 1)
+skip(createArray(0, 1, 2, 3), 1)
 ```
 
 E restituisce la matrice con gli elementi rimanenti: `[1,2,3]`
@@ -3056,7 +3056,7 @@ startOfDay('<timestamp>', '<format>'?)
 | Parametro | Obbligatoria | type | DESCRIZIONE | 
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -3087,7 +3087,7 @@ startOfHour('<timestamp>', '<format>'?)
 | Parametro | Obbligatoria | type | DESCRIZIONE | 
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -3118,7 +3118,7 @@ startOfMonth('<timestamp>', '<format>'?)
 | Parametro | Obbligatoria | type | DESCRIZIONE | 
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. |
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -3295,7 +3295,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | <*timestamp*> | Yes | string | Stringa contenente il timestamp | 
 | <*interval*> | Yes | Integer | Numero di unità di tempo specificate da sottrarre | 
 | <*timeUnit*> | Yes | string | Unità di tempo da usare con *interval*: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. | 
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. | 
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 
@@ -3351,7 +3351,7 @@ Questi esempi ottengono il numero specificato di elementi presi dall'inizio di q
 
 ```
 take('abcde`, 3)
-take([0, 1, 2, 3, 4], 3)
+take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
 E vengono restituiti questi risultati:
@@ -3626,7 +3626,7 @@ union([<collection1>], [<collection2>], ...)
 Questo esempio ottiene *tutti* gli elementi da queste raccolte: 
 
 ```
-union([1, 2, 3], [1, 2, 10, 101])
+union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
 E viene restituito questo risultato: `[1, 2, 3, 10, 101]`
@@ -3921,7 +3921,7 @@ Facoltativamente, è possibile specificare un formato diverso con il parametro <
 
 | Parametro | Obbligatoria | type | DESCRIZIONE | 
 | --------- | -------- | ---- | ----------- | 
-| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddT:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. | 
+| <*format*> | No  | string | [Identificatore di formato singolo](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) o [modello di formato personalizzato](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Il formato predefinito per il timestamp è ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (aaaa-MM-ddTHH:mm:ss:fffffffK), conforme a [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e con informazioni sul fuso orario. | 
 ||||| 
 
 | Valore restituito | type | DESCRIZIONE | 

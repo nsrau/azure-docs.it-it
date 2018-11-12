@@ -1,20 +1,20 @@
 ---
 title: Inviare processi MapReduce mediante HDInsight .NET SDK - Azure
 description: Informazioni su come inviare processi MapReduce ad Azure HDInsight Hadoop con HDInsight .NET SDK.
-editor: jasonwhowell
+ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: a22a2c75f5f520fb74d7ef6a57ff519e95ad273e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: a978ce7fdfdf7d4c42ab5f512590da96b0c7fcae
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596483"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009326"
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Eseguire processi MapReduce con HDInsight .NET SDK
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]

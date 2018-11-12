@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418535"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037664"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guida dello sviluppatore Java per il servizio app in Linux
 
@@ -147,7 +147,7 @@ Seguire le istruzioni illustrate in [Associare un certificato SSL personalizzato
 >[!NOTE]
 > Se l'applicazione usa Spring Framework o Spring Boot, è possibile impostare le informazioni di connessione di database per Spring Data JPA come variabili di ambiente [nel file delle proprietà dell'applicazione]. Usare quindi le [impostazioni app](/azure/app-service/web-sites-configure#app-settings) per definire questi valori per l'applicazione nell'interfaccia della riga di comando o nel portale di Azure.
 
-I frammenti di codice di configurazione di esempio in questa sezione usano il database MySQL. Per altre informazioni, vedere la documentazione sulla configurazione per [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html), [SQL Server JDBC](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) e [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+I frammenti di codice di configurazione di esempio in questa sezione usano il database MySQL. Per altre informazioni, vedere la documentazione sulla configurazione per [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html), [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) e [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
 
 Per configurare Tomcat per usare le connessioni gestite ai database usando Java Database Connectivity (JDBC) o Java Persistence API (JPA), personalizzare prima la variabile di ambiente CATALINA_OPTS letta da Tomcat all'avvio. Impostare questi valori tramite un'impostazione app nel plug-in Maven del servizio app:
 

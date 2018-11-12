@@ -4,7 +4,7 @@ description: Informazioni su come usare l'archiviazione code di Azure per monito
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
 ms.service: media-services
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: 5b0e3155023cb8ac4d359e440b561ae5c61a9195
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5ddee0ca94535688a0634ef8575f3aedad649a43
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783420"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037497"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Usare l'archiviazione code di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET
 Quando si eseguono processi di codifica, spesso è necessario monitorarne l'avanzamento. È possibile configurare Servizi multimediali per recapitare le notifiche ad [archiviazione code di Azure](../../storage/storage-dotnet-how-to-use-queues.md). È possibile controllare l'avanzamento del processo ottenendo le notifiche da archiviazione code. 

@@ -2,19 +2,19 @@
 title: Aggiungere altri account di Archiviazione di Azure a HDInsight
 description: Informazioni su come aggiungere altri account di Archiviazione di Azure a un cluster HDInsight esistente.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: d8d9a71d3c30628ca27420f6b87b0dfb2bc5e571
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 31461e1d316953c2e69d252f1313180c57562dfd
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592857"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009192"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Aggiungere altri account di archiviazione a HDInsight
 
@@ -58,7 +58,7 @@ __Requisiti__:
 
 ## <a name="to-use-the-script"></a>Per usare lo script
 
-È possibile usare lo script tramite il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando di Azure 1.0. Per altre informazioni, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
+È possibile usare lo script tramite il portale di Azure, Azure PowerShell o l'interfaccia della riga di comando classica di Azure. Per altre informazioni, vedere [Personalizzare cluster HDInsight basati su Linux tramite Azione script](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 > [!IMPORTANT]
 > Nella procedura descritta nel documento di personalizzazione usare le informazioni seguenti per applicare questo script:
@@ -71,7 +71,7 @@ __Requisiti__:
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Account di archiviazione non visualizzati nel portale di Azure o negli strumenti
 
-Quando si visualizza il cluster HDInsight nel Portale di Azure, selezionando la voce __Account di archiviazione__ in __Proprietà__ non vengono mostrati gli account di archiviazione aggiunti tramite questa azione script. L'account di archiviazione aggiuntivo non viene inoltre visualizzato in Azure PowerShell e nell'interfaccia della riga di comando di Azure.
+Quando si visualizza il cluster HDInsight nel Portale di Azure, selezionando la voce __Account di archiviazione__ in __Proprietà__ non vengono mostrati gli account di archiviazione aggiunti tramite questa azione script. L'account di archiviazione aggiuntivo non viene inoltre visualizzato in Azure PowerShell e nell'interfaccia della riga di comando classica di Azure.
 
 Le informazioni di archiviazione non vengono mostrate perché lo script modifica solo la configurazione di core-site.xml per il cluster. Queste informazioni non vengono usate durante il recupero delle informazioni del cluster tramite le API di gestione di Azure.
 

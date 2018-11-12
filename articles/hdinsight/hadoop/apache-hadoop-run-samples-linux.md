@@ -3,19 +3,19 @@ title: Eseguire esempi di Hadoop MapReduce in HDInsight
 description: Introduzione all'uso di esempi di MapReduce in file JAR inclusi in HDInsight. Usare SSH per connettersi al cluster e quindi usare il comando di Hadoop per eseguire i processi di esempio.
 keywords: jar esempio di hadoop, jar esempi di hadoop, esempi di hadoop mapreduce, esempi di mapreduce
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 8b6502c23221410af95e71938fbd29f5da04bc9a
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.author: hrasheed
+ms.openlocfilehash: 37ba412d9463ccf4cdd18c842910c3c6f5349ef2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250853"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007095"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Eseguire gli esempi di MapReduce inclusi in HDInsight
 

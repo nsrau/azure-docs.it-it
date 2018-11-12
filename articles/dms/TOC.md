@@ -1,3 +1,5 @@
+# [Documentazione di Servizio Migrazione del database](index.yml)
+
 # Panoramica
 ## [Informazioni sul Servizio Migrazione del database](dms-overview.md)
 
@@ -27,6 +29,6 @@
 ## [Data Migration Assistant](https://aka.ms/dma)
 ## [Prezzi](https://aka.ms/dms-pricing)
 ## [Panoramica dei prerequisiti](pre-reqs.md)
-## [DOMANDE FREQUENTI](faq.md)
+## [Domande frequenti](faq.md)
 ## [Aggiornamenti del servizio](https://azure.microsoft.com/updates/?product=database-migration)
 ## [Topologie di rete per migrazioni a Istanza gestita di database SQL di Azure](resource-network-topologies.md)

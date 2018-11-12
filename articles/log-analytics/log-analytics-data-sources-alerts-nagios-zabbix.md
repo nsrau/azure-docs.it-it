@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402941"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008335"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Log Analytics tramite l'agente di Log Analytics per Linux 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](log-analytics-alerts.md).  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
+[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Log Analytics per analizzarli insieme ad [avvisi provenienti da altre origini](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
  
 ## <a name="prerequisites"></a>Prerequisiti
 L'agente di Log Analytics per Linux supporta la raccolta di avvisi di Nagios fino alla versione 4.2.x e di Zabbix fino alla versione 2.x.
@@ -80,15 +80,15 @@ Per raccogliere avvisi nel server Nagios, seguire questa procedura.
 
 
 ## <a name="alert-records"></a>Record di avvisi
-È possibile recuperare record di avvisi da Nagios e Zabbix usando le [ricerche log](log-analytics-log-searches.md) in Log Analytics.
+È possibile recuperare record di avvisi da Nagios e Zabbix usando le [ricerche log](log-analytics-queries.md) in Log Analytics.
 
 ### <a name="nagios-alert-records"></a>Record di avvisi Nagios
 
 Nei record di avvisi raccolti da Nagios, la proprietà **Tipo** è impostata su **Avviso** e **SourceSystem** su **Nagios**.  Includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Type |*Avviso* |
+| type |*Avviso* |
 | SourceSystem |*Nagios* |
 | AlertName |Nome dell'avviso. |
 | AlertDescription | Descrizione dell'avviso. |
@@ -102,15 +102,15 @@ Nei record di avvisi raccolti da Nagios, la proprietà **Tipo** è impostata su 
 ### <a name="zabbix-alert-records"></a>Record di avvisi Zabbix
 Nei record di avvisi raccolti da Zabbix, la proprietà **Tipo** è impostata su **Avviso** e **SourceSystem** su **Zabbix**.  Includono le proprietà elencate nella tabella seguente.
 
-| Proprietà | Descrizione |
+| Proprietà | DESCRIZIONE |
 |:--- |:--- |
-| Type |*Avviso* |
+| type |*Avviso* |
 | SourceSystem |*Zabbix* |
 | AlertName | Nome dell'avviso. |
-| AlertPriority | Gravità dell'avviso.<br><br>non classificata<br>informazioni<br>avviso<br>media<br>elevata<br>emergenza  |
+| AlertPriority | Gravità dell'avviso<br><br>non classificata<br>Informazioni<br>Avviso<br>average<br>elevata<br>emergenza  |
 | AlertState | Stato dell'avviso.<br><br>0: stato aggiornato.<br>1: stato sconosciuto.  |
 | AlertTypeNumber | Specifica se l'avviso può generare più eventi relativi a problemi.<br><br>0: stato aggiornato.<br>1: stato sconosciuto.    |
-| Comments | Commenti aggiuntivi per l'avviso. |
+| Commenti | Commenti aggiuntivi per l'avviso. |
 | HostName | Nome dell'host che ha creato l'avviso. |
 | PriorityNumber | Valore che indica il livello di gravità dell'avviso.<br><br>0: non classificata<br>1: informazioni<br>2: avviso<br>3: media<br>4: elevata<br>5: emergenza |
 | TimeGenerated |Data e ora in cui è stato creato l'avviso. |
@@ -118,5 +118,5 @@ Nei record di avvisi raccolti da Zabbix, la proprietà **Tipo** è impostata su 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sugli [avvisi](log-analytics-alerts.md) in Log Analytics.
-* Altre informazioni sulle [ricerche nei log](log-analytics-log-searches.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 
+* Informazioni sugli [avvisi](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) in Log Analytics.
+* Altre informazioni sulle [ricerche nei log](log-analytics-queries.md) per analizzare i dati raccolti dalle origini dati e dalle soluzioni. 

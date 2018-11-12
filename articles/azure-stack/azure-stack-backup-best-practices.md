@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42139447"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035102"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Procedure consigliate per il servizio Backup di infrastruttura
 
@@ -52,9 +52,8 @@ La chiave deve essere archiviata in un luogo sicuro (ad esempio, public Azure se
 
 ### <a name="backups"></a>Backup
 
- - Controller di infrastruttura di Backup deve essere attivato su richiesta. Si consiglia di backup almeno due volte al giorno.
  - I processi di backup vengono eseguiti mentre il sistema è in esecuzione in modo che nessun tempo di inattività per le esperienze di gestione o le applicazioni utente. Prevedere i processi di backup 20-40 minuti per una soluzione che si trova sotto carico ragionevole.
- - Usa istruzioni OEM, commutatori di rete di eseguire manualmente il backup e l'host del ciclo di vita dell'hardware (HLH) devono essere archiviati nella condivisione di backup stesso in cui il controllo di archivi di Controller di infrastruttura Backup del piano dati di backup. È consigliabile archiviare commutatore e le configurazioni HLH nella cartella area. Se si dispone di più istanze di Azure Stack nella stessa area, prendere in considerazione utilizzando un identificatore per ogni configurazione a cui appartiene un'unità di scala.
+ - Usa OEM le istruzioni fornite, commutatori di rete di eseguire manualmente il backup e l'host del ciclo di vita dell'hardware (HLH) devono essere archiviati nella condivisione di backup stesso in cui il controllo di archivi di Controller di infrastruttura Backup del piano dati di backup. È consigliabile archiviare commutatore e le configurazioni HLH nella cartella area. Se si dispone di più istanze di Azure Stack nella stessa area, prendere in considerazione utilizzando un identificatore per ogni configurazione a cui appartiene un'unità di scala.
 
 ### <a name="folder-names"></a>Nomi delle cartelle
 
@@ -95,5 +94,6 @@ Gli avvisi seguenti sono supportati dal sistema:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
- - Esaminare il materiale di riferimento per la [Infrastructure Backup Service](azure-stack-backup-reference.md).  
- - Abilitare la [servizio di Backup Infrastructure](azure-stack-backup-enable-backup-console.md).
+Esaminare il materiale di riferimento per la [Infrastructure Backup Service](azure-stack-backup-reference.md).
+
+Abilitare la [servizio di Backup Infrastructure](azure-stack-backup-enable-backup-console.md).

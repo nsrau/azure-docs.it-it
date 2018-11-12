@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 995e93290e7c305e217c1f44609d383f69d83a9a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2570e779f258e702f04166dffc3087195d01a983
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420558"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283638"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configurazione di scalabilità automatica avanzata con modelli di Resource Manager per set di scalabilità di macchine virtuali di Microsoft Azure
 È possibile aumentare e ridurre il numero di istanze dei set di scalabilità di macchine virtuali in base ai valori soglia per le metriche delle prestazioni, a una pianificazione ricorrente oppure a una data specifica. È anche possibile configurare notifiche di posta elettronica e webhook per le azioni di scalabilità. Questa procedura dettagliata illustra un esempio di configurazione di tutti tali oggetti usando in modello di Resource Manager in un set di scalabilità di macchine virtuali.
 
 > [!NOTE]
-> Mentre questa procedura dettagliata illustra i passaggi per set di scalabilità di macchine virtuali, le stesse informazioni si applicano alla scalabilità automatica di [Servizi Cloud](https://azure.microsoft.com/services/cloud-services/), [App Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Per l'impostazione di una scalabilità in ingresso/uscita semplice in un set di scalabilità di macchine virtuali basato su una semplice metrica delle prestazioni, ad esempio CPU, vedere i documenti [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) e [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)
+> Mentre questa procedura dettagliata illustra i passaggi per set di scalabilità di macchine virtuali, le stesse informazioni si applicano alla scalabilità automatica di [Servizi Cloud](https://azure.microsoft.com/services/cloud-services/), [App Web del servizio app](https://azure.microsoft.com/services/app-service/web/) e [servizi di gestione API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Per l'impostazione di una scalabilità in ingresso/uscita semplice in un set di scalabilità di macchine virtuali basato su una semplice metrica delle prestazioni, ad esempio CPU, vedere i documenti [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) e [Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 >
 >
 

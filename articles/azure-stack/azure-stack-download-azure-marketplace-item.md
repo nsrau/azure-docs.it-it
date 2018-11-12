@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/09/2018
+ms.date: 11/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: cf6bc980f6fd821056a987d0c830863bd15ba779
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: ec73083d1bb66e7c7735a2bee8e89eeb56cf7620
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902009"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282499"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Scaricare elementi di marketplace di Azure ad Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Come operatore di cloud, scaricare gli elementi da Azure Marketplace e renderle disponibili in Azure Stack. Gli elementi che è possibile scegliere provengono da un elenco curato di elementi del Marketplace di Azure che vengono pre-testato e supportato per l'uso con Azure Stack. Elementi aggiuntivi vengono spesso aggiunte a questo elenco, quindi continuare a ricontrollare in seguito per il nuovo contenuto. 
+Come operatore di cloud, è possibile scaricare gli elementi da Azure Marketplace e renderle disponibili in Azure Stack. Gli elementi che è possibile scegliere provengono da un elenco curato di elementi del Marketplace di Azure che vengono pre-testato e supportato per l'uso con Azure Stack. Elementi aggiuntivi vengono spesso aggiunte a questo elenco, quindi continuare a ricontrollare in seguito per il nuovo contenuto. 
 
 Esistono due scenari per la connessione ad Azure Marketplace: 
 
@@ -49,20 +49,20 @@ Distribuzione di Azure Stack deve disporre della connettività internet e deve e
 
     Per esaminare lo spazio disponibile, nel **gestione delle aree** selezionare l'area in cui si desidera esplorare e quindi passare alla **provider di risorse** > **archiviazione**.
 
-    ![Esaminare lo spazio di archiviazione](media/azure-stack-download-azure-marketplace-item/storage.png)  
+    [ ![Esaminare lo spazio di archiviazione](media/azure-stack-download-azure-marketplace-item/storagesm.png "esaminare lo spazio di archiviazione") ](media/azure-stack-download-azure-marketplace-item/storage.png#lightbox)
 
     
 3. Aprire il Marketplace di Azure Stack e connettersi ad Azure. A tale scopo, selezionare **gestione Marketplace**, quindi selezionare **Add da Azure**.
 
-    ![Aggiunta di Azure](media/azure-stack-download-azure-marketplace-item/marketplace.png)
+    [ ![Aggiunta di Azure](media/azure-stack-download-azure-marketplace-item/marketplacesm.png "aggiungere da Azure") ](media/azure-stack-download-azure-marketplace-item/marketplace.png#lightbox)
 
     Il portale Visualizza l'elenco di elementi disponibili per il download da Azure Marketplace. È possibile fare clic su ogni elemento per visualizzare la descrizione e informazioni aggiuntive, tra cui le dimensioni di download. 
 
-    ![Elenco di Marketplace](media/azure-stack-download-azure-marketplace-item/image03.png)
+    [ ![Marketplace elencati](media/azure-stack-download-azure-marketplace-item/image03sm.png "Marketplace elencati") ](media/azure-stack-download-azure-marketplace-item/image03.png#lightbox)
 
 4. Selezionare l'elemento desiderato e quindi selezionare **scaricare**. Tempi di download variare.
 
-    ![Messaggio di download](media/azure-stack-download-azure-marketplace-item/image04.png)
+    [ ![Messaggio di download](media/azure-stack-download-azure-marketplace-item/image04.png "relativo al Download") ](media/azure-stack-download-azure-marketplace-item/image04.png#lightbox)
 
     Al termine del download, è possibile distribuire il nuovo elemento del marketplace come operatore di Azure Stack o un'utente.
 
@@ -128,24 +128,24 @@ Lo scenario è composto da due parti:
 
    Sync-AzSOfflineMarketplaceItem 
       -Destination "Destination folder path in quotes" `
-      -AzureTenantID $AzureContext.Tenant.TenantId `
+      -AzureTenantID $AzureContext.Tenant.TenantId ` 
       -AzureSubscriptionId $AzureContext.Subscription.Id 
    ```
 
-6. Quando viene eseguito lo strumento, viene chiesto di immettere le credenziali dell'account Azure. Accedere all'account di Azure che è stata utilizzata per registrare Azure Stack. Dopo che l'account di accesso ha esito positivo, si dovrebbe essere una schermata simile all'immagine seguente, con l'elenco degli elementi disponibili nel marketplace.  
+6. Quando si esegue lo strumento, si verrà visualizzata una schermata simile all'immagine seguente, con l'elenco degli elementi disponibili nel marketplace:
 
-   ![Controllo popup degli elementi di Azure Marketplace](media/azure-stack-download-azure-marketplace-item/image05.png)
+   [ ![Controllo popup degli elementi di Azure Marketplace](media/azure-stack-download-azure-marketplace-item/image05.png "elementi del Marketplace di Azure") ](media/azure-stack-download-azure-marketplace-item/image05.png#lightbox)
 
-7. Selezionare l'elemento che si desidera scaricare e annotare la *versione*. (È possibile tenere premuto il *Ctrl* chiave per selezionare più immagini.) Si farà riferimento al *versione* quando si importa l'elemento nella procedura successiva. 
+7. Selezionare l'elemento che si desidera scaricare e annotare la *versione*. È possibile tenere premuto il *Ctrl* chiave per selezionare più immagini. Si fa riferimento il *versione* quando si importa l'elemento nella procedura successiva. 
    
    È anche possibile filtrare l'elenco delle immagini usando il **Aggiungi criteri** opzione.
 
 8. Selezionare **OK**e quindi leggere e accettare le condizioni legali. 
 
-9. Il tempo impiegato per il download dipende dalle dimensioni dell'elemento. Al termine del download, l'elemento è disponibile nella cartella specificata nello script. Il download include un file di disco rigido virtuale (per le macchine virtuali) o un oggetto. File ZIP (per estensioni di macchina virtuale). Include anche un pacchetto di raccolta nel *azpkg* formato. (Un *azpkg* pacchetto è un *zip* file.)
- 
+9. Il tempo impiegato per il download dipende dalle dimensioni dell'elemento. Al termine del download, l'elemento è disponibile nella cartella specificata nello script. Il download comprende un file di disco rigido virtuale (per le macchine virtuali) o un file ZIP (per estensioni di macchina virtuale). Può anche includere un pacchetto di raccolta nel *azpkg* formato, che è semplicemente un file con estensione zip.
 
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Importare il download e la pubblicazione in Marketplace Azure Stack
+
 1. I file di immagini di macchine virtuali o modelli di soluzione che hai [scaricati in precedenza](#use-the-marketplace-syndication-tool-to-download-marketplace-items) devono essere rese disponibili in locale nell'ambiente Azure Stack.  
 
 2. Usare il portale di amministrazione per caricare il pacchetto di elemento di marketplace (il file con estensione azpkg) e l'immagine di disco rigido virtuale (file con estensione vhd) in archiviazione Blob di Azure Stack. Caricamento del pacchetto e i file del disco li rende disponibili in Azure Stack in modo che è possibile pubblicare l'elemento in un secondo momento per il Marketplace di Azure Stack.
@@ -154,23 +154,24 @@ Lo scenario è composto da due parti:
    1. Nel portale di amministrazione di Azure Stack, passare a **tutti i servizi** e quindi nel **dati e archiviazione** categoria, seleziona **account di archiviazione**.  
    
    2. Selezionare un account di archiviazione dalla sottoscrizione e quindi sotto **servizio BLOB**, selezionare **contenitori**.  
-      ![Servizio BLOB](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
+      [ ![Servizio BLOB](media/azure-stack-download-azure-marketplace-item/blob-service.png "servizio Blob") ](media/azure-stack-download-azure-marketplace-item/blob-service.png#lightbox)  
    
    3. Selezionare il contenitore a cui si vuole usare e quindi selezionare **caricare** per aprire il **carica blob** riquadro.  
-      ![Contenitore](media/azure-stack-download-azure-marketplace-item/container.png)  
+      [ ![Contenitore](media/azure-stack-download-azure-marketplace-item/container.png "contenitore") ](media/azure-stack-download-azure-marketplace-item/container.png#lightbox)  
    
-   4. Nel riquadro blob Upload, individuare i file di pacchetto e il disco da caricare nell'archivio e quindi selezionare **caricare**.  
-      ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
+   4. Nel riquadro blob Upload, individuare i file di pacchetto e il disco da caricare nell'archivio e quindi selezionare **caricare**: [ ![Carica](media/azure-stack-download-azure-marketplace-item/uploadsm.png "caricare") ](media/azure-stack-download-azure-marketplace-item/upload.png#lightbox)  
 
    5. File caricati vengono visualizzati nel riquadro del contenitore. Selezionare un file e quindi copiare l'URL dal **proprietà Blob** riquadro. Si userà questo URL nel passaggio successivo quando si importa l'elemento del marketplace per Azure Stack.  Nell'immagine seguente, il contenitore è *test-blob-storage* e il file sia *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Il file è di URL *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
-      ![Proprietà BLOB](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+      [ ![Proprietà BLOB](media/azure-stack-download-azure-marketplace-item/blob-storagesm.png "proprietà Blob") ](media/azure-stack-download-azure-marketplace-item/blob-storage.png#lightbox)  
 
 3. Importare l'immagine di disco rigido virtuale di Azure Stack usando il **Add-AzsPlatformimage** cmdlet. Quando si utilizza questo cmdlet, sostituire il *server di pubblicazione*, *offrono*e altri valori di parametro con i valori dell'immagine che si desidera importare. 
 
    È possibile ottenere il *server di pubblicazione*, *offrono*, e *sku* i valori dell'immagine dal file di testo che consente di scaricare il file con estensione AZPKG. Il file di testo viene archiviato nel percorso di destinazione. Il *versione* valore è la versione osservata durante il download dell'elemento da Azure nella procedura precedente. 
  
-   Nello script di esempio seguente, vengono usati i valori per Windows Server 2016 Datacenter - macchina virtuale di base del Server. Il valore per *- Osuri* è un percorso di esempio per la posizione di archiviazione blob per l'elemento.
+   Nello script di esempio seguente, vengono usati i valori per Windows Server 2016 Datacenter - macchina virtuale di base del Server. Il valore per *- Osuri* è un percorso di esempio per la posizione di archiviazione blob per l'elemento. 
 
+   Come alternativa a questo script, è possibile usare la [descritta in questo articolo](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) per importare il. Immagine di disco rigido virtuale nel portale di Azure.
+ 
    ```PowerShell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
@@ -180,6 +181,7 @@ Lo scenario è composto da due parti:
     -Version "2016.127.20171215" `
     -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
+   
    **Informazioni sui modelli di soluzione:** alcuni modelli possono includere un piccolo 3 MB. File di disco rigido virtuale con il nome **fixed3.vhd**. Non è necessario importare il file di Azure Stack. Fixed3.vhd.  Questo file è incluso con alcuni modelli di soluzione per soddisfare i requisiti di pubblicazione per Azure Marketplace.
 
    Esaminare la descrizione di modelli e scaricare e importare requisiti aggiuntivi, ad esempio dischi rigidi virtuali che sono necessari per lavorare con il modello di soluzione.  
@@ -199,16 +201,14 @@ Lo scenario è composto da due parti:
      –Verbose
     ```
 5. Dopo aver pubblicato un elemento della raccolta, è ora disponibile per l'uso. Per verificare che l'elemento della raccolta viene pubblicato, passare a **tutti i servizi**, quindi nel **generali** categoria, seleziona **Marketplace**.  Se il download è un modello di soluzione, assicurarsi che si aggiunge un'immagine di disco rigido virtuale dipendenti per tale modello di soluzione.  
-  ![Marketplace di visualizzazione](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
+  [ ![Marketplace di visualizzazione](media/azure-stack-download-azure-marketplace-item/view-marketplacesm.png "marketplace di visualizzazione") ](media/azure-stack-download-azure-marketplace-item/view-marketplace.png#lightbox)  
 
-> [!NOTE]
-> Con la versione di PowerShell per Azure Stack 1.3.0 è ora possibile aggiungere estensioni della macchina virtuale.
-
-Ad esempio: 
+Con la versione di PowerShell per Azure Stack 1.3.0 è ora possibile aggiungere estensioni della macchina virtuale. Ad esempio: 
 
 ````PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ````
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Creare e pubblicare un elemento del Marketplace](azure-stack-create-and-publish-marketplace-item.md)

@@ -1,20 +1,20 @@
 ---
 title: Inviare processi Hadoop in HDInsight
 description: Informazioni su come inviare processi Hadoop in Azure HDInsight.
-editor: jasonwhowell
+ms.reviewer: jasonh
 services: hdinsight
-ms.author: jasonh
-author: jasonwhowell
+ms.author: hrasheed
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 221c50ffb30954e9d318d8a21eec6bc3d2f96462
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9a764814028c1858139e2439c674c176d4e754ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590783"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009141"
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>Inviare processi Hadoop in HDInsight
 

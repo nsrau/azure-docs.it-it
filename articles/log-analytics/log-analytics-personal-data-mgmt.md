@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 932dcf485f6fe1a365f3bc0910c2223a118e9add
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: bdfc78757c799f5255488d06c30de4414b39459c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024528"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009998"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 

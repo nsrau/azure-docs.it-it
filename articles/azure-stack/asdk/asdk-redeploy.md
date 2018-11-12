@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: d166916ca54f3b8c26a418ff83093e53dcdbe515
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: ecdfb0f062ebad903d35401a2f5303d3e6d04b5d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413754"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037380"
 ---
 # <a name="redeploy-the-asdk"></a>Ridistribuire il ASDK
 In questo articolo descrive come ridistribuire Azure Stack Development Kit (ASDK) in un ambiente non di produzione. Poiché non è supportato l'aggiornamento di ASDK, è necessario ridistribuirla completamente per spostare in una versione più recente. È anche possibile ridistribuire il ASDK ogni volta che si desidera solo ricominciare da zero.
@@ -60,7 +60,10 @@ Per rimuovere la risorsa di registrazione, usare il **Remove-AzsRegistration** c
 3. Richiesto per accedere alla sottoscrizione di Azure sia l'installazione locale di ASDK durante l'esecuzione dello script.
 4. Al termine dell'esecuzione dello script, si dovrebbero vedere messaggi simili ai seguenti esempi:
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.` ` Remove registration resource from Azure...` ` "Deleting the resource..." on target "/subscriptions/<subscription information>"` ` ********** End Log: Remove-AzsRegistration ********* `
+    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    ` Remove registration resource from Azure...`
+    ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    ` ********** End Log: Remove-AzsRegistration ********* `
 
 
 
@@ -95,7 +98,7 @@ Se non si è stata utilizzata asdk installer.ps1 script per installare il ASDK, 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Attività post-installazione ASDK configurazione](asdk-post-deploy.md)
+[Registra le attività di distribuzione ASDK](asdk-post-deploy.md)
 
 
 

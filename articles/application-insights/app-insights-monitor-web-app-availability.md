@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e8d07922334855a8133cd6271ee98bcfac2243d5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421255"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282612"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorare la disponibilità e la velocità di risposta dei siti Web
 Dopo aver distribuito l'app Web o il sito Web in qualsiasi server, è possibile configurare alcuni test per monitorarne la disponibilità e la velocità di risposta. [Azure Application Insights](app-insights-overview.md) invia richieste Web all'applicazione a intervalli regolari da diversi punti in tutto il mondo. Invia avvisi all'utente nel caso in cui l'applicazione risponda lentamente o non risponda affatto.
@@ -76,7 +76,7 @@ Aprire il pannello Disponibilità e aggiungere un test.
 È possibile monitorare uno scenario che comporta una sequenza di URL. Ad esempio, se si monitora un sito Web di vendita, si potrebbe testare il corretto funzionamento dell'aggiunta di articoli al carrelli acquisti.
 
 > [!NOTE]
-> È prevista una tariffa per i test Web in più passaggi. Vedere lo [schema dei prezzi](http://azure.microsoft.com/pricing/details/application-insights/).
+> È prevista una tariffa per i test Web in più passaggi. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
 Per creare un test in più passaggi, registrare lo scenario con Visual Studio Enterprise, quindi caricare la registrazione in Application Insights. Application Insights riprodurrà lo scenario a intervalli e verificherà le risposte.
@@ -214,6 +214,7 @@ Questa regola di avviso è abilitata per impostazione predefinita nell'[esperien
 > [!NOTE]
 > * Configurare i gruppi di azioni per ricevere le notifiche quando viene attivato l'avviso seguendo la procedura precedente. Se non si esegue questa procedura, le notifiche all'interno del portale si riceveranno solo quando la regola viene attivata.
 >
+
 ### <a name="alert-on-availability-metrics"></a>Inviare avvisi per le metriche di disponibilità
 Usando i [nuovi avvisi unificati](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) è possibile generare avvisi per la disponibilità aggregata segmentata e anche per le metriche di durata dei test:
 

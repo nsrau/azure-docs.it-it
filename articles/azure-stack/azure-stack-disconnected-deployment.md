@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 4574b140e2e17462a5ff696b913bb4ef7bcb0ad0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5714257fce53fafa148b8ae4d5a3addf3b872c6f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412757"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035476"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>I sistemi integrati di Azure distribuzione disconnessa pianificazione decisioni per Azure Stack
 Dopo aver deciso [modo in cui si integrerà Azure Stack nell'ambiente cloud ibrido](azure-stack-connection-models.md), è quindi possibile finalizzare le decisioni relative alla distribuzione di Azure Stack.
 
-Con disconnesso dall'opzione di distribuzione di Azure, è possibile distribuire e usare Azure Stack senza una connessione a Internet. Tuttavia, con una distribuzione disconnessa, si è limitati a un archivio identità di AD FS e il modello di fatturazione basato sulla capacità. 
+È possibile distribuire e usare Azure Stack senza una connessione a internet. Tuttavia, con una distribuzione disconnessa, si è limitati a un archivio identità di AD FS e il modello di fatturazione basato sulla capacità. 
 
 Scegliere questa opzione se si:
 - Disporre di sicurezza o altre restrizioni che richiedono di distribuire Azure Stack in un ambiente non connesso a Internet.

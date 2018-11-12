@@ -3,15 +3,15 @@ title: Automatizzare l'installazione del servizio Mobility di Azure Site Recover
 description: Questo articolo consente di automatizzare l'installazione del servizio Mobility con System Center Configuration Manager per eseguire il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: f14c02404dae5a923aabcd2df8279a6150c42f57
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8cf657b17b7607a8b56869edeabe37e1c5caf219
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215294"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012276"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatizzare l'installazione del servizio Mobility tramite System Center Configuration Manager
 
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   | **Nome parametro** | **Valore** |
   |--|--|
-  | Nome | Installare il servizio Mobility di Microsoft Azure (Windows) |
+  | NOME | Installare il servizio Mobility di Microsoft Azure (Windows) |
   | Riga di comando | install.bat |
   | Il programma può essere eseguito | anche se non ci sono utenti connessi |
 
@@ -397,7 +397,7 @@ cd /tmp
 
     | **Nome parametro** | **Valore** |
   |--|--|
-  | Nome | Installare il servizio Mobility di Microsoft Azure (Linux) |
+  | NOME | Installare il servizio Mobility di Microsoft Azure (Linux) |
   | Riga di comando | ./install_linux.sh |
   | Il programma può essere eseguito | anche se non ci sono utenti connessi |
 

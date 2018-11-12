@@ -2,19 +2,19 @@
 title: Comprendere e risolvere gli errori di WebHCat in HDInsight - Azure
 description: Informazioni sugli errori comuni restituiti da WebHCat in HDInsight e su come risolverli.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
-ms.openlocfilehash: 9cd3ed48e7c07378a972014c468735e4034b827f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: hrasheed
+ms.openlocfilehash: 2c4730b3ec84ca14bcc3e93ed82faf37b15970d7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600398"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010372"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>Comprendere e risolvere gli errori ricevuti da WebHCat in HDInsight
 
